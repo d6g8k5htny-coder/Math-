@@ -1,0 +1,19 @@
+{
+  "label": "fixtures-integrate001",
+  "command_argv": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/record_run.py",
+    "fixtures-integrate001",
+    "documentary",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/integrate_fixtures.py"
+  ],
+  "cwd": "/workspace/scratch/actual-source-saddle-uppercuts-construct",
+  "start_utc": "2026-10-28T21:31:20.240636+00:00",
+  "end_utc": "2026-10-28T21:31:20.326827+00:00",
+  "elapsed_seconds": 0.08619291899958625,
+  "exit_code": 0,
+  "stdout": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/fixtures-integrate001/outer.stdout.log",
+  "stderr": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/fixtures-integrate001/outer.stderr.log"
+}

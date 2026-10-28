@@ -1,0 +1,27 @@
+{
+  "label": "controls003",
+  "command_argv": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/record_run.py",
+    "controls003",
+    "math",
+    "--",
+    "env",
+    "LEAN_PATH=/workspace/scratch/actual-source-saddle-uppercuts-construct/build",
+    "lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "--root=/workspace/scratch/actual-source-saddle-uppercuts-construct",
+    "-o",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/build/SaddleUppercutsControls.olean",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/SaddleUppercutsControls.lean"
+  ],
+  "cwd": "/workspace/scratch/actual-source-saddle-uppercuts-construct",
+  "start_utc": "2026-10-28T21:42:55.110395+00:00",
+  "end_utc": "2026-10-28T21:43:00.212133+00:00",
+  "elapsed_seconds": 5.1017459590002545,
+  "exit_code": 0,
+  "stdout": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/controls003/outer.stdout.log",
+  "stderr": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/controls003/outer.stderr.log"
+}

@@ -1,0 +1,31 @@
+{
+  "failure": "exec-server transport disconnected while FIRSTread-only read of initial import script; no amendment/write/execution reached",
+  "provider_status": {
+    "environment_id": "ccarenv_b64_Y2NhcmVudl82ODNlODc0NjI1Yjg4MTkxYjQzNzU2OWEyZjY4NGIyMw",
+    "source_config_id": null,
+    "source_config_version_id": null,
+    "spec_revision": "71",
+    "observed_spec_revision": "71",
+    "observations_current": true,
+    "provider": "cloud",
+    "desired_phase": "running",
+    "observed_phase": "running",
+    "failure": null,
+    "connectivity": "connected",
+    "network_policy": {
+      "mode": "unrestricted",
+      "state": "enforced"
+    },
+    "capabilities": [],
+    "secrets": [],
+    "runtime_variables": [],
+    "outbound_identities": [],
+    "network_diagnostics": null
+  },
+  "observed_clock": {
+    "current_time": "2026-10-28 21:53:35 UTC"
+  },
+  "recovery": "Failed read-only step retried after current RUNNING/CONNECTEDrev71 observation and succeeded; no mathematical/custody/Git-action replay",
+  "latest_workspace_instruction": "User restored completed-applicable-verification REUSE guidance; active",
+  "separate_from_original_error": "Original thread/settings/update RPC is userconfirmedcleared; this is a distinct execution transport interruption."
+}

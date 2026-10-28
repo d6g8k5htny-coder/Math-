@@ -1,0 +1,49 @@
+--- geometry001-source
++++ geometry002-source
+@@ -240,9 +240,9 @@
+   have huH : u 1 ≤ H := le_max_left _ _
+   have hvH : v 1 ≤ H := le_max_right _ _
+   have hu1rho : u 1 < rho := by
+-    simpa only [abs_of_pos hu.2] using ug65_coord_abs_lt rho hrho u hu.1.1 1
++    simpa only [abs_of_pos (show 0 < u 1 from hu.2)] using ug65_coord_abs_lt rho hrho u hu.1.1 1
+   have hv1rho : v 1 < rho := by
+-    simpa only [abs_of_pos hv.2] using ug65_coord_abs_lt rho hrho v hv.1.1 1
++    simpa only [abs_of_pos (show 0 < v 1 from hv.2)] using ug65_coord_abs_lt rho hrho v hv.1.1 1
+   have hHrho : H < rho := max_lt_iff.mpr ⟨hu1rho, hv1rho⟩
+   have hfirst := ug65_vertical_join rho eps hrho u hu H huH hHrho
+   have hmiddle := ug65_horizontal_join rho eps hrho u hu v hv H huH hvH hHrho
+@@ -288,8 +288,8 @@
+   fin_cases i
+   · simpa [ug65_reflect] using
+       (continuous_apply (0 : Fin 2) : Continuous (fun u : Point2 => u 0))
+-  · simpa [ug65_reflect] using
+-      (continuous_apply (1 : Fin 2) : Continuous (fun u : Point2 => u 1)).neg
++  · change Continuous (fun u : Point2 => -u 1)
++    exact (continuous_apply (1 : Fin 2)).neg
+ 
+ private theorem ug65_reflect_involutive (u : Point2) : ug65_reflect (ug65_reflect u) = u := by
+   ext i
+@@ -311,12 +311,12 @@
+   · rintro ⟨u, hu, rfl⟩
+     refine ⟨ug65_reflect_upper rho hrho eps u hu.1, ?_⟩
+     change -(u 1) < 0
+-    linarith [hu.2]
++    linarith [show 0 < u 1 from hu.2]
+   · intro hv
+     refine ⟨ug65_reflect v, ?_, ug65_reflect_involutive v⟩
+     refine ⟨ug65_reflect_upper rho hrho eps v hv.1, ?_⟩
+     change 0 < -(v 1)
+-    linarith [hv.2]
++    linarith [show v 1 < 0 from hv.2]
+ 
+ private theorem ug65_minus_pc (rho : ℝ) (hrho : 0 < rho)
+     (eps : ℝ) (hbound : eps < rho^2/4) : IsPathConnected (targetUpperNeg rho eps) := by
+@@ -343,7 +343,7 @@
+       minus_witness := ug65_minus_witness rho hrho eps hbound }
+   · apply Set.disjoint_left.mpr
+     intro u hpos hneg
+-    exact lt_asymm hpos.2 hneg.2
++    exact lt_asymm (show 0 < u 1 from hpos.2) (show u 1 < 0 from hneg.2)
+   · ext u
+     constructor
+     · intro hu

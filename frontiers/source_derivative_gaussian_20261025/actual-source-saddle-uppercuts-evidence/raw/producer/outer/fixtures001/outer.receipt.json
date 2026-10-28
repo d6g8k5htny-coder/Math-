@@ -1,0 +1,24 @@
+{
+  "label": "fixtures001",
+  "command_argv": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/record_run.py",
+    "fixtures001",
+    "math",
+    "--",
+    "lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "-o",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/build/SourceActualSaddleUppercuts.olean",
+    "SourceActualSaddleUppercuts.lean"
+  ],
+  "cwd": "/workspace/scratch/actual-source-saddle-uppercuts-construct",
+  "start_utc": "2026-10-28T21:31:20.519924+00:00",
+  "end_utc": "2026-10-28T21:31:25.568698+00:00",
+  "elapsed_seconds": 5.0487810090016865,
+  "exit_code": 1,
+  "stdout": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/fixtures001/outer.stdout.log",
+  "stderr": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/fixtures001/outer.stderr.log"
+}

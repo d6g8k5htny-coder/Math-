@@ -1,0 +1,37 @@
+--- FixtureSection.INITIAL.lean.txt
++++ FixtureSection.ACTUAL.lean.txt
+@@ -13,6 +13,13 @@
+ private def fixtureField : I4Torus.SourceTorus 2 2 → ℝ :=
+   SourceActualFoldTorus.actualTorusField (by norm_num : (2 : ℝ) ≠ 0) fixtureSample
+ 
++private theorem fixture_scalarSeries_finitePairing {ι : Type*} (a : ι → ℝ) (v : ι →₀ ℝ) :
++    I4Foundation.scalarSeries a v = I4SourceFinitePinKernel.finitePairing a v := by
++  classical
++  unfold I4Foundation.scalarSeries I4SourceFinitePinKernel.finitePairing
++  exact tsum_eq_sum fun m hm => by
++    rw [Finsupp.notMem_support_iff.mp hm, mul_zero]
++
+ private theorem fixture_source (u : Fin 2 → ℝ) :
+     I4SmoothCarrier.smoothSourceField 2 2 fixtureSample u =
+       Real.cos (Real.pi*u 0) + 2*Real.cos (Real.pi*u 1) := by
+@@ -21,9 +28,9 @@
+     funext m
+     simp [fixtureSample, I4SmoothCarrier.sampleInclusion,
+       I4SourceFinitePinKernel.finiteShiftSample_val, I4SourceSmoothConditional.zeroSample]
+-  change I4Source.scalarSeries (fun m => I4Source.modeCoefficient 2 2 m u)
++  change I4Foundation.scalarSeries (fun m => I4Source.modeCoefficient 2 2 m u)
+     (I4SmoothCarrier.sampleInclusion 2 2 fixtureSample) = _
+-  rw [hv, I4SourceFiniteTrig.scalarSeries_finitePairing,
++  rw [hv, fixture_scalarSeries_finitePairing,
+     I4SourceFiniteTrig.toSource_eval (by norm_num : (2 : ℝ) ≠ 0)]
+   norm_num [fixturePoly, I4SourceFiniteTrig.eval, I4SourceFiniteTrig.termEval,
+     I4Source.phase, I4Weights.sourceC, Fin.sum_univ_two, Pi.single_apply]
+@@ -180,7 +187,7 @@
+ private theorem fixture_open (x y : ℝ) : IsOpen (fixtureOpen x y) ∧
+     fixtureCenter x y ∈ fixtureOpen x y := by
+   refine ⟨?_, ?_⟩
+-  · exact (SourceActualFoldTorus.torusProjection2L_isOpenMap 2)
++  · exact (SourceActualFoldTorus.torusProjection2L_open 2)
+       _ ((I4LifetimeField.coordinates 2).isOpenMap _ isOpen_ball)
+   · refine ⟨![x,y], ?_, rfl⟩
+     exact ⟨fixturePoint x y, Metric.mem_ball_self (by norm_num), by simp [fixturePoint]⟩

@@ -1,0 +1,737 @@
+{
+  "module": "SourceActualSaddleUppercuts",
+  "namespace": "I4SourceActualSaddleUppercuts",
+  "scope": "production",
+  "owned_constants": 119,
+  "classification_counts": {
+    "private_generated": 47,
+    "private_authored_theorem": 48,
+    "private_prop_structure": 2,
+    "private_authored_data_definition": 17,
+    "public_prop_theorem": 1,
+    "private_prop_definition": 3,
+    "foreign_generated": 1
+  },
+  "all_rows": [
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ClosedBranchFacts.partition",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ug65_square_of_abs_le",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ug65_point_ball",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixture_negative_inertia",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.trigD._proof_2",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixtureField._proof_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixture_inertia_neg",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.UpperClause.eq_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixture_consumer",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.InheritedCollar.rec",
+      "lean_kind": "recursor",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.UniformCutResult._proof_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixturePoint.eq_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.InheritedCollar.recOn",
+      "lean_kind": "definition",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.InheritedCollar",
+      "lean_kind": "inductive",
+      "classification": "private_prop_structure",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.trigD._proof_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.coord",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ug65_reflect_continuous",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ug65_reflect_upper",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixture_seam_critical",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixture_source",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixture_seam_consumer",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ClosedBranchFacts.recOn",
+      "lean_kind": "definition",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.InheritedCollar.lower_pc",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ug65_plus_pc",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.saddleValue",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixture_actual",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.targetUpper",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixtureOpen._proof_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ClosedBranchFacts.minus_pc",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.trigD.eq_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.Point2",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.trigField",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.InheritedCollar.casesOn",
+      "lean_kind": "definition",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ug65_reflect",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.upperTrace.eq_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.InheritedCollar.mk._flat_ctor",
+      "lean_kind": "definition",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ClosedBranchFacts.minus_witness",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixture_negative_consumer",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.targetUpperNeg",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ClosedBranchFacts.rec",
+      "lean_kind": "recursor",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.transportedUpperSign",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixturePoly._proof_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.actualUniformSaddleCuts",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixtureOpen",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ug65_square_mono",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.axes_compl",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixturePoly",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixture_seam_inertia",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.saddleValue._proof_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixture_seam",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.closedSaddleBranchGeometry",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ug65_upper_coordinate_ne_zero",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixture_positive_consumer",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ug65_reflect_involutive",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "I4SourceActualSaddleUppercuts.actualSource_quotient_saddle_uniform_closed_uppercuts",
+      "lean_kind": "theorem",
+      "classification": "public_prop_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ug65_plus_witness",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.InheritedCollar.center_eq",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixtureField",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.trigField.eq_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.InheritedCollar.center_mem",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.CutoffEquality",
+      "lean_kind": "definition",
+      "classification": "private_prop_definition",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixtureCenter",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.axis1_ne",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.axis0_ne",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixture_critical_of",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ug65_positive_join",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ClosedBranchFacts.plus_witness",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ClosedBranchFacts.disjoint",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.trig_deriv",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixture_heights",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixture_field",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.InheritedCollar.source_sub",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixtureSample",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ug65_vertical_join",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.UniformCutResult.eq_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ClosedBranchFacts.plus_pc",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.targetUpperPos",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.point_coords",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ug65_reflect.eq_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixturePoly.eq_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.upperTrace",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixture_negative_critical",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ug65_minus_witness",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.coord._proof_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ug65_coord_abs_lt",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.CutoffEquality._proof_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixtureSample.eq_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.InheritedCollar.strict_test",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.actualInheritedCollar",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.UniformCutResult",
+      "lean_kind": "definition",
+      "classification": "private_prop_definition",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.transportClosedUpper",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.InheritedCollar.target_eq",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixtureField.eq_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ug65_horizontal_join",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ug65_coord_abs_lt._simp_1_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.trigD._proof_3",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixture_open",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixture_positive_critical",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ug65_minus_pc",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ug65_atHeight",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ClosedBranchFacts",
+      "lean_kind": "inductive",
+      "classification": "private_prop_structure",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ug65_reflect_image",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixture_scalarSeries_finitePairing",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixture_positive_inertia",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.trigD",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "UniversalLaw.Spec.Lifetime.IsCriticalPoint.eq_1",
+      "lean_kind": "theorem",
+      "classification": "foreign_generated",
+      "explanation": "New module-owned generated declaration in foreign namespace; not authored public scientific API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.coord.eq_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ClosedBranchFacts.mk._flat_ctor",
+      "lean_kind": "definition",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ClosedBranchFacts.casesOn",
+      "lean_kind": "definition",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.trig_hessian",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.InheritedCollar.field_eq",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.InheritedCollar.mk",
+      "lean_kind": "constructor",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixturePoint",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.ClosedBranchFacts.mk",
+      "lean_kind": "constructor",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.saddleValue.eq_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.cutoffEquality",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixture_inertia_pos",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem",
+      "explanation": "Exact authored declaration in frozen owned source"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.fixtureCenter.eq_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated",
+      "explanation": "Owned structure projection/constructor/recursor/equation/simp/proof auxiliary; never a supplied foreign-private API"
+    },
+    {
+      "name": "_private.SourceActualSaddleUppercuts.0.I4SourceActualSaddleUppercuts.UpperClause",
+      "lean_kind": "definition",
+      "classification": "private_prop_definition",
+      "explanation": "Exact authored declaration in frozen owned source"
+    }
+  ],
+  "collector": "/workspace/scratch/actual-source-saddle-uppercuts-construct/Inventory.lean",
+  "qualification_receipt": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/inventory001/receipt.json",
+  "raw_complete_axiom_stream": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/inventory001/stdout.log",
+  "axioms": "Every exact-owned constant recursively restricted to propext/Classical.choice/Quot.sound by actually passed collector",
+  "ordinary_kernel": "Pending exactly-one final production kernel after root release",
+  "no_old_verification": "Only genuinely new owned module scope; all prior checks reused"
+}

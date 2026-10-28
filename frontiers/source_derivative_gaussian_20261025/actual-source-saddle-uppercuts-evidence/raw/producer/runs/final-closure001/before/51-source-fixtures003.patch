@@ -1,0 +1,31 @@
+--- fixtures002-source
++++ fixtures003-source
+@@ -589,7 +589,7 @@
+   have h0 := (((coord 0).hasFDerivAt (x := X)).const_mul Real.pi).cos
+   have h1 := ((((coord 1).hasFDerivAt (x := X)).const_mul Real.pi).cos).const_mul 2
+   convert h0.add h1 using 1 <;> ext v <;>
+-    simp [trigField, trigD, ContinuousLinearMap.smul_apply, smul_eq_mul] <;> ring
++    simp [trigField, trigD, smul_eq_mul] <;> ring
+ 
+ private theorem trig_hessian (X v w : UniversalLaw.Spec.Lifetime.E 2) :
+     hessian 2 trigField X v w =
+@@ -601,7 +601,7 @@
+   have hh := h0.add h1
+   change hessian 2 trigField X v w = _
+   rw [hessian, iteratedFDeriv_succ_apply_right, iteratedFDeriv_one_apply]
+-  simp only [Fin.isValue, Fin.init_cons, Matrix.cons_val_zero, Matrix.cons_val_one]
++  change fderiv ℝ (fderiv ℝ trigField) X v w = _
+   rw [hd]
+   have he := hh.fderiv
+   change fderiv ℝ trigD X = _ at he
+@@ -731,7 +731,9 @@
+   funext i
+   fin_cases i
+   · change ((-1 : ℝ) : AddCircle (2 : ℝ)) = ((1 : ℝ) : AddCircle (2 : ℝ))
+-    simpa using (AddCircle.coe_add_period (2 : ℝ) (-1 : ℝ)).symm
++    have h : (((-1 : ℝ)+2 : ℝ) : AddCircle (2 : ℝ)) = ((1 : ℝ) : AddCircle (2 : ℝ)) :=
++      congrArg (fun t : ℝ => (t : AddCircle (2 : ℝ))) (by norm_num)
++    exact (AddCircle.coe_add_period (2 : ℝ) (-1 : ℝ)).symm.trans h
+   · rfl
+ 
+ private theorem fixture_consumer (x y : ℝ)

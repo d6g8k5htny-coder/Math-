@@ -1,0 +1,108 @@
+{
+  "attempt": 1,
+  "continuation": 1,
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-packaging/finalize_metadata.py"
+  ],
+  "cwd": "/workspace",
+  "started_utc": "2026-10-28T22:41:22.864338+00:00",
+  "ended_utc": "2026-10-28T22:42:38.886820+00:00",
+  "elapsed_seconds": 76.02253752999968,
+  "exit_code": 0,
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "full_actual_capture": true,
+  "original_interrupted_exit_code": null,
+  "old_payload_hashes": 0,
+  "proof_replays": 0,
+  "status": "PASS",
+  "checks_passed": 7,
+  "completed_checks": [
+    {
+      "recorded_utc": "2026-10-28T22:42:38.682952+00:00",
+      "event": "check_passed",
+      "name": "exact65_registration",
+      "detail": "1126Prop+9data/32; no public data"
+    },
+    {
+      "recorded_utc": "2026-10-28T22:42:38.693369+00:00",
+      "event": "check_passed",
+      "name": "separate_manifest_key_and_checksum_row_prefixes",
+      "detail": "Separate inherited7331 key and independent row order; zero old hashes"
+    },
+    {
+      "recorded_utc": "2026-10-28T22:42:38.696010+00:00",
+      "event": "check_passed",
+      "name": "Lake65_append_only",
+      "detail": "One library/default target; no build"
+    },
+    {
+      "recorded_utc": "2026-10-28T22:42:38.697299+00:00",
+      "event": "check_passed",
+      "name": "retained65_evidence_and_helper_scope",
+      "detail": "Dynamic actual65 receipt schema/qualified source-controls-negative associations; no mathematical replay"
+    },
+    {
+      "recorded_utc": "2026-10-28T22:42:38.821584+00:00",
+      "event": "check_passed",
+      "name": "exact_overlay_ALL_objects_SKIP",
+      "detail": {
+        "overlay_files": 2359,
+        "apply_files": 2354,
+        "binding_SKIP": 5
+      }
+    },
+    {
+      "recorded_utc": "2026-10-28T22:42:38.822947+00:00",
+      "event": "check_passed",
+      "name": "honest_author_review_and_process_scopes",
+      "detail": "Packager65 proof-authorship FALSE/prior62A disclosed; no independent/inherited review credit; actual root/reviewer scopes distinct"
+    },
+    {
+      "recorded_utc": "2026-10-28T22:42:38.841291+00:00",
+      "event": "check_passed",
+      "name": "new_metadata_JSON_parse",
+      "detail": {
+        "new_metadata_JSONs": 7,
+        "old_raw_JSON_rechecks": 0
+      }
+    }
+  ],
+  "capture_identities": {
+    "started.json": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-packaging/continuation001/started.json",
+      "bytes": 396,
+      "sha256": "9eb79280b1c297b8d20fcfed5c0d2b183934f5c6a87163ea4970423c42818649",
+      "origin": "First custody identity of previously unrecorded immutable NEW65 payload",
+      "hash_computed_here": true
+    },
+    "stdout.log": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-packaging/continuation001/stdout.log",
+      "bytes": 2469,
+      "sha256": "38017eec5ca984d2818147570b3ee1d448a6989d241c9ca8502a18cd8fef9bec",
+      "origin": "First custody identity of previously unrecorded immutable NEW65 payload",
+      "hash_computed_here": true
+    },
+    "stderr.log": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-packaging/continuation001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "Existing identity reused for exact immutable NEW65 bytes; no hash",
+      "hash_computed_here": false,
+      "identity_source": "/workspace/scratch/actual-source-saddle-uppercuts-packaging/archive-prep/actual-source-saddle-uppercuts-evidence/raw/packaging-continuation001/original-interrupted/entry/stderr.log"
+    },
+    "execution_receipt.json": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-packaging/continuation001/execution_receipt.json",
+      "bytes": 587,
+      "sha256": "6886ced4226d09fc5956eb4209efc880071feb8b2a03fc71bad282ec8b18d8cc",
+      "origin": "First custody identity of previously unrecorded immutable NEW65 payload",
+      "hash_computed_here": true
+    }
+  },
+  "metadata_worker_invocations": 2,
+  "interrupted_worker_invocations": 1,
+  "completed_worker_invocations": 1,
+  "original_interrupted_receipt": "continuation001/INTERRUPTION_OBSERVATION.json; no invented original exit",
+  "scope": "Seven NEW65 metadata associations once; interrupted original stopped during overlay assembly before any association; no Lean/proof/kernel/control/old-hash replay"
+}

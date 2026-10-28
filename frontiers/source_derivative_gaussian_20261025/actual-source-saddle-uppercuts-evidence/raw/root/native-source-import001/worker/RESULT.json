@@ -1,0 +1,11 @@
+{
+  "operation": "root65-worker-capture",
+  "started_utc": "2026-10-28T21:50:37.390838+00:00",
+  "ended_utc": "2026-10-28T21:50:37.456601+00:00",
+  "elapsed_seconds": 0.06575775999954203,
+  "status": "FAIL_PRESERVED_NO_AUTOMATIC_RETRY",
+  "exception": "RuntimeError('Command failed (worker); preserve /workspace/scratch/actual-source-saddle-uppercuts-publication/native-source-import001/worker/01-worker')",
+  "scope": "worker",
+  "exit_code": 1,
+  "note": "This wrapper exit is1; actual child exit remains in its command receipt."
+}

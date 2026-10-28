@@ -1,0 +1,62 @@
+SourceActualSaddleUppercuts.lean:243:27: error: Application type mismatch: The argument
+  hu.right
+has type
+  u ∈ {u | 0 < u 1}
+but is expected to have type
+  0 < ?m.52
+in the application
+  abs_of_pos hu.right
+SourceActualSaddleUppercuts.lean:243:4: error: Type mismatch: After simplification, term
+  ug65_coord_abs_lt rho hrho u hu.left.left 1
+ has type
+  |u 1| < rho
+but is expected to have type
+  u 1 < rho
+SourceActualSaddleUppercuts.lean:245:27: error: Application type mismatch: The argument
+  hv.right
+has type
+  v ∈ {u | 0 < u 1}
+but is expected to have type
+  0 < ?m.70
+in the application
+  abs_of_pos hv.right
+SourceActualSaddleUppercuts.lean:245:4: error: Type mismatch: After simplification, term
+  ug65_coord_abs_lt rho hrho v hv.left.left 1
+ has type
+  |v 1| < rho
+but is expected to have type
+  v 1 < rho
+SourceActualSaddleUppercuts.lean:291:4: error: Type mismatch: After simplification, term
+  Continuous.neg (continuous_apply 1)
+ has type
+  Continuous fun p => p 1
+but is expected to have type
+  Continuous fun a => -a 1
+SourceActualSaddleUppercuts.lean:314:4: error: linarith failed to find a contradiction
+case mp
+rho : ℝ
+hrho : 0 < rho
+eps : ℝ
+u : Point2
+hu : u ∈ targetUpperPos rho eps
+a✝ : 0 ≤ -u 1
+⊢ False
+failed
+SourceActualSaddleUppercuts.lean:319:4: error: linarith failed to find a contradiction
+case mpr
+rho : ℝ
+hrho : 0 < rho
+eps : ℝ
+v : Point2
+hv : v ∈ targetUpperNeg rho eps
+a✝ : -v 1 ≤ 0
+⊢ False
+failed
+SourceActualSaddleUppercuts.lean:346:26: error: Application type mismatch: The argument
+  hneg.right
+has type
+  u ∈ {u | u 1 < 0}
+but is expected to have type
+  ?m.48 < ?m.47
+in the application
+  lt_asymm ?m.51 hneg.right

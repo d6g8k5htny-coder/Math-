@@ -1,0 +1,21 @@
+--- fixtures003-source
++++ fixtures004-source
+@@ -589,7 +589,7 @@
+   have h0 := (((coord 0).hasFDerivAt (x := X)).const_mul Real.pi).cos
+   have h1 := ((((coord 1).hasFDerivAt (x := X)).const_mul Real.pi).cos).const_mul 2
+   convert h0.add h1 using 1 <;> ext v <;>
+-    simp [trigField, trigD, smul_eq_mul] <;> ring
++    simp [trigField, trigD, smul_eq_mul]; ring
+ 
+ private theorem trig_hessian (X v w : UniversalLaw.Spec.Lifetime.E 2) :
+     hessian 2 trigField X v w =
+@@ -606,8 +606,7 @@
+   have he := hh.fderiv
+   change fderiv ℝ trigD X = _ at he
+   rw [he]
+-  simp [ContinuousLinearMap.smulRight_apply, ContinuousLinearMap.smul_apply,
+-    smul_eq_mul]
++  simp [ContinuousLinearMap.smulRight_apply, smul_eq_mul]
+   ring
+ 
+ private theorem point_coords (x y : ℝ) :

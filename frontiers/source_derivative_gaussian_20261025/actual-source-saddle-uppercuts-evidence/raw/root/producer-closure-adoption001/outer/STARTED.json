@@ -1,0 +1,28 @@
+{
+  "operation": "root65-outer-capture",
+  "script_argv": [
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/native-runtime/capture.py",
+    "--run-dir",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/producer-closure-adoption001/outer",
+    "--cwd",
+    "/workspace/Math-curvature-20261026",
+    "--scope",
+    "outer",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/native-runtime/capture.py",
+    "--run-dir",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/producer-closure-adoption001/worker",
+    "--cwd",
+    "/workspace/Math-curvature-20261026",
+    "--scope",
+    "worker",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/native-runtime/adopt_producer_closure.py"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026",
+  "started_utc": "2026-10-28T22:12:55.556301+00:00",
+  "policy": "No automatic retry; all actual command streams remain original and separate.",
+  "credential_environment_logged": false
+}

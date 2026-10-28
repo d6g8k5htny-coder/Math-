@@ -1,0 +1,75 @@
+{
+  "observed_utc": "2026-10-28T21:41:39.709944+00:00",
+  "ordinary_initial_source": {
+    "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/SaddleUppercutsControls.lean",
+    "bytes": 25064,
+    "sha256": "ca7ff3a7e9e31683930aa7f5e254cbe623c65d4d14a6d47947bcd7beccaed3fa",
+    "marker": [
+      25064,
+      1793223416576811260
+    ],
+    "first_observed_utc": "2026-10-28T21:36:56.582757+00:00",
+    "origin": "new actual version identity, calculated once"
+  },
+  "immutable_snapshot": {
+    "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/frozen/Controls.INITIAL.lean",
+    "bytes": 25064,
+    "sha256": "ca7ff3a7e9e31683930aa7f5e254cbe623c65d4d14a6d47947bcd7beccaed3fa",
+    "marker": [
+      25064,
+      1793223416576903200
+    ],
+    "first_observed_utc": "2026-10-28T21:36:56.582757+00:00",
+    "origin": "known exact initial ordinary byte-copy identity reused",
+    "copied_from": "/workspace/scratch/actual-source-saddle-uppercuts-construct/SaddleUppercutsControls.lean"
+  },
+  "production_dependency": {
+    "observed_final_source_freeze_utc": "2026-10-28T21:34:43.493349+00:00",
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualSaddleUppercuts.lean",
+      "bytes": 36869,
+      "sha256": "d292c767e789b98a6fbb56e5c21ec8867979faa832a97c1e79c79c899b777129",
+      "marker": [
+        36869,
+        1793223230675960181
+      ],
+      "first_observed_utc": "2026-10-28T21:33:50.681212+00:00",
+      "origin": "new actual version identity, calculated once"
+    },
+    "source_snapshot": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/frozen/FINAL_SOURCE.lean",
+      "bytes": 36869,
+      "sha256": "d292c767e789b98a6fbb56e5c21ec8867979faa832a97c1e79c79c899b777129",
+      "marker": [
+        36869,
+        1793223283493260384
+      ],
+      "first_observed_utc": "2026-10-28T21:33:50.681212+00:00",
+      "origin": "known final strict source identity reused, exact immutable copy",
+      "copied_from": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualSaddleUppercuts.lean"
+    },
+    "own_object": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/build/SourceActualSaddleUppercuts.olean",
+      "bytes": 1852408,
+      "sha256": "5fbf02004a484d7447147d09b0cd8d19bc84b0ef5c96e97aa6655fc54f88a319",
+      "marker": [
+        1852408,
+        1793223236359857536
+      ],
+      "first_observed_utc": "2026-10-28T21:33:56.484164+00:00",
+      "origin": "new actual version identity, calculated once"
+    },
+    "strict_pass_receipt": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/fixtures004/receipt.json",
+    "source_lines": 769,
+    "kernel_count_at_this_historical_pre_kernel_freeze": 0,
+    "public64_calls": 1,
+    "public_theorem": "I4SourceActualSaddleUppercuts.actualSource_quotient_saddle_uniform_closed_uppercuts",
+    "remaining": "dynamic own inventory/std3, early review then ONE final production kernel; ordinary strict+separate inventory+soleFalse remain new scope",
+    "no_replay": "all qualified64 and passed unchanged65 scopes reused"
+  },
+  "one_final_production_kernel_receipt": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/kernel001/receipt.json",
+  "kernel_scope": "EXACTLY ONE final production named-module kernel PASS; does not qualify ordinary math",
+  "ordinary_next": "new strict ordinary compile, separate ALL-owned module inventory/std3, then sole closed no-premise negative",
+  "ordinary_named_kernels": 0,
+  "shared_copies_by_producer": 0
+}
