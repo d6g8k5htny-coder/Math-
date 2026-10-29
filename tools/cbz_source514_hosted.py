@@ -302,6 +302,7 @@ def parse_census(text, modules):
     result = {"module_counts": {}, "module_declarations": {}}
     rows, extra_codegen, kernel_overlaps = [], [], []
     seen, extra_seen = set(), set()
+    metadata_observations = {}
     for line in text.splitlines():
         if line.startswith("SOURCE514_CODEGEN_METADATA "):
             metadata = json.loads(line.removeprefix("SOURCE514_CODEGEN_METADATA "), object_pairs_hook=unique)
@@ -318,6 +319,7 @@ def parse_census(text, modules):
             if classification == "NON_KERNEL_CODE_GENERATOR_OWNERSHIP":
                 if set(metadata) != {"module", "name", "classification"}:
                     raise ValueError("invalid non-kernel code-generator metadata")
+                observation = (classification, None, None)
                 extra_codegen.append(metadata)
             elif classification == "KERNEL_CODE_GENERATOR_OVERLAP":
                 if set(metadata) != {"module", "name", "classification", "declaring_modules", "resolved_module"}:
@@ -327,9 +329,13 @@ def parse_census(text, modules):
                     raise ValueError("kernel overlap lacks unique declaration provenance")
                 if resolved is not None and (not isinstance(resolved, str) or not resolved):
                     raise ValueError("invalid ownership-map observation")
+                observation = (classification, tuple(candidates), resolved)
                 kernel_overlaps.append(metadata)
             else:
                 raise ValueError("invalid code-generator metadata classification")
+            if name in metadata_observations and metadata_observations[name] != observation:  # MUTATION_OVERLAP_CONSISTENCY
+                raise ValueError("inconsistent metadata observations for same name")
+            metadata_observations[name] = observation
             continue
         if not line.startswith("SOURCE514_CENSUS "):
             raise ValueError("unrecognized independent census output")
@@ -379,13 +385,20 @@ REPLAY_OWNER_ORIGINAL = '''  let mut seeds : Array Name := #[]
       if env.getModuleIdxFor? name == some idx then some name else none).toArray.qsort Name.lt'''
 
 REPLAY_OWNER_REPLACEMENT = '''  -- REPLAY_DECLARATION_TABLE_PROVENANCE
+  let mut selectedNames : Std.HashSet Name := {}
+  for modName in modules do
+    let some idx := env.getModuleIdx? modName
+      | throwError "missing candidate module: {modName}"
+    for name in env.header.moduleData[idx]!.constNames do
+      selectedNames := selectedNames.insert name
   let mut tableOwners : Std.HashMap Name Name := {}
   for idx in [:env.header.moduleData.size] do
     let owner := env.header.moduleNames[idx]!
     for name in env.header.moduleData[idx]!.constNames do
-      if (tableOwners[name]?).isSome then
-        throwError "kernel declaration has ambiguous table provenance: {name}"
-      tableOwners := tableOwners.insert name owner
+      if selectedNames.contains name then
+        if (tableOwners[name]?).isSome then
+          throwError "selected kernel declaration has ambiguous table provenance: {name}"
+        tableOwners := tableOwners.insert name owner
   let mut seeds : Array Name := #[]
   for modName in modules do
     let some _idx := env.getModuleIdx? modName
@@ -456,26 +469,42 @@ def execute(source, replay, collector, plan_path, output, carrier, carrier_head,
             for number, module in enumerate(modules):
                 phase("build-" + str(number).zfill(2) + "-" + module.replace(".", "_"), ["lake", "build", "+" + module])
             with frozen_objects(package, expected_revisions) as object_records:
+                census_path = output / "IndependentCensus.lean"
+                census_path.write_text(census_program(modules))
+                phase("independent-compiled-census", ["lake", "env", "lean", "-j2", "-M12000", census_path], timeout=2700)
+                stderr = (output / "independent-compiled-census.stderr").read_bytes()
+                if stderr:
+                    raise ValueError("independent census emitted stderr")
+                expected, literals = parse_census((output / "independent-compiled-census.stdout").read_text(), modules)
+                (output / "compiled-census.json").write_text(json.dumps(expected, indent=2) + "\n")
+                (output / "compiled-literal-types.json").write_text(json.dumps(literals, indent=2, ensure_ascii=False) + "\n")
                 # The source packet itself supplies a reproducible genuine
                 # extraConstNames/constNames overlap.  Require the overlap,
                 # kernel replay its actual owner once, and execute an omitted
                 # seed mutant that the transcript validator must reject for
                 # the exact beginning/completion count discrepancy.
-                fixture_module = "SourceFourierSeries"
                 fixture_name = "_private.SourceFourierSeries.0.I4Source.modeCoefficient.match_1.splitter"
+                actual_overlaps = [item for item in expected.get("kernel_codegen_overlaps", [])
+                                   if item["name"] == fixture_name]
+                if not actual_overlaps:
+                    raise ValueError("full census did not record the original real kernel overlap")
+                fixture_owner = actual_overlaps[0]["declaring_modules"][0]
+                if fixture_owner != "SourceFourierSeries":
+                    raise ValueError("original overlap declaration has unexpected actual module")
+                fixture_modules = list(dict.fromkeys([item["module"] for item in actual_overlaps] + [fixture_owner]))
                 fixture_census_path = output / "OverlapFixtureCensus.lean"
-                fixture_census_path.write_text(census_program([fixture_module]))
+                fixture_census_path.write_text(census_program(fixture_modules))
                 phase("overlap-fixture-census", ["lake", "env", "lean", "-j2", "-M12000", fixture_census_path], timeout=2700)
                 if (output / "overlap-fixture-census.stderr").read_bytes():
                     raise ValueError("overlap fixture census emitted stderr")
-                fixture_expected, _ = parse_census((output / "overlap-fixture-census.stdout").read_text(), [fixture_module])
+                fixture_expected, _ = parse_census((output / "overlap-fixture-census.stdout").read_text(), fixture_modules)
                 fixture_overlaps = [item for item in fixture_expected.get("kernel_codegen_overlaps", [])
                                     if item["name"] == fixture_name]
-                if not fixture_overlaps or any(item["declaring_modules"] != [fixture_module] for item in fixture_overlaps):
+                if not fixture_overlaps or any(item["declaring_modules"] != [fixture_owner] for item in fixture_overlaps):
                     raise ValueError("actual fixture did not establish the declared kernel overlap and owner")
-                if fixture_expected["module_declarations"][fixture_module].count(fixture_name) != 1:
+                if fixture_expected["module_declarations"][fixture_owner].count(fixture_name) != 1:
                     raise ValueError("actual fixture overlap is not present exactly once in the kernel census")
-                fixture_program, fixture_metadata = corrected_replay_program(tool, helper, [fixture_module])
+                fixture_program, fixture_metadata = corrected_replay_program(tool, helper, fixture_modules)
                 fixture_program_path = output / "OverlapFixtureReplay.lean"
                 fixture_program_path.write_text(fixture_program)
                 _, _, fixture_code = phase("overlap-fixture-replay", ["lake", "env", "lean", "-j2", "-M12000", fixture_program_path], timeout=2700)
@@ -503,16 +532,7 @@ def execute(source, replay, collector, plan_path, output, carrier, carrier_head,
                     raise ValueError("overlap omitted-seed mutant was not detected")
                 report["actual_overlap_fixture"] = {"name": fixture_name, "observations": fixture_overlaps,
                     "positive_replay": fixture_result, "omitted_seed_mutant": "EXPECTED_COUNT_MISMATCH"}
-                census_path = output / "IndependentCensus.lean"
-                census_path.write_text(census_program(modules))
-                phase("independent-compiled-census", ["lake", "env", "lean", "-j2", "-M12000", census_path], timeout=2700)
-                stderr = (output / "independent-compiled-census.stderr").read_bytes()
-                if stderr:
-                    raise ValueError("independent census emitted stderr")
-                expected, literals = parse_census((output / "independent-compiled-census.stdout").read_text(), modules)
-                (output / "compiled-census.json").write_text(json.dumps(expected, indent=2) + "\n")
-                (output / "compiled-literal-types.json").write_text(json.dumps(literals, indent=2, ensure_ascii=False) + "\n")
-                program, metadata = tool.generate_program(helper, COLLECTOR_SHA256, modules, modules)
+                program, metadata = corrected_replay_program(tool, helper, modules)
                 program_path = output / "BoundedKernelReplay.lean"
                 program_path.write_text(program)
                 (output / "replay-program.json").write_text(json.dumps(metadata, indent=2) + "\n")

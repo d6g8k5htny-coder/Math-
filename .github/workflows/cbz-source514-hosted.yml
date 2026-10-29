@@ -66,7 +66,7 @@ jobs:
               if marker not in original: raise SystemExit("original overlap failure not present")
               print("ORIGINAL_OVERLAP_RED",marker)
           PY
-      - name: Verify recorder contracts and all nine reason-bound source mutations
+      - name: Verify recorder contracts and all ten reason-bound source mutations
         run: |
           python -B -S tools/cbz_source514_mutations.py --output "$RUNNER_TEMP/cbz-source514-recorder-tests"
       - name: Obtain immutable mathematical source
