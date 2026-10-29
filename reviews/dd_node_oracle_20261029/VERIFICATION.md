@@ -38,3 +38,12 @@ The dedicated workflow runs and retains the new tests and both fixtures before i
 The new bounded controls do not run the approximately45-minute-per-mode complete certificate replay. No complete repository regression, current hosted gate pass, Lean verification or federation CBZ-0 completion is claimed by this local artifact. The full assembly's existing boundary is all2393cell remainders and24sampled nodes, not all38288nodes; no analytic theorem is formalized here.
 
 Tool: existing packet `replay.py`, strengthened process predicates. Purpose: reject unrelated subprocess outcomes instead of calling them successful controls. Usage: packet README; self-verification: commands above and assertion-only mutation threshold. Maintenance: self-contained, no ongoing owner; intentional input/runtime changes require independent recharacterization. CBZ criteria served:4,5,7,9,10; none is established federation-wide by this scoped repair. Canonical GOVERNANCE/TOOLING/STATUS registration remains with the federation coordinator; this is not a competing scientific-status register.
+
+## 2026-10-29 mutation-origin amendment
+
+The earlier failure-count-based mutant admission is superseded for future use by
+the source-bound origin/lifecycle/terminal verifier in the same test module.
+See [origin-repair/README.md](origin-repair/README.md) for retained counterexamples,
+all unchanged original test methods,22 actual methods per mode, five effective
+grader mutations and two explicitly redundant omission controls. No production
+mathematical source changed; earlier finite evidence stays historical.

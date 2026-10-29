@@ -3,6 +3,7 @@ import contextlib
 import hashlib
 import importlib.util
 import io
+import inspect
 import json
 from pathlib import Path
 import sys
@@ -22,6 +23,114 @@ def load():
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
+
+
+# Finite unittest assertion helpers used by the frozen controls below. Code
+# identity, not filenames, function names or formatted traceback text, admits
+# an origin. This is a trusted-process test aid, not hostile-code attestation.
+_ASSERTION_CODES = frozenset(getattr(unittest.TestCase, name).__code__ for name in
+    ('assertTrue', 'assertFalse', 'assertEqual', 'assertListEqual', 'assertSequenceEqual',
+     '_baseAssertEqual', 'fail'))
+
+
+class OracleOriginResult(unittest.TestResult):
+    def __init__(self, cases):
+        super().__init__()
+        self.expected = tuple(case.id() for case in cases)
+        self.started = []
+        self.stopped = []
+        self.entered = []
+        self.active = None
+        self.escaping = {}
+        self.origins = []
+        self.success_ids = []
+        self.failure_ids = []
+        self.body_codes = {case.id(): getattr(case, case._testMethodName).__func__.__code__
+                           for case in cases}
+
+    def startTest(self, test):
+        self.started.append(test.id())
+        super().startTest(test)
+
+    def stopTest(self, test):
+        self.stopped.append(test.id())
+        super().stopTest(test)
+
+    def origin(self, test, err):
+        if err[0] is not AssertionError:
+            return False
+        codes = []
+        trace = err[2]
+        while trace is not None:
+            codes.append(trace.tb_frame.f_code)
+            trace = trace.tb_next
+        body = self.body_codes.get(test.id())
+        positions = [i for i, code in enumerate(codes) if code is body]
+        return (len(positions) == 1 and
+                all(code in _ASSERTION_CODES for code in codes[positions[0] + 1:]))
+
+    def addSuccess(self, test):
+        self.success_ids.append(test.id())
+        super().addSuccess(test)
+
+    def addFailure(self, test, err):
+        # A regular failure must be the identical exception escaping the actual
+        # selected method invocation, not setup/teardown/cleanup or callbacks.
+        self.failure_ids.append(test.id())
+        self.origins.append(self.escaping.pop((test.id(), id(err[1])), False))
+        super().addFailure(test, err)
+
+    def addSubTest(self, test, subtest, err):
+        if err is not None:
+            self.failure_ids.append(test.id())
+            self.origins.append(self.active == test.id() and self.origin(test, err))
+        super().addSubTest(test, subtest, err)
+
+    def admitted(self, killed):
+        complete = (len(set(self.expected)) == len(self.expected) and bool(self.expected)
+                    and tuple(self.started) == self.expected
+                    and tuple(self.stopped) == self.expected
+                    and tuple(self.entered) == self.expected
+                    and self.testsRun == len(self.expected))
+        clean = not (self.errors or self.skipped or self.expectedFailures or self.unexpectedSuccesses)
+        terminal = (len(self.success_ids) == len(set(self.success_ids))
+                    and not set(self.success_ids).intersection(self.failure_ids)
+                    and set(self.success_ids).union(self.failure_ids) == set(self.expected))
+        if killed:
+            return bool(complete and terminal and clean and self.failures and self.origins and all(self.origins)
+                        and len(self.origins) == len(self.failures))
+        return bool(complete and terminal and clean and not self.failures and not self.origins
+                    and tuple(self.success_ids) == self.expected)
+
+
+def run_oracle_cases(case_class, methods):
+    cases = [case_class(method) for method in methods]
+    result = OracleOriginResult(cases)
+    for case in cases:
+        def call(selected, method):
+            code = getattr(method, '__func__', None)
+            if (code is None or code.__code__ is not result.body_codes[selected.id()]
+                    or inspect.iscoroutinefunction(code) or inspect.isgeneratorfunction(code)
+                    or inspect.isasyncgenfunction(code)):
+                raise RuntimeError('unsupported oracle body')
+            result.entered.append(selected.id())
+            result.active = selected.id()
+            try:
+                outcome = method()
+                if outcome is not None:
+                    if inspect.iscoroutine(outcome):
+                        outcome.close()
+                    raise RuntimeError('non-None oracle body result')
+                return None
+            except BaseException as exc:
+                result.escaping[(selected.id(), id(exc))] = result.origin(
+                    selected, (type(exc), exc, exc.__traceback__))
+                raise
+            finally:
+                result.active = None
+        case._callTestMethod = types.MethodType(call, case)
+    unittest.TestSuite(cases).run(result)
+    return result
 
 
 class NodeOracleTests(unittest.TestCase):
@@ -111,17 +220,19 @@ class NodeOracleTests(unittest.TestCase):
         self.assertEqual(source.count(needle),1)
         for name,replacement in variants.items():
             with self.subTest(mutation=name):
+                baseline = run_oracle_cases(NodeOracleTests, methods)
+                self.assertTrue(baseline.admitted(False), 'oracle baseline not admitted')
                 subject=types.ModuleType('mutated_dd_oracle')
                 subject.__file__=str(WRAPPER)
                 exec(compile(source.replace(needle,replacement),str(WRAPPER),'exec'),subject.__dict__)
-                suite=unittest.TestSuite(NodeOracleTests(method) for method in methods)
                 capture=io.StringIO()
                 with mock.patch.object(sys.modules[__name__],'load',return_value=subject):
                     with contextlib.redirect_stdout(capture):
-                        result=unittest.TextTestRunner(stream=capture).run(suite)
+                        result=run_oracle_cases(NodeOracleTests, methods)
                 self.assertEqual(result.testsRun,2)
                 self.assertEqual(result.errors,[],capture.getvalue())
                 self.assertGreater(len(result.failures),0,capture.getvalue())
+                self.assertTrue(result.admitted(True), 'failure did not originate in selected oracle body')
 
     def test_changed_mutations(self):
         self.mutations("if (code, out, err) != (0, CHANGED_NODE_STDOUT, b''):",{
@@ -144,6 +255,183 @@ class NodeOracleTests(unittest.TestCase):
             'prefix':"if code != 1 or out or not err.startswith(expected_missing):",
             'accept':'if False:', 'reject':'if True:'},
             ('test_missing_rejects_inexact_results','test_missing_accepts_exact_completeness_rejection'))
+
+
+def _foreign_assertion():
+    raise AssertionError('subject origin, not test oracle')
+
+
+class OracleOriginSelfTests(unittest.TestCase):
+    def observe(self, behavior):
+        class Probe(unittest.TestCase):
+            def setUp(self):
+                self.fixture = False
+                if behavior == 'setup':
+                    self.fail('setup')
+                if behavior in ('setup-calls-body', 'setup-subtest', 'teardown-subtest'):
+                    self.test_body()
+                if behavior == 'cleanup':
+                    self.addCleanup(self.fail, 'cleanup')
+            def tearDown(self):
+                if behavior == 'teardown-subtest':
+                    self.fixture = True
+                    self.test_body()
+                if behavior == 'teardown':
+                    self.fail('teardown')
+            def helper(self):
+                self.fail('test helper, not authorized body')
+            def test_body(self):
+                if behavior in ('assertion', 'setup-calls-body'):
+                    self.assertEqual(1, 2)
+                elif behavior == 'direct':
+                    raise AssertionError('direct selected oracle')
+                elif behavior in ('subtest', 'setup-subtest') or (behavior == 'teardown-subtest' and self.fixture):
+                    with self.subTest(value=1):
+                        self.assertTrue(False)
+                elif behavior == 'subject':
+                    _foreign_assertion()
+                elif behavior == 'helper':
+                    self.helper()
+                elif behavior == 'nested':
+                    (lambda: _foreign_assertion())()
+                elif behavior == 'subtest-subject':
+                    with self.subTest(value=1):
+                        _foreign_assertion()
+                elif behavior == 'skip':
+                    self.skipTest('skip')
+                elif behavior == 'runtime':
+                    raise RuntimeError('runtime')
+        return run_oracle_cases(Probe, ('test_body',))
+
+    def test_accepts_genuine_body_and_subtest_assertions(self):
+        for kind in ('assertion', 'direct', 'subtest'):
+            with self.subTest(kind=kind):
+                self.assertTrue(self.observe(kind).admitted(True))
+
+    def test_baseline_requires_actual_success(self):
+        self.assertTrue(self.observe('pass').admitted(False))
+        self.assertFalse(self.observe('assertion').admitted(False))
+        self.assertFalse(self.observe('pass').admitted(True))
+
+    def test_rejects_setup_teardown_cleanup_and_manual_body(self):
+        for kind in ('setup', 'teardown', 'cleanup', 'setup-calls-body', 'setup-subtest', 'teardown-subtest'):
+            with self.subTest(kind=kind):
+                self.assertFalse(self.observe(kind).admitted(True))
+
+    def test_rejects_subject_helper_nested_and_subtest_origin(self):
+        for kind in ('subject', 'helper', 'nested', 'subtest-subject'):
+            with self.subTest(kind=kind):
+                self.assertFalse(self.observe(kind).admitted(True))
+
+    def test_rejects_runtime_and_skip(self):
+        for kind in ('runtime', 'skip'):
+            with self.subTest(kind=kind):
+                self.assertFalse(self.observe(kind).admitted(True))
+                self.assertFalse(self.observe(kind).admitted(False))
+
+    def test_rejects_expected_and_unexpected_success(self):
+        class Expected(unittest.TestCase):
+            @unittest.expectedFailure
+            def test_bad(self): self.fail('expected')
+            @unittest.expectedFailure
+            def test_good(self): pass
+        for method in ('test_bad', 'test_good'):
+            result = run_oracle_cases(Expected, (method,))
+            self.assertFalse(result.admitted(True))
+            self.assertFalse(result.admitted(False))
+
+    def test_rejects_empty_duplicate_and_missing_execution(self):
+        class Passing(unittest.TestCase):
+            def test_body(self): pass
+        for methods in ((), ('test_body', 'test_body')):
+            self.assertFalse(run_oracle_cases(Passing, methods).admitted(False))
+        result = self.observe('assertion')
+        result.entered.clear()
+        self.assertFalse(result.admitted(True))
+        result = self.observe('pass')
+        result.stopped.clear()
+        self.assertFalse(result.admitted(False))
+
+    def test_rejects_missing_and_duplicate_success_events(self):
+        class Missing(unittest.TestCase):
+            def test_body(self): pass
+            def run(self, result):
+                result.startTest(self)
+                self._callTestMethod(self.test_body)
+                result.stopTest(self)
+        class Duplicate(unittest.TestCase):
+            def test_body(self): pass
+            def run(self, result):
+                super().run(result)
+                result.addSuccess(self)
+        for case in (Missing, Duplicate):
+            self.assertFalse(run_oracle_cases(case, ('test_body',)).admitted(False))
+        result = self.observe('assertion')
+        result.success_ids.append(result.expected[0])
+        self.assertFalse(result.admitted(True))
+
+    def test_rejects_returned_deferred_and_non_none_values(self):
+        class Returned(unittest.TestCase):
+            def test_iterator(self): return iter(())
+            def test_value(self): return 1
+        for method in ('test_iterator', 'test_value'):
+            self.assertFalse(run_oracle_cases(Returned, (method,)).admitted(False))
+
+    def test_rejects_lazy_body(self):
+        class Lazy(unittest.TestCase):
+            def test_body(self): yield 1
+        self.assertFalse(run_oracle_cases(Lazy, ('test_body',)).admitted(False))
+
+    def test_grader_source_safeguards_are_assertion_killed(self):
+        source = Path(__file__).read_text()
+        controls = (
+            ('origin', 'all(code in _ASSERTION_CODES for code in codes[positions[0] + 1:])',
+             'True', 'test_rejects_subject_helper_nested_and_subtest_origin'),
+            ('escaping', 'self.escaping.pop((test.id(), id(err[1])), False)',
+             'True', 'test_rejects_setup_teardown_cleanup_and_manual_body'),
+            ('phase', 'self.active == test.id() and self.origin(test, err)',
+             'self.origin(test, err)', 'test_rejects_setup_teardown_cleanup_and_manual_body'),
+            ('population', 'complete and terminal and clean', 'True and terminal and clean',
+             'test_rejects_empty_duplicate_and_missing_execution'),
+            ('terminal', 'terminal = (', 'terminal = True or (',
+             'test_rejects_missing_and_duplicate_success_events'),
+            ('skip', 'self.errors or self.skipped or self.expectedFailures or self.unexpectedSuccesses',
+             'self.errors or self.expectedFailures or self.unexpectedSuccesses',
+             'test_rejects_runtime_and_skip'),
+            ('expected', 'self.errors or self.skipped or self.expectedFailures or self.unexpectedSuccesses',
+             'self.errors or self.skipped', 'test_rejects_expected_and_unexpected_success'),
+        )
+        # Only implementation preceding this self-test class is mutated; these
+        # frozen mutation literals cannot become alternative replacement sites.
+        implementation, tests = source.split('class OracleOriginSelfTests', 1)
+        for name, before, after, method in controls:
+            with self.subTest(safeguard=name):
+                baseline = run_oracle_cases(OracleOriginSelfTests, (method,))
+                self.assertTrue(baseline.admitted(False))
+                count = implementation.count(before)
+                self.assertEqual(count, 2 if name == 'population' else 1)
+                mutated = implementation.replace(before, after) + 'class OracleOriginSelfTests' + tests
+                module = types.ModuleType('dd_origin_mutant_' + name)
+                module.__file__ = __file__
+                with mock.patch.dict(sys.modules, {module.__name__: module}):
+                    exec(compile(mutated, __file__, 'exec'), module.__dict__)
+                    # The outer, unchanged grader authenticates failures in the
+                    # selected self-test. The mutant cannot grade itself green.
+                    result = run_oracle_cases(module.OracleOriginSelfTests, (method,))
+                if name in ('skip', 'expected'):
+                    # These isolated omissions are behaviorally redundant under
+                    # exact terminal accounting; retain and assert non-kill,
+                    # rather than inflate the effective mutation inventory.
+                    self.assertTrue(result.admitted(False), name)
+                else:
+                    self.assertTrue(result.admitted(True), name)
+
+    def test_subject_mutant_is_not_admitted(self):
+        with self.assertRaisesRegex(AssertionError, 'selected oracle body'):
+            NodeOracleTests().mutations(
+                "if (code, out, err) != (0, CHANGED_NODE_STDOUT, b''):",
+                {'subject': "if (_ for _ in ()).throw(AssertionError('subject')):"},
+                ('test_changed_rejects_unrelated_results', 'test_changed_accepts_exact_sensitivity'))
 
 
 if __name__ == '__main__':
