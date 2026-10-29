@@ -314,6 +314,22 @@ class SourceCustody(unittest.TestCase):
         self.assertEqual(victim.read_text(), 'original\n')
 
 
+
+    def test_inherited_git_redirects_are_not_sent_to_execution(self):
+        import sys
+        from unittest import mock
+        out = self.root / '.lake/formal-evidence'
+        out.mkdir(parents=True)
+        code = ("import os,json;print(json.dumps({k:os.environ.get(k) "
+                "for k in ('GIT_DIR','GIT_WORK_TREE','GIT_CONFIG_COUNT')}))")
+        with mock.patch.dict(os.environ, {'GIT_DIR': '/outside/git',
+                                         'GIT_WORK_TREE': '/outside/worktree',
+                                         'GIT_CONFIG_COUNT': '1'}):
+            result = self.gate.run([sys.executable, '-c', code], 'git-environment', out)
+        self.assertEqual(json.loads(result), {
+            'GIT_DIR': None, 'GIT_WORK_TREE': None, 'GIT_CONFIG_COUNT': None})
+
+
 class DependencyCustody(unittest.TestCase):
     def setUp(self):
         tmp = tempfile.TemporaryDirectory()
