@@ -149,16 +149,26 @@ class ReplayTests(unittest.TestCase):
         self.assertEqual(len(before),len(after))
         path.write_bytes(original.replace(before,after,1))
         os.utime(path,(1700000000,1700000000))
-        py_compile.compile(str(path),doraise=True,optimize=sys.flags.optimize)
+        cache=Path(self.tmp.name)/'external-cache'
+        cache.mkdir()
+        previous=sys.pycache_prefix
+        try:
+            sys.pycache_prefix=str(cache)
+            py_compile.compile(str(path),doraise=True,optimize=sys.flags.optimize)
+        finally:
+            sys.pycache_prefix=previous
         path.write_bytes(original)
         os.utime(path,(1700000000,1700000000))
+        self.assertNotIn('__pycache__', [p.name for p in packet.iterdir()])
         out=Path(self.tmp.name)/('packet-pyc-'+target)
-        try:
-            receipt=mod.execute(self.root,out,'optimized' if sys.flags.optimize else 'normal')
-        except mod.ReplayError as exc:
-            self.assertEqual(str(exc),'unexpected_exit')
-            self.assertIn(b'FAIL:',(out/'tests.stderr').read_bytes())
-            self.fail('packet tests executed poisoned '+target+' bytecode')
+        from unittest.mock import patch
+        with patch.dict(os.environ,{'PYTHONPYCACHEPREFIX':str(cache)}):
+            try:
+                receipt=mod.execute(self.root,out,'optimized' if sys.flags.optimize else 'normal')
+            except mod.ReplayError as exc:
+                self.assertEqual(str(exc),'unexpected_exit')
+                self.assertIn(b'FAIL:',(out/'tests.stderr').read_bytes())
+                self.fail('packet tests executed poisoned '+target+' bytecode')
         self.assertEqual(receipt['status'],'PASS')
 
     def test_packet_pyc_test_module_is_not_executed(self):
