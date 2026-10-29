@@ -1,0 +1,642 @@
+{
+  "schema": "cbz.math-paper-delivery-boundaries.v2",
+  "generated_utc": "2026-10-29T20:13:40Z",
+  "scope": "Exactly five terminal paper-family obligations, six frontier packets and 52 additive publication files. Reconstructed directly from the same immutable native public source cuts when the local proposed catalog could not be read; the original local catalog remains preserved. No canonical main file is edited by this scoped publication.",
+  "production_isolation_observation": {
+    "checked_main": "e877242cf68fb24c605066f16dd07f513ee75a1d",
+    "truncated": false,
+    "entries": 4639,
+    "packets": [
+      {
+        "path": "frontiers/gaussian_lifetime_exponential_tail_20261028",
+        "present": false
+      },
+      {
+        "path": "frontiers/sharp_axial_escape_20261026",
+        "present": false
+      },
+      {
+        "path": "frontiers/essential_gaussian_rate_20261028",
+        "present": false
+      },
+      {
+        "path": "frontiers/all_frame_gaussian_rates_20261028",
+        "present": false
+      },
+      {
+        "path": "frontiers/essential_sharp_asymptotics_20261028",
+        "present": false
+      },
+      {
+        "path": "frontiers/gaussian_lifetime_limit_completion_20261029",
+        "present": false
+      }
+    ]
+  },
+  "source_preservation": {
+    "carrier_commit": "6f6138288a0de2e58f34bd0d6bc8580a57c8a192",
+    "native_run": 40944562973,
+    "native_job": 123696389123,
+    "observed_conclusion": "success",
+    "artifact": 12927939420,
+    "artifact_zip_sha256": "e405459b5d4ee2e1f460b89c80601ff9bd1d59e22f3c4cd1917ae5a8e7649eda"
+  },
+  "quarantines": [
+    {
+      "id": "Q-7522",
+      "title": "Derive Gaussian lifetime exponential tails and sharp axial escape",
+      "status": "QUARANTINED",
+      "repository": "d6g8k5htny-coder/Math-",
+      "source_commit": "223293d9d26a7a4158026a4225523e8a683a8794",
+      "pr": 522,
+      "location": [
+        "223293d9d26a7a4158026a4225523e8a683a8794:docs/superpowers/plans/2026-10-26-sharp-axial-escape.md",
+        "223293d9d26a7a4158026a4225523e8a683a8794:docs/superpowers/plans/2026-10-28-gaussian-lifetime-tail.md",
+        "223293d9d26a7a4158026a4225523e8a683a8794:docs/superpowers/specs/2026-10-26-sharp-axial-escape-design.md",
+        "223293d9d26a7a4158026a4225523e8a683a8794:frontiers/gaussian_lifetime_exponential_tail_20261028/CHECK_NORMAL.json",
+        "223293d9d26a7a4158026a4225523e8a683a8794:frontiers/gaussian_lifetime_exponential_tail_20261028/CHECK_OPTIMIZED.json",
+        "223293d9d26a7a4158026a4225523e8a683a8794:frontiers/gaussian_lifetime_exponential_tail_20261028/PROOF.md",
+        "223293d9d26a7a4158026a4225523e8a683a8794:frontiers/gaussian_lifetime_exponential_tail_20261028/README.md",
+        "223293d9d26a7a4158026a4225523e8a683a8794:frontiers/gaussian_lifetime_exponential_tail_20261028/SOURCES.json",
+        "223293d9d26a7a4158026a4225523e8a683a8794:frontiers/gaussian_lifetime_exponential_tail_20261028/VERIFICATION.md",
+        "223293d9d26a7a4158026a4225523e8a683a8794:frontiers/gaussian_lifetime_exponential_tail_20261028/check_exact.py",
+        "223293d9d26a7a4158026a4225523e8a683a8794:frontiers/sharp_axial_escape_20261026/CHECK_NORMAL.json",
+        "223293d9d26a7a4158026a4225523e8a683a8794:frontiers/sharp_axial_escape_20261026/CHECK_OPTIMIZED.json",
+        "223293d9d26a7a4158026a4225523e8a683a8794:frontiers/sharp_axial_escape_20261026/PROOF.md",
+        "223293d9d26a7a4158026a4225523e8a683a8794:frontiers/sharp_axial_escape_20261026/README.md",
+        "223293d9d26a7a4158026a4225523e8a683a8794:frontiers/sharp_axial_escape_20261026/SOURCES.json",
+        "223293d9d26a7a4158026a4225523e8a683a8794:frontiers/sharp_axial_escape_20261026/VERIFICATION.md",
+        "223293d9d26a7a4158026a4225523e8a683a8794:frontiers/sharp_axial_escape_20261026/check_exact.py"
+      ],
+      "layer_a_status": "A7: conventional source derivations and finite controls are preserved, but no matching kernel-verified continuum theorem may be presented as CLOSED. No new axiom, placeholder proof, float certification or weakened bound is admitted.",
+      "exact_boundary": "The conventional source theorem keeps the SHARP STRICT axial condition r·||g''''||∞ < 24k. Equality at24 is excluded for an axial-only conclusion and a quartic gives the endpoint counterexample; the separate no-tied-critical-height corollary permits leaving the axis. For the original periodized Gaussian, fixed d>=2,L>0 and compact birth/gap/frame families with a positive gap floor, the packet derives determinant-weighted exponential C4-norm control and C·exp(-c/r²) upper bounds for essential probability and each fixed positive-q scaled finite-death moment above the pin gap. The single-moment transfer retains the STRICT order s>4q+3. Every proposition and intermediate lemma asserted in the two exact dated packets remains QUARANTINED with respect to kernel admission; the conventional derivations and exact finite controls are preserved, not refuted. No equivalent infinite-dimensional weighted-Gaussian/ordinary-lifetime theorem is admitted by this baseline.",
+      "blocking_reason": "No kernel derivation of the exact continuum source Gaussian exponential C4-norm estimate, determinant-weighted lifetime event and finite-death moment statements has been supplied. Finite algebra/rational controls do not prove those infinite-dimensional measure/event implications.",
+      "attempted": "The unchanged conventional proof packets and their exact finite controls are preserved at the annotated source snapshot. The six source READMEs and complete native Git blob manifests were read. Prior normal/optimized finite-control and engineering observations remain attributed to the original published descriptions; this quarantine disposition is not a fresh execution of those controls and does not claim a kernel proof. The tooling actually built for this disposition creates exact immutable annotated snapshots and verifies every native remote peel.",
+      "resumption_cost": "Substantial mathematical formalization: define and align the exact source law/event/lifetime objects and construct kernel proofs of the stated continuum probability/limit implications. This is not a missing approval, family review, owner response or administrative task.",
+      "isolation": "All owned dated frontier packets are absent from the complete 4639-entry untruncated production tree at e877242cf68fb24c605066f16dd07f513ee75a1d. They remain isolated in their exact unmerged historical increments and immutable annotated tags. Closed production code does not import these absent packets; no source, theorem, test, bound, scientific register or prerequisite flag is changed by quarantine.",
+      "owner": "none (intentionally unowned)",
+      "maintenance": "zero",
+      "snapshot": {
+        "tag": "cbz-quarantine-q-7522",
+        "tag_object": "f55f2304f4788b759482eee8e3fc70f01211ab82",
+        "peeled_commit": "223293d9d26a7a4158026a4225523e8a683a8794",
+        "native_verification": true
+      },
+      "source_bindings": [
+        {
+          "path": "docs/superpowers/plans/2026-10-26-sharp-axial-escape.md",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "223293d9d26a7a4158026a4225523e8a683a8794",
+          "git_blob_sha": "c7aa29af2be38e78130d55f66e0974546c15845e",
+          "change_type": "added"
+        },
+        {
+          "path": "docs/superpowers/plans/2026-10-28-gaussian-lifetime-tail.md",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "223293d9d26a7a4158026a4225523e8a683a8794",
+          "git_blob_sha": "2658181410f5ec7184c11c299c1a1e418d1dfd20",
+          "change_type": "added"
+        },
+        {
+          "path": "docs/superpowers/specs/2026-10-26-sharp-axial-escape-design.md",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "223293d9d26a7a4158026a4225523e8a683a8794",
+          "git_blob_sha": "10d2a9f5a4208a3b20129fedefb4982e13c4c940",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/gaussian_lifetime_exponential_tail_20261028/CHECK_NORMAL.json",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "223293d9d26a7a4158026a4225523e8a683a8794",
+          "git_blob_sha": "bd49fbe4c3ad81f5d0b04deda624854043ddc153",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/gaussian_lifetime_exponential_tail_20261028/CHECK_OPTIMIZED.json",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "223293d9d26a7a4158026a4225523e8a683a8794",
+          "git_blob_sha": "bd49fbe4c3ad81f5d0b04deda624854043ddc153",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/gaussian_lifetime_exponential_tail_20261028/PROOF.md",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "223293d9d26a7a4158026a4225523e8a683a8794",
+          "git_blob_sha": "b7c9f1dfb3c14301d192df3720d15b76fac6fb78",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/gaussian_lifetime_exponential_tail_20261028/README.md",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "223293d9d26a7a4158026a4225523e8a683a8794",
+          "git_blob_sha": "3fcde1a992733be721b528b04dd5dec39e200a0d",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/gaussian_lifetime_exponential_tail_20261028/SOURCES.json",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "223293d9d26a7a4158026a4225523e8a683a8794",
+          "git_blob_sha": "21331d2617f70a03f68813d709107981ab071fe6",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/gaussian_lifetime_exponential_tail_20261028/VERIFICATION.md",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "223293d9d26a7a4158026a4225523e8a683a8794",
+          "git_blob_sha": "f72b6cf481b3045fd07e0936b223aedb2ad75a13",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/gaussian_lifetime_exponential_tail_20261028/check_exact.py",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "223293d9d26a7a4158026a4225523e8a683a8794",
+          "git_blob_sha": "f13e23b5d171fa335fbb1b87cc48ec8651b60981",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/sharp_axial_escape_20261026/CHECK_NORMAL.json",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "223293d9d26a7a4158026a4225523e8a683a8794",
+          "git_blob_sha": "7197b854e4a93a82b6465a7a539c588b0c1d8781",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/sharp_axial_escape_20261026/CHECK_OPTIMIZED.json",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "223293d9d26a7a4158026a4225523e8a683a8794",
+          "git_blob_sha": "7197b854e4a93a82b6465a7a539c588b0c1d8781",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/sharp_axial_escape_20261026/PROOF.md",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "223293d9d26a7a4158026a4225523e8a683a8794",
+          "git_blob_sha": "5453bc7b70fc2a4c9155f5e48d5060c882d10d2c",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/sharp_axial_escape_20261026/README.md",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "223293d9d26a7a4158026a4225523e8a683a8794",
+          "git_blob_sha": "caa4cf49f02074c46645ecb22b2e7bb8e55ca7c0",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/sharp_axial_escape_20261026/SOURCES.json",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "223293d9d26a7a4158026a4225523e8a683a8794",
+          "git_blob_sha": "2be2d93d7f85db96b7d77b548a798a7909546bdc",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/sharp_axial_escape_20261026/VERIFICATION.md",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "223293d9d26a7a4158026a4225523e8a683a8794",
+          "git_blob_sha": "dd3cf5f300389ebad6a8cfa6a44e901f37246cb1",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/sharp_axial_escape_20261026/check_exact.py",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "223293d9d26a7a4158026a4225523e8a683a8794",
+          "git_blob_sha": "f77bee482e434e67eeba3ded453a01bcbbb76536",
+          "change_type": "added"
+        }
+      ],
+      "literal_source_statements": [
+        {
+          "path": "frontiers/gaussian_lifetime_exponential_tail_20261028/README.md",
+          "git_blob_sha": "3fcde1a992733be721b528b04dd5dec39e200a0d",
+          "text": "# Source-derived Gaussian lifetime tails\n\n[Full proof](PROOF.md) · [Exact sources](SOURCES.json) · [Verification](VERIFICATION.md)\n\nFor the specified periodized Gaussian field in every fixed `d>=2`, on fixed\ncompact birth/gap ranges with the gap bounded away from zero, this candidate\nderives the actual determinant-weighted estimate\n\n    E exp(lambda (1+||f||_C4)^2) <= C.\n\nIt reconstructs the positive full-normalizer floor rather than assuming one.\nTogether with the [sharp axial lemma](../sharp_axial_escape_20261026/PROOF.md),\nthis gives `C exp(-c/r^2)` upper bounds for the essential event and, for each\nfixed `q>0`, the normalized finite-lifetime q-moment above the prescribed gap.\nNo failure-mark convergence or selection-probability estimate is needed for\nthese upper bounds. Constants are not numerically evaluated.\n\nThis is an additive author-side proof. It reuses existing Gaussian-majorant\nideas and preserves posterior drift, correlations, the typed weight and the\nfull normalizer. Different-family scientific review remains pending. It does\nnot establish the broader marked-law limit or an unconditional parent theorem.\n\nFinite algebra controls, using only Python's standard library:\n\n```sh\npython -B -S frontiers/gaussian_lifetime_exponential_tail_20261028/check_exact.py\npython -B -S -O frontiers/gaussian_lifetime_exponential_tail_20261028/check_exact.py\n```\n\nThese verify exact finite identities and counterexamples. The continuum\nGaussian and path-functional arguments are supplied by the proof text.\n"
+        },
+        {
+          "path": "frontiers/sharp_axial_escape_20261026/README.md",
+          "git_blob_sha": "caa4cf49f02074c46645ecb22b2e7bb8e55ca7c0",
+          "text": "# Sharp axial escape: fewer assumptions for one lifetime moment\n\n[Proof](PROOF.md) · [Source identities](SOURCES.json) · [Verification](VERIFICATION.md)\n\nThis additive author-side candidate establishes two bounded improvements:\n\n- With the two exact value pins and zero derivative pins, `rH<24k` guarantees\n  an axial path ending above the birth height with minimum at the lower pin.\n  The old sufficient condition was `rH<=3k`. The constant 24 is sharp, and\n  the strict inequality is essential.\n- For a fixed lifetime power `q>0`, one uniform weighted C4-norm moment at\n  an order `s>4q+3` suffices for the finite-death tail step. All-order moments\n  are unnecessary for this step at a single q. An abstract counterexample\n  shows why the equality case does not suffice from these bounds alone.\n\nThe deterministic result has no stochastic conjecture as a premise. Its\nGaussian application retains the actual source moment and marked-law inputs.\nThis does not make the parent theorem unconditional or supply independent\nscientific review. No scientific status changes.\n\nFrom the repository root, using only the Python standard library:\n\n```sh\npython -B -S frontiers/sharp_axial_escape_20261026/check_exact.py\npython -B -S -O frontiers/sharp_axial_escape_20261026/check_exact.py\n```\n\nThe outputs should be identical. Finite controls are supplemental exact\nalgebra checks; the continuum theorem is proved in the text.\n"
+        }
+      ],
+      "preserved_historical_publication_description": "The lifetime-tail argument previously used a conservative axial condition and imported all-order weighted norm moments. This candidate proves the sharp deterministic condition and derives the needed exponential norm control from the explicit periodized Gaussian source.\n\n- **Sharp escape:** `r ||g''''||_infinity < 24k` gives an axial path ending above birth with minimum at the lower pin. The previous sufficient constant was 3. A quartic proves sharpness and failure at equality for an axial-only conclusion. A separate no-tied-critical-height corollary handles the boundary when the path may leave the axis.\n- **Actual Gaussian tilt:** for fixed `d>=2,L>0`, compact birth/gap ranges with positive gap floor, and all orthonormal frames, derive `E_Pr exp(lambda (1+||f||_C4)^2)<=C`. The proof retains posterior drift/correlations, reconstructs the corrected contact-Hessian full-normalizer floor, and divides by that full normalizer once.\n- **Lifetime consequences:** derive `C exp(-c/r^2)` upper bounds for essential probability and, for each fixed `q>0`, the scaled finite-death q-moment above the pin gap. These upper bounds need no failure-mark weak law, selection estimate or added uniform-integrability premise. The companion single-moment implication only needs order `s>4q+3`, with an abstract endpoint counterexample.\n\nOwned scope is exactly 17 additive files: the two dated frontier packets and three design/plan notes. Existing proofs, scientific registers, workflows and other authors' branches are unchanged. No issue closure or broader parent-theorem promotion is proposed.\n\nActual authors: OpenAI/Codex GPT-6 `/root`, with finite-control support by `/root/axial_technical_check`. Disclosed separate same-family internal critiques found no substantive defect; they do **not** satisfy the required different-family scientific review. No human review or organizational independence is claimed.\n\nValidation: both packets' exact standard-library controls pass in normal and optimized Python with identical reports; source bytes and published Git blobs match. The original Python-3.11 publication-verifier suite could not pass under this environment's Python 3.12, and that limit is preserved. No full-repository or hosted CI result or Lean verification is claimed.\n\nPublication head: `223293d9d26a7a4158026a4225523e8a683a8794`, on main `4a0d51bbd06f0d9ac731a1d1df38f25999797135`. First packet carrier `966798c3` preserves local authorship commit `2cbd6e8`; second preserves local `ef55078`. All 17 publication blobs were compared exactly with the local files.\n\n**Keep Draft:** different-family scientific review remains pending. The marked-law/moment-limit coefficients, global elder/counting joins, noncompact uniformity, matching lower bounds and sharp exponential rates remain outside this result.\n\nContinuation update: #525 adds the sharp essential-action and tiny-gap candidates. Its validation also resolves this packet's earlier Python-3.11 execution limitation: the unchanged publication-verifier suite now passes 10/10 tests in normal mode and 10/10 in optimized mode under Python3.11.17, plus direct replay. The historical failure record and all source/version-gate bytes are preserved. Different-family scientific review remains pending.",
+      "historical_description_boundary": "This is a raw pre-disposition publication description. Its old approval/quorum/keep-draft instructions are superseded by the owner's CBZ directive; they are not a quarantine blocking reason. Its attributed finite observations are not substituted for a fresh final baseline run."
+    },
+    {
+      "id": "Q-7523",
+      "title": "Prove matching essential-event Gaussian scale on coordinate axes",
+      "status": "QUARANTINED",
+      "repository": "d6g8k5htny-coder/Math-",
+      "source_commit": "de872d97fa54eb11c0834b8f532543222900d165",
+      "pr": 523,
+      "location": [
+        "de872d97fa54eb11c0834b8f532543222900d165:docs/superpowers/plans/2026-10-28-essential-gaussian-rate.md",
+        "de872d97fa54eb11c0834b8f532543222900d165:frontiers/essential_gaussian_rate_20261028/CHECK_NORMAL.json",
+        "de872d97fa54eb11c0834b8f532543222900d165:frontiers/essential_gaussian_rate_20261028/CHECK_OPTIMIZED.json",
+        "de872d97fa54eb11c0834b8f532543222900d165:frontiers/essential_gaussian_rate_20261028/PROOF.md",
+        "de872d97fa54eb11c0834b8f532543222900d165:frontiers/essential_gaussian_rate_20261028/README.md",
+        "de872d97fa54eb11c0834b8f532543222900d165:frontiers/essential_gaussian_rate_20261028/SOURCES.json",
+        "de872d97fa54eb11c0834b8f532543222900d165:frontiers/essential_gaussian_rate_20261028/VERIFICATION.md",
+        "de872d97fa54eb11c0834b8f532543222900d165:frontiers/essential_gaussian_rate_20261028/check_exact.py"
+      ],
+      "layer_a_status": "A7: conventional source derivations and finite controls are preserved, but no matching kernel-verified continuum theorem may be presented as CLOSED. No new axiom, placeholder proof, float certification or weakened bound is admitted.",
+      "exact_boundary": "The conventional matching-scale assertion is exp(-C/r²) <= Q_r^W(essential) <= C'·exp(-c/r²), at fixed d>=2,L>0, compact birth/gap ranges with a positive gap floor, and SIGNED COORDINATE AXIAL DIRECTIONS. It uses a literal periodic degree-two exact-pin template, a fixed zero-pin C4 perturbation ball, RKHS norm O(1/r), determinant weight at least w_*r² and the same full normalizer. The template cost is one-sided and is not asserted optimal. Every proposition/intermediate lemma in this exact new packet remains QUARANTINED with respect to kernel admission. Arbitrary directions, noncompact uniformity, optimal action, prefactors and counting joins are not conclusions of this packet.",
+      "blocking_reason": "The literal Fourier/template controls do not provide a kernel proof of the actual conditional Gaussian ball, Cameron-Martin translation, determinant event lower bound and normalizer quotient for the source event.",
+      "attempted": "The unchanged conventional proof packets and their exact finite controls are preserved at the annotated source snapshot. The six source READMEs and complete native Git blob manifests were read. Prior normal/optimized finite-control and engineering observations remain attributed to the original published descriptions; this quarantine disposition is not a fresh execution of those controls and does not claim a kernel proof. The tooling actually built for this disposition creates exact immutable annotated snapshots and verifies every native remote peel.",
+      "resumption_cost": "Substantial mathematical formalization: define and align the exact source law/event/lifetime objects and construct kernel proofs of the stated continuum probability/limit implications. This is not a missing approval, family review, owner response or administrative task.",
+      "isolation": "All owned dated frontier packets are absent from the complete 4639-entry untruncated production tree at e877242cf68fb24c605066f16dd07f513ee75a1d. They remain isolated in their exact unmerged historical increments and immutable annotated tags. Closed production code does not import these absent packets; no source, theorem, test, bound, scientific register or prerequisite flag is changed by quarantine.",
+      "owner": "none (intentionally unowned)",
+      "maintenance": "zero",
+      "snapshot": {
+        "tag": "cbz-quarantine-q-7523",
+        "tag_object": "e30449ce79444baaf6607d03659f3c69db19be9a",
+        "peeled_commit": "de872d97fa54eb11c0834b8f532543222900d165",
+        "native_verification": true
+      },
+      "source_bindings": [
+        {
+          "path": "docs/superpowers/plans/2026-10-28-essential-gaussian-rate.md",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "de872d97fa54eb11c0834b8f532543222900d165",
+          "git_blob_sha": "558f3ad5ebf841ef82f1108bdc314edb4fe26b8f",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/essential_gaussian_rate_20261028/CHECK_NORMAL.json",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "de872d97fa54eb11c0834b8f532543222900d165",
+          "git_blob_sha": "41e229d625c97690c2c6a8d09bcb54675882c7b2",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/essential_gaussian_rate_20261028/CHECK_OPTIMIZED.json",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "de872d97fa54eb11c0834b8f532543222900d165",
+          "git_blob_sha": "41e229d625c97690c2c6a8d09bcb54675882c7b2",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/essential_gaussian_rate_20261028/PROOF.md",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "de872d97fa54eb11c0834b8f532543222900d165",
+          "git_blob_sha": "9d6c1c70fd95669d445fc957978447c2c36bd6c4",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/essential_gaussian_rate_20261028/README.md",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "de872d97fa54eb11c0834b8f532543222900d165",
+          "git_blob_sha": "2fd78d85088cf2011ae72ab4cc6e567e4db27e3a",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/essential_gaussian_rate_20261028/SOURCES.json",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "de872d97fa54eb11c0834b8f532543222900d165",
+          "git_blob_sha": "b893822a19482613937ece194ea9d2dd8f4d57ae",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/essential_gaussian_rate_20261028/VERIFICATION.md",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "de872d97fa54eb11c0834b8f532543222900d165",
+          "git_blob_sha": "2a83e54254b1c5104524f89f096c325505ba3b0c",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/essential_gaussian_rate_20261028/check_exact.py",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "de872d97fa54eb11c0834b8f532543222900d165",
+          "git_blob_sha": "65510e08529a7d343dd6434b8e5df65d5f0ce1f4",
+          "change_type": "added"
+        }
+      ],
+      "literal_source_statements": [
+        {
+          "path": "frontiers/essential_gaussian_rate_20261028/README.md",
+          "git_blob_sha": "2fd78d85088cf2011ae72ab4cc6e567e4db27e3a",
+          "text": "# Matching essential-event probability scale\n\n[Full proof](PROOF.md) · [Exact source identities](SOURCES.json) · [Checks](VERIFICATION.md)\n\nFor the specified periodized Gaussian field, fixed `d>=2,L>0` and compact\nbirth/gap ranges with a positive gap floor, this candidate proves\n\n    exp(-C/r^2) <= Q_r^W(essential) <= C' exp(-c/r^2)\n\nwhen the pin direction is a coordinate axis of the torus. The upper bound\ncomes from [PR522's source-derived tail proof](../gaussian_lifetime_exponential_tail_20261028/PROOF.md).\nThe new result is the matching lower bound, improving the previous\nqualitative positive-probability statement.\n\nAn exact finite-Fourier periodic template has the original pins, a unique\nglobal maximum, the required saddle type, and RKHS norm `O(1/r)`. Its global\nmaximum survives a fixed C4 ball of zero-pin perturbations. Symmetric Gaussian\ntranslation then gives the lower cost without an extra small-ball premise.\n\nThis identifies the logarithmic order `-log(probability)=Theta(r^-2)` at the\nstated scope. It supplies an explicit one-sided template cost, not an optimal\nrate coefficient. Arbitrary torus rotations and noncompact marks are outside\nthis result. Different-family scientific review remains pending; no parent\nstatus or source bytes change.\n\nFinite controls use Python's standard library:\n\n```sh\npython -B -S frontiers/essential_gaussian_rate_20261028/check_exact.py\npython -B -S -O frontiers/essential_gaussian_rate_20261028/check_exact.py\n```\n\nThey check exact pin/Fourier identities, finite rational Taylor enclosures,\nnorm coefficients and source identities. The global and Gaussian probability\narguments are proved in the text.\n"
+        }
+      ],
+      "preserved_historical_publication_description": "The existing essential-event proof established positivity at each fixed separation; PR522 adds a Gaussian upper bound. This candidate supplies the matching lower scale for the actual original determinant-weighted Gaussian law on coordinate axes:\n\n`exp(-C/r^2) <= Q_r^W(essential) <= C' exp(-c/r^2)`.\n\nThe scope is fixed `d>=2,L>0`, compact birth/gap ranges with a positive gap floor, and signed coordinate axial directions. Thus `-log(probability)=Theta(r^-2)` at that scope.\n\nThe new proof constructs a literal degree-two periodic Fourier template satisfying the exact pins, with a unique global maximum, the required saddle type and RKHS norm `O(1/r)`. A fixed C4 ball of zero-pin perturbations preserves the global event and gives `W_r>=w_*r^2`. Centered conditional variance contraction gives that ball probability at least one half; symmetric Cameron-Martin translation gives its true `exp(-C/r^2)` cost. Dividing by the same full normalizer completes the lower bound. No shrinking-small-ball or marked-law hypothesis is assumed. The explicit template cost is one-sided and is not claimed optimal.\n\n**Stacked on #522**, at exact source head `223293d9d26a7a4158026a4225523e8a683a8794`; #522 remains Draft and is not treated as accepted/default source. This PR adds only eight files in the new frontier packet and its plan. Its publication head is `de872d97fa54eb11c0834b8f532543222900d165`, carrying the same eight blobs as local author commit `4bbb295`. Existing source/status/workflow files and foreign branches are unchanged.\n\nValidation: normal and optimized standard-library Python controls pass with identical reports: 12 exact pin/Fourier cases, 24 invalid-template counterexamples, three rigorous rational Taylor enclosures, eight norm identities and seven source identities. All eight published blobs match local files. No full-suite, hosted-CI or Lean result is claimed.\n\nActual authors: OpenAI/Codex GPT-6 `/root`, with template/control support by `essential_template`, Gaussian-cost support by `essential_gaussian_cost`, and reuse corrections by `next_marked_hypothesis`. Separate same-family internal critique found no mathematical blocker and confirmed the explicit lattice-coordinate scope. This does not qualify as different-family scientific review, human review or organizational independence.\n\n**Keep Draft:** required different-family scientific review remains pending. Arbitrary axial directions, noncompact uniformity, optimal rate coefficients, prefactor asymptotics and broader parent acceptance are excluded. Existing conventional marked-law and inverse-moment source proofs are not described as unproved merely because their review/integration is pending.",
+      "historical_description_boundary": "This is a raw pre-disposition publication description. Its old approval/quorum/keep-draft instructions are superseded by the owner's CBZ directive; they are not a quarantine blocking reason. Its attributed finite observations are not substituted for a fresh final baseline run."
+    },
+    {
+      "id": "Q-7524",
+      "title": "Prove all-direction Gaussian rates and global critical-gap split",
+      "status": "QUARANTINED",
+      "repository": "d6g8k5htny-coder/Math-",
+      "source_commit": "5a30296bfc6c9c886d483c87e80e2eb2d9ea047d",
+      "pr": 524,
+      "location": [
+        "5a30296bfc6c9c886d483c87e80e2eb2d9ea047d:docs/superpowers/plans/2026-10-28-all-frame-gaussian-rates.md",
+        "5a30296bfc6c9c886d483c87e80e2eb2d9ea047d:frontiers/all_frame_gaussian_rates_20261028/CHECK_NORMAL.json",
+        "5a30296bfc6c9c886d483c87e80e2eb2d9ea047d:frontiers/all_frame_gaussian_rates_20261028/CHECK_OPTIMIZED.json",
+        "5a30296bfc6c9c886d483c87e80e2eb2d9ea047d:frontiers/all_frame_gaussian_rates_20261028/CRITICAL_WINDOW.md",
+        "5a30296bfc6c9c886d483c87e80e2eb2d9ea047d:frontiers/all_frame_gaussian_rates_20261028/PROOF.md",
+        "5a30296bfc6c9c886d483c87e80e2eb2d9ea047d:frontiers/all_frame_gaussian_rates_20261028/README.md",
+        "5a30296bfc6c9c886d483c87e80e2eb2d9ea047d:frontiers/all_frame_gaussian_rates_20261028/SOURCES.json",
+        "5a30296bfc6c9c886d483c87e80e2eb2d9ea047d:frontiers/all_frame_gaussian_rates_20261028/VERIFICATION.md",
+        "5a30296bfc6c9c886d483c87e80e2eb2d9ea047d:frontiers/all_frame_gaussian_rates_20261028/check_exact.py"
+      ],
+      "layer_a_status": "A7: conventional source derivations and finite controls are preserved, but no matching kernel-verified continuum theorem may be presented as CLOSED. No new axiom, placeholder proof, float certification or weakened bound is admitted.",
+      "exact_boundary": "The conventional all-frame theorem is P(essential),P(finite,X>1)=exp(-Theta(r^-2)), uniformly over directions for fixed d>=2,L>0, compact birth/gap ranges with a positive gap floor, even nonnegative spectrum positive on [-3,3]^d and sum_n sqrt(a_n)(1+|n|)^4<infinity. The beta=k/r>=M statement retains exp(-Theta(beta²)) with the stated finite-moment prefactors. At each fixed tau>0 with k=tau·r, essential and finite-remote limiting probabilities are both positive; for fixed q>0 the displayed scaled finite long-lifetime moment is Theta(r^(-4q-3)). Positive cube-FOUR spectrum is the separate stated genericity input for conditional Morse/distinct critical values and the conventional C4 ordinary-H0 interpretation. Every proposition/intermediate lemma in this exact packet remains QUARANTINED with respect to kernel admission. No full C4-support premise, global inverse-square uniformity across every positive gap, uniform O(r³) failure across every positive gap, counting integration or broader source-model alignment is admitted.",
+      "blocking_reason": "The continuum all-direction right inverse, global barrier/connection stability, conditional Gaussian translation and global finite/essential probability split have conventional source arguments but no matching kernel terms for the exact stated source/event domains.",
+      "attempted": "The unchanged conventional proof packets and their exact finite controls are preserved at the annotated source snapshot. The six source READMEs and complete native Git blob manifests were read. Prior normal/optimized finite-control and engineering observations remain attributed to the original published descriptions; this quarantine disposition is not a fresh execution of those controls and does not claim a kernel proof. The tooling actually built for this disposition creates exact immutable annotated snapshots and verifies every native remote peel.",
+      "resumption_cost": "Substantial mathematical formalization: define and align the exact source law/event/lifetime objects and construct kernel proofs of the stated continuum probability/limit implications. This is not a missing approval, family review, owner response or administrative task.",
+      "isolation": "All owned dated frontier packets are absent from the complete 4639-entry untruncated production tree at e877242cf68fb24c605066f16dd07f513ee75a1d. They remain isolated in their exact unmerged historical increments and immutable annotated tags. Closed production code does not import these absent packets; no source, theorem, test, bound, scientific register or prerequisite flag is changed by quarantine.",
+      "owner": "none (intentionally unowned)",
+      "maintenance": "zero",
+      "snapshot": {
+        "tag": "cbz-quarantine-q-7524",
+        "tag_object": "adc5c7c9219999b7e952b796b4fb72601c51bcd5",
+        "peeled_commit": "5a30296bfc6c9c886d483c87e80e2eb2d9ea047d",
+        "native_verification": true
+      },
+      "source_bindings": [
+        {
+          "path": "docs/superpowers/plans/2026-10-28-all-frame-gaussian-rates.md",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "5a30296bfc6c9c886d483c87e80e2eb2d9ea047d",
+          "git_blob_sha": "dfc6d566d861ce567fb3e9de40707be8f9596a54",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/all_frame_gaussian_rates_20261028/CHECK_NORMAL.json",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "5a30296bfc6c9c886d483c87e80e2eb2d9ea047d",
+          "git_blob_sha": "775a5179fdc373982e4241aef46fb0eaba2e0c26",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/all_frame_gaussian_rates_20261028/CHECK_OPTIMIZED.json",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "5a30296bfc6c9c886d483c87e80e2eb2d9ea047d",
+          "git_blob_sha": "775a5179fdc373982e4241aef46fb0eaba2e0c26",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/all_frame_gaussian_rates_20261028/CRITICAL_WINDOW.md",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "5a30296bfc6c9c886d483c87e80e2eb2d9ea047d",
+          "git_blob_sha": "520e22f219c2a6e63f229fe20755be2188b4ab50",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/all_frame_gaussian_rates_20261028/PROOF.md",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "5a30296bfc6c9c886d483c87e80e2eb2d9ea047d",
+          "git_blob_sha": "65383cce52617d2a1bd908b3b57579debbcc74d6",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/all_frame_gaussian_rates_20261028/README.md",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "5a30296bfc6c9c886d483c87e80e2eb2d9ea047d",
+          "git_blob_sha": "b64a4cfd9a5c730c90f6f114b35a3a8338eec480",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/all_frame_gaussian_rates_20261028/SOURCES.json",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "5a30296bfc6c9c886d483c87e80e2eb2d9ea047d",
+          "git_blob_sha": "a40d14fe2eda28363e23187e7a8270e8e3dc9a01",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/all_frame_gaussian_rates_20261028/VERIFICATION.md",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "5a30296bfc6c9c886d483c87e80e2eb2d9ea047d",
+          "git_blob_sha": "5147344577768d6c182a8dda74c2d92ec09e12f5",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/all_frame_gaussian_rates_20261028/check_exact.py",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "5a30296bfc6c9c886d483c87e80e2eb2d9ea047d",
+          "git_blob_sha": "b3c9d5df9fb9e609749ad5fcdf626ddca9446ce8",
+          "change_type": "added"
+        }
+      ],
+      "literal_source_statements": [
+        {
+          "path": "frontiers/all_frame_gaussian_rates_20261028/README.md",
+          "git_blob_sha": "b64a4cfd9a5c730c90f6f114b35a3a8338eec480",
+          "text": "# All directions, rare lifetimes and the critical-gap split\n\n[Main proof](PROOF.md) · [Critical window](CRITICAL_WINDOW.md) ·\n[Exact sources](SOURCES.json) · [Verification](VERIFICATION.md)\n\nThis author-side packet extends PR522/523 for the original Gaussian\nregression at the two value/full-gradient pins and its full typed\ndeterminant weight. It proves the following without a marked-law or\nfull-C4-support assumption.\n\n| Regime | Result |\n| --- | --- |\n| Compact birth/gap ranges, gap bounded away from zero | Essential probability and finite long-lifetime probability both have matching `exp(-Theta(r^-2))` scale, uniformly over every direction. |\n| `beta=k/r>=M` for a fixed sufficiently large `M` | Both probabilities have matching `exp(-Theta(beta^2))` scale. The proof retains the moment prefactors. |\n| Every fixed `tau>0`, `k=tau r`, then `r->0` | Explicit contact-field formulas split essentiality from finite remote connections; each has positive limiting probability. For fixed `q>0`, `r^-3 E[X^q;finite,X>1]=Theta(r^-4q-3)`. |\n\nThe declared class is a fixed centered stationary real Gaussian field on a\nfixed cubic torus in dimension `d>=2`, with even nonnegative spectrum,\nstrict positivity on the finite frequency cube `[-3,3]^d`, and\n`sum sqrt(a_n)(1+|n|)^4<infinity`. It includes sufficiently rich band-limited\nfields. Constants can depend on that fixed spectrum, dimension and torus.\nUnder positivity on cube four, a conditional Gaussian mesh argument also\nderives Morse/distinct-critical-value genericity at each fixed pin target\nand gives the conventional ordinary-H0 interpretation.\n\nThe all-direction construction uses genuine lattice Fourier modes and an\nexact uniformly bounded pin right inverse. Its global maximum or separating\nbarrier survives a fixed zero-pin C4 ball. Gaussian translation and actual\ndeterminant/normalizer estimates supply the lower rates. The critical-window\naddition combines a fixed-neighborhood Hermite argument with off-contact\nGaussian genericity to identify the GLOBAL essential event.\n\nThe quartic cusp model, typed contact weight and local elder decision are\nexisting mathematics in `cusp_second_order_20261001`, and remain attributed\nthere. The addition is their global finite/essential split and the explicit\nC4 finite-spectrum scope. Along `k=tau r`, the positive essential limit\nalso rules out uniform inverse-square decay, or uniform `O(r^3)` pairing\nfailure, across all positive gaps.\n\nThe results are conventional proof candidates with exact finite author\ncontrols and separate same-family technical critique. Different-family\nscientific review is pending. This packet supplies no status promotion,\nformal-kernel result, optimal exponential coefficient or joint small-tau\nasymptotic. Existing proof, workflow and status files are preserved.\n\nRun the standard-library finite controls with:\n\n```sh\npython -B -S frontiers/all_frame_gaussian_rates_20261028/check_exact.py\npython -B -S -O frontiers/all_frame_gaussian_rates_20261028/check_exact.py\n```\n"
+        }
+      ],
+      "preserved_historical_publication_description": "The coordinate-axis lower bound in #523 leaves arbitrary torus directions and finite long lifetimes untreated. This packet proves matching essential and finite-long-lifetime probability scales for every direction, and resolves the actual global finite/essential split at each fixed critical gap ratio.\n\nFor fixed `d>=2,L>0`, compact birth/gap ranges with a positive gap floor, and the stated fixed covariance class:\n`P(essential),P(finite,X>1)=exp(-Theta(r^-2))`, uniformly over all directions.\nThe class requires even nonnegative spectrum, positive weights on `[-3,3]^d`, and `sum sqrt(a_n)(1+|n|)^4<infinity`; it includes sufficiently rich band-limited fields.\n\nThe proof uses genuine lattice Fourier templates, a uniform exact pin right inverse, global maximum/barrier stability under a fixed zero-pin C4 ball, the literal endpoint Hessians and determinant weight, the full normalizer, and symmetric conditional Cameron–Martin translation. No marked-law or full-C4-support premise is assumed.\n\nFurther results:\n\n- For `beta=k/r>=M`, matching `exp(-Theta(beta^2))` probabilities, with explicit finite-moment prefactors.\n- At every fixed `tau>0`, `k=tau r`, explicit contact-field limits distinguish essential bars from finite remote connections. Both have positive limiting probability, and `r^-3 E[X^q;finite,X>1]=Theta(r^-4q-3)` for fixed positive q.\n- These lower bounds rule out uniform inverse-square decay or uniform O(r^3) pairing failure across all positive gaps.\n- Positive cube-four spectrum derives conditional Morse/distinct-critical-value genericity at every fixed pin target, and a conventional C4 ordinary-H0 interpretation.\n\nThe quartic cusp model, typed weight/normalizer and local elder sector are already in `cusp_second_order_20261001` CU.2–CU.4. They remain credited there. The new critical-window contribution is the global distinction, using a fixed-neighborhood Hermite argument and off-contact Gaussian genericity, together with the explicit C4 finite-spectrum scope.\n\n**Stacked on #523**, exact base `de872d97fa54eb11c0834b8f532543222900d165`. Publication head `5a30296bfc6c9c886d483c87e80e2eb2d9ea047d` carries the same nine additive blobs as local author commit `238c7078b5e0f8c09a1b31dd610a27606ce59895`. All nine GitHub blob identities were compared with the local committed files. No existing proof, workflow, register or premise flag changes.\n\nValidation: normal and optimized standard-library Python controls exit zero with byte-identical reports. They cover exact contact/right-inverse and augmented-jet ranks at six rational frames, formal pin errors, invalid coefficient/cube counterexamples, projection/global-margin identities, 144 critical Schur/type fixtures and thirteen source identities. Three fresh same-family technical readers found no remaining blocker in their assigned final scopes; three literal wording/constant errors were repaired and read back. These finite controls do not certify the continuum or Gaussian probability arguments.\n\nActual authors: OpenAI/Codex GPT-6 /root, with author support from essential_template, essential_gaussian_cost and next_marked_hypothesis. Internal readers: all_frame_main_check, gap_and_genericity_check and critical_global_check. All are the same provider/model family; no different-family, human or organizational-independence credit is claimed.\n\n**Keep Draft:** qualifying different-family scientific review remains pending. Optimal exponential coefficients, joint tiny-gap essential-share asymptotics, cross-spectrum/dimension/volume uniformity and general counting integration remain separate questions. No Ready transition, merge clearance, formal-kernel result or broader scientific closure is claimed.\n\nContinuation update: #525 supplies a sharp fixed-parameter essential-action variational limit and the ordered small-critical-gap square-root essential share. This PR's proof bytes remain unchanged. All four hosted checks on #524 and #525 succeeded; different-family scientific review remains pending.",
+      "historical_description_boundary": "This is a raw pre-disposition publication description. Its old approval/quorum/keep-draft instructions are superseded by the owner's CBZ directive; they are not a quarantine blocking reason. Its attributed finite observations are not substituted for a fresh final baseline run."
+    },
+    {
+      "id": "Q-7525",
+      "title": "Identify sharp essential action and tiny-gap square-root law",
+      "status": "QUARANTINED",
+      "repository": "d6g8k5htny-coder/Math-",
+      "source_commit": "fc5ecb67f4a9d6cfb1dec066499ca2daa1147b3b",
+      "pr": 525,
+      "location": [
+        "fc5ecb67f4a9d6cfb1dec066499ca2daa1147b3b:docs/superpowers/plans/2026-10-28-essential-sharp-asymptotics.md",
+        "fc5ecb67f4a9d6cfb1dec066499ca2daa1147b3b:frontiers/essential_sharp_asymptotics_20261028/CHECK_NORMAL.json",
+        "fc5ecb67f4a9d6cfb1dec066499ca2daa1147b3b:frontiers/essential_sharp_asymptotics_20261028/CHECK_OPTIMIZED.json",
+        "fc5ecb67f4a9d6cfb1dec066499ca2daa1147b3b:frontiers/essential_sharp_asymptotics_20261028/README.md",
+        "fc5ecb67f4a9d6cfb1dec066499ca2daa1147b3b:frontiers/essential_sharp_asymptotics_20261028/SHARP_ACTION.md",
+        "fc5ecb67f4a9d6cfb1dec066499ca2daa1147b3b:frontiers/essential_sharp_asymptotics_20261028/SOURCES.json",
+        "fc5ecb67f4a9d6cfb1dec066499ca2daa1147b3b:frontiers/essential_sharp_asymptotics_20261028/TINY_GAP.md",
+        "fc5ecb67f4a9d6cfb1dec066499ca2daa1147b3b:frontiers/essential_sharp_asymptotics_20261028/VERIFICATION.md",
+        "fc5ecb67f4a9d6cfb1dec066499ca2daa1147b3b:frontiers/essential_sharp_asymptotics_20261028/check_exact.py"
+      ],
+      "layer_a_status": "A7: conventional source derivations and finite controls are preserved, but no matching kernel-verified continuum theorem may be presented as CLOSED. No new axiom, placeholder proof, float certification or weakened bound is admitted.",
+      "exact_boundary": "The conventional fixed-parameter action statement is r² log P_r(essential) -> -I(k,u) for fixed birth b, gap k>0 and direction u in the stated C4/cube-three class. I(k,u) is the minimum stated source RKHS energy over globally nonpositive profiles with zero value/axial Hessian and axial fourth derivative <=-24k; I(k,u)=k² I(1,u), with b-independence as stated. The tiny-gap claim is ORDERED: first r->0 at fixed k=tau·r, then tau->0, giving p_E(tau)~C_E·sqrt(tau), C_E positive and finite. That second claim strengthens the assumptions to C6 summability and positive cube-four spectrum. Every proposition/intermediate lemma in this exact packet remains QUARANTINED with respect to kernel admission. Numerical coefficients, probability prefactors, joint/moving-parameter uniformity, exchanged limits and counting intensities are excluded.",
+      "blocking_reason": "The moving Gaussian LDP, exact-pin strict recovery and global RKHS variational argument, and the nonlinear contact disintegration/sextic global-indicator argument with its ordered-limit passage, lack equivalent kernel derivations for these exact source objects.",
+      "attempted": "The unchanged conventional proof packets and their exact finite controls are preserved at the annotated source snapshot. The six source READMEs and complete native Git blob manifests were read. Prior normal/optimized finite-control and engineering observations remain attributed to the original published descriptions; this quarantine disposition is not a fresh execution of those controls and does not claim a kernel proof. The tooling actually built for this disposition creates exact immutable annotated snapshots and verifies every native remote peel.",
+      "resumption_cost": "Substantial mathematical formalization: define and align the exact source law/event/lifetime objects and construct kernel proofs of the stated continuum probability/limit implications. This is not a missing approval, family review, owner response or administrative task.",
+      "isolation": "All owned dated frontier packets are absent from the complete 4639-entry untruncated production tree at e877242cf68fb24c605066f16dd07f513ee75a1d. They remain isolated in their exact unmerged historical increments and immutable annotated tags. Closed production code does not import these absent packets; no source, theorem, test, bound, scientific register or prerequisite flag is changed by quarantine.",
+      "owner": "none (intentionally unowned)",
+      "maintenance": "zero",
+      "snapshot": {
+        "tag": "cbz-quarantine-q-7525",
+        "tag_object": "e7a6918da1ef61402fd412de9d4e5d2a39456fdd",
+        "peeled_commit": "fc5ecb67f4a9d6cfb1dec066499ca2daa1147b3b",
+        "native_verification": true
+      },
+      "source_bindings": [
+        {
+          "path": "docs/superpowers/plans/2026-10-28-essential-sharp-asymptotics.md",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "fc5ecb67f4a9d6cfb1dec066499ca2daa1147b3b",
+          "git_blob_sha": "b0926171c357a0d7f7a098a0a4bda3146c41e33a",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/essential_sharp_asymptotics_20261028/CHECK_NORMAL.json",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "fc5ecb67f4a9d6cfb1dec066499ca2daa1147b3b",
+          "git_blob_sha": "e9906d5fcc17458d09d53fb0eb883c24ee673ad3",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/essential_sharp_asymptotics_20261028/CHECK_OPTIMIZED.json",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "fc5ecb67f4a9d6cfb1dec066499ca2daa1147b3b",
+          "git_blob_sha": "e9906d5fcc17458d09d53fb0eb883c24ee673ad3",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/essential_sharp_asymptotics_20261028/README.md",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "fc5ecb67f4a9d6cfb1dec066499ca2daa1147b3b",
+          "git_blob_sha": "f7871a4e3db09ce7951b5c54490019ecd3418724",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/essential_sharp_asymptotics_20261028/SHARP_ACTION.md",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "fc5ecb67f4a9d6cfb1dec066499ca2daa1147b3b",
+          "git_blob_sha": "472016cb579e1de87f0993e9d1cfbe3ce315f7c5",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/essential_sharp_asymptotics_20261028/SOURCES.json",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "fc5ecb67f4a9d6cfb1dec066499ca2daa1147b3b",
+          "git_blob_sha": "c12767031488595b0fd390d808b96bfb481881b6",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/essential_sharp_asymptotics_20261028/TINY_GAP.md",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "fc5ecb67f4a9d6cfb1dec066499ca2daa1147b3b",
+          "git_blob_sha": "3974efb3b21d547766498a1c97651f5f1ad6a687",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/essential_sharp_asymptotics_20261028/VERIFICATION.md",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "fc5ecb67f4a9d6cfb1dec066499ca2daa1147b3b",
+          "git_blob_sha": "9dc3f712be195b54b936d5e2fbdd41077550f84e",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/essential_sharp_asymptotics_20261028/check_exact.py",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "fc5ecb67f4a9d6cfb1dec066499ca2daa1147b3b",
+          "git_blob_sha": "f7f0971d67ad3c51eee37a6c6be4a460e7dc147f",
+          "change_type": "added"
+        }
+      ],
+      "literal_source_statements": [
+        {
+          "path": "frontiers/essential_sharp_asymptotics_20261028/README.md",
+          "git_blob_sha": "f7871a4e3db09ce7951b5c54490019ecd3418724",
+          "text": "# Sharp essential-event asymptotics\n\n[Sharp Gaussian action](SHARP_ACTION.md) · [Vanishing critical gap](TINY_GAP.md) ·\n[Exact sources](SOURCES.json) · [Verification](VERIFICATION.md)\n\nThis additive author-side continuation resolves two quantitative questions\nleft by PR524. It uses the original pinned Gaussian law and full typed\ndeterminant weight, preserving every predecessor proof file.\n\n| Question | Result | Explicit scope |\n| --- | --- | --- |\n| Does the fixed-gap exponential coefficient have a limit? | `r^2 log P_r(essential) -> -I(k,u)`, with an exact constrained RKHS variational formula and `I(k,u)=k^2 I(1,u)`. It is independent of birth height. | Each fixed birth, positive gap mark and direction; the predecessor's C4/cube-three spectral class. |\n| How much essential mass survives as the critical ratio vanishes? | `p_E(tau) ~ C_E sqrt(tau)`, with an explicit positive finite contact-density integral for `C_E`. | First `r->0` at fixed `k=tau r`, then `tau->0`; C6 summability and positive cube-four spectrum. |\n\nBoth classes contain the original periodized Gaussian and explicitly stated\nfinite Fourier fields. Neither result assumes full function-space support,\ninverse-matrix moments or an unproved marked law.\n\nThe sharp action proof extracts a shrinking-scale quartic constraint that a\nnaive global Gaussian cone would miss. Inversion symmetry and strict recovery\nprofiles then match the upper and lower Gaussian energies. The small-gap\nproof separates a fifth-derivative window, controls soft transverse blocks\nthrough the actual determinant weight, and proves a sextic criterion in a\nfixed neighborhood before using the global gap.\n\nThe quartic cusp weight, its normalization288 and the quintic ridge formula\nare existing mathematics and remain explicitly attributed. The additions\nare the sharp global action and the actual global square-root essential\nshare. The energy minimum and density coefficient are characterized exactly;\nno numerical evaluation, probability prefactor or joint `r,tau` limit is\nclaimed.\n\nAll four hosted checks on predecessor PR524 succeeded, and its dependency\naudit found no missing hypothesis within its stated claims. Different-family\nscientific review remains pending for this stack. Same-family internal\ncritique and exact finite controls provide error detection, not acceptance.\n\n```sh\npython -B -S frontiers/essential_sharp_asymptotics_20261028/check_exact.py\npython -B -S -O frontiers/essential_sharp_asymptotics_20261028/check_exact.py\n```\n\nThese standard-library controls check finite algebra and source identities.\nThe large-deviation, global-geometry and probability arguments are in the\ntwo proof texts, not certified by the script.\n"
+        }
+      ],
+      "preserved_historical_publication_description": "PR524 leaves the optimal fixed-gap exponential coefficient and the small-critical-gap global essential share undetermined. This additive packet supplies conventional proof candidates for both.\n\n- **Sharp action:** for each fixed birth `b`, positive gap mark `k` and direction `u`, `r^2 log P_r(essential) -> -I(k,u)`. The coefficient is the minimum source RKHS energy over globally nonpositive profiles with value/axial Hessian zero and axial fourth derivative at most `-24k`. It satisfies `I(k,u)=k^2 I(1,u)` and is independent of `b`.\n- **Vanishing critical ratio:** first take `r->0` at fixed `k=tau r`, then `tau->0`. The actual global essential share satisfies `p_E(tau) ~ C_E sqrt(tau)`, with an explicit positive finite contact-density integral for `C_E`.\n\nThe action theorem uses PR524's fixed C4/cube-three spectral class. The square-root law explicitly strengthens it to C6 summability and positive cube-four spectrum. Both include the original periodized Gaussian and stated finite Fourier fields. No full function-space support, inverse-matrix moment or unproved marked-law premise is used.\n\nThe sharp proof combines a moving Gaussian LDP, the exact Hermite constraint at2r, inversion symmetry of the energy minimizer, and strict exact-pin recovery profiles with the original determinant weight. The small-gap proof supplies nonlinear contact disintegration/Jacobian1440, determinant cancellation over all soft transverse blocks, and a fixed-neighborhood sextic/global indicator argument. Existing cusp weights, normalization288 and quintic ridge formula Q1 remain attributed to their sources.\n\n**Stacked on #524**, exact base `5a30296bfc6c9c886d483c87e80e2eb2d9ea047d`. Published head `fc5ecb67f4a9d6cfb1dec066499ca2daa1147b3b`, tree `23c62100af251574cec1e14f3f9e493ab466abb3`, carries the same nine additive blobs as local author commit `5bc29c3b12a7ed4bf1d9a780cc64c71e136bd718`. All nine native blob identities match. Existing proof, workflow, register and premise files are unchanged.\n\nValidation: normal and optimized standard-library Python controls exit zero with byte-identical reports; nineteen exact source identities and43 invalid fixtures are checked, alongside Hermite, finite Fourier Gram/action, recovery, quintic, sextic and exact radical-integral algebra. These do not certify the continuum probability proofs. All four hosted checks for this head have now succeeded: math-hypergraph, downstream-replay, formal / formal-evidence and the required math-downstream-gates aggregate. The actual tested merge is `4d8435d077c410c5312df1c53360610b1838dfe7`, with this exact publication tree and parents base/head. The aggregate binds both dependencies to that tested commit and formal receipt SHA256 `056e66bdd9dd77e27f777220ac7bb2747268f9f5c512e3a6fe2db41fbe1fa281`. These are scoped engineering outcomes, not formal verification of the new theorems.\n\nThe earlier Python-3.11 execution limitation is also resolved: Python3.11.17 was installed separately, and the UNCHANGED lifetime publication-verifier suite passes all10 tests in normal mode and all10 in optimized mode. Its direct two-mode replay passes, and the new finite checker produces the identical report under Python3.11 and3.12. The historical failure record, exact receipt expectations, tests and version gate are preserved.\n\nActual authors: OpenAI/Codex GPT-6 /root and tiny_gap_route; author support by sharp_rate_route and asymptotic_controls. Fresh nonconstructing same-family readers sharp_action_check and tiny_gap_check found no substantive blocker in their exact final scopes. Requested ambient-set/source-record and envelope-wording clarifications were resolved and read back. All contributors are the same provider/model family; no human, different-family or organizational-independence credit is claimed.\n\n**Keep Draft:** different-family scientific review remains pending. No Ready, merge or scientific-status transition. The results characterize the coefficients; they do not numerically evaluate them, give probability prefactors, prove uniform moving-parameter convergence, exchange the two limits or integrate counting intensities.",
+      "historical_description_boundary": "This is a raw pre-disposition publication description. Its old approval/quorum/keep-draft instructions are superseded by the owner's CBZ directive; they are not a quarantine blocking reason. Its attributed finite observations are not substituted for a fresh final baseline run."
+    },
+    {
+      "id": "Q-7526",
+      "title": "Complete finite-lifetime moment limits and match essential actions",
+      "status": "QUARANTINED",
+      "repository": "d6g8k5htny-coder/Math-",
+      "source_commit": "fdddc7e6b1fd584fa566beaccedd64d177104d10",
+      "pr": 526,
+      "location": [
+        "fdddc7e6b1fd584fa566beaccedd64d177104d10:docs/superpowers/plans/2026-10-29-gaussian-lifetime-limit-completion.md",
+        "fdddc7e6b1fd584fa566beaccedd64d177104d10:frontiers/gaussian_lifetime_limit_completion_20261029/CHECK_NORMAL.json",
+        "fdddc7e6b1fd584fa566beaccedd64d177104d10:frontiers/gaussian_lifetime_limit_completion_20261029/CHECK_OPTIMIZED.json",
+        "fdddc7e6b1fd584fa566beaccedd64d177104d10:frontiers/gaussian_lifetime_limit_completion_20261029/INVERSE_MOMENTS.md",
+        "fdddc7e6b1fd584fa566beaccedd64d177104d10:frontiers/gaussian_lifetime_limit_completion_20261029/LARGE_RATIO.md",
+        "fdddc7e6b1fd584fa566beaccedd64d177104d10:frontiers/gaussian_lifetime_limit_completion_20261029/README.md",
+        "fdddc7e6b1fd584fa566beaccedd64d177104d10:frontiers/gaussian_lifetime_limit_completion_20261029/SOURCES.json",
+        "fdddc7e6b1fd584fa566beaccedd64d177104d10:frontiers/gaussian_lifetime_limit_completion_20261029/VERIFICATION.md",
+        "fdddc7e6b1fd584fa566beaccedd64d177104d10:frontiers/gaussian_lifetime_limit_completion_20261029/check_exact.py"
+      ],
+      "layer_a_status": "A7: conventional source derivations and finite controls are preserved, but no matching kernel-verified continuum theorem may be presented as CLOSED. No new axiom, placeholder proof, float certification or weakened bound is admitted.",
+      "exact_boundary": "For the original periodized Gaussian on compact birth/gap/frame families with a POSITIVE GAP FLOOR, the conventional uniform estimate is P_r(F_r,0<X_r<=t)<=C·r³·t^(2/3), for small r and 0<t<=1, using the ACTUAL lifetime, original typed determinant and FULL normalizer. The contact-limit statement retains every real q>-2/3; inverse orders are 0<p<2/3, and the credited fixed-r prelimit divergence for q<=-2/3 is not weakened. Essential infinite lifetimes are excluded. The separate sharp-action bridge is tau^-2 log p_E(tau;b,u)->-I(1,u), with fixed direction and the stated compact-birth uniformity in the C4/cube-three class, under ORDERED limits rather than a joint moving-parameter limit. The different fourth-power law concerns a further sequential distant-partner limit. Every proposition/intermediate lemma in this exact packet remains QUARANTINED with respect to kernel admission; no whole-program alignment or counting/joint-limit result is admitted.",
+      "blocking_reason": "The uniform small-lifetime endpoint/rare/far-sector estimate and inverse-moment uniform-integrability passage, and the separate large-tau source-event/action limit, lack equivalent kernel terms for the exact stated weighted law and ordered limits.",
+      "attempted": "The unchanged conventional proof packets and their exact finite controls are preserved at the annotated source snapshot. The six source READMEs and complete native Git blob manifests were read. Prior normal/optimized finite-control and engineering observations remain attributed to the original published descriptions; this quarantine disposition is not a fresh execution of those controls and does not claim a kernel proof. The tooling actually built for this disposition creates exact immutable annotated snapshots and verifies every native remote peel.",
+      "resumption_cost": "Substantial mathematical formalization: define and align the exact source law/event/lifetime objects and construct kernel proofs of the stated continuum probability/limit implications. This is not a missing approval, family review, owner response or administrative task.",
+      "isolation": "All owned dated frontier packets are absent from the complete 4639-entry untruncated production tree at e877242cf68fb24c605066f16dd07f513ee75a1d. They remain isolated in their exact unmerged historical increments and immutable annotated tags. Closed production code does not import these absent packets; no source, theorem, test, bound, scientific register or prerequisite flag is changed by quarantine.",
+      "owner": "none (intentionally unowned)",
+      "maintenance": "zero",
+      "snapshot": {
+        "tag": "cbz-quarantine-q-7526",
+        "tag_object": "86651fa51da980dea8321f8a7b9c3626116b70bf",
+        "peeled_commit": "fdddc7e6b1fd584fa566beaccedd64d177104d10",
+        "native_verification": true
+      },
+      "source_bindings": [
+        {
+          "path": "docs/superpowers/plans/2026-10-29-gaussian-lifetime-limit-completion.md",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "fdddc7e6b1fd584fa566beaccedd64d177104d10",
+          "git_blob_sha": "bc763beb3b70586b45f36e99ead3c68ceb8acab0",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/gaussian_lifetime_limit_completion_20261029/CHECK_NORMAL.json",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "fdddc7e6b1fd584fa566beaccedd64d177104d10",
+          "git_blob_sha": "7ab551e318e86926787eb35826b39d0c33852602",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/gaussian_lifetime_limit_completion_20261029/CHECK_OPTIMIZED.json",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "fdddc7e6b1fd584fa566beaccedd64d177104d10",
+          "git_blob_sha": "7ab551e318e86926787eb35826b39d0c33852602",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/gaussian_lifetime_limit_completion_20261029/INVERSE_MOMENTS.md",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "fdddc7e6b1fd584fa566beaccedd64d177104d10",
+          "git_blob_sha": "0aace7f578b572d71f16d7fac61eb3bd5cf1a941",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/gaussian_lifetime_limit_completion_20261029/LARGE_RATIO.md",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "fdddc7e6b1fd584fa566beaccedd64d177104d10",
+          "git_blob_sha": "a8f4b3b396747489ebe0656ed93715386e73d0b5",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/gaussian_lifetime_limit_completion_20261029/README.md",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "fdddc7e6b1fd584fa566beaccedd64d177104d10",
+          "git_blob_sha": "0eb7bbb6b5a5c4e32fbe219fb081fb30553bd743",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/gaussian_lifetime_limit_completion_20261029/SOURCES.json",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "fdddc7e6b1fd584fa566beaccedd64d177104d10",
+          "git_blob_sha": "fa267cf6f773c5660ad66947b43dc3066bc53b08",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/gaussian_lifetime_limit_completion_20261029/VERIFICATION.md",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "fdddc7e6b1fd584fa566beaccedd64d177104d10",
+          "git_blob_sha": "66211985f2cc7ffe0818c8214761e01699b72687",
+          "change_type": "added"
+        },
+        {
+          "path": "frontiers/gaussian_lifetime_limit_completion_20261029/check_exact.py",
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "fdddc7e6b1fd584fa566beaccedd64d177104d10",
+          "git_blob_sha": "9f10e31e8575fa1ed002505c7ab1764c61ee9b2f",
+          "change_type": "added"
+        }
+      ],
+      "literal_source_statements": [
+        {
+          "path": "frontiers/gaussian_lifetime_limit_completion_20261029/README.md",
+          "git_blob_sha": "0eb7bbb6b5a5c4e32fbe219fb081fb30553bd743",
+          "text": "# Completing the lifetime moment limits\n\n[Uniform inverse moments](INVERSE_MOMENTS.md) · [Large-ratio action bridge](LARGE_RATIO.md) ·\n[Exact sources](SOURCES.json) · [Verification](VERIFICATION.md)\n\nThis additive candidate closes the missing uniform-integrability step for\ninverse moments of the actual finite-death failure law. It also connects\nthe critical-window essential event to the sharp Gaussian action.\n\n| Result | Scope |\n| --- | --- |\n| `P_r(F_r,0<X_r<=t) <= C r^3 t^(2/3)`, `0<t<=1` | Original periodized Gaussian; fixed dimension/torus, compact birth/gap ranges with gaps bounded away from zero, every frame, uniformly for small separation. |\n| `r^-3 E[X_r^-p;F_r,finite] -> integral lambda^-p dmu_fail` for `0<p<2/3` | Each fixed parameter choice, using the existing actual marked law. Conditional moments converge after division by its positive failure mass. |\n| `tau^-2 log p_E(tau;b,u) -> -I(1,u)` | The preceding C4/cube-three spectral class, fixed direction and compact births; first take the contact limit at fixed critical ratio, then let that ratio grow. |\n\nHere `F_r` means the prescribed saddle is not the actual elder partner,\n`X_r=(b-d_f(M))/(k r^3)`, and the original typed determinant weight and full\nnormalizer are retained. The short-lifetime proof controls all tail sectors,\nincluding a separate scalar hard-block argument. It uses no inverse hard\neigenvalue moment or assumed independence between the field norm and Hessian.\n\nTogether with the existing positive-moment theorem [POSITIVE, Section3] and\nthe existing failure-mass limit, the new inverse result gives the complete\nfinite-valued moment convergence range for this finite-failure convention:\n\n    r^-3 E_Pr[X_r^q;F_r,ell_r finite]\n                       -> integral lambda^q dmu_fail,\n    E_Pr[X_r^q | F_r,ell_r finite]\n                       -> (1/a_fail) integral lambda^q dmu_fail,\n                                      every real q>-2/3.\n\nThe three cases are the new inverse theorem for negative q, the known mass\nlimit for q=0, and the already proved positive-moment transfer for q>0.\nFor q<=-2/3 the prelimit finite-failure moment is infinite at each fixed\npositive separation, so there is no corresponding finite-valued convergence\nclaim. The essential class is explicitly excluded; including its infinite\nlifetime would change positive moments. The separate fourth-power endpoint\nlaw concerns additional sequential distant-partner conditioning.\n\nThe large-ratio theorem matches the SAME constrained RKHS energy `I(1,u)`\nas the fixed-positive-gap rare-event theorem. It gives an ordered bridge,\nwith compact-birth uniformity for the contact share, and does not exchange\nthe separation and critical-ratio limits.\n\nBoth arguments are conventional author-side candidates. Fresh same-family\ntechnical checks provide error detection; different-family scientific review\nremains pending. No existing proof, workflow, status or premise file changes.\n\n```sh\npython -B -S frontiers/gaussian_lifetime_limit_completion_20261029/check_exact.py\npython -B -S -O frontiers/gaussian_lifetime_limit_completion_20261029/check_exact.py\n```\n\nThe standard-library script checks finite algebra and source identities.\nThe Gaussian, geometric and limiting-measure arguments are in the proof text.\n"
+        }
+      ],
+      "preserved_historical_publication_description": "The actual finite-lifetime theorem had a fixed-separation inverse-moment boundary, but lacked the uniform estimate needed to pass to the contact limit. This packet proves that estimate and completes the finite-failure moment transfer.\n\nFor the original periodized Gaussian, fixed dimension/torus and compact birth/gap/frame families with a positive gap floor:\n`P_r(F_r,0<X_r<=t) <= C r^3 t^(2/3)`, uniformly for small r and `0<t<=1`.\nThe proof retains the actual lifetime, original typed determinant and FULL normalizer, enlarged desingularized endpoint regression, exact maximum Schur edge and every rare/scalar far sector.\n\nIt follows that the actual finite-failure inverse moments converge for every `0<p<2/3`. Together with the EXISTING positive-moment theorem and failure-mass law, this gives\n`r^-3 E[X_r^q;F_r,finite] -> integral lambda^q dmu_fail`\nand the corresponding conditional limit for EVERY REAL `q>-2/3`, at each fixed parameter choice. The prelimit moments for `q<=-2/3` are already infinite. Essential infinite lifetimes are explicitly excluded. The different fourth-power endpoint law is a further sequential distant-partner law, not a competing fixed-r threshold.\n\nA second proof establishes\n`tau^-2 log p_E(tau;b,u) -> -I(1,u)`,\nwith direction fixed and compact-birth uniformity in the stated C4/cube-three spectral class. The critical-window and fixed-positive-gap essential events thus have the same sharp global RKHS action. The limits are ORDERED; no joint r,tau or moving-direction uniformity is asserted. Existing total rejected polynomial tails and negative-sector Gaussian upper bounds remain credited.\n\n**Stacked on #525**, exact base `fc5ecb67f4a9d6cfb1dec066499ca2daa1147b3b`. Publication head `fdddc7e6b1fd584fa566beaccedd64d177104d10`, tree `eca6cd9ffcfb47eb1a2954d452d056e2c406ff27`, carries the same nine additive blobs as local author commit `41f194a3eb9a0ccdfdf37e019b6f77ce54bfd8ad`. All nine native Git blob identities match; no existing source, proof, workflow, register or premise file changes.\n\nValidation: Python3.11.17 normal and optimized standard-library controls exit zero with byte-identical reports, eighteen source identities and both proof hashes. Controls include exact endpoint kernels, Schur/PSD identities, retained tail and Jacobian exponents, scalar far counterexamples, inverse-truncation boundary and contact-weight homogeneity. The aggregate count includes overlapping categories and is not a count of independent tests; no finite case certifies the continuum results. Current-head hosted checks remain to be read back.\n\nActual authors: OpenAI/Codex GPT-6 /root, inverse_uniform_route and large_tau_bridge, with contact_stability and lifetime_completion_controls author support. Fresh nonconstructing same-family readers inverse_limit_check and large_ratio_check found no substantive blocker in their exact final scopes. Root corrected the extreme-law source pointer and clarified the compact gap floor; bounded readbacks are recorded. All contributors are the same family/provider; no human, different-family or organizational-independence credit is claimed.\n\n**Keep Draft:** qualifying different-family scientific review remains pending. Help has been requested in #525/6501817235 and mirrored on main#619; no pickup or acknowledgment is presumed. No Ready, merge, formal-kernel or scientific-status promotion is claimed. This packet does not close the remaining whole-program alignment, counting or joint-limit questions.",
+      "historical_description_boundary": "This is a raw pre-disposition publication description. Its old approval/quorum/keep-draft instructions are superseded by the owner's CBZ directive; they are not a quarantine blocking reason. Its attributed finite observations are not substituted for a fresh final baseline run."
+    }
+  ]
+}
