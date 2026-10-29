@@ -4,6 +4,9 @@ on:
     branches: [cbz/core-custody-native-20261029]
   pull_request:
     paths: ['formal/**', '.github/workflows/cbz-core-custody.yml']
+concurrency:
+  group: core-custody-${{ github.event.pull_request.head.ref || github.ref_name }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
@@ -15,10 +18,10 @@ jobs:
       matrix:
         mode: [normal, optimized]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           fetch-depth: 0
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.11.16'
       - name: Real Git custody refusal controls
@@ -41,7 +44,7 @@ jobs:
           python -B -S "${flags[@]}" -m unittest discover -s formal/tests -p "test_*.py" -v 2>&1 | tee "$RUNNER_TEMP/full-formal-$MODE.log"
       - name: Bound source preflight
         run: python -B -S formal/gate.py
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         if: always()
         with:
           name: core-custody-${{ matrix.mode }}
@@ -61,7 +64,7 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.11.16'
       - name: Install exact Lean and locked dependency cache
@@ -87,3 +90,134 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 90
+  seal:
+    needs: kernel
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.11.16'
+      - name: Verify downloaded raw bytes and publish a recoverable evidence descendant
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python -B -S - <<'PYSEAL'
+          import base64,hashlib,importlib.util,json,os,subprocess,sys
+          from concurrent.futures import ThreadPoolExecutor
+          from pathlib import Path
+          repository=os.environ['GITHUB_REPOSITORY']
+          endpoint='repos/'+repository+'/'
+          def api(path,body=None):
+              command=['gh','api',endpoint+path]
+              raw=None
+              if body is not None:
+                  command+=['--method','POST','--input','-']
+                  raw=json.dumps(body).encode()
+              result=subprocess.run(command,input=raw,capture_output=True,check=True)
+              return json.loads(result.stdout)
+          run_id=os.environ['GITHUB_RUN_ID']
+          attempt=os.environ['GITHUB_RUN_ATTEMPT']
+          source_sha=os.environ['GITHUB_SHA']
+          out=Path('.cbz-core-kernel-seal')
+          out.mkdir()
+          artifact_name='cbz-core-kernel-'+run_id+'-'+attempt
+          artifacts=api('actions/runs/'+run_id+'/artifacts?per_page=100')
+          if artifacts.get('total_count',0)>100:
+              raise SystemExit('artifact listing requires pagination; no truncated selection is admitted')
+          hits=[row for row in artifacts['artifacts'] if row['name']==artifact_name and not row['expired']]
+          if len(hits)!=1:
+              raise SystemExit('expected exactly one current-run kernel evidence artifact')
+          artifact=hits[0]
+          archive=out/'artifact.zip'
+          with archive.open('wb') as handle:
+              subprocess.run(['gh','api',endpoint+'actions/artifacts/'+str(artifact['id'])+'/zip'],
+                             stdout=handle,check=True)
+          archive_sha=hashlib.sha256(archive.read_bytes()).hexdigest()
+          if artifact.get('digest')!='sha256:'+archive_sha:
+              raise SystemExit('downloaded ZIP differs from independent GitHub artifact digest')
+          # Reuse the separately self-tested/mutated exact wire-integrity checker, by immutable source.
+          verifier_commit='4351227b53a3f7f401e59d129530fb68055d0284'
+          verifier_sha='77463e76d49fc68c0e8db85f6671fc7a0efaccecd93727572b3d02242b8647b1'
+          blob=api('contents/frontiers/determinant_moment_20261025/artifact_integrity.py?ref='+verifier_commit)
+          verifier=base64.b64decode(blob['content'],validate=False)
+          if hashlib.sha256(verifier).hexdigest()!=verifier_sha:
+              raise SystemExit('downloaded verifier differs from qualified immutable code')
+          checker=out/'artifact_integrity.py'
+          checker.write_bytes(verifier)
+          spec=importlib.util.spec_from_file_location('cbz_core_source_gate',Path('formal/gate.py').resolve())
+          gate=importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(gate)
+          manifest,digest=gate.source_check()
+          if subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()!=source_sha:
+              raise SystemExit('seal source differs from independently supplied workflow commit')
+          reports={}
+          for mode in ['normal','optimized']:
+              report=out/(mode+'.json')
+              command=[sys.executable,'-B','-S']+(['-O'] if mode=='optimized' else [])+[
+                  str(checker),'--archive',str(archive),'--expected-commit',source_sha,
+                  '--expected-manifest',digest,'--output',str(report)]
+              subprocess.run(command,check=True)
+              reports[mode]=json.loads(report.read_text())
+              if reports[mode].get('status')!='PASS':
+                  raise SystemExit('downloaded byte integrity is not verified')
+          summary=dict(schema='cbz.core-kernel.native-artifact-observation.v1',
+              status='VERIFIED_BYTES',scope='BYTE_TRANSPORT_ONLY_KERNEL_RESULT_REMAINS_IN_RAW_RECEIPT',
+              run_id=run_id,run_attempt=attempt,checked_commit=source_sha,manifest_sha256=digest,
+              artifact_id=artifact['id'],archive_sha256=archive_sha,verifier_commit=verifier_commit,
+              verifier_sha256=verifier_sha,reports=reports)
+          (out/'SUMMARY.json').write_text(json.dumps(summary,indent=2,sort_keys=True)+'\n')
+          files={name:(out/name).read_bytes() for name in [
+              'artifact.zip','normal.json','optimized.json','SUMMARY.json','artifact_integrity.py']}
+          files['SHA256SUMS']=''.join(hashlib.sha256(raw).hexdigest()+'  '+name+'\n'
+                                      for name,raw in sorted(files.items())).encode()
+          files['README.md']=(
+              '# Core source-custody kernel evidence\n\n'
+              'Actual workflow run '+run_id+', attempt '+attempt+', checked source '+source_sha+'.\n'
+              'The raw artifact ZIP preserves the executed kernel receipt, generated controls and logs.\n'
+              'SUMMARY.json and both mode reports verify independently supplied commit/manifest identities\n'
+              'and every receipt-bound log. The wire check alone awards no mathematical proof.\n'
+              'Run sha256sum -c SHA256SUMS here; the exact verified checker source is included.\n'
+          ).encode()
+          prefix='evidence/cbz-core-kernel-'+run_id+'-'+attempt+'/'
+          def blob_entry(item):
+              path,raw=item
+              expected=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest()
+              result=api('git/blobs',dict(encoding='base64',content=base64.b64encode(raw).decode()))
+              if result.get('sha')!=expected:
+                  raise SystemExit('published Git blob differs from exact archived bytes')
+              return dict(path=prefix+path,mode='100644',type='blob',sha=expected)
+          with ThreadPoolExecutor(max_workers=4) as pool:
+              entries=list(pool.map(blob_entry,sorted(files.items())))
+          original=api('git/commits/'+source_sha)
+          tree=api('git/trees',dict(base_tree=original['tree']['sha'],tree=entries))
+          commit=api('git/commits',dict(message='Preserve actual source-custody core kernel evidence and verified raw bytes',
+                                       tree=tree['sha'],parents=[source_sha]))
+          branch='cbz/core-kernel-evidence-'+run_id+'-'+attempt
+          api('git/refs',dict(ref='refs/heads/'+branch,sha=commit['sha']))
+          readback=api('git/trees/'+tree['sha']+'?recursive=1')
+          if readback.get('truncated'):
+              raise SystemExit('evidence tree readback was truncated')
+          actual={row['path']:row['sha'] for row in readback['tree']}
+          if any(actual.get(row['path'])!=row['sha'] for row in entries):
+              raise SystemExit('evidence tree readback differs from archived bytes')
+          report=dict(status='PUBLISHED_AND_READBACK_MATCHED',branch=branch,commit=commit['sha'],
+                      tree=tree['sha'],source_commit=source_sha,archive_prefix=prefix,
+                      files={prefix+path:hashlib.sha256(raw).hexdigest() for path,raw in sorted(files.items())})
+          (out/'PUBLICATION.json').write_text(json.dumps(report,indent=2,sort_keys=True)+'\n')
+          print(json.dumps(report,sort_keys=True))
+          PYSEAL
+      - name: Preserve publication and verification reports
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: cbz-core-seal-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .cbz-core-kernel-seal/
+          include-hidden-files: true
+          if-no-files-found: error
