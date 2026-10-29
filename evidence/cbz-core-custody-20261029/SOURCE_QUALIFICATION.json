@@ -1,0 +1,43 @@
+{
+  "schema": "cbz.core-custody.native-source-observations.v1",
+  "source_commit": "5522d13478b8ec0baa803a98356592ff1b8c1efe",
+  "qualification_run": 40943199596,
+  "normal_job": 123691643285,
+  "optimized_job": 123691643830,
+  "tests_per_mode": 266,
+  "skips": 0,
+  "source_mutation_kills_per_mode": 11,
+  "source_mutation_threshold": 11,
+  "helper_sha256": "ff8a5374597772b2d37054fd722c2243c4b552a63802c69f7c605519832be6c4",
+  "kernel_claim": "NOT_RUN_IN_THIS_SOURCE_QUALIFICATION",
+  "files": [
+    {
+      "path": "red-original-normal.log",
+      "sha256": "4b20d68cd88a404d7018565dbca5d1613ef5664770d3752558bf73e6c0bce0e2"
+    },
+    {
+      "path": "red-hidden-dependency-normal.log",
+      "sha256": "6727275e155ffb127590e155c4852a798f3a3ddd91715841fb65ac22f69c8f9c"
+    },
+    {
+      "path": "red-hidden-dependency-optimized.log",
+      "sha256": "4cd58f3f5969cc293f261244e7a5dd773bd2a194b218780d452dfb9741d00536"
+    },
+    {
+      "path": "retained-fixture-failure-normal.log",
+      "sha256": "a779a798be7dadedcc3b2ee5ad99348946b084db032721eb97aea0ae24347a02"
+    },
+    {
+      "path": "retained-fixture-failure-optimized.log",
+      "sha256": "9afa4ba5efb66da3d2f6690e5a5bec51e764ae4bd1bc6fed3247abb40f22377b"
+    },
+    {
+      "path": "qualified-normal.log",
+      "sha256": "e0d41be6bc64e7ce93a1f881c238e36f1ac0eca8d91282ce96e3837b73f1ab7f"
+    },
+    {
+      "path": "qualified-optimized.log",
+      "sha256": "6664377a6bf8c66f9faf46d428b6f0c92b8f56aadc7360921a5135f56fc3afdf"
+    }
+  ]
+}

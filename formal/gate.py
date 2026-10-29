@@ -16,6 +16,11 @@ import re
 import subprocess
 import sys
 
+_WRAPPER_SOURCE_PATH = Path(__file__).resolve()
+_WRAPPER_SOURCE_BYTES = _WRAPPER_SOURCE_PATH.read_bytes()
+_WRAPPER_CODE = sys._getframe().f_code
+_HELPER_SOURCE_BYTES = None
+
 if 'gate_helper' in sys.modules:
     _core = sys.modules['gate_helper']
 else:
@@ -24,7 +29,9 @@ else:
     if _helper_spec is None or _helper_spec.loader is None:
         raise ImportError('cannot load reviewed RF312 helper: ' + str(_helper_path))
     _core = importlib.util.module_from_spec(_helper_spec)
-    _helper_spec.loader.exec_module(_core)
+    # Compile the bytes we retain; do not admit an unrelated cached bytecode file.
+    _HELPER_SOURCE_BYTES = _helper_path.read_bytes()
+    exec(compile(_HELPER_SOURCE_BYTES, str(_helper_path), 'exec', dont_inherit=True), _core.__dict__)
 
 # Re-export the reviewed helper API. Tests and callers continue importing `gate`.
 for _name in dir(_core):
@@ -36,6 +43,7 @@ OVERLAY = ROOT / 'manifest.overlay.json'
 _HELPER_LOAD_JSON = _core.load_json
 _HELPER_SOURCE_CHECK = _core.source_check
 _HELPER_EXECUTE = _core.execute
+_HELPER_RUN = _core.run
 _ALLOWED_OVERLAY_KEYS = frozenset({'schema_version', 'files'})
 
 
@@ -76,6 +84,117 @@ def check_worktree_clean(name, status):
             'dependency worktree is not clean: ' + name + ': ' + status.strip()[:200])
 
 
+
+def run(command, label, out, expect_success=True, cwd=None):
+    """The effective root is observed at call time, including compiled-admission copies."""
+    return _HELPER_RUN(command, label, out, expect_success,
+                       cwd=_sync_root() if cwd is None else cwd)
+
+
+def _git_bytes(repo, *args):
+    return subprocess.check_output(['git', '-C', str(repo), *args])
+
+
+def verify_committed_files(repo, head, paths=None, allow_symlinks=False):
+    """Compare HEAD, stage-zero index and actual file bytes, ignoring no index flags.
+
+    SHA-1 here is Git's exact blob object identity, not a mathematical bound.
+    Manifest file identities separately use SHA-256. Owned symlinks, all gitlinks
+    and non-stage-zero entries are refused. Dependency file symlinks additionally
+    bind their literal link bytes and resolved tracked regular-file targets.
+    """
+    repo = Path(repo).resolve()
+    selected = [] if paths is None else sorted(set(paths))
+    require(paths is None or selected, 'empty committed source domain')
+    args = ['ls-tree', '-rz', head]
+    if paths is not None:
+        args += ['--', *selected]
+    tree = {}
+    for row in _git_bytes(repo, *args).split(b'\0'):
+        if not row:
+            continue
+        fields, separator, encoded = row.partition(b'\t')
+        require(separator, 'malformed committed source inventory')
+        mode, kind, oid = fields.decode('ascii').split()
+        name = encoded.decode('utf-8')
+        require(name not in tree and kind == 'blob' and mode in (('100644', '100755', '120000') if allow_symlinks else ('100644', '100755')),
+                'unsupported or symlink committed source: ' + name)
+        require(not Path(name).is_absolute() and '..' not in Path(name).parts,
+                'unsafe committed source path')
+        tree[name] = (mode, oid)
+    require(bool(tree), 'empty committed source tree')
+    if paths is not None:
+        require(set(tree) == set(selected), 'uncommitted source domain entry')
+    index = {}
+    index_args = ['ls-files', '--stage', '-z']
+    if paths is not None:
+        index_args += ['--', *selected]
+    for row in _git_bytes(repo, *index_args).split(b'\0'):
+        if not row:
+            continue
+        fields, separator, encoded = row.partition(b'\t')
+        require(separator, 'malformed source index')
+        mode, oid, stage = fields.decode('ascii').split()
+        name = encoded.decode('utf-8')
+        require(stage == '0' and name not in index, 'unmerged or duplicate source index')
+        index[name] = (mode, oid)
+    require(index == tree, 'source index differs from committed source')
+    for name, (mode, oid) in tree.items():
+        path = repo / name
+        if mode == '120000':
+            require(allow_symlinks and path.is_symlink() and path.parent.resolve() == path.parent,
+                    'missing or substituted committed source symlink: ' + name)
+            target = path.resolve()
+            require(target.is_relative_to(repo) and
+                    target.relative_to(repo).as_posix() in tree and
+                    tree[target.relative_to(repo).as_posix()][0] in ('100644', '100755') and target.is_file(),
+                    'unbound symlink target in committed source: ' + name)
+            data = os.fsencode(os.readlink(path))
+        else:
+            require(not path.is_symlink() and path.resolve() == path and path.is_file(),
+                    'missing or symlink committed source: ' + name)
+            data = path.read_bytes()
+        actual = hashlib.sha1(b'blob ' + str(len(data)).encode('ascii') + b'\0' + data).hexdigest()
+        require(actual == oid, 'working bytes differ from committed source: ' + name)
+        require(mode == '120000' or bool(path.stat().st_mode & 0o111) == (mode == '100755'),
+                'working mode differs from committed source: ' + name)
+    return set(tree)
+
+
+def checked_source_commit(m, digest, expected_head=None):
+    """Bind this execution to one immutable Git source/manifest and loaded program."""
+    root = _sync_root().resolve()
+    repo = Path(_git_bytes(root, 'rev-parse', '--show-toplevel').decode().strip()).resolve()
+    prefix = root.relative_to(repo).as_posix()
+    prefix = '' if prefix == '.' else prefix + '/'
+    head = _git_bytes(repo, 'rev-parse', 'HEAD').decode().strip()
+    require(COMMIT.fullmatch(head), 'missing exact checked commit')
+    require(expected_head is None or head == expected_head, 'HEAD changed during execution')
+    require(isinstance(m.get('files'), dict) and {'gate.py', 'gate_helper.py'} <= set(m['files']),
+            'unbound loaded program')
+    names = set(m['files']) | {'manifest.json', 'manifest.overlay.json'}
+    require(all(isinstance(name, str) and not Path(name).is_absolute() and
+                '..' not in Path(name).parts for name in names), 'unsafe bound source path')
+    verify_committed_files(repo, head, [prefix + name for name in names])
+    raw = (root / 'manifest.json').read_bytes()
+    overlay = _overlay_bytes()
+    require(sha(raw + b'\0RF312-OVERLAY\0' + overlay) == digest,
+            'composite manifest identity differs from execution')
+    require(_effective_manifest(raw.decode()) == m, 'effective manifest differs from execution')
+    for name, expected in m['files'].items():
+        require(sha((root / name).read_bytes()) == expected, 'bound source identity differs: ' + name)
+    require((root / 'gate.py').read_bytes() == _WRAPPER_SOURCE_BYTES and
+            _WRAPPER_CODE == compile(_WRAPPER_SOURCE_BYTES, str(_WRAPPER_SOURCE_PATH),
+                                     'exec', dont_inherit=True, optimize=sys.flags.optimize),
+            'loaded wrapper differs from committed source')
+    require(_HELPER_SOURCE_BYTES is not None and
+            (root / 'gate_helper.py').read_bytes() == _HELPER_SOURCE_BYTES,
+            'loaded helper differs from committed source')
+    require(_git_bytes(repo, 'rev-parse', 'HEAD').decode().strip() == head,
+            'HEAD changed during source observation')
+    return head
+
+
 def dependency_state(m):
     root = _sync_root()
     actual = {}
@@ -86,6 +205,23 @@ def dependency_state(m):
         check_worktree_clean(name, subprocess.check_output(
             ['git', '-C', repo, 'status', '--porcelain', '--untracked-files=normal'], text=True))
     require(actual == m['dependency_revisions'], 'installed dependency HEAD differs from lock')
+    for name, head in actual.items():
+        repo = (root / '.lake' / 'packages' / name).resolve()
+        tracked = verify_committed_files(repo, head, allow_symlinks=True)
+        # Lake caches are an explicit excluded output domain. An ignored Lean input
+        # elsewhere can shadow a registered import and is not a clean dependency.
+        for directory, folders, files in os.walk(repo, followlinks=False):
+            folders[:] = [part for part in folders if part not in ('.git', '.lake')]
+            for part in folders:
+                require(not (Path(directory) / part).is_symlink(),
+                        'unexpected symlink dependency source directory: ' + name)
+            for filename in files:
+                path = Path(directory) / filename
+                relative = path.relative_to(repo).as_posix()
+                if filename.endswith(('.lean', '.olean', '.ilean')):
+                    require(relative in tracked, 'unexpected Lean source in dependency: ' + name + '/' + relative)
+        require(_git_bytes(repo, 'rev-parse', 'HEAD').decode().strip() == head,
+                'dependency HEAD changed during source observation: ' + name)
     return actual
 
 
@@ -138,14 +274,19 @@ def execute(m, digest):
     out.mkdir(parents=True, exist_ok=True)
     require(not (root / '.lake').is_symlink() and not (root / '.lake/build').is_symlink(),
             'symlink build directory')
+    # A refused attempt must never leave a stale success-shaped receipt.
+    (out / 'receipt.json').unlink(missing_ok=True)
     # Keep test monkeypatches visible to the reviewed helper execution.
     _core.run = globals()['run']
     _core.source_check = source_check
+    checked_head = checked_source_commit(m, digest)
     preflight_version = check_lean_version(run(
         ['lake', 'env', 'lean', '--version'], 'version-preflight', out))
     preflight = observation(preflight_version, dependency_state(m), digest)
-    receipt = _HELPER_EXECUTE(m, digest)
     try:
+        receipt = _HELPER_EXECUTE(m, digest)
+        checked_source_commit(m, digest, checked_head)
+        require(receipt.get('checked_commit') == checked_head, 'helper checked commit differs from execution')
         _, after = source_check()
         require(after == digest, 'manifest or overlay changed during execution')
         version = check_lean_version(run(['lake', 'env', 'lean', '--version'], 'version-final', out))
@@ -158,6 +299,7 @@ def execute(m, digest):
         raise
     receipt = dict(receipt)
     receipt.update(
+        checked_commit=checked_head,
         lean_version=version,
         dependency_revisions=m['dependency_revisions'],
         dependency_worktrees='CLEAN',
@@ -179,6 +321,8 @@ def main():
                    help='validate a separately authenticated alignment record; never promotes science')
     args = p.parse_args()
     try:
+        if args.execute:
+            (Path(ROOT) / '.lake/formal-evidence/receipt.json').unlink(missing_ok=True)
         m, digest = source_check()
         if args.alignment:
             check_alignment(load_json(args.alignment.read_text()), digest,
