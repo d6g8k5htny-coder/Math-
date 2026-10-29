@@ -3,7 +3,7 @@
 
 Standard library / POSIX only. Execution/custody interlock, not theorem acceptance.
 """
-import argparse, hashlib, json, os, re, signal, subprocess, sys, time
+import argparse, hashlib, json, os, re, signal, subprocess, sys, tempfile, time
 from pathlib import Path, PurePosixPath
 
 _LOADED_SOURCE=Path(__file__).read_bytes()
@@ -65,17 +65,20 @@ def run_step(argv,cwd,logs,name,expected,kind,timeout=900):
     logs=Path(logs); out=logs/(name+'.stdout');err=logs/(name+'.stderr');proc=logs/(name+'.process.json')
     require(not any(p.exists() or p.is_symlink() for p in (out,err,proc)),'step_evidence_exists')
     start=time.monotonic_ns();record={'command':list(map(str,argv)),'returncode':None,'timed_out':False,'status':'FAIL','timeout_seconds':timeout};failure=None
-    with out.open('xb') as so,err.open('xb') as se:
-        try:
-            child=subprocess.Popen(argv,cwd=cwd,stdout=so,stderr=se,start_new_session=True,env={**os.environ,'PYTHONDONTWRITEBYTECODE':'1'})
-            try: record['returncode']=child.wait(timeout=timeout)
-            except subprocess.TimeoutExpired:
-                record['timed_out']=True;failure='timeout'
-                try: os.killpg(child.pid,signal.SIGKILL)
-                except ProcessLookupError: pass
-                try: record['returncode']=child.wait(timeout=5)
-                except subprocess.TimeoutExpired: record['detail']='process-group termination did not finish in 5 seconds'
-        except OSError as exc: failure='spawn_error';record['detail']=type(exc).__name__+': '+str(exc)
+    with tempfile.TemporaryDirectory(prefix='lm006-empty-pyc-') as cache:
+        env={key:value for key,value in os.environ.items() if not key.startswith('PYTHON')}
+        env.update(PYTHONDONTWRITEBYTECODE='1',PYTHONPYCACHEPREFIX=cache)  # MUTATION_ISOLATED_PYC
+        with out.open('xb') as so,err.open('xb') as se:
+            try:
+                child=subprocess.Popen(argv,cwd=cwd,stdout=so,stderr=se,start_new_session=True,env=env)
+                try: record['returncode']=child.wait(timeout=timeout)
+                except subprocess.TimeoutExpired:
+                    record['timed_out']=True;failure='timeout'
+                    try: os.killpg(child.pid,signal.SIGKILL)
+                    except ProcessLookupError: pass
+                    try: record['returncode']=child.wait(timeout=5)
+                    except subprocess.TimeoutExpired: record['detail']='process-group termination did not finish in 5 seconds'
+            except OSError as exc: failure='spawn_error';record['detail']=type(exc).__name__+': '+str(exc)
     record['elapsed_ns']=time.monotonic_ns()-start;sizes=(out.stat().st_size,err.stat().st_size)
     if max(sizes)>MAX_STREAM_BYTES: failure=failure or 'output_too_large';record.update(stdout_bytes=sizes[0],stderr_bytes=sizes[1])
     else:

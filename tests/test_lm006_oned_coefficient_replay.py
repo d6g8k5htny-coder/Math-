@@ -186,6 +186,33 @@ class ReplayTests(unittest.TestCase):
     def test_packet_pyc_implementation_is_not_executed(self):
         self._packet_pyc_fixture('implementation')
 
+    def test_isolated_cache_source_mutation_is_rejected(self):
+        import shutil
+        source=DRIVER.read_text()
+        anchor="env.update(PYTHONDONTWRITEBYTECODE='1',PYTHONPYCACHEPREFIX=cache)  # MUTATION_ISOLATED_PYC"
+        replacement="env.update(PYTHONDONTWRITEBYTECODE='1',PYTHONPYCACHEPREFIX=os.environ.get('PYTHONPYCACHEPREFIX',''))  # MUTATION_ISOLATED_PYC"
+        self.assertEqual(source.count(anchor),1)
+        for target in ('test','implementation'):
+            with self.subTest(packet_file=target), tempfile.TemporaryDirectory(prefix='lm006-cache-mutation-') as directory:
+                root=Path(directory)
+                for relative in self.m.EXECUTION_FILES:
+                    destination=root/relative
+                    destination.parent.mkdir(parents=True,exist_ok=True)
+                    shutil.copyfile(DRIVER.parents[1]/relative,destination)
+                command=[sys.executable,'-B','-S']+(['-O'] if sys.flags.optimize else [])+['-m','unittest','discover','-s','tests','-p','test_lm006_oned_coefficient_replay.py','-k','test_packet_pyc_'+('test_module' if target=='test' else 'implementation'),'-v']
+                good=subprocess.run(command,cwd=root,capture_output=True,timeout=60)
+                self.assertEqual(good.returncode,0,good.stderr.decode())
+                self.assertIn(b'Ran 1 test in',good.stderr)
+                self.assertTrue(good.stderr.endswith(b'\nOK\n'))
+                (root/self.m.EXECUTION_FILES[0]).write_text(source.replace(anchor,replacement,1))
+                mutant=subprocess.run(command,cwd=root,capture_output=True,timeout=60)
+                self.assertEqual(mutant.returncode,1,mutant.stderr.decode())
+                self.assertEqual(mutant.stdout,b'')
+                self.assertIn(b'Ran 1 test in',mutant.stderr)
+                self.assertIn(b'FAILED (failures=1)',mutant.stderr)
+                self.assertIn(('packet tests executed poisoned '+target+' bytecode').encode(),mutant.stderr)
+                self.assertNotIn(b'ERROR:',mutant.stderr)
+
     def test_snapshot_and_exact_packet_membership(self):
         pins=self.fixture();ids=self.m.validate_snapshot(self.root,pins)
         self.assertEqual(set(ids),set(pins))
