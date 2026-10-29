@@ -21,18 +21,114 @@ BASE = """CBZ|MODULE|s4d|2|2
 CBZ|DECL|s4d|s4d/s74|theorem
 CBZ|DECL|s4d|s4d/s64|def
 CBZ|AXIOMS|
-CBZ|END|1|2|3
+CBZ|END|1|2|3|2|3
 """
 NATIVE = """CBZ|MODULE|s4d|2|2
 CBZ|DECL|s4d|s756e7573656443425a4e6174697665|theorem
 CBZ|DECL|s4d|s756e7573656443425a4e6174697665/s5f6e6174697665/s6e61746976655f646563696465/s61785f31375f33|axiom
 CBZ|AXIOMS|s756e7573656443425a4e6174697665/s5f6e6174697665/s6e61746976655f646563696465/s61785f31375f33
-CBZ|END|1|2|3
+CBZ|END|1|2|3|2|3
 """
+ALIASED = """CBZ|MODULE|s41|1|1
+CBZ|DECL|s41|s536861726564|theorem
+CBZ|MODULE|s42|1|0
+CBZ|DECL|s42|s536861726564|theorem
+CBZ|ALIAS|s42|s536861726564|s41
+CBZ|AXIOMS|
+CBZ|END|2|2|3|1|2
+"""
+
+def encoded(name):
+    return "/".join("s" + component.encode().hex() for component in name.split("."))
+
+FOREIGN = "\n".join([
+    "CBZ|MODULE|" + encoded("CBZNativeUsesForeignBad") + "|1|1",
+    "CBZ|DECL|" + encoded("CBZNativeUsesForeignBad") + "|" + encoded("CBZControlUsesBadHelper") + "|theorem",
+    "CBZ|MODULE|" + encoded("CBZNativeUsesForeignGood") + "|1|1",
+    "CBZ|DECL|" + encoded("CBZNativeUsesForeignGood") + "|" + encoded("CBZControlUsesGoodHelper") + "|theorem",
+    "CBZ|VARIANT|" + encoded("CBZControlSharedHelper"),
+    "CBZ|AXIOMS|" + encoded("sorryAx"),
+    "CBZ|END|2|2|8|2|7", ""])
+
+FOREIGN_MODULES = ["CBZNativeUsesForeignBad", "CBZNativeUsesForeignGood"]
 
 class NativeGateTests(unittest.TestCase):
     def setUp(self):
         self.assertIsNotNone(gate, "CBZ native gate is not implemented")
+
+    def test_exact_theorem_alias_preserves_both_raw_records(self):
+        try:
+            report = gate.parse_audit(ALIASED, ["A", "B"])
+        except gate.GateError as exc:
+            self.fail("valid exact theorem alias refused: " + str(exc))
+        self.assertEqual(report["declaration_count"], 2)
+        self.assertEqual(report["unique_declaration_count"], 1)
+        self.assertEqual(report["module_origin_counts"], {"A": 1, "B": 0})
+        self.assertEqual(len(report["aliases"]), 1)
+        self.assertEqual(report["closure_count"], 3)
+        self.assertEqual(report["closure_unique_count"], 2)
+
+    def test_external_exact_theorem_owner_is_explicitly_accounted(self):
+        text = ("CBZ|MODULE|s42|1|0\nCBZ|DECL|s42|s536861726564|theorem\n"
+                "CBZ|ALIAS|s42|s536861726564|s4d6174686c6962/s58\n"
+                "CBZ|AXIOMS|\nCBZ|END|1|1|2|1|2\n")
+        try:
+            report = gate.parse_audit(text, ["B"])
+        except gate.GateError as exc:
+            self.fail("verified imported owner refused: " + str(exc))
+        self.assertEqual(report["aliases"][0]["owner"], "Mathlib.X")
+
+    def test_alias_cannot_replace_a_missing_origin_explanation(self):
+        with self.assertRaisesRegex(gate.GateError, "census|alias"):
+            gate.parse_audit(ALIASED.replace("CBZ|ALIAS|s42|s536861726564|s41\n", ""), ["A", "B"])
+
+    def test_same_module_raw_name_remains_unique(self):
+        with self.assertRaisesRegex(gate.GateError, "duplicate"):
+            gate.parse_audit(ALIASED.replace("CBZ|DECL|s42|", "CBZ|DECL|s41|"), ["A", "B"])
+
+    def test_alias_owner_cannot_be_its_own_module(self):
+        with self.assertRaisesRegex(gate.GateError, "owner"):
+            gate.parse_audit(ALIASED.replace("CBZ|ALIAS|s42|s536861726564|s41", "CBZ|ALIAS|s42|s536861726564|s42"), ["A", "B"])
+
+    def test_duplicate_raw_names_require_one_consistent_owner(self):
+        with self.assertRaisesRegex(gate.GateError, "owner"):
+            gate.parse_audit(ALIASED.replace("CBZ|ALIAS|s42|s536861726564|s41", "CBZ|ALIAS|s42|s536861726564|s43"), ["A", "B"])
+
+    def test_only_theorem_records_may_use_alias_accounting(self):
+        with self.assertRaisesRegex(gate.GateError, "alias.*theorem"):
+            gate.parse_audit(ALIASED.replace("CBZ|DECL|s42|s536861726564|theorem", "CBZ|DECL|s42|s536861726564|def"), ["A", "B"])
+
+    def test_unique_name_total_cannot_impersonate_raw_record_total(self):
+        with self.assertRaisesRegex(gate.GateError, "unique"):
+            gate.parse_audit(ALIASED.replace("END|2|2|3|1|2", "END|2|2|3|2|2"), ["A", "B"])
+
+    def test_closure_unique_total_cannot_exceed_raw_records(self):
+        with self.assertRaisesRegex(gate.GateError, "unique|closure"):
+            gate.parse_audit(ALIASED.replace("END|2|2|3|1|2", "END|2|2|3|1|4"), ["A", "B"])
+
+    def test_alias_protocol_requires_raw_and_unique_terminal_counts(self):
+        with self.assertRaisesRegex(gate.GateError, "protocol|END|terminal"):
+            gate.parse_audit(ALIASED.replace("END|2|2|3|1|2", "END|2|2|3"), ["A", "B"])
+
+    def test_foreign_raw_proof_control_requires_the_hidden_sorry_and_variant(self):
+        result = gate.validate_raw_variant_control(FOREIGN, FOREIGN_MODULES, "foreign_sorry")
+        self.assertEqual(result["forbidden_axioms"], ["sorryAx"])
+        self.assertEqual(result["raw_variant_names"], ["CBZControlSharedHelper"])
+
+    def test_foreign_raw_proof_control_cannot_accept_variant_only_refusal(self):
+        with self.assertRaisesRegex(gate.GateError, "unrelated|incomplete"):
+            gate.validate_raw_variant_control(FOREIGN.replace("CBZ|AXIOMS|" + encoded("sorryAx"), "CBZ|AXIOMS|"),
+                                              FOREIGN_MODULES, "foreign_sorry")
+
+    def test_foreign_control_requires_its_actual_native_theorems(self):
+        with self.assertRaisesRegex(gate.GateError, "native|unrelated"):
+            gate.validate_raw_variant_control(FOREIGN.replace(encoded("CBZControlUsesBadHelper"), encoded("unrelated")),
+                                              FOREIGN_MODULES, "foreign_sorry")
+
+    def test_nonidentical_raw_payload_is_refused_without_a_forbidden_axiom(self):
+        with self.assertRaises(gate.AuditRefused) as context:
+            gate.parse_audit(BASE.replace("CBZ|AXIOMS|", "CBZ|VARIANT|s4d/s74\nCBZ|AXIOMS|"), ["M"])
+        self.assertEqual(context.exception.bad_variants, {("M", "t")})
 
     def project(self, root, lake='name = "fixture"\n[[lean_lib]]\nname = "M"\n'):
         p = root / "formal"
@@ -163,7 +259,7 @@ class NativeGateTests(unittest.TestCase):
 
     def test_missing_terminal_marker_is_refused(self):
         with self.assertRaisesRegex(gate.GateError, "END"):
-            gate.parse_audit(BASE.replace("CBZ|END|1|2|3\n", ""), ["M"])
+            gate.parse_audit(BASE.replace("CBZ|END|1|2|3|2|3\n", ""), ["M"])
 
     def test_false_terminal_total_is_refused(self):
         with self.assertRaisesRegex(gate.GateError, "count"):
@@ -340,9 +436,9 @@ class NativeGateTests(unittest.TestCase):
             gate.parse_audit(BASE.replace("CBZ|AXIOMS|", "CBZ|AXIOMS|s436c6173736963616c2e63686f696365"), ["M"])
 
     def test_terminal_marker_cannot_precede_more_protocol_records(self):
-        text = BASE.replace("CBZ|END|1|2|3\n", "")
+        text = BASE.replace("CBZ|END|1|2|3|2|3\n", "")
         with self.assertRaisesRegex(gate.GateError, "terminal"):
-            gate.parse_audit("CBZ|END|1|2|3\n" + text, ["M"])
+            gate.parse_audit("CBZ|END|1|2|3|2|3\n" + text, ["M"])
 
     def test_negative_control_refuses_missing_axiom_report(self):
         text = BASE.replace("CBZ|AXIOMS|\n", "")
@@ -364,7 +460,7 @@ class NativeGateTests(unittest.TestCase):
         self.assertEqual(result["forbidden_axioms"], ["sorryAx"])
 
     def test_empty_project_is_refused_but_empty_aggregator_is_visible(self):
-        empty = "CBZ|MODULE|s4d|0|0\nCBZ|AXIOMS|\nCBZ|END|1|0|0\n"
+        empty = "CBZ|MODULE|s4d|0|0\nCBZ|AXIOMS|\nCBZ|END|1|0|0|0|0\n"
         with self.assertRaisesRegex(gate.GateError, "empty"):
             gate.parse_audit(empty, ["M"])
         r = gate.parse_audit(BASE.replace("CBZ|AXIOMS|", "CBZ|MODULE|s52|0|0\nCBZ|AXIOMS|").replace("END|1|2|3", "END|2|2|3"), ["M", "R"])

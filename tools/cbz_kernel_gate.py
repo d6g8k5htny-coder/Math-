@@ -53,14 +53,17 @@ class GateError(ValueError):
     pass
 
 class AuditRefused(GateError):
-    def __init__(self, bad_axioms, bad_declarations, declarations=()):
+    def __init__(self, bad_axioms, bad_declarations, declarations=(), bad_variants=()):
         self.bad_axioms = set(bad_axioms)
         self.bad_declarations = list(bad_declarations)
         self.declarations = list(declarations)
+        self.bad_variants = set(bad_variants)
         details = []
         if self.bad_axioms:
             details.append("forbidden transitive axiom: " + ", ".join(sorted(render_name(v) for v in self.bad_axioms)))
         details.extend("forbidden compiled declaration kind: " + row["kind"] + " " + row["name"] for row in self.bad_declarations)
+        if self.bad_variants:
+            details.append("nonidentical raw theorem variants: " + ", ".join(sorted(render_name(v) for v in self.bad_variants)))
         super().__init__("; ".join(details))
 
 def require(ok, message):
@@ -256,11 +259,10 @@ def parse_audit(text, expected_modules):
     require(len(expected_modules) == len(set(expected_modules)) and expected_modules, "invalid expected module inventory")
     require(all(MODULE.fullmatch(m) for m in expected_modules), "invalid expected native module name")
     expected_names = {tuple(m.split(".")) for m in expected_modules}
-    counts = {}
-    declarations = []
-    names = set()
-    axioms = None
-    terminal = None
+    counts, origins, aliases = {}, {}, {}
+    declarations, keys, unique_names = [], set(), set()
+    axioms, terminal = None, None
+    variants = set()
     for line in text.splitlines():
         if not line.startswith("CBZ|"):
             continue
@@ -268,27 +270,39 @@ def parse_audit(text, expected_modules):
         fields = line.split("|")
         tag = fields[1] if len(fields) > 1 else ""
         if tag == "MODULE" and len(fields) == 5:
-            name = decode_name(fields[2])
-            require(name not in counts, "duplicate audited module")
-            require(fields[3].isdigit() and fields[4].isdigit(), "malformed module count")
-            first, second = int(fields[3]), int(fields[4])
-            require(first == second, "independent compiled census disagreement: " + render_name(name))
-            counts[name] = first
-        elif tag == "DECL" and len(fields) == 5:
             module = decode_name(fields[2])
-            encoded_name = decode_name(fields[3])
-            name = render_name(encoded_name)
-            require(encoded_name not in names, "duplicate compiled declaration")
-            names.add(encoded_name)
-            declarations.append({"module": render_name(module), "_module": module,
-                                 "encoded_module": fields[2], "name": name, "encoded_name": fields[3], "kind": fields[4]})
+            require(module not in counts, "duplicate audited module")
+            require(fields[3].isdigit() and fields[4].isdigit(), "malformed module count")
+            header_count, origin_count = int(fields[3]), int(fields[4])
+            require(header_count >= origin_count, "compiled origin count exceeds raw header records")
+            counts[module], origins[module] = header_count, origin_count
+        elif tag == "DECL" and len(fields) == 5:
+            module, name = decode_name(fields[2]), decode_name(fields[3])
+            key = (module, name)
+            require(key not in keys, "duplicate compiled declaration in one module")
+            keys.add(key)
+            unique_names.add(name)
+            declarations.append({"module": render_name(module), "_module": module, "_name": name,
+                                 "encoded_module": fields[2], "name": render_name(name),
+                                 "encoded_name": fields[3], "kind": fields[4]})
+        elif tag == "ALIAS" and len(fields) == 5:
+            module, name, owner = (decode_name(v) for v in fields[2:])
+            key = (module, name)
+            require(key not in aliases, "duplicate raw theorem alias")
+            require(owner != module, "alias owner cannot be its own module")
+            require(MODULE.fullmatch(render_name(owner)) and tuple(render_name(owner).split(".")) == owner,
+                    "malformed alias owner module")
+            aliases[key] = owner
+        elif tag == "VARIANT" and len(fields) == 3:
+            name = decode_name(fields[2])
+            require(name not in variants, "duplicate raw variant finding")
+            variants.add(name)
         elif tag == "AXIOMS" and len(fields) == 3:
             require(axioms is None, "duplicate axiom closure")
-            encoded = [] if not fields[2] else [decode_name(v) for v in fields[2].split(",")]
-            require(len(encoded) == len(set(encoded)), "duplicate transitive axiom")
-            axioms = encoded
-        elif tag == "END" and len(fields) == 5:
-            require(terminal is None and all(v.isdigit() for v in fields[2:]), "malformed or duplicate END")
+            axioms = [] if not fields[2] else [decode_name(v) for v in fields[2].split(",")]
+            require(len(axioms) == len(set(axioms)), "duplicate transitive axiom")
+        elif tag == "END" and len(fields) == 7:
+            require(all(v.isdigit() for v in fields[2:]), "malformed terminal END counts")
             terminal = tuple(int(v) for v in fields[2:])
         else:
             raise GateError("unrecognized CBZ audit protocol record: " + line)
@@ -296,19 +310,49 @@ def parse_audit(text, expected_modules):
     require(axioms is not None, "missing transitive axiom closure")
     require(set(counts) == expected_names, "compiled module inventory differs from registered native sources")
     require(terminal[:2] == (len(counts), len(declarations)), "terminal audit count mismatch")
-    require(len(declarations) > 0, "empty project declaration inventory")
-    require(terminal[2] >= len(declarations), "transitive closure count is smaller than declaration count")
-    for module, expected_count in counts.items():
-        require(sum(x["_module"] == module for x in declarations) == expected_count, "per-module declaration count mismatch")
+    require(declarations, "empty project declaration inventory")
+    require(terminal[3] == len(unique_names), "native unique-name terminal count mismatch")
+    require(terminal[2] >= len(declarations), "raw transitive closure count is smaller than declaration record count")
+    require(terminal[4] >= terminal[3] and terminal[2] >= terminal[4],
+            "closure unique-name count disagrees with raw closure records")
+    by_key = {(row["_module"], row["_name"]): row for row in declarations}
     for row in declarations:
         require(row["_module"] in counts, "declaration outside native module inventory")
-    declarations = [{k: v for k, v in row.items() if k != "_module"} for row in declarations]
+    for key, owner in aliases.items():
+        require(key in by_key and key[0] in counts, "alias does not identify a native raw record")
+        require(by_key[key]["kind"] == "theorem", "alias requires a theorem raw record")
+        if owner in counts:
+            require((owner, key[1]) in by_key and (owner, key[1]) not in aliases,
+                    "alias owner has no original native raw record")
+            require(by_key[(owner, key[1])]["kind"] == "theorem", "alias owner requires a theorem raw record")
+    for module, header_count in counts.items():
+        rows = [row for row in declarations if row["_module"] == module]
+        module_aliases = sum(key[0] == module for key in aliases)
+        require(len(rows) == header_count, "per-module raw declaration count mismatch")
+        require(header_count == origins[module] + module_aliases,
+                "independent compiled census disagreement: " + render_name(module))
+    for name in unique_names:
+        rows = [row for row in declarations if row["_name"] == name]
+        owners = {aliases.get((row["_module"], name), row["_module"]) for row in rows}
+        require(len(owners) == 1, "duplicate raw declarations have inconsistent owners")
+        if len(rows) > 1:
+            require(all(row["kind"] == "theorem" for row in rows), "alias groups require theorem raw records")
+    public_rows = [{k: v for k, v in row.items() if not k.startswith("_")} for row in declarations]
+    alias_rows = [{"module": render_name(module), "encoded_module": by_key[(module, name)]["encoded_module"],
+                   "name": render_name(name), "encoded_name": by_key[(module, name)]["encoded_name"],
+                   "owner": render_name(owner)}
+                  for (module, name), owner in aliases.items()]
     bad = set(axioms) - ALLOWED_AXIOM_NAMES
-    bad_declarations = [row for row in declarations if row["kind"] not in SAFE_KINDS]
-    if bad or bad_declarations:
-        raise AuditRefused(bad, bad_declarations, declarations)
-    return {"declaration_count": len(declarations), "module_counts": {render_name(k): v for k, v in counts.items()},
-            "declarations": declarations, "axioms": sorted(render_name(v) for v in axioms), "closure_count": terminal[2],
+    bad_declarations = [row for row in public_rows if row["kind"] not in SAFE_KINDS]
+    if bad or bad_declarations or variants:
+        raise AuditRefused(bad, bad_declarations, public_rows, variants)
+    return {"protocol_version": 2, "declaration_count": len(public_rows),
+            "raw_declaration_count": len(public_rows), "unique_declaration_count": len(unique_names),
+            "module_counts": {render_name(k): v for k, v in counts.items()},
+            "module_origin_counts": {render_name(k): v for k, v in origins.items()},
+            "aliases": alias_rows, "declarations": public_rows,
+            "axioms": sorted(render_name(v) for v in axioms),
+            "closure_count": terminal[2], "closure_unique_count": terminal[4],
             "protocol_sha256": hashlib.sha256("\n".join(x for x in text.splitlines() if x.startswith("CBZ|")).encode()).hexdigest()}
 
 def command_environment():
@@ -376,58 +420,166 @@ def kind (ci : ConstantInfo) : String :=
   | .ctorInfo _ => "ctor"
   | .recInfo _ => "rec"
   | .quotInfo _ => "quot"
+abbrev RawId := Nat × Nat
+abbrev RawIndex := NameMap (Array RawId)
+def rawInfo? (env : Environment) (key : RawId) : Option ConstantInfo := do
+  let data ← env.header.moduleData[key.1]?
+  data.constants[key.2]?
+def exactTheorem (a b : ConstantInfo) : Bool :=
+  match a, b with
+  | .thmInfo av, .thmInfo bv =>
+    av.name == bv.name && av.levelParams == bv.levelParams &&
+    Expr.equal av.type bv.type && Expr.equal av.value bv.value && av.all == bv.all
+  | _, _ => false
+def importedIndex (env : Environment) : RawIndex := Id.run do
+  let mut result : RawIndex := {}
+  for moduleIdx in [:env.header.moduleData.size] do
+    let data := env.header.moduleData[moduleIdx]!
+    for constantIdx in [:data.constants.size] do
+      let ci := data.constants[constantIdx]!
+      let versions := (result.find? ci.name).getD #[]
+      result := result.insert ci.name (versions.push (moduleIdx, constantIdx))
+  return result
 structure St where
-  visited : NameSet := {}
+  visited : Std.HashSet RawId := {}
+  names : NameSet := {}
   axioms : NameSet := {}
   missing : NameSet := {}
-partial def collect (env : Environment) (c : Name) : StateM St Unit := do
-  unless (← get).visited.contains c do
-    modify fun s => { s with visited := s.visited.insert c }
-    let expr (e : Expr) : StateM St Unit := e.getUsedConstants.forM (collect env)
-    match env.find? c with
-    | some (.axiomInfo v) => modify (fun s => { s with axioms := s.axioms.insert c }) *> expr v.type
-    | some (.defnInfo v) => expr v.type *> expr v.value
-    | some (.thmInfo v) => expr v.type *> expr v.value
-    | some (.opaqueInfo v) => expr v.type *> expr v.value
-    | some (.quotInfo _) => pure ()
-    | some (.ctorInfo v) => expr v.type
-    | some (.recInfo v) => expr v.type
-    | some (.inductInfo v) => expr v.type *> v.ctors.forM (collect env)
-    | none => modify fun s => { s with missing := s.missing.insert c }
+  variants : NameSet := {}
+  invalidRecord : Bool := false
+mutual
+partial def collectName (env : Environment) (index : RawIndex) (name : Name) : StateM St Unit := do
+  modify fun s => { s with names := s.names.insert name }
+  match index.find? name with
+  | none => modify fun s => { s with missing := s.missing.insert name }
+  | some versions =>
+    let selected := env.checked.get.find? name
+    if selected.isNone then
+      modify fun s => { s with missing := s.missing.insert name }
+    for recordId in versions do
+      match rawInfo? env recordId with
+      | none => modify fun s => { s with invalidRecord := true }
+      | some ci =>
+        if ci.name != name then
+          modify fun s => { s with invalidRecord := true }
+        if versions.size > 1 then
+          unless selected.any (exactTheorem ci) do
+            modify fun s => { s with variants := s.variants.insert name }
+        collectRecord env index recordId
+partial def collectRecord (env : Environment) (index : RawIndex) (recordId : RawId) : StateM St Unit := do
+  unless (← get).visited.contains recordId do
+    modify fun s => { s with visited := s.visited.insert recordId }
+    match rawInfo? env recordId with
+    | none => modify fun s => { s with invalidRecord := true }
+    | some ci =>
+      modify fun s => { s with names := s.names.insert ci.name }
+      let expr (e : Expr) : StateM St Unit := e.getUsedConstants.forM (collectName env index)
+      match ci with
+      | .axiomInfo v => modify (fun s => { s with axioms := s.axioms.insert ci.name }) *> expr v.type
+      | .defnInfo v => expr v.type *> expr v.value
+      | .thmInfo v => expr v.type *> expr v.value
+      | .opaqueInfo v => expr v.type *> expr v.value
+      | .quotInfo _ => pure ()
+      | .ctorInfo v => expr v.type
+      | .recInfo v => expr v.type
+      | .inductInfo v => expr v.type *> v.ctors.forM (collectName env index)
+end
 end CBZInternalAudit
 run_cmd do
   let env := (← getEnv).setExporting false
-  let modules : Array Name := #[""" + names + r"""]
+  let modules : Array Name := #[__CBZ_MODULE_NAMES__]
+  let index := CBZInternalAudit.importedIndex env
+  -- Verify index coverage independently from construction, including foreign modules.
+  let mut expectedRecords : Nat := 0
+  for moduleIdx in [:env.header.moduleData.size] do
+    let data := env.header.moduleData[moduleIdx]!
+    unless data.constNames == data.constants.map (·.name) do
+      throwError "raw constNames/constants disagreement in imported module {moduleIdx}"
+    let mut localNames : NameSet := {}
+    for constantIdx in [:data.constants.size] do
+      let ci := data.constants[constantIdx]!
+      if localNames.contains ci.name then
+        throwError "duplicate raw declaration inside one module {moduleIdx}: {ci.name}"
+      localNames := localNames.insert ci.name
+      let versions := (index.find? ci.name).getD #[]
+      unless (versions.filter (· == (moduleIdx, constantIdx))).size == 1 do
+        throwError "raw index omitted or duplicated imported record {moduleIdx}:{constantIdx} {ci.name}"
+      expectedRecords := expectedRecords + 1
+  let mut indexedRecords : Nat := 0
+  let mut indexKeys : Std.HashSet CBZInternalAudit.RawId := {}
+  for (name, versions) in index.toList do
+    for recordId in versions do
+      let some ci := CBZInternalAudit.rawInfo? env recordId
+        | throwError "raw index points outside imported module tables"
+      unless ci.name == name do
+        throwError "raw index name disagrees with imported declaration"
+      if indexKeys.contains recordId then
+        throwError "raw index repeats an imported record"
+      indexKeys := indexKeys.insert recordId
+      indexedRecords := indexedRecords + 1
+  unless expectedRecords == indexedRecords do
+    throwError "raw imported index coverage disagreement {expectedRecords} versus {indexedRecords}"
   let constants := env.constants.toList
-  let mut audited : Array Name := #[]
+  let mut audited : Array CBZInternalAudit.RawId := #[]
+  let mut auditedNames : NameSet := {}
+  let mut aliasProblems : Array Name := #[]
+  let mut censusProblems : Array String := #[]
   for modName in modules do
     let some idx := env.getModuleIdx? modName
       | throwError "missing native module {modName}"
     let data := env.header.moduleData[idx]!
     if data.isModule then
       throwError "CBZ module-system sidecars are not qualified: {modName}"
-    let table := data.constants
-    let headerNames := (table.map (·.name)).qsort Name.lt
+    let headerNames := (data.constants.map (·.name)).qsort Name.lt
     let originNames := (constants.filterMap fun (name, _) =>
       if env.getModuleIdxFor? name == some idx then some name else none).toArray.qsort Name.lt
-    unless headerNames == originNames do
-      let headerOnly := headerNames.filter fun name => !originNames.contains name
-      let originOnly := originNames.filter fun name => !headerNames.contains name
-      throwError "independent compiled census disagreement {modName}: {headerNames.size} versus {originNames.size}; header-only {headerOnly}; origin-only {originOnly}"
+    let headerOnly := headerNames.filter fun name => !originNames.contains name
+    let originOnly := originNames.filter fun name => !headerNames.contains name
+    let mut aliasCount : Nat := 0
     liftIO <| IO.println s!"CBZ|MODULE|{CBZInternalAudit.enc modName}|{headerNames.size}|{originNames.size}"
-    for name in originNames do
-      if (env.checked.get.find? name).isNone then
-        throwError "missing checked kernel declaration {name}"
-      let some ci := env.find? name | throwError "missing declaration {name}"
-      liftIO <| IO.println s!"CBZ|DECL|{CBZInternalAudit.enc modName}|{CBZInternalAudit.enc name}|{CBZInternalAudit.kind ci}"
-      audited := audited.push name
-  let (_, closure) := (audited.forM (CBZInternalAudit.collect env)).run {}
-  unless closure.missing.isEmpty do
-    throwError "missing transitive closure declaration {closure.missing.toArray}"
+    for constantIdx in [:data.constants.size] do
+      let ci := data.constants[constantIdx]!
+      let some selected := env.checked.get.find? ci.name
+        | throwError "missing checked kernel declaration {ci.name}"
+      let some owner := env.getModuleIdxFor? ci.name
+        | throwError "missing imported origin for raw native declaration {ci.name}"
+      audited := audited.push (idx.toNat, constantIdx)
+      auditedNames := auditedNames.insert ci.name
+      liftIO <| IO.println s!"CBZ|DECL|{CBZInternalAudit.enc modName}|{CBZInternalAudit.enc ci.name}|{CBZInternalAudit.kind ci}"
+      if owner != idx then
+        let versions := (index.find? ci.name).getD #[]
+        let ownerWitness := versions.any fun key =>
+          key.1 == owner.toNat && (CBZInternalAudit.rawInfo? env key).any (CBZInternalAudit.exactTheorem ci)
+        if CBZInternalAudit.exactTheorem ci selected && ownerWitness then
+          let ownerName := env.header.modules[owner]!.module
+          liftIO <| IO.println s!"CBZ|ALIAS|{CBZInternalAudit.enc modName}|{CBZInternalAudit.enc ci.name}|{CBZInternalAudit.enc ownerName}"
+          aliasCount := aliasCount + 1
+        else
+          aliasProblems := aliasProblems.push ci.name
+      else if !originNames.contains ci.name then
+        censusProblems := censusProblems.push s!"origin-owned raw declaration omitted: {ci.name}"
+    unless originOnly.isEmpty && headerNames.size == originNames.size + aliasCount do
+      censusProblems := censusProblems.push s!"independent compiled census disagreement {modName}: {headerNames.size} versus {originNames.size}; header-only {headerOnly}; origin-only {originOnly}"
+  -- Each native instance is a direct root; its Name also reaches every imported version.
+  let computation : StateM CBZInternalAudit.St Unit := do
+    for recordId in audited do
+      CBZInternalAudit.collectRecord env index recordId
+      let some ci := CBZInternalAudit.rawInfo? env recordId
+        | modify fun s => { s with invalidRecord := true }
+      CBZInternalAudit.collectName env index ci.name
+  let (_, closure) := computation.run {}
+  if closure.invalidRecord || !closure.missing.isEmpty then
+    throwError "missing raw transitive declaration {closure.missing.toArray}; invalid record {closure.invalidRecord}"
+  if !aliasProblems.isEmpty then
+    throwError "unverified native theorem alias {aliasProblems}; raw axioms {closure.axioms.toArray}"
+  if !censusProblems.isEmpty then
+    throwError "{censusProblems}"
+  for name in (closure.variants.toArray.map CBZInternalAudit.enc).qsort (· < ·) do
+    liftIO <| IO.println s!"CBZ|VARIANT|{name}"
   let axioms := (closure.axioms.toArray.map CBZInternalAudit.enc).qsort (· < ·)
   liftIO <| IO.println s!"CBZ|AXIOMS|{",".intercalate axioms.toList}"
-  liftIO <| IO.println s!"CBZ|END|{modules.size}|{audited.size}|{closure.visited.size}"
-"""
+  liftIO <| IO.println s!"CBZ|END|{modules.size}|{audited.size}|{closure.visited.size}|{auditedNames.size}|{closure.names.size}"
+""".replace("__CBZ_MODULE_NAMES__", names)
 
 def native_snapshot(repo):
     reports = [project_inventory(repo, p) for p in PROJECTS]
@@ -595,6 +747,7 @@ def validate_control(text, module, label):
     try:
         parse_audit(text, [module])
     except AuditRefused as exc:
+        require(not exc.bad_variants, "negative control refused for unrelated raw payload variants")
         expected = {"sorry": {("sorryAx",)}}
         if label == "unused_axiom":
             require(len(exc.bad_declarations) == 1 and exc.bad_declarations[0]["kind"] == "axiom"
@@ -621,11 +774,149 @@ def validate_control(text, module, label):
                 "forbidden_axioms": sorted(render_name(v) for v in exc.bad_axioms)}
     raise GateError("negative control escaped: " + label)
 
+def validate_raw_variant_control(text, modules, label):
+    """Require the exact raw-record finding, never an unrelated compile/parser failure."""
+    shared = ("CBZControlSharedProof",)
+    cases = {
+        "native_sorry": ({("sorryAx",)}, set(), {shared}, {(modules[0], shared, "theorem")}),
+        "native_axiom": ({shared}, {(shared, "axiom")}, {shared}, {(modules[0], shared, "axiom")}),
+        "native_custom": ({("CBZControlForeignPremise",)}, set(), {shared}, {(modules[0], shared, "theorem")}),
+        "different_valid": (set(), set(), {shared}, {(modules[0], shared, "theorem")}),
+        "foreign_sorry": ({("sorryAx",)}, set(), {("CBZControlSharedHelper",)}, {
+            ("CBZNativeUsesForeignBad", ("CBZControlUsesBadHelper",), "theorem"),
+            ("CBZNativeUsesForeignGood", ("CBZControlUsesGoodHelper",), "theorem")}),
+    }
+    require(label in cases, "unknown raw-record negative control")
+    expected_axioms, expected_bad, expected_variants, expected_native = cases[label]
+    try:
+        parse_audit(text, modules)
+    except AuditRefused as exc:
+        bad = {(decode_name(row["encoded_name"]), row["kind"]) for row in exc.bad_declarations}
+        actual_native = {(row["module"], decode_name(row["encoded_name"]), row["kind"])
+                         for row in exc.declarations}
+        require(exc.bad_axioms == expected_axioms and bad == expected_bad
+                and exc.bad_variants == expected_variants,
+                "raw-record control refused for unrelated or incomplete findings: " + label)
+        require(actual_native == expected_native and len(exc.declarations) == len(expected_native),
+                "raw-record control omitted or changed its actual native declarations: " + label)
+        return {"outcome": "REJECTED_EXACT_RAW_RECORD_FINDINGS", "diagnostic": str(exc),
+                "forbidden_axioms": sorted(render_name(v) for v in exc.bad_axioms),
+                "raw_variant_names": sorted(render_name(v) for v in exc.bad_variants),
+                "declarations": exc.declarations, "raw_declaration_count": len(exc.declarations),
+                "unique_declaration_count": len({decode_name(row["encoded_name"]) for row in exc.declarations})}
+    raise GateError("raw-record control escaped: " + label)
+
+def generated_foreign_version_mutation(project, out, timeout, modules):
+    """A compiled foreign helper must detect selected-only traversal of raw versions."""
+    original = audit_source(modules)
+    before = "    for recordId in versions do\n      match rawInfo? env recordId with"
+    after = "    for recordId in versions.extract (versions.size - 1) versions.size do\n      match rawInfo? env recordId with"
+    require(original.count(before) == 1, "stale generated-auditor foreign-version mutation")
+    path = out / "MutatedForeignVersionAudit.lean"
+    path.write_text(original.replace(before, after, 1))
+    run = run_logged(["lake", "env", "lean", str(path)], "generated-foreign-version-mutant", out, project, timeout)
+    require(not (out / "generated-foreign-version-mutant.stderr").read_text().strip(),
+            "generated foreign-version mutant produced unexpected diagnostics")
+    text = (out / "generated-foreign-version-mutant.stdout").read_text()
+    accepted = parse_audit(text, modules)
+    require(not accepted["axioms"] and accepted["raw_declaration_count"] == 2
+            and accepted["unique_declaration_count"] == 2,
+            "foreign-version mutation did not produce its intended complete false clear")
+    try:
+        validate_raw_variant_control(text, modules, "foreign_sorry")
+    except GateError as exc:
+        require(type(exc) is GateError and str(exc) == "raw-record control escaped: foreign_sorry",
+                "generated foreign-version mutant failed for an unrelated reason")
+        diagnostic = str(exc)
+    else:
+        raise GateError("generated foreign-version mutant was not detected by the compiled control")
+    result = {"id": "omit_foreign_raw_versions", "outcome": "KILLED_BY_COMPILED_FOREIGN_SORRY_CONTROL",
+              "scope": "One actual generated collector mutation; imported-index coverage remains active.",
+              "mutation_location_count": 1, "baseline_source_sha256": hashlib.sha256(original.encode()).hexdigest(),
+              "mutant_source_sha256": digest(path), "command": run,
+              "mutated_audit_report": accepted, "control_diagnostic": diagnostic}
+    write_json(out / "generated-foreign-version-result.json", result)
+    return result
+
+def raw_record_controls(project, out, timeout):
+    """Compiled core fixtures for exact aliases and hidden native/foreign proof payloads."""
+    out.mkdir(parents=True, exist_ok=True)
+    source_root = project / ".lake"
+    target = source_root / "build/lib/lean"
+    target.mkdir(parents=True, exist_ok=True)
+    retained = out / "sources"
+    retained.mkdir(parents=True, exist_ok=True)
+    fixtures = {
+        "CBZAliasGoodA": "import Lean\ntheorem CBZControlSharedProof : True := True.intro\n",
+        "CBZAliasGoodB": "import Lean\ntheorem CBZControlSharedProof : True := by exact True.intro\n",
+        "CBZAliasBadSorry": "import Lean\ntheorem CBZControlSharedProof : True := by sorry\n",
+        "CBZAliasBadAxiom": "import Lean\naxiom CBZControlSharedProof : True\n",
+        "CBZAliasPremise": "import Lean\naxiom CBZControlForeignPremise : True\n",
+        "CBZAliasBadCustom": "import CBZAliasPremise\ntheorem CBZControlSharedProof : True := CBZControlForeignPremise\n",
+        "CBZAliasAlternative": "import Lean\ntheorem CBZControlAlternative : True := True.intro\n",
+        "CBZAliasDifferent": "import CBZAliasAlternative\ntheorem CBZControlSharedProof : True := CBZControlAlternative\n",
+        "CBZForeignBad": "import Lean\ntheorem CBZControlSharedHelper : True := by sorry\n",
+        "CBZForeignGood": "import Lean\ntheorem CBZControlSharedHelper : True := True.intro\n",
+        "CBZNativeUsesForeignBad": "import CBZForeignBad\ntheorem CBZControlUsesBadHelper : True := CBZControlSharedHelper\n",
+        "CBZNativeUsesForeignGood": "import CBZForeignGood\ntheorem CBZControlUsesGoodHelper : True := CBZControlSharedHelper\n",
+    }
+    before = {}
+    for module, source in fixtures.items():
+        path = source_root / (module + ".lean")
+        path.write_text(source)
+        source_before = digest(path)
+        shutil.copyfile(path, retained / path.name)
+        obj = target / (module + ".olean")
+        compile_run = run_logged(["lake", "env", "lean", "--root=" + str(source_root),
+                                  "-o", str(obj), str(path)], "raw-" + module + "-compile", out, project, timeout)
+        require(obj.is_file() and not obj.is_symlink(), "raw fixture omitted object: " + module)
+        object_before = digest(obj)
+        kernel_run = run_logged(["lake", "env", "leanchecker", module], "raw-" + module + "-kernel", out, project, timeout)
+        require(digest(path) == source_before and digest(obj) == object_before,
+                "raw fixture source or object changed during compile/kernel replay: " + module)
+        before[module] = {"source_sha256": source_before, "object_sha256": object_before,
+                          "compile": compile_run, "kernel": kernel_run}
+
+    def audit(label, modules, extra_import=None):
+        source = audit_source(modules)
+        if extra_import:
+            source = "import " + modules[0] + "\nimport " + extra_import + "\n" + source.split("\n", 1)[1]
+        path = out / (label + "Audit.lean")
+        path.write_text(source)
+        run_logged(["lake", "env", "lean", str(path)], label + "-audit", out, project, timeout)
+        require(not (out / (label + "-audit.stderr")).read_text().strip(),
+                "raw-record audit emitted unexpected diagnostics: " + label)
+        return (out / (label + "-audit.stdout")).read_text()
+
+    reports = {}
+    modules = ["CBZAliasGoodA", "CBZAliasGoodB"]
+    reports["exact_alias"] = parse_audit(audit("exact-alias", modules), modules)
+    require(reports["exact_alias"]["raw_declaration_count"] == 2
+            and reports["exact_alias"]["unique_declaration_count"] == 1
+            and len(reports["exact_alias"]["aliases"]) == 1, "identical alias control lost a raw instance")
+    modules = ["CBZNativeUsesForeignGood"]
+    reports["foreign_good"] = parse_audit(audit("foreign-good", modules), modules)
+    require({r["name"] for r in reports["foreign_good"]["declarations"]} == {"CBZControlUsesGoodHelper"},
+            "foreign-good control omitted its actual theorem")
+    for label, module in (("native_sorry", "CBZAliasBadSorry"), ("native_axiom", "CBZAliasBadAxiom"),
+                          ("native_custom", "CBZAliasBadCustom"), ("different_valid", "CBZAliasDifferent")):
+        reports[label] = validate_raw_variant_control(audit(label, [module], "CBZAliasGoodA"), [module], label)
+    modules = ["CBZNativeUsesForeignBad", "CBZNativeUsesForeignGood"]
+    reports["foreign_sorry"] = validate_raw_variant_control(audit("foreign-sorry", modules), modules, "foreign_sorry")
+    reports["generated_foreign_version_mutation"] = generated_foreign_version_mutation(project, out, timeout, modules)
+    for module, record in before.items():
+        require(digest(source_root / (module + ".lean")) == record["source_sha256"]
+                and digest(target / (module + ".olean")) == record["object_sha256"],
+                "raw fixture source or object changed during preflight: " + module)
+    reports["fixtures"] = before
+    write_json(out / "raw-record-controls-result.json", reports)
+    return reports
+
 def generated_theorem_value_mutation(project, out, timeout, module):
     """A real compiled sorry fixture must expose omitted theorem-value traversal."""
     original = audit_source([module])
-    before = "| some (.thmInfo v) => expr v.type *> expr v.value"
-    after = "| some (.thmInfo v) => expr v.type"
+    before = "| .thmInfo v => expr v.type *> expr v.value"
+    after = "| .thmInfo v => expr v.type"
     require(original.count(before) == 1, "stale generated-auditor theorem-value mutation")
     path = out / "MutatedTheoremValueAudit.lean"
     path.write_text(original.replace(before, after, 1))
@@ -721,6 +1012,7 @@ def negative_controls(project, out, timeout):
             reports["generated_theorem_value_mutation"] = generated_theorem_value_mutation(project, out, timeout, module)
             require(digest(path) == source_before and digest(obj) == object_before,
                     "compiled sorry fixture changed during generated-auditor mutation")
+    reports["raw_records"] = raw_record_controls(project, out / "raw-records", timeout)
     write_json(out / "controls-result.json", reports)
     return reports
 

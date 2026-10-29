@@ -4,7 +4,7 @@
   "entrypoint": "tools/cbz_kernel_gate.py",
   "workflow": ".github/workflows/cbz-kernel.yml",
   "tests": "tests/test_cbz_kernel_gate.py",
-  "status": "HOSTED_SECOND_ATTEMPT_REFUSED_CENSUS_DIAGNOSIS_ACTIVE",
+  "status": "RAW_IMPORTED_RECORD_REPAIR_CANDIDATE_HOSTED_UNQUALIFIED",
   "scientific_effect": "NONE",
   "runtime": {
     "lean": "leanprover/lean4:v4.34.1",
@@ -60,10 +60,14 @@
     "all native project build directories freshly removed",
     "native library builds and standalone orphan modules",
     "standalone leanchecker on every inventoried module",
-    "independent compiled header/environment-origin census agreement",
-    "every native declaration in checked kernel environment",
-    "all-declaration transitive axiom closure inside explicit core set",
+    "complete imported raw table/index coverage with exact constNames/ConstantInfo names",
+    "independent native header/environment-origin census reconciled only by explicit exact theorem aliases",
+    "every native raw declaration instance directly audited, including coalesced names",
+    "all reachable raw imported ConstantInfo versions traversed by module/record identity",
+    "exact theorem payload equality for duplicate reachable names; nonidentical payloads refuse",
+    "all-record transitive axiom closure inside explicit core set, with raw-record and unique-Name counts separately validated",
     "compiled unused-axiom, sorry and native_decide controls refused for exact forbidden findings",
+    "compiled identical aliases accepted with both raw records; native sorry/axiom/custom and foreign hidden-sorry controls refused for their exact findings",
     "final source and dependency identity readback"
   ],
   "allowed_axioms": [
@@ -82,15 +86,15 @@
   "mutation_tests": "tests/test_cbz_kernel_mutations.py",
   "mutation_command": "python3 -B -S tools/cbz_kernel_mutations.py --output .lake/cbz-kernel/mutations",
   "mutation_threshold": {
-    "unmodified_baseline_tests_per_mode": 52,
+    "unmodified_baseline_tests_per_mode": 66,
     "declared_python_source_mutants": 9,
     "modes": [
       "normal",
       "optimized"
     ],
-    "required": "Every nonstale compiling mutant must yield exactly its intended assertion failure, positive count, zero errors/skips/startup failures; stale cases refuse.",
-    "actual_generated_lean_mutants": 1,
-    "generated_threshold": "Omitting theorem-value traversal must compile/run and be detected by the compiled sorry control before long native builds."
+    "required": "Every baseline test body must execute and return successfully. Every nonstale compiling mutant must yield exactly its selected test-body AssertionError; setup/teardown/cleanup failures, errors, skips and startup failures refuse. Stale cases refuse.",
+    "actual_generated_lean_mutants": 2,
+    "generated_threshold": "Theorem-value omission and skipping foreign raw versions must each compile/run with complete false-clear protocol and be caught by their exact compiled sorry control before long native builds."
   },
   "execution_custody": {
     "attempts": "Fresh executions/attempt-<unique-id>/ directory per --execute call",
@@ -133,5 +137,36 @@
     "declared_python_mutants_killed_per_mode": 9,
     "actual_core_preflight": "Positive/empty and three negative compiled controls passed; generated theorem-value mutation caught; forced origin omission explicitly reports cbzValidValue and refuses.",
     "all_native_status": "NOT_ESTABLISHED; new actual hosted diagnostic run required"
+  },
+  "third_hosted_attempt": {
+    "run_id": "40945793449",
+    "job_id": "123700672950",
+    "feature_head": "0a631dea171071398c05a877f858c5e5997a7753",
+    "checked_merge_commit": "a22a0e395f108e85116f03b5a9813042afbd4829",
+    "result": "REFUSED_AT_PROJECT_2_COMPILED_CENSUS",
+    "module": "SpecificationProofs.P15Hazard",
+    "header_count": 46,
+    "origin_count": 45,
+    "header_only": [
+      "UniversalLaw.Spec.P15.block.eq_1"
+    ],
+    "origin_only": [],
+    "artifact": {
+      "id": "12930262595",
+      "bytes": 746874,
+      "files": 366,
+      "sha256": "c6b81d8163211c75bcb87ab72323bccf296f55e8b62bbc61a561bb8695535e99"
+    },
+    "qualification": "No all-native success; first two project outcomes are historical TOOL-REPORTED outcomes of the selected-only collector, not new all-record qualification."
+  },
+  "raw_record_repair": {
+    "protocol_version": 2,
+    "raw_identity": "Imported module index plus constant-table index; Name alone is never the visited key.",
+    "exact_alias_policy": "Theorem constructor, name, level parameters, Expr.equal type and proof value, and TheoremVal.all must agree with selected checked CI and a raw owner witness. No general proof-irrelevance alias permission.",
+    "dependency_policy": "Every reachable raw imported version is traversed, including foreign helpers. Missing names/records and incomplete indexes refuse. Pinned dependency objects remain an explicit cache trust boundary.",
+    "evidence_scope": "Compiled pinned-core fixture qualification only; all eight real native projects require a fresh hosted successor and final source/object readback.",
+    "conservative_refusal": "Different valid proof payloads also refuse; no Mathlib-specific bad proof is inferred from generic adversarial controls.",
+    "historical_collector_limit": "The earlier selected-only collector has a compiled generic foreign-helper counterexample with complete 1/1 native censuses; historical project outcomes do not establish the repaired closure policy.",
+    "integration_state": "Five code/test/workflow blobs match frozen de98c85e gate cut; registry preserves root diagnostic history and current arithmetic instruments. Fresh hosted all-native execution required."
   }
 }

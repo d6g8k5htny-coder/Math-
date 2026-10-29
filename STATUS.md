@@ -4,13 +4,15 @@ This is a technical execution/quarantine ledger for the registered tools. It gra
 
 | Item | Current status | Missing evidence or boundary |
 |---|---|---|
-| Eight native packages / 119 source modules | REFUSED at the second hosted attempt; full scope NOT_ESTABLISHED | Run40938100721 verified the first two projects, then refused the project2 compiled-census mismatch; remaining projects and final source/object readback are unqualified |
+| Eight native packages / 119 source modules | Raw-record repair locally qualified; whole scope NOT_ESTABLISHED | Prior hosted attempts refused at project2. Their first-project outputs used the older selected-only collector; a fresh all-native run of the repaired collector and final source/object readback are required |
 | Cusp binary64 coefficient packet | QUARANTINED; A3_NOT_PROVEN | Exact rational/verified-real bound certification and source-bound reconciliation of the denied numerical consumers |
 | Determinant component gate from Math-#528 | QUARANTINED | Existing compiled_inventory is null; package-specific bound census and repaired-gate execution remain unestablished |
 | Native module-system sidecars | NOT_QUALIFIED | New module sources and compiled isModule headers are refused by this gate |
 | Semantic alignment, non-vacuity and parent research joins | NOT_EVALUATED by this engineering change | Actual mathematical evidence at the original statements and scopes |
 
 Use the exact commands in TOOLING.md. Successful Python checks verify their stated engineering behavior; they do not establish Lean execution. A missing compiler, failed phase, omitted native source or mismatched commit/object must not be reported as clean.
+
+The current collector traverses every reachable imported raw ConstantInfo version by module/record identity. It reconciles native census differences only with explicit identical theorem payload aliases, retaining separate raw-record and unique-name counts. Different valid proof payloads conservatively refuse. The frozen local cut passed66 gate controls and17 harness controls per mode, all9 declared Python mutants per mode, actual pinned-core alias/raw-version controls, and both generated collector mutants. These finite controls do not qualify all119 native modules or dependency cache objects. Prior selected-only collector results remain historical observations.
 
 ## Historical scoped evidence
 
@@ -31,3 +33,20 @@ Run40933241149, tested merge80bdeac2c7a88b51da13a81d47d458c0d474f0c6, passed aud
 Run40938100721 at feature headfdc723e3d0c0fd7b1f270aad611ac511561c108b tested merge7db34c265162dc2538720729ac6212355e4e3e6d. G0 passed. The formal project (9modules,116declarations) and statement project (6modules,590declarations) each produced kernel/axiom results; project2 then REFUSED because SpecificationProofs.P15Hazard compiled header/origin censuses differ (46versus45). This is a hard refusal, not all-native success. Its366-file/745675-byte artifact12927120552, SHA2566c4fd6359a7e57732468077121ea32cf749024d6d9f160a9a40ffb58b1413eb6, is retained. Diagnosis must account explicitly for actual imported declaration identity; no missing declaration may be silently removed or treated as verified.
 
 The separate full-regression job in run40938100424 at tested merge7db34c265162dc2538720729ac6212355e4e3e6d/tree203e1b48c2961eb29db415fb2a5f4c12f49428b3 completed1149 root tests normally and1149 with-O, both bareOK and zero unittest skips. This qualifies those two regression executions at that tree; it does not override the separate kernel audit refusal or qualify a later source. The original C8 replay40938100491 also succeeded diagnostically and does not establish A3 exact-bound certification.
+
+
+### C8 bounded arithmetic quarantine — 2026-10-29
+
+Q-C8-ELDER-FAILURE-BINARY64-20261029 is A3_NOT_PROVEN with certificate admission denied for its 106 listed numeric pairs. Three exact E[2T] Fraction witnesses remain separate and nonadmitting. The current source-bound candidate passed 41 core,22 harness and 3 workflow methods per mode and all 13 declared mutants in both modes, requiring measured intended body assertions and completed fixtures. The earlier 14-harness cut remains historical evidence. Full C8 numerical replay and hosted qualification of this change remain NOT_EVALUATED. Other workflows/global isolation and generic auditor soundness are not established here.
+
+
+### C2 exact-oracle bounded tool qualification
+
+Original oracle and both packets remain unchanged. The external25-case baseline and19runner controls pass in each mode;12/12 declared source mutants are killed per mode with measured intended body assertions, completed fixtures and zero errors/skips. The earlier 12-runner cut remains historical evidence. The composed C8/C2/cusp focused suite passed128 methods normally and128 optimized, zero skips; this is not the full regression suite. This is finite source-tool evidence for the nine supplied closed forms, not Gaussian interpretation, all arithmetic, kernel or federation closure. Hosted execution of the added CI step is NOT_EVALUATED.
+
+### How to verify the added arithmetic boundaries
+
+C8 integrity: `python -B -S tools/check_c8_quarantine.py`. C8 self-verification: `python -B -S tools/c8_quarantine_mutations.py --output /tmp/c8-cut-NEW`. C2 self-verification: `python -B -S tools/cbz_c2_oracle_qualification/test_runner.py -v`, then `python -B -S tools/cbz_c2_oracle_qualification/run_mutations.py --evidence-dir /tmp/c2-cut-NEW`; repeat with-O and new output paths. Complete scopes and commands are in TOOLING.md and the component registries. No integrity/mutation success admits an excluded certificate.
+
+
+Latest strict diagnostic attempt40945793449 at tested mergea22a0e395f108e85116f03b5a9813042afbd4829 REFUSED on P15Hazard46versus45, naming header-only`UniversalLaw.Spec.P15.block.eq_1` and no origin-only name. Artifact12930262595/SHA256c6b81d8163211c75bcb87ab72323bccf296f55e8b62bbc61a561bb8695535e99 is retained. Imported generated-theorem coalescing must be handled without hiding any raw theorem proof or axiom declaration. Current whole-native kernel status remains NOT_ESTABLISHED.

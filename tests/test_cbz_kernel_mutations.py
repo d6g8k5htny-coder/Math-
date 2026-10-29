@@ -22,9 +22,56 @@ Ran 1 test in 0.001s
 FAILED (failures=1)
 """
 
+def machine_text(text, count=1, failure=True):
+    ids = [SELECTOR] if count == 1 else ["synthetic.NativeGateTests.test_" + str(i) for i in range(count)]
+    row = {"schema": "cbz.kernel.mutation-lifecycle/v1", "tests_run": count, "expected_ids": ids,
+           "body_started": ids, "body_returned": [] if failure else ids,
+           "failure_events": [{"test": SELECTOR, "phase": "body", "assertion": True}] if failure else [],
+           "error_events": [], "skipped": 0, "expected_failures": 0, "unexpected_successes": 0}
+    return text + "CBZM|" + json.dumps(row, sort_keys=True) + "\n"
+
+KILL = machine_text(KILL)
+
+
 class MutationHarnessTests(unittest.TestCase):
     def setUp(self):
         self.assertIsNotNone(harness, "kernel mutation harness is not implemented")
+
+    def lifecycle_fixture(self, body, selector=SELECTOR):
+        with tempfile.TemporaryDirectory() as d:
+            work = Path(d);(work / "tests").mkdir();output = work / "evidence";output.mkdir()
+            (work / "tests/test_cbz_kernel_gate.py").write_text(
+                "import unittest\nclass NativeGateTests(unittest.TestCase):\n" + body)
+            return harness.run_suite(work, output, "lifecycle", "normal", selector)
+
+    def test_setup_assertion_never_counts_as_selected_body_kill(self):
+        result = self.lifecycle_fixture(
+            '    def setUp(self): self.fail("setup sentinel")\n'
+            '    def test_target(self): raise RuntimeError("body must not execute")\n')
+        self.assertEqual(result["assertion_failures"], 1)
+        self.assertEqual(result["test_errors"], 0)
+        with self.assertRaises(harness.MutationError):
+            harness.require_kill(result, SELECTOR)
+
+    def test_teardown_assertion_never_counts_as_selected_body_kill(self):
+        result = self.lifecycle_fixture(
+            '    def tearDown(self): self.fail("teardown sentinel")\n'
+            '    def test_target(self): pass\n')
+        with self.assertRaises(harness.MutationError):
+            harness.require_kill(result, SELECTOR)
+
+    def test_cleanup_assertion_never_counts_as_selected_body_kill(self):
+        result = self.lifecycle_fixture(
+            '    def test_target(self): self.addCleanup(lambda: self.fail("cleanup sentinel"))\n')
+        with self.assertRaises(harness.MutationError):
+            harness.require_kill(result, SELECTOR)
+
+    def test_expected_failure_is_not_a_healthy_baseline_body(self):
+        result = self.lifecycle_fixture(
+            '    @unittest.expectedFailure\n'
+            '    def test_target(self): self.fail("expected body failure")\n')
+        with patch.object(harness, "EXPECTED_BASELINE_TESTS", 1), self.assertRaises(harness.MutationError):
+            harness.require_baseline(result)
 
     def test_exact_assertion_failure_is_a_kill(self):
         result = harness.suite_result(1, KILL)
@@ -61,10 +108,10 @@ class MutationHarnessTests(unittest.TestCase):
             with self.subTest(code=code), self.assertRaises(harness.MutationError):
                 harness.require_kill(harness.suite_result(code, KILL), SELECTOR)
 
-    def test_baseline_requires_all_52_healthy_tests(self):
-        harness.require_baseline(harness.suite_result(0, "Ran 52 tests in 0.1s\nOK\n"))
-        for text in ("Ran 0 tests in 0.1s\nOK\n", "Ran 51 tests in 0.1s\nOK\n",
-                     "Ran 52 tests in 0.1s\nOK (skipped=1)\n"):
+    def test_baseline_requires_all_66_healthy_tests(self):
+        harness.require_baseline(harness.suite_result(0, machine_text("Ran 66 tests in 0.1s\nOK\n", count=66, failure=False)))
+        for text in ("Ran 0 tests in 0.1s\nOK\n", "Ran 65 tests in 0.1s\nOK\n",
+                     "Ran 66 tests in 0.1s\nOK (skipped=1)\n"):
             with self.subTest(text=text), self.assertRaises(harness.MutationError):
                 harness.require_baseline(harness.suite_result(0, text))
 
