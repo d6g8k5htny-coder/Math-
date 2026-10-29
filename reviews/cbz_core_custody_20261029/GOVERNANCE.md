@@ -35,3 +35,5 @@ Observed: 40947126080/job123705321047 SUCCESS, 93 enumerated nonterminal runs,
 27 cancellation requests, 63 current/terminal records retained. This is run
 orchestration only and earns no mathematical/test pass.
 Owner: none, self-contained. Criteria: 5, 6, 9.
+
+Tools: `.github/workflows/cbz-core-environment-controls.yml` and `.github/workflows/cbz-core-grader-controls.yml`. Purpose: source-bound focused environment controls and the retained formal suite with reason-bound mutation/grader controls. Usage, finite scope, exact test counts and pending self-verification: `reviews/cbz_core_custody_20261029/GIT_ENVIRONMENT_CANDIDATE.md` and `GRADER_CANDIDATE.md`. Neither workflow certifies kernel execution or the complete federation. Owner: none, self-contained; criteria 4, 6, 7, 9, 11. They remain unqualified until their actual hosted results and artifact hashes are observed.
