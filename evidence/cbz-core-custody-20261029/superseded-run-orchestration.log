@@ -1,0 +1,140 @@
+﻿2026-10-29T20:15:32.4727382Z Current runner version: '2.338.0'
+2026-10-29T20:15:32.4764163Z ##[group]Runner Image Provisioner
+2026-10-29T20:15:32.4765290Z Hosted Compute Agent
+2026-10-29T20:15:32.4766151Z Version: 20261021.618
+2026-10-29T20:15:32.4767257Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-10-29T20:15:32.4768242Z Build Date: 2026-10-21T00:45:21Z
+2026-10-29T20:15:32.4769048Z Worker ID: {51269da7-4ef5-490f-b512-7887df2cd79b}
+2026-10-29T20:15:32.4769819Z Region: eastus
+2026-10-29T20:15:32.4770493Z Cloud: Azure
+2026-10-29T20:15:32.4771077Z ##[endgroup]
+2026-10-29T20:15:32.4773580Z ##[group]Operating System
+2026-10-29T20:15:32.4774471Z Ubuntu
+2026-10-29T20:15:32.4775037Z 24.04.5
+2026-10-29T20:15:32.4775809Z LTS
+2026-10-29T20:15:32.4776399Z ##[endgroup]
+2026-10-29T20:15:32.4777417Z ##[group]Runner Image
+2026-10-29T20:15:32.4778099Z Image: ubuntu-24.04-arm
+2026-10-29T20:15:32.4778717Z Version: 20261025.165.1
+2026-10-29T20:15:32.4780942Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24-arm64/20261025.165/images/ubuntu/Ubuntu2404-Arm64-Readme.md
+2026-10-29T20:15:32.4782790Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24-arm64%2F20261025.165
+2026-10-29T20:15:32.4783872Z ##[endgroup]
+2026-10-29T20:15:32.4785288Z ##[group]GITHUB_TOKEN Permissions
+2026-10-29T20:15:32.4789178Z Actions: write
+2026-10-29T20:15:32.4790100Z Contents: read
+2026-10-29T20:15:32.4790720Z Metadata: read
+2026-10-29T20:15:32.4791333Z ##[endgroup]
+2026-10-29T20:15:32.4794453Z Secret source: Actions
+2026-10-29T20:15:32.4795481Z Cache mode: write
+2026-10-29T20:15:32.4797296Z Prepare workflow directory
+2026-10-29T20:15:32.5215876Z Prepare all required actions
+2026-10-29T20:15:32.5270910Z Getting action download info
+2026-10-29T20:15:32.7116573Z Download action repository 'actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9' (SHA:cf430e030ddbb5b0abf93d22962f4752f3646cd9)
+2026-10-29T20:15:32.9710375Z Complete job name: retire-superseded
+2026-10-29T20:15:33.0733435Z ##[group]Run python3 -B -S - <<'PYRETIRE'
+2026-10-29T20:15:33.0734814Z [36;1mpython3 -B -S - <<'PYRETIRE'[0m
+2026-10-29T20:15:33.0735559Z [36;1mimport json,os,re,subprocess[0m
+2026-10-29T20:15:33.0736277Z [36;1mfrom pathlib import Path[0m
+2026-10-29T20:15:33.0737572Z [36;1mrepository=os.environ['GITHUB_REPOSITORY'][0m
+2026-10-29T20:15:33.0738407Z [36;1mprefix='repos/'+repository+'/'[0m
+2026-10-29T20:15:33.0739364Z [36;1mactive={'queued','in_progress','requested','pending','waiting'}[0m
+2026-10-29T20:15:33.0740282Z [36;1mhex40=re.compile('[0-9a-f]{40}')[0m
+2026-10-29T20:15:33.0741018Z [36;1mdef stale(run,pr):[0m
+2026-10-29T20:15:33.0742066Z [36;1m    return (run.get('event')=='pull_request' and run.get('status') in active[0m
+2026-10-29T20:15:33.0743147Z [36;1m        and pr.get('state')=='open' and isinstance(run.get('head_sha'),str)[0m
+2026-10-29T20:15:33.0744193Z [36;1m        and isinstance(pr.get('head',{}).get('sha'),str)[0m
+2026-10-29T20:15:33.0745422Z [36;1m        and bool(hex40.fullmatch(run['head_sha'])) and bool(hex40.fullmatch(pr['head']['sha']))[0m
+2026-10-29T20:15:33.0746611Z [36;1m        and run['head_sha']!=pr['head']['sha'])[0m
+2026-10-29T20:15:33.0747894Z [36;1mbase={'event':'pull_request','status':'queued','head_sha':'a'*40}[0m
+2026-10-29T20:15:33.0748840Z [36;1mcurrent={'state':'open','head':{'sha':'b'*40}}[0m
+2026-10-29T20:15:33.0749676Z [36;1mcontrols=[[0m
+2026-10-29T20:15:33.0750318Z [36;1m    (base,current,True),[0m
+2026-10-29T20:15:33.0751201Z [36;1m    (dict(base,event='push'),current,False),[0m
+2026-10-29T20:15:33.0752070Z [36;1m    (dict(base,status='completed'),current,False),[0m
+2026-10-29T20:15:33.0752948Z [36;1m    (dict(base,head_sha='b'*40),current,False),[0m
+2026-10-29T20:15:33.0753840Z [36;1m    (base,dict(current,state='closed'),False),[0m
+2026-10-29T20:15:33.0754677Z [36;1m    (dict(base,head_sha=None),current,False),[0m
+2026-10-29T20:15:33.0755523Z [36;1m    (base,{'state':'open','head':{}},False)][0m
+2026-10-29T20:15:33.0756390Z [36;1mfor run,pr,wanted in controls:[0m
+2026-10-29T20:15:33.0758114Z [36;1m    if stale(run,pr)!=wanted:[0m
+2026-10-29T20:15:33.0759079Z [36;1m        raise SystemExit('cancellation policy self-test failed')[0m
+2026-10-29T20:15:33.0759981Z [36;1mdef api(path,post=False):[0m
+2026-10-29T20:15:33.0760967Z [36;1m    command=['gh','api',prefix+path]+(['--method','POST'] if post else [])[0m
+2026-10-29T20:15:33.0762121Z [36;1m    result=subprocess.run(command,capture_output=True,check=True)[0m
+2026-10-29T20:15:33.0763158Z [36;1m    return json.loads(result.stdout) if result.stdout.strip() else None[0m
+2026-10-29T20:15:33.0764132Z [36;1mdef pages(path,key):[0m
+2026-10-29T20:15:33.0765180Z [36;1m    rows=[][0m
+2026-10-29T20:15:33.0765812Z [36;1m    for page in range(1,1001):[0m
+2026-10-29T20:15:33.0767189Z [36;1m        result=api(path+('&' if '?' in path else '?')+'per_page=100&page='+str(page))[0m
+2026-10-29T20:15:33.0768231Z [36;1m        batch=result[key] if key else result[0m
+2026-10-29T20:15:33.0769089Z [36;1m        if not isinstance(batch,list):[0m
+2026-10-29T20:15:33.0770418Z [36;1m            raise SystemExit('unexpected API pagination shape')[0m
+2026-10-29T20:15:33.0771305Z [36;1m        rows.extend(batch)[0m
+2026-10-29T20:15:33.0772144Z [36;1m        if len(batch)<100:[0m
+2026-10-29T20:15:33.0772813Z [36;1m            return rows[0m
+2026-10-29T20:15:33.0773768Z [36;1m    raise SystemExit('pagination bound exhausted without complete enumeration')[0m
+2026-10-29T20:15:33.0774793Z [36;1mprs=pages('pulls?state=open',None)[0m
+2026-10-29T20:15:33.0775521Z [36;1mruns={}[0m
+2026-10-29T20:15:33.0776208Z [36;1mfor status in sorted(active):[0m
+2026-10-29T20:15:33.0777331Z [36;1m    for run in pages('actions/runs?status='+status,'workflow_runs'):[0m
+2026-10-29T20:15:33.0778321Z [36;1m        runs[run['id']]=run[0m
+2026-10-29T20:15:33.0779053Z [36;1mrows=[][0m
+2026-10-29T20:15:33.0779712Z [36;1mfor run_id,run in sorted(runs.items()):[0m
+2026-10-29T20:15:33.0781218Z [36;1m    if str(run_id)==os.environ['GITHUB_RUN_ID'] or run.get('event')!='pull_request':[0m
+2026-10-29T20:15:33.0782245Z [36;1m        continue[0m
+2026-10-29T20:15:33.0783006Z [36;1m    ids=[p.get('number') for p in run.get('pull_requests',[])][0m
+2026-10-29T20:15:33.0783976Z [36;1m    if not ids:[0m
+2026-10-29T20:15:33.0784794Z [36;1m        ids=[p['number'] for p in prs if p['head']['ref']==run.get('head_branch')[0m
+2026-10-29T20:15:33.0785939Z [36;1m             and p['head']['repo']['full_name']==repository][0m
+2026-10-29T20:15:33.0787396Z [36;1m    if len(ids)!=1 or type(ids[0]) is not int:[0m
+2026-10-29T20:15:33.0788372Z [36;1m        rows.append(dict(run_id=run_id,action='RETAINED_UNROUTED_OR_MULTIPLE_PR'))[0m
+2026-10-29T20:15:33.0789427Z [36;1m        continue[0m
+2026-10-29T20:15:33.0790124Z [36;1m    pr=api('pulls/'+str(ids[0]))[0m
+2026-10-29T20:15:33.0790936Z [36;1m    if not stale(run,pr):[0m
+2026-10-29T20:15:33.0791881Z [36;1m        rows.append(dict(run_id=run_id,pr=ids[0],action='RETAINED_CURRENT_OR_TERMINAL'))[0m
+2026-10-29T20:15:33.0792877Z [36;1m        continue[0m
+2026-10-29T20:15:33.0793756Z [36;1m    latest=api('actions/runs/'+str(run_id))[0m
+2026-10-29T20:15:33.0794682Z [36;1m    # Fresh PR source and run state are re-read immediately before the POST.[0m
+2026-10-29T20:15:33.0796166Z [36;1m    pr=api('pulls/'+str(ids[0]))[0m
+2026-10-29T20:15:33.0797346Z [36;1m    if not stale(latest,pr):[0m
+2026-10-29T20:15:33.0798340Z [36;1m        rows.append(dict(run_id=run_id,pr=ids[0],action='RETAINED_AFTER_RECHECK'))[0m
+2026-10-29T20:15:33.0799377Z [36;1m        continue[0m
+2026-10-29T20:15:33.0800185Z [36;1m    api('actions/runs/'+str(run_id)+'/cancel',post=True)[0m
+2026-10-29T20:15:33.0801073Z [36;1m    observed=api('actions/runs/'+str(run_id))[0m
+2026-10-29T20:15:33.0802079Z [36;1m    rows.append(dict(run_id=run_id,pr=ids[0],old_head=latest['head_sha'],[0m
+2026-10-29T20:15:33.0803175Z [36;1m        current_head=pr['head']['sha'],action='CANCELLATION_REQUESTED',[0m
+2026-10-29T20:15:33.0804382Z [36;1m        observed_status=observed['status'],observed_conclusion=observed.get('conclusion')))[0m
+2026-10-29T20:15:33.0806016Z [36;1mreport=dict(scope='SUPERSEDED_PR_RUN_ORCHESTRATION_ONLY_NO_TEST_OR_PROOF_CREDIT',[0m
+2026-10-29T20:15:33.0807767Z [36;1m    source_commit=os.environ['GITHUB_SHA'],run_id=os.environ['GITHUB_RUN_ID'],[0m
+2026-10-29T20:15:33.0808975Z [36;1m    policy_self_tests=len(controls),enumerated_nonterminal_runs=len(runs),records=rows)[0m
+2026-10-29T20:15:33.0810358Z [36;1mPath('cbz-superseded-run-report.json').write_text(json.dumps(report,indent=2,sort_keys=True)+'\n')[0m
+2026-10-29T20:15:33.0811553Z [36;1mprint(json.dumps(report,sort_keys=True))[0m
+2026-10-29T20:15:33.0812284Z [36;1mPYRETIRE[0m
+2026-10-29T20:15:33.1034849Z shell: /usr/bin/bash -e {0}
+2026-10-29T20:15:33.1036148Z env:
+2026-10-29T20:15:33.1040922Z   GH_TOKEN: ***
+2026-10-29T20:15:33.1042208Z ##[endgroup]
+2026-10-29T20:17:14.4651567Z {"enumerated_nonterminal_runs": 93, "policy_self_tests": 7, "records": [{"action": "CANCELLATION_REQUESTED", "current_head": "44c39bdc6254bffb0a5f4737e3ce8d93829ad7bd", "observed_conclusion": null, "observed_status": "in_progress", "old_head": "f69d419692f27a77dff25dac562c91f546bafcca", "pr": 531, "run_id": 40942140496}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 531, "run_id": 40942326453}, {"action": "CANCELLATION_REQUESTED", "current_head": "82c9004c2a6472a3913292e92543d21fbab174ef", "observed_conclusion": null, "observed_status": "in_progress", "old_head": "59d0094ee388946de24b934ed3bca96ac73c4191", "pr": 533, "run_id": 40942365022}, {"action": "CANCELLATION_REQUESTED", "current_head": "787ad73c42805155a50afca5a30b02e48e39726e", "observed_conclusion": null, "observed_status": "in_progress", "old_head": "73d9df873da994d8fce9b98313f8da98e2bcb2db", "pr": 534, "run_id": 40943603269}, {"action": "CANCELLATION_REQUESTED", "current_head": "787ad73c42805155a50afca5a30b02e48e39726e", "observed_conclusion": null, "observed_status": "queued", "old_head": "61ba9758248e57e1f058eb5cb8fae58d51ff1bf4", "pr": 534, "run_id": 40944391246}, {"action": "CANCELLATION_REQUESTED", "current_head": "787ad73c42805155a50afca5a30b02e48e39726e", "observed_conclusion": null, "observed_status": "in_progress", "old_head": "61ba9758248e57e1f058eb5cb8fae58d51ff1bf4", "pr": 534, "run_id": 40944391259}, {"action": "CANCELLATION_REQUESTED", "current_head": "787ad73c42805155a50afca5a30b02e48e39726e", "observed_conclusion": null, "observed_status": "in_progress", "old_head": "61ba9758248e57e1f058eb5cb8fae58d51ff1bf4", "pr": 534, "run_id": 40944391424}, {"action": "CANCELLATION_REQUESTED", "current_head": "787ad73c42805155a50afca5a30b02e48e39726e", "observed_conclusion": null, "observed_status": "in_progress", "old_head": "b841fcc18ad7ebbe136ff7d237c8b61455e8e02f", "pr": 534, "run_id": 40944660170}, {"action": "CANCELLATION_REQUESTED", "current_head": "787ad73c42805155a50afca5a30b02e48e39726e", "observed_conclusion": null, "observed_status": "in_progress", "old_head": "b841fcc18ad7ebbe136ff7d237c8b61455e8e02f", "pr": 534, "run_id": 40944660215}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 532, "run_id": 40944985825}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 532, "run_id": 40944985980}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 532, "run_id": 40944986135}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 536, "run_id": 40945103723}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 536, "run_id": 40945103737}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 536, "run_id": 40945103879}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 536, "run_id": 40945103883}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 536, "run_id": 40945104027}, {"action": "CANCELLATION_REQUESTED", "current_head": "787ad73c42805155a50afca5a30b02e48e39726e", "observed_conclusion": null, "observed_status": "queued", "old_head": "00fd30cf1f4e85cd44ccfe84dce6f2772c88667e", "pr": 534, "run_id": 40945425114}, {"action": "CANCELLATION_REQUESTED", "current_head": "787ad73c42805155a50afca5a30b02e48e39726e", "observed_conclusion": null, "observed_status": "in_progress", "old_head": "00fd30cf1f4e85cd44ccfe84dce6f2772c88667e", "pr": 534, "run_id": 40945425226}, {"action": "CANCELLATION_REQUESTED", "current_head": "787ad73c42805155a50afca5a30b02e48e39726e", "observed_conclusion": null, "observed_status": "in_progress", "old_head": "00fd30cf1f4e85cd44ccfe84dce6f2772c88667e", "pr": 534, "run_id": 40945425318}, {"action": "CANCELLATION_REQUESTED", "current_head": "787ad73c42805155a50afca5a30b02e48e39726e", "observed_conclusion": null, "observed_status": "queued", "old_head": "00fd30cf1f4e85cd44ccfe84dce6f2772c88667e", "pr": 534, "run_id": 40945425501}, {"action": "CANCELLATION_REQUESTED", "current_head": "787ad73c42805155a50afca5a30b02e48e39726e", "observed_conclusion": null, "observed_status": "in_progress", "old_head": "00fd30cf1f4e85cd44ccfe84dce6f2772c88667e", "pr": 534, "run_id": 40945425514}, {"action": "CANCELLATION_REQUESTED", "current_head": "787ad73c42805155a50afca5a30b02e48e39726e", "observed_conclusion": null, "observed_status": "in_progress", "old_head": "00fd30cf1f4e85cd44ccfe84dce6f2772c88667e", "pr": 534, "run_id": 40945425523}, {"action": "CANCELLATION_REQUESTED", "current_head": "787ad73c42805155a50afca5a30b02e48e39726e", "observed_conclusion": null, "observed_status": "in_progress", "old_head": "00fd30cf1f4e85cd44ccfe84dce6f2772c88667e", "pr": 534, "run_id": 40945425525}, {"action": "CANCELLATION_REQUESTED", "current_head": "787ad73c42805155a50afca5a30b02e48e39726e", "observed_conclusion": null, "observed_status": "in_progress", "old_head": "00fd30cf1f4e85cd44ccfe84dce6f2772c88667e", "pr": 534, "run_id": 40945425526}, {"action": "CANCELLATION_REQUESTED", "current_head": "787ad73c42805155a50afca5a30b02e48e39726e", "observed_conclusion": null, "observed_status": "in_progress", "old_head": "00fd30cf1f4e85cd44ccfe84dce6f2772c88667e", "pr": 534, "run_id": 40945425705}, {"action": "CANCELLATION_REQUESTED", "current_head": "a574ff51e6c47e7f3c612c8bb1df438f00818ad8", "observed_conclusion": null, "observed_status": "queued", "old_head": "6a4a1c1267db9e9ce3a115d88fb4caa8e67e9d9c", "pr": 537, "run_id": 40945450326}, {"action": "CANCELLATION_REQUESTED", "current_head": "a574ff51e6c47e7f3c612c8bb1df438f00818ad8", "observed_conclusion": null, "observed_status": "in_progress", "old_head": "6a4a1c1267db9e9ce3a115d88fb4caa8e67e9d9c", "pr": 537, "run_id": 40945450411}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 530, "run_id": 40945793160}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 530, "run_id": 40945793192}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 530, "run_id": 40945793232}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 530, "run_id": 40945793234}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 530, "run_id": 40945793235}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 530, "run_id": 40945793292}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 530, "run_id": 40945793355}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 530, "run_id": 40945793365}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 530, "run_id": 40945793373}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 530, "run_id": 40945793430}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 530, "run_id": 40945793449}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 530, "run_id": 40945793461}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 530, "run_id": 40945793539}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 530, "run_id": 40945793787}, {"action": "CANCELLATION_REQUESTED", "current_head": "a574ff51e6c47e7f3c612c8bb1df438f00818ad8", "observed_conclusion": null, "observed_status": "in_progress", "old_head": "8619b9ff6d3f52c19af84131d1b3dbe24bd3bf32", "pr": 537, "run_id": 40945885585}, {"action": "CANCELLATION_REQUESTED", "current_head": "a574ff51e6c47e7f3c612c8bb1df438f00818ad8", "observed_conclusion": null, "observed_status": "in_progress", "old_head": "8619b9ff6d3f52c19af84131d1b3dbe24bd3bf32", "pr": 537, "run_id": 40945885606}, {"action": "CANCELLATION_REQUESTED", "current_head": "a574ff51e6c47e7f3c612c8bb1df438f00818ad8", "observed_conclusion": null, "observed_status": "queued", "old_head": "8619b9ff6d3f52c19af84131d1b3dbe24bd3bf32", "pr": 537, "run_id": 40945885702}, {"action": "CANCELLATION_REQUESTED", "current_head": "a574ff51e6c47e7f3c612c8bb1df438f00818ad8", "observed_conclusion": null, "observed_status": "queued", "old_head": "8619b9ff6d3f52c19af84131d1b3dbe24bd3bf32", "pr": 537, "run_id": 40945885737}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 533, "run_id": 40946125304}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 533, "run_id": 40946125327}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 533, "run_id": 40946125351}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 533, "run_id": 40946125375}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 533, "run_id": 40946125384}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 533, "run_id": 40946125419}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 533, "run_id": 40946125428}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 533, "run_id": 40946125453}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 533, "run_id": 40946125461}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 533, "run_id": 40946125495}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 533, "run_id": 40946125509}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 533, "run_id": 40946125560}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 533, "run_id": 40946125561}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 533, "run_id": 40946125566}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 533, "run_id": 40946125638}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 533, "run_id": 40946125642}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 534, "run_id": 40946268821}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 534, "run_id": 40946268822}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 534, "run_id": 40946268829}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 534, "run_id": 40946268862}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 534, "run_id": 40946268903}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 534, "run_id": 40946268909}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 534, "run_id": 40946268914}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 534, "run_id": 40946268924}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 534, "run_id": 40946268949}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 534, "run_id": 40946269013}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 534, "run_id": 40946269025}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 534, "run_id": 40946269035}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 534, "run_id": 40946269093}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 534, "run_id": 40946269097}, {"action": "CANCELLATION_REQUESTED", "current_head": "a574ff51e6c47e7f3c612c8bb1df438f00818ad8", "observed_conclusion": null, "observed_status": "queued", "old_head": "57052259a45ee9c90086f128f2ae4adb4f598886", "pr": 537, "run_id": 40946309103}, {"action": "CANCELLATION_REQUESTED", "current_head": "a574ff51e6c47e7f3c612c8bb1df438f00818ad8", "observed_conclusion": null, "observed_status": "queued", "old_head": "57052259a45ee9c90086f128f2ae4adb4f598886", "pr": 537, "run_id": 40946309132}, {"action": "CANCELLATION_REQUESTED", "current_head": "a574ff51e6c47e7f3c612c8bb1df438f00818ad8", "observed_conclusion": null, "observed_status": "queued", "old_head": "57052259a45ee9c90086f128f2ae4adb4f598886", "pr": 537, "run_id": 40946309259}, {"action": "CANCELLATION_REQUESTED", "current_head": "a574ff51e6c47e7f3c612c8bb1df438f00818ad8", "observed_conclusion": null, "observed_status": "queued", "old_head": "57052259a45ee9c90086f128f2ae4adb4f598886", "pr": 537, "run_id": 40946309335}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 537, "run_id": 40947135302}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 537, "run_id": 40947135322}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 537, "run_id": 40947135325}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 537, "run_id": 40947135384}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 537, "run_id": 40947135393}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 537, "run_id": 40947135435}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 535, "run_id": 40947293053}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 535, "run_id": 40947293059}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 535, "run_id": 40947293188}, {"action": "RETAINED_CURRENT_OR_TERMINAL", "pr": 538, "run_id": 40947359273}], "run_id": "40947126080", "scope": "SUPERSEDED_PR_RUN_ORCHESTRATION_ONLY_NO_TEST_OR_PROOF_CREDIT", "source_commit": "a574ff51e6c47e7f3c612c8bb1df438f00818ad8"}
+2026-10-29T20:17:14.4925799Z ##[group]Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+2026-10-29T20:17:14.4926560Z with:
+2026-10-29T20:17:14.4927288Z   name: cbz-superseded-runs-40947126080-1
+2026-10-29T20:17:14.4927885Z   path: cbz-superseded-run-report.json
+2026-10-29T20:17:14.4928278Z   if-no-files-found: error
+2026-10-29T20:17:14.4928707Z   compression-level: 6
+2026-10-29T20:17:14.4929088Z   overwrite: false
+2026-10-29T20:17:14.4929464Z   include-hidden-files: false
+2026-10-29T20:17:14.4929967Z   archive: true
+2026-10-29T20:17:14.4930316Z ##[endgroup]
+2026-10-29T20:17:14.6282707Z With the provided path, there will be 1 file uploaded
+2026-10-29T20:17:14.6285126Z Artifact name is valid!
+2026-10-29T20:17:14.6286044Z Root directory input is valid!
+2026-10-29T20:17:14.8426697Z Uploading artifact: cbz-superseded-runs-40947126080-1.zip
+2026-10-29T20:17:14.8462994Z Beginning upload of artifact content to blob storage
+2026-10-29T20:17:14.9081254Z Uploaded bytes 1424
+2026-10-29T20:17:14.9225874Z Finished uploading artifact content to blob storage!
+2026-10-29T20:17:14.9227742Z SHA256 digest of uploaded artifact is fecb51475ad1f7cb7dfe1b28be053fb6f69fdc84ae61ffdd144dd0fce0cdc9cf
+2026-10-29T20:17:14.9228588Z Finalizing artifact upload
+2026-10-29T20:17:15.3709362Z Artifact cbz-superseded-runs-40947126080-1 successfully finalized. Artifact ID 12929877061
+2026-10-29T20:17:15.3710390Z Artifact cbz-superseded-runs-40947126080-1 has been successfully uploaded! Final size is 1424 bytes. Artifact ID is 12929877061
+2026-10-29T20:17:15.3711512Z Artifact download URL: https://github.com/d6g8k5htny-coder/Math-/actions/runs/40947126080/artifacts/12929877061
+2026-10-29T20:17:15.3908284Z Cleaning up orphan processes

@@ -1,0 +1,802 @@
+﻿2026-10-29T19:45:07.7159099Z Current runner version: '2.338.0'
+2026-10-29T19:45:07.7195795Z ##[group]Runner Image Provisioner
+2026-10-29T19:45:07.7197146Z Hosted Compute Agent
+2026-10-29T19:45:07.7198354Z Version: 20261021.618
+2026-10-29T19:45:07.7199553Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-10-29T19:45:07.7201108Z Build Date: 2026-10-21T00:45:21Z
+2026-10-29T19:45:07.7202563Z Worker ID: {008cc926-1db6-4e40-9691-a5ef50bb9593}
+2026-10-29T19:45:07.7204238Z Region: eastus
+2026-10-29T19:45:07.7205392Z Cloud: Azure
+2026-10-29T19:45:07.7206429Z ##[endgroup]
+2026-10-29T19:45:07.7208735Z ##[group]Operating System
+2026-10-29T19:45:07.7209861Z Ubuntu
+2026-10-29T19:45:07.7211294Z 26.04.1
+2026-10-29T19:45:07.7212384Z LTS
+2026-10-29T19:45:07.7213323Z ##[endgroup]
+2026-10-29T19:45:07.7214776Z ##[group]Runner Image
+2026-10-29T19:45:07.7215968Z Image: ubuntu-26.04
+2026-10-29T19:45:07.7217138Z Version: 20261025.179.1
+2026-10-29T19:45:07.7219336Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261025.179/images/ubuntu/Ubuntu2604-Readme.md
+2026-10-29T19:45:07.7222188Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261025.179
+2026-10-29T19:45:07.7224267Z ##[endgroup]
+2026-10-29T19:45:07.7226345Z ##[group]GITHUB_TOKEN Permissions
+2026-10-29T19:45:07.7229528Z Contents: read
+2026-10-29T19:45:07.7230560Z Metadata: read
+2026-10-29T19:45:07.7231558Z ##[endgroup]
+2026-10-29T19:45:07.7235013Z Secret source: Actions
+2026-10-29T19:45:07.7236746Z Cache mode: write
+2026-10-29T19:45:07.7238308Z Prepare workflow directory
+2026-10-29T19:45:07.7719055Z Prepare all required actions
+2026-10-29T19:45:07.7791646Z Getting action download info
+2026-10-29T19:45:07.9469710Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-29T19:45:08.0515754Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-29T19:45:08.1100829Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-29T19:45:08.3042294Z Complete job name: custody (optimized)
+2026-10-29T19:45:08.3989289Z ##[group]Run actions/checkout@v4
+2026-10-29T19:45:08.3990179Z with:
+2026-10-29T19:45:08.3990607Z   fetch-depth: 0
+2026-10-29T19:45:08.3991082Z   repository: d6g8k5htny-coder/Math-
+2026-10-29T19:45:08.3994980Z   token: ***
+2026-10-29T19:45:08.3995419Z   ssh-strict: true
+2026-10-29T19:45:08.3995860Z   ssh-user: git
+2026-10-29T19:45:08.3996301Z   persist-credentials: true
+2026-10-29T19:45:08.3996778Z   clean: true
+2026-10-29T19:45:08.3997216Z   sparse-checkout-cone-mode: true
+2026-10-29T19:45:08.3997730Z   fetch-tags: false
+2026-10-29T19:45:08.3998165Z   show-progress: true
+2026-10-29T19:45:08.3998593Z   lfs: false
+2026-10-29T19:45:08.3998989Z   submodules: false
+2026-10-29T19:45:08.3999423Z   set-safe-directory: true
+2026-10-29T19:45:08.3999907Z   allow-unsafe-pr-checkout: false
+2026-10-29T19:45:08.4000669Z ##[endgroup]
+2026-10-29T19:45:08.7227673Z Syncing repository: d6g8k5htny-coder/Math-
+2026-10-29T19:45:08.7230485Z ##[group]Getting Git version info
+2026-10-29T19:45:08.7231821Z Working directory is '/home/runner/work/Math-/Math-'
+2026-10-29T19:45:08.7233632Z [command]/usr/bin/git version
+2026-10-29T19:45:08.7268176Z git version 2.56.0
+2026-10-29T19:45:08.7308358Z ##[endgroup]
+2026-10-29T19:45:08.7316876Z Temporarily overriding HOME='/home/runner/work/_temp/c0ce50ed-3241-4da5-88ee-1f79daa74112' before making global git config changes
+2026-10-29T19:45:08.7325693Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-29T19:45:08.7356029Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Math-/Math-
+2026-10-29T19:45:08.7395036Z Deleting the contents of '/home/runner/work/Math-/Math-'
+2026-10-29T19:45:08.7399871Z ##[group]Initializing the repository
+2026-10-29T19:45:08.7405553Z [command]/usr/bin/git init /home/runner/work/Math-/Math-
+2026-10-29T19:45:08.7526842Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-29T19:45:08.7529697Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-29T19:45:08.7531570Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-29T19:45:08.7532969Z hint: call:
+2026-10-29T19:45:08.7534544Z hint:
+2026-10-29T19:45:08.7535822Z hint: 	git config --global init.defaultBranch <name>
+2026-10-29T19:45:08.7537324Z hint:
+2026-10-29T19:45:08.7538474Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-29T19:45:08.7540116Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-29T19:45:08.7541651Z hint:
+2026-10-29T19:45:08.7542388Z hint: 	git branch -m <name>
+2026-10-29T19:45:08.7543411Z hint:
+2026-10-29T19:45:08.7545097Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-29T19:45:08.7548579Z Initialized empty Git repository in /home/runner/work/Math-/Math-/.git/
+2026-10-29T19:45:08.7567429Z [command]/usr/bin/git remote add origin https://github.com/d6g8k5htny-coder/Math-
+2026-10-29T19:45:08.7642779Z ##[endgroup]
+2026-10-29T19:45:08.7644666Z ##[group]Disabling automatic garbage collection
+2026-10-29T19:45:08.7646242Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-29T19:45:08.7726343Z ##[endgroup]
+2026-10-29T19:45:08.7728333Z ##[group]Setting up auth
+2026-10-29T19:45:08.7729887Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-29T19:45:08.7800425Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-29T19:45:08.8339321Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-29T19:45:08.8377486Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-29T19:45:08.8653004Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-29T19:45:08.8689605Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-29T19:45:08.8957626Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-29T19:45:08.8997041Z ##[endgroup]
+2026-10-29T19:45:08.8998512Z ##[group]Fetching the repository
+2026-10-29T19:45:08.9007064Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2026-10-29T19:45:12.0219925Z From https://github.com/d6g8k5htny-coder/Math-
+2026-10-29T19:45:12.0222641Z  * [new branch]        agent12/verifier-c7-01 -> origin/agent12/verifier-c7-01
+2026-10-29T19:45:12.0225076Z  * [new branch]        agent8/c299-c7-replacement-20261022 -> origin/agent8/c299-c7-replacement-20261022
+2026-10-29T19:45:12.0227465Z  * [new branch]        benjamin/d5-collar-nonauthor-20260928b -> origin/benjamin/d5-collar-nonauthor-20260928b
+2026-10-29T19:45:12.0229747Z  * [new branch]        cbz/core-custody-native-20261029 -> origin/cbz/core-custody-native-20261029
+2026-10-29T19:45:12.0232311Z  * [new branch]        cbz/math-pr-dispositions-01n-20261029 -> origin/cbz/math-pr-dispositions-01n-20261029
+2026-10-29T19:45:12.0235678Z  * [new branch]        cbz/native-kernel-cusp-acee-20261029 -> origin/cbz/native-kernel-cusp-acee-20261029
+2026-10-29T19:45:12.0238618Z  * [new branch]        cbz/wrapper-protocol-union-20261029 -> origin/cbz/wrapper-protocol-union-20261029
+2026-10-29T19:45:12.0241571Z  * [new branch]        chatgpt/ac1-f1-synthetic-controls-20261007-gp -> origin/chatgpt/ac1-f1-synthetic-controls-20261007-gp
+2026-10-29T19:45:12.0245532Z  * [new branch]        chatgpt/bq11-import-profile-20261007-f81c -> origin/chatgpt/bq11-import-profile-20261007-f81c
+2026-10-29T19:45:12.0248946Z  * [new branch]        chatgpt/cap-i4-adapter-envelope-20261005 -> origin/chatgpt/cap-i4-adapter-envelope-20261005
+2026-10-29T19:45:12.0252747Z  * [new branch]        chatgpt/cap-i4-angular-formal-20261006 -> origin/chatgpt/cap-i4-angular-formal-20261006
+2026-10-29T19:45:12.0256876Z  * [new branch]        chatgpt/cap-i4-chamber-bridge-20261006-r21 -> origin/chatgpt/cap-i4-chamber-bridge-20261006-r21
+2026-10-29T19:45:12.0260745Z  * [new branch]        chatgpt/cap-i4-clipped-integral-20261006-r17 -> origin/chatgpt/cap-i4-clipped-integral-20261006-r17
+2026-10-29T19:45:12.0264612Z  * [new branch]        chatgpt/cap-i4-d3-moment8-20261005 -> origin/chatgpt/cap-i4-d3-moment8-20261005
+2026-10-29T19:45:12.0268253Z  * [new branch]        chatgpt/cap-i4-depth-kernel-20261006-r16 -> origin/chatgpt/cap-i4-depth-kernel-20261006-r16
+2026-10-29T19:45:12.0271687Z  * [new branch]        chatgpt/cap-i4-entry-volume-20261006 -> origin/chatgpt/cap-i4-entry-volume-20261006
+2026-10-29T19:45:12.0275521Z  * [new branch]        chatgpt/cap-i4-evidence-r2-20261005 -> origin/chatgpt/cap-i4-evidence-r2-20261005
+2026-10-29T19:45:12.0279387Z  * [new branch]        chatgpt/cap-i4-gaussian-envelope-20261006-r18 -> origin/chatgpt/cap-i4-gaussian-envelope-20261006-r18
+2026-10-29T19:45:12.0283396Z  * [new branch]        chatgpt/cap-i4-independent-20261006-r15 -> origin/chatgpt/cap-i4-independent-20261006-r15
+2026-10-29T19:45:12.0287943Z  * [new branch]        chatgpt/cap-i4-inner-integration-20261006-r19 -> origin/chatgpt/cap-i4-inner-integration-20261006-r19
+2026-10-29T19:45:12.0291665Z  * [new branch]        chatgpt/cap-i4-linear-formal-20261006 -> origin/chatgpt/cap-i4-linear-formal-20261006
+2026-10-29T19:45:12.0295602Z  * [new branch]        chatgpt/cap-i4-matrix-formal-20261006 -> origin/chatgpt/cap-i4-matrix-formal-20261006
+2026-10-29T19:45:12.0299421Z  * [new branch]        chatgpt/cap-i4-outer-composition-20261006-r20 -> origin/chatgpt/cap-i4-outer-composition-20261006-r20
+2026-10-29T19:45:12.0303219Z  * [new branch]        chatgpt/cap-i4-polar-formal-20261006 -> origin/chatgpt/cap-i4-polar-formal-20261006
+2026-10-29T19:45:12.0307639Z  * [new branch]        chatgpt/cap-i4-product-transport-20261006-r14 -> origin/chatgpt/cap-i4-product-transport-20261006-r14
+2026-10-29T19:45:12.0312410Z  * [new branch]        chatgpt/cap-i4-proposal-diagnostic-20261006-r12 -> origin/chatgpt/cap-i4-proposal-diagnostic-20261006-r12
+2026-10-29T19:45:12.0317271Z  * [new branch]        chatgpt/cap-i4-residual-law-20261006-r22 -> origin/chatgpt/cap-i4-residual-law-20261006-r22
+2026-10-29T19:45:12.0321105Z  * [new branch]        chatgpt/cap-i4-source-bridge-20261005 -> origin/chatgpt/cap-i4-source-bridge-20261005
+2026-10-29T19:45:12.0326549Z  * [new branch]        chatgpt/cap-i4-spectral-assembly-20261006 -> origin/chatgpt/cap-i4-spectral-assembly-20261006
+2026-10-29T19:45:12.0332326Z  * [new branch]        chatgpt/cusp-contract-characterization-20261006-rfgate -> origin/chatgpt/cusp-contract-characterization-20261006-rfgate
+2026-10-29T19:45:12.0337214Z  * [new branch]        chatgpt/d1-borel-kac-rice-amend-20260925 -> origin/chatgpt/d1-borel-kac-rice-amend-20260925
+2026-10-29T19:45:12.0341219Z  * [new branch]        chatgpt/d5-pin-compatibility-review-20260925 -> origin/chatgpt/d5-pin-compatibility-review-20260925
+2026-10-29T19:45:12.0345722Z  * [new branch]        chatgpt/downstream-boundary-review-20260925 -> origin/chatgpt/downstream-boundary-review-20260925
+2026-10-29T19:45:12.0350339Z  * [new branch]        chatgpt/fail-closed-claim-audit-20260925 -> origin/chatgpt/fail-closed-claim-audit-20260925
+2026-10-29T19:45:12.0354542Z  * [new branch]        chatgpt/fail-closed-claim-audit-20260925-v2 -> origin/chatgpt/fail-closed-claim-audit-20260925-v2
+2026-10-29T19:45:12.0358512Z  * [new branch]        chatgpt/fold-affine-bridge-20261006-f81c -> origin/chatgpt/fold-affine-bridge-20261006-f81c
+2026-10-29T19:45:12.0361926Z  * [new branch]        chatgpt/full-price-20260924 -> origin/chatgpt/full-price-20260924
+2026-10-29T19:45:12.0366243Z  * [new branch]        chatgpt/integrate-reviewed-collision-package-20260925 -> origin/chatgpt/integrate-reviewed-collision-package-20260925
+2026-10-29T19:45:12.0370962Z  * [new branch]        chatgpt/legacy-fixture-signing-20261006-r11 -> origin/chatgpt/legacy-fixture-signing-20261006-r11
+2026-10-29T19:45:12.0375232Z  * [new branch]        chatgpt/legacy-json-refresh-20261006-r9 -> origin/chatgpt/legacy-json-refresh-20261006-r9
+2026-10-29T19:45:12.0379209Z  * [new branch]        chatgpt/legacy-json-repair-20261006-r8 -> origin/chatgpt/legacy-json-repair-20261006-r8
+2026-10-29T19:45:12.0383479Z  * [new branch]        chatgpt/legacy-parser-plus-20261006-r13 -> origin/chatgpt/legacy-parser-plus-20261006-r13
+2026-10-29T19:45:12.0388017Z  * [new branch]        chatgpt/legacy-signing-isolation-20261006-r12 -> origin/chatgpt/legacy-signing-isolation-20261006-r12
+2026-10-29T19:45:12.0392057Z  * [new branch]        chatgpt/legacy-trigger-coverage-20261006-r6 -> origin/chatgpt/legacy-trigger-coverage-20261006-r6
+2026-10-29T19:45:12.0396054Z  * [new branch]        chatgpt/legacy-tty-followon-20261006 -> origin/chatgpt/legacy-tty-followon-20261006
+2026-10-29T19:45:12.0400856Z  * [new branch]        chatgpt/lm006-coefficient-refine-4096-20261006-r22 -> origin/chatgpt/lm006-coefficient-refine-4096-20261006-r22
+2026-10-29T19:45:12.0405256Z  * [new branch]        chatgpt/lm006-oned-replay-20261006-b91e -> origin/chatgpt/lm006-oned-replay-20261006-b91e
+2026-10-29T19:45:12.0409062Z  * [new branch]        chatgpt/nav-verdict-word-start-20261006-r10 -> origin/chatgpt/nav-verdict-word-start-20261006-r10
+2026-10-29T19:45:12.0413437Z  * [new branch]        chatgpt/navigation-citation-identity-20261006 -> origin/chatgpt/navigation-citation-identity-20261006
+2026-10-29T19:45:12.0418057Z  * [new branch]        chatgpt/navigation-corpus-observation-20261006 -> origin/chatgpt/navigation-corpus-observation-20261006
+2026-10-29T19:45:12.0421772Z  * [new branch]        chatgpt/navigation-price-20260924 -> origin/chatgpt/navigation-price-20260924
+2026-10-29T19:45:12.0426634Z  * [new branch]        chatgpt/navigation-reviewed-stack-preparation-20261006 -> origin/chatgpt/navigation-reviewed-stack-preparation-20261006
+2026-10-29T19:45:12.0431187Z  * [new branch]        chatgpt/navigation-verdict-boundaries-20261006 -> origin/chatgpt/navigation-verdict-boundaries-20261006
+2026-10-29T19:45:12.0435500Z  * [new branch]        chatgpt/navigation-verdict-boundary-20261006 -> origin/chatgpt/navigation-verdict-boundary-20261006
+2026-10-29T19:45:12.0439441Z  * [new branch]        chatgpt/never-merge-formal-negative-20260927 -> origin/chatgpt/never-merge-formal-negative-20260927
+2026-10-29T19:45:12.0443038Z  * [new branch]        chatgpt/p15-smt-pilot-20260925-1918 -> origin/chatgpt/p15-smt-pilot-20260925-1918
+2026-10-29T19:45:12.0446955Z  * [new branch]        chatgpt/pr334-native-contract-support-20261006 -> origin/chatgpt/pr334-native-contract-support-20261006
+2026-10-29T19:45:12.0450860Z  * [new branch]        chatgpt/qs-raw-child-evidence-20261006-r9 -> origin/chatgpt/qs-raw-child-evidence-20261006-r9
+2026-10-29T19:45:12.0455141Z  * [new branch]        chatgpt/qs340-inventory-amendment-support-20261006 -> origin/chatgpt/qs340-inventory-amendment-support-20261006
+2026-10-29T19:45:12.0458804Z  * [new branch]        chatgpt/remote-window-20260924 -> origin/chatgpt/remote-window-20260924
+2026-10-29T19:45:12.0462056Z  * [new branch]        chatgpt/retrospective-round10-20261005 -> origin/chatgpt/retrospective-round10-20261005
+2026-10-29T19:45:12.0466240Z  * [new branch]        chatgpt/rf-gate-helper-replay-22393e7b-20261006-r8 -> origin/chatgpt/rf-gate-helper-replay-22393e7b-20261006-r8
+2026-10-29T19:45:12.0470578Z  * [new branch]        chatgpt/rf-gate-incorporation-rehearsal-20261006-r9 -> origin/chatgpt/rf-gate-incorporation-rehearsal-20261006-r9
+2026-10-29T19:45:12.0474591Z  * [new branch]        chatgpt/soft-fold-protocol-20261006 -> origin/chatgpt/soft-fold-protocol-20261006
+2026-10-29T19:45:12.0478254Z  * [new branch]        chatgpt/third-order-protocol-20261006-37bd-r4 -> origin/chatgpt/third-order-protocol-20261006-37bd-r4
+2026-10-29T19:45:12.0481934Z  * [new branch]        chatgpt/three-fronts-20260924 -> origin/chatgpt/three-fronts-20260924
+2026-10-29T19:45:12.0485923Z  * [new branch]        chatgpt/two-scale-custody-postmerge-repair-20260929 -> origin/chatgpt/two-scale-custody-postmerge-repair-20260929
+2026-10-29T19:45:12.0489946Z  * [new branch]        claude/dd-model-d-enclosure-wip-20261013 -> origin/claude/dd-model-d-enclosure-wip-20261013
+2026-10-29T19:45:12.0493330Z  * [new branch]        claude/determined-bardeen-mrqy4y -> origin/claude/determined-bardeen-mrqy4y
+2026-10-29T19:45:12.0496515Z  * [new branch]        claude/nice-maxwell-7i7ok0 -> origin/claude/nice-maxwell-7i7ok0
+2026-10-29T19:45:12.0499494Z  * [new branch]        claude/round4-triage-table-20261011 -> origin/claude/round4-triage-table-20261011
+2026-10-29T19:45:12.0502904Z  * [new branch]        codex/all-frame-gaussian-rates-20261028 -> origin/codex/all-frame-gaussian-rates-20261028
+2026-10-29T19:45:12.0506831Z  * [new branch]        codex/c291-literal-lifetime-field-20261018 -> origin/codex/c291-literal-lifetime-field-20261018
+2026-10-29T19:45:12.0510479Z  * [new branch]        codex/c293-morse-finite-critical-20261018 -> origin/codex/c293-morse-finite-critical-20261018
+2026-10-29T19:45:12.0514377Z  * [new branch]        codex/c294-critical-level-attainment-20261020 -> origin/codex/c294-critical-level-attainment-20261020
+2026-10-29T19:45:12.0517876Z  * [new branch]        codex/c299-critical-ridge-20261020 -> origin/codex/c299-critical-ridge-20261020
+2026-10-29T19:45:12.0521235Z  * [new branch]        codex/c299-timeout-test-adoption-20261024 -> origin/codex/c299-timeout-test-adoption-20261024
+2026-10-29T19:45:12.0525035Z  * [new branch]        codex/c301-c291-static-workspace-20261024 -> origin/codex/c301-c291-static-workspace-20261024
+2026-10-29T19:45:12.0528958Z  * [new branch]        codex/cbz-determinant-qualified-inventory-20261029 -> origin/codex/cbz-determinant-qualified-inventory-20261029
+2026-10-29T19:45:12.0533100Z  * [new branch]        codex/cbz-packet-admission-db642-20261029 -> origin/codex/cbz-packet-admission-db642-20261029
+2026-10-29T19:45:12.0537213Z  * [new branch]        codex/compact-cutoff-baseline-20261009-root01a11cbf -> origin/codex/compact-cutoff-baseline-20261009-root01a11cbf
+2026-10-29T19:45:12.0541938Z  * [new branch]        codex/compact-cutoff-controls-final-repair-20261011-root01a11cbf -> origin/codex/compact-cutoff-controls-final-repair-20261011-root01a11cbf
+2026-10-29T19:45:12.0547184Z  * [new branch]        codex/compact-cutoff-controls-repair-20261011-root01a11cbf -> origin/codex/compact-cutoff-controls-repair-20261011-root01a11cbf
+2026-10-29T19:45:12.0551724Z  * [new branch]        codex/compact-cutoff-proof-20261010-root01a11cbf -> origin/codex/compact-cutoff-proof-20261010-root01a11cbf
+2026-10-29T19:45:12.0556289Z  * [new branch]        codex/compact-cutoff-proof-repair-20261011-root01a11cbf -> origin/codex/compact-cutoff-proof-repair-20261011-root01a11cbf
+2026-10-29T19:45:12.0561216Z  * [new branch]        codex/compact-cutoff-proper-partial-control-20261011-root01a11cbf -> origin/codex/compact-cutoff-proper-partial-control-20261011-root01a11cbf
+2026-10-29T19:45:12.0566714Z  * [new branch]        codex/compact-cutoff-proper-partial-repair-20261011-root01a11cbf -> origin/codex/compact-cutoff-proper-partial-repair-20261011-root01a11cbf
+2026-10-29T19:45:12.0570739Z  * [new branch]        codex/cubic-curvature-20261026 -> origin/codex/cubic-curvature-20261026
+2026-10-29T19:45:12.0574058Z  * [new branch]        codex/elder-cusp-parity-protocol-20261020 -> origin/codex/elder-cusp-parity-protocol-20261020
+2026-10-29T19:45:12.0577533Z  * [new branch]        codex/essential-gaussian-rate-20261028 -> origin/codex/essential-gaussian-rate-20261028
+2026-10-29T19:45:12.0581067Z  * [new branch]        codex/essential-sharp-asymptotics-20261028 -> origin/codex/essential-sharp-asymptotics-20261028
+2026-10-29T19:45:12.0585143Z  * [new branch]        codex/gaussian-lifetime-limit-completion-20261029 -> origin/codex/gaussian-lifetime-limit-completion-20261029
+2026-10-29T19:45:12.0589052Z  * [new branch]        codex/gaussian-lifetime-tail-20261028 -> origin/codex/gaussian-lifetime-tail-20261028
+2026-10-29T19:45:12.0592884Z  * [new branch]        codex/quotient-closed-superlevel-lpc-adapter-20261020 -> origin/codex/quotient-closed-superlevel-lpc-adapter-20261020
+2026-10-29T19:45:12.0597529Z  * [new branch]        codex/quotient-closed-superlevel-lpc-adapter-20261020-r2 -> origin/codex/quotient-closed-superlevel-lpc-adapter-20261020-r2
+2026-10-29T19:45:12.0602085Z  * [new branch]        codex/quotient-closed-superlevel-lpc-adapter-20261022-r3 -> origin/codex/quotient-closed-superlevel-lpc-adapter-20261022-r3
+2026-10-29T19:45:12.0606370Z  * [new branch]        codex/source-admission-graph-package-20261020 -> origin/codex/source-admission-graph-package-20261020
+2026-10-29T19:45:12.0610387Z  * [new branch]        codex/source-smooth-realization-20261013-root01a11cbf -> origin/codex/source-smooth-realization-20261013-root01a11cbf
+2026-10-29T19:45:12.0614155Z  * [new branch]        copilot/add-license-citation-files -> origin/copilot/add-license-citation-files
+2026-10-29T19:45:12.0617302Z  * [new branch]        cursor/cross-repo-proof-custody-7eca -> origin/cursor/cross-repo-proof-custody-7eca
+2026-10-29T19:45:12.0620373Z  * [new branch]        cursor/d2-cumulative-confirm-870a -> origin/cursor/d2-cumulative-confirm-870a
+2026-10-29T19:45:12.0623263Z  * [new branch]        cursor/d5-chart-graph-node-91fa -> origin/cursor/d5-chart-graph-node-91fa
+2026-10-29T19:45:12.0626415Z  * [new branch]        cursor/d5-chart-j0-on-hotfix-91fa -> origin/cursor/d5-chart-j0-on-hotfix-91fa
+2026-10-29T19:45:12.0629186Z  * [new branch]        cursor/d5-pin-microdisk-c059 -> origin/cursor/d5-pin-microdisk-c059
+2026-10-29T19:45:12.0632136Z  * [new branch]        cursor/formal-verification-layer-ae3b -> origin/cursor/formal-verification-layer-ae3b
+2026-10-29T19:45:12.0635583Z  * [new branch]        cursor/lemma-theorem-registers-f339 -> origin/cursor/lemma-theorem-registers-f339
+2026-10-29T19:45:12.0639008Z  * [new branch]        cursor/moment-generality-alignment-cdd1 -> origin/cursor/moment-generality-alignment-cdd1
+2026-10-29T19:45:12.0642511Z  * [new branch]        cursor/nonauthor-hermite-axial-review-5dce -> origin/cursor/nonauthor-hermite-axial-review-5dce
+2026-10-29T19:45:12.0646027Z  * [new branch]        cursor/pr69-pin-microdisk-review-4f5c -> origin/cursor/pr69-pin-microdisk-review-4f5c
+2026-10-29T19:45:12.0649097Z  * [new branch]        cursor/rn-mesoscopic-chart-j0-91fa -> origin/cursor/rn-mesoscopic-chart-j0-91fa
+2026-10-29T19:45:12.0652292Z  * [new branch]        grokbot-agent12/steward-source-refresh-01 -> origin/grokbot-agent12/steward-source-refresh-01
+2026-10-29T19:45:12.0655627Z  * [new branch]        grokbot/local-path-map-20261015 -> origin/grokbot/local-path-map-20261015
+2026-10-29T19:45:12.0658419Z  * [new branch]        inventable/purpose-readme-seed -> origin/inventable/purpose-readme-seed
+2026-10-29T19:45:12.0660709Z  * [new branch]        main                   -> origin/main
+2026-10-29T19:45:12.0663548Z  * [new branch]        support/navigation-336-344-353-on-08f86862-20261006 -> origin/support/navigation-336-344-353-on-08f86862-20261006
+2026-10-29T19:45:12.0666774Z  * [new tag]           pre-cbz-discovery-1    -> pre-cbz-discovery-1
+2026-10-29T19:45:12.0670776Z [command]/usr/bin/git branch --list --remote origin/cbz/core-custody-native-20261029
+2026-10-29T19:45:12.0672964Z   origin/cbz/core-custody-native-20261029
+2026-10-29T19:45:12.0749250Z [command]/usr/bin/git rev-parse refs/remotes/origin/cbz/core-custody-native-20261029
+2026-10-29T19:45:12.0751552Z a9747506f13295b3f8bb62ed032f6a7086488f66
+2026-10-29T19:45:12.0754980Z ##[endgroup]
+2026-10-29T19:45:12.0756582Z ##[group]Determining the checkout info
+2026-10-29T19:45:12.0758373Z ##[endgroup]
+2026-10-29T19:45:12.0759699Z [command]/usr/bin/git sparse-checkout disable
+2026-10-29T19:45:12.0762937Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-29T19:45:12.0766570Z ##[group]Checking out the ref
+2026-10-29T19:45:12.0769539Z [command]/usr/bin/git checkout --progress --force -B cbz/core-custody-native-20261029 refs/remotes/origin/cbz/core-custody-native-20261029
+2026-10-29T19:45:12.4118223Z Switched to a new branch 'cbz/core-custody-native-20261029'
+2026-10-29T19:45:12.4135542Z branch 'cbz/core-custody-native-20261029' set up to track 'origin/cbz/core-custody-native-20261029'.
+2026-10-29T19:45:12.4146971Z ##[endgroup]
+2026-10-29T19:45:12.4209451Z [command]/usr/bin/git log -1 --format=%H
+2026-10-29T19:45:12.4235852Z a9747506f13295b3f8bb62ed032f6a7086488f66
+2026-10-29T19:45:12.4505882Z ##[group]Run actions/setup-python@v5
+2026-10-29T19:45:12.4506192Z with:
+2026-10-29T19:45:12.4506409Z   python-version: 3.11.16
+2026-10-29T19:45:12.4506661Z   check-latest: false
+2026-10-29T19:45:12.4508949Z   token: ***
+2026-10-29T19:45:12.4509170Z   update-environment: true
+2026-10-29T19:45:12.4509419Z   allow-prereleases: false
+2026-10-29T19:45:12.4509659Z   freethreaded: false
+2026-10-29T19:45:12.4509894Z ##[endgroup]
+2026-10-29T19:45:12.5852176Z ##[group]Installed versions
+2026-10-29T19:45:12.5871403Z Version 3.11.16 was not found in the local cache
+2026-10-29T19:45:12.6044033Z (node:2340) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-29T19:45:12.6044997Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-29T19:45:13.2306898Z Version 3.11.16 is available for downloading
+2026-10-29T19:45:13.2309151Z Download from "https://github.com/actions/python-versions/releases/download/3.11.16-31661435402/python-3.11.16-linux-26.04-x64.tar.gz"
+2026-10-29T19:45:13.8491236Z Extract downloaded archive
+2026-10-29T19:45:13.8698996Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/1e8a9633-0072-494d-9eab-9e69ef47729e -f /home/runner/work/_temp/0f297ccc-c517-4bfe-ba41-31104ae6cb25
+2026-10-29T19:45:15.1495767Z Execute installation script
+2026-10-29T19:45:15.1648422Z Check if Python hostedtoolcache folder exist...
+2026-10-29T19:45:15.1648974Z Create Python 3.11.16 folder
+2026-10-29T19:45:15.1677488Z Copy Python binaries to hostedtoolcache folder
+2026-10-29T19:45:15.6824741Z Create additional symlinks (Required for the UsePythonVersion Azure Pipelines task and the setup-python GitHub Action)
+2026-10-29T19:45:15.6930603Z Upgrading pip...
+2026-10-29T19:45:17.4944458Z Collecting pip
+2026-10-29T19:45:17.5308716Z Downloading pip-26.2.2-py3-none-any.whl.metadata (4.6 kB)
+2026-10-29T19:45:17.5456630Z Downloading pip-26.2.2-py3-none-any.whl (1.8 MB)
+2026-10-29T19:45:17.5876203Z ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 46.2 MB/s eta 0:00:00
+2026-10-29T19:45:17.5876874Z 
+2026-10-29T19:45:17.6363722Z Installing collected packages: pip
+2026-10-29T19:45:17.6365158Z Attempting uninstall: pip
+2026-10-29T19:45:17.6383051Z Found existing installation: pip 24.0
+2026-10-29T19:45:17.6760916Z Uninstalling pip-24.0:
+2026-10-29T19:45:17.6821700Z Successfully uninstalled pip-24.0
+2026-10-29T19:45:18.4866252Z Successfully installed pip-26.2.2
+2026-10-29T19:45:18.5456716Z Create complete file
+2026-10-29T19:45:18.5521995Z Successfully set up CPython (3.11.16)
+2026-10-29T19:45:18.5523257Z ##[endgroup]
+2026-10-29T19:45:18.5724394Z ##[group]Run set -o pipefail
+2026-10-29T19:45:18.5724761Z [36;1mset -o pipefail[0m
+2026-10-29T19:45:18.5725008Z [36;1mflags=()[0m
+2026-10-29T19:45:18.5725289Z [36;1mif [ "$MODE" = optimized ]; then flags+=(-O); fi[0m
+2026-10-29T19:45:18.5725956Z [36;1mpython -B -S "${flags[@]}" -m unittest discover -s formal/tests -p test_source_custody.py -v 2>&1 | tee "$RUNNER_TEMP/custody-$MODE.log"[0m
+2026-10-29T19:45:18.5761590Z shell: /usr/bin/bash -e {0}
+2026-10-29T19:45:18.5761864Z env:
+2026-10-29T19:45:18.5762144Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-29T19:45:18.5762607Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib/pkgconfig
+2026-10-29T19:45:18.5763070Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-29T19:45:18.5763679Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-29T19:45:18.5764435Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-29T19:45:18.5764880Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib
+2026-10-29T19:45:18.5765214Z   MODE: optimized
+2026-10-29T19:45:18.5765442Z   PYTHONDONTWRITEBYTECODE: 1
+2026-10-29T19:45:18.5765691Z ##[endgroup]
+2026-10-29T19:45:19.0241438Z test_assume_unchanged_bytes_are_refused (test_source_custody.SourceCustodyTests.test_assume_unchanged_bytes_are_refused) ... ok
+2026-10-29T19:45:19.0666302Z test_clean_committed_source_is_bound_to_exact_head (test_source_custody.SourceCustodyTests.test_clean_committed_source_is_bound_to_exact_head) ... ok
+2026-10-29T19:45:19.1217716Z test_commit_drift_is_refused (test_source_custody.SourceCustodyTests.test_commit_drift_is_refused) ... ok
+2026-10-29T19:45:19.1788107Z test_dependency_accepts_exact_clean_committed_tree (test_source_custody.SourceCustodyTests.test_dependency_accepts_exact_clean_committed_tree) ... ok
+2026-10-29T19:45:19.2398297Z test_dependency_assume_unchanged_lean_is_refused (test_source_custody.SourceCustodyTests.test_dependency_assume_unchanged_lean_is_refused) ... ok
+2026-10-29T19:45:19.2996066Z test_dependency_ignored_extra_lean_is_refused (test_source_custody.SourceCustodyTests.test_dependency_ignored_extra_lean_is_refused) ... ok
+2026-10-29T19:45:19.3609762Z test_dependency_skip_worktree_build_input_is_refused (test_source_custody.SourceCustodyTests.test_dependency_skip_worktree_build_input_is_refused) ... ok
+2026-10-29T19:45:19.4170107Z test_execute_accepts_clean_committed_source (test_source_custody.SourceCustodyTests.test_execute_accepts_clean_committed_source) ... ok
+2026-10-29T19:45:19.4561163Z test_execute_refuses_dirty_overlay_before_kernel (test_source_custody.SourceCustodyTests.test_execute_refuses_dirty_overlay_before_kernel) ... ok
+2026-10-29T19:45:19.5142416Z test_execute_refuses_head_drift_and_removes_receipt (test_source_custody.SourceCustodyTests.test_execute_refuses_head_drift_and_removes_receipt) ... ok
+2026-10-29T19:45:19.5546647Z test_execute_removes_stale_receipt_on_preflight_failure (test_source_custody.SourceCustodyTests.test_execute_removes_stale_receipt_on_preflight_failure) ... ok
+2026-10-29T19:45:19.6045813Z test_loaded_helper_cannot_claim_replaced_committed_source (test_source_custody.SourceCustodyTests.test_loaded_helper_cannot_claim_replaced_committed_source) ... ok
+2026-10-29T19:45:19.6513614Z test_loaded_wrapper_cannot_claim_replaced_committed_source (test_source_custody.SourceCustodyTests.test_loaded_wrapper_cannot_claim_replaced_committed_source) ... ok
+2026-10-29T19:45:19.6895359Z test_refreshed_manifest_cannot_launder_dirty_proof (test_source_custody.SourceCustodyTests.test_refreshed_manifest_cannot_launder_dirty_proof) ... ok
+2026-10-29T19:45:19.7330062Z test_skip_worktree_bytes_are_refused (test_source_custody.SourceCustodyTests.test_skip_worktree_bytes_are_refused) ... ok
+2026-10-29T19:45:19.7718155Z test_staged_bytes_are_refused (test_source_custody.SourceCustodyTests.test_staged_bytes_are_refused) ... ok
+2026-10-29T19:45:19.8114300Z test_symlink_owned_source_is_refused (test_source_custody.SourceCustodyTests.test_symlink_owned_source_is_refused) ... ok
+2026-10-29T19:45:19.8485369Z test_uncommitted_overlay_is_refused_even_with_refreshed_digest (test_source_custody.SourceCustodyTests.test_uncommitted_overlay_is_refused_even_with_refreshed_digest) ... ok
+2026-10-29T19:45:19.8486342Z 
+2026-10-29T19:45:19.8486527Z ----------------------------------------------------------------------
+2026-10-29T19:45:19.8487063Z Ran 18 tests in 0.876s
+2026-10-29T19:45:19.8487220Z 
+2026-10-29T19:45:19.8487311Z OK
+2026-10-29T19:45:19.8689962Z ##[group]Run set -o pipefail
+2026-10-29T19:45:19.8690293Z [36;1mset -o pipefail[0m
+2026-10-29T19:45:19.8690540Z [36;1mflags=()[0m
+2026-10-29T19:45:19.8690808Z [36;1mif [ "$MODE" = optimized ]; then flags+=(-O); fi[0m
+2026-10-29T19:45:19.8691434Z [36;1mpython -B -S "${flags[@]}" -m unittest discover -s formal/tests -p "test_*.py" -v 2>&1 | tee "$RUNNER_TEMP/full-formal-$MODE.log"[0m
+2026-10-29T19:45:19.8723499Z shell: /usr/bin/bash -e {0}
+2026-10-29T19:45:19.8724147Z env:
+2026-10-29T19:45:19.8724560Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-29T19:45:19.8725031Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib/pkgconfig
+2026-10-29T19:45:19.8725488Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-29T19:45:19.8725891Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-29T19:45:19.8726299Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-29T19:45:19.8726743Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib
+2026-10-29T19:45:19.8727086Z   MODE: optimized
+2026-10-29T19:45:19.8727311Z   PYTHONDONTWRITEBYTECODE: 1
+2026-10-29T19:45:19.8727553Z ##[endgroup]
+2026-10-29T19:45:20.3499006Z test_blank_or_nonstring_proposer_identity (test_alignment_lineage.AlignmentLineageTests.test_blank_or_nonstring_proposer_identity) ... ok
+2026-10-29T19:45:20.3501748Z test_disposition_only_edit_cannot_hide_unknown_proposer (test_alignment_lineage.AlignmentLineageTests.test_disposition_only_edit_cannot_hide_unknown_proposer) ... ok
+2026-10-29T19:45:20.3504370Z test_every_declared_proposer_is_checked (test_alignment_lineage.AlignmentLineageTests.test_every_declared_proposer_is_checked) ... ok
+2026-10-29T19:45:20.3506637Z test_existing_digest_scope_and_coverage_checks (test_alignment_lineage.AlignmentLineageTests.test_existing_digest_scope_and_coverage_checks) ... ok
+2026-10-29T19:45:20.3508761Z test_explicit_empty_proposer_list (test_alignment_lineage.AlignmentLineageTests.test_explicit_empty_proposer_list) ... ok
+2026-10-29T19:45:20.3510564Z test_input_not_mutated (test_alignment_lineage.AlignmentLineageTests.test_input_not_mutated) ... ok
+2026-10-29T19:45:20.3512438Z test_invalid_proposer_target_scope (test_alignment_lineage.AlignmentLineageTests.test_invalid_proposer_target_scope) ... ok
+2026-10-29T19:45:20.3514427Z test_known_distinct_proposer (test_alignment_lineage.AlignmentLineageTests.test_known_distinct_proposer) ... ok
+2026-10-29T19:45:20.3516270Z test_legacy_single_author_record (test_alignment_lineage.AlignmentLineageTests.test_legacy_single_author_record) ... ok
+2026-10-29T19:45:20.3522194Z test_lineage_scope_cannot_be_unbound (test_alignment_lineage.AlignmentLineageTests.test_lineage_scope_cannot_be_unbound) ... ok
+2026-10-29T19:45:20.3526976Z test_lineage_tests_cannot_be_unbound (test_alignment_lineage.AlignmentLineageTests.test_lineage_tests_cannot_be_unbound) ... ok
+2026-10-29T19:45:20.3529187Z test_malformed_primary_and_reviewer_objects (test_alignment_lineage.AlignmentLineageTests.test_malformed_primary_and_reviewer_objects) ... ok
+2026-10-29T19:45:20.3531143Z test_malformed_proposer_collection (test_alignment_lineage.AlignmentLineageTests.test_malformed_proposer_collection) ... ok
+2026-10-29T19:45:20.3532964Z test_malformed_proposer_object (test_alignment_lineage.AlignmentLineageTests.test_malformed_proposer_object) ... ok
+2026-10-29T19:45:20.3534554Z test_missing_proposer_identity_field (test_alignment_lineage.AlignmentLineageTests.test_missing_proposer_identity_field) ... ok
+2026-10-29T19:45:20.3552932Z test_placeholder_lineage_in_all_roles (test_alignment_lineage.AlignmentLineageTests.test_placeholder_lineage_in_all_roles) ... ok
+2026-10-29T19:45:20.3554413Z test_primary_identity_normalization (test_alignment_lineage.AlignmentLineageTests.test_primary_identity_normalization) ... ok
+2026-10-29T19:45:20.3555709Z test_proposer_identity_normalization (test_alignment_lineage.AlignmentLineageTests.test_proposer_identity_normalization) ... ok
+2026-10-29T19:45:20.3557123Z test_same_proposer_agent (test_alignment_lineage.AlignmentLineageTests.test_same_proposer_agent) ... ok
+2026-10-29T19:45:20.3558157Z test_same_proposer_family (test_alignment_lineage.AlignmentLineageTests.test_same_proposer_family) ... ok
+2026-10-29T19:45:20.3559281Z test_same_proposer_provider (test_alignment_lineage.AlignmentLineageTests.test_same_proposer_provider) ... ok
+2026-10-29T19:45:20.3560490Z test_unscoped_known_proposer (test_alignment_lineage.AlignmentLineageTests.test_unscoped_known_proposer) ... ok
+2026-10-29T19:45:20.3561333Z test_withheld_record_remains_rejected (test_alignment_lineage.AlignmentLineageTests.test_withheld_record_remains_rejected) ... ok
+2026-10-29T19:45:20.3609774Z test_all_endpoint_inequalities_on_rational_controls (test_d2_schur.D2SchurTests.test_all_endpoint_inequalities_on_rational_controls) ... ok
+2026-10-29T19:45:20.3613470Z test_exact_declarations (test_d2_schur.D2SchurTests.test_exact_declarations) ... ok
+2026-10-29T19:45:20.3615860Z test_gaussian_reference_and_required_denominator_guard (test_d2_schur.D2SchurTests.test_gaussian_reference_and_required_denominator_guard) ... ok
+2026-10-29T19:45:20.3617513Z test_import_and_blueprint_wiring (test_d2_schur.D2SchurTests.test_import_and_blueprint_wiring) ... ok
+2026-10-29T19:45:20.3973014Z test_independent_spectral_gram_rotations (test_d2_schur.D2SchurTests.test_independent_spectral_gram_rotations) ... ok
+2026-10-29T19:45:20.3977496Z test_manifest_exact_extension (test_d2_schur.D2SchurTests.test_manifest_exact_extension) ... ok
+2026-10-29T19:45:20.3978909Z test_no_proof_holes_or_native_shortcut (test_d2_schur.D2SchurTests.test_no_proof_holes_or_native_shortcut) ... ok
+2026-10-29T19:45:20.3980480Z test_wrong_sign_and_missing_soft_factor_are_detected (test_d2_schur.D2SchurTests.test_wrong_sign_and_missing_soft_factor_are_detected) ... ok
+2026-10-29T19:45:20.4885590Z test_comment_text_is_not_inventoried_as_a_declaration (test_declaration_admission.DeclarationAdmissionRegressionTests.test_comment_text_is_not_inventoried_as_a_declaration) ... ok
+2026-10-29T19:45:20.5617979Z test_duplicate_target_list_is_rejected_source_side (test_declaration_admission.DeclarationAdmissionRegressionTests.test_duplicate_target_list_is_rejected_source_side) ... ok
+2026-10-29T19:45:20.9908899Z test_hidden_declaration_forms_are_rejected (test_declaration_admission.DeclarationAdmissionRegressionTests.test_hidden_declaration_forms_are_rejected) ... ok
+2026-10-29T19:45:21.0610428Z test_nested_namespace_cannot_be_misprefixed (test_declaration_admission.DeclarationAdmissionRegressionTests.test_nested_namespace_cannot_be_misprefixed) ... ok
+2026-10-29T19:45:21.0611606Z test_empty_link (test_gate.BlueprintTests.test_empty_link) ... ok
+2026-10-29T19:45:21.0612482Z test_unsupported_leanok (test_gate.BlueprintTests.test_unsupported_leanok) ... ok
+2026-10-29T19:45:21.0613370Z test_valid_link (test_gate.BlueprintTests.test_valid_link) ... ok
+2026-10-29T19:45:21.0614418Z test_wrong_link (test_gate.BlueprintTests.test_wrong_link) ... ok
+2026-10-29T19:45:21.0615188Z test_axiom_free (test_gate.GateTests.test_axiom_free) ... ok
+2026-10-29T19:45:21.0617281Z test_custom (test_gate.GateTests.test_custom) ... ok
+2026-10-29T19:45:21.0618308Z test_duplicate_target_output (test_gate.GateTests.test_duplicate_target_output) ... ok
+2026-10-29T19:45:21.0619206Z test_duplicate_target_request (test_gate.GateTests.test_duplicate_target_request) ... ok
+2026-10-29T19:45:21.0621791Z test_manifest_absolute (test_gate.GateTests.test_manifest_absolute) ... ok
+2026-10-29T19:45:21.0626625Z test_manifest_content (test_gate.GateTests.test_manifest_content) ... ok
+2026-10-29T19:45:21.0628799Z test_manifest_empty (test_gate.GateTests.test_manifest_empty) ... ok
+2026-10-29T19:45:21.0631379Z test_manifest_escape (test_gate.GateTests.test_manifest_escape) ... ok
+2026-10-29T19:45:21.0635759Z test_manifest_missing (test_gate.GateTests.test_manifest_missing) ... ok
+2026-10-29T19:45:21.0638773Z test_manifest_symlink (test_gate.GateTests.test_manifest_symlink) ... ok
+2026-10-29T19:45:21.0643280Z test_manifest_tamper (test_gate.GateTests.test_manifest_tamper) ... ok
+2026-10-29T19:45:21.0644324Z test_missing_target (test_gate.GateTests.test_missing_target) ... ok
+2026-10-29T19:45:21.0645027Z test_multiline (test_gate.GateTests.test_multiline) ... ok
+2026-10-29T19:45:21.0645669Z test_native (test_gate.GateTests.test_native) ... ok
+2026-10-29T19:45:21.0646369Z test_noise_denied (test_gate.GateTests.test_noise_denied) ... ok
+2026-10-29T19:45:21.0647344Z test_review_bad_disposition (test_gate.GateTests.test_review_bad_disposition) ... ok
+2026-10-29T19:45:21.0648318Z test_review_bad_evidence (test_gate.GateTests.test_review_bad_evidence) ... ok
+2026-10-29T19:45:21.0649154Z test_review_changed_scope (test_gate.GateTests.test_review_changed_scope) ... ok
+2026-10-29T19:45:21.0650012Z test_review_partial (test_gate.GateTests.test_review_partial) ... ok
+2026-10-29T19:45:21.0650742Z test_review_same_provider (test_gate.GateTests.test_review_same_provider) ... ok
+2026-10-29T19:45:21.0651558Z test_review_self (test_gate.GateTests.test_review_self) ... ok
+2026-10-29T19:45:21.0652241Z test_review_stale (test_gate.GateTests.test_review_stale) ... ok
+2026-10-29T19:45:21.0652992Z test_review_valid (test_gate.GateTests.test_review_valid) ... ok
+2026-10-29T19:45:21.0658413Z test_sorry (test_gate.GateTests.test_sorry) ... ok
+2026-10-29T19:45:21.0658915Z test_standard_axioms (test_gate.GateTests.test_standard_axioms) ... ok
+2026-10-29T19:45:21.0659517Z test_unexpected_target (test_gate.GateTests.test_unexpected_target) ... ok
+2026-10-29T19:45:21.1008302Z test_dependency_dirtied_during_execution_refuses_receipt (test_gate.RuntimeGuardTests.test_dependency_dirtied_during_execution_refuses_receipt) ... ERROR
+2026-10-29T19:45:21.1350053Z test_dependency_moved_during_execution_refuses_receipt (test_gate.RuntimeGuardTests.test_dependency_moved_during_execution_refuses_receipt) ... ERROR
+2026-10-29T19:45:21.1692779Z test_dirty_dependency_before_execution_refuses_and_preserves_build (test_gate.RuntimeGuardTests.test_dirty_dependency_before_execution_refuses_and_preserves_build) ... ok
+2026-10-29T19:45:21.2014551Z test_receipt_binds_attempt_and_both_equal_observations (test_gate.RuntimeGuardTests.test_receipt_binds_attempt_and_both_equal_observations) ... ERROR
+2026-10-29T19:45:21.2355834Z test_runtime_changed_between_observations_refuses_receipt (test_gate.RuntimeGuardTests.test_runtime_changed_between_observations_refuses_receipt) ... ERROR
+2026-10-29T19:45:21.2709834Z test_wrong_dependency_before_execution_refuses_and_preserves_build (test_gate.RuntimeGuardTests.test_wrong_dependency_before_execution_refuses_and_preserves_build) ... ok
+2026-10-29T19:45:21.2715735Z test_complete_pinned_release_record (test_gate.RuntimeVersionTests.test_complete_pinned_release_record) ... ok
+2026-10-29T19:45:21.3047153Z test_installed_dependency_change_still_refuses_receipt (test_gate.RuntimeVersionTests.test_installed_dependency_change_still_refuses_receipt) ... ok
+2026-10-29T19:45:21.3375345Z test_invalid_preflight_preserves_build_and_runs_no_build (test_gate.RuntimeVersionTests.test_invalid_preflight_preserves_build_and_runs_no_build) ... ok
+2026-10-29T19:45:21.3695167Z test_other_commit_after_execution_refuses_receipt (test_gate.RuntimeVersionTests.test_other_commit_after_execution_refuses_receipt) ... ERROR
+2026-10-29T19:45:21.4040906Z test_other_commit_preflight_preserves_build (test_gate.RuntimeVersionTests.test_other_commit_preflight_preserves_build) ... ok
+2026-10-29T19:45:21.4043041Z test_other_versions_and_incomplete_or_extra_records_refused (test_gate.RuntimeVersionTests.test_other_versions_and_incomplete_or_extra_records_refused) ... ok
+2026-10-29T19:45:21.4381694Z test_preflight_process_failure_preserves_build (test_gate.RuntimeVersionTests.test_preflight_process_failure_preserves_build) ... ok
+2026-10-29T19:45:21.4383257Z test_short_and_other_release_commits_refused (test_gate.RuntimeVersionTests.test_short_and_other_release_commits_refused) ... ok
+2026-10-29T19:45:21.4732700Z test_source_change_during_build_still_refuses_receipt (test_gate.RuntimeVersionTests.test_source_change_during_build_still_refuses_receipt) ... ERROR
+2026-10-29T19:45:21.5070246Z test_success_checks_before_build_and_after_controls_and_binds_both_logs (test_gate.RuntimeVersionTests.test_success_checks_before_build_and_after_controls_and_binds_both_logs) ... ERROR
+2026-10-29T19:45:21.5412928Z test_version_change_after_execution_refuses_receipt (test_gate.RuntimeVersionTests.test_version_change_after_execution_refuses_receipt) ... ERROR
+2026-10-29T19:45:21.5429992Z test_duplicate_json_rejected (test_gate.SourceContractTests.test_duplicate_json_rejected) ... ok
+2026-10-29T19:45:21.5431297Z test_json_object (test_gate.SourceContractTests.test_json_object) ... ok
+2026-10-29T19:45:21.5524271Z test_manifest_cannot_claim_kernel_status (test_gate.SourceContractTests.test_manifest_cannot_claim_kernel_status) ... ok
+2026-10-29T19:45:21.6285796Z test_rebound_root_redirects_source_overlay_and_evidence_reads (test_gate.SourceContractTests.test_rebound_root_redirects_source_overlay_and_evidence_reads) ... ok
+2026-10-29T19:45:21.6488475Z test_root_declaration_cannot_evade_audit (test_gate.SourceContractTests.test_root_declaration_cannot_evade_audit) ... ok
+2026-10-29T19:45:21.6936297Z test_source_baseline (test_gate.SourceContractTests.test_source_baseline) ... ok
+2026-10-29T19:45:21.7050461Z test_unbound_gate_refused (test_gate.SourceContractTests.test_unbound_gate_refused) ... ok
+2026-10-29T19:45:21.7054901Z test_only_documented_algebra_repairs (test_gate.SuccessorTests.test_only_documented_algebra_repairs) ... ok
+2026-10-29T19:45:21.7055845Z test_only_documented_probability_repair (test_gate.SuccessorTests.test_only_documented_probability_repair) ... ok
+2026-10-29T19:45:21.7091494Z test_exact_release_guard (test_gate_compatibility.CompatibilityTests.test_exact_release_guard) ... ok
+2026-10-29T19:45:21.7137359Z test_execute_augments_receipt (test_gate_compatibility.CompatibilityTests.test_execute_augments_receipt) ... ok
+2026-10-29T19:45:21.7269349Z test_overlay_is_files_only (test_gate_compatibility.CompatibilityTests.test_overlay_is_files_only) ... ok
+2026-10-29T19:45:21.7307420Z test_run_uses_current_root_and_preserves_explicit_cwd_and_exit_contract (test_gate_compatibility.CompatibilityTests.test_run_uses_current_root_and_preserves_explicit_cwd_and_exit_contract) ... ok
+2026-10-29T19:45:21.7344918Z test_expected_reason_counts (test_inventory_gate.AdmissionCheckTests.test_expected_reason_counts) ... ok
+2026-10-29T19:45:21.7346690Z test_injection_in_wrong_module_fails_the_experiment (test_inventory_gate.AdmissionCheckTests.test_injection_in_wrong_module_fails_the_experiment) ... ok
+2026-10-29T19:45:21.7348670Z test_missing_injection_fails_the_experiment (test_inventory_gate.AdmissionCheckTests.test_missing_injection_fails_the_experiment) ... ok
+2026-10-29T19:45:21.7350423Z test_other_reason_fails_the_experiment (test_inventory_gate.AdmissionCheckTests.test_other_reason_fails_the_experiment) ... ok
+2026-10-29T19:45:21.7352205Z test_passing_inventory_fails_the_experiment (test_inventory_gate.AdmissionCheckTests.test_passing_inventory_fails_the_experiment) ... ok
+2026-10-29T19:45:21.7354200Z test_protocol_error_fails_the_experiment (test_inventory_gate.AdmissionCheckTests.test_protocol_error_fails_the_experiment) ... ok
+2026-10-29T19:45:21.7356200Z test_same_short_private_name_elsewhere_fails_the_experiment (test_inventory_gate.AdmissionCheckTests.test_same_short_private_name_elsewhere_fails_the_experiment) ... ok
+2026-10-29T19:45:21.7358319Z test_unidentifiable_private_expectation_refused (test_inventory_gate.AdmissionCheckTests.test_unidentifiable_private_expectation_refused) ... ok
+2026-10-29T19:45:21.7360225Z test_auxiliary_parent_must_be_user_written (test_inventory_gate.AuditInventoryTests.test_auxiliary_parent_must_be_user_written) ... ok
+2026-10-29T19:45:21.7395636Z test_auxiliary_theorem_needs_user_parent_in_same_module (test_inventory_gate.AuditInventoryTests.test_auxiliary_theorem_needs_user_parent_in_same_module) ... ok
+2026-10-29T19:45:21.7397911Z test_axiom_closure_line_required_exactly_once (test_inventory_gate.AuditInventoryTests.test_axiom_closure_line_required_exactly_once) ... ok
+2026-10-29T19:45:21.7399598Z test_axiom_free_closure_passes (test_inventory_gate.AuditInventoryTests.test_axiom_free_closure_passes) ... ok
+2026-10-29T19:45:21.7401181Z test_axiom_kind_rejected_even_if_unused (test_inventory_gate.AuditInventoryTests.test_axiom_kind_rejected_even_if_unused) ... ok
+2026-10-29T19:45:21.7403408Z test_bound_record_must_match_kind_and_provenance (test_inventory_gate.AuditInventoryTests.test_bound_record_must_match_kind_and_provenance) ... ok
+2026-10-29T19:45:21.7405191Z test_clean_passes (test_inventory_gate.AuditInventoryTests.test_clean_passes) ... ok
+2026-10-29T19:45:21.7406683Z test_closure_smaller_than_inventory_rejected (test_inventory_gate.AuditInventoryTests.test_closure_smaller_than_inventory_rejected) ... ok
+2026-10-29T19:45:21.7408347Z test_custom_axiom_in_closure_rejected (test_inventory_gate.AuditInventoryTests.test_custom_axiom_in_closure_rejected) ... ok
+2026-10-29T19:45:21.7411642Z test_default_bound_is_empty (test_inventory_gate.AuditInventoryTests.test_default_bound_is_empty) ... ok
+2026-10-29T19:45:21.7414445Z test_duplicate_name_rejected (test_inventory_gate.AuditInventoryTests.test_duplicate_name_rejected) ... ok
+2026-10-29T19:45:21.7417982Z test_every_finding_is_reported (test_inventory_gate.AuditInventoryTests.test_every_finding_is_reported) ... ok
+2026-10-29T19:45:21.7434110Z test_extra_user_theorem_rejected_whatever_its_name (test_inventory_gate.AuditInventoryTests.test_extra_user_theorem_rejected_whatever_its_name) ... ok
+2026-10-29T19:45:21.7437977Z test_local_module_only_when_allowed (test_inventory_gate.AuditInventoryTests.test_local_module_only_when_allowed) ... ok
+2026-10-29T19:45:21.7440537Z test_local_user_theorem_rejected_even_when_local_allowed (test_inventory_gate.AuditInventoryTests.test_local_user_theorem_rejected_even_when_local_allowed) ... ok
+2026-10-29T19:45:21.7452611Z test_malformed_lines_are_protocol_errors (test_inventory_gate.AuditInventoryTests.test_malformed_lines_are_protocol_errors) ... ok
+2026-10-29T19:45:21.7455521Z test_missing_bound_constant_rejected (test_inventory_gate.AuditInventoryTests.test_missing_bound_constant_rejected) ... ok
+2026-10-29T19:45:21.7458185Z test_missing_target_rejected (test_inventory_gate.AuditInventoryTests.test_missing_target_rejected) ... ok
+2026-10-29T19:45:21.7473559Z test_module_table_findings (test_inventory_gate.AuditInventoryTests.test_module_table_findings) ... ok
+2026-10-29T19:45:21.7476909Z test_noise_lines_ignored_but_inventory_required (test_inventory_gate.AuditInventoryTests.test_noise_lines_ignored_but_inventory_required) ... ok
+2026-10-29T19:45:21.7480359Z test_non_theorem_auxiliaries_are_closure_only (test_inventory_gate.AuditInventoryTests.test_non_theorem_auxiliaries_are_closure_only) ... ok
+2026-10-29T19:45:21.7486820Z test_per_target_audit_cross_check (test_inventory_gate.AuditInventoryTests.test_per_target_audit_cross_check) ... ok
+2026-10-29T19:45:21.7490198Z test_quoted_private_sorry_rejected_for_both_reasons (test_inventory_gate.AuditInventoryTests.test_quoted_private_sorry_rejected_for_both_reasons) ... ok
+2026-10-29T19:45:21.7494520Z test_report_is_deterministic (test_inventory_gate.AuditInventoryTests.test_report_is_deterministic) ... ok
+2026-10-29T19:45:21.7501876Z test_target_only_as_auxiliary_or_private_is_missing (test_inventory_gate.AuditInventoryTests.test_target_only_as_auxiliary_or_private_is_missing) ... ok
+2026-10-29T19:45:21.7514633Z test_unbound_constants_rejected_whatever_their_provenance (test_inventory_gate.AuditInventoryTests.test_unbound_constants_rejected_whatever_their_provenance) ... ok
+2026-10-29T19:45:21.7520305Z test_empty_targets_or_modules_rejected (test_inventory_gate.BoundInventoryTests.test_empty_targets_or_modules_rejected) ... ok
+2026-10-29T19:45:21.7523588Z test_invalid_records_refused (test_inventory_gate.BoundInventoryTests.test_invalid_records_refused) ... ok
+2026-10-29T19:45:21.7704992Z test_live_manifest_binding (test_inventory_gate.BoundInventoryTests.test_live_manifest_binding) ... ok
+2026-10-29T19:45:21.7706496Z test_valid_records (test_inventory_gate.BoundInventoryTests.test_valid_records) ... ok
+2026-10-29T19:45:21.7709200Z test_apostrophe_and_unicode_names_refused (test_inventory_gate.GrammarCheckTests.test_apostrophe_and_unicode_names_refused) ... ok
+2026-10-29T19:45:21.7711037Z test_attribute_previous_line_allowed (test_inventory_gate.GrammarCheckTests.test_attribute_previous_line_allowed) ... ok
+2026-10-29T19:45:21.7712809Z test_canonical_names (test_inventory_gate.GrammarCheckTests.test_canonical_names) ... ok
+2026-10-29T19:45:21.7714610Z test_comment_marker_in_string_cannot_hide_code (test_inventory_gate.GrammarCheckTests.test_comment_marker_in_string_cannot_hide_code) ... ok
+2026-10-29T19:45:21.7716217Z test_definitions_collected (test_inventory_gate.GrammarCheckTests.test_definitions_collected) ... ok
+2026-10-29T19:45:21.7717673Z test_duplicate_declaration_refused (test_inventory_gate.GrammarCheckTests.test_duplicate_declaration_refused) ... ok
+2026-10-29T19:45:21.7719318Z test_forbidden_token_inside_string_refused (test_inventory_gate.GrammarCheckTests.test_forbidden_token_inside_string_refused) ... ok
+2026-10-29T19:45:21.7721105Z test_forbidden_tokens (test_inventory_gate.GrammarCheckTests.test_forbidden_tokens) ... ok
+2026-10-29T19:45:21.7722785Z test_keyword_as_identifier_part_ignored (test_inventory_gate.GrammarCheckTests.test_keyword_as_identifier_part_ignored) ... ok
+2026-10-29T19:45:21.7734708Z test_keyword_inside_comment_ignored (test_inventory_gate.GrammarCheckTests.test_keyword_inside_comment_ignored) ... ok
+2026-10-29T19:45:21.7736149Z test_namespace_structure (test_inventory_gate.GrammarCheckTests.test_namespace_structure) ... ok
+2026-10-29T19:45:21.7737635Z test_refusal_names_original_line_number (test_inventory_gate.GrammarCheckTests.test_refusal_names_original_line_number) ... ok
+2026-10-29T19:45:21.7739055Z test_refused_spellings (test_inventory_gate.GrammarCheckTests.test_refused_spellings) ... ok
+2026-10-29T19:45:21.7740530Z test_set_option_in_before_theorem_allowed (test_inventory_gate.GrammarCheckTests.test_set_option_in_before_theorem_allowed) ... ok
+2026-10-29T19:45:21.7742331Z test_tokens_in_comments_and_identifiers_allowed (test_inventory_gate.GrammarCheckTests.test_tokens_in_comments_and_identifiers_allowed) ... ok
+2026-10-29T19:45:21.7747608Z test_unsupported_commands_refused (test_inventory_gate.GrammarCheckTests.test_unsupported_commands_refused) ... ok
+2026-10-29T19:45:21.7749524Z test_unterminated_comment_refused (test_inventory_gate.GrammarCheckTests.test_unterminated_comment_refused) ... ok
+2026-10-29T19:45:21.7753659Z test_wrapped_and_term_level_metaprograms_refused (test_inventory_gate.GrammarCheckTests.test_wrapped_and_term_level_metaprograms_refused) ... ok
+2026-10-29T19:45:21.7755728Z test_local_mode_adds_current_file_constants (test_inventory_gate.InventorySourceTests.test_local_mode_adds_current_file_constants) ... ok
+2026-10-29T19:45:21.7757498Z test_missing_constant_is_fatal_in_lean (test_inventory_gate.InventorySourceTests.test_missing_constant_is_fatal_in_lean) ... ok
+2026-10-29T19:45:21.7759555Z test_package_import_and_module_table_enumeration (test_inventory_gate.InventorySourceTests.test_package_import_and_module_table_enumeration) ... ok
+2026-10-29T19:45:21.7761601Z test_lossless_where_dotted_rendering_collides (test_inventory_gate.NameEncodingTests.test_lossless_where_dotted_rendering_collides) ... ok
+2026-10-29T19:45:21.7763399Z test_malformed_encodings_refused (test_inventory_gate.NameEncodingTests.test_malformed_encodings_refused) ... ok
+2026-10-29T19:45:21.7765117Z test_private_user_name (test_inventory_gate.NameEncodingTests.test_private_user_name) ... ok
+2026-10-29T19:45:21.7766809Z test_render_marks_quoted_components (test_inventory_gate.NameEncodingTests.test_render_marks_quoted_components) ... ok
+2026-10-29T19:45:21.7768228Z test_round_trip (test_inventory_gate.NameEncodingTests.test_round_trip) ... ok
+2026-10-29T19:45:21.7770063Z test_simple_name_refuses_unrepresentable_targets (test_inventory_gate.NameEncodingTests.test_simple_name_refuses_unrepresentable_targets) ... ok
+2026-10-29T19:45:21.7942763Z test_live_modules_pass_grammar_and_match_manifest (test_inventory_gate.SourceCheckIntegrationTests.test_live_modules_pass_grammar_and_match_manifest) ... ok
+2026-10-29T19:45:21.7964246Z test_required_files_bound (test_inventory_gate.SourceCheckIntegrationTests.test_required_files_bound) ... ok
+2026-10-29T19:45:21.9229337Z test_comment_text_is_not_inventoried_as_a_declaration (test_inventory_gate.SourceGateRegressionTests.test_comment_text_is_not_inventoried_as_a_declaration) ... ok
+2026-10-29T19:45:22.0284885Z test_duplicate_target_list_is_rejected_source_side (test_inventory_gate.SourceGateRegressionTests.test_duplicate_target_list_is_rejected_source_side) ... ok
+2026-10-29T19:45:22.7928694Z test_hidden_declaration_forms_are_rejected (test_inventory_gate.SourceGateRegressionTests.test_hidden_declaration_forms_are_rejected) ... ok
+2026-10-29T19:45:22.8648095Z test_nested_namespace_cannot_be_misprefixed (test_inventory_gate.SourceGateRegressionTests.test_nested_namespace_cannot_be_misprefixed) ... ok
+2026-10-29T19:45:22.8650385Z test_apostrophe_in_identifier_is_not_a_literal (test_inventory_gate.StripCommentsTests.test_apostrophe_in_identifier_is_not_a_literal) ... ok
+2026-10-29T19:45:22.8652224Z test_block_comment_nested (test_inventory_gate.StripCommentsTests.test_block_comment_nested) ... ok
+2026-10-29T19:45:22.8654041Z test_block_comment_separates_tokens (test_inventory_gate.StripCommentsTests.test_block_comment_separates_tokens) ... ok
+2026-10-29T19:45:22.8655514Z test_character_literals (test_inventory_gate.StripCommentsTests.test_character_literals) ... ok
+2026-10-29T19:45:22.8657026Z test_comment_contents_never_open_strings (test_inventory_gate.StripCommentsTests.test_comment_contents_never_open_strings) ... ok
+2026-10-29T19:45:22.8658889Z test_comment_markers_inside_string_are_not_comments (test_inventory_gate.StripCommentsTests.test_comment_markers_inside_string_are_not_comments) ... ok
+2026-10-29T19:45:22.8660423Z test_doc_comment (test_inventory_gate.StripCommentsTests.test_doc_comment) ... ok
+2026-10-29T19:45:22.8661769Z test_escaped_quote_does_not_end_string (test_inventory_gate.StripCommentsTests.test_escaped_quote_does_not_end_string) ... ok
+2026-10-29T19:45:22.8663125Z test_line_comment (test_inventory_gate.StripCommentsTests.test_line_comment) ... ok
+2026-10-29T19:45:22.8664806Z test_line_comment_inside_block_does_not_close (test_inventory_gate.StripCommentsTests.test_line_comment_inside_block_does_not_close) ... ok
+2026-10-29T19:45:22.8666511Z test_newline_positions_preserved (test_inventory_gate.StripCommentsTests.test_newline_positions_preserved) ... ok
+2026-10-29T19:45:22.8667789Z test_no_comments (test_inventory_gate.StripCommentsTests.test_no_comments) ... ok
+2026-10-29T19:45:22.8668811Z test_raw_strings (test_inventory_gate.StripCommentsTests.test_raw_strings) ... ok
+2026-10-29T19:45:22.8670078Z test_unsupported_literals_refused (test_inventory_gate.StripCommentsTests.test_unsupported_literals_refused) ... ok
+2026-10-29T19:45:22.8671405Z test_unterminated (test_inventory_gate.StripCommentsTests.test_unterminated) ... ok
+2026-10-29T19:45:22.8672785Z test_cross_law_substitution_fails (test_measure_bridge.MeasureBridgeFiniteModelTests.test_cross_law_substitution_fails) ... ok
+2026-10-29T19:45:22.8745468Z test_dependent_events_and_zero_edges (test_measure_bridge.MeasureBridgeFiniteModelTests.test_dependent_events_and_zero_edges) ... ok
+2026-10-29T19:45:22.8747633Z test_eighth_order_tail_ledger (test_measure_bridge.MeasureBridgeFiniteModelTests.test_eighth_order_tail_ledger) ... ok
+2026-10-29T19:45:22.8749478Z test_omitted_square_root_is_false_and_cs_is_sharp (test_measure_bridge.MeasureBridgeFiniteModelTests.test_omitted_square_root_is_false_and_cs_is_sharp) ... ok
+2026-10-29T19:45:22.8751460Z test_second_moment_cannot_be_replaced_by_first (test_measure_bridge.MeasureBridgeFiniteModelTests.test_second_moment_cannot_be_replaced_by_first) ... ok
+2026-10-29T19:45:22.8754095Z test_upper_normalizer_bound_does_not_replace_lower (test_measure_bridge.MeasureBridgeFiniteModelTests.test_upper_normalizer_bound_does_not_replace_lower) ... ok
+2026-10-29T19:45:22.8755931Z test_bridge_module_present (test_measure_bridge.MeasureBridgeSourceTests.test_bridge_module_present) ... ok
+2026-10-29T19:45:22.8757334Z test_exact_new_inventory (test_measure_bridge.MeasureBridgeSourceTests.test_exact_new_inventory) ... ok
+2026-10-29T19:45:22.8759032Z test_module_and_scope_bound (test_measure_bridge.MeasureBridgeSourceTests.test_module_and_scope_bound) ... ok
+2026-10-29T19:45:22.8760712Z test_original_companion_identities_retained (test_measure_bridge.MeasureBridgeSourceTests.test_original_companion_identities_retained) ... ok
+2026-10-29T19:45:22.8763153Z test_registered_declarations_and_import (test_measure_bridge.MeasureBridgeSourceTests.test_registered_declarations_and_import) ... ok
+2026-10-29T19:45:22.8769011Z test_interval_family_and_outside_zero_measure (test_moment_generality.MomentGeneralityFiniteModelTests.test_interval_family_and_outside_zero_measure) ... ok
+2026-10-29T19:45:22.8771258Z test_invalid_threshold_parameters_rejected (test_moment_generality.MomentGeneralityFiniteModelTests.test_invalid_threshold_parameters_rejected) ... ok
+2026-10-29T19:45:22.8773031Z test_mass_scaling (test_moment_generality.MomentGeneralityFiniteModelTests.test_mass_scaling) ... ok
+2026-10-29T19:45:22.8774916Z test_no_extra_total_mass_normalization (test_moment_generality.MomentGeneralityFiniteModelTests.test_no_extra_total_mass_normalization) ... ok
+2026-10-29T19:45:22.9034200Z test_nonunit_mass_tail_grid (test_moment_generality.MomentGeneralityFiniteModelTests.test_nonunit_mass_tail_grid) ... ok
+2026-10-29T19:45:22.9036133Z test_r_dependent_coefficient_is_not_uniform (test_moment_generality.MomentGeneralityFiniteModelTests.test_r_dependent_coefficient_is_not_uniform) ... ok
+2026-10-29T19:45:22.9038110Z test_strict_signed_and_null_edges (test_moment_generality.MomentGeneralityFiniteModelTests.test_strict_signed_and_null_edges) ... ok
+2026-10-29T19:45:22.9039731Z test_exact_inventory (test_moment_generality.MomentGeneralitySourceTests.test_exact_inventory) ... ok
+2026-10-29T19:45:22.9041334Z test_module_and_exact_declarations (test_moment_generality.MomentGeneralitySourceTests.test_module_and_exact_declarations) ... ok
+2026-10-29T19:45:22.9043223Z test_predecessor_and_gate_pins_preserved (test_moment_generality.MomentGeneralitySourceTests.test_predecessor_and_gate_pins_preserved) ... ok
+2026-10-29T19:45:22.9045061Z test_root_import (test_moment_generality.MomentGeneralitySourceTests.test_root_import) ... ok
+2026-10-29T19:45:22.9047029Z test_source_scope_and_tests_bound (test_moment_generality.MomentGeneralitySourceTests.test_source_scope_and_tests_bound) ... ok
+2026-10-29T19:45:22.9617509Z test_actual_weighted_probabilities_and_cubic_composition (test_moment_tail.MomentTailFiniteModelTests.test_actual_weighted_probabilities_and_cubic_composition) ... ok
+2026-10-29T19:45:22.9619645Z test_epsilon_factor_cannot_be_omitted (test_moment_tail.MomentTailFiniteModelTests.test_epsilon_factor_cannot_be_omitted) ... ok
+2026-10-29T19:45:22.9745180Z test_markov_tail_and_threshold_inclusion (test_moment_tail.MomentTailFiniteModelTests.test_markov_tail_and_threshold_inclusion) ... ok
+2026-10-29T19:45:22.9746994Z test_strict_boundary_and_signed_jet (test_moment_tail.MomentTailFiniteModelTests.test_strict_boundary_and_signed_jet) ... ok
+2026-10-29T19:45:22.9748723Z test_twentieth_moment_cannot_replace_fortieth (test_moment_tail.MomentTailFiniteModelTests.test_twentieth_moment_cannot_replace_fortieth) ... ok
+2026-10-29T19:45:22.9750363Z test_wrong_r_sixteen_power_fails (test_moment_tail.MomentTailFiniteModelTests.test_wrong_r_sixteen_power_fails) ... ok
+2026-10-29T19:45:22.9752098Z test_zero_moment_null_atom_and_dependent_weight (test_moment_tail.MomentTailFiniteModelTests.test_zero_moment_null_atom_and_dependent_weight) ... ok
+2026-10-29T19:45:22.9753678Z test_exact_inventory (test_moment_tail.MomentTailSourceTests.test_exact_inventory) ... ok
+2026-10-29T19:45:22.9755571Z test_new_source_and_exact_declarations (test_moment_tail.MomentTailSourceTests.test_new_source_and_exact_declarations) ... ok
+2026-10-29T19:45:22.9757268Z test_retained_control_and_proof_pins (test_moment_tail.MomentTailSourceTests.test_retained_control_and_proof_pins) ... ok
+2026-10-29T19:45:22.9758560Z test_root_import (test_moment_tail.MomentTailSourceTests.test_root_import) ... ok
+2026-10-29T19:45:22.9760057Z test_source_scope_and_tests_bound (test_moment_tail.MomentTailSourceTests.test_source_scope_and_tests_bound) ... ok
+2026-10-29T19:45:23.0191172Z test_assume_unchanged_bytes_are_refused (test_source_custody.SourceCustodyTests.test_assume_unchanged_bytes_are_refused) ... ok
+2026-10-29T19:45:23.0631396Z test_clean_committed_source_is_bound_to_exact_head (test_source_custody.SourceCustodyTests.test_clean_committed_source_is_bound_to_exact_head) ... ok
+2026-10-29T19:45:23.1208905Z test_commit_drift_is_refused (test_source_custody.SourceCustodyTests.test_commit_drift_is_refused) ... ok
+2026-10-29T19:45:23.1791106Z test_dependency_accepts_exact_clean_committed_tree (test_source_custody.SourceCustodyTests.test_dependency_accepts_exact_clean_committed_tree) ... ok
+2026-10-29T19:45:23.2386226Z test_dependency_assume_unchanged_lean_is_refused (test_source_custody.SourceCustodyTests.test_dependency_assume_unchanged_lean_is_refused) ... ok
+2026-10-29T19:45:23.2967264Z test_dependency_ignored_extra_lean_is_refused (test_source_custody.SourceCustodyTests.test_dependency_ignored_extra_lean_is_refused) ... ok
+2026-10-29T19:45:23.3578324Z test_dependency_skip_worktree_build_input_is_refused (test_source_custody.SourceCustodyTests.test_dependency_skip_worktree_build_input_is_refused) ... ok
+2026-10-29T19:45:23.4155358Z test_execute_accepts_clean_committed_source (test_source_custody.SourceCustodyTests.test_execute_accepts_clean_committed_source) ... ok
+2026-10-29T19:45:23.4553163Z test_execute_refuses_dirty_overlay_before_kernel (test_source_custody.SourceCustodyTests.test_execute_refuses_dirty_overlay_before_kernel) ... ok
+2026-10-29T19:45:23.5125332Z test_execute_refuses_head_drift_and_removes_receipt (test_source_custody.SourceCustodyTests.test_execute_refuses_head_drift_and_removes_receipt) ... ok
+2026-10-29T19:45:23.5528007Z test_execute_removes_stale_receipt_on_preflight_failure (test_source_custody.SourceCustodyTests.test_execute_removes_stale_receipt_on_preflight_failure) ... ok
+2026-10-29T19:45:23.6055736Z test_loaded_helper_cannot_claim_replaced_committed_source (test_source_custody.SourceCustodyTests.test_loaded_helper_cannot_claim_replaced_committed_source) ... ok
+2026-10-29T19:45:23.6543534Z test_loaded_wrapper_cannot_claim_replaced_committed_source (test_source_custody.SourceCustodyTests.test_loaded_wrapper_cannot_claim_replaced_committed_source) ... ok
+2026-10-29T19:45:23.6932694Z test_refreshed_manifest_cannot_launder_dirty_proof (test_source_custody.SourceCustodyTests.test_refreshed_manifest_cannot_launder_dirty_proof) ... ok
+2026-10-29T19:45:23.7404556Z test_skip_worktree_bytes_are_refused (test_source_custody.SourceCustodyTests.test_skip_worktree_bytes_are_refused) ... ok
+2026-10-29T19:45:23.7812199Z test_staged_bytes_are_refused (test_source_custody.SourceCustodyTests.test_staged_bytes_are_refused) ... ok
+2026-10-29T19:45:23.8196841Z test_symlink_owned_source_is_refused (test_source_custody.SourceCustodyTests.test_symlink_owned_source_is_refused) ... ok
+2026-10-29T19:45:23.8583490Z test_uncommitted_overlay_is_refused_even_with_refreshed_digest (test_source_custody.SourceCustodyTests.test_uncommitted_overlay_is_refused_even_with_refreshed_digest) ... ok
+2026-10-29T19:45:23.8585353Z test_absolute_integral_cannot_replace_integral_absolute (test_weight_perturbation.WeightPerturbationFiniteTests.test_absolute_integral_cannot_replace_integral_absolute) ... ok
+2026-10-29T19:45:23.8860734Z test_generic_integral_bound_including_signed_weights (test_weight_perturbation.WeightPerturbationFiniteTests.test_generic_integral_bound_including_signed_weights) ... ok
+2026-10-29T19:45:23.8863999Z test_half_budget_endpoint_still_normalizes (test_weight_perturbation.WeightPerturbationFiniteTests.test_half_budget_endpoint_still_normalizes) ... ok
+2026-10-29T19:45:24.1299891Z test_normalized_laws_uniform_over_all_events (test_weight_perturbation.WeightPerturbationFiniteTests.test_normalized_laws_uniform_over_all_events) ... ok
+2026-10-29T19:45:24.1316127Z test_quotient_bound_does_not_need_b_nonnegative (test_weight_perturbation.WeightPerturbationFiniteTests.test_quotient_bound_does_not_need_b_nonnegative) ... ok
+2026-10-29T19:45:24.1319108Z test_r2_scale_cancels_without_r_le_one (test_weight_perturbation.WeightPerturbationFiniteTests.test_r2_scale_cancels_without_r_le_one) ... ok
+2026-10-29T19:45:24.1321079Z test_same_weight_under_different_laws_is_not_zero_error_transfer (test_weight_perturbation.WeightPerturbationFiniteTests.test_same_weight_under_different_laws_is_not_zero_error_transfer) ... ok
+2026-10-29T19:45:24.1381096Z test_set_integral_domination_and_nonnegative_bounds (test_weight_perturbation.WeightPerturbationFiniteTests.test_set_integral_domination_and_nonnegative_bounds) ... ok
+2026-10-29T19:45:24.1383351Z test_signed_clipping_and_zero_normalizer_are_not_probability_cases (test_weight_perturbation.WeightPerturbationFiniteTests.test_signed_clipping_and_zero_normalizer_are_not_probability_cases) ... ok
+2026-10-29T19:45:24.1385909Z test_small_absolute_error_without_normalizer_scale_is_insufficient (test_weight_perturbation.WeightPerturbationFiniteTests.test_small_absolute_error_without_normalizer_scale_is_insufficient) ... ok
+2026-10-29T19:45:24.1388123Z test_zero_error_and_null_set_changes (test_weight_perturbation.WeightPerturbationFiniteTests.test_zero_error_and_null_set_changes) ... ok
+2026-10-29T19:45:24.1390170Z test_exact_extension_inventory (test_weight_perturbation.WeightPerturbationSourceTests.test_exact_extension_inventory) ... ok
+2026-10-29T19:45:24.1391965Z test_module_and_exact_declarations (test_weight_perturbation.WeightPerturbationSourceTests.test_module_and_exact_declarations) ... ok
+2026-10-29T19:45:24.1394470Z test_predecessor_and_gate_identity_contract (test_weight_perturbation.WeightPerturbationSourceTests.test_predecessor_and_gate_identity_contract) ... ok
+2026-10-29T19:45:24.1396095Z test_root_import (test_weight_perturbation.WeightPerturbationSourceTests.test_root_import) ... ok
+2026-10-29T19:45:24.1399449Z test_source_scope_and_tests_are_bound (test_weight_perturbation.WeightPerturbationSourceTests.test_source_scope_and_tests_are_bound) ... ok
+2026-10-29T19:45:24.1401720Z test_ae_representatives_and_null_events (test_weighted_law.WeightedLawFiniteModelTests.test_ae_representatives_and_null_events) ... ok
+2026-10-29T19:45:24.1454952Z test_all_event_ratios_and_transfer (test_weighted_law.WeightedLawFiniteModelTests.test_all_event_ratios_and_transfer) ... ok
+2026-10-29T19:45:24.1456888Z test_constant_positive_weights (test_weighted_law.WeightedLawFiniteModelTests.test_constant_positive_weights) ... ok
+2026-10-29T19:45:24.1458911Z test_countable_additivity_finite_partition_witness (test_weighted_law.WeightedLawFiniteModelTests.test_countable_additivity_finite_partition_witness) ... ok
+2026-10-29T19:45:24.1460642Z test_omitting_normalizer_changes_total_mass (test_weighted_law.WeightedLawFiniteModelTests.test_omitting_normalizer_changes_total_mass) ... ok
+2026-10-29T19:45:24.1461753Z test_positive_rescaling (test_weighted_law.WeightedLawFiniteModelTests.test_positive_rescaling) ... ok
+2026-10-29T19:45:24.1462851Z test_signed_weight_rejected_and_clipping_is_not_normalization (test_weighted_law.WeightedLawFiniteModelTests.test_signed_weight_rejected_and_clipping_is_not_normalization) ... ok
+2026-10-29T19:45:24.1464821Z test_zero_normalizer_rejected (test_weighted_law.WeightedLawFiniteModelTests.test_zero_normalizer_rejected) ... ok
+2026-10-29T19:45:24.1466537Z test_bound_source_scope_and_tests (test_weighted_law.WeightedLawSourceTests.test_bound_source_scope_and_tests) ... ok
+2026-10-29T19:45:24.1475643Z test_exact_target_inventory (test_weighted_law.WeightedLawSourceTests.test_exact_target_inventory) ... ok
+2026-10-29T19:45:24.1477220Z test_module_and_declarations (test_weighted_law.WeightedLawSourceTests.test_module_and_declarations) ... ok
+2026-10-29T19:45:24.1478700Z test_parent_proofs_and_execution_controls_retained (test_weighted_law.WeightedLawSourceTests.test_parent_proofs_and_execution_controls_retained) ... ok
+2026-10-29T19:45:24.1480009Z test_root_import (test_weighted_law.WeightedLawSourceTests.test_root_import) ... ok
+2026-10-29T19:45:24.1480792Z 
+2026-10-29T19:45:24.1480985Z ======================================================================
+2026-10-29T19:45:24.1482104Z ERROR: test_dependency_dirtied_during_execution_refuses_receipt (test_gate.RuntimeGuardTests.test_dependency_dirtied_during_execution_refuses_receipt)
+2026-10-29T19:45:24.1483259Z ----------------------------------------------------------------------
+2026-10-29T19:45:24.1483984Z Traceback (most recent call last):
+2026-10-29T19:45:24.1491460Z   File "/home/runner/work/Math-/Math-/formal/tests/test_gate.py", line 466, in test_dependency_dirtied_during_execution_refuses_receipt
+2026-10-29T19:45:24.1492616Z     self.execute_synthetic([self.RELEASE, self.RELEASE], dirty_dependency='final')
+2026-10-29T19:45:24.1493598Z   File "/home/runner/work/Math-/Math-/formal/tests/test_gate.py", line 338, in execute_synthetic
+2026-10-29T19:45:24.1494660Z     return gate.execute(self.manifest, self.digest)
+2026-10-29T19:45:24.1495136Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T19:45:24.1495766Z   File "/home/runner/work/Math-/Math-/formal/gate.py", line 274, in execute
+2026-10-29T19:45:24.1496527Z     preflight = observation(preflight_version, dependency_state(m), digest)
+2026-10-29T19:45:24.1497152Z                                                ^^^^^^^^^^^^^^^^^^^
+2026-10-29T19:45:24.1497860Z   File "/home/runner/work/Math-/Math-/formal/gate.py", line 212, in dependency_state
+2026-10-29T19:45:24.1498642Z     require(_git_bytes(repo, 'rev-parse', 'HEAD').decode().strip() == head,
+2026-10-29T19:45:24.1499225Z             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T19:45:24.1499763Z AttributeError: 'str' object has no attribute 'decode'
+2026-10-29T19:45:24.1500126Z 
+2026-10-29T19:45:24.1500297Z ======================================================================
+2026-10-29T19:45:24.1501308Z ERROR: test_dependency_moved_during_execution_refuses_receipt (test_gate.RuntimeGuardTests.test_dependency_moved_during_execution_refuses_receipt)
+2026-10-29T19:45:24.1502406Z ----------------------------------------------------------------------
+2026-10-29T19:45:24.1502924Z Traceback (most recent call last):
+2026-10-29T19:45:24.1504036Z   File "/home/runner/work/Math-/Math-/formal/tests/test_gate.py", line 473, in test_dependency_moved_during_execution_refuses_receipt
+2026-10-29T19:45:24.1505113Z     self.execute_synthetic([self.RELEASE, self.RELEASE], drift_dependency=True)
+2026-10-29T19:45:24.1506024Z   File "/home/runner/work/Math-/Math-/formal/tests/test_gate.py", line 338, in execute_synthetic
+2026-10-29T19:45:24.1506745Z     return gate.execute(self.manifest, self.digest)
+2026-10-29T19:45:24.1507219Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T19:45:24.1507874Z   File "/home/runner/work/Math-/Math-/formal/gate.py", line 274, in execute
+2026-10-29T19:45:24.1508752Z     preflight = observation(preflight_version, dependency_state(m), digest)
+2026-10-29T19:45:24.1509384Z                                                ^^^^^^^^^^^^^^^^^^^
+2026-10-29T19:45:24.1510093Z   File "/home/runner/work/Math-/Math-/formal/gate.py", line 212, in dependency_state
+2026-10-29T19:45:24.1510880Z     require(_git_bytes(repo, 'rev-parse', 'HEAD').decode().strip() == head,
+2026-10-29T19:45:24.1511548Z             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T19:45:24.1512045Z AttributeError: 'str' object has no attribute 'decode'
+2026-10-29T19:45:24.1512404Z 
+2026-10-29T19:45:24.1512577Z ======================================================================
+2026-10-29T19:45:24.1514066Z ERROR: test_receipt_binds_attempt_and_both_equal_observations (test_gate.RuntimeGuardTests.test_receipt_binds_attempt_and_both_equal_observations)
+2026-10-29T19:45:24.1515175Z ----------------------------------------------------------------------
+2026-10-29T19:45:24.1515704Z Traceback (most recent call last):
+2026-10-29T19:45:24.1516670Z   File "/home/runner/work/Math-/Math-/formal/tests/test_gate.py", line 487, in test_receipt_binds_attempt_and_both_equal_observations
+2026-10-29T19:45:24.1517851Z     receipt = self.execute_synthetic([self.RELEASE, self.RELEASE],
+2026-10-29T19:45:24.1518425Z               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T19:45:24.1519216Z   File "/home/runner/work/Math-/Math-/formal/tests/test_gate.py", line 338, in execute_synthetic
+2026-10-29T19:45:24.1519972Z     return gate.execute(self.manifest, self.digest)
+2026-10-29T19:45:24.1520446Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T19:45:24.1521088Z   File "/home/runner/work/Math-/Math-/formal/gate.py", line 274, in execute
+2026-10-29T19:45:24.1521851Z     preflight = observation(preflight_version, dependency_state(m), digest)
+2026-10-29T19:45:24.1522463Z                                                ^^^^^^^^^^^^^^^^^^^
+2026-10-29T19:45:24.1523160Z   File "/home/runner/work/Math-/Math-/formal/gate.py", line 212, in dependency_state
+2026-10-29T19:45:24.1524123Z     require(_git_bytes(repo, 'rev-parse', 'HEAD').decode().strip() == head,
+2026-10-29T19:45:24.1524705Z             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T19:45:24.1525217Z AttributeError: 'str' object has no attribute 'decode'
+2026-10-29T19:45:24.1525564Z 
+2026-10-29T19:45:24.1525728Z ======================================================================
+2026-10-29T19:45:24.1526783Z ERROR: test_runtime_changed_between_observations_refuses_receipt (test_gate.RuntimeGuardTests.test_runtime_changed_between_observations_refuses_receipt)
+2026-10-29T19:45:24.1527937Z ----------------------------------------------------------------------
+2026-10-29T19:45:24.1528470Z Traceback (most recent call last):
+2026-10-29T19:45:24.1529445Z   File "/home/runner/work/Math-/Math-/formal/tests/test_gate.py", line 482, in test_runtime_changed_between_observations_refuses_receipt
+2026-10-29T19:45:24.1530495Z     self.execute_synthetic([self.RELEASE, self.OTHER_PLATFORM])
+2026-10-29T19:45:24.1531402Z   File "/home/runner/work/Math-/Math-/formal/tests/test_gate.py", line 338, in execute_synthetic
+2026-10-29T19:45:24.1532205Z     return gate.execute(self.manifest, self.digest)
+2026-10-29T19:45:24.1532701Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T19:45:24.1533329Z   File "/home/runner/work/Math-/Math-/formal/gate.py", line 274, in execute
+2026-10-29T19:45:24.1534294Z     preflight = observation(preflight_version, dependency_state(m), digest)
+2026-10-29T19:45:24.1534949Z                                                ^^^^^^^^^^^^^^^^^^^
+2026-10-29T19:45:24.1535670Z   File "/home/runner/work/Math-/Math-/formal/gate.py", line 212, in dependency_state
+2026-10-29T19:45:24.1536548Z     require(_git_bytes(repo, 'rev-parse', 'HEAD').decode().strip() == head,
+2026-10-29T19:45:24.1537092Z             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T19:45:24.1537559Z AttributeError: 'str' object has no attribute 'decode'
+2026-10-29T19:45:24.1537877Z 
+2026-10-29T19:45:24.1538039Z ======================================================================
+2026-10-29T19:45:24.1538942Z ERROR: test_other_commit_after_execution_refuses_receipt (test_gate.RuntimeVersionTests.test_other_commit_after_execution_refuses_receipt)
+2026-10-29T19:45:24.1540005Z ----------------------------------------------------------------------
+2026-10-29T19:45:24.1540532Z Traceback (most recent call last):
+2026-10-29T19:45:24.1541395Z   File "/home/runner/work/Math-/Math-/formal/tests/test_gate.py", line 378, in test_other_commit_after_execution_refuses_receipt
+2026-10-29T19:45:24.1542318Z     self.execute_synthetic([self.RELEASE, wrong])
+2026-10-29T19:45:24.1543093Z   File "/home/runner/work/Math-/Math-/formal/tests/test_gate.py", line 338, in execute_synthetic
+2026-10-29T19:45:24.1544284Z     return gate.execute(self.manifest, self.digest)
+2026-10-29T19:45:24.1544792Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T19:45:24.1545420Z   File "/home/runner/work/Math-/Math-/formal/gate.py", line 274, in execute
+2026-10-29T19:45:24.1546197Z     preflight = observation(preflight_version, dependency_state(m), digest)
+2026-10-29T19:45:24.1547018Z                                                ^^^^^^^^^^^^^^^^^^^
+2026-10-29T19:45:24.1547739Z   File "/home/runner/work/Math-/Math-/formal/gate.py", line 212, in dependency_state
+2026-10-29T19:45:24.1548528Z     require(_git_bytes(repo, 'rev-parse', 'HEAD').decode().strip() == head,
+2026-10-29T19:45:24.1549103Z             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T19:45:24.1549590Z AttributeError: 'str' object has no attribute 'decode'
+2026-10-29T19:45:24.1549943Z 
+2026-10-29T19:45:24.1550107Z ======================================================================
+2026-10-29T19:45:24.1551132Z ERROR: test_source_change_during_build_still_refuses_receipt (test_gate.RuntimeVersionTests.test_source_change_during_build_still_refuses_receipt)
+2026-10-29T19:45:24.1552276Z ----------------------------------------------------------------------
+2026-10-29T19:45:24.1552848Z Traceback (most recent call last):
+2026-10-29T19:45:24.1554029Z   File "/home/runner/work/Math-/Math-/formal/tests/test_gate.py", line 427, in test_source_change_during_build_still_refuses_receipt
+2026-10-29T19:45:24.1555071Z     self.execute_synthetic([self.RELEASE], mutate_source=True)
+2026-10-29T19:45:24.1555968Z   File "/home/runner/work/Math-/Math-/formal/tests/test_gate.py", line 338, in execute_synthetic
+2026-10-29T19:45:24.1556755Z     return gate.execute(self.manifest, self.digest)
+2026-10-29T19:45:24.1557239Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T19:45:24.1557863Z   File "/home/runner/work/Math-/Math-/formal/gate.py", line 274, in execute
+2026-10-29T19:45:24.1558638Z     preflight = observation(preflight_version, dependency_state(m), digest)
+2026-10-29T19:45:24.1559288Z                                                ^^^^^^^^^^^^^^^^^^^
+2026-10-29T19:45:24.1559995Z   File "/home/runner/work/Math-/Math-/formal/gate.py", line 212, in dependency_state
+2026-10-29T19:45:24.1560792Z     require(_git_bytes(repo, 'rev-parse', 'HEAD').decode().strip() == head,
+2026-10-29T19:45:24.1561391Z             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T19:45:24.1561917Z AttributeError: 'str' object has no attribute 'decode'
+2026-10-29T19:45:24.1562274Z 
+2026-10-29T19:45:24.1562456Z ======================================================================
+2026-10-29T19:45:24.1563701Z ERROR: test_success_checks_before_build_and_after_controls_and_binds_both_logs (test_gate.RuntimeVersionTests.test_success_checks_before_build_and_after_controls_and_binds_both_logs)
+2026-10-29T19:45:24.1565209Z ----------------------------------------------------------------------
+2026-10-29T19:45:24.1565758Z Traceback (most recent call last):
+2026-10-29T19:45:24.1566803Z   File "/home/runner/work/Math-/Math-/formal/tests/test_gate.py", line 401, in test_success_checks_before_build_and_after_controls_and_binds_both_logs
+2026-10-29T19:45:24.1567921Z     receipt = self.execute_synthetic([self.RELEASE, self.RELEASE])
+2026-10-29T19:45:24.1568517Z               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T19:45:24.1569293Z   File "/home/runner/work/Math-/Math-/formal/tests/test_gate.py", line 338, in execute_synthetic
+2026-10-29T19:45:24.1570091Z     return gate.execute(self.manifest, self.digest)
+2026-10-29T19:45:24.1570593Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T19:45:24.1571257Z   File "/home/runner/work/Math-/Math-/formal/gate.py", line 274, in execute
+2026-10-29T19:45:24.1572072Z     preflight = observation(preflight_version, dependency_state(m), digest)
+2026-10-29T19:45:24.1572735Z                                                ^^^^^^^^^^^^^^^^^^^
+2026-10-29T19:45:24.1573692Z   File "/home/runner/work/Math-/Math-/formal/gate.py", line 212, in dependency_state
+2026-10-29T19:45:24.1574806Z     require(_git_bytes(repo, 'rev-parse', 'HEAD').decode().strip() == head,
+2026-10-29T19:45:24.1575480Z             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T19:45:24.1576036Z AttributeError: 'str' object has no attribute 'decode'
+2026-10-29T19:45:24.1576420Z 
+2026-10-29T19:45:24.1576803Z ======================================================================
+2026-10-29T19:45:24.1577852Z ERROR: test_version_change_after_execution_refuses_receipt (test_gate.RuntimeVersionTests.test_version_change_after_execution_refuses_receipt)
+2026-10-29T19:45:24.1578985Z ----------------------------------------------------------------------
+2026-10-29T19:45:24.1579533Z Traceback (most recent call last):
+2026-10-29T19:45:24.1580501Z   File "/home/runner/work/Math-/Math-/formal/tests/test_gate.py", line 420, in test_version_change_after_execution_refuses_receipt
+2026-10-29T19:45:24.1581658Z     self.execute_synthetic([self.RELEASE, self.RELEASE.replace('4.34.1', '4.34.10')])
+2026-10-29T19:45:24.1582708Z   File "/home/runner/work/Math-/Math-/formal/tests/test_gate.py", line 338, in execute_synthetic
+2026-10-29T19:45:24.1583521Z     return gate.execute(self.manifest, self.digest)
+2026-10-29T19:45:24.1584236Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T19:45:24.1584835Z   File "/home/runner/work/Math-/Math-/formal/gate.py", line 274, in execute
+2026-10-29T19:45:24.1585540Z     preflight = observation(preflight_version, dependency_state(m), digest)
+2026-10-29T19:45:24.1586155Z                                                ^^^^^^^^^^^^^^^^^^^
+2026-10-29T19:45:24.1586912Z   File "/home/runner/work/Math-/Math-/formal/gate.py", line 212, in dependency_state
+2026-10-29T19:45:24.1587787Z     require(_git_bytes(repo, 'rev-parse', 'HEAD').decode().strip() == head,
+2026-10-29T19:45:24.1588413Z             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T19:45:24.1588947Z AttributeError: 'str' object has no attribute 'decode'
+2026-10-29T19:45:24.1589317Z 
+2026-10-29T19:45:24.1589541Z ----------------------------------------------------------------------
+2026-10-29T19:45:24.1590074Z Ran 263 tests in 3.798s
+2026-10-29T19:45:24.1590290Z 
+2026-10-29T19:45:24.1590429Z FAILED (errors=8)
+2026-10-29T19:45:24.1590743Z {
+2026-10-29T19:45:24.1591208Z   "checked_commit": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+2026-10-29T19:45:24.1591812Z   "dependency_revisions": {
+2026-10-29T19:45:24.1592250Z     "x": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+2026-10-29T19:45:24.1592681Z   },
+2026-10-29T19:45:24.1592985Z   "dependency_worktrees": "CLEAN",
+2026-10-29T19:45:24.1594003Z   "lean_version": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+2026-10-29T19:45:24.1594848Z   "logs": {},
+2026-10-29T19:45:24.1595162Z   "manifest_sha256": "digest",
+2026-10-29T19:45:24.1595539Z   "observations": {
+2026-10-29T19:45:24.1595854Z     "final": {
+2026-10-29T19:45:24.1596180Z       "dependency_revisions": {
+2026-10-29T19:45:24.1596653Z         "x": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+2026-10-29T19:45:24.1597131Z       },
+2026-10-29T19:45:24.1597440Z       "dependency_worktrees": "CLEAN",
+2026-10-29T19:45:24.1598298Z       "lean_version": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+2026-10-29T19:45:24.1599176Z       "manifest_sha256": "digest"
+2026-10-29T19:45:24.1599561Z     },
+2026-10-29T19:45:24.1599838Z     "preflight": {
+2026-10-29T19:45:24.1600183Z       "dependency_revisions": {
+2026-10-29T19:45:24.1600663Z         "x": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+2026-10-29T19:45:24.1601146Z       },
+2026-10-29T19:45:24.1601459Z       "dependency_worktrees": "CLEAN",
+2026-10-29T19:45:24.1602311Z       "lean_version": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+2026-10-29T19:45:24.1603202Z       "manifest_sha256": "digest"
+2026-10-29T19:45:24.1603593Z     }
+2026-10-29T19:45:24.1604241Z   },
+2026-10-29T19:45:24.1604571Z   "workflow_run_attempt": "7"
+2026-10-29T19:45:24.1604946Z }
+2026-10-29T19:45:24.1712605Z ##[error]Process completed with exit code 1.
+2026-10-29T19:45:24.1819792Z ##[group]Run actions/upload-artifact@v4
+2026-10-29T19:45:24.1820112Z with:
+2026-10-29T19:45:24.1820332Z   name: core-custody-optimized
+2026-10-29T19:45:24.1820955Z   path: /home/runner/work/_temp/custody-*.log
+/home/runner/work/_temp/full-formal-*.log
+
+2026-10-29T19:45:24.1821408Z   if-no-files-found: error
+2026-10-29T19:45:24.1821650Z   compression-level: 6
+2026-10-29T19:45:24.1821870Z   overwrite: false
+2026-10-29T19:45:24.1822095Z   include-hidden-files: false
+2026-10-29T19:45:24.1822327Z env:
+2026-10-29T19:45:24.1822577Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-29T19:45:24.1823012Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib/pkgconfig
+2026-10-29T19:45:24.1823445Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-29T19:45:24.1824001Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-29T19:45:24.1824401Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-29T19:45:24.1824825Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib
+2026-10-29T19:45:24.1825159Z ##[endgroup]
+2026-10-29T19:45:24.3545178Z (node:3061) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-29T19:45:24.3546545Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-29T19:45:24.3667763Z With the provided path, there will be 2 files uploaded
+2026-10-29T19:45:24.3679114Z Artifact name is valid!
+2026-10-29T19:45:24.3680001Z Root directory input is valid!
+2026-10-29T19:45:24.5889318Z Beginning upload of artifact content to blob storage
+2026-10-29T19:45:24.6160337Z (node:3061) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-29T19:45:24.6614371Z Uploaded bytes 6588
+2026-10-29T19:45:24.6912895Z Finished uploading artifact content to blob storage!
+2026-10-29T19:45:24.6914420Z SHA256 digest of uploaded artifact zip is d94bff2ac24d7352cbeb13a528ce17352d2e48795c149fcf3e04505d9d6a0175
+2026-10-29T19:45:24.6916192Z Finalizing artifact upload
+2026-10-29T19:45:25.3384803Z Artifact core-custody-optimized.zip successfully finalized. Artifact ID 12926354629
+2026-10-29T19:45:25.3386268Z Artifact core-custody-optimized has been successfully uploaded! Final size is 6588 bytes. Artifact ID is 12926354629
+2026-10-29T19:45:25.3393156Z Artifact download URL: https://github.com/d6g8k5htny-coder/Math-/actions/runs/40942876103/artifacts/12926354629
+2026-10-29T19:45:25.3604477Z Post job cleanup.
+2026-10-29T19:45:25.4472937Z [command]/usr/bin/git version
+2026-10-29T19:45:25.4520415Z git version 2.56.0
+2026-10-29T19:45:25.4566679Z Temporarily overriding HOME='/home/runner/work/_temp/ddbba6a2-3fae-4266-bf2b-525da459cecd' before making global git config changes
+2026-10-29T19:45:25.4567962Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-29T19:45:25.4572626Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Math-/Math-
+2026-10-29T19:45:25.4621221Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-29T19:45:25.4663294Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-29T19:45:25.4992765Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-29T19:45:25.5022341Z http.https://github.com/.extraheader
+2026-10-29T19:45:25.5035391Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-29T19:45:25.5077268Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-29T19:45:25.5403429Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-29T19:45:25.5442262Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-29T19:45:25.5919797Z Cleaning up orphan processes
+2026-10-29T19:45:25.6301284Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

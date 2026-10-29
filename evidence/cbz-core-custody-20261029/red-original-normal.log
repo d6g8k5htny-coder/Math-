@@ -1,0 +1,474 @@
+﻿2026-10-29T19:42:08.1234877Z Current runner version: '2.338.0'
+2026-10-29T19:42:08.1255457Z ##[group]Runner Image Provisioner
+2026-10-29T19:42:08.1256144Z Hosted Compute Agent
+2026-10-29T19:42:08.1256501Z Version: 20261021.618
+2026-10-29T19:42:08.1256913Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-10-29T19:42:08.1257398Z Build Date: 2026-10-21T00:45:21Z
+2026-10-29T19:42:08.1258052Z Worker ID: {78780425-ee03-4392-812a-cf73c2696db4}
+2026-10-29T19:42:08.1258543Z Region: centralus
+2026-10-29T19:42:08.1258884Z Cloud: Azure
+2026-10-29T19:42:08.1259245Z ##[endgroup]
+2026-10-29T19:42:08.1260398Z ##[group]Operating System
+2026-10-29T19:42:08.1260781Z Ubuntu
+2026-10-29T19:42:08.1261146Z 26.04.1
+2026-10-29T19:42:08.1261469Z LTS
+2026-10-29T19:42:08.1261779Z ##[endgroup]
+2026-10-29T19:42:08.1262189Z ##[group]Runner Image
+2026-10-29T19:42:08.1262550Z Image: ubuntu-26.04
+2026-10-29T19:42:08.1262968Z Version: 20261025.179.1
+2026-10-29T19:42:08.1263766Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261025.179/images/ubuntu/Ubuntu2604-Readme.md
+2026-10-29T19:42:08.1265064Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261025.179
+2026-10-29T19:42:08.1265659Z ##[endgroup]
+2026-10-29T19:42:08.1266361Z ##[group]GITHUB_TOKEN Permissions
+2026-10-29T19:42:08.1268168Z Contents: read
+2026-10-29T19:42:08.1268629Z Metadata: read
+2026-10-29T19:42:08.1268973Z ##[endgroup]
+2026-10-29T19:42:08.1270560Z Secret source: Actions
+2026-10-29T19:42:08.1271223Z Cache mode: write
+2026-10-29T19:42:08.1271901Z Prepare workflow directory
+2026-10-29T19:42:08.1709632Z Prepare all required actions
+2026-10-29T19:42:08.1797211Z Getting action download info
+2026-10-29T19:42:08.4145011Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-29T19:42:08.4873255Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-29T19:42:08.5583094Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-29T19:42:08.7417416Z Complete job name: custody (normal)
+2026-10-29T19:42:08.7968237Z ##[group]Run actions/checkout@v4
+2026-10-29T19:42:08.7968706Z with:
+2026-10-29T19:42:08.7968949Z   fetch-depth: 0
+2026-10-29T19:42:08.7969219Z   repository: d6g8k5htny-coder/Math-
+2026-10-29T19:42:08.7972831Z   token: ***
+2026-10-29T19:42:08.7973080Z   ssh-strict: true
+2026-10-29T19:42:08.7973330Z   ssh-user: git
+2026-10-29T19:42:08.7973594Z   persist-credentials: true
+2026-10-29T19:42:08.7973872Z   clean: true
+2026-10-29T19:42:08.7974131Z   sparse-checkout-cone-mode: true
+2026-10-29T19:42:08.7974432Z   fetch-tags: false
+2026-10-29T19:42:08.7974689Z   show-progress: true
+2026-10-29T19:42:08.7974988Z   lfs: false
+2026-10-29T19:42:08.7975230Z   submodules: false
+2026-10-29T19:42:08.7975486Z   set-safe-directory: true
+2026-10-29T19:42:08.7975771Z   allow-unsafe-pr-checkout: false
+2026-10-29T19:42:08.7976271Z ##[endgroup]
+2026-10-29T19:42:09.0397347Z Syncing repository: d6g8k5htny-coder/Math-
+2026-10-29T19:42:09.0400045Z ##[group]Getting Git version info
+2026-10-29T19:42:09.0401001Z Working directory is '/home/runner/work/Math-/Math-'
+2026-10-29T19:42:09.0402078Z [command]/usr/bin/git version
+2026-10-29T19:42:09.0402657Z git version 2.56.0
+2026-10-29T19:42:09.0404376Z ##[endgroup]
+2026-10-29T19:42:09.0416822Z Temporarily overriding HOME='/home/runner/work/_temp/cb3536ed-72e5-4ff2-bc68-f93f52acda69' before making global git config changes
+2026-10-29T19:42:09.0418575Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-29T19:42:09.0421061Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Math-/Math-
+2026-10-29T19:42:09.0492248Z Deleting the contents of '/home/runner/work/Math-/Math-'
+2026-10-29T19:42:09.0495566Z ##[group]Initializing the repository
+2026-10-29T19:42:09.0500535Z [command]/usr/bin/git init /home/runner/work/Math-/Math-
+2026-10-29T19:42:09.0608260Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-29T19:42:09.0609541Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-29T19:42:09.0610241Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-29T19:42:09.0610747Z hint: call:
+2026-10-29T19:42:09.0611003Z hint:
+2026-10-29T19:42:09.0611385Z hint: 	git config --global init.defaultBranch <name>
+2026-10-29T19:42:09.0611793Z hint:
+2026-10-29T19:42:09.0612249Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-29T19:42:09.0612891Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-29T19:42:09.0613328Z hint:
+2026-10-29T19:42:09.0613584Z hint: 	git branch -m <name>
+2026-10-29T19:42:09.0613874Z hint:
+2026-10-29T19:42:09.0614255Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-29T19:42:09.0621051Z Initialized empty Git repository in /home/runner/work/Math-/Math-/.git/
+2026-10-29T19:42:09.0635258Z [command]/usr/bin/git remote add origin https://github.com/d6g8k5htny-coder/Math-
+2026-10-29T19:42:09.0686417Z ##[endgroup]
+2026-10-29T19:42:09.0687351Z ##[group]Disabling automatic garbage collection
+2026-10-29T19:42:09.0690026Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-29T19:42:09.0738522Z ##[endgroup]
+2026-10-29T19:42:09.0739406Z ##[group]Setting up auth
+2026-10-29T19:42:09.0740220Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-29T19:42:09.0784387Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-29T19:42:09.1210004Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-29T19:42:09.1241950Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-29T19:42:09.1501361Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-29T19:42:09.1534988Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-29T19:42:09.1798407Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-29T19:42:09.1834573Z ##[endgroup]
+2026-10-29T19:42:09.1835375Z ##[group]Fetching the repository
+2026-10-29T19:42:09.1842784Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2026-10-29T19:42:12.1394933Z From https://github.com/d6g8k5htny-coder/Math-
+2026-10-29T19:42:12.1396953Z  * [new branch]        agent12/verifier-c7-01 -> origin/agent12/verifier-c7-01
+2026-10-29T19:42:12.1399018Z  * [new branch]        agent8/c299-c7-replacement-20261022 -> origin/agent8/c299-c7-replacement-20261022
+2026-10-29T19:42:12.1401229Z  * [new branch]        benjamin/d5-collar-nonauthor-20260928b -> origin/benjamin/d5-collar-nonauthor-20260928b
+2026-10-29T19:42:12.1403418Z  * [new branch]        cbz/core-custody-native-20261029 -> origin/cbz/core-custody-native-20261029
+2026-10-29T19:42:12.1405670Z  * [new branch]        cbz/math-pr-dispositions-01n-20261029 -> origin/cbz/math-pr-dispositions-01n-20261029
+2026-10-29T19:42:12.1408222Z  * [new branch]        cbz/native-kernel-cusp-acee-20261029 -> origin/cbz/native-kernel-cusp-acee-20261029
+2026-10-29T19:42:12.1410767Z  * [new branch]        cbz/wrapper-protocol-union-20261029 -> origin/cbz/wrapper-protocol-union-20261029
+2026-10-29T19:42:12.1413388Z  * [new branch]        chatgpt/ac1-f1-synthetic-controls-20261007-gp -> origin/chatgpt/ac1-f1-synthetic-controls-20261007-gp
+2026-10-29T19:42:12.1416259Z  * [new branch]        chatgpt/bq11-import-profile-20261007-f81c -> origin/chatgpt/bq11-import-profile-20261007-f81c
+2026-10-29T19:42:12.1419530Z  * [new branch]        chatgpt/cap-i4-adapter-envelope-20261005 -> origin/chatgpt/cap-i4-adapter-envelope-20261005
+2026-10-29T19:42:12.1422028Z  * [new branch]        chatgpt/cap-i4-angular-formal-20261006 -> origin/chatgpt/cap-i4-angular-formal-20261006
+2026-10-29T19:42:12.1424295Z  * [new branch]        chatgpt/cap-i4-chamber-bridge-20261006-r21 -> origin/chatgpt/cap-i4-chamber-bridge-20261006-r21
+2026-10-29T19:42:12.1426769Z  * [new branch]        chatgpt/cap-i4-clipped-integral-20261006-r17 -> origin/chatgpt/cap-i4-clipped-integral-20261006-r17
+2026-10-29T19:42:12.1429777Z  * [new branch]        chatgpt/cap-i4-d3-moment8-20261005 -> origin/chatgpt/cap-i4-d3-moment8-20261005
+2026-10-29T19:42:12.1431967Z  * [new branch]        chatgpt/cap-i4-depth-kernel-20261006-r16 -> origin/chatgpt/cap-i4-depth-kernel-20261006-r16
+2026-10-29T19:42:12.1434353Z  * [new branch]        chatgpt/cap-i4-entry-volume-20261006 -> origin/chatgpt/cap-i4-entry-volume-20261006
+2026-10-29T19:42:12.1436492Z  * [new branch]        chatgpt/cap-i4-evidence-r2-20261005 -> origin/chatgpt/cap-i4-evidence-r2-20261005
+2026-10-29T19:42:12.1438965Z  * [new branch]        chatgpt/cap-i4-gaussian-envelope-20261006-r18 -> origin/chatgpt/cap-i4-gaussian-envelope-20261006-r18
+2026-10-29T19:42:12.1441339Z  * [new branch]        chatgpt/cap-i4-independent-20261006-r15 -> origin/chatgpt/cap-i4-independent-20261006-r15
+2026-10-29T19:42:12.1443553Z  * [new branch]        chatgpt/cap-i4-inner-integration-20261006-r19 -> origin/chatgpt/cap-i4-inner-integration-20261006-r19
+2026-10-29T19:42:12.1445671Z  * [new branch]        chatgpt/cap-i4-linear-formal-20261006 -> origin/chatgpt/cap-i4-linear-formal-20261006
+2026-10-29T19:42:12.1447849Z  * [new branch]        chatgpt/cap-i4-matrix-formal-20261006 -> origin/chatgpt/cap-i4-matrix-formal-20261006
+2026-10-29T19:42:12.1450719Z  * [new branch]        chatgpt/cap-i4-outer-composition-20261006-r20 -> origin/chatgpt/cap-i4-outer-composition-20261006-r20
+2026-10-29T19:42:12.1453763Z  * [new branch]        chatgpt/cap-i4-polar-formal-20261006 -> origin/chatgpt/cap-i4-polar-formal-20261006
+2026-10-29T19:42:12.1457821Z  * [new branch]        chatgpt/cap-i4-product-transport-20261006-r14 -> origin/chatgpt/cap-i4-product-transport-20261006-r14
+2026-10-29T19:42:12.1461596Z  * [new branch]        chatgpt/cap-i4-proposal-diagnostic-20261006-r12 -> origin/chatgpt/cap-i4-proposal-diagnostic-20261006-r12
+2026-10-29T19:42:12.1465135Z  * [new branch]        chatgpt/cap-i4-residual-law-20261006-r22 -> origin/chatgpt/cap-i4-residual-law-20261006-r22
+2026-10-29T19:42:12.1468146Z  * [new branch]        chatgpt/cap-i4-source-bridge-20261005 -> origin/chatgpt/cap-i4-source-bridge-20261005
+2026-10-29T19:42:12.1471715Z  * [new branch]        chatgpt/cap-i4-spectral-assembly-20261006 -> origin/chatgpt/cap-i4-spectral-assembly-20261006
+2026-10-29T19:42:12.1474435Z  * [new branch]        chatgpt/cusp-contract-characterization-20261006-rfgate -> origin/chatgpt/cusp-contract-characterization-20261006-rfgate
+2026-10-29T19:42:12.1476982Z  * [new branch]        chatgpt/d1-borel-kac-rice-amend-20260925 -> origin/chatgpt/d1-borel-kac-rice-amend-20260925
+2026-10-29T19:42:12.1480149Z  * [new branch]        chatgpt/d5-pin-compatibility-review-20260925 -> origin/chatgpt/d5-pin-compatibility-review-20260925
+2026-10-29T19:42:12.1482653Z  * [new branch]        chatgpt/downstream-boundary-review-20260925 -> origin/chatgpt/downstream-boundary-review-20260925
+2026-10-29T19:42:12.1485059Z  * [new branch]        chatgpt/fail-closed-claim-audit-20260925 -> origin/chatgpt/fail-closed-claim-audit-20260925
+2026-10-29T19:42:12.1487518Z  * [new branch]        chatgpt/fail-closed-claim-audit-20260925-v2 -> origin/chatgpt/fail-closed-claim-audit-20260925-v2
+2026-10-29T19:42:12.1490797Z  * [new branch]        chatgpt/fold-affine-bridge-20261006-f81c -> origin/chatgpt/fold-affine-bridge-20261006-f81c
+2026-10-29T19:42:12.1493561Z  * [new branch]        chatgpt/full-price-20260924 -> origin/chatgpt/full-price-20260924
+2026-10-29T19:42:12.1496938Z  * [new branch]        chatgpt/integrate-reviewed-collision-package-20260925 -> origin/chatgpt/integrate-reviewed-collision-package-20260925
+2026-10-29T19:42:12.1501326Z  * [new branch]        chatgpt/legacy-fixture-signing-20261006-r11 -> origin/chatgpt/legacy-fixture-signing-20261006-r11
+2026-10-29T19:42:12.1504665Z  * [new branch]        chatgpt/legacy-json-refresh-20261006-r9 -> origin/chatgpt/legacy-json-refresh-20261006-r9
+2026-10-29T19:42:12.1508010Z  * [new branch]        chatgpt/legacy-json-repair-20261006-r8 -> origin/chatgpt/legacy-json-repair-20261006-r8
+2026-10-29T19:42:12.1511064Z  * [new branch]        chatgpt/legacy-parser-plus-20261006-r13 -> origin/chatgpt/legacy-parser-plus-20261006-r13
+2026-10-29T19:42:12.1514335Z  * [new branch]        chatgpt/legacy-signing-isolation-20261006-r12 -> origin/chatgpt/legacy-signing-isolation-20261006-r12
+2026-10-29T19:42:12.1517576Z  * [new branch]        chatgpt/legacy-trigger-coverage-20261006-r6 -> origin/chatgpt/legacy-trigger-coverage-20261006-r6
+2026-10-29T19:42:12.1520187Z  * [new branch]        chatgpt/legacy-tty-followon-20261006 -> origin/chatgpt/legacy-tty-followon-20261006
+2026-10-29T19:42:12.1523005Z  * [new branch]        chatgpt/lm006-coefficient-refine-4096-20261006-r22 -> origin/chatgpt/lm006-coefficient-refine-4096-20261006-r22
+2026-10-29T19:42:12.1526540Z  * [new branch]        chatgpt/lm006-oned-replay-20261006-b91e -> origin/chatgpt/lm006-oned-replay-20261006-b91e
+2026-10-29T19:42:12.1529164Z  * [new branch]        chatgpt/nav-verdict-word-start-20261006-r10 -> origin/chatgpt/nav-verdict-word-start-20261006-r10
+2026-10-29T19:42:12.1531521Z  * [new branch]        chatgpt/navigation-citation-identity-20261006 -> origin/chatgpt/navigation-citation-identity-20261006
+2026-10-29T19:42:12.1533889Z  * [new branch]        chatgpt/navigation-corpus-observation-20261006 -> origin/chatgpt/navigation-corpus-observation-20261006
+2026-10-29T19:42:12.1535976Z  * [new branch]        chatgpt/navigation-price-20260924 -> origin/chatgpt/navigation-price-20260924
+2026-10-29T19:42:12.1539158Z  * [new branch]        chatgpt/navigation-reviewed-stack-preparation-20261006 -> origin/chatgpt/navigation-reviewed-stack-preparation-20261006
+2026-10-29T19:42:12.1542207Z  * [new branch]        chatgpt/navigation-verdict-boundaries-20261006 -> origin/chatgpt/navigation-verdict-boundaries-20261006
+2026-10-29T19:42:12.1544728Z  * [new branch]        chatgpt/navigation-verdict-boundary-20261006 -> origin/chatgpt/navigation-verdict-boundary-20261006
+2026-10-29T19:42:12.1547105Z  * [new branch]        chatgpt/never-merge-formal-negative-20260927 -> origin/chatgpt/never-merge-formal-negative-20260927
+2026-10-29T19:42:12.1549429Z  * [new branch]        chatgpt/p15-smt-pilot-20260925-1918 -> origin/chatgpt/p15-smt-pilot-20260925-1918
+2026-10-29T19:42:12.1551685Z  * [new branch]        chatgpt/pr334-native-contract-support-20261006 -> origin/chatgpt/pr334-native-contract-support-20261006
+2026-10-29T19:42:12.1554437Z  * [new branch]        chatgpt/qs-raw-child-evidence-20261006-r9 -> origin/chatgpt/qs-raw-child-evidence-20261006-r9
+2026-10-29T19:42:12.1557477Z  * [new branch]        chatgpt/qs340-inventory-amendment-support-20261006 -> origin/chatgpt/qs340-inventory-amendment-support-20261006
+2026-10-29T19:42:12.1560021Z  * [new branch]        chatgpt/remote-window-20260924 -> origin/chatgpt/remote-window-20260924
+2026-10-29T19:42:12.1562159Z  * [new branch]        chatgpt/retrospective-round10-20261005 -> origin/chatgpt/retrospective-round10-20261005
+2026-10-29T19:42:12.1564810Z  * [new branch]        chatgpt/rf-gate-helper-replay-22393e7b-20261006-r8 -> origin/chatgpt/rf-gate-helper-replay-22393e7b-20261006-r8
+2026-10-29T19:42:12.1567492Z  * [new branch]        chatgpt/rf-gate-incorporation-rehearsal-20261006-r9 -> origin/chatgpt/rf-gate-incorporation-rehearsal-20261006-r9
+2026-10-29T19:42:12.1570015Z  * [new branch]        chatgpt/soft-fold-protocol-20261006 -> origin/chatgpt/soft-fold-protocol-20261006
+2026-10-29T19:42:12.1572307Z  * [new branch]        chatgpt/third-order-protocol-20261006-37bd-r4 -> origin/chatgpt/third-order-protocol-20261006-37bd-r4
+2026-10-29T19:42:12.1574554Z  * [new branch]        chatgpt/three-fronts-20260924 -> origin/chatgpt/three-fronts-20260924
+2026-10-29T19:42:12.1576793Z  * [new branch]        chatgpt/two-scale-custody-postmerge-repair-20260929 -> origin/chatgpt/two-scale-custody-postmerge-repair-20260929
+2026-10-29T19:42:12.1579408Z  * [new branch]        claude/dd-model-d-enclosure-wip-20261013 -> origin/claude/dd-model-d-enclosure-wip-20261013
+2026-10-29T19:42:12.1581508Z  * [new branch]        claude/determined-bardeen-mrqy4y -> origin/claude/determined-bardeen-mrqy4y
+2026-10-29T19:42:12.1583177Z  * [new branch]        claude/nice-maxwell-7i7ok0 -> origin/claude/nice-maxwell-7i7ok0
+2026-10-29T19:42:12.1584867Z  * [new branch]        claude/round4-triage-table-20261011 -> origin/claude/round4-triage-table-20261011
+2026-10-29T19:42:12.1586805Z  * [new branch]        codex/all-frame-gaussian-rates-20261028 -> origin/codex/all-frame-gaussian-rates-20261028
+2026-10-29T19:42:12.1588919Z  * [new branch]        codex/c291-literal-lifetime-field-20261018 -> origin/codex/c291-literal-lifetime-field-20261018
+2026-10-29T19:42:12.1590916Z  * [new branch]        codex/c293-morse-finite-critical-20261018 -> origin/codex/c293-morse-finite-critical-20261018
+2026-10-29T19:42:12.1592961Z  * [new branch]        codex/c294-critical-level-attainment-20261020 -> origin/codex/c294-critical-level-attainment-20261020
+2026-10-29T19:42:12.1594914Z  * [new branch]        codex/c299-critical-ridge-20261020 -> origin/codex/c299-critical-ridge-20261020
+2026-10-29T19:42:12.1596873Z  * [new branch]        codex/c299-timeout-test-adoption-20261024 -> origin/codex/c299-timeout-test-adoption-20261024
+2026-10-29T19:42:12.1599008Z  * [new branch]        codex/c301-c291-static-workspace-20261024 -> origin/codex/c301-c291-static-workspace-20261024
+2026-10-29T19:42:12.1601250Z  * [new branch]        codex/cbz-determinant-qualified-inventory-20261029 -> origin/codex/cbz-determinant-qualified-inventory-20261029
+2026-10-29T19:42:12.1603709Z  * [new branch]        codex/cbz-packet-admission-db642-20261029 -> origin/codex/cbz-packet-admission-db642-20261029
+2026-10-29T19:42:12.1606478Z  * [new branch]        codex/compact-cutoff-baseline-20261009-root01a11cbf -> origin/codex/compact-cutoff-baseline-20261009-root01a11cbf
+2026-10-29T19:42:12.1610199Z  * [new branch]        codex/compact-cutoff-controls-final-repair-20261011-root01a11cbf -> origin/codex/compact-cutoff-controls-final-repair-20261011-root01a11cbf
+2026-10-29T19:42:12.1613881Z  * [new branch]        codex/compact-cutoff-controls-repair-20261011-root01a11cbf -> origin/codex/compact-cutoff-controls-repair-20261011-root01a11cbf
+2026-10-29T19:42:12.1617159Z  * [new branch]        codex/compact-cutoff-proof-20261010-root01a11cbf -> origin/codex/compact-cutoff-proof-20261010-root01a11cbf
+2026-10-29T19:42:12.1620658Z  * [new branch]        codex/compact-cutoff-proof-repair-20261011-root01a11cbf -> origin/codex/compact-cutoff-proof-repair-20261011-root01a11cbf
+2026-10-29T19:42:12.1624215Z  * [new branch]        codex/compact-cutoff-proper-partial-control-20261011-root01a11cbf -> origin/codex/compact-cutoff-proper-partial-control-20261011-root01a11cbf
+2026-10-29T19:42:12.1628071Z  * [new branch]        codex/compact-cutoff-proper-partial-repair-20261011-root01a11cbf -> origin/codex/compact-cutoff-proper-partial-repair-20261011-root01a11cbf
+2026-10-29T19:42:12.1630667Z  * [new branch]        codex/cubic-curvature-20261026 -> origin/codex/cubic-curvature-20261026
+2026-10-29T19:42:12.1632496Z  * [new branch]        codex/elder-cusp-parity-protocol-20261020 -> origin/codex/elder-cusp-parity-protocol-20261020
+2026-10-29T19:42:12.1634832Z  * [new branch]        codex/essential-gaussian-rate-20261028 -> origin/codex/essential-gaussian-rate-20261028
+2026-10-29T19:42:12.1637151Z  * [new branch]        codex/essential-sharp-asymptotics-20261028 -> origin/codex/essential-sharp-asymptotics-20261028
+2026-10-29T19:42:12.1639887Z  * [new branch]        codex/gaussian-lifetime-limit-completion-20261029 -> origin/codex/gaussian-lifetime-limit-completion-20261029
+2026-10-29T19:42:12.1643210Z  * [new branch]        codex/gaussian-lifetime-tail-20261028 -> origin/codex/gaussian-lifetime-tail-20261028
+2026-10-29T19:42:12.1645329Z  * [new branch]        codex/quotient-closed-superlevel-lpc-adapter-20261020 -> origin/codex/quotient-closed-superlevel-lpc-adapter-20261020
+2026-10-29T19:42:12.1647957Z  * [new branch]        codex/quotient-closed-superlevel-lpc-adapter-20261020-r2 -> origin/codex/quotient-closed-superlevel-lpc-adapter-20261020-r2
+2026-10-29T19:42:12.1650451Z  * [new branch]        codex/quotient-closed-superlevel-lpc-adapter-20261022-r3 -> origin/codex/quotient-closed-superlevel-lpc-adapter-20261022-r3
+2026-10-29T19:42:12.1652834Z  * [new branch]        codex/source-admission-graph-package-20261020 -> origin/codex/source-admission-graph-package-20261020
+2026-10-29T19:42:12.1655026Z  * [new branch]        codex/source-smooth-realization-20261013-root01a11cbf -> origin/codex/source-smooth-realization-20261013-root01a11cbf
+2026-10-29T19:42:12.1657041Z  * [new branch]        copilot/add-license-citation-files -> origin/copilot/add-license-citation-files
+2026-10-29T19:42:12.1659029Z  * [new branch]        cursor/cross-repo-proof-custody-7eca -> origin/cursor/cross-repo-proof-custody-7eca
+2026-10-29T19:42:12.1660727Z  * [new branch]        cursor/d2-cumulative-confirm-870a -> origin/cursor/d2-cumulative-confirm-870a
+2026-10-29T19:42:12.1662250Z  * [new branch]        cursor/d5-chart-graph-node-91fa -> origin/cursor/d5-chart-graph-node-91fa
+2026-10-29T19:42:12.1663758Z  * [new branch]        cursor/d5-chart-j0-on-hotfix-91fa -> origin/cursor/d5-chart-j0-on-hotfix-91fa
+2026-10-29T19:42:12.1665228Z  * [new branch]        cursor/d5-pin-microdisk-c059 -> origin/cursor/d5-pin-microdisk-c059
+2026-10-29T19:42:12.1666783Z  * [new branch]        cursor/formal-verification-layer-ae3b -> origin/cursor/formal-verification-layer-ae3b
+2026-10-29T19:42:12.1668581Z  * [new branch]        cursor/lemma-theorem-registers-f339 -> origin/cursor/lemma-theorem-registers-f339
+2026-10-29T19:42:12.1670470Z  * [new branch]        cursor/moment-generality-alignment-cdd1 -> origin/cursor/moment-generality-alignment-cdd1
+2026-10-29T19:42:12.1672297Z  * [new branch]        cursor/nonauthor-hermite-axial-review-5dce -> origin/cursor/nonauthor-hermite-axial-review-5dce
+2026-10-29T19:42:12.1674072Z  * [new branch]        cursor/pr69-pin-microdisk-review-4f5c -> origin/cursor/pr69-pin-microdisk-review-4f5c
+2026-10-29T19:42:12.1675717Z  * [new branch]        cursor/rn-mesoscopic-chart-j0-91fa -> origin/cursor/rn-mesoscopic-chart-j0-91fa
+2026-10-29T19:42:12.1677399Z  * [new branch]        grokbot-agent12/steward-source-refresh-01 -> origin/grokbot-agent12/steward-source-refresh-01
+2026-10-29T19:42:12.1679099Z  * [new branch]        grokbot/local-path-map-20261015 -> origin/grokbot/local-path-map-20261015
+2026-10-29T19:42:12.1680552Z  * [new branch]        inventable/purpose-readme-seed -> origin/inventable/purpose-readme-seed
+2026-10-29T19:42:12.1681744Z  * [new branch]        main                   -> origin/main
+2026-10-29T19:42:12.1683253Z  * [new branch]        support/navigation-336-344-353-on-08f86862-20261006 -> origin/support/navigation-336-344-353-on-08f86862-20261006
+2026-10-29T19:42:12.1684805Z  * [new tag]           pre-cbz-discovery-1    -> pre-cbz-discovery-1
+2026-10-29T19:42:12.1687439Z [command]/usr/bin/git branch --list --remote origin/cbz/core-custody-native-20261029
+2026-10-29T19:42:12.1688751Z   origin/cbz/core-custody-native-20261029
+2026-10-29T19:42:12.1690550Z [command]/usr/bin/git rev-parse refs/remotes/origin/cbz/core-custody-native-20261029
+2026-10-29T19:42:12.1691771Z 93af4b662ea69012545507faa08d4b5d293abc21
+2026-10-29T19:42:12.1694387Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules origin +d019119bb1a35e54411fe6e3bcba8475664e8728:refs/remotes/origin/cbz/core-custody-native-20261029
+2026-10-29T19:42:12.1696357Z From https://github.com/d6g8k5htny-coder/Math-
+2026-10-29T19:42:12.1697916Z  + 93af4b66...d019119b d019119bb1a35e54411fe6e3bcba8475664e8728 -> origin/cbz/core-custody-native-20261029  (forced update)
+2026-10-29T19:42:12.1700453Z ##[endgroup]
+2026-10-29T19:42:12.1701540Z ##[group]Determining the checkout info
+2026-10-29T19:42:12.1702589Z ##[endgroup]
+2026-10-29T19:42:12.1703224Z [command]/usr/bin/git sparse-checkout disable
+2026-10-29T19:42:12.2537447Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-29T19:42:12.2573011Z ##[group]Checking out the ref
+2026-10-29T19:42:12.2576500Z [command]/usr/bin/git checkout --progress --force -B cbz/core-custody-native-20261029 refs/remotes/origin/cbz/core-custody-native-20261029
+2026-10-29T19:42:12.5301526Z Switched to a new branch 'cbz/core-custody-native-20261029'
+2026-10-29T19:42:12.5385960Z branch 'cbz/core-custody-native-20261029' set up to track 'origin/cbz/core-custody-native-20261029'.
+2026-10-29T19:42:12.5418066Z ##[endgroup]
+2026-10-29T19:42:12.5418473Z [command]/usr/bin/git log -1 --format=%H
+2026-10-29T19:42:12.5418666Z d019119bb1a35e54411fe6e3bcba8475664e8728
+2026-10-29T19:42:12.5635138Z ##[group]Run actions/setup-python@v5
+2026-10-29T19:42:12.5635311Z with:
+2026-10-29T19:42:12.5635451Z   python-version: 3.11.16
+2026-10-29T19:42:12.5635594Z   check-latest: false
+2026-10-29T19:42:12.5637061Z   token: ***
+2026-10-29T19:42:12.5637189Z   update-environment: true
+2026-10-29T19:42:12.5637338Z   allow-prereleases: false
+2026-10-29T19:42:12.5637483Z   freethreaded: false
+2026-10-29T19:42:12.5637807Z ##[endgroup]
+2026-10-29T19:42:12.6646751Z ##[group]Installed versions
+2026-10-29T19:42:12.6660720Z Version 3.11.16 was not found in the local cache
+2026-10-29T19:42:12.6782041Z (node:2153) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-29T19:42:12.6782819Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-29T19:42:13.5156614Z Version 3.11.16 is available for downloading
+2026-10-29T19:42:13.5157286Z Download from "https://github.com/actions/python-versions/releases/download/3.11.16-31661435402/python-3.11.16-linux-26.04-x64.tar.gz"
+2026-10-29T19:42:14.2325480Z Extract downloaded archive
+2026-10-29T19:42:14.2441456Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/cef4e14e-5113-4bb7-906c-1bb50b88df47 -f /home/runner/work/_temp/11ffce33-8d26-4f38-90a3-a3fd9c60cef1
+2026-10-29T19:42:15.1434719Z Execute installation script
+2026-10-29T19:42:15.1573111Z Check if Python hostedtoolcache folder exist...
+2026-10-29T19:42:15.1573472Z Create Python 3.11.16 folder
+2026-10-29T19:42:15.1591713Z Copy Python binaries to hostedtoolcache folder
+2026-10-29T19:42:15.5331005Z Create additional symlinks (Required for the UsePythonVersion Azure Pipelines task and the setup-python GitHub Action)
+2026-10-29T19:42:15.5424920Z Upgrading pip...
+2026-10-29T19:42:17.4466160Z Collecting pip
+2026-10-29T19:42:17.4912378Z Downloading pip-26.2.2-py3-none-any.whl.metadata (4.6 kB)
+2026-10-29T19:42:17.5050049Z Downloading pip-26.2.2-py3-none-any.whl (1.8 MB)
+2026-10-29T19:42:17.5563781Z ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 37.2 MB/s eta 0:00:00
+2026-10-29T19:42:17.5564071Z 
+2026-10-29T19:42:17.5856906Z Installing collected packages: pip
+2026-10-29T19:42:17.5857237Z Attempting uninstall: pip
+2026-10-29T19:42:17.5869205Z Found existing installation: pip 24.0
+2026-10-29T19:42:17.6110127Z Uninstalling pip-24.0:
+2026-10-29T19:42:17.6150942Z Successfully uninstalled pip-24.0
+2026-10-29T19:42:18.1441772Z Successfully installed pip-26.2.2
+2026-10-29T19:42:18.2070278Z Create complete file
+2026-10-29T19:42:18.2126149Z Successfully set up CPython (3.11.16)
+2026-10-29T19:42:18.2127195Z ##[endgroup]
+2026-10-29T19:42:18.2305937Z ##[group]Run set -o pipefail
+2026-10-29T19:42:18.2306164Z [36;1mset -o pipefail[0m
+2026-10-29T19:42:18.2306295Z [36;1mflags=()[0m
+2026-10-29T19:42:18.2306453Z [36;1mif [ "$MODE" = optimized ]; then flags+=(-O); fi[0m
+2026-10-29T19:42:18.2306806Z [36;1mpython -B -S "${flags[@]}" -m unittest discover -s formal/tests -p test_source_custody.py -v 2>&1 | tee "$RUNNER_TEMP/custody-$MODE.log"[0m
+2026-10-29T19:42:18.2336382Z shell: /usr/bin/bash -e {0}
+2026-10-29T19:42:18.2336533Z env:
+2026-10-29T19:42:18.2336688Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-29T19:42:18.2336926Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib/pkgconfig
+2026-10-29T19:42:18.2337154Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-29T19:42:18.2337356Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-29T19:42:18.2337569Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-29T19:42:18.2338011Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib
+2026-10-29T19:42:18.2338189Z   MODE: normal
+2026-10-29T19:42:18.2338307Z   PYTHONDONTWRITEBYTECODE: 1
+2026-10-29T19:42:18.2338441Z ##[endgroup]
+2026-10-29T19:42:18.3440738Z test_assume_unchanged_bytes_are_refused (test_source_custody.SourceCustodyTests.test_assume_unchanged_bytes_are_refused) ... FAIL
+2026-10-29T19:42:18.3666392Z test_clean_committed_source_is_bound_to_exact_head (test_source_custody.SourceCustodyTests.test_clean_committed_source_is_bound_to_exact_head) ... FAIL
+2026-10-29T19:42:18.3885076Z test_commit_drift_is_refused (test_source_custody.SourceCustodyTests.test_commit_drift_is_refused) ... FAIL
+2026-10-29T19:42:18.4288562Z test_execute_accepts_clean_committed_source (test_source_custody.SourceCustodyTests.test_execute_accepts_clean_committed_source) ... ok
+2026-10-29T19:42:18.4525455Z test_execute_refuses_dirty_overlay_before_kernel (test_source_custody.SourceCustodyTests.test_execute_refuses_dirty_overlay_before_kernel) ... FAIL
+2026-10-29T19:42:18.4892415Z test_execute_refuses_head_drift_and_removes_receipt (test_source_custody.SourceCustodyTests.test_execute_refuses_head_drift_and_removes_receipt) ... FAIL
+2026-10-29T19:42:18.5561164Z test_execute_removes_stale_receipt_on_preflight_failure (test_source_custody.SourceCustodyTests.test_execute_removes_stale_receipt_on_preflight_failure) ... FAIL
+2026-10-29T19:42:18.7112582Z test_loaded_helper_cannot_claim_replaced_committed_source (test_source_custody.SourceCustodyTests.test_loaded_helper_cannot_claim_replaced_committed_source) ... FAIL
+2026-10-29T19:42:18.7433304Z test_loaded_wrapper_cannot_claim_replaced_committed_source (test_source_custody.SourceCustodyTests.test_loaded_wrapper_cannot_claim_replaced_committed_source) ... FAIL
+2026-10-29T19:42:18.7672351Z test_refreshed_manifest_cannot_launder_dirty_proof (test_source_custody.SourceCustodyTests.test_refreshed_manifest_cannot_launder_dirty_proof) ... FAIL
+2026-10-29T19:42:18.7939959Z test_skip_worktree_bytes_are_refused (test_source_custody.SourceCustodyTests.test_skip_worktree_bytes_are_refused) ... FAIL
+2026-10-29T19:42:18.8177409Z test_staged_bytes_are_refused (test_source_custody.SourceCustodyTests.test_staged_bytes_are_refused) ... FAIL
+2026-10-29T19:42:18.8399302Z test_symlink_owned_source_is_refused (test_source_custody.SourceCustodyTests.test_symlink_owned_source_is_refused) ... FAIL
+2026-10-29T19:42:18.8624070Z test_uncommitted_overlay_is_refused_even_with_refreshed_digest (test_source_custody.SourceCustodyTests.test_uncommitted_overlay_is_refused_even_with_refreshed_digest) ... FAIL
+2026-10-29T19:42:18.8639180Z 
+2026-10-29T19:42:18.8639516Z ======================================================================
+2026-10-29T19:42:18.8640364Z FAIL: test_assume_unchanged_bytes_are_refused (test_source_custody.SourceCustodyTests.test_assume_unchanged_bytes_are_refused)
+2026-10-29T19:42:18.8641068Z ----------------------------------------------------------------------
+2026-10-29T19:42:18.8641688Z Traceback (most recent call last):
+2026-10-29T19:42:18.8649135Z   File "/home/runner/work/Math-/Math-/formal/tests/test_source_custody.py", line 148, in test_assume_unchanged_bytes_are_refused
+2026-10-29T19:42:18.8649944Z     self.checked()
+2026-10-29T19:42:18.8650462Z   File "/home/runner/work/Math-/Math-/formal/tests/test_source_custody.py", line 60, in checked
+2026-10-29T19:42:18.8651097Z     self.assertTrue(callable(getattr(self.gate, 'checked_source_commit', None)),
+2026-10-29T19:42:18.8651826Z AssertionError: False is not true : commit custody verifier is missing
+2026-10-29T19:42:18.8652210Z 
+2026-10-29T19:42:18.8652459Z ======================================================================
+2026-10-29T19:42:18.8653166Z FAIL: test_clean_committed_source_is_bound_to_exact_head (test_source_custody.SourceCustodyTests.test_clean_committed_source_is_bound_to_exact_head)
+2026-10-29T19:42:18.8653894Z ----------------------------------------------------------------------
+2026-10-29T19:42:18.8654319Z Traceback (most recent call last):
+2026-10-29T19:42:18.8654969Z   File "/home/runner/work/Math-/Math-/formal/tests/test_source_custody.py", line 115, in test_clean_committed_source_is_bound_to_exact_head
+2026-10-29T19:42:18.8655673Z     self.assertEqual(self.checked(), self.git('rev-parse', 'HEAD'))
+2026-10-29T19:42:18.8656012Z                      ^^^^^^^^^^^^^^
+2026-10-29T19:42:18.8656367Z   File "/home/runner/work/Math-/Math-/formal/tests/test_source_custody.py", line 60, in checked
+2026-10-29T19:42:18.8656798Z     self.assertTrue(callable(getattr(self.gate, 'checked_source_commit', None)),
+2026-10-29T19:42:18.8657181Z AssertionError: False is not true : commit custody verifier is missing
+2026-10-29T19:42:18.8657446Z 
+2026-10-29T19:42:18.8657811Z ======================================================================
+2026-10-29T19:42:18.8658311Z FAIL: test_commit_drift_is_refused (test_source_custody.SourceCustodyTests.test_commit_drift_is_refused)
+2026-10-29T19:42:18.8658770Z ----------------------------------------------------------------------
+2026-10-29T19:42:18.8658998Z Traceback (most recent call last):
+2026-10-29T19:42:18.8659449Z   File "/home/runner/work/Math-/Math-/formal/tests/test_source_custody.py", line 159, in test_commit_drift_is_refused
+2026-10-29T19:42:18.8659907Z     first = self.checked()
+2026-10-29T19:42:18.8660109Z             ^^^^^^^^^^^^^^
+2026-10-29T19:42:18.8660466Z   File "/home/runner/work/Math-/Math-/formal/tests/test_source_custody.py", line 60, in checked
+2026-10-29T19:42:18.8660962Z     self.assertTrue(callable(getattr(self.gate, 'checked_source_commit', None)),
+2026-10-29T19:42:18.8661380Z AssertionError: False is not true : commit custody verifier is missing
+2026-10-29T19:42:18.8661613Z 
+2026-10-29T19:42:18.8661714Z ======================================================================
+2026-10-29T19:42:18.8662254Z FAIL: test_execute_refuses_dirty_overlay_before_kernel (test_source_custody.SourceCustodyTests.test_execute_refuses_dirty_overlay_before_kernel)
+2026-10-29T19:42:18.8662817Z ----------------------------------------------------------------------
+2026-10-29T19:42:18.8663102Z Traceback (most recent call last):
+2026-10-29T19:42:18.8663591Z   File "/home/runner/work/Math-/Math-/formal/tests/test_source_custody.py", line 90, in test_execute_refuses_dirty_overlay_before_kernel
+2026-10-29T19:42:18.8664065Z     with self.assertRaisesRegex(ValueError, 'committed source'):
+2026-10-29T19:42:18.8664273Z AssertionError: ValueError not raised
+2026-10-29T19:42:18.8664368Z 
+2026-10-29T19:42:18.8664433Z ======================================================================
+2026-10-29T19:42:18.8664781Z FAIL: test_execute_refuses_head_drift_and_removes_receipt (test_source_custody.SourceCustodyTests.test_execute_refuses_head_drift_and_removes_receipt)
+2026-10-29T19:42:18.8665141Z ----------------------------------------------------------------------
+2026-10-29T19:42:18.8665326Z Traceback (most recent call last):
+2026-10-29T19:42:18.8665795Z   File "/home/runner/work/Math-/Math-/formal/tests/test_source_custody.py", line 99, in test_execute_refuses_head_drift_and_removes_receipt
+2026-10-29T19:42:18.8666136Z     with self.assertRaisesRegex(ValueError, 'HEAD changed'):
+2026-10-29T19:42:18.8666326Z AssertionError: ValueError not raised
+2026-10-29T19:42:18.8666421Z 
+2026-10-29T19:42:18.8666485Z ======================================================================
+2026-10-29T19:42:18.8666847Z FAIL: test_execute_removes_stale_receipt_on_preflight_failure (test_source_custody.SourceCustodyTests.test_execute_removes_stale_receipt_on_preflight_failure)
+2026-10-29T19:42:18.8667313Z ----------------------------------------------------------------------
+2026-10-29T19:42:18.8667500Z Traceback (most recent call last):
+2026-10-29T19:42:18.8668119Z   File "/home/runner/work/Math-/Math-/formal/tests/test_source_custody.py", line 110, in test_execute_removes_stale_receipt_on_preflight_failure
+2026-10-29T19:42:18.8668561Z     with self.assertRaises(ValueError):
+2026-10-29T19:42:18.8668719Z AssertionError: ValueError not raised
+2026-10-29T19:42:18.8668814Z 
+2026-10-29T19:42:18.8668879Z ======================================================================
+2026-10-29T19:42:18.8669245Z FAIL: test_loaded_helper_cannot_claim_replaced_committed_source (test_source_custody.SourceCustodyTests.test_loaded_helper_cannot_claim_replaced_committed_source)
+2026-10-29T19:42:18.8669631Z ----------------------------------------------------------------------
+2026-10-29T19:42:18.8669818Z Traceback (most recent call last):
+2026-10-29T19:42:18.8670151Z   File "/home/runner/work/Math-/Math-/formal/tests/test_source_custody.py", line 183, in test_loaded_helper_cannot_claim_replaced_committed_source
+2026-10-29T19:42:18.8670466Z     self.checked()
+2026-10-29T19:42:18.8670687Z   File "/home/runner/work/Math-/Math-/formal/tests/test_source_custody.py", line 60, in checked
+2026-10-29T19:42:18.8670991Z     self.assertTrue(callable(getattr(self.gate, 'checked_source_commit', None)),
+2026-10-29T19:42:18.8671252Z AssertionError: False is not true : commit custody verifier is missing
+2026-10-29T19:42:18.8671403Z 
+2026-10-29T19:42:18.8671463Z ======================================================================
+2026-10-29T19:42:18.8671837Z FAIL: test_loaded_wrapper_cannot_claim_replaced_committed_source (test_source_custody.SourceCustodyTests.test_loaded_wrapper_cannot_claim_replaced_committed_source)
+2026-10-29T19:42:18.8672233Z ----------------------------------------------------------------------
+2026-10-29T19:42:18.8672417Z Traceback (most recent call last):
+2026-10-29T19:42:18.8672750Z   File "/home/runner/work/Math-/Math-/formal/tests/test_source_custody.py", line 173, in test_loaded_wrapper_cannot_claim_replaced_committed_source
+2026-10-29T19:42:18.8673062Z     self.checked()
+2026-10-29T19:42:18.8673276Z   File "/home/runner/work/Math-/Math-/formal/tests/test_source_custody.py", line 60, in checked
+2026-10-29T19:42:18.8673579Z     self.assertTrue(callable(getattr(self.gate, 'checked_source_commit', None)),
+2026-10-29T19:42:18.8673834Z AssertionError: False is not true : commit custody verifier is missing
+2026-10-29T19:42:18.8673981Z 
+2026-10-29T19:42:18.8674048Z ======================================================================
+2026-10-29T19:42:18.8674395Z FAIL: test_refreshed_manifest_cannot_launder_dirty_proof (test_source_custody.SourceCustodyTests.test_refreshed_manifest_cannot_launder_dirty_proof)
+2026-10-29T19:42:18.8674758Z ----------------------------------------------------------------------
+2026-10-29T19:42:18.8674942Z Traceback (most recent call last):
+2026-10-29T19:42:18.8675362Z   File "/home/runner/work/Math-/Math-/formal/tests/test_source_custody.py", line 131, in test_refreshed_manifest_cannot_launder_dirty_proof
+2026-10-29T19:42:18.8675791Z     self.checked()
+2026-10-29T19:42:18.8676004Z   File "/home/runner/work/Math-/Math-/formal/tests/test_source_custody.py", line 60, in checked
+2026-10-29T19:42:18.8676302Z     self.assertTrue(callable(getattr(self.gate, 'checked_source_commit', None)),
+2026-10-29T19:42:18.8676562Z AssertionError: False is not true : commit custody verifier is missing
+2026-10-29T19:42:18.8676801Z 
+2026-10-29T19:42:18.8676862Z ======================================================================
+2026-10-29T19:42:18.8677163Z FAIL: test_skip_worktree_bytes_are_refused (test_source_custody.SourceCustodyTests.test_skip_worktree_bytes_are_refused)
+2026-10-29T19:42:18.8677485Z ----------------------------------------------------------------------
+2026-10-29T19:42:18.8677868Z Traceback (most recent call last):
+2026-10-29T19:42:18.8678158Z   File "/home/runner/work/Math-/Math-/formal/tests/test_source_custody.py", line 156, in test_skip_worktree_bytes_are_refused
+2026-10-29T19:42:18.8678438Z     self.checked()
+2026-10-29T19:42:18.8678649Z   File "/home/runner/work/Math-/Math-/formal/tests/test_source_custody.py", line 60, in checked
+2026-10-29T19:42:18.8678943Z     self.assertTrue(callable(getattr(self.gate, 'checked_source_commit', None)),
+2026-10-29T19:42:18.8679205Z AssertionError: False is not true : commit custody verifier is missing
+2026-10-29T19:42:18.8679352Z 
+2026-10-29T19:42:18.8679417Z ======================================================================
+2026-10-29T19:42:18.8679686Z FAIL: test_staged_bytes_are_refused (test_source_custody.SourceCustodyTests.test_staged_bytes_are_refused)
+2026-10-29T19:42:18.8679972Z ----------------------------------------------------------------------
+2026-10-29T19:42:18.8680151Z Traceback (most recent call last):
+2026-10-29T19:42:18.8680431Z   File "/home/runner/work/Math-/Math-/formal/tests/test_source_custody.py", line 140, in test_staged_bytes_are_refused
+2026-10-29T19:42:18.8680697Z     self.checked()
+2026-10-29T19:42:18.8680912Z   File "/home/runner/work/Math-/Math-/formal/tests/test_source_custody.py", line 60, in checked
+2026-10-29T19:42:18.8681205Z     self.assertTrue(callable(getattr(self.gate, 'checked_source_commit', None)),
+2026-10-29T19:42:18.8681462Z AssertionError: False is not true : commit custody verifier is missing
+2026-10-29T19:42:18.8681610Z 
+2026-10-29T19:42:18.8681672Z ======================================================================
+2026-10-29T19:42:18.8681964Z FAIL: test_symlink_owned_source_is_refused (test_source_custody.SourceCustodyTests.test_symlink_owned_source_is_refused)
+2026-10-29T19:42:18.8682275Z ----------------------------------------------------------------------
+2026-10-29T19:42:18.8682452Z Traceback (most recent call last):
+2026-10-29T19:42:18.8682744Z   File "/home/runner/work/Math-/Math-/formal/tests/test_source_custody.py", line 193, in test_symlink_owned_source_is_refused
+2026-10-29T19:42:18.8683021Z     self.checked()
+2026-10-29T19:42:18.8683231Z   File "/home/runner/work/Math-/Math-/formal/tests/test_source_custody.py", line 60, in checked
+2026-10-29T19:42:18.8683527Z     self.assertTrue(callable(getattr(self.gate, 'checked_source_commit', None)),
+2026-10-29T19:42:18.8683780Z AssertionError: False is not true : commit custody verifier is missing
+2026-10-29T19:42:18.8683928Z 
+2026-10-29T19:42:18.8683987Z ======================================================================
+2026-10-29T19:42:18.8684377Z FAIL: test_uncommitted_overlay_is_refused_even_with_refreshed_digest (test_source_custody.SourceCustodyTests.test_uncommitted_overlay_is_refused_even_with_refreshed_digest)
+2026-10-29T19:42:18.8684784Z ----------------------------------------------------------------------
+2026-10-29T19:42:18.8684962Z Traceback (most recent call last):
+2026-10-29T19:42:18.8685302Z   File "/home/runner/work/Math-/Math-/formal/tests/test_source_custody.py", line 122, in test_uncommitted_overlay_is_refused_even_with_refreshed_digest
+2026-10-29T19:42:18.8685618Z     self.checked()
+2026-10-29T19:42:18.8685832Z   File "/home/runner/work/Math-/Math-/formal/tests/test_source_custody.py", line 60, in checked
+2026-10-29T19:42:18.8686127Z     self.assertTrue(callable(getattr(self.gate, 'checked_source_commit', None)),
+2026-10-29T19:42:18.8686382Z AssertionError: False is not true : commit custody verifier is missing
+2026-10-29T19:42:18.8686534Z 
+2026-10-29T19:42:18.8686702Z ----------------------------------------------------------------------
+2026-10-29T19:42:18.8686879Z Ran 14 tests in 0.553s
+2026-10-29T19:42:18.8686959Z 
+2026-10-29T19:42:18.8687006Z FAILED (failures=13)
+2026-10-29T19:42:18.8795644Z ##[error]Process completed with exit code 1.
+2026-10-29T19:42:18.8888097Z ##[group]Run actions/upload-artifact@v4
+2026-10-29T19:42:18.8888271Z with:
+2026-10-29T19:42:18.8888394Z   name: core-custody-normal
+2026-10-29T19:42:18.8888690Z   path: /home/runner/work/_temp/custody-*.log
+2026-10-29T19:42:18.8888853Z   if-no-files-found: error
+2026-10-29T19:42:18.8888988Z   compression-level: 6
+2026-10-29T19:42:18.8889112Z   overwrite: false
+2026-10-29T19:42:18.8889231Z   include-hidden-files: false
+2026-10-29T19:42:18.8889362Z env:
+2026-10-29T19:42:18.8889505Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-29T19:42:18.8889741Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib/pkgconfig
+2026-10-29T19:42:18.8889998Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-29T19:42:18.8890206Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-29T19:42:18.8890415Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-29T19:42:18.8890660Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib
+2026-10-29T19:42:18.8890837Z ##[endgroup]
+2026-10-29T19:42:18.9999884Z (node:2372) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-29T19:42:19.0000416Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-29T19:42:19.0041487Z With the provided path, there will be 1 file uploaded
+2026-10-29T19:42:19.0048340Z Artifact name is valid!
+2026-10-29T19:42:19.0048599Z Root directory input is valid!
+2026-10-29T19:42:19.2883790Z Beginning upload of artifact content to blob storage
+2026-10-29T19:42:19.3042596Z (node:2372) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-29T19:42:19.4518448Z Uploaded bytes 1097
+2026-10-29T19:42:19.4944316Z Finished uploading artifact content to blob storage!
+2026-10-29T19:42:19.4944922Z SHA256 digest of uploaded artifact zip is 76b33654804eba0dd897487b28a3cca1bee4f856e61cd5bbdd7e4cafa8b5b994
+2026-10-29T19:42:19.4945738Z Finalizing artifact upload
+2026-10-29T19:42:19.9803868Z Artifact core-custody-normal.zip successfully finalized. Artifact ID 12928320679
+2026-10-29T19:42:19.9804687Z Artifact core-custody-normal has been successfully uploaded! Final size is 1097 bytes. Artifact ID is 12928320679
+2026-10-29T19:42:19.9813914Z Artifact download URL: https://github.com/d6g8k5htny-coder/Math-/actions/runs/40942366233/artifacts/12928320679
+2026-10-29T19:42:19.9985628Z Post job cleanup.
+2026-10-29T19:42:20.0527233Z [command]/usr/bin/git version
+2026-10-29T19:42:20.0561962Z git version 2.56.0
+2026-10-29T19:42:20.0585214Z Temporarily overriding HOME='/home/runner/work/_temp/44881367-2c91-4b38-bac2-137d4a485d1d' before making global git config changes
+2026-10-29T19:42:20.0585909Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-29T19:42:20.0589227Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Math-/Math-
+2026-10-29T19:42:20.0622840Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-29T19:42:20.0652032Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-29T19:42:20.0905135Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-29T19:42:20.0935063Z http.https://github.com/.extraheader
+2026-10-29T19:42:20.0948830Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-29T19:42:20.0978658Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-29T19:42:20.1229885Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-29T19:42:20.1258082Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-29T19:42:20.1613635Z Cleaning up orphan processes
+2026-10-29T19:42:20.1854587Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
