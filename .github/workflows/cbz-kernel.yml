@@ -1,0 +1,91 @@
+name: CBZ native Lean kernel and axiom audit
+
+'on':
+  workflow_dispatch:
+  workflow_call:
+  pull_request:
+    paths:
+      - 'formal/**'
+      - 'specifications/lean_statements_20261010/**'
+      - 'specifications/lean_statement_proofs_20261011/**'
+      - 'frontiers/cap_first_exit_lean_20261002/**'
+      - 'frontiers/determinant_moment_20261025/**'
+      - 'frontiers/source_smooth_realization_20261011/**'
+      - 'frontiers/source_lifetime_realization_20261017/**'
+      - 'frontiers/source_derivative_gaussian_20261025/**'
+      - 'tools/cbz_kernel_gate.py'
+      - 'tools/cbz_kernel_registry.json'
+      - 'tools/cbz_kernel_mutations.py'
+      - 'tests/test_cbz_kernel_gate.py'
+      - 'tests/test_cbz_kernel_mutations.py'
+      - '.github/workflows/cbz-kernel.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'formal/**'
+      - 'specifications/lean_statements_20261010/**'
+      - 'specifications/lean_statement_proofs_20261011/**'
+      - 'frontiers/cap_first_exit_lean_20261002/**'
+      - 'frontiers/determinant_moment_20261025/**'
+      - 'frontiers/source_smooth_realization_20261011/**'
+      - 'frontiers/source_lifetime_realization_20261017/**'
+      - 'frontiers/source_derivative_gaussian_20261025/**'
+      - 'tools/cbz_kernel_gate.py'
+      - 'tools/cbz_kernel_registry.json'
+      - 'tools/cbz_kernel_mutations.py'
+      - 'tests/test_cbz_kernel_gate.py'
+      - 'tests/test_cbz_kernel_mutations.py'
+      - '.github/workflows/cbz-kernel.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cbz-kernel-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  native-kernel-audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 330
+    env:
+      LEAN_NUM_THREADS: '2'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.11.16'
+      - name: Refusal tests and exact native source inventory
+        run: |
+          python3 -B -S -m unittest discover -s tests -p test_cbz_kernel_mutations.py -v
+          python3 -B -O -S -m unittest discover -s tests -p test_cbz_kernel_mutations.py -v
+          python3 -B -S tools/cbz_kernel_mutations.py --output .lake/cbz-kernel/mutations
+          python3 -B -S tools/cbz_kernel_gate.py --inventory
+      - name: Install exact Lean once and retrieve shared pinned Mathlib dependencies
+        uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6
+        with:
+          lake-package-directory: formal
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+          use-github-cache: 'false'
+      - name: Fresh native builds, every-module replay, raw imported-record census and compiled refusal controls
+        run: >-
+          python3 -B -S tools/cbz_kernel_gate.py --execute
+          --expected-commit "${{ github.sha }}"
+          --timeout 1800
+      - name: Retain exact commands, current sources, object hashes and actual terminal outcomes
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: cbz-native-kernel-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .lake/cbz-kernel/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 90
+

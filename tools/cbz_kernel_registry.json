@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "tool_id": "CBZ-MATH-NATIVE-KERNEL-01",
+  "entrypoint": "tools/cbz_kernel_gate.py",
+  "workflow": ".github/workflows/cbz-kernel.yml",
+  "tests": "tests/test_cbz_kernel_gate.py",
+  "status": "RAW_IMPORTED_RECORD_REPAIR_CANDIDATE_HOSTED_UNQUALIFIED",
+  "scientific_effect": "NONE",
+  "runtime": {
+    "lean": "leanprover/lean4:v4.34.1",
+    "lean_commit": "5045d0056413266e57c625dcd7c365b10e377c52",
+    "mathlib": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "python": "3.11.16"
+  },
+  "inventory_command": "python3 -B -S tools/cbz_kernel_gate.py --inventory",
+  "execution_command": "python3 -B -S tools/cbz_kernel_gate.py --execute --expected-commit \"$GITHUB_SHA\"",
+  "scope": "All native Lean sources in the eight fixed package roots; explicit srcDir mappings; no proof, bound or scientific status changes.",
+  "outputs": ".lake/cbz-kernel/",
+  "failure_behavior": "REFUSED terminal result; no success receipt; retain actual command exits and stdout/stderr.",
+  "first_hosted_attempt": {
+    "run_id": "40933241149",
+    "job_id": "123656926883",
+    "checked_merge_commit": "80bdeac2c7a88b51da13a81d47d458c0d474f0c6",
+    "result": "REFUSED_BEFORE_NATIVE_BUILDS",
+    "reason": "Regular-only dependency attestation refused the pinned Batteries documentation symlink docs/README.md; fixed candidate requires a new actual hosted run."
+  },
+  "dependency_metadata_links": {
+    "policy": "Only these exact reviewed package/revision/path/blob/payload tuples; raw link payload attested and enumerated without following targets. All other symlinks and symlinked source ancestors refuse.",
+    "tree_census": "All nine pinned dependency trees inspected recursively without truncation; three symlinks total.",
+    "compiler_role": "None in this gate; installed Lean runtime remains separate. Benchmark aliases are inactive.",
+    "entries": [
+      {
+        "package": "batteries",
+        "revision": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+        "path": "docs/README.md",
+        "git_blob": "32d46ee883b58d6a383eed06eb98f33aa6530ded",
+        "payload_hex": "2e2e2f524541444d452e6d64",
+        "role": "documentation alias"
+      },
+      {
+        "package": "mathlib",
+        "revision": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "path": "scripts/bench/build/fake-root/bin/lean.py",
+        "git_blob": "819298943e1a8c331413fb55e2c4bbc98d05e562",
+        "payload_hex": "6c65616e",
+        "role": "inactive benchmark alias; not gate runtime or compiler input"
+      },
+      {
+        "package": "mathlib",
+        "revision": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "path": "scripts/bench/size/run.py",
+        "git_blob": "e5224d533ef27b001224859a9b36696846a7e7fe",
+        "payload_hex": "72756e",
+        "role": "inactive benchmark alias; not gate runtime or compiler input"
+      }
+    ]
+  },
+  "success_requirements": [
+    "exact source checkout and pinned dependency commits",
+    "all native project build directories freshly removed",
+    "native library builds and standalone orphan modules",
+    "standalone leanchecker on every inventoried module",
+    "complete imported raw table/index coverage with exact constNames/ConstantInfo names",
+    "independent native header/environment-origin census reconciled only by explicit exact theorem aliases",
+    "every native raw declaration instance directly audited, including coalesced names",
+    "all reachable raw imported ConstantInfo versions traversed by module/record identity",
+    "exact theorem payload equality for duplicate reachable names; nonidentical payloads refuse",
+    "all-record transitive axiom closure inside explicit core set, with raw-record and unique-Name counts separately validated",
+    "compiled unused-axiom, sorry and native_decide controls refused for exact forbidden findings",
+    "compiled identical aliases accepted with both raw records; native sorry/axiom/custom and foreign hidden-sorry controls refused for their exact findings",
+    "final source and dependency identity readback"
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "not_established": [
+    "all-eight-project native kernel/axiom qualification until a source-bound success receipt exists",
+    "mathematical semantic alignment",
+    "all Mathlib objects rebuilt from source",
+    "all Lean files outside the eight native package roots",
+    "parent theorem or scientific status closure"
+  ],
+  "mutation_entrypoint": "tools/cbz_kernel_mutations.py",
+  "mutation_tests": "tests/test_cbz_kernel_mutations.py",
+  "mutation_command": "python3 -B -S tools/cbz_kernel_mutations.py --output .lake/cbz-kernel/mutations",
+  "mutation_threshold": {
+    "unmodified_baseline_tests_per_mode": 66,
+    "declared_python_source_mutants": 9,
+    "modes": [
+      "normal",
+      "optimized"
+    ],
+    "required": "Every baseline test body must execute and return successfully. Every nonstale compiling mutant must yield exactly its selected test-body AssertionError; setup/teardown/cleanup failures, errors, skips and startup failures refuse. Stale cases refuse.",
+    "actual_generated_lean_mutants": 2,
+    "generated_threshold": "Theorem-value omission and skipping foreign raw versions must each compile/run with complete false-clear protocol and be caught by their exact compiled sorry control before long native builds."
+  },
+  "execution_custody": {
+    "attempts": "Fresh executions/attempt-<unique-id>/ directory per --execute call",
+    "current_reference": "current-execution.json",
+    "receipt": "receipt.json inside the referenced execution directory",
+    "prior_attempts": "Preserved complete/incomplete; never reused or overwritten",
+    "g0_mutations": "Separate mutations/result.json; prior mutation outputs retained under mutations/history/",
+    "failure": "New current reference is REFUSED with no new success receipt; earlier receipts/logs remain historical."
+  },
+  "second_hosted_attempt": {
+    "run_id": "40938100721",
+    "job_id": "123673915168",
+    "feature_head": "fdc723e3d0c0fd7b1f270aad611ac511561c108b",
+    "checked_merge_commit": "7db34c265162dc2538720729ac6212355e4e3e6d",
+    "result": "REFUSED_AT_PROJECT_2_COMPILED_CENSUS",
+    "reason": "SpecificationProofs.P15Hazard header/origin census46versus45; no full-scope or final readback evidence.",
+    "completed_project_results": [
+      {
+        "project": "formal",
+        "modules": 9,
+        "declarations": 116
+      },
+      {
+        "project": "specifications/lean_statements_20261010",
+        "modules": 6,
+        "declarations": 590
+      }
+    ],
+    "artifact": {
+      "id": "12927120552",
+      "bytes": 745675,
+      "files": 366,
+      "sha256": "6c4fd6359a7e57732468077121ea32cf749024d6d9f160a9a40ffb58b1413eb6"
+    }
+  },
+  "census_diagnostic_successor": {
+    "policy": "Strict header/origin equality remains unchanged; refusal now prints both exact Name differences. No missing declaration excluded.",
+    "gate_sha256": "a0ba2b3a8d724e8a2b9b945373c9a8004f2e9982a5400d99ba1dfb7619b06e08",
+    "local_self_tests_per_mode": 52,
+    "declared_python_mutants_killed_per_mode": 9,
+    "actual_core_preflight": "Positive/empty and three negative compiled controls passed; generated theorem-value mutation caught; forced origin omission explicitly reports cbzValidValue and refuses.",
+    "all_native_status": "NOT_ESTABLISHED; new actual hosted diagnostic run required"
+  },
+  "third_hosted_attempt": {
+    "run_id": "40945793449",
+    "job_id": "123700672950",
+    "feature_head": "0a631dea171071398c05a877f858c5e5997a7753",
+    "checked_merge_commit": "a22a0e395f108e85116f03b5a9813042afbd4829",
+    "result": "REFUSED_AT_PROJECT_2_COMPILED_CENSUS",
+    "module": "SpecificationProofs.P15Hazard",
+    "header_count": 46,
+    "origin_count": 45,
+    "header_only": [
+      "UniversalLaw.Spec.P15.block.eq_1"
+    ],
+    "origin_only": [],
+    "artifact": {
+      "id": "12930262595",
+      "bytes": 746874,
+      "files": 366,
+      "sha256": "c6b81d8163211c75bcb87ab72323bccf296f55e8b62bbc61a561bb8695535e99"
+    },
+    "qualification": "No all-native success; first two project outcomes are historical TOOL-REPORTED outcomes of the selected-only collector, not new all-record qualification."
+  },
+  "raw_record_repair": {
+    "protocol_version": 2,
+    "raw_identity": "Imported module index plus constant-table index; Name alone is never the visited key.",
+    "exact_alias_policy": "Theorem constructor, name, level parameters, Expr.equal type and proof value, and TheoremVal.all must agree with selected checked CI and a raw owner witness. No general proof-irrelevance alias permission.",
+    "dependency_policy": "Every reachable raw imported version is traversed, including foreign helpers. Missing names/records and incomplete indexes refuse. Pinned dependency objects remain an explicit cache trust boundary.",
+    "evidence_scope": "Compiled pinned-core fixture qualification only; all eight real native projects require a fresh hosted successor and final source/object readback.",
+    "conservative_refusal": "Different valid proof payloads also refuse; no Mathlib-specific bad proof is inferred from generic adversarial controls.",
+    "historical_collector_limit": "The earlier selected-only collector has a compiled generic foreign-helper counterexample with complete 1/1 native censuses; historical project outcomes do not establish the repaired closure policy.",
+    "integration_state": "Five code/test/workflow blobs match frozen de98c85e gate cut; registry preserves root diagnostic history and current arithmetic instruments. Fresh hosted all-native execution required."
+  }
+}

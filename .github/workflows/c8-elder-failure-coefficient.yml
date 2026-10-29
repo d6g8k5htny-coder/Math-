@@ -1,10 +1,19 @@
-name: C8 elder-failure coefficient (certified replay)
+name: C8 elder-failure replay (A3 quarantine; diagnostics only)
 
 'on':
   pull_request:
     paths:
       - 'frontiers/c8_elder_failure_coefficient_20261001/**'
       - '.github/workflows/c8-elder-failure-coefficient.yml'
+      - 'quarantine/Q-C8-ELDER-FAILURE-BINARY64-20261029.json'
+      - 'tools/check_c8_quarantine.py'
+      - 'tools/c8_quarantine_mutations.py'
+      - 'tools/c8_quarantine_registry.json'
+      - 'tests/test_c8_quarantine.py'
+      - 'tests/test_c8_quarantine_mutations.py'
+      - 'tests/test_c8_quarantine_workflow.py'
+      - 'docs/cbz/C8_QUARANTINE.md'
+      - 'PROOF_INDEX.md'
       - 'frontiers/c6_cluster_coefficients_numerics_20260930/NOTE.md'
       - 'frontiers/c6_cluster_coefficients_numerics_20260930/RESULTS.json'
       - 'frontiers/local_elder_geometry_20260930/PROOF.md'
@@ -17,7 +26,51 @@ permissions:
   contents: read
 
 jobs:
+  quarantine-boundary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.11.16'
+      - name: Enforce the opt-in C8 boundary and test its source guards
+        run: |
+          set -euo pipefail
+          mkdir -p .lake/c8-quarantine
+          python -B -S -m unittest discover -s tests -p test_c8_quarantine_mutations.py -v
+          python -B -O -S -m unittest discover -s tests -p test_c8_quarantine_mutations.py -v
+          python -B -S -m unittest discover -s tests -p test_c8_quarantine_workflow.py -v
+          python -B -O -S -m unittest discover -s tests -p test_c8_quarantine_workflow.py -v
+          python -B -S tools/c8_quarantine_mutations.py --output .lake/c8-quarantine/mutations
+          python -B -S tools/check_c8_quarantine.py > .lake/c8-quarantine/integrity.json
+          rc=0
+          python -B -S tools/check_c8_quarantine.py --consume-output /results/k=1/J_fail > .lake/c8-quarantine/denied.json || rc=$?
+          test "$rc" -eq 1
+          rc=0
+          python -B -S tools/check_c8_quarantine.py --consume-output '/results/k=1/parts/E[2T]' > .lake/c8-quarantine/exact-witness.json || rc=$?
+          test "$rc" -eq 2
+          python -B -S - <<'PY'
+          import json, pathlib
+          root = pathlib.Path('.lake/c8-quarantine')
+          for name, status in [('integrity', 'QUARANTINE_INTEGRITY_OK'), ('denied', 'REFUSED'), ('exact-witness', 'NOT_COVERED')]:
+              doc = json.loads((root / (name + '.json')).read_text())
+              if doc['status'] != status or doc['cbz_certificate_admitted'] is not False:
+                  raise ValueError('invalid nonadmission result: ' + name)
+          PY
+      - name: Preserve current and historical boundary evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: c8-quarantine-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .lake/c8-quarantine/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 90
   certified-replay:
+    needs: quarantine-boundary
     runs-on: ubuntu-latest
     timeout-minutes: 150
     strategy:

@@ -1,0 +1,292 @@
+{
+  "schema": "cbz.quarantine/v1",
+  "id": "Q-CUSP-BINARY64-20261029",
+  "title": "Cusp c1 binary64 enclosures: A3 arithmetic certification unavailable",
+  "classification": "QUARANTINED",
+  "layer_a": "A3",
+  "layer_a_status": "A3_NOT_PROVEN",
+  "cbz_certificate_admitted": false,
+  "source_snapshot": {
+    "repository": "d6g8k5htny-coder/Math-",
+    "commit": "8151f592918a845bf19eb8eafaf8444540a32734",
+    "packet_path": "frontiers/cusp_coefficient_certified_20261001",
+    "packet_object": "CL-CU-CUSP-COEFFICIENT-20261001-v1",
+    "manifest": {
+      "path": "frontiers/cusp_coefficient_certified_20261001/SOURCE_FILES.json",
+      "git_blob": "e9624bdeb78e9fe37f8fbacf45958b9b93f1cf95",
+      "sha256": "605481bd178e8d0dca68183601f6a99d66f25631717cae9c6a1f4b06e97f4911",
+      "bytes": 3645
+    }
+  },
+  "source_files": [
+    {
+      "path": "frontiers/cusp_coefficient_certified_20261001/ERRATUM_20261013.md",
+      "git_blob": "a9c3f95a6e31cd1924f4952d6092d848bd80f8ef",
+      "sha256": "c6e4d0ae3854b27f31b7165ccc376d070c85093a7e442d8b951744013b9b0be1",
+      "bytes": 8430
+    },
+    {
+      "path": "frontiers/cusp_coefficient_certified_20261001/NOTE.md",
+      "git_blob": "b2866871c10cd0a0def41e10bdaf5ecbef18241c",
+      "sha256": "9c74117f6b7ff2054fcfb5ddcfb4c8ad4a3a1278c201faafc5e98e7612abfc0c",
+      "bytes": 27264
+    },
+    {
+      "path": "frontiers/cusp_coefficient_certified_20261001/README.md",
+      "git_blob": "7840312a485ce480149424430ec2508bb0852086",
+      "sha256": "14e427b7b9c0b2b823192e37cb2728036adae493dfdebef78d04b24232bf5bdf",
+      "bytes": 1104
+    },
+    {
+      "path": "frontiers/cusp_coefficient_certified_20261001/RESULTS.json",
+      "git_blob": "8bbd0b0c69f6b29849fb2e3a3b2ad86974130987",
+      "sha256": "2de0a2381eb2f73b3f2ed7367c78d28856067b271f9e3484384c199a24cacdbe",
+      "bytes": 5350
+    },
+    {
+      "path": "frontiers/cusp_coefficient_certified_20261001/SOURCE_FILES.json",
+      "git_blob": "e9624bdeb78e9fe37f8fbacf45958b9b93f1cf95",
+      "sha256": "605481bd178e8d0dca68183601f6a99d66f25631717cae9c6a1f4b06e97f4911",
+      "bytes": 3645
+    },
+    {
+      "path": "frontiers/cusp_coefficient_certified_20261001/SOURCE_MAP.json",
+      "git_blob": "7e9092f185c55efe22bc9587be5cdf2f5ef89bd1",
+      "sha256": "306b39a011472e6c86642c1226f8605f4b4ec9b01308e0c7b0233c24023f1390",
+      "bytes": 3336
+    },
+    {
+      "path": "frontiers/cusp_coefficient_certified_20261001/certificate.py",
+      "git_blob": "7a4ba3e80acb3bb2423429e4808138574303b82d",
+      "sha256": "7472ac07d96210801b4070771713b0732bafb2cc479dd74d733eebc097b71838",
+      "bytes": 18392
+    },
+    {
+      "path": "frontiers/cusp_coefficient_certified_20261001/consts.py",
+      "git_blob": "5cac30c3bf086697b978f1161191764121298fd4",
+      "sha256": "5265668c0f489137d6362d230d7f2df0dfb25632abdadc0934a2c89c8594759e",
+      "bytes": 4462
+    },
+    {
+      "path": "frontiers/cusp_coefficient_certified_20261001/controls.py",
+      "git_blob": "5e41d95cf30ab47581ad15e78577a80a9d7e5384",
+      "sha256": "e2d59dfa162947e02d3ba696e5fb89aa926d2a658d4252f0ec1d0e6806ec3ddc",
+      "bytes": 8690
+    },
+    {
+      "path": "frontiers/cusp_coefficient_certified_20261001/cusp.py",
+      "git_blob": "fba24e5ee979ac23c6c00935af6ba1d1ecb09590",
+      "sha256": "695038fb8de5c7f13fd481384a29117df297c4d7125b7b761ee4114e7d0f19fc",
+      "bytes": 7686
+    },
+    {
+      "path": "frontiers/cusp_coefficient_certified_20261001/cx.py",
+      "git_blob": "29e3a4a8a46f065346592320e0c6bb65c6ccb331",
+      "sha256": "af2a32b3cf6b3826520ac3a14bc4238143447c5e3697ad0355d8a55e6b9aacd1",
+      "bytes": 4716
+    },
+    {
+      "path": "frontiers/cusp_coefficient_certified_20261001/d3.py",
+      "git_blob": "bae664536aac0f673cd8cd211d8637b6ba34c50c",
+      "sha256": "eafa1a6cf76cbdd9338f315377522aa3c23b361216c77bcd5e27ef610f57b0f7",
+      "bytes": 11136
+    },
+    {
+      "path": "frontiers/cusp_coefficient_certified_20261001/elem.py",
+      "git_blob": "99ad3332b40daa1eee50106dbaa8b4b726cd5ae6",
+      "sha256": "65490f314fd731ced8d893d137ed5d7a516cf3cf36ba68cf77d7845805c55fb0",
+      "bytes": 9825
+    },
+    {
+      "path": "frontiers/cusp_coefficient_certified_20261001/gauss.py",
+      "git_blob": "71f0b5709d5867497a5a1da1c08de48c30d68976",
+      "sha256": "51cd9e56f1858f711bee0a4554727d847f22a0796e85c77be58b4e74f2278eb0",
+      "bytes": 6228
+    },
+    {
+      "path": "frontiers/cusp_coefficient_certified_20261001/ia.py",
+      "git_blob": "cf4bbfa16f577fe65f4ab5fb3621943fa63cf9fa",
+      "sha256": "6d048d58c6ab18f21c0609fc888ca73497a60e234217bb4f7a309a1502fccc9e",
+      "bytes": 8930
+    },
+    {
+      "path": "frontiers/cusp_coefficient_certified_20261001/side24.py",
+      "git_blob": "31da88a031f3df682d1411415bbc1a9a7f591850",
+      "sha256": "85c330d82623dc89effed5a09b8d15a8986688f5eacc922f8b9b87754f9eef35",
+      "bytes": 10043
+    }
+  ],
+  "not_proven_boundary": [
+    "A3-admissible certified numerical intervals for Gaussian cusp c1 of Math-#207 CU.2 in d=1,2,3.",
+    "A3-admissible numerical bounds derived from those intervals: I_cand=(3^(1/4)/2)c1, I_cand-c1, c1/c_(d,ref), and c1/c_(d,24).",
+    "Absolute torus c1 intervals obtained by combining the unadmitted reference intervals with conditional transfer inequalities, including the packet L>=24 claims and the cusp_torus_transfer inherited_interval outputs for L>=10."
+  ],
+  "mathematical_arithmetic_gap": "certificate.py explicitly uses outward-rounded IEEE binary64 interval arithmetic from ia.py/elem.py/cx.py. The current Layer A3 prohibits floating-point mathematical bound certification. No exact-rational or verified-real replacement establishes these published endpoints in this record. Replay equality and seeded mutant rejection do not discharge that arithmetic certificate gap.",
+  "not_a_verdict": [
+    "This quarantine does not prove any quoted interval false.",
+    "It does not classify or refute the analytic Mellin reduction, Theorem CU, symbolic coefficient identities, or conditional transfer inequalities.",
+    "Exact-rational transfer algebra does not independently establish its inherited reference interval."
+  ],
+  "attempted": [
+    {
+      "date": "2026-10-29",
+      "action": "Inspected exact source certificate.py, ia.py, SOURCE_FILES.json, RESULTS.json and declared consumers at the recorded commit.",
+      "outcome": "Binary64 certification path confirmed; no A3-admissible replacement found in the scoped packet."
+    },
+    {
+      "date": "2026-10-29",
+      "action": "Preserved all 16 source files and original replay/mutant commands.",
+      "outcome": "Diagnostic reproducibility retained; no endpoint promoted or numerically recomputed by the quarantine checker."
+    }
+  ],
+  "resumption_cost": {
+    "class": "substantial arithmetic proof and implementation work; no reliable time estimate",
+    "required": [
+      "Replace all certifying basic, elementary and complex arithmetic with exact rational or verified-real bounds.",
+      "Re-establish constants, quadrature, analytic continuation and tail bounds, then prove published decimal rounding from exact endpoints.",
+      "Run sound positive, negative and mutation controls and bind exact source identities.",
+      "Reconcile every inherited numerical consumer before any CBZ admission."
+    ]
+  },
+  "isolation": {
+    "packet_bytes": "preserved verbatim",
+    "replay_role": "diagnostic only",
+    "certificate_admission": "denied for this packet, identical source copies and the named inherited numerical artifacts",
+    "analytic_transfer_scope": "not reclassified by this arithmetic quarantine",
+    "global_A3_audit": false,
+    "closed_consumer_boundary": "No cusp dependency is declared in Math claims/LANDING_CLAIMS.json at this baseline. This is not a census of external main statuses."
+  },
+  "denied_certificate_sources": [
+    "frontiers/cusp_coefficient_certified_20261001",
+    "frontiers/cusp_torus_transfer_20261001/RESULTS.json",
+    "frontiers/cusp_torus_transfer_20261001/transfer.py",
+    "frontiers/c2_torus_transfer_20261001/NOTE.md",
+    "frontiers/c2_torus_transfer_20261001/SOURCE_MAP.json",
+    "frontiers/c2_exact_20261001/NOTE.md",
+    "frontiers/third_order_coefficient_20261001/NOTE.md",
+    "frontiers/third_order_coefficient_20261001/README.md",
+    "frontiers/third_order_coefficient_20261001/SOURCES.json",
+    "frontiers/remainder_vanishing_20260930/ERRATUM_20261004.md"
+  ],
+  "numerical_consumers": [
+    {
+      "source": {
+        "path": "frontiers/cusp_torus_transfer_20261001/transfer.py",
+        "git_blob": "de48ca6c7e3637001b510d9b9aab0d789a76de70",
+        "sha256": "49acaca69d437aebed4547a802430b4b2906d5c96827dabb4b622e96f3190b32",
+        "bytes": 9677
+      },
+      "outputs": {
+        "path": "frontiers/cusp_torus_transfer_20261001/RESULTS.json",
+        "git_blob": "f044f2b2da19c756a8aa14831f7aa85e03e018a5",
+        "sha256": "1ca1b76e5ad6a55083fb72b533106311e751aafd9f9e4c3173de413f3aa66b43",
+        "bytes": 2955
+      },
+      "scope": "inherited_interval transcribes peer decimals; conditional_absolute_c1 outputs inherit this unadmitted reference. Exact relative covariance-transfer algebra is separate."
+    },
+    {
+      "source": {
+        "path": "frontiers/c2_torus_transfer_20261001/NOTE.md",
+        "git_blob": "5ce5bad2a1073b9b425fc4c5e6eed5527d39eaf2",
+        "sha256": "6d15dccc847d9457ff5d77d6286179fa87505b5d0570fea7996366bb2ba79da3",
+        "bytes": 21673
+      },
+      "manifest": {
+        "path": "frontiers/c2_torus_transfer_20261001/SOURCE_MAP.json",
+        "git_blob": "5365bc2d8e89f6dd0cb473caa3334f910b70a6bb",
+        "sha256": "56fae2a5c2aad309bec346cde15e8df968ea75d48b1ae194f3d1e4d0dc35629a",
+        "bytes": 7513
+      },
+      "scope": "NOTE section 0 and [CU-results] explicitly consume the c1/c interval. The c2 transfer computation is a distinct claim, not refuted here."
+    },
+    {
+      "source": {
+        "path": "frontiers/third_order_coefficient_20261001/NOTE.md",
+        "git_blob": "fa44893404bceafb2956409b1d544de5397199a0",
+        "sha256": "cbb59eb8df5d492c5183e110219703559307441b0d9fb281434b5193e3ef8078",
+        "bytes": 47631
+      },
+      "scope": "c1/c numerical display/table and certification wording inherit #219. README says no numerical input is consumed by the c2 checker; no algorithmic dependency is invented."
+    },
+    {
+      "source": {
+        "path": "frontiers/c2_exact_20261001/NOTE.md",
+        "git_blob": "a2798b87674ed5fc0d2144697e77ccb9b185b4ab",
+        "sha256": "598fc86a7c6b21bad438ef087e5aa7521f0fae08e25fa4f40f9b2ba635846dbb",
+        "bytes": 14480
+      },
+      "scope": "quoted c1/c correction; its own c2 exact formulas are not refuted by this Q."
+    },
+    {
+      "source": {
+        "path": "frontiers/remainder_vanishing_20260930/ERRATUM_20261004.md",
+        "git_blob": "0ffb10311e0d683e7e3ba57cc01f21696948b8e2",
+        "sha256": "1d058a6f66ed48bc7c74d8c529addb143d6397be050c9d28d9b97436af164961",
+        "bytes": 5581
+      },
+      "scope": "quoted c1/c correction ratio. No new proof failure is inferred for its analytic remainder statement."
+    }
+  ],
+  "adjacent_shared_arithmetic": [
+    {
+      "source": {
+        "path": "frontiers/c2_exact_20261001/ia.py",
+        "git_blob": "cf4bbfa16f577fe65f4ab5fb3621943fa63cf9fa",
+        "sha256": "6d048d58c6ab18f21c0609fc888ca73497a60e234217bb4f7a309a1502fccc9e",
+        "bytes": 8930
+      },
+      "scope": "byte-identical arithmetic engine; separate certification exposure, not a blanket verdict on that packet"
+    },
+    {
+      "source": {
+        "path": "frontiers/c2_exact_20261001/elem.py",
+        "git_blob": "99ad3332b40daa1eee50106dbaa8b4b726cd5ae6",
+        "sha256": "65490f314fd731ced8d893d137ed5d7a516cf3cf36ba68cf77d7845805c55fb0",
+        "bytes": 9825
+      },
+      "scope": "byte-identical arithmetic engine; separate certification exposure, not a blanket verdict on that packet"
+    },
+    {
+      "source": {
+        "path": "frontiers/c8_elder_failure_coefficient_20261001/ia.py",
+        "git_blob": "cf4bbfa16f577fe65f4ab5fb3621943fa63cf9fa",
+        "sha256": "6d048d58c6ab18f21c0609fc888ca73497a60e234217bb4f7a309a1502fccc9e",
+        "bytes": 8930
+      },
+      "scope": "byte-identical arithmetic engine; separate certification exposure, not a blanket verdict on that packet"
+    }
+  ],
+  "surfaces": {
+    "canonical_index": "PROOF_INDEX.md",
+    "diagnostic_workflow": ".github/workflows/cusp-coefficient-certified.yml",
+    "other_workflow_references": [
+      {
+        "path": ".github/workflows/cusp-torus-transfer.yml",
+        "git_blob": "d4ca448f576b463518d470d7ad53b190c2f359d5",
+        "sha256": "c1d6431f74edf97a30c9761359da9b6e1e44138e47a96015c0ff4381195e174d",
+        "bytes": 1876
+      },
+      {
+        "path": ".github/workflows/c2-torus-transfer.yml",
+        "git_blob": "e8c11afdc19eba9e9090aa7dca8ab130e411c833",
+        "sha256": "c353a0346e72bf672fe0fed0bd54bc41f19ab8bbdf986def55550404903ab8d1",
+        "bytes": 3957
+      },
+      {
+        "path": ".github/workflows/third-order-coefficient.yml",
+        "git_blob": "be6c402b9dd8d8b581c14e4bfbb040b2948317a9",
+        "sha256": "1c931a7a4f1f44aefa08321c329e224b016eac73c32b0f8c968a2f7e5b392868",
+        "bytes": 6594
+      }
+    ],
+    "historical_availability_index": {
+      "path": "docs/integration/2026-10-23-postcut-proof-sources.md",
+      "git_blob": "a1008e928c56cb360509db0f894b5fafae435df3",
+      "sha256": "d0e34f44e505c928604b5382def98559bd1a029be62102af1c14c3ed928513e8",
+      "bytes": 63129
+    },
+    "historical_packet_labels": "retained verbatim; they do not override this A3 admission denial"
+  },
+  "owner": null,
+  "maintenance": 0
+}

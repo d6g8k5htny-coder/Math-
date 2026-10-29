@@ -1,0 +1,39 @@
+{
+  "schema": "cbz.tool/v1",
+  "id": "CBZ-MATH-C8-QUARANTINE-01",
+  "entrypoint": "tools/check_c8_quarantine.py",
+  "record": "quarantine/Q-C8-ELDER-FAILURE-BINARY64-20261029.json",
+  "source_snapshot": "e877242cf68fb24c605066f16dd07f513ee75a1d",
+  "scientific_effect": "NONE",
+  "cbz_certificate_admitted": false,
+  "global_isolation_established": false,
+  "scope": "Frozen eleven-file C8 packet, 106 denied output paths, three exact Fraction witnesses and canonical index only; consumer narratives and other workflows are not fully certified or isolated.",
+  "default_success": "QUARANTINE_INTEGRITY_OK only",
+  "explicit_consumption": "Denied source/output returns1; exact witness or unrelated source/output returns2 NOT_COVERED. Neither admits a certificate.",
+  "denied_outputs": 106,
+  "exact_rational_witnesses": 3,
+  "preserved_packet_files": 11,
+  "core_methods_per_mode": 41,
+  "harness_methods_per_mode": 22,
+  "workflow_methods_per_mode": 3,
+  "declared_mutants": 13,
+  "mutation_threshold": "Healthy unchanged 41-method baseline in both modes with every body entered/exited and complete fixtures; all 13 source mutants yield their designated BODY AssertionError, matching typed event/counter provenance, zero errors/skips/expected failures and healthy selected-body protocol evidence for every CLI invocation. Setup/teardown/cleanup failures and reused observation paths refuse.",
+  "integrity_command": "python -B -S tools/check_c8_quarantine.py",
+  "mutation_command": "python -B -S tools/c8_quarantine_mutations.py --output .lake/c8-quarantine/mutations",
+  "workflow": ".github/workflows/c8-elder-failure-coefficient.yml",
+  "workflow_role": "Boundary controls precede preserved legacy diagnostic replays; a green replay cannot admit the quarantined numeric pairs.",
+  "legacy_run_block_sha256": [
+    "9184257cac6f9da3aeff53c87923349c3a283eb7360b1c306bbe14823bb2ac89",
+    "83f52e5e5f43ee72c265b17af9dc73d695540933eb8f4f03b48c9f34a3d7a66e"
+  ],
+  "qualification": "Only actual current-source retained receipts establish the stated bounded tests; no static A8, kernel, theorem or global A3 qualification.",
+  "legacy_full_replay_this_change": "NOT_EVALUATED",
+  "owner": null,
+  "maintenance": 0,
+  "collector_lifecycle_schema": "unittest.body-phase/v1",
+  "historical_pre_lifecycle_cut": {
+    "harness_methods_per_mode": 14,
+    "declared_mutants": 13,
+    "status": "Historical observed cut; no retroactive lifecycle qualification"
+  }
+}

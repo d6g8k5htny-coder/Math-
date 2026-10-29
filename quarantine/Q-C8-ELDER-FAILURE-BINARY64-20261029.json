@@ -1,0 +1,1765 @@
+{
+  "schema": "cbz.quarantine/v1",
+  "id": "Q-C8-ELDER-FAILURE-BINARY64-20261029",
+  "title": "C8 near-cluster and elder-failure binary64 enclosures: A3 arithmetic certification unavailable",
+  "record_state": "OPT_IN_GATE_INSTALLED",
+  "classification": "QUARANTINED",
+  "layer_a": "A3",
+  "layer_a_status": "A3_NOT_PROVEN",
+  "cbz_certificate_admitted": false,
+  "source_snapshot": {
+    "repository": "d6g8k5htny-coder/Math-",
+    "commit": "e877242cf68fb24c605066f16dd07f513ee75a1d",
+    "packet_path": "frontiers/c8_elder_failure_coefficient_20261001",
+    "packet_object": "CL-C8-ELDER-FAILURE-COEFFICIENT-20261001-v1",
+    "manifest": {
+      "path": "frontiers/c8_elder_failure_coefficient_20261001/SOURCE_FILES.json",
+      "git_blob": "1efc243fa447e7162644b939b2cd2200270e9874",
+      "sha256": "446fa632ec3055ce53587357fb47588041eab7829dbfe44438f0d5b3bab7e209",
+      "bytes": 2284
+    }
+  },
+  "source_files": [
+    {
+      "path": "frontiers/c8_elder_failure_coefficient_20261001/NOTE.md",
+      "git_blob": "9903dd6f6b2514069bef78399b3d90201280911e",
+      "sha256": "de50468afe0cae0bd2147a79e1b5b45a9f57ade5a81a9a99fd95aaaccc826c7c",
+      "bytes": 27438
+    },
+    {
+      "path": "frontiers/c8_elder_failure_coefficient_20261001/README.md",
+      "git_blob": "68ac15054b26ab4e0b9021859727be3385b6dbbd",
+      "sha256": "63313f05a155a5b93db70c82c16eca7ab98c4f1311ddc770dffc5ccb2db85031",
+      "bytes": 1906
+    },
+    {
+      "path": "frontiers/c8_elder_failure_coefficient_20261001/RESULTS.json",
+      "git_blob": "670297d08e516b5c3456fef278abb8ce454cfd79",
+      "sha256": "73bd816e0b48d9740c02d58f32fda99a110e4634222760e17c9c98df64b4d870",
+      "bytes": 9040
+    },
+    {
+      "path": "frontiers/c8_elder_failure_coefficient_20261001/SOURCE_FILES.json",
+      "git_blob": "1efc243fa447e7162644b939b2cd2200270e9874",
+      "sha256": "446fa632ec3055ce53587357fb47588041eab7829dbfe44438f0d5b3bab7e209",
+      "bytes": 2284
+    },
+    {
+      "path": "frontiers/c8_elder_failure_coefficient_20261001/SOURCE_MAP.json",
+      "git_blob": "f48177918014d3b09fe40e810695c986b1a30af5",
+      "sha256": "ab8a34556de2c309d5a379bd17b047159622dc111bf78ecf818f6dd9e339c4c9",
+      "bytes": 6451
+    },
+    {
+      "path": "frontiers/c8_elder_failure_coefficient_20261001/boxes.py",
+      "git_blob": "f6b42e2a0bf0021d85ded2bd19a77205455a5aa0",
+      "sha256": "5d6a9cfca33ed5140065bfd02a630a77596adf8c0b45ed6edb0032005754f9db",
+      "bytes": 28396
+    },
+    {
+      "path": "frontiers/c8_elder_failure_coefficient_20261001/certificate.py",
+      "git_blob": "0cbecb81eefceb11499bce4d78386a46d879cd51",
+      "sha256": "4d19857f5ba5cebf9dae8320680618abb23cbe6c1e674803ea95f99c96a56c10",
+      "bytes": 31193
+    },
+    {
+      "path": "frontiers/c8_elder_failure_coefficient_20261001/controls.py",
+      "git_blob": "39613832228583a9eb81d3eb2a1ee12e2b791d39",
+      "sha256": "d275ee5a120c3246e0c1a6dc5cd8bc8fbe738069c64448894efe3feebb7dd1f1",
+      "bytes": 5593
+    },
+    {
+      "path": "frontiers/c8_elder_failure_coefficient_20261001/ia.py",
+      "git_blob": "cf4bbfa16f577fe65f4ab5fb3621943fa63cf9fa",
+      "sha256": "6d048d58c6ab18f21c0609fc888ca73497a60e234217bb4f7a309a1502fccc9e",
+      "bytes": 8930
+    },
+    {
+      "path": "frontiers/c8_elder_failure_coefficient_20261001/test_replay_metadata.py",
+      "git_blob": "f943d6a1f3f5faf7a708818b78d7e6c74174d49c",
+      "sha256": "047f3692f840a7a3dd4993f0fa22bf5402cbd01bb01ba28010931186762c7df3",
+      "bytes": 2803
+    },
+    {
+      "path": "frontiers/c8_elder_failure_coefficient_20261001/torus.py",
+      "git_blob": "4a448b2f30e8f1157b758bc9ae5c9c258e112db8",
+      "sha256": "c5e3496d62dd7dcb544a72722982221654b9e6de100d5cf36640ca4abd67d279",
+      "bytes": 9778
+    }
+  ],
+  "not_proven_boundary": [
+    "For K(z)=exp(-|z|^2/2) in d=2: certified J_fail,J_1,J_2, J_2/J_fail and 2J_2/(J_1+2J_2) at k=1/2,1,2; p_b(0)/z_0, alpha_1, alpha_2=nu(2) and a_fail at b=0,1 and those gaps.",
+    "The reference planar band integral C_fail^{B,K}=const*I_b*I_k on B=[0,1],K=[1/2,2], and its supporting quadrature/box/tail numerical bounds.",
+    "The numerical Lemma T covariance, chi-square, expectation and density-ratio bounds and resulting planar torus intervals for every L>=10 and every frame.",
+    "The reference-only d=3 constants, b=0 pointwise coefficients and band C_fail^(3),{B,K}, conditional on the packet Math-#175/#184 interfaces. No d=3 torus transfer is claimed by this packet."
+  ],
+  "mathematical_arithmetic_gap": "certificate.py certify/derived/document propagate floating interval endpoints from ia.py and boxes.py/torus.py and emit certified=true. Directed one-ulp binary64 operations and Decimal publication do not themselves discharge Layer A3 exact-bound certification. No exact-rational or verified-real replacement for the 106 listed leaves was located in the scoped source/consumer census. Rational subexpressions and seeded mutant rejection do not establish those remaining bounds.",
+  "evidence": [
+    {
+      "source": {
+        "path": "frontiers/c8_elder_failure_coefficient_20261001/NOTE.md",
+        "git_blob": "9903dd6f6b2514069bef78399b3d90201280911e",
+        "sha256": "de50468afe0cae0bd2147a79e1b5b45a9f57ade5a81a9a99fd95aaaccc826c7c",
+        "bytes": 27438,
+        "snapshot": "e877242cf68fb24c605066f16dd07f513ee75a1d"
+      },
+      "line_start": 23,
+      "line_end": 81,
+      "finding": "Reference/torus tables, exact band and conditional d=3 statement boundaries."
+    },
+    {
+      "source": {
+        "path": "frontiers/c8_elder_failure_coefficient_20261001/NOTE.md",
+        "git_blob": "9903dd6f6b2514069bef78399b3d90201280911e",
+        "sha256": "de50468afe0cae0bd2147a79e1b5b45a9f57ade5a81a9a99fd95aaaccc826c7c",
+        "bytes": 27438,
+        "snapshot": "e877242cf68fb24c605066f16dd07f513ee75a1d"
+      },
+      "line_start": 272,
+      "line_end": 324,
+      "finding": "Planar torus scope and binary64 arithmetic policy."
+    },
+    {
+      "source": {
+        "path": "frontiers/c8_elder_failure_coefficient_20261001/NOTE.md",
+        "git_blob": "9903dd6f6b2514069bef78399b3d90201280911e",
+        "sha256": "de50468afe0cae0bd2147a79e1b5b45a9f57ade5a81a9a99fd95aaaccc826c7c",
+        "bytes": 27438,
+        "snapshot": "e877242cf68fb24c605066f16dd07f513ee75a1d"
+      },
+      "line_start": 383,
+      "line_end": 399,
+      "finding": "Conditional identification, compact grids/band, no finite-r or rate scope."
+    },
+    {
+      "source": {
+        "path": "frontiers/c8_elder_failure_coefficient_20261001/certificate.py",
+        "git_blob": "0cbecb81eefceb11499bce4d78386a46d879cd51",
+        "sha256": "4d19857f5ba5cebf9dae8320680618abb23cbe6c1e674803ea95f99c96a56c10",
+        "bytes": 31193,
+        "snapshot": "e877242cf68fb24c605066f16dd07f513ee75a1d"
+      },
+      "line_start": 316,
+      "line_end": 352,
+      "finding": "certify returns raw floats from adaptive boxes, tails and transfers."
+    },
+    {
+      "source": {
+        "path": "frontiers/c8_elder_failure_coefficient_20261001/certificate.py",
+        "git_blob": "0cbecb81eefceb11499bce4d78386a46d879cd51",
+        "sha256": "4d19857f5ba5cebf9dae8320680618abb23cbe6c1e674803ea95f99c96a56c10",
+        "bytes": 31193,
+        "snapshot": "e877242cf68fb24c605066f16dd07f513ee75a1d"
+      },
+      "line_start": 387,
+      "line_end": 468,
+      "finding": "derived propagates intervals and document emits certified=true."
+    },
+    {
+      "source": {
+        "path": "frontiers/c8_elder_failure_coefficient_20261001/boxes.py",
+        "git_blob": "f6b42e2a0bf0021d85ded2bd19a77205455a5aa0",
+        "sha256": "5d6a9cfca33ed5140065bfd02a630a77596adf8c0b45ed6edb0032005754f9db",
+        "bytes": 28396,
+        "snapshot": "e877242cf68fb24c605066f16dd07f513ee75a1d"
+      },
+      "line_start": 80,
+      "line_end": 154,
+      "finding": "Library root values are seeds; final certifying sign/bracket checks are still binary64."
+    },
+    {
+      "source": {
+        "path": "frontiers/c8_elder_failure_coefficient_20261001/torus.py",
+        "git_blob": "4a448b2f30e8f1157b758bc9ae5c9c258e112db8",
+        "sha256": "c5e3496d62dd7dcb544a72722982221654b9e6de100d5cf36640ca4abd67d279",
+        "bytes": 9778,
+        "snapshot": "e877242cf68fb24c605066f16dd07f513ee75a1d"
+      },
+      "line_start": 129,
+      "line_end": 185,
+      "finding": "Torus regressions, chi-square and derived deviation bounds use binary64 interval operations."
+    },
+    {
+      "source": {
+        "path": "frontiers/c8_elder_failure_coefficient_20261001/ia.py",
+        "git_blob": "cf4bbfa16f577fe65f4ab5fb3621943fa63cf9fa",
+        "sha256": "6d048d58c6ab18f21c0609fc888ca73497a60e234217bb4f7a309a1502fccc9e",
+        "bytes": 8930,
+        "snapshot": "e877242cf68fb24c605066f16dd07f513ee75a1d"
+      },
+      "line_start": 1,
+      "line_end": 57,
+      "finding": "Binary64 pairs and nextafter-widened elementary operations."
+    }
+  ],
+  "denied_output_count": 106,
+  "denied_outputs": [
+    {
+      "path": [
+        "results",
+        "k=0.5",
+        "J_fail"
+      ],
+      "json_pointer": "/results/k=0.5/J_fail",
+      "interval": [
+        "36.78305814",
+        "36.78680021"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=0.5",
+        "J_1"
+      ],
+      "json_pointer": "/results/k=0.5/J_1",
+      "interval": [
+        "35.67360980",
+        "35.68065110"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=0.5",
+        "J_2"
+      ],
+      "json_pointer": "/results/k=0.5/J_2",
+      "interval": [
+        "1.106148894",
+        "1.109448563"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=0.5",
+        "share_J2_over_Jfail"
+      ],
+      "json_pointer": "/results/k=0.5/share_J2_over_Jfail",
+      "interval": [
+        "0.03006918240",
+        "0.03016194161"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=0.5",
+        "near_palm_excess"
+      ],
+      "json_pointer": "/results/k=0.5/near_palm_excess",
+      "interval": [
+        "0.05837775723",
+        "0.05856276965"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=0.5",
+        "parts",
+        "E[2(B_-)^3]"
+      ],
+      "json_pointer": "/results/k=0.5/parts/E[2(B_-)^3]",
+      "interval": [
+        "8.357431233",
+        "8.357432938"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=0.5",
+        "parts",
+        "E[V] boxes"
+      ],
+      "json_pointer": "/results/k=0.5/parts/E[V] boxes",
+      "interval": [
+        "18.57553740",
+        "18.58052069"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=0.5",
+        "parts",
+        "E[H_2] boxes"
+      ],
+      "json_pointer": "/results/k=0.5/parts/E[H_2] boxes",
+      "interval": [
+        "1.474865193",
+        "1.479264750"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=0.5",
+        "parts",
+        "tail bound"
+      ],
+      "json_pointer": "/results/k=0.5/parts/tail bound",
+      "interval": [
+        "0",
+        "1.475969601E-9"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=0.5",
+        "coefficients",
+        "b=0",
+        "p_b(0)/z_0"
+      ],
+      "json_pointer": "/results/k=0.5/coefficients/b=0/p_b(0)~1z_0",
+      "interval": [
+        "0.03134386261",
+        "0.03134386889"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=0.5",
+        "coefficients",
+        "b=0",
+        "alpha_1"
+      ],
+      "json_pointer": "/results/k=0.5/coefficients/b=0/alpha_1",
+      "interval": [
+        "1.118148836",
+        "1.118369538"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=0.5",
+        "coefficients",
+        "b=0",
+        "alpha_2"
+      ],
+      "json_pointer": "/results/k=0.5/coefficients/b=0/alpha_2",
+      "interval": [
+        "0.03467098246",
+        "0.03477440682"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=0.5",
+        "coefficients",
+        "b=0",
+        "a_fail = alpha_1 + alpha_2"
+      ],
+      "json_pointer": "/results/k=0.5/coefficients/b=0/a_fail = alpha_1 + alpha_2",
+      "interval": [
+        "1.152923236",
+        "1.153040528"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=0.5",
+        "coefficients",
+        "b=1",
+        "p_b(0)/z_0"
+      ],
+      "json_pointer": "/results/k=0.5/coefficients/b=1/p_b(0)~1z_0",
+      "interval": [
+        "0.008974028845",
+        "0.008974030641"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=0.5",
+        "coefficients",
+        "b=1",
+        "alpha_1"
+      ],
+      "json_pointer": "/results/k=0.5/coefficients/b=1/alpha_1",
+      "interval": [
+        "0.3201360354",
+        "0.3201992242"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=0.5",
+        "coefficients",
+        "b=1",
+        "alpha_2"
+      ],
+      "json_pointer": "/results/k=0.5/coefficients/b=1/alpha_2",
+      "interval": [
+        "0.009926613082",
+        "0.009956224403"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=0.5",
+        "coefficients",
+        "b=1",
+        "a_fail = alpha_1 + alpha_2"
+      ],
+      "json_pointer": "/results/k=0.5/coefficients/b=1/a_fail = alpha_1 + alpha_2",
+      "interval": [
+        "0.3300922578",
+        "0.3301258393"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=1",
+        "J_fail"
+      ],
+      "json_pointer": "/results/k=1/J_fail",
+      "interval": [
+        "172.8463609",
+        "172.8602041"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=1",
+        "J_1"
+      ],
+      "json_pointer": "/results/k=1/J_1",
+      "interval": [
+        "169.5839525",
+        "169.6070816"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=1",
+        "J_2"
+      ],
+      "json_pointer": "/results/k=1/J_2",
+      "interval": [
+        "3.253121786",
+        "3.262409093"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=1",
+        "share_J2_over_Jfail"
+      ],
+      "json_pointer": "/results/k=1/share_J2_over_Jfail",
+      "interval": [
+        "0.01881938142",
+        "0.01887461645"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=1",
+        "near_palm_excess"
+      ],
+      "json_pointer": "/results/k=1/near_palm_excess",
+      "interval": [
+        "0.03694156081",
+        "0.03705188358"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=1",
+        "parts",
+        "E[2(B_-)^3]"
+      ],
+      "json_pointer": "/results/k=1/parts/E[2(B_-)^3]",
+      "interval": [
+        "5.876020762",
+        "5.876021946"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=1",
+        "parts",
+        "E[V] boxes"
+      ],
+      "json_pointer": "/results/k=1/parts/E[V] boxes",
+      "interval": [
+        "14.10054776",
+        "14.10515341"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=1",
+        "parts",
+        "E[H_2] boxes"
+      ],
+      "json_pointer": "/results/k=1/parts/E[H_2] boxes",
+      "interval": [
+        "1.084373928",
+        "1.087469698"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=1",
+        "parts",
+        "tail bound"
+      ],
+      "json_pointer": "/results/k=1/parts/tail bound",
+      "interval": [
+        "0",
+        "3.232088888E-10"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=1",
+        "coefficients",
+        "b=0",
+        "p_b(0)/z_0"
+      ],
+      "json_pointer": "/results/k=1/coefficients/b=0/p_b(0)~1z_0",
+      "interval": [
+        "0.007835965654",
+        "0.007835967222"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=1",
+        "coefficients",
+        "b=0",
+        "alpha_1"
+      ],
+      "json_pointer": "/results/k=1/coefficients/b=0/alpha_1",
+      "interval": [
+        "1.328854160",
+        "1.329035399"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=1",
+        "coefficients",
+        "b=0",
+        "alpha_2"
+      ],
+      "json_pointer": "/results/k=1/coefficients/b=0/alpha_2",
+      "interval": [
+        "0.02549135313",
+        "0.02556412816"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=1",
+        "coefficients",
+        "b=0",
+        "a_fail = alpha_1 + alpha_2"
+      ],
+      "json_pointer": "/results/k=1/coefficients/b=0/a_fail = alpha_1 + alpha_2",
+      "interval": [
+        "1.354418283",
+        "1.354526758"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=1",
+        "coefficients",
+        "b=1",
+        "p_b(0)/z_0"
+      ],
+      "json_pointer": "/results/k=1/coefficients/b=1/p_b(0)~1z_0",
+      "interval": [
+        "0.002243507211",
+        "0.002243507661"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=1",
+        "coefficients",
+        "b=1",
+        "alpha_1"
+      ],
+      "json_pointer": "/results/k=1/coefficients/b=1/alpha_1",
+      "interval": [
+        "0.3804628584",
+        "0.3805147487"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=1",
+        "coefficients",
+        "b=1",
+        "alpha_2"
+      ],
+      "json_pointer": "/results/k=1/coefficients/b=1/alpha_2",
+      "interval": [
+        "0.007298402918",
+        "0.007319239058"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=1",
+        "coefficients",
+        "b=1",
+        "a_fail = alpha_1 + alpha_2"
+      ],
+      "json_pointer": "/results/k=1/coefficients/b=1/a_fail = alpha_1 + alpha_2",
+      "interval": [
+        "0.3877820960",
+        "0.3878131531"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=2",
+        "J_fail"
+      ],
+      "json_pointer": "/results/k=2/J_fail",
+      "interval": [
+        "1111.982273",
+        "1112.030781"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=2",
+        "J_1"
+      ],
+      "json_pointer": "/results/k=2/J_1",
+      "interval": [
+        "1103.129655",
+        "1103.205691"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=2",
+        "J_2"
+      ],
+      "json_pointer": "/results/k=2/J_2",
+      "interval": [
+        "8.825088654",
+        "8.852620061"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=2",
+        "share_J2_over_Jfail"
+      ],
+      "json_pointer": "/results/k=2/share_J2_over_Jfail",
+      "interval": [
+        "0.007936011924",
+        "0.007961115375"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=2",
+        "near_palm_excess"
+      ],
+      "json_pointer": "/results/k=2/near_palm_excess",
+      "interval": [
+        "0.01574666826",
+        "0.01579686122"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=2",
+        "parts",
+        "E[2(B_-)^3]"
+      ],
+      "json_pointer": "/results/k=2/parts/E[2(B_-)^3]",
+      "interval": [
+        "5.093426722",
+        "5.093427745"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=2",
+        "parts",
+        "E[V] boxes"
+      ],
+      "json_pointer": "/results/k=2/parts/E[V] boxes",
+      "interval": [
+        "14.80440892",
+        "14.80843560"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=2",
+        "parts",
+        "E[H_2] boxes"
+      ],
+      "json_pointer": "/results/k=2/parts/E[H_2] boxes",
+      "interval": [
+        "0.7354240545",
+        "0.7377183383"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=2",
+        "parts",
+        "tail bound"
+      ],
+      "json_pointer": "/results/k=2/parts/tail bound",
+      "interval": [
+        "0",
+        "2.004587614E-10"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=2",
+        "coefficients",
+        "b=0",
+        "p_b(0)/z_0"
+      ],
+      "json_pointer": "/results/k=2/coefficients/b=0/p_b(0)~1z_0",
+      "interval": [
+        "0.001958991413",
+        "0.001958991806"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=2",
+        "coefficients",
+        "b=0",
+        "alpha_1"
+      ],
+      "json_pointer": "/results/k=2/coefficients/b=0/alpha_1",
+      "interval": [
+        "2.161021739",
+        "2.161170692"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=2",
+        "coefficients",
+        "b=0",
+        "alpha_2"
+      ],
+      "json_pointer": "/results/k=2/coefficients/b=0/alpha_2",
+      "interval": [
+        "0.01728827462",
+        "0.01734220843"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=2",
+        "coefficients",
+        "b=0",
+        "a_fail = alpha_1 + alpha_2"
+      ],
+      "json_pointer": "/results/k=2/coefficients/b=0/a_fail = alpha_1 + alpha_2",
+      "interval": [
+        "2.178363944",
+        "2.178458970"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=2",
+        "coefficients",
+        "b=1",
+        "p_b(0)/z_0"
+      ],
+      "json_pointer": "/results/k=2/coefficients/b=1/p_b(0)~1z_0",
+      "interval": [
+        "0.0005608768028",
+        "0.0005608769151"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=2",
+        "coefficients",
+        "b=1",
+        "alpha_1"
+      ],
+      "json_pointer": "/results/k=2/coefficients/b=1/alpha_1",
+      "interval": [
+        "0.6187198961",
+        "0.6187625424"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=2",
+        "coefficients",
+        "b=1",
+        "alpha_2"
+      ],
+      "json_pointer": "/results/k=2/coefficients/b=1/alpha_2",
+      "interval": [
+        "0.004949788004",
+        "0.004965229734"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "k=2",
+        "coefficients",
+        "b=1",
+        "a_fail = alpha_1 + alpha_2"
+      ],
+      "json_pointer": "/results/k=2/coefficients/b=1/a_fail = alpha_1 + alpha_2",
+      "interval": [
+        "0.6236851249",
+        "0.6237123314"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "d=3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1)",
+        "R_3(0) = (32 + 28 sqrt2)/17"
+      ],
+      "json_pointer": "/results/d=3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1)/R_3(0) = (32 + 28 sqrt2)~117",
+      "interval": [
+        "4.211645446",
+        "4.211646289"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "d=3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1)",
+        "const_3"
+      ],
+      "json_pointer": "/results/d=3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1)/const_3",
+      "interval": [
+        "0.006583316240",
+        "0.006583317557"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "d=3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1)",
+        "I_b^(3)"
+      ],
+      "json_pointer": "/results/d=3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1)/I_b^(3)",
+      "interval": [
+        "1.513649011",
+        "1.513683082"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "d=3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1)",
+        "C_fail^(3),{B,K}"
+      ],
+      "json_pointer": "/results/d=3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1)/C_fail^(3),{B,K}",
+      "interval": [
+        "0.004405817806",
+        "0.004416745237"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "d=3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1)",
+        "k=0.5, b=0",
+        "alpha_1^(3)"
+      ],
+      "json_pointer": "/results/d=3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1)/k=0.5, b=0/alpha_1^(3)",
+      "interval": [
+        "4.709246927",
+        "4.710176443"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "d=3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1)",
+        "k=0.5, b=0",
+        "alpha_2^(3) = nu^(3)(2)"
+      ],
+      "json_pointer": "/results/d=3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1)/k=0.5, b=0/alpha_2^(3) = nu^(3)(2)",
+      "interval": [
+        "0.1460219000",
+        "0.1464574868"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "d=3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1)",
+        "k=0.5, b=0",
+        "a_fail^(3)"
+      ],
+      "json_pointer": "/results/d=3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1)/k=0.5, b=0/a_fail^(3)",
+      "interval": [
+        "4.855704384",
+        "4.856198372"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "d=3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1)",
+        "k=1, b=0",
+        "alpha_1^(3)"
+      ],
+      "json_pointer": "/results/d=3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1)/k=1, b=0/alpha_1^(3)",
+      "interval": [
+        "5.596663133",
+        "5.597426446"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "d=3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1)",
+        "k=1, b=0",
+        "alpha_2^(3) = nu^(3)(2)"
+      ],
+      "json_pointer": "/results/d=3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1)/k=1, b=0/alpha_2^(3) = nu^(3)(2)",
+      "interval": [
+        "0.1073605521",
+        "0.1076670548"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "d=3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1)",
+        "k=1, b=0",
+        "a_fail^(3)"
+      ],
+      "json_pointer": "/results/d=3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1)/k=1, b=0/a_fail^(3)",
+      "interval": [
+        "5.704330166",
+        "5.704787020"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "d=3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1)",
+        "k=2, b=0",
+        "alpha_1^(3)"
+      ],
+      "json_pointer": "/results/d=3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1)/k=2, b=0/alpha_1^(3)",
+      "interval": [
+        "9.101458278",
+        "9.102085610"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "d=3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1)",
+        "k=2, b=0",
+        "alpha_2^(3) = nu^(3)(2)"
+      ],
+      "json_pointer": "/results/d=3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1)/k=2, b=0/alpha_2^(3) = nu^(3)(2)",
+      "interval": [
+        "0.07281209039",
+        "0.07303924044"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "d=3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1)",
+        "k=2, b=0",
+        "a_fail^(3)"
+      ],
+      "json_pointer": "/results/d=3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1)/k=2, b=0/a_fail^(3)",
+      "interval": [
+        "9.174497503",
+        "9.174897715"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "jet covariance deviation delta (order <= 6)"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/jet covariance deviation delta (order <= 6)",
+      "interval": [
+        "0",
+        "2.850266693E-14"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "chi^2 bound"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/chi^2 bound",
+      "interval": [
+        "0",
+        "2.878353120E-23"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "|J^L - J| bound (all k, J_fail and J_2)"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/|J^L - J| bound (all k, J_fail and J_2)",
+      "interval": [
+        "0",
+        "1.247240771E-7"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "(pi_0 p_b(0))^L / (pi_0 p_b(0))^ref"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/(pi_0 p_b(0))^L ~1 (pi_0 p_b(0))^ref",
+      "interval": [
+        "0.9999998999",
+        "1.000000101"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=0.5",
+        "J_fail"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=0.5/J_fail",
+      "interval": [
+        "36.78305802",
+        "36.78680034"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=0.5",
+        "J_2"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=0.5/J_2",
+      "interval": [
+        "1.106148770",
+        "1.109448688"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=0.5",
+        "b=0",
+        "p_b(0)/z_0"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=0.5/b=0/p_b(0)~1z_0",
+      "interval": [
+        "0.03134386261",
+        "0.03134386889"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=0.5",
+        "b=0",
+        "alpha_1"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=0.5/b=0/alpha_1",
+      "interval": [
+        "1.118148828",
+        "1.118369546"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=0.5",
+        "b=0",
+        "alpha_2"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=0.5/b=0/alpha_2",
+      "interval": [
+        "0.03467097855",
+        "0.03477441073"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=0.5",
+        "b=0",
+        "a_fail"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=0.5/b=0/a_fail",
+      "interval": [
+        "1.152923232",
+        "1.153040532"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=0.5",
+        "b=1",
+        "p_b(0)/z_0"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=0.5/b=1/p_b(0)~1z_0",
+      "interval": [
+        "0.008974028845",
+        "0.008974030641"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=0.5",
+        "b=1",
+        "alpha_1"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=0.5/b=1/alpha_1",
+      "interval": [
+        "0.3201360332",
+        "0.3201992265"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=0.5",
+        "b=1",
+        "alpha_2"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=0.5/b=1/alpha_2",
+      "interval": [
+        "0.009926611963",
+        "0.009956225523"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=0.5",
+        "b=1",
+        "a_fail"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=0.5/b=1/a_fail",
+      "interval": [
+        "0.3300922567",
+        "0.3301258404"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=1",
+        "J_fail"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=1/J_fail",
+      "interval": [
+        "172.8463608",
+        "172.8602042"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=1",
+        "J_2"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=1/J_2",
+      "interval": [
+        "3.253121661",
+        "3.262409218"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=1",
+        "b=0",
+        "p_b(0)/z_0"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=1/b=0/p_b(0)~1z_0",
+      "interval": [
+        "0.007835965654",
+        "0.007835967222"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=1",
+        "b=0",
+        "alpha_1"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=1/b=0/alpha_1",
+      "interval": [
+        "1.328854158",
+        "1.329035401"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=1",
+        "b=0",
+        "alpha_2"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=1/b=0/alpha_2",
+      "interval": [
+        "0.02549135216",
+        "0.02556412914"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=1",
+        "b=0",
+        "a_fail"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=1/b=0/a_fail",
+      "interval": [
+        "1.354418282",
+        "1.354526759"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=1",
+        "b=1",
+        "p_b(0)/z_0"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=1/b=1/p_b(0)~1z_0",
+      "interval": [
+        "0.002243507211",
+        "0.002243507661"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=1",
+        "b=1",
+        "alpha_1"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=1/b=1/alpha_1",
+      "interval": [
+        "0.3804628579",
+        "0.3805147493"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=1",
+        "b=1",
+        "alpha_2"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=1/b=1/alpha_2",
+      "interval": [
+        "0.007298402638",
+        "0.007319239338"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=1",
+        "b=1",
+        "a_fail"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=1/b=1/a_fail",
+      "interval": [
+        "0.3877820958",
+        "0.3878131534"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=2",
+        "J_fail"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=2/J_fail",
+      "interval": [
+        "1111.982273",
+        "1112.030781"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=2",
+        "J_2"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=2/J_2",
+      "interval": [
+        "8.825088529",
+        "8.852620186"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=2",
+        "b=0",
+        "p_b(0)/z_0"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=2/b=0/p_b(0)~1z_0",
+      "interval": [
+        "0.001958991413",
+        "0.001958991806"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=2",
+        "b=0",
+        "alpha_1"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=2/b=0/alpha_1",
+      "interval": [
+        "2.161021738",
+        "2.161170692"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=2",
+        "b=0",
+        "alpha_2"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=2/b=0/alpha_2",
+      "interval": [
+        "0.01728827438",
+        "0.01734220867"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=2",
+        "b=0",
+        "a_fail"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=2/b=0/a_fail",
+      "interval": [
+        "2.178363944",
+        "2.178458970"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=2",
+        "b=1",
+        "p_b(0)/z_0"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=2/b=1/p_b(0)~1z_0",
+      "interval": [
+        "0.0005608768028",
+        "0.0005608769151"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=2",
+        "b=1",
+        "alpha_1"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=2/b=1/alpha_1",
+      "interval": [
+        "0.6187198960",
+        "0.6187625426"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=2",
+        "b=1",
+        "alpha_2"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=2/b=1/alpha_2",
+      "interval": [
+        "0.004949787934",
+        "0.004965229804"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "k=2",
+        "b=1",
+        "a_fail"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/k=2/b=1/a_fail",
+      "interval": [
+        "0.6236851248",
+        "0.6237123315"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "torus model, every L >= 10, every frame (Lemma T)",
+        "C_fail^{B,K}"
+      ],
+      "json_pointer": "/results/torus model, every L >= 10, every frame (Lemma T)/C_fail^{B,K}",
+      "interval": [
+        "0.002724454687",
+        "0.002731151043"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "C_fail",
+        "I_k"
+      ],
+      "json_pointer": "/results/C_fail/I_k",
+      "interval": [
+        "0.4421366818",
+        "0.4432233938"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "C_fail",
+        "I_k boxes"
+      ],
+      "json_pointer": "/results/C_fail/I_k boxes",
+      "interval": [
+        "0.4421366818",
+        "0.4432233938"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "C_fail",
+        "I_k tail bound"
+      ],
+      "json_pointer": "/results/C_fail/I_k tail bound",
+      "interval": [
+        "0",
+        "1.296653887E-11"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "C_fail",
+        "int_K W(k) dk"
+      ],
+      "json_pointer": "/results/C_fail/int_K W(k) dk",
+      "interval": [
+        "0.009075577556",
+        "0.009075579412"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "C_fail",
+        "const"
+      ],
+      "json_pointer": "/results/C_fail/const",
+      "interval": [
+        "0.008250963314",
+        "0.008250964965"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "C_fail",
+        "I_b"
+      ],
+      "json_pointer": "/results/C_fail/I_b",
+      "interval": [
+        "0.7468240581",
+        "0.7468242075"
+      ]
+    },
+    {
+      "path": [
+        "results",
+        "C_fail",
+        "C_fail^{B,K}"
+      ],
+      "json_pointer": "/results/C_fail/C_fail^{B,K}",
+      "interval": [
+        "0.002724454695",
+        "0.002731151035"
+      ]
+    }
+  ],
+  "exact_rational_exceptions": [
+    {
+      "path": [
+        "results",
+        "k=0.5",
+        "parts",
+        "E[2T]"
+      ],
+      "interval": [
+        "22.11110889",
+        "22.11111333"
+      ],
+      "exact_value": "199/9",
+      "identity": "6*(6*k + 1/(4*k) + 5/(216*k^3))",
+      "k": "1/2",
+      "method": "Exact Fraction formula and exact decimal containment; no binary64 execution."
+    },
+    {
+      "path": [
+        "results",
+        "k=1",
+        "parts",
+        "E[2T]"
+      ],
+      "interval": [
+        "37.63888512",
+        "37.63889266"
+      ],
+      "exact_value": "1355/36",
+      "identity": "6*(6*k + 1/(4*k) + 5/(216*k^3))",
+      "k": "1",
+      "method": "Exact Fraction formula and exact decimal containment; no binary64 execution."
+    },
+    {
+      "path": [
+        "results",
+        "k=2",
+        "parts",
+        "E[2T]"
+      ],
+      "interval": [
+        "72.76735383",
+        "72.76736839"
+      ],
+      "exact_value": "20957/288",
+      "identity": "6*(6*k + 1/(4*k) + 5/(216*k^3))",
+      "k": "2",
+      "method": "Exact Fraction formula and exact decimal containment; no binary64 execution."
+    }
+  ],
+  "exception_scope": "The three E[2T] exact strings and their published interval pairs are independently checked by integer/Fraction formula and decimal containment only. This does not establish any other integrand, tail, expectation or physical-law identification.",
+  "not_a_verdict": [
+    "No quoted enclosure is asserted mathematically false.",
+    "No analytic root reduction, Gaussian-integral identity, conditional asymptotic theorem, torus transfer inequality or existing review verdict is refuted by this arithmetic admission decision.",
+    "Timing, process counts, adaptive split heuristics, library root seeds and floating/Monte Carlo comparisons are not separately classified as mathematical bound certificates.",
+    "The nine C2 supplied-expression endpoints have a distinct exact rational witness; the common ia.py bytes do not make that witness a universal engine or C8 certificate."
+  ],
+  "attempted": [
+    {
+      "date": "2026-10-29",
+      "action": "Bound all 11 packet files and three shared-engine paths to e877 Git blobs; traced certificate and torus output assembly and all direct-reference hits across 4028 canonical blobs.",
+      "outcome": "109 interval leaves found; three exact rational E[2T] exceptions checked, remaining 106 lack an inspected A3-admissible replacement."
+    },
+    {
+      "date": "2026-10-29",
+      "action": "Traced known numerical displays and inspected current Math landing/graph plus Main c93 status/projection sources.",
+      "outcome": "PD quotes the enclosure but does not use it in its rate proof; QS A3.10 explicitly attempts no numeric value. No CLOSED dependency established in those inspected surfaces."
+    }
+  ],
+  "resumption_cost": {
+    "class": "substantial arithmetic proof and implementation work; no reliable time estimate",
+    "required": [
+      "Replace or independently certify all load-bearing basic/elementary/root sign, Gaussian moments, Taylor boxes, tail and band-integration computations using exact rationals or verified reals.",
+      "Establish exact decimal endpoints, including all numeric planar-torus deviation bounds, and preserve the reference-only d=3 conditional boundary.",
+      "Run meaningful positive/negative/mutation controls and bind every source/result identity before any CBZ admission.",
+      "Reconcile the quoted numerical displays and actual consuming workflows without promoting existential analytic statements or imported premises."
+    ]
+  },
+  "isolation": {
+    "packet_bytes": "preserved verbatim; no packet/test/workflow mutation by this task",
+    "replay_role": "legacy diagnostic evidence only; C8 full replay NOT_EVALUATED in this task",
+    "certificate_admission": "denied for these 106 numerical leaves and their restated numeric certification claims; exact rational exceptions above remain distinct",
+    "analytic_transfer_scope": "not reclassified by this arithmetic quarantine",
+    "enforcement_status": "Opt-in C8 source/output checker plus this packet workflow boundary checks. Default success is integrity only; explicit denied106 outputs return1, exact3 witnesses and unrelated inputs return2 without admission. Other workflows and global downstream isolation are not enforced.",
+    "global_A3_audit": false,
+    "closed_consumer_boundary": "No declared dependency in inspected Math landing10-claim manifest or D0-D7 graph. Main c93 hypergraph assigns the C8 unit orphan/OPEN, bound=false and credit=0. This is not a complete federation/catalog transitive audit."
+  },
+  "denied_certificate_sources": [
+    "frontiers/c8_elder_failure_coefficient_20261001",
+    "frontiers/c8_elder_failure_coefficient_20261001/RESULTS.json",
+    "frontiers/c8_elder_failure_coefficient_20261001/certificate.py",
+    "frontiers/c8_elder_failure_coefficient_20261001/boxes.py",
+    "frontiers/c8_elder_failure_coefficient_20261001/torus.py"
+  ],
+  "numerical_consumers": [
+    {
+      "source": {
+        "path": "frontiers/planar_compact_k_chain_20261006/PD/PROOF.md",
+        "git_blob": "27893c7d28579f485787a7a45127a9124c719652",
+        "sha256": "7da0f672ab30a91a6e5787583326f0b14397a4addbb9e07b162cd2a3143e0e98",
+        "bytes": 14294,
+        "snapshot": "e877242cf68fb24c605066f16dd07f513ee75a1d"
+      },
+      "line_start": 105,
+      "line_end": 105,
+      "scope": "Quotes C_fail in [0.0027244,0.0027312] and L>=10 scope as #217 claim. The rate proof uses an existential/integral-defined coefficient, not these endpoint values; no new analytic theorem quarantine."
+    },
+    {
+      "source": {
+        "path": "frontiers/planar_compact_k_chain_20261006/PD/CLAIM.md",
+        "git_blob": "64cbe23e82f97842b6146a68842aa5923d77f881",
+        "sha256": "71da3c4362280817fabcddb65c7bf7803d84b8b94916c4b428308f9a065b2784",
+        "bytes": 1814,
+        "snapshot": "e877242cf68fb24c605066f16dd07f513ee75a1d"
+      },
+      "line_start": 24,
+      "line_end": 24,
+      "scope": "Restates #217 certifies C_fail but supplies no numeric endpoint input to the proof."
+    }
+  ],
+  "non_numeric_references": [
+    {
+      "source": {
+        "path": "frontiers/qs_d3_soft_layer_chain_20261005/A3_10/PROOF.md",
+        "git_blob": "f92830484ed0d7e8e582058bc564f547317963e0",
+        "sha256": "98fd6832e6003e5317072c8088482cc9facd68133d373f8497800b539d27dc07",
+        "bytes": 21069,
+        "snapshot": "e877242cf68fb24c605066f16dd07f513ee75a1d"
+      },
+      "line_start": 70,
+      "line_end": 71,
+      "scope": "No numerical value is attempted; explicitly says #217 planar enclosure is planar."
+    },
+    {
+      "source": {
+        "path": "frontiers/c2_exact_20261001/NOTE.md",
+        "git_blob": "a2798b87674ed5fc0d2144697e77ccb9b185b4ab",
+        "sha256": "598fc86a7c6b21bad438ef087e5aa7521f0fae08e25fa4f40f9b2ba635846dbb",
+        "bytes": 14480,
+        "snapshot": "e877242cf68fb24c605066f16dd07f513ee75a1d"
+      },
+      "line_start": 167,
+      "line_end": 170,
+      "scope": "Shared arithmetic provenance only; C2 endpoint certification has the separate exact oracle."
+    },
+    {
+      "source": {
+        "path": "docs/integration/2026-10-23-postcut-proof-sources.md",
+        "git_blob": "a1008e928c56cb360509db0f894b5fafae435df3",
+        "sha256": "d0e34f44e505c928604b5382def98559bd1a029be62102af1c14c3ed928513e8",
+        "bytes": 63129,
+        "snapshot": "e877242cf68fb24c605066f16dd07f513ee75a1d"
+      },
+      "scope": "Availability index quotes original packet kind; not mathematical admission or a numerical algorithm input."
+    }
+  ],
+  "surfaces": {
+    "canonical_index": "PROOF_INDEX.md",
+    "diagnostic_workflow": ".github/workflows/c8-elder-failure-coefficient.yml",
+    "workflow_line_start": 64,
+    "workflow_line_end": 83,
+    "workflow_scope": "The workflow runs integrity/source-mutation controls before retained full legacy replay/mutant commands. Replay is diagnostic, never CBZ mathematical admission.",
+    "historical_workflow_at_source_snapshot": {
+      "path": ".github/workflows/c8-elder-failure-coefficient.yml",
+      "git_blob": "80937702d0a57d025ffdc812e9497c30fe7a125b",
+      "sha256": "3f040049aa445768598ac172df90363bfb6f20e0d023ea3ff143c4d8fc18f9f8",
+      "bytes": 3770,
+      "snapshot": "e877242cf68fb24c605066f16dd07f513ee75a1d"
+    }
+  },
+  "owner": null,
+  "maintenance": 0
+}

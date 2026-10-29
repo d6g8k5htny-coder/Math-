@@ -4,6 +4,7 @@ name: Independent c2 interval audit
   pull_request:
     paths:
       - 'reviews/c2_interval_audit_20261001/**'
+      - 'tools/cbz_c2_oracle_qualification/**'
       - '.github/workflows/c2-interval-audit.yml'
   workflow_dispatch:
 
@@ -39,3 +40,25 @@ jobs:
           cmp RESULTS.json "$RUNNER_TEMP/c2-normal.json"
           python -B -S verify.py
           git diff --exit-code
+      - name: Qualify the pinned exact oracle and source mutation runner
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          set -euo pipefail
+          evidence="$(mktemp -d "$RUNNER_TEMP/c2-oracle-qualification.XXXXXX")"
+          echo "C2_QUALIFICATION_EVIDENCE=$evidence" >> "$GITHUB_ENV"
+          mkdir -p "$evidence/source/reviews" "$evidence/source/tools"
+          cp -R reviews/c2_interval_audit_20261001 "$evidence/source/reviews/"
+          cp -R tools/cbz_c2_oracle_qualification "$evidence/source/tools/"
+          python -B -S tools/cbz_c2_oracle_qualification/test_runner.py -v 2>&1 | tee "$evidence/runner-normal.log"
+          python -B -O -S tools/cbz_c2_oracle_qualification/test_runner.py -v 2>&1 | tee "$evidence/runner-optimized.log"
+          python -B -S tools/cbz_c2_oracle_qualification/run_mutations.py --evidence-dir "$evidence/normal" 2>&1 | tee "$evidence/cut-normal.log"
+          python -B -O -S tools/cbz_c2_oracle_qualification/run_mutations.py --evidence-dir "$evidence/optimized" 2>&1 | tee "$evidence/cut-optimized.log"
+      - name: Retain exact oracle qualification source and evidence
+        if: always() && env.C2_QUALIFICATION_EVIDENCE != ''
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: c2-oracle-qualification-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ env.C2_QUALIFICATION_EVIDENCE }}
+          if-no-files-found: error
+          retention-days: 30
