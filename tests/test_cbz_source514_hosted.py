@@ -373,6 +373,52 @@ class IndependentCensusTests(unittest.TestCase):
         stream="SOURCE514_CODEGEN_METADATA "+json.dumps(metadata)+"\n"+self.stream([self.row()])
         with self.assertRaisesRegex(ValueError,"overlaps kernel census"):
             subject.parse_census(stream,["Fixture"])
+    def overlap(self, module="Fixture", name="Fixture.witness", actual="Fixture", candidates=None, resolved="Fixture"):
+        return {"module":module,"name":name,"classification":"KERNEL_CODE_GENERATOR_OVERLAP",
+                "declaring_modules":[actual] if candidates is None else candidates,
+                "resolved_module":resolved}
+
+    def test_kernel_codegen_overlap_is_censused_exactly_once(self):
+        metadata=self.overlap()
+        stream="SOURCE514_CODEGEN_METADATA "+json.dumps(metadata)+"\n"+self.stream([self.row()])
+        expected,rows=subject.parse_census(stream,["Fixture"])
+        self.assertEqual(expected["kernel_codegen_overlaps"],[metadata])
+        self.assertEqual(expected["module_declarations"],{"Fixture":["Fixture.witness"]})
+        self.assertEqual(len(rows),1)
+
+    def test_cross_module_and_external_overlaps_keep_real_provenance(self):
+        metadata=[self.overlap(module="Fixture",name="Other.witness",actual="Other",resolved="Fixture"),
+                  self.overlap(module="Fixture",name="External.witness",actual="External",resolved="Fixture")]
+        stream="".join("SOURCE514_CODEGEN_METADATA "+json.dumps(m)+"\n" for m in metadata)
+        stream+=self.stream([self.row(),self.row(module="Other",name="Other.witness")])
+        expected,_=subject.parse_census(stream,["Fixture","Other"])
+        self.assertEqual(expected["kernel_codegen_overlaps"],metadata)
+        self.assertEqual(expected["module_declarations"]["Other"],["Other.witness"])
+
+    def test_duplicate_extra_name_in_distinct_modules_is_not_a_duplicate_pair(self):
+        metadata=[self.overlap(module="Fixture",name="Other.witness",actual="Other"),
+                  self.overlap(module="Other",name="Other.witness",actual="Other")]
+        stream="".join("SOURCE514_CODEGEN_METADATA "+json.dumps(m)+"\n" for m in metadata)
+        stream+=self.stream([self.row(),self.row(module="Other",name="Other.witness")])
+        expected,_=subject.parse_census(stream,["Fixture","Other"])
+        self.assertEqual(len(expected["kernel_codegen_overlaps"]),2)
+
+    def test_overlap_requires_unique_true_owner_and_selected_kernel_row(self):
+        bad=[self.overlap(candidates=[]),self.overlap(candidates=["Fixture","Other"]),
+             self.overlap(actual="Other",candidates=["Fixture"]),
+             self.overlap(name="Fixture.missing")]
+        for metadata in bad:
+            with self.subTest(metadata=metadata):
+                stream="SOURCE514_CODEGEN_METADATA "+json.dumps(metadata)+"\n"+self.stream([self.row()])
+                with self.assertRaises(ValueError):
+                    subject.parse_census(stream,["Fixture"])
+
+    def test_repeated_metadata_pair_rejected(self):
+        metadata=self.overlap()
+        stream=2*("SOURCE514_CODEGEN_METADATA "+json.dumps(metadata)+"\n")+self.stream([self.row()])
+        with self.assertRaisesRegex(ValueError,"duplicate"):
+            subject.parse_census(stream,["Fixture"])
+
     def test_generated_census_uses_exact_table_and_all_modules(self):
         program=subject.census_program(["Fixture","Other"])
         self.assertIn("let names := data.constNames.qsort Name.lt",program)
