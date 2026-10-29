@@ -127,9 +127,9 @@ class SourceMutationTests(unittest.TestCase):
 
     def test_grader_reason_guard_source_mutation_is_detected(self):
         source = Path(__file__).read_text()
-        old = "and ('in ' + target) in section and reason in section"
+        old = "and ('in ' + target) in section and reason in section\n"
         self.assertEqual(source.count(old), 1)
-        altered = source.replace(old, "and ('in ' + target) in section and True", 1)
+        altered = source.replace(old, "and ('in ' + target) in section and True\n", 1)
         namespace = {'__name__': 'det_custody_mutated_reason', '__file__': __file__}
         exec(compile(altered, __file__, 'exec'), namespace)
         fake = subprocess.CompletedProcess([], 1, stdout='', stderr=(
