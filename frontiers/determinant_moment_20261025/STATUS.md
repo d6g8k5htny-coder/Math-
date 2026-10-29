@@ -80,3 +80,29 @@ component tests executed, with174 passes and one test-fixture assertion failure
 (uppercase marker expected from a JSON-only console). Optimized mode and Lean
 were not reached. The corrected test now compares the entire console JSON with
 the receipt. This public red run remains retained; it is not an integrity pass.
+
+
+## Downloaded-artifact verification route (source checkpoint)
+
+The corrected44c39bdc hosted determinant gate succeeded in run40942326572/
+job123688637992 on tested merge2559df149ef4387b8972056559fb5f4e642d0134,
+manifest6978949f6e46b73a6ffce7aa2acfa47640ef4392704e5fbe9ffb321ecb53ea59.
+Actual18 shared source tests,10 mutation-harness tests and175 component tests
+passed in EACH Python mode. Twelve adapter mutants in each mode,157 constants,
+58421 dependency closure entries, standard three axioms, two compiled injections
+and five old gate controls passed their intended checks. The separate console
+upload succeeded. The gate artifact12928575403 records21 direct log hashes and
+has GitHub ZIP digestafb412746bcda2a2b869b8513a3300230eec1d7207b30fce927bd003e6c60410.
+
+Downloaded-byte qualification remains PENDING until the new narrow verifier's
+self-tests, source mutants and actual old-negative/new-positive ZIP replays run.
+Run from the repository root:
+`python -B -S -m unittest discover -s frontiers/determinant_moment_20261025/tests -v`;
+repeat with -O; then
+`python -B -S frontiers/determinant_moment_20261025/tests/run_cbz_mutations.py --output /tmp/determinant-outer-normal`;
+repeat with -O and a distinct output directory. Direct byte inspection:
+`python -B -S frontiers/determinant_moment_20261025/artifact_integrity.py --archive ARTIFACT.zip --expected-commit FULL_GIT_SHA --expected-manifest FULL_SHA256 --output REPORT.json`.
+The dedicated cbz-determinant-artifact-integrity workflow downloads both pinned
+archives and preserves reports/ZIPs. Its source-publication tests are not yet
+observed at this checkpoint. The separate dirty-overlay/dependency-byte custody
+gap remains open; kernel happy-path success does not certify that boundary.

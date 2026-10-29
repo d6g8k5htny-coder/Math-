@@ -28,3 +28,19 @@ test to compare the full parsed console JSON with the receipt, a stronger exact
 transport check. No production workflow, gate, bound or proof is altered by
 this test correction. Optimized mode and actual gate were not reached in that run.
 Reversible. Fresh execution remains pending.
+
+[2026-10-29T19:51Z] [Phase2/3] [Layer B/C] Build the finished narrow
+downloaded-artifact verifier, real ZIP/CLI tests, six policy source mutants and
+native downloader workflow. Reason: actual local execution outage prevents ZIP
+inspection; available hosted execution can download and check the bytes using
+a self-tested tool. All existing outer tests/mutants retained; threshold12/12
+intended kills per mode. No production Lean or mathematical bound changes.
+Reversible. Evidence: requests pin both immutable actual archives and their
+GitHub/source identities; source-current qualification is pending.
+
+[2026-10-29T19:51Z] [Phase3] [Layer C] Record actual corrected44c39bdc
+native gate success at tested2559df14:18 shared-source+10 harness+175 component
+tests per mode; twelve adapter mutants per mode;157 constants/58421 closure;
+seven actual controls; separate console upload. This is not yet a downloaded
+byte-integrity pass. Preserve the independent dirty-overlay/dependency Git-byte
+custody defect for the parallel core-policy repair; no full CBZ claim.

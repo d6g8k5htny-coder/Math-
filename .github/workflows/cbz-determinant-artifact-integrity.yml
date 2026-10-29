@@ -1,0 +1,100 @@
+name: Determinant downloaded-artifact integrity controls
+
+'on':
+  push:
+    branches: ['cbz/determinant-artifact-integrity-20261029']
+    paths:
+      - 'frontiers/determinant_moment_20261025/**'
+      - '.github/workflows/cbz-determinant-artifact-integrity.yml'
+  pull_request:
+    paths:
+      - 'frontiers/determinant_moment_20261025/artifact_integrity.py'
+      - 'frontiers/determinant_moment_20261025/tests/test_artifact_integrity.py'
+      - 'frontiers/determinant_moment_20261025/artifact-integrity-requests.json'
+      - '.github/workflows/cbz-determinant-artifact-integrity.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  downloaded-byte-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.11.16'
+      - name: Nonzero component tests and twelve intended source mutations in both modes
+        run: |
+          set -euo pipefail
+          mkdir -p .cbz-determinant-wire-evidence
+          for mode in normal optimized; do
+            flags=''
+            if [ "$mode" = optimized ]; then flags='-O'; fi
+            python -B -S $flags -m unittest discover -s frontiers/determinant_moment_20261025/tests -p 'test_*.py' -v > ".cbz-determinant-wire-evidence/tests-$mode.log" 2>&1
+            python -B -S $flags frontiers/determinant_moment_20261025/tests/run_cbz_mutations.py --output "$RUNNER_TEMP/determinant-wire-mutations-$mode" > ".cbz-determinant-wire-evidence/mutations-$mode.log" 2>&1
+            cp -R "$RUNNER_TEMP/determinant-wire-mutations-$mode" ".cbz-determinant-wire-evidence/mutations-$mode"
+          done
+      - name: Download immutable old-negative and repaired-positive artifacts and inspect every log
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          python -B -S - <<'PYARTIFACT'
+          import hashlib,json,os,subprocess,sys
+          from pathlib import Path
+          root=Path('frontiers/determinant_moment_20261025')
+          out=Path('.cbz-determinant-wire-evidence')
+          requests=json.loads((root/'artifact-integrity-requests.json').read_text())
+          if len(requests)!=2 or {r['label'] for r in requests}!={'historical-negative','repaired-positive'}:
+              raise SystemExit('both immutable positive and negative artifact controls are required')
+          rows=[]
+          for request in requests:
+              work=out/request['label']
+              work.mkdir(parents=True)
+              archive=work/'artifact.zip'
+              with archive.open('wb') as destination:
+                  subprocess.run(['gh','api','repos/'+os.environ['GITHUB_REPOSITORY']+'/actions/artifacts/'+str(request['artifact_id'])+'/zip'],
+                                 stdout=destination,check=True)
+              digest=hashlib.sha256(archive.read_bytes()).hexdigest()
+              if digest!=request['archive_sha256']:
+                  raise SystemExit('downloaded ZIP differs from the independently recorded GitHub artifact digest')
+              for mode in ['normal','optimized']:
+                  report=work/(mode+'.json')
+                  command=[sys.executable,'-B','-S']+(['-O'] if mode=='optimized' else [])+[
+                      str(root/'artifact_integrity.py'),'--archive',str(archive),
+                      '--expected-commit',request['checked_commit'],
+                      '--expected-manifest',request['manifest_sha256'],'--output',str(report)]
+                  run=subprocess.run(command,capture_output=True,text=True)
+                  (work/(mode+'.stdout')).write_text(run.stdout)
+                  (work/(mode+'.stderr')).write_text(run.stderr)
+                  result=json.loads(report.read_text())
+                  if run.returncode!=request['expected_exit'] or result.get('status')!=request['expected_status']:
+                      raise SystemExit('artifact control did not reach its exact expected disposition')
+                  if request['expected_status']=='FAIL':
+                      if result.get('code')!=request['expected_code'] or result.get('error')!=request['expected_error']:
+                          raise SystemExit('negative artifact failed for the wrong reason')
+                  elif result.get('verified_log_count')!=request['expected_verified_logs']:
+                      raise SystemExit('positive artifact did not verify every expected log')
+                  rows.append(dict(label=request['label'],mode=mode,exit=run.returncode,
+                                   archive_sha256=digest,report=result))
+          summary=dict(schema_version=1,status='PASS',scope='BYTE_TRANSPORT_CONTROLS_ONLY_NO_KERNEL_CREDIT',
+                       checker_sha256=hashlib.sha256((root/'artifact_integrity.py').read_bytes()).hexdigest(),
+                       checked_tool_commit=os.environ['GITHUB_SHA'],controls=rows)
+          (out/'SUMMARY.json').write_text(json.dumps(summary,indent=2,sort_keys=True)+'\n')
+          print(json.dumps(summary,sort_keys=True))
+          PYARTIFACT
+      - name: Preserve raw downloaded ZIPs, positive and intended-negative reports and mutation logs
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: determinant-downloaded-integrity-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .cbz-determinant-wire-evidence/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 90

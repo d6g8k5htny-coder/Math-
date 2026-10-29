@@ -60,3 +60,24 @@ the pinned Mathlib, matching its already retained successor. Only the stale
 API spelling changes; hypotheses, goals and production Lean bytes are unchanged.
 The old compiler failure and all historical control evidence remain retained.
 The decision ledger is DECISIONS.md. Both edits are reversible.
+
+
+Decision, 2026-10-29T19:51Z, Phase2/3, LayerB/C: add the narrow
+artifact_integrity.py downloaded-ZIP verifier because local execution became
+unavailable during artifact extraction. It compares every root receipt-bound
+log with independently supplied exact commit/manifest identities, rejects
+duplicate/unsafe/special/encrypted members and malformed/empty inventories,
+and refuses declared byte/entry limits rather than skipping data. It awards
+byte integrity only, never a kernel result.17 real ZIP/CLI fixture tests and
+six new intended source mutations cover its advertised boundary. The old six
+outer mutations are retained (twelve total), in both Python modes. Qualification
+is pending actual hosted observations; no new green is inferred.
+
+The dedicated cbz-determinant-artifact-integrity workflow downloads the actual
+immutable old-negative and repaired-positive artifacts using gh api, compares
+their ZIP digests with recorded GitHub digests, and invokes the unchanged
+checker in normal/-O modes. The old console mismatch must fail for its exact
+intended message; the repaired artifact must authenticate all21 logs. Raw ZIPs,
+reports and mutations are retained separately. The request file identifies the
+two historical run cuts exactly; it is not a current-package kernel certificate.
+Maintenance owner none; usage and self-verification are in TOOLING/STATUS.

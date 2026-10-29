@@ -44,3 +44,17 @@ Lean-result generator. The existing workflow runs these controls in both modes
 before the actual Lean gate and uploads the aggregate console separately from
 receipt-hashed logs. Source is manifest-bound; maintenance owner none. Current
 successor execution is pending at publication; use the actual run/artifact.
+
+
+| artifact_integrity.py | Narrow downloaded ZIP/receipt verifier. Requires --archive, --expected-commit, --expected-manifest and --output. Authenticates all receipt.logs bytes and both independent identities; no kernel credit.17 actual ZIP/CLI fixtures and six intended policy mutants, pending hosted execution at publication. Maintenance owner none; serves G0/G6/G8/G11 within this metadata boundary. |
+
+From the repository root, run the complete component suite serially in normal
+and -O Python modes, and repeat tests/run_cbz_mutations.py with --output outside
+the package. The runner now retains all six earlier outer mutants and adds six
+artifact-policy mutants: log hash, commit, manifest, duplicate member, unsafe
+member and empty inventory. Threshold12/12 exact intended kills in each mode,
+with same-selection passing baselines and no test/import errors. The dedicated
+downloaded-artifact workflow runs those commands and preserves their raw logs.
+Its request file pins the old negative artifact12924995112 and repaired positive
+artifact12928575403 including source identities and independently observed ZIP
+digests. A positive result means byte transport integrity only.
