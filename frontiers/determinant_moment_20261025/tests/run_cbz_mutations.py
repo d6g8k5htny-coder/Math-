@@ -53,8 +53,11 @@ def collected(stderr):
 
 def execute_case(case, work, output):
     name, rel, old, new, selection, expected = case
-    copy = work / name
+    copy = work / name / 'frontiers' / ROOT.name
     shutil.copytree(ROOT, copy, ignore=shutil.ignore_patterns('.lake', '__pycache__'))
+    helper = copy.parents[1] / 'tools/lean_packet_admission.py'
+    helper.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(ROOT.parents[1] / 'tools/lean_packet_admission.py', helper)
     args = [sys.executable, '-B', '-S', '-m', 'unittest', 'discover', '-s', 'tests', *selection, '-v']
     env = {**os.environ, 'TMPDIR': str(work / 'test-tmp')}
     baseline = subprocess.run(args, cwd=copy, env=env, capture_output=True, text=True)

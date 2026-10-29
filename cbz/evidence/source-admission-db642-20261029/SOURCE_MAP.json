@@ -1,0 +1,117 @@
+{
+  "observed_utc": "2026-10-29T18:51:04.879417+00:00",
+  "scientific_effect": "NONE",
+  "reviewed_source_commit": "5591b44e1f19846b2b6aa44664a902e2c7963340",
+  "compiled_safeguard_base": "74565f013575b7b05ecfc4034cd5d638ee355353",
+  "published_base": "e877242cf68fb24c605066f16dd07f513ee75a1d",
+  "local_composition_commit": "6a988d101cf542a87ba8c756677d53e6580722b6",
+  "local_composition_tree": "adaa2eed95c1375607898349e98bbd1614ed2b66",
+  "scope": "Exact source/base composition and archive integrity only; no hosted/kernel/federation qualification",
+  "source_map": {
+    "reviewed_source": {
+      ".github/workflows/cap-first-exit-lean.yml": {
+        "sha256": "096357c8b9e04faf4095959a807da6294d256e295eb3428a6d4bc947b7d41e07",
+        "bytes": 3162
+      },
+      ".github/workflows/determinant-moment-lean.yml": {
+        "sha256": "26c1bc7a2d391ebb7dafa20b479b4c10e5e6c807e615f9e63f2b1b5a3c0ae9a8",
+        "bytes": 5884
+      },
+      "frontiers/cap_first_exit_lean_20261002/MANIFEST.json": {
+        "sha256": "a276765e21190a0502c1a15a1f974223a45f2952bdddfb2d47c70d09aac1fb5a",
+        "bytes": 48642
+      },
+      "frontiers/cap_first_exit_lean_20261002/README.md": {
+        "sha256": "92bf94921beeb0e093ea12448a33804895a3be2d0785bcf194c60aa1bc91e3ff",
+        "bytes": 36824
+      },
+      "frontiers/cap_first_exit_lean_20261002/gate.py": {
+        "sha256": "8f6f6c2909c52a80053676ca242632e63be3710853ea0d1fe2a4e7d5ac8233c2",
+        "bytes": 17705
+      },
+      "frontiers/cap_first_exit_lean_20261002/test_gate.py": {
+        "sha256": "3c452210dcd7b831566a8351b49e2ec1c379e266c1e05309402df310c4d670ce",
+        "bytes": 27420
+      },
+      "frontiers/determinant_moment_20261025/README.md": {
+        "sha256": "157df6ac0d6dd08a77b02736db313f86c572cfef412e8e642cb49dce2cbb3b17",
+        "bytes": 9749
+      },
+      "frontiers/determinant_moment_20261025/gate.py": {
+        "sha256": "ed251a080201131cea0905496ea8e667c39a80b318d7b50108d0914a22e77627",
+        "bytes": 22120
+      },
+      "frontiers/determinant_moment_20261025/manifest.json": {
+        "sha256": "a4e10ff14d4929fe01a22f7a92cd34ec21e514cd8784d190ac3785ebc6a7948f",
+        "bytes": 68447
+      },
+      "frontiers/determinant_moment_20261025/tests/run_cbz_mutations.py": {
+        "sha256": "a878424a5a3eedfa1dab5a8e335e0a1154562bff6bd205b5221304b73cb76a55",
+        "bytes": 7194
+      },
+      "frontiers/determinant_moment_20261025/tests/test_cli_receipt_boundary.py": {
+        "sha256": "7f6bf0d6d628e264092b6ee4d054d18286f5ae6d8b2a6ba627c44d94223f09ab",
+        "bytes": 11328
+      },
+      "frontiers/determinant_moment_20261025/tests/test_compiled_admission.py": {
+        "sha256": "89eb3e43c24aae365f6e69d4de8991d8f4b8c5f365130c32ace1fcd04601b438",
+        "bytes": 9240
+      },
+      "frontiers/determinant_moment_20261025/tests/test_gate.py": {
+        "sha256": "4aada2ff4de8fe16dffd308474492f52f39513e9ab27f30239c1ab5c26ecb90a",
+        "bytes": 34994
+      },
+      "tests/run_source_admission_mutations.py": {
+        "sha256": "01a45440463c4cdf3caff28bc7504d0fd6e1045d9d0e145c64ae9c0865c8f369",
+        "bytes": 15637
+      },
+      "tests/test_lean_packet_admission.py": {
+        "sha256": "afb805c68cb9c71452ac95c97b3dd853860b9e6e7ce723b63236a1753f5c32f0",
+        "bytes": 16037
+      },
+      "tests/test_source_admission_mutations.py": {
+        "sha256": "8912df6c6ae8da1cdedc77040ca4ac5c3dbddad42536116c5f59b352a4bba137",
+        "bytes": 8578
+      },
+      "tools/LEAN_PACKET_ADMISSION.md": {
+        "sha256": "a1c82eebc0e6f14de544990e6d5fed1dd73a93fa2738b092397c3820c58341d0",
+        "bytes": 6103
+      },
+      "tools/lean_packet_admission.py": {
+        "sha256": "04b98b2a34f294bd7049f072ea14cf917e9c1a1e78578cd64d4df1b334d8f497",
+        "bytes": 11973
+      },
+      "tools/lean_packet_admission.registry.json": {
+        "sha256": "862cb8e92d6a3d8c426ba59146312fc9c3734013f09393f82abdc6359329632e",
+        "bytes": 1050
+      }
+    },
+    "published_base": {
+      ".github/workflows/c8-cap-failure-coefficient-planar.yml": {
+        "sha256": "1c3a4737c7b8a151f99ae51c546ec1933771dba3d2679f7ec604f9a1c56e2a41",
+        "bytes": 3455
+      },
+      "reviews/c8_check_mode_wrappers_batch2_20261026/SCOPE.md": {
+        "sha256": "0a349631e09f519749292748da40922c08d5aa5e7aec85a22be6cac0658015d8",
+        "bytes": 8733
+      },
+      "tests/test_check_mode_workflows.py": {
+        "sha256": "b1ff19446789db7ec0b37bb636b5eeba73a4e1f065f8c7badf52c0c1263e28ac",
+        "bytes": 15628
+      },
+      "tools/check_mode_contracts.json": {
+        "sha256": "092702a3eb3f4f197f5311f102e37aa09dc6595bb8179d8f3d20955b2987f1c1",
+        "bytes": 2904
+      },
+      "tools/check_mode_replay.py": {
+        "sha256": "c74a10feb07bd0b15fd56e6ac18181c41b9ebf7d016ed5b2f209bd8aa314fd96",
+        "bytes": 7703
+      }
+    }
+  },
+  "bundle_verification": {
+    "exit": 0,
+    "stdout": "The bundle contains this ref:\n6a988d101cf542a87ba8c756677d53e6580722b6 HEAD\nThe bundle requires these 3 refs:\ne877242cf68fb24c605066f16dd07f513ee75a1d \n74565f013575b7b05ecfc4034cd5d638ee355353 \n8151f592918a845bf19eb8eafaf8444540a32734 \nThe bundle uses this hash algorithm: sha1\n",
+    "stderr": "/workspace/scratch/db6428847655/cbz/worktrees/math-composition/cbz/evidence/source-admission-db642-20261029/source-history.bundle is okay\n"
+  }
+}

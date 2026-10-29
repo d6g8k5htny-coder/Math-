@@ -89,8 +89,11 @@ class CompiledAdmissionTests(unittest.TestCase):
 
     def test_source_only_cli_never_reports_kernel_gate_success(self):
         with tempfile.TemporaryDirectory() as d:
-            root = Path(d) / 'component'
+            root = Path(d) / 'repo/frontiers/component'
             shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns('.lake', '__pycache__'))
+            helper = root.parents[1] / 'tools/lean_packet_admission.py'
+            helper.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(ROOT.parents[1] / 'tools/lean_packet_admission.py', helper)
             m = json.loads((root / 'manifest.json').read_text())
             m['compiled_inventory'] = []  # Synthetic binding, not observed Lean constants.
             (root / 'manifest.json').write_text(json.dumps(m))
