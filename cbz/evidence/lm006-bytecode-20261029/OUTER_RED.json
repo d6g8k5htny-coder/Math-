@@ -1,0 +1,21 @@
+{
+  "schema": "cbz.lm006.outer-cache-red.v1",
+  "source_commit": "f4aea2532e7981a8780339d9a8f552f5602b4f53",
+  "workflow_run": 40958098698,
+  "controls": [
+    {
+      "mode": "normal",
+      "job": 123743415862,
+      "exit": 1,
+      "log": "outer-normal-red.log"
+    },
+    {
+      "mode": "optimized",
+      "job": 123743415494,
+      "exit": 1,
+      "log": "outer-optimized-red.log"
+    }
+  ],
+  "observation": "Actual same-size, same-timestamp poisoned unittest bytecode was executed by the original workflow. The outer control failed the named assertion with the inner poisoned test reporting 1 != 0. No unrelated errors were reported.",
+  "scope": "Exact timestamped failing-test excerpts, not the full job logs; no repaired-source pass inferred."
+}

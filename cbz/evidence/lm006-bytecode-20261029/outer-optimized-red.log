@@ -1,0 +1,30 @@
+2026-10-29T21:50:35.5900036Z test_outer_discovery_ignores_a_valid_poisoned_cache (__main__.OuterEntryTests.test_outer_discovery_ignores_a_valid_poisoned_cache) ... FAIL
+2026-10-29T21:50:35.5901055Z 
+2026-10-29T21:50:35.5901345Z ======================================================================
+2026-10-29T21:50:35.5902298Z FAIL: test_outer_discovery_ignores_a_valid_poisoned_cache (__main__.OuterEntryTests.test_outer_discovery_ignores_a_valid_poisoned_cache)
+2026-10-29T21:50:35.5903275Z ----------------------------------------------------------------------
+2026-10-29T21:50:35.5903856Z Traceback (most recent call last):
+2026-10-29T21:50:35.5910059Z   File "/home/runner/work/Math-/Math-/cbz/verification/lm006_outer_cache/test_entry.py", line 67, in test_outer_discovery_ignores_a_valid_poisoned_cache
+2026-10-29T21:50:35.5910879Z     self.assertEqual(exit_code,0,output)
+2026-10-29T21:50:35.5911432Z AssertionError: 1 != 0 : test_exact (test_lm006_oned_coefficient_replay.Fixture.test_exact) ... FAIL
+2026-10-29T21:50:35.5911799Z 
+2026-10-29T21:50:35.5911995Z ======================================================================
+2026-10-29T21:50:35.5912499Z FAIL: test_exact (test_lm006_oned_coefficient_replay.Fixture.test_exact)
+2026-10-29T21:50:35.5912970Z ----------------------------------------------------------------------
+2026-10-29T21:50:35.5913646Z Traceback (most recent call last):
+2026-10-29T21:50:35.5914319Z   File "/tmp/lm006-outer-cache-hrv10m2d/repo/tests/test_lm006_oned_coefficient_replay.py", line 5, in test_exact
+2026-10-29T21:50:35.5914891Z     self.assertEqual(1,1)
+2026-10-29T21:50:35.5915255Z AssertionError: 1 != 0
+2026-10-29T21:50:35.5915414Z 
+2026-10-29T21:50:35.5915615Z ----------------------------------------------------------------------
+2026-10-29T21:50:35.5916292Z Ran 1 test in 0.000s
+2026-10-29T21:50:35.5916554Z 
+2026-10-29T21:50:35.5916671Z FAILED (failures=1)
+2026-10-29T21:50:35.5916967Z ACTUAL_OUTER_SOURCE
+2026-10-29T21:50:35.5917165Z 
+2026-10-29T21:50:35.5917171Z 
+2026-10-29T21:50:35.5917408Z ----------------------------------------------------------------------
+2026-10-29T21:50:35.5917792Z Ran 1 test in 0.201s
+2026-10-29T21:50:35.5917940Z 
+2026-10-29T21:50:35.5918070Z FAILED (failures=1)
+2026-10-29T21:50:35.5991992Z ##[error]Process completed with exit code 1.
