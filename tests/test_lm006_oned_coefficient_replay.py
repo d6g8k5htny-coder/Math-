@@ -101,6 +101,33 @@ class ReplayTests(unittest.TestCase):
             spec.loader.exec_module(module)
         self.assertEqual(module._LOADED_SOURCE,source)
 
+    def test_direct_import_guard_mutation_is_rejected(self):
+        import shutil
+        driver=DRIVER.read_text()
+        anchor="if sys._getframe().f_code != compile(_LOADED_SOURCE,sys._getframe().f_code.co_filename,'exec',dont_inherit=True): raise RuntimeError('loaded_driver_drift')  # VERIFY_LOADED_CODE"
+        self.assertEqual(driver.count(anchor),1)
+        with tempfile.TemporaryDirectory(prefix='lm006-guard-mutation-') as directory:
+            root=Path(directory)
+            test_path=root/'tests/test_lm006_oned_coefficient_replay.py'
+            driver_path=root/'tools/lm006_oned_coefficient_replay.py'
+            test_path.parent.mkdir(parents=True)
+            driver_path.parent.mkdir(parents=True)
+            shutil.copyfile(Path(__file__),test_path)
+            driver_path.write_text(driver)
+            command=[sys.executable,'-B','-S']+(['-O'] if sys.flags.optimize else [])+['-m','unittest','discover','-s','tests','-p','test_lm006_oned_coefficient_replay.py','-k','test_direct_import_detects_timestamp_valid_stale_code','-v']
+            good=subprocess.run(command,cwd=root,capture_output=True,timeout=30)
+            self.assertEqual(good.returncode,0,good.stderr.decode())
+            self.assertIn(b'Ran 1 test in',good.stderr)
+            self.assertTrue(good.stderr.endswith(b'\nOK\n'))
+            driver_path.write_text(driver.replace(anchor,'# guard removed',1))
+            mutant=subprocess.run(command,cwd=root,capture_output=True,timeout=30)
+            self.assertEqual(mutant.returncode,1,mutant.stderr.decode())
+            self.assertEqual(mutant.stdout,b'')
+            self.assertIn(b'Ran 1 test in',mutant.stderr)
+            self.assertIn(b'FAILED (failures=1)',mutant.stderr)
+            self.assertIn(b'AssertionError: RuntimeError not raised',mutant.stderr)
+            self.assertNotIn(b'ERROR:',mutant.stderr)
+
     def test_snapshot_and_exact_packet_membership(self):
         pins=self.fixture();ids=self.m.validate_snapshot(self.root,pins)
         self.assertEqual(set(ids),set(pins))
