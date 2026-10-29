@@ -193,6 +193,21 @@ class SourceCustodyTests(unittest.TestCase):
             with mock.patch.dict(os.environ, {'GIT_DIR': str(foreign / '.git'), 'GIT_WORK_TREE': str(self.repo)}):
                 self.assertEqual(self.checked(), expected)
 
+    def test_execute_ignores_foreign_git_environment_in_helper(self):
+        expected = self.git('rev-parse', 'HEAD')
+        with tempfile.TemporaryDirectory() as temporary:
+            foreign = Path(temporary) / 'foreign-execution'
+            subprocess.check_call(['git', 'clone', '-q', str(self.repo), str(foreign)])
+            subprocess.check_call(['git', '-C', str(foreign), 'config', 'user.name', 'Foreign Fixture'])
+            subprocess.check_call(['git', '-C', str(foreign), 'config', 'user.email', 'foreign@example.invalid'])
+            (foreign / 'outside.txt').write_text('foreign helper head\\n')
+            subprocess.check_call(['git', '-C', str(foreign), 'add', 'outside.txt'])
+            subprocess.check_call(['git', '-C', str(foreign), 'commit', '-qm', 'foreign helper head'])
+            with mock.patch.dict(os.environ, {'GIT_DIR': str(foreign / '.git'), 'GIT_WORK_TREE': str(self.repo)}):
+                receipt, calls = self.execute()
+            self.assertEqual(calls, ['kernel'])
+            self.assertEqual(receipt['checked_commit'], expected)
+
     def test_replace_ref_cannot_redirect_committed_source(self):
         expected = self.git('rev-parse', 'HEAD')
         path = self.root / 'proof.lean'
