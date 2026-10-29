@@ -193,5 +193,51 @@ class SourceCustodyTests(unittest.TestCase):
             self.checked()
 
 
+    def dependency_fixture(self):
+        self.dep = self.root / '.lake/packages/probe'
+        self.dep.mkdir(parents=True)
+        def git(*args):
+            return subprocess.check_output(['git', '-C', str(self.dep), *args], text=True).strip()
+        self.dep_git = git
+        git('init', '-q')
+        git('config', 'user.name', 'Dependency Fixture')
+        git('config', 'user.email', 'dependency@example.invalid')
+        git('config', 'commit.gpgsign', 'false')
+        (self.dep / 'Proof.lean').write_text('theorem depIdentity : True := True.intro\n')
+        (self.dep / 'build.py').write_text('print("source identity only")\n')
+        (self.dep / '.gitignore').write_text('.lake/\n*.ignored.lean\n')
+        git('add', '.')
+        git('commit', '-qm', 'dependency source')
+        return {'dependency_revisions': {'probe': git('rev-parse', 'HEAD')}}
+
+    def test_dependency_accepts_exact_clean_committed_tree(self):
+        manifest = self.dependency_fixture()
+        self.assertEqual(self.gate.dependency_state(manifest), manifest['dependency_revisions'])
+
+    def test_dependency_assume_unchanged_lean_is_refused(self):
+        manifest = self.dependency_fixture()
+        self.dep_git('update-index', '--assume-unchanged', 'Proof.lean')
+        path = self.dep / 'Proof.lean'
+        path.write_bytes(path.read_bytes() + b'-- hidden proof bytes\n')
+        self.assertEqual(self.dep_git('status', '--porcelain'), '')
+        with self.assertRaisesRegex(ValueError, 'committed source'):
+            self.gate.dependency_state(manifest)
+
+    def test_dependency_skip_worktree_build_input_is_refused(self):
+        manifest = self.dependency_fixture()
+        self.dep_git('update-index', '--skip-worktree', 'build.py')
+        (self.dep / 'build.py').write_text('print("changed ignored index flag")\n')
+        self.assertEqual(self.dep_git('status', '--porcelain'), '')
+        with self.assertRaisesRegex(ValueError, 'committed source'):
+            self.gate.dependency_state(manifest)
+
+    def test_dependency_ignored_extra_lean_is_refused(self):
+        manifest = self.dependency_fixture()
+        (self.dep / 'Extra.ignored.lean').write_text('axiom unexpected : False\n')
+        self.assertEqual(self.dep_git('status', '--porcelain'), '')
+        with self.assertRaisesRegex(ValueError, 'unexpected Lean source'):
+            self.gate.dependency_state(manifest)
+
+
 if __name__ == '__main__':
     unittest.main()
