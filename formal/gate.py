@@ -95,12 +95,13 @@ def _git_bytes(repo, *args):
     return subprocess.check_output(['git', '-C', str(repo), *args])
 
 
-def verify_committed_files(repo, head, paths=None):
+def verify_committed_files(repo, head, paths=None, allow_symlinks=False):
     """Compare HEAD, stage-zero index and actual file bytes, ignoring no index flags.
 
     SHA-1 here is Git's exact blob object identity, not a mathematical bound.
-    Manifest file identities separately use SHA-256. Symlinks/gitlinks and
-    non-stage-zero entries are refused rather than silently omitted.
+    Manifest file identities separately use SHA-256. Owned symlinks, all gitlinks
+    and non-stage-zero entries are refused. Dependency file symlinks additionally
+    bind their literal link bytes and resolved tracked regular-file targets.
     """
     repo = Path(repo).resolve()
     selected = [] if paths is None else sorted(set(paths))
@@ -116,7 +117,7 @@ def verify_committed_files(repo, head, paths=None):
         require(separator, 'malformed committed source inventory')
         mode, kind, oid = fields.decode('ascii').split()
         name = encoded.decode('utf-8')
-        require(name not in tree and kind == 'blob' and mode in ('100644', '100755'),
+        require(name not in tree and kind == 'blob' and mode in (('100644', '100755', '120000') if allow_symlinks else ('100644', '100755')),
                 'unsupported or symlink committed source: ' + name)
         require(not Path(name).is_absolute() and '..' not in Path(name).parts,
                 'unsafe committed source path')
@@ -140,12 +141,22 @@ def verify_committed_files(repo, head, paths=None):
     require(index == tree, 'source index differs from committed source')
     for name, (mode, oid) in tree.items():
         path = repo / name
-        require(not path.is_symlink() and path.resolve() == path and path.is_file(),
-                'missing or symlink committed source: ' + name)
-        data = path.read_bytes()
+        if mode == '120000':
+            require(allow_symlinks and path.is_symlink() and path.parent.resolve() == path.parent,
+                    'missing or substituted committed source symlink: ' + name)
+            target = path.resolve()
+            require(target.is_relative_to(repo) and
+                    target.relative_to(repo).as_posix() in tree and
+                    tree[target.relative_to(repo).as_posix()][0] in ('100644', '100755') and target.is_file(),
+                    'unbound symlink target in committed source: ' + name)
+            data = os.fsencode(os.readlink(path))
+        else:
+            require(not path.is_symlink() and path.resolve() == path and path.is_file(),
+                    'missing or symlink committed source: ' + name)
+            data = path.read_bytes()
         actual = hashlib.sha1(b'blob ' + str(len(data)).encode('ascii') + b'\0' + data).hexdigest()
         require(actual == oid, 'working bytes differ from committed source: ' + name)
-        require(bool(path.stat().st_mode & 0o111) == (mode == '100755'),
+        require(mode == '120000' or bool(path.stat().st_mode & 0o111) == (mode == '100755'),
                 'working mode differs from committed source: ' + name)
     return set(tree)
 
@@ -196,7 +207,7 @@ def dependency_state(m):
     require(actual == m['dependency_revisions'], 'installed dependency HEAD differs from lock')
     for name, head in actual.items():
         repo = (root / '.lake' / 'packages' / name).resolve()
-        tracked = verify_committed_files(repo, head)
+        tracked = verify_committed_files(repo, head, allow_symlinks=True)
         # Lake caches are an explicit excluded output domain. An ignored Lean input
         # elsewhere can shadow a registered import and is not a clean dependency.
         for directory, folders, files in os.walk(repo, followlinks=False):

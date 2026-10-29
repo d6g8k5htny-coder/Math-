@@ -24,6 +24,16 @@ class CustodyMutationTests(unittest.TestCase):
              "require(True, 'working bytes differ",
              'test_source_custody.SourceCustodyTests.test_dependency_assume_unchanged_lean_is_refused',
              'ValueError not raised'),
+            ('symlink-working-bytes',
+             "require(actual == oid, 'working bytes differ",
+             "require(True, 'working bytes differ",
+             'test_source_custody.SourceCustodyTests.test_dependency_hidden_symlink_retargeting_is_refused',
+             'ValueError not raised'),
+            ('symlink-target-boundary',
+             "require(target.is_relative_to(repo) and\n                    target.relative_to(repo).as_posix() in tree and\n                    tree[target.relative_to(repo).as_posix()][0] in ('100644', '100755') and target.is_file(),",
+             "require(True,",
+             'test_source_custody.SourceCustodyTests.test_dependency_refuses_symlink_target_outside_bound_tree',
+             'ValueError not raised'),
             ('index',
              "require(index == tree, 'source index",
              "require(True, 'source index",
@@ -90,7 +100,7 @@ class CustodyMutationTests(unittest.TestCase):
                 self.assertNotIn('SyntaxError', result.stdout, 'invalid source mutation')
                 results.append({'id': label, 'test': test, 'reason': reason, 'exit': result.returncode})
         print('CUSTODY_SOURCE_MUTATIONS ' + json.dumps({
-            'threshold': '11/11 (100% finite declared set)',
+            'threshold': '13/13 (100% finite declared set)',
             'optimized_children': bool(sys.flags.optimize), 'results': results}, sort_keys=True))
 
 

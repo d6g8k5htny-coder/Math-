@@ -20,8 +20,10 @@ retaining refusal logs. A new execution removes a stale receipt before admission
 
 Dependency observations verify all tracked files against each pinned Git tree
 and index, and reject extra Lean source/compiled-interface files outside the
-explicit .lake cache output domain. Symlinks and gitlinks in the tracked source
-domain are refused rather than skipped. These are preflight/final observations
+explicit .lake cache output domain. Owned formal symlinks and all gitlinks are refused. Dependency file symlinks
+are checked by literal link bytes and their resolved, tracked in-repository
+regular-file target; none is skipped. This preserves the three symlinks present
+in the exact locked Batteries/Mathlib trees. These are preflight/final observations
 in an isolated worktree, not a claim of continuous filesystem monitoring.
 The dynamic run adapter passes the current effective formal root to each Lean
 process and preserves an explicitly selected compiled-admission copy.
@@ -43,10 +45,10 @@ then run:
 The Python tests simulate Lean process outcomes only in the explicitly named
 orchestration fixtures. Their passes are not substituted for kernel execution.
 test_source_custody.py uses real temporary Git repositories for source custody.
-test_source_custody_mutation.py runs eleven planted source regressions in
+test_source_custody_mutation.py runs thirteen planted source regressions in
 separate child processes and requires each selected control to fail for its
 declared reason. Optimized parents explicitly launch optimized children.
-The finite mutation threshold is 11/11, or 100 percent of the declared set.
+The finite mutation threshold is 13/13, or 100 percent of the declared set.
 
 ## Observed source qualification
 
@@ -69,3 +71,18 @@ are recorded separately; source-test success alone is not a kernel certificate.
 Maintenance owner: none; self-contained. Canonical federation tool registration
 is in main/GOVERNANCE.md and main/TOOLING.md. This tool serves CBZ criteria
 4, 6, 9 and 11 and preserves the existing mathematical bounds and target set.
+
+## Superseded-run orchestration
+
+.github/workflows/cbz-retire-superseded-runs.yml is a narrow trusted-push
+administrative tool. It verifies seven typed selection controls, fully paginates
+nonterminal runs, and re-reads both current PR head and run state immediately
+before requesting cancellation of an obsolete PR source cut. It preserves all
+current-head runs, test definitions and artifacts. It grants no test/kernel credit.
+It uses an independent ARM runner pool because the shared x64 queue was saturated.
+
+Observed run 40947126080/job 123705321047 passed the seven policy controls,
+enumerated 93 nonterminal runs, retained 63 current/terminal records and requested
+cancellation of 27 superseded records. The recorded actions are requests, not
+claims that those tests passed or that every cancellation was already terminal.
+The full actual report and raw job log are preserved with the source observations.

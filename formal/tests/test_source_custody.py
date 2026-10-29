@@ -248,7 +248,17 @@ class SourceCustodyTests(unittest.TestCase):
         path.unlink()
         path.symlink_to('Alternate.lean')
         self.assertEqual(self.dep_git('status', '--porcelain'), '')
-        with self.assertRaisesRegex(ValueError, 'committed source'):
+        with self.assertRaisesRegex(ValueError, 'working bytes differ from committed source'):
+            self.gate.dependency_state(manifest)
+
+    def test_dependency_refuses_symlink_target_outside_bound_tree(self):
+        manifest = self.dependency_fixture()
+        (self.dep.parent / 'outside.lean').write_text('theorem external : True := True.intro\n')
+        (self.dep / 'Linked.lean').symlink_to('../outside.lean')
+        self.dep_git('add', '.')
+        self.dep_git('commit', '-qm', 'outside target is not source-bound')
+        manifest['dependency_revisions']['probe'] = self.dep_git('rev-parse', 'HEAD')
+        with self.assertRaisesRegex(ValueError, 'unbound symlink target'):
             self.gate.dependency_state(manifest)
 
     def test_dependency_accepts_exact_clean_committed_tree(self):
