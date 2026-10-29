@@ -470,6 +470,7 @@ class IndependentCensusTests(unittest.TestCase):
         self.assertIn("let names := data.constNames.qsort Name.lt",program)
         self.assertIn("for extraName in env.header.moduleData[idx]!.extraConstNames",program)
         self.assertIn("kernel overlap has non-unique declaration provenance",program)
+        self.assertIn("if (env.checked.get.find? extraName).isNone then",program)
         self.assertIn("env.header.moduleData.size",program)
         self.assertIn("declaring_modules",program)
         self.assertIn("#["+chr(96)+"Fixture, "+chr(96)+"Other]",program)

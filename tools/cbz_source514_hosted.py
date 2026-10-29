@@ -249,6 +249,8 @@ run_cmd do
   for (modName, extraName) in extras do
     let candidates := owners[extraName]?.getD #[]
     if (env.find? extraName).isSome then
+      if (env.checked.get.find? extraName).isNone then
+        throwError "code-generator overlap is not a kernel declaration: {extraName}"
       if candidates.size != 1 then
         throwError "kernel overlap has non-unique declaration provenance: {extraName} {candidates}"
       let resolved := (env.getModuleIdxFor? extraName).map fun idx => toString (env.header.moduleNames[idx]!)
@@ -446,8 +448,9 @@ def execute(source, replay, collector, plan_path, output, carrier, carrier_head,
               "recorder_sha256": recorder.__source_sha256__, "replay_tool_sha256": tool.__source_sha256__,
               "launcher_sha256": loaded_launcher_sha256, "execution_inputs_before": execution_before}
     environment = lean_environment()
-    def phase(name, command, cwd=package, timeout=1800):
-        return recorder.run_phase(name, [str(x) for x in command], cwd, environment, output, report, timeout=timeout)
+    def phase(name, command, cwd=package, timeout=1800, expected_success=True):
+        return recorder.run_phase(name, [str(x) for x in command], cwd, environment, output, report,
+                                  timeout=timeout, expected_success=expected_success)
     try:
         report["source_before"] = bind(source, SOURCE_COMMIT, paths)
         report["replay_source"] = bind(replay, REPLAY_COMMIT, ["cbz/evidence/kernel/additional/replay-tool/replay_tool.py"])
@@ -498,6 +501,22 @@ def execute(source, replay, collector, plan_path, output, carrier, carrier_head,
                 if (output / "overlap-fixture-census.stderr").read_bytes():
                     raise ValueError("overlap fixture census emitted stderr")
                 fixture_expected, _ = parse_census((output / "overlap-fixture-census.stdout").read_text(), fixture_modules)
+                # Actual Lean control: invert the checked-kernel presence guard.
+                # A source overlap already verified in this same fixture must then
+                # be refused with the precise guard diagnostic, not a build error.
+                census_text = fixture_census_path.read_text()
+                positive_guard = "if (env.checked.get.find? extraName).isNone then"
+                inverse_guard = "if (env.checked.get.find? extraName).isSome then"
+                if census_text.count(positive_guard) != 1:
+                    raise ValueError("actual kernel-presence mutation target is not unique")
+                inverse_path = output / "OverlapFixtureInverseKernelGuard.lean"
+                inverse_path.write_text(census_text.replace(positive_guard, inverse_guard, 1))
+                _, inverse_output, inverse_code = phase(
+                    "overlap-fixture-inverse-kernel-guard",
+                    ["lake", "env", "lean", "-j2", "-M12000", inverse_path],
+                    timeout=2700, expected_success=False)
+                if inverse_code != 1 or "code-generator overlap is not a kernel declaration:" not in inverse_output:
+                    raise ValueError("inverse kernel-presence mutant failed for an unintended reason")
                 fixture_overlaps = [item for item in fixture_expected.get("kernel_codegen_overlaps", [])
                                     if item["name"] == fixture_name]
                 if not fixture_overlaps or any(item["declaring_modules"] != [fixture_owner] for item in fixture_overlaps):
