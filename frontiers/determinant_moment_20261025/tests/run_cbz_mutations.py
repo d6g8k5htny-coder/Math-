@@ -74,6 +74,13 @@ CASES = (
      'tee "$RUNNER_TEMP/determinant-authoritative-gate.log"',
      'tee frontiers/determinant_moment_20261025/.lake/formal-evidence/authoritative-gate.log',
      ('test_determinant_workflow_console_capture.DeterminantConsoleCaptureTests.test_actual_gate_pipeline_preserves_final_receipt_log_hashes',)),
+    ('omit-artifact-log-hash', 'artifact_integrity.py', 'if actual != expected_hash:', 'if False:  # MUTANT: corrupted log accepted', ('test_artifact_integrity.ArchiveIntegrityTests.test_corrupt_payload_refused',)),
+    ('omit-artifact-commit-binding', 'artifact_integrity.py', "if receipt.get('checked_commit') != expected_commit:", 'if False:  # MUTANT: wrong commit accepted', ('test_artifact_integrity.ArchiveIntegrityTests.test_wrong_commit_refused',)),
+    ('omit-artifact-manifest-binding', 'artifact_integrity.py', "if receipt.get('manifest_sha256') != expected_manifest:", 'if False:  # MUTANT: wrong manifest accepted', ('test_artifact_integrity.ArchiveIntegrityTests.test_wrong_manifest_refused',)),
+    ('omit-artifact-duplicate-refusal', 'artifact_integrity.py', 'if name in infos:', 'if False:  # MUTANT: duplicate member accepted', ('test_artifact_integrity.ArchiveIntegrityTests.test_duplicate_members_refused',)),
+    ('omit-artifact-path-refusal', 'artifact_integrity.py', '            validate_member_path(name)', '            pass  # MUTANT: unsafe path accepted', ('test_artifact_integrity.ArchiveIntegrityTests.test_unsafe_extra_member_refused',)),
+    ('omit-artifact-empty-inventory-refusal', 'artifact_integrity.py', 'if not logs:', 'if False:  # MUTANT: empty log inventory accepted', ('test_artifact_integrity.ArchiveIntegrityTests.test_empty_log_inventory_refused',)),
+    ('reopen-artifact-path-for-final-hash', 'artifact_integrity.py', "'archive_sha256': hashlib.sha256(archive_bytes).hexdigest(),", "'archive_sha256': hashlib.sha256(archive.read_bytes()).hexdigest(),", ('test_artifact_integrity.ArchiveIntegrityTests.test_path_replacement_cannot_relabel_inspected_archive_bytes',)),
 )
 
 

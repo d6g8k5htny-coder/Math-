@@ -94,7 +94,11 @@ jobs:
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: determinant-moment-lean-${{ github.run_id }}-${{ github.run_attempt }}
-          path: frontiers/determinant_moment_20261025/.lake/formal-evidence/
+          path: |
+            frontiers/determinant_moment_20261025/.lake/formal-evidence/
+            !frontiers/determinant_moment_20261025/.lake/formal-evidence/**/source/**
+            !frontiers/determinant_moment_20261025/.lake/formal-evidence/**/work/**
+            !frontiers/determinant_moment_20261025/.lake/formal-evidence/**/repo/**
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 90

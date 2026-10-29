@@ -1,0 +1,1902 @@
+{
+  "scope": "DETERMINANT_ADAPTER_MUTATION_UNIT_TESTS_ONLY",
+  "baseline_source_sha256": "ba62e11205df7c580fe1b43422bbf23abb56d798baaf2f30457e9839165ebdd0",
+  "actual_mutants": 12,
+  "execution_pairs": 24,
+  "modes": [
+    "normal",
+    "optimized"
+  ],
+  "all_killed": true,
+  "results": [
+    {
+      "scope": "DETERMINANT_ADAPTER_MUTATION_UNIT_TESTS_ONLY",
+      "mutation": "omit-internal-proof-presence",
+      "mode": "normal",
+      "replacement_sites": 1,
+      "test": "test_determinant_inventory.DeterminantPolicyTests.test_missing_proof_valued_instance_rejects",
+      "mutated_source_sha256": "dab41f953d449415f15cc1b4b62414d20e17bc409b97644f93471f17da0c401a",
+      "external_process_responses": "Synthetic for harness cases; no Lean execution",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_inventory.DeterminantPolicyTests.test_missing_proof_valued_instance_rejects",
+        "loaded_test_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_missing_proof_valued_instance_rejects"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_inventory.DeterminantPolicyTests.test_missing_proof_valued_instance_rejects",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/omit-internal-proof-presence/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_inventory.DeterminantPolicyTests.test_missing_proof_valued_instance_rejects",
+        "loaded_test_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_missing_proof_valued_instance_rejects"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_missing_proof_valued_instance_rejects"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_inventory.DeterminantPolicyTests.test_missing_proof_valued_instance_rejects",
+            "parent_test_id": "test_determinant_inventory.DeterminantPolicyTests.test_missing_proof_valued_instance_rejects",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_inventory.DeterminantPolicyTests.test_missing_proof_valued_instance_rejects",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/omit-internal-proof-presence/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_ADAPTER_MUTATION_UNIT_TESTS_ONLY",
+      "mutation": "omit-internal-proof-presence",
+      "mode": "optimized",
+      "replacement_sites": 1,
+      "test": "test_determinant_inventory.DeterminantPolicyTests.test_missing_proof_valued_instance_rejects",
+      "mutated_source_sha256": "dab41f953d449415f15cc1b4b62414d20e17bc409b97644f93471f17da0c401a",
+      "external_process_responses": "Synthetic for harness cases; no Lean execution",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_inventory.DeterminantPolicyTests.test_missing_proof_valued_instance_rejects",
+        "loaded_test_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_missing_proof_valued_instance_rejects"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_inventory.DeterminantPolicyTests.test_missing_proof_valued_instance_rejects",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/omit-internal-proof-presence/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_inventory.DeterminantPolicyTests.test_missing_proof_valued_instance_rejects",
+        "loaded_test_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_missing_proof_valued_instance_rejects"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_missing_proof_valued_instance_rejects"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_inventory.DeterminantPolicyTests.test_missing_proof_valued_instance_rejects",
+            "parent_test_id": "test_determinant_inventory.DeterminantPolicyTests.test_missing_proof_valued_instance_rejects",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_inventory.DeterminantPolicyTests.test_missing_proof_valued_instance_rejects",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/omit-internal-proof-presence/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_ADAPTER_MUTATION_UNIT_TESTS_ONLY",
+      "mutation": "blanket-user-proof-exception",
+      "mode": "normal",
+      "replacement_sites": 1,
+      "test": "test_determinant_inventory.DeterminantPolicyTests.test_new_axiom_free_private_proof_is_not_blanket_allowed",
+      "mutated_source_sha256": "26a1241d58cb011a992612307e848638b83585f30dc94acac1bd47d41e601c4e",
+      "external_process_responses": "Synthetic for harness cases; no Lean execution",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_inventory.DeterminantPolicyTests.test_new_axiom_free_private_proof_is_not_blanket_allowed",
+        "loaded_test_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_new_axiom_free_private_proof_is_not_blanket_allowed"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_inventory.DeterminantPolicyTests.test_new_axiom_free_private_proof_is_not_blanket_allowed",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-user-proof-exception/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_inventory.DeterminantPolicyTests.test_new_axiom_free_private_proof_is_not_blanket_allowed",
+        "loaded_test_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_new_axiom_free_private_proof_is_not_blanket_allowed"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_new_axiom_free_private_proof_is_not_blanket_allowed"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_inventory.DeterminantPolicyTests.test_new_axiom_free_private_proof_is_not_blanket_allowed",
+            "parent_test_id": "test_determinant_inventory.DeterminantPolicyTests.test_new_axiom_free_private_proof_is_not_blanket_allowed",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_inventory.DeterminantPolicyTests.test_new_axiom_free_private_proof_is_not_blanket_allowed",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-user-proof-exception/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_ADAPTER_MUTATION_UNIT_TESTS_ONLY",
+      "mutation": "blanket-user-proof-exception",
+      "mode": "optimized",
+      "replacement_sites": 1,
+      "test": "test_determinant_inventory.DeterminantPolicyTests.test_new_axiom_free_private_proof_is_not_blanket_allowed",
+      "mutated_source_sha256": "26a1241d58cb011a992612307e848638b83585f30dc94acac1bd47d41e601c4e",
+      "external_process_responses": "Synthetic for harness cases; no Lean execution",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_inventory.DeterminantPolicyTests.test_new_axiom_free_private_proof_is_not_blanket_allowed",
+        "loaded_test_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_new_axiom_free_private_proof_is_not_blanket_allowed"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_inventory.DeterminantPolicyTests.test_new_axiom_free_private_proof_is_not_blanket_allowed",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-user-proof-exception/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_inventory.DeterminantPolicyTests.test_new_axiom_free_private_proof_is_not_blanket_allowed",
+        "loaded_test_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_new_axiom_free_private_proof_is_not_blanket_allowed"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_new_axiom_free_private_proof_is_not_blanket_allowed"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_inventory.DeterminantPolicyTests.test_new_axiom_free_private_proof_is_not_blanket_allowed",
+            "parent_test_id": "test_determinant_inventory.DeterminantPolicyTests.test_new_axiom_free_private_proof_is_not_blanket_allowed",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_inventory.DeterminantPolicyTests.test_new_axiom_free_private_proof_is_not_blanket_allowed",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-user-proof-exception/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_ADAPTER_MUTATION_UNIT_TESTS_ONLY",
+      "mutation": "blanket-IR-metadata-exception",
+      "mode": "normal",
+      "replacement_sites": 2,
+      "test": "test_determinant_inventory.DeterminantPolicyTests.test_changed_IR_extra_count_rejects_and_is_not_an_allowlist",
+      "mutated_source_sha256": "c1d717f6b3aa3f7c42e48869d23cbe8ce661b3ffda1ecdde1c7306a8deddc849",
+      "external_process_responses": "Synthetic for harness cases; no Lean execution",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_inventory.DeterminantPolicyTests.test_changed_IR_extra_count_rejects_and_is_not_an_allowlist",
+        "loaded_test_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_changed_IR_extra_count_rejects_and_is_not_an_allowlist"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_inventory.DeterminantPolicyTests.test_changed_IR_extra_count_rejects_and_is_not_an_allowlist",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-IR-metadata-exception/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_inventory.DeterminantPolicyTests.test_changed_IR_extra_count_rejects_and_is_not_an_allowlist",
+        "loaded_test_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_changed_IR_extra_count_rejects_and_is_not_an_allowlist"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_changed_IR_extra_count_rejects_and_is_not_an_allowlist"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_inventory.DeterminantPolicyTests.test_changed_IR_extra_count_rejects_and_is_not_an_allowlist",
+            "parent_test_id": "test_determinant_inventory.DeterminantPolicyTests.test_changed_IR_extra_count_rejects_and_is_not_an_allowlist",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_inventory.DeterminantPolicyTests.test_changed_IR_extra_count_rejects_and_is_not_an_allowlist",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-IR-metadata-exception/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_ADAPTER_MUTATION_UNIT_TESTS_ONLY",
+      "mutation": "blanket-IR-metadata-exception",
+      "mode": "optimized",
+      "replacement_sites": 2,
+      "test": "test_determinant_inventory.DeterminantPolicyTests.test_changed_IR_extra_count_rejects_and_is_not_an_allowlist",
+      "mutated_source_sha256": "c1d717f6b3aa3f7c42e48869d23cbe8ce661b3ffda1ecdde1c7306a8deddc849",
+      "external_process_responses": "Synthetic for harness cases; no Lean execution",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_inventory.DeterminantPolicyTests.test_changed_IR_extra_count_rejects_and_is_not_an_allowlist",
+        "loaded_test_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_changed_IR_extra_count_rejects_and_is_not_an_allowlist"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_inventory.DeterminantPolicyTests.test_changed_IR_extra_count_rejects_and_is_not_an_allowlist",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-IR-metadata-exception/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_inventory.DeterminantPolicyTests.test_changed_IR_extra_count_rejects_and_is_not_an_allowlist",
+        "loaded_test_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_changed_IR_extra_count_rejects_and_is_not_an_allowlist"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_changed_IR_extra_count_rejects_and_is_not_an_allowlist"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_inventory.DeterminantPolicyTests.test_changed_IR_extra_count_rejects_and_is_not_an_allowlist",
+            "parent_test_id": "test_determinant_inventory.DeterminantPolicyTests.test_changed_IR_extra_count_rejects_and_is_not_an_allowlist",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_inventory.DeterminantPolicyTests.test_changed_IR_extra_count_rejects_and_is_not_an_allowlist",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-IR-metadata-exception/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_ADAPTER_MUTATION_UNIT_TESTS_ONLY",
+      "mutation": "omit-core-findings",
+      "mode": "normal",
+      "replacement_sites": 1,
+      "test": "test_determinant_inventory.DeterminantPolicyTests.test_forbidden_axiom_behind_non_target_cannot_be_filtered",
+      "mutated_source_sha256": "390f3232c82bf5974f89593aeb2f95119ba4d2e7294c8dff4514aac778bb5ad6",
+      "external_process_responses": "Synthetic for harness cases; no Lean execution",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_inventory.DeterminantPolicyTests.test_forbidden_axiom_behind_non_target_cannot_be_filtered",
+        "loaded_test_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_forbidden_axiom_behind_non_target_cannot_be_filtered"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_inventory.DeterminantPolicyTests.test_forbidden_axiom_behind_non_target_cannot_be_filtered",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/omit-core-findings/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_inventory.DeterminantPolicyTests.test_forbidden_axiom_behind_non_target_cannot_be_filtered",
+        "loaded_test_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_forbidden_axiom_behind_non_target_cannot_be_filtered"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_forbidden_axiom_behind_non_target_cannot_be_filtered"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_inventory.DeterminantPolicyTests.test_forbidden_axiom_behind_non_target_cannot_be_filtered",
+            "parent_test_id": "test_determinant_inventory.DeterminantPolicyTests.test_forbidden_axiom_behind_non_target_cannot_be_filtered",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_inventory.DeterminantPolicyTests.test_forbidden_axiom_behind_non_target_cannot_be_filtered",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/omit-core-findings/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_ADAPTER_MUTATION_UNIT_TESTS_ONLY",
+      "mutation": "omit-core-findings",
+      "mode": "optimized",
+      "replacement_sites": 1,
+      "test": "test_determinant_inventory.DeterminantPolicyTests.test_forbidden_axiom_behind_non_target_cannot_be_filtered",
+      "mutated_source_sha256": "390f3232c82bf5974f89593aeb2f95119ba4d2e7294c8dff4514aac778bb5ad6",
+      "external_process_responses": "Synthetic for harness cases; no Lean execution",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_inventory.DeterminantPolicyTests.test_forbidden_axiom_behind_non_target_cannot_be_filtered",
+        "loaded_test_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_forbidden_axiom_behind_non_target_cannot_be_filtered"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_inventory.DeterminantPolicyTests.test_forbidden_axiom_behind_non_target_cannot_be_filtered",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/omit-core-findings/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_inventory.DeterminantPolicyTests.test_forbidden_axiom_behind_non_target_cannot_be_filtered",
+        "loaded_test_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_forbidden_axiom_behind_non_target_cannot_be_filtered"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_forbidden_axiom_behind_non_target_cannot_be_filtered"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_inventory.DeterminantPolicyTests.test_forbidden_axiom_behind_non_target_cannot_be_filtered",
+            "parent_test_id": "test_determinant_inventory.DeterminantPolicyTests.test_forbidden_axiom_behind_non_target_cannot_be_filtered",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_inventory.DeterminantPolicyTests.test_forbidden_axiom_behind_non_target_cannot_be_filtered",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/omit-core-findings/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_ADAPTER_MUTATION_UNIT_TESTS_ONLY",
+      "mutation": "blanket-auxiliary-exception",
+      "mode": "normal",
+      "replacement_sites": 1,
+      "test": "test_determinant_inventory.DeterminantPolicyTests.test_even_bound_unknown_auxiliary_cannot_bypass_parent_rule",
+      "mutated_source_sha256": "4f4f8cd8abe17dcedaff4aa9b8bdc2f49bf6523731fc96ea8f831762804cda26",
+      "external_process_responses": "Synthetic for harness cases; no Lean execution",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_inventory.DeterminantPolicyTests.test_even_bound_unknown_auxiliary_cannot_bypass_parent_rule",
+        "loaded_test_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_even_bound_unknown_auxiliary_cannot_bypass_parent_rule"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_inventory.DeterminantPolicyTests.test_even_bound_unknown_auxiliary_cannot_bypass_parent_rule",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-auxiliary-exception/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_inventory.DeterminantPolicyTests.test_even_bound_unknown_auxiliary_cannot_bypass_parent_rule",
+        "loaded_test_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_even_bound_unknown_auxiliary_cannot_bypass_parent_rule"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_even_bound_unknown_auxiliary_cannot_bypass_parent_rule"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_inventory.DeterminantPolicyTests.test_even_bound_unknown_auxiliary_cannot_bypass_parent_rule",
+            "parent_test_id": "test_determinant_inventory.DeterminantPolicyTests.test_even_bound_unknown_auxiliary_cannot_bypass_parent_rule",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_inventory.DeterminantPolicyTests.test_even_bound_unknown_auxiliary_cannot_bypass_parent_rule",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-auxiliary-exception/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_ADAPTER_MUTATION_UNIT_TESTS_ONLY",
+      "mutation": "blanket-auxiliary-exception",
+      "mode": "optimized",
+      "replacement_sites": 1,
+      "test": "test_determinant_inventory.DeterminantPolicyTests.test_even_bound_unknown_auxiliary_cannot_bypass_parent_rule",
+      "mutated_source_sha256": "4f4f8cd8abe17dcedaff4aa9b8bdc2f49bf6523731fc96ea8f831762804cda26",
+      "external_process_responses": "Synthetic for harness cases; no Lean execution",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_inventory.DeterminantPolicyTests.test_even_bound_unknown_auxiliary_cannot_bypass_parent_rule",
+        "loaded_test_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_even_bound_unknown_auxiliary_cannot_bypass_parent_rule"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_inventory.DeterminantPolicyTests.test_even_bound_unknown_auxiliary_cannot_bypass_parent_rule",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-auxiliary-exception/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_inventory.DeterminantPolicyTests.test_even_bound_unknown_auxiliary_cannot_bypass_parent_rule",
+        "loaded_test_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_even_bound_unknown_auxiliary_cannot_bypass_parent_rule"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_even_bound_unknown_auxiliary_cannot_bypass_parent_rule"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_inventory.DeterminantPolicyTests.test_even_bound_unknown_auxiliary_cannot_bypass_parent_rule",
+            "parent_test_id": "test_determinant_inventory.DeterminantPolicyTests.test_even_bound_unknown_auxiliary_cannot_bypass_parent_rule",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_inventory.DeterminantPolicyTests.test_even_bound_unknown_auxiliary_cannot_bypass_parent_rule",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-auxiliary-exception/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_ADAPTER_MUTATION_UNIT_TESTS_ONLY",
+      "mutation": "omit-positive-baseline-digest",
+      "mode": "normal",
+      "replacement_sites": 1,
+      "test": "test_determinant_admission_harness.AdmissionHarnessTests.test_changed_positive_baseline_digest_refuses_before_injection",
+      "mutated_source_sha256": "e956c4153945a86092c0fe725fe939a8f87b730f856828c2391097cdbd897266",
+      "external_process_responses": "Synthetic for harness cases; no Lean execution",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_admission_harness.AdmissionHarnessTests.test_changed_positive_baseline_digest_refuses_before_injection",
+        "loaded_test_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_changed_positive_baseline_digest_refuses_before_injection"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_changed_positive_baseline_digest_refuses_before_injection",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/omit-positive-baseline-digest/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_admission_harness.AdmissionHarnessTests.test_changed_positive_baseline_digest_refuses_before_injection",
+        "loaded_test_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_changed_positive_baseline_digest_refuses_before_injection"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_changed_positive_baseline_digest_refuses_before_injection"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_admission_harness.AdmissionHarnessTests.test_changed_positive_baseline_digest_refuses_before_injection",
+            "parent_test_id": "test_determinant_admission_harness.AdmissionHarnessTests.test_changed_positive_baseline_digest_refuses_before_injection",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_changed_positive_baseline_digest_refuses_before_injection",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/omit-positive-baseline-digest/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_ADAPTER_MUTATION_UNIT_TESTS_ONLY",
+      "mutation": "omit-positive-baseline-digest",
+      "mode": "optimized",
+      "replacement_sites": 1,
+      "test": "test_determinant_admission_harness.AdmissionHarnessTests.test_changed_positive_baseline_digest_refuses_before_injection",
+      "mutated_source_sha256": "e956c4153945a86092c0fe725fe939a8f87b730f856828c2391097cdbd897266",
+      "external_process_responses": "Synthetic for harness cases; no Lean execution",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_admission_harness.AdmissionHarnessTests.test_changed_positive_baseline_digest_refuses_before_injection",
+        "loaded_test_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_changed_positive_baseline_digest_refuses_before_injection"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_changed_positive_baseline_digest_refuses_before_injection",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/omit-positive-baseline-digest/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_admission_harness.AdmissionHarnessTests.test_changed_positive_baseline_digest_refuses_before_injection",
+        "loaded_test_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_changed_positive_baseline_digest_refuses_before_injection"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_changed_positive_baseline_digest_refuses_before_injection"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_admission_harness.AdmissionHarnessTests.test_changed_positive_baseline_digest_refuses_before_injection",
+            "parent_test_id": "test_determinant_admission_harness.AdmissionHarnessTests.test_changed_positive_baseline_digest_refuses_before_injection",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_changed_positive_baseline_digest_refuses_before_injection",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/omit-positive-baseline-digest/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_ADAPTER_MUTATION_UNIT_TESTS_ONLY",
+      "mutation": "skip-required-checker-stage",
+      "mode": "normal",
+      "replacement_sites": 1,
+      "test": "test_determinant_admission_harness.AdmissionHarnessTests.test_prerequisite_failure_is_not_counted_as_an_admission_rejection",
+      "mutated_source_sha256": "2851aaca6ec795a884a15de5619dc604ff9cdd520840917075a831bb57c81d43",
+      "external_process_responses": "Synthetic for harness cases; no Lean execution",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_admission_harness.AdmissionHarnessTests.test_prerequisite_failure_is_not_counted_as_an_admission_rejection",
+        "loaded_test_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_prerequisite_failure_is_not_counted_as_an_admission_rejection"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_prerequisite_failure_is_not_counted_as_an_admission_rejection",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/skip-required-checker-stage/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_admission_harness.AdmissionHarnessTests.test_prerequisite_failure_is_not_counted_as_an_admission_rejection",
+        "loaded_test_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_prerequisite_failure_is_not_counted_as_an_admission_rejection"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_prerequisite_failure_is_not_counted_as_an_admission_rejection (label='compiled_admission_leanchecker')"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_admission_harness.AdmissionHarnessTests.test_prerequisite_failure_is_not_counted_as_an_admission_rejection (label='compiled_admission_leanchecker')",
+            "parent_test_id": "test_determinant_admission_harness.AdmissionHarnessTests.test_prerequisite_failure_is_not_counted_as_an_admission_rejection",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_prerequisite_failure_is_not_counted_as_an_admission_rejection",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/skip-required-checker-stage/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_ADAPTER_MUTATION_UNIT_TESTS_ONLY",
+      "mutation": "skip-required-checker-stage",
+      "mode": "optimized",
+      "replacement_sites": 1,
+      "test": "test_determinant_admission_harness.AdmissionHarnessTests.test_prerequisite_failure_is_not_counted_as_an_admission_rejection",
+      "mutated_source_sha256": "2851aaca6ec795a884a15de5619dc604ff9cdd520840917075a831bb57c81d43",
+      "external_process_responses": "Synthetic for harness cases; no Lean execution",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_admission_harness.AdmissionHarnessTests.test_prerequisite_failure_is_not_counted_as_an_admission_rejection",
+        "loaded_test_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_prerequisite_failure_is_not_counted_as_an_admission_rejection"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_prerequisite_failure_is_not_counted_as_an_admission_rejection",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/skip-required-checker-stage/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_admission_harness.AdmissionHarnessTests.test_prerequisite_failure_is_not_counted_as_an_admission_rejection",
+        "loaded_test_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_prerequisite_failure_is_not_counted_as_an_admission_rejection"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_prerequisite_failure_is_not_counted_as_an_admission_rejection (label='compiled_admission_leanchecker')"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_admission_harness.AdmissionHarnessTests.test_prerequisite_failure_is_not_counted_as_an_admission_rejection (label='compiled_admission_leanchecker')",
+            "parent_test_id": "test_determinant_admission_harness.AdmissionHarnessTests.test_prerequisite_failure_is_not_counted_as_an_admission_rejection",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_prerequisite_failure_is_not_counted_as_an_admission_rejection",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/skip-required-checker-stage/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_ADAPTER_MUTATION_UNIT_TESTS_ONLY",
+      "mutation": "ignore-exact-rejection-reason",
+      "mode": "normal",
+      "replacement_sites": 1,
+      "test": "test_determinant_admission_harness.AdmissionHarnessTests.test_unrelated_IR_drift_fails_exact_reason_check",
+      "mutated_source_sha256": "af405f1d0a08eccbafd8761b7cc7b6e177ad44d5147a6e4f538f40155fbb141a",
+      "external_process_responses": "Synthetic for harness cases; no Lean execution",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_admission_harness.AdmissionHarnessTests.test_unrelated_IR_drift_fails_exact_reason_check",
+        "loaded_test_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_unrelated_IR_drift_fails_exact_reason_check"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_unrelated_IR_drift_fails_exact_reason_check",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/ignore-exact-rejection-reason/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_admission_harness.AdmissionHarnessTests.test_unrelated_IR_drift_fails_exact_reason_check",
+        "loaded_test_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_unrelated_IR_drift_fails_exact_reason_check"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_unrelated_IR_drift_fails_exact_reason_check"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_admission_harness.AdmissionHarnessTests.test_unrelated_IR_drift_fails_exact_reason_check",
+            "parent_test_id": "test_determinant_admission_harness.AdmissionHarnessTests.test_unrelated_IR_drift_fails_exact_reason_check",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_unrelated_IR_drift_fails_exact_reason_check",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/ignore-exact-rejection-reason/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_ADAPTER_MUTATION_UNIT_TESTS_ONLY",
+      "mutation": "ignore-exact-rejection-reason",
+      "mode": "optimized",
+      "replacement_sites": 1,
+      "test": "test_determinant_admission_harness.AdmissionHarnessTests.test_unrelated_IR_drift_fails_exact_reason_check",
+      "mutated_source_sha256": "af405f1d0a08eccbafd8761b7cc7b6e177ad44d5147a6e4f538f40155fbb141a",
+      "external_process_responses": "Synthetic for harness cases; no Lean execution",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_admission_harness.AdmissionHarnessTests.test_unrelated_IR_drift_fails_exact_reason_check",
+        "loaded_test_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_unrelated_IR_drift_fails_exact_reason_check"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_unrelated_IR_drift_fails_exact_reason_check",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/ignore-exact-rejection-reason/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_admission_harness.AdmissionHarnessTests.test_unrelated_IR_drift_fails_exact_reason_check",
+        "loaded_test_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_unrelated_IR_drift_fails_exact_reason_check"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_unrelated_IR_drift_fails_exact_reason_check"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_admission_harness.AdmissionHarnessTests.test_unrelated_IR_drift_fails_exact_reason_check",
+            "parent_test_id": "test_determinant_admission_harness.AdmissionHarnessTests.test_unrelated_IR_drift_fails_exact_reason_check",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_unrelated_IR_drift_fails_exact_reason_check",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/ignore-exact-rejection-reason/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_ADAPTER_MUTATION_UNIT_TESTS_ONLY",
+      "mutation": "coerce-numeric-name-components-to-strings",
+      "mode": "normal",
+      "replacement_sites": 1,
+      "test": "test_determinant_inventory.DeterminantPolicyTests.test_actual_census_accepts_all157_constants_without_changing_core",
+      "mutated_source_sha256": "975135d1080f034019a02dd54f6a8b2feab87d8002446fd8fbd542ddee4b8ff8",
+      "external_process_responses": "Synthetic for harness cases; no Lean execution",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_inventory.DeterminantPolicyTests.test_actual_census_accepts_all157_constants_without_changing_core",
+        "loaded_test_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_actual_census_accepts_all157_constants_without_changing_core"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_inventory.DeterminantPolicyTests.test_actual_census_accepts_all157_constants_without_changing_core",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/coerce-numeric-name-components-to-strings/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_inventory.DeterminantPolicyTests.test_actual_census_accepts_all157_constants_without_changing_core",
+        "loaded_test_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_actual_census_accepts_all157_constants_without_changing_core"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_actual_census_accepts_all157_constants_without_changing_core"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_inventory.DeterminantPolicyTests.test_actual_census_accepts_all157_constants_without_changing_core",
+            "parent_test_id": "test_determinant_inventory.DeterminantPolicyTests.test_actual_census_accepts_all157_constants_without_changing_core",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_inventory.DeterminantPolicyTests.test_actual_census_accepts_all157_constants_without_changing_core",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/coerce-numeric-name-components-to-strings/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_ADAPTER_MUTATION_UNIT_TESTS_ONLY",
+      "mutation": "coerce-numeric-name-components-to-strings",
+      "mode": "optimized",
+      "replacement_sites": 1,
+      "test": "test_determinant_inventory.DeterminantPolicyTests.test_actual_census_accepts_all157_constants_without_changing_core",
+      "mutated_source_sha256": "975135d1080f034019a02dd54f6a8b2feab87d8002446fd8fbd542ddee4b8ff8",
+      "external_process_responses": "Synthetic for harness cases; no Lean execution",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_inventory.DeterminantPolicyTests.test_actual_census_accepts_all157_constants_without_changing_core",
+        "loaded_test_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_actual_census_accepts_all157_constants_without_changing_core"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_inventory.DeterminantPolicyTests.test_actual_census_accepts_all157_constants_without_changing_core",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/coerce-numeric-name-components-to-strings/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_inventory.DeterminantPolicyTests.test_actual_census_accepts_all157_constants_without_changing_core",
+        "loaded_test_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_actual_census_accepts_all157_constants_without_changing_core"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_actual_census_accepts_all157_constants_without_changing_core"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_inventory.DeterminantPolicyTests.test_actual_census_accepts_all157_constants_without_changing_core",
+            "parent_test_id": "test_determinant_inventory.DeterminantPolicyTests.test_actual_census_accepts_all157_constants_without_changing_core",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_inventory.DeterminantPolicyTests.test_actual_census_accepts_all157_constants_without_changing_core",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/coerce-numeric-name-components-to-strings/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_ADAPTER_MUTATION_UNIT_TESTS_ONLY",
+      "mutation": "execute-stale-core-bytecode",
+      "mode": "normal",
+      "replacement_sites": 1,
+      "test": "test_determinant_inventory.DeterminantPolicyTests.test_stale_timestamp_pyc_cannot_replace_verified_core_bytes",
+      "mutated_source_sha256": "ebad8141ee62eb4c9f0cb3f6f46e53a8928fe06dbcd3cfc87660e2c2f61821d5",
+      "external_process_responses": "Synthetic for harness cases; no Lean execution",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_inventory.DeterminantPolicyTests.test_stale_timestamp_pyc_cannot_replace_verified_core_bytes",
+        "loaded_test_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_stale_timestamp_pyc_cannot_replace_verified_core_bytes"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_inventory.DeterminantPolicyTests.test_stale_timestamp_pyc_cannot_replace_verified_core_bytes",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/execute-stale-core-bytecode/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_inventory.DeterminantPolicyTests.test_stale_timestamp_pyc_cannot_replace_verified_core_bytes",
+        "loaded_test_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_stale_timestamp_pyc_cannot_replace_verified_core_bytes"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_stale_timestamp_pyc_cannot_replace_verified_core_bytes"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_inventory.DeterminantPolicyTests.test_stale_timestamp_pyc_cannot_replace_verified_core_bytes",
+            "parent_test_id": "test_determinant_inventory.DeterminantPolicyTests.test_stale_timestamp_pyc_cannot_replace_verified_core_bytes",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_inventory.DeterminantPolicyTests.test_stale_timestamp_pyc_cannot_replace_verified_core_bytes",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/execute-stale-core-bytecode/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_ADAPTER_MUTATION_UNIT_TESTS_ONLY",
+      "mutation": "execute-stale-core-bytecode",
+      "mode": "optimized",
+      "replacement_sites": 1,
+      "test": "test_determinant_inventory.DeterminantPolicyTests.test_stale_timestamp_pyc_cannot_replace_verified_core_bytes",
+      "mutated_source_sha256": "ebad8141ee62eb4c9f0cb3f6f46e53a8928fe06dbcd3cfc87660e2c2f61821d5",
+      "external_process_responses": "Synthetic for harness cases; no Lean execution",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_inventory.DeterminantPolicyTests.test_stale_timestamp_pyc_cannot_replace_verified_core_bytes",
+        "loaded_test_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_stale_timestamp_pyc_cannot_replace_verified_core_bytes"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_inventory.DeterminantPolicyTests.test_stale_timestamp_pyc_cannot_replace_verified_core_bytes",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/execute-stale-core-bytecode/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_inventory.DeterminantPolicyTests.test_stale_timestamp_pyc_cannot_replace_verified_core_bytes",
+        "loaded_test_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_stale_timestamp_pyc_cannot_replace_verified_core_bytes"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_inventory.DeterminantPolicyTests.test_stale_timestamp_pyc_cannot_replace_verified_core_bytes"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_inventory.DeterminantPolicyTests.test_stale_timestamp_pyc_cannot_replace_verified_core_bytes",
+            "parent_test_id": "test_determinant_inventory.DeterminantPolicyTests.test_stale_timestamp_pyc_cannot_replace_verified_core_bytes",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_inventory.DeterminantPolicyTests.test_stale_timestamp_pyc_cannot_replace_verified_core_bytes",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/execute-stale-core-bytecode/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_ADAPTER_MUTATION_UNIT_TESTS_ONLY",
+      "mutation": "omit-output-symlink-refusal",
+      "mode": "normal",
+      "replacement_sites": 1,
+      "test": "test_determinant_admission_harness.AdmissionHarnessTests.test_output_symlink_outside_work_is_also_refused",
+      "mutated_source_sha256": "3cd217b3decd5eceed15834e3a47fbef376217aae4fa0cd7f860914338ed09c7",
+      "external_process_responses": "Synthetic for harness cases; no Lean execution",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_admission_harness.AdmissionHarnessTests.test_output_symlink_outside_work_is_also_refused",
+        "loaded_test_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_output_symlink_outside_work_is_also_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_output_symlink_outside_work_is_also_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/omit-output-symlink-refusal/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_admission_harness.AdmissionHarnessTests.test_output_symlink_outside_work_is_also_refused",
+        "loaded_test_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_output_symlink_outside_work_is_also_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_output_symlink_outside_work_is_also_refused (ancestor=False)",
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_output_symlink_outside_work_is_also_refused (ancestor=True)"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_admission_harness.AdmissionHarnessTests.test_output_symlink_outside_work_is_also_refused (ancestor=False)",
+            "parent_test_id": "test_determinant_admission_harness.AdmissionHarnessTests.test_output_symlink_outside_work_is_also_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_determinant_admission_harness.AdmissionHarnessTests.test_output_symlink_outside_work_is_also_refused (ancestor=True)",
+            "parent_test_id": "test_determinant_admission_harness.AdmissionHarnessTests.test_output_symlink_outside_work_is_also_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_output_symlink_outside_work_is_also_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/omit-output-symlink-refusal/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_ADAPTER_MUTATION_UNIT_TESTS_ONLY",
+      "mutation": "omit-output-symlink-refusal",
+      "mode": "optimized",
+      "replacement_sites": 1,
+      "test": "test_determinant_admission_harness.AdmissionHarnessTests.test_output_symlink_outside_work_is_also_refused",
+      "mutated_source_sha256": "3cd217b3decd5eceed15834e3a47fbef376217aae4fa0cd7f860914338ed09c7",
+      "external_process_responses": "Synthetic for harness cases; no Lean execution",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_admission_harness.AdmissionHarnessTests.test_output_symlink_outside_work_is_also_refused",
+        "loaded_test_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_output_symlink_outside_work_is_also_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_output_symlink_outside_work_is_also_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/omit-output-symlink-refusal/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_admission_harness.AdmissionHarnessTests.test_output_symlink_outside_work_is_also_refused",
+        "loaded_test_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_output_symlink_outside_work_is_also_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_output_symlink_outside_work_is_also_refused (ancestor=False)",
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_output_symlink_outside_work_is_also_refused (ancestor=True)"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_admission_harness.AdmissionHarnessTests.test_output_symlink_outside_work_is_also_refused (ancestor=False)",
+            "parent_test_id": "test_determinant_admission_harness.AdmissionHarnessTests.test_output_symlink_outside_work_is_also_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_determinant_admission_harness.AdmissionHarnessTests.test_output_symlink_outside_work_is_also_refused (ancestor=True)",
+            "parent_test_id": "test_determinant_admission_harness.AdmissionHarnessTests.test_output_symlink_outside_work_is_also_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_output_symlink_outside_work_is_also_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/omit-output-symlink-refusal/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_ADAPTER_MUTATION_UNIT_TESTS_ONLY",
+      "mutation": "replace-canonical-containment-with-lexical",
+      "mode": "normal",
+      "replacement_sites": 1,
+      "test": "test_determinant_admission_harness.AdmissionHarnessTests.test_resolved_dotdot_output_containment_refuses_before_cleanup",
+      "mutated_source_sha256": "0f5b9303bb9857f1208dd002813090c5df64a9bc259e072e67222fbd0889d59b",
+      "external_process_responses": "Synthetic for harness cases; no Lean execution",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_admission_harness.AdmissionHarnessTests.test_resolved_dotdot_output_containment_refuses_before_cleanup",
+        "loaded_test_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_resolved_dotdot_output_containment_refuses_before_cleanup"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_resolved_dotdot_output_containment_refuses_before_cleanup",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/replace-canonical-containment-with-lexical/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_admission_harness.AdmissionHarnessTests.test_resolved_dotdot_output_containment_refuses_before_cleanup",
+        "loaded_test_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_resolved_dotdot_output_containment_refuses_before_cleanup"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_resolved_dotdot_output_containment_refuses_before_cleanup"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_admission_harness.AdmissionHarnessTests.test_resolved_dotdot_output_containment_refuses_before_cleanup",
+            "parent_test_id": "test_determinant_admission_harness.AdmissionHarnessTests.test_resolved_dotdot_output_containment_refuses_before_cleanup",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_resolved_dotdot_output_containment_refuses_before_cleanup",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/replace-canonical-containment-with-lexical/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_ADAPTER_MUTATION_UNIT_TESTS_ONLY",
+      "mutation": "replace-canonical-containment-with-lexical",
+      "mode": "optimized",
+      "replacement_sites": 1,
+      "test": "test_determinant_admission_harness.AdmissionHarnessTests.test_resolved_dotdot_output_containment_refuses_before_cleanup",
+      "mutated_source_sha256": "0f5b9303bb9857f1208dd002813090c5df64a9bc259e072e67222fbd0889d59b",
+      "external_process_responses": "Synthetic for harness cases; no Lean execution",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_admission_harness.AdmissionHarnessTests.test_resolved_dotdot_output_containment_refuses_before_cleanup",
+        "loaded_test_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_resolved_dotdot_output_containment_refuses_before_cleanup"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_resolved_dotdot_output_containment_refuses_before_cleanup",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/replace-canonical-containment-with-lexical/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_admission_harness.AdmissionHarnessTests.test_resolved_dotdot_output_containment_refuses_before_cleanup",
+        "loaded_test_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_resolved_dotdot_output_containment_refuses_before_cleanup"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_resolved_dotdot_output_containment_refuses_before_cleanup"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_admission_harness.AdmissionHarnessTests.test_resolved_dotdot_output_containment_refuses_before_cleanup",
+            "parent_test_id": "test_determinant_admission_harness.AdmissionHarnessTests.test_resolved_dotdot_output_containment_refuses_before_cleanup",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py",
+          "test_determinant_admission_harness.AdmissionHarnessTests.test_resolved_dotdot_output_containment_refuses_before_cleanup",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/replace-canonical-containment-with-lexical/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    }
+  ],
+  "kernel_or_cbz_status": "NOT_AWARDED"
+}

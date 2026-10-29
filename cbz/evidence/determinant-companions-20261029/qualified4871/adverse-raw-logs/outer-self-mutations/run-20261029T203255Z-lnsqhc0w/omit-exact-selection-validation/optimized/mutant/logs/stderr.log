@@ -1,0 +1,64 @@
+test_empty_duplicate_and_broad_selections_are_refused (test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused) ... 
+  test_empty_duplicate_and_broad_selections_are_refused (test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused) (selections=()) ... FAIL
+  test_empty_duplicate_and_broad_selections_are_refused (test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused) (selections=('test_compiled_admission.CompiledAdmissionTests.test_unused_definition_forbidden_closure_is_rejected', 'test_compiled_admission.CompiledAdmissionTests.test_unused_definition_forbidden_closure_is_rejected')) ... FAIL
+  test_empty_duplicate_and_broad_selections_are_refused (test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused) (selections=('test_compiled_admission.CompiledAdmissionTests',)) ... FAIL
+  test_empty_duplicate_and_broad_selections_are_refused (test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused) (selections=('-k',)) ... FAIL
+  test_empty_duplicate_and_broad_selections_are_refused (test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused) (selections=('',)) ... FAIL
+
+======================================================================
+FAIL: test_empty_duplicate_and_broad_selections_are_refused (test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused) (selections=())
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-exact-selection-validation/optimized/mutant/repo/frontiers/determinant_moment_20261025/tests/test_cbz_mutation_runner.py", line 167, in test_empty_duplicate_and_broad_selections_are_refused
+    self.execute((*runner.CASES[0][:4], selections))
+  File "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-exact-selection-validation/optimized/mutant/repo/frontiers/determinant_moment_20261025/tests/test_cbz_mutation_runner.py", line 83, in execute
+    return runner.execute_case(case or runner.CASES[0], work, output)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-exact-selection-validation/optimized/mutant/repo/frontiers/determinant_moment_20261025/tests/run_cbz_mutations.py", line 197, in execute_case
+    baseline_exit_code=baseline_exits[0] if all(code == baseline_exits[0] for code in baseline_exits) else None,
+                       ~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-exact-selection-validation/optimized/mutant/repo/frontiers/determinant_moment_20261025/tests/test_cbz_mutation_runner.py", line 169, in test_empty_duplicate_and_broad_selections_are_refused
+    self.assertIsInstance(error, ValueError, 'wrong refusal outcome: ' + repr(error))
+AssertionError: IndexError('list index out of range') is not an instance of <class 'ValueError'> : wrong refusal outcome: IndexError('list index out of range')
+
+======================================================================
+FAIL: test_empty_duplicate_and_broad_selections_are_refused (test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused) (selections=('test_compiled_admission.CompiledAdmissionTests.test_unused_definition_forbidden_closure_is_rejected', 'test_compiled_admission.CompiledAdmissionTests.test_unused_definition_forbidden_closure_is_rejected'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-exact-selection-validation/optimized/mutant/repo/frontiers/determinant_moment_20261025/tests/test_cbz_mutation_runner.py", line 171, in test_empty_duplicate_and_broad_selections_are_refused
+    self.fail('invalid selection was accepted: ' + repr(selections))
+AssertionError: invalid selection was accepted: ('test_compiled_admission.CompiledAdmissionTests.test_unused_definition_forbidden_closure_is_rejected', 'test_compiled_admission.CompiledAdmissionTests.test_unused_definition_forbidden_closure_is_rejected')
+
+======================================================================
+FAIL: test_empty_duplicate_and_broad_selections_are_refused (test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused) (selections=('test_compiled_admission.CompiledAdmissionTests',))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-exact-selection-validation/optimized/mutant/repo/frontiers/determinant_moment_20261025/tests/test_cbz_mutation_runner.py", line 171, in test_empty_duplicate_and_broad_selections_are_refused
+    self.fail('invalid selection was accepted: ' + repr(selections))
+AssertionError: invalid selection was accepted: ('test_compiled_admission.CompiledAdmissionTests',)
+
+======================================================================
+FAIL: test_empty_duplicate_and_broad_selections_are_refused (test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused) (selections=('-k',))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-exact-selection-validation/optimized/mutant/repo/frontiers/determinant_moment_20261025/tests/test_cbz_mutation_runner.py", line 171, in test_empty_duplicate_and_broad_selections_are_refused
+    self.fail('invalid selection was accepted: ' + repr(selections))
+AssertionError: invalid selection was accepted: ('-k',)
+
+======================================================================
+FAIL: test_empty_duplicate_and_broad_selections_are_refused (test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused) (selections=('',))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-exact-selection-validation/optimized/mutant/repo/frontiers/determinant_moment_20261025/tests/test_cbz_mutation_runner.py", line 171, in test_empty_duplicate_and_broad_selections_are_refused
+    self.fail('invalid selection was accepted: ' + repr(selections))
+AssertionError: invalid selection was accepted: ('',)
+
+----------------------------------------------------------------------
+Ran 1 test in 1.461s
+
+FAILED (failures=5)

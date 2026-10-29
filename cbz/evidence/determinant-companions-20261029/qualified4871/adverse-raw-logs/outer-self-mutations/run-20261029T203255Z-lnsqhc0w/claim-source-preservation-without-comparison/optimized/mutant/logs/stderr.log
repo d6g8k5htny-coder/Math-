@@ -1,0 +1,15 @@
+test_matrix_refuses_a_source_change_even_when_every_mutant_was_killed (test_cbz_mutation_runner.OuterMutationRunnerTests.test_matrix_refuses_a_source_change_even_when_every_mutant_was_killed) ... FAIL
+
+======================================================================
+FAIL: test_matrix_refuses_a_source_change_even_when_every_mutant_was_killed (test_cbz_mutation_runner.OuterMutationRunnerTests.test_matrix_refuses_a_source_change_even_when_every_mutant_was_killed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py", line 23, in wrapped
+    return _original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 1 test in 0.285s
+
+FAILED (failures=1)

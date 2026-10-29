@@ -1,3 +1,10 @@
+> **Current CBZ scope:** the66 exact conditional companion statements are kernel
+> CLOSED at native4871 with complete source/log custody and all7real controls.
+> This does not close the continuum parent or scientific alignment. Read
+> [STATUS.md](STATUS.md), [APPLICATION_BOUNDARIES.md](APPLICATION_BOUNDARIES.md)
+> and the resolved [QUARANTINE.json](QUARANTINE.json) before using older status
+> labels or receipts below. Later tooling execution remains separately observed.
+
 > **CBZ successor publication: QUARANTINED pending current-source execution.** The91 non-public compiled records now derive from actual historical census40923885114, with exact typed names and bounded compatibility. The combined gate must still execute all seven real controls. See [STATUS.md](STATUS.md), [COMPILED_BINDING.md](COMPILED_BINDING.md) and [QUARANTINE.json](QUARANTINE.json). Scientific effect: NONE; all14 Lean files are preserved.
 
 # Gaussian endpoint moments, canonical conditioning and normalizer research

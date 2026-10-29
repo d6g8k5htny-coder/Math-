@@ -1,3 +1,10 @@
+> Current operational scope:66 exact conditional companions are kernel CLOSED at
+> immutable4871, without continuum/scientific acceptance. The compatible tooling
+> code has262controls/mode and19effects/20pairs per mode (40total); its ZIP checker
+> has18controls/mode and seven artifact defenses. Later hosted execution remains
+> separate. Older quarantine/tool-count checkpoints below retain their historical
+> source context; STATUS.md and the resolved QUARANTINE.json govern current scope.
+
 # Determinant source and compiled admission governance
 
 The 2026-10-29 owner CBZ directive governs this mission. Procedural family/quorum
@@ -77,3 +84,82 @@ the pinned Mathlib, matching its already retained successor. Only the stale
 API spelling changes; hypotheses, goals and production Lean bytes are unchanged.
 The old compiler failure and all historical control evidence remain retained.
 The decision ledger is DECISIONS.md. Both edits are reversible.
+
+
+## Preserved peer3239 historical contribution (source-scoped)
+
+
+
+Decision, 2026-10-29T19:51Z, Phase2/3, LayerB/C: add the narrow
+artifact_integrity.py downloaded-ZIP verifier because local execution became
+unavailable during artifact extraction. It compares every root receipt-bound
+log with independently supplied exact commit/manifest identities, rejects
+duplicate/unsafe/special/encrypted members and malformed/empty inventories,
+and refuses declared byte/entry limits rather than skipping data. It awards
+byte integrity only, never a kernel result.17 real ZIP/CLI fixture tests and
+six new intended source mutations cover its advertised boundary. The old six
+outer mutations are retained (twelve total), in both Python modes. Qualification
+is pending actual hosted observations; no new green is inferred.
+
+The dedicated cbz-determinant-artifact-integrity workflow downloads the actual
+immutable old-negative and repaired-positive artifacts using gh api, compares
+their ZIP digests with recorded GitHub digests, and invokes the unchanged
+checker in normal/-O modes. The old console mismatch must fail for its exact
+intended message; the repaired artifact must authenticate all21 logs. Raw ZIPs,
+reports and mutations are retained separately. The request file identifies the
+two historical run cuts exactly; it is not a current-package kernel certificate.
+Maintenance owner none; usage and self-verification are in TOOLING/STATUS.
+
+
+The existing downloaded-artifact workflow now also seals only its validated raw
+ZIPs/reports into a fresh recoverable evidence branch, verifies exact Git blob
+identities and reads back the untruncated tree. This is operational preservation
+of already checked data, not a mathematical auditor. It changes no shared ref
+and retains checksum/index metadata for offline cold starts. The publication
+result is usable only after actual readback. Source4351227b's checker192 tests
+and12 mutations per mode plus actual downloaded positive/negative runs were
+observed green; publication itself is a separately observed operation.
+
+
+Current composition rule: retain all19 exact outer effects (six original, six
+producer, seven artifact) and20 selected positive/intended-body pairs per mode.
+The current artifact checker consumes one bounded snapshot for both ZIP parsing
+and digest:18 ZIP/CLI tests, all17 original bodies retained, seven artifact source
+defenses including actual pathname replacement. MAX_ARCHIVE67108864,
+MAX_TOTAL268435456 and MAX_ENTRIES10000 are unchanged. Byte custody never awards
+kernel/scientific credit. The primary upload preserves every gate-owned process
+log, receipt, G0 result/harness and failure log while excluding duplicated
+source/work/repo copies. The dedicated workflow uses exact Git-preserved archives,
+never creates refs, needs contents:read only, and verifies returned positive
+archive digest as well as before/after source digests. This removes expiring
+network downloads and redundant branch maintenance. Old workflow/tool bytes,
+actual qualification failures and archive records remain in3239 history.
+
+Exact standalone formal closure is pinned to native4871/testedbece, not to a
+rewritten old receipt. APPLICATION_BOUNDARIES.md and resolved QUARANTINE.json
+state the66 conditional targets, optional empty-domain/bottom-filter cases and
+unproved continuum applications. Subsequent tooling execution remains distinct.
+
+## Observed compatible tooling qualification
+
+The integrated code passed262 component tests normally and262 optimized with no
+failures, errors or skips at manifest48b883107de527cca82a761afc5c58465ba735d88979704a9bdf06153934babe,
+before this documentation-only update. Exact local workflow blocks then passed18
+ZIP controls per mode, all19outer effects/20paired selections per mode (40pairs,
+160raw execution logs independently checked), and all four actual Git-preserved
+negative/positive ZIP replays. Both blocks exited0 and preserved the tracked
+implementation delta. This is local orchestration evidence, not hosted CI.
+
+Initial262-test exact-name/upload-format failures and the workflow's outside-
+repository output refusal remain retained; their source fixes preserve every
+original effect/test and obey the existing guard. Prediction against the actual
+19110-entry old artifact retains774 entries, all21owned logs and328native adverse
+logs plus receipt, omitting18336 disposable source/work/repo copy entries. No
+10000-entry cap is weakened. The new actual native upload must still be inspected.
+
+The complete actual4871 receipt,21process logs, full console, native G0 reports
+and328execution logs are preserved at
+../../cbz/evidence/determinant-companions-20261029/qualified4871/.
+New artifact metadata workflows use RUNNER_TEMP for mutation output, as the strict
+outside-repository preflight requires. New/current-source hosted execution and
+normal required checks remain separate from these observed local results.

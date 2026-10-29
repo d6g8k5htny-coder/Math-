@@ -1,3 +1,10 @@
+> Current operational scope:66 exact conditional companions are kernel CLOSED at
+> immutable4871, without continuum/scientific acceptance. The compatible tooling
+> code has262controls/mode and19effects/20pairs per mode (40total); its ZIP checker
+> has18controls/mode and seven artifact defenses. Later hosted execution remains
+> separate. Older quarantine/tool-count checkpoints below retain their historical
+> source context; STATUS.md and the resolved QUARANTINE.json govern current scope.
+
 # Bounded determinant tools
 
 STATUS.md is the command entrypoint. Standard-library Python only; run component
@@ -90,3 +97,75 @@ extend the preserved16-case matrix to18cases in both modes:42positive baselines,
 The13focused grader tests pass per mode. Exact commands/fresh output guidance
 are in STATUS; source/helper proof scope remains unchanged. Historical matrices
 keep their original identities. Maintenance owner none; bounded G0/G6/G11 only.
+
+
+## Preserved peer3239 historical contribution (source-scoped)
+
+
+
+| artifact_integrity.py | Narrow downloaded ZIP/receipt verifier. Requires --archive, --expected-commit, --expected-manifest and --output. Authenticates all receipt.logs bytes and both independent identities; no kernel credit.17 actual ZIP/CLI fixtures and six intended policy mutants, pending hosted execution at publication. Maintenance owner none; serves G0/G6/G8/G11 within this metadata boundary. |
+
+From the repository root, run the complete component suite serially in normal
+and -O Python modes, and repeat tests/run_cbz_mutations.py with --output outside
+the package. The runner now retains all six earlier outer mutants and adds six
+artifact-policy mutants: log hash, commit, manifest, duplicate member, unsafe
+member and empty inventory. Threshold12/12 exact intended kills in each mode,
+with same-selection passing baselines and no test/import errors. The dedicated
+downloaded-artifact workflow runs those commands and preserves their raw logs.
+Its request file pins the old negative artifact12924995112 and repaired positive
+artifact12928575403 including source identities and independently observed ZIP
+digests. A positive result means byte transport integrity only.
+
+
+Durable preservation is part of that same workflow: after successful downloads
+and checks it records only the two raw ZIPs, four reports, SUMMARY.json,
+SHA256SUMS and README under evidence/cbz-determinant-transport-20261029/ on a
+fresh evidence branch. Every created Git blob is checked against its exact
+bytes and the new tree is read back without truncation. PUBLICATION.json names
+the resulting branch/commit/file SHA256s. Integrate that ordinary descendant
+after checks; future local verification uses those committed ZIPs and requires
+no90-day artifact URL. No mathematical status is awarded by publication.
+
+
+Current composition rule: retain all19 exact outer effects (six original, six
+producer, seven artifact) and20 selected positive/intended-body pairs per mode.
+The current artifact checker consumes one bounded snapshot for both ZIP parsing
+and digest:18 ZIP/CLI tests, all17 original bodies retained, seven artifact source
+defenses including actual pathname replacement. MAX_ARCHIVE67108864,
+MAX_TOTAL268435456 and MAX_ENTRIES10000 are unchanged. Byte custody never awards
+kernel/scientific credit. The primary upload preserves every gate-owned process
+log, receipt, G0 result/harness and failure log while excluding duplicated
+source/work/repo copies. The dedicated workflow uses exact Git-preserved archives,
+never creates refs, needs contents:read only, and verifies returned positive
+archive digest as well as before/after source digests. This removes expiring
+network downloads and redundant branch maintenance. Old workflow/tool bytes,
+actual qualification failures and archive records remain in3239 history.
+
+Exact standalone formal closure is pinned to native4871/testedbece, not to a
+rewritten old receipt. APPLICATION_BOUNDARIES.md and resolved QUARANTINE.json
+state the66 conditional targets, optional empty-domain/bottom-filter cases and
+unproved continuum applications. Subsequent tooling execution remains distinct.
+
+## Observed compatible tooling qualification
+
+The integrated code passed262 component tests normally and262 optimized with no
+failures, errors or skips at manifest48b883107de527cca82a761afc5c58465ba735d88979704a9bdf06153934babe,
+before this documentation-only update. Exact local workflow blocks then passed18
+ZIP controls per mode, all19outer effects/20paired selections per mode (40pairs,
+160raw execution logs independently checked), and all four actual Git-preserved
+negative/positive ZIP replays. Both blocks exited0 and preserved the tracked
+implementation delta. This is local orchestration evidence, not hosted CI.
+
+Initial262-test exact-name/upload-format failures and the workflow's outside-
+repository output refusal remain retained; their source fixes preserve every
+original effect/test and obey the existing guard. Prediction against the actual
+19110-entry old artifact retains774 entries, all21owned logs and328native adverse
+logs plus receipt, omitting18336 disposable source/work/repo copy entries. No
+10000-entry cap is weakened. The new actual native upload must still be inspected.
+
+The complete actual4871 receipt,21process logs, full console, native G0 reports
+and328execution logs are preserved at
+../../cbz/evidence/determinant-companions-20261029/qualified4871/.
+New artifact metadata workflows use RUNNER_TEMP for mutation output, as the strict
+outside-repository preflight requires. New/current-source hosted execution and
+normal required checks remain separate from these observed local results.

@@ -1,0 +1,17 @@
+⚠ [1517/1690] Replayed ResearchFormalCoreR1.ProbabilityCompanionsV2
+warning: ResearchFormalCoreR1/ProbabilityCompanionsV2.lean:27:18: Variable name `hcW` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcW
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ResearchFormalCoreR1/ProbabilityCompanionsV2.lean:27:48: Variable name `hq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3200/3202] Built ResearchFormalCoreR1.AlgebraV2 (1.1s)
+warning: ResearchFormalCoreR1/AlgebraV2.lean:53:16: declaration uses `sorry`
+✔ [3201/3202] Built ResearchFormalCoreR1 (1.4s)
+Build completed successfully (3202 jobs).

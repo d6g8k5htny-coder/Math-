@@ -1,3 +1,130 @@
+# Determinant companion and producer status
+
+The66 exact conditional companion statements are CLOSED by actual source-qualified
+native4871 execution. They occupy14 unchanged production Lean paths. This is not
+closure of the continuum Gaussian/Palm/lifetime parent, scientific review,
+scientific acceptance, or federation CBZ-0. APPLICATION_BOUNDARIES.md marks exact
+application assumptions and optional empty-domain/bottom-filter regimes.
+QUARANTINE.json retains all11 fields, the resolved boundary, and earlier failures.
+
+Run40949497117/job123713536925 checked head4871e8d29de1e7c97f8362ab8eab2433b53a00ce,
+testedbece46fe51e09fd6d6ca91b43f5623f5fbba2cf1/treeed3e78c819516055a954a7f9897863bdb216acf3,
+manifestbb774f16ca361825fefb307fc12dc1212941668e358f75520919ae5f022d7ff7.
+Receipt032d72523da90b4699d269236a4608994e009cb1e3998fe18c4d1c410706dbaa
+binds actual157ConstantInfos/58421dependencies/three approved axioms and all7
+intended real controls. Independent inspection matched263source records,21FULL
+owned logs, complete separate console, nine pins and stable source/runtime
+endpoints. Native24adapter/36Git/22auditor-self pairs and328execution logs were
+checked. The exact old receipt is never relabeled as execution of later source.
+
+Current tooling composition adds the peer's downloaded-byte checker and preserved
+archives, fixes its actually reproduced pathname read/hash race with one bounded
+snapshot, retains all17 old ZIP tests plus one adverse regression, and adds seven
+artifact effects to the strict existing outer runner. The full union requires19
+effects/20same-selection positive/intended-body pairs per mode. Three caps remain
+64MiB compressed,256MiB expanded and10000entries. A19110-entry earlier archive
+correctly refuses at that declared limit. The primary upload now preserves all
+logs/results/receipts while omitting duplicated disposable source/work/repo copies.
+The dedicated byte workflow uses exact Git-preserved archives and contents:read;
+it creates no refs and depends on no expiring download. These metadata controls
+award no kernel result. Current composition qualification is recorded separately
+from the immutable4871 formal evidence; no fresh hosted result is presumed.
+
+## How to verify
+
+Run component commands serially from this directory:
+
+```sh
+python3 -B -S -m unittest discover -s tests -v
+python3 -O -B -S -m unittest discover -s tests -v
+python3 -B -S tests/run_cbz_mutations.py --output /tmp/determinant-outer-normal
+python3 -O -B -S tests/run_cbz_mutations.py --output /tmp/determinant-outer-optimized
+python3 -B -S tests/run_cbz_runner_mutations.py --output /tmp/determinant-outer-self
+python3 -B -S tests/run_adapter_mutations.py --output .lake/formal-evidence/adapter-mutations
+python3 -B -S tests/run_git_identity_mutations.py --output .lake/formal-evidence/git-mutations
+python3 -B -S gate.py --execute
+```
+
+The adapter, Git and outer-self drivers execute both modes themselves. The outer
+driver runs the selected interpreter mode, so run both commands. Each pair needs
+exact selected IDs, same harness, a passing baseline and intended test-body
+assertions; import/setup/teardown/cleanup errors, skips, lifecycle exits and
+malformed results never count. Python orchestration uses explicitly synthetic
+Lean responses; actual Git/Bash/ZIP fixtures execute their bounded operations.
+The final command requires pinned Lean4.34.1 and all nine clean locked dependencies;
+it really builds, rechecks the kernel, audits complete inventory/axioms and runs
+two compiled plus five proof/axiom controls. Source-only CLI deliberately returns
+nonzero CBZ_KERNEL_EXECUTION_REQUIRED; source_check() is diagnostic only.
+
+From repository root, verify the shared source tools:
+
+```sh
+python3 -B -S -m unittest discover -s tests -p test_lean_packet_admission.py -v
+python3 -O -B -S -m unittest discover -s tests -p test_lean_packet_admission.py -v
+python3 -B -S -m unittest discover -s tests -p test_source_admission_mutations.py -v
+python3 -O -B -S -m unittest discover -s tests -p test_source_admission_mutations.py -v
+cbz_source_evidence_parent=$(mktemp -d)
+python3 -B -S tests/run_source_admission_mutations.py --output "$cbz_source_evidence_parent/results"
+```
+
+The shared driver executes18cases and three controls per mode itself. The actual
+exit2-after-body-failure defect and exact-integer0/1 correction are preserved in
+the ledger and native4871 qualification. Its42rows/42passingbaselines/36intended
+mutants/6controls/84logs do not imply arbitrary semantic audit completeness.
+
+For downloaded-byte controls, use the checked-in historical ZIPs and the exact
+independent commit/manifest/SHA values in artifact-integrity-requests.json. The
+read-only cbz-determinant-artifact-integrity workflow contains the complete recipe,
+including both interpreter modes, exact intended negative failure and positive
+returned-digest/21-log coverage. Its archived negative is expected to FAIL byte
+integrity; that failure is preserved rather than removed from the suite.
+
+## Boundaries and records
+
+Git qualification covers manifest-bound component files and the fixed shared
+source helper at two endpoints. It does not lock files between observations,
+certify unrelated Git hygiene, authenticate all runtime/cached binaries or prove
+scientific alignment. IR41 extras are exact module counts only; names/payloads
+are unauthenticated. COMPILED_BINDING.md states the typed inventory policy.
+
+DECISIONS.md is append-only. GOVERNANCE.md and TOOLING.md document purposes,
+commands and actual adverse qualification. Historical receipts and failures stay
+source-bound and recoverable. Native peer3239 archives preserve original ZIPs;
+peer532's inert completion archive is retained independently. Canonical federation
+surfaces, main integration and final ref/pin cleanup remain Main#684/B-003.
+
+Layer A remains binding: no placeholders/unchecked axioms/float certification,
+no weakened bounds/tests, mark vacuity, preserve failures and claim only observed
+verification within each auditor's tested domain. No qualifying different-family
+scientific review, parent acceptance or CBZ-0 is implied here.
+
+
+## Observed compatible tooling qualification
+
+The integrated code passed262 component tests normally and262 optimized with no
+failures, errors or skips at manifest48b883107de527cca82a761afc5c58465ba735d88979704a9bdf06153934babe,
+before this documentation-only update. Exact local workflow blocks then passed18
+ZIP controls per mode, all19outer effects/20paired selections per mode (40pairs,
+160raw execution logs independently checked), and all four actual Git-preserved
+negative/positive ZIP replays. Both blocks exited0 and preserved the tracked
+implementation delta. This is local orchestration evidence, not hosted CI.
+
+Initial262-test exact-name/upload-format failures and the workflow's outside-
+repository output refusal remain retained; their source fixes preserve every
+original effect/test and obey the existing guard. Prediction against the actual
+19110-entry old artifact retains774 entries, all21owned logs and328native adverse
+logs plus receipt, omitting18336 disposable source/work/repo copy entries. No
+10000-entry cap is weakened. The new actual native upload must still be inspected.
+
+The complete actual4871 receipt,21process logs, full console, native G0 reports
+and328execution logs are preserved at
+../../cbz/evidence/determinant-companions-20261029/qualified4871/.
+New artifact metadata workflows use RUNNER_TEMP for mutation output, as the strict
+outside-repository preflight requires. New/current-source hosted execution and
+normal required checks remain separate from these observed local results.
+
+## Historical checkpoints, superseded by the exact scoped status above
+
 # Determinant producer checkpoint
 
 **QUARANTINED: strict shared-grader successor execution pending.** This standalone packet
@@ -132,3 +259,50 @@ component tests executed, with174 passes and one test-fixture assertion failure
 (uppercase marker expected from a JSON-only console). Optimized mode and Lean
 were not reached. The corrected test now compares the entire console JSON with
 the receipt. This public red run remains retained; it is not an integrity pass.
+
+
+## Preserved peer3239 historical contribution (source-scoped)
+
+
+
+## Downloaded-artifact verification route (source checkpoint)
+
+The corrected44c39bdc hosted determinant gate succeeded in run40942326572/
+job123688637992 on tested merge2559df149ef4387b8972056559fb5f4e642d0134,
+manifest6978949f6e46b73a6ffce7aa2acfa47640ef4392704e5fbe9ffb321ecb53ea59.
+Actual18 shared source tests,10 mutation-harness tests and175 component tests
+passed in EACH Python mode. Twelve adapter mutants in each mode,157 constants,
+58421 dependency closure entries, standard three axioms, two compiled injections
+and five old gate controls passed their intended checks. The separate console
+upload succeeded. The gate artifact12928575403 records21 direct log hashes and
+has GitHub ZIP digestafb412746bcda2a2b869b8513a3300230eec1d7207b30fce927bd003e6c60410.
+
+Downloaded-byte qualification remains PENDING until the new narrow verifier's
+self-tests, source mutants and actual old-negative/new-positive ZIP replays run.
+Run from the repository root:
+`python -B -S -m unittest discover -s frontiers/determinant_moment_20261025/tests -v`;
+repeat with -O; then
+`python -B -S frontiers/determinant_moment_20261025/tests/run_cbz_mutations.py --output /tmp/determinant-outer-normal`;
+repeat with -O and a distinct output directory. Direct byte inspection:
+`python -B -S frontiers/determinant_moment_20261025/artifact_integrity.py --archive ARTIFACT.zip --expected-commit FULL_GIT_SHA --expected-manifest FULL_SHA256 --output REPORT.json`.
+The dedicated cbz-determinant-artifact-integrity workflow downloads both pinned
+archives and preserves reports/ZIPs. Its source-publication tests are not yet
+observed at this checkpoint. The separate dirty-overlay/dependency-byte custody
+gap remains open; kernel happy-path success does not certify that boundary.
+
+The first tool qualification runs9192317/3d508229 exposed a retained test's
+obsolete six-mutation inventory assertion:192 normal tests ran,191 passed, and
+the twelve-case runner itself returned zero. The existing test now requires
+all twelve exact names (including every original case), preserving all intent
+and source-preservation assertions. Both actual red runs/artifacts remain
+retained; optimized mode and archive replay still require a fresh observed run.
+
+Observed tool source4351227b/run40944404957/job123695831074:192 component
+tests EACH mode, twelve exact source mutants EACH mode, actual downloaded
+old-negative (exact console mismatch) and repaired-positive (all21 log hashes,
+exact tested commit/manifest) EACH mode passed their intended checks. Checker
+source SHA25677463e76d49fc68c0e8db85f6671fc7a0efaccecd93727572b3d02242b8647b1.
+The proof artifact12927504778 has ZIP digeste4731beb3f6d5bc7e376afd4c7442a68a111687a3e4f5fbf080243695749cbba.
+Durable raw-byte Git publication is now being run because ephemeral artifact
+URLs alone are insufficient for future cold starts; read PUBLICATION.json and
+its exact tree/blob readback rather than inferring that this step succeeded.

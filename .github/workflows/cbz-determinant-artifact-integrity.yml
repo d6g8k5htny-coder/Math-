@@ -1,0 +1,119 @@
+name: Determinant preserved-artifact integrity controls
+
+'on':
+  pull_request:
+    paths:
+      - 'frontiers/determinant_moment_20261025/**'
+      - 'evidence/cbz-determinant-transport-20261029/**'
+      - '.github/workflows/cbz-determinant-artifact-integrity.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preserved-byte-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.11.16'
+      - name: Eighteen ZIP controls and all nineteen source effects in both modes
+        run: |
+          set -euo pipefail
+          mkdir -p "$GITHUB_WORKSPACE/.cbz-determinant-wire-evidence"
+          cd frontiers/determinant_moment_20261025
+          for mode in normal optimized; do
+            flags=()
+            if [ "$mode" = optimized ]; then flags=(-O); fi
+            python3 "${flags[@]}" -B -S -m unittest discover -s tests -p test_artifact_integrity.py -v 2>&1 | tee "$GITHUB_WORKSPACE/.cbz-determinant-wire-evidence/unit-$mode.log"
+            python3 "${flags[@]}" -B -S tests/run_cbz_mutations.py --output "$RUNNER_TEMP/determinant-artifact-mutations-$mode" 2>&1 | tee "$GITHUB_WORKSPACE/.cbz-determinant-wire-evidence/mutations-$mode.log"
+          done
+          python3 -B -S - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          root = Path(os.environ['GITHUB_WORKSPACE']) / '.cbz-determinant-wire-evidence'
+          for mode in ('normal', 'optimized'):
+              summary = json.loads((root / ('mutations-' + mode + '.log')).read_text())
+              report_path = Path(summary['results'])
+              expected_parent = Path(os.environ['RUNNER_TEMP']) / ('determinant-artifact-mutations-' + mode)
+              if not report_path.is_relative_to(expected_parent) or report_path.name != 'mutation_results.json':
+                  raise SystemExit('unbound retained mutation report path')
+              result = json.loads(report_path.read_text())
+              if len(result['mutations']) != 19 or result['execution_pairs'] != 20 or result['source_preserved'] is not True:
+                  raise SystemExit('incomplete or source-changing mutation matrix')
+              for row in result['mutations']:
+                  if not row['killed_by_intended_assertions'] or row['import_or_test_errors']:
+                      raise SystemExit('invalid mutation outcome')
+                  for pair in row['selection_results']:
+                      if pair['status'] != 'KILLED' or not pair['same_harness'] or not pair['baseline_passed']:
+                          raise SystemExit('unqualified mutation pair')
+                      for phase, rc in (('baseline', 0), ('mutant', 1)):
+                          record = pair[phase]
+                          if type(record['returncode']) is not int or record['returncode'] != rc:
+                              raise SystemExit('invalid process status')
+                      if not all(d['phase'] == 'test' and d['is_assertion'] for d in pair['mutant']['failure_details']):
+                          raise SystemExit('non-body mutation outcome')
+          PY
+      - name: Check immutable Git-preserved historical negative and positive bytes
+        run: |
+          set -euo pipefail
+          python3 -B -S - <<'PY'
+          import hashlib
+          import json
+          from pathlib import Path
+          import subprocess
+          import sys
+          repo = Path.cwd()
+          package = repo / 'frontiers/determinant_moment_20261025'
+          output = repo / '.cbz-determinant-wire-evidence'
+          requests = json.loads((package / 'artifact-integrity-requests.json').read_text())
+          if {r['label'] for r in requests} != {'historical-negative', 'repaired-positive'} or len(requests) != 2:
+              raise SystemExit('exact historical controls required')
+          results = []
+          for request in requests:
+              archive = repo / 'evidence/cbz-determinant-transport-20261029' / request['label'] / 'artifact.zip'
+              if hashlib.sha256(archive.read_bytes()).hexdigest() != request['archive_sha256']:
+                  raise SystemExit('Git-preserved ZIP digest mismatch')
+              for mode in ('normal', 'optimized'):
+                  report = output / (request['label'] + '-' + mode + '.json')
+                  command = [sys.executable, *(['-O'] if mode == 'optimized' else []), '-B', '-S',
+                             str(package / 'artifact_integrity.py'), '--archive', str(archive),
+                             '--expected-commit', request['checked_commit'],
+                             '--expected-manifest', request['manifest_sha256'], '--output', str(report)]
+                  process = subprocess.run(command, capture_output=True)
+                  (output / (request['label'] + '-' + mode + '.stdout.log')).write_bytes(process.stdout)
+                  (output / (request['label'] + '-' + mode + '.stderr.log')).write_bytes(process.stderr)
+                  result = json.loads(report.read_text())
+                  if process.returncode != request['expected_exit'] or result.get('status') != request['expected_status']:
+                      raise SystemExit('archive did not reach its exact expected disposition')
+                  if request['expected_status'] == 'FAIL':
+                      if result.get('code') != request['expected_code'] or result.get('error') != request['expected_error']:
+                          raise SystemExit('negative archive failed for an unrelated reason')
+                  elif result.get('verified_log_count') != request['expected_verified_logs'] or result.get('archive_sha256') != request['archive_sha256']:
+                      raise SystemExit('positive archive identity or complete log coverage mismatch')
+                  if hashlib.sha256(archive.read_bytes()).hexdigest() != request['archive_sha256']:
+                      raise SystemExit('preserved archive changed during qualification')
+                  results.append(dict(label=request['label'], mode=mode, actual_exit=process.returncode, report=result))
+          (output / 'SUMMARY.json').write_text(json.dumps(dict(scope='PRESERVED_BYTES_ONLY_NO_KERNEL_OR_SCIENTIFIC_CREDIT', results=results), indent=2) + '\n')
+          PY
+      - name: Tracked source unchanged
+        run: git diff --exit-code
+      - name: Preserve every outcome and raw log
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: determinant-preserved-byte-integrity-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            .cbz-determinant-wire-evidence/
+            ${{ runner.temp }}/determinant-artifact-mutations-normal/
+            ${{ runner.temp }}/determinant-artifact-mutations-optimized/
+            !${{ runner.temp }}/determinant-artifact-mutations-*/**/source/**
+            !${{ runner.temp }}/determinant-artifact-mutations-*/**/work/**
+            !${{ runner.temp }}/determinant-artifact-mutations-*/**/repo/**
+          if-no-files-found: error

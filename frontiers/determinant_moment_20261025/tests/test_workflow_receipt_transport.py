@@ -95,7 +95,10 @@ class WorkflowReceiptTransportTests(unittest.TestCase):
 
     def test_both_gate_evidence_and_separate_console_are_uploaded(self):
         text = WORKFLOW.read_text()
-        self.assertIn('          path: ' + GATE_LOGS + '/', text)
+        self.assertIn('          path: |', text)
+        self.assertIn('            ' + GATE_LOGS + '/', text)
+        for disposable in ('source', 'work', 'repo'):
+            self.assertIn('            !' + GATE_LOGS + '/**/' + disposable + '/**', text)
         self.assertIn('          path: $' + '{{ runner.temp }}/determinant-authoritative-gate.log', text)
         self.assertEqual(text.count('          if-no-files-found: error'), 2)
 

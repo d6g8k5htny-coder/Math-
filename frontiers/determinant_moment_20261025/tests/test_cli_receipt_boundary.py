@@ -163,20 +163,26 @@ class QuarantineRecordTests(unittest.TestCase):
         self.assertEqual({x['path'] for x in records}, set(m['source_modules']) | {'ResearchFormalCoreR1.lean'})
         for record in records:
             self.assertEqual(record['sha256'], hashlib.sha256((ROOT / record['path']).read_bytes()).hexdigest())
-        self.assertEqual(q['layer_a_status']['A2'], 'HISTORICAL_EXACT_SOURCE_APPROVED_CLOSURE_OBSERVED')
-        self.assertEqual(q['layer_a_status']['A7'], 'BC5_NATIVE_SOURCE_IDENTITY_AND_CUSTODY_VERIFIED_SUCCESSOR_PENDING')
-        self.assertEqual(q['layer_a_status']['A8'], 'STRICT_SHARED_SOURCE_GRADER_SUCCESSOR_PENDING_NATIVE_EXECUTION')
-        self.assertEqual(q['exact_boundary']['status'], 'QUARANTINED')
+        self.assertEqual(q['layer_a_status']['A2'], 'ACTUAL_APPROVED_AXIOM_CLOSURE_VERIFIED_AT_4871')
+        self.assertEqual(q['layer_a_status']['A7'], 'EXACT_GIT_SOURCE_AND_FULL_RETAINED_LOG_CUSTODY_VERIFIED_AT_4871')
+        self.assertEqual(q['layer_a_status']['A8'], 'SOURCE_STATUS_GUARDS_AND_NATIVE_PAIRED_ADVERSE_CONTROLS_VERIFIED')
+        self.assertEqual(q['exact_boundary']['status'], 'CLOSED')
         native = [entry for entry in q['attempted'] if entry['kind'] == 'actual_native_seven_control_execution']
         self.assertEqual(len(native), 1)
         self.assertIn('40933537063', native[0]['result'])
         self.assertIn('aafb9c9fa28aef592d05ce70276eb5448fd4157b', native[0]['result'])
         self.assertIn('only first526bytes', native[0]['result'])
         qualified = [entry for entry in q['attempted'] if entry['kind'] == 'actual_source_qualified_execution']
-        self.assertEqual(len(qualified), 1)
+        self.assertEqual(len(qualified), 2)
         self.assertIn('40945103791', qualified[0]['result'])
         self.assertIn('7f335b0b8f619dddeaee2f8759f93bff61c751be33860fffa23124465b59b796', qualified[0]['result'])
         self.assertIn('263source records,21owned log hashes', qualified[0]['result'])
+        self.assertIn('40949497117', qualified[1]['result'])
+        self.assertIn('032d72523da90b4699d269236a4608994e009cb1e3998fe18c4d1c410706dbaa', qualified[1]['result'])
+        self.assertEqual(q['exact_boundary']['formal_evidence']['public_targets'], 66)
+        self.assertEqual(q['exact_boundary']['formal_evidence']['owned_log_hash_matches'], 21)
+        self.assertIn('No surrounding continuum', q['exact_boundary']['closure_limit'])
+        self.assertTrue((ROOT / 'APPLICATION_BOUNDARIES.md').is_file())
         self.assertNotIn('manifest_sha256', q['location'])
 
     def test_quarantine_record_cannot_be_omitted_from_control_manifest(self):
@@ -228,10 +234,14 @@ class PortableMutationRunnerTests(unittest.TestCase):
                         'execute-cached-inventory-bytecode', 'omit-runtime-census-and-controls',
                         'omit-execute-source-qualification', 'omit-cli-pre-helper-qualification',
                         'omit-post-manifest-guard', 'omit-final-source-qualification',
-                        'use-unqualified-late-receipt-identity', 'revert-console-capture-to-log'}
+                        'use-unqualified-late-receipt-identity', 'revert-console-capture-to-log',
+                        'omit-artifact-log-hash', 'omit-artifact-commit-binding',
+                        'omit-artifact-manifest-binding', 'omit-artifact-duplicate-refusal',
+                        'omit-artifact-path-refusal', 'omit-artifact-empty-inventory-refusal',
+                        'reopen-artifact-path-for-final-hash'}
             self.assertEqual({row['name'] for row in report['mutations']}, expected)
-            self.assertEqual(len(report['mutations']), 12)
-            self.assertEqual(report['execution_pairs'], 13)
+            self.assertEqual(len(report['mutations']), 19)
+            self.assertEqual(report['execution_pairs'], 20)
             self.assertEqual(report['mode'], 'optimized' if sys.flags.optimize else 'normal')
             self.assertTrue(report['source_preserved'])
             for record in report['mutations']:

@@ -90,3 +90,66 @@ Reversible. Fresh execution remains pending.
 [2026-10-29T19:52:14.376457+00:00] [Phase2/3] [Layer B/C] Fresh-head guard detected concurrent531 advancement; preserve its four transport controls, external-console artifact and exact positive-fixture Mathlib API correction in the disjoint endpoint branch. Both completed contributions and all earlier failed/surviving evidence remain recoverable. Adapt only the deterministic transport fixture/outer mutation destination to the same external-console layout; retain all fourteen production Lean files/66targets/78original bodies and ff8core. Current composed tests/native execution must be observed afresh; no acceptance or CBZ is inferred. Reversible. Evidence: native44c39bd, checkpointbbe782d9, exact peer blob readback and current command receipts.
 
 [2026-10-29T20:24:25.343723+00:00] [Phase3] [Layer B/C] Verify actual bc5 native run40945103791: all263source records,21owned logs, complete separate console,157constant/58421closure/threeaxiom inventory and all7intended outcomes; preserve receipt7f335b0b at tested7e95/c06tree without rebinding. Real shared-grader atexit2 counterexample then required exact integer0/1 decisions; preserve original16effects, add3controls/2selfmutants,42baselines+36bodykills+6controls/84matched logs. Existing helper04b98,14productionLean,66targets,78originalbodies,ff8core andba62policy unchanged. Update exact commands and stale observation documentation; controlled current-native successor verification pending. Reversible. Evidence: native artifacts12928099260/12929211918 and bounded shared-exit handoff/actual-red/final-matrix receipts.
+
+
+## Preserved peer3239 historical contribution (source-scoped)
+
+
+[2026-10-29T19:51Z] [Phase2/3] [Layer B/C] Build the finished narrow
+downloaded-artifact verifier, real ZIP/CLI tests, six policy source mutants and
+native downloader workflow. Reason: actual local execution outage prevents ZIP
+inspection; available hosted execution can download and check the bytes using
+a self-tested tool. All existing outer tests/mutants retained; threshold12/12
+intended kills per mode. No production Lean or mathematical bound changes.
+Reversible. Evidence: requests pin both immutable actual archives and their
+GitHub/source identities; source-current qualification is pending.
+
+[2026-10-29T19:51Z] [Phase3] [Layer C] Record actual corrected44c39bdc
+native gate success at tested2559df14:18 shared-source+10 harness+175 component
+tests per mode; twelve adapter mutants per mode;157 constants/58421 closure;
+seven actual controls; separate console upload. This is not yet a downloaded
+byte-integrity pass. Preserve the independent dirty-overlay/dependency Git-byte
+custody defect for the parallel core-policy repair; no full CBZ claim.
+
+[2026-10-29T19:54Z] [Phase3] [Layer C] Native tool qualification at9192317
+run40943880441/job123694013004 failed in component/mutation controls before ZIP
+inspection. Preserve this actual red and its uploaded logs. Add an always-run
+diagnostic surface and copy failed mutation output before a shell failure exits;
+the prior workflow exposed only redirected artifacts while local extraction was
+unavailable. This changes evidence visibility only; no checker/test is weakened.
+The underlying failure will be fixed after its actual diagnostic is observed.
+Reversible.
+
+[2026-10-29T19:55:18Z] [Phase3] [Layer B/C] Actual diagnostic native run40944215298/
+job123695172694 executed192 normal component tests:191 passed; the retained
+portable-runner test failed solely because it still required the old six-case
+count after the runner correctly returned twelve. Preserve both red runs and
+their raw artifacts. Strengthen that existing test to require twelve cases AND
+the exact set of all six original plus all six new mutation names, retaining
+every baseline/intended-failure/source-preservation assertion. No failing test
+is removed or disabled; no mathematical bound or checker policy changes.
+Optimized mode and real ZIP inspection remain unobserved. Reversible.
+
+[2026-10-29T19:59:47Z] [Phase3] [Layer B/C] Actual source4351227b qualification
+run40944404957/job123695831074 passed192 component tests in EACH mode, all
+twelve exact intended source mutants per mode, and actual downloaded old-negative
+and repaired-positive archives in both modes. The old ZIP fails only on the
+recorded authoritative-gate.log mismatch; repaired ZIPafb412746bcda2a2b869b8513a3300230eec1d7207b30fce927bd003e6c60410 verifies all21 logs and exact
+commit2559df14/manifest6978949f. Checker source77463e76d49fc68c0e8db85f6671fc7a0efaccecd93727572b3d02242b8647b1.
+Raw proof artifact12927504778/e4731beb3f6d5bc7e376afd4c7442a68a111687a3e4f5fbf080243695749cbba preserves both archives and reports.
+
+[2026-10-29T19:59:47Z] [Phase2/4] [Layer B/C] Seal the verified raw ZIPs and reports
+in an ordinary recoverable Git evidence branch, using the existing hosted
+runtime. Reason: GitHub artifacts expire after90 days, while cold-start gates
+must inherit durable bytes. The publication step grants scoped contents write,
+uploads only the two validated ZIPs, four exact reports, summary/checksum/index,
+checks every Git blob identity and reads back the complete untruncated tree.
+It creates a fresh branch parented by the checked tool commit; no shared ref is
+rewritten or deleted. This is byte preservation, not a new mathematical auditor.
+Actual publication remains pending until its readback is observed. Reversible.
+
+[2026-10-29T20:53:31.091136+00:00] [Phase2/3] [Layer B/C] Deliberately close only66 exact conditional companion statements after actual native4871 source-qualified build/kernel/axioms/all7controls and full263input/21log custody; preserve prior quarantine at immutable4871 and all failures. Add explicit A6/application boundaries, without continuum or scientific promotion. Compose peer3239 artifact/evidence and532d846 inert archives with landed95eb guidance. Fix actual artifact read/hash pathname race using one bounded snapshot; retain17 old bodies/caps, add actual replacement regression plus seventh artifact mutant. Strict outer union retains original6+producer6+artifact7=19effects/20pairs per mode. Primary upload omits disposable source/work/repo copies but retains all process logs/failures; dedicated byte workflow consumes exact already Git-preserved archives with digest-before/returned-digest/after comparisons and contents:read. Remove automatic new evidence-ref creation and expiring artifact dependency from that workflow; prior implementation/raw archives remain recoverable at3239. Reversible. Evidence: actual4871 receipt032d7252, peer3239 history, exact source mutations and current qualification logs. No new proof or weakened bound.
+
+[2026-10-29T21:10:13.698452+00:00] [Phase3] [Layer C] Observe262normal/262optimized component controls, no skips, at manifest48b88310. Both exact read-only artifact-workflow command blocks then exit0:18focused ZIP controls/mode, full19effect/20pair matrices per mode,40qualified pairs/160raw logs independently checked, plus four exact historical negative/positive ZIP outcomes. Preserve initial exact-name/upload-format RED and strict output-preflight refusal; fix recipe to RUNNER_TEMP rather than relax source guard. Packaging prediction retains774/19110entries including all21owned and328adverse logs plusreceipt; discard no mathematical test/failure. Preserve actual4871 receipt/fullconsole/21logs/328adverse logs in an inert native evidence namespace to avoid artifact expiry. Documentation-only status/pointer update follows code qualification; fresh native result is not presumed. Reversible. Evidence: component/command exit receipts, OUTER_UNION_VERIFICATION, PACKAGING_COVERAGE and qualified4871/MANIFEST.
+
+[2026-10-29T21:12:42.607267+00:00] [Phase2/3] [Layer B] Preserve raw native logs byte-for-byte, including trailing transport spaces. Scope whitespace-format exemption only to *.log under qualified4871 evidence through local.gitattributes; source formatting still rejects an adverse active.py control and passes after its real source fix. Do not strip or alter captured evidence to satisfy formatting. Mathematical tests/bounds/audits unchanged; old raw-log formatting failure retained. Reversible. Evidence: PRESERVATION_BOUNDARY.md and WHITESPACE_PRESERVATION_BOUNDARY.json.

@@ -1,0 +1,149 @@
+[
+  {
+    "path": "axioms.log",
+    "bytes": 7083,
+    "expected": "bde1b2a42b4889023bf1dde187ba48011b87c23d8690ef3f189487eee174b894",
+    "actual": "bde1b2a42b4889023bf1dde187ba48011b87c23d8690ef3f189487eee174b894",
+    "match": true
+  },
+  {
+    "path": "build.log",
+    "bytes": 1717,
+    "expected": "2e53488a554aeb765738786cb0be1998028a3e019d7ce36b65129b6b7a42a7a5",
+    "actual": "2e53488a554aeb765738786cb0be1998028a3e019d7ce36b65129b6b7a42a7a5",
+    "match": true
+  },
+  {
+    "path": "compiled_admission.log",
+    "bytes": 32994,
+    "expected": "b13005dab32cf6fa3c6a635af5b23134a477f199457c58e240f8eade35f0ee17",
+    "actual": "b13005dab32cf6fa3c6a635af5b23134a477f199457c58e240f8eade35f0ee17",
+    "match": true
+  },
+  {
+    "path": "compiled_admission_axioms.log",
+    "bytes": 7083,
+    "expected": "bde1b2a42b4889023bf1dde187ba48011b87c23d8690ef3f189487eee174b894",
+    "actual": "bde1b2a42b4889023bf1dde187ba48011b87c23d8690ef3f189487eee174b894",
+    "match": true
+  },
+  {
+    "path": "compiled_admission_build.log",
+    "bytes": 1015,
+    "expected": "e1e9530c90a17bead618820047a61ceebf933532111558d94bebbaa78107bfea",
+    "actual": "e1e9530c90a17bead618820047a61ceebf933532111558d94bebbaa78107bfea",
+    "match": true
+  },
+  {
+    "path": "compiled_admission_leanchecker.log",
+    "bytes": 0,
+    "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "match": true
+  },
+  {
+    "path": "compiled_baseline.log",
+    "bytes": 32738,
+    "expected": "333a77422bf8843a96e702db91e939d42af3a05c86c579e21340362bc71b8cb9",
+    "actual": "333a77422bf8843a96e702db91e939d42af3a05c86c579e21340362bc71b8cb9",
+    "match": true
+  },
+  {
+    "path": "compiled_metaprogram.log",
+    "bytes": 32910,
+    "expected": "abf699c978c3371bb6c1c20f4b48c6d7c5bbfa3c5ad07b23ae736bc9d53e84f4",
+    "actual": "abf699c978c3371bb6c1c20f4b48c6d7c5bbfa3c5ad07b23ae736bc9d53e84f4",
+    "match": true
+  },
+  {
+    "path": "compiled_metaprogram_axioms.log",
+    "bytes": 7083,
+    "expected": "bde1b2a42b4889023bf1dde187ba48011b87c23d8690ef3f189487eee174b894",
+    "actual": "bde1b2a42b4889023bf1dde187ba48011b87c23d8690ef3f189487eee174b894",
+    "match": true
+  },
+  {
+    "path": "compiled_metaprogram_build.log",
+    "bytes": 938,
+    "expected": "146f47391ec62346d46583ad84130e2e9de46d1dbc98674f9ef0b36881bdc6f2",
+    "actual": "146f47391ec62346d46583ad84130e2e9de46d1dbc98674f9ef0b36881bdc6f2",
+    "match": true
+  },
+  {
+    "path": "compiled_metaprogram_leanchecker.log",
+    "bytes": 0,
+    "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "match": true
+  },
+  {
+    "path": "custom_imported.log",
+    "bytes": 46,
+    "expected": "6e7f917c7fe2fdc3efe1943dcc327c56acadd0b0ca96507a4327073fdfd2f083",
+    "actual": "6e7f917c7fe2fdc3efe1943dcc327c56acadd0b0ca96507a4327073fdfd2f083",
+    "match": true
+  },
+  {
+    "path": "elaborated-types.log",
+    "bytes": 247277,
+    "expected": "f8089be2e69db162c2e3b1e3062dbec69234a00b4400caee57f4ff6fc3ec3e06",
+    "actual": "f8089be2e69db162c2e3b1e3062dbec69234a00b4400caee57f4ff6fc3ec3e06",
+    "match": true
+  },
+  {
+    "path": "false_fold.log",
+    "bytes": 145,
+    "expected": "5a054c8ed6a1772307234f7666ad863d93883f9a2842179388950417ab55b2b9",
+    "actual": "5a054c8ed6a1772307234f7666ad863d93883f9a2842179388950417ab55b2b9",
+    "match": true
+  },
+  {
+    "path": "false_power.log",
+    "bytes": 145,
+    "expected": "4c86cce4182be297ea1fe58754a240f2d3607de92369eeb91d244fde4982a2f7",
+    "actual": "4c86cce4182be297ea1fe58754a240f2d3607de92369eeb91d244fde4982a2f7",
+    "match": true
+  },
+  {
+    "path": "inventory.log",
+    "bytes": 32738,
+    "expected": "333a77422bf8843a96e702db91e939d42af3a05c86c579e21340362bc71b8cb9",
+    "actual": "333a77422bf8843a96e702db91e939d42af3a05c86c579e21340362bc71b8cb9",
+    "match": true
+  },
+  {
+    "path": "leanchecker.log",
+    "bytes": 0,
+    "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "match": true
+  },
+  {
+    "path": "native.log",
+    "bytes": 70,
+    "expected": "8a0b9f79f3265724af58b27461627f9d532535f8a23681361da731c9ea37c101",
+    "actual": "8a0b9f79f3265724af58b27461627f9d532535f8a23681361da731c9ea37c101",
+    "match": true
+  },
+  {
+    "path": "sorry.log",
+    "bytes": 180,
+    "expected": "30edc04bf61fe98c25da0e126b5632aab4ad4f4e2cdf68a0e1dd3a16c7ca3a5f",
+    "actual": "30edc04bf61fe98c25da0e126b5632aab4ad4f4e2cdf68a0e1dd3a16c7ca3a5f",
+    "match": true
+  },
+  {
+    "path": "version-preflight.log",
+    "bytes": 106,
+    "expected": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680",
+    "actual": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680",
+    "match": true
+  },
+  {
+    "path": "version.log",
+    "bytes": 106,
+    "expected": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680",
+    "actual": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680",
+    "match": true
+  }
+]

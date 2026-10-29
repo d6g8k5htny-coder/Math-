@@ -1,0 +1,15 @@
+test_changed_positive_baseline_digest_refuses_before_injection (test_determinant_admission_harness.AdmissionHarnessTests.test_changed_positive_baseline_digest_refuses_before_injection) ... FAIL
+
+======================================================================
+FAIL: test_changed_positive_baseline_digest_refuses_before_injection (test_determinant_admission_harness.AdmissionHarnessTests.test_changed_positive_baseline_digest_refuses_before_injection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py", line 23, in wrapped
+    return _original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.054s
+
+FAILED (failures=1)
