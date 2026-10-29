@@ -56,6 +56,24 @@ class CodePositionTests(unittest.TestCase):
         text = '/- one\ntwo -/\ndef s := "a\nb"\n-- c\ntheorem t : P := sorry\n'
         self.assertEqual(hits(text), [(6, 'sorry')])
 
+    def test_interpolation_holes_are_code(self):
+        # Codex review 4415546474: the holes of s!/m!/f! strings are expressions.
+        self.assertEqual(hits('def s := s!"{(sorry : Nat)}"'), [(1, 'sorry')])
+        self.assertEqual(hits('def s := m!"x {f admit} y"'), [(1, 'admit')])
+        self.assertEqual(hits('def s := s!"a\n{\n  (sorry : Nat)}"'), [(3, 'sorry')])
+        self.assertEqual(hits('def s := s!"{g {h := sorry}}"'), [(1, 'sorry')])
+        self.assertEqual(hits('def s := s!"literal sorry {x} admit"'), [])
+        self.assertEqual(hits('def s := s!"escaped \\{sorry}"'), [])
+        self.assertEqual(hits('def s := "{sorry}"'), [])
+
+    def test_raw_strings(self):
+        # Codex review 4415546483: raw strings have no escapes and may use # delimiters.
+        self.assertEqual(hits('def s := r#"a "sorry" b"#'), [])
+        self.assertEqual(hits('def s := r"\\"\ntheorem t : False := sorry\n-- "'), [(2, 'sorry')])
+        self.assertEqual(hits('def s := r##"x "# sorry"##\ndef u := admit'), [(2, 'admit')])
+        self.assertEqual(hits('def r := sorry'), [(1, 'sorry')])
+        self.assertEqual(hits('def x := bar"y"'), [])
+
     def test_code_after_a_comment_on_the_same_line(self):
         self.assertEqual(hits('/- c -/ sorry'), [(1, 'sorry')])
         self.assertEqual(hits('def a := "x" ++ sorry'), [(1, 'sorry')])
@@ -88,9 +106,18 @@ class NonCodeTests(unittest.TestCase):
 
 
 class MalformedInputTests(unittest.TestCase):
+    def test_unclosed_interpolation_hole_raises(self):
+        # Through the full lexer an unclosed hole also leaves its string unterminated, so
+        # the helper's own refusal is pinned directly.
+        for text in ('{abc', '{a {b} c', '{"}" x'):
+            with self.subTest(text=text), self.assertRaises(scan.LexError):
+                scan._hole_end(text, 0)
+        self.assertEqual(scan._hole_end('{a {b} "}" c} d', 0), 12)
+
     def test_unterminated_regions_raise(self):
         for text in ('/- never closed sorry', '/- /- one level closed -/ sorry',
-                     'def s := "never closed', 'def q := «never closed'):
+                     'def s := "never closed', 'def q := «never closed',
+                     'def r := r#"never closed"', 'def h := s!"{unclosed"'):
             with self.subTest(text=text):
                 with self.assertRaises(scan.LexError):
                     scan.findings_for_text(text)
@@ -154,6 +181,11 @@ MUTANTS = [
     ('lake not excluded', "if p and '/.lake/' not in '/' + p", "if p"),
     ('guillemets dropped', "parts.append(text[i + 1:j])", "parts.append('')"),
     ('line count frozen', "line += 1\n            i += 1", "i += 1"),
+    ('interpolation holes skipped', "elif interpolated and text[i] == '{':", "elif False:"),
+    ('interpolation never detected', "interpolated = i >= 2 and", "interpolated = False and"),
+    ('raw strings not recognised', "elif c == 'r' and RAW_OPEN.match(text, i)", "elif False and RAW_OPEN.match(text, i)"),
+    ('raw string hashes ignored', "start, close = line, '\"' + hashes", "start, close = line, '\"'"),
+    ('unclosed hole passes', "raise LexError('unterminated interpolation hole')", "return n"),
 ]
 
 

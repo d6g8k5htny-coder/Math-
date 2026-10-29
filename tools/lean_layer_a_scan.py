@@ -13,8 +13,10 @@ every code occurrence of a forbidden name:
 A name matches when the whole identifier, or any dotted component of it, is forbidden
 (`Lean.ofReduceBool`, `Float.ofScientific`), including «guillemet»-quoted identifiers.
 Text inside line comments (`--`), nested block and doc comments (`/- -/`, `/-- -/`,
-`/-! -/`), string literals and character literals is ignored, so prose such as
-"densities admit versions" is not a hit.
+`/-! -/`), string literals, raw strings (`r"..."`, `r#"..."#`, which have no escapes) and
+character literals is ignored, so prose such as "densities admit versions" is not a hit.
+The `{...}` holes of interpolated strings (`s!"..."`, `m!"..."`, `f!"..."`) are code and
+are scanned.
 
 This is a static scan. It does not replace a kernel build or `#print axioms`; it closes
 the gap for Lean files that no gated package compiles. Standard library only.
@@ -29,6 +31,7 @@ from __future__ import annotations
 import argparse
 import json
 import pathlib
+import re
 import subprocess
 import sys
 
@@ -51,6 +54,32 @@ def _ident_start(c: str) -> bool:
 
 def _ident_char(c: str) -> bool:
     return c.isalnum() or c in "_'!?"
+
+
+RAW_OPEN = re.compile(r'r(#*)"')
+
+
+def _hole_end(text: str, i: int) -> int:
+    """Index of the '}' closing the interpolation hole that opens at text[i] == '{'.
+
+    Nested braces and string literals inside the hole are skipped. An unclosed hole is a
+    LexError, so a malformed interpolation can never hide code.
+    """
+    depth, j, n = 0, i, len(text)
+    while j < n:
+        ch = text[j]
+        if ch == '{':
+            depth += 1
+        elif ch == '}':
+            depth -= 1
+            if depth == 0:
+                return j
+        elif ch == '"':
+            j += 1
+            while j < n and text[j] != '"':
+                j += 2 if text[j] == '\\' else 1
+        j += 1
+    raise LexError('unterminated interpolation hole')
 
 
 def code_identifiers(text: str):
@@ -80,7 +109,18 @@ def code_identifiers(text: str):
                 else:
                     line += text[i] == '\n'
                     i += 1
+        elif c == 'r' and RAW_OPEN.match(text, i) and (i == 0 or not (_ident_char(text[i - 1]) or text[i - 1] == '.')):
+            # raw string r"..." / r#"..."#: no escapes; closes at '"' followed by the same hashes
+            hashes = RAW_OPEN.match(text, i).group(1)
+            start, close = line, '"' + hashes
+            j = text.find(close, i + 2 + len(hashes))
+            if j < 0:
+                raise LexError('unterminated raw string opened on line %d' % start)
+            line += text.count('\n', i, j)
+            i = j + len(close)
         elif c == '"':
+            # s!"..{e}.." / m!"..." / f!"...": the braced holes are code and are scanned
+            interpolated = i >= 2 and text[i - 1] == '!' and _ident_char(text[i - 2])
             start, i = line, i + 1
             while True:
                 if i >= n:
@@ -91,6 +131,12 @@ def code_identifiers(text: str):
                 elif text[i] == '"':
                     i += 1
                     break
+                elif interpolated and text[i] == '{':
+                    j = _hole_end(text, i)
+                    for hole_line, name, parts in code_identifiers(text[i + 1:j]):
+                        yield line + hole_line - 1, name, parts
+                    line += text.count('\n', i, j)
+                    i = j + 1
                 else:
                     line += text[i] == '\n'
                     i += 1
