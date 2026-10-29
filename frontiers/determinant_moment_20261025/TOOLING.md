@@ -58,3 +58,13 @@ downloaded-artifact workflow runs those commands and preserves their raw logs.
 Its request file pins the old negative artifact12924995112 and repaired positive
 artifact12928575403 including source identities and independently observed ZIP
 digests. A positive result means byte transport integrity only.
+
+
+Durable preservation is part of that same workflow: after successful downloads
+and checks it records only the two raw ZIPs, four reports, SUMMARY.json,
+SHA256SUMS and README under evidence/cbz-determinant-transport-20261029/ on a
+fresh evidence branch. Every created Git blob is checked against its exact
+bytes and the new tree is read back without truncation. PUBLICATION.json names
+the resulting branch/commit/file SHA256s. Integrate that ordinary descendant
+after checks; future local verification uses those committed ZIPs and requires
+no90-day artifact URL. No mathematical status is awarded by publication.

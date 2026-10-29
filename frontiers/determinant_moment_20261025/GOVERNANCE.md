@@ -81,3 +81,13 @@ intended message; the repaired artifact must authenticate all21 logs. Raw ZIPs,
 reports and mutations are retained separately. The request file identifies the
 two historical run cuts exactly; it is not a current-package kernel certificate.
 Maintenance owner none; usage and self-verification are in TOOLING/STATUS.
+
+
+The existing downloaded-artifact workflow now also seals only its validated raw
+ZIPs/reports into a fresh recoverable evidence branch, verifies exact Git blob
+identities and reads back the untruncated tree. This is operational preservation
+of already checked data, not a mathematical auditor. It changes no shared ref
+and retains checksum/index metadata for offline cold starts. The publication
+result is usable only after actual readback. Source4351227b's checker192 tests
+and12 mutations per mode plus actual downloaded positive/negative runs were
+observed green; publication itself is a separately observed operation.

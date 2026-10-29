@@ -113,3 +113,13 @@ the twelve-case runner itself returned zero. The existing test now requires
 all twelve exact names (including every original case), preserving all intent
 and source-preservation assertions. Both actual red runs/artifacts remain
 retained; optimized mode and archive replay still require a fresh observed run.
+
+Observed tool source4351227b/run40944404957/job123695831074:192 component
+tests EACH mode, twelve exact source mutants EACH mode, actual downloaded
+old-negative (exact console mismatch) and repaired-positive (all21 log hashes,
+exact tested commit/manifest) EACH mode passed their intended checks. Checker
+source SHA25677463e76d49fc68c0e8db85f6671fc7a0efaccecd93727572b3d02242b8647b1.
+The proof artifact12927504778 has ZIP digeste4731beb3f6d5bc7e376afd4c7442a68a111687a3e4f5fbf080243695749cbba.
+Durable raw-byte Git publication is now being run because ephemeral artifact
+URLs alone are insufficient for future cold starts; read PUBLICATION.json and
+its exact tree/blob readback rather than inferring that this step succeeded.

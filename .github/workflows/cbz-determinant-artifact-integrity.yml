@@ -15,7 +15,7 @@ name: Determinant downloaded-artifact integrity controls
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   actions: read
 
 jobs:
@@ -100,6 +100,74 @@ jobs:
           (out/'SUMMARY.json').write_text(json.dumps(summary,indent=2,sort_keys=True)+'\n')
           print(json.dumps(summary,sort_keys=True))
           PYARTIFACT
+      - name: Seal verified raw ZIPs and reports in a recoverable Git evidence branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          python -B -S - <<'PYSEAL'
+          import base64,hashlib,json,os,subprocess
+          from pathlib import Path
+          from concurrent.futures import ThreadPoolExecutor
+          repository=os.environ['GITHUB_REPOSITORY']
+          endpoint='repos/'+repository+'/'
+          def api(path,body=None):
+              command=['gh','api',endpoint+path]
+              raw=None
+              if body is not None:
+                  command+=['--method','POST','--input','-']
+                  raw=json.dumps(body).encode()
+              run=subprocess.run(command,input=raw,capture_output=True,check=True)
+              return json.loads(run.stdout)
+          source=Path('.cbz-determinant-wire-evidence')
+          summary=json.loads((source/'SUMMARY.json').read_text())
+          if summary.get('status')!='PASS' or len(summary.get('controls',[]))!=4:
+              raise SystemExit('only fully verified actual archive controls may be sealed')
+          prefix='evidence/cbz-determinant-transport-20261029/'
+          files={'SUMMARY.json':(source/'SUMMARY.json').read_bytes()}
+          for label in ['historical-negative','repaired-positive']:
+              for name in ['artifact.zip','normal.json','optimized.json']:
+                  relative=label+'/'+name
+                  files[relative]=(source/relative).read_bytes()
+          manifest=''.join(hashlib.sha256(raw).hexdigest()+'  '+path+'\n' for path,raw in sorted(files.items()))
+          files['SHA256SUMS']=manifest.encode()
+          files['README.md']=(
+              '# Verified determinant transport evidence\n\n'
+              'Collected by actual workflow run'+os.environ['GITHUB_RUN_ID']+
+              ', attempt'+os.environ['GITHUB_RUN_ATTEMPT']+', tool source'+os.environ['GITHUB_SHA']+'.\n'
+              'Raw ZIPs preserve both the historical self-hash failure and the repaired21-log receipt.\n'
+              'SUMMARY.json and the four mode reports record actual outcomes. This is byte-transport\n'
+              'evidence only; it awards no new mathematical theorem or federation CBZ status.\n'
+              'Run sha256sum -c SHA256SUMS here, then artifact_integrity.py on each raw ZIP using\n'
+              'the independent commit/manifest identities in artifact-integrity-requests.json.\n'
+          ).encode()
+          def blob(item):
+              path,raw=item
+              expected=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest()
+              result=api('git/blobs',dict(encoding='base64',content=base64.b64encode(raw).decode()))
+              if result.get('sha')!=expected:
+                  raise SystemExit('Git blob identity differs from the exact archived bytes')
+              return dict(path=prefix+path,mode='100644',type='blob',sha=expected)
+          with ThreadPoolExecutor(max_workers=4) as pool:
+              entries=list(pool.map(blob,sorted(files.items())))
+          original=api('git/commits/'+os.environ['GITHUB_SHA'])
+          tree=api('git/trees',dict(base_tree=original['tree']['sha'],tree=entries))
+          commit=api('git/commits',dict(message='Preserve actual verified determinant ZIPs and source-bound reports',
+                                     tree=tree['sha'],parents=[os.environ['GITHUB_SHA']]))
+          branch='cbz/determinant-wire-evidence-'+os.environ['GITHUB_RUN_ID']+'-'+os.environ['GITHUB_RUN_ATTEMPT']
+          api('git/refs',dict(ref='refs/heads/'+branch,sha=commit['sha']))
+          readback=api('git/trees/'+commit['tree']['sha']+'?recursive=1')
+          if readback.get('truncated'):
+              raise SystemExit('archive tree readback was truncated')
+          actual={row['path']:row['sha'] for row in readback['tree']}
+          if any(actual.get(row['path'])!=row['sha'] for row in entries):
+              raise SystemExit('archive tree readback differs from the verified byte identities')
+          report=dict(schema_version=1,status='PUBLISHED_AND_READBACK_MATCHED',branch=branch,
+                      commit=commit['sha'],tree=tree['sha'],source_tool_commit=os.environ['GITHUB_SHA'],
+                      files={prefix+path:hashlib.sha256(raw).hexdigest() for path,raw in sorted(files.items())})
+          (source/'PUBLICATION.json').write_text(json.dumps(report,indent=2,sort_keys=True)+'\n')
+          print(json.dumps(report,sort_keys=True))
+          PYSEAL
       - name: Preserve raw downloaded ZIPs, positive and intended-negative reports and mutation logs
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9

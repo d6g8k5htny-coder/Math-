@@ -63,3 +63,21 @@ the exact set of all six original plus all six new mutation names, retaining
 every baseline/intended-failure/source-preservation assertion. No failing test
 is removed or disabled; no mathematical bound or checker policy changes.
 Optimized mode and real ZIP inspection remain unobserved. Reversible.
+
+[2026-10-29T19:59:47Z] [Phase3] [Layer B/C] Actual source4351227b qualification
+run40944404957/job123695831074 passed192 component tests in EACH mode, all
+twelve exact intended source mutants per mode, and actual downloaded old-negative
+and repaired-positive archives in both modes. The old ZIP fails only on the
+recorded authoritative-gate.log mismatch; repaired ZIPafb412746bcda2a2b869b8513a3300230eec1d7207b30fce927bd003e6c60410 verifies all21 logs and exact
+commit2559df14/manifest6978949f. Checker source77463e76d49fc68c0e8db85f6671fc7a0efaccecd93727572b3d02242b8647b1.
+Raw proof artifact12927504778/e4731beb3f6d5bc7e376afd4c7442a68a111687a3e4f5fbf080243695749cbba preserves both archives and reports.
+
+[2026-10-29T19:59:47Z] [Phase2/4] [Layer B/C] Seal the verified raw ZIPs and reports
+in an ordinary recoverable Git evidence branch, using the existing hosted
+runtime. Reason: GitHub artifacts expire after90 days, while cold-start gates
+must inherit durable bytes. The publication step grants scoped contents write,
+uploads only the two validated ZIPs, four exact reports, summary/checksum/index,
+checks every Git blob identity and reads back the complete untruncated tree.
+It creates a fresh branch parented by the checked tool commit; no shared ref is
+rewritten or deleted. This is byte preservation, not a new mathematical auditor.
+Actual publication remains pending until its readback is observed. Reversible.
