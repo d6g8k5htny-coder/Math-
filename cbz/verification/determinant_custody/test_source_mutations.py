@@ -54,7 +54,7 @@ CASES = (
 def accepted_baseline(result, target):
     stderr = result.stderr
     passed = re.findall(r'^(test_[A-Za-z0-9_]+) \([^\n]*\) \.\.\. ok$', stderr, re.M)
-    return (result.returncode == 0 and passed == [target]
+    return (type(result.returncode) is int and result.returncode == 0 and passed == [target]
             and re.search(r'^Ran 1 test in ', stderr, re.M) is not None
             and re.search(r'^OK$', stderr, re.M) is not None
             and 'skipped=' not in stderr and 'ERROR:' not in stderr)
@@ -66,7 +66,7 @@ def accepted_failure(result, target, reason):
     if len(headers) != 1 or summary is None or headers[0].group(1) != target:
         return False
     section = stderr[headers[0].end():summary.start()]
-    return (result.returncode == 1
+    return (type(result.returncode) is int and result.returncode == 1
             and 'ERROR:' not in stderr and 'skipped=' not in stderr
             and ('in ' + target) in section and reason in section
             and re.search(r'^FAILED \(failures=1\)$', stderr, re.M) is not None)
@@ -89,6 +89,9 @@ class SourceMutationTests(unittest.TestCase):
             return subprocess.CompletedProcess([], code, stdout='', stderr=stderr)
         self.assertTrue(accepted_failure(sample(1, text), target, 'intended bypass'))
         self.assertFalse(accepted_failure(sample(2, text), target, 'intended bypass'))
+        self.assertFalse(accepted_failure(sample(True, text), target, 'intended bypass'))
+        self.assertFalse(accepted_failure(sample(1, text.replace('intended bypass', 'unrelated') + 'intended bypass\n'),
+                                          target, 'intended bypass'))
         self.assertFalse(accepted_failure(sample(1, text.replace('intended bypass', 'unrelated')),
                                           target, 'intended bypass'))
         self.assertFalse(accepted_failure(sample(1, text.replace('Ran 1 test', 'Ran 0 tests')),
@@ -107,12 +110,13 @@ class SourceMutationTests(unittest.TestCase):
         self.assertFalse(accepted_baseline(sample(0, good + 'skipped=1\n'), target))
         self.assertFalse(accepted_baseline(sample(0, good + 'ERROR: unrelated\n'), target))
         self.assertFalse(accepted_baseline(sample(2, good), target))
+        self.assertFalse(accepted_baseline(sample(False, good), target))
 
     def test_grader_source_mutation_is_detected(self):
         source = Path(__file__).read_text()
-        old = 'return (result.returncode == 1\n'
+        old = 'type(result.returncode) is int and result.returncode == 1\n'
         self.assertEqual(source.count(old), 1)
-        altered = source.replace(old, 'return (True\n', 1)
+        altered = source.replace(old, 'True\n', 1)
         namespace = {'__name__': 'det_custody_mutated_grader', '__file__': __file__}
         exec(compile(altered, __file__, 'exec'), namespace)
         fake = subprocess.CompletedProcess([], 2, stdout='', stderr=(
