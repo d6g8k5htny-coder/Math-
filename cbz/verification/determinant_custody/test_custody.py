@@ -95,6 +95,55 @@ class SourceCustody(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "driver|loaded|identity"):
             self.call_guard(expected_head=new_head)
 
+
+    def test_ambient_git_environment_cannot_redirect_the_checked_commit(self):
+        from unittest import mock
+        foreign = self.repo.parent / (self.repo.name + '-foreign')
+        foreign.mkdir()
+        self.addCleanup(lambda: __import__('shutil').rmtree(foreign, ignore_errors=True))
+        git(foreign, 'init', '-q')
+        git(foreign, 'config', 'user.name', 'foreign fixture')
+        git(foreign, 'config', 'user.email', 'fixture@example.invalid')
+        (foreign / 'foreign.txt').write_text('foreign\n')
+        git(foreign, 'add', '.')
+        git(foreign, 'commit', '-qm', 'foreign')
+        with mock.patch.dict(os.environ, {'GIT_DIR': str(foreign / '.git'),
+                                         'GIT_WORK_TREE': str(foreign)}):
+            self.assertEqual(self.call_guard(expected_head=self.initial_head), self.initial_head)
+
+    def test_replace_refs_cannot_relabel_the_committed_source(self):
+        self.proof.write_text('replacement\n')
+        self._write_manifest()
+        git(self.repo, 'add', '.')
+        git(self.repo, 'commit', '-qm', 'replacement')
+        other = git(self.repo, 'rev-parse', 'HEAD')
+        git(self.repo, 'checkout', '-q', '--detach', self.initial_head)
+        git(self.repo, 'replace', self.initial_head, other)
+        self.m = json.loads(self.manifest.read_text())
+        self.assertEqual(self.call_guard(expected_head=self.initial_head), self.initial_head)
+
+    def test_inherited_lean_search_paths_are_not_sent_to_execution(self):
+        import sys
+        from unittest import mock
+        out = self.repo / 'logs'
+        out.mkdir()
+        code = ("import os,json;print(json.dumps({k:os.environ.get(k) "
+                "for k in ('LEAN_PATH','LEAN_SRC_PATH')}))")
+        with mock.patch.dict(os.environ, {'LEAN_PATH': '/outside/lean',
+                                         'LEAN_SRC_PATH': '/outside/source'}):
+            result = self.gate.run([sys.executable, '-c', code], 'environment', out)
+        self.assertEqual(json.loads(result), {'LEAN_PATH': None, 'LEAN_SRC_PATH': None})
+
+    def test_owned_symlink_source_is_rejected(self):
+        data = self.proof.read_bytes()
+        self.proof.unlink()
+        outside = self.repo / 'other.lean'
+        outside.write_bytes(data)
+        self.proof.symlink_to(outside)
+        with self.assertRaisesRegex(ValueError, 'symlink|source'):
+            self.call_guard(expected_head=self.initial_head)
+
+
 class DependencyCustody(unittest.TestCase):
     def setUp(self):
         tmp = tempfile.TemporaryDirectory()
