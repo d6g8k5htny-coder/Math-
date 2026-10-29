@@ -295,6 +295,19 @@ class SourceCustodyTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'unbound symlink target'):
             self.gate.dependency_state(manifest)
 
+    def test_dependency_ignores_foreign_git_environment(self):
+        manifest = self.dependency_fixture()
+        with tempfile.TemporaryDirectory() as temporary:
+            foreign = Path(temporary) / 'foreign-dependency'
+            subprocess.check_call(['git', 'clone', '-q', str(self.dep), str(foreign)])
+            subprocess.check_call(['git', '-C', str(foreign), 'config', 'user.name', 'Foreign Fixture'])
+            subprocess.check_call(['git', '-C', str(foreign), 'config', 'user.email', 'foreign@example.invalid'])
+            (foreign / 'outside.txt').write_text('different dependency head\\n')
+            subprocess.check_call(['git', '-C', str(foreign), 'add', 'outside.txt'])
+            subprocess.check_call(['git', '-C', str(foreign), 'commit', '-qm', 'foreign dependency'])
+            with mock.patch.dict(os.environ, {'GIT_DIR': str(foreign / '.git'), 'GIT_WORK_TREE': str(self.dep)}):
+                self.assertEqual(self.gate.dependency_state(manifest), manifest['dependency_revisions'])
+
     def test_dependency_accepts_exact_clean_committed_tree(self):
         manifest = self.dependency_fixture()
         self.assertEqual(self.gate.dependency_state(manifest), manifest['dependency_revisions'])
