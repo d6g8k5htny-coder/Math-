@@ -144,6 +144,30 @@ class SourceCustody(unittest.TestCase):
             self.call_guard(expected_head=self.initial_head)
 
 
+
+    def test_nested_build_symlinks_are_rejected_before_admission(self):
+        from unittest import mock
+        build = self.root / '.lake' / 'build'
+        external = self.repo / 'external-build'
+        external.mkdir()
+        calls = []
+        def fake_run(command, label, out, expect_success=True):
+            calls.append(label)
+            if label == 'build':
+                build.mkdir(parents=True)
+                (build / 'nested').symlink_to(external, target_is_directory=True)
+            return 'fixture version'
+        with mock.patch.object(self.gate, 'source_custody', return_value=self.initial_head), \
+             mock.patch.object(self.gate, 'compiled_contract', return_value=({}, {})), \
+             mock.patch.object(self.gate, 'check_lean_version', return_value='fixture'), \
+             mock.patch.object(self.gate, 'dependency_state', return_value={}), \
+             mock.patch.object(self.gate, 'run', side_effect=fake_run):
+            with self.assertRaisesRegex(ValueError, 'symlink|build'):
+                self.gate.execute(self.m, digest(self.manifest.read_bytes()))
+        self.assertEqual(calls, ['version-preflight', 'build'])
+        self.assertFalse((self.root / '.lake/formal-evidence/receipt.json').exists())
+
+
 class DependencyCustody(unittest.TestCase):
     def setUp(self):
         tmp = tempfile.TemporaryDirectory()
