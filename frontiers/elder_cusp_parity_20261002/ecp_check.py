@@ -4,7 +4,7 @@
 Standard library only; exact rationals throughout; deterministic (a fixed linear congruential generator).
 Output: RESULTS.json (sorted keys), byte-identical under -O.  Usage:
     python3 -B -S ecp_check.py                 # exit 0, prints RESULTS.json
-    python3 -B -S ecp_check.py --mutant M3     # exit 1 (only its control fails)
+    python3 -B -S ecp_check.py --mutant M3     # exit 1, exact JSON names its sole failed control
     unknown mutant label                       -> exit 2
 
 Controls
@@ -799,6 +799,10 @@ def main(argv):
     ok = all(res['controls'].values())
     if MUT is None:
         print(json.dumps(res, indent=1, sort_keys=True))
+    else:
+        print(json.dumps({'failed_controls': [name for name, passed in res['controls'].items() if not passed],
+                          'mutant': MUT, 'scientific_effect': 'NONE'},
+                         sort_keys=True, separators=(',', ':')))
     return 0 if ok else 1
 
 
