@@ -20,3 +20,14 @@ The supported test harness imports the exact single-read driver source with `com
 The normal-mode intended RED was observed at source ae3c35b41590ae8494c37602cdf87fc09c6ffb26, run40950416828/job123716743203: one actual timestamp-valid, same-size poisoned bytecode executed although the recorded loaded-source bytes were legitimate. See the retained [failure excerpt](../../cbz/evidence/lm006-bytecode-20261029/normal-red.log). A repaired-source hosted run of all preserved tests and source mutations in both modes remains required; do not infer a pass from this commit.
 
 The child-process runner now removes inherited PYTHON variables, creates a fresh private empty bytecode-cache prefix for each child, and continues to use -B for the packet test and coefficient process. This prevents externally supplied timestamp-valid caches from replacing packet or standard-library source during the supported child execution. The retained same-size/same-mtime packet controls cover both test_oned.py and its imported oned.py, and a named source mutation must be rejected for each. The packet-control pre-repair source is commit 2224dd97dd912c85dd0dcddecaa11b5f9eb692a1; its hosted runs are queued and no RED is inferred from that queue. The previously observed driver-import RED remains recorded separately. Repaired-source full-suite and mutation executions in both modes are pending.
+
+## Outer unittest entry and bytecode custody
+
+The LM006 workflow clears inherited PYTHON variables and supplies a fresh private empty bytecode-cache prefix before discovering its test module. The independent `cbz/verification/lm006_outer_cache/test_entry.py` runs the literal workflow shell against a temporary committed-style fixture with a real same-size, same-time, externally cached poisoned test module. Its second control mutates the cache assignment and requires the exact poisoned-test assertion, one executed test and no test errors. It is self-contained (owner none). Run:
+
+```sh
+CBZ_MODE=normal python -B -S cbz/verification/lm006_outer_cache/test_entry.py
+CBZ_MODE=optimized python -B -O -S cbz/verification/lm006_outer_cache/test_entry.py
+```
+
+The earlier driver import RED and packet-cache controls are retained separately. The outer-entry pre-repair and repaired-source workflow jobs remain pending at this publication; this checkpoint is not a passing claim. This control establishes only the specified bytecode boundary, not a mathematical theorem.

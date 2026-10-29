@@ -45,6 +45,12 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p "$RUNNER_TEMP/lm006-oned-protocol"
+          while IFS='=' read -r variable _; do
+            case "$variable" in PYTHON*) unset "$variable" ;; esac
+          done < <(env)
+          lm006_cache=$(mktemp -d "$RUNNER_TEMP/lm006-harness-pyc.XXXXXXXX")
+          export PYTHONPYCACHEPREFIX="$lm006_cache"  # LM006_OUTER_CACHE
+          export PYTHONDONTWRITEBYTECODE=1
           FLAGS="-B -S"
           if [ "${{ matrix.mode }}" = optimized ]; then FLAGS="-B -O -S"; fi
           python $FLAGS -m unittest discover -s tests -p 'test_lm006_oned_coefficient_replay.py' -v 2>&1 | tee "$RUNNER_TEMP/lm006-oned-protocol/${{ matrix.mode }}.log"

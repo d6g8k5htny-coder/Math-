@@ -70,5 +70,25 @@ class OuterEntryTests(unittest.TestCase):
         self.assertIn('Ran 1 test',output)
         self.assertIn('\nOK\n',output)
 
+    def test_outer_cache_source_mutation_exposes_exact_poison(self):
+        mode=os.environ.get('CBZ_MODE','normal')
+        workflow=WORKFLOW.read_text()
+        anchor='export PYTHONPYCACHEPREFIX="$lm006_cache"  # LM006_OUTER_CACHE'
+        replacement='export PYTHONPYCACHEPREFIX="$CBZ_TEST_POISON_CACHE"  # LM006_OUTER_CACHE'
+        self.assertEqual(workflow.count(anchor),1)
+        baseline_code,baseline=exercise(self,workflow,mode)
+        self.assertEqual(baseline_code,0,baseline)
+        self.assertIn('DRIVER_REACHED',baseline)
+        self.assertIn('Ran 1 test',baseline)
+        self.assertIn('\nOK\n',baseline)
+        mutant_code,mutant=exercise(self,workflow.replace(anchor,replacement,1),mode)
+        self.assertEqual(mutant_code,1,mutant)
+        self.assertIn('FAIL: test_exact',mutant)
+        self.assertIn('AssertionError: 1 != 0',mutant)
+        self.assertIn('Ran 1 test',mutant)
+        self.assertIn('FAILED (failures=1)',mutant)
+        self.assertNotIn('DRIVER_REACHED',mutant)
+        self.assertNotIn('ERROR:',mutant)
+
 if __name__=='__main__':
     unittest.main(verbosity=2)
