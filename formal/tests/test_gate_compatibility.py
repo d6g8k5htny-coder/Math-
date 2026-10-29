@@ -93,6 +93,6 @@ class CompatibilityTests(unittest.TestCase):
                 (['probe'], 'first', out, False, first),
                 (['probe'], 'second', out, True, second),
                 (['probe'], 'copy', out, False, copied),
-            ])
+            ], 'EFFECTIVE_CWD_MISMATCH')
 
 if __name__ == '__main__': unittest.main()

@@ -82,6 +82,7 @@ def _accepted_failure(result, test, nonce, reason):
         isinstance(detail, str),
         isinstance(detail, str) and reason in detail,
         isinstance(detail, str) and ('in ' + method) in detail,
+        isinstance(detail, str) and (reason != 'ValueError not raised' or 'with self.assertRaisesRegex' in detail),
     ))
 
 
@@ -105,6 +106,7 @@ class CustodyMutationTests(unittest.TestCase):
             return subprocess.CompletedProcess([], code, MARKER + json.dumps(data) + '\n' + suffix)
         self.assertTrue(_accepted_failure(sample(1, good), test, nonce, 'intended bypass'))
         self.assertFalse(_accepted_failure(sample(2, good), test, nonce, 'intended bypass'))
+        self.assertFalse(_accepted_failure(sample(86, good), test, nonce, 'intended bypass'))
         self.assertFalse(_accepted_failure(sample(1, dict(good, tests=0)), test, nonce, 'intended bypass'))
         self.assertFalse(_accepted_failure(sample(1, dict(good, errors=[{'id':test,'detail':'crash'}])),
                                            test, nonce, 'intended bypass'))
@@ -123,6 +125,11 @@ class CustodyMutationTests(unittest.TestCase):
         self.assertFalse(_accepted_failure(sample(1, dict(good, expected_failures=[{'id':test,'detail':'expected'}])), test, nonce, 'intended bypass'))
         self.assertFalse(_accepted_failure(sample(1, dict(good, unexpected_successes=[test])), test, nonce, 'intended bypass'))
         self.assertFalse(_accepted_baseline(sample(0, good), test, nonce))
+        refusal = dict(good, failures=[{'id': test, 'detail': 'in test_guard\nValueError not raised'}])
+        refusal_at_site = dict(good, failures=[{'id': test, 'detail':
+            'in test_guard\nwith self.assertRaisesRegex(ValueError, expected):\nValueError not raised'}])
+        self.assertFalse(_accepted_failure(sample(1, refusal), test, nonce, 'ValueError not raised'))
+        self.assertTrue(_accepted_failure(sample(1, refusal_at_site), test, nonce, 'ValueError not raised'))
         self.assertFalse(_accepted_failure(subprocess.CompletedProcess([],1,'missing record'), test, nonce, 'intended bypass'))
 
     def test_grader_rejects_exit_two_even_with_plausible_failure_text(self):
@@ -150,6 +157,9 @@ class CustodyMutationTests(unittest.TestCase):
             ('failing-test', "item['id'] == test,", "True,"),
             ('reason', 'reason in detail,', 'True,'),
             ('test-frame', "('in ' + method) in detail,", 'True,'),
+            ('refusal-site',
+             "reason != 'ValueError not raised' or 'with self.assertRaisesRegex' in detail",
+             "True"),
             ('failure-status', "data['success'] is False,", "True,"),
             ('baseline-status', "return (data is not None and result.returncode == 0 and",
              "return (True or data is not None and result.returncode == 0 and"),
@@ -235,7 +245,7 @@ class CustodyMutationTests(unittest.TestCase):
              "cwd=_sync_root() if cwd is None else cwd)",
              "cwd=cwd)",
              'test_gate_compatibility.CompatibilityTests.test_run_uses_current_root_and_preserves_explicit_cwd_and_exit_contract',
-             'AssertionError'),
+             'EFFECTIVE_CWD_MISMATCH'),
             ('git-directory-environment',
              "not key.startswith('GIT_') and key not in _UNTRUSTED_LEAN_ENV",
              "key not in _UNTRUSTED_LEAN_ENV",
