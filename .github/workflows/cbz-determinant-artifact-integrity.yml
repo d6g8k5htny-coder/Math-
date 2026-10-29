@@ -40,6 +40,17 @@ jobs:
             python -B -S $flags frontiers/determinant_moment_20261025/tests/run_cbz_mutations.py --output "$RUNNER_TEMP/determinant-wire-mutations-$mode" > ".cbz-determinant-wire-evidence/mutations-$mode.log" 2>&1
             cp -R "$RUNNER_TEMP/determinant-wire-mutations-$mode" ".cbz-determinant-wire-evidence/mutations-$mode"
           done
+      - name: Preserve and expose any test or mutation failure before archive inspection
+        if: always()
+        run: |
+          for mode in normal optimized; do
+            if [ -d "$RUNNER_TEMP/determinant-wire-mutations-$mode" ] && [ ! -d ".cbz-determinant-wire-evidence/mutations-$mode" ]; then
+              cp -R "$RUNNER_TEMP/determinant-wire-mutations-$mode" ".cbz-determinant-wire-evidence/mutations-$mode"
+            fi
+          done
+          for log in .cbz-determinant-wire-evidence/tests-*.log .cbz-determinant-wire-evidence/mutations-*.log; do
+            if [ -f "$log" ]; then tail -n 100 "$log"; fi
+          done
       - name: Download immutable old-negative and repaired-positive artifacts and inspect every log
         env:
           GH_TOKEN: ${{ github.token }}

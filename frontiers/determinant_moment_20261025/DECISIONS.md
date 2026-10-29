@@ -44,3 +44,12 @@ tests per mode; twelve adapter mutants per mode;157 constants/58421 closure;
 seven actual controls; separate console upload. This is not yet a downloaded
 byte-integrity pass. Preserve the independent dirty-overlay/dependency Git-byte
 custody defect for the parallel core-policy repair; no full CBZ claim.
+
+[2026-10-29T19:54Z] [Phase3] [Layer C] Native tool qualification at9192317
+run40943880441/job123694013004 failed in component/mutation controls before ZIP
+inspection. Preserve this actual red and its uploaded logs. Add an always-run
+diagnostic surface and copy failed mutation output before a shell failure exits;
+the prior workflow exposed only redirected artifacts while local extraction was
+unavailable. This changes evidence visibility only; no checker/test is weakened.
+The underlying failure will be fixed after its actual diagnostic is observed.
+Reversible.
