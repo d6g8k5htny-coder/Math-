@@ -235,6 +235,9 @@ class RuntimeVersionTests(unittest.TestCase):
                              for p in self.root.rglob('*') if p.is_file() and p.name != 'manifest.json'}
         manifest_path.write_text(json.dumps(manifest))
         self.manifest, self.digest = gate.source_check()
+        # The process outcomes are mocked, but lexical dependency paths are real.
+        for name in self.manifest['dependency_revisions']:
+            (self.root / '.lake' / 'packages' / name).mkdir(parents=True, exist_ok=True)
         self.sentinel = self.root / '.lake/build/preserve-before-preflight'
         self.sentinel.parent.mkdir(parents=True)
         self.sentinel.write_text('old build')

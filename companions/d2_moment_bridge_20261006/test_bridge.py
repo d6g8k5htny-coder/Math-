@@ -49,7 +49,7 @@ class BridgeTests(unittest.TestCase):
         self.assertEqual(meta['theorems'],THEOREMS)
         self.assertEqual(meta['definitions'],DEFINITIONS)
         self.assertEqual(meta['scientific_effect'],'NONE')
-        self.assertEqual(meta['core_tree'],'d3f585ccf71dd9f69938576db1053ea9c012157b')
+        self.assertEqual(meta['core_tree'],'93b6bfc26f0e582c3f68e869780b40a4ce8086bd')
 
     def test_residual_identity_and_exact_equality_class(self):
         count=0
@@ -294,7 +294,7 @@ class CoreIdentityProtocolTests(unittest.TestCase):
         actual_tree = subprocess.check_output(
             ['git', '-C', str(self.root), 'rev-parse', 'HEAD:formal'],
             text=True).strip()
-        self.assertEqual(actual_tree, 'd3f585ccf71dd9f69938576db1053ea9c012157b')
+        self.assertEqual(actual_tree, '93b6bfc26f0e582c3f68e869780b40a4ce8086bd')
         self.context = {'checked_commit': self.head}
         patch = mock.patch.dict('os.environ', {'GITHUB_ACTIONS': 'false'})
         patch.start()
@@ -311,7 +311,7 @@ class CoreIdentityProtocolTests(unittest.TestCase):
 
     def good_receipt(self):
         return {'checked_commit': self.head,
-                'manifest_sha256': '7968411ca2dcc4cf63222c570380e3ad1542c47c7ff52d542f18e33849df2dc1',
+                'manifest_sha256': '87ada1da6cf97d8546e33d51b3dabd8f5e703a6f25c85a309d4dd31ebbba99ff',
                 'formalization_status': 'kernel-checked'}
 
     def test_source_accepts_exact_reviewed_core_without_lean(self):
