@@ -231,17 +231,27 @@ def checked_source_commit(m, digest, expected_head=None):
     return head
 
 
+def _checked_dependency_path(root, name):
+    require(isinstance(name, str) and name not in ('', '.', '..') and
+            len(Path(name).parts) == 1 and name == Path(name).name and not Path(name).is_absolute(),
+            'invalid dependency name')
+    path = root / '.lake' / 'packages' / name
+    for part in (root / '.lake', root / '.lake' / 'packages', path):
+        require(not part.is_symlink() and part.is_dir(), 'symlink dependency path: ' + name)
+    return path
+
+
 def dependency_state(m):
-    root = _sync_root()
+    root = _sync_root().resolve()
     actual = {}
     for name in m['dependency_revisions']:
-        repo = str(root / '.lake' / 'packages' / name)
+        repo = str(_checked_dependency_path(root, name))
         actual[name] = _git_bytes(repo, 'rev-parse', 'HEAD').decode('utf-8').strip()
         check_worktree_clean(name, _git_bytes(
             repo, 'status', '--porcelain', '--untracked-files=normal').decode('utf-8'))
     require(actual == m['dependency_revisions'], 'installed dependency HEAD differs from lock')
     for name, head in actual.items():
-        repo = (root / '.lake' / 'packages' / name).resolve()
+        repo = _checked_dependency_path(root, name)
         tracked = verify_committed_files(repo, head, allow_symlinks=True)
         # Lake caches are an explicit excluded output domain. An ignored Lean input
         # elsewhere can shadow a registered import and is not a clean dependency.

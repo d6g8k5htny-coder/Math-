@@ -276,8 +276,28 @@ class CustodyMutationTests(unittest.TestCase):
              "if True:",
              'test_source_custody.SourceCustodyTests.test_execute_strips_external_lean_search_paths',
              '/untrusted/lean'),
+            ('dependency-package-root-symlink',
+             "not part.is_symlink() and part.is_dir()",
+             "part.is_dir()",
+             'test_source_custody.SourceCustodyTests.test_dependency_refuses_symlinked_package_root',
+             'ValueError not raised'),
+            ('dependency-packages-ancestor-symlink',
+             "not part.is_symlink() and part.is_dir()",
+             "part.is_dir()",
+             'test_source_custody.SourceCustodyTests.test_dependency_refuses_symlinked_packages_ancestor',
+             'ValueError not raised'),
+            ('dependency-name-canonical',
+             "name == Path(name).name and not Path(name).is_absolute()",
+             "not Path(name).is_absolute()",
+             'test_source_custody.SourceCustodyTests.test_dependency_rejects_noncanonical_name',
+             'ValueError not raised'),
+            ('dependency-lake-ancestor-symlink',
+             "not part.is_symlink() and part.is_dir()",
+             "part.is_dir()",
+             'test_source_custody.SourceCustodyTests.test_dependency_refuses_symlinked_lake_ancestor',
+             'ValueError not raised'),
         ]
-        self.assertEqual(len(cases), 19, 'declared finite mutation set changed')
+        self.assertEqual(len(cases), 23, 'declared finite mutation set changed')
         results = []
         for label, before, after, test, reason in cases:
             with self.subTest(mutant=label), tempfile.TemporaryDirectory() as td:
@@ -299,7 +319,7 @@ class CustodyMutationTests(unittest.TestCase):
                                 'intended assertion observation missing: ' + label + '\n' + result.stdout)
                 results.append({'id': label, 'test': test, 'reason': reason, 'exit': result.returncode})
         print('CUSTODY_SOURCE_MUTATIONS ' + json.dumps({
-            'threshold': '19/19 (100% finite declared set)',
+            'threshold': '23/23 (100% finite declared set)',
             'optimized_children': bool(sys.flags.optimize), 'results': results}, sort_keys=True))
 
 

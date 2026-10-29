@@ -37,3 +37,5 @@ orchestration only and earns no mathematical/test pass.
 Owner: none, self-contained. Criteria: 5, 6, 9.
 
 Tools: `.github/workflows/cbz-core-environment-controls.yml` and `.github/workflows/cbz-core-grader-controls.yml`. Purpose: source-bound focused environment controls and the retained formal suite with reason-bound mutation/grader controls. Usage, finite scope, exact test counts and pending self-verification: `reviews/cbz_core_custody_20261029/GIT_ENVIRONMENT_CANDIDATE.md` and `GRADER_CANDIDATE.md`. Neither workflow certifies kernel execution or the complete federation. Owner: none, self-contained; criteria 4, 6, 7, 9, 11. They remain unqualified until their actual hosted results and artifact hashes are observed.
+
+The core dependency path successor additionally checks each lexical .lake/packages component before resolving it, rejecting symlinked roots/ancestors and noncanonical dependency names. Its full formal workflow now requires 282 tests and the grader declares 23 producer mutants plus 14 grader-guard mutants; all new source and workflow results are pending. See GRADER_CANDIDATE.md. Endpoint and process-environment assumptions remain explicit.

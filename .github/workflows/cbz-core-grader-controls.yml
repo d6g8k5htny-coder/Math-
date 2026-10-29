@@ -1,7 +1,7 @@
 name: CBZ core source and grader controls
 on:
   push:
-    branches: [cbz/core-grader-strict-20261029]
+    branches: [cbz/core-dependency-path-repair-20261029]
 permissions:
   contents: read
 jobs:
@@ -29,7 +29,7 @@ jobs:
           result=$?
           cat "$RUNNER_TEMP/core-grader-controls.log"
           if [ "$result" -ne 0 ]; then exit "$result"; fi
-          grep -Eq '^Ran 278 tests in ' "$RUNNER_TEMP/core-grader-controls.log" || exit 1
+          grep -Eq '^Ran 282 tests in ' "$RUNNER_TEMP/core-grader-controls.log" || exit 1
           grep -Fxq 'OK' "$RUNNER_TEMP/core-grader-controls.log" || exit 1
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         if: always()

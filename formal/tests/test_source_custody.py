@@ -366,6 +366,39 @@ class SourceCustodyTests(unittest.TestCase):
                     self.fail('DEPENDENCY_GIT_REDIRECTED: ' + str(exc))
                 self.assertEqual(observed, manifest['dependency_revisions'])
 
+    def test_dependency_rejects_noncanonical_name(self):
+        manifest = self.dependency_fixture()
+        revision = manifest['dependency_revisions'].pop('probe')
+        manifest['dependency_revisions']['probe/'] = revision
+        with self.assertRaisesRegex(ValueError, 'invalid dependency name'):
+            self.gate.dependency_state(manifest)
+
+    def test_dependency_refuses_symlinked_lake_ancestor(self):
+        manifest = self.dependency_fixture()
+        parent = self.root / '.lake'
+        target = self.repo / 'outside-lake'
+        parent.rename(target)
+        parent.symlink_to(target, target_is_directory=True)
+        with self.assertRaisesRegex(ValueError, 'symlink dependency path'):
+            self.gate.dependency_state(manifest)
+
+    def test_dependency_refuses_symlinked_package_root(self):
+        manifest = self.dependency_fixture()
+        target = self.repo / 'outside-package'
+        self.dep.rename(target)
+        self.dep.symlink_to(target, target_is_directory=True)
+        with self.assertRaisesRegex(ValueError, 'symlink dependency path'):
+            self.gate.dependency_state(manifest)
+
+    def test_dependency_refuses_symlinked_packages_ancestor(self):
+        manifest = self.dependency_fixture()
+        parent = self.root / '.lake' / 'packages'
+        target = self.root / '.lake' / 'real-packages'
+        parent.rename(target)
+        parent.symlink_to(target, target_is_directory=True)
+        with self.assertRaisesRegex(ValueError, 'symlink dependency path'):
+            self.gate.dependency_state(manifest)
+
     def test_dependency_accepts_exact_clean_committed_tree(self):
         manifest = self.dependency_fixture()
         self.assertEqual(self.gate.dependency_state(manifest), manifest['dependency_revisions'])
