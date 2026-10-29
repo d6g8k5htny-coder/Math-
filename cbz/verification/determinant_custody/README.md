@@ -1,0 +1,3 @@
+# Determinant source custody controls
+
+RED-first real Git controls for a small source/manifest package and locked dependency. No mathematical theorem is claimed. The source guard contract is `source_custody(m, manifest_sha256, expected_head=...)`, returning the committed HEAD on success, raising ValueError on mismatch. It must bind committed/index/worktree bytes and currently loaded driver identity. `dependency_state(m)` must reject hidden tracked changes and ignored untracked Lean sources. Existing gate source unchanged in this first commit; missing guard and hidden dependency tests are expected to fail by their named assertions. Run each Python mode in the workflow and preserve actual result.
