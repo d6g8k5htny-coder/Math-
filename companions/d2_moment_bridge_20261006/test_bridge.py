@@ -49,7 +49,7 @@ class BridgeTests(unittest.TestCase):
         self.assertEqual(meta['theorems'],THEOREMS)
         self.assertEqual(meta['definitions'],DEFINITIONS)
         self.assertEqual(meta['scientific_effect'],'NONE')
-        self.assertEqual(meta['core_tree'],'e99f2b1fb5aa9cbacdc37a67d49998214a4950c2')
+        self.assertEqual(meta['core_tree'],'57c1b1a49f0ff75508a2c17e475ea21ab5b74043')
 
     def test_residual_identity_and_exact_equality_class(self):
         count=0
@@ -294,7 +294,7 @@ class CoreIdentityProtocolTests(unittest.TestCase):
         actual_tree = subprocess.check_output(
             ['git', '-C', str(self.root), 'rev-parse', 'HEAD:formal'],
             text=True).strip()
-        self.assertEqual(actual_tree, 'e99f2b1fb5aa9cbacdc37a67d49998214a4950c2')
+        self.assertEqual(actual_tree, '57c1b1a49f0ff75508a2c17e475ea21ab5b74043')
         self.context = {'checked_commit': self.head}
         patch = mock.patch.dict('os.environ', {'GITHUB_ACTIONS': 'false'})
         patch.start()

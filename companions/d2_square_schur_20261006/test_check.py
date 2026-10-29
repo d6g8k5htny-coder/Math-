@@ -232,7 +232,7 @@ class CoreIdentityProtocolTests(unittest.TestCase):
         actual_tree = subprocess.check_output(
             ['git', '-C', str(self.root), 'rev-parse', 'HEAD:formal'],
             text=True).strip()
-        self.assertEqual(actual_tree, 'e99f2b1fb5aa9cbacdc37a67d49998214a4950c2')
+        self.assertEqual(actual_tree, '57c1b1a49f0ff75508a2c17e475ea21ab5b74043')
         self.context = {'checked_commit': self.head}
         patch = mock.patch.dict('os.environ', {'GITHUB_ACTIONS': 'false'})
         patch.start()
