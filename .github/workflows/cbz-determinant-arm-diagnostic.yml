@@ -60,4 +60,4 @@ jobs:
         with:
           name: determinant-arm-mutations-${{ matrix.optimize }}-${{ github.run_id }}
           path: ${{ runner.temp }}/determinant-mutants-${{ matrix.optimize }}
-          if-no-files-found: warn
+          if-no-files-found: error
