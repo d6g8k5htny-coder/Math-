@@ -170,6 +170,31 @@ class SourceCustody(unittest.TestCase):
         self.assertFalse((self.root / '.lake/formal-evidence/receipt.json').exists())
 
 
+
+    def test_staged_only_change_is_rejected_when_working_bytes_are_original(self):
+        original = self.proof.read_bytes()
+        self.proof.write_bytes(original + b'-- staged only\n')
+        git(self.repo, 'add', str(self.proof.relative_to(self.repo)))
+        self.proof.write_bytes(original)
+        with self.assertRaisesRegex(ValueError, 'index|source'):
+            self.call_guard(expected_head=self.initial_head)
+
+    def test_refreshed_external_admission_helper_is_rejected(self):
+        helper = self.repo / 'tools' / 'lean_packet_admission.py'
+        helper.parent.mkdir()
+        helper.write_text('# original helper\n')
+        self.m['source_admission'] = {'helper_sha256': digest(helper.read_bytes())}
+        self.manifest.write_text(json.dumps(self.m, sort_keys=True) + '\n')
+        git(self.repo, 'add', '.')
+        git(self.repo, 'commit', '-qm', 'bind helper')
+        head = git(self.repo, 'rev-parse', 'HEAD')
+        helper.write_text('# altered helper\n')
+        self.m['source_admission']['helper_sha256'] = digest(helper.read_bytes())
+        self.manifest.write_text(json.dumps(self.m, sort_keys=True) + '\n')
+        with self.assertRaisesRegex(ValueError, 'source|manifest|working'):
+            self.call_guard(expected_head=head)
+
+
 class DependencyCustody(unittest.TestCase):
     def setUp(self):
         tmp = tempfile.TemporaryDirectory()
