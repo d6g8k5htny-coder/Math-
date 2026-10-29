@@ -72,3 +72,7 @@ no90-day artifact URL. No mathematical status is awarded by publication.
 ## Determinant custody and grader candidate
 
 The gate checks committed and actual source/dependency bytes and source/HEAD drift, refuses symlink evidence and build paths, and uses a sanitized subprocess environment. The mutation runner demands exact selected passing baselines and named expected failure reasons. From the repository root run `python3 -B -S -m unittest discover -s cbz/verification/determinant_custody -p 'test_*.py' -v`; repeat with `-O`. Run the retained full component suite and all original mutation commands above. Actual verification of this changed source and grader is PENDING. Maintainer: none. This bounded observation does not authenticate the Lean executable, rebuild dependency caches, or rule out transient changes restored between observations.
+
+### Custody source-mutation self-test
+
+`cbz/verification/determinant_custody/test_source_mutations.py` runs ten named source mutations against individually selected, real-Git custody controls, with clean passing baselines and exact intended failure reasons. Its own grading predicate has a planted source mutation and adverse wrong-exit/wrong-reason/zero-test controls. The existing custody unittest discovery command runs it in each Python mode. It is a finite self-test, not a semantic completeness proof. Fresh execution is PENDING; owner none.

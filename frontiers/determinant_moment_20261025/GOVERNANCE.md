@@ -95,3 +95,7 @@ observed green; publication itself is a separately observed operation.
 ## Determinant custody and evidence-path candidate (2026-10-29)
 
 The gate observes committed/index/working bytes and exact checked HEAD before and after execution, checks dependency working bytes and sanitizes inherited Git and Lean search-path variables. It refuses symlink evidence leaves and nested build symlinks. The existing mutation runner now requires exact selected baselines, exit 1 and each mutant's named failure reason. Run the custody controls from repository root with `python3 -B -S -m unittest discover -s cbz/verification/determinant_custody -p 'test_*.py' -v`, and repeat with `-O`. Original component and mutation commands remain listed below/in TOOLING.md. Maintainer: none. Current candidate verification: PENDING; no new kernel or CBZ gate is awarded. Pre/post checks assume source stability during execution, reuse dependency build caches, and rely on trusted runtime and collision-resistant hashes.
+
+### Custody source-mutation self-test
+
+`cbz/verification/determinant_custody/test_source_mutations.py` runs ten named source mutations against individually selected, real-Git custody controls, with clean passing baselines and exact intended failure reasons. Its own grading predicate has a planted source mutation and adverse wrong-exit/wrong-reason/zero-test controls. The existing custody unittest discovery command runs it in each Python mode. It is a finite self-test, not a semantic completeness proof. Fresh execution is PENDING; owner none.
