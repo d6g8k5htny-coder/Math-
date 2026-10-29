@@ -213,6 +213,17 @@ class ReplayTests(unittest.TestCase):
                 self.assertIn(('packet tests executed poisoned '+target+' bytecode').encode(),mutant.stderr)
                 self.assertNotIn(b'ERROR:',mutant.stderr)
 
+    def test_cache_setup_failure_retains_process_record(self):
+        from unittest.mock import patch
+        with patch.object(self.m.tempfile,'TemporaryDirectory',side_effect=OSError('cache unavailable')):
+            with self.assertRaisesRegex(self.m.ReplayError,'^spawn_error$'):
+                self.m.run_step(['not-started'],self.root,self.logs,'cachefail',b'','exact')
+        record=json.loads((self.logs/'cachefail.process.json').read_text())
+        self.assertEqual((record['status'],record['failure'],record['returncode']),('FAIL','spawn_error',None))
+        self.assertIn('cache unavailable',record['detail'])
+        self.assertEqual((self.logs/'cachefail.stdout').read_bytes(),b'')
+        self.assertEqual((self.logs/'cachefail.stderr').read_bytes(),b'')
+
     def test_snapshot_and_exact_packet_membership(self):
         pins=self.fixture();ids=self.m.validate_snapshot(self.root,pins)
         self.assertEqual(set(ids),set(pins))
