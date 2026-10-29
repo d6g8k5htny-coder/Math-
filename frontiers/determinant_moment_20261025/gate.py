@@ -24,6 +24,7 @@ REPO = ROOT.parents[1]
 _compiled = None
 _determinant = None
 CORE_SHA256 = 'ff8a5374597772b2d37054fd722c2243c4b552a63802c69f7c605519832be6c4'
+GIT_IDENTITY_SHA256 = '407038e39404d0348bc07e6385405f9079437af3d19b419d0caa6fb4d2aef488'
 
 
 def verified_implementation(name, path, expected_sha256, message):
@@ -58,12 +59,32 @@ def determinant_implementation(m):
     return _determinant
 
 
-def compiled_contract(m):
-    """Require a bound non-target inventory; never infer one from source regexes."""
+def require_compiled_binding(m):
     require(isinstance(m.get('compiled_inventory'), list),
             'CBZ_COMPILED_INVENTORY_UNQUALIFIED: exact non-target compiled constants '
             'have not been inventoried for this determinant package; pinned Lean '
             'census, binding and full execution are required')
+
+
+def source_qualification(m, digest, *, previous=None):
+    """Authenticate fixed Git-helper bytes before any manifest-controlled code.
+
+    The reviewed bootstrap pin is independent of the mutable manifest. Endpoint
+    observations cover committed component inputs and the shared source helper;
+    they do not assert a continuous filesystem lock or unrelated Git hygiene.
+    """
+    require(isinstance(m.get('files'), dict) and
+            m['files'].get('determinant_git_identity.py') == GIT_IDENTITY_SHA256,
+            'Git identity implementation binding mismatch')
+    identity = verified_implementation('determinant_git_source_identity',
+        ROOT / 'determinant_git_identity.py', GIT_IDENTITY_SHA256,
+        'Git identity implementation hash mismatch')
+    return identity.qualify_source(REPO, m, digest, previous=previous)
+
+
+def compiled_contract(m):
+    """Require a bound non-target inventory; never infer one from source regexes."""
+    require_compiled_binding(m)
     compiled_implementation()
     require(_compiled.ALLOWED == ALLOWED, 'compiled inventory axiom policy mismatch')
     targets = m.get('targets')
@@ -239,8 +260,10 @@ def load_admission(repo, metadata):
     exec(compile(data, str(helper), 'exec'), namespace)
     return namespace
 
-def source_check():
+def source_check(*, git_qualification=False, expected_manifest_sha256=None):
     raw = (ROOT / 'manifest.json').read_bytes()
+    require(expected_manifest_sha256 is None or sha(raw) == expected_manifest_sha256,
+            'manifest changed during execution')
     m = load_json(raw)
     require(m.get('schema_version') == 1 and m.get('scientific_effect') == 'NONE', 'invalid evidence schema')
     require(m.get('formalization_status') == 'proved' and m.get('alignment_status') == 'PENDING_INDEPENDENT_REVIEW', 'source metadata cannot self-award execution or review')
@@ -252,6 +275,10 @@ def source_check():
                      'tests/test_inventory_loader.py', 'tests/test_determinant_binding.py',
                      'tests/fixtures/actual_inventory_4ccc.log',
                      'tests/fixtures/actual_manifest_v2_fields.json'}
+    required |= {'determinant_git_identity.py', 'tests/test_determinant_git_identity.py',
+                 'tests/run_git_identity_mutations.py', 'tests/test_git_identity_mutation_runner.py',
+                 'tests/test_gate_git_qualification.py', 'tests/test_determinant_workflow_console_capture.py',
+                 'tests/run_cbz_runner_mutations.py', 'tests/test_cbz_mutation_runner.py', 'DECISIONS.md'}
     require(required <= set(m['files']), 'unbound control or scope file')
     originals = {'originals/Algebra.lean.txt': '4c196820c4db8fafc288dd35642828ba577e3544d60aba7d1d6d24f14ad1e8ae', 'originals/ProbabilityCompanions.lean.txt': '4ace6600a476859982c8851ae9097c89b082d3c96291b3c8330bd4cc00bae65d'}
     require(all(m['files'].get(path) == value for path, value in originals.items()), 'original source identity changed or omitted')
@@ -266,6 +293,9 @@ def source_check():
     require(all(COMMIT.fullmatch(v) for v in actual.values()), 'unpinned dependency')
     expected_root = ''.join('import ' + path[:-5].replace('/', '.') + '\n' for path in m['source_modules'])
     require((ROOT / 'ResearchFormalCoreR1.lean').read_text() == expected_root, 'root must only import registered modules')
+    if git_qualification:
+        require_compiled_binding(m)
+        source_qualification(m, sha(raw))
     admission = load_admission(REPO, m.get('source_admission'))
     continuation_bindings = m['source_admission']['continuations']
     require(isinstance(continuation_bindings, dict) and set(continuation_bindings) ==
@@ -299,6 +329,8 @@ def run(command, label, out, expect_success=True):
 def execute(m, digest):
     invalidate_active_receipt()
     out = ROOT / '.lake' / 'formal-evidence'
+    require_compiled_binding(m)
+    source_preflight = source_qualification(m, digest)
     modules, bound = compiled_contract(m)
     out.mkdir(parents=True, exist_ok=True)
     preflight_version = check_lean_version(run(['lake', 'env', 'lean', '--version'], 'version-preflight', out))
@@ -354,21 +386,23 @@ def execute(m, digest):
             require('unsolved goals' in log or 'norm_num' in log and 'failed' in log, 'negative control did not fail on its proof goal')
             outcomes[label] = 'REJECTED_BY_LEAN'
     # Recheck after compilation: a build hook must not rewrite bound sources/lock.
-    _, after = source_check(); require(after == digest, 'manifest changed during execution')
+    _, after = source_check(expected_manifest_sha256=digest)
+    require(after == digest, 'manifest changed during execution')
     # Final observation after the last Lean execution: the same exact release, the same locked
     # and clean dependencies and the same bound sources as before the first one.
     version = check_lean_version(run(['lake', 'env', 'lean', '--version'], 'version', out))
     final = observation(version, dependency_state(m), after)
     require(final == preflight, 'runtime, dependencies or sources changed during execution')
-    head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
-    require(COMMIT.fullmatch(head), 'missing exact checked commit')
+    source_final = source_qualification(m, digest, previous=source_preflight)
     receipt = dict(schema_version=1, scientific_effect='NONE', formalization_status='kernel-checked',
                    alignment_status='PENDING_INDEPENDENT_REVIEW', manifest_sha256=digest,
-                   checked_commit=head, repository=os.environ.get('GITHUB_REPOSITORY'),
+                   checked_commit=source_preflight['checked_commit'],
+                   checked_tree=source_preflight['checked_tree'], repository=os.environ.get('GITHUB_REPOSITORY'),
                    workflow_run_id=os.environ.get('GITHUB_RUN_ID'),
                    workflow_run_attempt=os.environ.get('GITHUB_RUN_ATTEMPT'), lean_version=version,
                    dependency_revisions=m['dependency_revisions'], dependency_worktrees='CLEAN',
                    observations={'preflight': preflight, 'final': final},
+                   source_identity={'preflight': source_preflight, 'final': source_final},
                    axioms=axioms, negative_controls=outcomes,
                    inventory={**inventory, 'compiled_admission': compiled_admission})
     receipt['logs'] = {p.name: sha(p.read_bytes()) for p in sorted(out.glob('*.log'))}
@@ -385,7 +419,7 @@ def main():
         p.add_argument('--execute', action='store_true', help='run build, transitive axiom audit and negative controls')
         p.add_argument('--alignment', type=Path, help='validate a separately authenticated alignment record; never promotes science')
         args = p.parse_args()
-        m, digest = source_check()
+        m, digest = source_check(git_qualification=args.execute)
         if args.alignment:
             check_alignment(load_json(args.alignment.read_text()), digest, m['targets'], m['files']['SCOPE.md'])
         if args.execute:

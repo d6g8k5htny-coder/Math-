@@ -64,6 +64,15 @@ jobs:
         run: |
           set -euo pipefail
           python -B -S frontiers/determinant_moment_20261025/tests/run_adapter_mutations.py --output frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations
+      - name: Verify Git identity with real isolated Git and paired adverse mutations
+        run: |
+          set -euo pipefail
+          python -B -S frontiers/determinant_moment_20261025/tests/run_git_identity_mutations.py --output frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations
+      - name: Verify outer mutation accounting with paired adverse mutations
+        run: |
+          set -euo pipefail
+          python -B -S frontiers/determinant_moment_20261025/tests/run_cbz_runner_mutations.py --output "${RUNNER_TEMP}/determinant-outer-self-mutations"
+          cp -a "${RUNNER_TEMP}/determinant-outer-self-mutations" frontiers/determinant_moment_20261025/.lake/formal-evidence/outer-self-mutations
       - name: Install pinned Lean and retrieve the Mathlib cache
         uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6
         with:
@@ -77,7 +86,7 @@ jobs:
       - name: Fresh build, kernel recheck, complete inventory and seven real controls
         run: |
           set -euo pipefail
-          python -B -S frontiers/determinant_moment_20261025/gate.py --execute 2>&1 | tee frontiers/determinant_moment_20261025/.lake/formal-evidence/authoritative-gate.log
+          python -B -S frontiers/determinant_moment_20261025/gate.py --execute 2>&1 | tee frontiers/determinant_moment_20261025/.lake/formal-evidence/authoritative-gate.console.txt
       - name: Tracked tree unchanged
         run: git diff --exit-code
       - name: Preserve raw observation and gate logs

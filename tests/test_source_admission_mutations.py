@@ -98,8 +98,8 @@ class RunnerControls(unittest.TestCase):
 
     def test_all_named_cases_and_modes_required_without_duplicates(self):
         names = [case[0] for case in runner.MUTATIONS] + ['control-helper', 'control-determinant', 'control-cap']
-        self.assertEqual(len(runner.MUTATIONS), 15)
-        self.assertEqual(len(set(names)), 18)
+        self.assertEqual(len(runner.MUTATIONS), 16)
+        self.assertEqual(len(set(names)), 19)
         records = [dict(name=name, optimized=mode, passed=True) for name in names for mode in (False, True)]
         self.assertTrue(runner.complete(records))
         for bad in (records[:-1], records + records[:1], [{**records[0], 'passed': False}] + records[1:],

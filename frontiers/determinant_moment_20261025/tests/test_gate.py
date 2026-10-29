@@ -233,6 +233,9 @@ class RuntimeVersionTests(unittest.TestCase):
 
         with patch.object(gate.subprocess, 'run', side_effect=external_run), \
              patch.object(gate.subprocess, 'check_output', side_effect=external_git), \
+             patch.object(gate, 'source_qualification', return_value={
+                 'checked_commit': 'b' * 40, 'checked_tree': 'c' * 40,
+                 'manifest_sha256': self.digest, 'scope': 'SYNTHETIC_ORCHESTRATION_ONLY_NO_GIT_EVIDENCE'}), \
              patch.dict(gate.os.environ, env or {}), \
              contextlib.redirect_stdout(io.StringIO()):
             return gate.execute(self.manifest, self.digest)

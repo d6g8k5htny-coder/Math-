@@ -91,7 +91,21 @@ def execute_scenario(scenario):
         gate.ROOT=package;gate._compiled=None;gate._determinant=None
         digest='d'*64
         module=tuple(m['source_modules'][0][:-5].replace('/','.').split('.'))
-        calls=[];postchecks=[]
+        calls=[];postchecks=[];source_observations=[]
+        source_identity=dict(checked_commit='a'*40, checked_tree='b'*40, manifest_sha256=digest,
+                             scope='SYNTHETIC_ORCHESTRATION_ONLY_NO_GIT_EVIDENCE')
+
+        def qualify_source(manifest, observed_digest, *, previous=None):
+            ensure(manifest==m and observed_digest==digest, 'source endpoint received wrong inputs')
+            phase='preflight' if previous is None else 'final'
+            source_observations.append(phase)
+            if scenario=='pre_git_failure' and phase=='preflight':
+                raise ValueError('SYNTHETIC preflight Git refusal')
+            if scenario=='post_git_failure' and phase=='final':
+                raise ValueError('SYNTHETIC final Git refusal')
+            if previous is not None:
+                ensure(previous==source_identity, 'final endpoint lost the exact preflight identity')
+            return json.loads(json.dumps(source_identity))
 
         def clone_label(cwd):
             body=(Path(cwd)/m['source_modules'][0]).read_text()
@@ -143,7 +157,8 @@ def execute_scenario(scenario):
             calls.append((stage,list(command),in_clone,returncode))
             return subprocess.CompletedProcess(command,returncode,stdout=result)
 
-        def post_source():
+        def post_source(**kwargs):
+            ensure(kwargs=={'expected_manifest_sha256':digest}, 'post-source guard lost expected manifest digest')
             postchecks.append('source')
             if scenario=='post_source_failure':
                 raise ValueError('SYNTHETIC post-execution source mismatch')
@@ -155,12 +170,17 @@ def execute_scenario(scenario):
             'hidden_positive_axiom':'forbidden_axiom',
             'final_runtime_failure':'unexpected running Lean version',
             'post_source_failure':'post-execution source mismatch',
+            'pre_git_failure':'preflight Git refusal',
+            'post_git_failure':'final Git refusal',
         }
         captured=io.StringIO()
+        # A late unqualified lookup must differ from the authenticated endpoint,
+        # so replacing the receipt label with that lookup is observable.
         with patch.object(gate.subprocess,'run',side_effect=fake_run), \
-             patch.object(gate.subprocess,'check_output',return_value='a'*40+'\n'), \
+             patch.object(gate.subprocess,'check_output',return_value='c'*40+'\n'), \
              patch.object(gate,'dependency_state',return_value=m['dependency_revisions']), \
              patch.object(gate,'source_check',side_effect=post_source), \
+             patch.object(gate,'source_qualification',side_effect=qualify_source), \
              contextlib.redirect_stdout(captured):
             try:
                 receipt=gate.execute(m,digest)
@@ -176,6 +196,10 @@ def execute_scenario(scenario):
                 ensure(set(receipt['inventory']['compiled_admission']['injections'])=={'compiled_admission','compiled_metaprogram'},'missing V2 control')
                 ensure(set(receipt['negative_controls'])=={'false_fold','false_power','sorry','custom_imported','native'},'missing existing control')
                 ensure(receipt['observations']['preflight']==receipt['observations']['final'],'runtime observation gap')
+                ensure(source_observations==['preflight','final'],'missing source endpoint observation')
+                ensure(receipt['source_identity']=={'preflight':source_identity,'final':source_identity},'source identity gap')
+                ensure(receipt['checked_commit']==source_identity['checked_commit'] and
+                       receipt['checked_tree']==source_identity['checked_tree'],'receipt uses an unqualified late identity')
                 outcome='SYNTHETIC_V2_BRANCH_REACHED_ALL_SEVEN_CONTROLS'
         ensure(archive.read_text()=='preserve historical evidence\n','historical evidence changed')
         ensure(not (package/'.lake/determinant-compiled-admission').exists(),'disposable admission work leaked')
@@ -213,7 +237,8 @@ class V2ExecutionTests(unittest.TestCase):
 
     def test_v2_execution_failures_preserve_logs_without_active_receipt(self):
         for scenario in ('injection_prerequisite_failure', 'unrelated_injection_failure',
-                         'hidden_positive_axiom', 'final_runtime_failure', 'post_source_failure'):
+                         'hidden_positive_axiom', 'final_runtime_failure', 'post_source_failure',
+                         'pre_git_failure', 'post_git_failure'):
             with self.subTest(scenario=scenario):
                 execute_scenario(scenario)
 

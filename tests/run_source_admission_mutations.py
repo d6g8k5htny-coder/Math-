@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fifteen bounded source checker mutations, same-copy controls, both Python modes.
+"""Sixteen bounded source checker mutations, same-copy controls, both Python modes.
 
 No Lean execution; this is not federation G0 or compiled-adapter qualification.
 """
@@ -53,6 +53,14 @@ MUTATIONS.append(('helper-open-command-wrapper-refusal-removal', helper,
 MUTATIONS.append(('helper-declaration-header-binding-removal', helper,
                 '    check_declarations(admitted_declarations, declarations)',
                 '    pass  # MUTANT: admit unreviewed declaration tails', shared))
+
+MUTATIONS.append(('helper-declaration-physical-line-alignment-regression', helper,
+                "    raw_lines, code_lines = text.split('\\n'), code.split('\\n')\n"
+                "    require(len(raw_lines) == len(code_lines), 'unsupported physical-line correspondence')\n"
+                "    lines = [raw + '\\n' for raw, line in zip(raw_lines, code_lines, strict=True) if DECL.match(line)]",
+                "    lines = [raw + '\\n' for raw, line in zip(text.splitlines(), code.splitlines()) if DECL.match(line)]",
+                ['-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_lean_packet_admission.py',
+                 '-k', 'physical_header', '-v']))
 
 
 def replace_anchor(source, old, new):

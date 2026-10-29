@@ -95,7 +95,7 @@ def continuation_binding(text):
 
 def _continuation_binding(code):
     records, anchor = [], ''
-    for line in code.splitlines():
+    for line in code.split('\n'):
         if not line.strip():
             continue
         if line[0].isspace():
@@ -110,6 +110,8 @@ def declaration_binding(text):
     """Fingerprint every opaque declaration/header line, including one-line bodies.
 
     This binds reviewed lexical code; it does not parse the opaque tail as Lean.
+    LF defines physical lines consistently with code_only; non-LF separators in
+    comments/literals cannot shift raw/code pairing. Mismatched row counts refuse.
     Lexical code selects headers; their whole physical lines are bound, including
     literal/comment text. Ordinary source-file digest rebinding cannot update it.
     """
@@ -117,7 +119,9 @@ def declaration_binding(text):
 
 
 def _declaration_binding(text, code):
-    lines = [raw + '\n' for raw, line in zip(text.splitlines(), code.splitlines()) if DECL.match(line)]
+    raw_lines, code_lines = text.split('\n'), code.split('\n')
+    require(len(raw_lines) == len(code_lines), 'unsupported physical-line correspondence')
+    lines = [raw + '\n' for raw, line in zip(raw_lines, code_lines, strict=True) if DECL.match(line)]
     return {'sha256': hashlib.sha256(''.join(lines).encode('utf-8')).hexdigest(),
             'lines': len(lines)}
 
@@ -162,7 +166,7 @@ def census(text, module, continuation=None, declarations=None):
     admitted_continuation = _continuation_binding(code)
     admitted_declarations = _declaration_binding(text, code)
     records, scopes, seen = [], [], set()
-    for number, line in enumerate(code.splitlines(), 1):
+    for number, line in enumerate(code.split('\n'), 1):
         if not line.strip():
             continue
         where = module + ':' + str(number)

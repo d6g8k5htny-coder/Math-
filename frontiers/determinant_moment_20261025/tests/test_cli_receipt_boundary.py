@@ -163,8 +163,15 @@ class QuarantineRecordTests(unittest.TestCase):
         self.assertEqual({x['path'] for x in records}, set(m['source_modules']) | {'ResearchFormalCoreR1.lean'})
         for record in records:
             self.assertEqual(record['sha256'], hashlib.sha256((ROOT / record['path']).read_bytes()).hexdigest())
-        self.assertEqual(q['layer_a_status']['A2'], 'UNESTABLISHED_PACKAGE_WIDE_EVIDENCE')
-        self.assertEqual(q['layer_a_status']['A8'], 'UNESTABLISHED_PACKAGE_WIDE_EVIDENCE')
+        self.assertEqual(q['layer_a_status']['A2'], 'HISTORICAL_EXACT_SOURCE_APPROVED_CLOSURE_OBSERVED')
+        self.assertEqual(q['layer_a_status']['A7'], 'SOURCE_IDENTITY_AND_GROWING_CONSOLE_PRODUCER_REPAIRS_NOT_YET_NATIVE_QUALIFIED')
+        self.assertEqual(q['layer_a_status']['A8'], 'BOUNDED_AUDITOR_SUCCESSOR_REQUIRES_CURRENT_SOURCE_EXECUTION')
+        self.assertEqual(q['exact_boundary']['status'], 'QUARANTINED')
+        native = [entry for entry in q['attempted'] if entry['kind'] == 'actual_native_seven_control_execution']
+        self.assertEqual(len(native), 1)
+        self.assertIn('40933537063', native[0]['result'])
+        self.assertIn('aafb9c9fa28aef592d05ce70276eb5448fd4157b', native[0]['result'])
+        self.assertIn('only first526bytes', native[0]['result'])
         self.assertNotIn('manifest_sha256', q['location'])
 
     def test_quarantine_record_cannot_be_omitted_from_control_manifest(self):
@@ -196,6 +203,9 @@ class PortableMutationRunnerTests(unittest.TestCase):
             helper = root.parents[1] / 'tools/lean_packet_admission.py'
             helper.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(ROOT.parents[1] / 'tools/lean_packet_admission.py', helper)
+            workflow = root.parents[1] / '.github/workflows/determinant-moment-lean.yml'
+            workflow.parent.mkdir(parents=True)
+            shutil.copy2(ROOT.parents[1] / '.github/workflows/determinant-moment-lean.yml', workflow)
             before = {p.relative_to(root): p.read_bytes() for p in root.rglob('*') if p.is_file()}
             output = base / 'reports'
             result = subprocess.run([sys.executable, '-B', '-S', *(['-O'] if sys.flags.optimize else []),
@@ -203,8 +213,21 @@ class PortableMutationRunnerTests(unittest.TestCase):
                                      '--output', str(output)], cwd=base, capture_output=True, text=True,
                                     env={**os.environ, 'TMPDIR': str(base)})
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-            report = json.loads((output / 'mutation_results.json').read_text())
-            self.assertEqual(len(report['mutations']), 6)
+            summary = json.loads(result.stdout)
+            self.assertIn('results', summary, 'runner must return the unique retained report path')
+            report_path = Path(summary['results'])
+            self.assertTrue(report_path.is_relative_to(output))
+            report = json.loads(report_path.read_text())
+            expected = {'omit-forbidden-closure', 'omit-extra-theorem-admission',
+                        'omit-bound-constant-admission', 'omit-stale-receipt-removal',
+                        'execute-cached-inventory-bytecode', 'omit-runtime-census-and-controls',
+                        'omit-execute-source-qualification', 'omit-cli-pre-helper-qualification',
+                        'omit-post-manifest-guard', 'omit-final-source-qualification',
+                        'use-unqualified-late-receipt-identity', 'revert-console-capture-to-log'}
+            self.assertEqual({row['name'] for row in report['mutations']}, expected)
+            self.assertEqual(len(report['mutations']), 12)
+            self.assertEqual(report['execution_pairs'], 13)
+            self.assertEqual(report['mode'], 'optimized' if sys.flags.optimize else 'normal')
             self.assertTrue(report['source_preserved'])
             for record in report['mutations']:
                 self.assertGreater(record['collected_tests'], 0)
@@ -212,6 +235,21 @@ class PortableMutationRunnerTests(unittest.TestCase):
                 self.assertNotEqual(record['exit_code'], 0)
                 self.assertTrue(record['killed_by_intended_assertions'])
                 self.assertFalse(record['import_or_test_errors'])
+                self.assertGreater(len(record['selection_results']), 0)
+                for pair in record['selection_results']:
+                    self.assertEqual(pair['status'], 'KILLED')
+                    self.assertTrue(pair['same_harness'])
+                    self.assertTrue(pair['baseline_passed'])
+                    self.assertEqual(pair['baseline']['classification'], 'PASS')
+                    self.assertEqual(pair['mutant']['classification'], 'ASSERTION_FAILURE')
+                    self.assertEqual(pair['baseline']['loaded_test_ids'], [pair['selection']])
+                    self.assertEqual(pair['mutant']['loaded_test_ids'], [pair['selection']])
+                    self.assertTrue(all(detail['phase'] == 'test' and detail['is_assertion']
+                                        for detail in pair['mutant']['failure_details']))
+                if record['name'] == 'omit-runtime-census-and-controls':
+                    self.assertEqual({pair['selection'] for pair in record['selection_results']}, {
+                        'test_gate.RuntimeGuardTests.test_green_public_targets_do_not_hide_bad_compiled_inventory',
+                        'test_gate.RuntimeGuardTests.test_missing_compiled_output_refuses_receipt'})
             after = {p.relative_to(root): p.read_bytes() for p in root.rglob('*') if p.is_file()}
             self.assertEqual(after, before)
 

@@ -2,6 +2,11 @@
 
 # Gaussian endpoint moments, canonical conditioning and normalizer research
 
+The source-current producer also requires independently pinned raw Git/blob/index
+qualification before helper code and before/after Lean. The earlier seven-control
+run remains historical; Git-label and growing-console defects are retained and
+corrected by this successor. Read STATUS.md for exact commands and boundaries.
+
 This successor develops Gaussian eighth moments, literal six-endpoint determinant
 moment bounds, canonical Gaussian regression, positive normalizer deductions,
 and actual weighted-probability Cauchy–Schwarz transfer. Precise premises and
@@ -75,7 +80,7 @@ python -B -S tests/run_source_admission_mutations.py --output /tmp/fresh-source-
 ```
 
 The workflow executes the runner self-tests in both modes and triggers on both
-runner files. The fifteen-mutation/two-mode experiment above is an explicit
+runner files. The sixteen-mutation/two-mode experiment above is an explicit
 standalone command, requiring a fresh output directory; it is not run by that
 workflow source-test step. Its local results do not establish hosted G0 or any
 compiled/kernel qualification.
@@ -130,10 +135,19 @@ This is narrow reviewed syntax admission, not a full Lean parser or a claim that
 injected grammar has executed. The local Lean launcher probe failed before input
 processing. No new Lean/kernel/hosted status is awarded.
 
-The portable source runner retains all fourteen old mutants and adds header-guard
-removal: fifteen mutants in each Python mode. It records actual unittest body
+The portable source runner retains all fifteen old mutants and adds physical-line alignment
+regression: sixteen mutants in each Python mode. It records actual unittest body
 entry and failure phases; fixture/cleanup assertions, missing or malformed phase
 evidence, unsupported custom lifecycle hooks, errors, empty discovery and
 timeouts cannot qualify as kills. See `../../tools/LEAN_PACKET_ADMISSION.md` for
 repo-root commands. The full matrix remains standalone; the determinant workflow
 runs its ten focused self-tests, not the full matrix.
+
+Physical-line correction: LF (`\n`) is the line separator throughout the lexical
+code census, continuation and declaration-header traversal. Raw and lexed rows
+are paired with an explicit equal-count check and strict zip; Unicode separators
+inside comments or literals cannot shift or silently truncate that pairing.
+Benign comment/string fixtures check exact selected header bytes and harmless
+definition-value changes. Existing reviewed packet source and all admission
+bindings remain unchanged. The sixteenth mutant reintroduces the old divergent
+`splitlines()` pairing and is exercised only against these benign fixtures.

@@ -7,15 +7,15 @@
     "scoped-source-mutation-runner"
   ],
   "files": {
-    "tools/lean_packet_admission.py": "6fc0f5040c8e8514c072839848d3c5745624010361f3302b335ddce3fbea40b3",
-    "tests/test_lean_packet_admission.py": "3caedf9610afc2084a01ba3af0da284218906448f018f52c1dc7588339aaf306",
-    "tests/run_source_admission_mutations.py": "b2d86bd70abf3b60579ca4b0f49953836e218999497a4de2d64fed1366cbce33",
-    "tests/test_source_admission_mutations.py": "eacbe0f1e76109788fe6f285c89c0065ea9373ac5930531d5aedb04ddeb35940",
-    "tools/LEAN_PACKET_ADMISSION.md": "174898b04987901af0bf95834abd7e4dd5937c5d39b374c168ecdaacf629d7b4"
+    "tools/lean_packet_admission.py": "04b98b2a34f294bd7049f072ea14cf917e9c1a1e78578cd64d4df1b334d8f497",
+    "tests/test_lean_packet_admission.py": "afb805c68cb9c71452ac95c97b3dd853860b9e6e7ce723b63236a1753f5c32f0",
+    "tests/run_source_admission_mutations.py": "01a45440463c4cdf3caff28bc7504d0fd6e1045d9d0e145c64ae9c0865c8f369",
+    "tests/test_source_admission_mutations.py": "8912df6c6ae8da1cdedc77040ca4ac5c3dbddad42536116c5f59b352a4bba137",
+    "tools/LEAN_PACKET_ADMISSION.md": "a1c82eebc0e6f14de544990e6d5fed1dd73a93fa2738b092397c3820c58341d0"
   },
   "actual_lean": "NOT_RUN",
   "compiled_census_qualification": "UNQUALIFIED",
-  "source_mutation_cases": 15,
+  "source_mutation_cases": 16,
   "runner_self_tests": 10,
   "source_admission_boundary": "EXACT_REVIEWED_DECLARATION_HEADERS_AND_CONTINUATIONS",
   "mutation_lifecycle": "RECORDED_BODY_ONLY_FAILURES"

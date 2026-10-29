@@ -35,7 +35,7 @@ python -B -S tests/run_source_admission_mutations.py --output /tmp/fresh-source-
 
 The runner derives the repository from its own location and requires a fresh
 output directory outside it. It carries forward all fourteen exercised round-1
-mutations plus the declaration-header binding removal (fifteen total), both Python modes, the same packet/helper/shared-test/Cap-pin copy
+mutations plus declaration-header binding removal and physical-line alignment regression (sixteen total), both Python modes, the same packet/helper/shared-test/Cap-pin copy
 paths, and three unmodified full-suite controls per mode. Each selected mutation
 first runs an unmodified same-copy baseline. Every baseline requires positive
 unittest discovery and a clean OK; kills require positive matching discovery,
@@ -50,7 +50,7 @@ log hashes. Helper SHA rebinding isolates only the intended helper removal from
 its independent integrity guard. Source-gate removals retain the original fixture
 hash rebinding behavior. No Python `assert` is used for the runner's decisions.
 The determinant workflow runs the ten focused runner self-tests, with both file
-paths as triggers. The full fifteen-mutation/two-mode command is standalone;
+paths as triggers. The full sixteen-mutation/two-mode command is standalone;
 workflow source-test success does not mean it executed. This is a scoped
 experiment, not federation G0, full G6 or a Lean execution.
 
@@ -78,3 +78,12 @@ Continuation bindings and the source census remain unchanged. These are narrow
 reviewed syntax-admission bindings, not a full Lean parser or evidence that any
 injected tail elaborates. The review's one local Lean launcher probe failed
 before processing input; no successful grammar/kernel execution is inferred.
+
+Physical-line correction: LF (`\n`) is the line separator throughout the lexical
+code census, continuation and declaration-header traversal. Raw and lexed rows
+are paired with an explicit equal-count check and strict zip; Unicode separators
+inside comments or literals cannot shift or silently truncate that pairing.
+Benign comment/string fixtures check exact selected header bytes and harmless
+definition-value changes. Existing reviewed packet source and all admission
+bindings remain unchanged. The sixteenth mutant reintroduces the old divergent
+`splitlines()` pairing and is exercised only against these benign fixtures.

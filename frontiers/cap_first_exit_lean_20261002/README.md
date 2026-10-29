@@ -318,10 +318,19 @@ This is narrow reviewed syntax admission, not a full Lean parser or a claim that
 injected grammar has executed. The local Lean launcher probe failed before input
 processing. No new Lean/kernel/hosted status is awarded.
 
-The portable source runner retains all fourteen old mutants and adds header-guard
-removal: fifteen mutants in each Python mode. It records actual unittest body
+The portable source runner retains all fifteen old mutants and adds physical-line alignment
+regression: sixteen mutants in each Python mode. It records actual unittest body
 entry and failure phases; fixture/cleanup assertions, missing or malformed phase
 evidence, unsupported custom lifecycle hooks, errors, empty discovery and
 timeouts cannot qualify as kills. See `../../tools/LEAN_PACKET_ADMISSION.md` for
 repo-root commands. The full matrix remains standalone; the determinant workflow
 runs its ten focused self-tests, not the full matrix.
+
+Physical-line correction: LF (`\n`) is the line separator throughout the lexical
+code census, continuation and declaration-header traversal. Raw and lexed rows
+are paired with an explicit equal-count check and strict zip; Unicode separators
+inside comments or literals cannot shift or silently truncate that pairing.
+Benign comment/string fixtures check exact selected header bytes and harmless
+definition-value changes. Existing reviewed packet source and all admission
+bindings remain unchanged. The sixteenth mutant reintroduces the old divergent
+`splitlines()` pairing and is exercised only against these benign fixtures.

@@ -42,6 +42,28 @@ class CensusTests(unittest.TestCase):
             with self.subTest(binding=malformed), self.assertRaisesRegex(ValueError, 'unsupported.*declaration header'):
                 admission.census(trusted, 'M', declarations=malformed)
 
+    def test_physical_header_lines_keep_unicode_text_alignment(self):
+        # Benign lexical fixtures: comments/literals never change LF row pairing.
+        for separator in ['\r', '\v', '\f', '\x1c', '\x1d', '\x1e', '\x85', '\u2028', '\u2029']:
+            for prefix in ['/- note' + separator + 'text' + separator + 'more\n-/\n',
+                           '-- note' + separator + 'text\n',
+                           'def text := "left' + separator + 'right"\n']:
+                with self.subTest(separator=repr(separator), prefix=prefix):
+                    text = prefix + 'def value := 0\n'
+                    expected_headers = ([prefix] if prefix.startswith('def ') else []) + ['def value := 0\n']
+                    expected = {'sha256': hashlib.sha256(''.join(expected_headers).encode()).hexdigest(),
+                                'lines': len(expected_headers)}
+                    self.assertEqual(admission.declaration_binding(text), expected)
+                    changed = text.replace('def value := 0', 'def value := 1')
+                    self.assertNotEqual(admission.declaration_binding(changed), expected)
+                    self.assertEqual(len(admission.census(text, 'M', admission.continuation_binding(text), expected)), len(expected_headers))
+
+    def test_physical_header_mapping_refuses_missing_lexical_lines(self):
+        text = 'def value := 0\n'
+        for code in ['def value := 0', 'def value := 0\n\n']:
+            with self.subTest(code=code), self.assertRaisesRegex(ValueError, 'physical.line'):
+                admission._declaration_binding(text, code)
+
     def test_indented_unknown_and_unsupported_commands_are_not_continuations(self):
         for command in ['newUnknownCommand cbz', 'register_option cbzHidden : Bool := { defValue := false, descr := "review" }']:
             for text in ['namespace A\nend A\n  ' + command + '\n',
