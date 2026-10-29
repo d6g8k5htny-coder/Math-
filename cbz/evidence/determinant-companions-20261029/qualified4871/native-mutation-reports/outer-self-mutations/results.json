@@ -1,0 +1,1945 @@
+{
+  "scope": "OUTER_MUTATION_WRAPPER_SELF_MUTATIONS_ONLY",
+  "actual_mutants": 11,
+  "execution_pairs": 22,
+  "modes": [
+    "normal",
+    "optimized"
+  ],
+  "source_preserved": true,
+  "baseline_source_sha256": "2a1e6ff7cb94b525f94f9fef0adcb881723cffedaf43c14fe4ce912e670d57fd",
+  "shared_runner_sha256": "da20b5a54dd381d5cc301e05feeee9f2b915685906974d5a224a947e48f65131",
+  "all_killed": true,
+  "results": [
+    {
+      "mutation": "execute-stale-shared-runner-bytecode",
+      "mode": "normal",
+      "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode",
+      "replacement_sites": 1,
+      "mutated_source_sha256": "7d003f182a8d0743a47b4cb374fdec623d0f77bceb084a5b5688912a866aa416",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/execute-stale-shared-runner-bytecode/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/execute-stale-shared-runner-bytecode/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "mutation": "execute-stale-shared-runner-bytecode",
+      "mode": "optimized",
+      "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode",
+      "replacement_sites": 1,
+      "mutated_source_sha256": "7d003f182a8d0743a47b4cb374fdec623d0f77bceb084a5b5688912a866aa416",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/execute-stale-shared-runner-bytecode/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/execute-stale-shared-runner-bytecode/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "mutation": "reread-shared-source-for-execution",
+      "mode": "normal",
+      "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode",
+      "replacement_sites": 1,
+      "mutated_source_sha256": "590be658aef81a7bc4ff2aba2e0b205db07dcb02d1b1cff5fbb9126cf7a3da7b",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/reread-shared-source-for-execution/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/reread-shared-source-for-execution/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "mutation": "reread-shared-source-for-execution",
+      "mode": "optimized",
+      "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode",
+      "replacement_sites": 1,
+      "mutated_source_sha256": "590be658aef81a7bc4ff2aba2e0b205db07dcb02d1b1cff5fbb9126cf7a3da7b",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/reread-shared-source-for-execution/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/reread-shared-source-for-execution/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "mutation": "count-lifecycle-failures-as-kills",
+      "mode": "normal",
+      "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills",
+      "replacement_sites": 1,
+      "mutated_source_sha256": "91012dcf4841ee88c9b2eb62a70c911cc0d42ee3da9eb3c5caae90b7a3e79e4b",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/count-lifecycle-failures-as-kills/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills (phase='setup', mode='normal')",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills (phase='teardown', mode='normal')",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills (phase='cleanup', mode='normal')",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills (phase='setup_subtest', mode='normal')"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills (phase='setup', mode='normal')",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills (phase='teardown', mode='normal')",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills (phase='cleanup', mode='normal')",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills (phase='setup_subtest', mode='normal')",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/count-lifecycle-failures-as-kills/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "mutation": "count-lifecycle-failures-as-kills",
+      "mode": "optimized",
+      "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills",
+      "replacement_sites": 1,
+      "mutated_source_sha256": "91012dcf4841ee88c9b2eb62a70c911cc0d42ee3da9eb3c5caae90b7a3e79e4b",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/count-lifecycle-failures-as-kills/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills (phase='setup', mode='optimized')",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills (phase='teardown', mode='optimized')",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills (phase='cleanup', mode='optimized')",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills (phase='setup_subtest', mode='optimized')"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills (phase='setup', mode='optimized')",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills (phase='teardown', mode='optimized')",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills (phase='cleanup', mode='optimized')",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills (phase='setup_subtest', mode='optimized')",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/count-lifecycle-failures-as-kills/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "mutation": "repair-mismatched-harness-identities",
+      "mode": "normal",
+      "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs",
+      "replacement_sites": 1,
+      "mutated_source_sha256": "b24c769054bdbf83e11a0145e4150bbf120c43524dc7751e1e7b5c30abd302de",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/repair-mismatched-harness-identities/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs (field='selection')",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs (field='mode')",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs (field='harness_sha256')"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs (field='selection')",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs (field='mode')",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs (field='harness_sha256')",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/repair-mismatched-harness-identities/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "mutation": "repair-mismatched-harness-identities",
+      "mode": "optimized",
+      "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs",
+      "replacement_sites": 1,
+      "mutated_source_sha256": "b24c769054bdbf83e11a0145e4150bbf120c43524dc7751e1e7b5c30abd302de",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/repair-mismatched-harness-identities/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs (field='selection')",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs (field='mode')",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs (field='harness_sha256')"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs (field='selection')",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs (field='mode')",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs (field='harness_sha256')",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_selection_mode_and_harness_mismatches_reject_actual_wrapper_pairs",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/repair-mismatched-harness-identities/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "mutation": "accept-invalid-baseline",
+      "mode": "normal",
+      "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_baseline_cannot_qualify_an_actual_body_failure",
+      "replacement_sites": 1,
+      "mutated_source_sha256": "02ece6a9b1745d45ab48050b123545416673ab9fd69010caa4c13d03e66a4c3a",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_baseline_cannot_qualify_an_actual_body_failure",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_baseline_cannot_qualify_an_actual_body_failure"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_baseline_cannot_qualify_an_actual_body_failure",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/accept-invalid-baseline/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_baseline_cannot_qualify_an_actual_body_failure",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_baseline_cannot_qualify_an_actual_body_failure"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_baseline_cannot_qualify_an_actual_body_failure"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_baseline_cannot_qualify_an_actual_body_failure",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_baseline_cannot_qualify_an_actual_body_failure",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_baseline_cannot_qualify_an_actual_body_failure",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/accept-invalid-baseline/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "mutation": "accept-invalid-baseline",
+      "mode": "optimized",
+      "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_baseline_cannot_qualify_an_actual_body_failure",
+      "replacement_sites": 1,
+      "mutated_source_sha256": "02ece6a9b1745d45ab48050b123545416673ab9fd69010caa4c13d03e66a4c3a",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_baseline_cannot_qualify_an_actual_body_failure",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_baseline_cannot_qualify_an_actual_body_failure"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_baseline_cannot_qualify_an_actual_body_failure",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/accept-invalid-baseline/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_baseline_cannot_qualify_an_actual_body_failure",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_baseline_cannot_qualify_an_actual_body_failure"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_baseline_cannot_qualify_an_actual_body_failure"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_baseline_cannot_qualify_an_actual_body_failure",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_baseline_cannot_qualify_an_actual_body_failure",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_baseline_cannot_qualify_an_actual_body_failure",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/accept-invalid-baseline/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "mutation": "relabel-invalid-mutant-as-assertion",
+      "mode": "normal",
+      "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified",
+      "replacement_sites": 1,
+      "mutated_source_sha256": "8b830a9d66d986251c77d8dff6b852b259f1d22201d161bcb32df202c63ed45f",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/relabel-invalid-mutant-as-assertion/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified (changes={'returncode': 2})",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified (changes={'returncode': True})",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified (changes={'tests_run': 0})",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified (changes={'loaded_test_ids': ['other']})",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified (changes={'skipped_ids': ['test_compiled_admission.CompiledAdmissionTests.test_unused_definition_forbidden_closure_is_rejected']})",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified (changes={'expected_failure_ids': ['test_compiled_admission.CompiledAdmissionTests.test_unused_definition_forbidden_closure_is_rejected']})",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified (changes={'error_ids': ['test_compiled_admission.CompiledAdmissionTests.test_unused_definition_forbidden_closure_is_rejected']})"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified (changes={'returncode': 2})",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified (changes={'returncode': True})",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified (changes={'tests_run': 0})",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified (changes={'loaded_test_ids': ['other']})",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified (changes={'skipped_ids': ['test_compiled_admission.CompiledAdmissionTests.test_unused_definition_forbidden_closure_is_rejected']})",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified (changes={'expected_failure_ids': ['test_compiled_admission.CompiledAdmissionTests.test_unused_definition_forbidden_closure_is_rejected']})",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified (changes={'error_ids': ['test_compiled_admission.CompiledAdmissionTests.test_unused_definition_forbidden_closure_is_rejected']})",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/relabel-invalid-mutant-as-assertion/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "mutation": "relabel-invalid-mutant-as-assertion",
+      "mode": "optimized",
+      "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified",
+      "replacement_sites": 1,
+      "mutated_source_sha256": "8b830a9d66d986251c77d8dff6b852b259f1d22201d161bcb32df202c63ed45f",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/relabel-invalid-mutant-as-assertion/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified (changes={'returncode': 2})",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified (changes={'returncode': True})",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified (changes={'tests_run': 0})",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified (changes={'loaded_test_ids': ['other']})",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified (changes={'skipped_ids': ['test_compiled_admission.CompiledAdmissionTests.test_unused_definition_forbidden_closure_is_rejected']})",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified (changes={'expected_failure_ids': ['test_compiled_admission.CompiledAdmissionTests.test_unused_definition_forbidden_closure_is_rejected']})",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified (changes={'error_ids': ['test_compiled_admission.CompiledAdmissionTests.test_unused_definition_forbidden_closure_is_rejected']})"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified (changes={'returncode': 2})",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified (changes={'returncode': True})",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified (changes={'tests_run': 0})",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified (changes={'loaded_test_ids': ['other']})",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified (changes={'skipped_ids': ['test_compiled_admission.CompiledAdmissionTests.test_unused_definition_forbidden_closure_is_rejected']})",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified (changes={'expected_failure_ids': ['test_compiled_admission.CompiledAdmissionTests.test_unused_definition_forbidden_closure_is_rejected']})",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified (changes={'error_ids': ['test_compiled_admission.CompiledAdmissionTests.test_unused_definition_forbidden_closure_is_rejected']})",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/relabel-invalid-mutant-as-assertion/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "mutation": "omit-exact-selection-validation",
+      "mode": "normal",
+      "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused",
+      "replacement_sites": 1,
+      "mutated_source_sha256": "442038b4151f615951ff16fdaf959862d19c164a96d176678e1c58cf697952c4",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-exact-selection-validation/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused (selections=())",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused (selections=('test_compiled_admission.CompiledAdmissionTests.test_unused_definition_forbidden_closure_is_rejected', 'test_compiled_admission.CompiledAdmissionTests.test_unused_definition_forbidden_closure_is_rejected'))",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused (selections=('test_compiled_admission.CompiledAdmissionTests',))",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused (selections=('-k',))",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused (selections=('',))"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused (selections=())",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused (selections=('test_compiled_admission.CompiledAdmissionTests.test_unused_definition_forbidden_closure_is_rejected', 'test_compiled_admission.CompiledAdmissionTests.test_unused_definition_forbidden_closure_is_rejected'))",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused (selections=('test_compiled_admission.CompiledAdmissionTests',))",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused (selections=('-k',))",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused (selections=('',))",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-exact-selection-validation/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "mutation": "omit-exact-selection-validation",
+      "mode": "optimized",
+      "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused",
+      "replacement_sites": 1,
+      "mutated_source_sha256": "442038b4151f615951ff16fdaf959862d19c164a96d176678e1c58cf697952c4",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-exact-selection-validation/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused (selections=())",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused (selections=('test_compiled_admission.CompiledAdmissionTests.test_unused_definition_forbidden_closure_is_rejected', 'test_compiled_admission.CompiledAdmissionTests.test_unused_definition_forbidden_closure_is_rejected'))",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused (selections=('test_compiled_admission.CompiledAdmissionTests',))",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused (selections=('-k',))",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused (selections=('',))"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused (selections=())",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused (selections=('test_compiled_admission.CompiledAdmissionTests.test_unused_definition_forbidden_closure_is_rejected', 'test_compiled_admission.CompiledAdmissionTests.test_unused_definition_forbidden_closure_is_rejected'))",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused (selections=('test_compiled_admission.CompiledAdmissionTests',))",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused (selections=('-k',))",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused (selections=('',))",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_duplicate_and_broad_selections_are_refused",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-exact-selection-validation/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "mutation": "reuse-existing-evidence-directory",
+      "mode": "normal",
+      "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse",
+      "replacement_sites": 1,
+      "mutated_source_sha256": "e6704c12f6ff80402719e4016e2487d0aa4eca0660180592797377aaf4d4d741",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/reuse-existing-evidence-directory/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/reuse-existing-evidence-directory/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "mutation": "reuse-existing-evidence-directory",
+      "mode": "optimized",
+      "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse",
+      "replacement_sites": 1,
+      "mutated_source_sha256": "e6704c12f6ff80402719e4016e2487d0aa4eca0660180592797377aaf4d4d741",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/reuse-existing-evidence-directory/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/reuse-existing-evidence-directory/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "mutation": "omit-output-symlink-refusal",
+      "mode": "normal",
+      "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse",
+      "replacement_sites": 1,
+      "mutated_source_sha256": "00d29141d704b5bda32024edd1ba7c68df34792af5456c78a65b9f9293ad94d0",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-output-symlink-refusal/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse (parent='/tmp/outer-mutation-regression-58tow15z/output-alias')",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse (parent='/tmp/outer-mutation-regression-58tow15z/output-alias/child')"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse (parent='/tmp/outer-mutation-regression-58tow15z/output-alias')",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse (parent='/tmp/outer-mutation-regression-58tow15z/output-alias/child')",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-output-symlink-refusal/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "mutation": "omit-output-symlink-refusal",
+      "mode": "optimized",
+      "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse",
+      "replacement_sites": 1,
+      "mutated_source_sha256": "00d29141d704b5bda32024edd1ba7c68df34792af5456c78a65b9f9293ad94d0",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-output-symlink-refusal/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse (parent='/tmp/outer-mutation-regression-tzq40s3q/output-alias')",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse (parent='/tmp/outer-mutation-regression-tzq40s3q/output-alias/child')"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse (parent='/tmp/outer-mutation-regression-tzq40s3q/output-alias')",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse (parent='/tmp/outer-mutation-regression-tzq40s3q/output-alias/child')",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-output-symlink-refusal/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "mutation": "accept-empty-matrix-as-vacuous-success",
+      "mode": "normal",
+      "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_matrix_is_a_failure_instead_of_vacuous_success",
+      "replacement_sites": 2,
+      "mutated_source_sha256": "f7d82257df894b0a5917d0824657fa13f93c4c3601eb2779979c024911a25959",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_matrix_is_a_failure_instead_of_vacuous_success",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_matrix_is_a_failure_instead_of_vacuous_success"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_matrix_is_a_failure_instead_of_vacuous_success",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/accept-empty-matrix-as-vacuous-success/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_matrix_is_a_failure_instead_of_vacuous_success",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_matrix_is_a_failure_instead_of_vacuous_success"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_matrix_is_a_failure_instead_of_vacuous_success"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_matrix_is_a_failure_instead_of_vacuous_success",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_matrix_is_a_failure_instead_of_vacuous_success",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_matrix_is_a_failure_instead_of_vacuous_success",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/accept-empty-matrix-as-vacuous-success/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "mutation": "accept-empty-matrix-as-vacuous-success",
+      "mode": "optimized",
+      "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_matrix_is_a_failure_instead_of_vacuous_success",
+      "replacement_sites": 2,
+      "mutated_source_sha256": "f7d82257df894b0a5917d0824657fa13f93c4c3601eb2779979c024911a25959",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_matrix_is_a_failure_instead_of_vacuous_success",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_matrix_is_a_failure_instead_of_vacuous_success"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_matrix_is_a_failure_instead_of_vacuous_success",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/accept-empty-matrix-as-vacuous-success/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_matrix_is_a_failure_instead_of_vacuous_success",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_matrix_is_a_failure_instead_of_vacuous_success"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_matrix_is_a_failure_instead_of_vacuous_success"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_matrix_is_a_failure_instead_of_vacuous_success",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_matrix_is_a_failure_instead_of_vacuous_success",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_matrix_is_a_failure_instead_of_vacuous_success",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/accept-empty-matrix-as-vacuous-success/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "mutation": "claim-source-preservation-without-comparison",
+      "mode": "normal",
+      "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_matrix_refuses_a_source_change_even_when_every_mutant_was_killed",
+      "replacement_sites": 1,
+      "mutated_source_sha256": "325a21b270e3dc8d0a3b29d99c84e41ae305b978efa39c56995421afdde379cb",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_matrix_refuses_a_source_change_even_when_every_mutant_was_killed",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_matrix_refuses_a_source_change_even_when_every_mutant_was_killed"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_matrix_refuses_a_source_change_even_when_every_mutant_was_killed",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/claim-source-preservation-without-comparison/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_matrix_refuses_a_source_change_even_when_every_mutant_was_killed",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_matrix_refuses_a_source_change_even_when_every_mutant_was_killed"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_matrix_refuses_a_source_change_even_when_every_mutant_was_killed"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_matrix_refuses_a_source_change_even_when_every_mutant_was_killed",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_matrix_refuses_a_source_change_even_when_every_mutant_was_killed",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_matrix_refuses_a_source_change_even_when_every_mutant_was_killed",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/claim-source-preservation-without-comparison/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "mutation": "claim-source-preservation-without-comparison",
+      "mode": "optimized",
+      "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_matrix_refuses_a_source_change_even_when_every_mutant_was_killed",
+      "replacement_sites": 1,
+      "mutated_source_sha256": "325a21b270e3dc8d0a3b29d99c84e41ae305b978efa39c56995421afdde379cb",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_matrix_refuses_a_source_change_even_when_every_mutant_was_killed",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_matrix_refuses_a_source_change_even_when_every_mutant_was_killed"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_matrix_refuses_a_source_change_even_when_every_mutant_was_killed",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/claim-source-preservation-without-comparison/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_matrix_refuses_a_source_change_even_when_every_mutant_was_killed",
+        "loaded_test_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_matrix_refuses_a_source_change_even_when_every_mutant_was_killed"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_matrix_refuses_a_source_change_even_when_every_mutant_was_killed"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_matrix_refuses_a_source_change_even_when_every_mutant_was_killed",
+            "parent_test_id": "test_cbz_mutation_runner.OuterMutationRunnerTests.test_matrix_refuses_a_source_change_even_when_every_mutant_was_killed",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py",
+          "test_cbz_mutation_runner.OuterMutationRunnerTests.test_matrix_refuses_a_source_change_even_when_every_mutant_was_killed",
+          "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/claim-source-preservation-without-comparison/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    }
+  ],
+  "actual_lean": "NOT_RUN",
+  "kernel_or_cbz_status": "NOT_AWARDED"
+}

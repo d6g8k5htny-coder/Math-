@@ -1,0 +1,30 @@
+test_foreign_git_environment_does_not_redirect_identity (test_determinant_git_identity.DeterminantGitIdentityTests.test_foreign_git_environment_does_not_redirect_identity) ... FAIL
+
+======================================================================
+FAIL: test_foreign_git_environment_does_not_redirect_identity (test_determinant_git_identity.DeterminantGitIdentityTests.test_foreign_git_environment_does_not_redirect_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/inherit-foreign-git-environment/optimized/mutant/source/tests/test_determinant_git_identity.py", line 68, in accepted
+    try:return self.qualify(**kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/inherit-foreign-git-environment/optimized/mutant/source/tests/test_determinant_git_identity.py", line 65, in qualify
+    return identity.qualify_source(self.repo,self.manifest,self.digest,**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/inherit-foreign-git-environment/optimized/mutant/source/determinant_git_identity.py", line 113, in qualify_source
+    _require(_git(repo,'rev-parse','--is-inside-work-tree')==b'true\n','real Git worktree required')
+  File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/inherit-foreign-git-environment/optimized/mutant/source/determinant_git_identity.py", line 22, in _require
+    raise ValueError(message)
+ValueError: real Git worktree required
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py", line 23, in wrapped
+    return _original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: clean isolated Git source must qualify: real Git worktree required
+
+----------------------------------------------------------------------
+Ran 1 test in 0.025s
+
+FAILED (failures=1)

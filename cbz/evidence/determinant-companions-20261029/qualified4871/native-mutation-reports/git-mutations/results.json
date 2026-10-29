@@ -1,0 +1,2934 @@
+{
+  "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+  "baseline_source_sha256": "407038e39404d0348bc07e6385405f9079437af3d19b419d0caa6fb4d2aef488",
+  "actual_mutants": 18,
+  "execution_pairs": 36,
+  "modes": [
+    "normal",
+    "optimized"
+  ],
+  "all_killed": true,
+  "results": [
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-head-blob-attestation",
+      "mode": "normal",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_self_consistently_rebound_dirty_source_and_manifest_refuse",
+      "mutated_source_sha256": "ea299009b559da15a540a2f830b0257acb70c27a0dc135029c82f78018eb8f91",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_self_consistently_rebound_dirty_source_and_manifest_refuse",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_self_consistently_rebound_dirty_source_and_manifest_refuse"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_self_consistently_rebound_dirty_source_and_manifest_refuse",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-head-blob-attestation/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_self_consistently_rebound_dirty_source_and_manifest_refuse",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_self_consistently_rebound_dirty_source_and_manifest_refuse"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_self_consistently_rebound_dirty_source_and_manifest_refuse"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_self_consistently_rebound_dirty_source_and_manifest_refuse",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_self_consistently_rebound_dirty_source_and_manifest_refuse",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_self_consistently_rebound_dirty_source_and_manifest_refuse",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-head-blob-attestation/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-head-blob-attestation",
+      "mode": "optimized",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_self_consistently_rebound_dirty_source_and_manifest_refuse",
+      "mutated_source_sha256": "ea299009b559da15a540a2f830b0257acb70c27a0dc135029c82f78018eb8f91",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_self_consistently_rebound_dirty_source_and_manifest_refuse",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_self_consistently_rebound_dirty_source_and_manifest_refuse"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_self_consistently_rebound_dirty_source_and_manifest_refuse",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-head-blob-attestation/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_self_consistently_rebound_dirty_source_and_manifest_refuse",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_self_consistently_rebound_dirty_source_and_manifest_refuse"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_self_consistently_rebound_dirty_source_and_manifest_refuse"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_self_consistently_rebound_dirty_source_and_manifest_refuse",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_self_consistently_rebound_dirty_source_and_manifest_refuse",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_self_consistently_rebound_dirty_source_and_manifest_refuse",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-head-blob-attestation/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-source-index-head-match",
+      "mode": "normal",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_staged_file_differs_from_head_even_when_live_bytes_restored",
+      "mutated_source_sha256": "052710c7acd4e8c32f2c43fcbfddacb0fd13049a73a168a158c3668a160792d2",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_staged_file_differs_from_head_even_when_live_bytes_restored",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_staged_file_differs_from_head_even_when_live_bytes_restored"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_staged_file_differs_from_head_even_when_live_bytes_restored",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-source-index-head-match/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_staged_file_differs_from_head_even_when_live_bytes_restored",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_staged_file_differs_from_head_even_when_live_bytes_restored"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_staged_file_differs_from_head_even_when_live_bytes_restored"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_staged_file_differs_from_head_even_when_live_bytes_restored",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_staged_file_differs_from_head_even_when_live_bytes_restored",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_staged_file_differs_from_head_even_when_live_bytes_restored",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-source-index-head-match/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-source-index-head-match",
+      "mode": "optimized",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_staged_file_differs_from_head_even_when_live_bytes_restored",
+      "mutated_source_sha256": "052710c7acd4e8c32f2c43fcbfddacb0fd13049a73a168a158c3668a160792d2",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_staged_file_differs_from_head_even_when_live_bytes_restored",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_staged_file_differs_from_head_even_when_live_bytes_restored"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_staged_file_differs_from_head_even_when_live_bytes_restored",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-source-index-head-match/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_staged_file_differs_from_head_even_when_live_bytes_restored",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_staged_file_differs_from_head_even_when_live_bytes_restored"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_staged_file_differs_from_head_even_when_live_bytes_restored"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_staged_file_differs_from_head_even_when_live_bytes_restored",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_staged_file_differs_from_head_even_when_live_bytes_restored",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_staged_file_differs_from_head_even_when_live_bytes_restored",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-source-index-head-match/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-bound-sha-match",
+      "mode": "normal",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_wrong_manifest_digest_is_refused",
+      "mutated_source_sha256": "db2ab69986381074fa708e85777f378f4e3916459003bb9fa974d06cc62cbe77",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_wrong_manifest_digest_is_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_wrong_manifest_digest_is_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_wrong_manifest_digest_is_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-bound-sha-match/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_wrong_manifest_digest_is_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_wrong_manifest_digest_is_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_wrong_manifest_digest_is_refused (value='0000000000000000000000000000000000000000000000000000000000000000')"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_wrong_manifest_digest_is_refused (value='0000000000000000000000000000000000000000000000000000000000000000')",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_wrong_manifest_digest_is_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_wrong_manifest_digest_is_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-bound-sha-match/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-bound-sha-match",
+      "mode": "optimized",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_wrong_manifest_digest_is_refused",
+      "mutated_source_sha256": "db2ab69986381074fa708e85777f378f4e3916459003bb9fa974d06cc62cbe77",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_wrong_manifest_digest_is_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_wrong_manifest_digest_is_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_wrong_manifest_digest_is_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-bound-sha-match/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_wrong_manifest_digest_is_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_wrong_manifest_digest_is_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_wrong_manifest_digest_is_refused (value='0000000000000000000000000000000000000000000000000000000000000000')"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_wrong_manifest_digest_is_refused (value='0000000000000000000000000000000000000000000000000000000000000000')",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_wrong_manifest_digest_is_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_wrong_manifest_digest_is_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-bound-sha-match/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-caller-manifest-match",
+      "mode": "normal",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_different_caller_manifest_refuses_even_with_original_digest",
+      "mutated_source_sha256": "82b71a7ab7e936359e9bd2a643b56a5308019a8464306cc13b16fe98dcb9e603",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_different_caller_manifest_refuses_even_with_original_digest",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_different_caller_manifest_refuses_even_with_original_digest"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_different_caller_manifest_refuses_even_with_original_digest",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-caller-manifest-match/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_different_caller_manifest_refuses_even_with_original_digest",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_different_caller_manifest_refuses_even_with_original_digest"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_different_caller_manifest_refuses_even_with_original_digest"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_different_caller_manifest_refuses_even_with_original_digest",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_different_caller_manifest_refuses_even_with_original_digest",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_different_caller_manifest_refuses_even_with_original_digest",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-caller-manifest-match/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-caller-manifest-match",
+      "mode": "optimized",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_different_caller_manifest_refuses_even_with_original_digest",
+      "mutated_source_sha256": "82b71a7ab7e936359e9bd2a643b56a5308019a8464306cc13b16fe98dcb9e603",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_different_caller_manifest_refuses_even_with_original_digest",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_different_caller_manifest_refuses_even_with_original_digest"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_different_caller_manifest_refuses_even_with_original_digest",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-caller-manifest-match/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_different_caller_manifest_refuses_even_with_original_digest",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_different_caller_manifest_refuses_even_with_original_digest"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_different_caller_manifest_refuses_even_with_original_digest"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_different_caller_manifest_refuses_even_with_original_digest",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_different_caller_manifest_refuses_even_with_original_digest",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_different_caller_manifest_refuses_even_with_original_digest",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-caller-manifest-match/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-previous-state-match",
+      "mode": "normal",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_new_native_head_requires_new_execution_identity",
+      "mutated_source_sha256": "1025f70f6748e3c5513ebfc2f42b81efb5a3661f66300aeea9c10f428cd0bb17",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_new_native_head_requires_new_execution_identity",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_new_native_head_requires_new_execution_identity"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_new_native_head_requires_new_execution_identity",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-previous-state-match/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_new_native_head_requires_new_execution_identity",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_new_native_head_requires_new_execution_identity"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_new_native_head_requires_new_execution_identity"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_new_native_head_requires_new_execution_identity",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_new_native_head_requires_new_execution_identity",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_new_native_head_requires_new_execution_identity",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-previous-state-match/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-previous-state-match",
+      "mode": "optimized",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_new_native_head_requires_new_execution_identity",
+      "mutated_source_sha256": "1025f70f6748e3c5513ebfc2f42b81efb5a3661f66300aeea9c10f428cd0bb17",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_new_native_head_requires_new_execution_identity",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_new_native_head_requires_new_execution_identity"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_new_native_head_requires_new_execution_identity",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-previous-state-match/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_new_native_head_requires_new_execution_identity",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_new_native_head_requires_new_execution_identity"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_new_native_head_requires_new_execution_identity"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_new_native_head_requires_new_execution_identity",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_new_native_head_requires_new_execution_identity",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_new_native_head_requires_new_execution_identity",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-previous-state-match/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-endpoint-head-stability",
+      "mode": "normal",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_head_change_during_observation_is_refused",
+      "mutated_source_sha256": "07894c92b7ff169153eb0034fb6a9fcd866db639f7a174be89a9610698eef388",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_head_change_during_observation_is_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_head_change_during_observation_is_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_head_change_during_observation_is_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-endpoint-head-stability/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_head_change_during_observation_is_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_head_change_during_observation_is_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_head_change_during_observation_is_refused"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_head_change_during_observation_is_refused",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_head_change_during_observation_is_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_head_change_during_observation_is_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-endpoint-head-stability/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-endpoint-head-stability",
+      "mode": "optimized",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_head_change_during_observation_is_refused",
+      "mutated_source_sha256": "07894c92b7ff169153eb0034fb6a9fcd866db639f7a174be89a9610698eef388",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_head_change_during_observation_is_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_head_change_during_observation_is_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_head_change_during_observation_is_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-endpoint-head-stability/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_head_change_during_observation_is_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_head_change_during_observation_is_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_head_change_during_observation_is_refused"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_head_change_during_observation_is_refused",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_head_change_during_observation_is_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_head_change_during_observation_is_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-endpoint-head-stability/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-source-ancestor-symlink-refusal",
+      "mode": "normal",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_shared_helper_directory_symlink_is_refused",
+      "mutated_source_sha256": "7aa64afdabf9b7b3f77cd47c1f171b03e05e33ddf46565515e049eb99ad69ac6",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_shared_helper_directory_symlink_is_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_shared_helper_directory_symlink_is_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_shared_helper_directory_symlink_is_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-source-ancestor-symlink-refusal/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_shared_helper_directory_symlink_is_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_shared_helper_directory_symlink_is_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_shared_helper_directory_symlink_is_refused"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_shared_helper_directory_symlink_is_refused",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_shared_helper_directory_symlink_is_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_shared_helper_directory_symlink_is_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-source-ancestor-symlink-refusal/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-source-ancestor-symlink-refusal",
+      "mode": "optimized",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_shared_helper_directory_symlink_is_refused",
+      "mutated_source_sha256": "7aa64afdabf9b7b3f77cd47c1f171b03e05e33ddf46565515e049eb99ad69ac6",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_shared_helper_directory_symlink_is_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_shared_helper_directory_symlink_is_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_shared_helper_directory_symlink_is_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-source-ancestor-symlink-refusal/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_shared_helper_directory_symlink_is_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_shared_helper_directory_symlink_is_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_shared_helper_directory_symlink_is_refused"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_shared_helper_directory_symlink_is_refused",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_shared_helper_directory_symlink_is_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_shared_helper_directory_symlink_is_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-source-ancestor-symlink-refusal/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-live-source-mode-match",
+      "mode": "normal",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_actual_executable_mode_drift_refuses_even_when_git_filemode_disabled",
+      "mutated_source_sha256": "e56fc48e9d03440ba593250fdc8c150b8d1b1c5ea2481262d3ccb11364aa0059",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_actual_executable_mode_drift_refuses_even_when_git_filemode_disabled",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_actual_executable_mode_drift_refuses_even_when_git_filemode_disabled"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_actual_executable_mode_drift_refuses_even_when_git_filemode_disabled",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-live-source-mode-match/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_actual_executable_mode_drift_refuses_even_when_git_filemode_disabled",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_actual_executable_mode_drift_refuses_even_when_git_filemode_disabled"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_actual_executable_mode_drift_refuses_even_when_git_filemode_disabled"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_actual_executable_mode_drift_refuses_even_when_git_filemode_disabled",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_actual_executable_mode_drift_refuses_even_when_git_filemode_disabled",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_actual_executable_mode_drift_refuses_even_when_git_filemode_disabled",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-live-source-mode-match/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-live-source-mode-match",
+      "mode": "optimized",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_actual_executable_mode_drift_refuses_even_when_git_filemode_disabled",
+      "mutated_source_sha256": "e56fc48e9d03440ba593250fdc8c150b8d1b1c5ea2481262d3ccb11364aa0059",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_actual_executable_mode_drift_refuses_even_when_git_filemode_disabled",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_actual_executable_mode_drift_refuses_even_when_git_filemode_disabled"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_actual_executable_mode_drift_refuses_even_when_git_filemode_disabled",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-live-source-mode-match/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_actual_executable_mode_drift_refuses_even_when_git_filemode_disabled",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_actual_executable_mode_drift_refuses_even_when_git_filemode_disabled"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_actual_executable_mode_drift_refuses_even_when_git_filemode_disabled"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_actual_executable_mode_drift_refuses_even_when_git_filemode_disabled",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_actual_executable_mode_drift_refuses_even_when_git_filemode_disabled",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_actual_executable_mode_drift_refuses_even_when_git_filemode_disabled",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-live-source-mode-match/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-unregistered-source-refusal",
+      "mode": "normal",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unregistered_lean_and_python_sources_are_refused",
+      "mutated_source_sha256": "90faa3a48c294eb6e02c44f8ed9522a0c45947903b6258eb7bec721595a0c9cc",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unregistered_lean_and_python_sources_are_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unregistered_lean_and_python_sources_are_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unregistered_lean_and_python_sources_are_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-unregistered-source-refusal/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unregistered_lean_and_python_sources_are_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unregistered_lean_and_python_sources_are_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unregistered_lean_and_python_sources_are_refused (name='unregistered.py')"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unregistered_lean_and_python_sources_are_refused (name='unregistered.py')",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unregistered_lean_and_python_sources_are_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unregistered_lean_and_python_sources_are_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-unregistered-source-refusal/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-unregistered-source-refusal",
+      "mode": "optimized",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unregistered_lean_and_python_sources_are_refused",
+      "mutated_source_sha256": "90faa3a48c294eb6e02c44f8ed9522a0c45947903b6258eb7bec721595a0c9cc",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unregistered_lean_and_python_sources_are_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unregistered_lean_and_python_sources_are_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unregistered_lean_and_python_sources_are_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-unregistered-source-refusal/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unregistered_lean_and_python_sources_are_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unregistered_lean_and_python_sources_are_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unregistered_lean_and_python_sources_are_refused (name='unregistered.py')"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unregistered_lean_and_python_sources_are_refused (name='unregistered.py')",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unregistered_lean_and_python_sources_are_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unregistered_lean_and_python_sources_are_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-unregistered-source-refusal/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "inherit-foreign-git-environment",
+      "mode": "normal",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_foreign_git_environment_does_not_redirect_identity",
+      "mutated_source_sha256": "6d96875a0220e1a5ce769132bfc962b0cfb7a056cc98400354a031581e94c37f",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_foreign_git_environment_does_not_redirect_identity",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_foreign_git_environment_does_not_redirect_identity"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_foreign_git_environment_does_not_redirect_identity",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/inherit-foreign-git-environment/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_foreign_git_environment_does_not_redirect_identity",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_foreign_git_environment_does_not_redirect_identity"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_foreign_git_environment_does_not_redirect_identity"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_foreign_git_environment_does_not_redirect_identity",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_foreign_git_environment_does_not_redirect_identity",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_foreign_git_environment_does_not_redirect_identity",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/inherit-foreign-git-environment/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "inherit-foreign-git-environment",
+      "mode": "optimized",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_foreign_git_environment_does_not_redirect_identity",
+      "mutated_source_sha256": "6d96875a0220e1a5ce769132bfc962b0cfb7a056cc98400354a031581e94c37f",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_foreign_git_environment_does_not_redirect_identity",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_foreign_git_environment_does_not_redirect_identity"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_foreign_git_environment_does_not_redirect_identity",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/inherit-foreign-git-environment/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_foreign_git_environment_does_not_redirect_identity",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_foreign_git_environment_does_not_redirect_identity"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_foreign_git_environment_does_not_redirect_identity"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_foreign_git_environment_does_not_redirect_identity",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_foreign_git_environment_does_not_redirect_identity",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_foreign_git_environment_does_not_redirect_identity",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/inherit-foreign-git-environment/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "allow-duplicate-manifest-json-keys",
+      "mode": "normal",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_duplicate_manifest_keys_are_refused",
+      "mutated_source_sha256": "33d9100a265a493fd686ab1da634fe499b545ac1251b9b00181bd9b0293e8581",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_duplicate_manifest_keys_are_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_duplicate_manifest_keys_are_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_duplicate_manifest_keys_are_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/allow-duplicate-manifest-json-keys/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_duplicate_manifest_keys_are_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_duplicate_manifest_keys_are_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_duplicate_manifest_keys_are_refused"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_duplicate_manifest_keys_are_refused",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_duplicate_manifest_keys_are_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_duplicate_manifest_keys_are_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/allow-duplicate-manifest-json-keys/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "allow-duplicate-manifest-json-keys",
+      "mode": "optimized",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_duplicate_manifest_keys_are_refused",
+      "mutated_source_sha256": "33d9100a265a493fd686ab1da634fe499b545ac1251b9b00181bd9b0293e8581",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_duplicate_manifest_keys_are_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_duplicate_manifest_keys_are_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_duplicate_manifest_keys_are_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/allow-duplicate-manifest-json-keys/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_duplicate_manifest_keys_are_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_duplicate_manifest_keys_are_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_duplicate_manifest_keys_are_refused"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_duplicate_manifest_keys_are_refused",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_duplicate_manifest_keys_are_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_duplicate_manifest_keys_are_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/allow-duplicate-manifest-json-keys/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-unmerged-index-refusal",
+      "mode": "normal",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unmerged_single_stage_index_entry_is_refused",
+      "mutated_source_sha256": "2e08ce4b85d2c327208f4af48eaf5d0192a63264e0db5174de36b04fa13dc05a",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unmerged_single_stage_index_entry_is_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unmerged_single_stage_index_entry_is_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unmerged_single_stage_index_entry_is_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-unmerged-index-refusal/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unmerged_single_stage_index_entry_is_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unmerged_single_stage_index_entry_is_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unmerged_single_stage_index_entry_is_refused"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unmerged_single_stage_index_entry_is_refused",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unmerged_single_stage_index_entry_is_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unmerged_single_stage_index_entry_is_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-unmerged-index-refusal/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-unmerged-index-refusal",
+      "mode": "optimized",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unmerged_single_stage_index_entry_is_refused",
+      "mutated_source_sha256": "2e08ce4b85d2c327208f4af48eaf5d0192a63264e0db5174de36b04fa13dc05a",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unmerged_single_stage_index_entry_is_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unmerged_single_stage_index_entry_is_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unmerged_single_stage_index_entry_is_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-unmerged-index-refusal/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unmerged_single_stage_index_entry_is_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unmerged_single_stage_index_entry_is_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unmerged_single_stage_index_entry_is_refused"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unmerged_single_stage_index_entry_is_refused",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unmerged_single_stage_index_entry_is_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unmerged_single_stage_index_entry_is_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-unmerged-index-refusal/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-final-index-stability",
+      "mode": "normal",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_index_change_during_observation_is_refused",
+      "mutated_source_sha256": "af3a141dbb1a2cdf4ae646572f84d62f42e9142f3d2b5bd71fc81d92174fb324",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_index_change_during_observation_is_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_index_change_during_observation_is_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_index_change_during_observation_is_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-final-index-stability/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_index_change_during_observation_is_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_index_change_during_observation_is_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_index_change_during_observation_is_refused"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_index_change_during_observation_is_refused",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_index_change_during_observation_is_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_index_change_during_observation_is_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-final-index-stability/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-final-index-stability",
+      "mode": "optimized",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_index_change_during_observation_is_refused",
+      "mutated_source_sha256": "af3a141dbb1a2cdf4ae646572f84d62f42e9142f3d2b5bd71fc81d92174fb324",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_index_change_during_observation_is_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_index_change_during_observation_is_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_index_change_during_observation_is_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-final-index-stability/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_index_change_during_observation_is_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_index_change_during_observation_is_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_index_change_during_observation_is_refused"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_index_change_during_observation_is_refused",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_index_change_during_observation_is_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_index_change_during_observation_is_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-final-index-stability/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "restore-any-execute-bit-mode",
+      "mode": "normal",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source",
+      "mutated_source_sha256": "0f7cc7604bb7983b34cab10d5430838cbbf4d8cc4d6465d61f3d3f8187b5e868",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/restore-any-execute-bit-mode/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source (path='frontiers/determinant_moment_20261025/gate.py', filemode='true', mode='0o645')",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source (path='frontiers/determinant_moment_20261025/gate.py', filemode='true', mode='0o654')",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source (path='frontiers/determinant_moment_20261025/gate.py', filemode='true', mode='0o655')",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source (path='frontiers/determinant_moment_20261025/gate.py', filemode='false', mode='0o645')",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source (path='frontiers/determinant_moment_20261025/gate.py', filemode='false', mode='0o654')",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source (path='frontiers/determinant_moment_20261025/gate.py', filemode='false', mode='0o655')"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source (path='frontiers/determinant_moment_20261025/gate.py', filemode='true', mode='0o645')",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source (path='frontiers/determinant_moment_20261025/gate.py', filemode='true', mode='0o654')",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source (path='frontiers/determinant_moment_20261025/gate.py', filemode='true', mode='0o655')",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source (path='frontiers/determinant_moment_20261025/gate.py', filemode='false', mode='0o645')",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source (path='frontiers/determinant_moment_20261025/gate.py', filemode='false', mode='0o654')",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source (path='frontiers/determinant_moment_20261025/gate.py', filemode='false', mode='0o655')",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/restore-any-execute-bit-mode/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "restore-any-execute-bit-mode",
+      "mode": "optimized",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source",
+      "mutated_source_sha256": "0f7cc7604bb7983b34cab10d5430838cbbf4d8cc4d6465d61f3d3f8187b5e868",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/restore-any-execute-bit-mode/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source (path='frontiers/determinant_moment_20261025/gate.py', filemode='true', mode='0o645')",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source (path='frontiers/determinant_moment_20261025/gate.py', filemode='true', mode='0o654')",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source (path='frontiers/determinant_moment_20261025/gate.py', filemode='true', mode='0o655')",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source (path='frontiers/determinant_moment_20261025/gate.py', filemode='false', mode='0o645')",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source (path='frontiers/determinant_moment_20261025/gate.py', filemode='false', mode='0o654')",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source (path='frontiers/determinant_moment_20261025/gate.py', filemode='false', mode='0o655')"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source (path='frontiers/determinant_moment_20261025/gate.py', filemode='true', mode='0o645')",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source (path='frontiers/determinant_moment_20261025/gate.py', filemode='true', mode='0o654')",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source (path='frontiers/determinant_moment_20261025/gate.py', filemode='true', mode='0o655')",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source (path='frontiers/determinant_moment_20261025/gate.py', filemode='false', mode='0o645')",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source (path='frontiers/determinant_moment_20261025/gate.py', filemode='false', mode='0o654')",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source (path='frontiers/determinant_moment_20261025/gate.py', filemode='false', mode='0o655')",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/restore-any-execute-bit-mode/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-head-source-inventory",
+      "mode": "normal",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_head_only_unbound_lean_and_python_sources_are_refused",
+      "mutated_source_sha256": "cc37f6afe22cf167d162164bcee53e4c41822f01b6f7344d1ede61a2b63228ae",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_head_only_unbound_lean_and_python_sources_are_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_head_only_unbound_lean_and_python_sources_are_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_head_only_unbound_lean_and_python_sources_are_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-head-source-inventory/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_head_only_unbound_lean_and_python_sources_are_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_head_only_unbound_lean_and_python_sources_are_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_head_only_unbound_lean_and_python_sources_are_refused (name='Unbound.lean')",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_head_only_unbound_lean_and_python_sources_are_refused (name='unbound.py')"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_head_only_unbound_lean_and_python_sources_are_refused (name='Unbound.lean')",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_head_only_unbound_lean_and_python_sources_are_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_head_only_unbound_lean_and_python_sources_are_refused (name='unbound.py')",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_head_only_unbound_lean_and_python_sources_are_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_head_only_unbound_lean_and_python_sources_are_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-head-source-inventory/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-head-source-inventory",
+      "mode": "optimized",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_head_only_unbound_lean_and_python_sources_are_refused",
+      "mutated_source_sha256": "cc37f6afe22cf167d162164bcee53e4c41822f01b6f7344d1ede61a2b63228ae",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_head_only_unbound_lean_and_python_sources_are_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_head_only_unbound_lean_and_python_sources_are_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_head_only_unbound_lean_and_python_sources_are_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-head-source-inventory/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_head_only_unbound_lean_and_python_sources_are_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_head_only_unbound_lean_and_python_sources_are_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_head_only_unbound_lean_and_python_sources_are_refused (name='Unbound.lean')",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_head_only_unbound_lean_and_python_sources_are_refused (name='unbound.py')"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_head_only_unbound_lean_and_python_sources_are_refused (name='Unbound.lean')",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_head_only_unbound_lean_and_python_sources_are_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_head_only_unbound_lean_and_python_sources_are_refused (name='unbound.py')",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_head_only_unbound_lean_and_python_sources_are_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_head_only_unbound_lean_and_python_sources_are_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-head-source-inventory/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-index-source-inventories",
+      "mode": "normal",
+      "replacement_sites": 2,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_index_only_unbound_lean_and_python_sources_are_refused",
+      "mutated_source_sha256": "2ce0367ff82ff9696aaeef504452acc28aa74c11f7bdee5b5ccf98dbea98d86c",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_index_only_unbound_lean_and_python_sources_are_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_index_only_unbound_lean_and_python_sources_are_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_index_only_unbound_lean_and_python_sources_are_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-index-source-inventories/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_index_only_unbound_lean_and_python_sources_are_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_index_only_unbound_lean_and_python_sources_are_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_index_only_unbound_lean_and_python_sources_are_refused (name='Unbound.lean')",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_index_only_unbound_lean_and_python_sources_are_refused (name='unbound.py')"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_index_only_unbound_lean_and_python_sources_are_refused (name='Unbound.lean')",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_index_only_unbound_lean_and_python_sources_are_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_index_only_unbound_lean_and_python_sources_are_refused (name='unbound.py')",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_index_only_unbound_lean_and_python_sources_are_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_index_only_unbound_lean_and_python_sources_are_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-index-source-inventories/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-index-source-inventories",
+      "mode": "optimized",
+      "replacement_sites": 2,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_index_only_unbound_lean_and_python_sources_are_refused",
+      "mutated_source_sha256": "2ce0367ff82ff9696aaeef504452acc28aa74c11f7bdee5b5ccf98dbea98d86c",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_index_only_unbound_lean_and_python_sources_are_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_index_only_unbound_lean_and_python_sources_are_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_index_only_unbound_lean_and_python_sources_are_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-index-source-inventories/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_index_only_unbound_lean_and_python_sources_are_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_index_only_unbound_lean_and_python_sources_are_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_index_only_unbound_lean_and_python_sources_are_refused (name='Unbound.lean')",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_index_only_unbound_lean_and_python_sources_are_refused (name='unbound.py')"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_index_only_unbound_lean_and_python_sources_are_refused (name='Unbound.lean')",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_index_only_unbound_lean_and_python_sources_are_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          },
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_index_only_unbound_lean_and_python_sources_are_refused (name='unbound.py')",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_index_only_unbound_lean_and_python_sources_are_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_hidden_index_only_unbound_lean_and_python_sources_are_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-index-source-inventories/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-final-index-source-inventory",
+      "mode": "normal",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unbound_source_added_to_index_during_observation_is_refused",
+      "mutated_source_sha256": "68e9efc29af57d88c8753e4db8e5de3e788a1a902fa79a79735233766897623b",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unbound_source_added_to_index_during_observation_is_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unbound_source_added_to_index_during_observation_is_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unbound_source_added_to_index_during_observation_is_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-final-index-source-inventory/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unbound_source_added_to_index_during_observation_is_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unbound_source_added_to_index_during_observation_is_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unbound_source_added_to_index_during_observation_is_refused"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unbound_source_added_to_index_during_observation_is_refused",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unbound_source_added_to_index_during_observation_is_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unbound_source_added_to_index_during_observation_is_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-final-index-source-inventory/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-final-index-source-inventory",
+      "mode": "optimized",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unbound_source_added_to_index_during_observation_is_refused",
+      "mutated_source_sha256": "68e9efc29af57d88c8753e4db8e5de3e788a1a902fa79a79735233766897623b",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unbound_source_added_to_index_during_observation_is_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unbound_source_added_to_index_during_observation_is_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unbound_source_added_to_index_during_observation_is_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-final-index-source-inventory/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unbound_source_added_to_index_during_observation_is_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unbound_source_added_to_index_during_observation_is_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unbound_source_added_to_index_during_observation_is_refused"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unbound_source_added_to_index_during_observation_is_refused",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_unbound_source_added_to_index_during_observation_is_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_unbound_source_added_to_index_during_observation_is_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-final-index-source-inventory/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-inventory-walk-error-handler",
+      "mode": "normal",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_explicit_directory_inventory_io_error_is_refused",
+      "mutated_source_sha256": "2bba09aa8926717262ce070d0654e636599a117608ec9629cf4c058f57256c10",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_explicit_directory_inventory_io_error_is_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_explicit_directory_inventory_io_error_is_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 0,
+        "successful": true,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_explicit_directory_inventory_io_error_is_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-inventory-walk-error-handler/normal/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_explicit_directory_inventory_io_error_is_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_explicit_directory_inventory_io_error_is_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_explicit_directory_inventory_io_error_is_refused"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_explicit_directory_inventory_io_error_is_refused",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_explicit_directory_inventory_io_error_is_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 0,
+        "successful": false,
+        "mode": "normal",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_explicit_directory_inventory_io_error_is_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-inventory-walk-error-handler/normal/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    },
+    {
+      "scope": "DETERMINANT_GIT_IDENTITY_MUTATIONS_ONLY",
+      "mutation": "omit-inventory-walk-error-handler",
+      "mode": "optimized",
+      "replacement_sites": 1,
+      "test": "test_determinant_git_identity.DeterminantGitIdentityTests.test_explicit_directory_inventory_io_error_is_refused",
+      "mutated_source_sha256": "2bba09aa8926717262ce070d0654e636599a117608ec9629cf4c058f57256c10",
+      "external_process_responses": "Actual isolated Git/filesystem; no Lean executed",
+      "same_harness": true,
+      "baseline_passed": true,
+      "killed": true,
+      "status": "KILLED",
+      "baseline": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_explicit_directory_inventory_io_error_is_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_explicit_directory_inventory_io_error_is_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [],
+        "optimization": 1,
+        "successful": true,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_explicit_directory_inventory_io_error_is_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-inventory-walk-error-handler/optimized/baseline/logs/unittest-result.json"
+        ],
+        "returncode": 0,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "PASS"
+      },
+      "mutant": {
+        "selection": "test_determinant_git_identity.DeterminantGitIdentityTests.test_explicit_directory_inventory_io_error_is_refused",
+        "loaded_test_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_explicit_directory_inventory_io_error_is_refused"
+        ],
+        "tests_run": 1,
+        "failure_ids": [
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_explicit_directory_inventory_io_error_is_refused"
+        ],
+        "error_ids": [],
+        "skipped_ids": [],
+        "expected_failure_ids": [],
+        "unexpected_success_ids": [],
+        "failure_details": [
+          {
+            "test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_explicit_directory_inventory_io_error_is_refused",
+            "parent_test_id": "test_determinant_git_identity.DeterminantGitIdentityTests.test_explicit_directory_inventory_io_error_is_refused",
+            "phase": "test",
+            "exception_type": "AssertionError",
+            "is_assertion": true
+          }
+        ],
+        "optimization": 1,
+        "successful": false,
+        "mode": "optimized",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.16/x64/bin/python",
+          "-O",
+          "-B",
+          "-S",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py",
+          "test_determinant_git_identity.DeterminantGitIdentityTests.test_explicit_directory_inventory_io_error_is_refused",
+          "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-inventory-walk-error-handler/optimized/mutant/logs/unittest-result.json"
+        ],
+        "returncode": 1,
+        "harness_sha256": "76d0ea34263a6c8d626d9a2f444d0bebe318c7f1734736f2b6eb82c1c3524b5a",
+        "classification": "ASSERTION_FAILURE"
+      }
+    }
+  ],
+  "kernel_or_cbz_status": "NOT_AWARDED"
+}

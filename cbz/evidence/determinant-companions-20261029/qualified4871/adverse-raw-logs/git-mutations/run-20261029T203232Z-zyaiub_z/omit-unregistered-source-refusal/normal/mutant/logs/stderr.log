@@ -1,0 +1,15 @@
+test_unregistered_lean_and_python_sources_are_refused (test_determinant_git_identity.DeterminantGitIdentityTests.test_unregistered_lean_and_python_sources_are_refused) ... 
+  test_unregistered_lean_and_python_sources_are_refused (test_determinant_git_identity.DeterminantGitIdentityTests.test_unregistered_lean_and_python_sources_are_refused) (name='unregistered.py') ... FAIL
+
+======================================================================
+FAIL: test_unregistered_lean_and_python_sources_are_refused (test_determinant_git_identity.DeterminantGitIdentityTests.test_unregistered_lean_and_python_sources_are_refused) (name='unregistered.py')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/omit-unregistered-source-refusal/normal/mutant/source/tests/test_determinant_git_identity.py", line 221, in test_unregistered_lean_and_python_sources_are_refused
+    with self.assertRaises(ValueError):self.qualify()
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.045s
+
+FAILED (failures=1)

@@ -1,0 +1,1970 @@
+[
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-internal-proof-presence/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-internal-proof-presence/normal/baseline/logs/stderr.log",
+    "bytes": 242,
+    "sha256": "b1c0860c625f04959287f68edbb3e6292a49d51027c7234b56aac1d1c7dbf67b",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-internal-proof-presence/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-internal-proof-presence/normal/mutant/logs/stderr.log",
+    "bytes": 892,
+    "sha256": "7b2a4d5d729855503567f379389fe9eaca881d49a814fa2b32358df955ce1254",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-internal-proof-presence/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-internal-proof-presence/optimized/baseline/logs/stderr.log",
+    "bytes": 242,
+    "sha256": "8cc0f0d933f1704d1ed01a74888182bf1d95083c8d0268570adf5cfbec58beba",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-internal-proof-presence/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-internal-proof-presence/optimized/mutant/logs/stderr.log",
+    "bytes": 892,
+    "sha256": "9c0c334dc5575e622e1f317c5b88a3ef5c5c2d5e6a1a7309ee8439a09c04c012",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-user-proof-exception/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-user-proof-exception/normal/baseline/logs/stderr.log",
+    "bytes": 270,
+    "sha256": "e69c5001d4326b2a933c113830b9c2a2095b1e04a8c683bf91c6928f786fbf1c",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-user-proof-exception/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-user-proof-exception/normal/mutant/logs/stderr.log",
+    "bytes": 948,
+    "sha256": "7615ce46a52644bc4b5e13a93dfe4cd3ea3bba1628ab4ddfbb78e7d68ddfe64d",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-user-proof-exception/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-user-proof-exception/optimized/baseline/logs/stderr.log",
+    "bytes": 270,
+    "sha256": "d9fced5d7c3ee6b593c4bae8356065de99a6df253b4689537b6ef53afde1a024",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-user-proof-exception/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-user-proof-exception/optimized/mutant/logs/stderr.log",
+    "bytes": 948,
+    "sha256": "958e61df8f695ec14c299ce059ccfb02e4a097e0abb1f0c65963df71793fa767",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-IR-metadata-exception/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-IR-metadata-exception/normal/baseline/logs/stderr.log",
+    "bytes": 276,
+    "sha256": "988528b06bbfbf5d18478504c8bc2ae3c61162e1ce42f0f7a18309e0d6a0eb47",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-IR-metadata-exception/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-IR-metadata-exception/normal/mutant/logs/stderr.log",
+    "bytes": 960,
+    "sha256": "21dffcff146772fb7234e29a7125795f0c2b61d66c795723fd2ba523b4522ea3",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-IR-metadata-exception/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-IR-metadata-exception/optimized/baseline/logs/stderr.log",
+    "bytes": 276,
+    "sha256": "988528b06bbfbf5d18478504c8bc2ae3c61162e1ce42f0f7a18309e0d6a0eb47",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-IR-metadata-exception/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-IR-metadata-exception/optimized/mutant/logs/stderr.log",
+    "bytes": 960,
+    "sha256": "21dffcff146772fb7234e29a7125795f0c2b61d66c795723fd2ba523b4522ea3",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-core-findings/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-core-findings/normal/baseline/logs/stderr.log",
+    "bytes": 272,
+    "sha256": "237e81ae56bc5dd77f29158516511688433715921c59e9b78a588edd43cc3492",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-core-findings/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-core-findings/normal/mutant/logs/stderr.log",
+    "bytes": 952,
+    "sha256": "e723c51c48cb4e8c99aacbd459138f3c8aa5521a7728349259b07d243d65de8d",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-core-findings/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-core-findings/optimized/baseline/logs/stderr.log",
+    "bytes": 272,
+    "sha256": "237e81ae56bc5dd77f29158516511688433715921c59e9b78a588edd43cc3492",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-core-findings/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-core-findings/optimized/mutant/logs/stderr.log",
+    "bytes": 952,
+    "sha256": "e723c51c48cb4e8c99aacbd459138f3c8aa5521a7728349259b07d243d65de8d",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-auxiliary-exception/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-auxiliary-exception/normal/baseline/logs/stderr.log",
+    "bytes": 276,
+    "sha256": "330fd6da8ace62d032b3d5e626b6ecc2972111dfa2855859a585e3bfc54c0c52",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-auxiliary-exception/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-auxiliary-exception/normal/mutant/logs/stderr.log",
+    "bytes": 960,
+    "sha256": "016ce29a13b5716344ca124db428bb4999ebbbb9e5d37443684134d76398d595",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-auxiliary-exception/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-auxiliary-exception/optimized/baseline/logs/stderr.log",
+    "bytes": 276,
+    "sha256": "12da3fb6fcaf5fa123d601a3ef4f87d3478b727c5194d8ed2053410ec18aba92",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-auxiliary-exception/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/blanket-auxiliary-exception/optimized/mutant/logs/stderr.log",
+    "bytes": 960,
+    "sha256": "016ce29a13b5716344ca124db428bb4999ebbbb9e5d37443684134d76398d595",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-positive-baseline-digest/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-positive-baseline-digest/normal/baseline/logs/stderr.log",
+    "bytes": 289,
+    "sha256": "f40869a9918662dd11e87f594ea0ee3bac1e49da2baf6a63c82497b47a896d40",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-positive-baseline-digest/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-positive-baseline-digest/normal/mutant/logs/stderr.log",
+    "bytes": 979,
+    "sha256": "0d301e18e8ac01a03f57d990da40f7f1830f6d46edf49a454c6b11fb792d008b",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-positive-baseline-digest/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-positive-baseline-digest/optimized/baseline/logs/stderr.log",
+    "bytes": 289,
+    "sha256": "236b4d6d01e10574552f7e71fd7397c6d2dd2f8ebd4af2654f7ad7fe4aaea8de",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-positive-baseline-digest/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-positive-baseline-digest/optimized/mutant/logs/stderr.log",
+    "bytes": 979,
+    "sha256": "4acb3aeee29acdfa2905516438880e1fa979fe63a736b57491ba19792a36c6f1",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/skip-required-checker-stage/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/skip-required-checker-stage/normal/baseline/logs/stderr.log",
+    "bytes": 297,
+    "sha256": "ff1bf0a2e4c9909f0ee0e05b6ddcb7105cad41f64a2a5e9107acad113ddf6e26",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/skip-required-checker-stage/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/skip-required-checker-stage/normal/mutant/logs/stderr.log",
+    "bytes": 1437,
+    "sha256": "b7c4930b8ccb768d22909a38ade4cf5edc6e833306dd0bb5cbcbb345a031f2bf",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/skip-required-checker-stage/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/skip-required-checker-stage/optimized/baseline/logs/stderr.log",
+    "bytes": 297,
+    "sha256": "cbf5494a0e6e5c909814dd08889dadbe5615b306ad0d0ab7e2783f8bba4f0ce8",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/skip-required-checker-stage/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/skip-required-checker-stage/optimized/mutant/logs/stderr.log",
+    "bytes": 1440,
+    "sha256": "1a55a7253cdf8f924cc4c80fcec5cdbfd8f1dedff55d89bf334575aa7b88acd9",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/ignore-exact-rejection-reason/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/ignore-exact-rejection-reason/normal/baseline/logs/stderr.log",
+    "bytes": 261,
+    "sha256": "d078cae98a247eb7207d5f0a372081c40c6c81b9dc03e063a5500e5b7e4cdaf1",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/ignore-exact-rejection-reason/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/ignore-exact-rejection-reason/normal/mutant/logs/stderr.log",
+    "bytes": 923,
+    "sha256": "16bfb289cc634a679cc20bbd38681e0b1609084904b3d8782fde0b060612cacb",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/ignore-exact-rejection-reason/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/ignore-exact-rejection-reason/optimized/baseline/logs/stderr.log",
+    "bytes": 261,
+    "sha256": "6461a7456e348355a4879c277cfbf15212fb1a2da25f32975ba3ad11d5ca9ca3",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/ignore-exact-rejection-reason/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/ignore-exact-rejection-reason/optimized/mutant/logs/stderr.log",
+    "bytes": 923,
+    "sha256": "e0df9cae8ab77ca9e3f50b0222e47e12d42e68451508030d8d4e8d5cc7c58774",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/coerce-numeric-name-components-to-strings/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/coerce-numeric-name-components-to-strings/normal/baseline/logs/stderr.log",
+    "bytes": 288,
+    "sha256": "d57445bde33a3d17c00606c4cbc00fe244f63a6373931619a226ad9a98e8b414",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/coerce-numeric-name-components-to-strings/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/coerce-numeric-name-components-to-strings/normal/mutant/logs/stderr.log",
+    "bytes": 12593,
+    "sha256": "d0090a86d975e77bfe9624f04539c37c0a5d7e2cda6e846747e668681e9e4ace",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/coerce-numeric-name-components-to-strings/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/coerce-numeric-name-components-to-strings/optimized/baseline/logs/stderr.log",
+    "bytes": 288,
+    "sha256": "d57445bde33a3d17c00606c4cbc00fe244f63a6373931619a226ad9a98e8b414",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/coerce-numeric-name-components-to-strings/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/coerce-numeric-name-components-to-strings/optimized/mutant/logs/stderr.log",
+    "bytes": 12602,
+    "sha256": "8b8d5624b000a4cdce11732260cbe2c38baec19124f4ae9b9725fe0dd3e2f3a9",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/execute-stale-core-bytecode/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/execute-stale-core-bytecode/normal/baseline/logs/stderr.log",
+    "bytes": 276,
+    "sha256": "89ff54f854d19eea8ddb0f5cf80494c485a67194fdc3321f0dfc890d8d9bfd2b",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/execute-stale-core-bytecode/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/execute-stale-core-bytecode/normal/mutant/logs/stderr.log",
+    "bytes": 1010,
+    "sha256": "86d0a3f917fa147944b2f1b40003192fa107d127add688ccd6a3990dab8d74dc",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/execute-stale-core-bytecode/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/execute-stale-core-bytecode/optimized/baseline/logs/stderr.log",
+    "bytes": 276,
+    "sha256": "89ff54f854d19eea8ddb0f5cf80494c485a67194fdc3321f0dfc890d8d9bfd2b",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/execute-stale-core-bytecode/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/execute-stale-core-bytecode/optimized/mutant/logs/stderr.log",
+    "bytes": 1010,
+    "sha256": "101601e78c3aa6dff088037e9a04b63461a7d9dfa0812d1d5ce2d59b4620b6b8",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-output-symlink-refusal/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-output-symlink-refusal/normal/baseline/logs/stderr.log",
+    "bytes": 261,
+    "sha256": "e15683f78faf0cb05403ca48bcd544b3e78ad052af10e81f408f898137d0edf7",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-output-symlink-refusal/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-output-symlink-refusal/normal/mutant/logs/stderr.log",
+    "bytes": 2152,
+    "sha256": "33e6f95be957d102b27af0d3a23589be302610819be487dac757ce3e5f0c607c",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-output-symlink-refusal/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-output-symlink-refusal/optimized/baseline/logs/stderr.log",
+    "bytes": 261,
+    "sha256": "774591913fa8c1380846cc5fca61c1e62f32da98501b8905570f63d7af28eb9c",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-output-symlink-refusal/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/omit-output-symlink-refusal/optimized/mutant/logs/stderr.log",
+    "bytes": 2158,
+    "sha256": "d3433a33c408d9c74ce404b685013ae6f85513be659faadc47a8899ee56b58e1",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/replace-canonical-containment-with-lexical/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/replace-canonical-containment-with-lexical/normal/baseline/logs/stderr.log",
+    "bytes": 289,
+    "sha256": "cd6e7efadff358f64d0f4cdc9f9a2dfa61564a85772ea5e6e5ff3f32a39e5fa1",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/replace-canonical-containment-with-lexical/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/replace-canonical-containment-with-lexical/normal/mutant/logs/stderr.log",
+    "bytes": 979,
+    "sha256": "b74753503201ef3c9111b8451013896cdc6753f49f3b5aee05e382420057d71b",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/replace-canonical-containment-with-lexical/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/replace-canonical-containment-with-lexical/optimized/baseline/logs/stderr.log",
+    "bytes": 289,
+    "sha256": "74d3f4706f9f7c43f367e2b3c93b9894a2508f4eff82da9e25026d4263628394",
+    "classification": "PASS"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/replace-canonical-containment-with-lexical/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "adapter-mutations/run-20261029T203223Z-j3g716vb/replace-canonical-containment-with-lexical/optimized/mutant/logs/stderr.log",
+    "bytes": 979,
+    "sha256": "205277293947e72c3f0deea05333952fcc7a3f1781111d561c55b8cede673772",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-head-blob-attestation/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-head-blob-attestation/normal/baseline/logs/stderr.log",
+    "bytes": 292,
+    "sha256": "b0ac1afaa0737bc2976b8d089a303a03553848c0e5ebd09f623e80e80f5bff31",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-head-blob-attestation/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-head-blob-attestation/normal/mutant/logs/stderr.log",
+    "bytes": 981,
+    "sha256": "9a1bbd48e54b52401368716f3b6fc664e2ec43344ee676f50bd3ec9a7423f0d6",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-head-blob-attestation/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-head-blob-attestation/optimized/baseline/logs/stderr.log",
+    "bytes": 292,
+    "sha256": "ab7c80730b02ad78543d197a67806b8702c9ec41bfaafd0627f0dfd5d542b45b",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-head-blob-attestation/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-head-blob-attestation/optimized/mutant/logs/stderr.log",
+    "bytes": 981,
+    "sha256": "5611005ba8adaafc8d896af955905a0a001bdb98883ed50804acdcacdd42e158",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-source-index-head-match/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-source-index-head-match/normal/baseline/logs/stderr.log",
+    "bytes": 294,
+    "sha256": "9e330f3f47d605a2ff7dc358d04a05570a58ffdcbbe6cad38f52980fb6150765",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-source-index-head-match/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-source-index-head-match/normal/mutant/logs/stderr.log",
+    "bytes": 985,
+    "sha256": "af350be0316fff32e797328b2d07c59a5f159cebc50e3090410b51cd1f8a8fa9",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-source-index-head-match/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-source-index-head-match/optimized/baseline/logs/stderr.log",
+    "bytes": 294,
+    "sha256": "843eacb2b1bb3f9e858c192c2a3b5991da3037b34e519f0452a1e4c328aa3194",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-source-index-head-match/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-source-index-head-match/optimized/mutant/logs/stderr.log",
+    "bytes": 985,
+    "sha256": "d8908b2e060e943ed97940d52f0b932b37671459d8a3b9aaa4b89e51caee5017",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-bound-sha-match/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-bound-sha-match/normal/baseline/logs/stderr.log",
+    "bytes": 240,
+    "sha256": "1cd477175773387d13fe37b619ede6bcd50e89e39b74f6a304de4f3352b79abe",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-bound-sha-match/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-bound-sha-match/normal/mutant/logs/stderr.log",
+    "bytes": 1252,
+    "sha256": "2eb3b9711dee68c4cb383c1439c94fc3399349deffb58372c6a45c3c73aea788",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-bound-sha-match/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-bound-sha-match/optimized/baseline/logs/stderr.log",
+    "bytes": 240,
+    "sha256": "47f4949007e13666f93c02a569cce0539211571b6fefd4f004b15405339504c5",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-bound-sha-match/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-bound-sha-match/optimized/mutant/logs/stderr.log",
+    "bytes": 1255,
+    "sha256": "a18f9a3ab6546dc0d92416d2ead5987a7983acc494d30206a0a65f334c3e42b9",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-caller-manifest-match/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-caller-manifest-match/normal/baseline/logs/stderr.log",
+    "bytes": 294,
+    "sha256": "3d1bbc3872130855230b8439cd2a62cad0ee233a337a75ba56c1cf0e30cfe3ee",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-caller-manifest-match/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-caller-manifest-match/normal/mutant/logs/stderr.log",
+    "bytes": 985,
+    "sha256": "fe5a63774e30c6af788f1efa2c90d8661a5128517a8e48d3e8ac48cf49f2f100",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-caller-manifest-match/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-caller-manifest-match/optimized/baseline/logs/stderr.log",
+    "bytes": 294,
+    "sha256": "37bcebc5584d651c2090fc247adab351c9309a9334a9c0a6e78e4d16232b9b30",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-caller-manifest-match/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-caller-manifest-match/optimized/mutant/logs/stderr.log",
+    "bytes": 985,
+    "sha256": "a6be17cb8fc06fcc087ac23a5dfa60e8ccac1c7a5863ffd948617763a3d321f0",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-previous-state-match/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-previous-state-match/normal/baseline/logs/stderr.log",
+    "bytes": 270,
+    "sha256": "b8a028b61afb63890da3f054eae9a63d5d9100561866e7db6a2ceb83ee78359b",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-previous-state-match/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-previous-state-match/normal/mutant/logs/stderr.log",
+    "bytes": 937,
+    "sha256": "a7a61f3a64cd76ec02e991e4fb9c0fae254cba25d26bdb69158512b88a9708cf",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-previous-state-match/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-previous-state-match/optimized/baseline/logs/stderr.log",
+    "bytes": 270,
+    "sha256": "1ea55542a153682689a5ab2b917a3f19b5853ca828fe995e8705e5b268d1eea1",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-previous-state-match/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-previous-state-match/optimized/mutant/logs/stderr.log",
+    "bytes": 937,
+    "sha256": "bd3b544f16b3d77c8a5c2703b59ff9d3950def61e18ab0f6a41abd4dbe1f7857",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-endpoint-head-stability/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-endpoint-head-stability/normal/baseline/logs/stderr.log",
+    "bytes": 258,
+    "sha256": "83ccd4d80baf14df81dbc42118bd3ede8423a132f733c650ea256af84e4e34b7",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-endpoint-head-stability/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-endpoint-head-stability/normal/mutant/logs/stderr.log",
+    "bytes": 913,
+    "sha256": "580356e06d8f73709bfcf9e467e196a66b7de805740e533b793917f52d76b798",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-endpoint-head-stability/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-endpoint-head-stability/optimized/baseline/logs/stderr.log",
+    "bytes": 258,
+    "sha256": "28bdffad3f5b01ee64c0a9c066346dd9c5e26ce8f314d1d0435a16f324cad771",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-endpoint-head-stability/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-endpoint-head-stability/optimized/mutant/logs/stderr.log",
+    "bytes": 913,
+    "sha256": "3ed7f599478b9956d8871c1efd62d46060d31e10f34f5031d81ecf4c8555c272",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-source-ancestor-symlink-refusal/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-source-ancestor-symlink-refusal/normal/baseline/logs/stderr.log",
+    "bytes": 260,
+    "sha256": "cb71e6a1fe896080444e24ed56142e74953537dd5c90e2cb63f7c9c203c02155",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-source-ancestor-symlink-refusal/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-source-ancestor-symlink-refusal/normal/mutant/logs/stderr.log",
+    "bytes": 917,
+    "sha256": "c98c27b027d0f555f29522922b13daae46b924a46eb5e0658f36449c40f9f243",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-source-ancestor-symlink-refusal/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-source-ancestor-symlink-refusal/optimized/baseline/logs/stderr.log",
+    "bytes": 260,
+    "sha256": "a91f1cc60473c8a08345bcf58b20c1c0c11f244667aba6a1d5f2bdff5dc156a3",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-source-ancestor-symlink-refusal/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-source-ancestor-symlink-refusal/optimized/mutant/logs/stderr.log",
+    "bytes": 917,
+    "sha256": "cdbd65451726e08cf616208683c44a4a824f4d1c20e2ca6d06da4483b887bf9d",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-live-source-mode-match/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-live-source-mode-match/normal/baseline/logs/stderr.log",
+    "bytes": 312,
+    "sha256": "f8e1e552a7d7de7cadeaf99e6daa5c4892eba408201518b2a9f4f018d87b5b77",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-live-source-mode-match/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-live-source-mode-match/normal/mutant/logs/stderr.log",
+    "bytes": 1021,
+    "sha256": "663d505a3021e5c8b16ee3c634bc57f3319009a8779870080446178c590fe493",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-live-source-mode-match/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-live-source-mode-match/optimized/baseline/logs/stderr.log",
+    "bytes": 312,
+    "sha256": "f8e1e552a7d7de7cadeaf99e6daa5c4892eba408201518b2a9f4f018d87b5b77",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-live-source-mode-match/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-live-source-mode-match/optimized/mutant/logs/stderr.log",
+    "bytes": 1021,
+    "sha256": "a0b0f086fb01f01dcf68b0537d697f0b1af9bdb66a0c653c6f0e66ca9aed77e8",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-unregistered-source-refusal/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-unregistered-source-refusal/normal/baseline/logs/stderr.log",
+    "bytes": 272,
+    "sha256": "a9e7833ef7f823ae4a447bd9bd3049f84c591ed7e715ddd01c2e9722631e229f",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-unregistered-source-refusal/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-unregistered-source-refusal/normal/mutant/logs/stderr.log",
+    "bytes": 1264,
+    "sha256": "5114949d1b1dbebea6a600dd678933f3623cf8d8707f45abb8183bdba9af3604",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-unregistered-source-refusal/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-unregistered-source-refusal/optimized/baseline/logs/stderr.log",
+    "bytes": 272,
+    "sha256": "3adbbb360b34a3339348f3a8ce3f22ec007848bc42bc353e1c8f775fb943b061",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-unregistered-source-refusal/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-unregistered-source-refusal/optimized/mutant/logs/stderr.log",
+    "bytes": 1267,
+    "sha256": "e6f0dcc750a54cd3897b720a562ea2dcff95b9468458f644fb69a6de5140218b",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/inherit-foreign-git-environment/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/inherit-foreign-git-environment/normal/baseline/logs/stderr.log",
+    "bytes": 276,
+    "sha256": "bee7d9682c6e2827fb1e1a11267caff03f7ab88772e427adf4dfafe4651eb1e1",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/inherit-foreign-git-environment/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/inherit-foreign-git-environment/normal/mutant/logs/stderr.log",
+    "bytes": 2519,
+    "sha256": "4d6760963d2bcbf57f1e39a71d88da3a92fa550fc40bf02047ccfb2dd8b001c8",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/inherit-foreign-git-environment/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/inherit-foreign-git-environment/optimized/baseline/logs/stderr.log",
+    "bytes": 276,
+    "sha256": "bee7d9682c6e2827fb1e1a11267caff03f7ab88772e427adf4dfafe4651eb1e1",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/inherit-foreign-git-environment/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/inherit-foreign-git-environment/optimized/mutant/logs/stderr.log",
+    "bytes": 2531,
+    "sha256": "c84e9fae289d3a4fb104db54bb90561c605fe8ac4b38ec4fc76545435d0ee32e",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/allow-duplicate-manifest-json-keys/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/allow-duplicate-manifest-json-keys/normal/baseline/logs/stderr.log",
+    "bytes": 246,
+    "sha256": "46479e809d1262f7c9777c5ecac96d7355d2abaf6c34a2e52b435092ad86585d",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/allow-duplicate-manifest-json-keys/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/allow-duplicate-manifest-json-keys/normal/mutant/logs/stderr.log",
+    "bytes": 889,
+    "sha256": "c6b9035296a893f4f4f1c2f6f7443c1583b5817009b918dbe27fabcbf8b31525",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/allow-duplicate-manifest-json-keys/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/allow-duplicate-manifest-json-keys/optimized/baseline/logs/stderr.log",
+    "bytes": 246,
+    "sha256": "d1c7876d90875abcff51c988a91931ff949e517433a705a184b2723e5e5060e2",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/allow-duplicate-manifest-json-keys/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/allow-duplicate-manifest-json-keys/optimized/mutant/logs/stderr.log",
+    "bytes": 889,
+    "sha256": "c6b9035296a893f4f4f1c2f6f7443c1583b5817009b918dbe27fabcbf8b31525",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-unmerged-index-refusal/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-unmerged-index-refusal/normal/baseline/logs/stderr.log",
+    "bytes": 264,
+    "sha256": "f89862cfebc495a1707478f0f36b02d54458dbca88cc01cc38120758f298d371",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-unmerged-index-refusal/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-unmerged-index-refusal/normal/mutant/logs/stderr.log",
+    "bytes": 925,
+    "sha256": "e78fb3f76a527525e6ae0ccc16358ca334460f7cb735862d109d86cd6c61be80",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-unmerged-index-refusal/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-unmerged-index-refusal/optimized/baseline/logs/stderr.log",
+    "bytes": 264,
+    "sha256": "148eb99526e8fb5eae990997d6363d2af143df54462bd13f67c27443ea3e599a",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-unmerged-index-refusal/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-unmerged-index-refusal/optimized/mutant/logs/stderr.log",
+    "bytes": 925,
+    "sha256": "1ea1a9d80dced7eb3811f08b9d743141c623925b4c801fa8dd81aacd6583e732",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-final-index-stability/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-final-index-stability/normal/baseline/logs/stderr.log",
+    "bytes": 260,
+    "sha256": "7b3a9b632d9cb28278259b3cfce4ad33a36d1b28e3998ff5ee0e4694b696f543",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-final-index-stability/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-final-index-stability/normal/mutant/logs/stderr.log",
+    "bytes": 917,
+    "sha256": "418ae714df12e32df9d603805fd506a5f95ba8f65775e4e2b4fd76cc6a4d1ed6",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-final-index-stability/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-final-index-stability/optimized/baseline/logs/stderr.log",
+    "bytes": 260,
+    "sha256": "e71a5e865904beafdfca3a77505f7a263f57ff6d540fd301ff8018a89e2fadec",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-final-index-stability/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-final-index-stability/optimized/mutant/logs/stderr.log",
+    "bytes": 917,
+    "sha256": "183718e0d69a607a7c928cd6c4ac2dfafa7676e6fe12514a37e60bcb74fd844f",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/restore-any-execute-bit-mode/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/restore-any-execute-bit-mode/normal/baseline/logs/stderr.log",
+    "bytes": 308,
+    "sha256": "75ed351bd9e2fbf2b236191126e4d1ca2ffff24d6d8b1b260a81df5c0ee66cfc",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/restore-any-execute-bit-mode/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/restore-any-execute-bit-mode/normal/mutant/logs/stderr.log",
+    "bytes": 7349,
+    "sha256": "3ac93b3145d1c994884d6f7a1820cc1c6a63bfa1c1e6c2ed5253c3ff97b1a864",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/restore-any-execute-bit-mode/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/restore-any-execute-bit-mode/optimized/baseline/logs/stderr.log",
+    "bytes": 308,
+    "sha256": "ecbc0942c1ee5e8aee83dfcf72a7fdc0b4523ac05a0e77caa1ca5ac6bfcf87d8",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/restore-any-execute-bit-mode/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/restore-any-execute-bit-mode/optimized/mutant/logs/stderr.log",
+    "bytes": 7367,
+    "sha256": "d23e9327d8df1b8a6bbc47a576827b01d8ea3ce8cc915a2055ff424b67df8af1",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-head-source-inventory/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-head-source-inventory/normal/baseline/logs/stderr.log",
+    "bytes": 296,
+    "sha256": "09b1ac5f603b37dbed9b8337232572f418b7cfdba96a07b946e3c8c24ae023c1",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-head-source-inventory/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-head-source-inventory/normal/mutant/logs/stderr.log",
+    "bytes": 2435,
+    "sha256": "e3b2b84f66cf0d870a085ce2df1bb9d9c6aa66ffb7f35640d7a0a6026c0db163",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-head-source-inventory/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-head-source-inventory/optimized/baseline/logs/stderr.log",
+    "bytes": 296,
+    "sha256": "1c038fffecff52d968b45baf812bd7a11530edd62c058869fdac25d63f8feb64",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-head-source-inventory/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-head-source-inventory/optimized/mutant/logs/stderr.log",
+    "bytes": 2441,
+    "sha256": "39f29c63f62894c34536ba0d2b166cedd60a4986e229559e600b4ea82f0fd19a",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-index-source-inventories/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-index-source-inventories/normal/baseline/logs/stderr.log",
+    "bytes": 298,
+    "sha256": "aa26a3c8d89cfda758abc2b28ca05a7ffa1d18aeb13c85f8d7d13c52ec60befc",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-index-source-inventories/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-index-source-inventories/normal/mutant/logs/stderr.log",
+    "bytes": 2453,
+    "sha256": "c88d902ec77a25cbf0c71256555b30f9de318f88f8e6dfa277e3ddd771b37b72",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-index-source-inventories/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-index-source-inventories/optimized/baseline/logs/stderr.log",
+    "bytes": 298,
+    "sha256": "2c6a70079de03093fe983a7ad347ac0278ad6dbcc531c4f1697d098ec0889062",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-index-source-inventories/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-index-source-inventories/optimized/mutant/logs/stderr.log",
+    "bytes": 2459,
+    "sha256": "39ac5e05b008d1b59bd4f485d1b73772ffdfe617cbe0d7870b1b59daadd9ab8e",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-final-index-source-inventory/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-final-index-source-inventory/normal/baseline/logs/stderr.log",
+    "bytes": 294,
+    "sha256": "c777fc94c5ead74a5fbc688b6a760c14189f691d361deb213740fb8bf8c2e3ac",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-final-index-source-inventory/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-final-index-source-inventory/normal/mutant/logs/stderr.log",
+    "bytes": 985,
+    "sha256": "52d8bdfa79bbda695acea0f098f4fab97900248a682a52df29d2e04cf290fd58",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-final-index-source-inventory/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-final-index-source-inventory/optimized/baseline/logs/stderr.log",
+    "bytes": 294,
+    "sha256": "ae7f14eab2088de56a25caf789f65ad134f9cd4d6ed7b5e8a387e3a1bea5d25a",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-final-index-source-inventory/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-final-index-source-inventory/optimized/mutant/logs/stderr.log",
+    "bytes": 985,
+    "sha256": "52d8bdfa79bbda695acea0f098f4fab97900248a682a52df29d2e04cf290fd58",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-inventory-walk-error-handler/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-inventory-walk-error-handler/normal/baseline/logs/stderr.log",
+    "bytes": 272,
+    "sha256": "7c0d08060648cf423966d6df5ca8a1ad7192d2c25bd7144b78864303a52de5cb",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-inventory-walk-error-handler/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-inventory-walk-error-handler/normal/mutant/logs/stderr.log",
+    "bytes": 941,
+    "sha256": "9be4f37868fcdad31402b2af0a41e362eb6a6efd373edec38a9e8e8969ca0476",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-inventory-walk-error-handler/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-inventory-walk-error-handler/optimized/baseline/logs/stderr.log",
+    "bytes": 272,
+    "sha256": "78e28fca5a75ed60b17f08ae9e44bf295af02b2228ebe7d4c6f09aadb5e2f70a",
+    "classification": "PASS"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-inventory-walk-error-handler/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "git-mutations/run-20261029T203232Z-zyaiub_z/omit-inventory-walk-error-handler/optimized/mutant/logs/stderr.log",
+    "bytes": 941,
+    "sha256": "5b374b74e52fd4402b85917558e17400795619d4cf86566be69c6a5fd7ced1b4",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/execute-stale-shared-runner-bytecode/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/execute-stale-shared-runner-bytecode/normal/baseline/logs/stderr.log",
+    "bytes": 296,
+    "sha256": "64d2ba7696533f321555fcbc6c7b472cbeba73954425dbd8b505c8de4c55f69d",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/execute-stale-shared-runner-bytecode/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/execute-stale-shared-runner-bytecode/normal/mutant/logs/stderr.log",
+    "bytes": 1003,
+    "sha256": "55db48a5f1edc3d9f2dd901a4dca85d2beb9f7b0ecbf9717c472ef4be1f83e7b",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/execute-stale-shared-runner-bytecode/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/execute-stale-shared-runner-bytecode/optimized/baseline/logs/stderr.log",
+    "bytes": 296,
+    "sha256": "64d2ba7696533f321555fcbc6c7b472cbeba73954425dbd8b505c8de4c55f69d",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/execute-stale-shared-runner-bytecode/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/execute-stale-shared-runner-bytecode/optimized/mutant/logs/stderr.log",
+    "bytes": 1003,
+    "sha256": "55db48a5f1edc3d9f2dd901a4dca85d2beb9f7b0ecbf9717c472ef4be1f83e7b",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/reread-shared-source-for-execution/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/reread-shared-source-for-execution/normal/baseline/logs/stderr.log",
+    "bytes": 296,
+    "sha256": "64d2ba7696533f321555fcbc6c7b472cbeba73954425dbd8b505c8de4c55f69d",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/reread-shared-source-for-execution/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/reread-shared-source-for-execution/normal/mutant/logs/stderr.log",
+    "bytes": 1750,
+    "sha256": "099fc0f3bb226ee05568d40e2cea95fbea3a431304d5b2e42241f1c12df4d5cd",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/reread-shared-source-for-execution/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/reread-shared-source-for-execution/optimized/baseline/logs/stderr.log",
+    "bytes": 296,
+    "sha256": "64d2ba7696533f321555fcbc6c7b472cbeba73954425dbd8b505c8de4c55f69d",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/reread-shared-source-for-execution/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/reread-shared-source-for-execution/optimized/mutant/logs/stderr.log",
+    "bytes": 1750,
+    "sha256": "95735748ffbffc44d5476456277b39d1165b414a000be35660d043014d72a409",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/count-lifecycle-failures-as-kills/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/count-lifecycle-failures-as-kills/normal/baseline/logs/stderr.log",
+    "bytes": 290,
+    "sha256": "be89d19f508ee0d2195da1e7e04c9d2fa741640b1c2ba98e6a3f8166bd6864e3",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/count-lifecycle-failures-as-kills/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/count-lifecycle-failures-as-kills/normal/mutant/logs/stderr.log",
+    "bytes": 4508,
+    "sha256": "ef060aa619b64867504b09787f14de34d5a0ff5ea5a4d1a377e6c40ca1fc53bd",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/count-lifecycle-failures-as-kills/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/count-lifecycle-failures-as-kills/optimized/baseline/logs/stderr.log",
+    "bytes": 290,
+    "sha256": "71be896ca3c0e8a225433087cf0f63f12758613087145973bb55143058a28f3d",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/count-lifecycle-failures-as-kills/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/count-lifecycle-failures-as-kills/optimized/mutant/logs/stderr.log",
+    "bytes": 4544,
+    "sha256": "e7700e3a8f3df452fcae64a856f423b6106c910df3b9936c08d9ba58abeecb71",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/repair-mismatched-harness-identities/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/repair-mismatched-harness-identities/normal/baseline/logs/stderr.log",
+    "bytes": 298,
+    "sha256": "44d6a6436b06ccad62536c3c94bf755ff681a54d6993aec759301ae4143509d0",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/repair-mismatched-harness-identities/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/repair-mismatched-harness-identities/normal/mutant/logs/stderr.log",
+    "bytes": 12768,
+    "sha256": "56e8a9a07d9c8f79574615201551858d69e1efdd833c61ba9047547096eb0849",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/repair-mismatched-harness-identities/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/repair-mismatched-harness-identities/optimized/baseline/logs/stderr.log",
+    "bytes": 298,
+    "sha256": "f42965aaa601f712bc549070b2cc53f8d32c614bec7c7e68e8916791c2446b05",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/repair-mismatched-harness-identities/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/repair-mismatched-harness-identities/optimized/mutant/logs/stderr.log",
+    "bytes": 12855,
+    "sha256": "3f95885c8b76684b588105bb3944a0cf64a76d8d38c2d63d313a0c44c2bc344e",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/accept-invalid-baseline/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/accept-invalid-baseline/normal/baseline/logs/stderr.log",
+    "bytes": 276,
+    "sha256": "3a527c95fbd27f2228ff768845d869c40c20682150b58517a3494191577a04ee",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/accept-invalid-baseline/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/accept-invalid-baseline/normal/mutant/logs/stderr.log",
+    "bytes": 4015,
+    "sha256": "74aa815729afe0d038820d24cf9b8cf38d9327cfa1c0450e91b0ac6115314566",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/accept-invalid-baseline/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/accept-invalid-baseline/optimized/baseline/logs/stderr.log",
+    "bytes": 276,
+    "sha256": "406d564983ba51f003ecf10255c5ce21a7d82bb41f0616744b129c316f6f3fd3",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/accept-invalid-baseline/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/accept-invalid-baseline/optimized/mutant/logs/stderr.log",
+    "bytes": 4042,
+    "sha256": "69049a6190347f3a40e10204d9cc48ff5ffd32304fc540ff1dd89083503a0826",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/relabel-invalid-mutant-as-assertion/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/relabel-invalid-mutant-as-assertion/normal/baseline/logs/stderr.log",
+    "bytes": 300,
+    "sha256": "01e589e80c0299424bbda85edc38070fb4f4d9200df75866165e300dfd5f7e5a",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/relabel-invalid-mutant-as-assertion/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/relabel-invalid-mutant-as-assertion/normal/mutant/logs/stderr.log",
+    "bytes": 30308,
+    "sha256": "eddcdea681bac89f0fd121958b2f3e1e5195dcb9787667b209aabbd9c941ab3b",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/relabel-invalid-mutant-as-assertion/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/relabel-invalid-mutant-as-assertion/optimized/baseline/logs/stderr.log",
+    "bytes": 300,
+    "sha256": "cf87ba69737b19b498eddbab5e710a49b79266934bc557a6fe362d388991da8c",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/relabel-invalid-mutant-as-assertion/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/relabel-invalid-mutant-as-assertion/optimized/mutant/logs/stderr.log",
+    "bytes": 30518,
+    "sha256": "94718926444ebbe688be90932fcb0272b44f86c6ed140fca757a87d8f54da6c1",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-exact-selection-validation/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-exact-selection-validation/normal/baseline/logs/stderr.log",
+    "bytes": 264,
+    "sha256": "2e6eb4435138d82e2ab27197851d12f0fe984f400611f0fa0720aa107548ea15",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-exact-selection-validation/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-exact-selection-validation/normal/mutant/logs/stderr.log",
+    "bytes": 7212,
+    "sha256": "f1a7dbed77eaba18cc62021e91d9b55bf330bc7dfb6c9847b2da9298c0fb2b59",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-exact-selection-validation/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-exact-selection-validation/optimized/baseline/logs/stderr.log",
+    "bytes": 264,
+    "sha256": "2e6eb4435138d82e2ab27197851d12f0fe984f400611f0fa0720aa107548ea15",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-exact-selection-validation/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-exact-selection-validation/optimized/mutant/logs/stderr.log",
+    "bytes": 7236,
+    "sha256": "a34a1652513357ae17da229c788073cd842942f7f15031167b0a7d06cf9777f7",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/reuse-existing-evidence-directory/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/reuse-existing-evidence-directory/normal/baseline/logs/stderr.log",
+    "bytes": 296,
+    "sha256": "b802250283546076d837f829b5eec8957f5cf1880e3ce22df47c0fc1cce22cf1",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/reuse-existing-evidence-directory/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/reuse-existing-evidence-directory/normal/mutant/logs/stderr.log",
+    "bytes": 1045,
+    "sha256": "8785a9c4b1ff4ba8e29b44fdf70975793b63877c61360c6398202e64e3ddd368",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/reuse-existing-evidence-directory/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/reuse-existing-evidence-directory/optimized/baseline/logs/stderr.log",
+    "bytes": 296,
+    "sha256": "b802250283546076d837f829b5eec8957f5cf1880e3ce22df47c0fc1cce22cf1",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/reuse-existing-evidence-directory/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/reuse-existing-evidence-directory/optimized/mutant/logs/stderr.log",
+    "bytes": 1045,
+    "sha256": "03a83dff59edee8033707f763fedacded4972f4e43dce8bcc678fa7a2e551dbe",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-output-symlink-refusal/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-output-symlink-refusal/normal/baseline/logs/stderr.log",
+    "bytes": 296,
+    "sha256": "b802250283546076d837f829b5eec8957f5cf1880e3ce22df47c0fc1cce22cf1",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-output-symlink-refusal/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-output-symlink-refusal/normal/mutant/logs/stderr.log",
+    "bytes": 2559,
+    "sha256": "af4e19536972aa37c575cb745c7fb18cb70c215d1247487b122363d1fb40935b",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-output-symlink-refusal/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-output-symlink-refusal/optimized/baseline/logs/stderr.log",
+    "bytes": 296,
+    "sha256": "b802250283546076d837f829b5eec8957f5cf1880e3ce22df47c0fc1cce22cf1",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-output-symlink-refusal/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-output-symlink-refusal/optimized/mutant/logs/stderr.log",
+    "bytes": 2565,
+    "sha256": "549c3499a752803b08eb8a4c3fa03a3f122938c459018fa4e903b3a52f536428",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/accept-empty-matrix-as-vacuous-success/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/accept-empty-matrix-as-vacuous-success/normal/baseline/logs/stderr.log",
+    "bytes": 272,
+    "sha256": "7d7c9bf35e62118a58bf23f76f776a1362b97d31ef350952ecfa86a151cb20bb",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/accept-empty-matrix-as-vacuous-success/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/accept-empty-matrix-as-vacuous-success/normal/mutant/logs/stderr.log",
+    "bytes": 879,
+    "sha256": "e0480b52c8987ad8003e228b6b6e220e4ba37115472bb00cf92a94a5bfe27268",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/accept-empty-matrix-as-vacuous-success/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/accept-empty-matrix-as-vacuous-success/optimized/baseline/logs/stderr.log",
+    "bytes": 272,
+    "sha256": "7d7c9bf35e62118a58bf23f76f776a1362b97d31ef350952ecfa86a151cb20bb",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/accept-empty-matrix-as-vacuous-success/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/accept-empty-matrix-as-vacuous-success/optimized/mutant/logs/stderr.log",
+    "bytes": 879,
+    "sha256": "6d72e34fa6cd00ca1ff336b4bbe2490329613d26ba2d7eef09d1f0ccfb0ec484",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/claim-source-preservation-without-comparison/normal/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/claim-source-preservation-without-comparison/normal/baseline/logs/stderr.log",
+    "bytes": 296,
+    "sha256": "65e5eb705cbe776f514e23f6ee1001bd9b6e340ffe20937547883447a272f8d5",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/claim-source-preservation-without-comparison/normal/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/claim-source-preservation-without-comparison/normal/mutant/logs/stderr.log",
+    "bytes": 927,
+    "sha256": "620f3f1085a5f61ac8ac6b46719d8aa6aff12f8ea6375c331848e3e4b03bf1e0",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/claim-source-preservation-without-comparison/optimized/baseline/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/claim-source-preservation-without-comparison/optimized/baseline/logs/stderr.log",
+    "bytes": 296,
+    "sha256": "3d03602ffec15a84f299d25b9043b5694b0008612291026f518c0b2860a6d198",
+    "classification": "PASS"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/claim-source-preservation-without-comparison/optimized/mutant/logs/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification": "ASSERTION_FAILURE"
+  },
+  {
+    "path": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/claim-source-preservation-without-comparison/optimized/mutant/logs/stderr.log",
+    "bytes": 927,
+    "sha256": "533e8723f11d2a37a5a4e03708eb73756dab3f155c3ea438012d14a66ca35b97",
+    "classification": "ASSERTION_FAILURE"
+  }
+]

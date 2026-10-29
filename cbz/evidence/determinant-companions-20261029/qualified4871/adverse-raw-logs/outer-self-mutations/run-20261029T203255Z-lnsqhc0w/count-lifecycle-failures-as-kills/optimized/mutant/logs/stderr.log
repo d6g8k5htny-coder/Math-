@@ -1,0 +1,42 @@
+test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills (test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills) ... 
+  test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills (test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills) (phase='setup', mode='optimized') ... FAIL
+  test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills (test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills) (phase='teardown', mode='optimized') ... FAIL
+  test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills (test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills) (phase='cleanup', mode='optimized') ... FAIL
+  test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills (test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills) (phase='setup_subtest', mode='optimized') ... FAIL
+
+======================================================================
+FAIL: test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills (test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills) (phase='setup', mode='optimized')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/count-lifecycle-failures-as-kills/optimized/mutant/repo/frontiers/determinant_moment_20261025/tests/test_cbz_mutation_runner.py", line 91, in test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills
+    self.assertFalse(record['killed_by_intended_assertions'], phase)
+AssertionError: True is not false : setup
+
+======================================================================
+FAIL: test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills (test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills) (phase='teardown', mode='optimized')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/count-lifecycle-failures-as-kills/optimized/mutant/repo/frontiers/determinant_moment_20261025/tests/test_cbz_mutation_runner.py", line 91, in test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills
+    self.assertFalse(record['killed_by_intended_assertions'], phase)
+AssertionError: True is not false : teardown
+
+======================================================================
+FAIL: test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills (test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills) (phase='cleanup', mode='optimized')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/count-lifecycle-failures-as-kills/optimized/mutant/repo/frontiers/determinant_moment_20261025/tests/test_cbz_mutation_runner.py", line 91, in test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills
+    self.assertFalse(record['killed_by_intended_assertions'], phase)
+AssertionError: True is not false : cleanup
+
+======================================================================
+FAIL: test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills (test_cbz_mutation_runner.OuterMutationRunnerTests.test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills) (phase='setup_subtest', mode='optimized')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/count-lifecycle-failures-as-kills/optimized/mutant/repo/frontiers/determinant_moment_20261025/tests/test_cbz_mutation_runner.py", line 91, in test_lifecycle_assertions_cannot_masquerade_as_intended_body_kills
+    self.assertFalse(record['killed_by_intended_assertions'], phase)
+AssertionError: True is not false : setup_subtest
+
+----------------------------------------------------------------------
+Ran 1 test in 1.085s
+
+FAILED (failures=4)
