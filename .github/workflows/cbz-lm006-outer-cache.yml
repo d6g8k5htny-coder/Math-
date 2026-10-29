@@ -2,6 +2,11 @@ name: CBZ LM006 outer test cache
 on:
   push:
     branches: [cbz/lm006-outer-test-cache-20261029]
+  pull_request:
+    paths:
+      - '.github/workflows/lm006-oned-coefficient.yml'
+      - '.github/workflows/cbz-lm006-outer-cache.yml'
+      - 'cbz/verification/lm006_outer_cache/**'
   workflow_dispatch:
 permissions:
   contents: read
