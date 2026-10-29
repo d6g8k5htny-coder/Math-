@@ -106,6 +106,31 @@ def recommend(f: dict) -> str:
     return 'QUARANTINE-ARCHIVE'
 
 
+def integrable_if_wanted(f: dict) -> bool:
+    """Clean merge-tree, zero lexical signals, at most 50 changed paths, related history: a lane could
+    still open a PR for it. Age is deliberately ignored here (ARCHIVE-BUNDLE rows carry this flag)."""
+    return bool(f.get('merge_tree_clean_onto_main') and f.get('signals_total', 0) == 0
+                and f.get('changed_path_count', 0) <= 50 and not f.get('unrelated_history'))
+
+
+def recommend_branch(f: dict) -> str:
+    """Decision table for an unmerged branch with no pull request. First matching row wins.
+    Thresholds (documented in README): INTEGRATE-REVIEW needs a clean merge-tree, zero lexical signals,
+    at most 50 changed paths and a last commit within 14 days of observation."""
+    if f.get('contained_in_open_pr_head'):
+        return 'SUPERSEDED-BY-OPEN-PR'
+    if f.get('unrelated_history'):
+        return 'ARCHIVE-BUNDLE'
+    if f.get('all_changed_blobs_equal_on_main'):
+        return 'SUPERSEDED-CONTENT-ON-MAIN'
+    if f.get('updated_within_24h'):
+        return 'ACTIVE-LANE'
+    if (f.get('merge_tree_clean_onto_main') and f.get('signals_total', 0) == 0
+            and f.get('changed_path_count', 0) <= 50 and f.get('days_since_last_commit', 999) <= 14):
+        return 'INTEGRATE-REVIEW'
+    return 'ARCHIVE-BUNDLE'
+
+
 def classify_branch(tip_is_ancestor_of_main: bool, is_open_pr_ref: bool, protected: bool) -> str:
     if protected:
         return 'PROTECTED'

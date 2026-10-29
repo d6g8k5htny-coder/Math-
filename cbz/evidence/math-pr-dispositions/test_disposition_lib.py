@@ -154,6 +154,47 @@ class RecommendationTests(unittest.TestCase):
                                              updated_within_24h=True)), 'SUPERSEDED')
 
 
+def bfacts(**over):
+    base = {
+        'contained_in_open_pr_head': False,
+        'all_changed_blobs_equal_on_main': False,
+        'updated_within_24h': False,
+        'merge_tree_clean_onto_main': True,
+        'signals_total': 0,
+        'changed_path_count': 5,
+        'days_since_last_commit': 3,
+    }
+    base.update(over)
+    return base
+
+
+class BranchRecommendationTests(unittest.TestCase):
+    def test_tip_inside_an_open_pr_rides_that_pr(self):
+        self.assertEqual(lib.recommend_branch(bfacts(contained_in_open_pr_head=True)), 'SUPERSEDED-BY-OPEN-PR')
+
+    def test_content_already_on_main_is_superseded(self):
+        self.assertEqual(lib.recommend_branch(bfacts(all_changed_blobs_equal_on_main=True)), 'SUPERSEDED-CONTENT-ON-MAIN')
+
+    def test_recent_activity_is_left_to_its_lane(self):
+        self.assertEqual(lib.recommend_branch(bfacts(updated_within_24h=True)), 'ACTIVE-LANE')
+
+    def test_small_clean_quiet_recent_branch_is_integrate_review(self):
+        self.assertEqual(lib.recommend_branch(bfacts()), 'INTEGRATE-REVIEW')
+
+    def test_integrable_if_wanted_flag_ignores_age_only(self):
+        self.assertTrue(lib.integrable_if_wanted(bfacts(days_since_last_commit=40)))
+        self.assertFalse(lib.integrable_if_wanted(bfacts(signals_total=2)))
+        self.assertFalse(lib.integrable_if_wanted(bfacts(merge_tree_clean_onto_main=False)))
+        self.assertFalse(lib.integrable_if_wanted(bfacts(changed_path_count=51)))
+        self.assertFalse(lib.integrable_if_wanted(bfacts(unrelated_history=True)))
+
+    def test_otherwise_archive_bundle(self):
+        self.assertEqual(lib.recommend_branch(bfacts(signals_total=1)), 'ARCHIVE-BUNDLE')
+        self.assertEqual(lib.recommend_branch(bfacts(merge_tree_clean_onto_main=False)), 'ARCHIVE-BUNDLE')
+        self.assertEqual(lib.recommend_branch(bfacts(changed_path_count=51)), 'ARCHIVE-BUNDLE')
+        self.assertEqual(lib.recommend_branch(bfacts(days_since_last_commit=15)), 'ARCHIVE-BUNDLE')
+
+
 class BranchClassTests(unittest.TestCase):
     def test_classes(self):
         self.assertEqual(lib.classify_branch(True, False, False), 'MERGED_NO_PR_PRUNE_ELIGIBLE')

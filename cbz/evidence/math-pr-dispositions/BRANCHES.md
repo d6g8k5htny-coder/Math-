@@ -1,11 +1,13 @@
 # Math- branches — classification
 
-Observed 2026-10-29T17:22:02Z at `main` `8151f592918a845bf19eb8eafaf8444540a32734`. 110 branches. Counts: {"OPEN_PR_REF": 28, "PROTECTED": 1, "UNMERGED_NO_PR": 81}.
+Observed 2026-10-29T17:36:29Z at `main` `8151f592918a845bf19eb8eafaf8444540a32734`. 112 branches. Counts: {"OPEN_PR_REF": 30, "PROTECTED": 1, "UNMERGED_NO_PR": 81}.
 
 | Class | Branch | Tip | Last commit | Ahead of main | Recreate |
 |---|---|---|---|---|---|
 | OPEN_PR_REF | `agent12/verifier-c7-01` | `5b3cc75d1585a00ee1420a556af5b77748c418fa` | 2026-10-22 | 7 | `git push origin 5b3cc75d1585a00ee1420a556af5b77748c418fa:refs/heads/agent12/verifier-c7-01` |
 | OPEN_PR_REF | `agent8/c299-c7-replacement-20261022` | `91811388ef2e20cc30a1c418e866b185a253a186` | 2026-10-22 | 6 | `git push origin 91811388ef2e20cc30a1c418e866b185a253a186:refs/heads/agent8/c299-c7-replacement-20261022` |
+| OPEN_PR_REF | `cbz/determinant-compiled-audit-20261029-a6ce` | `4ccc9b0b0fb6333565e15026758fa49521de7f3d` | 2026-10-29 | 1 | `git push origin 4ccc9b0b0fb6333565e15026758fa49521de7f3d:refs/heads/cbz/determinant-compiled-audit-20261029-a6ce` |
+| OPEN_PR_REF | `cbz/math-pr-dispositions-01n-20261029` | `24ce38735e66ab4a64d3e34d9df92c33bd64d197` | 2026-10-29 | 2 | `git push origin 24ce38735e66ab4a64d3e34d9df92c33bd64d197:refs/heads/cbz/math-pr-dispositions-01n-20261029` |
 | OPEN_PR_REF | `chatgpt/ac1-f1-synthetic-controls-20261007-gp` | `8177f47bbb66b7cc0dca430941832740a5480dee` | 2026-10-08 | 3 | `git push origin 8177f47bbb66b7cc0dca430941832740a5480dee:refs/heads/chatgpt/ac1-f1-synthetic-controls-20261007-gp` |
 | OPEN_PR_REF | `chatgpt/fold-affine-bridge-20261006-f81c` | `1038336f92a482b60c7d89fe3024c941281663d3` | 2026-10-06 | 7 | `git push origin 1038336f92a482b60c7d89fe3024c941281663d3:refs/heads/chatgpt/fold-affine-bridge-20261006-f81c` |
 | OPEN_PR_REF | `chatgpt/lm006-coefficient-refine-4096-20261006-r22` | `497dcca37abd18464a6b33cf32ce2e3263054323` | 2026-10-06 | 1 | `git push origin 497dcca37abd18464a6b33cf32ce2e3263054323:refs/heads/chatgpt/lm006-coefficient-refine-4096-20261006-r22` |
@@ -13,7 +15,7 @@ Observed 2026-10-29T17:22:02Z at `main` `8151f592918a845bf19eb8eafaf8444540a3273
 | OPEN_PR_REF | `chatgpt/soft-fold-protocol-20261006` | `fedd0056c18093e8862b7f6ac2860dc04f8133b9` | 2026-10-06 | 3 | `git push origin fedd0056c18093e8862b7f6ac2860dc04f8133b9:refs/heads/chatgpt/soft-fold-protocol-20261006` |
 | OPEN_PR_REF | `chatgpt/third-order-protocol-20261006-37bd-r4` | `9b3387bdc1cd4e1afc29916d7d7c3f9d922af722` | 2026-10-06 | 2 | `git push origin 9b3387bdc1cd4e1afc29916d7d7c3f9d922af722:refs/heads/chatgpt/third-order-protocol-20261006-37bd-r4` |
 | OPEN_PR_REF | `claude/determined-bardeen-mrqy4y-c8-wrappers` | `8dca89cfbfe773570d9ee96d0f53e8aac3825016` | 2026-10-28 | 2 | `git push origin 8dca89cfbfe773570d9ee96d0f53e8aac3825016:refs/heads/claude/determined-bardeen-mrqy4y-c8-wrappers` |
-| OPEN_PR_REF | `claude/nice-maxwell-7i7ok0` | `e257336f3ef33ca18c4c8cd9bc651aa0267d3866` | 2026-10-29 | 1 | `git push origin e257336f3ef33ca18c4c8cd9bc651aa0267d3866:refs/heads/claude/nice-maxwell-7i7ok0` |
+| OPEN_PR_REF | `claude/nice-maxwell-7i7ok0` | `6d402474a4a9582a151e9f87ab5f69570a2bc58b` | 2026-10-29 | 2 | `git push origin 6d402474a4a9582a151e9f87ab5f69570a2bc58b:refs/heads/claude/nice-maxwell-7i7ok0` |
 | OPEN_PR_REF | `codex/all-frame-gaussian-rates-20261028` | `5a30296bfc6c9c886d483c87e80e2eb2d9ea047d` | 2026-10-28 | 4 | `git push origin 5a30296bfc6c9c886d483c87e80e2eb2d9ea047d:refs/heads/codex/all-frame-gaussian-rates-20261028` |
 | OPEN_PR_REF | `codex/c293-morse-finite-critical-20261018` | `35a7d76869aad52d7508d58bc589eeb0ddc18bbb` | 2026-10-22 | 8 | `git push origin 35a7d76869aad52d7508d58bc589eeb0ddc18bbb:refs/heads/codex/c293-morse-finite-critical-20261018` |
 | OPEN_PR_REF | `codex/c294-critical-level-attainment-20261020` | `dbc3a80afd1ac82c13a0390af7913f9986858467` | 2026-10-24 | 18 | `git push origin dbc3a80afd1ac82c13a0390af7913f9986858467:refs/heads/codex/c294-critical-level-attainment-20261020` |

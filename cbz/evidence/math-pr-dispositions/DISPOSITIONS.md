@@ -1,6 +1,6 @@
 # Math- open pull requests — CBZ-0 Phase 2 disposition evidence
 
-Observed 2026-10-29T17:22:02Z at `d6g8k5htny-coder/Math-` `main` `8151f592918a845bf19eb8eafaf8444540a32734`. 26 open PRs. Counts: {"QUARANTINE-ARCHIVE": 9, "INTEGRATE-CANDIDATE": 5, "STACK-DEPENDENT": 9, "ACTIVE-OWNER-LANE": 3}.
+Observed 2026-10-29T17:36:29Z at `d6g8k5htny-coder/Math-` `main` `8151f592918a845bf19eb8eafaf8444540a32734`. 28 open PRs. Counts: {"QUARANTINE-ARCHIVE": 9, "INTEGRATE-CANDIDATE": 5, "STACK-DEPENDENT": 9, "ACTIVE-OWNER-LANE": 5}.
 
 Evidence only. layer_a_signals are lexical hits on added/removed diff lines, never certification. recommended_disposition is a decision table over observed facts; the integrator decides.
 
@@ -24,14 +24,16 @@ Evidence only. layer_a_signals are lexical hits on added/removed diff lines, nev
 | #496 C299-C7 replacement preparation (agent 8): candidate7 source + manifest/workflow digest rebind | yes | `agent8/c299-c7-replacement-20261022`@`91811388` | `codex/c299-critical-ridge-20261020` | 2026-10-23 | HOLD | success | clean | 10 | **STACK-DEPENDENT** |
 | #497 VERIFIER-C7-01: re-pin C299 negative matcher to observed C7 diagnostic (stacked on #496) | yes | `agent12/verifier-c7-01`@`5b3cc75d` | `agent8/c299-c7-replacement-20261022` | 2026-10-24 | HOLD | success | clean | 10 | **STACK-DEPENDENT** |
 | #504 C299: adopt the reviewed timeout-test readiness fixture | yes | `codex/c299-timeout-test-adoption-20261024`@`d65e4425` | `agent12/verifier-c7-01` | 2026-10-24 | HOLD | success | clean | 10 | **STACK-DEPENDENT** |
-| #514 Formalize actual source Morse geometry and component transport | yes | `codex/cubic-curvature-20261026`@`a9846b96` | `main` | 2026-10-29 | AMEND | success | clean | 3 | **ACTIVE-OWNER-LANE** |
+| #514 Formalize actual source Morse geometry and component transport | yes | `codex/cubic-curvature-20261026`@`a9846b96` | `main` | 2026-10-29 | BLOCK | success | clean | 3 | **ACTIVE-OWNER-LANE** |
 | #520 Authenticate the C8 check-mode verdicts of the planar cap-failure wrapper | no | `claude/determined-bardeen-mrqy4y-c8-wrappers`@`8dca89cf` | `main` | 2026-10-28 | BLOCK | success | clean | 0 | **QUARANTINE-ARCHIVE** |
 | #522 Derive Gaussian lifetime exponential tails and sharp axial escape | yes | `codex/gaussian-lifetime-tail-20261028`@`223293d9` | `main` | 2026-10-29 | — | success | clean | 0 | **ACTIVE-OWNER-LANE** |
 | #523 Prove matching essential-event Gaussian scale on coordinate axes | yes | `codex/essential-gaussian-rate-20261028`@`de872d97` | `codex/gaussian-lifetime-tail-20261028` | 2026-10-28 | — | success | clean | 0 | **STACK-DEPENDENT** |
 | #524 Prove all-direction Gaussian rates and global critical-gap split | yes | `codex/all-frame-gaussian-rates-20261028`@`5a30296b` | `codex/essential-gaussian-rate-20261028` | 2026-10-29 | — | success | clean | 0 | **STACK-DEPENDENT** |
 | #525 Identify sharp essential action and tiny-gap square-root law | yes | `codex/essential-sharp-asymptotics-20261028`@`fc5ecb67` | `codex/all-frame-gaussian-rates-20261028` | 2026-10-29 | — | success | clean | 0 | **STACK-DEPENDENT** |
 | #526 Complete finite-lifetime moment limits and match essential actions | yes | `codex/gaussian-lifetime-limit-completion-20261029`@`fdddc7e6` | `codex/essential-sharp-asymptotics-20261028` | 2026-10-29 | — | success | clean | 0 | **STACK-DEPENDENT** |
-| #527 Add a mutation-tested Layer A scan for every tracked Lean file (CBZ-0 G0/G1) | yes | `claude/nice-maxwell-7i7ok0`@`e257336f` | `main` | 2026-10-29 | — | success | clean | 0 | **ACTIVE-OWNER-LANE** |
+| #527 Add a mutation-tested Layer A scan for every tracked Lean file (CBZ-0 G0/G1) | yes | `claude/nice-maxwell-7i7ok0`@`6d402474` | `main` | 2026-10-29 | — | success | clean | 0 | **ACTIVE-OWNER-LANE** |
+| #528 Require compiled determinant admission and quarantine unqualified evidence | no | `cbz/determinant-compiled-audit-20261029-a6ce`@`4ccc9b0b` | `main` | 2026-10-29 | — | success | clean | 0 | **ACTIVE-OWNER-LANE** |
+| #529 CBZ-0 Phase 2 evidence: dispositions for all 26 open Math- PRs and 110 branches | no | `cbz/math-pr-dispositions-01n-20261029`@`24ce3873` | `main` | 2026-10-29 | — | — | clean | 2 | **ACTIVE-OWNER-LANE** |
 
 ## Per-PR facts
 
@@ -220,7 +222,7 @@ Evidence only. layer_a_signals are lexical hits on added/removed diff lines, nev
 - head `codex/cubic-curvature-20261026` `a9846b96b5bdbdf7037a09425869ed54f8530f69`; base `main` `180d6406b0a51b268a152241a70bde6a1b39a142`; ahead 127 / behind 62 of main
 - ancestor of main: False; all changed blobs already on main: False; merge-tree onto main: clean
 - changed paths: 10976; Layer A signals: {"lean_admit_added": 3}
-- latest verdict token: AMEND (comment 6502939450, 2026-10-29T16:52:24Z)
+- latest verdict token: BLOCK (comment 6503772426, 2026-10-29T17:30:05Z)
 - checks at head: {"math-downstream-gates": "success", "formal / formal-evidence": "success", "downstream-replay": "success", "math-hypergraph": "success"}
 - explicit do-not-merge in title/body: False; updated within 24 h of observation: True
 - **recommended: ACTIVE-OWNER-LANE**; recoverable ref: `git push origin a9846b96b5bdbdf7037a09425869ed54f8530f69:refs/heads/codex/cubic-curvature-20261026`
@@ -287,11 +289,31 @@ Evidence only. layer_a_signals are lexical hits on added/removed diff lines, nev
 
 ### #527 Add a mutation-tested Layer A scan for every tracked Lean file (CBZ-0 G0/G1)
 
-- head `claude/nice-maxwell-7i7ok0` `e257336f3ef33ca18c4c8cd9bc651aa0267d3866`; base `main` `8151f592918a845bf19eb8eafaf8444540a32734`; ahead 1 / behind 0 of main
+- head `claude/nice-maxwell-7i7ok0` `6d402474a4a9582a151e9f87ab5f69570a2bc58b`; base `main` `8151f592918a845bf19eb8eafaf8444540a32734`; ahead 2 / behind 0 of main
 - ancestor of main: False; all changed blobs already on main: False; merge-tree onto main: clean
 - changed paths: 3; Layer A signals: {}
 - latest verdict token: —
-- checks at head: {"math-downstream-gates": "success", "full-suite": "in_progress", "full-regeneration": "skipped", "certify-and-reject-mutants": "in_progress", "scan": "success", "exact-controls": "success", "formal / formal-evidence": "success", "downstream-replay": "success", "certified-replay": "success", "exact-controls-and-replay": "success", "math-hypergraph": "success", "exact-and-probe": "success"}
+- checks at head: {"math-downstream-gates": "success", "full-suite": "in_progress", "full-regeneration": "skipped", "formal / formal-evidence": "success", "downstream-replay": "success", "certify-and-reject-mutants": "in_progress", "scan": "success", "exact-controls": "success", "math-hypergraph": "success", "certified-replay": "success", "exact-controls-and-replay": "success", "exact-and-probe": "success"}
 - explicit do-not-merge in title/body: False; updated within 24 h of observation: True
-- **recommended: ACTIVE-OWNER-LANE**; recoverable ref: `git push origin e257336f3ef33ca18c4c8cd9bc651aa0267d3866:refs/heads/claude/nice-maxwell-7i7ok0`
+- **recommended: ACTIVE-OWNER-LANE**; recoverable ref: `git push origin 6d402474a4a9582a151e9f87ab5f69570a2bc58b:refs/heads/claude/nice-maxwell-7i7ok0`
+
+### #528 Require compiled determinant admission and quarantine unqualified evidence
+
+- head `cbz/determinant-compiled-audit-20261029-a6ce` `4ccc9b0b0fb6333565e15026758fa49521de7f3d`; base `main` `8151f592918a845bf19eb8eafaf8444540a32734`; ahead 1 / behind 0 of main
+- ancestor of main: False; all changed blobs already on main: False; merge-tree onto main: clean
+- changed paths: 12; Layer A signals: {}
+- latest verdict token: —
+- checks at head: {"math-downstream-gates": "success", "formal / formal-evidence": "success", "downstream-replay": "success", "math-hypergraph": "success"}
+- explicit do-not-merge in title/body: False; updated within 24 h of observation: True
+- **recommended: ACTIVE-OWNER-LANE**; recoverable ref: `git push origin 4ccc9b0b0fb6333565e15026758fa49521de7f3d:refs/heads/cbz/determinant-compiled-audit-20261029-a6ce`
+
+### #529 CBZ-0 Phase 2 evidence: dispositions for all 26 open Math- PRs and 110 branches
+
+- head `cbz/math-pr-dispositions-01n-20261029` `24ce38735e66ab4a64d3e34d9df92c33bd64d197`; base `main` `8151f592918a845bf19eb8eafaf8444540a32734`; ahead 2 / behind 0 of main
+- ancestor of main: False; all changed blobs already on main: False; merge-tree onto main: clean
+- changed paths: 11; Layer A signals: {"skips_added": 2}
+- latest verdict token: —
+- checks at head: {"formal / formal-evidence": "in_progress", "downstream-replay": "success", "math-hypergraph": "success"}
+- explicit do-not-merge in title/body: False; updated within 24 h of observation: True
+- **recommended: ACTIVE-OWNER-LANE**; recoverable ref: `git push origin 24ce38735e66ab4a64d3e34d9df92c33bd64d197:refs/heads/cbz/math-pr-dispositions-01n-20261029`
 

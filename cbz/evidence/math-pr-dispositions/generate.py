@@ -29,6 +29,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import disposition_lib as lib  # noqa: E402
 
 REQUIRED_CHECK = 'math-downstream-gates'
+EMPTY_TREE = '4b825dc642cb6eb9a060e54bf8d69288fbee4904'
 
 
 def _git(repo, *args, check=True):
@@ -135,6 +136,70 @@ def build_branch_records(repo, *, main_sha, open_pr_refs, protected):
     return sorted(out, key=lambda r: (r['class'], r['branch']))
 
 
+def build_unmerged_branch_records(repo, *, main_sha, branches, open_pr_heads, now):
+    """Content facts for branches that are unmerged and have no PR. ``open_pr_heads`` maps head ref -> sha."""
+    out = []
+    for name in branches:
+        tip = _git(repo, 'rev-parse', f'refs/remotes/origin/{name}').strip()
+        mb = subprocess.run(['git', '-C', repo, 'merge-base', tip, main_sha], capture_output=True, text=True)
+        merge_base = mb.stdout.strip() if mb.returncode == 0 else None
+        unrelated = merge_base is None
+        base_for_diff = merge_base or EMPTY_TREE
+        changed = [p for p in _git(repo, 'diff', '--name-only', base_for_diff, tip).splitlines() if p]
+        diff_text = _git(repo, 'diff', base_for_diff, tip, '--', *changed) if changed else ''
+        signals = lib.layer_a_signals(diff_text)
+        equal = 0
+        for p in changed:
+            h = subprocess.run(['git', '-C', repo, 'rev-parse', '-q', '--verify', f'{tip}:{p}'], capture_output=True, text=True)
+            m = subprocess.run(['git', '-C', repo, 'rev-parse', '-q', '--verify', f'{main_sha}:{p}'], capture_output=True, text=True)
+            if h.returncode == 0 and m.returncode == 0 and h.stdout.strip() == m.stdout.strip():
+                equal += 1
+        container = next((h for h, sha in sorted(open_pr_heads.items()) if lib.is_ancestor(repo, tip, sha)), False)
+        last = _git(repo, 'log', '-1', '--format=%cI', tip).strip()
+        days = (_parse(now) - _parse(last)).days
+        dirs = sorted({p.rsplit('/', 1)[0] if '/' in p else '.' for p in changed})
+        facts = {
+            'unrelated_history': unrelated,
+            'contained_in_open_pr_head': container,
+            'all_changed_blobs_equal_on_main': bool(changed) and equal == len(changed),
+            'updated_within_24h': (_parse(now) - _parse(last)) <= dt.timedelta(hours=24),
+            'merge_tree_clean_onto_main': lib.merge_tree_clean(repo, main_sha, tip),
+            'signals_total': sum(signals.values()),
+            'changed_path_count': len(changed),
+            'days_since_last_commit': days,
+        }
+        rec = {
+            'branch': name, 'tip': tip, 'lane_prefix': name.split('/', 1)[0] if '/' in name else '(none)',
+            'last_commit_date': last, 'merge_base_with_main': merge_base,
+            'commits_ahead_of_main': int(_git(repo, 'rev-list', '--count', f'{main_sha}..{tip}').strip()),
+            'changed_paths': changed[:200],
+            'changed_paths_sha256': hashlib.sha256(''.join(p + '\n' for p in sorted(changed)).encode()).hexdigest(),
+            'changed_directories': dirs[:40], 'changed_directory_count': len(dirs),
+            'changed_blobs_equal_on_main': equal,
+            'layer_a_signals': signals,
+            'recreate_command': f'git push origin {tip}:refs/heads/{name}',
+        }
+        rec.update(facts)
+        rec['recommended_disposition'] = lib.recommend_branch(facts)
+        rec['integrable_if_wanted'] = lib.integrable_if_wanted(facts)
+        out.append(rec)
+    return sorted(out, key=lambda r: (r['recommended_disposition'], r['branch']))
+
+
+def render_unmerged_table(records):
+    out = ['| Branch | Tip | Last commit | Ahead | Paths | Dirs | Blobs = main | Signals | merge-tree→main | In open PR | Recommended | Integrable if wanted |',
+           '|---|---|---|---|---|---|---|---|---|---|---|---|']
+    for r in records:
+        out.append('| `{b}` | `{t}` | {d} | {a} | {p} | {dc} | {e} | {s} | {m} | {c} | **{rec}** | {iw} |'.format(
+            iw='yes' if r.get('integrable_if_wanted') else '',
+            b=r['branch'], t=r['tip'][:8], d=r['last_commit_date'][:10], a=r['commits_ahead_of_main'],
+            p=r['changed_path_count'], dc=r['changed_directory_count'], e=r['changed_blobs_equal_on_main'],
+            s=r['signals_total'], m='clean' if r['merge_tree_clean_onto_main'] else 'CONFLICT',
+            c=f"`{r['contained_in_open_pr_head']}`" if r['contained_in_open_pr_head'] else '—',
+            rec=r['recommended_disposition']))
+    return '\n'.join(out) + '\n'
+
+
 # --- GitHub fetching (REST via gh) ----------------------------------------------------------
 
 def gh_json(endpoint):
@@ -218,6 +283,10 @@ def main(argv=None):
                                   reviews=data[pr['number']]['reviews'], check_runs=data[pr['number']]['check_runs'],
                                   now=now, open_pr_heads=open_heads) for pr in sorted(prs, key=lambda p: p['number'])]
     branch_records = build_branch_records(a.repo, main_sha=main_sha, open_pr_refs=open_refs, protected=protected)
+    unmerged_names = [r['branch'] for r in branch_records if r['class'] == 'UNMERGED_NO_PR']
+    unmerged_records = build_unmerged_branch_records(
+        a.repo, main_sha=main_sha, branches=unmerged_names,
+        open_pr_heads={pr['head']['ref']: pr['head']['sha'] for pr in prs}, now=now)
 
     meta = {'observed_at_utc': now, 'repository': a.owner_repo, 'main_sha': main_sha,
             'open_pr_count': len(pr_records), 'branch_count': len(branch_records),
@@ -228,6 +297,12 @@ def main(argv=None):
         meta['disposition_counts'][r['recommended_disposition']] = meta['disposition_counts'].get(r['recommended_disposition'], 0) + 1
     for r in branch_records:
         meta['branch_class_counts'][r['class']] = meta['branch_class_counts'].get(r['class'], 0) + 1
+    meta['unmerged_branch_disposition_counts'] = {}
+    for r in unmerged_records:
+        k = r['recommended_disposition']
+        meta['unmerged_branch_disposition_counts'][k] = meta['unmerged_branch_disposition_counts'].get(k, 0) + 1
+    meta['unmerged_integrable_if_wanted'] = sum(1 for r in unmerged_records if r['integrable_if_wanted'])
+    meta['unmerged_unrelated_history'] = sum(1 for r in unmerged_records if r.get('unrelated_history'))
 
     os.makedirs(a.out, exist_ok=True)
     meta['fetched_manifest'] = 'FETCHED_MANIFEST.json'
@@ -253,6 +328,20 @@ def main(argv=None):
             f.write(f"- checks at head: {json.dumps(r['check_runs'])}\n")
             f.write(f"- explicit do-not-merge in title/body: {r['explicit_do_not_merge']}; updated within 24 h of observation: {r['updated_within_24h']}\n")
             f.write(f"- **recommended: {r['recommended_disposition']}**; recoverable ref: `{r['recoverable_ref_command']}`\n\n")
+    _dump({'meta': meta, 'unmerged_branches': unmerged_records}, os.path.join(a.out, 'unmerged_branches.json'))
+    with open(os.path.join(a.out, 'UNMERGED_BRANCHES.md'), 'w') as f:
+        f.write(f"# Math- branches that are unmerged and have no pull request — content facts\n\n"
+                f"Observed {now} at `main` `{main_sha}`. {len(unmerged_records)} branches. "
+                f"Counts: {json.dumps(meta['unmerged_branch_disposition_counts'])}.\n\n"
+                "Recommendations come from `disposition_lib.recommend_branch` (documented thresholds); Layer A signals are lexical. "
+                "Every row is recoverable with `git push origin <tip>:refs/heads/<branch>`.\n\n")
+        f.write(render_unmerged_table(unmerged_records))
+        f.write('\n## Per-branch directories\n\n')
+        for r in unmerged_records:
+            f.write(f"- `{r['branch']}` `{r['tip'][:8]}` ({r['lane_prefix']}, {r['commits_ahead_of_main']} ahead, {r['changed_path_count']} paths): "
+                    + ', '.join(f'`{d}`' for d in r['changed_directories'][:8])
+                    + (f' … (+{r["changed_directory_count"] - 8} more)' if r['changed_directory_count'] > 8 else '')
+                    + (f"; signals {json.dumps({k: v for k, v in r['layer_a_signals'].items() if v})}" if r['signals_total'] else '') + '\n')
     with open(os.path.join(a.out, 'BRANCHES.md'), 'w') as f:
         f.write(f"# Math- branches — classification\n\nObserved {now} at `main` `{main_sha}`. {len(branch_records)} branches. "
                 f"Counts: {json.dumps(meta['branch_class_counts'])}.\n\n")

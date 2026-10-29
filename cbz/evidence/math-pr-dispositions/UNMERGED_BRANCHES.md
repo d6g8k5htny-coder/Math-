@@ -1,0 +1,173 @@
+# Math- branches that are unmerged and have no pull request — content facts
+
+Observed 2026-10-29T17:36:29Z at `main` `8151f592918a845bf19eb8eafaf8444540a32734`. 81 branches. Counts: {"ARCHIVE-BUNDLE": 76, "SUPERSEDED-BY-OPEN-PR": 3, "SUPERSEDED-CONTENT-ON-MAIN": 2}.
+
+Recommendations come from `disposition_lib.recommend_branch` (documented thresholds); Layer A signals are lexical. Every row is recoverable with `git push origin <tip>:refs/heads/<branch>`.
+
+| Branch | Tip | Last commit | Ahead | Paths | Dirs | Blobs = main | Signals | merge-tree→main | In open PR | Recommended | Integrable if wanted |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| `benjamin/d5-collar-nonauthor-20260928b` | `2cc93a03` | 2026-09-28 | 279 | 396 | 90 | 344 | 59 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/bq11-import-profile-20261007-f81c` | `a7971bb0` | 2026-10-06 | 7 | 7 | 2 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** | yes |
+| `chatgpt/cap-i4-adapter-envelope-20261005` | `adc9e1dc` | 2026-10-05 | 1 | 4 | 1 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** | yes |
+| `chatgpt/cap-i4-angular-formal-20261006` | `778805db` | 2026-10-05 | 6 | 13 | 3 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** | yes |
+| `chatgpt/cap-i4-chamber-bridge-20261006-r21` | `93a19170` | 2026-10-06 | 42 | 81 | 14 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/cap-i4-clipped-integral-20261006-r17` | `f4fe483f` | 2026-10-06 | 27 | 51 | 9 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/cap-i4-d3-moment8-20261005` | `e02ba474` | 2026-10-05 | 1 | 5 | 1 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** | yes |
+| `chatgpt/cap-i4-depth-kernel-20261006-r16` | `189f4efe` | 2026-10-06 | 27 | 51 | 9 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/cap-i4-entry-volume-20261006` | `c0e73e38` | 2026-10-05 | 14 | 26 | 5 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** | yes |
+| `chatgpt/cap-i4-evidence-r2-20261005` | `970891d0` | 2026-10-05 | 16 | 5 | 2 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** | yes |
+| `chatgpt/cap-i4-gaussian-envelope-20261006-r18` | `582a19ba` | 2026-10-06 | 30 | 57 | 10 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/cap-i4-independent-20261006-r15` | `fb767a09` | 2026-10-06 | 24 | 45 | 8 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** | yes |
+| `chatgpt/cap-i4-inner-integration-20261006-r19` | `d37a99f3` | 2026-10-06 | 34 | 63 | 11 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/cap-i4-linear-formal-20261006` | `61c949d6` | 2026-10-05 | 12 | 21 | 4 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** | yes |
+| `chatgpt/cap-i4-matrix-formal-20261006` | `baab921d` | 2026-10-05 | 7 | 15 | 3 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** | yes |
+| `chatgpt/cap-i4-outer-composition-20261006-r20` | `76e30770` | 2026-10-06 | 40 | 75 | 13 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/cap-i4-polar-formal-20261006` | `035e1401` | 2026-10-05 | 4 | 8 | 2 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** | yes |
+| `chatgpt/cap-i4-product-transport-20261006-r14` | `64d3b929` | 2026-10-06 | 21 | 39 | 7 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** | yes |
+| `chatgpt/cap-i4-proposal-diagnostic-20261006-r12` | `f58dc11e` | 2026-10-05 | 18 | 33 | 6 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** | yes |
+| `chatgpt/cap-i4-residual-law-20261006-r22` | `67818d30` | 2026-10-06 | 42 | 81 | 14 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/cap-i4-source-bridge-20261005` | `f4079f65` | 2026-10-05 | 13 | 5 | 2 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** | yes |
+| `chatgpt/cap-i4-spectral-assembly-20261006` | `d6b4a372` | 2026-10-05 | 16 | 30 | 6 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** | yes |
+| `chatgpt/cusp-contract-characterization-20261006-rfgate` | `b05b0ddc` | 2026-10-06 | 1 | 1 | 1 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** | yes |
+| `chatgpt/d1-borel-kac-rice-amend-20260925` | `1a3afa27` | 2026-09-25 | 102 | 113 | 22 | 92 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/d5-pin-compatibility-review-20260925` | `e707da6f` | 2026-09-25 | 68 | 62 | 11 | 41 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/downstream-boundary-review-20260925` | `32b80ee0` | 2026-09-25 | 69 | 65 | 11 | 42 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/fail-closed-claim-audit-20260925` | `dac4793d` | 2026-09-25 | 84 | 79 | 15 | 60 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/fail-closed-claim-audit-20260925-v2` | `7785bc82` | 2026-09-25 | 103 | 114 | 22 | 92 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/full-price-20260924` | `f9938338` | 2026-09-24 | 15 | 35 | 7 | 29 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/integrate-reviewed-collision-package-20260925` | `596e8098` | 2026-09-25 | 119 | 142 | 28 | 113 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/legacy-fixture-signing-20261006-r11` | `8194e103` | 2026-10-05 | 4 | 9 | 6 | 2 | 2 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/legacy-json-refresh-20261006-r9` | `18afecd9` | 2026-10-05 | 1 | 7 | 4 | 1 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/legacy-json-repair-20261006-r8` | `06e81fd1` | 2026-10-05 | 2 | 7 | 4 | 1 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/legacy-parser-plus-20261006-r13` | `df8b11c0` | 2026-10-06 | 1 | 1 | 1 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** | yes |
+| `chatgpt/legacy-signing-isolation-20261006-r12` | `977b4e47` | 2026-10-05 | 4 | 9 | 5 | 3 | 2 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/legacy-trigger-coverage-20261006-r6` | `39b2f8f2` | 2026-10-06 | 2 | 9 | 5 | 2 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/legacy-tty-followon-20261006` | `b5c8fe83` | 2026-10-05 | 3 | 8 | 5 | 2 | 1 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/nav-verdict-word-start-20261006-r10` | `902660f3` | 2026-10-05 | 1 | 2 | 2 | 0 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/navigation-citation-identity-20261006` | `29ca8933` | 2026-10-05 | 1 | 3 | 3 | 0 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/navigation-corpus-observation-20261006` | `c0e66c16` | 2026-10-06 | 4 | 4 | 3 | 2 | 0 | clean | — | **ARCHIVE-BUNDLE** | yes |
+| `chatgpt/navigation-price-20260924` | `1dfd49e8` | 2026-09-24 | 12 | 27 | 6 | 23 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/navigation-reviewed-stack-preparation-20261006` | `7028efba` | 2026-10-06 | 3 | 3 | 3 | 2 | 0 | clean | — | **ARCHIVE-BUNDLE** | yes |
+| `chatgpt/navigation-verdict-boundaries-20261006` | `76a763e2` | 2026-10-05 | 2 | 2 | 2 | 0 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/navigation-verdict-boundary-20261006` | `ef156190` | 2026-10-05 | 1 | 2 | 2 | 0 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/never-merge-formal-negative-20260927` | `fae3ee8c` | 2026-09-27 | 195 | 337 | 75 | 290 | 29 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/p15-smt-pilot-20260925-1918` | `0ae7e8fd` | 2026-09-25 | 70 | 63 | 12 | 41 | 1 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/pr334-native-contract-support-20261006` | `2861c057` | 2026-10-05 | 2 | 2 | 1 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** | yes |
+| `chatgpt/qs-raw-child-evidence-20261006-r9` | `680bec8c` | 2026-10-05 | 1 | 3 | 3 | 0 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/qs340-inventory-amendment-support-20261006` | `be64661a` | 2026-10-05 | 1 | 1 | 1 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** | yes |
+| `chatgpt/remote-window-20260924` | `191ea7d5` | 2026-09-24 | 17 | 44 | 8 | 37 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/retrospective-round10-20261005` | `dcea9187` | 2026-10-05 | 1 | 2 | 1 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** | yes |
+| `chatgpt/rf-gate-helper-replay-22393e7b-20261006-r8` | `3ab51620` | 2026-10-06 | 5 | 11 | 3 | 7 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/rf-gate-incorporation-rehearsal-20261006-r9` | `501b08d3` | 2026-10-06 | 5 | 11 | 3 | 7 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/three-fronts-20260924` | `9b5fb7fa` | 2026-09-24 | 10 | 19 | 4 | 17 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `chatgpt/two-scale-custody-postmerge-repair-20260929` | `bf00963e` | 2026-09-29 | 495 | 23 | 3 | 11 | 5 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `claude/dd-model-d-enclosure-wip-20261013` | `b4bcf1f4` | 2026-10-13 | 13 | 138 | 12 | 0 | 417 | clean | — | **ARCHIVE-BUNDLE** |  |
+| `claude/determined-bardeen-mrqy4y` | `22393e7b` | 2026-10-06 | 4 | 10 | 2 | 7 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `claude/round4-triage-table-20261011` | `43a975ec` | 2026-10-11 | 1 | 2 | 1 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** | yes |
+| `codex/c291-literal-lifetime-field-20261018` | `db43694c` | 2026-10-17 | 1 | 249 | 50 | 246 | 3 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `codex/quotient-closed-superlevel-lpc-adapter-20261020` | `c5cdf6e9` | 2026-10-20 | 1 | 17 | 4 | 0 | 5 | clean | — | **ARCHIVE-BUNDLE** |  |
+| `codex/quotient-closed-superlevel-lpc-adapter-20261020-r2` | `0b6cdcac` | 2026-10-20 | 1 | 17 | 4 | 0 | 5 | clean | — | **ARCHIVE-BUNDLE** |  |
+| `codex/quotient-closed-superlevel-lpc-adapter-20261022-r3` | `03d98cce` | 2026-10-22 | 1 | 17 | 4 | 0 | 5 | clean | — | **ARCHIVE-BUNDLE** |  |
+| `codex/source-smooth-realization-20261013-root01a11cbf` | `1f38a851` | 2026-10-13 | 8 | 289 | 9 | 17 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `copilot/add-license-citation-files` | `75ccc0f6` | 2026-10-01 | 2 | 0 | 0 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** | yes |
+| `cursor/cross-repo-proof-custody-7eca` | `e14d4110` | 2026-09-26 | 145 | 151 | 31 | 119 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `cursor/d2-cumulative-confirm-870a` | `f5e85949` | 2026-09-26 | 122 | 144 | 29 | 113 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `cursor/d5-chart-graph-node-91fa` | `707e2daa` | 2026-09-25 | 39 | 57 | 10 | 39 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `cursor/d5-chart-j0-on-hotfix-91fa` | `84115d7d` | 2026-09-26 | 143 | 57 | 10 | 39 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `cursor/d5-pin-microdisk-c059` | `ae45d351` | 2026-09-26 | 122 | 145 | 29 | 113 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `cursor/formal-verification-layer-ae3b` | `a6637061` | 2026-09-27 | 200 | 345 | 79 | 277 | 31 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `cursor/lemma-theorem-registers-f339` | `79a791a1` | 2026-09-26 | 107 | 172 | 27 | 96 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `cursor/nonauthor-hermite-axial-review-5dce` | `3c822931` | 2026-09-26 | 74 | 63 | 12 | 46 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `cursor/pr69-pin-microdisk-review-4f5c` | `eb8bf7a5` | 2026-09-26 | 154 | 154 | 32 | 120 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `cursor/rn-mesoscopic-chart-j0-91fa` | `84b64e1b` | 2026-09-26 | 109 | 54 | 9 | 37 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `inventable/purpose-readme-seed` | `484811c5` | 2026-09-24 | 2 | 1 | 1 | 0 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
+| `support/navigation-336-344-353-on-08f86862-20261006` | `e1fc0e8c` | 2026-10-06 | 3 | 3 | 3 | 2 | 0 | clean | — | **ARCHIVE-BUNDLE** | yes |
+| `codex/compact-cutoff-baseline-20261009-root01a11cbf` | `06bac48e` | 2026-10-10 | 1 | 37 | 2 | 0 | 0 | clean | `codex/compact-cutoff-controls-final-repair-20261011-root01a11cbf` | **SUPERSEDED-BY-OPEN-PR** | yes |
+| `codex/compact-cutoff-proof-20261010-root01a11cbf` | `bb3c92e3` | 2026-10-10 | 2 | 75 | 3 | 0 | 0 | clean | `codex/compact-cutoff-controls-final-repair-20261011-root01a11cbf` | **SUPERSEDED-BY-OPEN-PR** |  |
+| `codex/compact-cutoff-proof-repair-20261011-root01a11cbf` | `f7832c87` | 2026-10-11 | 3 | 113 | 4 | 0 | 0 | clean | `codex/compact-cutoff-controls-final-repair-20261011-root01a11cbf` | **SUPERSEDED-BY-OPEN-PR** |  |
+| `codex/c301-c291-static-workspace-20261024` | `ee5f0356` | 2026-10-24 | 2 | 249 | 50 | 249 | 3 | clean | — | **SUPERSEDED-CONTENT-ON-MAIN** |  |
+| `cursor/moment-generality-alignment-cdd1` | `4551c332` | 2026-10-05 | 2 | 1 | 1 | 1 | 0 | clean | — | **SUPERSEDED-CONTENT-ON-MAIN** | yes |
+
+## Per-branch directories
+
+- `benjamin/d5-collar-nonauthor-20260928b` `2cc93a03` (benjamin, 279 ahead, 396 paths): `.`, `.github`, `.github/workflows`, `certificates`, `certificates/bf_six_pin_hessian_20260926`, `certificates/bf_six_pin_scalar_20260926`, `claims`, `coefficients/side24_v1` … (+82 more); signals {"float_in_certificate_code_added": 59}
+- `chatgpt/bq11-import-profile-20261007-f81c` `a7971bb0` (chatgpt, 7 ahead, 7 paths): `.github/workflows`, `companions/fold_affine_bridge_20261006`
+- `chatgpt/cap-i4-adapter-envelope-20261005` `adc9e1dc` (chatgpt, 1 ahead, 4 paths): `reviews/cap_i4_adapter_envelope_20261005`
+- `chatgpt/cap-i4-angular-formal-20261006` `778805db` (chatgpt, 6 ahead, 13 paths): `.github/workflows`, `companions/cap_i4_angular_20261006`, `companions/cap_i4_polar_20261006`
+- `chatgpt/cap-i4-chamber-bridge-20261006-r21` `93a19170` (chatgpt, 42 ahead, 81 paths): `.github/workflows`, `companions/cap_i4_angular_20261006`, `companions/cap_i4_chamber_bridge_20261006`, `companions/cap_i4_clipped_integral_20261006`, `companions/cap_i4_depth_kernel_20261006`, `companions/cap_i4_entry_volume_20261006`, `companions/cap_i4_gaussian_envelope_20261006`, `companions/cap_i4_independent_20261006` … (+6 more)
+- `chatgpt/cap-i4-clipped-integral-20261006-r17` `f4fe483f` (chatgpt, 27 ahead, 51 paths): `.github/workflows`, `companions/cap_i4_angular_20261006`, `companions/cap_i4_clipped_integral_20261006`, `companions/cap_i4_entry_volume_20261006`, `companions/cap_i4_independent_20261006`, `companions/cap_i4_linear_20261006`, `companions/cap_i4_polar_20261006`, `companions/cap_i4_product_transport_20261006` … (+1 more)
+- `chatgpt/cap-i4-d3-moment8-20261005` `e02ba474` (chatgpt, 1 ahead, 5 paths): `reviews/cap_i4_d3_moment8_20261005`
+- `chatgpt/cap-i4-depth-kernel-20261006-r16` `189f4efe` (chatgpt, 27 ahead, 51 paths): `.github/workflows`, `companions/cap_i4_angular_20261006`, `companions/cap_i4_depth_kernel_20261006`, `companions/cap_i4_entry_volume_20261006`, `companions/cap_i4_independent_20261006`, `companions/cap_i4_linear_20261006`, `companions/cap_i4_polar_20261006`, `companions/cap_i4_product_transport_20261006` … (+1 more)
+- `chatgpt/cap-i4-entry-volume-20261006` `c0e73e38` (chatgpt, 14 ahead, 26 paths): `.github/workflows`, `companions/cap_i4_angular_20261006`, `companions/cap_i4_entry_volume_20261006`, `companions/cap_i4_linear_20261006`, `companions/cap_i4_polar_20261006`
+- `chatgpt/cap-i4-evidence-r2-20261005` `970891d0` (chatgpt, 16 ahead, 5 paths): `.github/workflows`, `companions/cap_i4_source_bridge_20261005`
+- `chatgpt/cap-i4-gaussian-envelope-20261006-r18` `582a19ba` (chatgpt, 30 ahead, 57 paths): `.github/workflows`, `companions/cap_i4_angular_20261006`, `companions/cap_i4_depth_kernel_20261006`, `companions/cap_i4_entry_volume_20261006`, `companions/cap_i4_gaussian_envelope_20261006`, `companions/cap_i4_independent_20261006`, `companions/cap_i4_linear_20261006`, `companions/cap_i4_polar_20261006` … (+2 more)
+- `chatgpt/cap-i4-independent-20261006-r15` `fb767a09` (chatgpt, 24 ahead, 45 paths): `.github/workflows`, `companions/cap_i4_angular_20261006`, `companions/cap_i4_entry_volume_20261006`, `companions/cap_i4_independent_20261006`, `companions/cap_i4_linear_20261006`, `companions/cap_i4_polar_20261006`, `companions/cap_i4_product_transport_20261006`, `companions/cap_i4_spectral_assembly_20261006`
+- `chatgpt/cap-i4-inner-integration-20261006-r19` `d37a99f3` (chatgpt, 34 ahead, 63 paths): `.github/workflows`, `companions/cap_i4_angular_20261006`, `companions/cap_i4_clipped_integral_20261006`, `companions/cap_i4_depth_kernel_20261006`, `companions/cap_i4_entry_volume_20261006`, `companions/cap_i4_independent_20261006`, `companions/cap_i4_inner_integration_20261006`, `companions/cap_i4_linear_20261006` … (+3 more)
+- `chatgpt/cap-i4-linear-formal-20261006` `61c949d6` (chatgpt, 12 ahead, 21 paths): `.github/workflows`, `companions/cap_i4_angular_20261006`, `companions/cap_i4_linear_20261006`, `companions/cap_i4_polar_20261006`
+- `chatgpt/cap-i4-matrix-formal-20261006` `baab921d` (chatgpt, 7 ahead, 15 paths): `.github/workflows`, `companions/cap_i4_matrix_20261006`, `companions/cap_i4_polar_20261006`
+- `chatgpt/cap-i4-outer-composition-20261006-r20` `76e30770` (chatgpt, 40 ahead, 75 paths): `.github/workflows`, `companions/cap_i4_angular_20261006`, `companions/cap_i4_clipped_integral_20261006`, `companions/cap_i4_depth_kernel_20261006`, `companions/cap_i4_entry_volume_20261006`, `companions/cap_i4_gaussian_envelope_20261006`, `companions/cap_i4_independent_20261006`, `companions/cap_i4_inner_integration_20261006` … (+5 more)
+- `chatgpt/cap-i4-polar-formal-20261006` `035e1401` (chatgpt, 4 ahead, 8 paths): `.github/workflows`, `companions/cap_i4_polar_20261006`
+- `chatgpt/cap-i4-product-transport-20261006-r14` `64d3b929` (chatgpt, 21 ahead, 39 paths): `.github/workflows`, `companions/cap_i4_angular_20261006`, `companions/cap_i4_entry_volume_20261006`, `companions/cap_i4_linear_20261006`, `companions/cap_i4_polar_20261006`, `companions/cap_i4_product_transport_20261006`, `companions/cap_i4_spectral_assembly_20261006`
+- `chatgpt/cap-i4-proposal-diagnostic-20261006-r12` `f58dc11e` (chatgpt, 18 ahead, 33 paths): `.github/workflows`, `companions/cap_i4_angular_20261006`, `companions/cap_i4_entry_volume_20261006`, `companions/cap_i4_linear_20261006`, `companions/cap_i4_polar_20261006`, `companions/cap_i4_spectral_assembly_20261006`
+- `chatgpt/cap-i4-residual-law-20261006-r22` `67818d30` (chatgpt, 42 ahead, 81 paths): `.github/workflows`, `companions/cap_i4_angular_20261006`, `companions/cap_i4_clipped_integral_20261006`, `companions/cap_i4_depth_kernel_20261006`, `companions/cap_i4_entry_volume_20261006`, `companions/cap_i4_gaussian_envelope_20261006`, `companions/cap_i4_independent_20261006`, `companions/cap_i4_inner_integration_20261006` … (+6 more)
+- `chatgpt/cap-i4-source-bridge-20261005` `f4079f65` (chatgpt, 13 ahead, 5 paths): `.github/workflows`, `companions/cap_i4_source_bridge_20261005`
+- `chatgpt/cap-i4-spectral-assembly-20261006` `d6b4a372` (chatgpt, 16 ahead, 30 paths): `.github/workflows`, `companions/cap_i4_angular_20261006`, `companions/cap_i4_entry_volume_20261006`, `companions/cap_i4_linear_20261006`, `companions/cap_i4_polar_20261006`, `companions/cap_i4_spectral_assembly_20261006`
+- `chatgpt/cusp-contract-characterization-20261006-rfgate` `b05b0ddc` (chatgpt, 1 ahead, 1 paths): `.github/workflows`
+- `chatgpt/d1-borel-kac-rice-amend-20260925` `1a3afa27` (chatgpt, 102 ahead, 113 paths): `.`, `.github/workflows`, `coefficients/side24_v1`, `frontiers`, `frontiers/axial_density_20260925`, `frontiers/downstream_gate_20260925`, `frontiers/downstream_gate_20260925/patches`, `frontiers/full_price_20260924` … (+14 more)
+- `chatgpt/d5-pin-compatibility-review-20260925` `e707da6f` (chatgpt, 68 ahead, 62 paths): `.`, `.github/workflows`, `coefficients/side24_v1`, `frontiers`, `frontiers/downstream_gate_20260925`, `frontiers/downstream_gate_20260925/patches`, `frontiers/full_price_20260924`, `frontiers/price_budget_20260924` … (+3 more)
+- `chatgpt/downstream-boundary-review-20260925` `32b80ee0` (chatgpt, 69 ahead, 65 paths): `.`, `.github/workflows`, `coefficients/side24_v1`, `frontiers`, `frontiers/downstream_gate_20260925`, `frontiers/downstream_gate_20260925/patches`, `frontiers/full_price_20260924`, `frontiers/price_budget_20260924` … (+3 more)
+- `chatgpt/fail-closed-claim-audit-20260925` `dac4793d` (chatgpt, 84 ahead, 79 paths): `.`, `.github/workflows`, `coefficients/side24_v1`, `frontiers`, `frontiers/axial_density_20260925`, `frontiers/downstream_gate_20260925`, `frontiers/downstream_gate_20260925/patches`, `frontiers/full_price_20260924` … (+7 more)
+- `chatgpt/fail-closed-claim-audit-20260925-v2` `7785bc82` (chatgpt, 103 ahead, 114 paths): `.`, `.github/workflows`, `coefficients/side24_v1`, `frontiers`, `frontiers/axial_density_20260925`, `frontiers/downstream_gate_20260925`, `frontiers/downstream_gate_20260925/patches`, `frontiers/full_price_20260924` … (+14 more)
+- `chatgpt/full-price-20260924` `f9938338` (chatgpt, 15 ahead, 35 paths): `.`, `.github/workflows`, `coefficients/side24_v1`, `frontiers`, `frontiers/full_price_20260924`, `frontiers/price_budget_20260924`, `frontiers/three_fronts_20260924`
+- `chatgpt/integrate-reviewed-collision-package-20260925` `596e8098` (chatgpt, 119 ahead, 142 paths): `.`, `.github/workflows`, `claims`, `coefficients/side24_v1`, `frontiers`, `frontiers/axial_density_20260925`, `frontiers/contact_kernel_tail_20260925`, `frontiers/downstream_gate_20260925` … (+20 more)
+- `chatgpt/legacy-fixture-signing-20261006-r11` `8194e103` (chatgpt, 4 ahead, 9 paths): `.github/workflows`, `reviews/legacy_fixture_signing_20261006`, `reviews/legacy_json_workflow_repair_20261006`, `reviews/legacy_tty_diagnostic_20261006`, `tests`, `tools`; signals {"skips_added": 2}
+- `chatgpt/legacy-json-refresh-20261006-r9` `18afecd9` (chatgpt, 1 ahead, 7 paths): `.github/workflows`, `reviews/legacy_json_workflow_repair_20261006`, `tests`, `tools`
+- `chatgpt/legacy-json-repair-20261006-r8` `06e81fd1` (chatgpt, 2 ahead, 7 paths): `.github/workflows`, `reviews/legacy_json_workflow_repair_20261006`, `tests`, `tools`
+- `chatgpt/legacy-parser-plus-20261006-r13` `df8b11c0` (chatgpt, 1 ahead, 1 paths): `tests`
+- `chatgpt/legacy-signing-isolation-20261006-r12` `977b4e47` (chatgpt, 4 ahead, 9 paths): `.github/workflows`, `reviews/legacy_json_workflow_repair_20261006`, `reviews/legacy_tty_diagnostic_20261006`, `tests`, `tools`; signals {"skips_added": 2}
+- `chatgpt/legacy-trigger-coverage-20261006-r6` `39b2f8f2` (chatgpt, 2 ahead, 9 paths): `.github/workflows`, `reviews/legacy_json_workflow_repair_20261006`, `reviews/legacy_trigger_coverage_20261006`, `tests`, `tools`
+- `chatgpt/legacy-tty-followon-20261006` `b5c8fe83` (chatgpt, 3 ahead, 8 paths): `.github/workflows`, `reviews/legacy_json_workflow_repair_20261006`, `reviews/legacy_tty_diagnostic_20261006`, `tests`, `tools`; signals {"skips_added": 1}
+- `chatgpt/nav-verdict-word-start-20261006-r10` `902660f3` (chatgpt, 1 ahead, 2 paths): `tests`, `tools`
+- `chatgpt/navigation-citation-identity-20261006` `29ca8933` (chatgpt, 1 ahead, 3 paths): `.github/workflows`, `tests`, `tools`
+- `chatgpt/navigation-corpus-observation-20261006` `c0e66c16` (chatgpt, 4 ahead, 4 paths): `.github/workflows`, `tests`, `tools`
+- `chatgpt/navigation-price-20260924` `1dfd49e8` (chatgpt, 12 ahead, 27 paths): `.`, `.github/workflows`, `coefficients/side24_v1`, `frontiers`, `frontiers/price_budget_20260924`, `frontiers/three_fronts_20260924`
+- `chatgpt/navigation-reviewed-stack-preparation-20261006` `7028efba` (chatgpt, 3 ahead, 3 paths): `.github/workflows`, `tests`, `tools`
+- `chatgpt/navigation-verdict-boundaries-20261006` `76a763e2` (chatgpt, 2 ahead, 2 paths): `tests`, `tools`
+- `chatgpt/navigation-verdict-boundary-20261006` `ef156190` (chatgpt, 1 ahead, 2 paths): `tests`, `tools`
+- `chatgpt/never-merge-formal-negative-20260927` `fae3ee8c` (chatgpt, 195 ahead, 337 paths): `.`, `.github`, `.github/workflows`, `certificates`, `certificates/bf_six_pin_hessian_20260926`, `certificates/bf_six_pin_scalar_20260926`, `claims`, `coefficients/side24_v1` … (+67 more); signals {"float_in_certificate_code_added": 29}
+- `chatgpt/p15-smt-pilot-20260925-1918` `0ae7e8fd` (chatgpt, 70 ahead, 63 paths): `.`, `.github/workflows`, `coefficients/side24_v1`, `frontiers`, `frontiers/downstream_gate_20260925`, `frontiers/downstream_gate_20260925/patches`, `frontiers/formal_p15_20260925`, `frontiers/formal_p15_20260925/evidence` … (+4 more); signals {"float_in_certificate_code_added": 1}
+- `chatgpt/pr334-native-contract-support-20261006` `2861c057` (chatgpt, 2 ahead, 2 paths): `reviews/c6num_native_contract_support_20261006`
+- `chatgpt/qs-raw-child-evidence-20261006-r9` `680bec8c` (chatgpt, 1 ahead, 3 paths): `.github/workflows`, `frontiers/qs_d3_soft_layer_chain_20261005`, `tests`
+- `chatgpt/qs340-inventory-amendment-support-20261006` `be64661a` (chatgpt, 1 ahead, 1 paths): `reviews/qs340_inventory_support_20261006`
+- `chatgpt/remote-window-20260924` `191ea7d5` (chatgpt, 17 ahead, 44 paths): `.`, `.github/workflows`, `coefficients/side24_v1`, `frontiers`, `frontiers/full_price_20260924`, `frontiers/price_budget_20260924`, `frontiers/remote_window_20260924`, `frontiers/three_fronts_20260924`
+- `chatgpt/retrospective-round10-20261005` `dcea9187` (chatgpt, 1 ahead, 2 paths): `reviews/retrospective_round10_20261005`
+- `chatgpt/rf-gate-helper-replay-22393e7b-20261006-r8` `3ab51620` (chatgpt, 5 ahead, 11 paths): `.github/workflows`, `formal`, `formal/tests`
+- `chatgpt/rf-gate-incorporation-rehearsal-20261006-r9` `501b08d3` (chatgpt, 5 ahead, 11 paths): `.github/workflows`, `formal`, `formal/tests`
+- `chatgpt/three-fronts-20260924` `9b5fb7fa` (chatgpt, 10 ahead, 19 paths): `.`, `.github/workflows`, `coefficients/side24_v1`, `frontiers/three_fronts_20260924`
+- `chatgpt/two-scale-custody-postmerge-repair-20260929` `bf00963e` (chatgpt, 495 ahead, 23 paths): `.github/workflows`, `frontiers/two_scale_cluster_geometry_20260929`, `reviews/register_alignment_20260930`; signals {"float_in_certificate_code_added": 5}
+- `claude/dd-model-d-enclosure-wip-20261013` `b4bcf1f4` (claude, 13 ahead, 138 paths): `.github/workflows`, `frontiers/dd_model_d_enclosure_20261013/wip_20261013T0245Z`, `frontiers/dd_model_d_enclosure_20261013/wip_20261013T0245Z/PRE_FIX_UNVERIFIED_run_38339424610`, `frontiers/dd_model_d_enclosure_20261013/wip_20261013T0245Z/c3r`, `frontiers/dd_model_d_enclosure_20261013/wip_20261013T0245Z/dd`, `frontiers/dd_model_d_enclosure_20261013/wip_20261013T0245Z/dd/nodes`, `frontiers/dd_model_d_enclosure_20261013/wip_20261013T0245Z/dd/results`, `frontiers/dd_model_d_enclosure_20261013/wip_20261013T0245Z/dd_v2` … (+4 more); signals {"float_in_certificate_code_added": 417}
+- `claude/determined-bardeen-mrqy4y` `22393e7b` (claude, 4 ahead, 10 paths): `formal`, `formal/tests`
+- `claude/round4-triage-table-20261011` `43a975ec` (claude, 1 ahead, 2 paths): `reviews/round4_triage_20261011`
+- `codex/c291-literal-lifetime-field-20261018` `db43694c` (codex, 1 ahead, 249 paths): `frontiers/source_lifetime_realization_20261017`, `frontiers/source_lifetime_realization_20261017/evidence`, `frontiers/source_lifetime_realization_20261017/evidence/final`, `frontiers/source_lifetime_realization_20261017/evidence/final/evidence`, `frontiers/source_lifetime_realization_20261017/evidence/final/evidence/development-source-snapshots`, `frontiers/source_lifetime_realization_20261017/evidence/final/final-runs/20261017T231625Z-build-GaussianSeriesFoundation-1c941865`, `frontiers/source_lifetime_realization_20261017/evidence/final/final-runs/20261017T231722Z-build-SpectralWeights-bfb833bc`, `frontiers/source_lifetime_realization_20261017/evidence/final/final-runs/20261017T231805Z-build-Lifetime-5d16e5f2` … (+42 more); signals {"lean_admit_added": 3}
+- `codex/quotient-closed-superlevel-lpc-adapter-20261020` `c5cdf6e9` (codex, 1 ahead, 17 paths): `.github/workflows`, `frontiers/quotient_closed_superlevel_lpc_adapter_20261020`, `frontiers/quotient_closed_superlevel_lpc_adapter_20261020/negative-project`, `frontiers/quotient_closed_superlevel_lpc_adapter_20261020/project`; signals {"lean_admit_added": 3, "float_in_certificate_code_added": 2}
+- `codex/quotient-closed-superlevel-lpc-adapter-20261020-r2` `0b6cdcac` (codex, 1 ahead, 17 paths): `.github/workflows`, `frontiers/quotient_closed_superlevel_lpc_adapter_20261020`, `frontiers/quotient_closed_superlevel_lpc_adapter_20261020/negative-project`, `frontiers/quotient_closed_superlevel_lpc_adapter_20261020/project`; signals {"lean_admit_added": 3, "float_in_certificate_code_added": 2}
+- `codex/quotient-closed-superlevel-lpc-adapter-20261022-r3` `03d98cce` (codex, 1 ahead, 17 paths): `.github/workflows`, `frontiers/quotient_closed_superlevel_lpc_adapter_20261020`, `frontiers/quotient_closed_superlevel_lpc_adapter_20261020/negative-project`, `frontiers/quotient_closed_superlevel_lpc_adapter_20261020/project`; signals {"lean_admit_added": 3, "float_in_certificate_code_added": 2}
+- `codex/source-smooth-realization-20261013-root01a11cbf` `1f38a851` (codex, 8 ahead, 289 paths): `.github/workflows`, `frontiers/compact_source_cutoff_baseline_20261009`, `frontiers/compact_source_cutoff_controls_final_repair_20261011`, `frontiers/compact_source_cutoff_controls_repair_20261011`, `frontiers/compact_source_cutoff_proof_20261010`, `frontiers/compact_source_cutoff_proof_repair_20261011`, `frontiers/compact_source_cutoff_proper_partial_control_20261011`, `frontiers/compact_source_cutoff_proper_partial_repair_20261011` … (+1 more)
+- `copilot/add-license-citation-files` `75ccc0f6` (copilot, 2 ahead, 0 paths): 
+- `cursor/cross-repo-proof-custody-7eca` `e14d4110` (cursor, 145 ahead, 151 paths): `.`, `.github/workflows`, `audits`, `claims`, `coefficients/side24_v1`, `frontiers`, `frontiers/axial_density_20260925`, `frontiers/contact_kernel_tail_20260925` … (+23 more)
+- `cursor/d2-cumulative-confirm-870a` `f5e85949` (cursor, 122 ahead, 144 paths): `.`, `.github/workflows`, `claims`, `coefficients/side24_v1`, `frontiers`, `frontiers/axial_density_20260925`, `frontiers/contact_kernel_tail_20260925`, `frontiers/downstream_gate_20260925` … (+21 more)
+- `cursor/d5-chart-graph-node-91fa` `707e2daa` (cursor, 39 ahead, 57 paths): `.`, `.github/workflows`, `coefficients/side24_v1`, `frontiers`, `frontiers/downstream_gate_20260925`, `frontiers/downstream_gate_20260925/patches`, `frontiers/full_price_20260924`, `frontiers/price_budget_20260924` … (+2 more)
+- `cursor/d5-chart-j0-on-hotfix-91fa` `84115d7d` (cursor, 143 ahead, 57 paths): `.`, `.github/workflows`, `coefficients/side24_v1`, `frontiers`, `frontiers/downstream_gate_20260925`, `frontiers/downstream_gate_20260925/patches`, `frontiers/full_price_20260924`, `frontiers/price_budget_20260924` … (+2 more)
+- `cursor/d5-pin-microdisk-c059` `ae45d351` (cursor, 122 ahead, 145 paths): `.`, `.github/workflows`, `claims`, `coefficients/side24_v1`, `frontiers`, `frontiers/axial_density_20260925`, `frontiers/contact_kernel_tail_20260925`, `frontiers/downstream_gate_20260925` … (+21 more)
+- `cursor/formal-verification-layer-ae3b` `a6637061` (cursor, 200 ahead, 345 paths): `.`, `.github`, `.github/workflows`, `certificates`, `certificates/bf_six_pin_hessian_20260926`, `certificates/bf_six_pin_scalar_20260926`, `claims`, `coefficients/side24_v1` … (+71 more); signals {"lean_native_decide_added": 2, "float_in_certificate_code_added": 29}
+- `cursor/lemma-theorem-registers-f339` `79a791a1` (cursor, 107 ahead, 172 paths): `.`, `.github/workflows`, `closed-lemmas`, `closed-theorems`, `coefficients/side24_v1`, `frontiers`, `frontiers/axial_density_20260925`, `frontiers/downstream_gate_20260925` … (+19 more)
+- `cursor/nonauthor-hermite-axial-review-5dce` `3c822931` (cursor, 74 ahead, 63 paths): `.`, `.github/workflows`, `coefficients/side24_v1`, `frontiers`, `frontiers/downstream_gate_20260925`, `frontiers/downstream_gate_20260925/patches`, `frontiers/full_price_20260924`, `frontiers/price_budget_20260924` … (+4 more)
+- `cursor/pr69-pin-microdisk-review-4f5c` `eb8bf7a5` (cursor, 154 ahead, 154 paths): `.`, `.github/workflows`, `claims`, `coefficients/side24_v1`, `frontiers`, `frontiers/axial_density_20260925`, `frontiers/contact_kernel_tail_20260925`, `frontiers/downstream_gate_20260925` … (+24 more)
+- `cursor/rn-mesoscopic-chart-j0-91fa` `84b64e1b` (cursor, 109 ahead, 54 paths): `.`, `.github/workflows`, `coefficients/side24_v1`, `frontiers`, `frontiers/full_price_20260924`, `frontiers/price_budget_20260924`, `frontiers/remote_window_20260924`, `frontiers/rn_mesoscopic_chart_20260925` … (+1 more)
+- `inventable/purpose-readme-seed` `484811c5` (inventable, 2 ahead, 1 paths): `.`
+- `support/navigation-336-344-353-on-08f86862-20261006` `e1fc0e8c` (support, 3 ahead, 3 paths): `.github/workflows`, `tests`, `tools`
+- `codex/compact-cutoff-baseline-20261009-root01a11cbf` `06bac48e` (codex, 1 ahead, 37 paths): `.github/workflows`, `frontiers/compact_source_cutoff_baseline_20261009`
+- `codex/compact-cutoff-proof-20261010-root01a11cbf` `bb3c92e3` (codex, 2 ahead, 75 paths): `.github/workflows`, `frontiers/compact_source_cutoff_baseline_20261009`, `frontiers/compact_source_cutoff_proof_20261010`
+- `codex/compact-cutoff-proof-repair-20261011-root01a11cbf` `f7832c87` (codex, 3 ahead, 113 paths): `.github/workflows`, `frontiers/compact_source_cutoff_baseline_20261009`, `frontiers/compact_source_cutoff_proof_20261010`, `frontiers/compact_source_cutoff_proof_repair_20261011`
+- `codex/c301-c291-static-workspace-20261024` `ee5f0356` (codex, 2 ahead, 249 paths): `frontiers/source_lifetime_realization_20261017`, `frontiers/source_lifetime_realization_20261017/evidence`, `frontiers/source_lifetime_realization_20261017/evidence/final`, `frontiers/source_lifetime_realization_20261017/evidence/final/evidence`, `frontiers/source_lifetime_realization_20261017/evidence/final/evidence/development-source-snapshots`, `frontiers/source_lifetime_realization_20261017/evidence/final/final-runs/20261017T231625Z-build-GaussianSeriesFoundation-1c941865`, `frontiers/source_lifetime_realization_20261017/evidence/final/final-runs/20261017T231722Z-build-SpectralWeights-bfb833bc`, `frontiers/source_lifetime_realization_20261017/evidence/final/final-runs/20261017T231805Z-build-Lifetime-5d16e5f2` … (+42 more); signals {"lean_admit_added": 3}
+- `cursor/moment-generality-alignment-cdd1` `4551c332` (cursor, 2 ahead, 1 paths): `reviews/moment_generality_alignment_20261005`

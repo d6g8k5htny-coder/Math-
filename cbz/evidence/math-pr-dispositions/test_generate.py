@@ -1,5 +1,6 @@
 """Tests for the record builders in generate.py, run against a tiny real git repository with
 pre-fetched GitHub data supplied as plain dicts (no network)."""
+import datetime as dt
 import os
 import subprocess
 import tempfile
@@ -109,6 +110,52 @@ class BuildRecordTests(unittest.TestCase):
         self.assertIn('last_commit_date', by['done'])
         self.assertEqual(by['feature']['commits_ahead_of_main'], 1)
         self.assertEqual(by['done']['commits_ahead_of_main'], 0)
+
+
+class UnmergedBranchRecordTests(BuildRecordTests):
+    def test_records_for_unmerged_no_pr_branches(self):
+        # 'feature' is unmerged and PR-less here; 'rider' is an ancestor of an open PR head 'pr-head'
+        self.git('checkout', '-q', '-b', 'rider', 'main')
+        _write(os.path.join(self.repo, 'r.txt'), 'rider\n'); self.git('add', 'r.txt'); self.git('commit', '-q', '-m', 'r1')
+        self.git('checkout', '-q', '-b', 'pr-head')
+        _write(os.path.join(self.repo, 'p.txt'), 'pr\n'); self.git('add', 'p.txt'); self.git('commit', '-q', '-m', 'p1')
+        self.git('checkout', '-q', 'main')
+        for b in ('rider', 'pr-head'):
+            self.git('update-ref', f'refs/remotes/origin/{b}', b)
+        recs = generate.build_unmerged_branch_records(
+            self.repo, main_sha=self.main, branches=['feature', 'rider'],
+            open_pr_heads={'pr-head': self.git('rev-parse', 'pr-head')},
+            now=(dt.datetime.now(dt.timezone.utc) + dt.timedelta(days=7)).isoformat().replace('+00:00', 'Z'))
+        by = {r['branch']: r for r in recs}
+        f = by['feature']
+        self.assertGreaterEqual(f['days_since_last_commit'], 6)
+        self.assertEqual(f['changed_paths'], ['formal/X.lean'])
+        self.assertEqual(f['layer_a_signals']['lean_sorry_added'], 1)
+        self.assertFalse(f['contained_in_open_pr_head'])
+        self.assertEqual(f['lane_prefix'], '(none)')
+        self.assertEqual(f['recommended_disposition'], 'ARCHIVE-BUNDLE')
+        self.assertEqual(f['recreate_command'], f"git push origin {self.head}:refs/heads/feature")
+        r = by['rider']
+        self.assertEqual(r['contained_in_open_pr_head'], 'pr-head')
+        self.assertEqual(r['recommended_disposition'], 'SUPERSEDED-BY-OPEN-PR')
+        self.assertIn('days_since_last_commit', r)
+
+
+class OrphanBranchTests(BuildRecordTests):
+    def test_unrelated_history_branch_is_recorded_not_crashed(self):
+        self.git('checkout', '-q', '--orphan', 'orphan')
+        self.git('rm', '-rfq', '.')
+        _write(os.path.join(self.repo, 'o.txt'), 'orphan\n'); self.git('add', 'o.txt'); self.git('commit', '-q', '-m', 'o1')
+        self.git('checkout', '-q', 'main')
+        self.git('update-ref', 'refs/remotes/origin/orphan', 'orphan')
+        recs = generate.build_unmerged_branch_records(
+            self.repo, main_sha=self.main, branches=['orphan'], open_pr_heads={},
+            now=(dt.datetime.now(dt.timezone.utc) + dt.timedelta(days=7)).isoformat().replace('+00:00', 'Z'))
+        r = recs[0]
+        self.assertIsNone(r['merge_base_with_main'])
+        self.assertTrue(r['unrelated_history'])
+        self.assertEqual(r['changed_paths'], ['o.txt'])
+        self.assertEqual(r['recommended_disposition'], 'ARCHIVE-BUNDLE')
 
 
 if __name__ == '__main__':

@@ -1,22 +1,29 @@
 {
  "meta": {
-  "observed_at_utc": "2026-10-29T17:22:02Z",
+  "observed_at_utc": "2026-10-29T17:36:29Z",
   "repository": "d6g8k5htny-coder/Math-",
   "main_sha": "8151f592918a845bf19eb8eafaf8444540a32734",
-  "open_pr_count": 26,
-  "branch_count": 110,
+  "open_pr_count": 28,
+  "branch_count": 112,
   "disposition_counts": {
    "QUARANTINE-ARCHIVE": 9,
    "INTEGRATE-CANDIDATE": 5,
    "STACK-DEPENDENT": 9,
-   "ACTIVE-OWNER-LANE": 3
+   "ACTIVE-OWNER-LANE": 5
   },
   "branch_class_counts": {
-   "OPEN_PR_REF": 28,
+   "OPEN_PR_REF": 30,
    "PROTECTED": 1,
    "UNMERGED_NO_PR": 81
   },
   "note": "Evidence only. layer_a_signals are lexical hits on added/removed diff lines, never certification. recommended_disposition is a decision table over observed facts; the integrator decides.",
+  "unmerged_branch_disposition_counts": {
+   "ARCHIVE-BUNDLE": 76,
+   "SUPERSEDED-BY-OPEN-PR": 3,
+   "SUPERSEDED-CONTENT-ON-MAIN": 2
+  },
+  "unmerged_integrable_if_wanted": 26,
+  "unmerged_unrelated_history": 24,
   "fetched_manifest": "FETCHED_MANIFEST.json"
  },
  "pull_requests": [
@@ -2424,7 +2431,7 @@
    "draft": true,
    "url": "https://github.com/d6g8k5htny-coder/Math-/pull/514",
    "created_at": "2026-10-26T00:35:37Z",
-   "updated_at": "2026-10-29T16:52:24Z",
+   "updated_at": "2026-10-29T17:30:05Z",
    "head_ref": "codex/cubic-curvature-20261026",
    "head_sha": "a9846b96b5bdbdf7037a09425869ed54f8530f69",
    "base_ref": "main",
@@ -2650,9 +2657,9 @@
    },
    "signals_total": 3,
    "latest_verdict_comment": {
-    "verdict": "AMEND",
-    "comment_id": 6502939450,
-    "created_at": "2026-10-29T16:52:24Z"
+    "verdict": "BLOCK",
+    "comment_id": 6503772426,
+    "created_at": "2026-10-29T17:30:05Z"
    },
    "review_states": [
     {
@@ -2704,7 +2711,7 @@
    "updated_within_24h": true,
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
-   "latest_verdict": "AMEND",
+   "latest_verdict": "BLOCK",
    "required_check_conclusion": "success",
    "recommended_disposition": "ACTIVE-OWNER-LANE"
   },
@@ -3218,15 +3225,15 @@
    "draft": true,
    "url": "https://github.com/d6g8k5htny-coder/Math-/pull/527",
    "created_at": "2026-10-29T17:11:09Z",
-   "updated_at": "2026-10-29T17:14:40Z",
+   "updated_at": "2026-10-29T17:22:40Z",
    "head_ref": "claude/nice-maxwell-7i7ok0",
-   "head_sha": "e257336f3ef33ca18c4c8cd9bc651aa0267d3866",
+   "head_sha": "6d402474a4a9582a151e9f87ab5f69570a2bc58b",
    "base_ref": "main",
    "base_sha": "8151f592918a845bf19eb8eafaf8444540a32734",
    "base_has_open_pr": false,
    "merge_base_with_main": "8151f592918a845bf19eb8eafaf8444540a32734",
    "merge_tree_clean_onto_base": null,
-   "commits_ahead_of_main": 1,
+   "commits_ahead_of_main": 2,
    "commits_behind_main": 0,
    "changed_paths": [
     ".github/workflows/layer-a-lean-scan.yml",
@@ -3252,23 +3259,33 @@
      "state": "COMMENTED",
      "commit": "e257336f",
      "submitted_at": "2026-10-29T17:14:16Z"
+    },
+    {
+     "state": "COMMENTED",
+     "commit": "e257336f",
+     "submitted_at": "2026-10-29T17:20:58Z"
+    },
+    {
+     "state": "COMMENTED",
+     "commit": "e257336f",
+     "submitted_at": "2026-10-29T17:21:01Z"
     }
    ],
    "check_runs": {
     "math-downstream-gates": "success",
     "full-suite": "in_progress",
     "full-regeneration": "skipped",
+    "formal / formal-evidence": "success",
+    "downstream-replay": "success",
     "certify-and-reject-mutants": "in_progress",
     "scan": "success",
     "exact-controls": "success",
-    "formal / formal-evidence": "success",
-    "downstream-replay": "success",
+    "math-hypergraph": "success",
     "certified-replay": "success",
     "exact-controls-and-replay": "success",
-    "math-hypergraph": "success",
     "exact-and-probe": "success"
    },
-   "recoverable_ref_command": "git push origin e257336f3ef33ca18c4c8cd9bc651aa0267d3866:refs/heads/claude/nice-maxwell-7i7ok0",
+   "recoverable_ref_command": "git push origin 6d402474a4a9582a151e9f87ab5f69570a2bc58b:refs/heads/claude/nice-maxwell-7i7ok0",
    "head_is_ancestor_of_main": false,
    "all_changed_blobs_equal_on_main": false,
    "base_is_main": true,
@@ -3277,6 +3294,139 @@
    "merge_tree_clean_onto_main": true,
    "latest_verdict": null,
    "required_check_conclusion": "success",
+   "recommended_disposition": "ACTIVE-OWNER-LANE"
+  },
+  {
+   "number": 528,
+   "title": "Require compiled determinant admission and quarantine unqualified evidence",
+   "draft": false,
+   "url": "https://github.com/d6g8k5htny-coder/Math-/pull/528",
+   "created_at": "2026-10-29T17:24:23Z",
+   "updated_at": "2026-10-29T17:26:14Z",
+   "head_ref": "cbz/determinant-compiled-audit-20261029-a6ce",
+   "head_sha": "4ccc9b0b0fb6333565e15026758fa49521de7f3d",
+   "base_ref": "main",
+   "base_sha": "8151f592918a845bf19eb8eafaf8444540a32734",
+   "base_has_open_pr": false,
+   "merge_base_with_main": "8151f592918a845bf19eb8eafaf8444540a32734",
+   "merge_tree_clean_onto_base": null,
+   "commits_ahead_of_main": 1,
+   "commits_behind_main": 0,
+   "changed_paths": [
+    "frontiers/determinant_moment_20261025/GOVERNANCE.md",
+    "frontiers/determinant_moment_20261025/QUARANTINE.json",
+    "frontiers/determinant_moment_20261025/README.md",
+    "frontiers/determinant_moment_20261025/STATUS.md",
+    "frontiers/determinant_moment_20261025/TOOLING.md",
+    "frontiers/determinant_moment_20261025/compiled_inventory.py",
+    "frontiers/determinant_moment_20261025/gate.py",
+    "frontiers/determinant_moment_20261025/manifest.json",
+    "frontiers/determinant_moment_20261025/tests/run_cbz_mutations.py",
+    "frontiers/determinant_moment_20261025/tests/test_cli_receipt_boundary.py",
+    "frontiers/determinant_moment_20261025/tests/test_compiled_admission.py",
+    "frontiers/determinant_moment_20261025/tests/test_gate.py"
+   ],
+   "changed_path_count": 12,
+   "changed_paths_sha256": "d0b0a9858b402bad437f150d8343164bc58434e83076e50607930f92796b0d92",
+   "layer_a_signals": {
+    "lean_sorry_added": 0,
+    "lean_admit_added": 0,
+    "lean_axiom_added": 0,
+    "lean_native_decide_added": 0,
+    "test_functions_removed": 0,
+    "test_files_deleted": 0,
+    "skips_added": 0,
+    "float_in_certificate_code_added": 0
+   },
+   "signals_total": 0,
+   "latest_verdict_comment": null,
+   "review_states": [],
+   "check_runs": {
+    "math-downstream-gates": "success",
+    "formal / formal-evidence": "success",
+    "downstream-replay": "success",
+    "math-hypergraph": "success"
+   },
+   "recoverable_ref_command": "git push origin 4ccc9b0b0fb6333565e15026758fa49521de7f3d:refs/heads/cbz/determinant-compiled-audit-20261029-a6ce",
+   "head_is_ancestor_of_main": false,
+   "all_changed_blobs_equal_on_main": false,
+   "base_is_main": true,
+   "updated_within_24h": true,
+   "explicit_do_not_merge": false,
+   "merge_tree_clean_onto_main": true,
+   "latest_verdict": null,
+   "required_check_conclusion": "success",
+   "recommended_disposition": "ACTIVE-OWNER-LANE"
+  },
+  {
+   "number": 529,
+   "title": "CBZ-0 Phase 2 evidence: dispositions for all 26 open Math- PRs and 110 branches",
+   "draft": false,
+   "url": "https://github.com/d6g8k5htny-coder/Math-/pull/529",
+   "created_at": "2026-10-29T17:25:34Z",
+   "updated_at": "2026-10-29T17:31:42Z",
+   "head_ref": "cbz/math-pr-dispositions-01n-20261029",
+   "head_sha": "24ce38735e66ab4a64d3e34d9df92c33bd64d197",
+   "base_ref": "main",
+   "base_sha": "8151f592918a845bf19eb8eafaf8444540a32734",
+   "base_has_open_pr": false,
+   "merge_base_with_main": "8151f592918a845bf19eb8eafaf8444540a32734",
+   "merge_tree_clean_onto_base": null,
+   "commits_ahead_of_main": 2,
+   "commits_behind_main": 0,
+   "changed_paths": [
+    "cbz/evidence/math-pr-dispositions/BRANCHES.md",
+    "cbz/evidence/math-pr-dispositions/DISPOSITIONS.md",
+    "cbz/evidence/math-pr-dispositions/FETCHED_MANIFEST.json",
+    "cbz/evidence/math-pr-dispositions/READINGS.md",
+    "cbz/evidence/math-pr-dispositions/README.md",
+    "cbz/evidence/math-pr-dispositions/branches.json",
+    "cbz/evidence/math-pr-dispositions/disposition_lib.py",
+    "cbz/evidence/math-pr-dispositions/dispositions.json",
+    "cbz/evidence/math-pr-dispositions/generate.py",
+    "cbz/evidence/math-pr-dispositions/test_disposition_lib.py",
+    "cbz/evidence/math-pr-dispositions/test_generate.py"
+   ],
+   "changed_path_count": 11,
+   "changed_paths_sha256": "861bcf3d8897e8605a8c3a268b855b34b8cc0694b6ec20bc3bdc982e12b01c69",
+   "layer_a_signals": {
+    "lean_sorry_added": 0,
+    "lean_admit_added": 0,
+    "lean_axiom_added": 0,
+    "lean_native_decide_added": 0,
+    "test_functions_removed": 0,
+    "test_files_deleted": 0,
+    "skips_added": 2,
+    "float_in_certificate_code_added": 0
+   },
+   "signals_total": 2,
+   "latest_verdict_comment": null,
+   "review_states": [
+    {
+     "state": "COMMENTED",
+     "commit": "3d576f2e",
+     "submitted_at": "2026-10-29T17:28:45Z"
+    },
+    {
+     "state": "COMMENTED",
+     "commit": "24ce3873",
+     "submitted_at": "2026-10-29T17:31:39Z"
+    }
+   ],
+   "check_runs": {
+    "formal / formal-evidence": "in_progress",
+    "downstream-replay": "success",
+    "math-hypergraph": "success"
+   },
+   "recoverable_ref_command": "git push origin 24ce38735e66ab4a64d3e34d9df92c33bd64d197:refs/heads/cbz/math-pr-dispositions-01n-20261029",
+   "head_is_ancestor_of_main": false,
+   "all_changed_blobs_equal_on_main": false,
+   "base_is_main": true,
+   "updated_within_24h": true,
+   "explicit_do_not_merge": false,
+   "merge_tree_clean_onto_main": true,
+   "latest_verdict": null,
+   "required_check_conclusion": null,
    "recommended_disposition": "ACTIVE-OWNER-LANE"
   }
  ]

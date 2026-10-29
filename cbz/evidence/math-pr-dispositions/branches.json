@@ -1,22 +1,29 @@
 {
  "meta": {
-  "observed_at_utc": "2026-10-29T17:22:02Z",
+  "observed_at_utc": "2026-10-29T17:36:29Z",
   "repository": "d6g8k5htny-coder/Math-",
   "main_sha": "8151f592918a845bf19eb8eafaf8444540a32734",
-  "open_pr_count": 26,
-  "branch_count": 110,
+  "open_pr_count": 28,
+  "branch_count": 112,
   "disposition_counts": {
    "QUARANTINE-ARCHIVE": 9,
    "INTEGRATE-CANDIDATE": 5,
    "STACK-DEPENDENT": 9,
-   "ACTIVE-OWNER-LANE": 3
+   "ACTIVE-OWNER-LANE": 5
   },
   "branch_class_counts": {
-   "OPEN_PR_REF": 28,
+   "OPEN_PR_REF": 30,
    "PROTECTED": 1,
    "UNMERGED_NO_PR": 81
   },
   "note": "Evidence only. layer_a_signals are lexical hits on added/removed diff lines, never certification. recommended_disposition is a decision table over observed facts; the integrator decides.",
+  "unmerged_branch_disposition_counts": {
+   "ARCHIVE-BUNDLE": 76,
+   "SUPERSEDED-BY-OPEN-PR": 3,
+   "SUPERSEDED-CONTENT-ON-MAIN": 2
+  },
+  "unmerged_integrable_if_wanted": 26,
+  "unmerged_unrelated_history": 24,
   "fetched_manifest": "FETCHED_MANIFEST.json"
  },
  "branches": [
@@ -40,6 +47,28 @@
    "commits_ahead_of_main": 6,
    "protected": false,
    "recreate_command": "git push origin 91811388ef2e20cc30a1c418e866b185a253a186:refs/heads/agent8/c299-c7-replacement-20261022",
+   "class": "OPEN_PR_REF"
+  },
+  {
+   "branch": "cbz/determinant-compiled-audit-20261029-a6ce",
+   "tip": "4ccc9b0b0fb6333565e15026758fa49521de7f3d",
+   "last_commit_date": "2026-10-29T12:24:05-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": true,
+   "commits_ahead_of_main": 1,
+   "protected": false,
+   "recreate_command": "git push origin 4ccc9b0b0fb6333565e15026758fa49521de7f3d:refs/heads/cbz/determinant-compiled-audit-20261029-a6ce",
+   "class": "OPEN_PR_REF"
+  },
+  {
+   "branch": "cbz/math-pr-dispositions-01n-20261029",
+   "tip": "24ce38735e66ab4a64d3e34d9df92c33bd64d197",
+   "last_commit_date": "2026-10-29T17:28:54+00:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": true,
+   "commits_ahead_of_main": 2,
+   "protected": false,
+   "recreate_command": "git push origin 24ce38735e66ab4a64d3e34d9df92c33bd64d197:refs/heads/cbz/math-pr-dispositions-01n-20261029",
    "class": "OPEN_PR_REF"
   },
   {
@@ -121,13 +150,13 @@
   },
   {
    "branch": "claude/nice-maxwell-7i7ok0",
-   "tip": "e257336f3ef33ca18c4c8cd9bc651aa0267d3866",
-   "last_commit_date": "2026-10-29T17:10:09+00:00",
+   "tip": "6d402474a4a9582a151e9f87ab5f69570a2bc58b",
+   "last_commit_date": "2026-10-29T17:20:52+00:00",
    "tip_is_ancestor_of_main": false,
    "is_open_pr_ref": true,
-   "commits_ahead_of_main": 1,
+   "commits_ahead_of_main": 2,
    "protected": false,
-   "recreate_command": "git push origin e257336f3ef33ca18c4c8cd9bc651aa0267d3866:refs/heads/claude/nice-maxwell-7i7ok0",
+   "recreate_command": "git push origin 6d402474a4a9582a151e9f87ab5f69570a2bc58b:refs/heads/claude/nice-maxwell-7i7ok0",
    "class": "OPEN_PR_REF"
   },
   {

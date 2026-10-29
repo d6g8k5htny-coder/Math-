@@ -38,11 +38,31 @@ and every Math- branch, the facts an integrator needs for a terminal disposition
 | `MERGED_NO_PR_PRUNE_ELIGIBLE` | 0 |
 | `PROTECTED` (`main`) | 1 |
 
-So Math- has **no prune-eligible merged branch**; its Phase 2 work is the 26 PRs and the 81
+So Math- has **no prune-eligible merged branch**; its Phase 2 work is the open PRs and the 81
 PR-less branches (25 last touched in September, 56 in October; 41 are fewer than 10 commits
 ahead of `main`). Every record carries `recreate_command` / `recoverable_ref_command`
 (`git push origin <tip>:refs/heads/<name>`), so any later archive or prune is recoverable from
 these files alone.
+
+### The 81 unmerged, PR-less branches (`UNMERGED_BRANCHES.md`, `unmerged_branches.json`; second pass, 17:34Z)
+
+| Recommended disposition | Branches |
+|---|---:|
+| `ARCHIVE-BUNDLE` (distinct work, no PR, stale or conflicting or signalled: bundle + delete, recreate command recorded) | 76 |
+| `SUPERSEDED-BY-OPEN-PR` (tip is an ancestor of an open PR head — rides that PR) | 3 |
+| `SUPERSEDED-CONTENT-ON-MAIN` (every changed blob already equals `main`'s) | 2 |
+| `INTEGRATE-REVIEW` / `ACTIVE-LANE` | 0 |
+
+Facts behind the 76: **24 have unrelated history** (no merge-base with `main`; most are September
+`chatgpt/` and `cursor/` review or custody branches); **41 conflict** with `main` in `merge-tree`;
+13 carry lexical signals; only 4 were touched in the last 14 days. **26 of the 76 are flagged
+`integrable_if_wanted`** (clean merge-tree, zero signals, ≤ 50 paths, related history): a lane that
+still wants one can open a PR for it; otherwise it is archived like the rest. By lane prefix the 81
+are `chatgpt/` 54, `cursor/` 11, `codex/` 9, `claude/` 3, one each `benjamin/`, `copilot/`,
+`inventable/`, `support/`.
+
+The second pass observed 28 open PRs and 112 branches (two PRs opened since 17:17Z, including this
+one); the PR table in `DISPOSITIONS.md` is from the second pass as well.
 
 Integrate candidates at observation: #372, #482, #487, #490, #492 (see `DISPOSITIONS.md` for the
 verdict comment each rests on). #482 and #487 carry lexical Layer A signals (`admit` additions in
@@ -59,8 +79,13 @@ guard or a subprocess timeout, so none is a Layer A hazard.
   states, check-run conclusions, explicit do-not-merge flag, recency, recommended disposition.
 - `BRANCHES.md`, `branches.json` — one record per branch: tip, last commit date, ancestor-of-`main`,
   open-PR membership, commits ahead of `main`, class, recreate command.
+- `UNMERGED_BRANCHES.md`, `unmerged_branches.json` — for each unmerged PR-less branch: merge-base
+  (or unrelated history), commits ahead, changed paths (first 200 + SHA-256 of the full list),
+  changed directories, how many changed blobs already equal `main`'s, lexical signals, merge-tree
+  cleanliness, containment in an open PR head, lane prefix, days since last commit, recommendation
+  (`disposition_lib.recommend_branch`) and the `integrable_if_wanted` flag.
 - `generate.py` — the generator (stdlib + git + `gh` REST). `disposition_lib.py` — the pure
-  classification logic. `test_disposition_lib.py`, `test_generate.py` — 27 tests, run in both modes.
+  classification logic. `test_disposition_lib.py`, `test_generate.py` — 43 tests, run in both modes.
 - `FETCHED_MANIFEST.json` — SHA-256/size of every raw GitHub response used.
 - `READINGS.md` — the manual reading of each flagged line (what the lexical signal actually is).
 
@@ -70,7 +95,7 @@ guard or a subprocess timeout, so none is a Layer A hazard.
 cd <Math- clone>
 git fetch origin '+refs/heads/*:refs/remotes/origin/*' --prune
 cd cbz/evidence/math-pr-dispositions
-python3 -W error -m unittest test_disposition_lib test_generate   # 27 tests
+python3 -W error -m unittest test_disposition_lib test_generate   # 43 tests
 python3 -O -m unittest test_disposition_lib test_generate
 python3 generate.py --repo <Math- clone> --out .                  # live refetch (writes fetched/)
 python3 generate.py --repo <Math- clone> --out . --offline fetched # replay
@@ -96,5 +121,11 @@ A live run observes the federation at a later time and will differ wherever PRs 
   QUARANTINE-ARCHIVE on an explicit hold; else INTEGRATE-CANDIDATE only with a clean merge-tree, a
   green `math-downstream-gates` at the head and a PASS-class latest verdict; else QUARANTINE-ARCHIVE.
   It encodes no judgement about the mathematics.
+- **The branch table is also fixed and documented** (`disposition_lib.recommend_branch`):
+  SUPERSEDED-BY-OPEN-PR when the tip is inside an open PR head; else ARCHIVE-BUNDLE for unrelated
+  history; else SUPERSEDED-CONTENT-ON-MAIN when every changed blob equals `main`'s; else ACTIVE-LANE
+  within 24 h; else INTEGRATE-REVIEW only for a clean, signal-free, ≤ 50-path branch touched within
+  14 days; else ARCHIVE-BUNDLE. `integrable_if_wanted` repeats the INTEGRATE-REVIEW conditions
+  without the age bound.
 - Check-run conclusions are those recorded at the PR head at observation time, not fresh runs
   (B-005): an integrator re-runs on the current base before merging.
