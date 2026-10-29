@@ -8,6 +8,7 @@ import os
 from pathlib import Path
 import shutil
 import subprocess
+import sys
 import tempfile
 import unittest
 from unittest import mock
@@ -84,6 +85,52 @@ class SourceCustodyTests(unittest.TestCase):
              contextlib.redirect_stdout(io.StringIO()):
             result = self.gate.execute(self.manifest, self.digest)
         return result, calls
+
+    def test_cli_refuses_symlinked_evidence_before_receipt_removal(self):
+        outside = self.repo / 'outside-evidence'
+        outside.mkdir()
+        sentinel = outside / 'receipt.json'
+        sentinel.write_bytes(b'preserve external receipt')
+        lake = self.root / '.lake'
+        lake.mkdir()
+        (lake / 'formal-evidence').symlink_to(outside, target_is_directory=True)
+        with mock.patch.object(sys, 'argv', ['gate.py', '--execute']), \
+             mock.patch.object(self.gate, 'source_check', side_effect=ValueError('unexpected source read')) as source, \
+             contextlib.redirect_stderr(io.StringIO()):
+            self.assertEqual(self.gate.main(), 1)
+        self.assertTrue(sentinel.is_file(), 'EVIDENCE_SENTINEL_REMOVED')
+        self.assertEqual(sentinel.read_bytes(), b'preserve external receipt')
+        source.assert_not_called()
+
+    def test_execute_refuses_symlinked_lake_before_creating_evidence(self):
+        outside = self.repo / 'outside-lake-evidence'
+        outside.mkdir()
+        (self.root / '.lake').symlink_to(outside, target_is_directory=True)
+        with self.assertRaisesRegex(ValueError, 'symlink evidence or build directory'):
+            self.execute()
+        self.assertEqual(list(outside.iterdir()), [])
+
+    def test_execute_refuses_symlinked_evidence_directory(self):
+        outside = self.repo / 'outside-evidence'
+        outside.mkdir()
+        sentinel = outside / 'receipt.json'
+        sentinel.write_bytes(b'preserve external receipt')
+        lake = self.root / '.lake'
+        lake.mkdir()
+        (lake / 'formal-evidence').symlink_to(outside, target_is_directory=True)
+        with self.assertRaisesRegex(ValueError, 'symlink evidence or build directory'):
+            self.execute()
+        self.assertEqual(sentinel.read_bytes(), b'preserve external receipt')
+
+    def test_execute_refuses_symlinked_existing_evidence_member(self):
+        outside = self.repo / 'outside-log'
+        outside.write_bytes(b'preserve external log')
+        out = self.root / '.lake' / 'formal-evidence'
+        out.mkdir(parents=True)
+        (out / 'build.log').symlink_to(outside)
+        with self.assertRaisesRegex(ValueError, 'symlink or nonregular evidence member'):
+            self.execute()
+        self.assertEqual(outside.read_bytes(), b'preserve external log')
 
     def test_execute_accepts_clean_committed_source(self):
         receipt, calls = self.execute()
