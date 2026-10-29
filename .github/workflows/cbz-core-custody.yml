@@ -49,3 +49,41 @@ jobs:
             ${{ runner.temp }}/custody-*.log
             ${{ runner.temp }}/full-formal-*.log
           if-no-files-found: error
+  kernel:
+    needs: custody
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      LEAN_NUM_THREADS: 2
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.16'
+      - name: Install exact Lean and locked dependency cache
+        uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6
+        with:
+          lake-package-directory: formal
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+          use-github-cache: 'false'
+      - name: Actual core build kernel axiom and negative-control gate
+        run: python -B -S formal/gate.py --execute
+      - name: Bind exact current-run receipt
+        run: python -B -S tools/required_formal_check.py receipt
+      - name: Preserve raw kernel evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: cbz-core-kernel-${{ github.run_id }}-${{ github.run_attempt }}
+          path: formal/.lake/formal-evidence/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 90
