@@ -118,19 +118,21 @@ def _unknown_stderr(family: str, script_name: str) -> bytes:
     if columns <= 0:
         columns = 80
     # CPython 3.11--3.13 HelpFormatter subtracts two from the terminal columns.
-    parser = argparse.ArgumentParser(
-        prog=script_name,
-        formatter_class=lambda prog: argparse.HelpFormatter(prog, width=columns - 2))
-    parser.add_argument('--mutant', choices=C6_CHOICES)
     stream = io.StringIO()
-    try:
-        with contextlib.redirect_stderr(stream):
+    # Construct and format under the child's captured stdout context as well:
+    # newer argparse can select colors from stdout. Keep color environment intact.
+    with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(stream):
+        parser = argparse.ArgumentParser(
+            prog=script_name,
+            formatter_class=lambda prog: argparse.HelpFormatter(prog, width=columns - 2))
+        parser.add_argument('--mutant', choices=C6_CHOICES)
+        try:
             parser.parse_args(['--mutant', 'unknown'])
-    except SystemExit as exc:
-        if exc.code != 2:
-            raise ProtocolError('reference argument grammar did not reject') from exc
-    else:
-        raise ProtocolError('reference argument grammar unexpectedly accepted')
+        except SystemExit as exc:
+            if exc.code != 2:
+                raise ProtocolError('reference argument grammar did not reject') from exc
+        else:
+            raise ProtocolError('reference argument grammar unexpectedly accepted')
     return stream.getvalue().encode('utf-8')
 
 
