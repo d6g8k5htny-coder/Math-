@@ -1,0 +1,3 @@
+# LM006 bytecode source-custody observations
+
+Candidate commit `86cbfe0a221c59d5ad27f4318cdf9db2931d02b7`: hosted normal job 123721886641 and optimized job 123721887269 each passed all 29 tests, including timestamp-valid poisoned bytecode, packet implementation and test bytecode, and a source-loader mutation. Independent packet-specific jobs 123721883047 and 123721882544 each passed two tests. These results qualify the tested candidate's focused controls only; full workflow and current-head verification remain pending. `normal-red.log` preserves the observed pre-repair failure. The packet numerical code and bounds were unchanged.

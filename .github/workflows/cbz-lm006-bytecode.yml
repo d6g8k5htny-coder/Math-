@@ -1,0 +1,27 @@
+name: CBZ LM006 poisoned bytecode control
+on:
+  push:
+    branches: [cbz/lm006-loaded-code-20261029]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  stale-bytecode:
+    strategy:
+      fail-fast: false
+      matrix:
+        mode: [normal, optimized]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.11.16'
+      - name: Exercise timestamp-valid bytecode substitution
+        env:
+          CBZ_MODE: ${{ matrix.mode }}
+        run: |
+          set -euo pipefail
+          flags=()
+          if [ "$CBZ_MODE" = optimized ]; then flags=(-O); fi
+          python -B -S "${flags[@]}" -m unittest discover -s tests -p test_lm006_oned_coefficient_replay.py -v
