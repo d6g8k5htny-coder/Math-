@@ -152,7 +152,13 @@ class ReplayTests(unittest.TestCase):
             self.assertEqual(row[side+'_sha256'],self.m.sha256(value))
 
 
+    def check_custody_child_mode(self):
+        requested=os.environ.get('LM006_EXPECT_OPTIMIZE')
+        if requested is not None:
+            self.assertEqual(sys.flags.optimize,int(requested))
+
     def test_git_replacement_cannot_relabel_a_frozen_blob(self):
+        self.check_custody_child_mode()
         mod=self.synthetic_project()
         relative=self.m.PACKET+'/NOTE.md'
         expected=(self.root/relative).read_text().strip()
@@ -165,6 +171,7 @@ class ReplayTests(unittest.TestCase):
         self.assertEqual(mod.git(self.root,'show',original+':'+relative),expected)
 
     def test_ambient_git_environment_cannot_redirect_source_checks(self):
+        self.check_custody_child_mode()
         from unittest.mock import patch
         mod=self.synthetic_project()
         own=mod.git_head(self.root)
@@ -177,6 +184,7 @@ class ReplayTests(unittest.TestCase):
             self.assertEqual(mod.git_head(self.root),own)
 
     def test_loaded_driver_cannot_claim_a_later_committed_source(self):
+        self.check_custody_child_mode()
         mod=self.synthetic_project()
         driver=self.root/self.m.EXECUTION_FILES[0]
         driver.write_bytes(driver.read_bytes()+b'\n# committed after this module was loaded\n')
@@ -187,5 +195,53 @@ class ReplayTests(unittest.TestCase):
             mod.execute(self.root,out,'normal')
         self.assertEqual(json.loads((out/'receipt.json').read_text())['status'],'FAIL')
         self.assertFalse((out/'tests.stdout').exists())
+
+
+    def test_custody_guards_reject_three_real_source_mutations(self):
+        import base64, shutil
+        source=DRIVER.read_text()
+        cases=[
+            ('ambient',"env={key:value for key,value in os.environ.items() if not key.startswith('GIT_')}  # MUTATION_GIT_ENV",
+             "env=dict(os.environ)  # MUTATION_GIT_ENV",
+             'test_ambient_git_environment_cannot_redirect_source_checks',
+             b'self.assertEqual(mod.git_head(self.root),own)'),
+            ('replacement',"GIT_NO_REPLACE_OBJECTS='1'","GIT_NO_REPLACE_OBJECTS='0'",
+             'test_git_replacement_cannot_relabel_a_frozen_blob',
+             b"self.assertEqual(mod.git(self.root,'show',original+':'+relative),expected)"),
+            ('loaded',"require(raw==_LOADED_SOURCE,'loaded_driver_drift')  # MUTATION_LOADED_DRIVER",
+             "require(True,'loaded_driver_drift')  # MUTATION_LOADED_DRIVER",
+             'test_loaded_driver_cannot_claim_a_later_committed_source',
+             b'AssertionError: ReplayError not raised'),
+        ]
+        for label,anchor,replacement,target,reason in cases:
+            with self.subTest(source_mutation=label):
+                self.assertEqual(source.count(anchor),1,'unique source mutation anchor')
+                with tempfile.TemporaryDirectory(prefix='lm006-custody-source-mutant-') as temporary:
+                    scratch=Path(temporary)
+                    for relative in self.m.EXECUTION_FILES:
+                        destination=scratch/relative
+                        destination.parent.mkdir(parents=True,exist_ok=True)
+                        shutil.copyfile(DRIVER.parents[1]/relative,destination)
+                    command=[sys.executable,'-B','-S']+(['-O'] if sys.flags.optimize else [])+['-m','unittest','discover','-s','tests','-p','test_lm006_oned_coefficient_replay.py','-k',target,'-v']
+                    environment=dict(os.environ,LM006_EXPECT_OPTIMIZE=str(sys.flags.optimize))
+                    baseline=subprocess.run(command,cwd=scratch,env=environment,capture_output=True,timeout=30)
+                    self.assertEqual(baseline.returncode,0,baseline.stderr.decode())
+                    self.assertIn(b'Ran 1 test in',baseline.stderr)
+                    self.assertTrue(baseline.stderr.endswith(b'\nOK\n'))
+                    (scratch/self.m.EXECUTION_FILES[0]).write_text(source.replace(anchor,replacement,1))
+                    mutant=subprocess.run(command,cwd=scratch,env=environment,capture_output=True,timeout=30)
+                    self.assertEqual(mutant.returncode,1,mutant.stderr.decode())
+                    self.assertEqual(mutant.stdout,b'')
+                    self.assertIn(b'Ran 1 test in',mutant.stderr)
+                    self.assertIn(b'FAILED (failures=1)',mutant.stderr)
+                    self.assertNotIn(b'ERROR:',mutant.stderr)
+                    self.assertIn(reason,mutant.stderr)
+                    self.assertNotIn(b'self.assertEqual(sys.flags.optimize',mutant.stderr)
+                    record={'label':label,'optimize':sys.flags.optimize,'command':command,
+                            'baseline_exit':baseline.returncode,'mutant_exit':mutant.returncode,
+                            'driver_sha256':self.m.sha256(source.encode()),
+                            'stdout_base64':base64.b64encode(mutant.stdout).decode(),
+                            'stderr_base64':base64.b64encode(mutant.stderr).decode()}
+                    print('LM006_CUSTODY_SOURCE_MUTATION '+json.dumps(record,sort_keys=True),file=sys.stderr)
 
 if __name__=='__main__': unittest.main()

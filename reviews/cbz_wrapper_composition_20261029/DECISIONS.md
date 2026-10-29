@@ -1,0 +1,9 @@
+# Append-only wrapper decision ledger
+
+[2026-10-29T19:41:28Z] [phase2] [layerB+C] [compose] Retain PR370/379/385/492 source heads as additional parents of59d009. Use their bounded engineering deltas on main e877, adopt authenticated17-method LM006 recovery and current3.11.16/action pins. Reversible. Evidence: PR533/treeb2642e.
+
+[2026-10-29T19:41:28Z] [phase2] [layerC] [execution workaround] Managed shell requests stopped returning observations. Create separate native GitHub candidate for actual hosted execution; assume no local merge or test completed. No remote merge/ref rewrite. Reversible. Evidence: PR533 exact Actions checkouts and observations.
+
+[2026-10-29 20:20:44 UTC] [phase2] [layerA+B] [repair custody] Optimized20-method RED82c9004 has exactly3 intended failures: ambient Git, replacement refs, imported driver successor. Add sanitized Git and loaded-source guards, retain original tests, add actual3-source-mutant controls in both modes. Reversible. Evidence: run40946125351/job123701825783 and artifact12928953745. Normal original-driver RED remained queued and is not claimed.
+
+[2026-10-29 20:20:44 UTC] [phase2] [layerB] [register] Add local GOVERNANCE and exact commands/self-verification boundaries. Final federation canonical registry adoption remains part of integration. Reversible. Evidence: source-local registry and PR533 observations.

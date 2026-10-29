@@ -6,6 +6,8 @@ Standard library / POSIX only. Execution/custody interlock, not theorem acceptan
 import argparse, hashlib, json, os, re, signal, subprocess, sys, time
 from pathlib import Path, PurePosixPath
 
+_LOADED_SOURCE=Path(__file__).read_bytes()
+
 REPOSITORY='d6g8k5htny-coder/Math-'
 SOURCE_COMMIT='8fe14358a1ee5d7ef7d7e20520391f62f432fe04'
 PACKET='coefficients/lm006_wrong_sign_oned_20261006_a62c'
@@ -86,15 +88,23 @@ def run_step(argv,cwd,logs,name,expected,kind,timeout=900):
     if failure is not None: raise ReplayError(failure)
     return record
 
+def git_env():
+    env={key:value for key,value in os.environ.items() if not key.startswith('GIT_')}  # MUTATION_GIT_ENV
+    env.update(GIT_CONFIG_NOSYSTEM='1',GIT_CONFIG_GLOBAL=os.devnull,GIT_NO_REPLACE_OBJECTS='1',GIT_NO_LAZY_FETCH='1',GIT_OPTIONAL_LOCKS='0')  # MUTATION_GIT_REPLACE
+    return env
+
 def git(root,*args):
-    p=subprocess.run(['git',*args],cwd=root,capture_output=True,timeout=30);require(p.returncode==0,'git_command_failed');return p.stdout.decode('ascii').strip()
+    p=subprocess.run(['git',*args],cwd=root,capture_output=True,timeout=30,env=git_env());require(p.returncode==0,'git_command_failed');return p.stdout.decode('ascii').strip()
 def git_head(root):
     h=git(root,'rev-parse','HEAD');require(re.fullmatch('[0-9a-f]{40}',h) is not None,'invalid_git_head');return h
 
 def execution_sources(root,head):
     result={}
     for name in EXECUTION_FILES:
-        raw=source_file(root,name).read_bytes();committed=git(root,'rev-parse',head+':'+name);require(committed==git_blob(raw),'execution_source_drift');result[name]={'git_blob':committed,'sha256':sha256(raw),'bytes':len(raw)}
+        raw=source_file(root,name).read_bytes()
+        if name==EXECUTION_FILES[0]:
+            require(raw==_LOADED_SOURCE,'loaded_driver_drift')  # MUTATION_LOADED_DRIVER
+        committed=git(root,'rev-parse',head+':'+name);require(committed==git_blob(raw),'execution_source_drift');result[name]={'git_blob':committed,'sha256':sha256(raw),'bytes':len(raw)}
     return result
 
 def host_identity(head,env):

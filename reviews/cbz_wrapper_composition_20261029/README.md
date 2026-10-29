@@ -32,3 +32,13 @@ The three dedicated exact-control workflows also run authentic baseline/mutant c
 ## Operational decision
 
 The managed shell execution service stopped returning observations while preparing the local composition. A separate native GitHub tree/commit is used to obtain genuine hosted execution without assuming a local merge or test completed. No remote merge, ref rewrite, source deletion, protection change, or old result relabelling is performed. Central federation tool registration remains in main's GOVERNANCE.md and TOOLING.md; this README supplies source-local use and verification boundaries for the composed candidate.
+
+## Custody repair after the first scoped successes
+
+The five targeted jobs passed at head59d0094ee388946de24b934ed3bca96ac73c4191 / tested merge3f127c6f492b0b498e3097bdd20525cee68918e5. Those exact historical observations are recorded in PR533 comment6506952638. Review then found that LM006's Git helper honored replacement refs and ambient Git redirection, and an imported driver could label its later committed file as the code that ran.
+
+Three real-Git/API controls produced an actual optimized RED at head82c9004c2a6472a3913292e92543d21fbab174ef, run40946125351/job123701825783:20 methods, exactly3 intended assertion failures, zero errors. The normal original-driver RED remained queued when this repair was prepared and is not claimed. The observed failure artifact is12928953745, GitHub ZIP SHA2561dc4b8b1fe8ec1c763b208827ddd3171221db2d54d078721c1ebdf06b110d251.
+
+The driver now sanitizes its Git environment, disables replacement objects, and checks loaded driver bytes inside both execution-source snapshots. The focused suite has21 methods, preserving all original17. For each new guard, it also runs a clean target baseline and an actual source mutant. Every child must run exactly its intended test in the requested interpreter mode and fail for that guard's reason. Full mutant streams are retained as base64 in LM006_CUSTODY_SOURCE_MUTATION log records. The declared threshold is3/3 source mutants in EACH Python mode; the paired focused commands above execute it. Fresh guard-fix results had not yet completed when this text was prepared; consult their exact native head and checkout identities.
+
+See [tool registry](GOVERNANCE.md) and [decision ledger](DECISIONS.md). Historical SCOPE records retain their original observations; their superseded author/family/approval requirements do not govern CBZ admission.
