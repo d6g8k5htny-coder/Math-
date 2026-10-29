@@ -1,0 +1,23 @@
+import SourceActualFoldTorus
+import SourceFiniteTrig
+import SourceSmoothConditionalKernel
+import Mathlib.Analysis.Calculus.InverseFunctionTheorem.ContDiff
+import Mathlib.Topology.OpenPartialHomeomorph.Constructions
+import Mathlib.Topology.OpenPartialHomeomorph.IsImage
+import Mathlib.Topology.Instances.AddCircle.Defs
+import Mathlib.Analysis.Convex.Topology
+import Mathlib.Analysis.Calculus.FDeriv.Pi
+import Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv
+
+noncomputable section
+set_option autoImplicit false
+open Set Filter
+open scoped BigOperators
+open UniversalLaw.Spec.Lifetime I4SmoothCarrier I4LifetimeField
+
+namespace I4SourceActualRegularLocalCollar
+
+-- Initial source header only. No proof/helper/fixture/ordinary/harness body.
+-- The complete prospective typed interface is frozen in FROZEN_CONTEXT.md.
+
+end I4SourceActualRegularLocalCollar

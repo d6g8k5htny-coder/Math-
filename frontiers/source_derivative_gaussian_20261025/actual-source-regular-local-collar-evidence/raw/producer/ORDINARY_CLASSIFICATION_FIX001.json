@@ -1,0 +1,11 @@
+{
+  "status": "STORED_RAW55_ORDINARY_INVENTORY_CLASSIFICATION_NAMESPACE_PREFIX_FIX",
+  "observed_utc": "2026-10-28T23:42:53.100903+00:00",
+  "defect": "Ordinary module equalsnamespace; initial split-first sees private module-prefix instead of authored namespace",
+  "fix": "rsplit namespace separator LAST",
+  "initial_generated_metadata_preserved": "/workspace/scratch/actual-source-regular-local-collar-construct/history/ordinary-classification-fix001",
+  "raw_inventory_and_source_unchanged": true,
+  "mathematical_checks_repeated": 0,
+  "production_classification_repeated": false,
+  "next_documentary_classification": "ordinary-inventory-classify002"
+}

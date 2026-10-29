@@ -1,0 +1,39 @@
+{
+  "status": "LOCAL_METADATA_TREE_READY_NATIVE_UPLOAD_PENDING",
+  "stage66_phase": "source_cut",
+  "sourcecut": "263b9d4329043e6debd299a8c27327ee515670d7",
+  "base_tree_sha": "9f53f31af3dfed688a3d683589fa8a3ed0e621fc",
+  "tree_sha": "f230ebabb7c9e07c27e51d92bf54030d31cd58e0",
+  "tree_entries": [
+    {
+      "path": "frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "49f551655947c5990cfb4eb41d850dfe2ab6edab"
+    }
+  ],
+  "new_unique_blobs": [
+    {
+      "sha": "49f551655947c5990cfb4eb41d850dfe2ab6edab",
+      "representative_path": "frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean",
+      "bytes": 30286,
+      "paths": [
+        "frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean"
+      ]
+    }
+  ],
+  "explicit_stage_paths": [
+    "frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean"
+  ],
+  "binding_SKIP_paths": [],
+  "base_tree_binding_stdout": "/workspace/scratch/actual-source-regular-local-collar-publication/native-source-tree66-001/action/07-remote-known-actual-parent-tree-bindings/stdout.log",
+  "isolated_index": "/workspace/scratch/actual-source-regular-local-collar-publication/native-source-tree66-001/action/isolated.index",
+  "main_index_untouched": true,
+  "all_object_actions": "SKIP",
+  "native_writes_performed": false,
+  "old_SHA256_hashes": 0,
+  "source_identity_reused": {
+    "bytes": 30286,
+    "sha256": "82823ac4360cbfb6eda057eb9fc212c870842703a14f5222454df70f19ed0d96"
+  }
+}

@@ -1,0 +1,15 @@
+--- history/ordinary-fix002/RegularLocalCollarControls.lean.ORIGINAL
++++ RegularLocalCollarControls.lean
+@@ -273,10 +273,8 @@
+     intro i
+     fin_cases i
+     · simpa using hρ
+-    · have hh : |ρ / 2| < ρ := by
+-        rw [abs_of_pos (by positivity : 0 < ρ / 2)]
+-        linarith
+-      simpa using hh
++    · simpa [Real.norm_eq_abs, abs_div, abs_of_pos hρ] using
++        (show ρ / 2 < ρ by linarith)
+   have hz := φ.map_target hu
+   have hi := φ.right_inv hu
+   have hv := hheight (φ.symm ![0, ρ / 2]) hz

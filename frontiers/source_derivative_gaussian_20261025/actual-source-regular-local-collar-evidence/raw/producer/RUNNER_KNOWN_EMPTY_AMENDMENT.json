@@ -1,0 +1,58 @@
+{
+  "status": "NEW66_RUNNER_KNOWN_EMPTY_REUSE_AMENDMENT_FROZEN_BEFORE_OWN_EXECUTION",
+  "observed_utc": "2026-10-28T23:20:30.798308+00:00",
+  "amended_runner": {
+    "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+    "bytes": 6831,
+    "sha256": "bde3f6e3f39fe13c1bb969f41da333bea589395ef5ad97bf312447980801e853",
+    "marker": [
+      6831,
+      1793229630797402632
+    ],
+    "first_observed_utc": "2026-10-28T23:20:30.797859+00:00",
+    "origin": "FIRST necessary NEW metadata version identity, once"
+  },
+  "new_metadata_full_patch": {
+    "path": "/workspace/scratch/actual-source-regular-local-collar-construct/history/known-empty-identity001/FULL_ACTUAL.patch",
+    "bytes": 727,
+    "sha256": "a133bd82da92c66af5d56906dc968bc5e7ad1debdb8eb7b73e26c8a42a317de3",
+    "marker": [
+      727,
+      1793229630797785538
+    ],
+    "first_observed_utc": "2026-10-28T23:20:30.797880+00:00",
+    "origin": "FIRST necessary NEW metadata version identity, once"
+  },
+  "initial_runner_original_ID_reused": {
+    "path": "/workspace/scratch/actual-source-regular-local-collar-construct/history/known-empty-identity001/record_run.py.ORIGINAL",
+    "bytes": 6481,
+    "sha256": "9bb6a2d5410189b5a4e63c1d94f101dbeb82f085f0a088bb7da398caea6f0562",
+    "marker": [
+      6481,
+      1793229630797295915
+    ],
+    "first_observed_utc": "2026-10-28T23:16:48.664587+00:00",
+    "origin": "Known exact initial runner original identity REUSED; no hash",
+    "copied_from": "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py"
+  },
+  "amended_runner_snapshot_ID_reused": {
+    "path": "/workspace/scratch/actual-source-regular-local-collar-construct/history/known-empty-identity001/record_run.AMENDED.py.txt",
+    "bytes": 6831,
+    "sha256": "bde3f6e3f39fe13c1bb969f41da333bea589395ef5ad97bf312447980801e853",
+    "marker": [
+      6831,
+      1793229630797983360
+    ],
+    "first_observed_utc": "2026-10-28T23:20:30.797859+00:00",
+    "origin": "Known exact amended runner snapshot identity REUSED; no hash",
+    "copied_from": "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py"
+  },
+  "new_nonempty_metadata_hashes_once": 2,
+  "known_source_object_or_empty_hashes_here": 0,
+  "first_initial_known_empty_metadata_digest_avoidable": 1,
+  "initial_receipt_preserved_unchanged": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/context-bootstrap001/receipt.json",
+  "exact_before_cache_preserved": "/workspace/scratch/actual-source-regular-local-collar-construct/history/known-empty-identity001/FIRST_ID_CACHE.BEFORE.json",
+  "mathematical_impact": "NONE; no proof/source/object/Lean/check action; actual initial origin claim retained honestly",
+  "amended_runner_executions_so_far": 0,
+  "prospective_action": "Static review before future mathematical execution; no duplicate bootstrap replay"
+}

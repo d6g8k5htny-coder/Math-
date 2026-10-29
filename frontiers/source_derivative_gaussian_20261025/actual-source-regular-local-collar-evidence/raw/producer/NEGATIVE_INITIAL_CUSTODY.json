@@ -1,0 +1,39 @@
+{
+  "status": "CLOSED_SINGLE_OMITTED_DERIVATIVE_NEGATIVE_FROZEN_BEFORE_ONE_INVOCATION",
+  "observed_utc": "2026-10-28T23:43:37.903985+00:00",
+  "harness": {
+    "path": "/workspace/scratch/actual-source-regular-local-collar-construct/FalseControl.lean",
+    "bytes": 296,
+    "sha256": "df0bf2d481625683dc037d06c661f165e15deeebf38c0244a4000b2615bdca22",
+    "marker": [
+      296,
+      1793231017895786470
+    ],
+    "first_observed_utc": "2026-10-28T23:43:37.898101+00:00",
+    "origin": "FIRST actual CLOSED negative harness identity BEFORE its sole invocation"
+  },
+  "complete_initial_snapshot": "/workspace/scratch/actual-source-regular-local-collar-construct/frozen/FalseControl.ORIGINAL.lean",
+  "ordinary_strict_pass": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/controls004/receipt.json",
+  "ordinary_ALL55_std3_pass": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-inventory001/receipt.json",
+  "ordinary_classification_corrected_from_stored_raw": "/workspace/scratch/actual-source-regular-local-collar-construct/CONTROLS_INVENTORY_CLASSIFIED.json",
+  "already_passed_ordinary_object_identity_REUSED": {
+    "path": "/workspace/scratch/actual-source-regular-local-collar-construct/build/RegularLocalCollarControls.olean",
+    "bytes": 600864,
+    "sha256": "22fe0712958173b7f7dbaddf72821f3eff726428ecfa2fc290d9187f1705a3d7",
+    "marker": [
+      600864,
+      1793230884332662592
+    ],
+    "first_observed_utc": "2026-10-28T23:41:24.456438+00:00",
+    "origin": "FIRST identity of necessary NEW actual version; cached once"
+  },
+  "mutation": "ONLY actual input fderiv!=0 omitted at SAMEoriginalsample actualmax/fixedO; every chart/height/samechart-all-epsilon cut-slice output retained",
+  "harness_imports": [
+    "RegularLocalCollarControls"
+  ],
+  "assumed_mutation_hypothesis_axiom_parameter": false,
+  "counterproof_replayed": false,
+  "ordinary_named_kernel": "NONE",
+  "sole_intended_negative_invocations_before_this_freeze": 0,
+  "expected_rejection": "Exactly one unsolved False goal, no setup/API/type/source errors"
+}

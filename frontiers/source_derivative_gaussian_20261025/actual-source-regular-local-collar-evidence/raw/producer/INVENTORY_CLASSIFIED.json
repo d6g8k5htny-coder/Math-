@@ -1,0 +1,423 @@
+{
+  "module": "SourceActualRegularLocalCollar",
+  "namespace": "I4SourceActualRegularLocalCollar",
+  "scope": "production",
+  "owned_constants": 80,
+  "classification_counts": {
+    "private_authored_theorem": 26,
+    "private_generated": 28,
+    "private_authored_data_definition": 19,
+    "foreign_generated": 4,
+    "public_prop_theorem": 1,
+    "private_prop_definition": 2
+  },
+  "all_rows": [
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.fixture_seam_consumer",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.physical_adapter_triangularA._proof_5",
+      "lean_kind": "theorem",
+      "classification": "private_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.physical_adapter_triangularB._proof_4",
+      "lean_kind": "theorem",
+      "classification": "private_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.pi_level_trace_pc",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.pi_closed_upper_trace_pc",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.fixture_output",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.physical_adapter_triangularA._proof_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.fixture_seam_derivative",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.physical_adapter_triangularB._proof_6",
+      "lean_kind": "theorem",
+      "classification": "private_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.smallO_isOpen",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.physicalBasis0.eq_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.fixtureSample",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.coordField",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.physical_adapter_triangularA._proof_2",
+      "lean_kind": "theorem",
+      "classification": "private_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.cover",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition"
+    },
+    {
+      "name": "ContDiffAt.toOpenPartialHomeomorph.congr_simp",
+      "lean_kind": "theorem",
+      "classification": "foreign_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.Q",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.fixture_derivative_apply",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.actualF._proof_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.fixtureXseam._proof_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.Point2",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.actualG.eq_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.fixture_seam_phase",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.physical_adapter_triangularB._proof_5",
+      "lean_kind": "theorem",
+      "classification": "private_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.fixtureXy.eq_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.physical_adapter_triangularA._proof_3",
+      "lean_kind": "theorem",
+      "classification": "private_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.cover.eq_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.smallO._proof_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.fixtureXx",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.coordField.eq_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.physical_adapter_linear_expansion",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.physical_adapter_triangularA._proof_6",
+      "lean_kind": "theorem",
+      "classification": "private_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.fixture_regularX_value",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.fixture_seam_quotient",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.fixture_regularY_value",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem"
+    },
+    {
+      "name": "I4Torus.torusProjection.eq_1",
+      "lean_kind": "theorem",
+      "classification": "foreign_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.fixture_regularX_consumer",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.quotient_chart_from_physical",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.fixed_cut_checks",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem"
+    },
+    {
+      "name": "I4SmoothCarrier.sampleInclusion.eq_1",
+      "lean_kind": "theorem",
+      "classification": "foreign_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.fixtureXseam",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.physical_adapter_triangularA._proof_7",
+      "lean_kind": "theorem",
+      "classification": "private_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.physicalBasis0",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.same_chart_traces_pc",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem"
+    },
+    {
+      "name": "I4SourceActualRegularLocalCollar.actualSource_quotient_regular_local_collar",
+      "lean_kind": "theorem",
+      "classification": "public_prop_theorem"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.FixtureOutput",
+      "lean_kind": "definition",
+      "classification": "private_prop_definition"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.physical_adapter_triangularB._proof_2",
+      "lean_kind": "theorem",
+      "classification": "private_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.fixtureSample.eq_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.physical_adapter_triangularA._proof_4",
+      "lean_kind": "theorem",
+      "classification": "private_generated"
+    },
+    {
+      "name": "I4Weights.sourceC.eq_1",
+      "lean_kind": "theorem",
+      "classification": "foreign_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.actual_physical_submersion_chart",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.fixturePoly.eq_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.actual_pullback",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.actualF",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.center_mem_smallO",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.FixtureOutput._proof_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.fixtureXx.eq_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.smallO",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.physical_adapter_triangularB._proof_3",
+      "lean_kind": "theorem",
+      "classification": "private_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.fixtureXseam.eq_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.fixturePoly._proof_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.fixtureXy",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.fixturePoly",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.FixedCutChecks",
+      "lean_kind": "definition",
+      "classification": "private_prop_definition"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.fixtureXmax",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.physical_adapter_triangularA",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.fixture_seam_value",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.physical_adapter_choose_linear",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.Torus2",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.fixture_regularY_consumer",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.physical_adapter_triangularB._proof_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.physicalBasis1",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.actualG",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.E2",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.fixture_regularX_derivative",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.fixture_actual_formula",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.point_mem_ball",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.fixture_regularY_derivative",
+      "lean_kind": "theorem",
+      "classification": "private_authored_theorem"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.physicalBasis1.eq_1",
+      "lean_kind": "theorem",
+      "classification": "private_generated"
+    },
+    {
+      "name": "_private.SourceActualRegularLocalCollar.0.I4SourceActualRegularLocalCollar.physical_adapter_triangularB",
+      "lean_kind": "definition",
+      "classification": "private_authored_data_definition"
+    }
+  ],
+  "collector": "/workspace/scratch/actual-source-regular-local-collar-construct/Inventory.lean",
+  "qualification_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/inventory001/receipt.json",
+  "raw_complete_axiom_stream": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/inventory001/stdout.log",
+  "standard_three_guard": "PASS: each exact owned constant recursively restricted to propext/Classical.choice/Quot.sound by actually passed collector",
+  "ordinary_kernel": "NONE; never covered by production kernel",
+  "production_kernel": "Pending separate root release; no preliminary own kernel",
+  "old_verification_replays": 0
+}

@@ -1,0 +1,314 @@
+{
+  "label": "transfer-fixture001",
+  "scope_kind": "documentary",
+  "command_argv": [
+    "python3",
+    "-c",
+    "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nS=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();block=\"\\nprivate theorem same_chart_traces_pc {L : \u211d}\\n    (F : Torus2 L \u2192 \u211d) (c \u03c1 : \u211d) (h\u03c1 : 0 < \u03c1)\\n    (\u03c6 : OpenPartialHomeomorph (Torus2 L) Point2)\\n    (htarget : \u03c6.target = Metric.ball (0 : Point2) \u03c1)\\n    (hheight : \u2200 z \u2208 \u03c6.source, F z = c + \u03c6 z 1) :\\n    \u2200 \u03b5 : \u211d, |\u03b5| < \u03c1 \u2192\\n      IsPathConnected (\u03c6.source \u2229 {z | c + \u03b5 \u2264 F z}) \u2227\\n      IsPathConnected (\u03c6.source \u2229 {z | F z = c + \u03b5}) := by\\n  intro \u03b5 h\u03b5\\n  have hupper_image :\\n      \u03c6.symm '' (Metric.ball (0 : Point2) \u03c1 \u2229 {u | \u03b5 \u2264 u 1}) =\\n        \u03c6.source \u2229 {z | c + \u03b5 \u2264 F z} := by\\n    ext z\\n    constructor\\n    \u00b7 rintro \u27e8u, hu, rfl\u27e9\\n      have hut : u \u2208 \u03c6.target := htarget \u25b8 hu.1\\n      refine \u27e8\u03c6.map_target hut, ?_\u27e9\\n      have hh := hheight (\u03c6.symm u) (\u03c6.map_target hut)\\n      rw [\u03c6.right_inv hut] at hh\\n      change \u03b5 \u2264 u 1 at hu\\n      linarith [hu.2]\\n    \u00b7 intro hz\\n      refine \u27e8\u03c6 z, \u27e8?_, ?_\u27e9, \u03c6.left_inv hz.1\u27e9\\n      \u00b7 rw [\u2190 htarget]\\n        exact \u03c6.map_source hz.1\\n      \u00b7 change \u03b5 \u2264 \u03c6 z 1\\n        have hh := hheight z hz.1\\n        change c + \u03b5 \u2264 F z at hz\\n        linarith [hz.2]\\n  have hlevel_image :\\n      \u03c6.symm '' (Metric.ball (0 : Point2) \u03c1 \u2229 {u | u 1 = \u03b5}) =\\n        \u03c6.source \u2229 {z | F z = c + \u03b5} := by\\n    ext z\\n    constructor\\n    \u00b7 rintro \u27e8u, hu, rfl\u27e9\\n      have hut : u \u2208 \u03c6.target := htarget \u25b8 hu.1\\n      refine \u27e8\u03c6.map_target hut, ?_\u27e9\\n      have hh := hheight (\u03c6.symm u) (\u03c6.map_target hut)\\n      rw [\u03c6.right_inv hut] at hh\\n      change u 1 = \u03b5 at hu\\n      linarith [hu.2]\\n    \u00b7 intro hz\\n      refine \u27e8\u03c6 z, \u27e8?_, ?_\u27e9, \u03c6.left_inv hz.1\u27e9\\n      \u00b7 rw [\u2190 htarget]\\n        exact \u03c6.map_source hz.1\\n      \u00b7 change \u03c6 z 1 = \u03b5\\n        have hh := hheight z hz.1\\n        change F z = c + \u03b5 at hz\\n        linarith [hz.2]\\n  have hcupper : ContinuousOn \u03c6.symm\\n      (Metric.ball (0 : Point2) \u03c1 \u2229 {u | \u03b5 \u2264 u 1}) :=\\n    \u03c6.continuousOn_symm.mono (fun _ hu => htarget \u25b8 hu.1)\\n  have hclevel : ContinuousOn \u03c6.symm\\n      (Metric.ball (0 : Point2) \u03c1 \u2229 {u | u 1 = \u03b5}) :=\\n    \u03c6.continuousOn_symm.mono (fun _ hu => htarget \u25b8 hu.1)\\n  constructor\\n  \u00b7 rw [\u2190 hupper_image]\\n    exact (pi_closed_upper_trace_pc \u03c1 \u03b5 h\u03c1 h\u03b5).image' hcupper\\n  \u00b7 rw [\u2190 hlevel_image]\\n    exact (pi_level_trace_pc \u03c1 \u03b5 h\u03c1 h\u03b5).image' hclevel\\n\\nprivate def fixturePoly : I4SourceFiniteTrig.TrigPoly :=\\n  [\u27e81, ![(1 : \u2124), 0], 0\u27e9, \u27e82, ![(0 : \u2124), 1], 0\u27e9]\\n\\nprivate def fixtureSample : SmoothSample 2 2 :=\\n  I4SourceFinitePinKernel.finiteShiftSample\\n    (I4SourceFiniteTrig.toSource 2 fixturePoly)\\n    (I4SourceSmoothConditional.zeroSample 2 2)\\n\\nprivate theorem fixture_actual_formula (Y : E2) :\\n    I4LifetimeField.actualField 2 2 fixtureSample Y =\\n      Real.cos (Real.pi * (Q Y) 0) + 2 * Real.cos (Real.pi * (Q Y) 1) := by\\n  classical\\n  let v := I4SourceFiniteTrig.toSource 2 fixturePoly\\n  have hcoeff (m : I4Source.SourceMode 2) :\\n      I4SmoothCarrier.sampleInclusion 2 2 fixtureSample m = v m := by\\n    simp [fixtureSample, I4SourceFinitePinKernel.finiteShiftSample_val,\\n      I4SourceSmoothConditional.zeroSample, I4SmoothCarrier.sampleInclusion, v]\\n  have hs : HasSum (fun m : I4Source.SourceMode 2 =>\\n      I4Source.modeCoefficient 2 2 m (Q Y) * v m)\\n      (I4SourceFiniteTrig.eval 2 fixturePoly (Q Y)) := by\\n    rw [\u2190 I4SourceFiniteTrig.toSource_eval (show (2 : \u211d) \u2260 0 by norm_num)]\\n    change HasSum (fun m => I4Source.modeCoefficient 2 2 m (Q Y) * v m)\\n      (v.sum (fun m z => I4Source.modeCoefficient 2 2 m (Q Y) * z))\\n    apply hasSum_sum_of_ne_finset_zero\\n    intro m hm\\n    rw [Finsupp.notMem_support_iff.mp hm, mul_zero]\\n  change I4Foundation.scalarSeries\\n    (fun m => I4Source.modeCoefficient 2 2 m (Q Y))\\n    (I4SmoothCarrier.sampleInclusion 2 2 fixtureSample) = _\\n  have heq : I4SmoothCarrier.sampleInclusion 2 2 fixtureSample = fun m => v m :=\\n    funext hcoeff\\n  rw [heq]\\n  calc\\n    I4Foundation.scalarSeries (fun m => I4Source.modeCoefficient 2 2 m (Q Y))\\n        (fun m => v m) = I4SourceFiniteTrig.eval 2 fixturePoly (Q Y) := hs.tsum_eq\\n    _ = Real.cos (Real.pi * (Q Y) 0) + 2 * Real.cos (Real.pi * (Q Y) 1) := by\\n      simp [I4SourceFiniteTrig.eval, fixturePoly, I4SourceFiniteTrig.termEval,\\n        I4Source.phase, I4Weights.sourceC, Fin.sum_univ_two]\\n\";ending='end I4SourceActualRegularLocalCollar\\n';assert old.endswith(ending)\nnew=old[:-len(ending)]+block+'\\n'+ending\nH=B/'history/transfer-fixture001';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'TRANSFER_FIXTURE001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/transfer-fixture001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual full patch identity, once'};cp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'New same-chart inverse-image transport and owned original finite sample formula','full_patch':str(p),'helper_integrations':0}))\n"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "start_utc": "2026-10-28T23:28:51.797930+00:00",
+  "before": {
+    "/workspace/scratch/actual-source-regular-local-collar-construct/FROZEN_CONTEXT.md": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/FROZEN_CONTEXT.md",
+      "bytes": 31289,
+      "sha256": "dc434883b3d75fd92a64131ae08e9405e83a3461cba3ce240e221114d2ac4b39",
+      "marker": [
+        31289,
+        1793229408662824709
+      ],
+      "first_observed_utc": "2026-10-28T23:16:48.663883+00:00",
+      "origin": "FIRST necessary NEW immutable documentary version ID, once"
+    },
+    "/workspace/scratch/actual-source-regular-local-collar-construct/INITIAL_SOURCE_COMMON.lean.txt": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/INITIAL_SOURCE_COMMON.lean.txt",
+      "bytes": 857,
+      "sha256": "129ac431b3a28c12f92809bd4514a7fbed8d61bbfee001574d786435fe2d9c92",
+      "marker": [
+        857,
+        1793228521850623106
+      ],
+      "first_observed_utc": "2026-10-28T23:16:48.664174+00:00",
+      "origin": "FIRST necessary NEW immutable documentary version ID, once"
+    },
+    "/workspace/scratch/actual-source-regular-local-collar-construct/BOOTSTRAP_PLAN.md": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/BOOTSTRAP_PLAN.md",
+      "bytes": 2234,
+      "sha256": "3b17c8a427db07c16db890454b58a0d2c4a8cc829177d5b5e8883577246fa3fa",
+      "marker": [
+        2234,
+        1793229408663535496
+      ],
+      "first_observed_utc": "2026-10-28T23:16:48.664285+00:00",
+      "origin": "FIRST necessary NEW immutable documentary version ID, once"
+    },
+    "/workspace/scratch/actual-source-regular-local-collar-construct/CONTROL_CONTRACT.md": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/CONTROL_CONTRACT.md",
+      "bytes": 14724,
+      "sha256": "805ccbfa39de792035c5979af62187fcccec2e6fdbe7451e3515ab09c3a932c7",
+      "marker": [
+        14724,
+        1793228357679043587
+      ],
+      "first_observed_utc": "2026-10-28T22:59:17.678739+00:00",
+      "origin": "Known root exact copied contract identity REUSED; no hash",
+      "copied_from": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SOURCE_ACTUAL_REGULAR_LOCAL_COLLAR_CONTROLS.md"
+    },
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/bootstrap_context.py": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runner/bootstrap_context.py",
+      "bytes": 2116,
+      "sha256": "53acdec5def17950676a4b0d98b73128212a06a9f0d05439e6b41fc5743d6e65",
+      "marker": [
+        2116,
+        1793228521226637356
+      ],
+      "first_observed_utc": "2026-10-28T23:16:48.664653+00:00",
+      "origin": "FIRST necessary NEW immutable documentary version ID, once"
+    },
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+      "bytes": 2941,
+      "sha256": "c8aa29652e33d4f76365ad462eb2389fcddb71fdd74fea631c4fe3e0d44096ef",
+      "marker": [
+        2941,
+        1793228520602651610
+      ],
+      "first_observed_utc": "2026-10-28T23:16:48.664474+00:00",
+      "origin": "FIRST necessary NEW immutable documentary version ID, once"
+    },
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+      "bytes": 6831,
+      "sha256": "bde3f6e3f39fe13c1bb969f41da333bea589395ef5ad97bf312447980801e853",
+      "marker": [
+        6831,
+        1793229630797402632
+      ],
+      "first_observed_utc": "2026-10-28T23:20:30.797859+00:00",
+      "origin": "FIRST necessary NEW metadata version identity, once"
+    },
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean",
+      "bytes": 6671,
+      "sha256": "91df098c0ae2be8faccccbfe617be85d1aa1fe57a3058bdab22cf9494b029c13",
+      "marker": [
+        6671,
+        1793230027232654064
+      ],
+      "first_observed_utc": "2026-10-28T23:27:07.238959+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-regular-local-collar-construct/RegularLocalCollarControls.lean": null,
+    "/workspace/scratch/actual-source-regular-local-collar-construct/FalseControl.lean": null,
+    "/workspace/scratch/actual-source-regular-local-collar-construct/build/SourceActualRegularLocalCollar.olean": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/build/SourceActualRegularLocalCollar.olean",
+      "bytes": 250168,
+      "sha256": "be48af49d317ff98e0d0b24b4756a9807acfc4725af91ab755c252746cef2ef8",
+      "marker": [
+        250168,
+        1793230030179085252
+      ],
+      "first_observed_utc": "2026-10-28T23:27:10.277595+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-regular-local-collar-construct/build/RegularLocalCollarControls.olean": null,
+    "/workspace/scratch/actual-source-regular-local-collar-construct/SOURCE_FIX001_FULL.patch": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/SOURCE_FIX001_FULL.patch",
+      "bytes": 1174,
+      "sha256": "874fed3ade89dda371f0df99383e448e5a420cedfa8718ad8501beb4a8fe73dc",
+      "marker": [
+        1174,
+        1793230027233097578
+      ],
+      "first_observed_utc": "2026-10-28T23:27:07.233321+00:00",
+      "origin": "FIRST necessary new actual patch identity, once"
+    },
+    "/workspace/scratch/actual-source-regular-local-collar-construct/SOURCE_INITIAL_FULL.patch": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/SOURCE_INITIAL_FULL.patch",
+      "bytes": 6275,
+      "sha256": "1188e29c4df01ac327a3a59e201000fd61f4fb35f1053f52e2f7205dc1aca852",
+      "marker": [
+        6275,
+        1793229987143047273
+      ],
+      "first_observed_utc": "2026-10-28T23:26:27.143109+00:00",
+      "origin": "FIRST new actual complete source patch identity, once"
+    }
+  },
+  "before_snapshots": {
+    "/workspace/scratch/actual-source-regular-local-collar-construct/FROZEN_CONTEXT.md": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-fixture001/before/0-FROZEN_CONTEXT.md",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/INITIAL_SOURCE_COMMON.lean.txt": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-fixture001/before/1-INITIAL_SOURCE_COMMON.lean.txt",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/BOOTSTRAP_PLAN.md": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-fixture001/before/2-BOOTSTRAP_PLAN.md",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/CONTROL_CONTRACT.md": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-fixture001/before/3-CONTROL_CONTRACT.md",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/bootstrap_context.py": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-fixture001/before/4-bootstrap_context.py",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-fixture001/before/5-capture66.py",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-fixture001/before/6-record_run.py",
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-fixture001/before/7-SourceActualRegularLocalCollar.lean",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/SOURCE_FIX001_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-fixture001/before/12-SOURCE_FIX001_FULL.patch",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/SOURCE_INITIAL_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-fixture001/before/13-SOURCE_INITIAL_FULL.patch"
+  },
+  "outer_capture_dir": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/transfer-fixture001",
+  "entry_capture_dir": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/transfer-fixture001",
+  "environment_recorded": {
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "credential_environment_logged": false,
+  "automatic_retry": false,
+  "end_utc": "2026-10-28T23:28:51.836661+00:00",
+  "elapsed_seconds": 0.03873159800059511,
+  "exit_code": 0,
+  "spawn_or_worker_exception": null,
+  "after": {
+    "/workspace/scratch/actual-source-regular-local-collar-construct/FROZEN_CONTEXT.md": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/FROZEN_CONTEXT.md",
+      "bytes": 31289,
+      "sha256": "dc434883b3d75fd92a64131ae08e9405e83a3461cba3ce240e221114d2ac4b39",
+      "marker": [
+        31289,
+        1793229408662824709
+      ],
+      "first_observed_utc": "2026-10-28T23:16:48.663883+00:00",
+      "origin": "FIRST necessary NEW immutable documentary version ID, once"
+    },
+    "/workspace/scratch/actual-source-regular-local-collar-construct/INITIAL_SOURCE_COMMON.lean.txt": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/INITIAL_SOURCE_COMMON.lean.txt",
+      "bytes": 857,
+      "sha256": "129ac431b3a28c12f92809bd4514a7fbed8d61bbfee001574d786435fe2d9c92",
+      "marker": [
+        857,
+        1793228521850623106
+      ],
+      "first_observed_utc": "2026-10-28T23:16:48.664174+00:00",
+      "origin": "FIRST necessary NEW immutable documentary version ID, once"
+    },
+    "/workspace/scratch/actual-source-regular-local-collar-construct/BOOTSTRAP_PLAN.md": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/BOOTSTRAP_PLAN.md",
+      "bytes": 2234,
+      "sha256": "3b17c8a427db07c16db890454b58a0d2c4a8cc829177d5b5e8883577246fa3fa",
+      "marker": [
+        2234,
+        1793229408663535496
+      ],
+      "first_observed_utc": "2026-10-28T23:16:48.664285+00:00",
+      "origin": "FIRST necessary NEW immutable documentary version ID, once"
+    },
+    "/workspace/scratch/actual-source-regular-local-collar-construct/CONTROL_CONTRACT.md": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/CONTROL_CONTRACT.md",
+      "bytes": 14724,
+      "sha256": "805ccbfa39de792035c5979af62187fcccec2e6fdbe7451e3515ab09c3a932c7",
+      "marker": [
+        14724,
+        1793228357679043587
+      ],
+      "first_observed_utc": "2026-10-28T22:59:17.678739+00:00",
+      "origin": "Known root exact copied contract identity REUSED; no hash",
+      "copied_from": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SOURCE_ACTUAL_REGULAR_LOCAL_COLLAR_CONTROLS.md"
+    },
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/bootstrap_context.py": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runner/bootstrap_context.py",
+      "bytes": 2116,
+      "sha256": "53acdec5def17950676a4b0d98b73128212a06a9f0d05439e6b41fc5743d6e65",
+      "marker": [
+        2116,
+        1793228521226637356
+      ],
+      "first_observed_utc": "2026-10-28T23:16:48.664653+00:00",
+      "origin": "FIRST necessary NEW immutable documentary version ID, once"
+    },
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+      "bytes": 2941,
+      "sha256": "c8aa29652e33d4f76365ad462eb2389fcddb71fdd74fea631c4fe3e0d44096ef",
+      "marker": [
+        2941,
+        1793228520602651610
+      ],
+      "first_observed_utc": "2026-10-28T23:16:48.664474+00:00",
+      "origin": "FIRST necessary NEW immutable documentary version ID, once"
+    },
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+      "bytes": 6831,
+      "sha256": "bde3f6e3f39fe13c1bb969f41da333bea589395ef5ad97bf312447980801e853",
+      "marker": [
+        6831,
+        1793229630797402632
+      ],
+      "first_observed_utc": "2026-10-28T23:20:30.797859+00:00",
+      "origin": "FIRST necessary NEW metadata version identity, once"
+    },
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean",
+      "bytes": 10940,
+      "sha256": "eed758cbd7566203d25663cd0cc0b198c7876d51de8da940832c0ad605296b75",
+      "marker": [
+        10940,
+        1793230131831033014
+      ],
+      "first_observed_utc": "2026-10-28T23:28:51.837209+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-regular-local-collar-construct/RegularLocalCollarControls.lean": null,
+    "/workspace/scratch/actual-source-regular-local-collar-construct/FalseControl.lean": null,
+    "/workspace/scratch/actual-source-regular-local-collar-construct/build/SourceActualRegularLocalCollar.olean": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/build/SourceActualRegularLocalCollar.olean",
+      "bytes": 250168,
+      "sha256": "be48af49d317ff98e0d0b24b4756a9807acfc4725af91ab755c252746cef2ef8",
+      "marker": [
+        250168,
+        1793230030179085252
+      ],
+      "first_observed_utc": "2026-10-28T23:27:10.277595+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-regular-local-collar-construct/build/RegularLocalCollarControls.olean": null,
+    "/workspace/scratch/actual-source-regular-local-collar-construct/SOURCE_FIX001_FULL.patch": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/SOURCE_FIX001_FULL.patch",
+      "bytes": 1174,
+      "sha256": "874fed3ade89dda371f0df99383e448e5a420cedfa8718ad8501beb4a8fe73dc",
+      "marker": [
+        1174,
+        1793230027233097578
+      ],
+      "first_observed_utc": "2026-10-28T23:27:07.233321+00:00",
+      "origin": "FIRST necessary new actual patch identity, once"
+    },
+    "/workspace/scratch/actual-source-regular-local-collar-construct/SOURCE_INITIAL_FULL.patch": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/SOURCE_INITIAL_FULL.patch",
+      "bytes": 6275,
+      "sha256": "1188e29c4df01ac327a3a59e201000fd61f4fb35f1053f52e2f7205dc1aca852",
+      "marker": [
+        6275,
+        1793229987143047273
+      ],
+      "first_observed_utc": "2026-10-28T23:26:27.143109+00:00",
+      "origin": "FIRST new actual complete source patch identity, once"
+    }
+  },
+  "streams": {
+    "stdout.log": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-fixture001/stdout.log",
+      "bytes": 231,
+      "sha256": "ef7367199feda533007b03da9fdc5ae004fb90285b50d1e4d428d23ead405a5c",
+      "marker": [
+        231,
+        1793230131832248762
+      ],
+      "first_observed_utc": "2026-10-28T23:28:51.837290+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "stderr.log": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-fixture001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "marker": [
+        0,
+        1793230131799801858
+      ],
+      "first_observed_utc": "2026-10-28T23:28:51.837303+00:00",
+      "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+    }
+  },
+  "worker_capture": "Original separate full stdout/stderr; actual inner result retained independently of outer/entry",
+  "binary_snapshot_or_canonical_object_copy": false
+}

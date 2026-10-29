@@ -1,0 +1,27 @@
+SourceActualRegularLocalCollar.lean:543:13: error: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+SourceActualRegularLocalCollar.lean:543:44: error: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+SourceActualRegularLocalCollar.lean:526:64: error: unsolved goals
+Y V : E2
+d0 : E2 →L[ℝ] ℝ := ContinuousLinearMap.proj 0 ∘SL ↑Q
+d1 : E2 →L[ℝ] ℝ := ContinuousLinearMap.proj 1 ∘SL ↑Q
+h0 : HasFDerivAt (fun Z => Real.pi * Q Z 0) (Real.pi • d0) Y
+h1 : HasFDerivAt (fun Z => Real.pi * Q Z 1) (Real.pi • d1) Y
+hd :
+  HasFDerivAt ((fun x => Real.cos (Real.pi * Q x 0)) + fun y => 2 * Real.cos (Real.pi * Q y 1))
+    (-Real.sin (Real.pi * Q Y 0) • Real.pi • d0 + 2 • -Real.sin (Real.pi * Q Y 1) • Real.pi • d1) Y
+heq : actualField 2 2 fixtureSample = fun Z => Real.cos (Real.pi * Q Z 0) + 2 * Real.cos (Real.pi * Q Z 1)
+hactual :
+  HasFDerivAt (actualField 2 2 fixtureSample)
+    (-Real.sin (Real.pi * Q Y 0) • Real.pi • d0 + 2 • -Real.sin (Real.pi * Q Y 1) • Real.pi • d1) Y
+⊢ -(Real.pi * Real.sin (Real.pi * Q Y 0) * ↑Q V 0) - Real.pi * Real.sin (Real.pi * Q Y 1) * ↑Q V 1 * 2 =
+    -(Real.pi * Real.sin (Real.pi * Q Y 0) * Q V 0) - Real.pi * Real.sin (Real.pi * Q Y 1) * Q V 1 * 2

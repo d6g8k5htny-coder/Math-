@@ -1,0 +1,2672 @@
+{
+  "reader": "/root/collar66_final_custody/failed_capture_scope",
+  "mode": "COMPLETE_FIELDS_WITH_LOSSLESS_PATH_AND_IDENTITY_INTERNING; not literal raw JSON byte reread",
+  "prefixes": {
+    "^C": "/workspace/scratch/actual-source-regular-local-collar-construct",
+    "^P": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025"
+  },
+  "identity_rule": "Each $identity points to the identical complete recorded dictionary first shown once in new_identity_definitions; no field omitted, no hash recomputed. Prefix substitution reversible in strings and dictionary keys. Original stream text is unmodified.",
+  "families": [
+    {
+      "label": "fixtures001",
+      "receipts": [
+        {
+          "path": "^C/runs/fixtures001/receipt.json",
+          "original_bytes": 23290,
+          "fields": {
+            "label": "fixtures001",
+            "scope_kind": "math",
+            "command_argv": [
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "-o",
+              "^C/build/SourceActualRegularLocalCollar.olean",
+              "SourceActualRegularLocalCollar.lean"
+            ],
+            "cwd": "^P",
+            "start_utc": "2026-10-28T23:34:02.688647+00:00",
+            "before": {
+              "^C/FROZEN_CONTEXT.md": {
+                "$identity": "I0"
+              },
+              "^C/INITIAL_SOURCE_COMMON.lean.txt": {
+                "$identity": "I1"
+              },
+              "^C/BOOTSTRAP_PLAN.md": {
+                "$identity": "I2"
+              },
+              "^C/CONTROL_CONTRACT.md": {
+                "$identity": "I3"
+              },
+              "^C/runner/bootstrap_context.py": {
+                "$identity": "I4"
+              },
+              "^C/runner/capture66.py": {
+                "$identity": "I5"
+              },
+              "^C/runner/record_run.py": {
+                "$identity": "I6"
+              },
+              "^P/SourceActualRegularLocalCollar.lean": {
+                "$identity": "I7"
+              },
+              "^C/RegularLocalCollarControls.lean": null,
+              "^C/FalseControl.lean": null,
+              "^C/build/SourceActualRegularLocalCollar.olean": {
+                "$identity": "I8"
+              },
+              "^C/build/RegularLocalCollarControls.olean": null,
+              "^C/HELPER_FIX001_FULL.patch": {
+                "$identity": "I9"
+              },
+              "^C/HELPER_INTEGRATION001_FULL.patch": {
+                "$identity": "I10"
+              },
+              "^C/PRODUCTION_FIXTURES001_FULL.patch": {
+                "$identity": "I11"
+              },
+              "^C/SOURCE_FIX001_FULL.patch": {
+                "$identity": "I12"
+              },
+              "^C/SOURCE_INITIAL_FULL.patch": {
+                "$identity": "I13"
+              },
+              "^C/TRANSFER_FIXTURE001_FULL.patch": {
+                "$identity": "I14"
+              },
+              "^C/TRANSFER_STATICFIX001_FULL.patch": {
+                "$identity": "I15"
+              }
+            },
+            "before_snapshots": {
+              "^C/FROZEN_CONTEXT.md": "^C/runs/fixtures001/before/0-FROZEN_CONTEXT.md",
+              "^C/INITIAL_SOURCE_COMMON.lean.txt": "^C/runs/fixtures001/before/1-INITIAL_SOURCE_COMMON.lean.txt",
+              "^C/BOOTSTRAP_PLAN.md": "^C/runs/fixtures001/before/2-BOOTSTRAP_PLAN.md",
+              "^C/CONTROL_CONTRACT.md": "^C/runs/fixtures001/before/3-CONTROL_CONTRACT.md",
+              "^C/runner/bootstrap_context.py": "^C/runs/fixtures001/before/4-bootstrap_context.py",
+              "^C/runner/capture66.py": "^C/runs/fixtures001/before/5-capture66.py",
+              "^C/runner/record_run.py": "^C/runs/fixtures001/before/6-record_run.py",
+              "^P/SourceActualRegularLocalCollar.lean": "^C/runs/fixtures001/before/7-SourceActualRegularLocalCollar.lean",
+              "^C/HELPER_FIX001_FULL.patch": "^C/runs/fixtures001/before/12-HELPER_FIX001_FULL.patch",
+              "^C/HELPER_INTEGRATION001_FULL.patch": "^C/runs/fixtures001/before/13-HELPER_INTEGRATION001_FULL.patch",
+              "^C/PRODUCTION_FIXTURES001_FULL.patch": "^C/runs/fixtures001/before/14-PRODUCTION_FIXTURES001_FULL.patch",
+              "^C/SOURCE_FIX001_FULL.patch": "^C/runs/fixtures001/before/15-SOURCE_FIX001_FULL.patch",
+              "^C/SOURCE_INITIAL_FULL.patch": "^C/runs/fixtures001/before/16-SOURCE_INITIAL_FULL.patch",
+              "^C/TRANSFER_FIXTURE001_FULL.patch": "^C/runs/fixtures001/before/17-TRANSFER_FIXTURE001_FULL.patch",
+              "^C/TRANSFER_STATICFIX001_FULL.patch": "^C/runs/fixtures001/before/18-TRANSFER_STATICFIX001_FULL.patch"
+            },
+            "outer_capture_dir": "^C/outer/fixtures001",
+            "entry_capture_dir": "^C/entry/fixtures001",
+            "environment_recorded": {
+              "PYTHONDONTWRITEBYTECODE": "1"
+            },
+            "credential_environment_logged": false,
+            "automatic_retry": false,
+            "end_utc": "2026-10-28T23:34:06.900388+00:00",
+            "elapsed_seconds": 4.212028194000595,
+            "exit_code": 1,
+            "spawn_or_worker_exception": null,
+            "after": {
+              "^C/FROZEN_CONTEXT.md": {
+                "$identity": "I0"
+              },
+              "^C/INITIAL_SOURCE_COMMON.lean.txt": {
+                "$identity": "I1"
+              },
+              "^C/BOOTSTRAP_PLAN.md": {
+                "$identity": "I2"
+              },
+              "^C/CONTROL_CONTRACT.md": {
+                "$identity": "I3"
+              },
+              "^C/runner/bootstrap_context.py": {
+                "$identity": "I4"
+              },
+              "^C/runner/capture66.py": {
+                "$identity": "I5"
+              },
+              "^C/runner/record_run.py": {
+                "$identity": "I6"
+              },
+              "^P/SourceActualRegularLocalCollar.lean": {
+                "$identity": "I7"
+              },
+              "^C/RegularLocalCollarControls.lean": null,
+              "^C/FalseControl.lean": null,
+              "^C/build/SourceActualRegularLocalCollar.olean": {
+                "$identity": "I8"
+              },
+              "^C/build/RegularLocalCollarControls.olean": null,
+              "^C/HELPER_FIX001_FULL.patch": {
+                "$identity": "I9"
+              },
+              "^C/HELPER_INTEGRATION001_FULL.patch": {
+                "$identity": "I10"
+              },
+              "^C/PRODUCTION_FIXTURES001_FULL.patch": {
+                "$identity": "I11"
+              },
+              "^C/SOURCE_FIX001_FULL.patch": {
+                "$identity": "I12"
+              },
+              "^C/SOURCE_INITIAL_FULL.patch": {
+                "$identity": "I13"
+              },
+              "^C/TRANSFER_FIXTURE001_FULL.patch": {
+                "$identity": "I14"
+              },
+              "^C/TRANSFER_STATICFIX001_FULL.patch": {
+                "$identity": "I15"
+              }
+            },
+            "streams": {
+              "stdout.log": {
+                "$identity": "I16"
+              },
+              "stderr.log": {
+                "$identity": "I17"
+              }
+            },
+            "worker_capture": "Original separate full stdout/stderr; actual inner result retained independently of outer/entry",
+            "binary_snapshot_or_canonical_object_copy": false
+          }
+        },
+        {
+          "path": "^C/outer/fixtures001/RECEIPT.json",
+          "original_bytes": 1930,
+          "fields": {
+            "operation": "stage66-outer-capture",
+            "scope": "outer",
+            "script_argv": [
+              "^C/runner/capture66.py",
+              "--run-dir",
+              "^C/outer/fixtures001",
+              "--cwd",
+              "^P",
+              "--scope",
+              "outer",
+              "--",
+              "python3",
+              "^C/runner/record_run.py",
+              "fixtures001",
+              "math",
+              "--",
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "-o",
+              "^C/build/SourceActualRegularLocalCollar.olean",
+              "SourceActualRegularLocalCollar.lean"
+            ],
+            "command_argv": [
+              "python3",
+              "^C/runner/record_run.py",
+              "fixtures001",
+              "math",
+              "--",
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "-o",
+              "^C/build/SourceActualRegularLocalCollar.olean",
+              "SourceActualRegularLocalCollar.lean"
+            ],
+            "cwd": "^P",
+            "started_utc": "2026-10-28T23:34:02.651493+00:00",
+            "original_split_streams": true,
+            "environment_recorded": {
+              "PYTHONDONTWRITEBYTECODE": "1"
+            },
+            "credential_environment_logged": false,
+            "automatic_retry": false,
+            "ended_utc": "2026-10-28T23:34:06.915887+00:00",
+            "elapsed_seconds": 4.264402951001102,
+            "child_exit_code": 1,
+            "spawn_or_wrapper_exception": null,
+            "stdout": "^C/outer/fixtures001/stdout.log",
+            "stderr": "^C/outer/fixtures001/stderr.log",
+            "status": "FAIL_PRESERVED_NO_RETRY"
+          }
+        },
+        {
+          "path": "^C/entry/fixtures001/RECEIPT.json",
+          "original_bytes": 2632,
+          "fields": {
+            "operation": "stage66-entry-capture",
+            "scope": "entry",
+            "script_argv": [
+              "^C/runner/capture66.py",
+              "--run-dir",
+              "^C/entry/fixtures001",
+              "--cwd",
+              "^P",
+              "--scope",
+              "entry",
+              "--",
+              "python3",
+              "^C/runner/capture66.py",
+              "--run-dir",
+              "^C/outer/fixtures001",
+              "--cwd",
+              "^P",
+              "--scope",
+              "outer",
+              "--",
+              "python3",
+              "^C/runner/record_run.py",
+              "fixtures001",
+              "math",
+              "--",
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "-o",
+              "^C/build/SourceActualRegularLocalCollar.olean",
+              "SourceActualRegularLocalCollar.lean"
+            ],
+            "command_argv": [
+              "python3",
+              "^C/runner/capture66.py",
+              "--run-dir",
+              "^C/outer/fixtures001",
+              "--cwd",
+              "^P",
+              "--scope",
+              "outer",
+              "--",
+              "python3",
+              "^C/runner/record_run.py",
+              "fixtures001",
+              "math",
+              "--",
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "-o",
+              "^C/build/SourceActualRegularLocalCollar.olean",
+              "SourceActualRegularLocalCollar.lean"
+            ],
+            "cwd": "^P",
+            "started_utc": "2026-10-28T23:34:02.621753+00:00",
+            "original_split_streams": true,
+            "environment_recorded": {
+              "PYTHONDONTWRITEBYTECODE": "1"
+            },
+            "credential_environment_logged": false,
+            "automatic_retry": false,
+            "ended_utc": "2026-10-28T23:34:06.924267+00:00",
+            "elapsed_seconds": 4.302521251000144,
+            "child_exit_code": 1,
+            "spawn_or_wrapper_exception": null,
+            "stdout": "^C/entry/fixtures001/stdout.log",
+            "stderr": "^C/entry/fixtures001/stderr.log",
+            "status": "FAIL_PRESERVED_NO_RETRY"
+          }
+        }
+      ],
+      "streams": [
+        {
+          "path": "^C/runs/fixtures001/stdout.log",
+          "original_bytes": 1829,
+          "text": "SourceActualRegularLocalCollar.lean:527:25: error: Type mismatch\n  ContinuousLinearMap.proj 0 ∘SL ?m.109\nhas type\n  ?m.96 →SL[?m.95] ?m.79 0\nbut is expected to have type\n  E2 →L[ℝ] ℝ\nSourceActualRegularLocalCollar.lean:581:2: error: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\nSourceActualRegularLocalCollar.lean:595:4: error: Type mismatch\n  hp\nhas type\n  -↑(3 / 2) = ↑(1 / 2)\nbut is expected to have type\n  ↑(-3 / 2) = ↑(1 / 2)\nSourceActualRegularLocalCollar.lean:653:6: error: Type mismatch: After simplification, term\n  hhalf\n has type\n  |ρ / 2| < ρ\nbut is expected to have type\n  |![-(ρ / 2), ε] ⟨0, ⋯⟩| < ρ\nSourceActualRegularLocalCollar.lean:688:67: error: Application type mismatch: The argument\n  hm\nhas type\n  ↑φ.symm ![-ρ / 2, ε] ∈ φ.source ∩ {p | F p = c + ε}\nof sort `Prop` but is expected to have type\n  Torus2 L\nof sort `Type` in the application\n  IsPathConnected.joinedIn (hpc ε hε).right hm\nSourceActualRegularLocalCollar.lean:721:13: error: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead\n\nNote: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).\nSourceActualRegularLocalCollar.lean:729:13: error: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead\n\nNote: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).\nSourceActualRegularLocalCollar.lean:737:13: error: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead\n\nNote: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).\n"
+        },
+        {
+          "path": "^C/runs/fixtures001/stderr.log",
+          "original_bytes": 0,
+          "text": ""
+        },
+        {
+          "path": "^C/outer/fixtures001/stdout.log",
+          "original_bytes": 168,
+          "text": "{\"label\": \"fixtures001\", \"exit_code\": 1, \"receipt\": \"/workspace/scratch/actual-source-regular-local-collar-construct/runs/fixtures001/receipt.json\", \"exception\": null}\n"
+        },
+        {
+          "path": "^C/outer/fixtures001/stderr.log",
+          "original_bytes": 0,
+          "text": ""
+        },
+        {
+          "path": "^C/entry/fixtures001/stdout.log",
+          "original_bytes": 187,
+          "text": "{\"scope\": \"outer\", \"child_exit_code\": 1, \"status\": \"FAIL_PRESERVED_NO_RETRY\", \"receipt\": \"/workspace/scratch/actual-source-regular-local-collar-construct/outer/fixtures001/RECEIPT.json\"}\n"
+        },
+        {
+          "path": "^C/entry/fixtures001/stderr.log",
+          "original_bytes": 0,
+          "text": ""
+        }
+      ],
+      "new_identity_definitions": {
+        "I0": {
+          "path": "^C/FROZEN_CONTEXT.md",
+          "bytes": 31289,
+          "sha256": "dc434883b3d75fd92a64131ae08e9405e83a3461cba3ce240e221114d2ac4b39",
+          "marker": [
+            31289,
+            1793229408662824709
+          ],
+          "first_observed_utc": "2026-10-28T23:16:48.663883+00:00",
+          "origin": "FIRST necessary NEW immutable documentary version ID, once"
+        },
+        "I1": {
+          "path": "^C/INITIAL_SOURCE_COMMON.lean.txt",
+          "bytes": 857,
+          "sha256": "129ac431b3a28c12f92809bd4514a7fbed8d61bbfee001574d786435fe2d9c92",
+          "marker": [
+            857,
+            1793228521850623106
+          ],
+          "first_observed_utc": "2026-10-28T23:16:48.664174+00:00",
+          "origin": "FIRST necessary NEW immutable documentary version ID, once"
+        },
+        "I2": {
+          "path": "^C/BOOTSTRAP_PLAN.md",
+          "bytes": 2234,
+          "sha256": "3b17c8a427db07c16db890454b58a0d2c4a8cc829177d5b5e8883577246fa3fa",
+          "marker": [
+            2234,
+            1793229408663535496
+          ],
+          "first_observed_utc": "2026-10-28T23:16:48.664285+00:00",
+          "origin": "FIRST necessary NEW immutable documentary version ID, once"
+        },
+        "I3": {
+          "path": "^C/CONTROL_CONTRACT.md",
+          "bytes": 14724,
+          "sha256": "805ccbfa39de792035c5979af62187fcccec2e6fdbe7451e3515ab09c3a932c7",
+          "marker": [
+            14724,
+            1793228357679043587
+          ],
+          "first_observed_utc": "2026-10-28T22:59:17.678739+00:00",
+          "origin": "Known root exact copied contract identity REUSED; no hash",
+          "copied_from": "^P/SOURCE_ACTUAL_REGULAR_LOCAL_COLLAR_CONTROLS.md"
+        },
+        "I4": {
+          "path": "^C/runner/bootstrap_context.py",
+          "bytes": 2116,
+          "sha256": "53acdec5def17950676a4b0d98b73128212a06a9f0d05439e6b41fc5743d6e65",
+          "marker": [
+            2116,
+            1793228521226637356
+          ],
+          "first_observed_utc": "2026-10-28T23:16:48.664653+00:00",
+          "origin": "FIRST necessary NEW immutable documentary version ID, once"
+        },
+        "I5": {
+          "path": "^C/runner/capture66.py",
+          "bytes": 2941,
+          "sha256": "c8aa29652e33d4f76365ad462eb2389fcddb71fdd74fea631c4fe3e0d44096ef",
+          "marker": [
+            2941,
+            1793228520602651610
+          ],
+          "first_observed_utc": "2026-10-28T23:16:48.664474+00:00",
+          "origin": "FIRST necessary NEW immutable documentary version ID, once"
+        },
+        "I6": {
+          "path": "^C/runner/record_run.py",
+          "bytes": 6831,
+          "sha256": "bde3f6e3f39fe13c1bb969f41da333bea589395ef5ad97bf312447980801e853",
+          "marker": [
+            6831,
+            1793229630797402632
+          ],
+          "first_observed_utc": "2026-10-28T23:20:30.797859+00:00",
+          "origin": "FIRST necessary NEW metadata version identity, once"
+        },
+        "I7": {
+          "path": "^P/SourceActualRegularLocalCollar.lean",
+          "bytes": 30082,
+          "sha256": "3292886e02cb5b954fb6f76536ffed43741fdb1a447ce9823c4162cf0e82bf20",
+          "marker": [
+            30082,
+            1793230442432127249
+          ],
+          "first_observed_utc": "2026-10-28T23:34:02.440551+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "I8": {
+          "path": "^C/build/SourceActualRegularLocalCollar.olean",
+          "bytes": 1027720,
+          "sha256": "d43f36f8714e8e7b5d733f45e4d7ffd560389c05f7539d60b7a0f7697d39b1ce",
+          "marker": [
+            1027720,
+            1793230291720217573
+          ],
+          "first_observed_utc": "2026-10-28T23:31:31.837870+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "I9": {
+          "path": "^C/HELPER_FIX001_FULL.patch",
+          "bytes": 1267,
+          "sha256": "e6ce30f14424673cc94dcd7f97bbc8eae9e7ea38dac42c73baaf15e10e6082c7",
+          "marker": [
+            1267,
+            1793230287654358111
+          ],
+          "first_observed_utc": "2026-10-28T23:31:27.654811+00:00",
+          "origin": "FIRST actual full helper amendment patch identity, once"
+        },
+        "I10": {
+          "path": "^C/HELPER_INTEGRATION001_FULL.patch",
+          "bytes": 11021,
+          "sha256": "8d26963d77e038f69389f466fa0daeed19ac8871f90a9fdb1a3a4b4418c013f4",
+          "marker": [
+            11021,
+            1793230242850609193
+          ],
+          "first_observed_utc": "2026-10-28T23:30:42.850701+00:00",
+          "origin": "FIRST actual one-integration/full amendment patch identity, once"
+        },
+        "I11": {
+          "path": "^C/PRODUCTION_FIXTURES001_FULL.patch",
+          "bytes": 9928,
+          "sha256": "891f7b05309a49e13985bd78440cb5ebb1ac60fad62eae5063e211dcc35e8cbc",
+          "marker": [
+            9928,
+            1793230442433092194
+          ],
+          "first_observed_utc": "2026-10-28T23:34:02.433694+00:00",
+          "origin": "FIRST new actual production-fixture patch identity, once"
+        },
+        "I12": {
+          "path": "^C/SOURCE_FIX001_FULL.patch",
+          "bytes": 1174,
+          "sha256": "874fed3ade89dda371f0df99383e448e5a420cedfa8718ad8501beb4a8fe73dc",
+          "marker": [
+            1174,
+            1793230027233097578
+          ],
+          "first_observed_utc": "2026-10-28T23:27:07.233321+00:00",
+          "origin": "FIRST necessary new actual patch identity, once"
+        },
+        "I13": {
+          "path": "^C/SOURCE_INITIAL_FULL.patch",
+          "bytes": 6275,
+          "sha256": "1188e29c4df01ac327a3a59e201000fd61f4fb35f1053f52e2f7205dc1aca852",
+          "marker": [
+            6275,
+            1793229987143047273
+          ],
+          "first_observed_utc": "2026-10-28T23:26:27.143109+00:00",
+          "origin": "FIRST new actual complete source patch identity, once"
+        },
+        "I14": {
+          "path": "^C/TRANSFER_FIXTURE001_FULL.patch",
+          "bytes": 4584,
+          "sha256": "997b6e0fb86e265f301e18601ca7246ffd6daae27a35b47abf6b1507da1634bb",
+          "marker": [
+            4584,
+            1793230131831395369
+          ],
+          "first_observed_utc": "2026-10-28T23:28:51.831650+00:00",
+          "origin": "FIRST new actual full patch identity, once"
+        },
+        "I15": {
+          "path": "^C/TRANSFER_STATICFIX001_FULL.patch",
+          "bytes": 1611,
+          "sha256": "8d2269f0ad5d59847891ed5863d0fe85ff55515c0ee5a1e781794eeb177b8ac7",
+          "marker": [
+            1611,
+            1793230169113128605
+          ],
+          "first_observed_utc": "2026-10-28T23:29:29.113417+00:00",
+          "origin": "FIRST new actual full patch identity, once"
+        },
+        "I16": {
+          "path": "^C/runs/fixtures001/stdout.log",
+          "bytes": 1829,
+          "sha256": "17113a27c7e7c2aa9bc3cdcca2fb578de649524b6ca1dfbc7164770bf339d566",
+          "marker": [
+            1829,
+            1793230446775469233
+          ],
+          "first_observed_utc": "2026-10-28T23:34:06.903319+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "I17": {
+          "path": "^C/runs/fixtures001/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230442690226823
+          ],
+          "first_observed_utc": "2026-10-28T23:34:06.903356+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      }
+    },
+    {
+      "label": "fixtures002",
+      "receipts": [
+        {
+          "path": "^C/runs/fixtures002/receipt.json",
+          "original_bytes": 24603,
+          "fields": {
+            "label": "fixtures002",
+            "scope_kind": "math",
+            "command_argv": [
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "-o",
+              "^C/build/SourceActualRegularLocalCollar.olean",
+              "SourceActualRegularLocalCollar.lean"
+            ],
+            "cwd": "^P",
+            "start_utc": "2026-10-28T23:34:35.177558+00:00",
+            "before": {
+              "^C/FROZEN_CONTEXT.md": {
+                "$identity": "I0"
+              },
+              "^C/INITIAL_SOURCE_COMMON.lean.txt": {
+                "$identity": "I1"
+              },
+              "^C/BOOTSTRAP_PLAN.md": {
+                "$identity": "I2"
+              },
+              "^C/CONTROL_CONTRACT.md": {
+                "$identity": "I3"
+              },
+              "^C/runner/bootstrap_context.py": {
+                "$identity": "I4"
+              },
+              "^C/runner/capture66.py": {
+                "$identity": "I5"
+              },
+              "^C/runner/record_run.py": {
+                "$identity": "I6"
+              },
+              "^P/SourceActualRegularLocalCollar.lean": {
+                "$identity": "I18"
+              },
+              "^C/RegularLocalCollarControls.lean": null,
+              "^C/FalseControl.lean": null,
+              "^C/build/SourceActualRegularLocalCollar.olean": {
+                "$identity": "I8"
+              },
+              "^C/build/RegularLocalCollarControls.olean": null,
+              "^C/HELPER_FIX001_FULL.patch": {
+                "$identity": "I9"
+              },
+              "^C/HELPER_INTEGRATION001_FULL.patch": {
+                "$identity": "I10"
+              },
+              "^C/PRODUCTION_FIXTURES001_FULL.patch": {
+                "$identity": "I11"
+              },
+              "^C/PRODUCTION_FIXTURES_FIX001_FULL.patch": {
+                "$identity": "I19"
+              },
+              "^C/SOURCE_FIX001_FULL.patch": {
+                "$identity": "I12"
+              },
+              "^C/SOURCE_INITIAL_FULL.patch": {
+                "$identity": "I13"
+              },
+              "^C/TRANSFER_FIXTURE001_FULL.patch": {
+                "$identity": "I14"
+              },
+              "^C/TRANSFER_STATICFIX001_FULL.patch": {
+                "$identity": "I15"
+              }
+            },
+            "before_snapshots": {
+              "^C/FROZEN_CONTEXT.md": "^C/runs/fixtures002/before/0-FROZEN_CONTEXT.md",
+              "^C/INITIAL_SOURCE_COMMON.lean.txt": "^C/runs/fixtures002/before/1-INITIAL_SOURCE_COMMON.lean.txt",
+              "^C/BOOTSTRAP_PLAN.md": "^C/runs/fixtures002/before/2-BOOTSTRAP_PLAN.md",
+              "^C/CONTROL_CONTRACT.md": "^C/runs/fixtures002/before/3-CONTROL_CONTRACT.md",
+              "^C/runner/bootstrap_context.py": "^C/runs/fixtures002/before/4-bootstrap_context.py",
+              "^C/runner/capture66.py": "^C/runs/fixtures002/before/5-capture66.py",
+              "^C/runner/record_run.py": "^C/runs/fixtures002/before/6-record_run.py",
+              "^P/SourceActualRegularLocalCollar.lean": "^C/runs/fixtures002/before/7-SourceActualRegularLocalCollar.lean",
+              "^C/HELPER_FIX001_FULL.patch": "^C/runs/fixtures002/before/12-HELPER_FIX001_FULL.patch",
+              "^C/HELPER_INTEGRATION001_FULL.patch": "^C/runs/fixtures002/before/13-HELPER_INTEGRATION001_FULL.patch",
+              "^C/PRODUCTION_FIXTURES001_FULL.patch": "^C/runs/fixtures002/before/14-PRODUCTION_FIXTURES001_FULL.patch",
+              "^C/PRODUCTION_FIXTURES_FIX001_FULL.patch": "^C/runs/fixtures002/before/15-PRODUCTION_FIXTURES_FIX001_FULL.patch",
+              "^C/SOURCE_FIX001_FULL.patch": "^C/runs/fixtures002/before/16-SOURCE_FIX001_FULL.patch",
+              "^C/SOURCE_INITIAL_FULL.patch": "^C/runs/fixtures002/before/17-SOURCE_INITIAL_FULL.patch",
+              "^C/TRANSFER_FIXTURE001_FULL.patch": "^C/runs/fixtures002/before/18-TRANSFER_FIXTURE001_FULL.patch",
+              "^C/TRANSFER_STATICFIX001_FULL.patch": "^C/runs/fixtures002/before/19-TRANSFER_STATICFIX001_FULL.patch"
+            },
+            "outer_capture_dir": "^C/outer/fixtures002",
+            "entry_capture_dir": "^C/entry/fixtures002",
+            "environment_recorded": {
+              "PYTHONDONTWRITEBYTECODE": "1"
+            },
+            "credential_environment_logged": false,
+            "automatic_retry": false,
+            "end_utc": "2026-10-28T23:34:39.608312+00:00",
+            "elapsed_seconds": 4.430833981998148,
+            "exit_code": 1,
+            "spawn_or_worker_exception": null,
+            "after": {
+              "^C/FROZEN_CONTEXT.md": {
+                "$identity": "I0"
+              },
+              "^C/INITIAL_SOURCE_COMMON.lean.txt": {
+                "$identity": "I1"
+              },
+              "^C/BOOTSTRAP_PLAN.md": {
+                "$identity": "I2"
+              },
+              "^C/CONTROL_CONTRACT.md": {
+                "$identity": "I3"
+              },
+              "^C/runner/bootstrap_context.py": {
+                "$identity": "I4"
+              },
+              "^C/runner/capture66.py": {
+                "$identity": "I5"
+              },
+              "^C/runner/record_run.py": {
+                "$identity": "I6"
+              },
+              "^P/SourceActualRegularLocalCollar.lean": {
+                "$identity": "I18"
+              },
+              "^C/RegularLocalCollarControls.lean": null,
+              "^C/FalseControl.lean": null,
+              "^C/build/SourceActualRegularLocalCollar.olean": {
+                "$identity": "I8"
+              },
+              "^C/build/RegularLocalCollarControls.olean": null,
+              "^C/HELPER_FIX001_FULL.patch": {
+                "$identity": "I9"
+              },
+              "^C/HELPER_INTEGRATION001_FULL.patch": {
+                "$identity": "I10"
+              },
+              "^C/PRODUCTION_FIXTURES001_FULL.patch": {
+                "$identity": "I11"
+              },
+              "^C/PRODUCTION_FIXTURES_FIX001_FULL.patch": {
+                "$identity": "I19"
+              },
+              "^C/SOURCE_FIX001_FULL.patch": {
+                "$identity": "I12"
+              },
+              "^C/SOURCE_INITIAL_FULL.patch": {
+                "$identity": "I13"
+              },
+              "^C/TRANSFER_FIXTURE001_FULL.patch": {
+                "$identity": "I14"
+              },
+              "^C/TRANSFER_STATICFIX001_FULL.patch": {
+                "$identity": "I15"
+              }
+            },
+            "streams": {
+              "stdout.log": {
+                "$identity": "I20"
+              },
+              "stderr.log": {
+                "$identity": "I21"
+              }
+            },
+            "worker_capture": "Original separate full stdout/stderr; actual inner result retained independently of outer/entry",
+            "binary_snapshot_or_canonical_object_copy": false
+          }
+        },
+        {
+          "path": "^C/outer/fixtures002/RECEIPT.json",
+          "original_bytes": 1929,
+          "fields": {
+            "operation": "stage66-outer-capture",
+            "scope": "outer",
+            "script_argv": [
+              "^C/runner/capture66.py",
+              "--run-dir",
+              "^C/outer/fixtures002",
+              "--cwd",
+              "^P",
+              "--scope",
+              "outer",
+              "--",
+              "python3",
+              "^C/runner/record_run.py",
+              "fixtures002",
+              "math",
+              "--",
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "-o",
+              "^C/build/SourceActualRegularLocalCollar.olean",
+              "SourceActualRegularLocalCollar.lean"
+            ],
+            "command_argv": [
+              "python3",
+              "^C/runner/record_run.py",
+              "fixtures002",
+              "math",
+              "--",
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "-o",
+              "^C/build/SourceActualRegularLocalCollar.olean",
+              "SourceActualRegularLocalCollar.lean"
+            ],
+            "cwd": "^P",
+            "started_utc": "2026-10-28T23:34:35.138673+00:00",
+            "original_split_streams": true,
+            "environment_recorded": {
+              "PYTHONDONTWRITEBYTECODE": "1"
+            },
+            "credential_environment_logged": false,
+            "automatic_retry": false,
+            "ended_utc": "2026-10-28T23:34:39.621949+00:00",
+            "elapsed_seconds": 4.48328478500116,
+            "child_exit_code": 1,
+            "spawn_or_wrapper_exception": null,
+            "stdout": "^C/outer/fixtures002/stdout.log",
+            "stderr": "^C/outer/fixtures002/stderr.log",
+            "status": "FAIL_PRESERVED_NO_RETRY"
+          }
+        },
+        {
+          "path": "^C/entry/fixtures002/RECEIPT.json",
+          "original_bytes": 2632,
+          "fields": {
+            "operation": "stage66-entry-capture",
+            "scope": "entry",
+            "script_argv": [
+              "^C/runner/capture66.py",
+              "--run-dir",
+              "^C/entry/fixtures002",
+              "--cwd",
+              "^P",
+              "--scope",
+              "entry",
+              "--",
+              "python3",
+              "^C/runner/capture66.py",
+              "--run-dir",
+              "^C/outer/fixtures002",
+              "--cwd",
+              "^P",
+              "--scope",
+              "outer",
+              "--",
+              "python3",
+              "^C/runner/record_run.py",
+              "fixtures002",
+              "math",
+              "--",
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "-o",
+              "^C/build/SourceActualRegularLocalCollar.olean",
+              "SourceActualRegularLocalCollar.lean"
+            ],
+            "command_argv": [
+              "python3",
+              "^C/runner/capture66.py",
+              "--run-dir",
+              "^C/outer/fixtures002",
+              "--cwd",
+              "^P",
+              "--scope",
+              "outer",
+              "--",
+              "python3",
+              "^C/runner/record_run.py",
+              "fixtures002",
+              "math",
+              "--",
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "-o",
+              "^C/build/SourceActualRegularLocalCollar.olean",
+              "SourceActualRegularLocalCollar.lean"
+            ],
+            "cwd": "^P",
+            "started_utc": "2026-10-28T23:34:35.108264+00:00",
+            "original_split_streams": true,
+            "environment_recorded": {
+              "PYTHONDONTWRITEBYTECODE": "1"
+            },
+            "credential_environment_logged": false,
+            "automatic_retry": false,
+            "ended_utc": "2026-10-28T23:34:39.630800+00:00",
+            "elapsed_seconds": 4.522541636000824,
+            "child_exit_code": 1,
+            "spawn_or_wrapper_exception": null,
+            "stdout": "^C/entry/fixtures002/stdout.log",
+            "stderr": "^C/entry/fixtures002/stderr.log",
+            "status": "FAIL_PRESERVED_NO_RETRY"
+          }
+        }
+      ],
+      "streams": [
+        {
+          "path": "^C/runs/fixtures002/stdout.log",
+          "original_bytes": 1208,
+          "text": "SourceActualRegularLocalCollar.lean:537:11: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  fderiv ℝ ((fun x => Real.cos (Real.pi * Q x 0)) + fun y => 2 * Real.cos (Real.pi * Q y 1)) Y\nin the target expression\n  (fderiv ℝ (fun Z => Real.cos (Real.pi * Q Z 0) + 2 * Real.cos (Real.pi * Q Z 1)) Y) V =\n    -Real.pi * Real.sin (Real.pi * Q Y 0) * Q V 0 - 2 * Real.pi * Real.sin (Real.pi * Q Y 1) * Q V 1\n\nY V : E2\nd0 : E2 →L[ℝ] ℝ := ContinuousLinearMap.proj 0 ∘SL ↑Q\nd1 : E2 →L[ℝ] ℝ := ContinuousLinearMap.proj 1 ∘SL ↑Q\nh0 : HasFDerivAt (fun Z => Real.pi * Q Z 0) (Real.pi • d0) Y\nh1 : HasFDerivAt (fun Z => Real.pi * Q Z 1) (Real.pi • d1) Y\nhd :\n  HasFDerivAt ((fun x => Real.cos (Real.pi * Q x 0)) + fun y => 2 * Real.cos (Real.pi * Q y 1))\n    (-Real.sin (Real.pi * Q Y 0) • Real.pi • d0 + 2 • -Real.sin (Real.pi * Q Y 1) • Real.pi • d1) Y\nheq : actualField 2 2 fixtureSample = fun Z => Real.cos (Real.pi * Q Z 0) + 2 * Real.cos (Real.pi * Q Z 1)\n⊢ (fderiv ℝ (fun Z => Real.cos (Real.pi * Q Z 0) + 2 * Real.cos (Real.pi * Q Z 1)) Y) V =\n    -Real.pi * Real.sin (Real.pi * Q Y 0) * Q V 0 - 2 * Real.pi * Real.sin (Real.pi * Q Y 1) * Q V 1\n"
+        },
+        {
+          "path": "^C/runs/fixtures002/stderr.log",
+          "original_bytes": 0,
+          "text": ""
+        },
+        {
+          "path": "^C/outer/fixtures002/stdout.log",
+          "original_bytes": 168,
+          "text": "{\"label\": \"fixtures002\", \"exit_code\": 1, \"receipt\": \"/workspace/scratch/actual-source-regular-local-collar-construct/runs/fixtures002/receipt.json\", \"exception\": null}\n"
+        },
+        {
+          "path": "^C/outer/fixtures002/stderr.log",
+          "original_bytes": 0,
+          "text": ""
+        },
+        {
+          "path": "^C/entry/fixtures002/stdout.log",
+          "original_bytes": 187,
+          "text": "{\"scope\": \"outer\", \"child_exit_code\": 1, \"status\": \"FAIL_PRESERVED_NO_RETRY\", \"receipt\": \"/workspace/scratch/actual-source-regular-local-collar-construct/outer/fixtures002/RECEIPT.json\"}\n"
+        },
+        {
+          "path": "^C/entry/fixtures002/stderr.log",
+          "original_bytes": 0,
+          "text": ""
+        }
+      ],
+      "new_identity_definitions": {
+        "I18": {
+          "path": "^P/SourceActualRegularLocalCollar.lean",
+          "bytes": 30081,
+          "sha256": "3f9b9a681d98f7276d7cf4b2f7db0807970d2021b9ab0befed00bb6e73b9ecb6",
+          "marker": [
+            30081,
+            1793230474888279370
+          ],
+          "first_observed_utc": "2026-10-28T23:34:34.897304+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "I19": {
+          "path": "^C/PRODUCTION_FIXTURES_FIX001_FULL.patch",
+          "bytes": 3254,
+          "sha256": "20d7629a57cf8e67b8f78cc19b8bf84f8b11dee07f117a92d12603217222cba4",
+          "marker": [
+            3254,
+            1793230474889400535
+          ],
+          "first_observed_utc": "2026-10-28T23:34:34.890137+00:00",
+          "origin": "FIRST new actual full patch identity, once"
+        },
+        "I20": {
+          "path": "^C/runs/fixtures002/stdout.log",
+          "bytes": 1208,
+          "sha256": "cf047bb7d8bfc2e6cd298810b97d794e37120a1916d455e20d88b2650ef1dd73",
+          "marker": [
+            1208,
+            1793230479486641363
+          ],
+          "first_observed_utc": "2026-10-28T23:34:39.611156+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "I21": {
+          "path": "^C/runs/fixtures002/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230475179061696
+          ],
+          "first_observed_utc": "2026-10-28T23:34:39.611186+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      }
+    },
+    {
+      "label": "fixtures003",
+      "receipts": [
+        {
+          "path": "^C/runs/fixtures003/receipt.json",
+          "original_bytes": 25912,
+          "fields": {
+            "label": "fixtures003",
+            "scope_kind": "math",
+            "command_argv": [
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "-o",
+              "^C/build/SourceActualRegularLocalCollar.olean",
+              "SourceActualRegularLocalCollar.lean"
+            ],
+            "cwd": "^P",
+            "start_utc": "2026-10-28T23:35:01.859907+00:00",
+            "before": {
+              "^C/FROZEN_CONTEXT.md": {
+                "$identity": "I0"
+              },
+              "^C/INITIAL_SOURCE_COMMON.lean.txt": {
+                "$identity": "I1"
+              },
+              "^C/BOOTSTRAP_PLAN.md": {
+                "$identity": "I2"
+              },
+              "^C/CONTROL_CONTRACT.md": {
+                "$identity": "I3"
+              },
+              "^C/runner/bootstrap_context.py": {
+                "$identity": "I4"
+              },
+              "^C/runner/capture66.py": {
+                "$identity": "I5"
+              },
+              "^C/runner/record_run.py": {
+                "$identity": "I6"
+              },
+              "^P/SourceActualRegularLocalCollar.lean": {
+                "$identity": "I22"
+              },
+              "^C/RegularLocalCollarControls.lean": null,
+              "^C/FalseControl.lean": null,
+              "^C/build/SourceActualRegularLocalCollar.olean": {
+                "$identity": "I8"
+              },
+              "^C/build/RegularLocalCollarControls.olean": null,
+              "^C/HELPER_FIX001_FULL.patch": {
+                "$identity": "I9"
+              },
+              "^C/HELPER_INTEGRATION001_FULL.patch": {
+                "$identity": "I10"
+              },
+              "^C/PRODUCTION_FIXTURES001_FULL.patch": {
+                "$identity": "I11"
+              },
+              "^C/PRODUCTION_FIXTURES_FIX001_FULL.patch": {
+                "$identity": "I19"
+              },
+              "^C/PRODUCTION_FIXTURES_FIX002_FULL.patch": {
+                "$identity": "I23"
+              },
+              "^C/SOURCE_FIX001_FULL.patch": {
+                "$identity": "I12"
+              },
+              "^C/SOURCE_INITIAL_FULL.patch": {
+                "$identity": "I13"
+              },
+              "^C/TRANSFER_FIXTURE001_FULL.patch": {
+                "$identity": "I14"
+              },
+              "^C/TRANSFER_STATICFIX001_FULL.patch": {
+                "$identity": "I15"
+              }
+            },
+            "before_snapshots": {
+              "^C/FROZEN_CONTEXT.md": "^C/runs/fixtures003/before/0-FROZEN_CONTEXT.md",
+              "^C/INITIAL_SOURCE_COMMON.lean.txt": "^C/runs/fixtures003/before/1-INITIAL_SOURCE_COMMON.lean.txt",
+              "^C/BOOTSTRAP_PLAN.md": "^C/runs/fixtures003/before/2-BOOTSTRAP_PLAN.md",
+              "^C/CONTROL_CONTRACT.md": "^C/runs/fixtures003/before/3-CONTROL_CONTRACT.md",
+              "^C/runner/bootstrap_context.py": "^C/runs/fixtures003/before/4-bootstrap_context.py",
+              "^C/runner/capture66.py": "^C/runs/fixtures003/before/5-capture66.py",
+              "^C/runner/record_run.py": "^C/runs/fixtures003/before/6-record_run.py",
+              "^P/SourceActualRegularLocalCollar.lean": "^C/runs/fixtures003/before/7-SourceActualRegularLocalCollar.lean",
+              "^C/HELPER_FIX001_FULL.patch": "^C/runs/fixtures003/before/12-HELPER_FIX001_FULL.patch",
+              "^C/HELPER_INTEGRATION001_FULL.patch": "^C/runs/fixtures003/before/13-HELPER_INTEGRATION001_FULL.patch",
+              "^C/PRODUCTION_FIXTURES001_FULL.patch": "^C/runs/fixtures003/before/14-PRODUCTION_FIXTURES001_FULL.patch",
+              "^C/PRODUCTION_FIXTURES_FIX001_FULL.patch": "^C/runs/fixtures003/before/15-PRODUCTION_FIXTURES_FIX001_FULL.patch",
+              "^C/PRODUCTION_FIXTURES_FIX002_FULL.patch": "^C/runs/fixtures003/before/16-PRODUCTION_FIXTURES_FIX002_FULL.patch",
+              "^C/SOURCE_FIX001_FULL.patch": "^C/runs/fixtures003/before/17-SOURCE_FIX001_FULL.patch",
+              "^C/SOURCE_INITIAL_FULL.patch": "^C/runs/fixtures003/before/18-SOURCE_INITIAL_FULL.patch",
+              "^C/TRANSFER_FIXTURE001_FULL.patch": "^C/runs/fixtures003/before/19-TRANSFER_FIXTURE001_FULL.patch",
+              "^C/TRANSFER_STATICFIX001_FULL.patch": "^C/runs/fixtures003/before/20-TRANSFER_STATICFIX001_FULL.patch"
+            },
+            "outer_capture_dir": "^C/outer/fixtures003",
+            "entry_capture_dir": "^C/entry/fixtures003",
+            "environment_recorded": {
+              "PYTHONDONTWRITEBYTECODE": "1"
+            },
+            "credential_environment_logged": false,
+            "automatic_retry": false,
+            "end_utc": "2026-10-28T23:35:06.762067+00:00",
+            "elapsed_seconds": 4.902187962001335,
+            "exit_code": 1,
+            "spawn_or_worker_exception": null,
+            "after": {
+              "^C/FROZEN_CONTEXT.md": {
+                "$identity": "I0"
+              },
+              "^C/INITIAL_SOURCE_COMMON.lean.txt": {
+                "$identity": "I1"
+              },
+              "^C/BOOTSTRAP_PLAN.md": {
+                "$identity": "I2"
+              },
+              "^C/CONTROL_CONTRACT.md": {
+                "$identity": "I3"
+              },
+              "^C/runner/bootstrap_context.py": {
+                "$identity": "I4"
+              },
+              "^C/runner/capture66.py": {
+                "$identity": "I5"
+              },
+              "^C/runner/record_run.py": {
+                "$identity": "I6"
+              },
+              "^P/SourceActualRegularLocalCollar.lean": {
+                "$identity": "I22"
+              },
+              "^C/RegularLocalCollarControls.lean": null,
+              "^C/FalseControl.lean": null,
+              "^C/build/SourceActualRegularLocalCollar.olean": {
+                "$identity": "I8"
+              },
+              "^C/build/RegularLocalCollarControls.olean": null,
+              "^C/HELPER_FIX001_FULL.patch": {
+                "$identity": "I9"
+              },
+              "^C/HELPER_INTEGRATION001_FULL.patch": {
+                "$identity": "I10"
+              },
+              "^C/PRODUCTION_FIXTURES001_FULL.patch": {
+                "$identity": "I11"
+              },
+              "^C/PRODUCTION_FIXTURES_FIX001_FULL.patch": {
+                "$identity": "I19"
+              },
+              "^C/PRODUCTION_FIXTURES_FIX002_FULL.patch": {
+                "$identity": "I23"
+              },
+              "^C/SOURCE_FIX001_FULL.patch": {
+                "$identity": "I12"
+              },
+              "^C/SOURCE_INITIAL_FULL.patch": {
+                "$identity": "I13"
+              },
+              "^C/TRANSFER_FIXTURE001_FULL.patch": {
+                "$identity": "I14"
+              },
+              "^C/TRANSFER_STATICFIX001_FULL.patch": {
+                "$identity": "I15"
+              }
+            },
+            "streams": {
+              "stdout.log": {
+                "$identity": "I24"
+              },
+              "stderr.log": {
+                "$identity": "I25"
+              }
+            },
+            "worker_capture": "Original separate full stdout/stderr; actual inner result retained independently of outer/entry",
+            "binary_snapshot_or_canonical_object_copy": false
+          }
+        },
+        {
+          "path": "^C/outer/fixtures003/RECEIPT.json",
+          "original_bytes": 1930,
+          "fields": {
+            "operation": "stage66-outer-capture",
+            "scope": "outer",
+            "script_argv": [
+              "^C/runner/capture66.py",
+              "--run-dir",
+              "^C/outer/fixtures003",
+              "--cwd",
+              "^P",
+              "--scope",
+              "outer",
+              "--",
+              "python3",
+              "^C/runner/record_run.py",
+              "fixtures003",
+              "math",
+              "--",
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "-o",
+              "^C/build/SourceActualRegularLocalCollar.olean",
+              "SourceActualRegularLocalCollar.lean"
+            ],
+            "command_argv": [
+              "python3",
+              "^C/runner/record_run.py",
+              "fixtures003",
+              "math",
+              "--",
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "-o",
+              "^C/build/SourceActualRegularLocalCollar.olean",
+              "SourceActualRegularLocalCollar.lean"
+            ],
+            "cwd": "^P",
+            "started_utc": "2026-10-28T23:35:01.817750+00:00",
+            "original_split_streams": true,
+            "environment_recorded": {
+              "PYTHONDONTWRITEBYTECODE": "1"
+            },
+            "credential_environment_logged": false,
+            "automatic_retry": false,
+            "ended_utc": "2026-10-28T23:35:06.777095+00:00",
+            "elapsed_seconds": 4.959351904002688,
+            "child_exit_code": 1,
+            "spawn_or_wrapper_exception": null,
+            "stdout": "^C/outer/fixtures003/stdout.log",
+            "stderr": "^C/outer/fixtures003/stderr.log",
+            "status": "FAIL_PRESERVED_NO_RETRY"
+          }
+        },
+        {
+          "path": "^C/entry/fixtures003/RECEIPT.json",
+          "original_bytes": 2633,
+          "fields": {
+            "operation": "stage66-entry-capture",
+            "scope": "entry",
+            "script_argv": [
+              "^C/runner/capture66.py",
+              "--run-dir",
+              "^C/entry/fixtures003",
+              "--cwd",
+              "^P",
+              "--scope",
+              "entry",
+              "--",
+              "python3",
+              "^C/runner/capture66.py",
+              "--run-dir",
+              "^C/outer/fixtures003",
+              "--cwd",
+              "^P",
+              "--scope",
+              "outer",
+              "--",
+              "python3",
+              "^C/runner/record_run.py",
+              "fixtures003",
+              "math",
+              "--",
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "-o",
+              "^C/build/SourceActualRegularLocalCollar.olean",
+              "SourceActualRegularLocalCollar.lean"
+            ],
+            "command_argv": [
+              "python3",
+              "^C/runner/capture66.py",
+              "--run-dir",
+              "^C/outer/fixtures003",
+              "--cwd",
+              "^P",
+              "--scope",
+              "outer",
+              "--",
+              "python3",
+              "^C/runner/record_run.py",
+              "fixtures003",
+              "math",
+              "--",
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "-o",
+              "^C/build/SourceActualRegularLocalCollar.olean",
+              "SourceActualRegularLocalCollar.lean"
+            ],
+            "cwd": "^P",
+            "started_utc": "2026-10-28T23:35:01.782438+00:00",
+            "original_split_streams": true,
+            "environment_recorded": {
+              "PYTHONDONTWRITEBYTECODE": "1"
+            },
+            "credential_environment_logged": false,
+            "automatic_retry": false,
+            "ended_utc": "2026-10-28T23:35:06.785091+00:00",
+            "elapsed_seconds": 5.0026603850019455,
+            "child_exit_code": 1,
+            "spawn_or_wrapper_exception": null,
+            "stdout": "^C/entry/fixtures003/stdout.log",
+            "stderr": "^C/entry/fixtures003/stderr.log",
+            "status": "FAIL_PRESERVED_NO_RETRY"
+          }
+        }
+      ],
+      "streams": [
+        {
+          "path": "^C/runs/fixtures003/stdout.log",
+          "original_bytes": 1860,
+          "text": "SourceActualRegularLocalCollar.lean:543:13: error: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead\n\nNote: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).\nSourceActualRegularLocalCollar.lean:543:44: error: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead\n\nNote: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).\nTry this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\nSourceActualRegularLocalCollar.lean:526:64: error: unsolved goals\nY V : E2\nd0 : E2 →L[ℝ] ℝ := ContinuousLinearMap.proj 0 ∘SL ↑Q\nd1 : E2 →L[ℝ] ℝ := ContinuousLinearMap.proj 1 ∘SL ↑Q\nh0 : HasFDerivAt (fun Z => Real.pi * Q Z 0) (Real.pi • d0) Y\nh1 : HasFDerivAt (fun Z => Real.pi * Q Z 1) (Real.pi • d1) Y\nhd :\n  HasFDerivAt ((fun x => Real.cos (Real.pi * Q x 0)) + fun y => 2 * Real.cos (Real.pi * Q y 1))\n    (-Real.sin (Real.pi * Q Y 0) • Real.pi • d0 + 2 • -Real.sin (Real.pi * Q Y 1) • Real.pi • d1) Y\nheq : actualField 2 2 fixtureSample = fun Z => Real.cos (Real.pi * Q Z 0) + 2 * Real.cos (Real.pi * Q Z 1)\nhactual :\n  HasFDerivAt (actualField 2 2 fixtureSample)\n    (-Real.sin (Real.pi * Q Y 0) • Real.pi • d0 + 2 • -Real.sin (Real.pi * Q Y 1) • Real.pi • d1) Y\n⊢ -(Real.pi * Real.sin (Real.pi * Q Y 0) * ↑Q V 0) - Real.pi * Real.sin (Real.pi * Q Y 1) * ↑Q V 1 * 2 =\n    -(Real.pi * Real.sin (Real.pi * Q Y 0) * Q V 0) - Real.pi * Real.sin (Real.pi * Q Y 1) * Q V 1 * 2\n"
+        },
+        {
+          "path": "^C/runs/fixtures003/stderr.log",
+          "original_bytes": 0,
+          "text": ""
+        },
+        {
+          "path": "^C/outer/fixtures003/stdout.log",
+          "original_bytes": 168,
+          "text": "{\"label\": \"fixtures003\", \"exit_code\": 1, \"receipt\": \"/workspace/scratch/actual-source-regular-local-collar-construct/runs/fixtures003/receipt.json\", \"exception\": null}\n"
+        },
+        {
+          "path": "^C/outer/fixtures003/stderr.log",
+          "original_bytes": 0,
+          "text": ""
+        },
+        {
+          "path": "^C/entry/fixtures003/stdout.log",
+          "original_bytes": 187,
+          "text": "{\"scope\": \"outer\", \"child_exit_code\": 1, \"status\": \"FAIL_PRESERVED_NO_RETRY\", \"receipt\": \"/workspace/scratch/actual-source-regular-local-collar-construct/outer/fixtures003/RECEIPT.json\"}\n"
+        },
+        {
+          "path": "^C/entry/fixtures003/stderr.log",
+          "original_bytes": 0,
+          "text": ""
+        }
+      ],
+      "new_identity_definitions": {
+        "I22": {
+          "path": "^P/SourceActualRegularLocalCollar.lean",
+          "bytes": 30322,
+          "sha256": "311426d4d46ea2fffaa11765d4f02412880909d31d287273440403283ac57d0d",
+          "marker": [
+            30322,
+            1793230501586137652
+          ],
+          "first_observed_utc": "2026-10-28T23:35:01.596796+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "I23": {
+          "path": "^C/PRODUCTION_FIXTURES_FIX002_FULL.patch",
+          "bytes": 801,
+          "sha256": "17076d87bd0f08a9f61e3f721e46f371badab78772f9b6a414a8ec8df79697fe",
+          "marker": [
+            801,
+            1793230501587480534
+          ],
+          "first_observed_utc": "2026-10-28T23:35:01.589060+00:00",
+          "origin": "FIRST new actual full patch identity, once"
+        },
+        "I24": {
+          "path": "^C/runs/fixtures003/stdout.log",
+          "bytes": 1860,
+          "sha256": "20a607cc13057a06da7521276fe41ad63685103d73ad4af9707124a24d98d939",
+          "marker": [
+            1860,
+            1793230506649991326
+          ],
+          "first_observed_utc": "2026-10-28T23:35:06.765040+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "I25": {
+          "path": "^C/runs/fixtures003/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230501862091768
+          ],
+          "first_observed_utc": "2026-10-28T23:35:06.765069+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      }
+    },
+    {
+      "label": "controls001",
+      "receipts": [
+        {
+          "path": "^C/runs/controls001/receipt.json",
+          "original_bytes": 29827,
+          "fields": {
+            "label": "controls001",
+            "scope_kind": "math",
+            "command_argv": [
+              "env",
+              "LEAN_PATH=^C/build",
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "-o",
+              "^C/build/RegularLocalCollarControls.olean",
+              "^C/RegularLocalCollarControls.lean"
+            ],
+            "cwd": "^P",
+            "start_utc": "2026-10-28T23:39:10.585892+00:00",
+            "before": {
+              "^C/FROZEN_CONTEXT.md": {
+                "$identity": "I0"
+              },
+              "^C/INITIAL_SOURCE_COMMON.lean.txt": {
+                "$identity": "I1"
+              },
+              "^C/BOOTSTRAP_PLAN.md": {
+                "$identity": "I2"
+              },
+              "^C/CONTROL_CONTRACT.md": {
+                "$identity": "I3"
+              },
+              "^C/runner/bootstrap_context.py": {
+                "$identity": "I4"
+              },
+              "^C/runner/capture66.py": {
+                "$identity": "I5"
+              },
+              "^C/runner/classify_inventory.py": {
+                "$identity": "I26"
+              },
+              "^C/runner/record_run.py": {
+                "$identity": "I6"
+              },
+              "^P/SourceActualRegularLocalCollar.lean": {
+                "$identity": "I27"
+              },
+              "^C/RegularLocalCollarControls.lean": {
+                "$identity": "I28"
+              },
+              "^C/FalseControl.lean": null,
+              "^C/build/SourceActualRegularLocalCollar.olean": {
+                "$identity": "I29"
+              },
+              "^C/build/RegularLocalCollarControls.olean": null,
+              "^C/HELPER_FIX001_FULL.patch": {
+                "$identity": "I9"
+              },
+              "^C/HELPER_INTEGRATION001_FULL.patch": {
+                "$identity": "I10"
+              },
+              "^C/PRODUCTION_FIXTURES001_FULL.patch": {
+                "$identity": "I11"
+              },
+              "^C/PRODUCTION_FIXTURES_FIX001_FULL.patch": {
+                "$identity": "I19"
+              },
+              "^C/PRODUCTION_FIXTURES_FIX002_FULL.patch": {
+                "$identity": "I23"
+              },
+              "^C/PRODUCTION_FIXTURES_FIX003_FULL.patch": {
+                "$identity": "I30"
+              },
+              "^C/SOURCE_FIX001_FULL.patch": {
+                "$identity": "I12"
+              },
+              "^C/SOURCE_INITIAL_FULL.patch": {
+                "$identity": "I13"
+              },
+              "^C/TRANSFER_FIXTURE001_FULL.patch": {
+                "$identity": "I14"
+              },
+              "^C/TRANSFER_STATICFIX001_FULL.patch": {
+                "$identity": "I15"
+              }
+            },
+            "before_snapshots": {
+              "^C/FROZEN_CONTEXT.md": "^C/runs/controls001/before/0-FROZEN_CONTEXT.md",
+              "^C/INITIAL_SOURCE_COMMON.lean.txt": "^C/runs/controls001/before/1-INITIAL_SOURCE_COMMON.lean.txt",
+              "^C/BOOTSTRAP_PLAN.md": "^C/runs/controls001/before/2-BOOTSTRAP_PLAN.md",
+              "^C/CONTROL_CONTRACT.md": "^C/runs/controls001/before/3-CONTROL_CONTRACT.md",
+              "^C/runner/bootstrap_context.py": "^C/runs/controls001/before/4-bootstrap_context.py",
+              "^C/runner/capture66.py": "^C/runs/controls001/before/5-capture66.py",
+              "^C/runner/classify_inventory.py": "^C/runs/controls001/before/6-classify_inventory.py",
+              "^C/runner/record_run.py": "^C/runs/controls001/before/7-record_run.py",
+              "^P/SourceActualRegularLocalCollar.lean": "^C/runs/controls001/before/8-SourceActualRegularLocalCollar.lean",
+              "^C/RegularLocalCollarControls.lean": "^C/runs/controls001/before/9-RegularLocalCollarControls.lean",
+              "^C/HELPER_FIX001_FULL.patch": "^C/runs/controls001/before/13-HELPER_FIX001_FULL.patch",
+              "^C/HELPER_INTEGRATION001_FULL.patch": "^C/runs/controls001/before/14-HELPER_INTEGRATION001_FULL.patch",
+              "^C/PRODUCTION_FIXTURES001_FULL.patch": "^C/runs/controls001/before/15-PRODUCTION_FIXTURES001_FULL.patch",
+              "^C/PRODUCTION_FIXTURES_FIX001_FULL.patch": "^C/runs/controls001/before/16-PRODUCTION_FIXTURES_FIX001_FULL.patch",
+              "^C/PRODUCTION_FIXTURES_FIX002_FULL.patch": "^C/runs/controls001/before/17-PRODUCTION_FIXTURES_FIX002_FULL.patch",
+              "^C/PRODUCTION_FIXTURES_FIX003_FULL.patch": "^C/runs/controls001/before/18-PRODUCTION_FIXTURES_FIX003_FULL.patch",
+              "^C/SOURCE_FIX001_FULL.patch": "^C/runs/controls001/before/19-SOURCE_FIX001_FULL.patch",
+              "^C/SOURCE_INITIAL_FULL.patch": "^C/runs/controls001/before/20-SOURCE_INITIAL_FULL.patch",
+              "^C/TRANSFER_FIXTURE001_FULL.patch": "^C/runs/controls001/before/21-TRANSFER_FIXTURE001_FULL.patch",
+              "^C/TRANSFER_STATICFIX001_FULL.patch": "^C/runs/controls001/before/22-TRANSFER_STATICFIX001_FULL.patch"
+            },
+            "outer_capture_dir": "^C/outer/controls001",
+            "entry_capture_dir": "^C/entry/controls001",
+            "environment_recorded": {
+              "PYTHONDONTWRITEBYTECODE": "1"
+            },
+            "credential_environment_logged": false,
+            "automatic_retry": false,
+            "end_utc": "2026-10-28T23:39:11.106218+00:00",
+            "elapsed_seconds": 0.5203356349993555,
+            "exit_code": 1,
+            "spawn_or_worker_exception": null,
+            "after": {
+              "^C/FROZEN_CONTEXT.md": {
+                "$identity": "I0"
+              },
+              "^C/INITIAL_SOURCE_COMMON.lean.txt": {
+                "$identity": "I1"
+              },
+              "^C/BOOTSTRAP_PLAN.md": {
+                "$identity": "I2"
+              },
+              "^C/CONTROL_CONTRACT.md": {
+                "$identity": "I3"
+              },
+              "^C/runner/bootstrap_context.py": {
+                "$identity": "I4"
+              },
+              "^C/runner/capture66.py": {
+                "$identity": "I5"
+              },
+              "^C/runner/classify_inventory.py": {
+                "$identity": "I26"
+              },
+              "^C/runner/record_run.py": {
+                "$identity": "I6"
+              },
+              "^P/SourceActualRegularLocalCollar.lean": {
+                "$identity": "I27"
+              },
+              "^C/RegularLocalCollarControls.lean": {
+                "$identity": "I28"
+              },
+              "^C/FalseControl.lean": null,
+              "^C/build/SourceActualRegularLocalCollar.olean": {
+                "$identity": "I29"
+              },
+              "^C/build/RegularLocalCollarControls.olean": null,
+              "^C/HELPER_FIX001_FULL.patch": {
+                "$identity": "I9"
+              },
+              "^C/HELPER_INTEGRATION001_FULL.patch": {
+                "$identity": "I10"
+              },
+              "^C/PRODUCTION_FIXTURES001_FULL.patch": {
+                "$identity": "I11"
+              },
+              "^C/PRODUCTION_FIXTURES_FIX001_FULL.patch": {
+                "$identity": "I19"
+              },
+              "^C/PRODUCTION_FIXTURES_FIX002_FULL.patch": {
+                "$identity": "I23"
+              },
+              "^C/PRODUCTION_FIXTURES_FIX003_FULL.patch": {
+                "$identity": "I30"
+              },
+              "^C/SOURCE_FIX001_FULL.patch": {
+                "$identity": "I12"
+              },
+              "^C/SOURCE_INITIAL_FULL.patch": {
+                "$identity": "I13"
+              },
+              "^C/TRANSFER_FIXTURE001_FULL.patch": {
+                "$identity": "I14"
+              },
+              "^C/TRANSFER_STATICFIX001_FULL.patch": {
+                "$identity": "I15"
+              }
+            },
+            "streams": {
+              "stdout.log": {
+                "$identity": "I31"
+              },
+              "stderr.log": {
+                "$identity": "I32"
+              }
+            },
+            "worker_capture": "Original separate full stdout/stderr; actual inner result retained independently of outer/entry",
+            "binary_snapshot_or_canonical_object_copy": false
+          }
+        },
+        {
+          "path": "^C/outer/controls001/RECEIPT.json",
+          "original_bytes": 2239,
+          "fields": {
+            "operation": "stage66-outer-capture",
+            "scope": "outer",
+            "script_argv": [
+              "^C/runner/capture66.py",
+              "--run-dir",
+              "^C/outer/controls001",
+              "--cwd",
+              "^P",
+              "--scope",
+              "outer",
+              "--",
+              "python3",
+              "^C/runner/record_run.py",
+              "controls001",
+              "math",
+              "--",
+              "env",
+              "LEAN_PATH=^C/build",
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "-o",
+              "^C/build/RegularLocalCollarControls.olean",
+              "^C/RegularLocalCollarControls.lean"
+            ],
+            "command_argv": [
+              "python3",
+              "^C/runner/record_run.py",
+              "controls001",
+              "math",
+              "--",
+              "env",
+              "LEAN_PATH=^C/build",
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "-o",
+              "^C/build/RegularLocalCollarControls.olean",
+              "^C/RegularLocalCollarControls.lean"
+            ],
+            "cwd": "^P",
+            "started_utc": "2026-10-28T23:39:10.545968+00:00",
+            "original_split_streams": true,
+            "environment_recorded": {
+              "PYTHONDONTWRITEBYTECODE": "1"
+            },
+            "credential_environment_logged": false,
+            "automatic_retry": false,
+            "ended_utc": "2026-10-28T23:39:11.120424+00:00",
+            "elapsed_seconds": 0.5744630269982736,
+            "child_exit_code": 1,
+            "spawn_or_wrapper_exception": null,
+            "stdout": "^C/outer/controls001/stdout.log",
+            "stderr": "^C/outer/controls001/stderr.log",
+            "status": "FAIL_PRESERVED_NO_RETRY"
+          }
+        },
+        {
+          "path": "^C/entry/controls001/RECEIPT.json",
+          "original_bytes": 2941,
+          "fields": {
+            "operation": "stage66-entry-capture",
+            "scope": "entry",
+            "script_argv": [
+              "^C/runner/capture66.py",
+              "--run-dir",
+              "^C/entry/controls001",
+              "--cwd",
+              "^P",
+              "--scope",
+              "entry",
+              "--",
+              "python3",
+              "^C/runner/capture66.py",
+              "--run-dir",
+              "^C/outer/controls001",
+              "--cwd",
+              "^P",
+              "--scope",
+              "outer",
+              "--",
+              "python3",
+              "^C/runner/record_run.py",
+              "controls001",
+              "math",
+              "--",
+              "env",
+              "LEAN_PATH=^C/build",
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "-o",
+              "^C/build/RegularLocalCollarControls.olean",
+              "^C/RegularLocalCollarControls.lean"
+            ],
+            "command_argv": [
+              "python3",
+              "^C/runner/capture66.py",
+              "--run-dir",
+              "^C/outer/controls001",
+              "--cwd",
+              "^P",
+              "--scope",
+              "outer",
+              "--",
+              "python3",
+              "^C/runner/record_run.py",
+              "controls001",
+              "math",
+              "--",
+              "env",
+              "LEAN_PATH=^C/build",
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "-o",
+              "^C/build/RegularLocalCollarControls.olean",
+              "^C/RegularLocalCollarControls.lean"
+            ],
+            "cwd": "^P",
+            "started_utc": "2026-10-28T23:39:10.516455+00:00",
+            "original_split_streams": true,
+            "environment_recorded": {
+              "PYTHONDONTWRITEBYTECODE": "1"
+            },
+            "credential_environment_logged": false,
+            "automatic_retry": false,
+            "ended_utc": "2026-10-28T23:39:11.130049+00:00",
+            "elapsed_seconds": 0.6136014769981557,
+            "child_exit_code": 1,
+            "spawn_or_wrapper_exception": null,
+            "stdout": "^C/entry/controls001/stdout.log",
+            "stderr": "^C/entry/controls001/stderr.log",
+            "status": "FAIL_PRESERVED_NO_RETRY"
+          }
+        }
+      ],
+      "streams": [
+        {
+          "path": "^C/runs/controls001/stdout.log",
+          "original_bytes": 0,
+          "text": ""
+        },
+        {
+          "path": "^C/runs/controls001/stderr.log",
+          "original_bytes": 229,
+          "text": "input file '/workspace/scratch/actual-source-regular-local-collar-construct/RegularLocalCollarControls.lean' must be contained in root directory (/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/)\n"
+        },
+        {
+          "path": "^C/outer/controls001/stdout.log",
+          "original_bytes": 168,
+          "text": "{\"label\": \"controls001\", \"exit_code\": 1, \"receipt\": \"/workspace/scratch/actual-source-regular-local-collar-construct/runs/controls001/receipt.json\", \"exception\": null}\n"
+        },
+        {
+          "path": "^C/outer/controls001/stderr.log",
+          "original_bytes": 0,
+          "text": ""
+        },
+        {
+          "path": "^C/entry/controls001/stdout.log",
+          "original_bytes": 187,
+          "text": "{\"scope\": \"outer\", \"child_exit_code\": 1, \"status\": \"FAIL_PRESERVED_NO_RETRY\", \"receipt\": \"/workspace/scratch/actual-source-regular-local-collar-construct/outer/controls001/RECEIPT.json\"}\n"
+        },
+        {
+          "path": "^C/entry/controls001/stderr.log",
+          "original_bytes": 0,
+          "text": ""
+        }
+      ],
+      "new_identity_definitions": {
+        "I26": {
+          "path": "^C/runner/classify_inventory.py",
+          "bytes": 2974,
+          "sha256": "18fcdf651d5d934482172381ba2deff2ee2f70a3e1fe2835c12b2471db2a1d66",
+          "marker": [
+            2974,
+            1793230620395003438
+          ],
+          "first_observed_utc": "2026-10-28T23:37:00.395023+00:00",
+          "origin": "FIRST new audit/classification source identity before own first execution"
+        },
+        "I27": {
+          "path": "^P/SourceActualRegularLocalCollar.lean",
+          "bytes": 30286,
+          "sha256": "82823ac4360cbfb6eda057eb9fc212c870842703a14f5222454df70f19ed0d96",
+          "marker": [
+            30286,
+            1793230531194021301
+          ],
+          "first_observed_utc": "2026-10-28T23:35:31.204813+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "I28": {
+          "path": "^C/RegularLocalCollarControls.lean",
+          "bytes": 12988,
+          "sha256": "cf17a6a16ae93db33473ddb8518bdaa9dd885702fe55402136904a18ea548b50",
+          "marker": [
+            12988,
+            1793230750211606100
+          ],
+          "first_observed_utc": "2026-10-28T23:39:10.213244+00:00",
+          "origin": "FIRST complete producer-authored ordinary original before its first qualification"
+        },
+        "I29": {
+          "path": "^C/build/SourceActualRegularLocalCollar.olean",
+          "bytes": 1341664,
+          "sha256": "9050a31e570e121e268239f3374e9129037a78084bca7fc64f63ac0404bddad0",
+          "marker": [
+            1341664,
+            1793230535357287684
+          ],
+          "first_observed_utc": "2026-10-28T23:35:35.476549+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "I30": {
+          "path": "^C/PRODUCTION_FIXTURES_FIX003_FULL.patch",
+          "bytes": 561,
+          "sha256": "2c6a088a1d9e3c9446c5276165c91db051ba9cca50f0c2151df3d21fe0859aa6",
+          "marker": [
+            561,
+            1793230531194901284
+          ],
+          "first_observed_utc": "2026-10-28T23:35:31.195718+00:00",
+          "origin": "FIRST new actual full patch identity, once"
+        },
+        "I31": {
+          "path": "^C/runs/controls001/stdout.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230750587317437
+          ],
+          "first_observed_utc": "2026-10-28T23:39:11.107962+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        },
+        "I32": {
+          "path": "^C/runs/controls001/stderr.log",
+          "bytes": 229,
+          "sha256": "8ba9164e227469aaced88d6d74d9df97b25bf981d7ccbb8bc4fc9a7bd1c2e496",
+          "marker": [
+            229,
+            1793230751083673740
+          ],
+          "first_observed_utc": "2026-10-28T23:39:11.108035+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        }
+      }
+    },
+    {
+      "label": "controls002",
+      "receipts": [
+        {
+          "path": "^C/runs/controls002/receipt.json",
+          "original_bytes": 29906,
+          "fields": {
+            "label": "controls002",
+            "scope_kind": "math",
+            "command_argv": [
+              "env",
+              "LEAN_PATH=^C/build",
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "--root=^C",
+              "-o",
+              "^C/build/RegularLocalCollarControls.olean",
+              "^C/RegularLocalCollarControls.lean"
+            ],
+            "cwd": "^P",
+            "start_utc": "2026-10-28T23:39:40.919557+00:00",
+            "before": {
+              "^C/FROZEN_CONTEXT.md": {
+                "$identity": "I0"
+              },
+              "^C/INITIAL_SOURCE_COMMON.lean.txt": {
+                "$identity": "I1"
+              },
+              "^C/BOOTSTRAP_PLAN.md": {
+                "$identity": "I2"
+              },
+              "^C/CONTROL_CONTRACT.md": {
+                "$identity": "I3"
+              },
+              "^C/runner/bootstrap_context.py": {
+                "$identity": "I4"
+              },
+              "^C/runner/capture66.py": {
+                "$identity": "I5"
+              },
+              "^C/runner/classify_inventory.py": {
+                "$identity": "I26"
+              },
+              "^C/runner/record_run.py": {
+                "$identity": "I6"
+              },
+              "^P/SourceActualRegularLocalCollar.lean": {
+                "$identity": "I27"
+              },
+              "^C/RegularLocalCollarControls.lean": {
+                "$identity": "I28"
+              },
+              "^C/FalseControl.lean": null,
+              "^C/build/SourceActualRegularLocalCollar.olean": {
+                "$identity": "I29"
+              },
+              "^C/build/RegularLocalCollarControls.olean": null,
+              "^C/HELPER_FIX001_FULL.patch": {
+                "$identity": "I9"
+              },
+              "^C/HELPER_INTEGRATION001_FULL.patch": {
+                "$identity": "I10"
+              },
+              "^C/PRODUCTION_FIXTURES001_FULL.patch": {
+                "$identity": "I11"
+              },
+              "^C/PRODUCTION_FIXTURES_FIX001_FULL.patch": {
+                "$identity": "I19"
+              },
+              "^C/PRODUCTION_FIXTURES_FIX002_FULL.patch": {
+                "$identity": "I23"
+              },
+              "^C/PRODUCTION_FIXTURES_FIX003_FULL.patch": {
+                "$identity": "I30"
+              },
+              "^C/SOURCE_FIX001_FULL.patch": {
+                "$identity": "I12"
+              },
+              "^C/SOURCE_INITIAL_FULL.patch": {
+                "$identity": "I13"
+              },
+              "^C/TRANSFER_FIXTURE001_FULL.patch": {
+                "$identity": "I14"
+              },
+              "^C/TRANSFER_STATICFIX001_FULL.patch": {
+                "$identity": "I15"
+              }
+            },
+            "before_snapshots": {
+              "^C/FROZEN_CONTEXT.md": "^C/runs/controls002/before/0-FROZEN_CONTEXT.md",
+              "^C/INITIAL_SOURCE_COMMON.lean.txt": "^C/runs/controls002/before/1-INITIAL_SOURCE_COMMON.lean.txt",
+              "^C/BOOTSTRAP_PLAN.md": "^C/runs/controls002/before/2-BOOTSTRAP_PLAN.md",
+              "^C/CONTROL_CONTRACT.md": "^C/runs/controls002/before/3-CONTROL_CONTRACT.md",
+              "^C/runner/bootstrap_context.py": "^C/runs/controls002/before/4-bootstrap_context.py",
+              "^C/runner/capture66.py": "^C/runs/controls002/before/5-capture66.py",
+              "^C/runner/classify_inventory.py": "^C/runs/controls002/before/6-classify_inventory.py",
+              "^C/runner/record_run.py": "^C/runs/controls002/before/7-record_run.py",
+              "^P/SourceActualRegularLocalCollar.lean": "^C/runs/controls002/before/8-SourceActualRegularLocalCollar.lean",
+              "^C/RegularLocalCollarControls.lean": "^C/runs/controls002/before/9-RegularLocalCollarControls.lean",
+              "^C/HELPER_FIX001_FULL.patch": "^C/runs/controls002/before/13-HELPER_FIX001_FULL.patch",
+              "^C/HELPER_INTEGRATION001_FULL.patch": "^C/runs/controls002/before/14-HELPER_INTEGRATION001_FULL.patch",
+              "^C/PRODUCTION_FIXTURES001_FULL.patch": "^C/runs/controls002/before/15-PRODUCTION_FIXTURES001_FULL.patch",
+              "^C/PRODUCTION_FIXTURES_FIX001_FULL.patch": "^C/runs/controls002/before/16-PRODUCTION_FIXTURES_FIX001_FULL.patch",
+              "^C/PRODUCTION_FIXTURES_FIX002_FULL.patch": "^C/runs/controls002/before/17-PRODUCTION_FIXTURES_FIX002_FULL.patch",
+              "^C/PRODUCTION_FIXTURES_FIX003_FULL.patch": "^C/runs/controls002/before/18-PRODUCTION_FIXTURES_FIX003_FULL.patch",
+              "^C/SOURCE_FIX001_FULL.patch": "^C/runs/controls002/before/19-SOURCE_FIX001_FULL.patch",
+              "^C/SOURCE_INITIAL_FULL.patch": "^C/runs/controls002/before/20-SOURCE_INITIAL_FULL.patch",
+              "^C/TRANSFER_FIXTURE001_FULL.patch": "^C/runs/controls002/before/21-TRANSFER_FIXTURE001_FULL.patch",
+              "^C/TRANSFER_STATICFIX001_FULL.patch": "^C/runs/controls002/before/22-TRANSFER_STATICFIX001_FULL.patch"
+            },
+            "outer_capture_dir": "^C/outer/controls002",
+            "entry_capture_dir": "^C/entry/controls002",
+            "environment_recorded": {
+              "PYTHONDONTWRITEBYTECODE": "1"
+            },
+            "credential_environment_logged": false,
+            "automatic_retry": false,
+            "end_utc": "2026-10-28T23:39:44.163622+00:00",
+            "elapsed_seconds": 3.244123431002663,
+            "exit_code": 1,
+            "spawn_or_worker_exception": null,
+            "after": {
+              "^C/FROZEN_CONTEXT.md": {
+                "$identity": "I0"
+              },
+              "^C/INITIAL_SOURCE_COMMON.lean.txt": {
+                "$identity": "I1"
+              },
+              "^C/BOOTSTRAP_PLAN.md": {
+                "$identity": "I2"
+              },
+              "^C/CONTROL_CONTRACT.md": {
+                "$identity": "I3"
+              },
+              "^C/runner/bootstrap_context.py": {
+                "$identity": "I4"
+              },
+              "^C/runner/capture66.py": {
+                "$identity": "I5"
+              },
+              "^C/runner/classify_inventory.py": {
+                "$identity": "I26"
+              },
+              "^C/runner/record_run.py": {
+                "$identity": "I6"
+              },
+              "^P/SourceActualRegularLocalCollar.lean": {
+                "$identity": "I27"
+              },
+              "^C/RegularLocalCollarControls.lean": {
+                "$identity": "I28"
+              },
+              "^C/FalseControl.lean": null,
+              "^C/build/SourceActualRegularLocalCollar.olean": {
+                "$identity": "I29"
+              },
+              "^C/build/RegularLocalCollarControls.olean": null,
+              "^C/HELPER_FIX001_FULL.patch": {
+                "$identity": "I9"
+              },
+              "^C/HELPER_INTEGRATION001_FULL.patch": {
+                "$identity": "I10"
+              },
+              "^C/PRODUCTION_FIXTURES001_FULL.patch": {
+                "$identity": "I11"
+              },
+              "^C/PRODUCTION_FIXTURES_FIX001_FULL.patch": {
+                "$identity": "I19"
+              },
+              "^C/PRODUCTION_FIXTURES_FIX002_FULL.patch": {
+                "$identity": "I23"
+              },
+              "^C/PRODUCTION_FIXTURES_FIX003_FULL.patch": {
+                "$identity": "I30"
+              },
+              "^C/SOURCE_FIX001_FULL.patch": {
+                "$identity": "I12"
+              },
+              "^C/SOURCE_INITIAL_FULL.patch": {
+                "$identity": "I13"
+              },
+              "^C/TRANSFER_FIXTURE001_FULL.patch": {
+                "$identity": "I14"
+              },
+              "^C/TRANSFER_STATICFIX001_FULL.patch": {
+                "$identity": "I15"
+              }
+            },
+            "streams": {
+              "stdout.log": {
+                "$identity": "I33"
+              },
+              "stderr.log": {
+                "$identity": "I34"
+              }
+            },
+            "worker_capture": "Original separate full stdout/stderr; actual inner result retained independently of outer/entry",
+            "binary_snapshot_or_canonical_object_copy": false
+          }
+        },
+        {
+          "path": "^C/outer/controls002/RECEIPT.json",
+          "original_bytes": 2394,
+          "fields": {
+            "operation": "stage66-outer-capture",
+            "scope": "outer",
+            "script_argv": [
+              "^C/runner/capture66.py",
+              "--run-dir",
+              "^C/outer/controls002",
+              "--cwd",
+              "^P",
+              "--scope",
+              "outer",
+              "--",
+              "python3",
+              "^C/runner/record_run.py",
+              "controls002",
+              "math",
+              "--",
+              "env",
+              "LEAN_PATH=^C/build",
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "--root=^C",
+              "-o",
+              "^C/build/RegularLocalCollarControls.olean",
+              "^C/RegularLocalCollarControls.lean"
+            ],
+            "command_argv": [
+              "python3",
+              "^C/runner/record_run.py",
+              "controls002",
+              "math",
+              "--",
+              "env",
+              "LEAN_PATH=^C/build",
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "--root=^C",
+              "-o",
+              "^C/build/RegularLocalCollarControls.olean",
+              "^C/RegularLocalCollarControls.lean"
+            ],
+            "cwd": "^P",
+            "started_utc": "2026-10-28T23:39:40.879704+00:00",
+            "original_split_streams": true,
+            "environment_recorded": {
+              "PYTHONDONTWRITEBYTECODE": "1"
+            },
+            "credential_environment_logged": false,
+            "automatic_retry": false,
+            "ended_utc": "2026-10-28T23:39:44.180529+00:00",
+            "elapsed_seconds": 3.300831432999985,
+            "child_exit_code": 1,
+            "spawn_or_wrapper_exception": null,
+            "stdout": "^C/outer/controls002/stdout.log",
+            "stderr": "^C/outer/controls002/stderr.log",
+            "status": "FAIL_PRESERVED_NO_RETRY"
+          }
+        },
+        {
+          "path": "^C/entry/controls002/RECEIPT.json",
+          "original_bytes": 3097,
+          "fields": {
+            "operation": "stage66-entry-capture",
+            "scope": "entry",
+            "script_argv": [
+              "^C/runner/capture66.py",
+              "--run-dir",
+              "^C/entry/controls002",
+              "--cwd",
+              "^P",
+              "--scope",
+              "entry",
+              "--",
+              "python3",
+              "^C/runner/capture66.py",
+              "--run-dir",
+              "^C/outer/controls002",
+              "--cwd",
+              "^P",
+              "--scope",
+              "outer",
+              "--",
+              "python3",
+              "^C/runner/record_run.py",
+              "controls002",
+              "math",
+              "--",
+              "env",
+              "LEAN_PATH=^C/build",
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "--root=^C",
+              "-o",
+              "^C/build/RegularLocalCollarControls.olean",
+              "^C/RegularLocalCollarControls.lean"
+            ],
+            "command_argv": [
+              "python3",
+              "^C/runner/capture66.py",
+              "--run-dir",
+              "^C/outer/controls002",
+              "--cwd",
+              "^P",
+              "--scope",
+              "outer",
+              "--",
+              "python3",
+              "^C/runner/record_run.py",
+              "controls002",
+              "math",
+              "--",
+              "env",
+              "LEAN_PATH=^C/build",
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "--root=^C",
+              "-o",
+              "^C/build/RegularLocalCollarControls.olean",
+              "^C/RegularLocalCollarControls.lean"
+            ],
+            "cwd": "^P",
+            "started_utc": "2026-10-28T23:39:40.846561+00:00",
+            "original_split_streams": true,
+            "environment_recorded": {
+              "PYTHONDONTWRITEBYTECODE": "1"
+            },
+            "credential_environment_logged": false,
+            "automatic_retry": false,
+            "ended_utc": "2026-10-28T23:39:44.190453+00:00",
+            "elapsed_seconds": 3.3439284580017556,
+            "child_exit_code": 1,
+            "spawn_or_wrapper_exception": null,
+            "stdout": "^C/entry/controls002/stdout.log",
+            "stderr": "^C/entry/controls002/stderr.log",
+            "status": "FAIL_PRESERVED_NO_RETRY"
+          }
+        }
+      ],
+      "streams": [
+        {
+          "path": "^C/runs/controls002/stdout.log",
+          "original_bytes": 1465,
+          "text": "/workspace/scratch/actual-source-regular-local-collar-construct/RegularLocalCollarControls.lean:159:6: error: Type mismatch: After simplification, term\n  ha\n has type\n  @LT.lt ℝ Real.instLT |a| ρ\nbut is expected to have type\n  @LT.lt ℝ Real.instLT |![a, ε] ⟨0, ⋯⟩| ρ\n/workspace/scratch/actual-source-regular-local-collar-construct/RegularLocalCollarControls.lean:160:6: error: Type mismatch: After simplification, term\n  hε\n has type\n  @LT.lt ℝ Real.instLT |ε| ρ\nbut is expected to have type\n  @LT.lt ℝ Real.instLT |![a, ε] ⟨1, ⋯⟩| ρ\n/workspace/scratch/actual-source-regular-local-collar-construct/RegularLocalCollarControls.lean:277:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  |ρ / 2|\nin the target expression\n  |![0, ρ / 2] ⟨1, ⋯⟩| < ρ\n\ncase «1»\nρ : ℝ\nhρ : 0 < ρ\nφ : OpenPartialHomeomorph T2 P2\n_hsource : projection pm ∈ φ.source\n_hcenter : ↑φ (projection pm) = 0\n_hinside : φ.source ⊆ neighborhood pm\nhtarget : φ.target = Metric.ball 0 ρ\nhheight : ∀ z ∈ φ.source, F z = F (projection pm) + ↑φ z 1\n⊢ |![0, ρ / 2] ⟨1, ⋯⟩| < ρ\n/workspace/scratch/actual-source-regular-local-collar-construct/RegularLocalCollarControls.lean:276:17: error: This simp argument is unused:\n  Matrix.cons_val_one\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [Real.norm_eq_abs]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n"
+        },
+        {
+          "path": "^C/runs/controls002/stderr.log",
+          "original_bytes": 0,
+          "text": ""
+        },
+        {
+          "path": "^C/outer/controls002/stdout.log",
+          "original_bytes": 168,
+          "text": "{\"label\": \"controls002\", \"exit_code\": 1, \"receipt\": \"/workspace/scratch/actual-source-regular-local-collar-construct/runs/controls002/receipt.json\", \"exception\": null}\n"
+        },
+        {
+          "path": "^C/outer/controls002/stderr.log",
+          "original_bytes": 0,
+          "text": ""
+        },
+        {
+          "path": "^C/entry/controls002/stdout.log",
+          "original_bytes": 187,
+          "text": "{\"scope\": \"outer\", \"child_exit_code\": 1, \"status\": \"FAIL_PRESERVED_NO_RETRY\", \"receipt\": \"/workspace/scratch/actual-source-regular-local-collar-construct/outer/controls002/RECEIPT.json\"}\n"
+        },
+        {
+          "path": "^C/entry/controls002/stderr.log",
+          "original_bytes": 0,
+          "text": ""
+        }
+      ],
+      "new_identity_definitions": {
+        "I33": {
+          "path": "^C/runs/controls002/stdout.log",
+          "bytes": 1465,
+          "sha256": "f1e3c1c3848130b9e9fc16d76cc087636923e2eaa2b2ea413c80282026bc7bb2",
+          "marker": [
+            1465,
+            1793230784049856180
+          ],
+          "first_observed_utc": "2026-10-28T23:39:44.166572+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "I34": {
+          "path": "^C/runs/controls002/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230780921298773
+          ],
+          "first_observed_utc": "2026-10-28T23:39:44.166599+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      }
+    },
+    {
+      "label": "controls003",
+      "receipts": [
+        {
+          "path": "^C/runs/controls003/receipt.json",
+          "original_bytes": 31137,
+          "fields": {
+            "label": "controls003",
+            "scope_kind": "math",
+            "command_argv": [
+              "env",
+              "LEAN_PATH=^C/build",
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "--root=^C",
+              "-o",
+              "^C/build/RegularLocalCollarControls.olean",
+              "^C/RegularLocalCollarControls.lean"
+            ],
+            "cwd": "^P",
+            "start_utc": "2026-10-28T23:40:17.191235+00:00",
+            "before": {
+              "^C/FROZEN_CONTEXT.md": {
+                "$identity": "I0"
+              },
+              "^C/INITIAL_SOURCE_COMMON.lean.txt": {
+                "$identity": "I1"
+              },
+              "^C/BOOTSTRAP_PLAN.md": {
+                "$identity": "I2"
+              },
+              "^C/CONTROL_CONTRACT.md": {
+                "$identity": "I3"
+              },
+              "^C/runner/bootstrap_context.py": {
+                "$identity": "I4"
+              },
+              "^C/runner/capture66.py": {
+                "$identity": "I5"
+              },
+              "^C/runner/classify_inventory.py": {
+                "$identity": "I35"
+              },
+              "^C/runner/record_run.py": {
+                "$identity": "I6"
+              },
+              "^P/SourceActualRegularLocalCollar.lean": {
+                "$identity": "I27"
+              },
+              "^C/RegularLocalCollarControls.lean": {
+                "$identity": "I36"
+              },
+              "^C/FalseControl.lean": null,
+              "^C/build/SourceActualRegularLocalCollar.olean": {
+                "$identity": "I29"
+              },
+              "^C/build/RegularLocalCollarControls.olean": null,
+              "^C/HELPER_FIX001_FULL.patch": {
+                "$identity": "I9"
+              },
+              "^C/HELPER_INTEGRATION001_FULL.patch": {
+                "$identity": "I10"
+              },
+              "^C/ORDINARY_FIX001_FULL.patch": {
+                "$identity": "I37"
+              },
+              "^C/PRODUCTION_FIXTURES001_FULL.patch": {
+                "$identity": "I11"
+              },
+              "^C/PRODUCTION_FIXTURES_FIX001_FULL.patch": {
+                "$identity": "I19"
+              },
+              "^C/PRODUCTION_FIXTURES_FIX002_FULL.patch": {
+                "$identity": "I23"
+              },
+              "^C/PRODUCTION_FIXTURES_FIX003_FULL.patch": {
+                "$identity": "I30"
+              },
+              "^C/SOURCE_FIX001_FULL.patch": {
+                "$identity": "I12"
+              },
+              "^C/SOURCE_INITIAL_FULL.patch": {
+                "$identity": "I13"
+              },
+              "^C/TRANSFER_FIXTURE001_FULL.patch": {
+                "$identity": "I14"
+              },
+              "^C/TRANSFER_STATICFIX001_FULL.patch": {
+                "$identity": "I15"
+              }
+            },
+            "before_snapshots": {
+              "^C/FROZEN_CONTEXT.md": "^C/runs/controls003/before/0-FROZEN_CONTEXT.md",
+              "^C/INITIAL_SOURCE_COMMON.lean.txt": "^C/runs/controls003/before/1-INITIAL_SOURCE_COMMON.lean.txt",
+              "^C/BOOTSTRAP_PLAN.md": "^C/runs/controls003/before/2-BOOTSTRAP_PLAN.md",
+              "^C/CONTROL_CONTRACT.md": "^C/runs/controls003/before/3-CONTROL_CONTRACT.md",
+              "^C/runner/bootstrap_context.py": "^C/runs/controls003/before/4-bootstrap_context.py",
+              "^C/runner/capture66.py": "^C/runs/controls003/before/5-capture66.py",
+              "^C/runner/classify_inventory.py": "^C/runs/controls003/before/6-classify_inventory.py",
+              "^C/runner/record_run.py": "^C/runs/controls003/before/7-record_run.py",
+              "^P/SourceActualRegularLocalCollar.lean": "^C/runs/controls003/before/8-SourceActualRegularLocalCollar.lean",
+              "^C/RegularLocalCollarControls.lean": "^C/runs/controls003/before/9-RegularLocalCollarControls.lean",
+              "^C/HELPER_FIX001_FULL.patch": "^C/runs/controls003/before/13-HELPER_FIX001_FULL.patch",
+              "^C/HELPER_INTEGRATION001_FULL.patch": "^C/runs/controls003/before/14-HELPER_INTEGRATION001_FULL.patch",
+              "^C/ORDINARY_FIX001_FULL.patch": "^C/runs/controls003/before/15-ORDINARY_FIX001_FULL.patch",
+              "^C/PRODUCTION_FIXTURES001_FULL.patch": "^C/runs/controls003/before/16-PRODUCTION_FIXTURES001_FULL.patch",
+              "^C/PRODUCTION_FIXTURES_FIX001_FULL.patch": "^C/runs/controls003/before/17-PRODUCTION_FIXTURES_FIX001_FULL.patch",
+              "^C/PRODUCTION_FIXTURES_FIX002_FULL.patch": "^C/runs/controls003/before/18-PRODUCTION_FIXTURES_FIX002_FULL.patch",
+              "^C/PRODUCTION_FIXTURES_FIX003_FULL.patch": "^C/runs/controls003/before/19-PRODUCTION_FIXTURES_FIX003_FULL.patch",
+              "^C/SOURCE_FIX001_FULL.patch": "^C/runs/controls003/before/20-SOURCE_FIX001_FULL.patch",
+              "^C/SOURCE_INITIAL_FULL.patch": "^C/runs/controls003/before/21-SOURCE_INITIAL_FULL.patch",
+              "^C/TRANSFER_FIXTURE001_FULL.patch": "^C/runs/controls003/before/22-TRANSFER_FIXTURE001_FULL.patch",
+              "^C/TRANSFER_STATICFIX001_FULL.patch": "^C/runs/controls003/before/23-TRANSFER_STATICFIX001_FULL.patch"
+            },
+            "outer_capture_dir": "^C/outer/controls003",
+            "entry_capture_dir": "^C/entry/controls003",
+            "environment_recorded": {
+              "PYTHONDONTWRITEBYTECODE": "1"
+            },
+            "credential_environment_logged": false,
+            "automatic_retry": false,
+            "end_utc": "2026-10-28T23:40:20.311693+00:00",
+            "elapsed_seconds": 3.120469667002908,
+            "exit_code": 1,
+            "spawn_or_worker_exception": null,
+            "after": {
+              "^C/FROZEN_CONTEXT.md": {
+                "$identity": "I0"
+              },
+              "^C/INITIAL_SOURCE_COMMON.lean.txt": {
+                "$identity": "I1"
+              },
+              "^C/BOOTSTRAP_PLAN.md": {
+                "$identity": "I2"
+              },
+              "^C/CONTROL_CONTRACT.md": {
+                "$identity": "I3"
+              },
+              "^C/runner/bootstrap_context.py": {
+                "$identity": "I4"
+              },
+              "^C/runner/capture66.py": {
+                "$identity": "I5"
+              },
+              "^C/runner/classify_inventory.py": {
+                "$identity": "I35"
+              },
+              "^C/runner/record_run.py": {
+                "$identity": "I6"
+              },
+              "^P/SourceActualRegularLocalCollar.lean": {
+                "$identity": "I27"
+              },
+              "^C/RegularLocalCollarControls.lean": {
+                "$identity": "I36"
+              },
+              "^C/FalseControl.lean": null,
+              "^C/build/SourceActualRegularLocalCollar.olean": {
+                "$identity": "I29"
+              },
+              "^C/build/RegularLocalCollarControls.olean": null,
+              "^C/HELPER_FIX001_FULL.patch": {
+                "$identity": "I9"
+              },
+              "^C/HELPER_INTEGRATION001_FULL.patch": {
+                "$identity": "I10"
+              },
+              "^C/ORDINARY_FIX001_FULL.patch": {
+                "$identity": "I37"
+              },
+              "^C/PRODUCTION_FIXTURES001_FULL.patch": {
+                "$identity": "I11"
+              },
+              "^C/PRODUCTION_FIXTURES_FIX001_FULL.patch": {
+                "$identity": "I19"
+              },
+              "^C/PRODUCTION_FIXTURES_FIX002_FULL.patch": {
+                "$identity": "I23"
+              },
+              "^C/PRODUCTION_FIXTURES_FIX003_FULL.patch": {
+                "$identity": "I30"
+              },
+              "^C/SOURCE_FIX001_FULL.patch": {
+                "$identity": "I12"
+              },
+              "^C/SOURCE_INITIAL_FULL.patch": {
+                "$identity": "I13"
+              },
+              "^C/TRANSFER_FIXTURE001_FULL.patch": {
+                "$identity": "I14"
+              },
+              "^C/TRANSFER_STATICFIX001_FULL.patch": {
+                "$identity": "I15"
+              }
+            },
+            "streams": {
+              "stdout.log": {
+                "$identity": "I38"
+              },
+              "stderr.log": {
+                "$identity": "I39"
+              }
+            },
+            "worker_capture": "Original separate full stdout/stderr; actual inner result retained independently of outer/entry",
+            "binary_snapshot_or_canonical_object_copy": false
+          }
+        },
+        {
+          "path": "^C/outer/controls003/RECEIPT.json",
+          "original_bytes": 2394,
+          "fields": {
+            "operation": "stage66-outer-capture",
+            "scope": "outer",
+            "script_argv": [
+              "^C/runner/capture66.py",
+              "--run-dir",
+              "^C/outer/controls003",
+              "--cwd",
+              "^P",
+              "--scope",
+              "outer",
+              "--",
+              "python3",
+              "^C/runner/record_run.py",
+              "controls003",
+              "math",
+              "--",
+              "env",
+              "LEAN_PATH=^C/build",
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "--root=^C",
+              "-o",
+              "^C/build/RegularLocalCollarControls.olean",
+              "^C/RegularLocalCollarControls.lean"
+            ],
+            "command_argv": [
+              "python3",
+              "^C/runner/record_run.py",
+              "controls003",
+              "math",
+              "--",
+              "env",
+              "LEAN_PATH=^C/build",
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "--root=^C",
+              "-o",
+              "^C/build/RegularLocalCollarControls.olean",
+              "^C/RegularLocalCollarControls.lean"
+            ],
+            "cwd": "^P",
+            "started_utc": "2026-10-28T23:40:17.147804+00:00",
+            "original_split_streams": true,
+            "environment_recorded": {
+              "PYTHONDONTWRITEBYTECODE": "1"
+            },
+            "credential_environment_logged": false,
+            "automatic_retry": false,
+            "ended_utc": "2026-10-28T23:40:20.327423+00:00",
+            "elapsed_seconds": 3.179638485999021,
+            "child_exit_code": 1,
+            "spawn_or_wrapper_exception": null,
+            "stdout": "^C/outer/controls003/stdout.log",
+            "stderr": "^C/outer/controls003/stderr.log",
+            "status": "FAIL_PRESERVED_NO_RETRY"
+          }
+        },
+        {
+          "path": "^C/entry/controls003/RECEIPT.json",
+          "original_bytes": 3096,
+          "fields": {
+            "operation": "stage66-entry-capture",
+            "scope": "entry",
+            "script_argv": [
+              "^C/runner/capture66.py",
+              "--run-dir",
+              "^C/entry/controls003",
+              "--cwd",
+              "^P",
+              "--scope",
+              "entry",
+              "--",
+              "python3",
+              "^C/runner/capture66.py",
+              "--run-dir",
+              "^C/outer/controls003",
+              "--cwd",
+              "^P",
+              "--scope",
+              "outer",
+              "--",
+              "python3",
+              "^C/runner/record_run.py",
+              "controls003",
+              "math",
+              "--",
+              "env",
+              "LEAN_PATH=^C/build",
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "--root=^C",
+              "-o",
+              "^C/build/RegularLocalCollarControls.olean",
+              "^C/RegularLocalCollarControls.lean"
+            ],
+            "command_argv": [
+              "python3",
+              "^C/runner/capture66.py",
+              "--run-dir",
+              "^C/outer/controls003",
+              "--cwd",
+              "^P",
+              "--scope",
+              "outer",
+              "--",
+              "python3",
+              "^C/runner/record_run.py",
+              "controls003",
+              "math",
+              "--",
+              "env",
+              "LEAN_PATH=^C/build",
+              "lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "--root=^C",
+              "-o",
+              "^C/build/RegularLocalCollarControls.olean",
+              "^C/RegularLocalCollarControls.lean"
+            ],
+            "cwd": "^P",
+            "started_utc": "2026-10-28T23:40:17.115917+00:00",
+            "original_split_streams": true,
+            "environment_recorded": {
+              "PYTHONDONTWRITEBYTECODE": "1"
+            },
+            "credential_environment_logged": false,
+            "automatic_retry": false,
+            "ended_utc": "2026-10-28T23:40:20.336034+00:00",
+            "elapsed_seconds": 3.220124403000227,
+            "child_exit_code": 1,
+            "spawn_or_wrapper_exception": null,
+            "stdout": "^C/entry/controls003/stdout.log",
+            "stderr": "^C/entry/controls003/stderr.log",
+            "status": "FAIL_PRESERVED_NO_RETRY"
+          }
+        }
+      ],
+      "streams": [
+        {
+          "path": "^C/runs/controls003/stdout.log",
+          "original_bytes": 228,
+          "text": "/workspace/scratch/actual-source-regular-local-collar-construct/RegularLocalCollarControls.lean:279:6: error: Type mismatch: After simplification, term\n  hh\n has type\n  |ρ / 2| < ρ\nbut is expected to have type\n  |ρ| / 2 < ρ\n"
+        },
+        {
+          "path": "^C/runs/controls003/stderr.log",
+          "original_bytes": 0,
+          "text": ""
+        },
+        {
+          "path": "^C/outer/controls003/stdout.log",
+          "original_bytes": 168,
+          "text": "{\"label\": \"controls003\", \"exit_code\": 1, \"receipt\": \"/workspace/scratch/actual-source-regular-local-collar-construct/runs/controls003/receipt.json\", \"exception\": null}\n"
+        },
+        {
+          "path": "^C/outer/controls003/stderr.log",
+          "original_bytes": 0,
+          "text": ""
+        },
+        {
+          "path": "^C/entry/controls003/stdout.log",
+          "original_bytes": 187,
+          "text": "{\"scope\": \"outer\", \"child_exit_code\": 1, \"status\": \"FAIL_PRESERVED_NO_RETRY\", \"receipt\": \"/workspace/scratch/actual-source-regular-local-collar-construct/outer/controls003/RECEIPT.json\"}\n"
+        },
+        {
+          "path": "^C/entry/controls003/stderr.log",
+          "original_bytes": 0,
+          "text": ""
+        }
+      ],
+      "new_identity_definitions": {
+        "I35": {
+          "path": "^C/runner/classify_inventory.py",
+          "bytes": 3015,
+          "sha256": "dd252d2cb4b908939a81229870380ae85019838acc07c6a8956b296a19340fde",
+          "marker": [
+            3015,
+            1793230816888223017
+          ],
+          "first_observed_utc": "2026-10-28T23:40:16.898464+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "I36": {
+          "path": "^C/RegularLocalCollarControls.lean",
+          "bytes": 12902,
+          "sha256": "c5278143ec957e8ff2779c3df2ffd37fb7fcef22baf7fb9b86b691dad943a3fc",
+          "marker": [
+            12902,
+            1793230816887280221
+          ],
+          "first_observed_utc": "2026-10-28T23:40:16.898526+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "I37": {
+          "path": "^C/ORDINARY_FIX001_FULL.patch",
+          "bytes": 1538,
+          "sha256": "f94d1c83004aa4f69ba60b63e1c84a0e84e73dad918727ac3eca57a1ab042435",
+          "marker": [
+            1538,
+            1793230816888456209
+          ],
+          "first_observed_utc": "2026-10-28T23:40:16.888499+00:00",
+          "origin": "FIRST actual ordinary/new-classification amendment patch identity, once"
+        },
+        "I38": {
+          "path": "^C/runs/controls003/stdout.log",
+          "bytes": 228,
+          "sha256": "82af0dc0da4f0169f11aa935623ff1bd04e24b3fd34de9dd3d756516bc40759a",
+          "marker": [
+            228,
+            1793230820199852011
+          ],
+          "first_observed_utc": "2026-10-28T23:40:20.314274+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "I39": {
+          "path": "^C/runs/controls003/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230817192672650
+          ],
+          "first_observed_utc": "2026-10-28T23:40:20.314302+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      }
+    }
+  ],
+  "completed_utc": "2026-10-28T23:59:44.134988+00:00",
+  "status": "PASS_FINITE_FAILED_CAPTURE_CUSTODY_NO_NEW_DEFECT",
+  "original_receipt_count": 18,
+  "original_receipt_bytes": 194522,
+  "original_split_stream_count": 36,
+  "original_stream_bytes": 8949,
+  "original_content_output_truncated": false,
+  "literal_raw_JSON_FULL_claim": false,
+  "complete_recorded_field_coverage": true,
+  "original_stream_contents_FULL": true,
+  "referenced_snapshot_contents_read": false,
+  "actual_source_objects_cache_or_history_contents_read": false,
+  "mathematical_replays": 0,
+  "new_hashes": 0,
+  "source_or_object_copies": 0,
+  "Git_or_external_actions": 0,
+  "scientific_provider_distinct_credit": 0,
+  "proof_authorship": false,
+  "completed_mathematical_verification_reused": true,
+  "limits": [
+    "Finite assigned six families only; not all nine stage66 historical failures",
+    "Recorded identity dictionaries and snapshot maps read; referenced contents not opened or compared",
+    "No INTENT/STARTED/RESULT sidecar FULL reading claim",
+    "Later read-only controls003 transport failure/recovery is separately carried parent evidence, not a new mathematical run"
+  ]
+}

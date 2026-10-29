@@ -1,0 +1,47 @@
+{
+  "operation": "stage66-outer-capture",
+  "scope": "outer",
+  "script_argv": [
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+    "--run-dir",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/outer/ordinary-fix002",
+    "--cwd",
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "--scope",
+    "outer",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+    "ordinary-fix002",
+    "documentary",
+    "--",
+    "python3",
+    "-c",
+    "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct');S=B/'RegularLocalCollarControls.lean'\nold=S.read_text();a=\"    \u00b7 have hh : |\u03c1 / 2| < \u03c1 := by\\n        rw [abs_of_pos (by positivity : 0 < \u03c1 / 2)]\\n        linarith\\n      simpa using hh\";assert old.count(a)==1;new=old.replace(a,\"    \u00b7 simpa [Real.norm_eq_abs, abs_div, abs_of_pos h\u03c1] using\\n        (show \u03c1 / 2 < \u03c1 by linarith)\")\nH=B/'history/ordinary-fix002';H.mkdir(parents=True,exist_ok=False);orig=H/'RegularLocalCollarControls.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'ORDINARY_FIX002_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/ordinary-fix002/RegularLocalCollarControls.lean.ORIGINAL',tofile='RegularLocalCollarControls.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior ordinary source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST actual ordinary full patch identity, once'};cp.write_text(json.dumps(cache,indent=2)+'\\n')\nrecord={'status':'READONLY_EXEC_TRANSPORT_SPAWN_FAILURE_RECOVERED_WITH_FAILED_READ_ONLY_RETRY','recorded_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'failed_action':'cat runs/controls003/stdout.log and stderr.log','actual_error':'exec_command failed: CreateProcess { message: \"Rejected(\\\\\\\"Failed to create unified exec process: exec-server transport disconnected\\\\\\\")\" }','tool_wall_time_seconds':12.9,'failed_child_process_created':False,'failure_start_end_utc_not_observed':True,'recovery':'Same read-only command retried once successfully, then clock observed2026-10-28 23:40:48UTC','mathematical_worker_replays':0,'controls003_actual_failure_preserved_unchanged':True}\n(B/'EXEC_READONLY_TRANSPORT_FAILURE001.json').write_text(json.dumps(record,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only controls003 max-inverse vector norm simplification','full_patch':str(p),'transport_failure_record':str(B/'EXEC_READONLY_TRANSPORT_FAILURE001.json')}))\n"
+  ],
+  "command_argv": [
+    "python3",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+    "ordinary-fix002",
+    "documentary",
+    "--",
+    "python3",
+    "-c",
+    "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct');S=B/'RegularLocalCollarControls.lean'\nold=S.read_text();a=\"    \u00b7 have hh : |\u03c1 / 2| < \u03c1 := by\\n        rw [abs_of_pos (by positivity : 0 < \u03c1 / 2)]\\n        linarith\\n      simpa using hh\";assert old.count(a)==1;new=old.replace(a,\"    \u00b7 simpa [Real.norm_eq_abs, abs_div, abs_of_pos h\u03c1] using\\n        (show \u03c1 / 2 < \u03c1 by linarith)\")\nH=B/'history/ordinary-fix002';H.mkdir(parents=True,exist_ok=False);orig=H/'RegularLocalCollarControls.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'ORDINARY_FIX002_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/ordinary-fix002/RegularLocalCollarControls.lean.ORIGINAL',tofile='RegularLocalCollarControls.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior ordinary source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST actual ordinary full patch identity, once'};cp.write_text(json.dumps(cache,indent=2)+'\\n')\nrecord={'status':'READONLY_EXEC_TRANSPORT_SPAWN_FAILURE_RECOVERED_WITH_FAILED_READ_ONLY_RETRY','recorded_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'failed_action':'cat runs/controls003/stdout.log and stderr.log','actual_error':'exec_command failed: CreateProcess { message: \"Rejected(\\\\\\\"Failed to create unified exec process: exec-server transport disconnected\\\\\\\")\" }','tool_wall_time_seconds':12.9,'failed_child_process_created':False,'failure_start_end_utc_not_observed':True,'recovery':'Same read-only command retried once successfully, then clock observed2026-10-28 23:40:48UTC','mathematical_worker_replays':0,'controls003_actual_failure_preserved_unchanged':True}\n(B/'EXEC_READONLY_TRANSPORT_FAILURE001.json').write_text(json.dumps(record,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only controls003 max-inverse vector norm simplification','full_patch':str(p),'transport_failure_record':str(B/'EXEC_READONLY_TRANSPORT_FAILURE001.json')}))\n"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "started_utc": "2026-10-28T23:41:20.785683+00:00",
+  "original_split_streams": true,
+  "environment_recorded": {
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "credential_environment_logged": false,
+  "automatic_retry": false,
+  "ended_utc": "2026-10-28T23:41:20.888276+00:00",
+  "elapsed_seconds": 0.10259570100606652,
+  "child_exit_code": 0,
+  "spawn_or_wrapper_exception": null,
+  "stdout": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/ordinary-fix002/stdout.log",
+  "stderr": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/ordinary-fix002/stderr.log",
+  "status": "PASS_ACTUAL_CHILD_EXIT_ZERO"
+}

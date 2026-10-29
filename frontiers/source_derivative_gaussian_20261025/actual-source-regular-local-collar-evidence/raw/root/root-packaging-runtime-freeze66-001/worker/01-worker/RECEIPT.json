@@ -1,0 +1,17 @@
+{
+  "command_argv": [
+    "python3",
+    "-c",
+    "import pathlib,json,hashlib,datetime\nr=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-packaging');u=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-publication')\nschema=json.loads((r/'FINAL_INPUTS.schema.json').read_text());rows=[];bank={};first=0\nfor name in schema['packaging_scripts']:\n if name=='FINAL_INPUTS.json':continue\n p=r/name;raw=p.read_bytes();st=p.stat()\n if not raw:sha='e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855';origin='KnownEMPTYreuse'\n elif raw in bank:sha=bank[raw];origin='ExactNEWmetadata duplicateIDreuse'\n else:sha=hashlib.sha256(raw).hexdigest();bank[raw]=sha;first+=1;origin='FIRST previously unrecorded NEW immutable66packagingmetadata once BEFORE ownfirstexecution'\n rows.append({'source':str(p),'bytes':len(raw),'sha256':sha,'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':origin})\np=u/'ROOT_PACKAGING_RUNTIME_FIRST_IDS66.json'\nwith p.open('x') as f:json.dump({'status':'FROZEN_NEW_METADATA_RUNTIME_BEFORE_FIRST_EXECUTION','observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'rows':rows,'first_metadata_ids':first,'no_script_import_execution_or_math_verification':True},f,indent=2);f.write('\\n')\nprint(json.dumps({'status':'PASS','files':len(rows),'first_metadata_ids':first,'record':str(p)}))\n"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026",
+  "started_utc": "2026-10-28T23:59:55.032364+00:00",
+  "explicit_environment_overrides": {},
+  "stdin_binding": null,
+  "original_separate_capture": true,
+  "ended_utc": "2026-10-28T23:59:55.078760+00:00",
+  "elapsed_seconds": 0.04645700599940028,
+  "exit_code": 0,
+  "stdout": "stdout.log",
+  "stderr": "stderr.log"
+}

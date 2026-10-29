@@ -1,0 +1,49 @@
+--- publication66.py.ORIGINAL
++++ publication66.py
+@@ -63,9 +63,7 @@
+     if previous is None:
+         require(not index.exists(), 'Fresh isolated index only')
+         run.command('isolated-index-from-actual-parent', ['git', 'read-tree', parent], REPO, env_overrides=env)
+-    else:
+-        current = run.command('isolated-tree-before-tail', ['git', 'write-tree'], REPO, env_overrides=env).decode().strip()
+-        require(current == previous['tree_sha'], 'Actual original isolated-tree lease')
++    # The sole previous-plan caller checks the actual isolated-tree lease BEFORE copying its tail.
+     pathspec = run.path / 'EXPLICIT_STAGE_PATHS.nul.txt'
+     pathspec.write_bytes(b''.join(x.encode() + b'\0' for x in paths))
+     run.command('stage-ONLY-explicit-owned-paths', ['git', '--literal-pathspecs', 'add',
+@@ -100,10 +98,12 @@
+             unused_mode, kind, blob = header.decode().split()
+             if kind == 'blob': known.add(blob)
+     new = {}
++    previous_blobs = {x['sha']: x for x in previous['new_unique_blobs']} if previous else {}
+     for entry in entries:
+         if entry['sha'] not in known:
++            byte_count = previous_blobs[entry['sha']]['bytes'] if entry['sha'] in previous_blobs else (REPO / entry['path']).stat().st_size
+             new.setdefault(entry['sha'], {'sha': entry['sha'], 'representative_path': entry['path'],
+-                'bytes': (REPO / entry['path']).stat().st_size, 'paths': []})['paths'].append(entry['path'])
++                'bytes': byte_count, 'paths': []})['paths'].append(entry['path'])
+     value = {'status': TRANSPORT_STATUS, 'stage66_phase': phase, 'sourcecut': parent,
+         'base_tree_sha': base_tree, 'tree_sha': tree, 'tree_entries': sorted(entries, key=lambda x: x['path']),
+         'new_unique_blobs': [new[x] for x in sorted(new)], 'explicit_stage_paths': paths if not previous else previous['explicit_stage_paths'] + paths,
+@@ -187,6 +187,11 @@
+         receipt = read(PACK / (scope + '-captures') / 'metadata-attempt-001' / 'RECEIPT.json')
+         require(receipt['status'] == 'PASS_ACTUAL_CHILD_EXIT_ZERO' and receipt['child_exit_code'] == 0
+                 and receipt['spawn_or_wrapper_exception'] is None, 'Actual closed66 wrapper required')
++    index = Path(previous['isolated_index'])
++    require(index.is_file() and not index.is_symlink(), 'Same actual first isolated index')
++    current = run.command('actual-isolated-tree-lease-before-any-tail-copy', ['git', 'write-tree'], REPO,
++                          env_overrides={'GIT_INDEX_FILE': str(index)}).decode().strip()
++    require(current == previous['tree_sha'], 'Actual original isolated-tree lease before mutation')
+     copy_rows(run, rows, fresh=True)
+     value = tree_plan(run, previous['sourcecut'], previous['base_tree_sha'], [x['path'] for x in rows], 'metadata',
+         index=previous['isolated_index'], previous=previous, base_bindings=previous['base_tree_binding_stdout'])
+@@ -202,6 +207,9 @@
+     require(len(paths) == len(set(paths)) and set(paths) <= set(plan['explicit_stage_paths']), 'Only unique explicitly authorized index entries')
+     require(not set(paths) & set(plan['binding_SKIP_paths']), 'Five metadata bindings remain SKIP')
+     require(all(x['mode'] == '100644' and x['type'] == 'blob' and sha(x['sha']) for x in rows), 'Regular blob bindings')
++    if plan['stage66_phase'] == 'source_cut':
++        require(parent == BASE and paths == [SOURCE], 'Only actual66 source-cut import')
++        require(not (PUB / 'ROOT_SOURCE_CUT.json').exists(), 'Sourcecut record absent before local CAS')
+     require(run.command('local-HEAD-before-import', ['git', 'rev-parse', 'HEAD'], REPO).decode().strip() == parent, 'Actual local parent lease')
+     require(run.command('actual-symbolic-branch', ['git', 'symbolic-ref', '--quiet', 'HEAD'], REPO).decode().strip() == BRANCH, 'Owned branch only')
+     run.command('exact-public-native-commit-fetch', ['env', 'GIT_TERMINAL_PROMPT=0', 'GIT_CONFIG_NOSYSTEM=1', 'GIT_CONFIG_GLOBAL=/dev/null',

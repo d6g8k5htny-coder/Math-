@@ -1,0 +1,343 @@
+{
+  "reader": "/root/regular_collar_technical_review/documentary_custody_reader/helper_families",
+  "role": "read-only NONAUTHOR documentary custody subreviewer",
+  "scope_kind": "documentary originals only",
+  "personally_read_mode": "FULL",
+  "original_receipt_count": 6,
+  "original_receipt_bytes_from_assignment_sizes": 92511,
+  "original_split_stream_count": 12,
+  "original_split_stream_bytes": 1265,
+  "output_truncation": false,
+  "snapshot_content_reread": false,
+  "referenced_helper_body_reread": false,
+  "producer_runner_code_reread": false,
+  "families": [
+    {
+      "label": "helper-integration001",
+      "worker": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/helper-integration001/receipt.json",
+        "mode": "FULL",
+        "command_argv": [
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib,shutil\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nA=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-physical-text')\nS=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text())\nnames=['PHYSICAL_ADAPTER_ORIGINAL.lean.txt','IMPORTS_AND_PLACEMENT.lean.txt','ACCEPTED_CONTEXT.md','ACK.md','PROVENANCE.md','FREEZE.md']\nout=B/'helper-originals';out.mkdir(exist_ok=False)\nrows=[]\nfor name in names:\n p=A/name;st=p.stat()\n if name=='ACCEPTED_CONTEXT.md':\n  known=cache[str(B/'FROZEN_CONTEXT.md')];assert st.st_size==known['bytes'];row={**known,'path':str(p),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact accepted context copy identity REUSED; no hash','copied_from':str(B/'FROZEN_CONTEXT.md')}\n elif str(p) in cache:\n  row=cache[str(p)];assert row['marker']==[st.st_size,st.st_mtime_ns]\n else:\n  row={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST immutable NEW helper documentary original ID, once'}\n cache[str(p)]=row\n dst=out/name;shutil.copyfile(p,dst);st2=dst.stat();cache[str(dst)]={**row,'path':str(dst),'marker':[st2.st_size,st2.st_mtime_ns],'origin':'Known exact retained helper original copy ID REUSED; no hash','copied_from':str(p)}\n rows.append({'source':str(p),'identity':row,'retained_exact_copy':str(dst)})\nfreeze=datetime.datetime.now(datetime.timezone.utc).isoformat()\nrecord={'status':'ONE_COMPLETE_PRIVATE_PHYSICAL_TEXT_ORIGINAL_FIRST_IDS_BEFORE_ONE_INTEGRATION','observed_utc':freeze,'helper':'/root/regular_collar_physical_text','original_completion_observed_utc':'2026-10-28T23:27:57Z','six_originals_present_before_delivery_observed_utc':'2026-10-28T23:29:07Z','accepted_context_personal_FULL_ACK':'2026-10-28T23:21:45Z','root_TEXT_release':'2026-10-28T23:22:56.127340+00:00','files':rows,'helper_executions_hashes_probes_objects':0,'new_payload_FIRST_hashes_here':5,'known_context_hashes_here':0,'intended_integration_count':1}\n(B/'B_ORIGINAL_CUSTODY.json').write_text(json.dumps(record,indent=2)+'\\n')\nold=S.read_text();new=old\na=\"      have huc : ε ≤ u 1 := hu.2\\n      linarith [huc]\"\nb=\"      have huc : ε ≤ u 1 := hu.2\\n      change c + ε ≤ F (φ.symm u)\\n      linarith [huc]\"\nassert new.count(a)==1;new=new.replace(a,b)\na=\"      have huc : u 1 = ε := hu.2\\n      linarith [huc]\"\nb=\"      have huc : u 1 = ε := hu.2\\n      change F (φ.symm u) = c + ε\\n      linarith [huc]\"\nassert new.count(a)==1;new=new.replace(a,b)\nmarker='private theorem actual_pullback'\nassert new.count(marker)==1;helper=(A/'PHYSICAL_ADAPTER_ORIGINAL.lean.txt').read_text();new=new.replace(marker,helper+'\\n'+marker)\nending='end I4SourceActualRegularLocalCollar\\n';assert new.endswith(ending)\nnew=new[:-len(ending)]+\"\\ntheorem actualSource_quotient_regular_local_collar\\n    {L : ℝ} (hL : 0 < L)\\n    (ω : I4SmoothCarrier.SmoothSample 2 L)\\n    (X : UniversalLaw.Spec.Lifetime.E 2)\\n    (hreg : fderiv ℝ (I4LifetimeField.actualField 2 L ω) X ≠ 0) :\\n    ∀ O : Set (I4Torus.SourceTorus 2 L), IsOpen O →\\n      I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X) ∈ O →\\n      ∃ ρ : ℝ, 0 < ρ ∧\\n        ∃ φ : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) (Fin 2 → ℝ),\\n          I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X) ∈ φ.source ∧\\n          φ (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) = 0 ∧\\n          φ.source ⊆ O ∧ φ.target = Metric.ball (0 : Fin 2 → ℝ) ρ ∧\\n          (∀ z ∈ φ.source,\\n            SourceActualFoldTorus.actualTorusField hL.ne' ω z =\\n              SourceActualFoldTorus.actualTorusField hL.ne' ω\\n                (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) + φ z 1) ∧\\n          ∀ ε : ℝ, |ε| < ρ →\\n            IsPathConnected (φ.source ∩ {z |\\n              SourceActualFoldTorus.actualTorusField hL.ne' ω\\n                (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) + ε ≤\\n                  SourceActualFoldTorus.actualTorusField hL.ne' ω z}) ∧\\n            IsPathConnected (φ.source ∩ {z |\\n              SourceActualFoldTorus.actualTorusField hL.ne' ω z =\\n                SourceActualFoldTorus.actualTorusField hL.ne' ω\\n                  (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) + ε}) := by\\n  intro O hO hXO\\n  obtain ⟨e, hXe, heX, _h0e, hheight⟩ :=\\n    actual_physical_submersion_chart hL ω X hreg\\n  obtain ⟨ρ, hρ, φ, hq, hcenter, hinside, htarget, hfield⟩ :=\\n    quotient_chart_from_physical hL ω X e hXe heX hheight O hO hXO\\n  exact ⟨ρ, hρ, φ, hq, hcenter, hinside, htarget, hfield,\\n    same_chart_traces_pc (actualF hL ω) (actualF hL ω (cover L X)) ρ hρ φ\\n      htarget hfield⟩\\n\"+'\\n'+ending\nH=B/'history/helper-integration001';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\nprior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior own source ID REUSED; no hash','copied_from':str(S)}\np=B/'HELPER_INTEGRATION001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/helper-integration001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')));st=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST actual one-integration/full amendment patch identity, once'}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nr={'status':'ONE_HELPER_ORIGINAL_INTEGRATED_ONCE_AFTER_ORIGINAL_FREEZE','observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'originals_frozen_utc':freeze,'integration_count':1,'full_actual_patch':cache[str(p)],'producer_changes_in_same_patch':'Two actual inverse-image membership targets plus sole public assembly; no fixture consumer bodies yet','helper_executions':0}\n(B/'B_INTEGRATION001.json').write_text(json.dumps(r,indent=2)+'\\n')\nprint(json.dumps({'status':r['status'],'originals_frozen_utc':freeze,'integration_utc':r['observed_utc'],'helper_integrations':1,'known_context_hashes':0,'new_original_first_hashes':5}))\n"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "start_utc": "2026-10-28T23:30:42.814783+00:00",
+        "end_utc": "2026-10-28T23:30:42.856442+00:00",
+        "elapsed_seconds": 0.041658154001197545,
+        "exit_code": 0,
+        "exception": null,
+        "before_entry_count": 16,
+        "after_entry_count": 16,
+        "before_snapshot_path_count": 12,
+        "stream_records_read_full": true,
+        "all_other_fields_read_full": true
+      },
+      "outer": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/helper-integration001/RECEIPT.json",
+        "mode": "FULL",
+        "script_argv": [
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/outer/helper-integration001",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "outer",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "helper-integration001",
+          "documentary",
+          "--",
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib,shutil\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nA=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-physical-text')\nS=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text())\nnames=['PHYSICAL_ADAPTER_ORIGINAL.lean.txt','IMPORTS_AND_PLACEMENT.lean.txt','ACCEPTED_CONTEXT.md','ACK.md','PROVENANCE.md','FREEZE.md']\nout=B/'helper-originals';out.mkdir(exist_ok=False)\nrows=[]\nfor name in names:\n p=A/name;st=p.stat()\n if name=='ACCEPTED_CONTEXT.md':\n  known=cache[str(B/'FROZEN_CONTEXT.md')];assert st.st_size==known['bytes'];row={**known,'path':str(p),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact accepted context copy identity REUSED; no hash','copied_from':str(B/'FROZEN_CONTEXT.md')}\n elif str(p) in cache:\n  row=cache[str(p)];assert row['marker']==[st.st_size,st.st_mtime_ns]\n else:\n  row={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST immutable NEW helper documentary original ID, once'}\n cache[str(p)]=row\n dst=out/name;shutil.copyfile(p,dst);st2=dst.stat();cache[str(dst)]={**row,'path':str(dst),'marker':[st2.st_size,st2.st_mtime_ns],'origin':'Known exact retained helper original copy ID REUSED; no hash','copied_from':str(p)}\n rows.append({'source':str(p),'identity':row,'retained_exact_copy':str(dst)})\nfreeze=datetime.datetime.now(datetime.timezone.utc).isoformat()\nrecord={'status':'ONE_COMPLETE_PRIVATE_PHYSICAL_TEXT_ORIGINAL_FIRST_IDS_BEFORE_ONE_INTEGRATION','observed_utc':freeze,'helper':'/root/regular_collar_physical_text','original_completion_observed_utc':'2026-10-28T23:27:57Z','six_originals_present_before_delivery_observed_utc':'2026-10-28T23:29:07Z','accepted_context_personal_FULL_ACK':'2026-10-28T23:21:45Z','root_TEXT_release':'2026-10-28T23:22:56.127340+00:00','files':rows,'helper_executions_hashes_probes_objects':0,'new_payload_FIRST_hashes_here':5,'known_context_hashes_here':0,'intended_integration_count':1}\n(B/'B_ORIGINAL_CUSTODY.json').write_text(json.dumps(record,indent=2)+'\\n')\nold=S.read_text();new=old\na=\"      have huc : ε ≤ u 1 := hu.2\\n      linarith [huc]\"\nb=\"      have huc : ε ≤ u 1 := hu.2\\n      change c + ε ≤ F (φ.symm u)\\n      linarith [huc]\"\nassert new.count(a)==1;new=new.replace(a,b)\na=\"      have huc : u 1 = ε := hu.2\\n      linarith [huc]\"\nb=\"      have huc : u 1 = ε := hu.2\\n      change F (φ.symm u) = c + ε\\n      linarith [huc]\"\nassert new.count(a)==1;new=new.replace(a,b)\nmarker='private theorem actual_pullback'\nassert new.count(marker)==1;helper=(A/'PHYSICAL_ADAPTER_ORIGINAL.lean.txt').read_text();new=new.replace(marker,helper+'\\n'+marker)\nending='end I4SourceActualRegularLocalCollar\\n';assert new.endswith(ending)\nnew=new[:-len(ending)]+\"\\ntheorem actualSource_quotient_regular_local_collar\\n    {L : ℝ} (hL : 0 < L)\\n    (ω : I4SmoothCarrier.SmoothSample 2 L)\\n    (X : UniversalLaw.Spec.Lifetime.E 2)\\n    (hreg : fderiv ℝ (I4LifetimeField.actualField 2 L ω) X ≠ 0) :\\n    ∀ O : Set (I4Torus.SourceTorus 2 L), IsOpen O →\\n      I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X) ∈ O →\\n      ∃ ρ : ℝ, 0 < ρ ∧\\n        ∃ φ : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) (Fin 2 → ℝ),\\n          I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X) ∈ φ.source ∧\\n          φ (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) = 0 ∧\\n          φ.source ⊆ O ∧ φ.target = Metric.ball (0 : Fin 2 → ℝ) ρ ∧\\n          (∀ z ∈ φ.source,\\n            SourceActualFoldTorus.actualTorusField hL.ne' ω z =\\n              SourceActualFoldTorus.actualTorusField hL.ne' ω\\n                (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) + φ z 1) ∧\\n          ∀ ε : ℝ, |ε| < ρ →\\n            IsPathConnected (φ.source ∩ {z |\\n              SourceActualFoldTorus.actualTorusField hL.ne' ω\\n                (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) + ε ≤\\n                  SourceActualFoldTorus.actualTorusField hL.ne' ω z}) ∧\\n            IsPathConnected (φ.source ∩ {z |\\n              SourceActualFoldTorus.actualTorusField hL.ne' ω z =\\n                SourceActualFoldTorus.actualTorusField hL.ne' ω\\n                  (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) + ε}) := by\\n  intro O hO hXO\\n  obtain ⟨e, hXe, heX, _h0e, hheight⟩ :=\\n    actual_physical_submersion_chart hL ω X hreg\\n  obtain ⟨ρ, hρ, φ, hq, hcenter, hinside, htarget, hfield⟩ :=\\n    quotient_chart_from_physical hL ω X e hXe heX hheight O hO hXO\\n  exact ⟨ρ, hρ, φ, hq, hcenter, hinside, htarget, hfield,\\n    same_chart_traces_pc (actualF hL ω) (actualF hL ω (cover L X)) ρ hρ φ\\n      htarget hfield⟩\\n\"+'\\n'+ending\nH=B/'history/helper-integration001';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\nprior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior own source ID REUSED; no hash','copied_from':str(S)}\np=B/'HELPER_INTEGRATION001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/helper-integration001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')));st=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST actual one-integration/full amendment patch identity, once'}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nr={'status':'ONE_HELPER_ORIGINAL_INTEGRATED_ONCE_AFTER_ORIGINAL_FREEZE','observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'originals_frozen_utc':freeze,'integration_count':1,'full_actual_patch':cache[str(p)],'producer_changes_in_same_patch':'Two actual inverse-image membership targets plus sole public assembly; no fixture consumer bodies yet','helper_executions':0}\n(B/'B_INTEGRATION001.json').write_text(json.dumps(r,indent=2)+'\\n')\nprint(json.dumps({'status':r['status'],'originals_frozen_utc':freeze,'integration_utc':r['observed_utc'],'helper_integrations':1,'known_context_hashes':0,'new_original_first_hashes':5}))\n"
+        ],
+        "command_argv": [
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "helper-integration001",
+          "documentary",
+          "--",
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib,shutil\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nA=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-physical-text')\nS=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text())\nnames=['PHYSICAL_ADAPTER_ORIGINAL.lean.txt','IMPORTS_AND_PLACEMENT.lean.txt','ACCEPTED_CONTEXT.md','ACK.md','PROVENANCE.md','FREEZE.md']\nout=B/'helper-originals';out.mkdir(exist_ok=False)\nrows=[]\nfor name in names:\n p=A/name;st=p.stat()\n if name=='ACCEPTED_CONTEXT.md':\n  known=cache[str(B/'FROZEN_CONTEXT.md')];assert st.st_size==known['bytes'];row={**known,'path':str(p),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact accepted context copy identity REUSED; no hash','copied_from':str(B/'FROZEN_CONTEXT.md')}\n elif str(p) in cache:\n  row=cache[str(p)];assert row['marker']==[st.st_size,st.st_mtime_ns]\n else:\n  row={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST immutable NEW helper documentary original ID, once'}\n cache[str(p)]=row\n dst=out/name;shutil.copyfile(p,dst);st2=dst.stat();cache[str(dst)]={**row,'path':str(dst),'marker':[st2.st_size,st2.st_mtime_ns],'origin':'Known exact retained helper original copy ID REUSED; no hash','copied_from':str(p)}\n rows.append({'source':str(p),'identity':row,'retained_exact_copy':str(dst)})\nfreeze=datetime.datetime.now(datetime.timezone.utc).isoformat()\nrecord={'status':'ONE_COMPLETE_PRIVATE_PHYSICAL_TEXT_ORIGINAL_FIRST_IDS_BEFORE_ONE_INTEGRATION','observed_utc':freeze,'helper':'/root/regular_collar_physical_text','original_completion_observed_utc':'2026-10-28T23:27:57Z','six_originals_present_before_delivery_observed_utc':'2026-10-28T23:29:07Z','accepted_context_personal_FULL_ACK':'2026-10-28T23:21:45Z','root_TEXT_release':'2026-10-28T23:22:56.127340+00:00','files':rows,'helper_executions_hashes_probes_objects':0,'new_payload_FIRST_hashes_here':5,'known_context_hashes_here':0,'intended_integration_count':1}\n(B/'B_ORIGINAL_CUSTODY.json').write_text(json.dumps(record,indent=2)+'\\n')\nold=S.read_text();new=old\na=\"      have huc : ε ≤ u 1 := hu.2\\n      linarith [huc]\"\nb=\"      have huc : ε ≤ u 1 := hu.2\\n      change c + ε ≤ F (φ.symm u)\\n      linarith [huc]\"\nassert new.count(a)==1;new=new.replace(a,b)\na=\"      have huc : u 1 = ε := hu.2\\n      linarith [huc]\"\nb=\"      have huc : u 1 = ε := hu.2\\n      change F (φ.symm u) = c + ε\\n      linarith [huc]\"\nassert new.count(a)==1;new=new.replace(a,b)\nmarker='private theorem actual_pullback'\nassert new.count(marker)==1;helper=(A/'PHYSICAL_ADAPTER_ORIGINAL.lean.txt').read_text();new=new.replace(marker,helper+'\\n'+marker)\nending='end I4SourceActualRegularLocalCollar\\n';assert new.endswith(ending)\nnew=new[:-len(ending)]+\"\\ntheorem actualSource_quotient_regular_local_collar\\n    {L : ℝ} (hL : 0 < L)\\n    (ω : I4SmoothCarrier.SmoothSample 2 L)\\n    (X : UniversalLaw.Spec.Lifetime.E 2)\\n    (hreg : fderiv ℝ (I4LifetimeField.actualField 2 L ω) X ≠ 0) :\\n    ∀ O : Set (I4Torus.SourceTorus 2 L), IsOpen O →\\n      I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X) ∈ O →\\n      ∃ ρ : ℝ, 0 < ρ ∧\\n        ∃ φ : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) (Fin 2 → ℝ),\\n          I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X) ∈ φ.source ∧\\n          φ (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) = 0 ∧\\n          φ.source ⊆ O ∧ φ.target = Metric.ball (0 : Fin 2 → ℝ) ρ ∧\\n          (∀ z ∈ φ.source,\\n            SourceActualFoldTorus.actualTorusField hL.ne' ω z =\\n              SourceActualFoldTorus.actualTorusField hL.ne' ω\\n                (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) + φ z 1) ∧\\n          ∀ ε : ℝ, |ε| < ρ →\\n            IsPathConnected (φ.source ∩ {z |\\n              SourceActualFoldTorus.actualTorusField hL.ne' ω\\n                (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) + ε ≤\\n                  SourceActualFoldTorus.actualTorusField hL.ne' ω z}) ∧\\n            IsPathConnected (φ.source ∩ {z |\\n              SourceActualFoldTorus.actualTorusField hL.ne' ω z =\\n                SourceActualFoldTorus.actualTorusField hL.ne' ω\\n                  (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) + ε}) := by\\n  intro O hO hXO\\n  obtain ⟨e, hXe, heX, _h0e, hheight⟩ :=\\n    actual_physical_submersion_chart hL ω X hreg\\n  obtain ⟨ρ, hρ, φ, hq, hcenter, hinside, htarget, hfield⟩ :=\\n    quotient_chart_from_physical hL ω X e hXe heX hheight O hO hXO\\n  exact ⟨ρ, hρ, φ, hq, hcenter, hinside, htarget, hfield,\\n    same_chart_traces_pc (actualF hL ω) (actualF hL ω (cover L X)) ρ hρ φ\\n      htarget hfield⟩\\n\"+'\\n'+ending\nH=B/'history/helper-integration001';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\nprior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior own source ID REUSED; no hash','copied_from':str(S)}\np=B/'HELPER_INTEGRATION001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/helper-integration001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')));st=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST actual one-integration/full amendment patch identity, once'}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nr={'status':'ONE_HELPER_ORIGINAL_INTEGRATED_ONCE_AFTER_ORIGINAL_FREEZE','observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'originals_frozen_utc':freeze,'integration_count':1,'full_actual_patch':cache[str(p)],'producer_changes_in_same_patch':'Two actual inverse-image membership targets plus sole public assembly; no fixture consumer bodies yet','helper_executions':0}\n(B/'B_INTEGRATION001.json').write_text(json.dumps(r,indent=2)+'\\n')\nprint(json.dumps({'status':r['status'],'originals_frozen_utc':freeze,'integration_utc':r['observed_utc'],'helper_integrations':1,'known_context_hashes':0,'new_original_first_hashes':5}))\n"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "start_utc": "2026-10-28T23:30:42.774961+00:00",
+        "end_utc": "2026-10-28T23:30:42.865464+00:00",
+        "elapsed_seconds": 0.09050420300263795,
+        "child_exit_code": 0,
+        "exception": null,
+        "status": "PASS_ACTUAL_CHILD_EXIT_ZERO",
+        "all_other_fields_read_full": true
+      },
+      "entry": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/helper-integration001/RECEIPT.json",
+        "mode": "FULL",
+        "script_argv": [
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/entry/helper-integration001",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "entry",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/outer/helper-integration001",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "outer",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "helper-integration001",
+          "documentary",
+          "--",
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib,shutil\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nA=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-physical-text')\nS=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text())\nnames=['PHYSICAL_ADAPTER_ORIGINAL.lean.txt','IMPORTS_AND_PLACEMENT.lean.txt','ACCEPTED_CONTEXT.md','ACK.md','PROVENANCE.md','FREEZE.md']\nout=B/'helper-originals';out.mkdir(exist_ok=False)\nrows=[]\nfor name in names:\n p=A/name;st=p.stat()\n if name=='ACCEPTED_CONTEXT.md':\n  known=cache[str(B/'FROZEN_CONTEXT.md')];assert st.st_size==known['bytes'];row={**known,'path':str(p),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact accepted context copy identity REUSED; no hash','copied_from':str(B/'FROZEN_CONTEXT.md')}\n elif str(p) in cache:\n  row=cache[str(p)];assert row['marker']==[st.st_size,st.st_mtime_ns]\n else:\n  row={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST immutable NEW helper documentary original ID, once'}\n cache[str(p)]=row\n dst=out/name;shutil.copyfile(p,dst);st2=dst.stat();cache[str(dst)]={**row,'path':str(dst),'marker':[st2.st_size,st2.st_mtime_ns],'origin':'Known exact retained helper original copy ID REUSED; no hash','copied_from':str(p)}\n rows.append({'source':str(p),'identity':row,'retained_exact_copy':str(dst)})\nfreeze=datetime.datetime.now(datetime.timezone.utc).isoformat()\nrecord={'status':'ONE_COMPLETE_PRIVATE_PHYSICAL_TEXT_ORIGINAL_FIRST_IDS_BEFORE_ONE_INTEGRATION','observed_utc':freeze,'helper':'/root/regular_collar_physical_text','original_completion_observed_utc':'2026-10-28T23:27:57Z','six_originals_present_before_delivery_observed_utc':'2026-10-28T23:29:07Z','accepted_context_personal_FULL_ACK':'2026-10-28T23:21:45Z','root_TEXT_release':'2026-10-28T23:22:56.127340+00:00','files':rows,'helper_executions_hashes_probes_objects':0,'new_payload_FIRST_hashes_here':5,'known_context_hashes_here':0,'intended_integration_count':1}\n(B/'B_ORIGINAL_CUSTODY.json').write_text(json.dumps(record,indent=2)+'\\n')\nold=S.read_text();new=old\na=\"      have huc : ε ≤ u 1 := hu.2\\n      linarith [huc]\"\nb=\"      have huc : ε ≤ u 1 := hu.2\\n      change c + ε ≤ F (φ.symm u)\\n      linarith [huc]\"\nassert new.count(a)==1;new=new.replace(a,b)\na=\"      have huc : u 1 = ε := hu.2\\n      linarith [huc]\"\nb=\"      have huc : u 1 = ε := hu.2\\n      change F (φ.symm u) = c + ε\\n      linarith [huc]\"\nassert new.count(a)==1;new=new.replace(a,b)\nmarker='private theorem actual_pullback'\nassert new.count(marker)==1;helper=(A/'PHYSICAL_ADAPTER_ORIGINAL.lean.txt').read_text();new=new.replace(marker,helper+'\\n'+marker)\nending='end I4SourceActualRegularLocalCollar\\n';assert new.endswith(ending)\nnew=new[:-len(ending)]+\"\\ntheorem actualSource_quotient_regular_local_collar\\n    {L : ℝ} (hL : 0 < L)\\n    (ω : I4SmoothCarrier.SmoothSample 2 L)\\n    (X : UniversalLaw.Spec.Lifetime.E 2)\\n    (hreg : fderiv ℝ (I4LifetimeField.actualField 2 L ω) X ≠ 0) :\\n    ∀ O : Set (I4Torus.SourceTorus 2 L), IsOpen O →\\n      I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X) ∈ O →\\n      ∃ ρ : ℝ, 0 < ρ ∧\\n        ∃ φ : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) (Fin 2 → ℝ),\\n          I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X) ∈ φ.source ∧\\n          φ (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) = 0 ∧\\n          φ.source ⊆ O ∧ φ.target = Metric.ball (0 : Fin 2 → ℝ) ρ ∧\\n          (∀ z ∈ φ.source,\\n            SourceActualFoldTorus.actualTorusField hL.ne' ω z =\\n              SourceActualFoldTorus.actualTorusField hL.ne' ω\\n                (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) + φ z 1) ∧\\n          ∀ ε : ℝ, |ε| < ρ →\\n            IsPathConnected (φ.source ∩ {z |\\n              SourceActualFoldTorus.actualTorusField hL.ne' ω\\n                (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) + ε ≤\\n                  SourceActualFoldTorus.actualTorusField hL.ne' ω z}) ∧\\n            IsPathConnected (φ.source ∩ {z |\\n              SourceActualFoldTorus.actualTorusField hL.ne' ω z =\\n                SourceActualFoldTorus.actualTorusField hL.ne' ω\\n                  (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) + ε}) := by\\n  intro O hO hXO\\n  obtain ⟨e, hXe, heX, _h0e, hheight⟩ :=\\n    actual_physical_submersion_chart hL ω X hreg\\n  obtain ⟨ρ, hρ, φ, hq, hcenter, hinside, htarget, hfield⟩ :=\\n    quotient_chart_from_physical hL ω X e hXe heX hheight O hO hXO\\n  exact ⟨ρ, hρ, φ, hq, hcenter, hinside, htarget, hfield,\\n    same_chart_traces_pc (actualF hL ω) (actualF hL ω (cover L X)) ρ hρ φ\\n      htarget hfield⟩\\n\"+'\\n'+ending\nH=B/'history/helper-integration001';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\nprior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior own source ID REUSED; no hash','copied_from':str(S)}\np=B/'HELPER_INTEGRATION001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/helper-integration001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')));st=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST actual one-integration/full amendment patch identity, once'}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nr={'status':'ONE_HELPER_ORIGINAL_INTEGRATED_ONCE_AFTER_ORIGINAL_FREEZE','observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'originals_frozen_utc':freeze,'integration_count':1,'full_actual_patch':cache[str(p)],'producer_changes_in_same_patch':'Two actual inverse-image membership targets plus sole public assembly; no fixture consumer bodies yet','helper_executions':0}\n(B/'B_INTEGRATION001.json').write_text(json.dumps(r,indent=2)+'\\n')\nprint(json.dumps({'status':r['status'],'originals_frozen_utc':freeze,'integration_utc':r['observed_utc'],'helper_integrations':1,'known_context_hashes':0,'new_original_first_hashes':5}))\n"
+        ],
+        "command_argv": [
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/outer/helper-integration001",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "outer",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "helper-integration001",
+          "documentary",
+          "--",
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib,shutil\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nA=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-physical-text')\nS=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text())\nnames=['PHYSICAL_ADAPTER_ORIGINAL.lean.txt','IMPORTS_AND_PLACEMENT.lean.txt','ACCEPTED_CONTEXT.md','ACK.md','PROVENANCE.md','FREEZE.md']\nout=B/'helper-originals';out.mkdir(exist_ok=False)\nrows=[]\nfor name in names:\n p=A/name;st=p.stat()\n if name=='ACCEPTED_CONTEXT.md':\n  known=cache[str(B/'FROZEN_CONTEXT.md')];assert st.st_size==known['bytes'];row={**known,'path':str(p),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact accepted context copy identity REUSED; no hash','copied_from':str(B/'FROZEN_CONTEXT.md')}\n elif str(p) in cache:\n  row=cache[str(p)];assert row['marker']==[st.st_size,st.st_mtime_ns]\n else:\n  row={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST immutable NEW helper documentary original ID, once'}\n cache[str(p)]=row\n dst=out/name;shutil.copyfile(p,dst);st2=dst.stat();cache[str(dst)]={**row,'path':str(dst),'marker':[st2.st_size,st2.st_mtime_ns],'origin':'Known exact retained helper original copy ID REUSED; no hash','copied_from':str(p)}\n rows.append({'source':str(p),'identity':row,'retained_exact_copy':str(dst)})\nfreeze=datetime.datetime.now(datetime.timezone.utc).isoformat()\nrecord={'status':'ONE_COMPLETE_PRIVATE_PHYSICAL_TEXT_ORIGINAL_FIRST_IDS_BEFORE_ONE_INTEGRATION','observed_utc':freeze,'helper':'/root/regular_collar_physical_text','original_completion_observed_utc':'2026-10-28T23:27:57Z','six_originals_present_before_delivery_observed_utc':'2026-10-28T23:29:07Z','accepted_context_personal_FULL_ACK':'2026-10-28T23:21:45Z','root_TEXT_release':'2026-10-28T23:22:56.127340+00:00','files':rows,'helper_executions_hashes_probes_objects':0,'new_payload_FIRST_hashes_here':5,'known_context_hashes_here':0,'intended_integration_count':1}\n(B/'B_ORIGINAL_CUSTODY.json').write_text(json.dumps(record,indent=2)+'\\n')\nold=S.read_text();new=old\na=\"      have huc : ε ≤ u 1 := hu.2\\n      linarith [huc]\"\nb=\"      have huc : ε ≤ u 1 := hu.2\\n      change c + ε ≤ F (φ.symm u)\\n      linarith [huc]\"\nassert new.count(a)==1;new=new.replace(a,b)\na=\"      have huc : u 1 = ε := hu.2\\n      linarith [huc]\"\nb=\"      have huc : u 1 = ε := hu.2\\n      change F (φ.symm u) = c + ε\\n      linarith [huc]\"\nassert new.count(a)==1;new=new.replace(a,b)\nmarker='private theorem actual_pullback'\nassert new.count(marker)==1;helper=(A/'PHYSICAL_ADAPTER_ORIGINAL.lean.txt').read_text();new=new.replace(marker,helper+'\\n'+marker)\nending='end I4SourceActualRegularLocalCollar\\n';assert new.endswith(ending)\nnew=new[:-len(ending)]+\"\\ntheorem actualSource_quotient_regular_local_collar\\n    {L : ℝ} (hL : 0 < L)\\n    (ω : I4SmoothCarrier.SmoothSample 2 L)\\n    (X : UniversalLaw.Spec.Lifetime.E 2)\\n    (hreg : fderiv ℝ (I4LifetimeField.actualField 2 L ω) X ≠ 0) :\\n    ∀ O : Set (I4Torus.SourceTorus 2 L), IsOpen O →\\n      I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X) ∈ O →\\n      ∃ ρ : ℝ, 0 < ρ ∧\\n        ∃ φ : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) (Fin 2 → ℝ),\\n          I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X) ∈ φ.source ∧\\n          φ (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) = 0 ∧\\n          φ.source ⊆ O ∧ φ.target = Metric.ball (0 : Fin 2 → ℝ) ρ ∧\\n          (∀ z ∈ φ.source,\\n            SourceActualFoldTorus.actualTorusField hL.ne' ω z =\\n              SourceActualFoldTorus.actualTorusField hL.ne' ω\\n                (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) + φ z 1) ∧\\n          ∀ ε : ℝ, |ε| < ρ →\\n            IsPathConnected (φ.source ∩ {z |\\n              SourceActualFoldTorus.actualTorusField hL.ne' ω\\n                (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) + ε ≤\\n                  SourceActualFoldTorus.actualTorusField hL.ne' ω z}) ∧\\n            IsPathConnected (φ.source ∩ {z |\\n              SourceActualFoldTorus.actualTorusField hL.ne' ω z =\\n                SourceActualFoldTorus.actualTorusField hL.ne' ω\\n                  (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) + ε}) := by\\n  intro O hO hXO\\n  obtain ⟨e, hXe, heX, _h0e, hheight⟩ :=\\n    actual_physical_submersion_chart hL ω X hreg\\n  obtain ⟨ρ, hρ, φ, hq, hcenter, hinside, htarget, hfield⟩ :=\\n    quotient_chart_from_physical hL ω X e hXe heX hheight O hO hXO\\n  exact ⟨ρ, hρ, φ, hq, hcenter, hinside, htarget, hfield,\\n    same_chart_traces_pc (actualF hL ω) (actualF hL ω (cover L X)) ρ hρ φ\\n      htarget hfield⟩\\n\"+'\\n'+ending\nH=B/'history/helper-integration001';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\nprior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior own source ID REUSED; no hash','copied_from':str(S)}\np=B/'HELPER_INTEGRATION001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/helper-integration001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')));st=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST actual one-integration/full amendment patch identity, once'}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nr={'status':'ONE_HELPER_ORIGINAL_INTEGRATED_ONCE_AFTER_ORIGINAL_FREEZE','observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'originals_frozen_utc':freeze,'integration_count':1,'full_actual_patch':cache[str(p)],'producer_changes_in_same_patch':'Two actual inverse-image membership targets plus sole public assembly; no fixture consumer bodies yet','helper_executions':0}\n(B/'B_INTEGRATION001.json').write_text(json.dumps(r,indent=2)+'\\n')\nprint(json.dumps({'status':r['status'],'originals_frozen_utc':freeze,'integration_utc':r['observed_utc'],'helper_integrations':1,'known_context_hashes':0,'new_original_first_hashes':5}))\n"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "start_utc": "2026-10-28T23:30:42.741563+00:00",
+        "end_utc": "2026-10-28T23:30:42.872289+00:00",
+        "elapsed_seconds": 0.1307258130000264,
+        "child_exit_code": 0,
+        "exception": null,
+        "status": "PASS_ACTUAL_CHILD_EXIT_ZERO",
+        "all_other_fields_read_full": true
+      },
+      "streams": [
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/helper-integration001/stdout.log",
+          "mode": "FULL",
+          "bytes": 272
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/helper-integration001/stderr.log",
+          "mode": "FULL",
+          "bytes": 0
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/helper-integration001/stdout.log",
+          "mode": "FULL",
+          "bytes": 188
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/helper-integration001/stderr.log",
+          "mode": "FULL",
+          "bytes": 0
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/helper-integration001/stdout.log",
+          "mode": "FULL",
+          "bytes": 201
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/helper-integration001/stderr.log",
+          "mode": "FULL",
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "label": "helper-fix001",
+      "worker": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/helper-fix001/receipt.json",
+        "mode": "FULL",
+        "command_argv": [
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nS=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();new=old\nassert new.count('field_simp [ha] <;> ring')==2;assert new.count('field_simp [hb] <;> ring')==2\nnew=new.replace('field_simp [ha] <;> ring','field_simp [ha]\\n      ring').replace('field_simp [hb] <;> ring','field_simp [hb]\\n      ring')\nassert new.count('(contDiff_apply j).sub')==1;new=new.replace('(contDiff_apply j).sub','(contDiff_apply ℝ ℝ j).sub')\nH=B/'history/helper-fix001';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'HELPER_FIX001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/helper-fix001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST actual full helper amendment patch identity, once'}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only public001 four tactic-style findings and contDiff_apply explicit scalar/carrier argument','full_patch':str(p),'helper_integrations':1}))\n"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "start_utc": "2026-10-28T23:31:27.615861+00:00",
+        "end_utc": "2026-10-28T23:31:27.660381+00:00",
+        "elapsed_seconds": 0.044519389000925,
+        "exit_code": 0,
+        "exception": null,
+        "before_entry_count": 17,
+        "after_entry_count": 17,
+        "before_snapshot_path_count": 13,
+        "stream_records_read_full": true,
+        "all_other_fields_read_full": true
+      },
+      "outer": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/helper-fix001/RECEIPT.json",
+        "mode": "FULL",
+        "script_argv": [
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/outer/helper-fix001",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "outer",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "helper-fix001",
+          "documentary",
+          "--",
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nS=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();new=old\nassert new.count('field_simp [ha] <;> ring')==2;assert new.count('field_simp [hb] <;> ring')==2\nnew=new.replace('field_simp [ha] <;> ring','field_simp [ha]\\n      ring').replace('field_simp [hb] <;> ring','field_simp [hb]\\n      ring')\nassert new.count('(contDiff_apply j).sub')==1;new=new.replace('(contDiff_apply j).sub','(contDiff_apply ℝ ℝ j).sub')\nH=B/'history/helper-fix001';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'HELPER_FIX001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/helper-fix001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST actual full helper amendment patch identity, once'}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only public001 four tactic-style findings and contDiff_apply explicit scalar/carrier argument','full_patch':str(p),'helper_integrations':1}))\n"
+        ],
+        "command_argv": [
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "helper-fix001",
+          "documentary",
+          "--",
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nS=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();new=old\nassert new.count('field_simp [ha] <;> ring')==2;assert new.count('field_simp [hb] <;> ring')==2\nnew=new.replace('field_simp [ha] <;> ring','field_simp [ha]\\n      ring').replace('field_simp [hb] <;> ring','field_simp [hb]\\n      ring')\nassert new.count('(contDiff_apply j).sub')==1;new=new.replace('(contDiff_apply j).sub','(contDiff_apply ℝ ℝ j).sub')\nH=B/'history/helper-fix001';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'HELPER_FIX001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/helper-fix001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST actual full helper amendment patch identity, once'}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only public001 four tactic-style findings and contDiff_apply explicit scalar/carrier argument','full_patch':str(p),'helper_integrations':1}))\n"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "start_utc": "2026-10-28T23:31:27.578679+00:00",
+        "end_utc": "2026-10-28T23:31:27.670291+00:00",
+        "elapsed_seconds": 0.09161139400021057,
+        "child_exit_code": 0,
+        "exception": null,
+        "status": "PASS_ACTUAL_CHILD_EXIT_ZERO",
+        "all_other_fields_read_full": true
+      },
+      "entry": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/helper-fix001/RECEIPT.json",
+        "mode": "FULL",
+        "script_argv": [
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/entry/helper-fix001",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "entry",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/outer/helper-fix001",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "outer",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "helper-fix001",
+          "documentary",
+          "--",
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nS=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();new=old\nassert new.count('field_simp [ha] <;> ring')==2;assert new.count('field_simp [hb] <;> ring')==2\nnew=new.replace('field_simp [ha] <;> ring','field_simp [ha]\\n      ring').replace('field_simp [hb] <;> ring','field_simp [hb]\\n      ring')\nassert new.count('(contDiff_apply j).sub')==1;new=new.replace('(contDiff_apply j).sub','(contDiff_apply ℝ ℝ j).sub')\nH=B/'history/helper-fix001';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'HELPER_FIX001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/helper-fix001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST actual full helper amendment patch identity, once'}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only public001 four tactic-style findings and contDiff_apply explicit scalar/carrier argument','full_patch':str(p),'helper_integrations':1}))\n"
+        ],
+        "command_argv": [
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/outer/helper-fix001",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "outer",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "helper-fix001",
+          "documentary",
+          "--",
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nS=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();new=old\nassert new.count('field_simp [ha] <;> ring')==2;assert new.count('field_simp [hb] <;> ring')==2\nnew=new.replace('field_simp [ha] <;> ring','field_simp [ha]\\n      ring').replace('field_simp [hb] <;> ring','field_simp [hb]\\n      ring')\nassert new.count('(contDiff_apply j).sub')==1;new=new.replace('(contDiff_apply j).sub','(contDiff_apply ℝ ℝ j).sub')\nH=B/'history/helper-fix001';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'HELPER_FIX001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/helper-fix001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST actual full helper amendment patch identity, once'}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only public001 four tactic-style findings and contDiff_apply explicit scalar/carrier argument','full_patch':str(p),'helper_integrations':1}))\n"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "start_utc": "2026-10-28T23:31:27.547964+00:00",
+        "end_utc": "2026-10-28T23:31:27.676988+00:00",
+        "elapsed_seconds": 0.12902523600132554,
+        "child_exit_code": 0,
+        "exception": null,
+        "status": "PASS_ACTUAL_CHILD_EXIT_ZERO",
+        "all_other_fields_read_full": true
+      },
+      "streams": [
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/helper-fix001/stdout.log",
+          "mode": "FULL",
+          "bytes": 239
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/helper-fix001/stderr.log",
+          "mode": "FULL",
+          "bytes": 0
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/helper-fix001/stdout.log",
+          "mode": "FULL",
+          "bytes": 172
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/helper-fix001/stderr.log",
+          "mode": "FULL",
+          "bytes": 0
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/helper-fix001/stdout.log",
+          "mode": "FULL",
+          "bytes": 193
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/helper-fix001/stderr.log",
+          "mode": "FULL",
+          "bytes": 0
+        }
+      ]
+    }
+  ],
+  "integration_original_stdout_values": {
+    "status": "ONE_HELPER_ORIGINAL_INTEGRATED_ONCE_AFTER_ORIGINAL_FREEZE",
+    "originals_frozen_utc": "2026-10-28T23:30:42.849341+00:00",
+    "integration_utc": "2026-10-28T23:30:42.851571+00:00",
+    "helper_integrations": 1,
+    "known_context_hashes": 0,
+    "new_original_first_hashes": 5
+  },
+  "concrete_custody_issue_found": false,
+  "limits": [
+    "FULL receipt fields and original streams only; referenced artifact contents were not reread",
+    "Successful documentary commands and capture wrappers do not assert downstream mathematics passed",
+    "Original receipt identity strings were read, never recomputed",
+    "No scientific or provider-distinct review credit"
+  ],
+  "reused_evidence": [
+    "Owner AGENTS instruction permits reuse across sessions, agents and handoffs without repeat verification on unchanged material",
+    "All final production745lines30286B82823ac4360cbfb6eda057eb9fc212c870842703a14f5222454df70f19ed0d96/ALL80std3/finalstrict completed mathematical/source verification remains PASS",
+    "Producer runner code FULL reading by /root/regular_collar_technical_review is reused"
+  ],
+  "forbidden_actions_performed": []
+}

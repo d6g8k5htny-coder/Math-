@@ -1,0 +1,284 @@
+--- history/helper-integration001/SourceActualRegularLocalCollar.lean.ORIGINAL
++++ SourceActualRegularLocalCollar.lean
+@@ -34,6 +34,225 @@
+ private def physicalBasis1 : E2 := Q.symm ![0, 1]
+ private def smallO (L : ℝ) (X : E2) : Set (Torus2 L) :=
+   cover L '' Metric.ball X (1 / 8 : ℝ)
++
++/-
++Stage66 ONE private physical-adapter TEXT contribution.
++Insert under the EXACT accepted common context in namespace
++I4SourceActualRegularLocalCollar. No imports or namespace changes are needed.
++This original has not been elaborated, executed, checked or hashed by its author.
++-/
++
++private theorem physical_adapter_linear_expansion
++    (d : Point2 →L[ℝ] ℝ) (v : Point2) :
++    d v = d ![1, 0] * v 0 + d ![0, 1] * v 1 := by
++  have hv : v = v 0 • ![1, 0] + v 1 • ![0, 1] := by
++    ext i
++    fin_cases i <;> simp [smul_eq_mul]
++  calc
++    d v = d (v 0 • ![1, 0] + v 1 • ![0, 1]) := congrArg d hv
++    _ = d ![1, 0] * v 0 + d ![0, 1] * v 1 := by
++      simp only [map_add, map_smul, smul_eq_mul]
++      ring
++
++private def physical_adapter_triangularA
++    (a b : ℝ) (ha : a ≠ 0) : Point2 ≃L[ℝ] Point2 where
++  toFun v := ![v 1, a * v 0 + b * v 1]
++  invFun w := ![(w 1 - b * w 0) / a, w 0]
++  left_inv v := by
++    ext i
++    fin_cases i
++    · change ((a * v 0 + b * v 1) - b * v 1) / a = v 0
++      field_simp [ha] <;> ring
++    · rfl
++  right_inv w := by
++    ext i
++    fin_cases i
++    · rfl
++    · change a * ((w 1 - b * w 0) / a) + b * w 0 = w 1
++      field_simp [ha] <;> ring
++  map_add' v w := by
++    ext i
++    fin_cases i
++    · rfl
++    · change a * (v 0 + w 0) + b * (v 1 + w 1) =
++        (a * v 0 + b * v 1) + (a * w 0 + b * w 1)
++      ring
++  map_smul' t v := by
++    ext i
++    fin_cases i
++    · rfl
++    · change a * (t * v 0) + b * (t * v 1) =
++        t * (a * v 0 + b * v 1)
++      ring
++  continuous_toFun := by fun_prop
++  continuous_invFun := by fun_prop
++
++private def physical_adapter_triangularB
++    (a b : ℝ) (hb : b ≠ 0) : Point2 ≃L[ℝ] Point2 where
++  toFun v := ![v 0, a * v 0 + b * v 1]
++  invFun w := ![w 0, (w 1 - a * w 0) / b]
++  left_inv v := by
++    ext i
++    fin_cases i
++    · rfl
++    · change ((a * v 0 + b * v 1) - a * v 0) / b = v 1
++      field_simp [hb] <;> ring
++  right_inv w := by
++    ext i
++    fin_cases i
++    · rfl
++    · change a * w 0 + b * ((w 1 - a * w 0) / b) = w 1
++      field_simp [hb] <;> ring
++  map_add' v w := by
++    ext i
++    fin_cases i
++    · rfl
++    · change a * (v 0 + w 0) + b * (v 1 + w 1) =
++        (a * v 0 + b * v 1) + (a * w 0 + b * w 1)
++      ring
++  map_smul' t v := by
++    ext i
++    fin_cases i
++    · rfl
++    · change a * (t * v 0) + b * (t * v 1) =
++        t * (a * v 0 + b * v 1)
++      ring
++  continuous_toFun := by fun_prop
++  continuous_invFun := by fun_prop
++
++private theorem physical_adapter_choose_linear
++    (d : Point2 →L[ℝ] ℝ) (hd : d ≠ 0) :
++    ∃ j : Fin 2, ∃ T : Point2 ≃L[ℝ] Point2,
++      (∀ v : Point2, T v 0 = v j) ∧
++      (∀ v : Point2, T v 1 = d v) := by
++  classical
++  by_cases ha : d ![1, 0] ≠ 0
++  · refine ⟨1, physical_adapter_triangularA (d ![1, 0]) (d ![0, 1]) ha,
++      ?_, ?_⟩
++    · intro v
++      rfl
++    · intro v
++      change d ![1, 0] * v 0 + d ![0, 1] * v 1 = d v
++      exact (physical_adapter_linear_expansion d v).symm
++  · have ha0 : d ![1, 0] = 0 := not_not.mp ha
++    have hb : d ![0, 1] ≠ 0 := by
++      intro hb0
++      apply hd
++      ext v
++      change d v = 0
++      rw [physical_adapter_linear_expansion]
++      simp [ha0, hb0]
++    refine ⟨0, physical_adapter_triangularB (d ![1, 0]) (d ![0, 1]) hb,
++      ?_, ?_⟩
++    · intro v
++      rfl
++    · intro v
++      change d ![1, 0] * v 0 + d ![0, 1] * v 1 = d v
++      exact (physical_adapter_linear_expansion d v).symm
++
++private theorem actual_physical_submersion_chart
++    {L : ℝ} (hL : 0 < L)
++    (ω : I4SmoothCarrier.SmoothSample 2 L) (X : E2)
++    (hreg : fderiv ℝ (I4LifetimeField.actualField 2 L ω) X ≠ 0) :
++    ∃ e : OpenPartialHomeomorph E2 Point2,
++      X ∈ e.source ∧ e X = 0 ∧ (0 : Point2) ∈ e.target ∧
++      ∀ Y ∈ e.source,
++        I4LifetimeField.actualField 2 L ω Y =
++          I4LifetimeField.actualField 2 L ω X + e Y 1 := by
++  classical
++  let x : Point2 := Q X
++  let f : Point2 → ℝ := coordField L ω
++  have hg : ContDiff ℝ 1 (I4LifetimeField.actualField 2 L ω) :=
++    I4LifetimeField.actualField_smooth 2 hL ω 1
++  have hf : ContDiff ℝ 1 f :=
++    hg.comp (Q.symm : Point2 →L[ℝ] E2).contDiff
++  let d : Point2 →L[ℝ] ℝ := fderiv ℝ f x
++  have hdf : HasFDerivAt f d x :=
++    (hf.differentiable_one x).hasFDerivAt
++  have hfun : (fun Y : E2 => f (Q Y)) =
++      I4LifetimeField.actualField 2 L ω := by
++    funext Y
++    simp [f, coordField, actualG]
++  have hphysical : HasFDerivAt (I4LifetimeField.actualField 2 L ω)
++      (d.comp (Q : E2 →L[ℝ] Point2)) X := by
++    have hcomp : HasFDerivAt (fun Y : E2 => f (Q Y))
++        (d.comp (Q : E2 →L[ℝ] Point2)) X :=
++      hdf.comp X (Q : E2 →L[ℝ] Point2).hasFDerivAt
++    simpa only [hfun] using hcomp
++  have hd : d ≠ 0 := by
++    intro hd0
++    apply hreg
++    calc
++      fderiv ℝ (I4LifetimeField.actualField 2 L ω) X =
++          d.comp (Q : E2 →L[ℝ] Point2) := hphysical.fderiv
++      _ = 0 := by simp [hd0]
++  obtain ⟨j, T, hT0, hT1⟩ := physical_adapter_choose_linear d hd
++  let A : Point2 → Point2 := fun y => ![y j - x j, f y - f x]
++  have hA_smooth : ContDiff ℝ 1 A := by
++    apply contDiff_pi.2
++    intro i
++    fin_cases i
++    · change ContDiff ℝ 1 (fun y : Point2 => y j - x j)
++      exact (contDiff_apply j).sub contDiff_const
++    · change ContDiff ℝ 1 (fun y : Point2 => f y - f x)
++      exact hf.sub contDiff_const
++  have hD0 :
++      (ContinuousLinearMap.proj (0 : Fin 2) : Point2 →L[ℝ] ℝ).comp
++          (T : Point2 →L[ℝ] Point2) =
++        (ContinuousLinearMap.proj j : Point2 →L[ℝ] ℝ) := by
++    ext v
++    exact hT0 v
++  have hD1 :
++      (ContinuousLinearMap.proj (1 : Fin 2) : Point2 →L[ℝ] ℝ).comp
++          (T : Point2 →L[ℝ] Point2) = d := by
++    ext v
++    exact hT1 v
++  have hA_deriv : HasFDerivAt A (T : Point2 →L[ℝ] Point2) x := by
++    apply hasFDerivAt_pi'.2
++    intro i
++    fin_cases i
++    · change HasFDerivAt (fun y : Point2 => y j - x j)
++        ((ContinuousLinearMap.proj (0 : Fin 2) : Point2 →L[ℝ] ℝ).comp
++          (T : Point2 →L[ℝ] Point2)) x
++      rw [hD0]
++      exact (hasFDerivAt_apply j x).sub_const (x j)
++    · change HasFDerivAt (fun y : Point2 => f y - f x)
++        ((ContinuousLinearMap.proj (1 : Fin 2) : Point2 →L[ℝ] ℝ).comp
++          (T : Point2 →L[ℝ] Point2)) x
++      rw [hD1]
++      exact hdf.sub_const (f x)
++  let P : E2 → Point2 := fun Y => A (Q Y)
++  let D : E2 ≃L[ℝ] Point2 := Q.trans T
++  have hP_smooth : ContDiff ℝ 1 P :=
++    hA_smooth.comp (Q : E2 →L[ℝ] Point2).contDiff
++  have hD : (D : E2 →L[ℝ] Point2) =
++      (T : Point2 →L[ℝ] Point2).comp (Q : E2 →L[ℝ] Point2) := by
++    ext Y
++    rfl
++  have hP_deriv : HasFDerivAt P (D : E2 →L[ℝ] Point2) X := by
++    rw [hD]
++    exact hA_deriv.comp X (Q : E2 →L[ℝ] Point2).hasFDerivAt
++  have hn : (1 : WithTop ℕ∞) ≠ 0 := by norm_num
++  let e : OpenPartialHomeomorph E2 Point2 :=
++    hP_smooth.contDiffAt.toOpenPartialHomeomorph P hP_deriv hn
++  have hPX : P X = 0 := by
++    ext i
++    fin_cases i <;> simp [P, A, x]
++  refine ⟨e, ?_, ?_, ?_, ?_⟩
++  · exact hP_smooth.contDiffAt.mem_toOpenPartialHomeomorph_source hP_deriv hn
++  · change P X = 0
++    exact hPX
++  · simpa only [hPX] using
++      hP_smooth.contDiffAt.image_mem_toOpenPartialHomeomorph_target hP_deriv hn
++  · intro Y _hY
++    change I4LifetimeField.actualField 2 L ω Y =
++      I4LifetimeField.actualField 2 L ω X + (f (Q Y) - f x)
++    have hfY : f (Q Y) = I4LifetimeField.actualField 2 L ω Y := by
++      simp [f, coordField, actualG]
++    have hfX : f x = I4LifetimeField.actualField 2 L ω X := by
++      simp [f, x, coordField, actualG]
++    rw [hfY, hfX]
++    ring
+ 
+ private theorem actual_pullback {L : ℝ} (hL : 0 < L)
+     (ω : SmoothSample 2 L) (Y : E2) :
+@@ -179,6 +398,7 @@
+       have hh := hheight (φ.symm u) (φ.map_target hut)
+       rw [φ.right_inv hut] at hh
+       have huc : ε ≤ u 1 := hu.2
++      change c + ε ≤ F (φ.symm u)
+       linarith [huc]
+     · intro hz
+       refine ⟨φ z, ⟨?_, ?_⟩, φ.left_inv hz.1⟩
+@@ -199,6 +419,7 @@
+       have hh := hheight (φ.symm u) (φ.map_target hut)
+       rw [φ.right_inv hut] at hh
+       have huc : u 1 = ε := hu.2
++      change F (φ.symm u) = c + ε
+       linarith [huc]
+     · intro hz
+       refine ⟨φ z, ⟨?_, ?_⟩, φ.left_inv hz.1⟩
+@@ -259,4 +480,39 @@
+       simp [I4SourceFiniteTrig.eval, fixturePoly, I4SourceFiniteTrig.termEval,
+         I4Source.phase, I4Weights.sourceC, Fin.sum_univ_two]
+ 
++
++theorem actualSource_quotient_regular_local_collar
++    {L : ℝ} (hL : 0 < L)
++    (ω : I4SmoothCarrier.SmoothSample 2 L)
++    (X : UniversalLaw.Spec.Lifetime.E 2)
++    (hreg : fderiv ℝ (I4LifetimeField.actualField 2 L ω) X ≠ 0) :
++    ∀ O : Set (I4Torus.SourceTorus 2 L), IsOpen O →
++      I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X) ∈ O →
++      ∃ ρ : ℝ, 0 < ρ ∧
++        ∃ φ : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) (Fin 2 → ℝ),
++          I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X) ∈ φ.source ∧
++          φ (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) = 0 ∧
++          φ.source ⊆ O ∧ φ.target = Metric.ball (0 : Fin 2 → ℝ) ρ ∧
++          (∀ z ∈ φ.source,
++            SourceActualFoldTorus.actualTorusField hL.ne' ω z =
++              SourceActualFoldTorus.actualTorusField hL.ne' ω
++                (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) + φ z 1) ∧
++          ∀ ε : ℝ, |ε| < ρ →
++            IsPathConnected (φ.source ∩ {z |
++              SourceActualFoldTorus.actualTorusField hL.ne' ω
++                (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) + ε ≤
++                  SourceActualFoldTorus.actualTorusField hL.ne' ω z}) ∧
++            IsPathConnected (φ.source ∩ {z |
++              SourceActualFoldTorus.actualTorusField hL.ne' ω z =
++                SourceActualFoldTorus.actualTorusField hL.ne' ω
++                  (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) + ε}) := by
++  intro O hO hXO
++  obtain ⟨e, hXe, heX, _h0e, hheight⟩ :=
++    actual_physical_submersion_chart hL ω X hreg
++  obtain ⟨ρ, hρ, φ, hq, hcenter, hinside, htarget, hfield⟩ :=
++    quotient_chart_from_physical hL ω X e hXe heX hheight O hO hXO
++  exact ⟨ρ, hρ, φ, hq, hcenter, hinside, htarget, hfield,
++    same_chart_traces_pc (actualF hL ω) (actualF hL ω (cover L X)) ρ hρ φ
++      htarget hfield⟩
++
+ end I4SourceActualRegularLocalCollar

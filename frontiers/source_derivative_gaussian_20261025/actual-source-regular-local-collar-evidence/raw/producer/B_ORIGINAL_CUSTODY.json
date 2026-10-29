@@ -1,0 +1,106 @@
+{
+  "status": "ONE_COMPLETE_PRIVATE_PHYSICAL_TEXT_ORIGINAL_FIRST_IDS_BEFORE_ONE_INTEGRATION",
+  "observed_utc": "2026-10-28T23:30:42.849341+00:00",
+  "helper": "/root/regular_collar_physical_text",
+  "original_completion_observed_utc": "2026-10-28T23:27:57Z",
+  "six_originals_present_before_delivery_observed_utc": "2026-10-28T23:29:07Z",
+  "accepted_context_personal_FULL_ACK": "2026-10-28T23:21:45Z",
+  "root_TEXT_release": "2026-10-28T23:22:56.127340+00:00",
+  "files": [
+    {
+      "source": "/workspace/scratch/actual-source-regular-local-collar-physical-text/PHYSICAL_ADAPTER_ORIGINAL.lean.txt",
+      "identity": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-physical-text/PHYSICAL_ADAPTER_ORIGINAL.lean.txt",
+        "bytes": 7612,
+        "sha256": "024e5b0b88cfc334cd4206b4904d517385571f1beb52b15eac4c1c994ed49ce4",
+        "marker": [
+          7612,
+          1793230077030718764
+        ],
+        "first_observed_utc": "2026-10-28T23:30:42.848711+00:00",
+        "origin": "FIRST immutable NEW helper documentary original ID, once"
+      },
+      "retained_exact_copy": "/workspace/scratch/actual-source-regular-local-collar-construct/helper-originals/PHYSICAL_ADAPTER_ORIGINAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-regular-local-collar-physical-text/IMPORTS_AND_PLACEMENT.lean.txt",
+      "identity": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-physical-text/IMPORTS_AND_PLACEMENT.lean.txt",
+        "bytes": 1634,
+        "sha256": "61aeac227f9a89c15f5811d36e9168fc56762a7c58ef4ebf46b66d3405af9a96",
+        "marker": [
+          1634,
+          1793230146362461266
+        ],
+        "first_observed_utc": "2026-10-28T23:30:42.848880+00:00",
+        "origin": "FIRST immutable NEW helper documentary original ID, once"
+      },
+      "retained_exact_copy": "/workspace/scratch/actual-source-regular-local-collar-construct/helper-originals/IMPORTS_AND_PLACEMENT.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-regular-local-collar-physical-text/ACCEPTED_CONTEXT.md",
+      "identity": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-physical-text/ACCEPTED_CONTEXT.md",
+        "bytes": 31289,
+        "sha256": "dc434883b3d75fd92a64131ae08e9405e83a3461cba3ce240e221114d2ac4b39",
+        "marker": [
+          31289,
+          1793230146013117499
+        ],
+        "first_observed_utc": "2026-10-28T23:16:48.663883+00:00",
+        "origin": "Known exact accepted context copy identity REUSED; no hash",
+        "copied_from": "/workspace/scratch/actual-source-regular-local-collar-construct/FROZEN_CONTEXT.md"
+      },
+      "retained_exact_copy": "/workspace/scratch/actual-source-regular-local-collar-construct/helper-originals/ACCEPTED_CONTEXT.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-regular-local-collar-physical-text/ACK.md",
+      "identity": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-physical-text/ACK.md",
+        "bytes": 3314,
+        "sha256": "1d1c67a786f0ede9e80682ac34af78506a4330709806b39861434733c03fe2e1",
+        "marker": [
+          3314,
+          1793229729939325257
+        ],
+        "first_observed_utc": "2026-10-28T23:30:42.849061+00:00",
+        "origin": "FIRST immutable NEW helper documentary original ID, once"
+      },
+      "retained_exact_copy": "/workspace/scratch/actual-source-regular-local-collar-construct/helper-originals/ACK.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-regular-local-collar-physical-text/PROVENANCE.md",
+      "identity": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-physical-text/PROVENANCE.md",
+        "bytes": 3989,
+        "sha256": "46dd1ee7cb532d4b6c036c7413fd4e75c1dc10f214af88e121b62e4ad66026f7",
+        "marker": [
+          3989,
+          1793230146666445308
+        ],
+        "first_observed_utc": "2026-10-28T23:30:42.849164+00:00",
+        "origin": "FIRST immutable NEW helper documentary original ID, once"
+      },
+      "retained_exact_copy": "/workspace/scratch/actual-source-regular-local-collar-construct/helper-originals/PROVENANCE.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-regular-local-collar-physical-text/FREEZE.md",
+      "identity": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-physical-text/FREEZE.md",
+        "bytes": 1461,
+        "sha256": "16e717195fbd506ce71c670f3177cdf1033a65a978fd97820f72338a31794e74",
+        "marker": [
+          1461,
+          1793230146978428930
+        ],
+        "first_observed_utc": "2026-10-28T23:30:42.849284+00:00",
+        "origin": "FIRST immutable NEW helper documentary original ID, once"
+      },
+      "retained_exact_copy": "/workspace/scratch/actual-source-regular-local-collar-construct/helper-originals/FREEZE.md"
+    }
+  ],
+  "helper_executions_hashes_probes_objects": 0,
+  "new_payload_FIRST_hashes_here": 5,
+  "known_context_hashes_here": 0,
+  "intended_integration_count": 1
+}

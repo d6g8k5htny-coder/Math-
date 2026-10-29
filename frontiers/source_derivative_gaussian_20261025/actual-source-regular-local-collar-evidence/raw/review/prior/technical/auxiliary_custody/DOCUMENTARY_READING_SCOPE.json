@@ -1,0 +1,485 @@
+{
+  "reviewer": "/root/regular_collar_technical_review/documentary_custody_reader",
+  "role": "read-only NONAUTHOR documentary-custody subreviewer",
+  "status": "COMPLETE_WITH_DISTINCT_PERSONAL_AND_NESTED_ORIGINAL_READING_ATTRIBUTION",
+  "construct_root": "/workspace/scratch/actual-source-regular-local-collar-construct",
+  "new_uncovered_obligation": "Previously pending original documentary receipt/stream reading for the closed production phase; no repeated mathematical verification.",
+  "owner_reuse_instruction": "Completed applicable verification is reusable across agents, sessions, heads and handoffs. No repeat checks on unchanged material; new checks require specific changed/defective/uncovered scope. Provider-distinct/process requirements remain separate from mathematical evidence.",
+  "cutoff": {
+    "initial_worker_end_utc_lte": "2026-10-28T23:37:04Z",
+    "explicit_parent_exception": {
+      "label": "inventory-classify001",
+      "actual_worker_end_utc": "2026-10-28T23:37:04.067786+00:00",
+      "reason": "Parent clarified this named completed production classification family was intended; no broader expansion or altered timestamps."
+    },
+    "excluded_reused": [
+      "context-bootstrap001",
+      "source-fix001"
+    ],
+    "excluded_later_ordinary": true
+  },
+  "personal_totals": {
+    "families": 5,
+    "full_receipts": 15,
+    "receipt_original_file_bytes": 215269,
+    "full_split_streams": 30,
+    "split_stream_bytes": 5137,
+    "empty_stderr_streams": 15,
+    "snapshot_mapping_entries": 66,
+    "target_snapshot_contents_reopened": 0
+  },
+  "personal_families": [
+    {
+      "label": "source-initial001",
+      "scope_kind": "documentary",
+      "reader": "/root/regular_collar_technical_review/documentary_custody_reader",
+      "receipts": [
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/source-initial001/receipt.json",
+          "original_file_bytes": 14907,
+          "read_mode": "FULL",
+          "all_json_fields_and_embedded_code_read": true,
+          "start_utc": "2026-10-28T23:26:27.111919+00:00",
+          "end_utc": "2026-10-28T23:26:27.148190+00:00",
+          "exit_code": 0,
+          "exception": null,
+          "before_snapshot_mapping_entries_read": 8
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/source-initial001/RECEIPT.json",
+          "original_file_bytes": 4784,
+          "read_mode": "FULL",
+          "all_json_fields_and_embedded_code_read": true,
+          "start_utc": "2026-10-28T23:26:27.076218+00:00",
+          "end_utc": "2026-10-28T23:26:27.156580+00:00",
+          "child_exit_code": 0,
+          "exception": null
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/source-initial001/RECEIPT.json",
+          "original_file_bytes": 5498,
+          "read_mode": "FULL",
+          "all_json_fields_and_embedded_code_read": true,
+          "start_utc": "2026-10-28T23:26:27.046969+00:00",
+          "end_utc": "2026-10-28T23:26:27.163353+00:00",
+          "child_exit_code": 0,
+          "exception": null
+        }
+      ],
+      "streams": [
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/source-initial001/stdout.log",
+          "bytes": 1532,
+          "read_mode": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/source-initial001/stderr.log",
+          "bytes": 0,
+          "read_mode": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/source-initial001/stdout.log",
+          "bytes": 180,
+          "read_mode": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/source-initial001/stderr.log",
+          "bytes": 0,
+          "read_mode": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/source-initial001/stdout.log",
+          "bytes": 197,
+          "read_mode": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/source-initial001/stderr.log",
+          "bytes": 0,
+          "read_mode": "FULL"
+        }
+      ],
+      "command_argv_kind": "python3 -c complete inline payload",
+      "complete_command_retained_at": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/source-initial001/receipt.json#/command_argv",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "original_content_truncation": false,
+      "automatic_retry": false
+    },
+    {
+      "label": "transfer-fixture001",
+      "scope_kind": "documentary",
+      "reader": "/root/regular_collar_technical_review/documentary_custody_reader",
+      "receipts": [
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-fixture001/receipt.json",
+          "original_file_bytes": 23298,
+          "read_mode": "FULL",
+          "all_json_fields_and_embedded_code_read": true,
+          "start_utc": "2026-10-28T23:28:51.797930+00:00",
+          "end_utc": "2026-10-28T23:28:51.836661+00:00",
+          "exit_code": 0,
+          "exception": null,
+          "before_snapshot_mapping_entries_read": 10
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/transfer-fixture001/RECEIPT.json",
+          "original_file_bytes": 14690,
+          "read_mode": "FULL",
+          "all_json_fields_and_embedded_code_read": true,
+          "start_utc": "2026-10-28T23:28:51.760375+00:00",
+          "end_utc": "2026-10-28T23:28:51.845645+00:00",
+          "child_exit_code": 0,
+          "exception": null
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/transfer-fixture001/RECEIPT.json",
+          "original_file_bytes": 15408,
+          "read_mode": "FULL",
+          "all_json_fields_and_embedded_code_read": true,
+          "start_utc": "2026-10-28T23:28:51.729384+00:00",
+          "end_utc": "2026-10-28T23:28:51.852531+00:00",
+          "child_exit_code": 0,
+          "exception": null
+        }
+      ],
+      "streams": [
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-fixture001/stdout.log",
+          "bytes": 231,
+          "read_mode": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-fixture001/stderr.log",
+          "bytes": 0,
+          "read_mode": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/transfer-fixture001/stdout.log",
+          "bytes": 184,
+          "read_mode": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/transfer-fixture001/stderr.log",
+          "bytes": 0,
+          "read_mode": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/transfer-fixture001/stdout.log",
+          "bytes": 199,
+          "read_mode": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/transfer-fixture001/stderr.log",
+          "bytes": 0,
+          "read_mode": "FULL"
+        }
+      ],
+      "command_argv_kind": "python3 -c complete inline payload",
+      "complete_command_retained_at": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-fixture001/receipt.json#/command_argv",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "original_content_truncation": false,
+      "automatic_retry": false
+    },
+    {
+      "label": "transfer-staticfix001",
+      "scope_kind": "documentary",
+      "reader": "/root/regular_collar_technical_review/documentary_custody_reader",
+      "receipts": [
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-staticfix001/receipt.json",
+          "original_file_bytes": 21759,
+          "read_mode": "FULL",
+          "all_json_fields_and_embedded_code_read": true,
+          "start_utc": "2026-10-28T23:29:29.072571+00:00",
+          "end_utc": "2026-10-28T23:29:29.118998+00:00",
+          "exit_code": 0,
+          "exception": null,
+          "before_snapshot_mapping_entries_read": 11
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/transfer-staticfix001/RECEIPT.json",
+          "original_file_bytes": 8996,
+          "read_mode": "FULL",
+          "all_json_fields_and_embedded_code_read": true,
+          "start_utc": "2026-10-28T23:29:29.025094+00:00",
+          "end_utc": "2026-10-28T23:29:29.130091+00:00",
+          "child_exit_code": 0,
+          "exception": null
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/transfer-staticfix001/RECEIPT.json",
+          "original_file_bytes": 9717,
+          "read_mode": "FULL",
+          "all_json_fields_and_embedded_code_read": true,
+          "start_utc": "2026-10-28T23:29:28.994736+00:00",
+          "end_utc": "2026-10-28T23:29:29.136900+00:00",
+          "child_exit_code": 0,
+          "exception": null
+        }
+      ],
+      "streams": [
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-staticfix001/stdout.log",
+          "bytes": 965,
+          "read_mode": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-staticfix001/stderr.log",
+          "bytes": 0,
+          "read_mode": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/transfer-staticfix001/stdout.log",
+          "bytes": 188,
+          "read_mode": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/transfer-staticfix001/stderr.log",
+          "bytes": 0,
+          "read_mode": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/transfer-staticfix001/stdout.log",
+          "bytes": 201,
+          "read_mode": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/transfer-staticfix001/stderr.log",
+          "bytes": 0,
+          "read_mode": "FULL"
+        }
+      ],
+      "command_argv_kind": "python3 -c complete inline payload",
+      "complete_command_retained_at": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-staticfix001/receipt.json#/command_argv",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "original_content_truncation": false,
+      "automatic_retry": false
+    },
+    {
+      "label": "inventory-initial001",
+      "scope_kind": "documentary",
+      "reader": "/root/regular_collar_technical_review/documentary_custody_reader",
+      "receipts": [
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/inventory-initial001/receipt.json",
+          "original_file_bytes": 33646,
+          "read_mode": "FULL",
+          "all_json_fields_and_embedded_code_read": true,
+          "start_utc": "2026-10-28T23:37:00.366613+00:00",
+          "end_utc": "2026-10-28T23:37:00.403616+00:00",
+          "exit_code": 0,
+          "exception": null,
+          "before_snapshot_mapping_entries_read": 18
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/inventory-initial001/RECEIPT.json",
+          "original_file_bytes": 14417,
+          "read_mode": "FULL",
+          "all_json_fields_and_embedded_code_read": true,
+          "start_utc": "2026-10-28T23:37:00.325186+00:00",
+          "end_utc": "2026-10-28T23:37:00.414430+00:00",
+          "child_exit_code": 0,
+          "exception": null
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/inventory-initial001/RECEIPT.json",
+          "original_file_bytes": 15136,
+          "read_mode": "FULL",
+          "all_json_fields_and_embedded_code_read": true,
+          "start_utc": "2026-10-28T23:37:00.293986+00:00",
+          "end_utc": "2026-10-28T23:37:00.420966+00:00",
+          "child_exit_code": 0,
+          "exception": null
+        }
+      ],
+      "streams": [
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/inventory-initial001/stdout.log",
+          "bytes": 138,
+          "read_mode": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/inventory-initial001/stderr.log",
+          "bytes": 0,
+          "read_mode": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/inventory-initial001/stdout.log",
+          "bytes": 186,
+          "read_mode": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/inventory-initial001/stderr.log",
+          "bytes": 0,
+          "read_mode": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/inventory-initial001/stdout.log",
+          "bytes": 200,
+          "read_mode": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/inventory-initial001/stderr.log",
+          "bytes": 0,
+          "read_mode": "FULL"
+        }
+      ],
+      "command_argv_kind": "python3 -c complete inline payload",
+      "complete_command_retained_at": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/inventory-initial001/receipt.json#/command_argv",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "original_content_truncation": false,
+      "automatic_retry": false
+    },
+    {
+      "label": "inventory-classify001",
+      "scope_kind": "documentary",
+      "reader": "/root/regular_collar_technical_review/documentary_custody_reader",
+      "receipts": [
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/inventory-classify001/receipt.json",
+          "original_file_bytes": 28683,
+          "read_mode": "FULL",
+          "all_json_fields_and_embedded_code_read": true,
+          "start_utc": "2026-10-28T23:37:04.039269+00:00",
+          "end_utc": "2026-10-28T23:37:04.067786+00:00",
+          "exit_code": 0,
+          "exception": null,
+          "before_snapshot_mapping_entries_read": 19
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/inventory-classify001/RECEIPT.json",
+          "original_file_bytes": 1804,
+          "read_mode": "FULL",
+          "all_json_fields_and_embedded_code_read": true,
+          "start_utc": "2026-10-28T23:37:03.998514+00:00",
+          "end_utc": "2026-10-28T23:37:04.079298+00:00",
+          "child_exit_code": 0,
+          "exception": null
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/inventory-classify001/RECEIPT.json",
+          "original_file_bytes": 2526,
+          "read_mode": "FULL",
+          "all_json_fields_and_embedded_code_read": true,
+          "start_utc": "2026-10-28T23:37:03.967918+00:00",
+          "end_utc": "2026-10-28T23:37:04.086150+00:00",
+          "child_exit_code": 0,
+          "exception": null
+        }
+      ],
+      "streams": [
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/inventory-classify001/stdout.log",
+          "bytes": 347,
+          "read_mode": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/inventory-classify001/stderr.log",
+          "bytes": 0,
+          "read_mode": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/inventory-classify001/stdout.log",
+          "bytes": 188,
+          "read_mode": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/inventory-classify001/stderr.log",
+          "bytes": 0,
+          "read_mode": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/inventory-classify001/stdout.log",
+          "bytes": 201,
+          "read_mode": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/inventory-classify001/stderr.log",
+          "bytes": 0,
+          "read_mode": "FULL"
+        }
+      ],
+      "command_argv_kind": "python3 classify_inventory.py production",
+      "complete_command_retained_at": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/inventory-classify001/receipt.json#/command_argv",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "original_content_truncation": false,
+      "automatic_retry": false
+    }
+  ],
+  "nested_readers": [
+    {
+      "reader": "/root/regular_collar_technical_review/documentary_custody_reader/helper_families",
+      "families": [
+        "helper-integration001",
+        "helper-fix001"
+      ],
+      "own_report_directory": "/workspace/scratch/actual-source-regular-local-collar-source-review/technical/auxiliary_custody/helper_families",
+      "parent_claims_personal_original_read": false,
+      "final_report_integration": "FULL report read; STRUCTURED top-level ledger metadata and family key schema read; nested originals and repeated JSON payloads not personally reread",
+      "report": "/workspace/scratch/actual-source-regular-local-collar-source-review/technical/auxiliary_custody/helper_families/REPORT.md",
+      "report_bytes": 6872,
+      "scope_json": "/workspace/scratch/actual-source-regular-local-collar-source-review/technical/auxiliary_custody/helper_families/READING_SCOPE.json",
+      "scope_json_original_bytes": 56737,
+      "nested_personal_totals": {"families": 2, "full_receipts": 6, "receipt_bytes": 92511, "full_streams": 12, "stream_bytes": 1265, "empty_stderr": 6},
+      "nested_reported_concrete_custody_issue": false
+    },
+    {
+      "reader": "/root/regular_collar_technical_review/documentary_custody_reader/production_families",
+      "families": [
+        "production-fixtures001",
+        "production-fixtures-fix001",
+        "production-fixtures-fix002",
+        "production-fixtures-fix003"
+      ],
+      "own_report_directory": "/workspace/scratch/actual-source-regular-local-collar-source-review/technical/auxiliary_custody/production_families",
+      "parent_claims_personal_original_read": false,
+      "final_report_integration": "FULL report read; STRUCTURED top-level ledger metadata and family key schema read; nested originals and repeated JSON payloads not personally reread",
+      "report": "/workspace/scratch/actual-source-regular-local-collar-source-review/technical/auxiliary_custody/production_families/REPORT.md",
+      "report_bytes": 6219,
+      "scope_json": "/workspace/scratch/actual-source-regular-local-collar-source-review/technical/auxiliary_custody/production_families/reading-scope.json",
+      "scope_json_original_bytes": 127573,
+      "nested_personal_totals": {"families": 4, "full_receipts": 12, "receipt_bytes": 204594, "full_streams": 24, "stream_bytes": 2491, "empty_stderr": 12},
+      "nested_reported_concrete_custody_issue": false
+    }
+  ],
+  "aggregate_attributed_totals": {"families": 11, "full_original_receipts": 33, "original_receipt_bytes": 512374, "full_original_split_streams": 66, "original_stream_bytes": 8893, "empty_stderr_streams": 33, "parent_personal_full_nested_reports": 2, "nested_report_bytes": 13091, "parent_structured_nested_scope_jsons": 2},
+  "qualifications": [
+    "All selected documentary worker and wrapper zeros are documentary command/capture outcomes, not new mathematical PASS.",
+    "transfer-staticfix001 preserves prior duplicate-label prelaunch tool exit1 with no observed child/Lean run and only combined exec traceback; never invent six split streams for that attempt.",
+    "before_snapshots mappings were fully read, but target snapshots/source/object files and named output documents were not reopened.",
+    "Initial broad path-discovery listing was truncated; no FULL claim is based on that listing. All personal original-content reads were bounded and untruncated.",
+    "Unused wrapper INTENT/STARTED/RESULT sidecars were not part of the assigned RECEIPT/stream reads and are not claimed FULL.",
+    "Recorded identities are carried original metadata; none recomputed."
+  ],
+  "reused_evidence": {
+    "final_production": {
+      "lines": 745,
+      "bytes": 30286,
+      "recorded_sha256": "82823ac4360cbfb6eda057eb9fc212c870842703a14f5222454df70f19ed0d96",
+      "status": "Already FULL reviewed PASS; ALL80/std3/final-strict carried from parent, no replay"
+    },
+    "parent_completed_reading": [
+      "common context",
+      "initial bootstrap",
+      "source-fix001 worker/outer/entry documentary originals",
+      "producer runner code"
+    ]
+  },
+  "current_actions": {
+    "mathematical_execution": 0,
+    "lean_kernel_ci_proof_replays": 0,
+    "tests": 0,
+    "source_imports": 0,
+    "hashes_computed": 0,
+    "source_object_cache_git_actions": 0,
+    "external_writes": 0,
+    "publication": 0,
+    "allowed_writes": "Own report and this reading-scope JSON under technical/auxiliary_custody/ only"
+  },
+  "credits": {
+    "scientific": false,
+    "provider_distinct": false,
+    "independent_family": false,
+    "optional_one_b_proof_text_helper": false
+  },
+  "future_reuse": "This completed reading is reusable under unchanged material, assumptions and dependencies; a new agent/session/handoff alone does not warrant re-reading or verification."
+}

@@ -1,0 +1,51 @@
+{
+  "status": "EXACT_NEW66_INVENTORY_AND_CLASSIFIER_ORIGINALS_FROZEN_BEFORE_FIRST_EXECUTION",
+  "observed_utc": "2026-10-28T23:37:00.397942+00:00",
+  "reused_collector_logic": "Qualified prior generic module-index ALL-owned/std3 collector retargeted ONLY to genuinely new66; no old mathematical scope executed",
+  "new_scripts": [
+    {
+      "source": "/workspace/scratch/actual-source-regular-local-collar-construct/Inventory.lean",
+      "identity": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-construct/Inventory.lean",
+        "bytes": 1085,
+        "sha256": "263fda9f73b2a86c727d6e09bb1908a7a3249494ecd6a7b4337fe345b991ca30",
+        "marker": [
+          1085,
+          1793230620394876659
+        ],
+        "first_observed_utc": "2026-10-28T23:37:00.394908+00:00",
+        "origin": "FIRST new audit/classification source identity before own first execution"
+      },
+      "original_before_first_execution": "/workspace/scratch/actual-source-regular-local-collar-construct/frozen/INITIAL_Inventory.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-regular-local-collar-construct/runner/classify_inventory.py",
+      "identity": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runner/classify_inventory.py",
+        "bytes": 2974,
+        "sha256": "18fcdf651d5d934482172381ba2deff2ee2f70a3e1fe2835c12b2471db2a1d66",
+        "marker": [
+          2974,
+          1793230620395003438
+        ],
+        "first_observed_utc": "2026-10-28T23:37:00.395023+00:00",
+        "origin": "FIRST new audit/classification source identity before own first execution"
+      },
+      "original_before_first_execution": "/workspace/scratch/actual-source-regular-local-collar-construct/frozen/INITIAL_classify_inventory.py"
+    }
+  ],
+  "frozen_final_source": {
+    "path": "/workspace/scratch/actual-source-regular-local-collar-construct/frozen/FINAL_SOURCE.lean",
+    "bytes": 30286,
+    "sha256": "82823ac4360cbfb6eda057eb9fc212c870842703a14f5222454df70f19ed0d96",
+    "marker": [
+      30286,
+      1793230620394738599
+    ],
+    "first_observed_utc": "2026-10-28T23:35:31.204813+00:00",
+    "origin": "Known exact final own source frozen copy ID REUSED; no hash",
+    "copied_from": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean"
+  },
+  "source_hashes_here": 0,
+  "production_kernel_authorized": false
+}

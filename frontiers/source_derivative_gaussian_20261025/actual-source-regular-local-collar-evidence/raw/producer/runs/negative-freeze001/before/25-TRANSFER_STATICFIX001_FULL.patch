@@ -1,0 +1,44 @@
+--- history/transfer-staticfix001/SourceActualRegularLocalCollar.lean.ORIGINAL
++++ SourceActualRegularLocalCollar.lean
+@@ -178,16 +178,16 @@
+       refine ⟨φ.map_target hut, ?_⟩
+       have hh := hheight (φ.symm u) (φ.map_target hut)
+       rw [φ.right_inv hut] at hh
+-      change ε ≤ u 1 at hu
+-      linarith [hu.2]
++      have huc : ε ≤ u 1 := hu.2
++      linarith [huc]
+     · intro hz
+       refine ⟨φ z, ⟨?_, ?_⟩, φ.left_inv hz.1⟩
+       · rw [← htarget]
+         exact φ.map_source hz.1
+       · change ε ≤ φ z 1
+         have hh := hheight z hz.1
+-        change c + ε ≤ F z at hz
+-        linarith [hz.2]
++        have hzc : c + ε ≤ F z := hz.2
++        linarith [hzc]
+   have hlevel_image :
+       φ.symm '' (Metric.ball (0 : Point2) ρ ∩ {u | u 1 = ε}) =
+         φ.source ∩ {z | F z = c + ε} := by
+@@ -198,16 +198,16 @@
+       refine ⟨φ.map_target hut, ?_⟩
+       have hh := hheight (φ.symm u) (φ.map_target hut)
+       rw [φ.right_inv hut] at hh
+-      change u 1 = ε at hu
+-      linarith [hu.2]
++      have huc : u 1 = ε := hu.2
++      linarith [huc]
+     · intro hz
+       refine ⟨φ z, ⟨?_, ?_⟩, φ.left_inv hz.1⟩
+       · rw [← htarget]
+         exact φ.map_source hz.1
+       · change φ z 1 = ε
+         have hh := hheight z hz.1
+-        change F z = c + ε at hz
+-        linarith [hz.2]
++        have hzc : F z = c + ε := hz.2
++        linarith [hzc]
+   have hcupper : ContinuousOn φ.symm
+       (Metric.ball (0 : Point2) ρ ∩ {u | ε ≤ u 1}) :=
+     φ.continuousOn_symm.mono (fun _ hu => htarget ▸ hu.1)

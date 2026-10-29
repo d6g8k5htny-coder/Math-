@@ -1,0 +1,93 @@
+{
+  "status": "PASS_BOUNDED_DOCUMENTARY_AGGREGATE_SCOPE_NO_MATHEMATICAL_REVIEW",
+  "observed_utc": "2026-10-28T23:59:09.450875+00:00",
+  "reviewer": "/root/collar66_final_custody/aggregate_scope",
+  "new_obligation": "Previously uncovered final aggregate documentary schema/count/path/identity association scope; completed mathematical evidence remains reusable",
+  "input_files": [
+    "/workspace/scratch/actual-source-regular-local-collar-construct/EXECUTION_RECORD_INDEX.json",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/HISTORICAL_ID_BINDINGS.json",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/ARTIFACT_IDENTITIES.json",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/PUBLICATION_ALLOWLIST_FINAL.json",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/FINAL_DOCUMENT_IDS.json"
+  ],
+  "reading_method": "JSON parsed in memory; personally read bounded top-level/schema/count projections, all38 execution summary rows (label/kind/exit/start/end), historical42 version heads/counts, first/last selected schema samples, and projected full path-set association differences. No literal FULL reading claim for large aggregates or duplicate maps. No underlying proof payload or receipt replay.",
+  "full_large_aggregate_reading": false,
+  "counts": {
+    "execution_rows_at_generation": 38,
+    "execution_math": 17,
+    "execution_documentary": 21,
+    "after_final_tail_dedicated": 39,
+    "after_final_tail_documentary": 22,
+    "dedicated_split_streams_after_tail": 234,
+    "external_families": 2,
+    "external_split_streams": 12,
+    "allowlist_unique": 1463,
+    "artifact_unique": 1448,
+    "final_document_unique": 10,
+    "artifact_finaldocument_overlap": 7,
+    "historical_versions": 42,
+    "historical_occurrences": 1356,
+    "historical_snapshot_paths": 635
+  },
+  "identity_association": {
+    "allowlist_without_artifacts_or_finaldoc_rows": [
+      "/workspace/scratch/actual-source-regular-local-collar-construct/FINAL_DOCUMENT_IDS.json",
+      "/workspace/scratch/actual-source-regular-local-collar-construct/entry/final-documents001/RECEIPT.json",
+      "/workspace/scratch/actual-source-regular-local-collar-construct/entry/final-documents001/RESULT.json",
+      "/workspace/scratch/actual-source-regular-local-collar-construct/entry/final-documents001/stderr.log",
+      "/workspace/scratch/actual-source-regular-local-collar-construct/entry/final-documents001/stdout.log",
+      "/workspace/scratch/actual-source-regular-local-collar-construct/outer/final-documents001/RECEIPT.json",
+      "/workspace/scratch/actual-source-regular-local-collar-construct/outer/final-documents001/RESULT.json",
+      "/workspace/scratch/actual-source-regular-local-collar-construct/outer/final-documents001/stderr.log",
+      "/workspace/scratch/actual-source-regular-local-collar-construct/outer/final-documents001/stdout.log",
+      "/workspace/scratch/actual-source-regular-local-collar-construct/runs/final-documents001/receipt.json",
+      "/workspace/scratch/actual-source-regular-local-collar-construct/runs/final-documents001/stderr.log",
+      "/workspace/scratch/actual-source-regular-local-collar-construct/runs/final-documents001/stdout.log"
+    ],
+    "aggregate_or_finaldoc_rows_not_allowlisted": [],
+    "deferred11_all_allowlisted": true,
+    "deferred11_agree": true,
+    "self_identity_policy": "Collected once in FIRST_ID_CACHE AFTER this file is written; never recursively embedded",
+    "root_rule": "Wait for real entry closure; reuse any closed worker stream IDs then FIRST-adopt only remaining new closed metadata payloads",
+    "historical_rule": "Exact original receipt before/after fields remain authority; retain actual snapshot paths, never attach historical ID to changed current path. No literal repeated large JSON reading claim.",
+    "binary_historical_groups_without_snapshot_count": 4
+  },
+  "allowlist_structure": {
+    "only_member_outside_construct": [
+      "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean"
+    ],
+    "forbidden_build_cache_binary_paths": [],
+    "extensions": [
+      ".ORIGINAL",
+      ".json",
+      ".jsonl",
+      ".lean",
+      ".log",
+      ".md",
+      ".patch",
+      ".py",
+      ".tsv",
+      ".txt"
+    ],
+    "source_only": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean",
+    "excluded": "All binaries/build/cache, mutable FIRST_ID_CACHE, old modules/evidence, future67 rootEXTRAs, shared metadata/config/external files"
+  },
+  "limits": [
+    "Did not hash or read proof/source/object payloads",
+    "Did not re-run Lean, inventories, controls, kernel, negative, metadata worker or provider CI",
+    "Did not independently adopt final11 closed identities or review ROOT_PRODUCER_CLOSURE_ADOPTION66.json; root separately owns that obligation",
+    "Did not infer mathematical acceptance, personal source review, provider-distinct acceptance, or all246stream reading from aggregate parse",
+    "No root publication/finalization authority"
+  ],
+  "orchestration_note": "One read-only summary formatter raised TypeError because JSON mapping keys were tuples; corrected formatting only. No math/documentary task worker replay or mutation of producer data occurred.",
+  "own_writes_only": true,
+  "hashes": 0,
+  "mathematical_executions": 0,
+  "Git_cache_objects_external_actions": 0,
+  "same_family_credit": 0,
+  "scientific_effect": "NONE",
+  "creator": 6482857252,
+  "checkpoint": "2026-10-29T00:10:00Z",
+  "hard_terminal": "2026-10-29T03:30:00Z or invocation end; no automatic extension",
+  "global_goal": "ACTIVE_UNMET"
+}
