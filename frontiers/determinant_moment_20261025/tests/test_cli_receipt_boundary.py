@@ -20,8 +20,15 @@ class CliReceiptBoundaryTests(unittest.TestCase):
     def fixture(self):
         tmp = tempfile.TemporaryDirectory()
         self.addCleanup(tmp.cleanup)
-        root = Path(tmp.name) / 'component'
+        root = Path(tmp.name) / 'repo/frontiers/component'
         shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns('.lake', '__pycache__'))
+        helper = root.parents[1] / 'tools/lean_packet_admission.py'
+        helper.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(ROOT.parents[1] / 'tools/lean_packet_admission.py', helper)
+        m = json.loads((root / 'manifest.json').read_text())
+        m['compiled_inventory'] = None  # Explicitly retain the unqualified-boundary fixture.
+        m.pop('compiled_inventory_version', None)
+        (root / 'manifest.json').write_text(json.dumps(m))
         active = root / '.lake/formal-evidence/receipt.json'
         active.parent.mkdir(parents=True)
         active.write_text('{"synthetic_test_fixture":"stale active receipt"}')
@@ -163,8 +170,11 @@ class QuarantineRecordTests(unittest.TestCase):
     def test_quarantine_record_cannot_be_omitted_from_control_manifest(self):
         tmp = tempfile.TemporaryDirectory()
         self.addCleanup(tmp.cleanup)
-        root = Path(tmp.name) / 'component'
+        root = Path(tmp.name) / 'repo/frontiers/component'
         shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns('.lake', '__pycache__'))
+        helper = root.parents[1] / 'tools/lean_packet_admission.py'
+        helper.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(ROOT.parents[1] / 'tools/lean_packet_admission.py', helper)
         m = json.loads((root / 'manifest.json').read_text())
         m['files'].pop('QUARANTINE.json', None)
         (root / 'manifest.json').write_text(json.dumps(m))
@@ -181,16 +191,27 @@ class PortableMutationRunnerTests(unittest.TestCase):
     def test_component_copy_runs_all_five_mutations_with_intended_failures(self):
         with tempfile.TemporaryDirectory() as d:
             base = Path(d)
-            root = base / 'cold-start-component'
+            root = base / 'repo/frontiers/cold-start-component'
             shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns('.lake', '__pycache__'))
+            helper = root.parents[1] / 'tools/lean_packet_admission.py'
+            helper.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(ROOT.parents[1] / 'tools/lean_packet_admission.py', helper)
             before = {p.relative_to(root): p.read_bytes() for p in root.rglob('*') if p.is_file()}
             output = base / 'reports'
-            result = subprocess.run([sys.executable, '-B', '-S', str(root / 'tests/run_cbz_mutations.py'),
+            result = subprocess.run([sys.executable, '-B', '-S', *(['-O'] if sys.flags.optimize else []),
+                                     str(root / 'tests/run_cbz_mutations.py'),
                                      '--output', str(output)], cwd=base, capture_output=True, text=True,
                                     env={**os.environ, 'TMPDIR': str(base)})
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
             report = json.loads((output / 'mutation_results.json').read_text())
-            self.assertEqual(len(report['mutations']), 5)
+            self.assertEqual(len(report['mutations']), 12)
+            self.assertEqual({r['name'] for r in report['mutations']}, {
+                'omit-forbidden-closure', 'omit-extra-theorem-admission',
+                'omit-bound-constant-admission', 'omit-stale-receipt-removal',
+                'execute-cached-inventory-bytecode', 'omit-runtime-census-and-controls',
+                'omit-artifact-log-hash', 'omit-artifact-commit-binding',
+                'omit-artifact-manifest-binding', 'omit-artifact-duplicate-refusal',
+                'omit-artifact-path-refusal', 'omit-artifact-empty-inventory-refusal'})
             self.assertTrue(report['source_preserved'])
             for record in report['mutations']:
                 self.assertGreater(record['collected_tests'], 0)

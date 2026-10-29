@@ -1,0 +1,112 @@
+test_assume_unchanged_dependency_source_is_rejected (test_custody.DependencyCustody.test_assume_unchanged_dependency_source_is_rejected) ... FAIL
+2026-10-29T20:41:13.0036684Z test_clean_dependency_is_admitted (test_custody.DependencyCustody.test_clean_dependency_is_admitted) ... ok
+2026-10-29T20:41:13.0311431Z test_ignored_untracked_lean_source_is_rejected (test_custody.DependencyCustody.test_ignored_untracked_lean_source_is_rejected) ... FAIL
+2026-10-29T20:41:13.0656910Z test_skip_worktree_dependency_source_is_rejected (test_custody.DependencyCustody.test_skip_worktree_dependency_source_is_rejected) ... FAIL
+2026-10-29T20:41:13.0939162Z test_assume_unchanged_cannot_hide_source_bytes (test_custody.SourceCustody.test_assume_unchanged_cannot_hide_source_bytes) ... FAIL
+2026-10-29T20:41:13.1177633Z test_clean_committed_source_is_admitted (test_custody.SourceCustody.test_clean_committed_source_is_admitted) ... FAIL
+2026-10-29T20:41:13.1454090Z test_dirty_refreshed_manifest_is_rejected (test_custody.SourceCustody.test_dirty_refreshed_manifest_is_rejected) ... FAIL
+2026-10-29T20:41:13.1794346Z test_head_drift_is_rejected (test_custody.SourceCustody.test_head_drift_is_rejected) ... FAIL
+2026-10-29T20:41:13.2163083Z test_loaded_driver_substitution_is_rejected (test_custody.SourceCustody.test_loaded_driver_substitution_is_rejected) ... FAIL
+2026-10-29T20:41:13.2469455Z test_skip_worktree_cannot_hide_source_bytes (test_custody.SourceCustody.test_skip_worktree_cannot_hide_source_bytes) ... FAIL
+2026-10-29T20:41:13.2723501Z test_staged_change_is_rejected (test_custody.SourceCustody.test_staged_change_is_rejected) ... FAIL
+2026-10-29T20:41:13.2742158Z 
+2026-10-29T20:41:13.2742473Z ======================================================================
+2026-10-29T20:41:13.2744177Z FAIL: test_assume_unchanged_dependency_source_is_rejected (test_custody.DependencyCustody.test_assume_unchanged_dependency_source_is_rejected)
+2026-10-29T20:41:13.2745716Z ----------------------------------------------------------------------
+2026-10-29T20:41:13.2746463Z Traceback (most recent call last):
+2026-10-29T20:41:13.2752946Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 127, in test_assume_unchanged_dependency_source_is_rejected
+2026-10-29T20:41:13.2754549Z     with self.assertRaisesRegex(ValueError, "dependency.*(source|tracked|working)"):
+2026-10-29T20:41:13.2755157Z AssertionError: ValueError not raised
+2026-10-29T20:41:13.2755405Z 
+2026-10-29T20:41:13.2755577Z ======================================================================
+2026-10-29T20:41:13.2756429Z FAIL: test_ignored_untracked_lean_source_is_rejected (test_custody.DependencyCustody.test_ignored_untracked_lean_source_is_rejected)
+2026-10-29T20:41:13.2757318Z ----------------------------------------------------------------------
+2026-10-29T20:41:13.2757764Z Traceback (most recent call last):
+2026-10-29T20:41:13.2758933Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 140, in test_ignored_untracked_lean_source_is_rejected
+2026-10-29T20:41:13.2759941Z     with self.assertRaisesRegex(ValueError, "dependency.*(Lean|source|untracked)"):
+2026-10-29T20:41:13.2760422Z AssertionError: ValueError not raised
+2026-10-29T20:41:13.2760626Z 
+2026-10-29T20:41:13.2760746Z ======================================================================
+2026-10-29T20:41:13.2761452Z FAIL: test_skip_worktree_dependency_source_is_rejected (test_custody.DependencyCustody.test_skip_worktree_dependency_source_is_rejected)
+2026-10-29T20:41:13.2762175Z ----------------------------------------------------------------------
+2026-10-29T20:41:13.2762535Z Traceback (most recent call last):
+2026-10-29T20:41:13.2763665Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 134, in test_skip_worktree_dependency_source_is_rejected
+2026-10-29T20:41:13.2764563Z     with self.assertRaisesRegex(ValueError, "dependency.*(source|tracked|working)"):
+2026-10-29T20:41:13.2765037Z AssertionError: ValueError not raised
+2026-10-29T20:41:13.2765243Z 
+2026-10-29T20:41:13.2765402Z ======================================================================
+2026-10-29T20:41:13.2766053Z FAIL: test_assume_unchanged_cannot_hide_source_bytes (test_custody.SourceCustody.test_assume_unchanged_cannot_hide_source_bytes)
+2026-10-29T20:41:13.2766728Z ----------------------------------------------------------------------
+2026-10-29T20:41:13.2767088Z Traceback (most recent call last):
+2026-10-29T20:41:13.2767824Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 73, in test_assume_unchanged_cannot_hide_source_bytes
+2026-10-29T20:41:13.2768570Z     self.call_guard(expected_head=self.initial_head)
+2026-10-29T20:41:13.2769192Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 49, in call_guard
+2026-10-29T20:41:13.2769863Z     self.assertTrue(callable(guard), "source_custody guard is missing")
+2026-10-29T20:41:13.2770354Z AssertionError: False is not true : source_custody guard is missing
+2026-10-29T20:41:13.2770652Z 
+2026-10-29T20:41:13.2770767Z ======================================================================
+2026-10-29T20:41:13.2771359Z FAIL: test_clean_committed_source_is_admitted (test_custody.SourceCustody.test_clean_committed_source_is_admitted)
+2026-10-29T20:41:13.2771995Z ----------------------------------------------------------------------
+2026-10-29T20:41:13.2772358Z Traceback (most recent call last):
+2026-10-29T20:41:13.2773054Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 53, in test_clean_committed_source_is_admitted
+2026-10-29T20:41:13.2774199Z     self.assertEqual(self.call_guard(expected_head=self.initial_head), self.initial_head)
+2026-10-29T20:41:13.2774695Z                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T20:41:13.2775320Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 49, in call_guard
+2026-10-29T20:41:13.2776008Z     self.assertTrue(callable(guard), "source_custody guard is missing")
+2026-10-29T20:41:13.2776503Z AssertionError: False is not true : source_custody guard is missing
+2026-10-29T20:41:13.2776801Z 
+2026-10-29T20:41:13.2776922Z ======================================================================
+2026-10-29T20:41:13.2777529Z FAIL: test_dirty_refreshed_manifest_is_rejected (test_custody.SourceCustody.test_dirty_refreshed_manifest_is_rejected)
+2026-10-29T20:41:13.2778173Z ----------------------------------------------------------------------
+2026-10-29T20:41:13.2778518Z Traceback (most recent call last):
+2026-10-29T20:41:13.2779177Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 59, in test_dirty_refreshed_manifest_is_rejected
+2026-10-29T20:41:13.2780044Z     self.call_guard(expected_head=self.initial_head)
+2026-10-29T20:41:13.2780666Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 49, in call_guard
+2026-10-29T20:41:13.2781405Z     self.assertTrue(callable(guard), "source_custody guard is missing")
+2026-10-29T20:41:13.2781862Z AssertionError: False is not true : source_custody guard is missing
+2026-10-29T20:41:13.2782141Z 
+2026-10-29T20:41:13.2782248Z ======================================================================
+2026-10-29T20:41:13.2782711Z FAIL: test_head_drift_is_rejected (test_custody.SourceCustody.test_head_drift_is_rejected)
+2026-10-29T20:41:13.2783370Z ----------------------------------------------------------------------
+2026-10-29T20:41:13.2783873Z Traceback (most recent call last):
+2026-10-29T20:41:13.2784517Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 87, in test_head_drift_is_rejected
+2026-10-29T20:41:13.2785155Z     self.call_guard(expected_head=self.initial_head)
+2026-10-29T20:41:13.2785766Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 49, in call_guard
+2026-10-29T20:41:13.2786404Z     self.assertTrue(callable(guard), "source_custody guard is missing")
+2026-10-29T20:41:13.2786864Z AssertionError: False is not true : source_custody guard is missing
+2026-10-29T20:41:13.2787135Z 
+2026-10-29T20:41:13.2787249Z ======================================================================
+2026-10-29T20:41:13.2787838Z FAIL: test_loaded_driver_substitution_is_rejected (test_custody.SourceCustody.test_loaded_driver_substitution_is_rejected)
+2026-10-29T20:41:13.2788453Z ----------------------------------------------------------------------
+2026-10-29T20:41:13.2788787Z Traceback (most recent call last):
+2026-10-29T20:41:13.2789483Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 96, in test_loaded_driver_substitution_is_rejected
+2026-10-29T20:41:13.2790217Z     self.call_guard(expected_head=new_head)
+2026-10-29T20:41:13.2790778Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 49, in call_guard
+2026-10-29T20:41:13.2791415Z     self.assertTrue(callable(guard), "source_custody guard is missing")
+2026-10-29T20:41:13.2791872Z AssertionError: False is not true : source_custody guard is missing
+2026-10-29T20:41:13.2792148Z 
+2026-10-29T20:41:13.2792263Z ======================================================================
+2026-10-29T20:41:13.2792844Z FAIL: test_skip_worktree_cannot_hide_source_bytes (test_custody.SourceCustody.test_skip_worktree_cannot_hide_source_bytes)
+2026-10-29T20:41:13.2793744Z ----------------------------------------------------------------------
+2026-10-29T20:41:13.2794082Z Traceback (most recent call last):
+2026-10-29T20:41:13.2794781Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 80, in test_skip_worktree_cannot_hide_source_bytes
+2026-10-29T20:41:13.2795474Z     self.call_guard(expected_head=self.initial_head)
+2026-10-29T20:41:13.2796065Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 49, in call_guard
+2026-10-29T20:41:13.2796695Z     self.assertTrue(callable(guard), "source_custody guard is missing")
+2026-10-29T20:41:13.2797153Z AssertionError: False is not true : source_custody guard is missing
+2026-10-29T20:41:13.2797427Z 
+2026-10-29T20:41:13.2797544Z ======================================================================
+2026-10-29T20:41:13.2798058Z FAIL: test_staged_change_is_rejected (test_custody.SourceCustody.test_staged_change_is_rejected)
+2026-10-29T20:41:13.2798575Z ----------------------------------------------------------------------
+2026-10-29T20:41:13.2798910Z Traceback (most recent call last):
+2026-10-29T20:41:13.2799528Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 66, in test_staged_change_is_rejected
+2026-10-29T20:41:13.2800312Z     self.call_guard(expected_head=self.initial_head)
+2026-10-29T20:41:13.2800896Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 49, in call_guard
+2026-10-29T20:41:13.2801627Z     self.assertTrue(callable(guard), "source_custody guard is missing")
+2026-10-29T20:41:13.2802085Z AssertionError: False is not true : source_custody guard is missing
+2026-10-29T20:41:13.2802362Z 
+2026-10-29T20:41:13.2802503Z ----------------------------------------------------------------------
+2026-10-29T20:41:13.2802830Z Ran 11 tests in 0.333s
+2026-10-29T20:41:13.2802970Z 
+2026-10-29T20:41:13.2803058Z FAILED (failures=10)
+2026-10-29T20:41:13.2868520Z ##[error]Process completed with exit code 1.

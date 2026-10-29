@@ -1,0 +1,689 @@
+ERROR: test_execute_refuses_before_external_process_without_compiled_binding (test_compiled_admission.CompiledAdmissionTests.test_execute_refuses_before_external_process_without_compiled_binding)
+2026-10-29T21:04:08.7079015Z ----------------------------------------------------------------------
+2026-10-29T21:04:08.7079361Z Traceback (most recent call last):
+2026-10-29T21:04:08.7086774Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_compiled_admission.py", line 75, in test_execute_refuses_before_external_process_without_compiled_binding
+2026-10-29T21:04:08.7087702Z     gate.execute({'targets': [TARGET], 'source_modules': ['ResearchFormalCoreR1/AlgebraV2.lean']}, 'a' * 64)
+2026-10-29T21:04:08.7088336Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 432, in execute
+2026-10-29T21:04:08.7088777Z     checked_head = source_custody(m, digest)
+2026-10-29T21:04:08.7089029Z                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7089783Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 201, in source_custody
+2026-10-29T21:04:08.7090736Z     repo = Path(_git_bytes(root, 'rev-parse', '--show-toplevel').decode().strip()).resolve()
+2026-10-29T21:04:08.7091133Z                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7091603Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 130, in _git_bytes
+2026-10-29T21:04:08.7092107Z     return subprocess.check_output(['git', '-C', str(repo), *args], env=env)
+2026-10-29T21:04:08.7092456Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7092921Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/subprocess.py", line 466, in check_output
+2026-10-29T21:04:08.7093391Z     return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+2026-10-29T21:04:08.7093715Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7094133Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/subprocess.py", line 571, in run
+2026-10-29T21:04:08.7094584Z     raise CalledProcessError(retcode, process.args,
+2026-10-29T21:04:08.7095115Z subprocess.CalledProcessError: Command '['git', '-C', '/tmp/tmpnwdykc40', 'rev-parse', '--show-toplevel']' returned non-zero exit status 128.
+2026-10-29T21:04:08.7095535Z 
+2026-10-29T21:04:08.7095632Z ======================================================================
+2026-10-29T21:04:08.7096241Z ERROR: test_missing_binding_removes_a_stale_receipt_on_execute (test_compiled_admission.CompiledAdmissionTests.test_missing_binding_removes_a_stale_receipt_on_execute)
+2026-10-29T21:04:08.7096867Z ----------------------------------------------------------------------
+2026-10-29T21:04:08.7097175Z Traceback (most recent call last):
+2026-10-29T21:04:08.7097798Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_compiled_admission.py", line 94, in test_missing_binding_removes_a_stale_receipt_on_execute
+2026-10-29T21:04:08.7098545Z     gate.execute({'targets': [TARGET], 'source_modules': ['ResearchFormalCoreR1/AlgebraV2.lean']}, 'a' * 64)
+2026-10-29T21:04:08.7099128Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 432, in execute
+2026-10-29T21:04:08.7099529Z     checked_head = source_custody(m, digest)
+2026-10-29T21:04:08.7099771Z                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7100203Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 201, in source_custody
+2026-10-29T21:04:08.7101455Z     repo = Path(_git_bytes(root, 'rev-parse', '--show-toplevel').decode().strip()).resolve()
+2026-10-29T21:04:08.7101809Z                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7102240Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 130, in _git_bytes
+2026-10-29T21:04:08.7102716Z     return subprocess.check_output(['git', '-C', str(repo), *args], env=env)
+2026-10-29T21:04:08.7103050Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7103483Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/subprocess.py", line 466, in check_output
+2026-10-29T21:04:08.7103916Z     return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+2026-10-29T21:04:08.7104213Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7104594Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/subprocess.py", line 571, in run
+2026-10-29T21:04:08.7104994Z     raise CalledProcessError(retcode, process.args,
+2026-10-29T21:04:08.7105498Z subprocess.CalledProcessError: Command '['git', '-C', '/tmp/tmp0njhw8u2', 'rev-parse', '--show-toplevel']' returned non-zero exit status 128.
+2026-10-29T21:04:08.7105895Z 
+2026-10-29T21:04:08.7105993Z ======================================================================
+2026-10-29T21:04:08.7106986Z ERROR: test_v2_execution_failures_preserve_logs_without_active_receipt (test_determinant_execute.V2ExecutionTests.test_v2_execution_failures_preserve_logs_without_active_receipt) (scenario='injection_prerequisite_failure')
+2026-10-29T21:04:08.7107852Z ----------------------------------------------------------------------
+2026-10-29T21:04:08.7108132Z Traceback (most recent call last):
+2026-10-29T21:04:08.7108758Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_determinant_execute.py", line 218, in test_v2_execution_failures_preserve_logs_without_active_receipt
+2026-10-29T21:04:08.7109362Z     execute_scenario(scenario)
+2026-10-29T21:04:08.7109858Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_determinant_execute.py", line 166, in execute_scenario
+2026-10-29T21:04:08.7110336Z     receipt=gate.execute(m,digest)
+2026-10-29T21:04:08.7110688Z             ^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7111095Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 432, in execute
+2026-10-29T21:04:08.7111497Z     checked_head = source_custody(m, digest)
+2026-10-29T21:04:08.7111737Z                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7112144Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 201, in source_custody
+2026-10-29T21:04:08.7112648Z     repo = Path(_git_bytes(root, 'rev-parse', '--show-toplevel').decode().strip()).resolve()
+2026-10-29T21:04:08.7113004Z                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7113308Z AttributeError: 'str' object has no attribute 'decode'
+2026-10-29T21:04:08.7113497Z 
+2026-10-29T21:04:08.7113590Z ======================================================================
+2026-10-29T21:04:08.7114323Z ERROR: test_v2_execution_failures_preserve_logs_without_active_receipt (test_determinant_execute.V2ExecutionTests.test_v2_execution_failures_preserve_logs_without_active_receipt) (scenario='unrelated_injection_failure')
+2026-10-29T21:04:08.7115060Z ----------------------------------------------------------------------
+2026-10-29T21:04:08.7115341Z Traceback (most recent call last):
+2026-10-29T21:04:08.7115978Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_determinant_execute.py", line 218, in test_v2_execution_failures_preserve_logs_without_active_receipt
+2026-10-29T21:04:08.7116651Z     execute_scenario(scenario)
+2026-10-29T21:04:08.7117124Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_determinant_execute.py", line 166, in execute_scenario
+2026-10-29T21:04:08.7117607Z     receipt=gate.execute(m,digest)
+2026-10-29T21:04:08.7117816Z             ^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7118190Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 432, in execute
+2026-10-29T21:04:08.7118582Z     checked_head = source_custody(m, digest)
+2026-10-29T21:04:08.7118822Z                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7119227Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 201, in source_custody
+2026-10-29T21:04:08.7119747Z     repo = Path(_git_bytes(root, 'rev-parse', '--show-toplevel').decode().strip()).resolve()
+2026-10-29T21:04:08.7120104Z                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7120389Z AttributeError: 'str' object has no attribute 'decode'
+2026-10-29T21:04:08.7120780Z 
+2026-10-29T21:04:08.7120871Z ======================================================================
+2026-10-29T21:04:08.7121574Z ERROR: test_v2_execution_failures_preserve_logs_without_active_receipt (test_determinant_execute.V2ExecutionTests.test_v2_execution_failures_preserve_logs_without_active_receipt) (scenario='hidden_positive_axiom')
+2026-10-29T21:04:08.7122290Z ----------------------------------------------------------------------
+2026-10-29T21:04:08.7122581Z Traceback (most recent call last):
+2026-10-29T21:04:08.7123349Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_determinant_execute.py", line 218, in test_v2_execution_failures_preserve_logs_without_active_receipt
+2026-10-29T21:04:08.7124058Z     execute_scenario(scenario)
+2026-10-29T21:04:08.7124525Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_determinant_execute.py", line 166, in execute_scenario
+2026-10-29T21:04:08.7125013Z     receipt=gate.execute(m,digest)
+2026-10-29T21:04:08.7125221Z             ^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7125591Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 432, in execute
+2026-10-29T21:04:08.7125976Z     checked_head = source_custody(m, digest)
+2026-10-29T21:04:08.7126195Z                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7126597Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 201, in source_custody
+2026-10-29T21:04:08.7127112Z     repo = Path(_git_bytes(root, 'rev-parse', '--show-toplevel').decode().strip()).resolve()
+2026-10-29T21:04:08.7127458Z                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7127729Z AttributeError: 'str' object has no attribute 'decode'
+2026-10-29T21:04:08.7127906Z 
+2026-10-29T21:04:08.7128002Z ======================================================================
+2026-10-29T21:04:08.7128674Z ERROR: test_v2_execution_failures_preserve_logs_without_active_receipt (test_determinant_execute.V2ExecutionTests.test_v2_execution_failures_preserve_logs_without_active_receipt) (scenario='final_runtime_failure')
+2026-10-29T21:04:08.7129405Z ----------------------------------------------------------------------
+2026-10-29T21:04:08.7129678Z Traceback (most recent call last):
+2026-10-29T21:04:08.7130280Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_determinant_execute.py", line 218, in test_v2_execution_failures_preserve_logs_without_active_receipt
+2026-10-29T21:04:08.7131436Z     execute_scenario(scenario)
+2026-10-29T21:04:08.7131912Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_determinant_execute.py", line 166, in execute_scenario
+2026-10-29T21:04:08.7132395Z     receipt=gate.execute(m,digest)
+2026-10-29T21:04:08.7132606Z             ^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7132992Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 432, in execute
+2026-10-29T21:04:08.7133392Z     checked_head = source_custody(m, digest)
+2026-10-29T21:04:08.7133629Z                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7134049Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 201, in source_custody
+2026-10-29T21:04:08.7134564Z     repo = Path(_git_bytes(root, 'rev-parse', '--show-toplevel').decode().strip()).resolve()
+2026-10-29T21:04:08.7134930Z                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7135221Z AttributeError: 'str' object has no attribute 'decode'
+2026-10-29T21:04:08.7135411Z 
+2026-10-29T21:04:08.7135509Z ======================================================================
+2026-10-29T21:04:08.7136213Z ERROR: test_v2_execution_failures_preserve_logs_without_active_receipt (test_determinant_execute.V2ExecutionTests.test_v2_execution_failures_preserve_logs_without_active_receipt) (scenario='post_source_failure')
+2026-10-29T21:04:08.7136928Z ----------------------------------------------------------------------
+2026-10-29T21:04:08.7137207Z Traceback (most recent call last):
+2026-10-29T21:04:08.7137821Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_determinant_execute.py", line 218, in test_v2_execution_failures_preserve_logs_without_active_receipt
+2026-10-29T21:04:08.7138419Z     execute_scenario(scenario)
+2026-10-29T21:04:08.7139046Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_determinant_execute.py", line 166, in execute_scenario
+2026-10-29T21:04:08.7139526Z     receipt=gate.execute(m,digest)
+2026-10-29T21:04:08.7139851Z             ^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7140227Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 432, in execute
+2026-10-29T21:04:08.7140735Z     checked_head = source_custody(m, digest)
+2026-10-29T21:04:08.7140968Z                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7141372Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 201, in source_custody
+2026-10-29T21:04:08.7141878Z     repo = Path(_git_bytes(root, 'rev-parse', '--show-toplevel').decode().strip()).resolve()
+2026-10-29T21:04:08.7142235Z                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7142521Z AttributeError: 'str' object has no attribute 'decode'
+2026-10-29T21:04:08.7142704Z 
+2026-10-29T21:04:08.7142810Z ======================================================================
+2026-10-29T21:04:08.7143418Z ERROR: test_v2_execution_reaches_both_compiled_and_five_proof_controls (test_determinant_execute.V2ExecutionTests.test_v2_execution_reaches_both_compiled_and_five_proof_controls)
+2026-10-29T21:04:08.7144056Z ----------------------------------------------------------------------
+2026-10-29T21:04:08.7144337Z Traceback (most recent call last):
+2026-10-29T21:04:08.7145015Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_determinant_execute.py", line 212, in test_v2_execution_reaches_both_compiled_and_five_proof_controls
+2026-10-29T21:04:08.7145615Z     execute_scenario('success')
+2026-10-29T21:04:08.7146091Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_determinant_execute.py", line 166, in execute_scenario
+2026-10-29T21:04:08.7146584Z     receipt=gate.execute(m,digest)
+2026-10-29T21:04:08.7146793Z             ^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7147175Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 432, in execute
+2026-10-29T21:04:08.7147581Z     checked_head = source_custody(m, digest)
+2026-10-29T21:04:08.7147817Z                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7148228Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 201, in source_custody
+2026-10-29T21:04:08.7148741Z     repo = Path(_git_bytes(root, 'rev-parse', '--show-toplevel').decode().strip()).resolve()
+2026-10-29T21:04:08.7149098Z                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7149380Z AttributeError: 'str' object has no attribute 'decode'
+2026-10-29T21:04:08.7149573Z 
+2026-10-29T21:04:08.7149663Z ======================================================================
+2026-10-29T21:04:08.7150219Z ERROR: test_dependency_dirtied_during_execution_refuses_receipt (test_gate.RuntimeGuardTests.test_dependency_dirtied_during_execution_refuses_receipt)
+2026-10-29T21:04:08.7150905Z ----------------------------------------------------------------------
+2026-10-29T21:04:08.7151183Z Traceback (most recent call last):
+2026-10-29T21:04:08.7151753Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 378, in test_dependency_dirtied_during_execution_refuses_receipt
+2026-10-29T21:04:08.7152396Z     self.execute_synthetic([self.RELEASE, self.RELEASE], dirty_dependency='final')
+2026-10-29T21:04:08.7152965Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 238, in execute_synthetic
+2026-10-29T21:04:08.7153446Z     return gate.execute(self.manifest, self.digest)
+2026-10-29T21:04:08.7153702Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7154105Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 432, in execute
+2026-10-29T21:04:08.7154507Z     checked_head = source_custody(m, digest)
+2026-10-29T21:04:08.7154882Z                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7155293Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 201, in source_custody
+2026-10-29T21:04:08.7155914Z     repo = Path(_git_bytes(root, 'rev-parse', '--show-toplevel').decode().strip()).resolve()
+2026-10-29T21:04:08.7156266Z                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7156686Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 130, in _git_bytes
+2026-10-29T21:04:08.7157162Z     return subprocess.check_output(['git', '-C', str(repo), *args], env=env)
+2026-10-29T21:04:08.7157483Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7157897Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1124, in __call__
+2026-10-29T21:04:08.7158293Z     return self._mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7158512Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7158891Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1128, in _mock_call
+2026-10-29T21:04:08.7159339Z     return self._execute_mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7159613Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7160087Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1189, in _execute_mock_call
+2026-10-29T21:04:08.7160656Z     result = effect(*args, **kwargs)
+2026-10-29T21:04:08.7160879Z              ^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7161311Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 231, in external_git
+2026-10-29T21:04:08.7161796Z     revision = self.manifest['dependency_revisions'][name]
+2026-10-29T21:04:08.7162090Z                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+2026-10-29T21:04:08.7162332Z KeyError: 'formal'
+2026-10-29T21:04:08.7162443Z 
+2026-10-29T21:04:08.7162542Z ======================================================================
+2026-10-29T21:04:08.7163093Z ERROR: test_dependency_moved_during_execution_refuses_receipt (test_gate.RuntimeGuardTests.test_dependency_moved_during_execution_refuses_receipt)
+2026-10-29T21:04:08.7163666Z ----------------------------------------------------------------------
+2026-10-29T21:04:08.7163947Z Traceback (most recent call last):
+2026-10-29T21:04:08.7164517Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 385, in test_dependency_moved_during_execution_refuses_receipt
+2026-10-29T21:04:08.7165151Z     self.execute_synthetic([self.RELEASE, self.RELEASE], drift_dependency=True)
+2026-10-29T21:04:08.7165728Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 238, in execute_synthetic
+2026-10-29T21:04:08.7166215Z     return gate.execute(self.manifest, self.digest)
+2026-10-29T21:04:08.7166478Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7166886Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 432, in execute
+2026-10-29T21:04:08.7167307Z     checked_head = source_custody(m, digest)
+2026-10-29T21:04:08.7167548Z                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7167970Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 201, in source_custody
+2026-10-29T21:04:08.7168526Z     repo = Path(_git_bytes(root, 'rev-parse', '--show-toplevel').decode().strip()).resolve()
+2026-10-29T21:04:08.7168889Z                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7169327Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 130, in _git_bytes
+2026-10-29T21:04:08.7169813Z     return subprocess.check_output(['git', '-C', str(repo), *args], env=env)
+2026-10-29T21:04:08.7170137Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7170819Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1124, in __call__
+2026-10-29T21:04:08.7171241Z     return self._mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7171587Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7171997Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1128, in _mock_call
+2026-10-29T21:04:08.7172425Z     return self._execute_mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7172677Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7173110Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1189, in _execute_mock_call
+2026-10-29T21:04:08.7173531Z     result = effect(*args, **kwargs)
+2026-10-29T21:04:08.7173753Z              ^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7174196Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 231, in external_git
+2026-10-29T21:04:08.7174695Z     revision = self.manifest['dependency_revisions'][name]
+2026-10-29T21:04:08.7174986Z                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+2026-10-29T21:04:08.7175233Z KeyError: 'formal'
+2026-10-29T21:04:08.7175339Z 
+2026-10-29T21:04:08.7175442Z ======================================================================
+2026-10-29T21:04:08.7176145Z ERROR: test_dirty_dependency_before_execution_refuses_and_preserves_build (test_gate.RuntimeGuardTests.test_dirty_dependency_before_execution_refuses_and_preserves_build)
+2026-10-29T21:04:08.7176792Z ----------------------------------------------------------------------
+2026-10-29T21:04:08.7177081Z Traceback (most recent call last):
+2026-10-29T21:04:08.7177709Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 362, in test_dirty_dependency_before_execution_refuses_and_preserves_build
+2026-10-29T21:04:08.7178359Z     self.execute_synthetic([self.RELEASE, self.RELEASE], dirty_dependency='preflight')
+2026-10-29T21:04:08.7178914Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 238, in execute_synthetic
+2026-10-29T21:04:08.7179364Z     return gate.execute(self.manifest, self.digest)
+2026-10-29T21:04:08.7179605Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7179993Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 432, in execute
+2026-10-29T21:04:08.7180371Z     checked_head = source_custody(m, digest)
+2026-10-29T21:04:08.7180704Z                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7181094Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 201, in source_custody
+2026-10-29T21:04:08.7181603Z     repo = Path(_git_bytes(root, 'rev-parse', '--show-toplevel').decode().strip()).resolve()
+2026-10-29T21:04:08.7181966Z                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7182416Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 130, in _git_bytes
+2026-10-29T21:04:08.7182919Z     return subprocess.check_output(['git', '-C', str(repo), *args], env=env)
+2026-10-29T21:04:08.7183273Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7183734Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1124, in __call__
+2026-10-29T21:04:08.7184114Z     return self._mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7184340Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7184733Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1128, in _mock_call
+2026-10-29T21:04:08.7185130Z     return self._execute_mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7185376Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7185796Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1189, in _execute_mock_call
+2026-10-29T21:04:08.7186190Z     result = effect(*args, **kwargs)
+2026-10-29T21:04:08.7186522Z              ^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7186980Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 231, in external_git
+2026-10-29T21:04:08.7187678Z     revision = self.manifest['dependency_revisions'][name]
+2026-10-29T21:04:08.7188026Z                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+2026-10-29T21:04:08.7188332Z KeyError: 'formal'
+2026-10-29T21:04:08.7188462Z 
+2026-10-29T21:04:08.7188575Z ======================================================================
+2026-10-29T21:04:08.7189280Z ERROR: test_green_public_targets_do_not_hide_bad_compiled_inventory (test_gate.RuntimeGuardTests.test_green_public_targets_do_not_hide_bad_compiled_inventory)
+2026-10-29T21:04:08.7190012Z ----------------------------------------------------------------------
+2026-10-29T21:04:08.7190367Z Traceback (most recent call last):
+2026-10-29T21:04:08.7191126Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 350, in test_green_public_targets_do_not_hide_bad_compiled_inventory
+2026-10-29T21:04:08.7191793Z     self.execute_synthetic([self.RELEASE, self.RELEASE], inventory_fault='unlisted')
+2026-10-29T21:04:08.7192374Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 238, in execute_synthetic
+2026-10-29T21:04:08.7192849Z     return gate.execute(self.manifest, self.digest)
+2026-10-29T21:04:08.7193101Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7193500Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 432, in execute
+2026-10-29T21:04:08.7193902Z     checked_head = source_custody(m, digest)
+2026-10-29T21:04:08.7194133Z                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7194550Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 201, in source_custody
+2026-10-29T21:04:08.7195078Z     repo = Path(_git_bytes(root, 'rev-parse', '--show-toplevel').decode().strip()).resolve()
+2026-10-29T21:04:08.7195433Z                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7195873Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 130, in _git_bytes
+2026-10-29T21:04:08.7196409Z     return subprocess.check_output(['git', '-C', str(repo), *args], env=env)
+2026-10-29T21:04:08.7196745Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7197155Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1124, in __call__
+2026-10-29T21:04:08.7197539Z     return self._mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7197772Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7198169Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1128, in _mock_call
+2026-10-29T21:04:08.7218212Z     return self._execute_mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7218554Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7219032Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1189, in _execute_mock_call
+2026-10-29T21:04:08.7219461Z     result = effect(*args, **kwargs)
+2026-10-29T21:04:08.7219678Z              ^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7220121Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 231, in external_git
+2026-10-29T21:04:08.7220735Z     revision = self.manifest['dependency_revisions'][name]
+2026-10-29T21:04:08.7221024Z                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+2026-10-29T21:04:08.7221260Z KeyError: 'formal'
+2026-10-29T21:04:08.7221365Z 
+2026-10-29T21:04:08.7221467Z ======================================================================
+2026-10-29T21:04:08.7221958Z ERROR: test_missing_compiled_output_refuses_receipt (test_gate.RuntimeGuardTests.test_missing_compiled_output_refuses_receipt)
+2026-10-29T21:04:08.7222660Z ----------------------------------------------------------------------
+2026-10-29T21:04:08.7222959Z Traceback (most recent call last):
+2026-10-29T21:04:08.7223681Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 356, in test_missing_compiled_output_refuses_receipt
+2026-10-29T21:04:08.7224297Z     self.execute_synthetic([self.RELEASE, self.RELEASE], inventory_fault='empty')
+2026-10-29T21:04:08.7224869Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 238, in execute_synthetic
+2026-10-29T21:04:08.7225353Z     return gate.execute(self.manifest, self.digest)
+2026-10-29T21:04:08.7225620Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7226033Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 432, in execute
+2026-10-29T21:04:08.7226435Z     checked_head = source_custody(m, digest)
+2026-10-29T21:04:08.7226668Z                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7227098Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 201, in source_custody
+2026-10-29T21:04:08.7227625Z     repo = Path(_git_bytes(root, 'rev-parse', '--show-toplevel').decode().strip()).resolve()
+2026-10-29T21:04:08.7227975Z                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7228402Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 130, in _git_bytes
+2026-10-29T21:04:08.7228878Z     return subprocess.check_output(['git', '-C', str(repo), *args], env=env)
+2026-10-29T21:04:08.7229210Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7229638Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1124, in __call__
+2026-10-29T21:04:08.7230027Z     return self._mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7230255Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7230792Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1128, in _mock_call
+2026-10-29T21:04:08.7231199Z     return self._execute_mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7231449Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7231868Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1189, in _execute_mock_call
+2026-10-29T21:04:08.7232275Z     result = effect(*args, **kwargs)
+2026-10-29T21:04:08.7232484Z              ^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7232897Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 231, in external_git
+2026-10-29T21:04:08.7233375Z     revision = self.manifest['dependency_revisions'][name]
+2026-10-29T21:04:08.7233671Z                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+2026-10-29T21:04:08.7233909Z KeyError: 'formal'
+2026-10-29T21:04:08.7234024Z 
+2026-10-29T21:04:08.7234134Z ======================================================================
+2026-10-29T21:04:08.7234716Z ERROR: test_receipt_binds_attempt_and_both_equal_observations (test_gate.RuntimeGuardTests.test_receipt_binds_attempt_and_both_equal_observations)
+2026-10-29T21:04:08.7235343Z ----------------------------------------------------------------------
+2026-10-29T21:04:08.7235663Z Traceback (most recent call last):
+2026-10-29T21:04:08.7236260Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 399, in test_receipt_binds_attempt_and_both_equal_observations
+2026-10-29T21:04:08.7236895Z     receipt = self.execute_synthetic([self.RELEASE, self.RELEASE],
+2026-10-29T21:04:08.7237215Z               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7237736Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 238, in execute_synthetic
+2026-10-29T21:04:08.7238235Z     return gate.execute(self.manifest, self.digest)
+2026-10-29T21:04:08.7238645Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7239077Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 432, in execute
+2026-10-29T21:04:08.7239604Z     checked_head = source_custody(m, digest)
+2026-10-29T21:04:08.7239844Z                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7240285Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 201, in source_custody
+2026-10-29T21:04:08.7240941Z     repo = Path(_git_bytes(root, 'rev-parse', '--show-toplevel').decode().strip()).resolve()
+2026-10-29T21:04:08.7241311Z                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7241758Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 130, in _git_bytes
+2026-10-29T21:04:08.7242251Z     return subprocess.check_output(['git', '-C', str(repo), *args], env=env)
+2026-10-29T21:04:08.7242588Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7243037Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1124, in __call__
+2026-10-29T21:04:08.7243460Z     return self._mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7243702Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7244117Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1128, in _mock_call
+2026-10-29T21:04:08.7244607Z     return self._execute_mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7244872Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7245332Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1189, in _execute_mock_call
+2026-10-29T21:04:08.7245766Z     result = effect(*args, **kwargs)
+2026-10-29T21:04:08.7245992Z              ^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7246434Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 231, in external_git
+2026-10-29T21:04:08.7246903Z     revision = self.manifest['dependency_revisions'][name]
+2026-10-29T21:04:08.7247181Z                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+2026-10-29T21:04:08.7247446Z KeyError: 'formal'
+2026-10-29T21:04:08.7247553Z 
+2026-10-29T21:04:08.7247659Z ======================================================================
+2026-10-29T21:04:08.7248251Z ERROR: test_runtime_changed_between_observations_refuses_receipt (test_gate.RuntimeGuardTests.test_runtime_changed_between_observations_refuses_receipt)
+2026-10-29T21:04:08.7248925Z ----------------------------------------------------------------------
+2026-10-29T21:04:08.7249216Z Traceback (most recent call last):
+2026-10-29T21:04:08.7249806Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 394, in test_runtime_changed_between_observations_refuses_receipt
+2026-10-29T21:04:08.7250599Z     self.execute_synthetic([self.RELEASE, self.OTHER_PLATFORM])
+2026-10-29T21:04:08.7251154Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 238, in execute_synthetic
+2026-10-29T21:04:08.7251648Z     return gate.execute(self.manifest, self.digest)
+2026-10-29T21:04:08.7251918Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7252365Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 432, in execute
+2026-10-29T21:04:08.7252799Z     checked_head = source_custody(m, digest)
+2026-10-29T21:04:08.7253044Z                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7253476Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 201, in source_custody
+2026-10-29T21:04:08.7254008Z     repo = Path(_git_bytes(root, 'rev-parse', '--show-toplevel').decode().strip()).resolve()
+2026-10-29T21:04:08.7254370Z                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7254934Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 130, in _git_bytes
+2026-10-29T21:04:08.7255436Z     return subprocess.check_output(['git', '-C', str(repo), *args], env=env)
+2026-10-29T21:04:08.7255887Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7256331Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1124, in __call__
+2026-10-29T21:04:08.7256736Z     return self._mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7256972Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7257372Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1128, in _mock_call
+2026-10-29T21:04:08.7257794Z     return self._execute_mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7258055Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7258494Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1189, in _execute_mock_call
+2026-10-29T21:04:08.7258932Z     result = effect(*args, **kwargs)
+2026-10-29T21:04:08.7259150Z              ^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7259593Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 231, in external_git
+2026-10-29T21:04:08.7260095Z     revision = self.manifest['dependency_revisions'][name]
+2026-10-29T21:04:08.7260392Z                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+2026-10-29T21:04:08.7260749Z KeyError: 'formal'
+2026-10-29T21:04:08.7260853Z 
+2026-10-29T21:04:08.7260960Z ======================================================================
+2026-10-29T21:04:08.7261585Z ERROR: test_wrong_dependency_before_execution_refuses_and_preserves_build (test_gate.RuntimeGuardTests.test_wrong_dependency_before_execution_refuses_and_preserves_build)
+2026-10-29T21:04:08.7262245Z ----------------------------------------------------------------------
+2026-10-29T21:04:08.7262542Z Traceback (most recent call last):
+2026-10-29T21:04:08.7263174Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 370, in test_wrong_dependency_before_execution_refuses_and_preserves_build
+2026-10-29T21:04:08.7263878Z     self.execute_synthetic([self.RELEASE, self.RELEASE], wrong_dependency=True)
+2026-10-29T21:04:08.7264456Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 238, in execute_synthetic
+2026-10-29T21:04:08.7264953Z     return gate.execute(self.manifest, self.digest)
+2026-10-29T21:04:08.7265212Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7265630Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 432, in execute
+2026-10-29T21:04:08.7266041Z     checked_head = source_custody(m, digest)
+2026-10-29T21:04:08.7266285Z                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7266719Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 201, in source_custody
+2026-10-29T21:04:08.7267265Z     repo = Path(_git_bytes(root, 'rev-parse', '--show-toplevel').decode().strip()).resolve()
+2026-10-29T21:04:08.7267634Z                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7268080Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 130, in _git_bytes
+2026-10-29T21:04:08.7268579Z     return subprocess.check_output(['git', '-C', str(repo), *args], env=env)
+2026-10-29T21:04:08.7268927Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7269366Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1124, in __call__
+2026-10-29T21:04:08.7269780Z     return self._mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7270013Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7270555Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1128, in _mock_call
+2026-10-29T21:04:08.7270971Z     return self._execute_mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7271353Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7271794Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1189, in _execute_mock_call
+2026-10-29T21:04:08.7272308Z     result = effect(*args, **kwargs)
+2026-10-29T21:04:08.7272532Z              ^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7272993Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 231, in external_git
+2026-10-29T21:04:08.7273482Z     revision = self.manifest['dependency_revisions'][name]
+2026-10-29T21:04:08.7273769Z                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+2026-10-29T21:04:08.7274014Z KeyError: 'formal'
+2026-10-29T21:04:08.7274120Z 
+2026-10-29T21:04:08.7274223Z ======================================================================
+2026-10-29T21:04:08.7274789Z ERROR: test_installed_dependency_change_still_refuses_receipt (test_gate.RuntimeVersionTests.test_installed_dependency_change_still_refuses_receipt)
+2026-10-29T21:04:08.7275375Z ----------------------------------------------------------------------
+2026-10-29T21:04:08.7275668Z Traceback (most recent call last):
+2026-10-29T21:04:08.7276243Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 332, in test_installed_dependency_change_still_refuses_receipt
+2026-10-29T21:04:08.7276855Z     self.execute_synthetic([self.RELEASE], wrong_dependency=True)
+2026-10-29T21:04:08.7277391Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 238, in execute_synthetic
+2026-10-29T21:04:08.7277876Z     return gate.execute(self.manifest, self.digest)
+2026-10-29T21:04:08.7278142Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7278574Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 432, in execute
+2026-10-29T21:04:08.7279013Z     checked_head = source_custody(m, digest)
+2026-10-29T21:04:08.7279271Z                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7279708Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 201, in source_custody
+2026-10-29T21:04:08.7280262Z     repo = Path(_git_bytes(root, 'rev-parse', '--show-toplevel').decode().strip()).resolve()
+2026-10-29T21:04:08.7281021Z                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7281408Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 130, in _git_bytes
+2026-10-29T21:04:08.7281754Z     return subprocess.check_output(['git', '-C', str(repo), *args], env=env)
+2026-10-29T21:04:08.7281983Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7282282Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1124, in __call__
+2026-10-29T21:04:08.7282562Z     return self._mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7282731Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7282995Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1128, in _mock_call
+2026-10-29T21:04:08.7283275Z     return self._execute_mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7283452Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7283737Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1189, in _execute_mock_call
+2026-10-29T21:04:08.7284018Z     result = effect(*args, **kwargs)
+2026-10-29T21:04:08.7284168Z              ^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7284459Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 231, in external_git
+2026-10-29T21:04:08.7284784Z     revision = self.manifest['dependency_revisions'][name]
+2026-10-29T21:04:08.7284981Z                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+2026-10-29T21:04:08.7285140Z KeyError: 'formal'
+2026-10-29T21:04:08.7285218Z 
+2026-10-29T21:04:08.7285462Z ======================================================================
+2026-10-29T21:04:08.7285847Z ERROR: test_invalid_preflight_preserves_build_and_runs_no_build (test_gate.RuntimeVersionTests.test_invalid_preflight_preserves_build_and_runs_no_build)
+2026-10-29T21:04:08.7286319Z ----------------------------------------------------------------------
+2026-10-29T21:04:08.7286518Z Traceback (most recent call last):
+2026-10-29T21:04:08.7286901Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 286, in test_invalid_preflight_preserves_build_and_runs_no_build
+2026-10-29T21:04:08.7287307Z     self.execute_synthetic([self.RELEASE.replace('4.34.1', '4.34.10')])
+2026-10-29T21:04:08.7287663Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 238, in execute_synthetic
+2026-10-29T21:04:08.7287986Z     return gate.execute(self.manifest, self.digest)
+2026-10-29T21:04:08.7288165Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7288435Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 432, in execute
+2026-10-29T21:04:08.7288707Z     checked_head = source_custody(m, digest)
+2026-10-29T21:04:08.7288870Z                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7289146Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 201, in source_custody
+2026-10-29T21:04:08.7289501Z     repo = Path(_git_bytes(root, 'rev-parse', '--show-toplevel').decode().strip()).resolve()
+2026-10-29T21:04:08.7289749Z                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7290035Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 130, in _git_bytes
+2026-10-29T21:04:08.7290355Z     return subprocess.check_output(['git', '-C', str(repo), *args], env=env)
+2026-10-29T21:04:08.7290674Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7290960Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1124, in __call__
+2026-10-29T21:04:08.7291231Z     return self._mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7291386Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7291645Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1128, in _mock_call
+2026-10-29T21:04:08.7291916Z     return self._execute_mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7292085Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7292367Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1189, in _execute_mock_call
+2026-10-29T21:04:08.7292643Z     result = effect(*args, **kwargs)
+2026-10-29T21:04:08.7292790Z              ^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7293077Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 231, in external_git
+2026-10-29T21:04:08.7293426Z     revision = self.manifest['dependency_revisions'][name]
+2026-10-29T21:04:08.7293619Z                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+2026-10-29T21:04:08.7293782Z KeyError: 'formal'
+2026-10-29T21:04:08.7293858Z 
+2026-10-29T21:04:08.7293926Z ======================================================================
+2026-10-29T21:04:08.7294270Z ERROR: test_other_commit_after_execution_refuses_receipt (test_gate.RuntimeVersionTests.test_other_commit_after_execution_refuses_receipt)
+2026-10-29T21:04:08.7294627Z ----------------------------------------------------------------------
+2026-10-29T21:04:08.7294819Z Traceback (most recent call last):
+2026-10-29T21:04:08.7295180Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 278, in test_other_commit_after_execution_refuses_receipt
+2026-10-29T21:04:08.7295543Z     self.execute_synthetic([self.RELEASE, wrong])
+2026-10-29T21:04:08.7295961Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 238, in execute_synthetic
+2026-10-29T21:04:08.7296277Z     return gate.execute(self.manifest, self.digest)
+2026-10-29T21:04:08.7296526Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7296793Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 432, in execute
+2026-10-29T21:04:08.7297059Z     checked_head = source_custody(m, digest)
+2026-10-29T21:04:08.7297220Z                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7297491Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 201, in source_custody
+2026-10-29T21:04:08.7297843Z     repo = Path(_git_bytes(root, 'rev-parse', '--show-toplevel').decode().strip()).resolve()
+2026-10-29T21:04:08.7298083Z                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7298365Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 130, in _git_bytes
+2026-10-29T21:04:08.7298689Z     return subprocess.check_output(['git', '-C', str(repo), *args], env=env)
+2026-10-29T21:04:08.7298908Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7299189Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1124, in __call__
+2026-10-29T21:04:08.7299455Z     return self._mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7299613Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7299873Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1128, in _mock_call
+2026-10-29T21:04:08.7300139Z     return self._execute_mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7300312Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7300764Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1189, in _execute_mock_call
+2026-10-29T21:04:08.7301037Z     result = effect(*args, **kwargs)
+2026-10-29T21:04:08.7301189Z              ^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7301473Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 231, in external_git
+2026-10-29T21:04:08.7301791Z     revision = self.manifest['dependency_revisions'][name]
+2026-10-29T21:04:08.7301978Z                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+2026-10-29T21:04:08.7302133Z KeyError: 'formal'
+2026-10-29T21:04:08.7302209Z 
+2026-10-29T21:04:08.7302274Z ======================================================================
+2026-10-29T21:04:08.7302602Z ERROR: test_other_commit_preflight_preserves_build (test_gate.RuntimeVersionTests.test_other_commit_preflight_preserves_build)
+2026-10-29T21:04:08.7302940Z ----------------------------------------------------------------------
+2026-10-29T21:04:08.7303130Z Traceback (most recent call last):
+2026-10-29T21:04:08.7303478Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 269, in test_other_commit_preflight_preserves_build
+2026-10-29T21:04:08.7303819Z     self.execute_synthetic([wrong])
+2026-10-29T21:04:08.7304117Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 238, in execute_synthetic
+2026-10-29T21:04:08.7304435Z     return gate.execute(self.manifest, self.digest)
+2026-10-29T21:04:08.7304606Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7304868Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 432, in execute
+2026-10-29T21:04:08.7305132Z     checked_head = source_custody(m, digest)
+2026-10-29T21:04:08.7305292Z                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7305565Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 201, in source_custody
+2026-10-29T21:04:08.7305913Z     repo = Path(_git_bytes(root, 'rev-parse', '--show-toplevel').decode().strip()).resolve()
+2026-10-29T21:04:08.7306151Z                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7306534Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 130, in _git_bytes
+2026-10-29T21:04:08.7306933Z     return subprocess.check_output(['git', '-C', str(repo), *args], env=env)
+2026-10-29T21:04:08.7307154Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7307431Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1124, in __call__
+2026-10-29T21:04:08.7307696Z     return self._mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7307853Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7308109Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1128, in _mock_call
+2026-10-29T21:04:08.7308377Z     return self._execute_mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7308544Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7308827Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1189, in _execute_mock_call
+2026-10-29T21:04:08.7309102Z     result = effect(*args, **kwargs)
+2026-10-29T21:04:08.7309254Z              ^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7309543Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 231, in external_git
+2026-10-29T21:04:08.7309862Z     revision = self.manifest['dependency_revisions'][name]
+2026-10-29T21:04:08.7310050Z                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+2026-10-29T21:04:08.7310204Z KeyError: 'formal'
+2026-10-29T21:04:08.7310278Z 
+2026-10-29T21:04:08.7310341Z ======================================================================
+2026-10-29T21:04:08.7310762Z ERROR: test_preflight_process_failure_preserves_build (test_gate.RuntimeVersionTests.test_preflight_process_failure_preserves_build)
+2026-10-29T21:04:08.7311107Z ----------------------------------------------------------------------
+2026-10-29T21:04:08.7311298Z Traceback (most recent call last):
+2026-10-29T21:04:08.7311660Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 294, in test_preflight_process_failure_preserves_build
+2026-10-29T21:04:08.7312034Z     self.execute_synthetic([self.RELEASE], version_exit=1)
+2026-10-29T21:04:08.7312364Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 238, in execute_synthetic
+2026-10-29T21:04:08.7312677Z     return gate.execute(self.manifest, self.digest)
+2026-10-29T21:04:08.7312847Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7313229Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 432, in execute
+2026-10-29T21:04:08.7313533Z     checked_head = source_custody(m, digest)
+2026-10-29T21:04:08.7313690Z                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7313967Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 201, in source_custody
+2026-10-29T21:04:08.7314321Z     repo = Path(_git_bytes(root, 'rev-parse', '--show-toplevel').decode().strip()).resolve()
+2026-10-29T21:04:08.7314566Z                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7314849Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 130, in _git_bytes
+2026-10-29T21:04:08.7315170Z     return subprocess.check_output(['git', '-C', str(repo), *args], env=env)
+2026-10-29T21:04:08.7315391Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7315670Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1124, in __call__
+2026-10-29T21:04:08.7315938Z     return self._mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7316093Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7316353Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1128, in _mock_call
+2026-10-29T21:04:08.7316720Z     return self._execute_mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7316890Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7317254Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1189, in _execute_mock_call
+2026-10-29T21:04:08.7317529Z     result = effect(*args, **kwargs)
+2026-10-29T21:04:08.7317675Z              ^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7317961Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 231, in external_git
+2026-10-29T21:04:08.7318279Z     revision = self.manifest['dependency_revisions'][name]
+2026-10-29T21:04:08.7318470Z                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+2026-10-29T21:04:08.7318627Z KeyError: 'formal'
+2026-10-29T21:04:08.7318700Z 
+2026-10-29T21:04:08.7318764Z ======================================================================
+2026-10-29T21:04:08.7319123Z ERROR: test_source_change_during_build_still_refuses_receipt (test_gate.RuntimeVersionTests.test_source_change_during_build_still_refuses_receipt)
+2026-10-29T21:04:08.7319489Z ----------------------------------------------------------------------
+2026-10-29T21:04:08.7319685Z Traceback (most recent call last):
+2026-10-29T21:04:08.7320047Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 326, in test_source_change_during_build_still_refuses_receipt
+2026-10-29T21:04:08.7320583Z     self.execute_synthetic([self.RELEASE], mutate_source=True)
+2026-10-29T21:04:08.7320924Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 238, in execute_synthetic
+2026-10-29T21:04:08.7321242Z     return gate.execute(self.manifest, self.digest)
+2026-10-29T21:04:08.7321415Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7321684Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 432, in execute
+2026-10-29T21:04:08.7321948Z     checked_head = source_custody(m, digest)
+2026-10-29T21:04:08.7322112Z                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7322383Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 201, in source_custody
+2026-10-29T21:04:08.7322736Z     repo = Path(_git_bytes(root, 'rev-parse', '--show-toplevel').decode().strip()).resolve()
+2026-10-29T21:04:08.7322974Z                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7323258Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 130, in _git_bytes
+2026-10-29T21:04:08.7323611Z     return subprocess.check_output(['git', '-C', str(repo), *args], env=env)
+2026-10-29T21:04:08.7323833Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7324128Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1124, in __call__
+2026-10-29T21:04:08.7324393Z     return self._mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7324552Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7324811Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1128, in _mock_call
+2026-10-29T21:04:08.7325096Z     return self._execute_mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7325266Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7325545Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1189, in _execute_mock_call
+2026-10-29T21:04:08.7325837Z     result = effect(*args, **kwargs)
+2026-10-29T21:04:08.7325984Z              ^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7326273Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 231, in external_git
+2026-10-29T21:04:08.7326609Z     revision = self.manifest['dependency_revisions'][name]
+2026-10-29T21:04:08.7326797Z                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+2026-10-29T21:04:08.7326951Z KeyError: 'formal'
+2026-10-29T21:04:08.7327024Z 
+2026-10-29T21:04:08.7327188Z ======================================================================
+2026-10-29T21:04:08.7327689Z ERROR: test_success_checks_before_build_and_after_controls_and_binds_both_logs (test_gate.RuntimeVersionTests.test_success_checks_before_build_and_after_controls_and_binds_both_logs)
+2026-10-29T21:04:08.7328130Z ----------------------------------------------------------------------
+2026-10-29T21:04:08.7328321Z Traceback (most recent call last):
+2026-10-29T21:04:08.7328722Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 301, in test_success_checks_before_build_and_after_controls_and_binds_both_logs
+2026-10-29T21:04:08.7329161Z     receipt = self.execute_synthetic([self.RELEASE, self.RELEASE])
+2026-10-29T21:04:08.7329368Z               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7329704Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 238, in execute_synthetic
+2026-10-29T21:04:08.7330034Z     return gate.execute(self.manifest, self.digest)
+2026-10-29T21:04:08.7330208Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7330686Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 432, in execute
+2026-10-29T21:04:08.7330952Z     checked_head = source_custody(m, digest)
+2026-10-29T21:04:08.7331111Z                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7331388Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 201, in source_custody
+2026-10-29T21:04:08.7331732Z     repo = Path(_git_bytes(root, 'rev-parse', '--show-toplevel').decode().strip()).resolve()
+2026-10-29T21:04:08.7331970Z                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7332252Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 130, in _git_bytes
+2026-10-29T21:04:08.7332572Z     return subprocess.check_output(['git', '-C', str(repo), *args], env=env)
+2026-10-29T21:04:08.7332797Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7333080Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1124, in __call__
+2026-10-29T21:04:08.7333338Z     return self._mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7333495Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7333751Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1128, in _mock_call
+2026-10-29T21:04:08.7334018Z     return self._execute_mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7334186Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7334463Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1189, in _execute_mock_call
+2026-10-29T21:04:08.7334731Z     result = effect(*args, **kwargs)
+2026-10-29T21:04:08.7334875Z              ^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7335164Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 231, in external_git
+2026-10-29T21:04:08.7335479Z     revision = self.manifest['dependency_revisions'][name]
+2026-10-29T21:04:08.7335666Z                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+2026-10-29T21:04:08.7335823Z KeyError: 'formal'
+2026-10-29T21:04:08.7335897Z 
+2026-10-29T21:04:08.7335966Z ======================================================================
+2026-10-29T21:04:08.7336310Z ERROR: test_version_change_after_execution_refuses_receipt (test_gate.RuntimeVersionTests.test_version_change_after_execution_refuses_receipt)
+2026-10-29T21:04:08.7336668Z ----------------------------------------------------------------------
+2026-10-29T21:04:08.7336859Z Traceback (most recent call last):
+2026-10-29T21:04:08.7337217Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 319, in test_version_change_after_execution_refuses_receipt
+2026-10-29T21:04:08.7337729Z     self.execute_synthetic([self.RELEASE, self.RELEASE.replace('4.34.1', '4.34.10')])
+2026-10-29T21:04:08.7338113Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 238, in execute_synthetic
+2026-10-29T21:04:08.7338570Z     return gate.execute(self.manifest, self.digest)
+2026-10-29T21:04:08.7338743Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7339012Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 432, in execute
+2026-10-29T21:04:08.7339277Z     checked_head = source_custody(m, digest)
+2026-10-29T21:04:08.7339435Z                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7339714Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 201, in source_custody
+2026-10-29T21:04:08.7340083Z     repo = Path(_git_bytes(root, 'rev-parse', '--show-toplevel').decode().strip()).resolve()
+2026-10-29T21:04:08.7340327Z                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7340925Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/gate.py", line 130, in _git_bytes
+2026-10-29T21:04:08.7341244Z     return subprocess.check_output(['git', '-C', str(repo), *args], env=env)
+2026-10-29T21:04:08.7341464Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7341746Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1124, in __call__
+2026-10-29T21:04:08.7342003Z     return self._mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7342158Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7342413Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1128, in _mock_call
+2026-10-29T21:04:08.7342701Z     return self._execute_mock_call(*args, **kwargs)
+2026-10-29T21:04:08.7342866Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7343154Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1189, in _execute_mock_call
+2026-10-29T21:04:08.7343425Z     result = effect(*args, **kwargs)
+2026-10-29T21:04:08.7343572Z              ^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:04:08.7343858Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 231, in external_git
+2026-10-29T21:04:08.7344174Z     revision = self.manifest['dependency_revisions'][name]
+2026-10-29T21:04:08.7344363Z                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+2026-10-29T21:04:08.7344516Z KeyError: 'formal'
+2026-10-29T21:04:08.7344592Z 
+2026-10-29T21:04:08.7344662Z ======================================================================
+2026-10-29T21:04:08.7345111Z FAIL: test_missing_binding_clears_active_receipt_in_both_cli_modes (test_cli_receipt_boundary.CliReceiptBoundaryTests.test_missing_binding_clears_active_receipt_in_both_cli_modes) (args=('--execute',))
+2026-10-29T21:04:08.7345574Z ----------------------------------------------------------------------
+2026-10-29T21:04:08.7345760Z Traceback (most recent call last):
+2026-10-29T21:04:08.7346171Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_cli_receipt_boundary.py", line 77, in test_missing_binding_clears_active_receipt_in_both_cli_modes
+2026-10-29T21:04:08.7346606Z     self.assertIn('CBZ_COMPILED_INVENTORY_UNQUALIFIED', result.stderr)
+2026-10-29T21:04:08.7347240Z AssertionError: 'CBZ_COMPILED_INVENTORY_UNQUALIFIED' not found in "fatal: not a git repository (or any of the parent directories): .git\nFORMAL_GATE_FAIL: Command '['git', '-C', '/tmp/tmpx77ek6r1/repo/frontiers/component', 'rev-parse', '--show-toplevel']' returned non-zero exit status 128.\n"
+2026-10-29T21:04:08.7347779Z 
+2026-10-29T21:04:08.7347845Z ======================================================================
+2026-10-29T21:04:08.7348431Z FAIL: test_source_hash_failure_clears_active_receipt_before_source_check (test_cli_receipt_boundary.CliReceiptBoundaryTests.test_source_hash_failure_clears_active_receipt_before_source_check) (args=('--execute',))
+2026-10-29T21:04:08.7348906Z ----------------------------------------------------------------------
+2026-10-29T21:04:08.7349178Z Traceback (most recent call last):
+2026-10-29T21:04:08.7349600Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_cli_receipt_boundary.py", line 56, in test_source_hash_failure_clears_active_receipt_before_source_check
+2026-10-29T21:04:08.7350040Z     self.assertIn('source hash mismatch: README.md', result.stderr)
+2026-10-29T21:04:08.7350798Z AssertionError: 'source hash mismatch: README.md' not found in "fatal: not a git repository (or any of the parent directories): .git\nFORMAL_GATE_FAIL: Command '['git', '-C', '/tmp/tmpl8f47h0n/repo/frontiers/component', 'rev-parse', '--show-toplevel']' returned non-zero exit status 128.\n"
+2026-10-29T21:04:08.7351298Z 
+2026-10-29T21:04:08.7351362Z ======================================================================
+2026-10-29T21:04:08.7351806Z FAIL: test_component_copy_runs_all_five_mutations_with_intended_failures (test_cli_receipt_boundary.PortableMutationRunnerTests.test_component_copy_runs_all_five_mutations_with_intended_failures)
+2026-10-29T21:04:08.7352269Z ----------------------------------------------------------------------
+2026-10-29T21:04:08.7352457Z Traceback (most recent call last):
+2026-10-29T21:04:08.7352872Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_cli_receipt_boundary.py", line 205, in test_component_copy_runs_all_five_mutations_with_intended_failures
+2026-10-29T21:04:08.7353319Z     self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+2026-10-29T21:04:08.7353730Z AssertionError: 1 != 0 : CBZ_MUTATION_GATE_FAIL: omit-stale-receipt-removal: unmodified selected controls are not green with the expected nonzero test count
+2026-10-29T21:04:08.7354029Z 
+2026-10-29T21:04:08.7354032Z 
+2026-10-29T21:04:08.7354122Z ----------------------------------------------------------------------
+2026-10-29T21:04:08.7354319Z Ran 192 tests in 10.244s
+2026-10-29T21:04:08.7354400Z 
+2026-10-29T21:04:08.7354469Z FAILED (failures=3, errors=24)
+2026-10-29T21:04:08.7367822Z ##[error]Process completed with exit code 1.

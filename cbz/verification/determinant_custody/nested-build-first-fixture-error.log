@@ -1,0 +1,25 @@
+ERROR: test_nested_build_symlinks_are_rejected_before_admission (test_custody.SourceCustody.test_nested_build_symlinks_are_rejected_before_admission)
+2026-10-29T21:01:38.0539903Z ----------------------------------------------------------------------
+2026-10-29T21:01:38.0540341Z Traceback (most recent call last):
+2026-10-29T21:01:38.0545692Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 166, in test_nested_build_symlinks_are_rejected_before_admission
+2026-10-29T21:01:38.0546794Z     self.gate.execute(self.m, digest(self.manifest.read_bytes()))
+2026-10-29T21:01:38.0547227Z   File "/tmp/tmp4nh45yiz/frontiers/determinant/gate.py", line 442, in execute
+2026-10-29T21:01:38.0547738Z     audit.write_text('import ResearchFormalCoreR1\n' + '\n'.join('#print axioms ' + n for n in m['targets']) + '\n')
+2026-10-29T21:01:38.0548183Z                                                                                                ~^^^^^^^^^^^
+2026-10-29T21:01:38.0548450Z KeyError: 'targets'
+2026-10-29T21:01:38.0548560Z 
+2026-10-29T21:01:38.0548657Z ======================================================================
+2026-10-29T21:01:38.0549196Z FAIL: test_inherited_lean_search_paths_are_not_sent_to_execution (test_custody.SourceCustody.test_inherited_lean_search_paths_are_not_sent_to_execution)
+2026-10-29T21:01:38.0549732Z ----------------------------------------------------------------------
+2026-10-29T21:01:38.0550004Z Traceback (most recent call last):
+2026-10-29T21:01:38.0550572Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 135, in test_inherited_lean_search_paths_are_not_sent_to_execution
+2026-10-29T21:01:38.0551179Z     self.assertEqual(json.loads(result), {'LEAN_PATH': None, 'LEAN_SRC_PATH': None})
+2026-10-29T21:01:38.0551688Z AssertionError: {'LEAN_PATH': '/outside/lean', 'LEAN_SRC_PATH': '/outside/source'} != {'LEAN_PATH': None, 'LEAN_SRC_PATH': None}
+2026-10-29T21:01:38.0552144Z - {'LEAN_PATH': '/outside/lean', 'LEAN_SRC_PATH': '/outside/source'}
+2026-10-29T21:01:38.0552453Z + {'LEAN_PATH': None, 'LEAN_SRC_PATH': None}
+2026-10-29T21:01:38.0552601Z 
+2026-10-29T21:01:38.0552728Z ----------------------------------------------------------------------
+2026-10-29T21:01:38.0552988Z Ran 16 tests in 0.704s
+2026-10-29T21:01:38.0553100Z 
+2026-10-29T21:01:38.0553181Z FAILED (failures=1, errors=1)
+2026-10-29T21:01:38.0680790Z ##[error]Process completed with exit code 1.
