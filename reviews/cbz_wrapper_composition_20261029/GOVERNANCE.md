@@ -12,3 +12,9 @@ Source-local registry for federation criterion9. Main's canonical GOVERNANCE.md 
 All tools: maintenance owner none — self-contained. These tools serve criteria5,7,9 and operational source custody; they do not admit new mathematical theorems.
 
 Layer B rule (2026-10-29 20:20:44 UTC): custody Git commands remove inherited GIT_* overrides, ignore global/system config, disable replacement refs and lazy fetching. Loaded driver bytes are checked before/after execution. Synthetic fixtures and source mutants are operational evidence; scientific packet/result bytes and all original test methods are preserved.
+
+## LM006 executed-code identity
+
+The supported test harness imports the exact single-read driver source with `compile` and `exec`, and binds its later source check to the very same bytes. The driver also compares its running module code object with the code compiled from its current source and refuses ordinary stale bytecode. The workflow's direct Python script execution compiles source. Arbitrary attacker-controlled bytecode can remove any self-check inside itself; callers requiring source identity must use the source-only loader or direct script execution. This is execution/custody evidence, not mathematical or formal verification, and changes no numerical bounds.
+
+The normal-mode intended RED was observed at source ae3c35b41590ae8494c37602cdf87fc09c6ffb26, run40950416828/job123716743203: one actual timestamp-valid, same-size poisoned bytecode executed although the recorded loaded-source bytes were legitimate. See the retained [failure excerpt](../../cbz/evidence/lm006-bytecode-20261029/normal-red.log). A repaired-source hosted run of all preserved tests and source mutations in both modes remains required; do not infer a pass from this commit.

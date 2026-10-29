@@ -7,6 +7,7 @@ import argparse, hashlib, json, os, re, signal, subprocess, sys, time
 from pathlib import Path, PurePosixPath
 
 _LOADED_SOURCE=Path(__file__).read_bytes()
+if sys._getframe().f_code != compile(_LOADED_SOURCE,sys._getframe().f_code.co_filename,'exec',dont_inherit=True): raise RuntimeError('loaded_driver_drift')  # VERIFY_LOADED_CODE
 
 REPOSITORY='d6g8k5htny-coder/Math-'
 SOURCE_COMMIT='8fe14358a1ee5d7ef7d7e20520391f62f432fe04'

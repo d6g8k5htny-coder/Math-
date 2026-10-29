@@ -7,7 +7,9 @@ DRIVER=Path(__file__).resolve().parents[1]/'tools/lm006_oned_coefficient_replay.
 def load_driver(path):
     spec=importlib.util.spec_from_file_location('trusted_driver',path)
     module=importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
+    raw=Path(path).read_bytes()
+    exec(compile(raw,str(path),'exec',dont_inherit=True),module.__dict__)  # SOURCE_ONLY_LOADER
+    module._LOADED_SOURCE=raw
     return module
 
 class ReplayTests(unittest.TestCase):
@@ -35,7 +37,10 @@ class ReplayTests(unittest.TestCase):
         self.assertEqual(source.count(original),1)
         self.assertEqual(len(original),len(poisoned))
         path=self.root/'poisoned_driver.py'
-        path.write_bytes(source.replace(original,poisoned,1))
+        guard=b"if sys._getframe().f_code != compile(_LOADED_SOURCE,sys._getframe().f_code.co_filename,'exec',dont_inherit=True): raise RuntimeError('loaded_driver_drift')  # VERIFY_LOADED_CODE"
+        self.assertEqual(source.count(guard),1)
+        guardless=b"#"+b" "*(len(guard)-1)
+        path.write_bytes(source.replace(original,poisoned,1).replace(guard,guardless,1))
         timestamp=1700000000
         os.utime(path,(timestamp,timestamp))
         py_compile.compile(str(path),doraise=True,optimize=sys.flags.optimize)
@@ -49,6 +54,52 @@ class ReplayTests(unittest.TestCase):
         verified=load_driver(path)
         self.assertEqual(verified.REPOSITORY,'d6g8k5htny-coder/Math-')
         self.assertEqual(verified._LOADED_SOURCE,source)
+
+    def test_poisoned_bytecode_control_kills_loader_mutation(self):
+        import shutil
+        source=Path(__file__).read_text()
+        anchor="exec(compile(raw,str(path),'exec',dont_inherit=True),"+"module.__dict__)  # SOURCE_ONLY_LOADER"
+        replacement="spec.loader.exec_module(module)  # SOURCE_ONLY_LOADER"
+        self.assertEqual(source.count(anchor),1)
+        with tempfile.TemporaryDirectory(prefix='lm006-loader-mutation-') as directory:
+            root=Path(directory)
+            test_path=root/'tests/test_lm006_oned_coefficient_replay.py'
+            driver_path=root/'tools/lm006_oned_coefficient_replay.py'
+            test_path.parent.mkdir(parents=True)
+            driver_path.parent.mkdir(parents=True)
+            shutil.copyfile(DRIVER,driver_path)
+            command=[sys.executable,'-B','-S']+(['-O'] if sys.flags.optimize else [])+['-m','unittest','discover','-s','tests','-p','test_lm006_oned_coefficient_replay.py','-k','test_timestamp_valid_poisoned','-v']
+            test_path.write_text(source)
+            good=subprocess.run(command,cwd=root,capture_output=True,timeout=30)
+            self.assertEqual(good.returncode,0,good.stderr.decode())
+            self.assertIn(b'Ran 1 test in',good.stderr)
+            self.assertTrue(good.stderr.endswith(b'\nOK\n'))
+            test_path.write_text(source.replace(anchor,replacement,1))
+            mutant=subprocess.run(command,cwd=root,capture_output=True,timeout=30)
+            self.assertEqual(mutant.returncode,1,mutant.stderr.decode())
+            self.assertEqual(mutant.stdout,b'')
+            self.assertIn(b'Ran 1 test in',mutant.stderr)
+            self.assertIn(b'FAILED (failures=1)',mutant.stderr)
+            self.assertIn(b"AssertionError: 'x6g8k5htny-coder/Math-'",mutant.stderr)
+            self.assertNotIn(b'ERROR:',mutant.stderr)
+
+    def test_direct_import_detects_timestamp_valid_stale_code(self):
+        import py_compile
+        source=DRIVER.read_bytes()
+        old=b"REPOSITORY='d6g8k5htny-coder/Math-'"
+        new=b"REPOSITORY='x6g8k5htny-coder/Math-'"
+        self.assertEqual(source.count(old),1)
+        path=self.root/'drift_driver.py'
+        path.write_bytes(source.replace(old,new,1))
+        os.utime(path,(1700000000,1700000000))
+        py_compile.compile(str(path),doraise=True,optimize=sys.flags.optimize)
+        path.write_bytes(source)
+        os.utime(path,(1700000000,1700000000))
+        spec=importlib.util.spec_from_file_location('drift_driver',path)
+        module=importlib.util.module_from_spec(spec)
+        with self.assertRaisesRegex(RuntimeError,'^loaded_driver_drift$'):
+            spec.loader.exec_module(module)
+        self.assertEqual(module._LOADED_SOURCE,source)
 
     def test_snapshot_and_exact_packet_membership(self):
         pins=self.fixture();ids=self.m.validate_snapshot(self.root,pins)
