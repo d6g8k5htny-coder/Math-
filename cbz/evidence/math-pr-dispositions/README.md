@@ -46,7 +46,9 @@ these files alone.
 
 Integrate candidates at observation: #372, #482, #487, #490, #492 (see `DISPOSITIONS.md` for the
 verdict comment each rests on). #482 and #487 carry lexical Layer A signals (`admit` additions in
-`.lean`; one skip; one float indicator in a check path) — a reader must look before integration.
+`.lean`; one skip; one float indicator in a check path); `READINGS.md` records the manual reading of
+every flagged line in every open PR — all are prose, version strings, a comment, an environment
+guard or a subprocess timeout, so none is a Layer A hazard.
 
 ## Files
 
@@ -60,6 +62,7 @@ verdict comment each rests on). #482 and #487 carry lexical Layer A signals (`ad
 - `generate.py` — the generator (stdlib + git + `gh` REST). `disposition_lib.py` — the pure
   classification logic. `test_disposition_lib.py`, `test_generate.py` — 27 tests, run in both modes.
 - `FETCHED_MANIFEST.json` — SHA-256/size of every raw GitHub response used.
+- `READINGS.md` — the manual reading of each flagged line (what the lexical signal actually is).
 
 ## Reproduce
 
