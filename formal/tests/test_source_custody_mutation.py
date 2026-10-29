@@ -6,11 +6,21 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest import mock
 
 HERE = Path(__file__).resolve().parents[1]
 
 
 class CustodyMutationTests(unittest.TestCase):
+    def test_grader_rejects_exit_two_even_with_plausible_failure_text(self):
+        false_evidence = subprocess.CompletedProcess(
+            args=[], returncode=2,
+            stdout='Ran 1 test\\nValueError not raised\\nTrue is not false\\n'
+                   'POISONED_CACHED_HELPER\\nAssertionError\\n')
+        with mock.patch.object(subprocess, 'run', return_value=false_evidence):
+            with self.assertRaisesRegex(AssertionError, 'exact mutation-test exit'):
+                self.test_all_declared_source_mutants_are_detected_for_their_reason()
+
     def test_all_declared_source_mutants_are_detected_for_their_reason(self):
         source = (HERE / 'gate.py').read_text()
         cases = [
