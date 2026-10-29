@@ -204,7 +204,14 @@ class PortableMutationRunnerTests(unittest.TestCase):
                                     env={**os.environ, 'TMPDIR': str(base)})
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
             report = json.loads((output / 'mutation_results.json').read_text())
-            self.assertEqual(len(report['mutations']), 6)
+            self.assertEqual(len(report['mutations']), 12)
+            self.assertEqual({r['name'] for r in report['mutations']}, {
+                'omit-forbidden-closure', 'omit-extra-theorem-admission',
+                'omit-bound-constant-admission', 'omit-stale-receipt-removal',
+                'execute-cached-inventory-bytecode', 'omit-runtime-census-and-controls',
+                'omit-artifact-log-hash', 'omit-artifact-commit-binding',
+                'omit-artifact-manifest-binding', 'omit-artifact-duplicate-refusal',
+                'omit-artifact-path-refusal', 'omit-artifact-empty-inventory-refusal'})
             self.assertTrue(report['source_preserved'])
             for record in report['mutations']:
                 self.assertGreater(record['collected_tests'], 0)

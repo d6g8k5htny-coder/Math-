@@ -106,3 +106,10 @@ The dedicated cbz-determinant-artifact-integrity workflow downloads both pinned
 archives and preserves reports/ZIPs. Its source-publication tests are not yet
 observed at this checkpoint. The separate dirty-overlay/dependency-byte custody
 gap remains open; kernel happy-path success does not certify that boundary.
+
+The first tool qualification runs9192317/3d508229 exposed a retained test's
+obsolete six-mutation inventory assertion:192 normal tests ran,191 passed, and
+the twelve-case runner itself returned zero. The existing test now requires
+all twelve exact names (including every original case), preserving all intent
+and source-preservation assertions. Both actual red runs/artifacts remain
+retained; optimized mode and archive replay still require a fresh observed run.

@@ -53,3 +53,13 @@ the prior workflow exposed only redirected artifacts while local extraction was
 unavailable. This changes evidence visibility only; no checker/test is weakened.
 The underlying failure will be fixed after its actual diagnostic is observed.
 Reversible.
+
+[2026-10-29T19:55:18Z] [Phase3] [Layer B/C] Actual diagnostic native run40944215298/
+job123695172694 executed192 normal component tests:191 passed; the retained
+portable-runner test failed solely because it still required the old six-case
+count after the runner correctly returned twelve. Preserve both red runs and
+their raw artifacts. Strengthen that existing test to require twelve cases AND
+the exact set of all six original plus all six new mutation names, retaining
+every baseline/intended-failure/source-preservation assertion. No failing test
+is removed or disabled; no mathematical bound or checker policy changes.
+Optimized mode and real ZIP inspection remain unobserved. Reversible.
