@@ -1,6 +1,6 @@
 > Current operational scope:66 exact conditional companions are kernel CLOSED at
 > immutable4871, without continuum/scientific acceptance. The compatible tooling
-> code has262controls/mode and19effects/20pairs per mode (40total); its ZIP checker
+> code has263controls/mode and20effects/21pairs per mode (42total); its ZIP checker
 > has18controls/mode and seven artifact defenses. Later hosted execution remains
 > separate. Older quarantine/tool-count checkpoints below retain their historical
 > source context; STATUS.md and the resolved QUARANTINE.json govern current scope.
@@ -169,3 +169,25 @@ and328execution logs are preserved at
 New artifact metadata workflows use RUNNER_TEMP for mutation output, as the strict
 outside-repository preflight requires. New/current-source hosted execution and
 normal required checks remain separate from these observed local results.
+
+
+## Current hidden-capture successor
+
+Actual byte-workflow40956554798 at1e95 passed its commands but its402-entry
+artifact omitted the hidden unit and ZIP-summary directory. Forty mutation pairs
+and160raw logs are intact; complete capture qualification FAILS. This failure is
+preserved. The successor explicitly enables include-hidden-files and adds a real
+RED regression plus20th exact source effect. Both workflow inputs are copied and
+attested in isolated mutation fixtures. No bound, original effect or test is
+weakened. Current local263controls per mode pass without skips; both exact workflow
+blocks exit0 with42qualified pairs/168raw logs and four historical ZIP outcomes.
+Fresh hosted capture remains pending. Older19-effect/262-control observations
+below stay bound to their older source. The immutable4871 formal closure and all
+14Lean sources/66statements are unchanged.
+
+Current rule: explicitly include raw hidden validation captures in the dedicated
+upload. Current outer threshold20/20effects and21exact selected pairs per mode
+supersedes the earlier19/20 operational count. Prior source-bound observations
+remain historical. Both workflow bytes join copy/source-preservation checks.
+Mathematical statements, original effects/tests, bounds and resource caps are
+unchanged; fresh native capture inspection is still required.

@@ -15,6 +15,8 @@ from types import ModuleType
 
 ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = '.github/workflows/determinant-moment-lean.yml'
+BYTE_WORKFLOW = '.github/workflows/cbz-determinant-artifact-integrity.yml'
+WORKFLOWS = (WORKFLOW, BYTE_WORKFLOW)
 
 
 def load_shared_runner():
@@ -81,6 +83,7 @@ CASES = (
     ('omit-artifact-path-refusal', 'artifact_integrity.py', '            validate_member_path(name)', '            pass  # MUTANT: unsafe path accepted', ('test_artifact_integrity.ArchiveIntegrityTests.test_unsafe_extra_member_refused',)),
     ('omit-artifact-empty-inventory-refusal', 'artifact_integrity.py', 'if not logs:', 'if False:  # MUTANT: empty log inventory accepted', ('test_artifact_integrity.ArchiveIntegrityTests.test_empty_log_inventory_refused',)),
     ('reopen-artifact-path-for-final-hash', 'artifact_integrity.py', "'archive_sha256': hashlib.sha256(archive_bytes).hexdigest(),", "'archive_sha256': hashlib.sha256(archive.read_bytes()).hexdigest(),", ('test_artifact_integrity.ArchiveIntegrityTests.test_path_replacement_cannot_relabel_inspected_archive_bytes',)),
+    ('omit-byte-workflow-hidden-captures', '.github/workflows/cbz-determinant-artifact-integrity.yml', '          include-hidden-files: true', '          include-hidden-files: false', ('test_workflow_receipt_transport.WorkflowReceiptTransportTests.test_byte_workflow_preserves_hidden_summary_captures',)),
 )
 
 
@@ -113,7 +116,7 @@ def source_inventory():
         reject_symlinks(path)
         if path.is_file():
             records['component/' + rel.as_posix()] = hashlib.sha256(path.read_bytes()).hexdigest()
-    for rel in ('tools/lean_packet_admission.py', WORKFLOW):
+    for rel in ('tools/lean_packet_admission.py', *WORKFLOWS):
         path = ROOT.parents[1] / rel
         reject_symlinks(path)
         records[rel] = hashlib.sha256(path.read_bytes()).hexdigest()
@@ -136,7 +139,7 @@ def create_run_directory(parent):
 def copy_component(destination):
     source_inventory()  # Refuse symlinks before copytree can dereference them.
     shutil.copytree(ROOT, destination, ignore=shutil.ignore_patterns('.lake', '__pycache__'))
-    for rel in ('tools/lean_packet_admission.py', WORKFLOW):
+    for rel in ('tools/lean_packet_admission.py', *WORKFLOWS):
         target = destination.parents[1] / rel
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(ROOT.parents[1] / rel, target)
@@ -164,7 +167,7 @@ def execute_case(case, work, output, *, mode=None, harness=None):
     baselines = [_shared.run_selected(copy, selection, mode,
                  case_output / str(index) / 'baseline', harness)
                  for index, selection in enumerate(selections)]
-    path = copy.parents[1] / rel if rel == WORKFLOW else copy / rel
+    path = copy.parents[1] / rel if rel in WORKFLOWS else copy / rel
     original = path.read_text()
     if original.count(old) != 1:
         raise ValueError(name + ': mutation location must occur exactly once')
@@ -184,7 +187,7 @@ def execute_case(case, work, output, *, mode=None, harness=None):
         gate_path.write_text(gate_text.replace(marker, "CORE_SHA256 = '" +
                              hashlib.sha256(path.read_bytes()).hexdigest() + "'", 1))
         manifest['files']['gate.py'] = hashlib.sha256(gate_path.read_bytes()).hexdigest()
-    if rel != WORKFLOW:
+    if rel not in WORKFLOWS:
         manifest['files'][rel] = hashlib.sha256(path.read_bytes()).hexdigest()
         (copy / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
     pairs = []

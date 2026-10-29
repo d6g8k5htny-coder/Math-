@@ -103,5 +103,16 @@ class WorkflowReceiptTransportTests(unittest.TestCase):
         self.assertEqual(text.count('          if-no-files-found: error'), 2)
 
 
+    def test_byte_workflow_preserves_hidden_summary_captures(self):
+        path = ROOT.parents[1] / '.github/workflows/cbz-determinant-artifact-integrity.yml'
+        text = path.read_text()
+        marker = '      - name: Preserve every outcome and raw log'
+        self.assertEqual(text.count(marker), 1)
+        upload = text.split(marker, 1)[1]
+        self.assertIn('            .cbz-determinant-wire-evidence/', upload)
+        self.assertIn('          include-hidden-files: true', upload,
+                      'hidden summaries/unit logs must survive actual artifact upload')
+
+
 if __name__ == '__main__':
     unittest.main()

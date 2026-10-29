@@ -217,6 +217,8 @@ class PortableMutationRunnerTests(unittest.TestCase):
             workflow = root.parents[1] / '.github/workflows/determinant-moment-lean.yml'
             workflow.parent.mkdir(parents=True)
             shutil.copy2(ROOT.parents[1] / '.github/workflows/determinant-moment-lean.yml', workflow)
+            shutil.copy2(ROOT.parents[1] / '.github/workflows/cbz-determinant-artifact-integrity.yml',
+                         workflow.with_name('cbz-determinant-artifact-integrity.yml'))
             before = {p.relative_to(root): p.read_bytes() for p in root.rglob('*') if p.is_file()}
             output = base / 'reports'
             result = subprocess.run([sys.executable, '-B', '-S', *(['-O'] if sys.flags.optimize else []),
@@ -238,10 +240,10 @@ class PortableMutationRunnerTests(unittest.TestCase):
                         'omit-artifact-log-hash', 'omit-artifact-commit-binding',
                         'omit-artifact-manifest-binding', 'omit-artifact-duplicate-refusal',
                         'omit-artifact-path-refusal', 'omit-artifact-empty-inventory-refusal',
-                        'reopen-artifact-path-for-final-hash'}
+                        'reopen-artifact-path-for-final-hash', 'omit-byte-workflow-hidden-captures'}
             self.assertEqual({row['name'] for row in report['mutations']}, expected)
-            self.assertEqual(len(report['mutations']), 19)
-            self.assertEqual(report['execution_pairs'], 20)
+            self.assertEqual(len(report['mutations']), 20)
+            self.assertEqual(report['execution_pairs'], 21)
             self.assertEqual(report['mode'], 'optimized' if sys.flags.optimize else 'normal')
             self.assertTrue(report['source_preserved'])
             for record in report['mutations']:

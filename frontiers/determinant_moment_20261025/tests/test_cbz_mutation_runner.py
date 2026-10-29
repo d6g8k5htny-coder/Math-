@@ -41,6 +41,8 @@ class OuterMutationRunnerTests(unittest.TestCase):
         workflow = self.root.parents[1] / '.github/workflows/determinant-moment-lean.yml'
         workflow.parent.mkdir(parents=True)
         workflow.write_bytes((ROOT.parents[1] / '.github/workflows/determinant-moment-lean.yml').read_bytes())
+        byte_workflow = workflow.with_name('cbz-determinant-artifact-integrity.yml')
+        byte_workflow.write_bytes((ROOT.parents[1] / '.github/workflows/cbz-determinant-artifact-integrity.yml').read_bytes())
         self.serial = 0
 
     def fixture(self, phase='test', exception='assertion'):

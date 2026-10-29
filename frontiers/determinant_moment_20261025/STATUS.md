@@ -20,8 +20,9 @@ checked. The exact old receipt is never relabeled as execution of later source.
 Current tooling composition adds the peer's downloaded-byte checker and preserved
 archives, fixes its actually reproduced pathname read/hash race with one bounded
 snapshot, retains all17 old ZIP tests plus one adverse regression, and adds seven
-artifact effects to the strict existing outer runner. The full union requires19
-effects/20same-selection positive/intended-body pairs per mode. Three caps remain
+artifact effects to the strict existing outer runner. The full union now requires20
+effects/21same-selection positive/intended-body pairs per mode, including the
+hidden-capture workflow defense. Three caps remain
 64MiB compressed,256MiB expanded and10000entries. A19110-entry earlier archive
 correctly refuses at that declared limit. The primary upload now preserves all
 logs/results/receipts while omitting duplicated disposable source/work/repo copies.
@@ -29,6 +30,20 @@ The dedicated byte workflow uses exact Git-preserved archives and contents:read;
 it creates no refs and depends on no expiring download. These metadata controls
 award no kernel result. Current composition qualification is recorded separately
 from the immutable4871 formal evidence; no fresh hosted result is presumed.
+
+## Current hidden-capture successor
+
+Actual byte-workflow40956554798 at1e95 passed its commands but its402-entry
+artifact omitted the hidden unit and ZIP-summary directory. Forty mutation pairs
+and160raw logs are intact; complete capture qualification FAILS. This failure is
+preserved. The successor explicitly enables include-hidden-files and adds a real
+RED regression plus20th exact source effect. Both workflow inputs are copied and
+attested in isolated mutation fixtures. No bound, original effect or test is
+weakened. Current local263controls per mode pass without skips; both exact workflow
+blocks exit0 with42qualified pairs/168raw logs and four historical ZIP outcomes.
+Fresh hosted capture remains pending. Older19-effect/262-control observations
+below stay bound to their older source. The immutable4871 formal closure and all
+14Lean sources/66statements are unchanged.
 
 ## How to verify
 

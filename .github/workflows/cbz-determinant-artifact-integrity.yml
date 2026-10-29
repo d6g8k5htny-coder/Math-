@@ -22,7 +22,7 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.11.16'
-      - name: Eighteen ZIP controls and all nineteen source effects in both modes
+      - name: Eighteen ZIP controls and all twenty source effects in both modes
         run: |
           set -euo pipefail
           mkdir -p "$GITHUB_WORKSPACE/.cbz-determinant-wire-evidence"
@@ -45,7 +45,7 @@ jobs:
               if not report_path.is_relative_to(expected_parent) or report_path.name != 'mutation_results.json':
                   raise SystemExit('unbound retained mutation report path')
               result = json.loads(report_path.read_text())
-              if len(result['mutations']) != 19 or result['execution_pairs'] != 20 or result['source_preserved'] is not True:
+              if len(result['mutations']) != 20 or result['execution_pairs'] != 21 or result['source_preserved'] is not True:
                   raise SystemExit('incomplete or source-changing mutation matrix')
               for row in result['mutations']:
                   if not row['killed_by_intended_assertions'] or row['import_or_test_errors']:
@@ -116,4 +116,5 @@ jobs:
             !${{ runner.temp }}/determinant-artifact-mutations-*/**/source/**
             !${{ runner.temp }}/determinant-artifact-mutations-*/**/work/**
             !${{ runner.temp }}/determinant-artifact-mutations-*/**/repo/**
+          include-hidden-files: true
           if-no-files-found: error
