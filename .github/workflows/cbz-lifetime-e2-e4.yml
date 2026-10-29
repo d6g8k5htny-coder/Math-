@@ -1,0 +1,64 @@
+name: CBZ literal E2 to E4 implication
+'on':
+  push:
+    branches: ["cbz/lifetime-e2-e4-implication-20261029"]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  scoped-implication:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      LEAN_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.11.16'
+      - name: Check statement packet inventory
+        run: python3 -B -S specifications/lean_statements_20261010/check.py
+      - uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6
+        with:
+          lake-package-directory: specifications/lean_statements_20261010
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+          use-github-cache: 'false'
+      - name: Build implication and kernel recheck
+        shell: bash
+        run: |
+          set -euo pipefail
+          source="$GITHUB_WORKSPACE/cbz/lifetime_implication/Bounds.lean"
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test "$(git hash-object "$source")" = e0c48b9f50f78ee826a84059b2714df0b5a2f164
+          cd specifications/lean_statements_20261010
+          test "$(git hash-object Specifications/Lifetime.lean)" = f2508f7f2e3fd42f22f5aa52bc5ead5ff9e73b9a
+          test ! -e Bounds.lean && test ! -L Bounds.lean
+          trap 'rm -f Bounds.lean' EXIT
+          cp "$source" Bounds.lean
+          cmp "$source" Bounds.lean
+          lake build Specifications.Lifetime
+          mkdir -p .lake/build/lib/lean
+          lake env lean -o .lake/build/lib/lean/Bounds.olean Bounds.lean 2>&1 | tee "$RUNNER_TEMP/bounds-lean.log"
+          lake env leanchecker Bounds 2>&1 | tee "$RUNNER_TEMP/bounds-kernel.log"
+          test ! -s "$RUNNER_TEMP/bounds-kernel.log"
+          cmp "$source" Bounds.lean
+          test "$(git hash-object "$source")" = e0c48b9f50f78ee826a84059b2714df0b5a2f164
+          rm Bounds.lean
+          trap - EXIT
+          test -z "$(git status --porcelain --untracked-files=all)"
+          sha256sum "$source" "$RUNNER_TEMP"/bounds-*.log
+      - name: Retain outputs even on failure
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: cbz-e2-e4-implication-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            cbz/lifetime_implication/Bounds.lean
+            ${{ runner.temp }}/bounds-*.log
+          if-no-files-found: error
