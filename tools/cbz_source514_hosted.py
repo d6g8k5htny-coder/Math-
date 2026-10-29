@@ -513,7 +513,7 @@ def execute(source, replay, collector, plan_path, output, carrier, carrier_head,
                     fixture_metadata["program_sha256"], exit_code=fixture_code,
                     stderr=(output / "overlap-fixture-replay.stderr").read_text())
                 original_seed = "      seeds := seeds.push name"
-                mutated_seed = "      if name != `" + fixture_name + " then seeds := seeds.push name"
+                mutated_seed = '      if toString name != "' + fixture_name + '" then seeds := seeds.push name'
                 if fixture_program.count(original_seed) != 1:
                     raise ValueError("overlap fixture seed mutation target is not unique")
                 mutated_program = fixture_program.replace(original_seed, mutated_seed, 1)
