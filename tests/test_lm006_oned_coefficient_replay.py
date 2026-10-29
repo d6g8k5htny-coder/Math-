@@ -151,4 +151,41 @@ class ReplayTests(unittest.TestCase):
             self.assertEqual(row[side+'_bytes'],len(value))
             self.assertEqual(row[side+'_sha256'],self.m.sha256(value))
 
+
+    def test_git_replacement_cannot_relabel_a_frozen_blob(self):
+        mod=self.synthetic_project()
+        relative=self.m.PACKET+'/NOTE.md'
+        expected=(self.root/relative).read_text().strip()
+        original=mod.git_head(self.root)
+        (self.root/relative).write_text('replacement source bytes\n')
+        subprocess.run(['git','add',relative],cwd=self.root,check=True)
+        subprocess.run(['git','-c','user.name=Fixture','-c','user.email=f@example.invalid','-c','commit.gpgsign=false','commit','-qm','replacement target'],cwd=self.root,check=True)
+        replacement=mod.git_head(self.root)
+        subprocess.run(['git','replace',original,replacement],cwd=self.root,check=True)
+        self.assertEqual(mod.git(self.root,'show',original+':'+relative),expected)
+
+    def test_ambient_git_environment_cannot_redirect_source_checks(self):
+        from unittest.mock import patch
+        mod=self.synthetic_project()
+        own=mod.git_head(self.root)
+        foreign=Path(self.tmp.name)/'foreign';foreign.mkdir()
+        (foreign/'foreign.txt').write_text('different committed repository\n')
+        subprocess.run(['git','init','-q'],cwd=foreign,check=True)
+        subprocess.run(['git','add','.'],cwd=foreign,check=True)
+        subprocess.run(['git','-c','user.name=Fixture','-c','user.email=f@example.invalid','-c','commit.gpgsign=false','commit','-qm','foreign'],cwd=foreign,check=True)
+        with patch.dict(os.environ,{'GIT_DIR':str(foreign/'.git'),'GIT_WORK_TREE':str(foreign)}):
+            self.assertEqual(mod.git_head(self.root),own)
+
+    def test_loaded_driver_cannot_claim_a_later_committed_source(self):
+        mod=self.synthetic_project()
+        driver=self.root/self.m.EXECUTION_FILES[0]
+        driver.write_bytes(driver.read_bytes()+b'\n# committed after this module was loaded\n')
+        subprocess.run(['git','add',self.m.EXECUTION_FILES[0]],cwd=self.root,check=True)
+        subprocess.run(['git','-c','user.name=Fixture','-c','user.email=f@example.invalid','-c','commit.gpgsign=false','commit','-qm','source successor'],cwd=self.root,check=True)
+        out=Path(self.tmp.name)/'loaded-drift'
+        with self.assertRaisesRegex(mod.ReplayError,'loaded_driver_drift'):
+            mod.execute(self.root,out,'normal')
+        self.assertEqual(json.loads((out/'receipt.json').read_text())['status'],'FAIL')
+        self.assertFalse((out/'tests.stdout').exists())
+
 if __name__=='__main__': unittest.main()
