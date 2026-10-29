@@ -25,7 +25,7 @@ jobs:
           set +e
           flags=()
           if [ "${{ matrix.mode }}" = optimized ]; then flags=(-O); fi
-          for name in ${!GIT_@}; do unset "$name"; done
+          for name in ${!GIT_@} ${!PYTHON@}; do unset "$name"; done
           cache_root="$RUNNER_TEMP/cbz-core-audit-pyc-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT-${{ matrix.mode }}"
           if [ -e "$cache_root" ] || [ -L "$cache_root" ]; then
             echo 'Fresh outer Python cache path already exists' >&2
