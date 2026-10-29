@@ -1,0 +1,32 @@
+name: CBZ source514 census failure observation
+on:
+  push:
+    branches: ["cbz/source514-census-diagnostic-20261029"]
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Read the preserved failed-run artifact
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh api "/repos/$GITHUB_REPOSITORY/actions/artifacts/12931294592/zip" > "$RUNNER_TEMP/source514.zip"
+          printf '%s  %s\n' 80da0006a541b084df5a939c6a032bb41a6e180058f3250f7489c6179fccaeee "$RUNNER_TEMP/source514.zip" | sha256sum --check
+          python3 - "$RUNNER_TEMP/source514.zip" <<'PY'
+          import sys, zipfile
+          with zipfile.ZipFile(sys.argv[1]) as z:
+              names = [n for n in z.namelist() if 'independent-compiled-census' in n]
+              if not names:
+                  raise SystemExit('No census output found in the preserved artifact')
+              for name in names:
+                  data = z.read(name)
+                  print('SOURCE514_ARTIFACT_MEMBER', name, 'bytes', len(data))
+                  print(data.decode('utf-8', 'replace')[-20000:])
+          PY
