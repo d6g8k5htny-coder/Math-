@@ -2,17 +2,19 @@
 """Authenticate the C8 check-mode checkers' acceptance and rejection verdicts.
 
 Called AFTER each workflow's unchanged source and pin guards. Each checker runs
-from its packet directory as `<script> --check [--mutant LABEL]` and prints one
-JSON verdict: {"check": "ok", ...} with exit 0, or, from its require(),
-{"check": "FAIL", "reason": ..., "mutant": LABEL} with exit 1. The reference
-file holds complete verdicts measured from the unchanged checkers, never outputs
-learned from the invocation being tested. Parsing and comparison are those of
-tools/legacy_json_replay.py: formatting may differ, but every key, type, value
-and list must match. This is an engineering protocol, not a sandbox or
-mathematical acceptance test.
+from its packet directory as `<script> --check [EXTRA...] [--mutant LABEL]` and
+prints one JSON verdict: {"check": "ok", ...} with exit 0, or, from its
+require(), {"check": "FAIL", "reason": ..., "mutant": LABEL} with exit 1. EXTRA
+is empty except for the families in POOLED, whose wrappers passed it. The
+reference file holds complete verdicts measured from the unchanged checkers,
+never outputs learned from the invocation being tested. Parsing and comparison
+are those of tools/legacy_json_replay.py: formatting may differ, but every key,
+type, value and list must match. This is an engineering protocol, not a sandbox
+or mathematical acceptance test.
 """
 from __future__ import annotations
 
+import concurrent.futures
 import hashlib
 import json
 from pathlib import Path
@@ -26,11 +28,20 @@ from tools.legacy_json_replay import ProtocolError, _same, strict_json
 INVENTORIES = {
     'c8-cap-failure-coefficient-dims': ('no-y-tail', 'r3-one', 'no-bp', 'frob-omega-off'),
     'c8-normalizer-floor-planar': ('swap-minmax', 'drop-torus-error', 'sign-saddle'),
+    'c8-cap-failure-coefficient-planar': ('no-third-jet', 'sign-lo', 'variance-yyy'),
+}
+MODES = (('normal', ('-B', '-S')), ('optimized', ('-B', '-O', '-S')))
+# Families whose original wrapper passed extra checker arguments and ran its
+# mutants concurrently. As there, both baselines run first, one at a time, and
+# then every mutant of both modes runs on `workers` threads; verdicts are read
+# in submission order. Every other family runs each mode's inventory in turn.
+POOLED = {
+    'c8-cap-failure-coefficient-planar': {'baseline': ('--procs', '2'), 'mutant': ('--procs', '1'), 'workers': 2},
 }
 
 
 def _contract(family: str) -> dict[str, Any]:
-    if family not in INVENTORIES:
+    if family not in INVENTORIES or not set(POOLED) <= set(INVENTORIES):
         raise ProtocolError('unknown checker family')
     data = strict_json(Path(__file__).with_name('check_mode_contracts.json').read_bytes())
     if (type(data) is not dict or type(data.get('schema')) is not int
@@ -64,6 +75,32 @@ def _contract(family: str) -> dict[str, Any]:
     return entry
 
 
+def _child(family: str, entry: dict[str, Any], root: Path, script: Path, mode: str,
+           flags: tuple[str, ...], label: str | None, extra: tuple[str, ...],
+           timeout: float) -> dict[str, Any]:
+    command = [sys.executable, *flags, str(script), '--check', *extra]
+    if label is not None:
+        command += ['--mutant', label]
+    child = subprocess.run(command, cwd=root, capture_output=True, timeout=timeout)
+    record = {'family': family, 'mode': mode, 'label': label,
+              'returncode': child.returncode,
+              'stdout_bytes': len(child.stdout), 'stderr_bytes': len(child.stderr),
+              'stdout_sha256': hashlib.sha256(child.stdout).hexdigest(),
+              'stderr_sha256': hashlib.sha256(child.stderr).hexdigest()}
+    if label is None:
+        status, reference = 0, entry['baseline']
+    else:
+        status, reference = 1, entry['mutants'][label]
+    ok = child.returncode == status and not child.stderr
+    if ok:
+        try:
+            ok = _same(strict_json(child.stdout), reference)
+        except ProtocolError:
+            ok = False
+    record['protocol_ok'] = ok
+    return record
+
+
 def replay(family: str, root: Path, *, timeout: float = 1500) -> list[dict[str, Any]]:
     """Run the complete fixed inventory in both modes, or fail immediately.
 
@@ -71,6 +108,8 @@ def replay(family: str, root: Path, *, timeout: float = 1500) -> list[dict[str, 
     working directory, as the checkers expect. Timeout/OSError is a failed run,
     never an intended negative-control receipt. All child inputs stay
     unchanged; no synthetic output, package rehash, or checker amendment occurs.
+    A pooled family stops at the first failing verdict too; children already
+    running finish, and children not yet started are cancelled.
     """
     entry = _contract(family)
     root = Path(root).resolve()
@@ -85,31 +124,30 @@ def replay(family: str, root: Path, *, timeout: float = 1500) -> list[dict[str, 
             or hashlib.sha256(results).hexdigest() != entry['results_sha256']):
         raise ProtocolError('RESULTS.json differs from the characterized source')
     records: list[dict[str, Any]] = []
-    for mode, flags in [('normal', ['-B', '-S']), ('optimized', ['-B', '-O', '-S'])]:
-        for label in [None, *INVENTORIES[family]]:
-            command = [sys.executable, *flags, str(script), '--check']
-            if label is not None:
-                command += ['--mutant', label]
-            child = subprocess.run(command, cwd=root, capture_output=True, timeout=timeout)
-            record = {'family': family, 'mode': mode, 'label': label,
-                      'returncode': child.returncode,
-                      'stdout_bytes': len(child.stdout), 'stderr_bytes': len(child.stderr),
-                      'stdout_sha256': hashlib.sha256(child.stdout).hexdigest(),
-                      'stderr_sha256': hashlib.sha256(child.stderr).hexdigest()}
-            if label is None:
-                status, reference = 0, entry['baseline']
-            else:
-                status, reference = 1, entry['mutants'][label]
-            ok = child.returncode == status and not child.stderr
-            if ok:
-                try:
-                    ok = _same(strict_json(child.stdout), reference)
-                except ProtocolError:
-                    ok = False
-            record['protocol_ok'] = ok
-            print(json.dumps(record, sort_keys=True), flush=True)
-            if not ok:
-                raise ProtocolError('check-mode protocol mismatch: %s/%s/%s' %
-                                    (family, mode, label or 'baseline'))
-            records.append(record)
+
+    def accept(record: dict[str, Any]) -> None:
+        print(json.dumps(record, sort_keys=True), flush=True)
+        if not record['protocol_ok']:
+            raise ProtocolError('check-mode protocol mismatch: %s/%s/%s' %
+                                (family, record['mode'], record['label'] or 'baseline'))
+        records.append(record)
+
+    pooled = POOLED.get(family)
+    if pooled is None:
+        for mode, flags in MODES:
+            for label in [None, *INVENTORIES[family]]:
+                accept(_child(family, entry, root, script, mode, flags, label, (), timeout))
+        return records
+    for mode, flags in MODES:
+        accept(_child(family, entry, root, script, mode, flags, None, pooled['baseline'], timeout))
+    with concurrent.futures.ThreadPoolExecutor(max_workers=pooled['workers']) as pool:
+        futures = [pool.submit(_child, family, entry, root, script, mode, flags, label, pooled['mutant'], timeout)
+                   for mode, flags in MODES for label in INVENTORIES[family]]
+        try:
+            for future in futures:
+                accept(future.result())
+        except BaseException:
+            for future in futures:
+                future.cancel()
+            raise
     return records
