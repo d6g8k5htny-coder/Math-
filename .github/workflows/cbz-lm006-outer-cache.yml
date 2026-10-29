@@ -22,6 +22,12 @@ jobs:
           CBZ_MODE: ${{ matrix.mode }}
         run: |
           set -euo pipefail
+          while IFS='=' read -r variable _; do
+            case "$variable" in PYTHON*) unset "$variable" ;; esac
+          done < <(env)
+          outer_cache=$(mktemp -d "$RUNNER_TEMP/lm006-control-pyc.XXXXXXXX")
+          export PYTHONPYCACHEPREFIX="$outer_cache"
+          export PYTHONDONTWRITEBYTECODE=1
           flags=()
           if [ "$CBZ_MODE" = optimized ]; then flags=(-O); fi
           python -B -S "${flags[@]}" cbz/verification/lm006_outer_cache/test_entry.py
