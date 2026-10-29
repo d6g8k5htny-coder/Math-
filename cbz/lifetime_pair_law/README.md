@@ -22,8 +22,9 @@ Historical [run 40957238766](https://github.com/d6g8k5htny-coder/Math-/actions/r
 job `123740377857`, at exact commit
 `5a470bfd739aba22e32b91587d5dfc031a7de3fc` compiled the proof and
 completed `leanchecker`; both declarations printed only `propext`,
-`Classical.choice` and `Quot.sound`. The original GitHub job log is
-retained under `evidence/original-job.log`. GitHub artifact `12936365078`
+`Classical.choice` and `Quot.sound`. The connector's decoded GitHub job log is retained under
+`evidence/original-job.log`; byte identity of the original log download has not
+independently been verified. GitHub artifact `12936365078`
 reports ZIP SHA-256
 `d2cebfee006c1fdb924c49dec0d9a80c745579335953b989a3225eae5b9a166d`;
 its ZIP bytes have not independently been downloaded here.

@@ -1,7 +1,7 @@
 # Pair-law integration decisions
 
 - 2026-10-29: Preserve the previously Lean-checked proof bytes, original hosted
-  job log and original workflow in a separate proof/evidence directory. The
+  decoded job-log text and original workflow in a separate proof/evidence directory. The
   statement-only packet's exact inventory rejects an added Lean file, so the
   scoped workflow creates a temporary copy for compilation and removes only
   that copy afterward. The existing statement package, mathematical bounds and
