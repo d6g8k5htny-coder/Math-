@@ -1,0 +1,37 @@
+[
+  {
+    "control": "wrong_type",
+    "expected_rejection": "OWN_REJECT_BODY_TYPE",
+    "observed": true
+  },
+  {
+    "control": "open_body",
+    "expected_rejection": "OWN_REJECT_OPEN_BODY",
+    "observed": true
+  },
+  {
+    "control": "universe",
+    "expected_rejection": "OWN_REJECT_DECLARATION",
+    "observed": true
+  },
+  {
+    "control": "axiom",
+    "expected_rejection": "OWN_REJECT_FORBIDDEN_AXIOM",
+    "observed": true
+  },
+  {
+    "control": "self_cycle",
+    "dependency_cycle_rejected": true,
+    "kernel_copy_accepted_trusted_references": true
+  },
+  {
+    "control": "mutual_cycle",
+    "dependency_cycle_rejected": true,
+    "kernel_copy_accepted_trusted_references": true
+  },
+  {
+    "control": "checked-insertion-mutant",
+    "expected_control_escaped": true,
+    "mutation_killed": true
+  }
+]

@@ -1,0 +1,274 @@
+{
+  "campaign_result": "evidence/cold01/results.json",
+  "campaign_sha256": "69c655f89cac20d9f318ff8bbd1b9bb6feca202d53f9137999b9a856a651f694",
+  "cbz_zero": false,
+  "cost_boundary": "Top-level job wait4 observations include their reaped subtrees. Do not add nested receipts again. Timings/memory are operational measurements, not mathematical bounds.",
+  "evidence_root": "evidence/cold01",
+  "explicit_audited_theorems": 198,
+  "fresh_native_rechecks": 49,
+  "fresh_proof_modules": 29,
+  "jobs_observed_pass": 17,
+  "native_adverse_mutation_controls": 7,
+  "native_certificates": 49,
+  "native_workers": [
+    {
+      "forced_termination": false,
+      "peak_rss_linux_kib": 9267028,
+      "receipt": "native-session-evidence/budget/fresh-worker/receipt.json",
+      "returncode": 0,
+      "shutdown_acknowledged": true
+    },
+    {
+      "forced_termination": false,
+      "peak_rss_linux_kib": 9268940,
+      "receipt": "native-session-evidence/budget/worker/receipt.json",
+      "returncode": 0,
+      "shutdown_acknowledged": true
+    },
+    {
+      "forced_termination": false,
+      "peak_rss_linux_kib": 9269180,
+      "receipt": "native-session-evidence/produce/worker/receipt.json",
+      "returncode": 0,
+      "shutdown_acknowledged": true
+    },
+    {
+      "forced_termination": false,
+      "peak_rss_linux_kib": 9266884,
+      "receipt": "native-session-evidence/recheck/worker/receipt.json",
+      "returncode": 0,
+      "shutdown_acknowledged": true
+    }
+  ],
+  "operational_cache_omissions": [
+    {
+      "path": "owned-kernel-evidence/compiled-extra/Closure/Assembly.olean",
+      "sha256": "2f1cfa63384926d833fefb44e3e4163216a9d348624b5e9b2b63d399adecbf59"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/Closure/DownsetMass.olean",
+      "sha256": "7338d21f86704be78290da58d7045f2fcaf4e5275f9766b9d0bdc329e570568d"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/Closure/FinalAudit.olean",
+      "sha256": "9e1e3ec8272d61fc9bad3ea947b47840f156f64afe97fa2683ea0426dbfe9781"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/Closure/HazardInterpolation.olean",
+      "sha256": "2bcb1509635f57dfd3c52bb5db10b2676ec3d032e90bf54d082074666a6f5353"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/Closure/LocalRatio.olean",
+      "sha256": "96004ec631d78f8040f76e24513753de30f29e7182ee154962fe171177aff1ee"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/Closure/PaletteCover.olean",
+      "sha256": "927e04c10ac0fa104cddd315be5a02762a7d9a1207049b25d54828b79088c25a"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/Closure/ProductMass.olean",
+      "sha256": "99cd066973f0481d2c9696b27eaa5fab89971546c4ebf7c10643527570490a08"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/Closure/RatioGate.olean",
+      "sha256": "9f7aeb4f0fad4a8777756684c8df7df70157601a3fb0b9990a8155ddc1ed3692"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/Completion/Benchmark.olean",
+      "sha256": "543986e4e8c769f33999a38b30444a9155cf6832b196136f4a864c214e645a5a"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/Completion/BenchmarkPrices.olean",
+      "sha256": "fa1497d043fd80330881dee42781c8a4364e0fbd7dc89b19e84afb78b900865c"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/Completion/BenchmarkUnion.olean",
+      "sha256": "b08d09807f23bf1d8c63e721406941e3d6b3e2f6dcaeb1c8e5e23bbbc86c93a5"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/Completion/FinalAudit.olean",
+      "sha256": "756e0e3997f100d37b676497e0254b010db62809cfd065f0b5742093252b030b"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/Completion/Numerics.olean",
+      "sha256": "42bf3e1f3be3c6e2ab04e673e7311f18b23bdadd24aab7585cd90948601f76cb"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/Completion/PaletteFormula.olean",
+      "sha256": "b62264d25058f2993e026c5c7dd76fb962c9044dad637abc4f0811af7bd0d9ba"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/Completion/Structural.olean",
+      "sha256": "1986a90d5a73369c840358281944c396460c592db9430e7f6998bd195cf27c1f"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/Completion/UnionBound.olean",
+      "sha256": "569be061069bf8b9591e00794cb3e8fb80e9f149daec999e03ff96dd529cf53c"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/General/Amalgamation.olean",
+      "sha256": "2d90ba38f631e46856a0c5c4ce89f6f903d8985120846bdcf9ad68caa158831a"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/General/BernoulliFinner.olean",
+      "sha256": "b64f0a885ac99440109468075bbfbabf5fa9976ec87dd1772f38b80fdb072301"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/General/Definitions.olean",
+      "sha256": "90f4f6cd5eb8faee76baf687a4369927a6a170cea913acfbbae578a802000c4b"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/General/FinalAudit.olean",
+      "sha256": "ac3f61c589bd17fd7b85589392690ef7a5f2d9af618d0f19aaf08461090073d9"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/General/Finner.olean",
+      "sha256": "ed92d403325d6d3283908dd5f95479844868e4c6563a4512900273e6b3ef36fb"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/General/FinnerBridge.olean",
+      "sha256": "91891169dbfbd4a4c8ded4c524f39252658c89659f5a8cc69faa78496a81c967"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/General/Overlap.olean",
+      "sha256": "c125b8e1695bbcdda14301338fe23740bae1650a46a37623c1ea6c8541849a01"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/General/Probability.olean",
+      "sha256": "e301f1b31e4a2c37badb8172b0c2f28d3d971e42896dfa7ec70aceb18f7fdfa8"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/General/Safety.olean",
+      "sha256": "0e3d44fe60858b0d5a8627ca3230a44fba51be33173d0eb35d7c03d4a9a1ef5d"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/General/Threshold.olean",
+      "sha256": "90c0585bdc14033c9e1419e9715e5079eb8273127e714580ff598489920bf9d9"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/General/WitnessLoad.olean",
+      "sha256": "72533fedf4e744e4fb51cb96ee22631c2a5b2d4993bb23805217003191045ead"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/Integration/EndpointTasks.olean",
+      "sha256": "47ffba7cbe86cf738c2ce587d2335eb1d4e87c2cdf638981f74e6b2d27c5108c"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/SpecificationProofs/P15Elementary.olean",
+      "sha256": "85cbb258cf697a8055de30b19fe5e568276921d4738176d619dcb550e8e26877"
+    },
+    {
+      "path": "owned-kernel-evidence/compiled-extra/Specifications/P15.olean",
+      "sha256": "7911ea0cc74f0ca4ed03ca3f76d7f84a10b23b260889c04f51012b852eebb350"
+    },
+    {
+      "path": "owned-kernel-evidence/generated-cache/OwnedKernelAudit/Chunk0.olean",
+      "sha256": "4ec07893c0858f3cbb6cd0c4fc21c35d5fc21161790516bf1ed5832d9f56691b"
+    },
+    {
+      "path": "owned-kernel-evidence/generated-cache/OwnedKernelAudit/Chunk1.olean",
+      "sha256": "cb95cbc8d657c8f0e438b1142b9a5962bdbcee9b17d4786b5e6d60f0d0294385"
+    },
+    {
+      "path": "owned-kernel-evidence/generated-cache/OwnedKernelAudit/Chunk10.olean",
+      "sha256": "74aa4666a956a84e655932a1793faea2cc87918d6bb7f474781f5e8e210ab8bc"
+    },
+    {
+      "path": "owned-kernel-evidence/generated-cache/OwnedKernelAudit/Chunk11.olean",
+      "sha256": "0d5de66d1bba49a3cca1e7948ca2cb1d044d9d46fd194c470d447d6e1f746c43"
+    },
+    {
+      "path": "owned-kernel-evidence/generated-cache/OwnedKernelAudit/Chunk12.olean",
+      "sha256": "68753770a9717714f8e7e587cd8d5ff8a3879946ef96d3e702efa10b98e1ce42"
+    },
+    {
+      "path": "owned-kernel-evidence/generated-cache/OwnedKernelAudit/Chunk13.olean",
+      "sha256": "9adeacacc47304c5ea04463e133eb226d994f6ee9751aeb2e4b089184b08c7ba"
+    },
+    {
+      "path": "owned-kernel-evidence/generated-cache/OwnedKernelAudit/Chunk2.olean",
+      "sha256": "68fb52c6a9466d3cab06e41efef5c983abadd686a1d52271dd58a9eaa271c076"
+    },
+    {
+      "path": "owned-kernel-evidence/generated-cache/OwnedKernelAudit/Chunk3.olean",
+      "sha256": "14ddc1d3afdbf09b83f2cc53474b744b8363db81c0a3c6de4331a68fc0a7fa84"
+    },
+    {
+      "path": "owned-kernel-evidence/generated-cache/OwnedKernelAudit/Chunk4.olean",
+      "sha256": "0d355acd7a6914ba197c4396fce8fb1431a3005536a611be6c569ed2a9317240"
+    },
+    {
+      "path": "owned-kernel-evidence/generated-cache/OwnedKernelAudit/Chunk5.olean",
+      "sha256": "eea9446850a3ff5e3b8305456818e2b1d3108727f18479bfb6fe17fc0740f138"
+    },
+    {
+      "path": "owned-kernel-evidence/generated-cache/OwnedKernelAudit/Chunk6.olean",
+      "sha256": "b22e713c074b3c9642659e215a02d6b6f94643e8516b5622bcc35dfae47a47e4"
+    },
+    {
+      "path": "owned-kernel-evidence/generated-cache/OwnedKernelAudit/Chunk7.olean",
+      "sha256": "ee9332e05cbfde63c8f2fbe758a766426810c6dcf2d8a0a3818f6553cef44fce"
+    },
+    {
+      "path": "owned-kernel-evidence/generated-cache/OwnedKernelAudit/Chunk8.olean",
+      "sha256": "3af01a45b5b0fe7db5d41af5b53ead77a457e0a7a5eaea3c51c96a3a3229dc8a"
+    },
+    {
+      "path": "owned-kernel-evidence/generated-cache/OwnedKernelAudit/Chunk9.olean",
+      "sha256": "99cae9f4c85101647885929b6447a801a8ca0da76b1c7d0de09ec64fa43008d0"
+    },
+    {
+      "path": "owned-kernel-evidence/generated-cache/OwnedKernelAudit/Control_mutual_cycle.olean",
+      "sha256": "576a8ce76362f47bbbf68794376f4f86d8d71b06da43630401509059b9bb2fd8"
+    },
+    {
+      "path": "owned-kernel-evidence/generated-cache/OwnedKernelAudit/Control_self_cycle.olean",
+      "sha256": "8cc6ab9890450f3b1b7cd318cda1c78ce7d11b262d138f595e2f996582c661e7"
+    },
+    {
+      "path": "owned-kernel-evidence/generated-cache/OwnedKernelAudit/Support.olean",
+      "sha256": "f25cbabdaeb32b174302436c135fb550067c9b7b3c3f281fe5a16dbcbecb977b"
+    },
+    {
+      "path": "owned-kernel-evidence/generated-cache/OwnedKernelAuditMutation/Control.olean",
+      "sha256": "a341f2b834438b8d311293c0583bee04c930d0c6522ac36c3fa42d013d2f6ce6"
+    },
+    {
+      "path": "owned-kernel-evidence/generated-cache/OwnedKernelAuditMutation/Support.olean",
+      "sha256": "7f3eb3d085e8c422384d4847dfe8b751798352d082c2990cc40e882da078f9c1"
+    }
+  ],
+  "owned_modules": 30,
+  "owned_occurrences": 889,
+  "owned_unique_names": 882,
+  "primitive_module_replays": [
+    {
+      "leanchecker_sha256": "ccef1bfe9bfeecea65137d94a69033c1a89f360711f50fa3178e7ba3e696fcbe",
+      "module": "s53706563696669636174696f6e73/s503135",
+      "receipt": "native/primitive-replay-Specifications.P15/receipt.json"
+    }
+  ],
+  "schema": "cbz-math198-acceptance-v1",
+  "scope": "Exact local contribution only. No unrestricted conjecture, learned policy, speedup, current-trunk federation gate or global Git/PR/cold-start closure is claimed.",
+  "selected_runtime": "/workspace/CBZ_RUNTIME_COLD/lean-4.34.1/bin/lean",
+  "source_base": "e877242cf68fb24c605066f16dd07f513ee75a1d",
+  "source_checkout": "Fresh local Git clone; no prior project proof cache in fresh build path.",
+  "source_commit": "23474d09e6ba0018b2de598b6fe933f5ca5eb35b",
+  "source_exposed": true,
+  "source_inputs_bound": 1396,
+  "source_subtree": "e2eff0453d4a1f1d3717cbe19dd6b3e42d157617",
+  "status": "LOCAL_CONTRIBUTION_PASS",
+  "training_eligible": false,
+  "unit_counts_by_job": {
+    "auditor-tests-normal": 92,
+    "auditor-tests-optimized": 92,
+    "corpus-normal": 44,
+    "corpus-optimized": 44,
+    "engine-normal": 43,
+    "engine-optimized": 43,
+    "native-adapter-normal": 24,
+    "native-adapter-optimized": 24,
+    "proof-runner-normal": 1,
+    "proof-runner-optimized": 1
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "command": [
+    "/workspace/CBZ_RUNTIME_COLD/lean-4.34.1/bin/lean",
+    "-j1",
+    "-M11000",
+    "-DElab.async=false",
+    "-DautoImplicit=false",
+    "--root=/workspace/CBZ_COLD_EVIDENCE/math198-cold01/owned-kernel-evidence/generated",
+    "-o",
+    "/workspace/CBZ_COLD_EVIDENCE/math198-cold01/owned-kernel-evidence/generated-cache/OwnedKernelAudit/Chunk12.olean",
+    "/workspace/CBZ_COLD_EVIDENCE/math198-cold01/owned-kernel-evidence/generated/OwnedKernelAudit/Chunk12.lean"
+  ],
+  "pid": 92476,
+  "started_unix_ns": 1793306548239480811,
+  "returncode": 0,
+  "timed_out": false,
+  "output_limit_exceeded": false,
+  "succeeded": true,
+  "failure": null,
+  "wall_seconds": 5.292035111997393,
+  "process_tree": {
+    "supervisor_pid": 92475,
+    "leader_pid": 92476,
+    "returncode": 0,
+    "cleanup_complete": true,
+    "unexpected_descendants": false,
+    "termination_signal": null,
+    "observed_pids": [
+      92476
+    ],
+    "terminated_pids": [],
+    "reaped_pids": [
+      92476
+    ],
+    "survivors": [],
+    "failure": null,
+    "boundary": "Owned ordinary descendants including setsid/double-fork; not a sandbox against same-UID attacks or unkillable kernel tasks.",
+    "supervisor_forced_exit": false
+  },
+  "wait4": {
+    "user_seconds": 4.19204,
+    "system_seconds": 1.098983,
+    "max_rss_kib": 7188656
+  },
+  "streams": {
+    "stdout.txt": {
+      "bytes": 10565,
+      "sha256": "ddd8c56e7d2ce817448ca200c8b12c83d2c6443f62c26c07d62adb3fe8b007ac"
+    },
+    "stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "cost_boundary": "One wait4 observation of the supervisor including its reaped subtree and startup; nested receipts must not be added again. Caller parent CPU/startup is outside this receipt. Incomplete cleanup is never success."
+}

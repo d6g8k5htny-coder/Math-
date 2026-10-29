@@ -1,5 +1,8 @@
 # CBZ-MATH-198-20261029
 
+The exact source commit passed the complete17-job fresh-clone campaign. See
+[STATUS.md](STATUS.md) and [ACCEPTANCE.json](ACCEPTANCE.json) for observed results.
+
 A scoped proof and verification contribution for
 [main#684](https://github.com/d6g8k5htny-coder/main/issues/684).
 This directory never declares federation CBZ-0. The federation's canonical
