@@ -25,8 +25,19 @@ STANDARD = {"Classical.choice", "Quot.sound", "propext"}
 def sha(data):
     return hashlib.sha256(data).hexdigest()
 
+def git_environment():
+    environment = {key: value for key, value in os.environ.items() if not key.startswith("GIT_")}
+    environment.update(GIT_CONFIG_NOSYSTEM="1", GIT_CONFIG_GLOBAL=os.devnull,
+                       GIT_NO_REPLACE_OBJECTS="1", GIT_OPTIONAL_LOCKS="0")
+    return environment
+
+def git_command(repo, *args):
+    return ["git", "--no-replace-objects", "--literal-pathspecs",
+            "-c", "core.fsmonitor=false", "-c", "core.hooksPath=/dev/null",
+            "-C", str(repo), *args]
+
 def git(repo, *args):
-    return subprocess.check_output(["git", "-C", str(repo), *args])
+    return subprocess.check_output(git_command(repo, *args), env=git_environment(), timeout=60)
 
 def bind(repo, expected_commit, paths):
     actual = git(repo, "rev-parse", "HEAD").decode().strip()
@@ -81,8 +92,9 @@ def bind_dependency(repo, expected_commit):
         if ".lake" not in path.parts and (path.suffix == ".lean" or ".olean" in path.name or ".ilean" in path.name):
             raise ValueError("untracked Lean shadow outside the compiled cache")
     oids = list(dict.fromkeys(oid for mode, oid in tree.values()))
-    batch = subprocess.run(["git", "-C", str(repo), "cat-file", "--batch"],
-                           input=("\n".join(oids) + "\n").encode(), capture_output=True, check=True).stdout
+    batch = subprocess.run(git_command(repo, "cat-file", "--batch"),
+                           input=("\n".join(oids) + "\n").encode(), capture_output=True, check=True,
+                           env=git_environment(), timeout=60).stdout
     blobs, offset = {}, 0
     for wanted in oids:
         end = batch.index(b"\n", offset)
@@ -204,7 +216,17 @@ run_cmd do
     let some idx := env.getModuleIdx? modName
       | throwError "missing independent census module: {modName}"
     let data := env.header.moduleData[idx]!
-    let names := (data.constNames ++ data.extraConstNames).toList.eraseDups.toArray.qsort Name.lt
+    -- Pinned Lean ModuleData declares extraConstNames to be code-generator
+    -- ownership metadata absent from its ConstantInfo mapping. Record every
+    -- such name explicitly; an unexpected kernel declaration fails closed.
+    for extraName in data.extraConstNames do
+      if (env.find? extraName).isSome then
+        throwError "code-generator metadata unexpectedly has a kernel declaration: {extraName}"
+      let metadata := Json.mkObj [
+        ("module", Json.str (toString modName)), ("name", Json.str (toString extraName)),
+        ("classification", Json.str "NON_KERNEL_CODE_GENERATOR_OWNERSHIP")]
+      liftIO <| IO.println s!"SOURCE514_CODEGEN_METADATA {metadata.compress}"
+    let names := data.constNames.qsort Name.lt
     if names.isEmpty then throwError "empty independent census module: {modName}"
     for name in names do
       let some ci := env.find? name | throwError "missing census declaration: {name}"
@@ -235,9 +257,18 @@ def parse_census(text, modules):
             value[key] = item
         return value
     result = {"module_counts": {}, "module_declarations": {}}
-    rows = []
-    seen = set()
+    rows, extra_codegen = [], []
+    seen, extra_seen = set(), set()
     for line in text.splitlines():
+        if line.startswith("SOURCE514_CODEGEN_METADATA "):
+            metadata = json.loads(line.removeprefix("SOURCE514_CODEGEN_METADATA "), object_pairs_hook=unique)
+            if set(metadata) != {"module", "name", "classification"} or metadata["module"] not in modules or metadata["classification"] != "NON_KERNEL_CODE_GENERATOR_OWNERSHIP":
+                raise ValueError("invalid non-kernel code-generator metadata")
+            if not isinstance(metadata["name"], str) or not metadata["name"] or metadata["name"] in extra_seen:
+                raise ValueError("invalid or duplicate code-generator metadata name")
+            extra_seen.add(metadata["name"])
+            extra_codegen.append(metadata)
+            continue
         if not line.startswith("SOURCE514_CENSUS "):
             raise ValueError("unrecognized independent census output")
         row = json.loads(line.removeprefix("SOURCE514_CENSUS "), object_pairs_hook=unique,
@@ -258,7 +289,11 @@ def parse_census(text, modules):
         rows.append(row)
     if set(result["module_declarations"]) != set(modules):
         raise ValueError("independent census omitted a registered module")
+    if seen & extra_seen:
+        raise ValueError("non-kernel code-generator metadata overlaps kernel census")
     result["module_counts"] = {m: len(ns) for m, ns in result["module_declarations"].items()}
+    if extra_codegen:
+        result["non_kernel_codegen_ownership"] = extra_codegen
     return result, rows
 
 def load(name, path, expected_sha256):

@@ -270,9 +270,23 @@ class IndependentCensusTests(unittest.TestCase):
         row=self.row();row["user_name"]=""
         with self.assertRaisesRegex(ValueError,"user name"):
             subject.parse_census(self.stream([row]),["Fixture"])
+    def test_non_kernel_codegen_names_are_explicitly_recorded(self):
+        metadata={"module":"Fixture","name":"Fixture.witness._boxed","classification":"NON_KERNEL_CODE_GENERATOR_OWNERSHIP"}
+        stream="SOURCE514_CODEGEN_METADATA "+json.dumps(metadata)+"\n"+self.stream([self.row()])
+        expected,rows=subject.parse_census(stream,["Fixture"])
+        self.assertEqual(expected["non_kernel_codegen_ownership"],[metadata])
+        self.assertEqual(expected["module_declarations"],{"Fixture":["Fixture.witness"]})
+        self.assertEqual(len(rows),1)
+    def test_codegen_metadata_cannot_hide_a_kernel_declaration(self):
+        metadata={"module":"Fixture","name":"Fixture.witness","classification":"NON_KERNEL_CODE_GENERATOR_OWNERSHIP"}
+        stream="SOURCE514_CODEGEN_METADATA "+json.dumps(metadata)+"\n"+self.stream([self.row()])
+        with self.assertRaisesRegex(ValueError,"overlaps kernel census"):
+            subject.parse_census(stream,["Fixture"])
     def test_generated_census_uses_exact_table_and_all_modules(self):
         program=subject.census_program(["Fixture","Other"])
-        self.assertIn("data.constNames ++ data.extraConstNames",program)
+        self.assertIn("let names := data.constNames.qsort Name.lt",program)
+        self.assertIn("for extraName in data.extraConstNames",program)
+        self.assertIn("code-generator metadata unexpectedly has a kernel declaration",program)
         self.assertIn("#["+chr(96)+"Fixture, "+chr(96)+"Other]",program)
         self.assertIn("missing independent census module",program)
         self.assertNotIn("MODLITERAL",program)
