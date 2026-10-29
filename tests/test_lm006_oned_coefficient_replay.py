@@ -205,7 +205,7 @@ class ReplayTests(unittest.TestCase):
              "env=dict(os.environ)  # MUTATION_GIT_ENV",
              'test_ambient_git_environment_cannot_redirect_source_checks',
              b'self.assertEqual(mod.git_head(self.root),own)'),
-            ('replacement',"GIT_NO_REPLACE_OBJECTS='1'","GIT_NO_REPLACE_OBJECTS='0'",
+            ('replacement',"GIT_NO_REPLACE_OBJECTS='1',","",
              'test_git_replacement_cannot_relabel_a_frozen_blob',
              b"self.assertEqual(mod.git(self.root,'show',original+':'+relative),expected)"),
             ('loaded',"require(raw==_LOADED_SOURCE,'loaded_driver_drift')  # MUTATION_LOADED_DRIVER",

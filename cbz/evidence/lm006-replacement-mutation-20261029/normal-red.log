@@ -1,0 +1,18 @@
+FAIL: test_custody_guards_reject_three_real_source_mutations (test_lm006_oned_coefficient_replay.ReplayTests.test_custody_guards_reject_three_real_source_mutations) (source_mutation='replacement')
+2026-10-29T20:24:14.1862014Z ----------------------------------------------------------------------
+2026-10-29T20:24:14.1862627Z Traceback (most recent call last):
+2026-10-29T20:24:14.1870144Z   File "/home/runner/work/Math-/Math-/tests/test_lm006_oned_coefficient_replay.py", line 233, in test_custody_guards_reject_three_real_source_mutations
+2026-10-29T20:24:14.1872039Z     self.assertEqual(mutant.returncode,1,mutant.stderr.decode())
+2026-10-29T20:24:14.1873507Z AssertionError: 0 != 1 : test_git_replacement_cannot_relabel_a_frozen_blob (test_lm006_oned_coefficient_replay.ReplayTests.test_git_replacement_cannot_relabel_a_frozen_blob) ... ok
+2026-10-29T20:24:14.1874469Z 
+2026-10-29T20:24:14.1874653Z ----------------------------------------------------------------------
+2026-10-29T20:24:14.1875064Z Ran 1 test in 0.044s
+2026-10-29T20:24:14.1875225Z 
+2026-10-29T20:24:14.1875326Z OK
+2026-10-29T20:24:14.1875443Z 
+2026-10-29T20:24:14.1875454Z 
+2026-10-29T20:24:14.1875628Z ----------------------------------------------------------------------
+2026-10-29T20:24:14.1876051Z Ran 21 tests in 2.512s
+2026-10-29T20:24:14.1876219Z 
+2026-10-29T20:24:14.1876337Z FAILED (failures=1)
+2026-10-29T20:24:14.2045861Z ##[error]Process completed with exit code 1.
