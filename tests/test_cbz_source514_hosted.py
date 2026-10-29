@@ -11,6 +11,15 @@ from unittest import mock
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 import cbz_source514_hosted as subject
 
+class LeanEnvironmentTests(unittest.TestCase):
+    def test_inherited_module_search_paths_are_removed(self):
+        with mock.patch.dict(os.environ, {"LEAN_PATH":"/outside/lean","LEAN_SRC_PATH":"/outside/source","CBZ_FIXTURE":"retained"}):
+            result=subject.lean_environment()
+        self.assertNotIn("LEAN_PATH",result)
+        self.assertNotIn("LEAN_SRC_PATH",result)
+        self.assertEqual(result["CBZ_FIXTURE"],"retained")
+        self.assertEqual(result["LEAN_NUM_THREADS"],"2")
+
 class SourceBindingTests(unittest.TestCase):
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory()
@@ -130,6 +139,51 @@ class CompiledObjectCustodyTests(unittest.TestCase):
             self.assertFalse(snapshot["root_presence"][".lake/packages/Unused/.lake/build"])
             self.assertTrue(snapshot["root_presence"][".lake/build"])
 
+    def test_symlinked_build_root_is_rejected(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            package=Path(temporary)/"package"
+            outside=Path(temporary)/"outside"
+            package.joinpath(".lake").mkdir(parents=True)
+            outside.mkdir()
+            (outside/"hidden.olean").write_bytes(b"object")
+            package.joinpath(".lake","build").symlink_to(outside,target_is_directory=True)
+            with self.assertRaisesRegex(ValueError,"symlink"):
+                subject.object_snapshot(package,[])
+
+    def test_symlinked_nested_directory_is_rejected(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            package=Path(temporary)/"package"
+            outside=Path(temporary)/"outside"
+            build=package/".lake/build/lib/lean"
+            build.mkdir(parents=True)
+            outside.mkdir()
+            (build/"Owned.olean").write_bytes(b"owned")
+            (outside/"hidden.olean").write_bytes(b"hidden")
+            (build/"Shadow").symlink_to(outside,target_is_directory=True)
+            with self.assertRaisesRegex(ValueError,"symlink"):
+                subject.object_snapshot(package,[])
+
+    def test_symlinked_build_ancestor_is_rejected(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            package=Path(temporary)/"package"
+            outside=Path(temporary)/"outside"
+            package.mkdir()
+            outside.joinpath("build").mkdir(parents=True)
+            outside.joinpath("build","Owned.olean").write_bytes(b"object")
+            package.joinpath(".lake").symlink_to(outside,target_is_directory=True)
+            with self.assertRaisesRegex(ValueError,"symlink"):
+                subject.object_snapshot(package,[])
+
+    def test_dangling_nested_symlink_is_rejected(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            package=Path(temporary)/"package"
+            build=package/".lake/build/lib/lean"
+            build.mkdir(parents=True)
+            (build/"Owned.olean").write_bytes(b"owned")
+            (build/"Dangling").symlink_to(package/"missing",target_is_directory=True)
+            with self.assertRaisesRegex(ValueError,"symlink"):
+                subject.object_snapshot(package,[])
+
     def test_dependency_object_root_appearance_is_rejected(self):
         with tempfile.TemporaryDirectory() as temporary:
             package=Path(temporary)
@@ -194,23 +248,60 @@ class RegisteredDomainTests(unittest.TestCase):
         self.root=Path(self.temporary.name)
         self.production=["Production"+str(i) for i in range(67)]
         self.support=["Support"+str(i) for i in range(25)]
-        self.plan={"production":self.production,"support":self.support,"schema":"cbz-source514-exact-domain-v1","source_commit":subject.SOURCE_COMMIT}
+        self.elder=["SuperlevelBar","ElderClearance","ReusedCompactFrontier","ClosedSuperlevel","OrdinaryH0","ElderInterval","ElderBridge"]
+        self.plan={"production":self.production,"support":self.support,"elder":self.elder,"schema":"cbz-source514-exact-domain-v1","source_commit":subject.SOURCE_COMMIT}
         (self.root/"inputs").mkdir()
         for name in self.production:
             (self.root/(name+".lean")).write_text("-- finite source fixture\n")
         for name in self.support:
             (self.root/"inputs"/(name+".lean")).write_text("-- finite input fixture\n")
+        (self.root/"inputs"/"elder").mkdir()
+        for name in self.elder:
+            (self.root/"inputs"/"elder"/(name+".lean")).write_text("-- consumed elder input fixture\n")
         for name in ["lake-manifest.json","lean-toolchain"]:
             (self.root/name).write_text("finite configuration fixture\n")
         self.write_configuration()
 
     def write_configuration(self):
-        (self.root/"lakefile.toml").write_text("defaultTargets = "+json.dumps(self.production)+"\n[[lean_lib]]\nname = \"SourceDerivativeInputs\"\nroots = "+json.dumps(self.support)+"\n")
+        (self.root/"lakefile.toml").write_text("defaultTargets = "+json.dumps(self.production)+"\n[[lean_lib]]\nname = \"SourceDerivativeInputs\"\nroots = "+json.dumps(self.support)+"\n[[lean_lib]]\nname = \"SourceElderInputs\"\nsrcDir = \"inputs/elder\"\nroots = "+json.dumps(self.elder)+"\n")
 
     def test_complete_registered_domain(self):
         modules,sources=subject.checked_domain(self.root,self.plan)
-        self.assertEqual(len(modules),92)
-        self.assertEqual(len(sources),95)
+        self.assertEqual(len(modules),99)
+        self.assertEqual(len(set(modules)),99)
+        self.assertEqual(len(sources),102)
+        for name in self.elder:
+            self.assertIn("inputs/elder/"+name+".lean",sources)
+
+    def test_omitted_registered_elder_root_rejected(self):
+        plan = dict(self.plan, elder=self.elder[:-1])
+        with self.assertRaisesRegex(ValueError, "domain differs"):
+            subject.checked_domain(self.root, plan)
+
+    def test_missing_imported_elder_source_rejected(self):
+        (self.root/(self.production[0]+".lean")).write_text("import "+self.elder[-1]+"\n")
+        (self.root/"inputs"/"elder"/(self.elder[-1]+".lean")).unlink()
+        with self.assertRaisesRegex(ValueError,"registered source is absent"):
+            subject.checked_domain(self.root,self.plan)
+
+    def test_plan_and_configuration_cannot_jointly_omit_elder_root(self):
+        self.elder.pop()
+        self.write_configuration()
+        with self.assertRaisesRegex(ValueError,"elder roots"):
+            subject.checked_domain(self.root,self.plan)
+
+    def test_plan_and_configuration_cannot_replace_elder_root(self):
+        self.elder[0]="SubstitutedElder"
+        (self.root/"inputs"/"elder"/"SubstitutedElder.lean").write_text("-- substituted\n")
+        self.write_configuration()
+        with self.assertRaisesRegex(ValueError,"elder roots"):
+            subject.checked_domain(self.root,self.plan)
+
+    def test_elder_source_directory_is_exact(self):
+        path=self.root/"lakefile.toml"
+        path.write_text(path.read_text().replace('srcDir = "inputs/elder"','srcDir = "inputs/elsewhere"'))
+        with self.assertRaisesRegex(ValueError,"elder source directory"):
+            subject.checked_domain(self.root,self.plan)
 
     def test_reordered_domain_rejected(self):
         plan=dict(self.plan,production=self.production[::-1])
@@ -282,11 +373,106 @@ class IndependentCensusTests(unittest.TestCase):
         stream="SOURCE514_CODEGEN_METADATA "+json.dumps(metadata)+"\n"+self.stream([self.row()])
         with self.assertRaisesRegex(ValueError,"overlaps kernel census"):
             subject.parse_census(stream,["Fixture"])
+    def overlap(self, module="Fixture", name="Fixture.witness", actual="Fixture", candidates=None, resolved="Fixture"):
+        return {"module":module,"name":name,"classification":"KERNEL_CODE_GENERATOR_OVERLAP",
+                "declaring_modules":[actual] if candidates is None else candidates,
+                "resolved_module":resolved}
+
+    def test_kernel_codegen_overlap_is_censused_exactly_once(self):
+        metadata=self.overlap()
+        stream="SOURCE514_CODEGEN_METADATA "+json.dumps(metadata)+"\n"+self.stream([self.row()])
+        expected,rows=subject.parse_census(stream,["Fixture"])
+        self.assertEqual(expected["kernel_codegen_overlaps"],[metadata])
+        self.assertEqual(expected["module_declarations"],{"Fixture":["Fixture.witness"]})
+        self.assertEqual(len(rows),1)
+
+    def test_cross_module_and_external_overlaps_keep_real_provenance(self):
+        metadata=[self.overlap(module="Fixture",name="Other.witness",actual="Other",resolved="Fixture"),
+                  self.overlap(module="Fixture",name="External.witness",actual="External",resolved="Fixture")]
+        stream="".join("SOURCE514_CODEGEN_METADATA "+json.dumps(m)+"\n" for m in metadata)
+        stream+=self.stream([self.row(),self.row(module="Other",name="Other.witness")])
+        expected,_=subject.parse_census(stream,["Fixture","Other"])
+        self.assertEqual(expected["kernel_codegen_overlaps"],metadata)
+        self.assertEqual(expected["module_declarations"]["Other"],["Other.witness"])
+
+    def test_duplicate_extra_name_in_distinct_modules_is_not_a_duplicate_pair(self):
+        metadata=[self.overlap(module="Fixture",name="Other.witness",actual="Other"),
+                  self.overlap(module="Other",name="Other.witness",actual="Other")]
+        stream="".join("SOURCE514_CODEGEN_METADATA "+json.dumps(m)+"\n" for m in metadata)
+        stream+=self.stream([self.row(),self.row(module="Other",name="Other.witness")])
+        expected,_=subject.parse_census(stream,["Fixture","Other"])
+        self.assertEqual(len(expected["kernel_codegen_overlaps"]),2)
+
+    def test_overlap_requires_unique_true_owner_and_selected_kernel_row(self):
+        bad=[self.overlap(candidates=[]),self.overlap(candidates=["Fixture","Other"]),
+             self.overlap(actual="Other"),
+             self.overlap(name="Fixture.missing")]
+        for metadata in bad:
+            with self.subTest(metadata=metadata):
+                stream="SOURCE514_CODEGEN_METADATA "+json.dumps(metadata)+"\n"+self.stream([self.row()])
+                with self.assertRaises(ValueError):
+                    subject.parse_census(stream,["Fixture"])
+
+    def test_same_extra_name_cannot_have_inconsistent_classification(self):
+        first={"module":"Fixture","name":"External.witness","classification":"NON_KERNEL_CODE_GENERATOR_OWNERSHIP"}
+        second=self.overlap(module="Other",name="External.witness",actual="External",resolved="Fixture")
+        stream="".join("SOURCE514_CODEGEN_METADATA "+json.dumps(m)+"\n" for m in [first,second])
+        stream+=self.stream([self.row(),self.row(module="Other",name="Other.witness")])
+        with self.assertRaisesRegex(ValueError,"inconsistent metadata observations"):
+            subject.parse_census(stream,["Fixture","Other"])
+
+    def test_same_extra_name_cannot_have_inconsistent_provenance(self):
+        first=self.overlap(module="Fixture",name="External.witness",actual="External",resolved="Fixture")
+        second=self.overlap(module="Other",name="External.witness",actual="Different",resolved="Other")
+        stream="".join("SOURCE514_CODEGEN_METADATA "+json.dumps(m)+"\n" for m in [first,second])
+        stream+=self.stream([self.row(),self.row(module="Other",name="Other.witness")])
+        with self.assertRaisesRegex(ValueError,"inconsistent metadata observations"):
+            subject.parse_census(stream,["Fixture","Other"])
+
+    def test_ambiguous_extra_provenance_rejected(self):
+        metadata=self.overlap(candidates=["Fixture","Other"])
+        stream="SOURCE514_CODEGEN_METADATA "+json.dumps(metadata)+"\n"+self.stream([self.row()])
+        with self.assertRaisesRegex(ValueError,"unique declaration provenance"):
+            subject.parse_census(stream,["Fixture"])
+
+    def test_selected_overlap_missing_from_owner_rejected(self):
+        metadata=self.overlap(name="Fixture.missing")
+        stream="SOURCE514_CODEGEN_METADATA "+json.dumps(metadata)+"\n"+self.stream([self.row()])
+        with self.assertRaisesRegex(ValueError,"selected kernel overlap missing"):
+            subject.parse_census(stream,["Fixture"])
+
+    def test_replay_generator_rejects_missing_original_ownership_anchor(self):
+        class FakeReplay:
+            def generate_program(self, helper, collector_hash, modules, imports):
+                return "changed generator", {"program_sha256":"original"}
+        with self.assertRaisesRegex(ValueError,"unexpected original replay"):
+            subject.corrected_replay_program(FakeReplay(),None,["Fixture"])
+
+    def test_repeated_metadata_pair_rejected(self):
+        metadata=self.overlap()
+        stream=2*("SOURCE514_CODEGEN_METADATA "+json.dumps(metadata)+"\n")+self.stream([self.row()])
+        with self.assertRaisesRegex(ValueError,"duplicate"):
+            subject.parse_census(stream,["Fixture"])
+
+    def test_corrected_replay_uses_declaration_tables_not_extra_ownership_map(self):
+        class FakeReplay:
+            def generate_program(self, helper, collector_hash, modules, imports):
+                return subject.REPLAY_OWNER_ORIGINAL, {"program_sha256":"old"}
+        program,metadata=subject.corrected_replay_program(FakeReplay(),None,["Fixture"])
+        self.assertIn("REPLAY_DECLARATION_TABLE_PROVENANCE",program)
+        self.assertIn("tableOwners[name]?",program)
+        self.assertNotIn("env.getModuleIdxFor? name == some idx",program)
+        self.assertEqual(metadata["original_program_sha256"],"old")
+        self.assertEqual(metadata["program_sha256"],subject.sha(program.encode()))
+
     def test_generated_census_uses_exact_table_and_all_modules(self):
         program=subject.census_program(["Fixture","Other"])
         self.assertIn("let names := data.constNames.qsort Name.lt",program)
-        self.assertIn("for extraName in data.extraConstNames",program)
-        self.assertIn("code-generator metadata unexpectedly has a kernel declaration",program)
+        self.assertIn("for extraName in env.header.moduleData[idx]!.extraConstNames",program)
+        self.assertIn("kernel overlap has non-unique declaration provenance",program)
+        self.assertIn("if (env.checked.get.find? extraName).isNone then",program)
+        self.assertIn("env.header.moduleData.size",program)
+        self.assertIn("declaring_modules",program)
         self.assertIn("#["+chr(96)+"Fixture, "+chr(96)+"Other]",program)
         self.assertIn("missing independent census module",program)
         self.assertNotIn("MODLITERAL",program)

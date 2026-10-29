@@ -48,7 +48,25 @@ jobs:
                           print('RETAINED_ORIGINAL_RED_STREAM',item.filename)
                           print(archive.read(item).decode('utf-8'))
           PY
-      - name: Verify recorder contracts and all three reason-bound source mutations
+      - name: Retain exact 99-module census overlap RED
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api repos/d6g8k5htny-coder/Math-/actions/artifacts/12931294592/zip > "$RUNNER_TEMP/cbz-source514-overlap-original-red.zip"
+          python - "$RUNNER_TEMP/cbz-source514-overlap-original-red.zip" <<'PY'
+          import hashlib,sys,zipfile
+          raw=open(sys.argv[1],"rb").read()
+          if hashlib.sha256(raw).hexdigest() != "80da0006a541b084df5a939c6a032bb41a6e180058f3250f7489c6179fccaeee":
+              raise SystemExit("original overlap RED artifact hash mismatch")
+          with zipfile.ZipFile(sys.argv[1]) as archive:
+              matches=[n for n in archive.namelist() if n.endswith("independent-compiled-census.stdout")]
+              if len(matches)!=1: raise SystemExit("missing or ambiguous original census stdout")
+              original=archive.read(matches[0]).decode("utf-8")
+              marker="code-generator metadata unexpectedly has a kernel declaration: _private.SourceFourierSeries.0.I4Source.modeCoefficient.match_1.splitter"
+              if marker not in original: raise SystemExit("original overlap failure not present")
+              print("ORIGINAL_OVERLAP_RED",marker)
+          PY
+      - name: Verify recorder contracts and all ten reason-bound source mutations
         run: |
           python -B -S tools/cbz_source514_mutations.py --output "$RUNNER_TEMP/cbz-source514-recorder-tests"
       - name: Obtain immutable mathematical source
@@ -96,7 +114,7 @@ jobs:
           cd "$GITHUB_WORKSPACE"
           python -B -S replay/cbz/evidence/kernel/additional/replay-tool/run_lean_selftest.py --lean "$LEAN_BIN" --collector collector/formal/gate_helper.py --collector-sha256 ff8a5374597772b2d37054fd722c2243c4b552a63802c69f7c605519832be6c4 --output "$RUNNER_TEMP/cbz-source514-lean-selftest-normal"
           python -B -S -O replay/cbz/evidence/kernel/additional/replay-tool/run_lean_selftest.py --lean "$LEAN_BIN" --collector collector/formal/gate_helper.py --collector-sha256 ff8a5374597772b2d37054fd722c2243c4b552a63802c69f7c605519832be6c4 --output "$RUNNER_TEMP/cbz-source514-lean-selftest-optimized"
-      - name: Build exact 92 modules and replay complete owned proof closure into an empty kernel
+      - name: Build exact 99 modules and replay complete owned proof closure into an empty kernel
         run: |
           python -B -S tools/cbz_source514_hosted.py --source candidate --replay replay --collector collector --plan cbz/source514-hosted/domain.json --output "$RUNNER_TEMP/cbz-source514-observation" --carrier . --carrier-head "${{ github.sha }}"
       - name: Preserve every raw result and source, including unsuccessful attempts

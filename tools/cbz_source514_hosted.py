@@ -25,6 +25,13 @@ STANDARD = {"Classical.choice", "Quot.sound", "propext"}
 def sha(data):
     return hashlib.sha256(data).hexdigest()
 
+def lean_environment():
+    environment = os.environ.copy()
+    for key in ("LEAN_PATH", "LEAN_SRC_PATH"):
+        environment.pop(key, None)
+    environment["LEAN_NUM_THREADS"] = "2"
+    return environment
+
 def git_environment():
     environment = {key: value for key, value in os.environ.items() if not key.startswith("GIT_")}
     environment.update(GIT_CONFIG_NOSYSTEM="1", GIT_CONFIG_GLOBAL=os.devnull,
@@ -149,12 +156,18 @@ def object_snapshot(package, dependencies):
     records = {}
     root_presence = {}
     for index, root in enumerate(roots):
-        root_presence[str(root.relative_to(package))] = root.is_dir()
+        relative = root.relative_to(package)
+        for parent in [package.joinpath(*relative.parts[:i]) for i in range(1,len(relative.parts)+1)]:
+            if parent.is_symlink():  # MUTATION_ROOT_SYMLINK
+                raise ValueError("symlink in compiled-object root")
+        root_presence[str(relative)] = root.is_dir()
         if not root.is_dir():
             if index == 0:
                 raise ValueError("owned compiled object directory absent")
             continue
         for path in sorted(root.rglob("*")):
+            if path.is_symlink():  # MUTATION_NESTED_SYMLINK
+                raise ValueError("symlink within compiled-object root")
             if path.is_file() and (".olean" in path.name or ".ilean" in path.name or path.suffix in {".so", ".a"}):
                 if path.is_symlink():
                     raise ValueError("aliased compiled object")
@@ -189,15 +202,22 @@ def checked_domain(package, plan):
     configuration = tomllib.loads((package / "lakefile.toml").read_text())
     production = configuration["defaultTargets"]
     support = next(x for x in configuration["lean_lib"] if x["name"] == "SourceDerivativeInputs")["roots"]
-    if production != plan["production"] or support != plan["support"]:  # MUTATION_DOMAIN
-        raise ValueError("registered production/support domain differs from exact plan")
-    modules = support + production
-    if len(production) != 67 or len(support) != 25 or len(modules) != len(set(modules)):
-        raise ValueError("expected exactly 67 production and 25 unique support modules")
+    elder_library = next(x for x in configuration["lean_lib"] if x["name"] == "SourceElderInputs")
+    elder = elder_library["roots"]
+    if elder_library.get("srcDir") != "inputs/elder":
+        raise ValueError("registered elder source directory differs from exact plan")
+    if production != plan["production"] or support != plan["support"] or elder != plan["elder"]:  # MUTATION_DOMAIN
+        raise ValueError("registered production/support/elder domain differs from exact plan")
+    if elder != ["SuperlevelBar", "ElderClearance", "ReusedCompactFrontier", "ClosedSuperlevel", "OrdinaryH0", "ElderInterval", "ElderBridge"]:  # MUTATION_ELDER_IDENTITIES
+        raise ValueError("registered elder roots differ from frozen source")
+    modules = elder + support + production
+    if len(production) != 67 or len(support) != 25 or len(elder) != 7 or len(modules) != len(set(modules)):  # MUTATION_ELDER_COUNT
+        raise ValueError("expected exactly 67 production and 32 unique support modules")
     for module in modules:
         if not isinstance(module, str) or not all(p.isidentifier() and p.isascii() for p in module.split(".")):
             raise ValueError("unsupported module name")
-    sources = ["inputs/" + m.replace(".", "/") + ".lean" for m in support]
+    sources = ["inputs/elder/" + m.replace(".", "/") + ".lean" for m in elder]
+    sources += ["inputs/" + m.replace(".", "/") + ".lean" for m in support]
     sources += [m.replace(".", "/") + ".lean" for m in production]
     sources += ["lakefile.toml", "lake-manifest.json", "lean-toolchain"]
     if any(not (package / p).is_file() for p in sources):
@@ -212,20 +232,45 @@ open Lean Elab Command in
 run_cmd do
   let env := (← getEnv).setExporting false
   let modules : Array Name := MODLITERAL
+  let mut extras : Array (Name × Name) := #[]
+  let mut extraNames : Std.HashSet Name := {}
   for modName in modules do
     let some idx := env.getModuleIdx? modName
       | throwError "missing independent census module: {modName}"
-    let data := env.header.moduleData[idx]!
-    -- Pinned Lean ModuleData declares extraConstNames to be code-generator
-    -- ownership metadata absent from its ConstantInfo mapping. Record every
-    -- such name explicitly; an unexpected kernel declaration fails closed.
-    for extraName in data.extraConstNames do
-      if (env.find? extraName).isSome then
-        throwError "code-generator metadata unexpectedly has a kernel declaration: {extraName}"
+    for extraName in env.header.moduleData[idx]!.extraConstNames do
+      extras := extras.push (modName, extraName)
+      extraNames := extraNames.insert extraName
+  let mut owners : Std.HashMap Name (Array Name) := {}
+  for idx in [:env.header.moduleData.size] do
+    let owner := env.header.moduleNames[idx]!
+    for name in env.header.moduleData[idx]!.constNames do
+      if extraNames.contains name then
+        owners := owners.insert name ((owners[name]?.getD #[]).push owner)
+  for (modName, extraName) in extras do
+    let candidates := owners[extraName]?.getD #[]
+    if (env.find? extraName).isSome then
+      if (env.checked.get.find? extraName).isNone then
+        throwError "code-generator overlap is not a kernel declaration: {extraName}"
+      if candidates.size != 1 then
+        throwError "kernel overlap has non-unique declaration provenance: {extraName} {candidates}"
+      let resolved := (env.getModuleIdxFor? extraName).map fun idx => toString (env.header.moduleNames[idx]!)
+      let metadata := Json.mkObj [
+        ("module", Json.str (toString modName)), ("name", Json.str (toString extraName)),
+        ("classification", Json.str "KERNEL_CODE_GENERATOR_OVERLAP"),
+        ("declaring_modules", toJson (candidates.map toString)),
+        ("resolved_module", toJson resolved)]
+      liftIO <| IO.println s!"SOURCE514_CODEGEN_METADATA {metadata.compress}"
+    else
+      if !candidates.isEmpty then
+        throwError "non-kernel extra has declaration-table provenance: {extraName}"
       let metadata := Json.mkObj [
         ("module", Json.str (toString modName)), ("name", Json.str (toString extraName)),
         ("classification", Json.str "NON_KERNEL_CODE_GENERATOR_OWNERSHIP")]
       liftIO <| IO.println s!"SOURCE514_CODEGEN_METADATA {metadata.compress}"
+  for modName in modules do
+    let some idx := env.getModuleIdx? modName
+      | throwError "missing independent census module: {modName}"
+    let data := env.header.moduleData[idx]!
     let names := data.constNames.qsort Name.lt
     if names.isEmpty then throwError "empty independent census module: {modName}"
     for name in names do
@@ -257,17 +302,42 @@ def parse_census(text, modules):
             value[key] = item
         return value
     result = {"module_counts": {}, "module_declarations": {}}
-    rows, extra_codegen = [], []
+    rows, extra_codegen, kernel_overlaps = [], [], []
     seen, extra_seen = set(), set()
+    metadata_observations = {}
     for line in text.splitlines():
         if line.startswith("SOURCE514_CODEGEN_METADATA "):
             metadata = json.loads(line.removeprefix("SOURCE514_CODEGEN_METADATA "), object_pairs_hook=unique)
-            if set(metadata) != {"module", "name", "classification"} or metadata["module"] not in modules or metadata["classification"] != "NON_KERNEL_CODE_GENERATOR_OWNERSHIP":
-                raise ValueError("invalid non-kernel code-generator metadata")
-            if not isinstance(metadata["name"], str) or not metadata["name"] or metadata["name"] in extra_seen:
-                raise ValueError("invalid or duplicate code-generator metadata name")
-            extra_seen.add(metadata["name"])
-            extra_codegen.append(metadata)
+            if not isinstance(metadata, dict):
+                raise ValueError("invalid code-generator metadata")
+            module, name = metadata.get("module"), metadata.get("name")
+            if module not in modules or not isinstance(name, str) or not name:
+                raise ValueError("invalid code-generator metadata identity")
+            pair = (module, name)
+            if pair in extra_seen:
+                raise ValueError("duplicate code-generator metadata pair")
+            extra_seen.add(pair)
+            classification = metadata.get("classification")
+            if classification == "NON_KERNEL_CODE_GENERATOR_OWNERSHIP":
+                if set(metadata) != {"module", "name", "classification"}:
+                    raise ValueError("invalid non-kernel code-generator metadata")
+                observation = (classification, None, None)
+                extra_codegen.append(metadata)
+            elif classification == "KERNEL_CODE_GENERATOR_OVERLAP":
+                if set(metadata) != {"module", "name", "classification", "declaring_modules", "resolved_module"}:
+                    raise ValueError("invalid kernel overlap metadata")
+                candidates, resolved = metadata["declaring_modules"], metadata["resolved_module"]
+                if not isinstance(candidates, list) or len(candidates) != 1 or not isinstance(candidates[0], str) or not candidates[0]:
+                    raise ValueError("kernel overlap lacks unique declaration provenance")
+                if resolved is not None and (not isinstance(resolved, str) or not resolved):
+                    raise ValueError("invalid ownership-map observation")
+                observation = (classification, tuple(candidates), resolved)
+                kernel_overlaps.append(metadata)
+            else:
+                raise ValueError("invalid code-generator metadata classification")
+            if name in metadata_observations and metadata_observations[name] != observation:  # MUTATION_OVERLAP_CONSISTENCY
+                raise ValueError("inconsistent metadata observations for same name")
+            metadata_observations[name] = observation
             continue
         if not line.startswith("SOURCE514_CENSUS "):
             raise ValueError("unrecognized independent census output")
@@ -289,12 +359,65 @@ def parse_census(text, modules):
         rows.append(row)
     if set(result["module_declarations"]) != set(modules):
         raise ValueError("independent census omitted a registered module")
-    if seen & extra_seen:
+    if seen & {item["name"] for item in extra_codegen}:
         raise ValueError("non-kernel code-generator metadata overlaps kernel census")
+    for item in kernel_overlaps:
+        owner, name = item["declaring_modules"][0], item["name"]
+        if owner in modules:
+            if name not in result["module_declarations"][owner]:
+                raise ValueError("selected kernel overlap missing from unique declaring module")
+        elif name in seen:
+            raise ValueError("external kernel overlap incorrectly included in selected census")
     result["module_counts"] = {m: len(ns) for m, ns in result["module_declarations"].items()}
     if extra_codegen:
         result["non_kernel_codegen_ownership"] = extra_codegen
+    if kernel_overlaps:
+        result["kernel_codegen_overlaps"] = kernel_overlaps
     return result, rows
+
+# The legacy replay program uses getModuleIdxFor?, whose ownership metadata
+# may overlap a declaration actually owned by another module.  Preserve the
+# original collector and proof-closure logic; replace only seed ownership with
+# unique provenance from the complete imported constNames tables.
+REPLAY_OWNER_ORIGINAL = '''  let mut seeds : Array Name := #[]
+  for modName in modules do
+    let some idx := env.getModuleIdx? modName
+      | throwError "missing candidate module: {modName}"
+    let names := (env.constants.toList.filterMap fun (name, _) =>
+      if env.getModuleIdxFor? name == some idx then some name else none).toArray.qsort Name.lt'''
+
+REPLAY_OWNER_REPLACEMENT = '''  -- REPLAY_DECLARATION_TABLE_PROVENANCE
+  let mut selectedNames : Std.HashSet Name := {}
+  for modName in modules do
+    let some idx := env.getModuleIdx? modName
+      | throwError "missing candidate module: {modName}"
+    for name in env.header.moduleData[idx]!.constNames do
+      selectedNames := selectedNames.insert name
+  let mut tableOwners : Std.HashMap Name Name := {}
+  for idx in [:env.header.moduleData.size] do
+    let owner := env.header.moduleNames[idx]!
+    for name in env.header.moduleData[idx]!.constNames do
+      if selectedNames.contains name then
+        if (tableOwners[name]?).isSome then
+          throwError "selected kernel declaration has ambiguous table provenance: {name}"
+        tableOwners := tableOwners.insert name owner
+  let mut seeds : Array Name := #[]
+  for modName in modules do
+    let some _idx := env.getModuleIdx? modName
+      | throwError "missing candidate module: {modName}"
+    let names := (env.constants.toList.filterMap fun (name, _) =>
+      if tableOwners[name]? == some modName then some name else none).toArray.qsort Name.lt'''
+
+def corrected_replay_program(tool, helper, modules):
+    program, metadata = tool.generate_program(helper, COLLECTOR_SHA256, modules, modules)
+    if program.count(REPLAY_OWNER_ORIGINAL) != 1:
+        raise ValueError("unexpected original replay ownership program")
+    corrected = program.replace(REPLAY_OWNER_ORIGINAL, REPLAY_OWNER_REPLACEMENT, 1)
+    metadata = dict(metadata)
+    metadata["original_program_sha256"] = metadata["program_sha256"]
+    metadata["program_sha256"] = sha(corrected.encode())
+    metadata["seed_ownership"] = "unique declaration-table provenance; getModuleIdxFor is not used"
+    return corrected, metadata
 
 def load(name, path, expected_sha256):
     data = Path(path).read_bytes()
@@ -321,12 +444,13 @@ def execute(source, replay, collector, plan_path, output, carrier, carrier_head,
               "started_utc": datetime.now(timezone.utc).isoformat(), "phase_results": [],
               "repository": os.environ.get("GITHUB_REPOSITORY"), "run_id": os.environ.get("GITHUB_RUN_ID"),
               "run_attempt": os.environ.get("GITHUB_RUN_ATTEMPT"), "owned_modules": modules,
-              "scope": "Exact frozen 92-module registered import closure; seven unconsumed elder copies and mathematical application/nonvacuity claims remain outside this replay.",
+              "scope": "Exact frozen 99-module registered import closure; mathematical application and premise-inhabitation claims remain outside this replay.",
               "recorder_sha256": recorder.__source_sha256__, "replay_tool_sha256": tool.__source_sha256__,
               "launcher_sha256": loaded_launcher_sha256, "execution_inputs_before": execution_before}
-    environment = dict(os.environ, LEAN_NUM_THREADS="2")
-    def phase(name, command, cwd=package, timeout=1800):
-        return recorder.run_phase(name, [str(x) for x in command], cwd, environment, output, report, timeout=timeout)
+    environment = lean_environment()
+    def phase(name, command, cwd=package, timeout=1800, expected_success=True):
+        return recorder.run_phase(name, [str(x) for x in command], cwd, environment, output, report,
+                                  timeout=timeout, expected_success=expected_success)
     try:
         report["source_before"] = bind(source, SOURCE_COMMIT, paths)
         report["replay_source"] = bind(replay, REPLAY_COMMIT, ["cbz/evidence/kernel/additional/replay-tool/replay_tool.py"])
@@ -357,7 +481,77 @@ def execute(source, replay, collector, plan_path, output, carrier, carrier_head,
                 expected, literals = parse_census((output / "independent-compiled-census.stdout").read_text(), modules)
                 (output / "compiled-census.json").write_text(json.dumps(expected, indent=2) + "\n")
                 (output / "compiled-literal-types.json").write_text(json.dumps(literals, indent=2, ensure_ascii=False) + "\n")
-                program, metadata = tool.generate_program(helper, COLLECTOR_SHA256, modules, modules)
+                # The source packet itself supplies a reproducible genuine
+                # extraConstNames/constNames overlap.  Require the overlap,
+                # kernel replay its actual owner once, and execute an omitted
+                # seed mutant that the transcript validator must reject for
+                # the exact beginning/completion count discrepancy.
+                fixture_name = "_private.SourceFourierSeries.0.I4Source.modeCoefficient.match_1.splitter"
+                actual_overlaps = [item for item in expected.get("kernel_codegen_overlaps", [])
+                                   if item["name"] == fixture_name]
+                if not actual_overlaps:
+                    raise ValueError("full census did not record the original real kernel overlap")
+                fixture_owner = actual_overlaps[0]["declaring_modules"][0]
+                if fixture_owner != "SourceFourierSeries":
+                    raise ValueError("original overlap declaration has unexpected actual module")
+                fixture_modules = list(dict.fromkeys([item["module"] for item in actual_overlaps] + [fixture_owner]))
+                fixture_census_path = output / "OverlapFixtureCensus.lean"
+                fixture_census_path.write_text(census_program(fixture_modules))
+                phase("overlap-fixture-census", ["lake", "env", "lean", "-j2", "-M12000", fixture_census_path], timeout=2700)
+                if (output / "overlap-fixture-census.stderr").read_bytes():
+                    raise ValueError("overlap fixture census emitted stderr")
+                fixture_expected, _ = parse_census((output / "overlap-fixture-census.stdout").read_text(), fixture_modules)
+                # Actual Lean control: invert the checked-kernel presence guard.
+                # A source overlap already verified in this same fixture must then
+                # be refused with the precise guard diagnostic, not a build error.
+                census_text = fixture_census_path.read_text()
+                positive_guard = "if (env.checked.get.find? extraName).isNone then"
+                inverse_guard = "if (env.checked.get.find? extraName).isSome then"
+                if census_text.count(positive_guard) != 1:
+                    raise ValueError("actual kernel-presence mutation target is not unique")
+                inverse_path = output / "OverlapFixtureInverseKernelGuard.lean"
+                inverse_path.write_text(census_text.replace(positive_guard, inverse_guard, 1))
+                _, inverse_output, inverse_code = phase(
+                    "overlap-fixture-inverse-kernel-guard",
+                    ["lake", "env", "lean", "-j2", "-M12000", inverse_path],
+                    timeout=2700, expected_success=False)
+                if inverse_code != 1 or "code-generator overlap is not a kernel declaration:" not in inverse_output:
+                    raise ValueError("inverse kernel-presence mutant failed for an unintended reason")
+                fixture_overlaps = [item for item in fixture_expected.get("kernel_codegen_overlaps", [])
+                                    if item["name"] == fixture_name]
+                if not fixture_overlaps or any(item["declaring_modules"] != [fixture_owner] for item in fixture_overlaps):
+                    raise ValueError("actual fixture did not establish the declared kernel overlap and owner")
+                if fixture_expected["module_declarations"][fixture_owner].count(fixture_name) != 1:
+                    raise ValueError("actual fixture overlap is not present exactly once in the kernel census")
+                fixture_program, fixture_metadata = corrected_replay_program(tool, helper, fixture_modules)
+                fixture_program_path = output / "OverlapFixtureReplay.lean"
+                fixture_program_path.write_text(fixture_program)
+                _, _, fixture_code = phase("overlap-fixture-replay", ["lake", "env", "lean", "-j2", "-M12000", fixture_program_path], timeout=2700)
+                fixture_result = tool.validate_transcript(
+                    (output / "overlap-fixture-replay.stdout").read_text(), fixture_expected,
+                    fixture_metadata["program_sha256"], exit_code=fixture_code,
+                    stderr=(output / "overlap-fixture-replay.stderr").read_text())
+                original_seed = "      seeds := seeds.push name"
+                mutated_seed = '      if toString name != "' + fixture_name + '" then seeds := seeds.push name'
+                if fixture_program.count(original_seed) != 1:
+                    raise ValueError("overlap fixture seed mutation target is not unique")
+                mutated_program = fixture_program.replace(original_seed, mutated_seed, 1)
+                mutated_path = output / "OverlapFixtureOmittedSeed.lean"
+                mutated_path.write_text(mutated_program)
+                _, _, mutated_code = phase("overlap-fixture-omitted-seed", ["lake", "env", "lean", "-j2", "-M12000", mutated_path], timeout=2700)
+                try:
+                    tool.validate_transcript(
+                        (output / "overlap-fixture-omitted-seed.stdout").read_text(), fixture_expected,
+                        sha(mutated_program.encode()), exit_code=mutated_code,
+                        stderr=(output / "overlap-fixture-omitted-seed.stderr").read_text())
+                except ValueError as error:
+                    if str(error) != "replay beginning/completion/census counts disagree":
+                        raise ValueError("overlap mutant failed for an unintended reason") from error
+                else:
+                    raise ValueError("overlap omitted-seed mutant was not detected")
+                report["actual_overlap_fixture"] = {"name": fixture_name, "observations": fixture_overlaps,
+                    "positive_replay": fixture_result, "omitted_seed_mutant": "EXPECTED_COUNT_MISMATCH"}
+                program, metadata = corrected_replay_program(tool, helper, modules)
                 program_path = output / "BoundedKernelReplay.lean"
                 program_path.write_text(program)
                 (output / "replay-program.json").write_text(json.dumps(metadata, indent=2) + "\n")
