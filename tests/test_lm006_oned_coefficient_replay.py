@@ -4,11 +4,16 @@ from pathlib import Path
 
 DRIVER=Path(__file__).resolve().parents[1]/'tools/lm006_oned_coefficient_replay.py'
 
+def load_driver(path):
+    spec=importlib.util.spec_from_file_location('trusted_driver',path)
+    module=importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
 class ReplayTests(unittest.TestCase):
     def setUp(self):
         self.assertTrue(DRIVER.is_file(),'replay implementation missing')
-        spec=importlib.util.spec_from_file_location('oned_replay',DRIVER)
-        self.m=importlib.util.module_from_spec(spec);spec.loader.exec_module(self.m)
+        self.m=load_driver(DRIVER)
         self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup)
         self.root=Path(self.tmp.name)/'repo';self.root.mkdir();self.logs=Path(self.tmp.name)/'logs';self.logs.mkdir()
 
@@ -21,6 +26,29 @@ class ReplayTests(unittest.TestCase):
 
     def child(self, code, expected=b'ok\n', timeout=3, name='child'):
         return self.m.run_step([sys.executable,'-B','-S','-c',code],self.root,self.logs,name,expected,'exact',timeout)
+
+    def test_timestamp_valid_poisoned_bytecode_cannot_replace_source(self):
+        import py_compile
+        source=DRIVER.read_bytes()
+        original=b"REPOSITORY='d6g8k5htny-coder/Math-'"
+        poisoned=b"REPOSITORY='x6g8k5htny-coder/Math-'"
+        self.assertEqual(source.count(original),1)
+        self.assertEqual(len(original),len(poisoned))
+        path=self.root/'poisoned_driver.py'
+        path.write_bytes(source.replace(original,poisoned,1))
+        timestamp=1700000000
+        os.utime(path,(timestamp,timestamp))
+        py_compile.compile(str(path),doraise=True,optimize=sys.flags.optimize)
+        path.write_bytes(source)
+        os.utime(path,(timestamp,timestamp))
+        self.assertEqual(path.stat().st_size,len(source))
+        spec=importlib.util.spec_from_file_location('unsafe_demonstration',path)
+        unsafe=importlib.util.module_from_spec(spec);spec.loader.exec_module(unsafe)
+        self.assertEqual(unsafe.REPOSITORY,'x6g8k5htny-coder/Math-','fixture must actually load poisoned bytecode')
+        self.assertEqual(unsafe._LOADED_SOURCE,source,'loaded-source read alone does not bind executed code')
+        verified=load_driver(path)
+        self.assertEqual(verified.REPOSITORY,'d6g8k5htny-coder/Math-')
+        self.assertEqual(verified._LOADED_SOURCE,source)
 
     def test_snapshot_and_exact_packet_membership(self):
         pins=self.fixture();ids=self.m.validate_snapshot(self.root,pins)
@@ -104,7 +132,7 @@ class ReplayTests(unittest.TestCase):
             d=self.root/name;d.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(DRIVER.parents[1]/name,d)
         subprocess.run(['git','init','-q'],cwd=self.root,check=True);subprocess.run(['git','add','.'],cwd=self.root,check=True)
         subprocess.run(['git','-c','user.name=Fixture','-c','user.email=f@example.invalid','-c','commit.gpgsign=false','commit','-qm','fixture'],cwd=self.root,check=True)
-        spec=importlib.util.spec_from_file_location('fixture_driver',self.root/self.m.EXECUTION_FILES[0]);mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
+        mod=load_driver(self.root/self.m.EXECUTION_FILES[0])
         mod.PINS={n:mod.git_blob((self.root/n).read_bytes()) for n in pins}
         return mod
 
