@@ -87,3 +87,5 @@ Actual publication remains pending until its readback is observed. Reversible.
 [2026-10-29 21:15:27 UTC] [phase3] [layer B] Add finite reason-bound source mutations for ten custody guards and a mutation of the grader itself; preserve all prior tests. Commands and limitations registered in GOVERNANCE.md and TOOLING.md. Fresh results pending. Reversible: yes. Evidence: cbz/verification/determinant_custody/test_source_mutations.py.
 
 [2026-10-29 21:17:33 UTC] [phase3] [layer B] Restore the established safe receipt-symlink unlink ordering after both ARM retained-suite runs failed the original test. Preserve the two actual failure excerpts; all other evidence-symlink refusals and all prior assertions remain. Fresh execution pending. Reversible: yes. Evidence: cbz/verification/determinant_custody/receipt-symlink-*-red.log.
+
+[2026-10-29 21:20:09 UTC] [phase3] [layer B] Add a second mutation of the custody mutation grader, specifically its failure-reason check, and preserve the existing exit-code mutant. Fresh execution pending. Reversible: yes. Evidence: cbz/verification/determinant_custody/test_source_mutations.py.

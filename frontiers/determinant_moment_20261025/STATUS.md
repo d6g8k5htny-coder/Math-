@@ -128,6 +128,6 @@ its exact tree/blob readback rather than inferring that this step succeeded.
 
 A successor implements committed/index/working-byte observations, Git and Lean child-environment controls, nested build/evidence symlink refusals, and reason-bound mutation scoring. Initial11 real-Git controls passed in both modes at2c039fe8; the earlier inherited-Lean-path control failed in both modes at4f11c870. Corrected and expanded tests, the original component suite, all mutants and the fresh kernel execution for the successor remain PENDING. No current-source kernel or CBZ-0 success is claimed. The source stability, trusted runtime, dependency-cache and cryptographic hash assumptions are recorded in GOVERNANCE.md and TOOLING.md.
 
-The custody source-mutation test now declares ten guard mutants and a grader-source mutant; actual execution in both modes remains PENDING.
+The custody source-mutation test now declares ten guard mutants and grader-source mutants; actual execution in both modes remains PENDING.
 
 ARM full component suite at a8797fb6 reported 191 passes and one retained receipt-symlink test failure in each mode (normal job123735241527, optimized job123735241021). This successor restores safe unlink of the active receipt before checking other evidence symlink leaves. Fresh full-suite and kernel results remain pending.
