@@ -413,6 +413,22 @@ class IndependentCensusTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     subject.parse_census(stream,["Fixture"])
 
+    def test_same_extra_name_cannot_have_inconsistent_classification(self):
+        first={"module":"Fixture","name":"External.witness","classification":"NON_KERNEL_CODE_GENERATOR_OWNERSHIP"}
+        second=self.overlap(module="Other",name="External.witness",actual="External",resolved="Fixture")
+        stream="".join("SOURCE514_CODEGEN_METADATA "+json.dumps(m)+"\n" for m in [first,second])
+        stream+=self.stream([self.row(),self.row(module="Other",name="Other.witness")])
+        with self.assertRaisesRegex(ValueError,"inconsistent metadata observations"):
+            subject.parse_census(stream,["Fixture","Other"])
+
+    def test_same_extra_name_cannot_have_inconsistent_provenance(self):
+        first=self.overlap(module="Fixture",name="External.witness",actual="External",resolved="Fixture")
+        second=self.overlap(module="Other",name="External.witness",actual="Different",resolved="Other")
+        stream="".join("SOURCE514_CODEGEN_METADATA "+json.dumps(m)+"\n" for m in [first,second])
+        stream+=self.stream([self.row(),self.row(module="Other",name="Other.witness")])
+        with self.assertRaisesRegex(ValueError,"inconsistent metadata observations"):
+            subject.parse_census(stream,["Fixture","Other"])
+
     def test_ambiguous_extra_provenance_rejected(self):
         metadata=self.overlap(candidates=["Fixture","Other"])
         stream="SOURCE514_CODEGEN_METADATA "+json.dumps(metadata)+"\n"+self.stream([self.row()])
