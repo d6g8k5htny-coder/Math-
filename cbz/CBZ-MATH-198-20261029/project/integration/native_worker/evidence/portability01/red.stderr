@@ -1,0 +1,85 @@
+test_explicit_frozen_controller_root_replays_historical_campaign (test_runtime_selection.HistoricalControllerBoundaryTests.test_explicit_frozen_controller_root_replays_historical_campaign) ... ERROR
+test_explicit_source_boundary_still_rejects_source_tampering (test_runtime_selection.HistoricalControllerBoundaryTests.test_explicit_source_boundary_still_rejects_source_tampering) ... ERROR
+test_historical_campaign_does_not_silently_bind_changed_current_code (test_runtime_selection.HistoricalControllerBoundaryTests.test_historical_campaign_does_not_silently_bind_changed_current_code) ... FAIL
+test_defaults_remain_the_documented_pinned_installations (test_runtime_selection.RuntimeSelectionTests.test_defaults_remain_the_documented_pinned_installations) ... ok
+test_lean_override_is_selected_without_overriding_mathlib (test_runtime_selection.RuntimeSelectionTests.test_lean_override_is_selected_without_overriding_mathlib) ... FAIL
+test_mathlib_override_is_selected_without_overriding_lean (test_runtime_selection.RuntimeSelectionTests.test_mathlib_override_is_selected_without_overriding_lean) ... FAIL
+test_relocated_invalid_binary_is_refused_before_any_compile (test_runtime_selection.RuntimeSelectionTests.test_relocated_invalid_binary_is_refused_before_any_compile) ... FAIL
+test_selection_is_per_call_and_does_not_start_a_process (test_runtime_selection.RuntimeSelectionTests.test_selection_is_per_call_and_does_not_start_a_process) ... FAIL
+test_worker_command_still_requires_runtime_identity_validation (test_runtime_selection.RuntimeSelectionTests.test_worker_command_still_requires_runtime_identity_validation) ... ok
+
+======================================================================
+ERROR: test_explicit_frozen_controller_root_replays_historical_campaign (test_runtime_selection.HistoricalControllerBoundaryTests.test_explicit_frozen_controller_root_replays_historical_campaign)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/native_worker/tests/test_runtime_selection.py", line 82, in test_explicit_frozen_controller_root_replays_historical_campaign
+    value = verifier.check(self.campaign, controller_source_root=self.source)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: check() got an unexpected keyword argument 'controller_source_root'
+
+======================================================================
+ERROR: test_explicit_source_boundary_still_rejects_source_tampering (test_runtime_selection.HistoricalControllerBoundaryTests.test_explicit_source_boundary_still_rejects_source_tampering)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/native_worker/tests/test_runtime_selection.py", line 98, in test_explicit_source_boundary_still_rejects_source_tampering
+    verifier.check(self.campaign, controller_source_root=source)
+TypeError: check() got an unexpected keyword argument 'controller_source_root'
+
+======================================================================
+FAIL: test_historical_campaign_does_not_silently_bind_changed_current_code (test_runtime_selection.HistoricalControllerBoundaryTests.test_historical_campaign_does_not_silently_bind_changed_current_code)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/native_worker/tests/test_runtime_selection.py", line 88, in test_historical_campaign_does_not_silently_bind_changed_current_code
+    with self.assertRaisesRegex(ValueError, 'controller/transport source drift'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_lean_override_is_selected_without_overriding_mathlib (test_runtime_selection.RuntimeSelectionTests.test_lean_override_is_selected_without_overriding_mathlib)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/native_worker/tests/test_runtime_selection.py", line 31, in test_lean_override_is_selected_without_overriding_mathlib
+    self.assertEqual(cfg.lean, Path('/relocated path/lean'))
+AssertionError: PosixPath('/workspace/scratch/universal-law-toolchain[25 chars]ean') != PosixPath('/relocated path/lean')
+
+======================================================================
+FAIL: test_mathlib_override_is_selected_without_overriding_lean (test_runtime_selection.RuntimeSelectionTests.test_mathlib_override_is_selected_without_overriding_lean)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/native_worker/tests/test_runtime_selection.py", line 38, in test_mathlib_override_is_selected_without_overriding_lean
+    self.assertEqual(cfg.mathlib_root, Path('/relocated path/mathlib'))
+AssertionError: PosixPath('/workspace/scratch/universal-law-toolchains/mathlib-d13f23b7') != PosixPath('/relocated path/mathlib')
+
+======================================================================
+FAIL: test_relocated_invalid_binary_is_refused_before_any_compile (test_runtime_selection.RuntimeSelectionTests.test_relocated_invalid_binary_is_refused_before_any_compile)
+----------------------------------------------------------------------
+ValueError: native module compile failed: ClosedProofCore
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/native_worker/tests/test_runtime_selection.py", line 62, in test_relocated_invalid_binary_is_refused_before_any_compile
+    with self.assertRaisesRegex(ValueError, 'pinned Lean mismatch'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "pinned Lean mismatch" does not match "native module compile failed: ClosedProofCore"
+
+======================================================================
+FAIL: test_selection_is_per_call_and_does_not_start_a_process (test_runtime_selection.RuntimeSelectionTests.test_selection_is_per_call_and_does_not_start_a_process)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/native_worker/tests/test_runtime_selection.py", line 47, in test_selection_is_per_call_and_does_not_start_a_process
+    self.assertEqual((first.lean, first.mathlib_root),
+AssertionError: Tuples differ: (PosixPath('/workspace/scratch/universal-law-toolchain[101 chars]b7')) != (PosixPath('/first/lean'), PosixPath('/first/mathlib'))
+
+First differing element 0:
+PosixPath('/workspace/scratch/universal-law-toolchain[25 chars]ean')
+PosixPath('/first/lean')
+
++ (PosixPath('/first/lean'), PosixPath('/first/mathlib'))
+- (PosixPath('/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean'),
+-  PosixPath('/workspace/scratch/universal-law-toolchains/mathlib-d13f23b7'))
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.107s
+
+FAILED (failures=5, errors=2)

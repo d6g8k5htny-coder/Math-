@@ -1,0 +1,63 @@
+{
+  "schema": "ul-p15-compile-input-v1",
+  "module": "General.Threshold",
+  "source": "formal/General/Threshold.lean",
+  "source_sha256": "f963cbca672c81ac3566486a17a971fafdc657382403c0ec5a1075134f311b38",
+  "runtime": {
+    "lean_executable": "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+    "lean_executable_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+    "mathlib_root": "/workspace/scratch/universal-law-toolchains/mathlib-d13f23b7",
+    "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "lean_toolchain": "leanprover/lean4:v4.34.1",
+    "sources_sha256": {
+      "lean/ClosedProofCore.lean": "142ff31338e84a21248ddb140f9a1b75efa6400cc178b023979eb7711d9855ff",
+      "lean/ClosedProofWorker.lean": "0369350d98573853be726e873d3bbef9282ab6a87196c7a2f028a9f3a2bc9f37",
+      "lean/ExprCodec.lean": "e223abf84826291b48ac02eb8c1ffc04309ea4b412907f6b13b76d206b67b44b",
+      "lean/ExprDag.lean": "028e8eb4c5245259d2f4ce3fb151fd14cc2bd8dab56938be5663c405041ad0ed",
+      "lean/Specifications/P15.lean": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "lean/TrustedTasks.lean": "b37309f1e2469399e8fbb8a8b2fe75dfc65b8eccf0259f216463a56d6359e083",
+      "lean/WorkerBootstrap.lean": "65ab4da0506c34ff72024ffb8191a1a0d1ee25763f224ee75d3976c393fdadf9"
+    },
+    "build_manifest_sha256": "3d9cef724d5249d8b1b40f6586bc3e575adfc211b19aca03c550c2f999c38eeb",
+    "compiled_outputs_sha256": {
+      "ClosedProofCore.olean": "72dee721c24bf4af5694bbc200b082be126a84d2b0a5628f47367d6e300e47ab",
+      "ClosedProofWorker.olean": "1763dc99b69a7e38b9f2fd764c61f43c4c3c784a0727387a8a0e468a5dc9c844",
+      "ExprCodec.olean": "fae7ae96dd26282d84ee831fbe24077cf112f741e02160618e75bbab07f5f04c",
+      "ExprDag.olean": "82aea38cc7a7cee8f5323f05cdbea9adfd9a15677ed5f4d3459a43be8db1c11e",
+      "Specifications/P15.olean": "7911ea0cc74f0ca4ed03ca3f76d7f84a10b23b260889c04f51012b852eebb350",
+      "TrustedTasks.olean": "a5a22b255803b0eb2c9297857048c670ab8e5b2d5bad76f1cd91fb33db7de67b"
+    },
+    "external_runtime_inventory_reference": {
+      "path": "/workspace/scratch/universal-law-closed-proof-engine/references/runtime/external_runtime_inventory.json",
+      "sha256": "cb879c50c6bff15b952d96616f836e4b3ead7b169f150c0aa00819add48e890f"
+    },
+    "trust_boundary": "Precompiled cache and shared libraries are external trusted artifacts; executable SHA does not bind shared libraries."
+  },
+  "command": [
+    "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+    "-j1",
+    "-M11000",
+    "-DElab.async=false",
+    "-DautoImplicit=false",
+    "--root=/workspace/scratch/universal-law-project-closure/formal",
+    "-o",
+    "/workspace/scratch/universal-law-project-closure/build/explore/General/Threshold.olean",
+    "/workspace/scratch/universal-law-project-closure/formal/General/Threshold.lean"
+  ],
+  "timeout_seconds": 120,
+  "native_lock_wait_wall_seconds": 3.780699989874847e-05,
+  "existing_project_oleans": {
+    "General/Amalgamation.olean": "2d90ba38f631e46856a0c5c4ce89f6f903d8985120846bdcf9ad68caa158831a",
+    "General/BernoulliFinner.olean": "e2abffc4d110335d8bd250924f3ede736f3dba2ad031a171feb43dc27b51de7b",
+    "General/Definitions.olean": "90f4f6cd5eb8faee76baf687a4369927a6a170cea913acfbbae578a802000c4b",
+    "General/Finner.olean": "6c2e8bd20133bb71c1b90c801f8d1c3aa900e6d31705311cd3b16abe87092c23",
+    "General/FinnerBridge.olean": "91891169dbfbd4a4c8ded4c524f39252658c89659f5a8cc69faa78496a81c967",
+    "General/Overlap.olean": "416f31c966d23ce96cd29a96226841a351c418379696040f801b034c51541235",
+    "General/Probability.olean": "454c47a824a4d8d1680ed8855a9acb2944b29bc06b70433545c113f208d57849",
+    "General/Safety.olean": "d97bf341805f369f92b05750eacc8b37e8cb2f6d7a44f897587677ffc16113cb",
+    "General/Threshold.olean": "e752d1f5d759107daaa305c0f91fb6eb1b08bc73516afad70587f35f1e54cf30",
+    "General/WitnessLoad.olean": "434bf0514223ec50220a9fe86c4f08cc8d24490904d2e39c6238f3097ed94fb0",
+    "Integration/EndpointTasks.olean": "47ffba7cbe86cf738c2ce587d2335eb1d4e87c2cdf638981f74e6b2d27c5108c"
+  },
+  "scope": "Exploratory compile; final closure requires fresh-cache rebuild and exact-type/axiom audit."
+}

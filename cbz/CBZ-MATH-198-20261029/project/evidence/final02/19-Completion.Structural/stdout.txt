@@ -1,0 +1,12 @@
+UniversalLaw.P15Completion.minimalForbiddenCharacterisation {X : Type} [Fintype X] [DecidableEq X]
+  (F : RealizedData X) : MinimalForbiddenCharacterisation F
+'UniversalLaw.P15Completion.minimalForbiddenCharacterisation' depends on axioms: [propext, Classical.choice, Quot.sound]
+UniversalLaw.P15Completion.localDecomposability {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) :
+  LocalDecomposability F
+'UniversalLaw.P15Completion.localDecomposability' depends on axioms: [propext, Classical.choice, Quot.sound]
+UniversalLaw.P15Completion.localObstructionIsFullBlock {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) :
+  LocalObstructionIsFullBlock F
+'UniversalLaw.P15Completion.localObstructionIsFullBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+UniversalLaw.P15Completion.wholeGroundChromaticNumber {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) :
+  WholeGroundChromaticNumber F
+'UniversalLaw.P15Completion.wholeGroundChromaticNumber' depends on axioms: [propext, Classical.choice, Quot.sound]

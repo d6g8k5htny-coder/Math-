@@ -1,0 +1,43 @@
+/workspace/CBZ_COLD_EVIDENCE/math198-cold01/formal-evidence/frozen_sources/Closure/Assembly.lean:12:0: warning: automatically included section variable(s) unused in theorem `UniversalLaw.P15Closure.famPrice_nonneg_closure`:
+  [Fintype X]
+  [DecidableEq X]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype X] [DecidableEq X] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/CBZ_COLD_EVIDENCE/math198-cold01/formal-evidence/frozen_sources/Closure/Assembly.lean:33:0: warning: automatically included section variable(s) unused in theorem `UniversalLaw.P15Closure.realized_block_injective`:
+  [DecidableEq X]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq X] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/CBZ_COLD_EVIDENCE/math198-cold01/formal-evidence/frozen_sources/Closure/Assembly.lean:63:22: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+/workspace/CBZ_COLD_EVIDENCE/math198-cold01/formal-evidence/frozen_sources/Closure/Assembly.lean:66:22: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+/workspace/CBZ_COLD_EVIDENCE/math198-cold01/formal-evidence/frozen_sources/Closure/Assembly.lean:145:29: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+/workspace/CBZ_COLD_EVIDENCE/math198-cold01/formal-evidence/frozen_sources/Closure/Assembly.lean:152:29: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+UniversalLaw.P15Closure.fullBudget_of_bridges {X : Type} [Fintype X] [DecidableEq X]
+  (F : UniversalLaw.Spec.P15.RealizedData X) (hlocal : UniversalLaw.Spec.P15.LocalPriceBoundFull F)
+  (hglobal : UniversalLaw.Spec.P15.GlobalAssemblyHazard F) : UniversalLaw.Spec.P15.FullTransformedPriceBudget F
+UniversalLaw.P15Closure.restrictedTransformedPriceBudget {X : Type} [Fintype X] [DecidableEq X]
+  (F : UniversalLaw.Spec.P15.RealizedData X) : UniversalLaw.Spec.P15.RestrictedTransformedPriceBudget F
+UniversalLaw.P15Closure.localPriceBoundFull {X : Type} [Fintype X] [DecidableEq X]
+  (F : UniversalLaw.Spec.P15.RealizedData X) : UniversalLaw.Spec.P15.LocalPriceBoundFull F
+UniversalLaw.P15Closure.fullTransformedPriceBudget {X : Type} [Fintype X] [DecidableEq X]
+  (F : UniversalLaw.Spec.P15.RealizedData X) : UniversalLaw.Spec.P15.FullTransformedPriceBudget F
+UniversalLaw.P15Closure.coverCostHazardBound {X : Type} [Fintype X] [DecidableEq X]
+  (F : UniversalLaw.Spec.P15.RealizedData X) : UniversalLaw.Spec.P15.CoverCostHazardBound F
+UniversalLaw.P15Closure.fullTransformedPriceBudget_sixSevenths {X : Type} [Fintype X] [DecidableEq X]
+  (F : UniversalLaw.Spec.P15.RealizedData X) (hF : UniversalLaw.Spec.P15.IsRealizedFamily F)
+  (hd : ∀ (i : Fin F.b), 2 ≤ F.d i) (p c : X → ℝ) (hp : ∀ (v : X), 0 ≤ p v ∧ p v ≤ 1)
+  (hc : ∀ (v : X), 0 ≤ c v ∧ c v ≤ UniversalLaw.Spec.P15.phi (p v)) (K : ℕ)
+  (hK : UniversalLaw.Spec.P15.paletteNumber F.b F.H F.d ≤ K) :
+  UniversalLaw.Spec.P15.coverCost F K c ≤ UniversalLaw.Spec.P15.cappedHazard (6 / 7) (UniversalLaw.Spec.P15.mu F p)
+'UniversalLaw.P15Closure.coverCost_le_family' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.fullBudget_of_bridges' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.restrictedTransformedPriceBudget' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.localPriceBoundFull' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.fullTransformedPriceBudget' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.coverCostHazardBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.fullTransformedPriceBudget_sixSevenths' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

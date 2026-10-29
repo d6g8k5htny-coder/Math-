@@ -1,0 +1,41 @@
+test_all_49_known_targets_are_blocked (test_admission.AdmissionTests.test_all_49_known_targets_are_blocked) ... ok
+test_attestation_split_requires_list (test_admission.AdmissionTests.test_attestation_split_requires_list) ... ok
+test_both_historical_export_hashes_are_permanently_blocked (test_admission.AdmissionTests.test_both_historical_export_hashes_are_permanently_blocked) ... ok
+test_duplicate_json_policy_key_denies (test_admission.AdmissionTests.test_duplicate_json_policy_key_denies) ... ok
+test_duplicate_record_ids_rejected (test_admission.AdmissionTests.test_duplicate_record_ids_rejected) ... ok
+test_empty_dataset_denied (test_admission.AdmissionTests.test_empty_dataset_denied) ... ok
+test_exposed_known_endpoint_cannot_be_overridden (test_admission.AdmissionTests.test_exposed_known_endpoint_cannot_be_overridden) ... ok
+test_fake_boolean_is_not_acceptance (test_admission.AdmissionTests.test_fake_boolean_is_not_acceptance) ... ok
+test_family_overlap_rejected_after_recomputed_record_id (test_admission.AdmissionTests.test_family_overlap_rejected_after_recomputed_record_id) ... ok
+test_forbidden_axiom_even_trusted_receipt_denied (test_admission.AdmissionTests.test_forbidden_axiom_even_trusted_receipt_denied) ... ok
+test_immutable_record_identity_rejects_changed_split (test_admission.AdmissionTests.test_immutable_record_identity_rejects_changed_split) ... ok
+test_known_proof_hash_cannot_be_hidden_by_target_rename (test_admission.AdmissionTests.test_known_proof_hash_cannot_be_hidden_by_target_rename) ... ok
+test_metavariable_even_trusted_receipt_denied (test_admission.AdmissionTests.test_metavariable_even_trusted_receipt_denied) ... ok
+test_missing_attestation_default_denies (test_admission.AdmissionTests.test_missing_attestation_default_denies) ... ok
+test_missing_exposure_review_default_denies (test_admission.AdmissionTests.test_missing_exposure_review_default_denies) ... ok
+test_missing_independent_pin_denies (test_admission.AdmissionTests.test_missing_independent_pin_denies) ... ok
+test_nested_legacy_self_dependency_flag_cannot_be_relabelled (test_admission.AdmissionTests.test_nested_legacy_self_dependency_flag_cannot_be_relabelled) ... ok
+test_nonobject_dataset_is_clean_denial (test_admission.AdmissionTests.test_nonobject_dataset_is_clean_denial) ... ok
+test_old_self_hypothesis_trace_denied_even_claimed_eligible (test_admission.AdmissionTests.test_old_self_hypothesis_trace_denied_even_claimed_eligible) ... ok
+test_omitted_family_is_default_denial (test_admission.AdmissionTests.test_omitted_family_is_default_denial) ... ok
+test_open_proof_even_trusted_receipt_denied (test_admission.AdmissionTests.test_open_proof_even_trusted_receipt_denied) ... ok
+test_path_escape_denied (test_admission.AdmissionTests.test_path_escape_denied) ... ok
+test_policy_pin_cannot_be_changed_by_proposal (test_admission.AdmissionTests.test_policy_pin_cannot_be_changed_by_proposal) ... ok
+test_receipt_declared_ineligibility_cannot_be_overridden (test_admission.AdmissionTests.test_receipt_declared_ineligibility_cannot_be_overridden) ... ok
+test_receipt_exposure_cannot_be_overridden_by_new_attestation (test_admission.AdmissionTests.test_receipt_exposure_cannot_be_overridden_by_new_attestation) ... ok
+test_relabelled_open_context_payload_stays_blocked (test_admission.AdmissionTests.test_relabelled_open_context_payload_stays_blocked) ... ok
+test_self_local_attestation_denied (test_admission.AdmissionTests.test_self_local_attestation_denied) ... ok
+test_source_exposure_attestation_denied (test_admission.AdmissionTests.test_source_exposure_attestation_denied) ... ok
+test_symlink_denied (test_admission.AdmissionTests.test_symlink_denied) ... ok
+test_synthetic_positive_is_fixture_only (test_admission.AdmissionTests.test_synthetic_positive_is_fixture_only) ... ok
+test_tampered_receipt_rejected_without_policy_repin (test_admission.AdmissionTests.test_tampered_receipt_rejected_without_policy_repin) ... ok
+test_unfrozen_family_denied (test_admission.AdmissionTests.test_unfrozen_family_denied) ... ok
+test_unknown_artifact_denied (test_admission.AdmissionTests.test_unknown_artifact_denied) ... ok
+test_unreviewed_provenance_denied (test_admission.AdmissionTests.test_unreviewed_provenance_denied) ... ok
+test_untrusted_reviewer_denied (test_admission.AdmissionTests.test_untrusted_reviewer_denied) ... ok
+test_weaker_or_different_target_receipt_rejected (test_admission.AdmissionTests.test_weaker_or_different_target_receipt_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 36 tests in 0.157s
+
+OK

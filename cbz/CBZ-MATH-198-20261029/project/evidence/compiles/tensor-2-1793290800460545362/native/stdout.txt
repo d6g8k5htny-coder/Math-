@@ -1,0 +1,15 @@
+/workspace/scratch/universal-law-project-closure/formal/General/FinnerBridge.lean:30:49: error: unsolved goals
+case e_a
+X A : Type
+inst✝² : Fintype X
+inst✝¹ : DecidableEq X
+inst✝ : Fintype A
+q : X → A → ℝ≥0
+f : (X → A) → ℝ≥0
+x : X
+v : A
+hv : v ∈ Finset.univ
+b : { j // j ≠ x } → A
+hb : b ∈ Finset.univ
+⊢ ∏ x_1, q (↑x_1) (if ↑x_1 = x then v else b x_1) = ∏ x_1, q (↑x_1) (b x_1) ∨ q x v = 0
+'UniversalLaw.General.finner_tensor' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/workspace/CBZ_RUNTIME_COLD/lean-4.34.1/bin/lean",
+    "-j1",
+    "-M11000",
+    "-DElab.async=false",
+    "-DautoImplicit=false",
+    "--root=/workspace/CBZ_COLD_EVIDENCE/math198-cold01/owned-kernel-evidence/generated",
+    "-o",
+    "/workspace/CBZ_COLD_EVIDENCE/math198-cold01/owned-kernel-evidence/generated-cache/OwnedKernelAudit/Chunk4.olean",
+    "/workspace/CBZ_COLD_EVIDENCE/math198-cold01/owned-kernel-evidence/generated/OwnedKernelAudit/Chunk4.lean"
+  ],
+  "pid": 92398,
+  "supervisor_pid": 92397,
+  "started_unix_ns": 1793306498465055087
+}

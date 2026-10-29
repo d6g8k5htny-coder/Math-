@@ -1,0 +1,57 @@
+/workspace/scratch/universal-law-project-closure/formal/General/WitnessLoad.lean:123:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ i, ?f ↑i
+in the target expression
+  (∑ g, if v ∈ ↑g then 1 / restrictionHazardStar D ↑g else 0) ≤ L
+
+X : Type
+inst✝¹ : Fintype X
+inst✝ : DecidableEq X
+D : Finset (Finset X)
+hD : decreasing D
+K : ℕ
+G : Finset (Finset X)
+hG : generatorCover D K G
+hnonempty : ∀ g ∈ G, g.Nonempty
+hbad : ∀ g ∈ G, g ∉ D
+p c : X → ℝ
+hp : ∀ (v : X), 0 ≤ p v ∧ p v ≤ 1
+hc : ∀ (v : X), 0 ≤ c v ∧ c v ≤ phi (p v)
+L : ℝ
+hL : 0 < L
+hload : ∀ (v : X), (∑ g ∈ G, if v ∈ g then 1 / restrictionHazardStar D g else 0) ≤ L
+a✝ : 0 < muOf D p
+S : ↥G → Finset X := fun g => ↑g
+H : ↥G → ℝ := fun g => restrictionHazardStar D ↑g
+w : ↥G → ℝ := fun g => 1 / (L * H g)
+hw : ∀ (g : ↥G), 0 ≤ w g
+v : X
+⊢ (∑ g, if v ∈ ↑g then 1 / restrictionHazardStar D ↑g else 0) ≤ L
+/workspace/scratch/universal-law-project-closure/formal/General/WitnessLoad.lean:128:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∏ i, ?f ↑i
+in the target expression
+  muOf D p ≤ ∏ g, restrictionMass D p ↑g ^ (1 / (L * restrictionHazardStar D ↑g))
+
+X : Type
+inst✝¹ : Fintype X
+inst✝ : DecidableEq X
+D : Finset (Finset X)
+hD : decreasing D
+K : ℕ
+G : Finset (Finset X)
+hG : generatorCover D K G
+hnonempty : ∀ g ∈ G, g.Nonempty
+hbad : ∀ g ∈ G, g ∉ D
+p c : X → ℝ
+hp : ∀ (v : X), 0 ≤ p v ∧ p v ≤ 1
+hc : ∀ (v : X), 0 ≤ c v ∧ c v ≤ phi (p v)
+L : ℝ
+hL : 0 < L
+hload : ∀ (v : X), (∑ g ∈ G, if v ∈ g then 1 / restrictionHazardStar D g else 0) ≤ L
+a✝ : 0 < muOf D p
+S : ↥G → Finset X := fun g => ↑g
+H : ↥G → ℝ := fun g => restrictionHazardStar D ↑g
+w : ↥G → ℝ := fun g => 1 / (L * H g)
+hw : ∀ (g : ↥G), 0 ≤ w g
+hn : ∀ (v : X), (∑ g, if v ∈ S g then w g else 0) ≤ 1
+h : muOf D p ≤ ∏ g, restrictionMass D p ↑g ^ (1 / (L * restrictionHazardStar D ↑g))
+⊢ muOf D p ≤ ∏ g ∈ G, restrictionMass D p g ^ (1 / (L * restrictionHazardStar D g))

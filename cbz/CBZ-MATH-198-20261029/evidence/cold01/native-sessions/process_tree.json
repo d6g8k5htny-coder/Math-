@@ -1,0 +1,18 @@
+{
+  "supervisor_pid": 92528,
+  "leader_pid": 92529,
+  "returncode": 0,
+  "cleanup_complete": true,
+  "unexpected_descendants": false,
+  "termination_signal": null,
+  "observed_pids": [
+    92529
+  ],
+  "terminated_pids": [],
+  "reaped_pids": [
+    92529
+  ],
+  "survivors": [],
+  "failure": null,
+  "boundary": "Owned ordinary descendants including setsid/double-fork; not a sandbox against same-UID attacks or unkillable kernel tasks."
+}

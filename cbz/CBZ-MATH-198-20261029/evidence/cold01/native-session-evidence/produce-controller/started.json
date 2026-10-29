@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-B",
+    "/workspace/CBZ_COLD/Math-198-source01/cbz/CBZ-MATH-198-20261029/project/integration/native_worker/session.py",
+    "produce",
+    "--build-dir",
+    "/workspace/CBZ_COLD_EVIDENCE/math198-cold01-build/native",
+    "--output",
+    "/workspace/CBZ_COLD_EVIDENCE/math198-cold01/native-session-evidence/produce"
+  ],
+  "pid": 92531,
+  "started_unix_ns": 1793306578259238253
+}

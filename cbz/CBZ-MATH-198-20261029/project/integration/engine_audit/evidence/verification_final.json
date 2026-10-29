@@ -1,0 +1,117 @@
+{
+  "schema": "ul-engine-audit-verification-v1",
+  "native_lean_executed": false,
+  "training_eligible": false,
+  "runs": [
+    {
+      "suite": "engine_audit",
+      "mode": "normal",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "wall_seconds": 1.8445292450001034,
+      "log": "evidence/unit_normal_final.txt",
+      "log_sha256": "fb4ef3e8e7a38865b3d599361027599e393750447c04dab08eb5120bb6309433"
+    },
+    {
+      "suite": "engine_audit",
+      "mode": "optimized",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "-O",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "wall_seconds": 2.080989301000045,
+      "log": "evidence/unit_optimized_final.txt",
+      "log_sha256": "edfab3ca5373b1dc4904c12bdbf72745f672477532c89b4508baaa7d714274a1"
+    },
+    {
+      "suite": "prior_engine_disposable_copy",
+      "baseline": "/workspace/scratch/universal-law-certified-frontier-v2/engine",
+      "mode": "normal",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "wall_seconds": 3.6364866619999248,
+      "log": "evidence/full_engine_normal_final.txt",
+      "log_sha256": "376d6670864c82ed9bbd9ab369b60966ee1ac674ef354b74151fa65976a4282d"
+    },
+    {
+      "suite": "prior_engine_disposable_copy",
+      "baseline": "/workspace/scratch/universal-law-certified-frontier-v2/engine",
+      "mode": "optimized",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "-O",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "wall_seconds": 3.9154617629999393,
+      "log": "evidence/full_engine_optimized_final.txt",
+      "log_sha256": "0b5e59b069ddd0b74eda16c0831616b103b6700811d0a42e0de6f84af2106598"
+    }
+  ],
+  "sources_sha256": {
+    "catalog.py": "f89612bfd8f51b3ad8a43ea994d5c60b57190f1039ce46d1f9523e44e2843706",
+    "ul_engine/worker.py": "64c2e107b1a27c20ab65065954e79aff879fdf9f7375be11ad717ec67d9373fe",
+    "ul_engine/__init__.py": "d63641db38d32d7674e200c429c0c927e4fb5b9e5fa8a83f68efee30b52fa5a6",
+    "ul_engine/search.py": "39441ef24597d81c401b0ecbf6b78020d0a80d7f520d047917a0b5dd288eca09",
+    "tests/test_search.py": "a6a3acf032342cff0df8614f3d68531d61582afc8d713f0abad01624e02ce350",
+    "tests/test_resources.py": "ede39fff98af531072990a028b2604e28d5aee38c53bd6756df77e6b63edf452",
+    "tests/test_catalog_cli.py": "f9090388595805d1c3a1d7697ae5c6a86b6992e89f05d6480d240009e70fccc5",
+    "tests/test_catalog_integrity.py": "aaf83102b97dd9a01a3c2e884594edaac76377157d1881b9452008b7478729be",
+    "tests/test_worker_resources.py": "cb95910d4778291ff9c65f6d91c315fdfa94a2c42bd216f45583112028ca38a3",
+    "tests/fake_worker.py": "ba8563bf18147e4ace31eb6d6b2d6358b9c5faeb67a2c7bddaf2e05b30febf21"
+  },
+  "catalog": {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "-B",
+      "catalog.py",
+      "verify",
+      "--certificate",
+      "evidence/full_budget_saved_certificate.json"
+    ],
+    "returncode": 0,
+    "log": "evidence/catalog_certificate_verify_final.json",
+    "kind": "Saved source/receipt integrity only; no new kernel proof."
+  },
+  "status": "PASS"
+}

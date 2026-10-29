@@ -1,0 +1,31 @@
+{
+  "artifact_id": "artifact:f3c79a6ffd11713e1c3e7c51b6a20aeb05413dbe2e651bb7715692eaf49e34fe",
+  "exposure_reviewed": true,
+  "families": {
+    "derivation": [
+      "derivation.fixture.1"
+    ],
+    "source": [
+      "source.fixture.1"
+    ],
+    "theorem": [
+      "theorem.fixture.1"
+    ],
+    "transport": [
+      "transport.fixture.1"
+    ]
+  },
+  "permitted_splits": [
+    "test"
+  ],
+  "proof_dependency_reviewed": true,
+  "provenance_sha256": "3a7789da79a8df220b73c5f38d71cd138da4f1d49897ad979261fd28e182fee5",
+  "review_id": "synthetic.review.1",
+  "review_outcome": "approved_for_fixture",
+  "reviewer": "fixture-reviewer",
+  "schema": "ul-corpus-policy-attestation-v1",
+  "self_theorem_local": false,
+  "source_exposed": false,
+  "source_lineage_reviewed": true,
+  "synthetic_fixture": true
+}

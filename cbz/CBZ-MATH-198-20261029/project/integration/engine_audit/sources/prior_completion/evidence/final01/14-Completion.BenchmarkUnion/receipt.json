@@ -1,0 +1,37 @@
+{
+  "command": [
+    "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+    "-j1",
+    "-M11000",
+    "-DElab.async=false",
+    "-DautoImplicit=false",
+    "--root=/workspace/scratch/universal-law-p15-completion/evidence/final01/frozen_sources",
+    "-o",
+    "/workspace/scratch/universal-law-p15-completion/build/final01/Completion/BenchmarkUnion.olean",
+    "/workspace/scratch/universal-law-p15-completion/evidence/final01/frozen_sources/Completion/BenchmarkUnion.lean"
+  ],
+  "pid": 8888,
+  "started_unix_ns": 1793232582555902769,
+  "returncode": 0,
+  "timed_out": false,
+  "output_limit_exceeded": false,
+  "succeeded": true,
+  "failure": null,
+  "wall_seconds": 4.121238703000017,
+  "wait4": {
+    "user_seconds": 3.086579,
+    "system_seconds": 0.993452,
+    "max_rss_kib": 6906528
+  },
+  "streams": {
+    "stdout.txt": {
+      "bytes": 186,
+      "sha256": "8c477485a23f905bb8ac169eb436ed4266d9e3558dd565fba7aea10e74fb7dc4"
+    },
+    "stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+}

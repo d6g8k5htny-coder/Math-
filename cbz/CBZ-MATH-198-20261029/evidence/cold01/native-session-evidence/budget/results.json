@@ -1,0 +1,1667 @@
+{
+  "schema": "ul-native-endpoint-session-v1",
+  "mode": "budget",
+  "status": "PASS",
+  "source_exposed": true,
+  "training_eligible": false,
+  "searches": [
+    {
+      "task": "logic_identity",
+      "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+      "status": "accepted",
+      "termination_reason": "accepted",
+      "cleanup_complete": true,
+      "cleanup_status": "complete",
+      "unreleased_states": [],
+      "resources_after_cleanup": {
+        "worker_active_state_count": 0,
+        "worker_remaining_requests": 23,
+        "unreleased_states_meaning": "Search-owned handles whose drop was not confirmed; a terminated worker may already have freed their storage."
+      },
+      "solved": true,
+      "certificate": {
+        "axioms": [],
+        "proof": {
+          "nodes": [
+            {
+              "sort": {
+                "zero": null
+              }
+            },
+            {
+              "bvar": 0
+            },
+            {
+              "lam": {
+                "bi": "default",
+                "body": 1,
+                "name": {
+                  "num": [
+                    {
+                      "str": [
+                        {
+                          "num": [
+                            {
+                              "str": [
+                                {
+                                  "str": [
+                                    {
+                                      "str": [
+                                        null,
+                                        "a"
+                                      ]
+                                    },
+                                    "_@"
+                                  ]
+                                },
+                                "_internal"
+                              ]
+                            },
+                            0
+                          ]
+                        },
+                        "_hyg"
+                      ]
+                    },
+                    4
+                  ]
+                },
+                "type": 1
+              }
+            },
+            {
+              "lam": {
+                "bi": "default",
+                "body": 2,
+                "name": {
+                  "num": [
+                    {
+                      "str": [
+                        {
+                          "str": [
+                            {
+                              "str": [
+                                null,
+                                "P"
+                              ]
+                            },
+                            "_@"
+                          ]
+                        },
+                        "_hyg"
+                      ]
+                    },
+                    3
+                  ]
+                },
+                "type": 0
+              }
+            }
+          ],
+          "root": 3,
+          "schema": "ul-expr-dag-v1"
+        },
+        "schema": "ul-closed-proof-certificate-v2",
+        "task": "logic_identity",
+        "type": {
+          "const": {
+            "str": [
+              {
+                "str": [
+                  {
+                    "str": [
+                      null,
+                      "ClosedProof"
+                    ]
+                  },
+                  "Tasks"
+                ]
+              },
+              "logic_identity"
+            ]
+          },
+          "levels": []
+        }
+      },
+      "path": [
+        "intro_all",
+        "all_assumption"
+      ],
+      "attempted_actions": 4,
+      "nodes": [
+        {
+          "state": 0,
+          "parent": null,
+          "action": null,
+          "depth": 0
+        },
+        {
+          "state": 1,
+          "parent": 0,
+          "action": "intro_all",
+          "depth": 1
+        },
+        {
+          "state": 2,
+          "parent": 1,
+          "action": "intro_all",
+          "depth": 2
+        }
+      ],
+      "journal": [
+        {
+          "op": "open",
+          "request": {
+            "task": "logic_identity"
+          },
+          "response": {
+            "goals": [
+              "\u2200 (P : Prop), P \u2192 P"
+            ],
+            "id": 1,
+            "ok": true,
+            "protocol": "ul-closed-proof-v1",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "state": 0,
+            "status": "opened",
+            "task": "logic_identity"
+          },
+          "parent_observed_wall_seconds": 0.0012149619979027193
+        },
+        {
+          "op": "attempt",
+          "request": {
+            "state": 0,
+            "action": "intro_all",
+            "heartbeat_limit": 20000
+          },
+          "response": {
+            "cached_heartbeats": 20000000,
+            "goals": [
+              "P\u271d"
+            ],
+            "heartbeat_limit": 20000,
+            "heartbeat_origin": 24251136,
+            "id": 2,
+            "ok": true,
+            "protocol": "ul-closed-proof-v1",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "state": 1,
+            "status": "progress",
+            "wall_ns": 315436
+          },
+          "parent_observed_wall_seconds": 0.000854949998029042
+        },
+        {
+          "op": "attempt",
+          "request": {
+            "state": 0,
+            "action": "all_assumption",
+            "heartbeat_limit": 20000
+          },
+          "response": {
+            "cached_heartbeats": 20000000,
+            "heartbeat_limit": 20000,
+            "heartbeat_origin": 24252089,
+            "id": 3,
+            "ok": false,
+            "protocol": "ul-closed-proof-v1",
+            "reason": "Tactic `assumption` failed\n\n\u22a2 \u2200 (P : Prop), P \u2192 P",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "status": "tactic_error",
+            "wall_ns": 436739
+          },
+          "parent_observed_wall_seconds": 0.0007170210010372102
+        },
+        {
+          "op": "drop",
+          "request": {
+            "state": 0
+          },
+          "response": {
+            "id": 4,
+            "ok": true,
+            "protocol": "ul-closed-proof-v1",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "status": "dropped"
+          },
+          "parent_observed_wall_seconds": 0.00016057199900387786
+        },
+        {
+          "op": "attempt",
+          "request": {
+            "state": 1,
+            "action": "intro_all",
+            "heartbeat_limit": 20000
+          },
+          "response": {
+            "cached_heartbeats": 20000000,
+            "goals": [
+              "P\u271d"
+            ],
+            "heartbeat_limit": 20000,
+            "heartbeat_origin": 24254963,
+            "id": 5,
+            "ok": true,
+            "protocol": "ul-closed-proof-v1",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "state": 2,
+            "status": "progress",
+            "wall_ns": 61503
+          },
+          "parent_observed_wall_seconds": 0.00020465899797272868
+        },
+        {
+          "op": "attempt",
+          "request": {
+            "state": 1,
+            "action": "all_assumption",
+            "heartbeat_limit": 20000
+          },
+          "response": {
+            "cached_heartbeats": 20000000,
+            "certificate": {
+              "axioms": [],
+              "proof": {
+                "nodes": [
+                  {
+                    "sort": {
+                      "zero": null
+                    }
+                  },
+                  {
+                    "bvar": 0
+                  },
+                  {
+                    "lam": {
+                      "bi": "default",
+                      "body": 1,
+                      "name": {
+                        "num": [
+                          {
+                            "str": [
+                              {
+                                "num": [
+                                  {
+                                    "str": [
+                                      {
+                                        "str": [
+                                          {
+                                            "str": [
+                                              null,
+                                              "a"
+                                            ]
+                                          },
+                                          "_@"
+                                        ]
+                                      },
+                                      "_internal"
+                                    ]
+                                  },
+                                  0
+                                ]
+                              },
+                              "_hyg"
+                            ]
+                          },
+                          4
+                        ]
+                      },
+                      "type": 1
+                    }
+                  },
+                  {
+                    "lam": {
+                      "bi": "default",
+                      "body": 2,
+                      "name": {
+                        "num": [
+                          {
+                            "str": [
+                              {
+                                "str": [
+                                  {
+                                    "str": [
+                                      null,
+                                      "P"
+                                    ]
+                                  },
+                                  "_@"
+                                ]
+                              },
+                              "_hyg"
+                            ]
+                          },
+                          3
+                        ]
+                      },
+                      "type": 0
+                    }
+                  }
+                ],
+                "root": 3,
+                "schema": "ul-expr-dag-v1"
+              },
+              "schema": "ul-closed-proof-certificate-v2",
+              "task": "logic_identity",
+              "type": {
+                "const": {
+                  "str": [
+                    {
+                      "str": [
+                        {
+                          "str": [
+                            null,
+                            "ClosedProof"
+                          ]
+                        },
+                        "Tasks"
+                      ]
+                    },
+                    "logic_identity"
+                  ]
+                },
+                "levels": []
+              }
+            },
+            "goals": [],
+            "heartbeat_limit": 20000,
+            "heartbeat_origin": 24255462,
+            "id": 6,
+            "ok": true,
+            "protocol": "ul-closed-proof-v1",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "status": "closed",
+            "wall_ns": 292911
+          },
+          "parent_observed_wall_seconds": 0.0006991949994699098
+        },
+        {
+          "op": "verify",
+          "request": {
+            "task": "logic_identity",
+            "certificate": {
+              "axioms": [],
+              "proof": {
+                "nodes": [
+                  {
+                    "sort": {
+                      "zero": null
+                    }
+                  },
+                  {
+                    "bvar": 0
+                  },
+                  {
+                    "lam": {
+                      "bi": "default",
+                      "body": 1,
+                      "name": {
+                        "num": [
+                          {
+                            "str": [
+                              {
+                                "num": [
+                                  {
+                                    "str": [
+                                      {
+                                        "str": [
+                                          {
+                                            "str": [
+                                              null,
+                                              "a"
+                                            ]
+                                          },
+                                          "_@"
+                                        ]
+                                      },
+                                      "_internal"
+                                    ]
+                                  },
+                                  0
+                                ]
+                              },
+                              "_hyg"
+                            ]
+                          },
+                          4
+                        ]
+                      },
+                      "type": 1
+                    }
+                  },
+                  {
+                    "lam": {
+                      "bi": "default",
+                      "body": 2,
+                      "name": {
+                        "num": [
+                          {
+                            "str": [
+                              {
+                                "str": [
+                                  {
+                                    "str": [
+                                      null,
+                                      "P"
+                                    ]
+                                  },
+                                  "_@"
+                                ]
+                              },
+                              "_hyg"
+                            ]
+                          },
+                          3
+                        ]
+                      },
+                      "type": 0
+                    }
+                  }
+                ],
+                "root": 3,
+                "schema": "ul-expr-dag-v1"
+              },
+              "schema": "ul-closed-proof-certificate-v2",
+              "task": "logic_identity",
+              "type": {
+                "const": {
+                  "str": [
+                    {
+                      "str": [
+                        {
+                          "str": [
+                            null,
+                            "ClosedProof"
+                          ]
+                        },
+                        "Tasks"
+                      ]
+                    },
+                    "logic_identity"
+                  ]
+                },
+                "levels": []
+              }
+            }
+          },
+          "response": {
+            "axioms": [],
+            "id": 7,
+            "ok": true,
+            "protocol": "ul-closed-proof-v1",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "status": "accepted"
+          },
+          "parent_observed_wall_seconds": 0.00040968800021801144
+        },
+        {
+          "op": "drop",
+          "request": {
+            "state": 1
+          },
+          "response": {
+            "id": 8,
+            "ok": true,
+            "protocol": "ul-closed-proof-v1",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "status": "dropped"
+          },
+          "parent_observed_wall_seconds": 0.00015980100215529092
+        },
+        {
+          "op": "drop",
+          "request": {
+            "state": 2
+          },
+          "response": {
+            "id": 9,
+            "ok": true,
+            "protocol": "ul-closed-proof-v1",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "status": "dropped"
+          },
+          "parent_observed_wall_seconds": 8.097300087683834e-05
+        }
+      ],
+      "parent_observed_wall_seconds": 0.0045739999986835755,
+      "cost_boundary": "Search budget bounds admission and individual requests, including expanded-parent release and final verify. Advertised state/request capacity is checked before admission, reserving verify, live-handle cleanup and shutdown requests. Cleanup is separately bounded at 0.1 seconds per retained handle and included in this solve elapsed. Request/native action times are nested; worker startup/whole CPU are separate receipts.",
+      "training_eligible": false,
+      "scope": "Fixed deterministic local search; no learned routing or generalization evidence."
+    },
+    {
+      "task": "logic_identity",
+      "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+      "status": "accepted",
+      "termination_reason": "accepted",
+      "cleanup_complete": true,
+      "cleanup_status": "complete",
+      "unreleased_states": [],
+      "resources_after_cleanup": {
+        "worker_active_state_count": 0,
+        "worker_remaining_requests": 14,
+        "unreleased_states_meaning": "Search-owned handles whose drop was not confirmed; a terminated worker may already have freed their storage."
+      },
+      "solved": true,
+      "certificate": {
+        "axioms": [],
+        "proof": {
+          "nodes": [
+            {
+              "sort": {
+                "zero": null
+              }
+            },
+            {
+              "bvar": 0
+            },
+            {
+              "lam": {
+                "bi": "default",
+                "body": 1,
+                "name": {
+                  "num": [
+                    {
+                      "str": [
+                        {
+                          "num": [
+                            {
+                              "str": [
+                                {
+                                  "str": [
+                                    {
+                                      "str": [
+                                        null,
+                                        "a"
+                                      ]
+                                    },
+                                    "_@"
+                                  ]
+                                },
+                                "_internal"
+                              ]
+                            },
+                            0
+                          ]
+                        },
+                        "_hyg"
+                      ]
+                    },
+                    16
+                  ]
+                },
+                "type": 1
+              }
+            },
+            {
+              "lam": {
+                "bi": "default",
+                "body": 2,
+                "name": {
+                  "num": [
+                    {
+                      "str": [
+                        {
+                          "str": [
+                            {
+                              "str": [
+                                null,
+                                "P"
+                              ]
+                            },
+                            "_@"
+                          ]
+                        },
+                        "_hyg"
+                      ]
+                    },
+                    15
+                  ]
+                },
+                "type": 0
+              }
+            }
+          ],
+          "root": 3,
+          "schema": "ul-expr-dag-v1"
+        },
+        "schema": "ul-closed-proof-certificate-v2",
+        "task": "logic_identity",
+        "type": {
+          "const": {
+            "str": [
+              {
+                "str": [
+                  {
+                    "str": [
+                      null,
+                      "ClosedProof"
+                    ]
+                  },
+                  "Tasks"
+                ]
+              },
+              "logic_identity"
+            ]
+          },
+          "levels": []
+        }
+      },
+      "path": [
+        "intro_all",
+        "all_assumption"
+      ],
+      "attempted_actions": 4,
+      "nodes": [
+        {
+          "state": 3,
+          "parent": null,
+          "action": null,
+          "depth": 0
+        },
+        {
+          "state": 4,
+          "parent": 3,
+          "action": "intro_all",
+          "depth": 1
+        },
+        {
+          "state": 5,
+          "parent": 4,
+          "action": "intro_all",
+          "depth": 2
+        }
+      ],
+      "journal": [
+        {
+          "op": "open",
+          "request": {
+            "task": "logic_identity"
+          },
+          "response": {
+            "goals": [
+              "\u2200 (P : Prop), P \u2192 P"
+            ],
+            "id": 10,
+            "ok": true,
+            "protocol": "ul-closed-proof-v1",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "state": 3,
+            "status": "opened",
+            "task": "logic_identity"
+          },
+          "parent_observed_wall_seconds": 0.00037331299972720444
+        },
+        {
+          "op": "attempt",
+          "request": {
+            "state": 3,
+            "action": "intro_all",
+            "heartbeat_limit": 20000
+          },
+          "response": {
+            "cached_heartbeats": 20000000,
+            "goals": [
+              "P\u271d"
+            ],
+            "heartbeat_limit": 20000,
+            "heartbeat_origin": 24260998,
+            "id": 11,
+            "ok": true,
+            "protocol": "ul-closed-proof-v1",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "state": 4,
+            "status": "progress",
+            "wall_ns": 118018
+          },
+          "parent_observed_wall_seconds": 0.00032481000016559847
+        },
+        {
+          "op": "attempt",
+          "request": {
+            "state": 3,
+            "action": "all_assumption",
+            "heartbeat_limit": 20000
+          },
+          "response": {
+            "cached_heartbeats": 20000000,
+            "heartbeat_limit": 20000,
+            "heartbeat_origin": 24261636,
+            "id": 12,
+            "ok": false,
+            "protocol": "ul-closed-proof-v1",
+            "reason": "Tactic `assumption` failed\n\n\u22a2 \u2200 (P : Prop), P \u2192 P",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "status": "tactic_error",
+            "wall_ns": 230858
+          },
+          "parent_observed_wall_seconds": 0.00043197199920541607
+        },
+        {
+          "op": "drop",
+          "request": {
+            "state": 3
+          },
+          "response": {
+            "id": 13,
+            "ok": true,
+            "protocol": "ul-closed-proof-v1",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "status": "dropped"
+          },
+          "parent_observed_wall_seconds": 0.00014490900139207952
+        },
+        {
+          "op": "attempt",
+          "request": {
+            "state": 4,
+            "action": "intro_all",
+            "heartbeat_limit": 20000
+          },
+          "response": {
+            "cached_heartbeats": 20000000,
+            "goals": [
+              "P\u271d"
+            ],
+            "heartbeat_limit": 20000,
+            "heartbeat_origin": 24264219,
+            "id": 14,
+            "ok": true,
+            "protocol": "ul-closed-proof-v1",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "state": 5,
+            "status": "progress",
+            "wall_ns": 60912
+          },
+          "parent_observed_wall_seconds": 0.0002360559992666822
+        },
+        {
+          "op": "attempt",
+          "request": {
+            "state": 4,
+            "action": "all_assumption",
+            "heartbeat_limit": 20000
+          },
+          "response": {
+            "cached_heartbeats": 20000000,
+            "certificate": {
+              "axioms": [],
+              "proof": {
+                "nodes": [
+                  {
+                    "sort": {
+                      "zero": null
+                    }
+                  },
+                  {
+                    "bvar": 0
+                  },
+                  {
+                    "lam": {
+                      "bi": "default",
+                      "body": 1,
+                      "name": {
+                        "num": [
+                          {
+                            "str": [
+                              {
+                                "num": [
+                                  {
+                                    "str": [
+                                      {
+                                        "str": [
+                                          {
+                                            "str": [
+                                              null,
+                                              "a"
+                                            ]
+                                          },
+                                          "_@"
+                                        ]
+                                      },
+                                      "_internal"
+                                    ]
+                                  },
+                                  0
+                                ]
+                              },
+                              "_hyg"
+                            ]
+                          },
+                          16
+                        ]
+                      },
+                      "type": 1
+                    }
+                  },
+                  {
+                    "lam": {
+                      "bi": "default",
+                      "body": 2,
+                      "name": {
+                        "num": [
+                          {
+                            "str": [
+                              {
+                                "str": [
+                                  {
+                                    "str": [
+                                      null,
+                                      "P"
+                                    ]
+                                  },
+                                  "_@"
+                                ]
+                              },
+                              "_hyg"
+                            ]
+                          },
+                          15
+                        ]
+                      },
+                      "type": 0
+                    }
+                  }
+                ],
+                "root": 3,
+                "schema": "ul-expr-dag-v1"
+              },
+              "schema": "ul-closed-proof-certificate-v2",
+              "task": "logic_identity",
+              "type": {
+                "const": {
+                  "str": [
+                    {
+                      "str": [
+                        {
+                          "str": [
+                            null,
+                            "ClosedProof"
+                          ]
+                        },
+                        "Tasks"
+                      ]
+                    },
+                    "logic_identity"
+                  ]
+                },
+                "levels": []
+              }
+            },
+            "goals": [],
+            "heartbeat_limit": 20000,
+            "heartbeat_origin": 24264736,
+            "id": 15,
+            "ok": true,
+            "protocol": "ul-closed-proof-v1",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "status": "closed",
+            "wall_ns": 85909
+          },
+          "parent_observed_wall_seconds": 0.0005688379969797097
+        },
+        {
+          "op": "verify",
+          "request": {
+            "task": "logic_identity",
+            "certificate": {
+              "axioms": [],
+              "proof": {
+                "nodes": [
+                  {
+                    "sort": {
+                      "zero": null
+                    }
+                  },
+                  {
+                    "bvar": 0
+                  },
+                  {
+                    "lam": {
+                      "bi": "default",
+                      "body": 1,
+                      "name": {
+                        "num": [
+                          {
+                            "str": [
+                              {
+                                "num": [
+                                  {
+                                    "str": [
+                                      {
+                                        "str": [
+                                          {
+                                            "str": [
+                                              null,
+                                              "a"
+                                            ]
+                                          },
+                                          "_@"
+                                        ]
+                                      },
+                                      "_internal"
+                                    ]
+                                  },
+                                  0
+                                ]
+                              },
+                              "_hyg"
+                            ]
+                          },
+                          16
+                        ]
+                      },
+                      "type": 1
+                    }
+                  },
+                  {
+                    "lam": {
+                      "bi": "default",
+                      "body": 2,
+                      "name": {
+                        "num": [
+                          {
+                            "str": [
+                              {
+                                "str": [
+                                  {
+                                    "str": [
+                                      null,
+                                      "P"
+                                    ]
+                                  },
+                                  "_@"
+                                ]
+                              },
+                              "_hyg"
+                            ]
+                          },
+                          15
+                        ]
+                      },
+                      "type": 0
+                    }
+                  }
+                ],
+                "root": 3,
+                "schema": "ul-expr-dag-v1"
+              },
+              "schema": "ul-closed-proof-certificate-v2",
+              "task": "logic_identity",
+              "type": {
+                "const": {
+                  "str": [
+                    {
+                      "str": [
+                        {
+                          "str": [
+                            null,
+                            "ClosedProof"
+                          ]
+                        },
+                        "Tasks"
+                      ]
+                    },
+                    "logic_identity"
+                  ]
+                },
+                "levels": []
+              }
+            }
+          },
+          "response": {
+            "axioms": [],
+            "id": 16,
+            "ok": true,
+            "protocol": "ul-closed-proof-v1",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "status": "accepted"
+          },
+          "parent_observed_wall_seconds": 0.0002705080005398486
+        },
+        {
+          "op": "drop",
+          "request": {
+            "state": 4
+          },
+          "response": {
+            "id": 17,
+            "ok": true,
+            "protocol": "ul-closed-proof-v1",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "status": "dropped"
+          },
+          "parent_observed_wall_seconds": 0.000115533999633044
+        },
+        {
+          "op": "drop",
+          "request": {
+            "state": 5
+          },
+          "response": {
+            "id": 18,
+            "ok": true,
+            "protocol": "ul-closed-proof-v1",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "status": "dropped"
+          },
+          "parent_observed_wall_seconds": 0.00012431800132617354
+        }
+      ],
+      "parent_observed_wall_seconds": 0.0026685859993449412,
+      "cost_boundary": "Search budget bounds admission and individual requests, including expanded-parent release and final verify. Advertised state/request capacity is checked before admission, reserving verify, live-handle cleanup and shutdown requests. Cleanup is separately bounded at 0.1 seconds per retained handle and included in this solve elapsed. Request/native action times are nested; worker startup/whole CPU are separate receipts.",
+      "training_eligible": false,
+      "scope": "Fixed deterministic local search; no learned routing or generalization evidence."
+    },
+    {
+      "task": "logic_identity",
+      "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+      "status": "accepted",
+      "termination_reason": "accepted",
+      "cleanup_complete": true,
+      "cleanup_status": "complete",
+      "unreleased_states": [],
+      "resources_after_cleanup": {
+        "worker_active_state_count": 0,
+        "worker_remaining_requests": 5,
+        "unreleased_states_meaning": "Search-owned handles whose drop was not confirmed; a terminated worker may already have freed their storage."
+      },
+      "solved": true,
+      "certificate": {
+        "axioms": [],
+        "proof": {
+          "nodes": [
+            {
+              "sort": {
+                "zero": null
+              }
+            },
+            {
+              "bvar": 0
+            },
+            {
+              "lam": {
+                "bi": "default",
+                "body": 1,
+                "name": {
+                  "num": [
+                    {
+                      "str": [
+                        {
+                          "num": [
+                            {
+                              "str": [
+                                {
+                                  "str": [
+                                    {
+                                      "str": [
+                                        null,
+                                        "a"
+                                      ]
+                                    },
+                                    "_@"
+                                  ]
+                                },
+                                "_internal"
+                              ]
+                            },
+                            0
+                          ]
+                        },
+                        "_hyg"
+                      ]
+                    },
+                    28
+                  ]
+                },
+                "type": 1
+              }
+            },
+            {
+              "lam": {
+                "bi": "default",
+                "body": 2,
+                "name": {
+                  "num": [
+                    {
+                      "str": [
+                        {
+                          "str": [
+                            {
+                              "str": [
+                                null,
+                                "P"
+                              ]
+                            },
+                            "_@"
+                          ]
+                        },
+                        "_hyg"
+                      ]
+                    },
+                    27
+                  ]
+                },
+                "type": 0
+              }
+            }
+          ],
+          "root": 3,
+          "schema": "ul-expr-dag-v1"
+        },
+        "schema": "ul-closed-proof-certificate-v2",
+        "task": "logic_identity",
+        "type": {
+          "const": {
+            "str": [
+              {
+                "str": [
+                  {
+                    "str": [
+                      null,
+                      "ClosedProof"
+                    ]
+                  },
+                  "Tasks"
+                ]
+              },
+              "logic_identity"
+            ]
+          },
+          "levels": []
+        }
+      },
+      "path": [
+        "intro_all",
+        "all_assumption"
+      ],
+      "attempted_actions": 4,
+      "nodes": [
+        {
+          "state": 6,
+          "parent": null,
+          "action": null,
+          "depth": 0
+        },
+        {
+          "state": 7,
+          "parent": 6,
+          "action": "intro_all",
+          "depth": 1
+        },
+        {
+          "state": 8,
+          "parent": 7,
+          "action": "intro_all",
+          "depth": 2
+        }
+      ],
+      "journal": [
+        {
+          "op": "open",
+          "request": {
+            "task": "logic_identity"
+          },
+          "response": {
+            "goals": [
+              "\u2200 (P : Prop), P \u2192 P"
+            ],
+            "id": 19,
+            "ok": true,
+            "protocol": "ul-closed-proof-v1",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "state": 6,
+            "status": "opened",
+            "task": "logic_identity"
+          },
+          "parent_observed_wall_seconds": 0.000419313000747934
+        },
+        {
+          "op": "attempt",
+          "request": {
+            "state": 6,
+            "action": "intro_all",
+            "heartbeat_limit": 20000
+          },
+          "response": {
+            "cached_heartbeats": 20000000,
+            "goals": [
+              "P\u271d"
+            ],
+            "heartbeat_limit": 20000,
+            "heartbeat_origin": 24268816,
+            "id": 20,
+            "ok": true,
+            "protocol": "ul-closed-proof-v1",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "state": 7,
+            "status": "progress",
+            "wall_ns": 82635
+          },
+          "parent_observed_wall_seconds": 0.000283878998743603
+        },
+        {
+          "op": "attempt",
+          "request": {
+            "state": 6,
+            "action": "all_assumption",
+            "heartbeat_limit": 20000
+          },
+          "response": {
+            "cached_heartbeats": 20000000,
+            "heartbeat_limit": 20000,
+            "heartbeat_origin": 24269473,
+            "id": 21,
+            "ok": false,
+            "protocol": "ul-closed-proof-v1",
+            "reason": "Tactic `assumption` failed\n\n\u22a2 \u2200 (P : Prop), P \u2192 P",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "status": "tactic_error",
+            "wall_ns": 265460
+          },
+          "parent_observed_wall_seconds": 0.0004529530015133787
+        },
+        {
+          "op": "drop",
+          "request": {
+            "state": 6
+          },
+          "response": {
+            "id": 22,
+            "ok": true,
+            "protocol": "ul-closed-proof-v1",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "status": "dropped"
+          },
+          "parent_observed_wall_seconds": 0.00011859900041599758
+        },
+        {
+          "op": "attempt",
+          "request": {
+            "state": 7,
+            "action": "intro_all",
+            "heartbeat_limit": 20000
+          },
+          "response": {
+            "cached_heartbeats": 20000000,
+            "goals": [
+              "P\u271d"
+            ],
+            "heartbeat_limit": 20000,
+            "heartbeat_origin": 24272074,
+            "id": 23,
+            "ok": true,
+            "protocol": "ul-closed-proof-v1",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "state": 8,
+            "status": "progress",
+            "wall_ns": 63326
+          },
+          "parent_observed_wall_seconds": 0.00022490999981528148
+        },
+        {
+          "op": "attempt",
+          "request": {
+            "state": 7,
+            "action": "all_assumption",
+            "heartbeat_limit": 20000
+          },
+          "response": {
+            "cached_heartbeats": 20000000,
+            "certificate": {
+              "axioms": [],
+              "proof": {
+                "nodes": [
+                  {
+                    "sort": {
+                      "zero": null
+                    }
+                  },
+                  {
+                    "bvar": 0
+                  },
+                  {
+                    "lam": {
+                      "bi": "default",
+                      "body": 1,
+                      "name": {
+                        "num": [
+                          {
+                            "str": [
+                              {
+                                "num": [
+                                  {
+                                    "str": [
+                                      {
+                                        "str": [
+                                          {
+                                            "str": [
+                                              null,
+                                              "a"
+                                            ]
+                                          },
+                                          "_@"
+                                        ]
+                                      },
+                                      "_internal"
+                                    ]
+                                  },
+                                  0
+                                ]
+                              },
+                              "_hyg"
+                            ]
+                          },
+                          28
+                        ]
+                      },
+                      "type": 1
+                    }
+                  },
+                  {
+                    "lam": {
+                      "bi": "default",
+                      "body": 2,
+                      "name": {
+                        "num": [
+                          {
+                            "str": [
+                              {
+                                "str": [
+                                  {
+                                    "str": [
+                                      null,
+                                      "P"
+                                    ]
+                                  },
+                                  "_@"
+                                ]
+                              },
+                              "_hyg"
+                            ]
+                          },
+                          27
+                        ]
+                      },
+                      "type": 0
+                    }
+                  }
+                ],
+                "root": 3,
+                "schema": "ul-expr-dag-v1"
+              },
+              "schema": "ul-closed-proof-certificate-v2",
+              "task": "logic_identity",
+              "type": {
+                "const": {
+                  "str": [
+                    {
+                      "str": [
+                        {
+                          "str": [
+                            null,
+                            "ClosedProof"
+                          ]
+                        },
+                        "Tasks"
+                      ]
+                    },
+                    "logic_identity"
+                  ]
+                },
+                "levels": []
+              }
+            },
+            "goals": [],
+            "heartbeat_limit": 20000,
+            "heartbeat_origin": 24272609,
+            "id": 24,
+            "ok": true,
+            "protocol": "ul-closed-proof-v1",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "status": "closed",
+            "wall_ns": 93992
+          },
+          "parent_observed_wall_seconds": 0.00035509599911165424
+        },
+        {
+          "op": "verify",
+          "request": {
+            "task": "logic_identity",
+            "certificate": {
+              "axioms": [],
+              "proof": {
+                "nodes": [
+                  {
+                    "sort": {
+                      "zero": null
+                    }
+                  },
+                  {
+                    "bvar": 0
+                  },
+                  {
+                    "lam": {
+                      "bi": "default",
+                      "body": 1,
+                      "name": {
+                        "num": [
+                          {
+                            "str": [
+                              {
+                                "num": [
+                                  {
+                                    "str": [
+                                      {
+                                        "str": [
+                                          {
+                                            "str": [
+                                              null,
+                                              "a"
+                                            ]
+                                          },
+                                          "_@"
+                                        ]
+                                      },
+                                      "_internal"
+                                    ]
+                                  },
+                                  0
+                                ]
+                              },
+                              "_hyg"
+                            ]
+                          },
+                          28
+                        ]
+                      },
+                      "type": 1
+                    }
+                  },
+                  {
+                    "lam": {
+                      "bi": "default",
+                      "body": 2,
+                      "name": {
+                        "num": [
+                          {
+                            "str": [
+                              {
+                                "str": [
+                                  {
+                                    "str": [
+                                      null,
+                                      "P"
+                                    ]
+                                  },
+                                  "_@"
+                                ]
+                              },
+                              "_hyg"
+                            ]
+                          },
+                          27
+                        ]
+                      },
+                      "type": 0
+                    }
+                  }
+                ],
+                "root": 3,
+                "schema": "ul-expr-dag-v1"
+              },
+              "schema": "ul-closed-proof-certificate-v2",
+              "task": "logic_identity",
+              "type": {
+                "const": {
+                  "str": [
+                    {
+                      "str": [
+                        {
+                          "str": [
+                            null,
+                            "ClosedProof"
+                          ]
+                        },
+                        "Tasks"
+                      ]
+                    },
+                    "logic_identity"
+                  ]
+                },
+                "levels": []
+              }
+            }
+          },
+          "response": {
+            "axioms": [],
+            "id": 25,
+            "ok": true,
+            "protocol": "ul-closed-proof-v1",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "status": "accepted"
+          },
+          "parent_observed_wall_seconds": 0.00027276099717710167
+        },
+        {
+          "op": "drop",
+          "request": {
+            "state": 7
+          },
+          "response": {
+            "id": 26,
+            "ok": true,
+            "protocol": "ul-closed-proof-v1",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "status": "dropped"
+          },
+          "parent_observed_wall_seconds": 0.0001094250001187902
+        },
+        {
+          "op": "drop",
+          "request": {
+            "state": 8
+          },
+          "response": {
+            "id": 27,
+            "ok": true,
+            "protocol": "ul-closed-proof-v1",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "status": "dropped"
+          },
+          "parent_observed_wall_seconds": 9.819800106924959e-05
+        }
+      ],
+      "parent_observed_wall_seconds": 0.002381242000410566,
+      "cost_boundary": "Search budget bounds admission and individual requests, including expanded-parent release and final verify. Advertised state/request capacity is checked before admission, reserving verify, live-handle cleanup and shutdown requests. Cleanup is separately bounded at 0.1 seconds per retained handle and included in this solve elapsed. Request/native action times are nested; worker startup/whole CPU are separate receipts.",
+      "training_eligible": false,
+      "scope": "Fixed deterministic local search; no learned routing or generalization evidence."
+    },
+    {
+      "task": "logic_identity",
+      "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+      "status": "resource_exhausted",
+      "termination_reason": "request_capacity",
+      "cleanup_complete": true,
+      "cleanup_status": "complete",
+      "unreleased_states": [],
+      "resources_after_cleanup": {
+        "worker_active_state_count": 0,
+        "worker_remaining_requests": 3,
+        "unreleased_states_meaning": "Search-owned handles whose drop was not confirmed; a terminated worker may already have freed their storage."
+      },
+      "solved": false,
+      "certificate": null,
+      "path": [],
+      "attempted_actions": 0,
+      "nodes": [
+        {
+          "state": 9,
+          "parent": null,
+          "action": null,
+          "depth": 0
+        }
+      ],
+      "journal": [
+        {
+          "op": "open",
+          "request": {
+            "task": "logic_identity"
+          },
+          "response": {
+            "goals": [
+              "\u2200 (P : Prop), P \u2192 P"
+            ],
+            "id": 28,
+            "ok": true,
+            "protocol": "ul-closed-proof-v1",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "state": 9,
+            "status": "opened",
+            "task": "logic_identity"
+          },
+          "parent_observed_wall_seconds": 0.00038967799991951324
+        },
+        {
+          "op": "search",
+          "response": {
+            "ok": false,
+            "status": "resource_exhausted",
+            "error": "_ResourceExhausted",
+            "reason": "request_capacity"
+          }
+        },
+        {
+          "op": "drop",
+          "request": {
+            "state": 9
+          },
+          "response": {
+            "id": 29,
+            "ok": true,
+            "protocol": "ul-closed-proof-v1",
+            "session": "d0f2f2e60bda4218a47cfa582e8f9b05",
+            "status": "dropped"
+          },
+          "parent_observed_wall_seconds": 0.00014266600192058831
+        }
+      ],
+      "parent_observed_wall_seconds": 0.0005561090001720004,
+      "cost_boundary": "Search budget bounds admission and individual requests, including expanded-parent release and final verify. Advertised state/request capacity is checked before admission, reserving verify, live-handle cleanup and shutdown requests. Cleanup is separately bounded at 0.1 seconds per retained handle and included in this solve elapsed. Request/native action times are nested; worker startup/whole CPU are separate receipts.",
+      "training_eligible": false,
+      "scope": "Fixed deterministic local search; no learned routing or generalization evidence."
+    }
+  ],
+  "accepted_searches": 3,
+  "stop_reason": "request_capacity",
+  "remaining_before_shutdown": 3,
+  "cleanup_complete": true,
+  "fresh_recheck": {
+    "axioms": [],
+    "id": 1,
+    "ok": true,
+    "protocol": "ul-closed-proof-v1",
+    "session": "6135ba24ea394435ba5dd11f800591b2",
+    "status": "accepted"
+  }
+}

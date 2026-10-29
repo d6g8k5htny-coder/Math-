@@ -1,0 +1,18 @@
+UniversalLaw.P15Closure.paletteNumberAttained {X : Type} [Fintype X] (F : RealizedData X) : PaletteNumberAttained F
+'UniversalLaw.P15Closure.paletteNumberAttained' depends on axioms: [propext, Classical.choice, Quot.sound]
+UniversalLaw.P15Closure.fullBlockCover_of_paletteNumber_le {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X)
+  (hF : IsRealizedFamily F) {K : ℕ} (hK : paletteNumber F.b F.H F.d ≤ K) : IsGeneratorCover F K (fullBlockFamily F)
+'UniversalLaw.P15Closure.fullBlockCover_of_paletteNumber_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+UniversalLaw.P15Closure.fullBlockCoverIff {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) :
+  FullBlockCoverIff F
+'UniversalLaw.P15Closure.fullBlockCoverIff' depends on axioms: [propext, Classical.choice, Quot.sound]
+UniversalLaw.P15Closure.exists_capacity_coloring {X : Type} [Fintype X] [DecidableEq X] (S : Finset X) {K a : ℕ}
+  (P : Finset (Fin K)) (h : S.card ≤ a * P.card) : ∃ f, (∀ (x : ↥S), f x ∈ P) ∧ ∀ (j : Fin K), {x | f x = j}.card ≤ a
+'UniversalLaw.P15Closure.exists_capacity_coloring' depends on axioms: [propext, Classical.choice, Quot.sound]
+UniversalLaw.P15Closure.decomposable_of_palette {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) {K : ℕ}
+  (hP : IsPaletteFeasible F.b F.H F.d K) (U : Finset X) (hU : ∀ (i : Fin F.b), (U ∩ block F i).card ≤ F.a i * F.d i) :
+  IsKDecomposable F K U
+'UniversalLaw.P15Closure.decomposable_of_palette' depends on axioms: [propext, Classical.choice, Quot.sound]
+UniversalLaw.P15Closure.fullBlockCover_of_palette_feasible {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X)
+  (hF : IsRealizedFamily F) {K : ℕ} (hP : IsPaletteFeasible F.b F.H F.d K) : IsGeneratorCover F K (fullBlockFamily F)
+'UniversalLaw.P15Closure.fullBlockCover_of_palette_feasible' depends on axioms: [propext, Classical.choice, Quot.sound]

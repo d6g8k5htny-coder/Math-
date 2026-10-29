@@ -1,0 +1,8 @@
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:69:31: warning: `if_false` has been deprecated: Use `ite_false` instead
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:101:41: warning: This simp argument is unused:
+  C
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [d, hwi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

@@ -1,0 +1,58 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-B",
+    "-O",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "pid": 91855,
+  "started_unix_ns": 1793306224840822099,
+  "returncode": 0,
+  "timed_out": false,
+  "output_limit_exceeded": false,
+  "succeeded": true,
+  "failure": null,
+  "wall_seconds": 26.546828278998873,
+  "process_tree": {
+    "supervisor_pid": 91854,
+    "leader_pid": 91855,
+    "returncode": 0,
+    "cleanup_complete": true,
+    "unexpected_descendants": false,
+    "termination_signal": null,
+    "observed_pids": [
+      91855,
+      91885
+    ],
+    "terminated_pids": [],
+    "reaped_pids": [
+      91855,
+      91885
+    ],
+    "survivors": [],
+    "failure": null,
+    "boundary": "Owned ordinary descendants including setsid/double-fork; not a sandbox against same-UID attacks or unkillable kernel tasks.",
+    "supervisor_forced_exit": false
+  },
+  "wait4": {
+    "user_seconds": 23.038768,
+    "system_seconds": 2.373569,
+    "max_rss_kib": 24880
+  },
+  "streams": {
+    "stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stderr.txt": {
+      "bytes": 15961,
+      "sha256": "1ebb37bf11d1af7ab4f31b02907bf548d433f667549174177ce1009495571550"
+    }
+  },
+  "cost_boundary": "One wait4 observation of the supervisor including its reaped subtree and startup; nested receipts must not be added again. Caller parent CPU/startup is outside this receipt. Incomplete cleanup is never success."
+}

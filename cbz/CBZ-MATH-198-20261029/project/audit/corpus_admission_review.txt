@@ -1,0 +1,162 @@
+CORPUS ADMISSION -- SEPARATE OFFLINE ENGINEERING REVIEW
+2026-10-29 UTC; reviewer /root/corpus_fresh_review
+
+Scope: integration/corpus_admission/admission.py, fixture_builder.py,
+run_verification.py, tests/test_admission.py, policy/fixture documents, denylist,
+README and notes/corpus_admission.txt. This review concerns a future-dataset
+integrity/policy tool. It is not a new kernel proof, scientific corpus review,
+historical exposure investigation, or authorization to train. No native Lean
+process, network action, subagent or old sealed-package edit was used. The
+reviewer owns/writes only this report; temporary fixtures are discarded.
+
+FINAL ASSESSMENT
+
+No unresolved critical/important code finding remains in this bounded offline
+scope at the source hashes below. One important schema finding and malformed-
+input robustness findings were reproduced and sent promptly to root and the
+author, fixed by the author, and independently rechecked. The actual eligible
+representative learning-corpus requirement remains open.
+
+Reviewed SHA256:
+admission.py
+  4d967ef9f588e873d5bd55a3baaebec021b911302f9e28241b7f2e275a66d279
+fixture_builder.py
+  17bb06fa1b5079555c682ac349a0c1e34ff61f21d3b508ecb926265c7b34c818
+run_verification.py
+  eca8032a7e7f7a2e162fb53fba6fe06e5933558273ab2fcf7eef40752db97a3e
+tests/test_admission.py
+  ac42b5d1f469057af06dc2daa84a4da85b5879f1810651a1213279a22d65f525
+README.txt
+  ade9afd3fe00fc4598e9c5055774ef839384574d26de1cc609b0c78350ee5954
+
+FINDING 1 -- IMPORTANT, FIXED: MALFORMED OPTIONAL RECEIPT BOOLEANS ADMIT
+
+The initial receipt guards use source_exposed is not True and
+training_eligible/discovery_eligible is not False. In disposable synthetic
+fixtures, repinning the changed receipt and separately pinned operator policy
+still yields policy_admitted_fixture with each of:
+  source_exposed = 1
+  source_exposed = "true"
+  training_eligible = 0
+  training_eligible = null
+  discovery_eligible = 0
+The saved-document trust model does not excuse accepting invalid representations
+of defined policy fields. Validate their type when present, then apply the
+exposure/ineligibility gate. This does not forge a kernel receipt or turn any
+scientific/training flag true; it violates the default-deny schema boundary.
+Omission compatibility can remain explicit because independent provenance and
+attestation documents already require literal source_exposed:false.
+
+The fix recursively validates all recognized present Boolean metadata as exact
+bool in parsed documents and canonicalized identities, before semantic guards.
+Optional omission retains the explicit compatibility above. Invalid present
+0/1/0.0/1.0/null/string/list/object values now deny; literal booleans retain their
+correct exposure/eligibility semantics. This also protects other recognized
+Boolean metadata from Python's False==0/True==1 aliases.
+
+FINDING 2 -- MALFORMED-INPUT ROBUSTNESS, FIXED
+
+A dataset containing a 5000-digit JSON integer, well below the 8MiB limit,
+raises uncaught ValueError from Python's integer conversion limit rather than
+returning a denied report. A record family containing escaped lone surrogate
+U+D800 raises uncaught UnicodeEncodeError during canonical identity encoding.
+Both cause CLI traceback/absent JSON instead of a structured refusal; neither
+produces an eligible result. An otherwise unused dataset field 1e10000 becomes
+Python inf and admits: parse_constant rejects literal NaN/Infinity but does not
+check exponent overflow. These observations were sent with the schema finding.
+
+The fix bounds integer tokens to 4300 digits, rejects nonfinite float conversion,
+recursively validates UTF-8 scalar/key encoding and finite numeric values, uses
+allow_nan=False in canonical JSON, and converts ValueError/UnicodeError into
+typed denial. Embedded-NUL artifact paths reject before filesystem operations.
+Fresh regression controls reproduce each original issue and now pass.
+
+CONTROLS THAT PASSED IN THE INITIAL REVIEW
+
+The existing 36 regressions pass in normal and optimized Python:
+  python -B -m unittest discover -s tests -v
+  python -B -O -m unittest discover -s tests -v
+Independent disposable-fixture controls additionally confirm missing provenance
+reference/file, missing receipt, tampered provenance, false/numeric kernel
+checking fields, numeric checked insertion, false exact-target match,
+float metavariable count, bool free-variable count and fixture/candidate mode
+mismatch deny. A dataset-level duplicate refusal removes every surviving
+positive row-level admission label. Counts use type(...) is int, so False and
+0.0 cannot stand in for zero free variables/metavariables.
+
+Existing meaningful regressions check missing attestations and exposure review,
+untrusted reviewer, incomplete disclosure, byte-tampered receipt, exact target
+binding, forbidden axioms, root closure, immutable identities, duplicates,
+frozen family maps and cross-split family overlap, traversal, symlink evidence,
+duplicate JSON keys and absent/changed independent operator policy pin.
+
+The blocked_evidence.json bytes match the hardcoded verifier SHA256
+9b4ea3af111abbad2184f4fba3c19511b0d9b1d6f34164b4392d2bc28dc169bb.
+Its catalog capture SHA matches integration/engine_audit/catalog.json:
+cd3bea9a89ac9d7b27d03f38c59a46917c533120a9107c19440a490d512577b5.
+All 49 target names, endpoint IDs and theorem names exactly match that catalog.
+All 62 distinct statement/specification-source/proof-source hashes are included.
+Both historical trace export hashes independently match the saved local bytes.
+Known target renaming cannot hide an included source/proof/statement hash;
+P15 namespace and recognized historical/open-context/self-local markers also
+deny. These are finite integrity/exclusion controls, not proof that every
+undisclosed rewritten derivative can be recognized automatically.
+
+POLICY / SCIENTIFIC BOUNDARY
+
+The mandatory independent policy SHA256 is the external trust anchor; evidence
+references bind the exact artifact, target, source, proof, runtime and baseline
+to saved receipt, provenance and review bytes. A proposal's claimed_eligible
+field grants no authority. Replacing the policy and supplying its new expected
+hash is an external operator trust decision. The tool does not authenticate
+reviewer honesty or establish a historical non-exposure fact from self-asserted
+documents. README/docstrings/notes describe that limit explicitly.
+
+Content identity, trusted attestation family equality, permitted splits, frozen
+family map and cross-split checks enforce disclosed family separation. They
+cannot discover dishonest family relabeling or undisclosed previous campaigns.
+Reusing the frozen map across future campaigns remains an operator duty.
+
+The positive fixtures contain synthetic source/proof text and self-authored
+receipt/review JSON, not Lean proofs or actual scientific attestations. Their
+positive label is policy_admitted_fixture. Fixture/candidate policy modes cannot
+mix. scientific_corpus_established, kernel_executed and
+actual_training_authorized are always literal false in verifier output. The
+absence of an actual eligible representative dataset is a separate open project
+requirement, not a missing feature in this documented-policy verifier. The 49
+known proofs, historical blocked traces and positive fixtures remain ineligible
+as actual training corpus evidence.
+
+FINAL FIX RETEST AND EVIDENCE FRESHNESS
+
+A disposable copy of the final integration/corpus_admission package, excluding
+historical evidence, ran the full normal and optimized commands above. Both
+returned 0 with 44 tests and OK. Copied/live reviewed source hashes agreed and
+the live hashes remained unchanged throughout independent execution.
+Captured stderr SHA256:
+  normal    ffd16549ac04e3edb84e2b2e9df84fcbe0969e6802ab756ebe4fdf487376b021
+  optimized af88374fd790eee2a26047bfc37c86587f41148395424fbb9fe7c94c931a71e9
+Both test stdout streams were empty. These are offline Python observations,
+not kernel, search-performance, scientific independence or learning evidence.
+
+An independent 37-control matrix in disposable fixtures checked each optional
+receipt exposure/eligibility field against 0,1,0.0,1.0,null,"true","false",[],{},
+and literal false/true. Every malformed type denied; valid booleans admitted or
+denied according to their documented meaning. Further controls checked NUL and
+absolute proof paths, a symlinked parent evidence directory, and missing
+provenance. All 37 matched the expected result, with scientific/kernel/training
+flags remaining exact false. Temporary copies and fixtures were deleted.
+
+evidence/run04/results.json records PASS, 44 tests per mode, six launches,
+unchanged inputs and matching positive/duplicate-denial CLI JSON across modes.
+Independent readback confirms its source-inventory digest; all 21 current source
+hashes and frozen_sources hashes; all six receipt/summary pairs; and every
+retained stdout/stderr SHA256. The retained review_red.txt records 26 failures
+and 2 errors across 42 test methods against the saved pre-fix code. Final tests
+add NUL-path and output-type controls. Source snapshots and RED/GREEN evidence
+describe synthetic policy behavior, never a newly eligible theorem corpus.
+
+The same independent integrity check passes the retained run03 inventory,
+frozen sources, six receipt summaries and stream hashes. It remains historical
+36-test evidence for the pre-fix implementation; notes now explicitly identify
+run04 as final and preserve run03 rather than silently rewriting it.

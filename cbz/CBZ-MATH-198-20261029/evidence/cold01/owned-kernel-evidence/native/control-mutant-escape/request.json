@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/workspace/CBZ_RUNTIME_COLD/lean-4.34.1/bin/lean",
+    "-j1",
+    "-M11000",
+    "-DElab.async=false",
+    "-DautoImplicit=false",
+    "--root=/workspace/CBZ_COLD_EVIDENCE/math198-cold01/owned-kernel-evidence/generated",
+    "-o",
+    "/workspace/CBZ_COLD_EVIDENCE/math198-cold01/owned-kernel-evidence/generated-cache/OwnedKernelAuditMutation/Control.olean",
+    "/workspace/CBZ_COLD_EVIDENCE/math198-cold01/owned-kernel-evidence/generated/OwnedKernelAuditMutation/Control.lean"
+  ],
+  "cwd": "/workspace/CBZ_COLD/Math-198-source01/cbz/CBZ-MATH-198-20261029/project",
+  "output": "/workspace/CBZ_COLD_EVIDENCE/math198-cold01/owned-kernel-evidence/native/control-mutant-escape",
+  "parent_pid": 92266,
+  "started_unix_ns": 1793306465393332337,
+  "cleanup_seconds": 2.0
+}

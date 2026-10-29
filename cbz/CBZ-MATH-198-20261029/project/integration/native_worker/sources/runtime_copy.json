@@ -1,0 +1,13 @@
+{
+  "schema": "ul-pinned-runtime-derivative-v2",
+  "upstream_source": "/workspace/scratch/universal-law-closed-proof-engine/ul_engine/runtime.py",
+  "upstream_runtime_sha256": "16546c2e6bc386981de4a2b2ffd6538dc2f6786eaf1bb1e5b79d149a8f109213",
+  "current_runtime_sha256": "b8a0ad1044d0f6ca3cf5a67912c8e391ae90f65881b1ffeeedaa78e7497d0f6c",
+  "inventory_sha256": "cb879c50c6bff15b952d96616f836e4b3ead7b169f150c0aa00819add48e890f",
+  "historical_source_snapshot": "sources/session04_controller/integration/native_worker/pinned_runtime.py",
+  "historical_snapshot_record": "sources/session04_controller.json",
+  "changes": [
+    "Removed unused RuntimeConfig.worker factory importing absent relative .worker; current session constructs audited new transport directly."
+  ],
+  "unchanged_boundary": "Executable SHA256, Mathlib commit/toolchain, worker sources, build manifest and compiled-output identity checks remain required."
+}

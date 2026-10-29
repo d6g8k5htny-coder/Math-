@@ -1,0 +1,20 @@
+/workspace/scratch/universal-law-project-closure/formal/General/Overlap.lean:26:0: warning: automatically included section variable(s) unused in theorem `UniversalLaw.General.restrictionMass_reindex`:
+  [Fintype X]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype X] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/scratch/universal-law-project-closure/formal/General/Overlap.lean:46:0: warning: automatically included section variable(s) unused in theorem `UniversalLaw.General.reindexedRestriction_isProper`:
+  [Fintype X]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype X] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/scratch/universal-law-project-closure/formal/General/Overlap.lean:62:2: error: No goals to be solved
+/workspace/scratch/universal-law-project-closure/formal/General/Overlap.lean:57:0: warning: automatically included section variable(s) unused in theorem `UniversalLaw.General.genPrice_reindex`:
+  [Fintype X]
+  [DecidableEq X]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype X] [DecidableEq X] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`

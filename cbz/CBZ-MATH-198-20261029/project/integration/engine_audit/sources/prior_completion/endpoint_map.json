@@ -1,0 +1,397 @@
+{
+  "schema": "ul-p15-completion-endpoint-map-v1",
+  "endpoints": [
+    {
+      "target": "UniversalLaw.Spec.P15.PaletteNumberAttained",
+      "theorem": "UniversalLaw.P15Closure.paletteNumberAttained",
+      "statement_header": "def PaletteNumberAttained {X : Type} [Fintype X] (F : RealizedData X) : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Closure/PaletteCover.lean",
+      "line": 175
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.MinimalForbiddenCharacterisation",
+      "theorem": "UniversalLaw.P15Completion.minimalForbiddenCharacterisation",
+      "statement_header": "def MinimalForbiddenCharacterisation {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Completion/Structural.lean",
+      "line": 189
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.LocalRestriction",
+      "theorem": "UniversalLaw.P15Closure.localRestriction",
+      "statement_header": "def LocalRestriction {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Closure/LocalRatio.lean",
+      "line": 11
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.LocalDecomposability",
+      "theorem": "UniversalLaw.P15Completion.localDecomposability",
+      "statement_header": "def LocalDecomposability {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Completion/Structural.lean",
+      "line": 11
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.LocalObstructionIsFullBlock",
+      "theorem": "UniversalLaw.P15Completion.localObstructionIsFullBlock",
+      "statement_header": "def LocalObstructionIsFullBlock {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Completion/Structural.lean",
+      "line": 61
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.LocalPriceChain",
+      "theorem": "UniversalLaw.P15Closure.localPriceChain",
+      "statement_header": "def LocalPriceChain {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Closure/LocalRatio.lean",
+      "line": 176
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.IndependentBlockHazard",
+      "theorem": "UniversalLaw.P15Closure.independentBlockHazard",
+      "statement_header": "def IndependentBlockHazard {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Closure/ProductMass.lean",
+      "line": 281
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.FullBlockCoverIff",
+      "theorem": "UniversalLaw.P15Closure.fullBlockCoverIff",
+      "statement_header": "def FullBlockCoverIff {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Closure/PaletteCover.lean",
+      "line": 275
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.CoverCostHazardBound",
+      "theorem": "UniversalLaw.P15Closure.coverCostHazardBound",
+      "statement_header": "def CoverCostHazardBound {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Closure/Assembly.lean",
+      "line": 122
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.WholeGroundChromaticNumber",
+      "theorem": "UniversalLaw.P15Completion.wholeGroundChromaticNumber",
+      "statement_header": "def WholeGroundChromaticNumber {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Completion/Structural.lean",
+      "line": 122
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.ElementaryPaletteFormula",
+      "theorem": "UniversalLaw.P15Completion.elementaryPaletteFormula",
+      "statement_header": "def ElementaryPaletteFormula : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Completion/PaletteFormula.lean",
+      "line": 176
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.TriangleNeedsThree",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.triangleNeedsThree",
+      "statement_header": "def TriangleNeedsThree : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/SpecificationProofs/P15Elementary.lean",
+      "line": 757
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.Benchmark816IsRealized",
+      "theorem": "UniversalLaw.P15Completion.benchmark816IsRealized",
+      "statement_header": "def Benchmark816IsRealized : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Completion/Benchmark.lean",
+      "line": 25
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.Benchmark816Palette",
+      "theorem": "UniversalLaw.P15Completion.benchmark816Palette",
+      "statement_header": "def Benchmark816Palette : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Completion/Benchmark.lean",
+      "line": 39
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.Benchmark816Cover",
+      "theorem": "UniversalLaw.P15Completion.benchmark816Cover",
+      "statement_header": "def Benchmark816Cover : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Completion/Benchmark.lean",
+      "line": 52
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.Benchmark816WholeGround",
+      "theorem": "UniversalLaw.P15Completion.benchmark816WholeGround",
+      "statement_header": "def Benchmark816WholeGround : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Completion/Benchmark.lean",
+      "line": 63
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.Benchmark816MinimalForbiddenCounts",
+      "theorem": "UniversalLaw.P15Completion.benchmark816MinimalForbiddenCounts",
+      "statement_header": "def Benchmark816MinimalForbiddenCounts : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Completion/Benchmark.lean",
+      "line": 339
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.Benchmark816Price",
+      "theorem": "UniversalLaw.P15Completion.benchmark816Price",
+      "statement_header": "def Benchmark816Price : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Completion/BenchmarkPrices.lean",
+      "line": 109
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.Benchmark816UnionBound",
+      "theorem": "UniversalLaw.P15Completion.benchmark816UnionBound",
+      "statement_header": "def Benchmark816UnionBound : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Completion/BenchmarkUnion.lean",
+      "line": 101
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.TwoCoordGeneratorPrices",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.twoCoordGeneratorPrices",
+      "statement_header": "def TwoCoordGeneratorPrices : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/SpecificationProofs/P15Elementary.lean",
+      "line": 361
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.DemandOneRefutation",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.demandOneRefutation",
+      "statement_header": "def DemandOneRefutation : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/SpecificationProofs/P15Elementary.lean",
+      "line": 391
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.LogOnePlusBelowIdentity",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.logOnePlusBelowIdentity",
+      "statement_header": "def LogOnePlusBelowIdentity : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/SpecificationProofs/P15Elementary.lean",
+      "line": 373
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.LogRatioBound",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.logRatioBound",
+      "statement_header": "def LogRatioBound : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/SpecificationProofs/P15Elementary.lean",
+      "line": 474
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.RatioExponentBound",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.ratioExponentBound",
+      "statement_header": "def RatioExponentBound : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/SpecificationProofs/P15Elementary.lean",
+      "line": 511
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.RestrictedLocalBudget",
+      "theorem": "UniversalLaw.P15Closure.restrictedLocalBudget",
+      "statement_header": "def RestrictedLocalBudget {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Closure/LocalRatio.lean",
+      "line": 154
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.RestrictedTransformedPriceBudget",
+      "theorem": "UniversalLaw.P15Closure.restrictedTransformedPriceBudget",
+      "statement_header": "def RestrictedTransformedPriceBudget {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Closure/Assembly.lean",
+      "line": 95
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.RhoTestSufficient",
+      "theorem": "UniversalLaw.P15Closure.rhoTestSufficient",
+      "statement_header": "def RhoTestSufficient {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Closure/LocalRatio.lean",
+      "line": 145
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.CapTestAtTwoThirds",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.capTestAtTwoThirds",
+      "statement_header": "def CapTestAtTwoThirds : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/SpecificationProofs/P15Elementary.lean",
+      "line": 488
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.Benchmark816TransformedRange",
+      "theorem": "UniversalLaw.P15Completion.benchmark816TransformedRange",
+      "statement_header": "def Benchmark816TransformedRange : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Completion/BenchmarkPrices.lean",
+      "line": 113
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.Benchmark816RationalPrice",
+      "theorem": "UniversalLaw.P15Completion.benchmark816RationalPrice",
+      "statement_header": "def Benchmark816RationalPrice : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Completion/BenchmarkPrices.lean",
+      "line": 126
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.FullTransformedPriceBudget",
+      "theorem": "UniversalLaw.P15Closure.fullTransformedPriceBudget",
+      "statement_header": "def FullTransformedPriceBudget {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Closure/Assembly.lean",
+      "line": 117
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.RhoStarEnclosure",
+      "theorem": "UniversalLaw.P15Completion.rhoStarEnclosure",
+      "statement_header": "def RhoStarEnclosure : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Completion/Numerics.lean",
+      "line": 44
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.RhoStarBelowSixSevenths",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.rhoStarBelowSixSevenths",
+      "statement_header": "def RhoStarBelowSixSevenths : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/SpecificationProofs/P15Elementary.lean",
+      "line": 533
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.HazardStarPositive",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.hazardStarPositive",
+      "statement_header": "def HazardStarPositive : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/SpecificationProofs/P15Elementary.lean",
+      "line": 582
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.CoordinatewiseConcavity",
+      "theorem": "UniversalLaw.P15Closure.coordinatewiseConcavity",
+      "statement_header": "def CoordinatewiseConcavity : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Closure/HazardInterpolation.lean",
+      "line": 185
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.HazardProductBound",
+      "theorem": "UniversalLaw.P15Closure.hazardProductBound",
+      "statement_header": "def HazardProductBound : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Closure/HazardInterpolation.lean",
+      "line": 211
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.HazardPhiBound",
+      "theorem": "UniversalLaw.P15Closure.hazardPhiBound",
+      "statement_header": "def HazardPhiBound : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Closure/HazardInterpolation.lean",
+      "line": 219
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.FullGroundPriceBound",
+      "theorem": "UniversalLaw.P15Closure.fullGroundPriceBound",
+      "statement_header": "def FullGroundPriceBound : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Closure/HazardInterpolation.lean",
+      "line": 237
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.PhiAtPStar",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.phiAtPStar",
+      "statement_header": "def PhiAtPStar : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/SpecificationProofs/P15Elementary.lean",
+      "line": 566
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.FullGroundBudgetIff",
+      "theorem": "UniversalLaw.P15Closure.fullGroundBudgetIff",
+      "statement_header": "def FullGroundBudgetIff : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Closure/HazardInterpolation.lean",
+      "line": 257
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.CapacityHazardIsBinomial",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.capacityHazardIsBinomial",
+      "statement_header": "def CapacityHazardIsBinomial : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/SpecificationProofs/P15Elementary.lean",
+      "line": 990
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.OddMajorityIdentity",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.oddMajorityIdentity",
+      "statement_header": "def OddMajorityIdentity : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/SpecificationProofs/P15Elementary.lean",
+      "line": 626
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.CapacityWorstCase",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.capacityWorstCase",
+      "statement_header": "def CapacityWorstCase : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/SpecificationProofs/P15Elementary.lean",
+      "line": 680
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.HStarExceedsOne",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.hStarExceedsOne",
+      "statement_header": "def HStarExceedsOne : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/SpecificationProofs/P15Elementary.lean",
+      "line": 553
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.LocalPriceBoundFull",
+      "theorem": "UniversalLaw.P15Closure.localPriceBoundFull",
+      "statement_header": "def LocalPriceBoundFull {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Closure/Assembly.lean",
+      "line": 113
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.GlobalAssemblyHazard",
+      "theorem": "UniversalLaw.P15Closure.globalAssemblyHazard",
+      "statement_header": "def GlobalAssemblyHazard {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/Closure/ProductMass.lean",
+      "line": 318
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.SharpnessOfRhoStar",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.sharpnessOfRhoStar",
+      "statement_header": "def SharpnessOfRhoStar : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/SpecificationProofs/P15Elementary.lean",
+      "line": 1009
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.DemandOneBoundary",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.demandOneBoundary",
+      "statement_header": "def DemandOneBoundary : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/SpecificationProofs/P15Elementary.lean",
+      "line": 715
+    },
+    {
+      "target": "UniversalLaw.Spec.P15.SixSeventhsCertificate",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.sixSeventhsCertificate",
+      "statement_header": "def SixSeventhsCertificate : Prop",
+      "status": "closed_fresh_kernel_verified",
+      "source": "formal/SpecificationProofs/P15Elementary.lean",
+      "line": 541
+    }
+  ]
+}

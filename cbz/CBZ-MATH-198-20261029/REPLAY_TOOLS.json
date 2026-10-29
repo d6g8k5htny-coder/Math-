@@ -1,0 +1,14 @@
+{
+  "files": {
+    "tests/test_contribution_gate.py": "641bbf05b164d629cb683411066b704a2119f6d89f7d1ef352c01d5af9ca24d4",
+    "tests/test_contribution_gate_inventory.py": "79944f12ee47b5350859434183674da0f54ccbb7a53f24a5a5fd8851d9f1fd1b",
+    "tests/test_contribution_gate_review.py": "85c876fab70ef540eb08f87361305234b3845182be2a0c4788649e658d017a26",
+    "tests/test_layer_a_audit.py": "27af9e80d1276c6de21f74696a6e894ba80f63c58d3856204bd2b21402e26b63",
+    "tools/contribution_gate.py": "cace0daa785c8344cf5cde923b1a143d9d164bcabdcec472956eba8d474b2481",
+    "tools/layer_a_audit.py": "34529e46ca8d339813dd83e1fad625d3347e5477271200f31f4596e59dceafe2",
+    "tools/process_supervisor.py": "43e3c749d6945ea64a2c6ceaec13094553fc018af644ebf5d93b799d9ab18c5a",
+    "tools/recorded_process.py": "ef2eb81b3ffbe0accb8e9cc83f709462896e7f779e50af05ae58448046dc312d"
+  },
+  "schema": "cbz-public-replay-tool-copy-v1",
+  "scope": "Verified quiescent replay/scanner tools and target tests; kernel auditor files are delivered separately after their actual controls pass."
+}

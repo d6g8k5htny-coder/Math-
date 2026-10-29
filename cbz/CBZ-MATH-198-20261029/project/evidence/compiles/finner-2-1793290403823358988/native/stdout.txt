@@ -1,0 +1,29 @@
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:59:16: error(lean.unknownIdentifier): Unknown identifier `mul_le_mul_left'`
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:62:14: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ x ∈ ?m.458, ∑ y ∈ ?m.459, ?m.460 x y
+in the target expression
+  1 - ∑ i, w i + ∑ x, q x * ∑ i, w i * (f i x / d i) = 1 - ∑ i, w i + ∑ i, w i
+
+I Ω : Type
+inst✝¹ : Fintype I
+inst✝ : Fintype Ω
+q : Ω → ℝ≥0
+hq : ∑ a, q a = 1
+w : I → ℝ≥0
+hw : ∑ i, w i ≤ 1
+f : I → Ω → ℝ≥0
+m : I → ℝ≥0 := fun i => ∑ a, q a * f i a
+hz : ¬∃ i, w i ≠ 0 ∧ m i = 0
+hgood : ∀ (i : I), w i ≠ 0 → m i ≠ 0
+d : I → ℝ≥0 := fun i => if w i = 0 then 1 else m i
+hd : ∀ (i : I), d i ≠ 0
+C : ℝ≥0 := ∏ i, d i ^ ↑(w i)
+⊢ 1 - ∑ i, w i + ∑ x, q x * ∑ i, w i * (f i x / d i) = 1 - ∑ i, w i + ∑ i, w i
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:91:19: error(lean.unknownIdentifier): Unknown identifier `mul_le_mul_left'`
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:96:41: warning: This simp argument is unused:
+  C
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [d, hwi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

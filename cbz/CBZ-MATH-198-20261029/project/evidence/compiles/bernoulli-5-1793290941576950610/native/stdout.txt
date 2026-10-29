@@ -1,0 +1,38 @@
+/workspace/scratch/universal-law-project-closure/formal/General/BernoulliFinner.lean:14:8: warning: automatically included section variable(s) unused in theorem `UniversalLaw.General.mem_selectedFinset`:
+  [DecidableEq X]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq X] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/scratch/universal-law-project-closure/formal/General/BernoulliFinner.lean:31:8: warning: automatically included section variable(s) unused in theorem `UniversalLaw.General.coe_bernoulliWeights`:
+  [Fintype X]
+  [DecidableEq X]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype X] [DecidableEq X] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/scratch/universal-law-project-closure/formal/General/BernoulliFinner.lean:171:4: error: Type mismatch: After simplification, term
+  hload x
+ has type
+  (∑ i, if x ∈ S i then lam i else 0) ≤ 1
+but is expected to have type
+  ∑ i, ↑(if x ∈ S i then ⟨lam i, ⋯⟩ else 0) ≤ 1
+/workspace/scratch/universal-law-project-closure/formal/General/BernoulliFinner.lean:177:63: error: Function expected at
+  zero_le
+but this term has type
+  0 ≤ ?m.176
+
+Note: Expected a function because this term is being applied to the argument
+  _
+/workspace/scratch/universal-law-project-closure/formal/General/BernoulliFinner.lean:182:2: error: Type mismatch: After simplification, term
+  hreal
+ has type
+  @LE.le ℝ Real.instLE (muOf D p) (∏ x, restrictionMass D p (S x) ^ ↑⟨lam x, ⋯⟩)
+but is expected to have type
+  @LE.le ℝ Real.instLE (muOf D p) (∏ i, restrictionMass D p (S i) ^ lam i)
+'UniversalLaw.General.bernoulli_tensor_good' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.General.bernoulli_tensor_restriction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.General.muOf_le_prod_restrictionMass_rpow' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

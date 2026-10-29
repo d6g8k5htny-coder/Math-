@@ -1,0 +1,336 @@
+GENERAL PROOF AND ENDPOINT SOURCE REVIEW -- 2026-10-29 UTC
+Reviewer: /root/general_fresh_review, OpenAI/Codex, same OpenAI model family
+as the authors. Separate source-exposed technical/engineering read; no scientific
+independence, external mathematical acceptance, novelty or prize credit.
+
+ASSESSMENT: no unresolved critical/important finding in the reviewed source
+hashes. Both important findings below are corrected and independently rechecked.
+Final02's complete fresh build and198 body/type/axiom audit rows were read back
+against current sources, frozen sources, receipts, streams and output hashes.
+The acceptance and scientific-review limits below remain explicit.
+
+Scope and method
+
+Read DESIGN.txt, PLAN.txt, every General/*.lean source and its notes, the exact
+original P15-B, the prior completion's handwritten unrestricted_gap.txt (in
+particular its witness-load theorem in section3), recovered unrestricted primary
+source passages and registers, and Integration/EndpointTasks.lean. Reviewed
+definitions, quantifier order, theorem hypotheses, the mathematical proof route,
+support dependence, actual masses, logarithm branches and zero/empty cases.
+Successful compilation alone was not used as evidence of source alignment.
+No native Lean or worker process was launched by this reviewer, following the
+shared16GiB serial-worker instruction. Only this report is edited by this agent.
+
+The original18 supporting modules match both provenance.json and the sealed
+parent's actual bytes. The original49 endpoint proofs are therefore unchanged.
+This report does not reopen their complete historical source-alignment review.
+
+IMPORTANT FINDING1 -- FIXED: LOCAL OBSTRUCTIONS USED THE WRONG GROUND
+
+Initial Amalgamation.lean SHA256:
+0424d6abb04bfd285210f1de47cdb9539536917973ec0a32850f312563d8863e.
+Initial Probability.lean SHA256:
+d30fa016ae1a0000220f3d1f5727355e31dff76e63058d60a84e77fc4a72fed9.
+Initial Threshold.lean SHA256:
+ea98c5ea5ef57c1a2438e97061325dabe7a1b13042cf46a2ccdf256e1651f501.
+
+The old local premise was
+  generatorCover (localFamily D blk i) (k i) (G i),
+where localFamily is D.filter(sets contained in block i), while generatorCover
+quantifies ALL U:Finset X. The source's local obstruction instead quantifies
+subsets of X_i. Any singleton outside block i fails the old decomposability
+predicate. With supported generators, covering that singleton forces the empty
+generator into G_i. Thus all proper blocks acquired a price-one requirement;
+ordinary empty/cheap local covers from the original source were excluded.
+
+Concrete example: X={0,1}, two singleton blocks, D=2^X, k_i=1. Each source local
+obstruction is empty and G_i=empty is valid with price0 and local mass1. The old
+ambient local predicate rejects both empty covers: its spurious obstructions
+on block0 are {1},{0,1}, and on block1 are {0},{0,1}. Independently enumerated
+this example with Python's standard library; no native proof run was used.
+The issue also affects the old PalettePriceCertificate and B4 wrappers.
+
+This is a hypothesis/source-interface defect, not an unsound kernel proof.
+The old theorem was valid under a stronger premise that lost the intended
+local certificate capability. It prevents claiming exact B1/B4 source closure.
+Root accepted the finding and added localGeneratorCover, restricting U to the
+block; the dependent authors are to use it and add a nonvacuous regression.
+
+Post-fix source recheck: Definitions.localGeneratorCover now explicitly tests
+only U subset block blk i. Both Amalgamation hlocal binders, both Probability
+palette wrappers and Threshold.PalettePriceCertificate use this predicate.
+The sole B1 invocation supplies Finset.inter_subset_right for U intersect block.
+Reviewed both actual new theorem bodies:
+  UniversalLaw.General.LocalGroundRegression.twoBlock_emptyLocalCover
+  UniversalLaw.General.LocalGroundRegression.ambientLocalCover_fails.
+The first assembles the empty global cover via corrected B1 on two DISTINCT
+nonempty singleton blocks with empty local covers and price0. The second proves
+the old ambient predicate rejects that same valid local empty cover using{1}
+outside block0. This is a meaningful positive/negative interface regression.
+Read actual successful receipts and source snapshots, rather than relying on
+author messages:
+  amalg-5-1793291607053600416, SHA256
+    be688c3e02005e253439c7c4704418fcfca6c7feab757ce41cf85661a73e1980
+  prob-5-1793291626908760688, SHA256
+    6e95119c24b4b31ce2cd638eb19e8636d10592992b2a1770f02db05e6a8d181e
+  threshold-3-1793291637955802366, SHA256
+    f963cbca672c81ac3566486a17a971fafdc657382403c0ec5a1075134f311b38.
+Each receipt reports returncode0, succeeded:true, unchanged source; the latter
+two print only the standard permitted axiom trio. Their source bytes match
+the corrected files. New notes clearly retain the earlier wrong-ground
+interfaces as exploratory history. Finding1 is resolved at this source and
+individual-module receipt level; full fresh-cache audit is a separate check.
+
+IMPORTANT FINDING2 -- FIXED: GENERATED AUDIT LOST A NESTED NAMESPACE
+
+The first new General.FinalAudit.lean's198-name list used
+  UniversalLaw.General.twoBlock_emptyLocalCover
+  UniversalLaw.General.ambientLocalCover_fails
+but the actual regression declarations have LocalGroundRegression between
+General and the theorem name. This would cause the final body/type audit to fail
+closed with Missing theorem, and prevents final acceptance. Root was notified
+as soon as the audit source became available, before its last native module.
+An independent namespace-aware source inventory finds96public General
+theorems; these are the ONLY two incorrect/missing audit names. No missing
+mathematical proof or axiom bypass is implicated. The generator/list and
+corresponding audit_targets must be corrected together; failed frozen evidence
+must be retained unchanged rather than patched retrospectively.
+
+Post-fix source recheck: all96 public General declarations now exactly match
+the96 General audit entries under an independent namespace-aware source walk.
+All198 final audit names are unique and ordered exactly as audit_targets.json.
+Corrected General.FinalAudit.lean SHA256:
+  ac1d5c767db83b1018122ec3f0489165237547ce56c6c3fd88f2c40350ea8dd5.
+Root deliberately interrupted the first campaign; evidence/final01/results.json
+reports FAILED, with14 completed records through General.Overlap. The next
+14-General.BernoulliFinner/receipt.json separately records returncode-9,
+KeyboardInterrupt, succeeded:false, wait4 CPU/RSS and streams. Its failure cost
+is retained. Independently rehashed all29 original frozen source snapshots:
+none changed. The old frozen audit remains594c44b04d65d4fe0e074442b65d767c49d6a4cb26e8d1e84708ee16dbdb0eb4;
+it was not patched after execution. The correction and failed-campaign boundary
+are also recorded in audit/audit_name_correction.txt. Root started final02 as
+a complete new fresh campaign; final acceptance will use only that campaign.
+
+Other mathematical source observations
+
+1. Safety and palette iff
+The erase-based minimalBad definition is equivalent to inclusion minimality
+under decreasing. The strict-subset lemma supplies exactly the necessity proof:
+a crossing minimal bad e has each block fragment proper and good; its common
+palette color gives the bad constant-colored class. Sufficiency extracts a
+minimal bad subset of a bad color class and handles the single-block and
+crossing cases separately. paletteSeparated quantifies every minimal witness,
+not a sample. Total f:X->Fin K causes no loss versus source partial colorings:
+for positive K they extend, and K=0 makes both separation and color conclusions
+vacuous in exactly the relevant way. Empty ground, block index or color index
+cases introduce no mathematical exception. No separate error was found.
+
+2. Amalgamation apart from finding1
+The proof chooses actual decompositions separately for U intersect block i,
+injects positive local labels into actual integer palettes, and constructs
+allowed local color classes as subsets of chosen good parts. The global
+color-class family is disjoint and has union U, so the safety iff applies.
+The proof only needs the local-cover hypothesis on U intersect block i; the
+proposed restricted-domain correction fits the proof and original source.
+Support remains explicit in the source wrapper; it is redundant for the
+stronger safety helper because a used generator already lies in that block.
+
+3. Actual probability and capped budgets
+localMass sums blockWeight over subsets of the actual block; it does not
+mistake ambient muOf(localFamily) for the restricted-coordinate law. The dummy
+RealizedData carries only partition coordinates and invokes algebraic finite
+identities that do not assume capacity validity. Downward closure gives global
+goodness => all block restrictions good. The product identity uses disjoint
+coordinate blocks, with no independence assertion about crossing witnesses.
+Positive global mass implies positive local masses before ordinary logarithms
+are taken. Local masses are in[0,1]; zero local mass forces zero global mass;
+empty blocks have local mass1. Probability endpoints p_v=0 or1 are included.
+The family-price union inequality correctly deduplicates generators and keeps
+zero-price members. The actual cover realizing the cap is supplied explicitly:
+use the given cover on its small-hazard branch, or {empty} at price1. The
+coverCost argument proves the lower-bounded infimum premise. c_v<=phi(p_v)
+is unnecessary for the transfer after the same-price local budget itself has
+been supplied; the wrapper retains nonnegative prices and actual hprice.
+No further defect was found beyond the local-cover domain in finding1.
+
+4. Finite Holder/Finner and Bernoulli integration
+The weighted Holder proof assigns residual weight to the constant1. Its
+positive-weight zero-mean case kills every positive-mass integrand term;
+zero weights instead use denominator1. Thus zero means and weights are covered
+without a hidden strict-positivity assumption. The coordinate step charges
+only supports incident to that original coordinate and pulls other factors
+out as constants. Iterating uses preserved declared supports; support erasure
+and tensorAverage invariance then identify complete averaging with the actual
+finite independent-coordinate expectation. Repeated integrations are harmless
+under normalization. No independence of overlapping factor events is assumed.
+
+The Boolean/subset equivalence is bijective, the outcome weights equal the
+existing specification's product weight, and the restriction indicator depends
+only on its actual original-coordinate support. restrictionMass_eq_ambient
+integrates away outside coordinates via a disjoint two-block decomposition;
+this is even a signed polynomial identity before probability-validity premises.
+Global good indicators are pointwise bounded by the product of powered local
+good indicators, and the exact masses replace the tensor means after Finner.
+The real-power conversions preserve zero exponent/zero mean conventions.
+Empty support, empty factor type, empty ground, repeated supports, overlapping
+supports and p_v endpoints are permitted by the actual statements. No further
+mathematical or representation defect was found in this chain.
+
+5. Overlap interpolation and maximum witness load
+Each witness is enumerated on Fin(card g); actual local mass, price and proper
+downset status are transported along that same embedding. A nonempty forbidden
+g has strictly positive reference hazard at pStar. On positive global mass,
+all witness masses are positive before the log/rational calculation is used.
+The reciprocal-hazard load normalization gives precisely the coordinate
+fractional-load bound needed by Finner, with weights1/(L H_g). The subsequent
+logarithm identity gives sum h_g/H_g <= L h(D), and interpolation bounds the
+actual family price. The canonical maximum includes0, is positive/attained
+for valid nonempty G, and supplies its own normalization. G=empty has load0
+and an actual zero-price empty cover; no positive-load division is performed.
+At global mass0 the capped endpoint uses the price-one empty generator.
+
+maximumWitnessLoad_budget has no remaining analytic/Finner premise. It STILL
+requires explicit setwise generatorCover D K G, forbidden nonempty witnesses,
+valid original probabilities, and c_v in[0,phi(p_v)]. The canonical load is
+data-dependent and is not a universally bounded constant. Neither coverage nor
+universal certificate existence is inferred from price control. The statement
+faithfully formalizes the prior handwritten conditional witness-load route;
+no unrestricted-prize or clique-subclass theorem follows merely from this
+generic endpoint. No further error was found.
+
+6. Modern target, historical target and reductions
+Independently checked these primary bytes:
+  inputs/P15-B_PALETTE_SEPARATED_LOCALIZATION.md
+    SHA2569b18b6e9abc90d18deef06ab12e3aa7794dad40e1618d99daa88e369c300e8c3
+  recovered_unrestricted/arxiv_source/Main_document.tex
+    SHA256d806181bc63bd8161c5daa5c98ee01aa494dafda135dbdefcd4f35f8cc9b9530
+  recovered_unrestricted/talagrand_prizes_small.pdf
+    SHA25639ef06d9ef9b7bece8efbad25751671dec9b6db12896f3bd6f32128e587536a5
+The TeX Definition1.1/Conjecture1.2 gives unions of k good sets, scalar p in(0,1),
+mass>=1-1/(2k), source price(p/L)^card, and universal k,L before the instance.
+Talagrand Definition5.5/Conjecture7.1 instead uses arbitrary A and sets not
+SUBSETS of any union of q members, with no price dilution and mass>=1-1/q.
+ThresholdStatement/ModernThresholdConjecture and PrizeStatement/Historical-
+PrizeConjecture preserve those distinctions and quantifier order as Prop
+definitions; they are not universal theorem assertions. Full decreasing
+families are harmless extra trivial cases. Positive high mass supplies empty
+membership to the source's downward-closed convention, as proved explicitly.
+
+The disjointification proof equates project partitions with overlapping exact
+unions for decreasing D. Intersecting covered parts with U also gives union
+coverability equivalence. These equivalences include k=0. The downward hull
+increases product mass and preserves coverability by q members, so the proved
+historical arbitrary-class/downset equivalence at q>=2 has the same q/prices.
+It does not prove modern/historical constant conversion. The high-mass cap
+estimate uses a positive-mass lower bound and log inequality, never log0 as an
+infinite real value. The palette-to-threshold implication explicitly retains
+the actual certificate premise; finding1 concerns that certificate's initial
+local-domain transcription, not the source target itself. No further issue
+was found in these definitions or reductions.
+
+7. Original49 endpoint task wrappers
+Integration/EndpointTasks.lean SHA256:
+b91952f9a92bef73b64ebfdecee07e976083e0570bd84b3d63fd3e36d73f6054.
+Independent parsing counted49 distinct target definitions and49 reuse theorems.
+Their name set exactly matches catalog.json's original target set. Each target
+is the exact UniversalLaw.Spec.P15 target; instance-dependent targets are
+universally closed over X, instances and RealizedData F. Each proof references
+the exact theorem named in that catalog, with F where applicable. The added
+DecidableEq instances do not remove finite instances. No new mathematical
+result, generalized structural certificate or training eligibility is supplied
+by these source-exposed reuse wrappers. Native task integration and kernel
+acceptance remain separate checks. No wrapper source defect was found.
+
+Final fresh body/type/axiom evidence readback
+
+Reviewed the actual General.FinalAudit command. For each selected theorem it
+requires theorem-info, rejects free/metavariables and loose bound variables in
+both type/body, runs Kernel.check on the stored body, checks its inferred type
+against the declared type with Kernel.isDefEq, and asks checked addDeclCore to
+validate the full declaration with its universe parameters. Inspected the pinned
+Lean4.34.1 API: the final true argument is doCheck=true. Transitive axiom
+collection rejects anything outside propext, Classical.choice and Quot.sound.
+The result is body/type checking, not only accepting a constant by its name.
+
+An independent standard-library readback verified evidence/final02/results.json:
+  status PASS;29 modules;29 successful native child receipts;
+  29 current production sources == their original freeze hashes;
+  29 frozen source snapshots == those same hashes;
+  all receipt fields match their actual per-child receipt files;
+  every child returncode0, succeeded:true, no timeout/output overflow;
+  actual stdout/stderr lengths and SHA256 match every receipt;
+  all29 compiled output hashes match the saved result;
+  all198 ordered audit rows exactly equal audit_targets.json with no duplicates;
+  every row is closed|kernel|declaration with only permitted transitive axioms;
+  final stdout contains P15_AUDIT_COMPLETE|198.
+The198 rows consist of53 prior theorem endpoints/helpers (the original49 packet
+endpoints plus4 extras),96 public General proofs including both regressions,
+and49 original-endpoint reuse wrappers. The exact corrected regression names,
+paletteSafety_iff, paletteSeparated_budget, the Bernoulli Finner bound,
+maximumWitnessLoad_budget and the threshold/historical reductions are included.
+
+Read the actual rebuild implementation: it refuses a nonempty build directory,
+freezes sources before compiling, checks source drift after execution, pins the
+Lean executable and Mathlib commit, and sets LEAN_PATH to the new build plus
+the pinned dependencies/libraries. Saved final02 LEAN_PATH includes neither the
+old project cache nor build/explore. Native commands use frozen sources, -j1,
+-M11000, Elab.async=false and autoImplicit=false. The previous failed campaign
+is excluded from acceptance. Final02 replays the complete reachable DAG.
+
+Evidence hashes at readback:
+  evidence/final02/results.json
+    51cf6973b4c83862fc16f5630d9a916b2a76bc85238f56a952874876b0414355
+  evidence/final02/28-General.FinalAudit/stdout.txt
+    5fdae0964c8c9e42525df2e65d3b16e0e651402ba23040a05f9c58023994fd73
+
+Final reviewed source SHA256 values:
+  General/Definitions.lean
+    9979999a24efd3e8e6fe8d5b7e1e0da9d5f957570b7f2e580868a2f3ea15f465
+  General/Safety.lean
+    8160c140b4276d2dd893b679ff9a3bac6012cf6b0e20a08524d7879b483d0700
+  General/Amalgamation.lean
+    be688c3e02005e253439c7c4704418fcfca6c7feab757ce41cf85661a73e1980
+  General/Probability.lean
+    6e95119c24b4b31ce2cd638eb19e8636d10592992b2a1770f02db05e6a8d181e
+  General/Finner.lean
+    9c5a3c158d2ba1a93fa3d4d9df3775d61db4220fb5a270bb125ffd2af9582e74
+  General/FinnerBridge.lean
+    4bf0f6e35c9aa45277a0e7c61339368ee2d4e438b8d357704a533163e36b67fb
+  General/BernoulliFinner.lean
+    2e8e6fff3b405563e052d61bd927945b9bcd75a0b94c7f981103fe4ace2763b6
+  General/Overlap.lean
+    78be9c0ac55223bf5baa479fbc5c3f551cc4e5e7d7fa630857643792e441072b
+  General/WitnessLoad.lean
+    8c7d6a5d71e7596f321bdb185400b34d1e73c2116bcee4714e1f44865a20af40
+  General/Threshold.lean
+    f963cbca672c81ac3566486a17a971fafdc657382403c0ec5a1075134f311b38
+  General/FinalAudit.lean
+    ac1d5c767db83b1018122ec3f0489165237547ce56c6c3fd88f2c40350ea8dd5
+  Integration/EndpointTasks.lean
+    b91952f9a92bef73b64ebfdecee07e976083e0570bd84b3d63fd3e36d73f6054
+
+These observations verify the saved fresh execution evidence. This reviewer
+did not independently launch Lean; root ran the new campaign under the shared
+native lock. The pinned external Lean/shared libraries and precompiled Mathlib
+cache remain trusted; no full dependency-source rebuild is claimed. Native
+worker task behavior, corpus admissibility and final artifact sealing are
+separate engineering checks outside this mathematical-source review.
+
+Scientific acceptance boundary
+
+Read recovered current_project/AGENTS.md, main_project/AGENTS.md and the
+25October review-family decision. That decision explicitly permits same-family
+technical reads but requires another model family for qualifying scientific
+proof/source/alignment review. This separate same-family review can identify
+and help repair defects; it does not satisfy that external scientific-review
+predicate or change a register. No source of universal bounded palettes/covers,
+unrestricted conjecture proof, historical novelty or independently accepted
+scientific result was found or asserted here.
+
+Primary source URLs:
+https://arxiv.org/src/2608.11183v1
+https://michel.talagrand.net/prizes/small.pdf
+Canonical recovered handoff links:
+https://github.com/d6g8k5htny-coder/main/blob/4ef1867175dbe1072a54a02e95f80c4e2c70a4ff/governance/OWNER_MANDATE_20261015.md
+https://github.com/d6g8k5htny-coder/main/blob/4ef1867175dbe1072a54a02e95f80c4e2c70a4ff/governance/OP-AUTONOMY-20260923-v2.1.md
+https://github.com/d6g8k5htny-coder/main/blob/4ef1867175dbe1072a54a02e95f80c4e2c70a4ff/governance/OWNER_DECISION_20261025_REVIEW_FAMILIES.md

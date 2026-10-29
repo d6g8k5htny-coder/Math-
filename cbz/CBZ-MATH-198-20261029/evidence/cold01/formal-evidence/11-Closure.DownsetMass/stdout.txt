@@ -1,0 +1,46 @@
+/workspace/CBZ_COLD_EVIDENCE/math198-cold01/formal-evidence/frozen_sources/Closure/DownsetMass.lean:41:51: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+/workspace/CBZ_COLD_EVIDENCE/math198-cold01/formal-evidence/frozen_sources/Closure/DownsetMass.lean:48:48: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+/workspace/CBZ_COLD_EVIDENCE/math198-cold01/formal-evidence/frozen_sources/Closure/DownsetMass.lean:132:15: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/workspace/CBZ_COLD_EVIDENCE/math198-cold01/formal-evidence/frozen_sources/Closure/DownsetMass.lean:149:16: warning: This simp argument is unused:
+  Function.update_of_ne hj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [u, hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+UniversalLaw.P15Closure.coordinateWeight_nonneg {Y : Type} [Fintype Y] [DecidableEq Y] (p : Y → ℝ)
+  (hp : ∀ (i : Y), 0 ≤ p i ∧ p i ≤ 1) (i : Y) (U : Finset Y) : 0 ≤ coordinateWeight p i U
+UniversalLaw.P15Closure.coordinateWeight_erase {Y : Type} [Fintype Y] [DecidableEq Y] (p : Y → ℝ) (i : Y)
+  (U : Finset Y) : coordinateWeight p i (U.erase i) = coordinateWeight p i U
+UniversalLaw.P15Closure.weight_update_coordinate {Y : Type} [Fintype Y] [DecidableEq Y] (p : Y → ℝ) (i : Y) (s : ℝ)
+  (U : Finset Y) : weight (Function.update p i s) U = (if i ∈ U then s else 1 - s) * coordinateWeight p i U
+UniversalLaw.P15Closure.coordinate_sections_order {Y : Type} [Fintype Y] [DecidableEq Y] (A : Finset (Finset Y))
+  (hdown : ∀ U ∈ A, ∀ V ⊆ U, V ∈ A) (p : Y → ℝ) (hp : ∀ (i : Y), 0 ≤ p i ∧ p i ≤ 1) (i : Y) :
+  ∑ U ∈ A with i ∈ U, coordinateWeight p i U ≤ ∑ U ∈ A with i ∉ U, coordinateWeight p i U
+UniversalLaw.P15Closure.muOf_update_affine {Y : Type} [Fintype Y] [DecidableEq Y] (A : Finset (Finset Y)) (p : Y → ℝ)
+  (i : Y) (s : ℝ) :
+  muOf A (Function.update p i s) =
+    s * ∑ U ∈ A with i ∈ U, coordinateWeight p i U + (1 - s) * ∑ U ∈ A with i ∉ U, coordinateWeight p i U
+UniversalLaw.P15Closure.muOf_update_endpoints {Y : Type} [Fintype Y] [DecidableEq Y] (A : Finset (Finset Y)) (p : Y → ℝ)
+  (i : Y) (s : ℝ) :
+  muOf A (Function.update p i s) = (1 - s) * muOf A (Function.update p i 0) + s * muOf A (Function.update p i 1)
+UniversalLaw.P15Closure.muOf_update_one_le_zero {Y : Type} [Fintype Y] [DecidableEq Y] (A : Finset (Finset Y))
+  (hdown : ∀ U ∈ A, ∀ V ⊆ U, V ∈ A) (p : Y → ℝ) (hp : ∀ (i : Y), 0 ≤ p i ∧ p i ≤ 1) (i : Y) :
+  muOf A (Function.update p i 1) ≤ muOf A (Function.update p i 0)
+UniversalLaw.P15Closure.muOf_update_antitone {Y : Type} [Fintype Y] [DecidableEq Y] (A : Finset (Finset Y))
+  (hdown : ∀ U ∈ A, ∀ V ⊆ U, V ∈ A) (p : Y → ℝ) (hp : ∀ (i : Y), 0 ≤ p i ∧ p i ≤ 1) (i : Y) (s t : ℝ) (hst : s ≤ t) :
+  muOf A (Function.update p i t) ≤ muOf A (Function.update p i s)
+UniversalLaw.P15Closure.muOf_antitone {Y : Type} [Fintype Y] [DecidableEq Y] (A : Finset (Finset Y))
+  (hdown : ∀ U ∈ A, ∀ V ⊆ U, V ∈ A) (p q : Y → ℝ) (hp : ∀ (i : Y), 0 ≤ p i ∧ p i ≤ 1)
+  (hq : ∀ (i : Y), 0 ≤ q i ∧ q i ≤ 1) (hpq : ∀ (i : Y), p i ≤ q i) : muOf A q ≤ muOf A p
+'UniversalLaw.P15Closure.coordinateWeight_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.coordinateWeight_erase' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.weight_update_coordinate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.coordinate_sections_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.muOf_update_affine' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.muOf_update_endpoints' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.muOf_update_one_le_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.muOf_update_antitone' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.muOf_antitone' depends on axioms: [propext, Classical.choice, Quot.sound]

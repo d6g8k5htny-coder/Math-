@@ -1,0 +1,37 @@
+{
+  "command": [
+    "/workspace/CBZ_RUNTIME_COLD/lean-4.34.1/bin/lean",
+    "-j1",
+    "-M11000",
+    "-DElab.async=false",
+    "-DautoImplicit=false",
+    "--root=/workspace/CBZ_COLD_EVIDENCE/math198-cold01/formal-evidence/frozen_sources",
+    "-o",
+    "/workspace/CBZ_COLD_EVIDENCE/math198-cold01-build/formal/Completion/BenchmarkPrices.olean",
+    "/workspace/CBZ_COLD_EVIDENCE/math198-cold01/formal-evidence/frozen_sources/Completion/BenchmarkPrices.lean"
+  ],
+  "pid": 92228,
+  "started_unix_ns": 1793306389035943447,
+  "returncode": 0,
+  "timed_out": false,
+  "output_limit_exceeded": false,
+  "succeeded": true,
+  "failure": null,
+  "wall_seconds": 4.622815857997921,
+  "wait4": {
+    "user_seconds": 3.624073,
+    "system_seconds": 0.9464319999999999,
+    "max_rss_kib": 6910272
+  },
+  "streams": {
+    "stdout.txt": {
+      "bytes": 1431,
+      "sha256": "531afb1aac34e8b5c3854ab9b6c7c27489b607eec0ccfee75e155e5ed229dc4d"
+    },
+    "stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+}

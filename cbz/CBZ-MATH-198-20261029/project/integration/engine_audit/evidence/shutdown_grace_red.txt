@@ -1,0 +1,81 @@
+test_acknowledged_delayed_exit_has_time_for_bounded_teardown (test_worker_resources.WorkerResourceTests.test_acknowledged_delayed_exit_has_time_for_bounded_teardown) ... FAIL
+test_larger_client_limit_cannot_hide_pinned_native_limit (test_worker_resources.WorkerResourceTests.test_larger_client_limit_cannot_hide_pinned_native_limit) ... ok
+test_session_resources_include_foreign_handles_and_actual_requests (test_worker_resources.WorkerResourceTests.test_session_resources_include_foreign_handles_and_actual_requests) ... ok
+test_shutdown_grace_rejects_nonfinite_or_unbounded_values (test_worker_resources.WorkerResourceTests.test_shutdown_grace_rejects_nonfinite_or_unbounded_values) ... 
+  test_shutdown_grace_rejects_nonfinite_or_unbounded_values (test_worker_resources.WorkerResourceTests.test_shutdown_grace_rejects_nonfinite_or_unbounded_values) (value=True) ... ERROR
+  test_shutdown_grace_rejects_nonfinite_or_unbounded_values (test_worker_resources.WorkerResourceTests.test_shutdown_grace_rejects_nonfinite_or_unbounded_values) (value=0) ... ERROR
+  test_shutdown_grace_rejects_nonfinite_or_unbounded_values (test_worker_resources.WorkerResourceTests.test_shutdown_grace_rejects_nonfinite_or_unbounded_values) (value=-1) ... ERROR
+  test_shutdown_grace_rejects_nonfinite_or_unbounded_values (test_worker_resources.WorkerResourceTests.test_shutdown_grace_rejects_nonfinite_or_unbounded_values) (value=6) ... ERROR
+  test_shutdown_grace_rejects_nonfinite_or_unbounded_values (test_worker_resources.WorkerResourceTests.test_shutdown_grace_rejects_nonfinite_or_unbounded_values) (value=inf) ... ERROR
+  test_shutdown_grace_rejects_nonfinite_or_unbounded_values (test_worker_resources.WorkerResourceTests.test_shutdown_grace_rejects_nonfinite_or_unbounded_values) (value=nan) ... ERROR
+test_stubborn_acknowledged_process_is_killed_after_configured_grace (test_worker_resources.WorkerResourceTests.test_stubborn_acknowledged_process_is_killed_after_configured_grace) ... ERROR
+
+======================================================================
+ERROR: test_shutdown_grace_rejects_nonfinite_or_unbounded_values (test_worker_resources.WorkerResourceTests.test_shutdown_grace_rejects_nonfinite_or_unbounded_values) (value=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/engine_audit/tests/test_worker_resources.py", line 63, in test_shutdown_grace_rejects_nonfinite_or_unbounded_values
+    LeanWorker([sys.executable, '-B', str(FAKE), 'normal'],
+TypeError: LeanWorker.__init__() got an unexpected keyword argument 'shutdown_grace'
+
+======================================================================
+ERROR: test_shutdown_grace_rejects_nonfinite_or_unbounded_values (test_worker_resources.WorkerResourceTests.test_shutdown_grace_rejects_nonfinite_or_unbounded_values) (value=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/engine_audit/tests/test_worker_resources.py", line 63, in test_shutdown_grace_rejects_nonfinite_or_unbounded_values
+    LeanWorker([sys.executable, '-B', str(FAKE), 'normal'],
+TypeError: LeanWorker.__init__() got an unexpected keyword argument 'shutdown_grace'
+
+======================================================================
+ERROR: test_shutdown_grace_rejects_nonfinite_or_unbounded_values (test_worker_resources.WorkerResourceTests.test_shutdown_grace_rejects_nonfinite_or_unbounded_values) (value=-1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/engine_audit/tests/test_worker_resources.py", line 63, in test_shutdown_grace_rejects_nonfinite_or_unbounded_values
+    LeanWorker([sys.executable, '-B', str(FAKE), 'normal'],
+TypeError: LeanWorker.__init__() got an unexpected keyword argument 'shutdown_grace'
+
+======================================================================
+ERROR: test_shutdown_grace_rejects_nonfinite_or_unbounded_values (test_worker_resources.WorkerResourceTests.test_shutdown_grace_rejects_nonfinite_or_unbounded_values) (value=6)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/engine_audit/tests/test_worker_resources.py", line 63, in test_shutdown_grace_rejects_nonfinite_or_unbounded_values
+    LeanWorker([sys.executable, '-B', str(FAKE), 'normal'],
+TypeError: LeanWorker.__init__() got an unexpected keyword argument 'shutdown_grace'
+
+======================================================================
+ERROR: test_shutdown_grace_rejects_nonfinite_or_unbounded_values (test_worker_resources.WorkerResourceTests.test_shutdown_grace_rejects_nonfinite_or_unbounded_values) (value=inf)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/engine_audit/tests/test_worker_resources.py", line 63, in test_shutdown_grace_rejects_nonfinite_or_unbounded_values
+    LeanWorker([sys.executable, '-B', str(FAKE), 'normal'],
+TypeError: LeanWorker.__init__() got an unexpected keyword argument 'shutdown_grace'
+
+======================================================================
+ERROR: test_shutdown_grace_rejects_nonfinite_or_unbounded_values (test_worker_resources.WorkerResourceTests.test_shutdown_grace_rejects_nonfinite_or_unbounded_values) (value=nan)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/engine_audit/tests/test_worker_resources.py", line 63, in test_shutdown_grace_rejects_nonfinite_or_unbounded_values
+    LeanWorker([sys.executable, '-B', str(FAKE), 'normal'],
+TypeError: LeanWorker.__init__() got an unexpected keyword argument 'shutdown_grace'
+
+======================================================================
+ERROR: test_stubborn_acknowledged_process_is_killed_after_configured_grace (test_worker_resources.WorkerResourceTests.test_stubborn_acknowledged_process_is_killed_after_configured_grace)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/engine_audit/tests/test_worker_resources.py", line 50, in test_stubborn_acknowledged_process_is_killed_after_configured_grace
+    with LeanWorker([sys.executable, '-B', str(FAKE), 'stubbornexit'],
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: LeanWorker.__init__() got an unexpected keyword argument 'shutdown_grace'
+
+======================================================================
+FAIL: test_acknowledged_delayed_exit_has_time_for_bounded_teardown (test_worker_resources.WorkerResourceTests.test_acknowledged_delayed_exit_has_time_for_bounded_teardown)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/engine_audit/tests/test_worker_resources.py", line 40, in test_acknowledged_delayed_exit_has_time_for_bounded_teardown
+    self.assertEqual(worker.process.returncode, 0)
+AssertionError: -9 != 0
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.375s
+
+FAILED (failures=1, errors=7)

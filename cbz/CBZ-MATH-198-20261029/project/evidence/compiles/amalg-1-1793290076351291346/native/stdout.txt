@@ -1,0 +1,9 @@
+/workspace/scratch/universal-law-project-closure/formal/General/Amalgamation.lean:41:22: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+/workspace/scratch/universal-law-project-closure/formal/General/Amalgamation.lean:60:8: error: Type mismatch: After simplification, term
+  hvcolor
+ has type
+  (emb (blk v)) (label (blk v) v) = j
+but is expected to have type
+  (emb i) (label i v) = j
+/workspace/scratch/universal-law-project-closure/formal/General/Amalgamation.lean:64:14: error(lean.unknownIdentifier): Unknown constant `Finset.eq_empty_iff_forall_not_mem.mpr`
+/workspace/scratch/universal-law-project-closure/formal/General/Amalgamation.lean:65:14: error: No goals to be solved

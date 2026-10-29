@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/workspace/CBZ_RUNTIME_COLD/lean-4.34.1/bin/lean",
+    "-j1",
+    "-M11000",
+    "-DElab.async=false",
+    "-DautoImplicit=false",
+    "--root=/workspace/CBZ_COLD_EVIDENCE/math198-cold01/native-build-evidence/frozen_sources",
+    "-o",
+    "/workspace/CBZ_COLD_EVIDENCE/math198-cold01-build/native/ExprCodec.olean",
+    "/workspace/CBZ_COLD_EVIDENCE/math198-cold01/native-build-evidence/frozen_sources/ExprCodec.lean"
+  ],
+  "pid": 92502,
+  "started_unix_ns": 1793306560786170800
+}

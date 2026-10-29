@@ -1,0 +1,168 @@
+{
+  "schema": "ul-native-endpoint-campaign-v1",
+  "status": "PASS",
+  "runtime_identities": {
+    "lean_executable": "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+    "lean_executable_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+    "mathlib_root": "/workspace/scratch/universal-law-toolchains/mathlib-d13f23b7",
+    "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "lean_toolchain": "leanprover/lean4:v4.34.1",
+    "sources_sha256": {
+      "lean/ClosedProofCore.lean": "142ff31338e84a21248ddb140f9a1b75efa6400cc178b023979eb7711d9855ff",
+      "lean/ClosedProofWorker.lean": "cbada87f056c4743088f23ae728b9cf5f70705f7faac587349107a4544201b31",
+      "lean/ExprCodec.lean": "e223abf84826291b48ac02eb8c1ffc04309ea4b412907f6b13b76d206b67b44b",
+      "lean/ExprDag.lean": "028e8eb4c5245259d2f4ce3fb151fd14cc2bd8dab56938be5663c405041ad0ed",
+      "lean/Integration/EndpointTasks.lean": "b91952f9a92bef73b64ebfdecee07e976083e0570bd84b3d63fd3e36d73f6054",
+      "lean/TrustedTasks.lean": "6702b6402301a72fac650d2ef6b2636f87a173a41bc85bbb099afa57ee17b687",
+      "lean/WorkerBootstrap.lean": "65ab4da0506c34ff72024ffb8191a1a0d1ee25763f224ee75d3976c393fdadf9"
+    },
+    "build_manifest_sha256": "86ad73a9787c9e544bcfcd4116c80ae19861e900cb7ced3ccbeec17e585ddf8c",
+    "compiled_outputs_sha256": {
+      "ClosedProofCore.olean": "72dee721c24bf4af5694bbc200b082be126a84d2b0a5628f47367d6e300e47ab",
+      "ClosedProofWorker.olean": "a5fb5ad580213ea0baef7d4a46a0ef7b83e1b18691b47140650e912b4a696d3c",
+      "ExprCodec.olean": "fae7ae96dd26282d84ee831fbe24077cf112f741e02160618e75bbab07f5f04c",
+      "ExprDag.olean": "82aea38cc7a7cee8f5323f05cdbea9adfd9a15677ed5f4d3459a43be8db1c11e",
+      "Integration/EndpointTasks.olean": "47ffba7cbe86cf738c2ce587d2335eb1d4e87c2cdf638981f74e6b2d27c5108c",
+      "TrustedTasks.olean": "c3d073fa8025822e3b753f4649de564251536828297a33218b412fedc25d6fbf"
+    },
+    "external_runtime_inventory_reference": {
+      "path": "/workspace/scratch/universal-law-closed-proof-engine/references/runtime/external_runtime_inventory.json",
+      "sha256": "cb879c50c6bff15b952d96616f836e4b3ead7b169f150c0aa00819add48e890f"
+    },
+    "trust_boundary": "Precompiled cache and shared libraries are external trusted artifacts; executable SHA does not bind shared libraries."
+  },
+  "controller_transport_sources_sha256": {
+    "integration/engine_audit/ul_engine/search.py": "39441ef24597d81c401b0ecbf6b78020d0a80d7f520d047917a0b5dd288eca09",
+    "integration/engine_audit/ul_engine/worker.py": "64c2e107b1a27c20ab65065954e79aff879fdf9f7375be11ad717ec67d9373fe",
+    "integration/native_worker/exec_guard.py": "b54c1cc455e00975126640d8ec6ceb8852787f84add9e8e1a12be9f1dc733e94",
+    "integration/native_worker/native.py": "17c09c2ee7b62d0f3998637a99de900ee89e252403d22c3cbbd887131cc579dc",
+    "integration/native_worker/prepare.py": "ab537a237e8326733cae51325f7326e02da91f0c8849572301ba1e0b4d26d16c",
+    "integration/native_worker/runtime_support.py": "98dea67cb77cdfcd6fc22ed9471203f5f024a17c6770bd51ea337ec0db884954",
+    "integration/native_worker/session.py": "51a16cd6ea5e8d949fd38e56664a8440c8d69c4f2c8ad4b633cff253c83a4758"
+  },
+  "source_exposed": true,
+  "training_eligible": false,
+  "native_guard_sha256": "b54c1cc455e00975126640d8ec6ceb8852787f84add9e8e1a12be9f1dc733e94",
+  "scope": "Actual fixed-macro proof reuse and fresh-worker structural certificate rechecks; not discovery, training or a speedup benchmark.",
+  "records": [
+    {
+      "mode": "produce",
+      "receipt": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "-B",
+          "/workspace/scratch/universal-law-project-closure/integration/native_worker/session.py",
+          "produce",
+          "--build-dir",
+          "/workspace/scratch/universal-law-project-closure/integration/native_worker/build/explore01",
+          "--output",
+          "/workspace/scratch/universal-law-project-closure/integration/native_worker/evidence/session01/produce"
+        ],
+        "pid": 3553,
+        "started_unix_ns": 1793291515120367492,
+        "returncode": 0,
+        "timed_out": false,
+        "output_limit_exceeded": false,
+        "succeeded": true,
+        "failure": null,
+        "wall_seconds": 6.983895212999869,
+        "wait4": {
+          "user_seconds": 4.880959,
+          "system_seconds": 2.076451,
+          "max_rss_kib": 9259768
+        },
+        "streams": {
+          "stdout.txt": {
+            "bytes": 38,
+            "sha256": "4be52978a6286586227398883af206f04432c693119bdd510280f378501011fd"
+          },
+          "stderr.txt": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        },
+        "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+      }
+    },
+    {
+      "mode": "recheck",
+      "receipt": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "-B",
+          "/workspace/scratch/universal-law-project-closure/integration/native_worker/session.py",
+          "recheck",
+          "--build-dir",
+          "/workspace/scratch/universal-law-project-closure/integration/native_worker/build/explore01",
+          "--output",
+          "/workspace/scratch/universal-law-project-closure/integration/native_worker/evidence/session01/recheck",
+          "--certificates",
+          "/workspace/scratch/universal-law-project-closure/integration/native_worker/evidence/session01/produce"
+        ],
+        "pid": 3567,
+        "started_unix_ns": 1793291522105203526,
+        "returncode": 0,
+        "timed_out": false,
+        "output_limit_exceeded": false,
+        "succeeded": true,
+        "failure": null,
+        "wall_seconds": 6.689333910999949,
+        "wait4": {
+          "user_seconds": 4.55961,
+          "system_seconds": 2.100713,
+          "max_rss_kib": 9266076
+        },
+        "streams": {
+          "stdout.txt": {
+            "bytes": 38,
+            "sha256": "531746087dd09d8534264342e483359be3fd5bf911a44c4d605e3aa97c6fc3ef"
+          },
+          "stderr.txt": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        },
+        "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+      }
+    },
+    {
+      "mode": "budget",
+      "receipt": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "-B",
+          "/workspace/scratch/universal-law-project-closure/integration/native_worker/session.py",
+          "budget",
+          "--build-dir",
+          "/workspace/scratch/universal-law-project-closure/integration/native_worker/build/explore01",
+          "--output",
+          "/workspace/scratch/universal-law-project-closure/integration/native_worker/evidence/session01/budget"
+        ],
+        "pid": 3580,
+        "started_unix_ns": 1793291528795385077,
+        "returncode": 0,
+        "timed_out": false,
+        "output_limit_exceeded": false,
+        "succeeded": true,
+        "failure": null,
+        "wall_seconds": 15.188475702999995,
+        "wait4": {
+          "user_seconds": 10.394105,
+          "system_seconds": 4.747336,
+          "max_rss_kib": 9264904
+        },
+        "streams": {
+          "stdout.txt": {
+            "bytes": 37,
+            "sha256": "aeb07f5d50e8de877aa28b27f34cd66b80c3fd3c690db7f6bfe36f24b9a1169d"
+          },
+          "stderr.txt": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        },
+        "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+      }
+    }
+  ]
+}

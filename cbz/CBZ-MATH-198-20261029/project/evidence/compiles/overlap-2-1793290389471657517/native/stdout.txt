@@ -1,0 +1,12 @@
+/workspace/scratch/universal-law-project-closure/formal/General/Overlap.lean:67:0: warning: automatically included section variable(s) unused in theorem `UniversalLaw.General.restrictionHazardStar_pos`:
+  [Fintype X]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype X] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/scratch/universal-law-project-closure/formal/General/Overlap.lean:81:0: warning: automatically included section variable(s) unused in theorem `UniversalLaw.General.restriction_fullGroundPriceBound`:
+  [Fintype X]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype X] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`

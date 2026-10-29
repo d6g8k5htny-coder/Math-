@@ -1,0 +1,37 @@
+{
+  "command": [
+    "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+    "-j1",
+    "-M11000",
+    "-DElab.async=false",
+    "-DautoImplicit=false",
+    "--root=/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources",
+    "-o",
+    "/workspace/scratch/universal-law-project-closure/build/final01/General/Definitions.olean",
+    "/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources/General/Definitions.lean"
+  ],
+  "pid": 3836,
+  "started_unix_ns": 1793291713249279642,
+  "returncode": 0,
+  "timed_out": false,
+  "output_limit_exceeded": false,
+  "succeeded": true,
+  "failure": null,
+  "wall_seconds": 3.4662078490000567,
+  "wait4": {
+    "user_seconds": 2.493861,
+    "system_seconds": 0.92912,
+    "max_rss_kib": 6866020
+  },
+  "streams": {
+    "stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+}

@@ -1,0 +1,12 @@
+/workspace/CBZ_COLD_EVIDENCE/math198-cold01/formal-evidence/frozen_sources/General/Safety.lean:22:0: warning: automatically included section variable(s) unused in theorem `UniversalLaw.General.minimalBad_nonempty`:
+  [Fintype X]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype X] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/CBZ_COLD_EVIDENCE/math198-cold01/formal-evidence/frozen_sources/General/Safety.lean:29:0: warning: automatically included section variable(s) unused in theorem `UniversalLaw.General.proper_subset_good_of_minimal`:
+  [Fintype X]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype X] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`

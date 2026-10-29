@@ -1,0 +1,15 @@
+UniversalLaw.P15Closure.coordinatewiseConcavity : CoordinatewiseConcavity
+UniversalLaw.P15Closure.hazardProductBound : HazardProductBound
+UniversalLaw.P15Closure.hazardPhiBound : HazardPhiBound
+UniversalLaw.P15Closure.fullGroundPriceBound : FullGroundPriceBound
+UniversalLaw.P15Closure.fullGroundBudgetIff : FullGroundBudgetIff
+'UniversalLaw.P15Closure.coordinatewiseConcavity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.hazardProductBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.hazardPhiBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.fullGroundPriceBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.fullGroundBudgetIff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.affine_exp_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.hasDerivAt_neg_log_affine_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.concaveOn_neg_log_affine_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.coordinate_chord' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.product_chord_of_coordinate_chord' depends on axioms: [propext, Classical.choice, Quot.sound]

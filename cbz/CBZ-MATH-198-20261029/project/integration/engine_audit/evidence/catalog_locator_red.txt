@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "<string>", line 4, in <module>
+  File "sources/development/catalog_locator_before_fix.py", line 135, in make_catalog
+    require(re.match(r'^theorem '+re.escape(theorem.rsplit('.', 1)[1])+r'\b',
+  File "sources/development/catalog_locator_before_fix.py", line 23, in require
+    raise ValueError(reason)
+ValueError: theorem source locator mismatch

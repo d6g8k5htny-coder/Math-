@@ -1,0 +1,29 @@
+{
+  "cost_boundary": {
+    "request_wall": "monotonic wall time per request, including nested action work",
+    "worker_wait4": "final whole-worker CPU and max RSS; do not add nested action time to worker wall"
+  },
+  "session": "ae4c5090944b47b694d1f6826bbf3011",
+  "reason": "closed",
+  "returncode": 0,
+  "worker_wall_seconds": 6.796204108999973,
+  "wait4": {
+    "user_seconds": 4.627354,
+    "system_seconds": 2.142825,
+    "max_rss_platform_units": 9265068
+  },
+  "stdout_bytes": 12161,
+  "stderr_bytes": 0,
+  "stdout_retained": 12161,
+  "stderr_retained": 0,
+  "stdout_retention": "tail",
+  "stderr_retention": "tail",
+  "stdout_truncated": false,
+  "stderr_truncated": false,
+  "stdout_discarded_bytes": 0,
+  "stderr_discarded_bytes": 0,
+  "shutdown_grace_seconds": 2.0,
+  "shutdown_acknowledged": true,
+  "forced_termination": false,
+  "teardown_wall_seconds": 0.5114540139998098
+}

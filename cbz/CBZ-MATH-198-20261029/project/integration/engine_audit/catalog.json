@@ -1,0 +1,1159 @@
+{
+  "schema": "ul-p15-endpoint-catalog-v1",
+  "version": 1,
+  "provenance": {
+    "prior_package": "universal-law-p15-completion",
+    "prior_manifest_sha256": "9ea8b07875b1cdd71bd8209a01739ca7da94a12b74f306875a4fbd2fc4d0aea9",
+    "original_endpoint_map_sha256": "12a1feffcfc25586768c38823180154dfda9e0cd668c3add724d409e5bc22b3c",
+    "saved_build_results_sha256": "0b64a5995e2b03015a42b92e0702e18927ed790a32158d484ef4afa6e1171e79",
+    "copied_formal_sources_sha256": {
+      "formal/Specifications/P15.lean": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "formal/SpecificationProofs/P15Elementary.lean": "d4d87bba1da9473cd3c5bda9c702ba4dd036de06085d5ad589f17988bf8695b1",
+      "formal/Closure/ProductMass.lean": "825b9f834f310ebfc972045291e4bb92d84f6c554647e061944a7822a27eb66d",
+      "formal/Closure/PaletteCover.lean": "bb52c327da3d419f165c66fd1a6c301a53cb4ef129b8d690b1be6b070abef621",
+      "formal/Closure/RatioGate.lean": "58b84e883ccade082fcd5772b8f50327cfc8496e64715fb305a26c924bc81a7f",
+      "formal/Closure/LocalRatio.lean": "3d8b49d0ba9740b87ea342c5dbe950947718a847f64d17059bcd8c0d2d851067",
+      "formal/Closure/DownsetMass.lean": "d65e7114ce163982c558314fe9179fc9a954a5be26fb822bb440d99da435da9c",
+      "formal/Closure/HazardInterpolation.lean": "c0b1d238abd4bf73c6bec987f35eabeec2cafb1869e2ab1966e5d2cbf09cbf76",
+      "formal/Closure/Assembly.lean": "01234a50ceafa98e79cff97b171cda46ccb717537fb0fea4a1b2e31e5f6fecb1",
+      "formal/Completion/Structural.lean": "c6d2a5b59efe2bca9eca07c9e680028627067509a29fd3261972c98ac8d5f4f5",
+      "formal/Completion/PaletteFormula.lean": "eddff2aac1015d8ce76b5fb67e8176b8cdd39102fc3f03478a5abda0d2a2f6b9",
+      "formal/Completion/Benchmark.lean": "0be38d958523412ea0a088eeeafcf11a09eb3abff48b240a1d0be6d0b1b0226a",
+      "formal/Completion/BenchmarkPrices.lean": "7bb87200f51fab9e974c0dcffb93f9cefa032a71b0f7737d031d5e617fd2cdda",
+      "formal/Completion/UnionBound.lean": "e29e781301f94577369d2f7d39d8ba1fbb44cf0b866e5ee2a097db117aea2cf3",
+      "formal/Completion/BenchmarkUnion.lean": "76a585993a37b81bd17816870262a0533c0e73def410e91c6c2022dc56bd6d17",
+      "formal/Completion/Numerics.lean": "74109a62dbc28f749ff276c9c3a48410a9ed23862bc9a3d549ae592ea36e718a",
+      "formal/Completion/FinalAudit.lean": "e7f9d19afc4d82a5dd55785a1e8c8b7cd0739413bf111faf6677dfe6a8a5d7ad"
+    }
+  },
+  "scope": "Saved source and receipt integrity only. No new kernel proof is executed; this is not a structural worker-v2 proof certificate. All endpoints are source-exposed proof reuse, training_eligible=false; no discovery or speedup credit.",
+  "endpoints": [
+    {
+      "id": "p15.PaletteNumberAttained",
+      "target": "UniversalLaw.Spec.P15.PaletteNumberAttained",
+      "theorem": "UniversalLaw.P15Closure.paletteNumberAttained",
+      "statement": "def PaletteNumberAttained {X : Type} [Fintype X] (F : RealizedData X) : Prop :=\n  IsRealizedFamily F → IsPaletteFeasible F.b F.H F.d (paletteNumber F.b F.H F.d)\n",
+      "statement_sha256": "67fdb9347aae9a3832d2f9d5b1cde7ac06d160a20ecc00c72806da0125fbfb51",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Closure/PaletteCover.lean",
+      "proof_source_sha256": "bb52c327da3d419f165c66fd1a6c301a53cb4ef129b8d690b1be6b070abef621",
+      "proof_source_line": 175,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Closure.paletteNumberAttained",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.MinimalForbiddenCharacterisation",
+      "target": "UniversalLaw.Spec.P15.MinimalForbiddenCharacterisation",
+      "theorem": "UniversalLaw.P15Completion.minimalForbiddenCharacterisation",
+      "statement": "def MinimalForbiddenCharacterisation {X : Type} [Fintype X] [DecidableEq X]\n    (F : RealizedData X) : Prop :=\n  IsRealizedFamily F → ∀ U : Finset X, IsMinimalForbidden F U ↔\n    ((∃ i, U ⊆ block F i ∧ U.card = F.a i + 1) ∨ ∃ e ∈ F.H, IsTransversal F e U)\n",
+      "statement_sha256": "81d1ba361ebea0b141d608fdf0b34d99ef170f78528290a897cd502e9e17630c",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Completion/Structural.lean",
+      "proof_source_sha256": "c6d2a5b59efe2bca9eca07c9e680028627067509a29fd3261972c98ac8d5f4f5",
+      "proof_source_line": 189,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Completion.minimalForbiddenCharacterisation",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.LocalRestriction",
+      "target": "UniversalLaw.Spec.P15.LocalRestriction",
+      "theorem": "UniversalLaw.P15Closure.localRestriction",
+      "statement": "def LocalRestriction {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) : Prop :=\n  IsRealizedFamily F → ∀ (i : Fin F.b) (S : Finset X), S ⊆ block F i →\n    (IsGood F S ↔ S.card ≤ F.a i)\n",
+      "statement_sha256": "4fc5fbcd53e83c51c59bd932dff6dd67130325b86a4fddc916addaf64bc06bb6",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Closure/LocalRatio.lean",
+      "proof_source_sha256": "3d8b49d0ba9740b87ea342c5dbe950947718a847f64d17059bcd8c0d2d851067",
+      "proof_source_line": 11,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Closure.localRestriction",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.LocalDecomposability",
+      "target": "UniversalLaw.Spec.P15.LocalDecomposability",
+      "theorem": "UniversalLaw.P15Completion.localDecomposability",
+      "statement": "def LocalDecomposability {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) : Prop :=\n  IsRealizedFamily F → ∀ (i : Fin F.b) (k : ℕ) (S : Finset X), S ⊆ block F i →\n    (IsKDecomposable F k S ↔ S.card ≤ F.a i * k)\n",
+      "statement_sha256": "ee0a59a7b1a02228063de78819e35268f8500b2a7f942a60a155e240eb6e8cac",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Completion/Structural.lean",
+      "proof_source_sha256": "c6d2a5b59efe2bca9eca07c9e680028627067509a29fd3261972c98ac8d5f4f5",
+      "proof_source_line": 11,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Completion.localDecomposability",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.LocalObstructionIsFullBlock",
+      "target": "UniversalLaw.Spec.P15.LocalObstructionIsFullBlock",
+      "theorem": "UniversalLaw.P15Completion.localObstructionIsFullBlock",
+      "statement": "def LocalObstructionIsFullBlock {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) :\n    Prop :=\n  IsRealizedFamily F → ∀ (i : Fin F.b) (S : Finset X), S ⊆ block F i →\n    (¬ IsKDecomposable F (F.d i) S ↔ S = block F i)\n",
+      "statement_sha256": "0bf3a26ed791ce405fe73433671ccbebc318a576206478642f1da10eb72f7e10",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Completion/Structural.lean",
+      "proof_source_sha256": "c6d2a5b59efe2bca9eca07c9e680028627067509a29fd3261972c98ac8d5f4f5",
+      "proof_source_line": 61,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Completion.localObstructionIsFullBlock",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.LocalPriceChain",
+      "target": "UniversalLaw.Spec.P15.LocalPriceChain",
+      "theorem": "UniversalLaw.P15Closure.localPriceChain",
+      "statement": "def LocalPriceChain {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) : Prop :=\n  IsRealizedFamily F → ∀ (p c : X → ℝ), (∀ v, 0 ≤ p v ∧ p v ≤ 1) → (∀ v, 0 ≤ c v ∧ c v ≤ p v) →\n    ∀ i : Fin F.b, genPrice c (block F i) ≤ ∏ v ∈ block F i, p v ∧\n      ∏ v ∈ block F i, p v ≤ localFailure F p i ∧\n      localFailure F p i ≤ phi (localFailure F p i)\n",
+      "statement_sha256": "9eef40419f53371eba5fc38bcd0a8e8f62cbcad345d09e34eebfadf65c87fa80",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Closure/LocalRatio.lean",
+      "proof_source_sha256": "3d8b49d0ba9740b87ea342c5dbe950947718a847f64d17059bcd8c0d2d851067",
+      "proof_source_line": 176,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Closure.localPriceChain",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.IndependentBlockHazard",
+      "target": "UniversalLaw.Spec.P15.IndependentBlockHazard",
+      "theorem": "UniversalLaw.P15Closure.independentBlockHazard",
+      "statement": "def IndependentBlockHazard {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) : Prop :=\n  IsRealizedFamily F → ∀ p : X → ℝ, (∀ v, 0 ≤ p v ∧ p v ≤ 1) →\n    mu F p ≤ ∏ i, (1 - localFailure F p i) ∧\n    (0 < mu F p →\n      ∑ i, localFailure F p i ≤ -Real.log (∏ i, (1 - localFailure F p i)) ∧\n      -Real.log (∏ i, (1 - localFailure F p i)) ≤ -Real.log (mu F p))\n",
+      "statement_sha256": "7d06399ba1d139d9bd7bdb542c492087f2385b48a7fa20629adad3572f2803ef",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Closure/ProductMass.lean",
+      "proof_source_sha256": "825b9f834f310ebfc972045291e4bb92d84f6c554647e061944a7822a27eb66d",
+      "proof_source_line": 281,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Closure.independentBlockHazard",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.FullBlockCoverIff",
+      "target": "UniversalLaw.Spec.P15.FullBlockCoverIff",
+      "theorem": "UniversalLaw.P15Closure.fullBlockCoverIff",
+      "statement": "def FullBlockCoverIff {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) : Prop :=\n  IsRealizedFamily F → ∀ K : ℕ,\n    IsGeneratorCover F K (fullBlockFamily F) ↔ paletteNumber F.b F.H F.d ≤ K\n",
+      "statement_sha256": "8e5d03b4bfc192c9df4953b5914a7f6be4ce47c10446c81946177650405b2c77",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Closure/PaletteCover.lean",
+      "proof_source_sha256": "bb52c327da3d419f165c66fd1a6c301a53cb4ef129b8d690b1be6b070abef621",
+      "proof_source_line": 275,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Closure.fullBlockCoverIff",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.CoverCostHazardBound",
+      "target": "UniversalLaw.Spec.P15.CoverCostHazardBound",
+      "theorem": "UniversalLaw.P15Closure.coverCostHazardBound",
+      "statement": "def CoverCostHazardBound {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) : Prop :=\n  IsRealizedFamily F → ∀ (p c : X → ℝ), (∀ v, 0 ≤ p v ∧ p v ≤ 1) → (∀ v, 0 ≤ c v ∧ c v ≤ p v) →\n    ∀ K : ℕ, paletteNumber F.b F.H F.d ≤ K → coverCost F K c ≤ cappedHazard 1 (mu F p)\n",
+      "statement_sha256": "4a02e59925c9277fe2cf1e17e87163e88dadd0765bd25830e3ccb5f12c78a3aa",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Closure/Assembly.lean",
+      "proof_source_sha256": "01234a50ceafa98e79cff97b171cda46ccb717537fb0fea4a1b2e31e5f6fecb1",
+      "proof_source_line": 122,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Closure.coverCostHazardBound",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.WholeGroundChromaticNumber",
+      "target": "UniversalLaw.Spec.P15.WholeGroundChromaticNumber",
+      "theorem": "UniversalLaw.P15Completion.wholeGroundChromaticNumber",
+      "statement": "def WholeGroundChromaticNumber {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) :\n    Prop :=\n  IsRealizedFamily F → ∀ K : ℕ,\n    IsKDecomposable F K Finset.univ ↔ paletteNumber F.b F.H (fun i => F.d i + 1) ≤ K\n",
+      "statement_sha256": "25c102d4b2bd0518fb3b1a6888959b3ebe9953bac4aad6049cee67b008b0deaf",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Completion/Structural.lean",
+      "proof_source_sha256": "c6d2a5b59efe2bca9eca07c9e680028627067509a29fd3261972c98ac8d5f4f5",
+      "proof_source_line": 122,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Completion.wholeGroundChromaticNumber",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.ElementaryPaletteFormula",
+      "target": "UniversalLaw.Spec.P15.ElementaryPaletteFormula",
+      "theorem": "UniversalLaw.P15Completion.elementaryPaletteFormula",
+      "statement": "def ElementaryPaletteFormula : Prop :=\n  ∀ (b s : ℕ) (d : Fin b → ℕ), 1 ≤ s → s ≤ b → (∀ i, 1 ≤ d i) →\n    paletteNumber b (completeClutter b s) d =\n      max (Finset.univ.sup d) ⌈((∑ i, d i : ℕ) : ℚ) / (s : ℚ)⌉₊\n",
+      "statement_sha256": "d3e65dd837394d09f7e9ba7cc5f83531e23adcdfb7db6e3153a9bad766448774",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Completion/PaletteFormula.lean",
+      "proof_source_sha256": "eddff2aac1015d8ce76b5fb67e8176b8cdd39102fc3f03478a5abda0d2a2f6b9",
+      "proof_source_line": 176,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Completion.elementaryPaletteFormula",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.TriangleNeedsThree",
+      "target": "UniversalLaw.Spec.P15.TriangleNeedsThree",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.triangleNeedsThree",
+      "statement": "def TriangleNeedsThree : Prop :=\n  paletteNumber 3 (completeClutter 3 1) (fun _ => 1) = 3\n",
+      "statement_sha256": "a7dcf08f234b183a5e387dcf50b62abfe714be03f43163aa95b19f9feca1a724",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/SpecificationProofs/P15Elementary.lean",
+      "proof_source_sha256": "d4d87bba1da9473cd3c5bda9c702ba4dd036de06085d5ad589f17988bf8695b1",
+      "proof_source_line": 757,
+      "saved_audit": {
+        "name": "UniversalLaw.Proofs.P15Elementary.triangleNeedsThree",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.Benchmark816IsRealized",
+      "target": "UniversalLaw.Spec.P15.Benchmark816IsRealized",
+      "theorem": "UniversalLaw.P15Completion.benchmark816IsRealized",
+      "statement": "def Benchmark816IsRealized : Prop :=\n  IsRealizedFamily benchmark816\n",
+      "statement_sha256": "c2b96347c064ac1954ae55252968a1f68bb917d1dc07816930a582f7e646bcea",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Completion/Benchmark.lean",
+      "proof_source_sha256": "0be38d958523412ea0a088eeeafcf11a09eb3abff48b240a1d0be6d0b1b0226a",
+      "proof_source_line": 25,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Completion.benchmark816IsRealized",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.Benchmark816Palette",
+      "target": "UniversalLaw.Spec.P15.Benchmark816Palette",
+      "theorem": "UniversalLaw.P15Completion.benchmark816Palette",
+      "statement": "def Benchmark816Palette : Prop :=\n  paletteNumber 6 (completeClutter 6 3) (fun _ => 408) = 816\n",
+      "statement_sha256": "b0f17403f3ce00000a25a5332a21fdd15d872066d2ad8630a0f4c599df3de1e0",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Completion/Benchmark.lean",
+      "proof_source_sha256": "0be38d958523412ea0a088eeeafcf11a09eb3abff48b240a1d0be6d0b1b0226a",
+      "proof_source_line": 39,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Completion.benchmark816Palette",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.Benchmark816Cover",
+      "target": "UniversalLaw.Spec.P15.Benchmark816Cover",
+      "theorem": "UniversalLaw.P15Completion.benchmark816Cover",
+      "statement": "def Benchmark816Cover : Prop :=\n  IsGeneratorCover benchmark816 816 (fullBlockFamily benchmark816) ∧\n    ¬ IsGeneratorCover benchmark816 815 (fullBlockFamily benchmark816)\n",
+      "statement_sha256": "e00385be5ee1dd492b90a1354b40d7f0d2bd482e15ded35260e29ba79457b82e",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Completion/Benchmark.lean",
+      "proof_source_sha256": "0be38d958523412ea0a088eeeafcf11a09eb3abff48b240a1d0be6d0b1b0226a",
+      "proof_source_line": 52,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Completion.benchmark816Cover",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.Benchmark816WholeGround",
+      "target": "UniversalLaw.Spec.P15.Benchmark816WholeGround",
+      "theorem": "UniversalLaw.P15Completion.benchmark816WholeGround",
+      "statement": "def Benchmark816WholeGround : Prop :=\n  IsKDecomposable benchmark816 818 Finset.univ ∧ ¬ IsKDecomposable benchmark816 817 Finset.univ\n",
+      "statement_sha256": "896011dbbf7aafc8c68da4578625fcb1a8db61948a889062a670c3551e47e6fe",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Completion/Benchmark.lean",
+      "proof_source_sha256": "0be38d958523412ea0a088eeeafcf11a09eb3abff48b240a1d0be6d0b1b0226a",
+      "proof_source_line": 63,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Completion.benchmark816WholeGround",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.Benchmark816MinimalForbiddenCounts",
+      "target": "UniversalLaw.Spec.P15.Benchmark816MinimalForbiddenCounts",
+      "theorem": "UniversalLaw.P15Completion.benchmark816MinimalForbiddenCounts",
+      "statement": "def Benchmark816MinimalForbiddenCounts : Prop :=\n  Set.ncard {U : Finset (Fin 6 × Fin 409) |\n      IsMinimalForbidden benchmark816 U ∧ (supp benchmark816 U).card = 1} = 6 * Nat.choose 409 2 ∧\n  Set.ncard {U : Finset (Fin 6 × Fin 409) |\n      IsMinimalForbidden benchmark816 U ∧ (supp benchmark816 U).card = 4} = 15 * 409 ^ 4 ∧\n  Set.ncard {U : Finset (Fin 6 × Fin 409) | IsMinimalForbidden benchmark816 U} =\n    6 * Nat.choose 409 2 + 15 * 409 ^ 4\n",
+      "statement_sha256": "e7f8715c6b9ea62b11ca8eae0afa0ff903aaa0dcd5835fc1daf10525a66ed86e",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Completion/Benchmark.lean",
+      "proof_source_sha256": "0be38d958523412ea0a088eeeafcf11a09eb3abff48b240a1d0be6d0b1b0226a",
+      "proof_source_line": 339,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Completion.benchmark816MinimalForbiddenCounts",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.Benchmark816Price",
+      "target": "UniversalLaw.Spec.P15.Benchmark816Price",
+      "theorem": "UniversalLaw.P15Completion.benchmark816Price",
+      "statement": "def Benchmark816Price : Prop :=\n  famPrice (fun _ => (1 : ℝ) / 40900) (fullBlockFamily benchmark816) = 6 / 40900 ^ 409 ∧\n    (0 : ℝ) < 6 / 40900 ^ 409\n",
+      "statement_sha256": "5f8880f07f41f0603577550e088644c956d79c265a503e14f55d0c6de833a402",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Completion/BenchmarkPrices.lean",
+      "proof_source_sha256": "7bb87200f51fab9e974c0dcffb93f9cefa032a71b0f7737d031d5e617fd2cdda",
+      "proof_source_line": 109,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Completion.benchmark816Price",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.Benchmark816UnionBound",
+      "target": "UniversalLaw.Spec.P15.Benchmark816UnionBound",
+      "theorem": "UniversalLaw.P15Completion.benchmark816UnionBound",
+      "statement": "def Benchmark816UnionBound : Prop :=\n  1 - mu benchmark816 (fun _ => (1 : ℝ) / 40900) ≤ 500616 / 40900 ^ 2 + 15 / 100 ^ 4 ∧\n  (500616 / 40900 ^ 2 + 15 / 100 ^ 4 : ℝ) = 2449227 / 8180000000 ∧\n  (2449227 / 8180000000 : ℝ) < 3 / 10000 ∧\n  (9997 / 10000 : ℝ) < mu benchmark816 (fun _ => (1 : ℝ) / 40900)\n",
+      "statement_sha256": "181b0085d6177f998b626f99236a28a52f1255e0e1b84006c229953c61857ab8",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Completion/BenchmarkUnion.lean",
+      "proof_source_sha256": "76a585993a37b81bd17816870262a0533c0e73def410e91c6c2022dc56bd6d17",
+      "proof_source_line": 101,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Completion.benchmark816UnionBound",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.TwoCoordGeneratorPrices",
+      "target": "UniversalLaw.Spec.P15.TwoCoordGeneratorPrices",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.twoCoordGeneratorPrices",
+      "statement": "def TwoCoordGeneratorPrices : Prop :=\n  genPrice twoCoordC ∅ = 1 ∧ genPrice twoCoordC {0} = 2 / 3 ∧ genPrice twoCoordC {1} = 2 / 3 ∧\n    genPrice twoCoordC Finset.univ = 4 / 9\n",
+      "statement_sha256": "7fef0a2f0d8c6437637716c401ceac1d9bb48b6f1cf592694df5689eab4cba3c",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/SpecificationProofs/P15Elementary.lean",
+      "proof_source_sha256": "d4d87bba1da9473cd3c5bda9c702ba4dd036de06085d5ad589f17988bf8695b1",
+      "proof_source_line": 361,
+      "saved_audit": {
+        "name": "UniversalLaw.Proofs.P15Elementary.twoCoordGeneratorPrices",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.DemandOneRefutation",
+      "target": "UniversalLaw.Spec.P15.DemandOneRefutation",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.demandOneRefutation",
+      "statement": "def DemandOneRefutation : Prop :=\n  IsRealizedFamily twoCoord ∧\n  paletteNumber 1 ∅ (fun _ => 1) = 1 ∧\n  (∀ U : Finset (Fin 2), U ∈ obstruction twoCoord 1 ↔ U = Finset.univ) ∧\n  (∀ v, twoCoordC v ≤ phi (twoCoordP v)) ∧\n  phi (1 / 2) = Real.log 2 ∧ (2 / 3 : ℝ) < Real.log 2 ∧\n  mu twoCoord twoCoordP = 3 / 4 ∧\n  cappedHazard 1 (mu twoCoord twoCoordP) = Real.log (4 / 3) ∧ Real.log (4 / 3) < (1 / 3 : ℝ) ∧\n  (∀ G : Finset (Finset (Fin 2)), IsGeneratorCover twoCoord 1 G → 4 / 9 ≤ famPrice twoCoordC G) ∧\n  coverCost twoCoord 1 twoCoordC = 4 / 9 ∧ (1 / 3 : ℝ) < 4 / 9 ∧\n  cappedHazard 1 (mu twoCoord twoCoordP) < coverCost twoCoord 1 twoCoordC\n",
+      "statement_sha256": "3dc6ced85bdabfaedb5f9909fba43019ed79079d2d80dd7efa4ad5aad71fa0c6",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/SpecificationProofs/P15Elementary.lean",
+      "proof_source_sha256": "d4d87bba1da9473cd3c5bda9c702ba4dd036de06085d5ad589f17988bf8695b1",
+      "proof_source_line": 391,
+      "saved_audit": {
+        "name": "UniversalLaw.Proofs.P15Elementary.demandOneRefutation",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.LogOnePlusBelowIdentity",
+      "target": "UniversalLaw.Spec.P15.LogOnePlusBelowIdentity",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.logOnePlusBelowIdentity",
+      "statement": "def LogOnePlusBelowIdentity : Prop :=\n  ∀ x : ℝ, 0 < x → Real.log (1 + x) < x\n",
+      "statement_sha256": "6496ca4b9bf07ffa1c321cbd552a9072098e0d4529a04ee46ba9d32c0d669158",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/SpecificationProofs/P15Elementary.lean",
+      "proof_source_sha256": "d4d87bba1da9473cd3c5bda9c702ba4dd036de06085d5ad589f17988bf8695b1",
+      "proof_source_line": 373,
+      "saved_audit": {
+        "name": "UniversalLaw.Proofs.P15Elementary.logOnePlusBelowIdentity",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.LogRatioBound",
+      "target": "UniversalLaw.Spec.P15.LogRatioBound",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.logRatioBound",
+      "statement": "def LogRatioBound : Prop :=\n  ∀ p : ℝ, 0 ≤ p → p < 1 → -Real.log (1 - p) ≤ p / (1 - p)\n",
+      "statement_sha256": "9af931e488cf2df7d27fb71fb1a14822681fe6b9f8765e1a6fddeccd38fc7db6",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/SpecificationProofs/P15Elementary.lean",
+      "proof_source_sha256": "d4d87bba1da9473cd3c5bda9c702ba4dd036de06085d5ad589f17988bf8695b1",
+      "proof_source_line": 474,
+      "saved_audit": {
+        "name": "UniversalLaw.Proofs.P15Elementary.logRatioBound",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.RatioExponentBound",
+      "target": "UniversalLaw.Spec.P15.RatioExponentBound",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.ratioExponentBound",
+      "statement": "def RatioExponentBound : Prop :=\n  ∀ a n : ℕ, 1 ≤ a → 2 * a + 1 ≤ n →\n    (4 : ℝ) ^ (a + 1) / 3 ^ n ≤ (4 / 3) * (4 / 9) ^ a ∧ (4 / 3 : ℝ) * (4 / 9) ^ a ≤ 16 / 27\n",
+      "statement_sha256": "15d93c7e791312564c3aca817c003d28b632d12c9ba929150ec6a3f78ab7c7f7",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/SpecificationProofs/P15Elementary.lean",
+      "proof_source_sha256": "d4d87bba1da9473cd3c5bda9c702ba4dd036de06085d5ad589f17988bf8695b1",
+      "proof_source_line": 511,
+      "saved_audit": {
+        "name": "UniversalLaw.Proofs.P15Elementary.ratioExponentBound",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.RestrictedLocalBudget",
+      "target": "UniversalLaw.Spec.P15.RestrictedLocalBudget",
+      "theorem": "UniversalLaw.P15Closure.restrictedLocalBudget",
+      "statement": "def RestrictedLocalBudget {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) : Prop :=\n  IsRealizedFamily F → (∀ i, 2 ≤ F.d i) →\n  ∀ (p c : X → ℝ), (∀ v, 0 ≤ p v ∧ p v ≤ 1 / 4) → (∀ v, 0 ≤ c v ∧ c v ≤ phi (p v)) →\n    ∀ i : Fin F.b, genPrice c (block F i) ≤ (16 / 27) * localFailure F p i ∧\n      (16 / 27) * localFailure F p i ≤ phi (localFailure F p i)\n",
+      "statement_sha256": "b5c7997f3c3a2b4e94924612c56ed2918b1714b25f29123a3e4e6321b95307a7",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Closure/LocalRatio.lean",
+      "proof_source_sha256": "3d8b49d0ba9740b87ea342c5dbe950947718a847f64d17059bcd8c0d2d851067",
+      "proof_source_line": 154,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Closure.restrictedLocalBudget",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.RestrictedTransformedPriceBudget",
+      "target": "UniversalLaw.Spec.P15.RestrictedTransformedPriceBudget",
+      "theorem": "UniversalLaw.P15Closure.restrictedTransformedPriceBudget",
+      "statement": "def RestrictedTransformedPriceBudget {X : Type} [Fintype X] [DecidableEq X]\n    (F : RealizedData X) : Prop :=\n  IsRealizedFamily F → (∀ i, 2 ≤ F.d i) →\n  ∀ (p c : X → ℝ), (∀ v, 0 ≤ p v ∧ p v ≤ 1 / 4) → (∀ v, 0 ≤ c v ∧ c v ≤ phi (p v)) →\n    ∀ K : ℕ, paletteNumber F.b F.H F.d ≤ K →\n      coverCost F K c ≤ cappedHazard (16 / 27) (mu F p)\n",
+      "statement_sha256": "d3dce7c3e1cab7ba9f6cdac03b05269f61bf600801cca34191b0eb4d0c91fc31",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Closure/Assembly.lean",
+      "proof_source_sha256": "01234a50ceafa98e79cff97b171cda46ccb717537fb0fea4a1b2e31e5f6fecb1",
+      "proof_source_line": 95,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Closure.restrictedTransformedPriceBudget",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.RhoTestSufficient",
+      "target": "UniversalLaw.Spec.P15.RhoTestSufficient",
+      "theorem": "UniversalLaw.P15Closure.rhoTestSufficient",
+      "statement": "def RhoTestSufficient {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) : Prop :=\n  IsRealizedFamily F → ∀ (p c : X → ℝ) (pBound : ℝ), 0 ≤ pBound → pBound < 1 →\n    (∀ v, 0 ≤ c v ∧ c v ≤ phi (p v)) →\n    ∀ i : Fin F.b, (∀ v ∈ block F i, 0 ≤ p v ∧ p v ≤ pBound) →\n      rhoTest (F.a i) (F.d i) pBound ≤ 1 →\n      genPrice c (block F i) ≤ localFailure F p i\n",
+      "statement_sha256": "fbaf28bc3f42cad3535cb7f57066e49a99e9ffa3259a7a30d27e97825b31b559",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Closure/LocalRatio.lean",
+      "proof_source_sha256": "3d8b49d0ba9740b87ea342c5dbe950947718a847f64d17059bcd8c0d2d851067",
+      "proof_source_line": 145,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Closure.rhoTestSufficient",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.CapTestAtTwoThirds",
+      "target": "UniversalLaw.Spec.P15.CapTestAtTwoThirds",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.capTestAtTwoThirds",
+      "statement": "def CapTestAtTwoThirds : Prop :=\n  1 < Real.log 3 ∧ ∀ q : ℝ, 2 / 3 ≤ q → q ≤ 1 → phi q = 1\n",
+      "statement_sha256": "74eab00f3812f61e71d173b05fa5d0099e9123a3655a2cb4e6f5cd4bf3eb7e78",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/SpecificationProofs/P15Elementary.lean",
+      "proof_source_sha256": "d4d87bba1da9473cd3c5bda9c702ba4dd036de06085d5ad589f17988bf8695b1",
+      "proof_source_line": 488,
+      "saved_audit": {
+        "name": "UniversalLaw.Proofs.P15Elementary.capTestAtTwoThirds",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.Benchmark816TransformedRange",
+      "target": "UniversalLaw.Spec.P15.Benchmark816TransformedRange",
+      "theorem": "UniversalLaw.P15Completion.benchmark816TransformedRange",
+      "statement": "def Benchmark816TransformedRange : Prop :=\n  phi (1 / 40900) = Real.log (40900 / 40899) ∧\n  IsGeneratorCover benchmark816 816 (fullBlockFamily benchmark816) ∧\n  ∀ c : Fin 6 × Fin 409 → ℝ, (∀ v, 0 ≤ c v ∧ c v ≤ Real.log (40900 / 40899)) →\n    famPrice c (fullBlockFamily benchmark816) ≤\n        cappedHazard (16 / 27) (mu benchmark816 (fun _ => (1 : ℝ) / 40900)) ∧\n      coverCost benchmark816 816 c ≤\n        cappedHazard (16 / 27) (mu benchmark816 (fun _ => (1 : ℝ) / 40900))\n",
+      "statement_sha256": "b665dd0d9a62fa7abaf33b6fd55f77cb12ecb507a8ca59878113a929712b4716",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Completion/BenchmarkPrices.lean",
+      "proof_source_sha256": "7bb87200f51fab9e974c0dcffb93f9cefa032a71b0f7737d031d5e617fd2cdda",
+      "proof_source_line": 113,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Completion.benchmark816TransformedRange",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.Benchmark816RationalPrice",
+      "target": "UniversalLaw.Spec.P15.Benchmark816RationalPrice",
+      "theorem": "UniversalLaw.P15Completion.benchmark816RationalPrice",
+      "statement": "def Benchmark816RationalPrice : Prop :=\n  6 * Real.log (40900 / 40899) ^ 409 ≤ (6 : ℝ) / 40899 ^ 409 ∧\n  (1 / 40900 : ℝ) + (1 / 40900) ^ 2 / 2 = 81801 / 3345620000 ∧\n  (81801 / 3345620000 : ℝ) < phi (1 / 40900) ∧\n  famPrice (fun _ => (81801 : ℝ) / 3345620000) (fullBlockFamily benchmark816) =\n    6 * (81801 / 3345620000) ^ 409\n",
+      "statement_sha256": "a72f4eaf619811be111281681d61562b5a23207d95833b0e867d18572d84fd81",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Completion/BenchmarkPrices.lean",
+      "proof_source_sha256": "7bb87200f51fab9e974c0dcffb93f9cefa032a71b0f7737d031d5e617fd2cdda",
+      "proof_source_line": 126,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Completion.benchmark816RationalPrice",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.FullTransformedPriceBudget",
+      "target": "UniversalLaw.Spec.P15.FullTransformedPriceBudget",
+      "theorem": "UniversalLaw.P15Closure.fullTransformedPriceBudget",
+      "statement": "def FullTransformedPriceBudget {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) :\n    Prop :=\n  IsRealizedFamily F → (∀ i, 2 ≤ F.d i) →\n  ∀ (p c : X → ℝ), (∀ v, 0 ≤ p v ∧ p v ≤ 1) → (∀ v, 0 ≤ c v ∧ c v ≤ phi (p v)) →\n    ∀ K : ℕ, paletteNumber F.b F.H F.d ≤ K → coverCost F K c ≤ cappedHazard rhoStar (mu F p)\n",
+      "statement_sha256": "c9ba08ae707ed7456c4e7b4bbb4ad835512c0b766b415ae6163da9ca3e914920",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Closure/Assembly.lean",
+      "proof_source_sha256": "01234a50ceafa98e79cff97b171cda46ccb717537fb0fea4a1b2e31e5f6fecb1",
+      "proof_source_line": 117,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Closure.fullTransformedPriceBudget",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.RhoStarEnclosure",
+      "target": "UniversalLaw.Spec.P15.RhoStarEnclosure",
+      "theorem": "UniversalLaw.P15Completion.rhoStarEnclosure",
+      "statement": "def RhoStarEnclosure : Prop :=\n  rhoStarLower < rhoStar ∧ rhoStar < rhoStarUpper ∧ rhoStarUpper < 6 / 7\n",
+      "statement_sha256": "25dfc299dfc1f920c7a4095f85b4b3c7bb4dc0d3e47f63de5de526b6c27acfa6",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Completion/Numerics.lean",
+      "proof_source_sha256": "74109a62dbc28f749ff276c9c3a48410a9ed23862bc9a3d549ae592ea36e718a",
+      "proof_source_line": 44,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Completion.rhoStarEnclosure",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.RhoStarBelowSixSevenths",
+      "target": "UniversalLaw.Spec.P15.RhoStarBelowSixSevenths",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.rhoStarBelowSixSevenths",
+      "statement": "def RhoStarBelowSixSevenths : Prop :=\n  rhoStar < 6 / 7\n",
+      "statement_sha256": "c00f29d001326902e8f559d758f3cde6f4cdd2b4f693cc71469ca65dc5f9af48",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/SpecificationProofs/P15Elementary.lean",
+      "proof_source_sha256": "d4d87bba1da9473cd3c5bda9c702ba4dd036de06085d5ad589f17988bf8695b1",
+      "proof_source_line": 533,
+      "saved_audit": {
+        "name": "UniversalLaw.Proofs.P15Elementary.rhoStarBelowSixSevenths",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.HazardStarPositive",
+      "target": "UniversalLaw.Spec.P15.HazardStarPositive",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.hazardStarPositive",
+      "statement": "def HazardStarPositive : Prop :=\n  ∀ (n : ℕ) (A : Finset (Finset (Fin n))), 1 ≤ n → IsProperDownset A → 0 < hazardStar A\n",
+      "statement_sha256": "33f3f87a28a66e4d35514efdf2e0551d19935a197dee7aa000c1af41661ee406",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/SpecificationProofs/P15Elementary.lean",
+      "proof_source_sha256": "d4d87bba1da9473cd3c5bda9c702ba4dd036de06085d5ad589f17988bf8695b1",
+      "proof_source_line": 582,
+      "saved_audit": {
+        "name": "UniversalLaw.Proofs.P15Elementary.hazardStarPositive",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.CoordinatewiseConcavity",
+      "target": "UniversalLaw.Spec.P15.CoordinatewiseConcavity",
+      "theorem": "UniversalLaw.P15Closure.coordinatewiseConcavity",
+      "statement": "def CoordinatewiseConcavity : Prop :=\n  ∀ (n : ℕ) (A : Finset (Finset (Fin n))), 1 ≤ n → IsProperDownset A →\n    ∀ (i : Fin n) (t : Fin n → ℝ), (∀ j, 0 ≤ t j ∧ t j ≤ 1) →\n      ConcaveOn ℝ (Set.Icc (0 : ℝ) 1) (fun s : ℝ => hazardCoord A (Function.update t i s))\n",
+      "statement_sha256": "a79d16cecd6fa7506c0519081302eb06f04d0f372d2a544dbe5f78150ccaefed",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Closure/HazardInterpolation.lean",
+      "proof_source_sha256": "c0b1d238abd4bf73c6bec987f35eabeec2cafb1869e2ab1966e5d2cbf09cbf76",
+      "proof_source_line": 185,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Closure.coordinatewiseConcavity",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.HazardProductBound",
+      "target": "UniversalLaw.Spec.P15.HazardProductBound",
+      "theorem": "UniversalLaw.P15Closure.hazardProductBound",
+      "statement": "def HazardProductBound : Prop :=\n  ∀ (n : ℕ) (A : Finset (Finset (Fin n))), 1 ≤ n → IsProperDownset A →\n    ∀ t : Fin n → ℝ, (∀ j, 0 ≤ t j ∧ t j ≤ 1) → (∏ i, t i) * hazardStar A ≤ hazardCoord A t\n",
+      "statement_sha256": "6c131d0281d611fa6cf07f9aea2d29b00ede682714a4f3648e869f768760329b",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Closure/HazardInterpolation.lean",
+      "proof_source_sha256": "c0b1d238abd4bf73c6bec987f35eabeec2cafb1869e2ab1966e5d2cbf09cbf76",
+      "proof_source_line": 211,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Closure.hazardProductBound",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.HazardPhiBound",
+      "target": "UniversalLaw.Spec.P15.HazardPhiBound",
+      "theorem": "UniversalLaw.P15Closure.hazardPhiBound",
+      "statement": "def HazardPhiBound : Prop :=\n  ∀ (n : ℕ) (A : Finset (Finset (Fin n))), 1 ≤ n → IsProperDownset A →\n    ∀ p : Fin n → ℝ, (∀ j, 0 ≤ p j ∧ p j ≤ 1) → 0 < muOf A p →\n      hazardStar A * ∏ i, phi (p i) ≤ -Real.log (muOf A p)\n",
+      "statement_sha256": "f484b621821c9f18d1bec0f5facdece7105cc4e2bfe027e9810d8955fcce333b",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Closure/HazardInterpolation.lean",
+      "proof_source_sha256": "c0b1d238abd4bf73c6bec987f35eabeec2cafb1869e2ab1966e5d2cbf09cbf76",
+      "proof_source_line": 219,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Closure.hazardPhiBound",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.FullGroundPriceBound",
+      "target": "UniversalLaw.Spec.P15.FullGroundPriceBound",
+      "theorem": "UniversalLaw.P15Closure.fullGroundPriceBound",
+      "statement": "def FullGroundPriceBound : Prop :=\n  ∀ (n : ℕ) (A : Finset (Finset (Fin n))), 1 ≤ n → IsProperDownset A →\n    ∀ (p c : Fin n → ℝ), (∀ j, 0 ≤ p j ∧ p j ≤ 1) → (∀ j, 0 ≤ c j ∧ c j ≤ phi (p j)) →\n      ∏ i, c i ≤ cappedHazard (1 / hazardStar A) (muOf A p)\n",
+      "statement_sha256": "45136301b35d841724cfffc35b2fb099b84bc2cc3a7cec0c9bfa23d3933ccdb3",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Closure/HazardInterpolation.lean",
+      "proof_source_sha256": "c0b1d238abd4bf73c6bec987f35eabeec2cafb1869e2ab1966e5d2cbf09cbf76",
+      "proof_source_line": 237,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Closure.fullGroundPriceBound",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.PhiAtPStar",
+      "target": "UniversalLaw.Spec.P15.PhiAtPStar",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.phiAtPStar",
+      "statement": "def PhiAtPStar : Prop :=\n  phi pStar = 1\n",
+      "statement_sha256": "cb16b99b603a873729cf900a96e81db27be0be24de2c004d00c503a027ab8bf4",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/SpecificationProofs/P15Elementary.lean",
+      "proof_source_sha256": "d4d87bba1da9473cd3c5bda9c702ba4dd036de06085d5ad589f17988bf8695b1",
+      "proof_source_line": 566,
+      "saved_audit": {
+        "name": "UniversalLaw.Proofs.P15Elementary.phiAtPStar",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.FullGroundBudgetIff",
+      "target": "UniversalLaw.Spec.P15.FullGroundBudgetIff",
+      "theorem": "UniversalLaw.P15Closure.fullGroundBudgetIff",
+      "statement": "def FullGroundBudgetIff : Prop :=\n  ∀ (n : ℕ) (A : Finset (Finset (Fin n))), 1 ≤ n → IsProperDownset A →\n    ((∀ (p c : Fin n → ℝ), (∀ j, 0 ≤ p j ∧ p j ≤ 1) → (∀ j, 0 ≤ c j ∧ c j ≤ phi (p j)) →\n        ∏ i, c i ≤ cappedHazard 1 (muOf A p)) ↔ 1 ≤ hazardStar A)\n",
+      "statement_sha256": "44f6d2c822539116ab0605fe7e5f4bd6018f4bf4425b269734d85efaf9e6db69",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Closure/HazardInterpolation.lean",
+      "proof_source_sha256": "c0b1d238abd4bf73c6bec987f35eabeec2cafb1869e2ab1966e5d2cbf09cbf76",
+      "proof_source_line": 257,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Closure.fullGroundBudgetIff",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.CapacityHazardIsBinomial",
+      "target": "UniversalLaw.Spec.P15.CapacityHazardIsBinomial",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.capacityHazardIsBinomial",
+      "statement": "def CapacityHazardIsBinomial : Prop :=\n  ∀ n a : ℕ, hazardStar (capacityFamily n a) = -Real.log (binomTail n a pStar)\n",
+      "statement_sha256": "e00eb876fa1dcd3d87939eb8606a98cb2f78bf88406521bd4af8beea0c0c7cab",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/SpecificationProofs/P15Elementary.lean",
+      "proof_source_sha256": "d4d87bba1da9473cd3c5bda9c702ba4dd036de06085d5ad589f17988bf8695b1",
+      "proof_source_line": 990,
+      "saved_audit": {
+        "name": "UniversalLaw.Proofs.P15Elementary.capacityHazardIsBinomial",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.OddMajorityIdentity",
+      "target": "UniversalLaw.Spec.P15.OddMajorityIdentity",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.oddMajorityIdentity",
+      "statement": "def OddMajorityIdentity : Prop :=\n  ∀ (a : ℕ) (p : ℝ),\n    binomTail (2 * a + 3) (a + 1) p - binomTail (2 * a + 1) a p =\n      (1 - p) ^ 2 * ((Nat.choose (2 * a + 1) (a + 1) : ℝ) * p ^ (a + 1) * (1 - p) ^ a) -\n        p ^ 2 * ((Nat.choose (2 * a + 1) a : ℝ) * p ^ a * (1 - p) ^ (a + 1)) ∧\n    binomTail (2 * a + 3) (a + 1) p - binomTail (2 * a + 1) a p =\n      p * (1 - 2 * p) * ((Nat.choose (2 * a + 1) a : ℝ) * p ^ a * (1 - p) ^ (a + 1)) ∧\n    (1 / 2 < p → p < 1 → binomTail (2 * a + 3) (a + 1) p - binomTail (2 * a + 1) a p < 0)\n",
+      "statement_sha256": "66bbe25a8cd5fabaae16b573717c2c1efed106f0bc81736b3de5c1e748ebe4c0",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/SpecificationProofs/P15Elementary.lean",
+      "proof_source_sha256": "d4d87bba1da9473cd3c5bda9c702ba4dd036de06085d5ad589f17988bf8695b1",
+      "proof_source_line": 626,
+      "saved_audit": {
+        "name": "UniversalLaw.Proofs.P15Elementary.oddMajorityIdentity",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.CapacityWorstCase",
+      "target": "UniversalLaw.Spec.P15.CapacityWorstCase",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.capacityWorstCase",
+      "statement": "def CapacityWorstCase : Prop :=\n  (∀ a n : ℕ, 1 ≤ a → 2 * a + 1 ≤ n →\n      hazardStar (capacityFamily 3 1) ≤ hazardStar (capacityFamily n a)) ∧\n  hazardStar (capacityFamily 3 1) = -Real.log (3 * Real.exp (-2) - 2 * Real.exp (-3)) ∧\n  -Real.log (3 * Real.exp (-2) - 2 * Real.exp (-3)) = hStar ∧\n  1 < hStar\n",
+      "statement_sha256": "285387b517be01bfc7e50efcda4a6f2c6a57aaf5f967b569958eee5c4227c251",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/SpecificationProofs/P15Elementary.lean",
+      "proof_source_sha256": "d4d87bba1da9473cd3c5bda9c702ba4dd036de06085d5ad589f17988bf8695b1",
+      "proof_source_line": 680,
+      "saved_audit": {
+        "name": "UniversalLaw.Proofs.P15Elementary.capacityWorstCase",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.HStarExceedsOne",
+      "target": "UniversalLaw.Spec.P15.HStarExceedsOne",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.hStarExceedsOne",
+      "statement": "def HStarExceedsOne : Prop :=\n  2 < Real.exp 1 ∧\n  Real.exp 1 ^ 2 - (3 * Real.exp 1 - 2) = (Real.exp 1 - 1) * (Real.exp 1 - 2) ∧\n  0 < (Real.exp 1 - 1) * (Real.exp 1 - 2) ∧\n  3 * Real.exp (-2) - 2 * Real.exp (-3) < Real.exp (-1) ∧\n  1 < hStar\n",
+      "statement_sha256": "68ad4305f225fc4f53fb220bbc6093f8c8f25aa06352494d18f93c3dafcd7090",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/SpecificationProofs/P15Elementary.lean",
+      "proof_source_sha256": "d4d87bba1da9473cd3c5bda9c702ba4dd036de06085d5ad589f17988bf8695b1",
+      "proof_source_line": 553,
+      "saved_audit": {
+        "name": "UniversalLaw.Proofs.P15Elementary.hStarExceedsOne",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.LocalPriceBoundFull",
+      "target": "UniversalLaw.Spec.P15.LocalPriceBoundFull",
+      "theorem": "UniversalLaw.P15Closure.localPriceBoundFull",
+      "statement": "def LocalPriceBoundFull {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) : Prop :=\n  IsRealizedFamily F → (∀ i, 2 ≤ F.d i) →\n  ∀ (p c : X → ℝ), (∀ v, 0 ≤ p v ∧ p v ≤ 1) → (∀ v, 0 ≤ c v ∧ c v ≤ phi (p v)) →\n    ∀ i : Fin F.b, 0 < localGood F p i →\n      genPrice c (block F i) ≤ rhoStar * (-Real.log (localGood F p i)) ∧\n      genPrice c (block F i) ≤ 1\n",
+      "statement_sha256": "cab0727edcaa8860809a19536fc0851caaaa3da2a553402fca2c1362ec85a77f",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Closure/Assembly.lean",
+      "proof_source_sha256": "01234a50ceafa98e79cff97b171cda46ccb717537fb0fea4a1b2e31e5f6fecb1",
+      "proof_source_line": 113,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Closure.localPriceBoundFull",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.GlobalAssemblyHazard",
+      "target": "UniversalLaw.Spec.P15.GlobalAssemblyHazard",
+      "theorem": "UniversalLaw.P15Closure.globalAssemblyHazard",
+      "statement": "def GlobalAssemblyHazard {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) : Prop :=\n  IsRealizedFamily F → ∀ p : X → ℝ, (∀ v, 0 ≤ p v ∧ p v ≤ 1) →\n    mu F p ≤ ∏ i, localGood F p i ∧\n    (0 < mu F p → ∑ i, -Real.log (localGood F p i) ≤ -Real.log (mu F p))\n",
+      "statement_sha256": "d9a5e0353539d0a9904f3916e9722c23131cd81c126b510201e5ddaac77fc4a3",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/Closure/ProductMass.lean",
+      "proof_source_sha256": "825b9f834f310ebfc972045291e4bb92d84f6c554647e061944a7822a27eb66d",
+      "proof_source_line": 318,
+      "saved_audit": {
+        "name": "UniversalLaw.P15Closure.globalAssemblyHazard",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.SharpnessOfRhoStar",
+      "target": "UniversalLaw.Spec.P15.SharpnessOfRhoStar",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.sharpnessOfRhoStar",
+      "statement": "def SharpnessOfRhoStar : Prop :=\n  IsRealizedFamily tripleBlock ∧\n  paletteNumber 1 ∅ (fun _ => 2) = 2 ∧\n  (∀ U : Finset (Fin 3), U ∈ obstruction tripleBlock 2 ↔ U = Finset.univ) ∧\n  phi pStar = 1 ∧\n  (∀ g : Finset (Fin 3), genPrice (fun _ => (1 : ℝ)) g = 1) ∧\n  (∀ G : Finset (Finset (Fin 3)), IsGeneratorCover tripleBlock 2 G →\n    1 ≤ famPrice (fun _ => (1 : ℝ)) G) ∧\n  IsGeneratorCover tripleBlock 2 (fullBlockFamily tripleBlock) ∧\n  famPrice (fun _ => (1 : ℝ)) (fullBlockFamily tripleBlock) = 1 ∧\n  coverCost tripleBlock 2 (fun _ => (1 : ℝ)) = 1 ∧\n  -Real.log (mu tripleBlock (fun _ => pStar)) = hStar ∧\n  ∀ ρ : ℝ, ρ < rhoStar → cappedHazard ρ (mu tripleBlock (fun _ => pStar)) < 1\n",
+      "statement_sha256": "c2a69f6555e7f197121cb3c2d7e9992ef2b1aa37ca1d449c45595b26623054f3",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/SpecificationProofs/P15Elementary.lean",
+      "proof_source_sha256": "d4d87bba1da9473cd3c5bda9c702ba4dd036de06085d5ad589f17988bf8695b1",
+      "proof_source_line": 1009,
+      "saved_audit": {
+        "name": "UniversalLaw.Proofs.P15Elementary.sharpnessOfRhoStar",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.DemandOneBoundary",
+      "target": "UniversalLaw.Spec.P15.DemandOneBoundary",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.demandOneBoundary",
+      "statement": "def DemandOneBoundary : Prop :=\n  ∀ cap : ℕ, 1 ≤ cap →\n    IsRealizedFamily (demandOneBlock cap) ∧\n    (∀ U : Finset (Fin (cap + 1)), U ∈ obstruction (demandOneBlock cap) 1 ↔ U = Finset.univ) ∧\n    1 ≤ coverCost (demandOneBlock cap) 1 (fun _ => (1 : ℝ)) ∧\n    mu (demandOneBlock cap) (fun _ => pStar) = 1 - pStar ^ (cap + 1) ∧\n    Real.exp (-1) < 1 - pStar ^ (cap + 1) ∧\n    -Real.log (mu (demandOneBlock cap) (fun _ => pStar)) < 1 ∧\n    ∀ ρ : ℝ, ρ ≤ 1 →\n      cappedHazard ρ (mu (demandOneBlock cap) (fun _ => pStar)) <\n        coverCost (demandOneBlock cap) 1 (fun _ => (1 : ℝ))\n",
+      "statement_sha256": "476b49ef97b15e497a8a2859cd54bdd7e77f10d22d014a53362c7a5d8b8adb6e",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/SpecificationProofs/P15Elementary.lean",
+      "proof_source_sha256": "d4d87bba1da9473cd3c5bda9c702ba4dd036de06085d5ad589f17988bf8695b1",
+      "proof_source_line": 715,
+      "saved_audit": {
+        "name": "UniversalLaw.Proofs.P15Elementary.demandOneBoundary",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    },
+    {
+      "id": "p15.SixSeventhsCertificate",
+      "target": "UniversalLaw.Spec.P15.SixSeventhsCertificate",
+      "theorem": "UniversalLaw.Proofs.P15Elementary.sixSeventhsCertificate",
+      "statement": "def SixSeventhsCertificate : Prop :=\n  Real.exp 1 < 31967 / 11760 ∧ (31967 / 11760 : ℝ) < 87 / 32 ∧\n  (87 / 32 - 31967 / 11760 : ℝ) = 11 / 23520 ∧\n  (∑ j ∈ Finset.range 6, (11 / 6 : ℝ) ^ j / (Nat.factorial j : ℝ)) - 197 / 32 = 26081 / 933120 ∧\n  (0 : ℝ) < 26081 / 933120 ∧\n  3 * Real.exp 1 - 2 < 197 / 32 ∧ (197 / 32 : ℝ) < Real.exp (11 / 6) ∧\n  7 / 6 < hStar ∧ rhoStar < 6 / 7\n",
+      "statement_sha256": "9083fae0c55403cccbf1772396e276be07da8012eedce3bb9c8e3cc3a9c9d745",
+      "specification_source": "formal/Specifications/P15.lean",
+      "specification_source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "proof_source": "formal/SpecificationProofs/P15Elementary.lean",
+      "proof_source_sha256": "d4d87bba1da9473cd3c5bda9c702ba4dd036de06085d5ad589f17988bf8695b1",
+      "proof_source_line": 541,
+      "saved_audit": {
+        "name": "UniversalLaw.Proofs.P15Elementary.sixSeventhsCertificate",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "status": "saved_closed_kernel_evidence",
+      "source_exposed": true,
+      "training_eligible": false
+    }
+  ]
+}

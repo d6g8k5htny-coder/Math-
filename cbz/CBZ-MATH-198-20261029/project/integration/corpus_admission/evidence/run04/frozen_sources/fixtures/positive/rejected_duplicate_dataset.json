@@ -1,0 +1,64 @@
+{
+  "claimed_eligible": true,
+  "dataset_id": "synthetic-duplicate-denial",
+  "records": [
+    {
+      "artifact_id": "artifact:946e8bef42c9b268b203bba7a2b293902d0e1380fc8db222773fbc8a0b449de8",
+      "families": {
+        "derivation": [
+          "derivation.fixture.0"
+        ],
+        "source": [
+          "source.fixture.0"
+        ],
+        "theorem": [
+          "theorem.fixture.0"
+        ],
+        "transport": [
+          "transport.fixture.0"
+        ]
+      },
+      "id": "record:803e3a846ef6f1a9b260373ab341bbdae9a6c04a79c837272e82b4a37796a1cb",
+      "split": "train"
+    },
+    {
+      "artifact_id": "artifact:f3c79a6ffd11713e1c3e7c51b6a20aeb05413dbe2e651bb7715692eaf49e34fe",
+      "families": {
+        "derivation": [
+          "derivation.fixture.1"
+        ],
+        "source": [
+          "source.fixture.1"
+        ],
+        "theorem": [
+          "theorem.fixture.1"
+        ],
+        "transport": [
+          "transport.fixture.1"
+        ]
+      },
+      "id": "record:d011de1a556b47f8d2732ec9e11ec1dea08fb87ff3145cb3f300642f6b03269a",
+      "split": "test"
+    },
+    {
+      "artifact_id": "artifact:946e8bef42c9b268b203bba7a2b293902d0e1380fc8db222773fbc8a0b449de8",
+      "families": {
+        "derivation": [
+          "derivation.fixture.0"
+        ],
+        "source": [
+          "source.fixture.0"
+        ],
+        "theorem": [
+          "theorem.fixture.0"
+        ],
+        "transport": [
+          "transport.fixture.0"
+        ]
+      },
+      "id": "record:803e3a846ef6f1a9b260373ab341bbdae9a6c04a79c837272e82b4a37796a1cb",
+      "split": "train"
+    }
+  ],
+  "schema": "ul-corpus-proposal-v1"
+}

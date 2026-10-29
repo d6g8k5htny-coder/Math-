@@ -1,0 +1,10 @@
+test_acknowledged_delayed_exit_has_time_for_bounded_teardown (test_worker_resources.WorkerResourceTests.test_acknowledged_delayed_exit_has_time_for_bounded_teardown) ... ok
+test_larger_client_limit_cannot_hide_pinned_native_limit (test_worker_resources.WorkerResourceTests.test_larger_client_limit_cannot_hide_pinned_native_limit) ... ok
+test_session_resources_include_foreign_handles_and_actual_requests (test_worker_resources.WorkerResourceTests.test_session_resources_include_foreign_handles_and_actual_requests) ... ok
+test_shutdown_grace_rejects_nonfinite_or_unbounded_values (test_worker_resources.WorkerResourceTests.test_shutdown_grace_rejects_nonfinite_or_unbounded_values) ... ok
+test_stubborn_acknowledged_process_is_killed_after_configured_grace (test_worker_resources.WorkerResourceTests.test_stubborn_acknowledged_process_is_killed_after_configured_grace) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.704s
+
+OK

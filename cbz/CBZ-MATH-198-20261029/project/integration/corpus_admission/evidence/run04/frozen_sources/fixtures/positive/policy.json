@@ -1,0 +1,82 @@
+{
+  "artifacts": {
+    "artifact:946e8bef42c9b268b203bba7a2b293902d0e1380fc8db222773fbc8a0b449de8": {
+      "acceptance_receipt_ref": {
+        "path": "artifacts/0/receipt.json",
+        "sha256": "531301a1245709ca9dd8b92a9a5cc1dbef6467dd0be809f538ae088a79ded049"
+      },
+      "attestation_ref": {
+        "path": "artifacts/0/attestation.json",
+        "sha256": "c175ed12dfbd9ef7d6dd4a2019196b8ab4e9db19f1abbf3edf5b118d2f83e690"
+      },
+      "baseline_id": "synthetic-baseline-v1",
+      "kind": "fixture",
+      "proof_ref": {
+        "path": "artifacts/0/proof.txt",
+        "sha256": "f7947ae7fbc2ca8273ea2e92cceee2e5a2ad310472a1e8c70ff9d71b6151268a"
+      },
+      "provenance_ref": {
+        "path": "artifacts/0/provenance.json",
+        "sha256": "048a6f86395c746e74fbdd7333ee92be6f2cc0a736cd405cd5072a81a8236f84"
+      },
+      "runtime_id": "synthetic-runtime-v1",
+      "source_ref": {
+        "path": "artifacts/0/source.txt",
+        "sha256": "7cd7d2aa2d51980c63768e7bb2aedf8a2c6dbe18377e4ddd91fc1c63c2552a14"
+      },
+      "target": "SyntheticFixture.Target0",
+      "target_ref": {
+        "path": "artifacts/0/target.txt",
+        "sha256": "954517df26716479f4602b48fc85eec038117bf3b3bdccc384dad2413e888a5c"
+      },
+      "task_id": "fixture.task.0"
+    },
+    "artifact:f3c79a6ffd11713e1c3e7c51b6a20aeb05413dbe2e651bb7715692eaf49e34fe": {
+      "acceptance_receipt_ref": {
+        "path": "artifacts/1/receipt.json",
+        "sha256": "053ad39ac6e29ccc29dd989756a205585c80bd6f7834410e6e610ae1e4b416d7"
+      },
+      "attestation_ref": {
+        "path": "artifacts/1/attestation.json",
+        "sha256": "60fbe13149c36dddf7016d381f4d838858bbea7a8c888a93386cf5d307153153"
+      },
+      "baseline_id": "synthetic-baseline-v1",
+      "kind": "fixture",
+      "proof_ref": {
+        "path": "artifacts/1/proof.txt",
+        "sha256": "0926093dea3bfa5c185ba01c5fbf07e98b2319fe99d000f2f3c02bd838a6b943"
+      },
+      "provenance_ref": {
+        "path": "artifacts/1/provenance.json",
+        "sha256": "3a7789da79a8df220b73c5f38d71cd138da4f1d49897ad979261fd28e182fee5"
+      },
+      "runtime_id": "synthetic-runtime-v1",
+      "source_ref": {
+        "path": "artifacts/1/source.txt",
+        "sha256": "fe359b6351b503aa02ae8e9166a78b268396357a2d248a684b173292ad7a9ca5"
+      },
+      "target": "SyntheticFixture.Target1",
+      "target_ref": {
+        "path": "artifacts/1/target.txt",
+        "sha256": "e5149c4f576176b2efb4df4ebe0ac3813a4bae0a148f05e94f12257a6ee508b4"
+      },
+      "task_id": "fixture.task.1"
+    }
+  },
+  "family_split": {
+    "derivation:derivation.fixture.0": "train",
+    "derivation:derivation.fixture.1": "test",
+    "source:source.fixture.0": "train",
+    "source:source.fixture.1": "test",
+    "theorem:theorem.fixture.0": "train",
+    "theorem:theorem.fixture.1": "test",
+    "transport:transport.fixture.0": "train",
+    "transport:transport.fixture.1": "test"
+  },
+  "mode": "fixture_only",
+  "policy_id": "synthetic-policy-fixture-v1",
+  "reviewers": [
+    "fixture-reviewer"
+  ],
+  "schema": "ul-corpus-trusted-policy-v1"
+}

@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+    "-j1",
+    "-M11000",
+    "-DElab.async=false",
+    "-DautoImplicit=false",
+    "--root=/workspace/scratch/universal-law-project-closure/integration/native_worker/evidence/build01/frozen_sources",
+    "-o",
+    "/workspace/scratch/universal-law-project-closure/integration/native_worker/build/explore01/TrustedTasks.olean",
+    "/workspace/scratch/universal-law-project-closure/integration/native_worker/evidence/build01/frozen_sources/TrustedTasks.lean"
+  ],
+  "pid": 3497,
+  "started_unix_ns": 1793291487308753919
+}

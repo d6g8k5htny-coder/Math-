@@ -1,0 +1,47 @@
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:59:10: error: Type mismatch
+  mul_le_mul_left (nnreal_prod_rpow_le_affine w (fun i => f i a / d i) hw) (q a)
+has type
+  (∏ i, (f i a / d i) ^ ↑(w i)) * q a ≤ (1 - ∑ i, w i + ∑ i, w i * (f i a / d i)) * q a
+but is expected to have type
+  q a * ∏ i, (f i a / d i) ^ ↑(w i) ≤ q a * (1 - ∑ i, w i + ∑ i, w i * (f i a / d i))
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:69:31: warning: `if_false` has been deprecated: Use `ite_false` instead
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:75:20: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ i ∈ ?s, ?a * ?f i
+in the target expression
+  ∑ x, w i * q x * f i x * (m i)⁻¹ = (w i * ∑ a, q a * f i a) * (m i)⁻¹
+
+I Ω : Type
+inst✝¹ : Fintype I
+inst✝ : Fintype Ω
+q : Ω → ℝ≥0
+hq : ∑ a, q a = 1
+w : I → ℝ≥0
+hw : ∑ i, w i ≤ 1
+f : I → Ω → ℝ≥0
+m : I → ℝ≥0 := fun i => ∑ a, q a * f i a
+hz : ¬∃ i, w i ≠ 0 ∧ m i = 0
+hgood : ∀ (i : I), w i ≠ 0 → m i ≠ 0
+d : I → ℝ≥0 := fun i => if w i = 0 then 1 else m i
+hd : ∀ (i : I), d i ≠ 0
+C : ℝ≥0 := ∏ i, d i ^ ↑(w i)
+i : I
+hi : i ∈ Finset.univ
+hwi : ¬w i = 0
+⊢ ∑ x, w i * q x * f i x * (m i)⁻¹ = (w i * ∑ a, q a * f i a) * (m i)⁻¹
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:76:34: error: Invalid `←` modifier: `m` is a let-declaration name to be unfolded
+
+Note: The simplifier cannot "refold" local declarations by name
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:76:28: error: `simp` made no progress
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:92:19: error: Type mismatch
+  mul_le_mul_left hnorm C
+has type
+  (∑ a, q a * ∏ i, (f i a / d i) ^ ↑(w i)) * C ≤ 1 * C
+but is expected to have type
+  C * ∑ a, q a * ∏ i, (f i a / d i) ^ ↑(w i) ≤ C * 1
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:97:41: warning: This simp argument is unused:
+  C
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [d, hwi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

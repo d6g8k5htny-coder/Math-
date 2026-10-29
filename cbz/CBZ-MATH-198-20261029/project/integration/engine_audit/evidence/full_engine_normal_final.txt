@@ -1,0 +1,52 @@
+test_checker_rejection_is_never_fallback (test_arithmetic.ArithmeticTests.test_checker_rejection_is_never_fallback) ... ok
+test_finite_oracle_and_routes (test_arithmetic.ArithmeticTests.test_finite_oracle_and_routes) ... ok
+test_fresh_import_rejects_ambient_modules_and_model_access (test_arithmetic.ArithmeticTests.test_fresh_import_rejects_ambient_modules_and_model_access) ... ok
+test_interleaving_and_ambient_poison (test_arithmetic.ArithmeticTests.test_interleaving_and_ambient_poison) ... ok
+test_large_and_exponent_boundaries (test_arithmetic.ArithmeticTests.test_large_and_exponent_boundaries) ... ok
+test_strict_inputs_and_malformed_proofs (test_arithmetic.ArithmeticTests.test_strict_inputs_and_malformed_proofs) ... ok
+test_arithmetic_cli_is_exact_and_defaults_to_direct (test_cli.CliTests.test_arithmetic_cli_is_exact_and_defaults_to_direct) ... ok
+test_arithmetic_cli_rejects_invalid_input (test_cli.CliTests.test_arithmetic_cli_rejects_invalid_input) ... ok
+test_completion_after_deadline_is_not_success (test_process.ProcessTests.test_completion_after_deadline_is_not_success) ... ok
+test_fast_exiting_output_overflow_is_not_success (test_process.ProcessTests.test_fast_exiting_output_overflow_is_not_success) ... ok
+test_nonzero_and_success_remain_distinct (test_process.ProcessTests.test_nonzero_and_success_remain_distinct) ... ok
+test_timeout_retains_partial_output_and_wait4 (test_process.ProcessTests.test_timeout_retains_partial_output_and_wait4) ... ok
+test_duplicate_replays_cannot_replace_full_task_coverage (test_saved_evidence.SavedEvidenceTests.test_duplicate_replays_cannot_replace_full_task_coverage) ... ok
+test_export_cannot_change_while_real_verify_request_stays_unchanged (test_saved_evidence.SavedEvidenceTests.test_export_cannot_change_while_real_verify_request_stays_unchanged) ... ok
+test_cleanup_and_journal_keep_failed_paths (test_search.SearchTests.test_cleanup_and_journal_keep_failed_paths) ... ok
+test_closed_branch_requires_separate_acceptance (test_search.SearchTests.test_closed_branch_requires_separate_acceptance) ... ok
+test_closed_looking_rejected_candidate_has_no_success (test_search.SearchTests.test_closed_looking_rejected_candidate_has_no_success) ... ok
+test_each_operation_receives_remaining_wall_budget (test_search.SearchTests.test_each_operation_receives_remaining_wall_budget) ... ok
+test_expanded_parent_release_allows_chain_beyond_worker_capacity (test_search.SearchTests.test_expanded_parent_release_allows_chain_beyond_worker_capacity) ... ok
+test_goal_count_does_not_starve_a_productive_split (test_search.SearchTests.test_goal_count_does_not_starve_a_productive_split) ... ok
+test_limits_unknown_actions_and_task (test_search.SearchTests.test_limits_unknown_actions_and_task) ... ok
+test_parent_drop_transport_failure_fails_closed_and_retries_cleanup (test_search.SearchTests.test_parent_drop_transport_failure_fails_closed_and_retries_cleanup) ... ok
+test_parent_release_preserves_siblings_until_their_expansion (test_search.SearchTests.test_parent_release_preserves_siblings_until_their_expansion) ... ok
+test_partial_expansion_keeps_parent_for_separately_bounded_cleanup (test_search.SearchTests.test_partial_expansion_keeps_parent_for_separately_bounded_cleanup) ... ok
+test_queued_alias_keeps_checkpoint_live_until_last_expansion (test_search.SearchTests.test_queued_alias_keeps_checkpoint_live_until_last_expansion) ... ok
+test_rejected_fresh_closed_checkpoint_is_still_cleaned (test_search.SearchTests.test_rejected_fresh_closed_checkpoint_is_still_cleaned) ... ok
+test_search_drop_uses_remaining_budget_and_can_exhaust_it (test_search.SearchTests.test_search_drop_uses_remaining_budget_and_can_exhaust_it) ... ok
+test_siblings_follow_failure_from_unchanged_parent (test_search.SearchTests.test_siblings_follow_failure_from_unchanged_parent) ... ok
+test_unconfirmed_parent_drop_fails_closed_and_retains_cleanup_ownership (test_search.SearchTests.test_unconfirmed_parent_drop_fails_closed_and_retains_cleanup_ownership) ... ok
+test_wall_budget_before_next_action_keeps_parent_for_cleanup (test_search.SearchTests.test_wall_budget_before_next_action_keeps_parent_for_cleanup) ... ok
+test_worker_failure_is_retained_and_never_success (test_search.SearchTests.test_worker_failure_is_retained_and_never_success) ... ok
+test_manifest_binds_sources_and_outputs (test_worker.ManifestTests.test_manifest_binds_sources_and_outputs) ... ok
+test_missing_runtime_is_rejected (test_worker.RuntimeTests.test_missing_runtime_is_rejected) ... ok
+test_blocked_write_deadline (test_worker.WorkerTests.test_blocked_write_deadline) ... ok
+test_constructor_rejects_nonfinite_and_noninteger_limits (test_worker.WorkerTests.test_constructor_rejects_nonfinite_and_noninteger_limits) ... ok
+test_failures_invalidate_and_reap (test_worker.WorkerTests.test_failures_invalidate_and_reap) ... ok
+test_idle_worker_is_reaped_at_lifetime_limit (test_worker.WorkerTests.test_idle_worker_is_reaped_at_lifetime_limit) ... ok
+test_invalid_startup_is_receipted (test_worker.WorkerTests.test_invalid_startup_is_receipted) ... ok
+test_late_partial_fault_is_retained_after_stream_prefix_fills (test_worker.WorkerTests.test_late_partial_fault_is_retained_after_stream_prefix_fills) ... ok
+test_progress_and_handles (test_worker.WorkerTests.test_progress_and_handles) ... ok
+test_receipt_records_request_and_cost_boundaries_and_graceful_exit (test_worker.WorkerTests.test_receipt_records_request_and_cost_boundaries_and_graceful_exit) ... ok
+test_request_timeout_override_and_invalid_values (test_worker.WorkerTests.test_request_timeout_override_and_invalid_values) ... ok
+test_reserved_and_unique_directory (test_worker.WorkerTests.test_reserved_and_unique_directory) ... ok
+test_startup_obeys_lifetime (test_worker.WorkerTests.test_startup_obeys_lifetime) ... ok
+test_stderr_drained_and_concurrency_serialized (test_worker.WorkerTests.test_stderr_drained_and_concurrency_serialized) ... ok
+test_string_handles_and_partial_output (test_worker.WorkerTests.test_string_handles_and_partial_output) ... ok
+test_unresponsive_shutdown_is_killed (test_worker.WorkerTests.test_unresponsive_shutdown_is_killed) ... ok
+
+----------------------------------------------------------------------
+Ran 47 tests in 3.503s
+
+OK
