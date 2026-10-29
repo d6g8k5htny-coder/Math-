@@ -1,0 +1,81 @@
+name: Scoped pair-law countermodel
+'on':
+  pull_request:
+    paths:
+      - 'cbz/lifetime_pair_law/**'
+      - 'specifications/lean_statements_20261010/**'
+      - '.github/workflows/cbz-lifetime-pair-law-countermodel.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'cbz/lifetime_pair_law/**'
+      - 'specifications/lean_statements_20261010/**'
+      - '.github/workflows/cbz-lifetime-pair-law-countermodel.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  scoped-countermodel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      LEAN_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.11.16'
+      - name: Check original statement packet inventory
+        run: python3 -B -S specifications/lean_statements_20261010/check.py
+      - uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6
+        with:
+          lake-package-directory: specifications/lean_statements_20261010
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+          use-github-cache: 'false'
+      - name: Build, check axiom reports and recheck exact proof
+        shell: bash
+        run: |
+          set -euo pipefail
+          source="$GITHUB_WORKSPACE/cbz/lifetime_pair_law/CounterexampleE4.lean"
+          expected_source=812ba30d02f16a69abdcb8b23d28fa4a8fe68e3a016911d7f08e98ebe04cdfc7
+          printf '%s  %s\n' "$expected_source" "$source" | sha256sum --check
+          test "$(git hash-object "$source")" = 3b7712e41e8a6b0569c31c549a83857d9fe2ada6
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          cd specifications/lean_statements_20261010
+          test "$(git hash-object Specifications/Lifetime.lean)" = f2508f7f2e3fd42f22f5aa52bc5ead5ff9e73b9a
+          test ! -e CounterexampleE4.lean && test ! -L CounterexampleE4.lean
+          trap 'rm -f CounterexampleE4.lean' EXIT
+          cp "$source" CounterexampleE4.lean
+          cmp "$source" CounterexampleE4.lean
+          lake build Specifications.Lifetime
+          mkdir -p .lake/build/lib/lean
+          lake env lean -o .lake/build/lib/lean/CounterexampleE4.olean CounterexampleE4.lean 2>&1 | tee "$RUNNER_TEMP/pair-law-lean.log"
+          cat > "$RUNNER_TEMP/pair-law-expected.log" <<'EXPECTED'
+          'CBZ.LifetimePairLawCountermodel.oneLaw_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+          'CBZ.LifetimePairLawCountermodel.oneLaw_refutes_twoSided' depends on axioms: [propext, Classical.choice, Quot.sound]
+          EXPECTED
+          cmp "$RUNNER_TEMP/pair-law-expected.log" "$RUNNER_TEMP/pair-law-lean.log"
+          lake env leanchecker CounterexampleE4 2>&1 | tee "$RUNNER_TEMP/pair-law-kernel.log"
+          test ! -s "$RUNNER_TEMP/pair-law-kernel.log"
+          cmp "$source" CounterexampleE4.lean
+          printf '%s  %s\n' "$expected_source" "$source" | sha256sum --check
+          rm CounterexampleE4.lean
+          trap - EXIT
+          test -z "$(git status --porcelain --untracked-files=all)"
+          sha256sum "$source" "$RUNNER_TEMP"/pair-law-*.log
+      - name: Retain outputs even on failure
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: scoped-pair-law-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            cbz/lifetime_pair_law/CounterexampleE4.lean
+            ${{ runner.temp }}/pair-law-*.log
+          if-no-files-found: error

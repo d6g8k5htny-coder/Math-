@@ -1,0 +1,45 @@
+name: CBZ conditional pair-law countermodel
+on:
+  push:
+    branches: ["cbz/lifetime-pair-law-countermodel-20261029"]
+permissions:
+  contents: read
+jobs:
+  scoped-countermodel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      LEAN_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6
+        with:
+          lake-package-directory: specifications/lean_statements_20261010
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+          use-github-cache: 'false'
+      - name: Build exact specification, compile candidate and recheck
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd specifications/lean_statements_20261010
+          git rev-parse HEAD
+          lake build Specifications.Lifetime
+          mkdir -p .lake/build/lib/lean
+          lake env lean -o .lake/build/lib/lean/CounterexampleE4.olean CounterexampleE4.lean 2>&1 | tee "$RUNNER_TEMP/cbz-countermodel-lean.log"
+          lake env leanchecker CounterexampleE4 2>&1 | tee "$RUNNER_TEMP/cbz-countermodel-kernel.log"
+          sha256sum CounterexampleE4.lean "$RUNNER_TEMP"/cbz-countermodel-*.log
+      - name: Retain outputs even on failure
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: cbz-pair-law-countermodel-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            specifications/lean_statements_20261010/CounterexampleE4.lean
+            ${{ runner.temp }}/cbz-countermodel-*.log
+          if-no-files-found: error
