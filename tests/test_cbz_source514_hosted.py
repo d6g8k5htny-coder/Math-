@@ -11,6 +11,15 @@ from unittest import mock
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 import cbz_source514_hosted as subject
 
+class LeanEnvironmentTests(unittest.TestCase):
+    def test_inherited_module_search_paths_are_removed(self):
+        with mock.patch.dict(os.environ, {"LEAN_PATH":"/outside/lean","LEAN_SRC_PATH":"/outside/source","CBZ_FIXTURE":"retained"}):
+            result=subject.lean_environment()
+        self.assertNotIn("LEAN_PATH",result)
+        self.assertNotIn("LEAN_SRC_PATH",result)
+        self.assertEqual(result["CBZ_FIXTURE"],"retained")
+        self.assertEqual(result["LEAN_NUM_THREADS"],"2")
+
 class SourceBindingTests(unittest.TestCase):
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory()
@@ -154,6 +163,27 @@ class CompiledObjectCustodyTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,"symlink"):
                 subject.object_snapshot(package,[])
 
+    def test_symlinked_build_ancestor_is_rejected(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            package=Path(temporary)/"package"
+            outside=Path(temporary)/"outside"
+            package.mkdir()
+            outside.joinpath("build").mkdir(parents=True)
+            outside.joinpath("build","Owned.olean").write_bytes(b"object")
+            package.joinpath(".lake").symlink_to(outside,target_is_directory=True)
+            with self.assertRaisesRegex(ValueError,"symlink"):
+                subject.object_snapshot(package,[])
+
+    def test_dangling_nested_symlink_is_rejected(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            package=Path(temporary)/"package"
+            build=package/".lake/build/lib/lean"
+            build.mkdir(parents=True)
+            (build/"Owned.olean").write_bytes(b"owned")
+            (build/"Dangling").symlink_to(package/"missing",target_is_directory=True)
+            with self.assertRaisesRegex(ValueError,"symlink"):
+                subject.object_snapshot(package,[])
+
     def test_dependency_object_root_appearance_is_rejected(self):
         with tempfile.TemporaryDirectory() as temporary:
             package=Path(temporary)
@@ -257,7 +287,20 @@ class RegisteredDomainTests(unittest.TestCase):
     def test_plan_and_configuration_cannot_jointly_omit_elder_root(self):
         self.elder.pop()
         self.write_configuration()
-        with self.assertRaisesRegex(ValueError,"expected exactly"):
+        with self.assertRaisesRegex(ValueError,"elder roots"):
+            subject.checked_domain(self.root,self.plan)
+
+    def test_plan_and_configuration_cannot_replace_elder_root(self):
+        self.elder[0]="SubstitutedElder"
+        (self.root/"inputs"/"elder"/"SubstitutedElder.lean").write_text("-- substituted\n")
+        self.write_configuration()
+        with self.assertRaisesRegex(ValueError,"elder roots"):
+            subject.checked_domain(self.root,self.plan)
+
+    def test_elder_source_directory_is_exact(self):
+        path=self.root/"lakefile.toml"
+        path.write_text(path.read_text().replace('srcDir = "inputs/elder"','srcDir = "inputs/elsewhere"'))
+        with self.assertRaisesRegex(ValueError,"elder source directory"):
             subject.checked_domain(self.root,self.plan)
 
     def test_reordered_domain_rejected(self):

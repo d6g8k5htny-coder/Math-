@@ -25,6 +25,13 @@ STANDARD = {"Classical.choice", "Quot.sound", "propext"}
 def sha(data):
     return hashlib.sha256(data).hexdigest()
 
+def lean_environment():
+    environment = os.environ.copy()
+    for key in ("LEAN_PATH", "LEAN_SRC_PATH"):
+        environment.pop(key, None)
+    environment["LEAN_NUM_THREADS"] = "2"
+    return environment
+
 def git_environment():
     environment = {key: value for key, value in os.environ.items() if not key.startswith("GIT_")}
     environment.update(GIT_CONFIG_NOSYSTEM="1", GIT_CONFIG_GLOBAL=os.devnull,
@@ -149,12 +156,18 @@ def object_snapshot(package, dependencies):
     records = {}
     root_presence = {}
     for index, root in enumerate(roots):
-        root_presence[str(root.relative_to(package))] = root.is_dir()
+        relative = root.relative_to(package)
+        for parent in [package.joinpath(*relative.parts[:i]) for i in range(1,len(relative.parts)+1)]:
+            if parent.is_symlink():  # MUTATION_ROOT_SYMLINK
+                raise ValueError("symlink in compiled-object root")
+        root_presence[str(relative)] = root.is_dir()
         if not root.is_dir():
             if index == 0:
                 raise ValueError("owned compiled object directory absent")
             continue
         for path in sorted(root.rglob("*")):
+            if path.is_symlink():  # MUTATION_NESTED_SYMLINK
+                raise ValueError("symlink within compiled-object root")
             if path.is_file() and (".olean" in path.name or ".ilean" in path.name or path.suffix in {".so", ".a"}):
                 if path.is_symlink():
                     raise ValueError("aliased compiled object")
@@ -189,15 +202,22 @@ def checked_domain(package, plan):
     configuration = tomllib.loads((package / "lakefile.toml").read_text())
     production = configuration["defaultTargets"]
     support = next(x for x in configuration["lean_lib"] if x["name"] == "SourceDerivativeInputs")["roots"]
-    if production != plan["production"] or support != plan["support"]:  # MUTATION_DOMAIN
-        raise ValueError("registered production/support domain differs from exact plan")
-    modules = support + production
-    if len(production) != 67 or len(support) != 25 or len(modules) != len(set(modules)):
-        raise ValueError("expected exactly 67 production and 25 unique support modules")
+    elder_library = next(x for x in configuration["lean_lib"] if x["name"] == "SourceElderInputs")
+    elder = elder_library["roots"]
+    if elder_library.get("srcDir") != "inputs/elder":
+        raise ValueError("registered elder source directory differs from exact plan")
+    if production != plan["production"] or support != plan["support"] or elder != plan["elder"]:  # MUTATION_DOMAIN
+        raise ValueError("registered production/support/elder domain differs from exact plan")
+    if elder != ["SuperlevelBar", "ElderClearance", "ReusedCompactFrontier", "ClosedSuperlevel", "OrdinaryH0", "ElderInterval", "ElderBridge"]:  # MUTATION_ELDER_IDENTITIES
+        raise ValueError("registered elder roots differ from frozen source")
+    modules = elder + support + production
+    if len(production) != 67 or len(support) != 25 or len(elder) != 7 or len(modules) != len(set(modules)):  # MUTATION_ELDER_COUNT
+        raise ValueError("expected exactly 67 production and 32 unique support modules")
     for module in modules:
         if not isinstance(module, str) or not all(p.isidentifier() and p.isascii() for p in module.split(".")):
             raise ValueError("unsupported module name")
-    sources = ["inputs/" + m.replace(".", "/") + ".lean" for m in support]
+    sources = ["inputs/elder/" + m.replace(".", "/") + ".lean" for m in elder]
+    sources += ["inputs/" + m.replace(".", "/") + ".lean" for m in support]
     sources += [m.replace(".", "/") + ".lean" for m in production]
     sources += ["lakefile.toml", "lake-manifest.json", "lean-toolchain"]
     if any(not (package / p).is_file() for p in sources):
@@ -321,10 +341,10 @@ def execute(source, replay, collector, plan_path, output, carrier, carrier_head,
               "started_utc": datetime.now(timezone.utc).isoformat(), "phase_results": [],
               "repository": os.environ.get("GITHUB_REPOSITORY"), "run_id": os.environ.get("GITHUB_RUN_ID"),
               "run_attempt": os.environ.get("GITHUB_RUN_ATTEMPT"), "owned_modules": modules,
-              "scope": "Exact frozen 92-module registered import closure; seven unconsumed elder copies and mathematical application/nonvacuity claims remain outside this replay.",
+              "scope": "Exact frozen 99-module registered import closure; mathematical application and premise-inhabitation claims remain outside this replay.",
               "recorder_sha256": recorder.__source_sha256__, "replay_tool_sha256": tool.__source_sha256__,
               "launcher_sha256": loaded_launcher_sha256, "execution_inputs_before": execution_before}
-    environment = dict(os.environ, LEAN_NUM_THREADS="2")
+    environment = lean_environment()
     def phase(name, command, cwd=package, timeout=1800):
         return recorder.run_phase(name, [str(x) for x in command], cwd, environment, output, report, timeout=timeout)
     try:

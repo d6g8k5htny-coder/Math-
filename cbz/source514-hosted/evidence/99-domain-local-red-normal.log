@@ -1,0 +1,91 @@
+test_complete_registered_domain (isolated_test.RegisteredDomainTests.test_complete_registered_domain) ... FAIL
+test_duplicate_modules_rejected (isolated_test.RegisteredDomainTests.test_duplicate_modules_rejected) ... ok
+test_elder_source_directory_is_exact (isolated_test.RegisteredDomainTests.test_elder_source_directory_is_exact) ... FAIL
+test_missing_imported_elder_source_rejected (isolated_test.RegisteredDomainTests.test_missing_imported_elder_source_rejected) ... FAIL
+test_missing_source_rejected (isolated_test.RegisteredDomainTests.test_missing_source_rejected) ... ok
+test_omitted_registered_elder_root_rejected (isolated_test.RegisteredDomainTests.test_omitted_registered_elder_root_rejected) ... FAIL
+test_plan_and_configuration_cannot_jointly_omit_elder_root (isolated_test.RegisteredDomainTests.test_plan_and_configuration_cannot_jointly_omit_elder_root) ... FAIL
+test_plan_and_configuration_cannot_replace_elder_root (isolated_test.RegisteredDomainTests.test_plan_and_configuration_cannot_replace_elder_root) ... FAIL
+test_reordered_domain_rejected (isolated_test.RegisteredDomainTests.test_reordered_domain_rejected) ... ok
+test_dangling_nested_symlink_is_rejected (isolated_test.CompiledObjectCustodyTests.test_dangling_nested_symlink_is_rejected) ... FAIL
+test_dependency_object_change_rejected_while_owned_object_is_stable (isolated_test.CompiledObjectCustodyTests.test_dependency_object_change_rejected_while_owned_object_is_stable) ... ok
+test_dependency_object_root_appearance_is_rejected (isolated_test.CompiledObjectCustodyTests.test_dependency_object_root_appearance_is_rejected) ... ok
+test_symlinked_build_ancestor_is_rejected (isolated_test.CompiledObjectCustodyTests.test_symlinked_build_ancestor_is_rejected) ... FAIL
+test_symlinked_build_root_is_rejected (isolated_test.CompiledObjectCustodyTests.test_symlinked_build_root_is_rejected) ... FAIL
+test_symlinked_nested_directory_is_rejected (isolated_test.CompiledObjectCustodyTests.test_symlinked_nested_directory_is_rejected) ... FAIL
+test_unused_dependency_object_root_absence_is_explicit (isolated_test.CompiledObjectCustodyTests.test_unused_dependency_object_root_absence_is_explicit) ... ok
+
+======================================================================
+FAIL: test_complete_registered_domain (isolated_test.RegisteredDomainTests.test_complete_registered_domain)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/isolated_test.py", line 261, in test_complete_registered_domain
+AssertionError: 92 != 99
+
+======================================================================
+FAIL: test_elder_source_directory_is_exact (isolated_test.RegisteredDomainTests.test_elder_source_directory_is_exact)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/isolated_test.py", line 294, in test_elder_source_directory_is_exact
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_missing_imported_elder_source_rejected (isolated_test.RegisteredDomainTests.test_missing_imported_elder_source_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/isolated_test.py", line 275, in test_missing_imported_elder_source_rejected
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_omitted_registered_elder_root_rejected (isolated_test.RegisteredDomainTests.test_omitted_registered_elder_root_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/isolated_test.py", line 269, in test_omitted_registered_elder_root_rejected
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_plan_and_configuration_cannot_jointly_omit_elder_root (isolated_test.RegisteredDomainTests.test_plan_and_configuration_cannot_jointly_omit_elder_root)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/isolated_test.py", line 281, in test_plan_and_configuration_cannot_jointly_omit_elder_root
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_plan_and_configuration_cannot_replace_elder_root (isolated_test.RegisteredDomainTests.test_plan_and_configuration_cannot_replace_elder_root)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/isolated_test.py", line 288, in test_plan_and_configuration_cannot_replace_elder_root
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_dangling_nested_symlink_is_rejected (isolated_test.CompiledObjectCustodyTests.test_dangling_nested_symlink_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/isolated_test.py", line 175, in test_dangling_nested_symlink_is_rejected
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_symlinked_build_ancestor_is_rejected (isolated_test.CompiledObjectCustodyTests.test_symlinked_build_ancestor_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/isolated_test.py", line 165, in test_symlinked_build_ancestor_is_rejected
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_symlinked_build_root_is_rejected (isolated_test.CompiledObjectCustodyTests.test_symlinked_build_root_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/isolated_test.py", line 141, in test_symlinked_build_root_is_rejected
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_symlinked_nested_directory_is_rejected (isolated_test.CompiledObjectCustodyTests.test_symlinked_nested_directory_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/isolated_test.py", line 154, in test_symlinked_nested_directory_is_rejected
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.029s
+
+FAILED (failures=10)

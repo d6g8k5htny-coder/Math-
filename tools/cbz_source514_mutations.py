@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Three reason-bound source mutations of the source514 recorder's custody/domain guards."""
+"""Six reason-bound source mutations of the source514 recorder's custody/domain guards."""
 import json
 from pathlib import Path
 import shutil
@@ -18,8 +18,11 @@ test=root/"tests/test_cbz_source514_hosted.py"
 mutations=[
  ("head",'if actual != expected_commit:  # MUTATION_HEAD','if False:  # MUTATION_HEAD',"SourceBindingTests.test_wrong_head_rejected"),
  ("bytes",'if actual_bytes != expected:  # MUTATION_BYTES','if False:  # MUTATION_BYTES',"SourceBindingTests.test_dirty_bytes_rejected_even_assume_unchanged"),
- ("domain",'if production != plan["production"] or support != plan["support"]:  # MUTATION_DOMAIN','if False:  # MUTATION_DOMAIN',"RegisteredDomainTests.test_reordered_domain_rejected")]
-report={"schema":"cbz-source514-recorder-mutations-v1","threshold":"all three source mutants in normal and optimized Python modes","source_sha256":hashlib.sha256(source.read_bytes()).hexdigest(),"executions":[],"status":"NOT_PASS"}
+ ("domain",'if production != plan["production"] or support != plan["support"] or elder != plan["elder"]:  # MUTATION_DOMAIN','if False:  # MUTATION_DOMAIN',"RegisteredDomainTests.test_reordered_domain_rejected"),
+ ("elder_identities",'if elder != ["SuperlevelBar", "ElderClearance", "ReusedCompactFrontier", "ClosedSuperlevel", "OrdinaryH0", "ElderInterval", "ElderBridge"]:  # MUTATION_ELDER_IDENTITIES','if False:  # MUTATION_ELDER_IDENTITIES',"RegisteredDomainTests.test_plan_and_configuration_cannot_replace_elder_root"),
+ ("object_root_symlink",'if parent.is_symlink():  # MUTATION_ROOT_SYMLINK','if False:  # MUTATION_ROOT_SYMLINK',"CompiledObjectCustodyTests.test_symlinked_build_root_is_rejected"),
+ ("object_nested_symlink",'if path.is_symlink():  # MUTATION_NESTED_SYMLINK','if False:  # MUTATION_NESTED_SYMLINK',"CompiledObjectCustodyTests.test_symlinked_nested_directory_is_rejected")]
+report={"schema":"cbz-source514-recorder-mutations-v1","threshold":"all six source mutants in normal and optimized Python modes","source_sha256":hashlib.sha256(source.read_bytes()).hexdigest(),"executions":[],"status":"NOT_PASS"}
 try:
  for mode in ["normal","optimized"]:
   optimize=["-O"] if mode=="optimized" else []
@@ -47,7 +50,7 @@ try:
     intended=(result.returncode==1 and "AssertionError: ValueError not raised" in stderr and "FAILED (failures=1)" in stderr and "Ran 1 test" in stderr and "ERROR:" not in stderr)
     report["executions"].append({"mode":mode,"label":label,"exit":result.returncode,"intended_guard_failure":intended})
     if not intended: raise RuntimeError("mutant not killed for its named guard: "+prefix)
- report["status"]="ALL_THREE_REASON_BOUND_MUTANTS_KILLED_IN_BOTH_MODES"
+ report["status"]="ALL_SIX_REASON_BOUND_MUTANTS_KILLED_IN_BOTH_MODES"
 finally:
  (args.output/"REPORT.json").write_text(json.dumps(report,indent=2)+"\n")
 print(report["status"])
