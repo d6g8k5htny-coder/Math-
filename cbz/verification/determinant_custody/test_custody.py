@@ -245,7 +245,7 @@ class SourceCustody(unittest.TestCase):
         work.mkdir()
         output.mkdir()
         target = 'test_corrupt_payload_refused'
-        baseline = subprocess.CompletedProcess([], 0, stdout='', stderr='Ran 1 test in 0.001s\n\nOK\n')
+        baseline = subprocess.CompletedProcess([], 0, stdout='', stderr='test_corrupt_payload_refused (fixture) ... ok\n\nRan 1 test in 0.001s\n\nOK\n')
         counterfeit = subprocess.CompletedProcess([], 2, stdout='', stderr=(
             'FAIL: ' + target + ' (fixture)\n'
             'Ran 1 test in 0.001s\n\nFAILED (failures=1)\n'))
@@ -266,7 +266,7 @@ class SourceCustody(unittest.TestCase):
         output = self.repo / 'wrong-reason-output'
         work.mkdir()
         output.mkdir()
-        baseline = subprocess.CompletedProcess([], 0, stdout='', stderr='Ran 1 test in 0.001s\n\nOK\n')
+        baseline = subprocess.CompletedProcess([], 0, stdout='', stderr='test_corrupt_payload_refused (fixture) ... ok\n\nRan 1 test in 0.001s\n\nOK\n')
         unrelated = subprocess.CompletedProcess([], 1, stdout='', stderr=(
             'FAIL: test_corrupt_payload_refused (fixture)\n'
             'AssertionError: unrelated fixture assertion\n'
@@ -288,7 +288,7 @@ class SourceCustody(unittest.TestCase):
         output = self.repo / 'expected-reason-output'
         work.mkdir()
         output.mkdir()
-        baseline = subprocess.CompletedProcess([], 0, stdout='', stderr='Ran 1 test in 0.001s\n\nOK\n')
+        baseline = subprocess.CompletedProcess([], 0, stdout='', stderr='test_corrupt_payload_refused (fixture) ... ok\n\nRan 1 test in 0.001s\n\nOK\n')
         intended = subprocess.CompletedProcess([], 1, stdout='', stderr=(
             'FAIL: test_corrupt_payload_refused (fixture)\n'
             'in test_corrupt_payload_refused\n'
