@@ -1,0 +1,15 @@
+/workspace/scratch/universal-law-project-closure/formal/General/Amalgamation.lean:151:4: error: Type mismatch: After simplification, term
+  localCover_amalgamation fullFamily hD id (fun x => Finset.univ) (fun x => 1)
+    (fun i => of_decide_eq_true (id (Eq.refl true)))
+    (fun i =>
+      of_eq_true
+        (Eq.trans (congrArg (LE.le 1) (Eq.trans (congrArg Finset.card Finset.univ_unique) (Finset.card_singleton 0)))
+          (Std.le_refl._simp_1 1)))
+    hPS (fun x => ∅) (fun i g hg => False.elim (Finset.notMem_empty g hg)) hlocal
+ has type
+  @generatorCover (Fin 2) (instDecidableEqFin 2) fullFamily 1 (Finset.univ.biUnion fun x => ∅)
+but is expected to have type
+  @generatorCover (Fin 2) (instDecidableEqFin 2) fullFamily 1 ∅
+/workspace/scratch/universal-law-project-closure/formal/General/Amalgamation.lean:178:4: warning: Try `simp at hmem` instead of `simpa using hmem`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`

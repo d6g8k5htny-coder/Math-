@@ -1,0 +1,42 @@
+test_accepted_proof_reports_unconfirmed_final_cleanup (test_resources.ResourceTests.test_accepted_proof_reports_unconfirmed_final_cleanup) ... 
+  test_accepted_proof_reports_unconfirmed_final_cleanup (test_resources.ResourceTests.test_accepted_proof_reports_unconfirmed_final_cleanup) (outcome={'ok': False, 'status': 'rejected'}) ... ERROR
+  test_accepted_proof_reports_unconfirmed_final_cleanup (test_resources.ResourceTests.test_accepted_proof_reports_unconfirmed_final_cleanup) (outcome=TimeoutError('drop deadline')) ... ERROR
+test_compatibility_frontier_exhaustion_is_explicit (test_resources.ResourceTests.test_compatibility_frontier_exhaustion_is_explicit) ... ok
+test_full_frontier_is_reported_without_wasting_attempts_or_eviction (test_resources.ResourceTests.test_full_frontier_is_reported_without_wasting_attempts_or_eviction) ... ok
+test_reclamation_keeps_long_chain_solvable_with_sufficient_requests (test_resources.ResourceTests.test_reclamation_keeps_long_chain_solvable_with_sufficient_requests) ... ok
+test_rejected_candidate_never_becomes_proof_success (test_resources.ResourceTests.test_rejected_candidate_never_becomes_proof_success) ... ok
+test_request_limit_preserves_verification_and_cleanup_capacity (test_resources.ResourceTests.test_request_limit_preserves_verification_and_cleanup_capacity) ... ok
+test_successful_cleanup_reports_confirmed_release (test_resources.ResourceTests.test_successful_cleanup_reports_confirmed_release) ... ERROR
+test_true_attempt_budget_remains_distinct (test_resources.ResourceTests.test_true_attempt_budget_remains_distinct) ... ok
+
+======================================================================
+ERROR: test_accepted_proof_reports_unconfirmed_final_cleanup (test_resources.ResourceTests.test_accepted_proof_reports_unconfirmed_final_cleanup) (outcome={'ok': False, 'status': 'rejected'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/engine_audit/tests/test_resources.py", line 130, in test_accepted_proof_reports_unconfirmed_final_cleanup
+    self.assertFalse(result['cleanup_complete'])
+                     ~~~~~~^^^^^^^^^^^^^^^^^^^^
+KeyError: 'cleanup_complete'
+
+======================================================================
+ERROR: test_accepted_proof_reports_unconfirmed_final_cleanup (test_resources.ResourceTests.test_accepted_proof_reports_unconfirmed_final_cleanup) (outcome=TimeoutError('drop deadline'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/engine_audit/tests/test_resources.py", line 130, in test_accepted_proof_reports_unconfirmed_final_cleanup
+    self.assertFalse(result['cleanup_complete'])
+                     ~~~~~~^^^^^^^^^^^^^^^^^^^^
+KeyError: 'cleanup_complete'
+
+======================================================================
+ERROR: test_successful_cleanup_reports_confirmed_release (test_resources.ResourceTests.test_successful_cleanup_reports_confirmed_release)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/engine_audit/tests/test_resources.py", line 139, in test_successful_cleanup_reports_confirmed_release
+    self.assertTrue(result['cleanup_complete'])
+                    ~~~~~~^^^^^^^^^^^^^^^^^^^^
+KeyError: 'cleanup_complete'
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.002s
+
+FAILED (errors=3)

@@ -1,0 +1,17 @@
+/workspace/scratch/universal-law-project-closure/formal/General/Probability.lean:148:84: error: unexpected token 'omit'; expected 'lemma'
+/workspace/scratch/universal-law-project-closure/formal/General/Probability.lean:186:0: warning: automatically included section variable(s) unused in theorem `UniversalLaw.General.coverCost_le_family`:
+  [Fintype X]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype X] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/scratch/universal-law-project-closure/formal/General/Probability.lean:209:0: warning: automatically included section variable(s) unused in theorem `UniversalLaw.General.exists_capped_cover_of_hazard`:
+  [Fintype X]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype X] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+'UniversalLaw.General.muOf_le_prod_localMass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.General.independentBlockHazard' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.General.paletteSeparated_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.General.paletteSeparated_coverCost' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,29 @@
+test_complete_native_saved_campaign_replays (test_saved_native.SavedNativeTests.test_complete_native_saved_campaign_replays) ... ok
+test_duplicate_fresh_target_cannot_replace_complete_coverage (test_saved_native.SavedNativeTests.test_duplicate_fresh_target_cannot_replace_complete_coverage) ... ok
+test_export_cannot_change_while_native_closed_and_verify_payload_stay (test_saved_native.SavedNativeTests.test_export_cannot_change_while_native_closed_and_verify_payload_stay) ... ok
+test_omitted_budget_search_cannot_hide_paid_requests (test_saved_native.SavedNativeTests.test_omitted_budget_search_cannot_hide_paid_requests) ... FAIL
+test_repeated_negative_response_cannot_replace_three_controls (test_saved_native.SavedNativeTests.test_repeated_negative_response_cannot_replace_three_controls) ... FAIL
+test_request_payload_tamper_rejects_despite_original_accepted_response (test_saved_native.SavedNativeTests.test_request_payload_tamper_rejects_despite_original_accepted_response) ... ok
+
+======================================================================
+FAIL: test_omitted_budget_search_cannot_hide_paid_requests (test_saved_native.SavedNativeTests.test_omitted_budget_search_cannot_hide_paid_requests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/native_worker/tests/test_saved_native.py", line 36, in test_omitted_budget_search_cannot_hide_paid_requests
+    with self.assertRaises(ValueError):verifier.check(self.path)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_repeated_negative_response_cannot_replace_three_controls (test_saved_native.SavedNativeTests.test_repeated_negative_response_cannot_replace_three_controls)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/native_worker/tests/test_saved_native.py", line 32, in test_repeated_negative_response_cannot_replace_three_controls
+    with self.assertRaises(ValueError):verifier.check(self.path)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.424s
+
+FAILED (failures=2)

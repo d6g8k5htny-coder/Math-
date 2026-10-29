@@ -1,0 +1,449 @@
+test_all_49_known_targets_are_blocked (test_admission.AdmissionTests.test_all_49_known_targets_are_blocked) ... ok
+test_attestation_split_requires_list (test_admission.AdmissionTests.test_attestation_split_requires_list) ... ok
+test_both_historical_export_hashes_are_permanently_blocked (test_admission.AdmissionTests.test_both_historical_export_hashes_are_permanently_blocked) ... ok
+test_duplicate_json_policy_key_denies (test_admission.AdmissionTests.test_duplicate_json_policy_key_denies) ... ok
+test_duplicate_record_ids_rejected (test_admission.AdmissionTests.test_duplicate_record_ids_rejected) ... ok
+test_empty_dataset_denied (test_admission.AdmissionTests.test_empty_dataset_denied) ... ok
+test_exponent_overflow_unused_metadata_cannot_admit (test_admission.AdmissionTests.test_exponent_overflow_unused_metadata_cannot_admit) ... FAIL
+test_exposed_known_endpoint_cannot_be_overridden (test_admission.AdmissionTests.test_exposed_known_endpoint_cannot_be_overridden) ... ok
+test_fake_boolean_is_not_acceptance (test_admission.AdmissionTests.test_fake_boolean_is_not_acceptance) ... ok
+test_family_overlap_rejected_after_recomputed_record_id (test_admission.AdmissionTests.test_family_overlap_rejected_after_recomputed_record_id) ... ok
+test_forbidden_axiom_even_trusted_receipt_denied (test_admission.AdmissionTests.test_forbidden_axiom_even_trusted_receipt_denied) ... ok
+test_huge_integer_json_returns_typed_denial (test_admission.AdmissionTests.test_huge_integer_json_returns_typed_denial) ... ERROR
+test_immutable_record_identity_rejects_changed_split (test_admission.AdmissionTests.test_immutable_record_identity_rejects_changed_split) ... ok
+test_known_proof_hash_cannot_be_hidden_by_target_rename (test_admission.AdmissionTests.test_known_proof_hash_cannot_be_hidden_by_target_rename) ... ok
+test_malformed_boolean_metadata_in_each_document_denies (test_admission.AdmissionTests.test_malformed_boolean_metadata_in_each_document_denies) ... 
+  test_malformed_boolean_metadata_in_each_document_denies (test_admission.AdmissionTests.test_malformed_boolean_metadata_in_each_document_denies) (document='provenance_ref') ... FAIL
+  test_malformed_boolean_metadata_in_each_document_denies (test_admission.AdmissionTests.test_malformed_boolean_metadata_in_each_document_denies) (document='attestation_ref') ... FAIL
+test_malformed_boolean_metadata_in_each_document_denies (test_admission.AdmissionTests.test_malformed_boolean_metadata_in_each_document_denies) ... FAIL
+test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) ... 
+  test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='source_exposed', value=0) ... FAIL
+  test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='source_exposed', value=1) ... FAIL
+  test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='source_exposed', value=0.0) ... FAIL
+  test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='source_exposed', value=1.0) ... FAIL
+  test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='source_exposed', value=None) ... FAIL
+  test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='source_exposed', value='true') ... FAIL
+  test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='source_exposed', value='false') ... FAIL
+  test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='training_eligible', value=0) ... FAIL
+  test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='training_eligible', value=1) ... FAIL
+  test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='training_eligible', value=0.0) ... FAIL
+  test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='training_eligible', value=1.0) ... FAIL
+  test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='training_eligible', value=None) ... FAIL
+  test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='training_eligible', value='true') ... FAIL
+  test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='training_eligible', value='false') ... FAIL
+  test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='discovery_eligible', value=0) ... FAIL
+  test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='discovery_eligible', value=1) ... FAIL
+  test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='discovery_eligible', value=0.0) ... FAIL
+  test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='discovery_eligible', value=1.0) ... FAIL
+  test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='discovery_eligible', value=None) ... FAIL
+  test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='discovery_eligible', value='true') ... FAIL
+  test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='discovery_eligible', value='false') ... FAIL
+test_metavariable_even_trusted_receipt_denied (test_admission.AdmissionTests.test_metavariable_even_trusted_receipt_denied) ... ok
+test_missing_attestation_default_denies (test_admission.AdmissionTests.test_missing_attestation_default_denies) ... ok
+test_missing_exposure_review_default_denies (test_admission.AdmissionTests.test_missing_exposure_review_default_denies) ... ok
+test_missing_independent_pin_denies (test_admission.AdmissionTests.test_missing_independent_pin_denies) ... ok
+test_nested_legacy_self_dependency_flag_cannot_be_relabelled (test_admission.AdmissionTests.test_nested_legacy_self_dependency_flag_cannot_be_relabelled) ... ok
+test_nonfinite_constants_deny (test_admission.AdmissionTests.test_nonfinite_constants_deny) ... 
+  test_nonfinite_constants_deny (test_admission.AdmissionTests.test_nonfinite_constants_deny) (constant='-1e10000') ... FAIL
+test_nonobject_dataset_is_clean_denial (test_admission.AdmissionTests.test_nonobject_dataset_is_clean_denial) ... ok
+test_old_self_hypothesis_trace_denied_even_claimed_eligible (test_admission.AdmissionTests.test_old_self_hypothesis_trace_denied_even_claimed_eligible) ... ok
+test_omitted_family_is_default_denial (test_admission.AdmissionTests.test_omitted_family_is_default_denial) ... ok
+test_open_proof_even_trusted_receipt_denied (test_admission.AdmissionTests.test_open_proof_even_trusted_receipt_denied) ... ok
+test_path_escape_denied (test_admission.AdmissionTests.test_path_escape_denied) ... ok
+test_policy_pin_cannot_be_changed_by_proposal (test_admission.AdmissionTests.test_policy_pin_cannot_be_changed_by_proposal) ... ok
+test_receipt_declared_ineligibility_cannot_be_overridden (test_admission.AdmissionTests.test_receipt_declared_ineligibility_cannot_be_overridden) ... ok
+test_receipt_exposure_cannot_be_overridden_by_new_attestation (test_admission.AdmissionTests.test_receipt_exposure_cannot_be_overridden_by_new_attestation) ... ok
+test_relabelled_open_context_payload_stays_blocked (test_admission.AdmissionTests.test_relabelled_open_context_payload_stays_blocked) ... ok
+test_self_local_attestation_denied (test_admission.AdmissionTests.test_self_local_attestation_denied) ... ok
+test_source_exposure_attestation_denied (test_admission.AdmissionTests.test_source_exposure_attestation_denied) ... ok
+test_surrogate_family_string_returns_typed_denial (test_admission.AdmissionTests.test_surrogate_family_string_returns_typed_denial) ... ERROR
+test_symlink_denied (test_admission.AdmissionTests.test_symlink_denied) ... ok
+test_synthetic_positive_is_fixture_only (test_admission.AdmissionTests.test_synthetic_positive_is_fixture_only) ... ok
+test_tampered_receipt_rejected_without_policy_repin (test_admission.AdmissionTests.test_tampered_receipt_rejected_without_policy_repin) ... ok
+test_unfrozen_family_denied (test_admission.AdmissionTests.test_unfrozen_family_denied) ... ok
+test_unknown_artifact_denied (test_admission.AdmissionTests.test_unknown_artifact_denied) ... ok
+test_unreviewed_provenance_denied (test_admission.AdmissionTests.test_unreviewed_provenance_denied) ... ok
+test_untrusted_reviewer_denied (test_admission.AdmissionTests.test_untrusted_reviewer_denied) ... ok
+test_weaker_or_different_target_receipt_rejected (test_admission.AdmissionTests.test_weaker_or_different_target_receipt_rejected) ... ok
+
+======================================================================
+ERROR: test_huge_integer_json_returns_typed_denial (test_admission.AdmissionTests.test_huge_integer_json_returns_typed_denial)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 284, in test_huge_integer_json_returns_typed_denial
+    self.denied(verify_dataset(self.dataset_path, self.policy_path, self.pin), 'invalid_json')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/admission.py", line 263, in verify_dataset
+    policy, dataset = parse(policy_bytes), parse(dataset_bytes)
+                                           ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/admission.py", line 58, in parse
+    return json.loads(data, object_pairs_hook=_object_pairs,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/__init__.py", line 359, in loads
+    return cls(**kw).decode(s)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/decoder.py", line 354, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Exceeds the limit (4300 digits) for integer string conversion: value has 5000 digits; use sys.set_int_max_str_digits() to increase the limit
+
+======================================================================
+ERROR: test_surrogate_family_string_returns_typed_denial (test_admission.AdmissionTests.test_surrogate_family_string_returns_typed_denial)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 288, in test_surrogate_family_string_returns_typed_denial
+    self.denied(self.check(), 'invalid_unicode')
+                ^^^^^^^^^^^^
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 29, in check
+    return verify_dataset(self.dataset_path, self.policy_path, self.pin)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/admission.py", line 297, in verify_dataset
+    accepted = _validate_record(record, policy, policy_path.parent, blocked)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/admission.py", line 162, in _validate_record
+    require(record.get('id') == content_id('record', identity), 'record_identity_mismatch')
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/admission.py", line 39, in content_id
+    return prefix + ':' + digest(canonical(value))
+                                 ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/admission.py", line 35, in canonical
+    return json.dumps(value, sort_keys=True, separators=(',', ':'), ensure_ascii=False).encode()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'utf-8' codec can't encode character '\ud800' in position 152: surrogates not allowed
+
+======================================================================
+FAIL: test_exponent_overflow_unused_metadata_cannot_admit (test_admission.AdmissionTests.test_exponent_overflow_unused_metadata_cannot_admit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 293, in test_exponent_overflow_unused_metadata_cannot_admit
+    self.denied(verify_dataset(self.dataset_path, self.policy_path, self.pin), 'nonfinite_json')
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 67, in denied
+    self.assertEqual(report['status'], 'denied')
+AssertionError: 'policy_admitted_fixture' != 'denied'
+- policy_admitted_fixture
++ denied
+
+
+======================================================================
+FAIL: test_malformed_boolean_metadata_in_each_document_denies (test_admission.AdmissionTests.test_malformed_boolean_metadata_in_each_document_denies) (document='provenance_ref')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 273, in test_malformed_boolean_metadata_in_each_document_denies
+    self.denied(self.check(), 'boolean_metadata_type')
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 68, in denied
+    self.assertIn(code, [x['code'] for x in report['violations']])
+AssertionError: 'boolean_metadata_type' not found in ['historic_blocked_trace']
+
+======================================================================
+FAIL: test_malformed_boolean_metadata_in_each_document_denies (test_admission.AdmissionTests.test_malformed_boolean_metadata_in_each_document_denies) (document='attestation_ref')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 273, in test_malformed_boolean_metadata_in_each_document_denies
+    self.denied(self.check(), 'boolean_metadata_type')
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 68, in denied
+    self.assertIn(code, [x['code'] for x in report['violations']])
+AssertionError: 'boolean_metadata_type' not found in ['historic_blocked_trace']
+
+======================================================================
+FAIL: test_malformed_boolean_metadata_in_each_document_denies (test_admission.AdmissionTests.test_malformed_boolean_metadata_in_each_document_denies)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 277, in test_malformed_boolean_metadata_in_each_document_denies
+    self.denied(self.check(), 'boolean_metadata_type')
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 68, in denied
+    self.assertIn(code, [x['code'] for x in report['violations']])
+AssertionError: 'boolean_metadata_type' not found in ['historic_blocked_trace']
+
+======================================================================
+FAIL: test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='source_exposed', value=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 262, in test_malformed_optional_receipt_booleans_deny_after_trusted_repin
+    self.denied(self.check(), 'boolean_metadata_type')
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 67, in denied
+    self.assertEqual(report['status'], 'denied')
+AssertionError: 'policy_admitted_fixture' != 'denied'
+- policy_admitted_fixture
++ denied
+
+
+======================================================================
+FAIL: test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='source_exposed', value=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 262, in test_malformed_optional_receipt_booleans_deny_after_trusted_repin
+    self.denied(self.check(), 'boolean_metadata_type')
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 67, in denied
+    self.assertEqual(report['status'], 'denied')
+AssertionError: 'policy_admitted_fixture' != 'denied'
+- policy_admitted_fixture
++ denied
+
+
+======================================================================
+FAIL: test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='source_exposed', value=0.0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 262, in test_malformed_optional_receipt_booleans_deny_after_trusted_repin
+    self.denied(self.check(), 'boolean_metadata_type')
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 67, in denied
+    self.assertEqual(report['status'], 'denied')
+AssertionError: 'policy_admitted_fixture' != 'denied'
+- policy_admitted_fixture
++ denied
+
+
+======================================================================
+FAIL: test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='source_exposed', value=1.0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 262, in test_malformed_optional_receipt_booleans_deny_after_trusted_repin
+    self.denied(self.check(), 'boolean_metadata_type')
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 67, in denied
+    self.assertEqual(report['status'], 'denied')
+AssertionError: 'policy_admitted_fixture' != 'denied'
+- policy_admitted_fixture
++ denied
+
+
+======================================================================
+FAIL: test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='source_exposed', value=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 262, in test_malformed_optional_receipt_booleans_deny_after_trusted_repin
+    self.denied(self.check(), 'boolean_metadata_type')
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 67, in denied
+    self.assertEqual(report['status'], 'denied')
+AssertionError: 'policy_admitted_fixture' != 'denied'
+- policy_admitted_fixture
++ denied
+
+
+======================================================================
+FAIL: test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='source_exposed', value='true')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 262, in test_malformed_optional_receipt_booleans_deny_after_trusted_repin
+    self.denied(self.check(), 'boolean_metadata_type')
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 67, in denied
+    self.assertEqual(report['status'], 'denied')
+AssertionError: 'policy_admitted_fixture' != 'denied'
+- policy_admitted_fixture
++ denied
+
+
+======================================================================
+FAIL: test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='source_exposed', value='false')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 262, in test_malformed_optional_receipt_booleans_deny_after_trusted_repin
+    self.denied(self.check(), 'boolean_metadata_type')
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 67, in denied
+    self.assertEqual(report['status'], 'denied')
+AssertionError: 'policy_admitted_fixture' != 'denied'
+- policy_admitted_fixture
++ denied
+
+
+======================================================================
+FAIL: test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='training_eligible', value=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 262, in test_malformed_optional_receipt_booleans_deny_after_trusted_repin
+    self.denied(self.check(), 'boolean_metadata_type')
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 67, in denied
+    self.assertEqual(report['status'], 'denied')
+AssertionError: 'policy_admitted_fixture' != 'denied'
+- policy_admitted_fixture
++ denied
+
+
+======================================================================
+FAIL: test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='training_eligible', value=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 262, in test_malformed_optional_receipt_booleans_deny_after_trusted_repin
+    self.denied(self.check(), 'boolean_metadata_type')
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 67, in denied
+    self.assertEqual(report['status'], 'denied')
+AssertionError: 'policy_admitted_fixture' != 'denied'
+- policy_admitted_fixture
++ denied
+
+
+======================================================================
+FAIL: test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='training_eligible', value=0.0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 262, in test_malformed_optional_receipt_booleans_deny_after_trusted_repin
+    self.denied(self.check(), 'boolean_metadata_type')
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 67, in denied
+    self.assertEqual(report['status'], 'denied')
+AssertionError: 'policy_admitted_fixture' != 'denied'
+- policy_admitted_fixture
++ denied
+
+
+======================================================================
+FAIL: test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='training_eligible', value=1.0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 262, in test_malformed_optional_receipt_booleans_deny_after_trusted_repin
+    self.denied(self.check(), 'boolean_metadata_type')
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 67, in denied
+    self.assertEqual(report['status'], 'denied')
+AssertionError: 'policy_admitted_fixture' != 'denied'
+- policy_admitted_fixture
++ denied
+
+
+======================================================================
+FAIL: test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='training_eligible', value=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 262, in test_malformed_optional_receipt_booleans_deny_after_trusted_repin
+    self.denied(self.check(), 'boolean_metadata_type')
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 67, in denied
+    self.assertEqual(report['status'], 'denied')
+AssertionError: 'policy_admitted_fixture' != 'denied'
+- policy_admitted_fixture
++ denied
+
+
+======================================================================
+FAIL: test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='training_eligible', value='true')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 262, in test_malformed_optional_receipt_booleans_deny_after_trusted_repin
+    self.denied(self.check(), 'boolean_metadata_type')
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 67, in denied
+    self.assertEqual(report['status'], 'denied')
+AssertionError: 'policy_admitted_fixture' != 'denied'
+- policy_admitted_fixture
++ denied
+
+
+======================================================================
+FAIL: test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='training_eligible', value='false')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 262, in test_malformed_optional_receipt_booleans_deny_after_trusted_repin
+    self.denied(self.check(), 'boolean_metadata_type')
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 67, in denied
+    self.assertEqual(report['status'], 'denied')
+AssertionError: 'policy_admitted_fixture' != 'denied'
+- policy_admitted_fixture
++ denied
+
+
+======================================================================
+FAIL: test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='discovery_eligible', value=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 262, in test_malformed_optional_receipt_booleans_deny_after_trusted_repin
+    self.denied(self.check(), 'boolean_metadata_type')
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 67, in denied
+    self.assertEqual(report['status'], 'denied')
+AssertionError: 'policy_admitted_fixture' != 'denied'
+- policy_admitted_fixture
++ denied
+
+
+======================================================================
+FAIL: test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='discovery_eligible', value=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 262, in test_malformed_optional_receipt_booleans_deny_after_trusted_repin
+    self.denied(self.check(), 'boolean_metadata_type')
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 67, in denied
+    self.assertEqual(report['status'], 'denied')
+AssertionError: 'policy_admitted_fixture' != 'denied'
+- policy_admitted_fixture
++ denied
+
+
+======================================================================
+FAIL: test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='discovery_eligible', value=0.0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 262, in test_malformed_optional_receipt_booleans_deny_after_trusted_repin
+    self.denied(self.check(), 'boolean_metadata_type')
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 67, in denied
+    self.assertEqual(report['status'], 'denied')
+AssertionError: 'policy_admitted_fixture' != 'denied'
+- policy_admitted_fixture
++ denied
+
+
+======================================================================
+FAIL: test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='discovery_eligible', value=1.0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 262, in test_malformed_optional_receipt_booleans_deny_after_trusted_repin
+    self.denied(self.check(), 'boolean_metadata_type')
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 67, in denied
+    self.assertEqual(report['status'], 'denied')
+AssertionError: 'policy_admitted_fixture' != 'denied'
+- policy_admitted_fixture
++ denied
+
+
+======================================================================
+FAIL: test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='discovery_eligible', value=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 262, in test_malformed_optional_receipt_booleans_deny_after_trusted_repin
+    self.denied(self.check(), 'boolean_metadata_type')
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 67, in denied
+    self.assertEqual(report['status'], 'denied')
+AssertionError: 'policy_admitted_fixture' != 'denied'
+- policy_admitted_fixture
++ denied
+
+
+======================================================================
+FAIL: test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='discovery_eligible', value='true')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 262, in test_malformed_optional_receipt_booleans_deny_after_trusted_repin
+    self.denied(self.check(), 'boolean_metadata_type')
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 67, in denied
+    self.assertEqual(report['status'], 'denied')
+AssertionError: 'policy_admitted_fixture' != 'denied'
+- policy_admitted_fixture
++ denied
+
+
+======================================================================
+FAIL: test_malformed_optional_receipt_booleans_deny_after_trusted_repin (test_admission.AdmissionTests.test_malformed_optional_receipt_booleans_deny_after_trusted_repin) (field='discovery_eligible', value='false')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 262, in test_malformed_optional_receipt_booleans_deny_after_trusted_repin
+    self.denied(self.check(), 'boolean_metadata_type')
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 67, in denied
+    self.assertEqual(report['status'], 'denied')
+AssertionError: 'policy_admitted_fixture' != 'denied'
+- policy_admitted_fixture
++ denied
+
+
+======================================================================
+FAIL: test_nonfinite_constants_deny (test_admission.AdmissionTests.test_nonfinite_constants_deny) (constant='-1e10000')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 300, in test_nonfinite_constants_deny
+    self.denied(verify_dataset(self.dataset_path, self.policy_path, self.pin), 'nonfinite_json')
+  File "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/tests/test_admission.py", line 67, in denied
+    self.assertEqual(report['status'], 'denied')
+AssertionError: 'policy_admitted_fixture' != 'denied'
+- policy_admitted_fixture
++ denied
+
+
+----------------------------------------------------------------------
+Ran 42 tests in 0.219s
+
+FAILED (failures=26, errors=2)

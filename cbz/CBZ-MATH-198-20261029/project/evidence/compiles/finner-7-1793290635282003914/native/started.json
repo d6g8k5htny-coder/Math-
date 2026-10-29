@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+    "-j1",
+    "-M11000",
+    "-DElab.async=false",
+    "-DautoImplicit=false",
+    "--root=/workspace/scratch/universal-law-project-closure/formal",
+    "-o",
+    "/workspace/scratch/universal-law-project-closure/build/explore/General/Finner.olean",
+    "/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean"
+  ],
+  "pid": 2062,
+  "started_unix_ns": 1793290635286028712
+}

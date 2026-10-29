@@ -1,0 +1,171 @@
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:9:15: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:9:15: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:9:17: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:9:17: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:12:22: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:12:24: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:10:62: error: unsolved goals
+I : Type
+inst✝ : Fintype I
+w : I → sorry
+z : I → sorry
+hw : sorry ≤ 1
+⊢ sorry ≤ 1 - sorry + ∑ i, sorry
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:22:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:23:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:23:51: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:22:15: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:23:15: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:23:53: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:27:14: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:27:16: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:29:28: error(lean.unknownIdentifier): Unknown identifier `hz`
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:29:11: error: Tactic `rcases` failed: `x✝ : Type u_2` is not an inductive datatype
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:46:85: error(lean.unknownIdentifier): Unknown identifier `hz`
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:47:16: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:47:18: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:51:17: error(lean.unknownIdentifier): Unknown identifier `hi`
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:51:6: error: unsolved goals
+I Ω : Type
+inst✝¹ : Fintype I
+inst✝ : Fintype Ω
+q : Ω → sorry
+hq : sorry = 1
+w : I → sorry
+hw : sorry ≤ 1
+f : I → Ω → sorry
+m : I → sorry := fun i => sorry
+d : I → sorry := fun i => if w i = 0 then sorry else m i
+i : I
+⊢ OfNat (sorry ()) 0
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:48:30: error: unsolved goals
+case neg
+I Ω : Type
+inst✝¹ : Fintype I
+inst✝ : Fintype Ω
+q : Ω → sorry
+hq : sorry = 1
+w : I → sorry
+hw : sorry ≤ 1
+f : I → Ω → sorry
+m : I → sorry := fun i => sorry
+d : I → sorry := fun i => if w i = 0 then sorry else m i
+i : I
+hi : ¬w i = 0
+⊢ d i ≠ 0
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:53:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:53:14: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:25:45: error: unsolved goals
+case pos
+I Ω : Type
+inst✝¹ : Fintype I
+inst✝ : Fintype Ω
+q : Ω → sorry
+hq : sorry = 1
+w : I → sorry
+hw : sorry ≤ 1
+f : I → Ω → sorry
+m : I → sorry := fun i => sorry
+hz : ∃ i, w i ≠ 0 ∧ m i = 0
+⊢ ∑ a, q a * sorry ≤ ∏ i, (∑ a, sorry) ^ sorry
+
+case neg
+I Ω : Type
+inst✝¹ : Fintype I
+inst✝ : Fintype Ω
+q : Ω → sorry
+hq : sorry = 1
+w : I → sorry
+hw : sorry ≤ 1
+f : I → Ω → sorry
+m : I → sorry := fun i => sorry
+hz : ¬∃ i, w i ≠ 0 ∧ m i = 0
+⊢ ∑ a, q a * sorry ≤ ∏ i, (∑ a, sorry) ^ sorry
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:51:14: warning: This simp argument is unused:
+  d
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

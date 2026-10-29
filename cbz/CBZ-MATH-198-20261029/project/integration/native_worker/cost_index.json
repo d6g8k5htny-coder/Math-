@@ -1,0 +1,381 @@
+{
+  "schema": "ul-native-endpoint-cost-index-v1",
+  "scope": "Scoped recorded work only; request/action/worker/controller boundaries are nested. Never add controller and descendant worker CPU or wall. No RL or speedup claim.",
+  "campaigns": [
+    {
+      "campaign": "session01",
+      "records": [
+        {
+          "mode": "produce",
+          "controller_receipt": "evidence/session01/produce-controller/receipt.json",
+          "controller_wall_seconds": 6.983895212999869,
+          "controller_wait4_including_descendant_usage": {
+            "user_seconds": 4.880959,
+            "system_seconds": 2.076451,
+            "max_rss_kib": 9259768
+          },
+          "workers_nested": [
+            {
+              "receipt": "evidence/session01/produce/worker/receipt.json",
+              "worker_wall_seconds": 6.802095260999977,
+              "wait4": {
+                "user_seconds": 4.739459,
+                "system_seconds": 2.018346,
+                "max_rss_platform_units": 9259768
+              },
+              "returncode": 0,
+              "shutdown_acknowledged": null,
+              "forced_termination": null,
+              "teardown_wall_seconds": null
+            }
+          ]
+        },
+        {
+          "mode": "recheck",
+          "controller_receipt": "evidence/session01/recheck-controller/receipt.json",
+          "controller_wall_seconds": 6.689333910999949,
+          "controller_wait4_including_descendant_usage": {
+            "user_seconds": 4.55961,
+            "system_seconds": 2.100713,
+            "max_rss_kib": 9266076
+          },
+          "workers_nested": [
+            {
+              "receipt": "evidence/session01/recheck/worker/receipt.json",
+              "worker_wall_seconds": 6.535814723000158,
+              "wait4": {
+                "user_seconds": 4.418418,
+                "system_seconds": 2.076743,
+                "max_rss_platform_units": 9266076
+              },
+              "returncode": 0,
+              "shutdown_acknowledged": null,
+              "forced_termination": null,
+              "teardown_wall_seconds": null
+            }
+          ]
+        },
+        {
+          "mode": "budget",
+          "controller_receipt": "evidence/session01/budget-controller/receipt.json",
+          "controller_wall_seconds": 15.188475702999995,
+          "controller_wait4_including_descendant_usage": {
+            "user_seconds": 10.394105,
+            "system_seconds": 4.747336,
+            "max_rss_kib": 9264904
+          },
+          "workers_nested": [
+            {
+              "receipt": "evidence/session01/budget/worker/receipt.json",
+              "worker_wall_seconds": 7.434807945999864,
+              "wait4": {
+                "user_seconds": 5.044985,
+                "system_seconds": 2.3573,
+                "max_rss_platform_units": 9264904
+              },
+              "returncode": -9,
+              "shutdown_acknowledged": null,
+              "forced_termination": null,
+              "teardown_wall_seconds": null
+            },
+            {
+              "receipt": "evidence/session01/budget/fresh-worker/receipt.json",
+              "worker_wall_seconds": 7.463880636999875,
+              "wait4": {
+                "user_seconds": 5.112489,
+                "system_seconds": 2.340044,
+                "max_rss_platform_units": 9262780
+              },
+              "returncode": 0,
+              "shutdown_acknowledged": null,
+              "forced_termination": null,
+              "teardown_wall_seconds": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "campaign": "session02",
+      "records": [
+        {
+          "mode": "produce",
+          "controller_receipt": "evidence/session02/produce-controller/receipt.json",
+          "controller_wall_seconds": 6.884471719999965,
+          "controller_wait4_including_descendant_usage": {
+            "user_seconds": 4.647767,
+            "system_seconds": 2.21657,
+            "max_rss_kib": 9265516
+          },
+          "workers_nested": [
+            {
+              "receipt": "evidence/session02/produce/worker/receipt.json",
+              "worker_wall_seconds": 6.747990571000173,
+              "wait4": {
+                "user_seconds": 4.516675,
+                "system_seconds": 2.1817,
+                "max_rss_platform_units": 9265516
+              },
+              "returncode": 0,
+              "shutdown_acknowledged": true,
+              "forced_termination": false,
+              "teardown_wall_seconds": 0.4359693480000715
+            }
+          ]
+        },
+        {
+          "mode": "recheck",
+          "controller_receipt": "evidence/session02/recheck-controller/receipt.json",
+          "controller_wall_seconds": 6.479222674000084,
+          "controller_wait4_including_descendant_usage": {
+            "user_seconds": 4.403735,
+            "system_seconds": 2.041917,
+            "max_rss_kib": 9263432
+          },
+          "workers_nested": [
+            {
+              "receipt": "evidence/session02/recheck/worker/receipt.json",
+              "worker_wall_seconds": 6.326857505999669,
+              "wait4": {
+                "user_seconds": 4.268348,
+                "system_seconds": 2.021446,
+                "max_rss_platform_units": 9263432
+              },
+              "returncode": 0,
+              "shutdown_acknowledged": true,
+              "forced_termination": false,
+              "teardown_wall_seconds": 0.44631353799968565
+            }
+          ]
+        },
+        {
+          "mode": "budget",
+          "controller_receipt": "evidence/session02/budget-controller/receipt.json",
+          "controller_wall_seconds": 14.22495324700003,
+          "controller_wait4_including_descendant_usage": {
+            "user_seconds": 9.756686,
+            "system_seconds": 4.412341,
+            "max_rss_kib": 9265068
+          },
+          "workers_nested": [
+            {
+              "receipt": "evidence/session02/budget/worker/receipt.json",
+              "worker_wall_seconds": 6.796204108999973,
+              "wait4": {
+                "user_seconds": 4.627354,
+                "system_seconds": 2.142825,
+                "max_rss_platform_units": 9265068
+              },
+              "returncode": 0,
+              "shutdown_acknowledged": true,
+              "forced_termination": false,
+              "teardown_wall_seconds": 0.5114540139998098
+            },
+            {
+              "receipt": "evidence/session02/budget/fresh-worker/receipt.json",
+              "worker_wall_seconds": 7.169666569000128,
+              "wait4": {
+                "user_seconds": 4.918545,
+                "system_seconds": 2.227808,
+                "max_rss_platform_units": 9262716
+              },
+              "returncode": 0,
+              "shutdown_acknowledged": true,
+              "forced_termination": false,
+              "teardown_wall_seconds": 0.5084602020001512
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "campaign": "session03",
+      "records": [
+        {
+          "mode": "produce",
+          "controller_receipt": "evidence/session03/produce-controller/receipt.json",
+          "controller_wall_seconds": 7.845923157000016,
+          "controller_wait4_including_descendant_usage": {
+            "user_seconds": 5.441111,
+            "system_seconds": 2.377067,
+            "max_rss_kib": 9263784
+          },
+          "workers_nested": [
+            {
+              "receipt": "evidence/session03/produce/worker/receipt.json",
+              "worker_wall_seconds": 7.655901723999705,
+              "wait4": {
+                "user_seconds": 5.2599599999999995,
+                "system_seconds": 2.34404,
+                "max_rss_platform_units": 9263784
+              },
+              "returncode": 0,
+              "shutdown_acknowledged": true,
+              "forced_termination": false,
+              "teardown_wall_seconds": 0.5073185199998989
+            }
+          ]
+        },
+        {
+          "mode": "recheck",
+          "controller_receipt": "evidence/session03/recheck-controller/receipt.json",
+          "controller_wall_seconds": 7.351569589000064,
+          "controller_wait4_including_descendant_usage": {
+            "user_seconds": 4.894844,
+            "system_seconds": 2.441812,
+            "max_rss_kib": 9262708
+          },
+          "workers_nested": [
+            {
+              "receipt": "evidence/session03/recheck/worker/receipt.json",
+              "worker_wall_seconds": 7.178508061999764,
+              "wait4": {
+                "user_seconds": 4.730637,
+                "system_seconds": 2.416095,
+                "max_rss_platform_units": 9262708
+              },
+              "returncode": 0,
+              "shutdown_acknowledged": true,
+              "forced_termination": false,
+              "teardown_wall_seconds": 0.5182141310001498
+            }
+          ]
+        },
+        {
+          "mode": "budget",
+          "controller_receipt": "evidence/session03/budget-controller/receipt.json",
+          "controller_wall_seconds": 14.173588705999919,
+          "controller_wait4_including_descendant_usage": {
+            "user_seconds": 9.688058,
+            "system_seconds": 4.426982,
+            "max_rss_kib": 9264516
+          },
+          "workers_nested": [
+            {
+              "receipt": "evidence/session03/budget/worker/receipt.json",
+              "worker_wall_seconds": 6.9846569649998855,
+              "wait4": {
+                "user_seconds": 4.733859,
+                "system_seconds": 2.228954,
+                "max_rss_platform_units": 9264516
+              },
+              "returncode": 0,
+              "shutdown_acknowledged": true,
+              "forced_termination": false,
+              "teardown_wall_seconds": 0.5534437490000528
+            },
+            {
+              "receipt": "evidence/session03/budget/fresh-worker/receipt.json",
+              "worker_wall_seconds": 6.907188333000249,
+              "wait4": {
+                "user_seconds": 4.747575,
+                "system_seconds": 2.139249,
+                "max_rss_platform_units": 9263872
+              },
+              "returncode": 0,
+              "shutdown_acknowledged": true,
+              "forced_termination": false,
+              "teardown_wall_seconds": 0.47706630199991196
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "campaign": "session04",
+      "records": [
+        {
+          "mode": "produce",
+          "controller_receipt": "evidence/session04/produce-controller/receipt.json",
+          "controller_wall_seconds": 7.084370926000247,
+          "controller_wait4_including_descendant_usage": {
+            "user_seconds": 4.835033,
+            "system_seconds": 2.2293789999999998,
+            "max_rss_kib": 9266404
+          },
+          "workers_nested": [
+            {
+              "receipt": "evidence/session04/produce/worker/receipt.json",
+              "worker_wall_seconds": 6.937049460999788,
+              "wait4": {
+                "user_seconds": 4.671761,
+                "system_seconds": 2.214677,
+                "max_rss_platform_units": 9266404
+              },
+              "returncode": 0,
+              "shutdown_acknowledged": true,
+              "forced_termination": false,
+              "teardown_wall_seconds": 0.5336374890002844
+            }
+          ]
+        },
+        {
+          "mode": "recheck",
+          "controller_receipt": "evidence/session04/recheck-controller/receipt.json",
+          "controller_wall_seconds": 6.536937750999641,
+          "controller_wait4_including_descendant_usage": {
+            "user_seconds": 4.369276,
+            "system_seconds": 2.147185,
+            "max_rss_kib": 9265164
+          },
+          "workers_nested": [
+            {
+              "receipt": "evidence/session04/recheck/worker/receipt.json",
+              "worker_wall_seconds": 6.371922669000014,
+              "wait4": {
+                "user_seconds": 4.223778,
+                "system_seconds": 2.11514,
+                "max_rss_platform_units": 9265164
+              },
+              "returncode": 0,
+              "shutdown_acknowledged": true,
+              "forced_termination": false,
+              "teardown_wall_seconds": 0.50074404399993
+            }
+          ]
+        },
+        {
+          "mode": "budget",
+          "controller_receipt": "evidence/session04/budget-controller/receipt.json",
+          "controller_wall_seconds": 12.368076350000138,
+          "controller_wait4_including_descendant_usage": {
+            "user_seconds": 8.431305,
+            "system_seconds": 3.883573,
+            "max_rss_kib": 9267828
+          },
+          "workers_nested": [
+            {
+              "receipt": "evidence/session04/budget/worker/receipt.json",
+              "worker_wall_seconds": 6.127946239000266,
+              "wait4": {
+                "user_seconds": 4.161204,
+                "system_seconds": 1.9400789999999999,
+                "max_rss_platform_units": 9265344
+              },
+              "returncode": 0,
+              "shutdown_acknowledged": true,
+              "forced_termination": false,
+              "teardown_wall_seconds": 0.43539781799972843
+            },
+            {
+              "receipt": "evidence/session04/budget/fresh-worker/receipt.json",
+              "worker_wall_seconds": 5.999308434999875,
+              "wait4": {
+                "user_seconds": 4.06335,
+                "system_seconds": 1.918041,
+                "max_rss_platform_units": 9267828
+              },
+              "returncode": 0,
+              "shutdown_acknowledged": true,
+              "forced_termination": false,
+              "teardown_wall_seconds": 0.45562142099970515
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "build_receipt": "evidence/build01/results.json",
+  "wrapper_exploration_compile": "../../evidence/compiles/endpoint-tasks-1-1793291314664984619/result.json",
+  "current_build_receipt": "evidence/build02/results.json"
+}

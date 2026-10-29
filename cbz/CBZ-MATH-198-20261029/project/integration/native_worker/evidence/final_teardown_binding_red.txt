@@ -1,0 +1,21 @@
+test_complete_native_saved_campaign_replays (test_saved_native.SavedNativeTests.test_complete_native_saved_campaign_replays) ... ok
+test_current_final_campaign_cannot_hide_forced_teardown (test_saved_native.SavedNativeTests.test_current_final_campaign_cannot_hide_forced_teardown) ... FAIL
+test_duplicate_fresh_target_cannot_replace_complete_coverage (test_saved_native.SavedNativeTests.test_duplicate_fresh_target_cannot_replace_complete_coverage) ... ok
+test_export_cannot_change_while_native_closed_and_verify_payload_stay (test_saved_native.SavedNativeTests.test_export_cannot_change_while_native_closed_and_verify_payload_stay) ... ok
+test_omitted_budget_search_cannot_hide_paid_requests (test_saved_native.SavedNativeTests.test_omitted_budget_search_cannot_hide_paid_requests) ... ok
+test_repeated_negative_response_cannot_replace_three_controls (test_saved_native.SavedNativeTests.test_repeated_negative_response_cannot_replace_three_controls) ... ok
+test_request_payload_tamper_rejects_despite_original_accepted_response (test_saved_native.SavedNativeTests.test_request_payload_tamper_rejects_despite_original_accepted_response) ... ok
+
+======================================================================
+FAIL: test_current_final_campaign_cannot_hide_forced_teardown (test_saved_native.SavedNativeTests.test_current_final_campaign_cannot_hide_forced_teardown)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/native_worker/tests/test_saved_native.py", line 43, in test_current_final_campaign_cannot_hide_forced_teardown
+    with self.assertRaises(ValueError):verifier.check(self.path)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.489s
+
+FAILED (failures=1)

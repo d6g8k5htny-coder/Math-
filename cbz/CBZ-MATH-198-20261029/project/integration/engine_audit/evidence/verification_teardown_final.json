@@ -1,0 +1,101 @@
+{
+  "schema": "ul-engine-audit-teardown-verification-v1",
+  "sources_sha256": {
+    "catalog.py": "f89612bfd8f51b3ad8a43ea994d5c60b57190f1039ce46d1f9523e44e2843706",
+    "ul_engine/worker.py": "8abf693ed057605e1f015a789da2a7de6fd0eba3d10653c554b905bbf435bfa6",
+    "ul_engine/__init__.py": "d63641db38d32d7674e200c429c0c927e4fb5b9e5fa8a83f68efee30b52fa5a6",
+    "ul_engine/search.py": "39441ef24597d81c401b0ecbf6b78020d0a80d7f520d047917a0b5dd288eca09",
+    "tests/test_search.py": "a6a3acf032342cff0df8614f3d68531d61582afc8d713f0abad01624e02ce350",
+    "tests/test_resources.py": "ede39fff98af531072990a028b2604e28d5aee38c53bd6756df77e6b63edf452",
+    "tests/test_catalog_cli.py": "f9090388595805d1c3a1d7697ae5c6a86b6992e89f05d6480d240009e70fccc5",
+    "tests/test_catalog_integrity.py": "aaf83102b97dd9a01a3c2e884594edaac76377157d1881b9452008b7478729be",
+    "tests/test_worker_resources.py": "37d91542225f00c2801fce1960c05a7845598160f40e6de85fe78b9df1e0b060",
+    "tests/fake_worker.py": "b7f3abd45e642c937bdc813f873097ff94e74ddc47aca53d5cdd0b41f6322247"
+  },
+  "runs": [
+    {
+      "suite": "engine_audit",
+      "mode": "normal",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "wall_seconds": 2.858819996999955,
+      "log": "evidence/engine_audit_normal_teardown_final.txt",
+      "log_sha256": "f7d9fe1569e08cc2a8d9d70dddcff1642742cc863e22ac7b7d1f30c2e9968c85"
+    },
+    {
+      "suite": "engine_audit",
+      "mode": "optimized",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "-O",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "wall_seconds": 3.2332887239999764,
+      "log": "evidence/engine_audit_optimized_teardown_final.txt",
+      "log_sha256": "8f15b16690b2e202cb9af7bf383e8696b8e724011d4da1a62731f04c49d783f7"
+    },
+    {
+      "suite": "prior_engine",
+      "mode": "normal",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "wall_seconds": 3.6372815380000247,
+      "log": "evidence/prior_engine_normal_teardown_final.txt",
+      "log_sha256": "2529c5a8c5be2f5782dca6b71a9e27b647531d95d3663de7e66447ca2ab3c019"
+    },
+    {
+      "suite": "prior_engine",
+      "mode": "optimized",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "-O",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "wall_seconds": 3.994580916000359,
+      "log": "evidence/prior_engine_optimized_teardown_final.txt",
+      "log_sha256": "a73b9396e8f8c38fb2513168cb192fca3e7706aba68b31ac89f593ea442530e5"
+    }
+  ],
+  "native_lean_executed_by_this_check": false,
+  "status": "PASS"
+}

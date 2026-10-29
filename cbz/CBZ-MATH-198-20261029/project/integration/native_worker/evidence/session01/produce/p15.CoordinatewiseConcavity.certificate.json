@@ -1,0 +1,53 @@
+{
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "proof": {
+    "nodes": [
+      {
+        "const": {
+          "str": [
+            {
+              "str": [
+                {
+                  "str": [
+                    null,
+                    "ClosedProof"
+                  ]
+                },
+                "Endpoints"
+              ]
+            },
+            "reuse_CoordinatewiseConcavity"
+          ]
+        },
+        "levels": []
+      }
+    ],
+    "root": 0,
+    "schema": "ul-expr-dag-v1"
+  },
+  "schema": "ul-closed-proof-certificate-v2",
+  "task": "p15.CoordinatewiseConcavity",
+  "type": {
+    "const": {
+      "str": [
+        {
+          "str": [
+            {
+              "str": [
+                null,
+                "ClosedProof"
+              ]
+            },
+            "Endpoints"
+          ]
+        },
+        "CoordinatewiseConcavity"
+      ]
+    },
+    "levels": []
+  }
+}

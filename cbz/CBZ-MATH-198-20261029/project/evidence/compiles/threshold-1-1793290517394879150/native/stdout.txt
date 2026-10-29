@@ -1,0 +1,18 @@
+/workspace/scratch/universal-law-project-closure/formal/General/Threshold.lean:21:0: warning: automatically included section variable(s) unused in theorem `UniversalLaw.General.decomposable_iff_union`:
+  [Fintype X]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype X] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/scratch/universal-law-project-closure/formal/General/Threshold.lean:144:0: warning: automatically included section variable(s) unused in theorem `UniversalLaw.General.famPrice_const`:
+  [Fintype X]
+  [DecidableEq X]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype X] [DecidableEq X] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+'UniversalLaw.General.decomposable_iff_union' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.General.decomposable_iff_unionCoverable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.General.cappedHazard_le_half_of_high_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.General.threshold_cover_of_paletteCertificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.General.ThresholdStatement_of_certificates' depends on axioms: [propext, Classical.choice, Quot.sound]

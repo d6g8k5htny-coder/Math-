@@ -1,0 +1,51 @@
+test_compatibility_frontier_exhaustion_is_explicit (test_resources.ResourceTests.test_compatibility_frontier_exhaustion_is_explicit) ... ERROR
+test_full_frontier_is_reported_without_wasting_attempts_or_eviction (test_resources.ResourceTests.test_full_frontier_is_reported_without_wasting_attempts_or_eviction) ... FAIL
+test_reclamation_keeps_long_chain_solvable_with_sufficient_requests (test_resources.ResourceTests.test_reclamation_keeps_long_chain_solvable_with_sufficient_requests) ... ok
+test_rejected_candidate_never_becomes_proof_success (test_resources.ResourceTests.test_rejected_candidate_never_becomes_proof_success) ... ok
+test_request_limit_preserves_verification_and_cleanup_capacity (test_resources.ResourceTests.test_request_limit_preserves_verification_and_cleanup_capacity) ... FAIL
+test_true_attempt_budget_remains_distinct (test_resources.ResourceTests.test_true_attempt_budget_remains_distinct) ... ERROR
+
+======================================================================
+ERROR: test_compatibility_frontier_exhaustion_is_explicit (test_resources.ResourceTests.test_compatibility_frontier_exhaustion_is_explicit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/engine_audit/tests/test_resources.py", line 106, in test_compatibility_frontier_exhaustion_is_explicit
+    self.assertEqual(result['termination_reason'], 'frontier_exhausted')
+                     ~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'termination_reason'
+
+======================================================================
+ERROR: test_true_attempt_budget_remains_distinct (test_resources.ResourceTests.test_true_attempt_budget_remains_distinct)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/engine_audit/tests/test_resources.py", line 93, in test_true_attempt_budget_remains_distinct
+    self.assertEqual(result['termination_reason'], 'attempt_budget')
+                     ~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'termination_reason'
+
+======================================================================
+FAIL: test_full_frontier_is_reported_without_wasting_attempts_or_eviction (test_resources.ResourceTests.test_full_frontier_is_reported_without_wasting_attempts_or_eviction)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/engine_audit/tests/test_resources.py", line 70, in test_full_frontier_is_reported_without_wasting_attempts_or_eviction
+    self.assertEqual(result['status'], 'resource_exhausted')
+AssertionError: 'attempt_budget' != 'resource_exhausted'
+- attempt_budget
++ resource_exhausted
+
+
+======================================================================
+FAIL: test_request_limit_preserves_verification_and_cleanup_capacity (test_resources.ResourceTests.test_request_limit_preserves_verification_and_cleanup_capacity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/engine_audit/tests/test_resources.py", line 57, in test_request_limit_preserves_verification_and_cleanup_capacity
+    self.assertEqual(result['status'], 'resource_exhausted')
+AssertionError: 'worker_failure' != 'resource_exhausted'
+- worker_failure
++ resource_exhausted
+
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.005s
+
+FAILED (failures=2, errors=2)

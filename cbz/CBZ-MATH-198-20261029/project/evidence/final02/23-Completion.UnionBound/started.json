@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+    "-j1",
+    "-M11000",
+    "-DElab.async=false",
+    "-DautoImplicit=false",
+    "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+    "-o",
+    "/workspace/scratch/universal-law-project-closure/build/final02/Completion/UnionBound.olean",
+    "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/Completion/UnionBound.lean"
+  ],
+  "pid": 4308,
+  "started_unix_ns": 1793291985087973220
+}

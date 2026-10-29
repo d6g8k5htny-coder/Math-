@@ -1,0 +1,122 @@
+{
+  "schema": "ul-historical-controller-snapshot-v1",
+  "scope": "Exact pre-portability source boundary for historical session04; not current controller acceptance. No native execution performed.",
+  "captured_at": "2026-10-29T17:32:16.275873+00:00",
+  "campaign": "integration/native_worker/evidence/session04/results.json",
+  "campaign_sha256": "a90e0cce47db6b6d3c8b4ba57603c7ab7fc798ce648448dd9e4d1ffe8cfb0bc4",
+  "controller_source_root": "integration/native_worker/sources/session04_controller",
+  "campaign_controller_sources_sha256": {
+    "integration/engine_audit/ul_engine/search.py": "39441ef24597d81c401b0ecbf6b78020d0a80d7f520d047917a0b5dd288eca09",
+    "integration/engine_audit/ul_engine/worker.py": "8abf693ed057605e1f015a789da2a7de6fd0eba3d10653c554b905bbf435bfa6",
+    "integration/native_worker/exec_guard.py": "b54c1cc455e00975126640d8ec6ceb8852787f84add9e8e1a12be9f1dc733e94",
+    "integration/native_worker/native.py": "161334fb70af4343b3ca82fa8fc13ca0b84f23440c3c8610243f3a1f08fcfc3d",
+    "integration/native_worker/pinned_runtime.py": "16546c2e6bc386981de4a2b2ffd6538dc2f6786eaf1bb1e5b79d149a8f109213",
+    "integration/native_worker/prepare.py": "ab537a237e8326733cae51325f7326e02da91f0c8849572301ba1e0b4d26d16c",
+    "integration/native_worker/runtime_support.py": "e168330ca53452c5231fd617769647af3f04325c7a2d4102b483b8135b8f5c4e",
+    "integration/native_worker/session.py": "51a16cd6ea5e8d949fd38e56664a8440c8d69c4f2c8ad4b633cff253c83a4758",
+    "integration/native_worker/verify_native_saved.py": "a3c55bd2cf697592a9fb1b7381506700a914a293afd870547c8dd6eaed7660df",
+    "integration/native_worker/verify_saved.py": "5cf2077b35bfd630ea458d78fc8d79c4ec292903e8ca1e9cca475eea23fad866"
+  },
+  "snapshot_files": {
+    "formal/Integration/EndpointTasks.lean": {
+      "sha256": "b91952f9a92bef73b64ebfdecee07e976083e0570bd84b3d63fd3e36d73f6054",
+      "bytes": 11927
+    },
+    "integration/engine_audit/ul_engine/search.py": {
+      "sha256": "39441ef24597d81c401b0ecbf6b78020d0a80d7f520d047917a0b5dd288eca09",
+      "bytes": 11122
+    },
+    "integration/engine_audit/ul_engine/worker.py": {
+      "sha256": "8abf693ed057605e1f015a789da2a7de6fd0eba3d10653c554b905bbf435bfa6",
+      "bytes": 14564
+    },
+    "integration/native_worker/README.txt": {
+      "sha256": "8b092e0db3a3f9751902bf82e8f8745820db3bc4191a573acaa64f92a1c63c3d",
+      "bytes": 5869
+    },
+    "integration/native_worker/endpoint_tasks.json": {
+      "sha256": "29526425d4fb5ae66472f2c0b4ece8b286437824587b982ef6c0a9c031a0361b",
+      "bytes": 24247
+    },
+    "integration/native_worker/exec_guard.py": {
+      "sha256": "b54c1cc455e00975126640d8ec6ceb8852787f84add9e8e1a12be9f1dc733e94",
+      "bytes": 503
+    },
+    "integration/native_worker/lean/ClosedProofCore.lean": {
+      "sha256": "142ff31338e84a21248ddb140f9a1b75efa6400cc178b023979eb7711d9855ff",
+      "bytes": 1173
+    },
+    "integration/native_worker/lean/ClosedProofWorker.lean": {
+      "sha256": "cbada87f056c4743088f23ae728b9cf5f70705f7faac587349107a4544201b31",
+      "bytes": 24657
+    },
+    "integration/native_worker/lean/ExprCodec.lean": {
+      "sha256": "e223abf84826291b48ac02eb8c1ffc04309ea4b412907f6b13b76d206b67b44b",
+      "bytes": 7076
+    },
+    "integration/native_worker/lean/ExprDag.lean": {
+      "sha256": "028e8eb4c5245259d2f4ce3fb151fd14cc2bd8dab56938be5663c405041ad0ed",
+      "bytes": 5053
+    },
+    "integration/native_worker/lean/Integration/EndpointTasks.lean": {
+      "sha256": "b91952f9a92bef73b64ebfdecee07e976083e0570bd84b3d63fd3e36d73f6054",
+      "bytes": 11927
+    },
+    "integration/native_worker/lean/TrustedTasks.lean": {
+      "sha256": "6702b6402301a72fac650d2ef6b2636f87a173a41bc85bbb099afa57ee17b687",
+      "bytes": 595
+    },
+    "integration/native_worker/lean/WorkerBootstrap.lean": {
+      "sha256": "65ab4da0506c34ff72024ffb8191a1a0d1ee25763f224ee75d3976c393fdadf9",
+      "bytes": 590
+    },
+    "integration/native_worker/native.py": {
+      "sha256": "161334fb70af4343b3ca82fa8fc13ca0b84f23440c3c8610243f3a1f08fcfc3d",
+      "bytes": 7017
+    },
+    "integration/native_worker/pinned_runtime.py": {
+      "sha256": "16546c2e6bc386981de4a2b2ffd6538dc2f6786eaf1bb1e5b79d149a8f109213",
+      "bytes": 5916
+    },
+    "integration/native_worker/prepare.py": {
+      "sha256": "ab537a237e8326733cae51325f7326e02da91f0c8849572301ba1e0b4d26d16c",
+      "bytes": 4395
+    },
+    "integration/native_worker/runtime_support.py": {
+      "sha256": "e168330ca53452c5231fd617769647af3f04325c7a2d4102b483b8135b8f5c4e",
+      "bytes": 3202
+    },
+    "integration/native_worker/session.py": {
+      "sha256": "51a16cd6ea5e8d949fd38e56664a8440c8d69c4f2c8ad4b633cff253c83a4758",
+      "bytes": 8339
+    },
+    "integration/native_worker/sources/external_runtime_inventory.json": {
+      "sha256": "cb879c50c6bff15b952d96616f836e4b3ead7b169f150c0aa00819add48e890f",
+      "bytes": 1752
+    },
+    "integration/native_worker/sources/runtime_copy.json": {
+      "sha256": "997e77ef904e8015c3e6207cc3db7634dee20bfad1215075d3efcca32eaec9af",
+      "bytes": 439
+    },
+    "integration/native_worker/tests/test_cold_replay.py": {
+      "sha256": "36c98dbd437563ebff98b4dd71096a77f107dc0e10c534a84d230ef5bd6cee1c",
+      "bytes": 2818
+    },
+    "integration/native_worker/tests/test_saved_native.py": {
+      "sha256": "20853905eb1b6fd7264ccb7a8f6ae3d0b2619eb076dce192757881ff6745b034",
+      "bytes": 3452
+    },
+    "integration/native_worker/verification_index.json": {
+      "sha256": "7107b2f147ca74ddab25120e547dd097122adb44604925add675b5d4a041d220",
+      "bytes": 3685
+    },
+    "integration/native_worker/verify_native_saved.py": {
+      "sha256": "a3c55bd2cf697592a9fb1b7381506700a914a293afd870547c8dd6eaed7660df",
+      "bytes": 11383
+    },
+    "integration/native_worker/verify_saved.py": {
+      "sha256": "5cf2077b35bfd630ea458d78fc8d79c4ec292903e8ca1e9cca475eea23fad866",
+      "bytes": 9567
+    }
+  }
+}

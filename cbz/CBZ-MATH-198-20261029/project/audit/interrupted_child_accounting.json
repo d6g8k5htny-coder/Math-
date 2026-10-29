@@ -1,0 +1,9 @@
+{
+  "first_campaign": "evidence/final01/results.json",
+  "terminal_record_count": 14,
+  "retained_native_leaf_receipts": 15,
+  "failed_child_receipts_missing_from_old_campaign_list": [
+    "14-General.BernoulliFinner/receipt.json"
+  ],
+  "accounting_policy": "All retained native leaf receipts are charged, including the interrupted child. The delivered rebuild.py also embeds retained terminal receipts when run_recorded raises."
+}

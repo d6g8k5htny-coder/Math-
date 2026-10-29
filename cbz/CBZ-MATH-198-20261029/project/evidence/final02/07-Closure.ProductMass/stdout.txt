@@ -1,0 +1,45 @@
+UniversalLaw.P15Closure.blockWeight_nonneg {X : Type} [DecidableEq X] (p : X → ℝ) (B U : Finset X) (hU : U ⊆ B)
+  (hp : ∀ v ∈ B, 0 ≤ p v ∧ p v ≤ 1) : 0 ≤ blockWeight p B U
+UniversalLaw.P15Closure.sum_blockWeight {X : Type} [DecidableEq X] (p : X → ℝ) (B : Finset X) :
+  ∑ U ∈ B.powerset, blockWeight p B U = 1
+UniversalLaw.P15Closure.cylinder_mass {X : Type} [DecidableEq X] (p : X → ℝ) (B S : Finset X) (hS : S ⊆ B) :
+  ∑ U ∈ B.powerset with S ⊆ U, blockWeight p B U = ∏ v ∈ S, p v
+UniversalLaw.P15Closure.selected_product_le_localFailure {X : Type} [DecidableEq X] [Fintype X] (F : RealizedData X)
+  (p : X → ℝ) (i : Fin F.b) (S : Finset X) (hS : S ⊆ block F i) (hcard : F.a i < S.card)
+  (hp : ∀ v ∈ block F i, 0 ≤ p v ∧ p v ≤ 1) : ∏ v ∈ S, p v ≤ localFailure F p i
+UniversalLaw.P15Closure.localGood_nonneg {X : Type} [DecidableEq X] [Fintype X] (F : RealizedData X) (p : X → ℝ)
+  (i : Fin F.b) (hp : ∀ v ∈ block F i, 0 ≤ p v ∧ p v ≤ 1) : 0 ≤ localGood F p i
+UniversalLaw.P15Closure.localGood_le_one {X : Type} [DecidableEq X] [Fintype X] (F : RealizedData X) (p : X → ℝ)
+  (i : Fin F.b) (hp : ∀ v ∈ block F i, 0 ≤ p v ∧ p v ≤ 1) : localGood F p i ≤ 1
+UniversalLaw.P15Closure.localFailure_nonneg {X : Type} [DecidableEq X] [Fintype X] (F : RealizedData X) (p : X → ℝ)
+  (i : Fin F.b) (hp : ∀ v ∈ block F i, 0 ≤ p v ∧ p v ≤ 1) : 0 ≤ localFailure F p i
+UniversalLaw.P15Closure.localFailure_le_one {X : Type} [DecidableEq X] [Fintype X] (F : RealizedData X) (p : X → ℝ)
+  (i : Fin F.b) (hp : ∀ v ∈ block F i, 0 ≤ p v ∧ p v ≤ 1) : localFailure F p i ≤ 1
+UniversalLaw.P15Closure.muOf_nonneg {X : Type} [DecidableEq X] [Fintype X] (A : Finset (Finset X)) (p : X → ℝ)
+  (hp : ∀ (v : X), 0 ≤ p v ∧ p v ≤ 1) : 0 ≤ muOf A p
+UniversalLaw.P15Closure.muOf_le_one {X : Type} [DecidableEq X] [Fintype X] (A : Finset (Finset X)) (p : X → ℝ)
+  (hp : ∀ (v : X), 0 ≤ p v ∧ p v ≤ 1) : muOf A p ≤ 1
+UniversalLaw.P15Closure.muOf_pos_of_empty_mem {X : Type} [DecidableEq X] [Fintype X] (A : Finset (Finset X)) (p : X → ℝ)
+  (hA : ∅ ∈ A) (hp0 : ∀ (v : X), 0 ≤ p v) (hp1 : ∀ (v : X), p v < 1) : 0 < muOf A p
+UniversalLaw.P15Closure.mu_nonneg {X : Type} [DecidableEq X] [Fintype X] (F : RealizedData X) (p : X → ℝ)
+  (hp : ∀ (v : X), 0 ≤ p v ∧ p v ≤ 1) : 0 ≤ mu F p
+UniversalLaw.P15Closure.mu_le_one {X : Type} [DecidableEq X] [Fintype X] (F : RealizedData X) (p : X → ℝ)
+  (hp : ∀ (v : X), 0 ≤ p v ∧ p v ≤ 1) : mu F p ≤ 1
+UniversalLaw.P15Closure.sum_block_functions {X : Type} [DecidableEq X] [Fintype X] (F : RealizedData X)
+  (f : Fin F.b → Finset X → ℝ) : ∑ U, ∏ i, f i (U ∩ block F i) = ∏ i, ∑ S ∈ (block F i).powerset, f i S
+UniversalLaw.P15Closure.weight_eq_prod_blockWeight {X : Type} [DecidableEq X] [Fintype X] (F : RealizedData X)
+  (p : X → ℝ) (U : Finset X) : weight p U = ∏ i, blockWeight p (block F i) (U ∩ block F i)
+'UniversalLaw.P15Closure.cylinder_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.selected_product_le_localFailure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.sum_block_functions' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.muOf_pos_of_empty_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+UniversalLaw.P15Closure.mu_le_prod_localGood {X : Type} [DecidableEq X] [Fintype X] (F : RealizedData X) (p : X → ℝ)
+  (hp : ∀ (v : X), 0 ≤ p v ∧ p v ≤ 1) : mu F p ≤ ∏ i, localGood F p i
+UniversalLaw.P15Closure.localGood_pos_of_mu_pos {X : Type} [DecidableEq X] [Fintype X] (F : RealizedData X) (p : X → ℝ)
+  (hp : ∀ (v : X), 0 ≤ p v ∧ p v ≤ 1) (hmu : 0 < mu F p) (i : Fin F.b) : 0 < localGood F p i
+UniversalLaw.P15Closure.globalAssemblyHazard {X : Type} [DecidableEq X] [Fintype X] (F : RealizedData X) :
+  GlobalAssemblyHazard F
+'UniversalLaw.P15Closure.globalAssemblyHazard' depends on axioms: [propext, Classical.choice, Quot.sound]
+UniversalLaw.P15Closure.independentBlockHazard {X : Type} [DecidableEq X] [Fintype X] (F : RealizedData X) :
+  IndependentBlockHazard F
+'UniversalLaw.P15Closure.independentBlockHazard' depends on axioms: [propext, Classical.choice, Quot.sound]

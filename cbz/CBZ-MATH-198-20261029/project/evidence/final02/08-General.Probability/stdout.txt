@@ -1,0 +1,10 @@
+/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/General/Probability.lean:202:0: warning: automatically included section variable(s) unused in theorem `UniversalLaw.General.coverCost_le_one`:
+  [Fintype X]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype X] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+'UniversalLaw.General.muOf_le_prod_localMass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.General.independentBlockHazard' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.General.paletteSeparated_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.General.paletteSeparated_coverCost' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,53 @@
+{
+  "schema": "ul-engine-copy-regression-v1",
+  "baseline": "/workspace/scratch/universal-law-certified-frontier-v2/engine",
+  "native_lean_executed": false,
+  "training_eligible": false,
+  "scope": "Disposable copy of latest prior engine, replacing only search.py and worker.py with audited versions; ordinary and optimized Python tests only.",
+  "changed_sources": {
+    "ul_engine/search.py": "c148d3a53169505a55f8d1ec8bbe5afc769d04459831acab53e8782740fddfa9",
+    "ul_engine/worker.py": "64c2e107b1a27c20ab65065954e79aff879fdf9f7375be11ad717ec67d9373fe"
+  },
+  "runs": [
+    {
+      "mode": "normal",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "wall_seconds": 3.731365240000059,
+      "log": "evidence/full_engine_normal.txt",
+      "log_sha256": "528a25a092765aa449bfae9e905c76c92bdc84309fe73cdeb1059d4c55521d6b"
+    },
+    {
+      "mode": "optimized",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "-O",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "wall_seconds": 4.074566667999989,
+      "log": "evidence/full_engine_optimized.txt",
+      "log_sha256": "66709251132cd5e70fecd77c270412b0b1ee39aef1ddcf232a24bb560a11181b"
+    }
+  ],
+  "status": "PASS"
+}

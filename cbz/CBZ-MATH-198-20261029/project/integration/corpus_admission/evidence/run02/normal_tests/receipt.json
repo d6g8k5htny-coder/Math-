@@ -1,0 +1,25 @@
+{
+  "child_system_cpu_seconds": 0.012393,
+  "child_user_cpu_seconds": 0.232543,
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "exit_code": 0,
+  "expected_exit_code": 0,
+  "mode": "normal",
+  "name": "tests",
+  "native_worker_launched": false,
+  "schema": "ul-corpus-verification-child-v1",
+  "status": "pass",
+  "stderr_sha256": "c67f71c0f5cce9fcadb6876a6d1448ddfdf7a5dffc60fb62314ffd2acf51f442",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "test_count": 36,
+  "wall_seconds": 0.245772463
+}

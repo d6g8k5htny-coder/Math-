@@ -1,0 +1,40 @@
+/workspace/scratch/universal-law-project-closure/formal/General/Overlap.lean:46:40: error(lean.unknownIdentifier): Unknown constant `Fin.one_ne_zero`
+/workspace/scratch/universal-law-project-closure/formal/General/Overlap.lean:54:40: error(lean.unknownIdentifier): Unknown constant `Fin.one_ne_zero`
+/workspace/scratch/universal-law-project-closure/formal/General/Overlap.lean:55:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ U ∈ Finset.powerset ?B, P15Closure.blockWeight ?p ?B U
+in the target expression
+  ((∑ x ∈ g.powerset, if x ∈ D then P15Closure.blockWeight p g x else 0) *
+      ∑ x ∈ gᶜ.powerset,
+        if 1 = 0 then if x ∈ D then P15Closure.blockWeight p g x else 0 else P15Closure.blockWeight p gᶜ x) =
+    restrictionMass D p g
+
+X : Type
+inst✝¹ : Fintype X
+inst✝ : DecidableEq X
+D : Finset (Finset X)
+p : X → ℝ
+g : Finset X
+blk : X → Fin 2 := fun v => if v ∈ g then 0 else 1
+hb0 : block blk 0 = g
+hb1 : block blk 1 = gᶜ
+f : Fin 2 → Finset X → ℝ :=
+  fun i S => if i = 0 then if S ∈ D then P15Closure.blockWeight p g S else 0 else P15Closure.blockWeight p gᶜ S
+hweight : ∀ (U : Finset X), weight p U = P15Closure.blockWeight p g (U ∩ g) * P15Closure.blockWeight p gᶜ (U ∩ gᶜ)
+⊢ ((∑ x ∈ g.powerset, if x ∈ D then P15Closure.blockWeight p g x else 0) *
+      ∑ x ∈ gᶜ.powerset,
+        if 1 = 0 then if x ∈ D then P15Closure.blockWeight p g x else 0 else P15Closure.blockWeight p gᶜ x) =
+    restrictionMass D p g
+/workspace/scratch/universal-law-project-closure/formal/General/Overlap.lean:46:57: warning: This simp argument is unused:
+  ite_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [f, hb0, hb1, ite_true, Fin.one_ne_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/universal-law-project-closure/formal/General/Overlap.lean:54:57: warning: This simp argument is unused:
+  ite_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [f, hb0, hb1, ite_true, Fin.one_ne_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

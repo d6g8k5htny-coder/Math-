@@ -1,0 +1,2866 @@
+{
+  "schema": "ul-project-closure-fresh-build-v1",
+  "status": "PASS",
+  "order": [
+    "Specifications.P15",
+    "General.Definitions",
+    "General.Finner",
+    "General.FinnerBridge",
+    "General.Safety",
+    "General.Amalgamation",
+    "SpecificationProofs.P15Elementary",
+    "Closure.ProductMass",
+    "General.Probability",
+    "Closure.RatioGate",
+    "Closure.LocalRatio",
+    "Closure.DownsetMass",
+    "Closure.HazardInterpolation",
+    "General.Overlap",
+    "General.BernoulliFinner",
+    "General.WitnessLoad",
+    "General.Threshold",
+    "Closure.PaletteCover",
+    "Closure.Assembly",
+    "Completion.Structural",
+    "Completion.PaletteFormula",
+    "Completion.Benchmark",
+    "Completion.BenchmarkPrices",
+    "Completion.UnionBound",
+    "Completion.BenchmarkUnion",
+    "Completion.Numerics",
+    "Completion.FinalAudit",
+    "Integration.EndpointTasks",
+    "General.FinalAudit"
+  ],
+  "sources": {
+    "formal/Specifications/P15.lean": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+    "formal/General/Definitions.lean": "9979999a24efd3e8e6fe8d5b7e1e0da9d5f957570b7f2e580868a2f3ea15f465",
+    "formal/General/Finner.lean": "9c5a3c158d2ba1a93fa3d4d9df3775d61db4220fb5a270bb125ffd2af9582e74",
+    "formal/General/FinnerBridge.lean": "4bf0f6e35c9aa45277a0e7c61339368ee2d4e438b8d357704a533163e36b67fb",
+    "formal/General/Safety.lean": "8160c140b4276d2dd893b679ff9a3bac6012cf6b0e20a08524d7879b483d0700",
+    "formal/General/Amalgamation.lean": "be688c3e02005e253439c7c4704418fcfca6c7feab757ce41cf85661a73e1980",
+    "formal/SpecificationProofs/P15Elementary.lean": "d4d87bba1da9473cd3c5bda9c702ba4dd036de06085d5ad589f17988bf8695b1",
+    "formal/Closure/ProductMass.lean": "825b9f834f310ebfc972045291e4bb92d84f6c554647e061944a7822a27eb66d",
+    "formal/General/Probability.lean": "6e95119c24b4b31ce2cd638eb19e8636d10592992b2a1770f02db05e6a8d181e",
+    "formal/Closure/RatioGate.lean": "58b84e883ccade082fcd5772b8f50327cfc8496e64715fb305a26c924bc81a7f",
+    "formal/Closure/LocalRatio.lean": "3d8b49d0ba9740b87ea342c5dbe950947718a847f64d17059bcd8c0d2d851067",
+    "formal/Closure/DownsetMass.lean": "d65e7114ce163982c558314fe9179fc9a954a5be26fb822bb440d99da435da9c",
+    "formal/Closure/HazardInterpolation.lean": "c0b1d238abd4bf73c6bec987f35eabeec2cafb1869e2ab1966e5d2cbf09cbf76",
+    "formal/General/Overlap.lean": "78be9c0ac55223bf5baa479fbc5c3f551cc4e5e7d7fa630857643792e441072b",
+    "formal/General/BernoulliFinner.lean": "2e8e6fff3b405563e052d61bd927945b9bcd75a0b94c7f981103fe4ace2763b6",
+    "formal/General/WitnessLoad.lean": "8c7d6a5d71e7596f321bdb185400b34d1e73c2116bcee4714e1f44865a20af40",
+    "formal/General/Threshold.lean": "f963cbca672c81ac3566486a17a971fafdc657382403c0ec5a1075134f311b38",
+    "formal/Closure/PaletteCover.lean": "bb52c327da3d419f165c66fd1a6c301a53cb4ef129b8d690b1be6b070abef621",
+    "formal/Closure/Assembly.lean": "01234a50ceafa98e79cff97b171cda46ccb717537fb0fea4a1b2e31e5f6fecb1",
+    "formal/Completion/Structural.lean": "c6d2a5b59efe2bca9eca07c9e680028627067509a29fd3261972c98ac8d5f4f5",
+    "formal/Completion/PaletteFormula.lean": "eddff2aac1015d8ce76b5fb67e8176b8cdd39102fc3f03478a5abda0d2a2f6b9",
+    "formal/Completion/Benchmark.lean": "0be38d958523412ea0a088eeeafcf11a09eb3abff48b240a1d0be6d0b1b0226a",
+    "formal/Completion/BenchmarkPrices.lean": "7bb87200f51fab9e974c0dcffb93f9cefa032a71b0f7737d031d5e617fd2cdda",
+    "formal/Completion/UnionBound.lean": "e29e781301f94577369d2f7d39d8ba1fbb44cf0b866e5ee2a097db117aea2cf3",
+    "formal/Completion/BenchmarkUnion.lean": "76a585993a37b81bd17816870262a0533c0e73def410e91c6c2022dc56bd6d17",
+    "formal/Completion/Numerics.lean": "74109a62dbc28f749ff276c9c3a48410a9ed23862bc9a3d549ae592ea36e718a",
+    "formal/Completion/FinalAudit.lean": "e7f9d19afc4d82a5dd55785a1e8c8b7cd0739413bf111faf6677dfe6a8a5d7ad",
+    "formal/Integration/EndpointTasks.lean": "b91952f9a92bef73b64ebfdecee07e976083e0570bd84b3d63fd3e36d73f6054",
+    "formal/General/FinalAudit.lean": "ac1d5c767db83b1018122ec3f0489165237547ce56c6c3fd88f2c40350ea8dd5"
+  },
+  "records": [
+    {
+      "module": "Specifications.P15",
+      "source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "receipt": "00-Specifications.P15/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/Specifications/P15.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/Specifications/P15.lean"
+      ],
+      "pid": 4096,
+      "started_unix_ns": 1793291862067876779,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 5.279268615000092,
+      "wait4": {
+        "user_seconds": 4.116217,
+        "system_seconds": 1.130305,
+        "max_rss_kib": 6908936
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "General.Definitions",
+      "source_sha256": "9979999a24efd3e8e6fe8d5b7e1e0da9d5f957570b7f2e580868a2f3ea15f465",
+      "receipt": "01-General.Definitions/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/General/Definitions.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/General/Definitions.lean"
+      ],
+      "pid": 4103,
+      "started_unix_ns": 1793291867348472237,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 3.9706610149996777,
+      "wait4": {
+        "user_seconds": 2.871893,
+        "system_seconds": 1.056081,
+        "max_rss_kib": 6864484
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "General.Finner",
+      "source_sha256": "9c5a3c158d2ba1a93fa3d4d9df3775d61db4220fb5a270bb125ffd2af9582e74",
+      "receipt": "02-General.Finner/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/General/Finner.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/General/Finner.lean"
+      ],
+      "pid": 4108,
+      "started_unix_ns": 1793291871320293112,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 5.176211396999861,
+      "wait4": {
+        "user_seconds": 4.219043,
+        "system_seconds": 0.917952,
+        "max_rss_kib": 6905060
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 635,
+          "sha256": "fa401231ae854694dcff0a7cb96334417706322c777f77bb82b107e73f447920"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "General.FinnerBridge",
+      "source_sha256": "4bf0f6e35c9aa45277a0e7c61339368ee2d4e438b8d357704a533163e36b67fb",
+      "receipt": "03-General.FinnerBridge/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/General/FinnerBridge.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/General/FinnerBridge.lean"
+      ],
+      "pid": 4119,
+      "started_unix_ns": 1793291876497293639,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 4.2244328260003385,
+      "wait4": {
+        "user_seconds": 3.20662,
+        "system_seconds": 0.9631289999999999,
+        "max_rss_kib": 6892348
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 96,
+          "sha256": "639351770e45480d6a6bef68752e324fbbdf90a84c2219a14107e4b390118bfd"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "General.Safety",
+      "source_sha256": "8160c140b4276d2dd893b679ff9a3bac6012cf6b0e20a08524d7879b483d0700",
+      "receipt": "04-General.Safety/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/General/Safety.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/General/Safety.lean"
+      ],
+      "pid": 4133,
+      "started_unix_ns": 1793291880722329005,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 3.7150697849997414,
+      "wait4": {
+        "user_seconds": 2.766286,
+        "system_seconds": 0.903173,
+        "max_rss_kib": 6895976
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 948,
+          "sha256": "9ef3996e63d5195caacf26307b96d0b422ce92065625923b348efb74074ce4e7"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "General.Amalgamation",
+      "source_sha256": "be688c3e02005e253439c7c4704418fcfca6c7feab757ce41cf85661a73e1980",
+      "receipt": "05-General.Amalgamation/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/General/Amalgamation.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/General/Amalgamation.lean"
+      ],
+      "pid": 4139,
+      "started_unix_ns": 1793291884438075211,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 4.070465906000209,
+      "wait4": {
+        "user_seconds": 3.096368,
+        "system_seconds": 0.947882,
+        "max_rss_kib": 6896708
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "SpecificationProofs.P15Elementary",
+      "source_sha256": "d4d87bba1da9473cd3c5bda9c702ba4dd036de06085d5ad589f17988bf8695b1",
+      "receipt": "06-SpecificationProofs.P15Elementary/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/SpecificationProofs/P15Elementary.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/SpecificationProofs/P15Elementary.lean"
+      ],
+      "pid": 4162,
+      "started_unix_ns": 1793291888509137567,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 12.514152324000406,
+      "wait4": {
+        "user_seconds": 11.575811,
+        "system_seconds": 0.9432429999999999,
+        "max_rss_kib": 6976204
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "Closure.ProductMass",
+      "source_sha256": "825b9f834f310ebfc972045291e4bb92d84f6c554647e061944a7822a27eb66d",
+      "receipt": "07-Closure.ProductMass/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/Closure/ProductMass.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/Closure/ProductMass.lean"
+      ],
+      "pid": 4172,
+      "started_unix_ns": 1793291901023973683,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 5.478494413000135,
+      "wait4": {
+        "user_seconds": 4.429698,
+        "system_seconds": 1.00049,
+        "max_rss_kib": 6913376
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 4373,
+          "sha256": "9795c2d57ef32ae8e879eaeb65d76a91cb57520628c2e62063d2e05b221bd5d2"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "General.Probability",
+      "source_sha256": "6e95119c24b4b31ce2cd638eb19e8636d10592992b2a1770f02db05e6a8d181e",
+      "receipt": "08-General.Probability/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/General/Probability.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/General/Probability.lean"
+      ],
+      "pid": 4181,
+      "started_unix_ns": 1793291906503322346,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 5.235013423000055,
+      "wait4": {
+        "user_seconds": 4.202932,
+        "system_seconds": 0.974422,
+        "max_rss_kib": 6912160
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 897,
+          "sha256": "6327382e9d94c04db4a4db534b838facd8ed4fbeb31e51f26a4710c59315a7a5"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "Closure.RatioGate",
+      "source_sha256": "58b84e883ccade082fcd5772b8f50327cfc8496e64715fb305a26c924bc81a7f",
+      "receipt": "09-Closure.RatioGate/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/Closure/RatioGate.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/Closure/RatioGate.lean"
+      ],
+      "pid": 4187,
+      "started_unix_ns": 1793291911739009495,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 5.046785523999915,
+      "wait4": {
+        "user_seconds": 4.004743,
+        "system_seconds": 1.030844,
+        "max_rss_kib": 6906260
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 2097,
+          "sha256": "6852fd2a63449008bbbc306c2ce17792d564db6aa40b9ab93c1ac61397daa9de"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "Closure.LocalRatio",
+      "source_sha256": "3d8b49d0ba9740b87ea342c5dbe950947718a847f64d17059bcd8c0d2d851067",
+      "receipt": "10-Closure.LocalRatio/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/Closure/LocalRatio.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/Closure/LocalRatio.lean"
+      ],
+      "pid": 4197,
+      "started_unix_ns": 1793291916786639354,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 5.425896724000268,
+      "wait4": {
+        "user_seconds": 4.410107,
+        "system_seconds": 0.9874879999999999,
+        "max_rss_kib": 6918276
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 6712,
+          "sha256": "2506bc73aca6e37c4b07d159bcc42289244ec93ea3a4cda2db8617a0fe302353"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "Closure.DownsetMass",
+      "source_sha256": "d65e7114ce163982c558314fe9179fc9a954a5be26fb822bb440d99da435da9c",
+      "receipt": "11-Closure.DownsetMass/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/Closure/DownsetMass.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/Closure/DownsetMass.lean"
+      ],
+      "pid": 4203,
+      "started_unix_ns": 1793291922213567745,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 4.471126536000156,
+      "wait4": {
+        "user_seconds": 3.468233,
+        "system_seconds": 0.986143,
+        "max_rss_kib": 6908692
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 4323,
+          "sha256": "59f6f8705e257fb7e3b3e880ad212dcc8c140ff602f477bfc89697244c1ef580"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "Closure.HazardInterpolation",
+      "source_sha256": "c0b1d238abd4bf73c6bec987f35eabeec2cafb1869e2ab1966e5d2cbf09cbf76",
+      "receipt": "12-Closure.HazardInterpolation/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/Closure/HazardInterpolation.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/Closure/HazardInterpolation.lean"
+      ],
+      "pid": 4223,
+      "started_unix_ns": 1793291926685343864,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 5.878882764000082,
+      "wait4": {
+        "user_seconds": 4.91344,
+        "system_seconds": 0.930083,
+        "max_rss_kib": 6918376
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 1402,
+          "sha256": "5eef529f815f18a63d1b9237ab4c3c4fbffb1899dea30e5689909cb00e0662a5"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "General.Overlap",
+      "source_sha256": "78be9c0ac55223bf5baa479fbc5c3f551cc4e5e7d7fa630857643792e441072b",
+      "receipt": "13-General.Overlap/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/General/Overlap.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/General/Overlap.lean"
+      ],
+      "pid": 4234,
+      "started_unix_ns": 1793291932564773834,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 5.1722186550000515,
+      "wait4": {
+        "user_seconds": 4.136481,
+        "system_seconds": 0.9862569999999999,
+        "max_rss_kib": 6910160
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "General.BernoulliFinner",
+      "source_sha256": "2e8e6fff3b405563e052d61bd927945b9bcd75a0b94c7f981103fe4ace2763b6",
+      "receipt": "14-General.BernoulliFinner/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/General/BernoulliFinner.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/General/BernoulliFinner.lean"
+      ],
+      "pid": 4242,
+      "started_unix_ns": 1793291937737604644,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 5.128612059000261,
+      "wait4": {
+        "user_seconds": 4.10459,
+        "system_seconds": 0.967027,
+        "max_rss_kib": 6903308
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 1329,
+          "sha256": "07aabe1796df8cd4a31809b775af6885b708016e975331222d9ff7c35f3f5494"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "General.WitnessLoad",
+      "source_sha256": "8c7d6a5d71e7596f321bdb185400b34d1e73c2116bcee4714e1f44865a20af40",
+      "receipt": "15-General.WitnessLoad/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/General/WitnessLoad.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/General/WitnessLoad.lean"
+      ],
+      "pid": 4259,
+      "started_unix_ns": 1793291942866954339,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 4.722044833999917,
+      "wait4": {
+        "user_seconds": 3.711712,
+        "system_seconds": 0.9998429999999999,
+        "max_rss_kib": 6901368
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "General.Threshold",
+      "source_sha256": "f963cbca672c81ac3566486a17a971fafdc657382403c0ec5a1075134f311b38",
+      "receipt": "16-General.Threshold/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/General/Threshold.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/General/Threshold.lean"
+      ],
+      "pid": 4265,
+      "started_unix_ns": 1793291947589705013,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 5.579086231000019,
+      "wait4": {
+        "user_seconds": 4.511492,
+        "system_seconds": 1.051782,
+        "max_rss_kib": 6915040
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 1658,
+          "sha256": "82cf5dc20ed14d39ddc1f7fc4170abf40c4c25b31b5b3f72627db201a71fa536"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "Closure.PaletteCover",
+      "source_sha256": "bb52c327da3d419f165c66fd1a6c301a53cb4ef129b8d690b1be6b070abef621",
+      "receipt": "17-Closure.PaletteCover/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/Closure/PaletteCover.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/Closure/PaletteCover.lean"
+      ],
+      "pid": 4271,
+      "started_unix_ns": 1793291953169535108,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 5.6792410709999785,
+      "wait4": {
+        "user_seconds": 4.577578,
+        "system_seconds": 1.092452,
+        "max_rss_kib": 6911368
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 1905,
+          "sha256": "e32b2552786914a781ba5c38c5dd7ef4bbeb6d47ea4d73f83971cc5873736eed"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "Closure.Assembly",
+      "source_sha256": "01234a50ceafa98e79cff97b171cda46ccb717537fb0fea4a1b2e31e5f6fecb1",
+      "receipt": "18-Closure.Assembly/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/Closure/Assembly.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/Closure/Assembly.lean"
+      ],
+      "pid": 4277,
+      "started_unix_ns": 1793291958849508786,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 5.07796455100015,
+      "wait4": {
+        "user_seconds": 3.963781,
+        "system_seconds": 1.067059,
+        "max_rss_kib": 6905328
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 4083,
+          "sha256": "5fb5beb95c3b992f441dfa3acba1ea1666217b62950cf355e6f10bb9d313eb0d"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "Completion.Structural",
+      "source_sha256": "c6d2a5b59efe2bca9eca07c9e680028627067509a29fd3261972c98ac8d5f4f5",
+      "receipt": "19-Completion.Structural/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/Completion/Structural.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/Completion/Structural.lean"
+      ],
+      "pid": 4282,
+      "started_unix_ns": 1793291963928251774,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 5.475206953999987,
+      "wait4": {
+        "user_seconds": 4.352792,
+        "system_seconds": 1.067679,
+        "max_rss_kib": 6913772
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 1051,
+          "sha256": "31ed4836bfeaaabea60e439d2a360819c02e944334e52aa4edfc1cc647b01b4a"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "Completion.PaletteFormula",
+      "source_sha256": "eddff2aac1015d8ce76b5fb67e8176b8cdd39102fc3f03478a5abda0d2a2f6b9",
+      "receipt": "20-Completion.PaletteFormula/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/Completion/PaletteFormula.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/Completion/PaletteFormula.lean"
+      ],
+      "pid": 4287,
+      "started_unix_ns": 1793291969404290427,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 5.077399664999575,
+      "wait4": {
+        "user_seconds": 3.987539,
+        "system_seconds": 1.06566,
+        "max_rss_kib": 6900512
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 525,
+          "sha256": "5659c1427221018dc6502fc1f3c6f021d738f811e4b4b68ddaab82d6337455de"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "Completion.Benchmark",
+      "source_sha256": "0be38d958523412ea0a088eeeafcf11a09eb3abff48b240a1d0be6d0b1b0226a",
+      "receipt": "21-Completion.Benchmark/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/Completion/Benchmark.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/Completion/Benchmark.lean"
+      ],
+      "pid": 4293,
+      "started_unix_ns": 1793291974482489491,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 5.930414192000171,
+      "wait4": {
+        "user_seconds": 4.870151,
+        "system_seconds": 1.038849,
+        "max_rss_kib": 6918196
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 947,
+          "sha256": "e35ad723e7c9ae5863ab2ebdaa2ac2d6f13b12533aa870e24a8090aa7f0d2652"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "Completion.BenchmarkPrices",
+      "source_sha256": "7bb87200f51fab9e974c0dcffb93f9cefa032a71b0f7737d031d5e617fd2cdda",
+      "receipt": "22-Completion.BenchmarkPrices/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/Completion/BenchmarkPrices.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/Completion/BenchmarkPrices.lean"
+      ],
+      "pid": 4303,
+      "started_unix_ns": 1793291980413626737,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 4.673390646999906,
+      "wait4": {
+        "user_seconds": 3.639739,
+        "system_seconds": 1.011715,
+        "max_rss_kib": 6905628
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 1461,
+          "sha256": "fa9d7ac7047cd10a2bb24768ac41735529464098b408876c8568580a0968e0bc"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "Completion.UnionBound",
+      "source_sha256": "e29e781301f94577369d2f7d39d8ba1fbb44cf0b866e5ee2a097db117aea2cf3",
+      "receipt": "23-Completion.UnionBound/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/Completion/UnionBound.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/Completion/UnionBound.lean"
+      ],
+      "pid": 4308,
+      "started_unix_ns": 1793291985087973220,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 4.022634236999693,
+      "wait4": {
+        "user_seconds": 3.012922,
+        "system_seconds": 0.9587509999999999,
+        "max_rss_kib": 6898556
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 347,
+          "sha256": "d8510e00ce18dbd8dc3a82134819602eb938b9a55094b4956ab76f43285fb078"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "Completion.BenchmarkUnion",
+      "source_sha256": "76a585993a37b81bd17816870262a0533c0e73def410e91c6c2022dc56bd6d17",
+      "receipt": "24-Completion.BenchmarkUnion/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/Completion/BenchmarkUnion.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/Completion/BenchmarkUnion.lean"
+      ],
+      "pid": 4314,
+      "started_unix_ns": 1793291989111283551,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 4.119467636000081,
+      "wait4": {
+        "user_seconds": 3.134461,
+        "system_seconds": 0.943112,
+        "max_rss_kib": 6904672
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 186,
+          "sha256": "8c477485a23f905bb8ac169eb436ed4266d9e3558dd565fba7aea10e74fb7dc4"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "Completion.Numerics",
+      "source_sha256": "74109a62dbc28f749ff276c9c3a48410a9ed23862bc9a3d549ae592ea36e718a",
+      "receipt": "25-Completion.Numerics/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/Completion/Numerics.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/Completion/Numerics.lean"
+      ],
+      "pid": 4319,
+      "started_unix_ns": 1793291993231678150,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 6.178581379000207,
+      "wait4": {
+        "user_seconds": 5.18086,
+        "system_seconds": 0.9659019999999999,
+        "max_rss_kib": 6913452
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 105,
+          "sha256": "a5a55730298df3e881b27f8206c22d6364922f98f194f80f6ef5d5fc830a66a6"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "Completion.FinalAudit",
+      "source_sha256": "e7f9d19afc4d82a5dd55785a1e8c8b7cd0739413bf111faf6677dfe6a8a5d7ad",
+      "receipt": "26-Completion.FinalAudit/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/Completion/FinalAudit.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/Completion/FinalAudit.lean"
+      ],
+      "pid": 4330,
+      "started_unix_ns": 1793291999410794981,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 4.8315495159999955,
+      "wait4": {
+        "user_seconds": 3.878687,
+        "system_seconds": 0.8986949999999999,
+        "max_rss_kib": 6887216
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 6700,
+          "sha256": "1bc3437c1c4d1275af3373fda6c7bc0f979e00d19e68f0dcc75943051c18cb3b"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "Integration.EndpointTasks",
+      "source_sha256": "b91952f9a92bef73b64ebfdecee07e976083e0570bd84b3d63fd3e36d73f6054",
+      "receipt": "27-Integration.EndpointTasks/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/Integration/EndpointTasks.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/Integration/EndpointTasks.lean"
+      ],
+      "pid": 4353,
+      "started_unix_ns": 1793292004243308304,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 4.627530885999931,
+      "wait4": {
+        "user_seconds": 3.38168,
+        "system_seconds": 1.231651,
+        "max_rss_kib": 6888152
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "General.FinalAudit",
+      "source_sha256": "ac1d5c767db83b1018122ec3f0489165237547ce56c6c3fd88f2c40350ea8dd5",
+      "receipt": "28-General.FinalAudit/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final02/General/FinalAudit.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/General/FinalAudit.lean"
+      ],
+      "pid": 4408,
+      "started_unix_ns": 1793292008872285841,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 4.9213634470002035,
+      "wait4": {
+        "user_seconds": 3.946732,
+        "system_seconds": 0.931642,
+        "max_rss_kib": 6888884
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 24133,
+          "sha256": "5fdae0964c8c9e42525df2e65d3b16e0e651402ba23040a05f9c58023994fd73"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    }
+  ],
+  "cache_was_fresh": true,
+  "old_project_cache_on_lean_path": false,
+  "runtime": {
+    "lean_executable_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+    "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "trust": "Pinned external Lean/shared libraries and precompiled Mathlib cache; no full Mathlib source rebuild."
+  },
+  "lean_path": [
+    "/workspace/scratch/universal-law-project-closure/build/final02",
+    "/workspace/scratch/universal-law-toolchains/mathlib-d13f23b7/.lake/build/lib/lean",
+    "/workspace/scratch/universal-law-toolchains/mathlib-d13f23b7/.lake/packages/LeanSearchClient/.lake/build/lib/lean",
+    "/workspace/scratch/universal-law-toolchains/mathlib-d13f23b7/.lake/packages/Qq/.lake/build/lib/lean",
+    "/workspace/scratch/universal-law-toolchains/mathlib-d13f23b7/.lake/packages/aesop/.lake/build/lib/lean",
+    "/workspace/scratch/universal-law-toolchains/mathlib-d13f23b7/.lake/packages/batteries/.lake/build/lib/lean",
+    "/workspace/scratch/universal-law-toolchains/mathlib-d13f23b7/.lake/packages/importGraph/.lake/build/lib/lean",
+    "/workspace/scratch/universal-law-toolchains/mathlib-d13f23b7/.lake/packages/plausible/.lake/build/lib/lean",
+    "/workspace/scratch/universal-law-toolchains/mathlib-d13f23b7/.lake/packages/proofwidgets/.lake/build/lib/lean",
+    "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/lib/lean"
+  ],
+  "audited_theorems": [
+    {
+      "name": "UniversalLaw.P15Closure.paletteNumberAttained",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Closure.localRestriction",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Closure.localPriceChain",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Closure.independentBlockHazard",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Closure.fullBlockCoverIff",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Closure.coverCostHazardBound",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Closure.restrictedLocalBudget",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Closure.restrictedTransformedPriceBudget",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Closure.rhoTestSufficient",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Closure.fullTransformedPriceBudget",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Closure.coordinatewiseConcavity",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Closure.hazardProductBound",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Closure.hazardPhiBound",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Closure.fullGroundPriceBound",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Closure.fullGroundBudgetIff",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Closure.localPriceBoundFull",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Closure.globalAssemblyHazard",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Closure.fullTransformedPriceBudget_sixSevenths",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.Proofs.P15Elementary.twoCoordGeneratorPrices",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.Proofs.P15Elementary.logOnePlusBelowIdentity",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.Proofs.P15Elementary.demandOneRefutation",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.Proofs.P15Elementary.logRatioBound",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.Proofs.P15Elementary.capTestAtTwoThirds",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.Proofs.P15Elementary.ratioExponentBound",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.Proofs.P15Elementary.rhoStarBelowSixSevenths",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.Proofs.P15Elementary.sixSeventhsCertificate",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.Proofs.P15Elementary.hStarExceedsOne",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.Proofs.P15Elementary.phiAtPStar",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.Proofs.P15Elementary.hazardStarPositive",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.Proofs.P15Elementary.oddMajorityIdentity",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.Proofs.P15Elementary.capacityWorstCase",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.Proofs.P15Elementary.demandOneBoundary",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.Proofs.P15Elementary.triangleNeedsThree",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.Proofs.P15Elementary.capacityHazardIsBinomial",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.Proofs.P15Elementary.sharpnessOfRhoStar",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Completion.minimalForbiddenCharacterisation",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Completion.localDecomposability",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Completion.localObstructionIsFullBlock",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Completion.wholeGroundChromaticNumber",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Completion.elementaryPaletteFormula",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Completion.benchmark816IsRealized",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Completion.benchmark816Palette",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Completion.benchmark816Cover",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Completion.benchmark816WholeGround",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Completion.benchmark816MinimalForbiddenCounts",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Completion.benchmark816Price",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Completion.benchmark816UnionBound",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Completion.benchmark816TransformedRange",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Completion.benchmark816RationalPrice",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Completion.rhoStarEnclosure",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Completion.badWitness_union_bound",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Completion.exists_minimalForbidden_subset",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.P15Completion.minimalForbidden_union_bound",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.localCover_amalgamation_of_safety",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.localCover_amalgamation",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.LocalGroundRegression.twoBlock_emptyLocalCover",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.LocalGroundRegression.ambientLocalCover_fails",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.mem_selectedFinset",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.coe_bernoulliWeights",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.bernoulliWeights_sum",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.bernoulli_product_weight",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.bernoulli_sum_coe",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.bernoulli_good_sum_coe",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.bernoulli_restriction_sum_coe",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.restrictionIndicator_dependsOn",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.goodIndicator_le_prod_restrictionIndicator",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.bernoulli_tensor_good_coe",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.bernoulli_tensor_restriction_coe",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.bernoulli_tensor_good",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.bernoulli_tensor_restriction",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.muOf_le_prod_restrictionMass_rpow",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.nnreal_prod_rpow_le_affine",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.nnreal_weightedHolder",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.functionDependsOn_update",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.functionDependsOn_coordinateAverage",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.coordinateAverage_eq_of_not_mem",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.coordinateAverage_prod_rpow",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.productAverage_mono",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.finner_productAverage",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.functionDependsOn_coordinateAverage_erase",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.functionDependsOn_productAverage",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.productAverage_eq_of_complete",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.tensor_weights_sum",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.tensorAverage_const",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.tensorAverage_coordinateAverage",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.tensorAverage_productAverage",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.productAverage_eq_tensor",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.finner_tensor",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.restrictionMass_eq_ambient",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.restrictionMass_reindex",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.reindexedRestriction_isProper",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.genPrice_reindex",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.restrictionHazardStar_pos",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.restriction_fullGroundPriceBound",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.restriction_genPrice_le_hazard_ratio",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.restrictionMass_pos_of_muOf_pos",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.famPrice_le_sum_restriction_hazard_ratios",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.weightedHazard_of_productBound",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.witnessLoad_budget_of_weightedHazard",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.witnessLoad_budget_of_productBound",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.emptyWitnessFamily_coverCost",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.sum_block_functions",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.weight_eq_prod_blockWeight",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.localMass_nonneg",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.localMass_le_one",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.localMass_emptyBlock",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.muOf_le_prod_localMass",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.localMass_pos_of_muOf_pos",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.muOf_eq_zero_of_localMass_zero",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.independentBlockHazard",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.sum_phi_le_hazard",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.famPrice_nonneg",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.famPrice_biUnion_le",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.coverCost_le_family",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.emptyGenerator_cover",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.coverCost_le_one",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.exists_capped_cover_of_hazard",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.budget_of_union_cover",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.paletteSeparated_budget",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.paletteSeparated_coverCost",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.exists_minimalBad_subset",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.minimalBad_nonempty",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.proper_subset_good_of_minimal",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.crossing_block_inter_ssubset",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.paletteSafety_iff",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.decomposable_iff_union",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.decomposable_iff_unionCoverable",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.generatorCover_iff_historical",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.decreasing_of_downwardClosed_muOf_pos",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.high_mass_pos",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.decreasing_of_high_mass",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.mem_downwardHull",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.subset_downwardHull",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.decreasing_downwardHull",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.muOf_le_downwardHull",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.unionCoverable_downwardHull_iff",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.prizeStatement_iff_downset",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.cappedHazard_le_half_of_high_mass",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.famPrice_const",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.threshold_cover_of_paletteCertificate",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.ThresholdStatement_of_certificates",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.witnessCoordinateLoad_le_maximum",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.maximumWitnessLoad_empty",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.maximumWitnessLoad_pos",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.maximumWitnessLoad_attained",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.normalize_incident_load",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.witnessLoad_budget",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.witnessLoad_coverCost",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "UniversalLaw.General.maximumWitnessLoad_budget",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_PaletteNumberAttained",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_MinimalForbiddenCharacterisation",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_LocalRestriction",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_LocalDecomposability",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_LocalObstructionIsFullBlock",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_LocalPriceChain",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_IndependentBlockHazard",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_FullBlockCoverIff",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_CoverCostHazardBound",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_WholeGroundChromaticNumber",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_ElementaryPaletteFormula",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_TriangleNeedsThree",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_Benchmark816IsRealized",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_Benchmark816Palette",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_Benchmark816Cover",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_Benchmark816WholeGround",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_Benchmark816MinimalForbiddenCounts",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_Benchmark816Price",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_Benchmark816UnionBound",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_TwoCoordGeneratorPrices",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_DemandOneRefutation",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_LogOnePlusBelowIdentity",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_LogRatioBound",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_RatioExponentBound",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_RestrictedLocalBudget",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_RestrictedTransformedPriceBudget",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_RhoTestSufficient",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_CapTestAtTwoThirds",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_Benchmark816TransformedRange",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_Benchmark816RationalPrice",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_FullTransformedPriceBudget",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_RhoStarEnclosure",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_RhoStarBelowSixSevenths",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_HazardStarPositive",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_CoordinatewiseConcavity",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_HazardProductBound",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_HazardPhiBound",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_FullGroundPriceBound",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_PhiAtPStar",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_FullGroundBudgetIff",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_CapacityHazardIsBinomial",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_OddMajorityIdentity",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_CapacityWorstCase",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_HStarExceedsOne",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_LocalPriceBoundFull",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_GlobalAssemblyHazard",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_SharpnessOfRhoStar",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_DemandOneBoundary",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "name": "ClosedProof.Endpoints.reuse_SixSeventhsCertificate",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "outputs": {
+    "Closure/Assembly.olean": "c4ca78b00ce1eb4015f92f5c8924b0634c2e309ef9bbea93c01afae63b71c2b4",
+    "Closure/DownsetMass.olean": "d791269a6dbc6640a27e5efa4898ae7e9752a7b5667fa3973b1f10d8b9a775e2",
+    "Closure/HazardInterpolation.olean": "2bcb1509635f57dfd3c52bb5db10b2676ec3d032e90bf54d082074666a6f5353",
+    "Closure/LocalRatio.olean": "248c28e0fb9ae3af445677486972d643135028e9c9d77c25d3dcaa3c942abd89",
+    "Closure/PaletteCover.olean": "927e04c10ac0fa104cddd315be5a02762a7d9a1207049b25d54828b79088c25a",
+    "Closure/ProductMass.olean": "99cd066973f0481d2c9696b27eaa5fab89971546c4ebf7c10643527570490a08",
+    "Closure/RatioGate.olean": "9f7aeb4f0fad4a8777756684c8df7df70157601a3fb0b9990a8155ddc1ed3692",
+    "Completion/Benchmark.olean": "543986e4e8c769f33999a38b30444a9155cf6832b196136f4a864c214e645a5a",
+    "Completion/BenchmarkPrices.olean": "fa1497d043fd80330881dee42781c8a4364e0fbd7dc89b19e84afb78b900865c",
+    "Completion/BenchmarkUnion.olean": "b08d09807f23bf1d8c63e721406941e3d6b3e2f6dcaeb1c8e5e23bbbc86c93a5",
+    "Completion/FinalAudit.olean": "756e0e3997f100d37b676497e0254b010db62809cfd065f0b5742093252b030b",
+    "Completion/Numerics.olean": "42bf3e1f3be3c6e2ab04e673e7311f18b23bdadd24aab7585cd90948601f76cb",
+    "Completion/PaletteFormula.olean": "b62264d25058f2993e026c5c7dd76fb962c9044dad637abc4f0811af7bd0d9ba",
+    "Completion/Structural.olean": "1986a90d5a73369c840358281944c396460c592db9430e7f6998bd195cf27c1f",
+    "Completion/UnionBound.olean": "569be061069bf8b9591e00794cb3e8fb80e9f149daec999e03ff96dd529cf53c",
+    "General/Amalgamation.olean": "2d90ba38f631e46856a0c5c4ce89f6f903d8985120846bdcf9ad68caa158831a",
+    "General/BernoulliFinner.olean": "1c4f2ce1bd17f3392618c7bedcc5b32b887bc15bb248954c9b9417c54e5aec14",
+    "General/Definitions.olean": "90f4f6cd5eb8faee76baf687a4369927a6a170cea913acfbbae578a802000c4b",
+    "General/FinalAudit.olean": "ac3f61c589bd17fd7b85589392690ef7a5f2d9af618d0f19aaf08461090073d9",
+    "General/Finner.olean": "3ffebf7ad731251587f8f670eb6c70696c4dd5a71b753c31d4e80bd159f7c87e",
+    "General/FinnerBridge.olean": "91891169dbfbd4a4c8ded4c524f39252658c89659f5a8cc69faa78496a81c967",
+    "General/Overlap.olean": "c125b8e1695bbcdda14301338fe23740bae1650a46a37623c1ea6c8541849a01",
+    "General/Probability.olean": "b73486d1607b48cb4360ca2757f9b53ee55bd70b3422404bb11e37e7932f0057",
+    "General/Safety.olean": "4751fccb4e316df7a1fcc907ba355aa3fdff39dfb4c2f3b5846e7c437b0e223c",
+    "General/Threshold.olean": "c6d162856c575899878afce4c8677734e4f3b6639859cfd81de3d2d6ccc9b630",
+    "General/WitnessLoad.olean": "72533fedf4e744e4fb51cb96ee22631c2a5b2d4993bb23805217003191045ead",
+    "Integration/EndpointTasks.olean": "47ffba7cbe86cf738c2ce587d2335eb1d4e87c2cdf638981f74e6b2d27c5108c",
+    "SpecificationProofs/P15Elementary.olean": "85cbb258cf697a8055de30b19fe5e568276921d4738176d619dcb550e8e26877",
+    "Specifications/P15.olean": "7911ea0cc74f0ca4ed03ca3f76d7f84a10b23b260889c04f51012b852eebb350"
+  },
+  "campaign_wall_seconds": 151.82362521200002,
+  "cost_boundary": "Sequential fresh Lean children plus orchestration; individual wait4 CPU/RSS in receipts. Wall and CPU separate, nested child times not added twice."
+}

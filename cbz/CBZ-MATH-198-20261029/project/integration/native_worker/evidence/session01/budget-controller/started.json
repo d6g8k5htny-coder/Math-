@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-B",
+    "/workspace/scratch/universal-law-project-closure/integration/native_worker/session.py",
+    "budget",
+    "--build-dir",
+    "/workspace/scratch/universal-law-project-closure/integration/native_worker/build/explore01",
+    "--output",
+    "/workspace/scratch/universal-law-project-closure/integration/native_worker/evidence/session01/budget"
+  ],
+  "pid": 3580,
+  "started_unix_ns": 1793291528795385077
+}

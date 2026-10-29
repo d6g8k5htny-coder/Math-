@@ -1,0 +1,129 @@
+COMPONENT HISTORY / SCOPED CHECKPOINT
+
+This file preserves the development-time sequence and its exact evidence boundaries.
+It does not certify a later baseline replay. Current contribution acceptance is
+recorded in the enclosing baseline campaign and its source-hash inventory.
+Earlier/native-numbered receipts remain historical; no failed trial is erased.
+
+Engine audit and integration result — 29 October 2026 UTC
+
+Implemented new behavior only under integration/engine_audit. All earlier sealed
+packages remain untouched. Latest certified-frontier-v2 is the scheduler baseline,
+not the older closed-proof-engine that still retained expanded parents.
+
+New defects reproduced and repaired
+1. Request capacity: a native-faithful127-progress chain with128 allowed actions
+   used request256 for a closed candidate, then mandatory verify257 failed and
+   cleanup could no longer release the parent. The new admission guard reserves
+   verification, possible child/live-handle cleanup and shutdown requests using
+   actual session transport counters. It stops explicitly at request_capacity,
+   retaining failure/expense visibility and no proof success. The synthetic
+   example performs126 actions,254 total requests including complete cleanup,
+   leaves2 requests and no live handles, and never faults the transport.
+2. State capacity: a wide frontier can fill storage midway through expansion.
+   Latest baseline kept attempting actions that the fixed native worker rejects
+   at full capacity, then mislabeled this as attempt_budget. The new guard
+   reports resource_exhausted/state_capacity before a rejected capacity attempt.
+   No pending child is evicted. True attempt_budget and frontier_exhausted have
+   independent reasons. The three-slot synthetic reproduction stops after3
+   admitted actions with no wasted rejection and complete final cleanup.
+
+The old expanded-parent defect is resolved history in certified-frontier-v2.
+The copied17 scheduler regressions remain unchanged and pass: long-chain release,
+sibling order, aliases, drop failures, wall budget, fairness and verification.
+The new resource guards do not create safe wide-frontier eviction or persistent
+checkpoint serialization, and no native performance claim follows.
+
+New integration
+catalog.json is ul-p15-endpoint-catalog-v1/version1, exposing all49 original target
+specifications with full statement text/hash, exact theorem/source locator and
+proof module hash, and saved closed kernel/declaration/axiom audit rows. Export
+and verification bind the original sealed completion manifest SHA256
+9ea8b07875b1cdd71bd8209a01739ca7da94a12b74f306875a4fbd2fc4d0aea9,
+all86 copied final01 artifacts, endpoint map/audit target index and17 current
+formal module hashes. The catalog is reconstructed independently before any
+list/export/check operation. Coherently edited catalog/export metadata cannot
+replace the pinned target/proof source evidence. Symlinks, path escapes, changed
+sources, changed stream/receipts, omitted/duplicate endpoints and training metadata
+changes reject. Saved evidence is not a new Lean execution, serialized proof body,
+or structural worker-v2 certificate. The native worker still advertises8 tasks.
+All49 catalog targets are source-exposed and training_eligible=false.
+
+Verification at this snapshot
+- evidence/resource_red.txt retains the baseline request/status failures. Missing
+  termination_reason errors in that RED log are absent-feature diagnostics.
+- evidence/search_green_initial.txt retains an intermediate failed assertion: the
+  first four-slot test expectation counted4 actions, but the independently traced
+  transition graph permits5 before capacity. The final test uses a hand-checked
+  three-slot graph requiring3 actions. This was a test expectation correction.
+- evidence/catalog_red.txt retains both failing CLI regressions before the new
+  catalog command existed. Initial catalog build rejected five indented theorem
+  lines; the locator now accepts their actual leading whitespace.
+- evidence/unit_normal.txt and unit_optimized.txt:37 local integration tests pass
+  in each mode, including12 catalog/CLI cases and25 scheduler/transport cases.
+- evidence/full_engine_regression.json:47 original latest-engine tests pass in
+  normal and optimized Python in disposable copies with only search/worker
+  replaced. Raw logs bind the changed source hashes and record all outputs.
+- evidence/catalog_verify.json and catalog_certificate_verify.json: all49 saved
+  evidence bindings pass; the exported full-budget sample rechecks.
+
+No native Lean/worker process or learning run was launched by this audit agent.
+Only fake subprocess transport and offline/unit tests ran. Fresh root full-chain
+kernel audit and independent source review are coordinated separately. Wall times
+in test logs are test execution observations, not native/RL speedup baselines.
+
+FINAL REVIEW/FIX ADDENDUM
+Independent offline review found and this agent reproduced two additional issues.
+- Accepted proof + failed final drop preserved valid proof acceptance, but cleanup
+  failure was only visible inside journal. New top-level cleanup_complete,
+  cleanup_status, unreleased_states and resources_after_cleanup separate the
+  valid certificate from unconfirmed resource release. A negative drop ack and
+  a timeout after accepted verify both retain the proof and report incomplete
+  cleanup. A reaped worker can have zero actual active handles despite no drop
+  ack; that distinction is explicit. RED/GREEN: cleanup_red.txt/cleanup_green.txt.
+- Python dict equality accepted False=0, True=1 and integer=equal-valued float in
+  catalog metadata. Canonical JSON byte comparison now enforces their exact JSON
+  types in both catalog and certificate verification. All three substitutions,
+  coherent catalog/export changes and export-only changes reject. RED/GREEN:
+  catalog_types_red.txt/catalog_types_green.txt. No theorem was forged by this
+  prior typed-metadata issue, but exact eligibility integrity required the fix.
+
+Fresh final verification: evidence/verification_final.json binds all10 Python
+source/test files and output hashes. Local integration suite40 normal +40 -O
+PASS; complete latest prior engine suite47 normal +47 -O PASS in disposable
+copies with current search/worker files. Final raw logs use *_final.txt names.
+The earlier37-test reports above are preserved pre-review evidence, not the
+current source snapshot. catalog_certificate_verify_final.json rechecks all49
+bindings and sample saved certificate. Independent reviewer separately repeated
+all four test suites and found no remaining Critical/Important scoped offline
+finding at catalog SHAf89612bfd8f51b3ad8a43ea994d5c60b57190f1039ce46d1f9523e44e2843706,
+search SHA39441ef24597d81c401b0ecbf6b78020d0a80d7f520d047917a0b5dd288eca09,
+worker SHA64c2e107b1a27c20ab65065954e79aff879fdf9f7375be11ad717ec67d9373fe.
+
+The root native adapter must instantiate this new LeanWorker directly from a
+validated RuntimeConfig.command/environment/identities. The prior config.worker()
+imports its own older transport and cannot expose the new quota counters.
+
+SUBSEQUENT NATIVE EXTENSION / CURRENT TRANSPORT SNAPSHOT
+Root authorized actual native49endpoint reuse as a new follow-up scope. The earlier
+no-native-run and8-task-gap statements above describe the initial offline audit.
+../native_worker now supplies49wrapper task Props +proofs,57total native task IDs,
+49actual exported v2 structural proofs,49fresh independent requested-target
+rechecks and three adversarial controls. The actual32-request live guard also
+passed, with3accepted identity proofs then clean request_capacity cutoff and
+3shutdown requests reserved; another fresh worker rechecked its last proof.
+This remains fixed source-exposed reuse, never training/discovery credit.
+
+Native session01 exposed a real0.3s graceful-exit cutoff: the budget worker ACKed
+shutdown then was killed(-9). After a failing ACK+0.5s teardown regression, the
+transport now accepts shutdown_grace positive finite<=5s, default2s. Receipts
+separate acknowledgement, forced termination, configured grace and actual teardown.
+The complete session02 rerun has all4workers return0, ACKtrue, forcedfalse, measured
+teardown0.436--0.511s. Stubbornprocess boundedkill and invalidgrace controls pass.
+The old64c2 worker bytes are hash-exactly preserved in sources/worker_session01.py.
+Current worker SHA8abf693ed057605e1f015a789da2a7de6fd0eba3d10653c554b905bbf435bfa6.
+Fresh current verification is evidence/verification_teardown_final.json:
+43local integration tests perPythonmode and47complete original-engine tests per
+mode PASS, with source and raw output hashes. Earlier40/37 receipts remain history.
+See ../native_worker/README.txt and ../../notes/native_endpoint_reuse.txt for actual
+native evidence and separate exploratory/final fresh proof-cache boundaries.

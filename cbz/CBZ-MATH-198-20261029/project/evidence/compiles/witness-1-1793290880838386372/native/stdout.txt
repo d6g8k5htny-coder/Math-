@@ -1,0 +1,38 @@
+/workspace/scratch/universal-law-project-closure/formal/General/WitnessLoad.lean:36:6: error: Type mismatch: After simplification, term
+  h
+ has type
+  @LE.le ℝ Real.instPreorder.toLE (1 / restrictionHazardStar D g)
+    (∑ x ∈ G, if v ∈ x then 1 / restrictionHazardStar D x else 0)
+but is expected to have type
+  @LE.le ℝ Real.instLE (1 / restrictionHazardStar D g) (witnessCoordinateLoad D G v)
+/workspace/scratch/universal-law-project-closure/formal/General/WitnessLoad.lean:109:4: error: Type mismatch: After simplification, term
+  hload v
+ has type
+  (∑ g ∈ G, if v ∈ g then 1 / restrictionHazardStar D g else 0) ≤ L
+but is expected to have type
+  (∑ x, if v ∈ ↑x then 1 / restrictionHazardStar D ↑x else 0) ≤ L
+/workspace/scratch/universal-law-project-closure/formal/General/WitnessLoad.lean:110:12: error(lean.unknownIdentifier): Unknown identifier `muOf_le_prod_restrictionMass_rpow`
+/workspace/scratch/universal-law-project-closure/formal/General/WitnessLoad.lean:94:51: error: unsolved goals
+X : Type
+inst✝¹ : Fintype X
+inst✝ : DecidableEq X
+D : Finset (Finset X)
+hD : decreasing D
+K : ℕ
+G : Finset (Finset X)
+hG : generatorCover D K G
+hnonempty : ∀ g ∈ G, g.Nonempty
+hbad : ∀ g ∈ G, g ∉ D
+p c : X → ℝ
+hp : ∀ (v : X), 0 ≤ p v ∧ p v ≤ 1
+hc : ∀ (v : X), 0 ≤ c v ∧ c v ≤ phi (p v)
+L : ℝ
+hL : 0 < L
+hload : ∀ (v : X), (∑ g ∈ G, if v ∈ g then 1 / restrictionHazardStar D g else 0) ≤ L
+a✝ : 0 < muOf D p
+S : ↥G → Finset X := fun g => ↑g
+H : ↥G → ℝ := fun g => restrictionHazardStar D ↑g
+w : ↥G → ℝ := fun g => 1 / (L * H g)
+hw : ∀ (g : ↥G), 0 ≤ w g
+hn : ∀ (v : X), (∑ g, if v ∈ S g then w g else 0) ≤ 1
+⊢ muOf D p ≤ ∏ g ∈ G, restrictionMass D p g ^ (1 / (L * restrictionHazardStar D g))

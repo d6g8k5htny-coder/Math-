@@ -1,0 +1,26 @@
+{
+  "child_system_cpu_seconds": 0.006667000000000006,
+  "child_user_cpu_seconds": 0.14256999999999997,
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-B",
+    "-O",
+    "admission.py",
+    "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/fixtures/positive/dataset.json",
+    "--policy",
+    "/workspace/scratch/universal-law-project-closure/integration/corpus_admission/fixtures/positive/policy.json",
+    "--expected-policy-sha256",
+    "bcaf94961c13b13ca98894d964d44704994d95328eb5c5a7ee32b745c98f11c2"
+  ],
+  "exit_code": 0,
+  "expected_exit_code": 0,
+  "mode": "optimized",
+  "name": "fixture",
+  "native_worker_launched": false,
+  "schema": "ul-corpus-verification-child-v1",
+  "status": "pass",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "a0e6b0c8129ec369fba8614b5a7a660ea2f74f542eb52a74ba573f3f4ee7bd9c",
+  "test_count": null,
+  "wall_seconds": 0.149672227
+}

@@ -1,0 +1,8 @@
+/workspace/scratch/universal-law-project-closure/formal/General/Overlap.lean:66:86: error: unexpected token 'omit'; expected 'lemma'
+/workspace/scratch/universal-law-project-closure/formal/General/Overlap.lean:81:75: error: unexpected token 'omit'; expected 'lemma'
+/workspace/scratch/universal-law-project-closure/formal/General/Overlap.lean:99:0: warning: automatically included section variable(s) unused in theorem `UniversalLaw.General.restriction_genPrice_le_hazard_ratio`:
+  [Fintype X]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype X] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`

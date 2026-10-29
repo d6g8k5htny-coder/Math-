@@ -1,0 +1,36 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-B",
+    "/workspace/scratch/universal-law-project-closure/integration/native_worker/session.py",
+    "produce",
+    "--build-dir",
+    "/workspace/scratch/universal-law-project-closure/integration/native_worker/build/fresh02",
+    "--output",
+    "/workspace/scratch/universal-law-project-closure/integration/native_worker/evidence/session04/produce"
+  ],
+  "pid": 4894,
+  "started_unix_ns": 1793292506443338452,
+  "returncode": 0,
+  "timed_out": false,
+  "output_limit_exceeded": false,
+  "succeeded": true,
+  "failure": null,
+  "wall_seconds": 7.084370926000247,
+  "wait4": {
+    "user_seconds": 4.835033,
+    "system_seconds": 2.2293789999999998,
+    "max_rss_kib": 9266404
+  },
+  "streams": {
+    "stdout.txt": {
+      "bytes": 38,
+      "sha256": "4be52978a6286586227398883af206f04432c693119bdd510280f378501011fd"
+    },
+    "stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+}

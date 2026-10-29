@@ -1,0 +1,36 @@
+test_compatibility_frontier_exhaustion_is_explicit (test_resources.ResourceTests.test_compatibility_frontier_exhaustion_is_explicit) ... ok
+test_full_frontier_is_reported_without_wasting_attempts_or_eviction (test_resources.ResourceTests.test_full_frontier_is_reported_without_wasting_attempts_or_eviction) ... FAIL
+test_reclamation_keeps_long_chain_solvable_with_sufficient_requests (test_resources.ResourceTests.test_reclamation_keeps_long_chain_solvable_with_sufficient_requests) ... ok
+test_rejected_candidate_never_becomes_proof_success (test_resources.ResourceTests.test_rejected_candidate_never_becomes_proof_success) ... ok
+test_request_limit_preserves_verification_and_cleanup_capacity (test_resources.ResourceTests.test_request_limit_preserves_verification_and_cleanup_capacity) ... ok
+test_true_attempt_budget_remains_distinct (test_resources.ResourceTests.test_true_attempt_budget_remains_distinct) ... ok
+test_cleanup_and_journal_keep_failed_paths (test_search.SearchTests.test_cleanup_and_journal_keep_failed_paths) ... ok
+test_closed_branch_requires_separate_acceptance (test_search.SearchTests.test_closed_branch_requires_separate_acceptance) ... ok
+test_closed_looking_rejected_candidate_has_no_success (test_search.SearchTests.test_closed_looking_rejected_candidate_has_no_success) ... ok
+test_each_operation_receives_remaining_wall_budget (test_search.SearchTests.test_each_operation_receives_remaining_wall_budget) ... ok
+test_expanded_parent_release_allows_chain_beyond_worker_capacity (test_search.SearchTests.test_expanded_parent_release_allows_chain_beyond_worker_capacity) ... ok
+test_goal_count_does_not_starve_a_productive_split (test_search.SearchTests.test_goal_count_does_not_starve_a_productive_split) ... ok
+test_limits_unknown_actions_and_task (test_search.SearchTests.test_limits_unknown_actions_and_task) ... ok
+test_parent_drop_transport_failure_fails_closed_and_retries_cleanup (test_search.SearchTests.test_parent_drop_transport_failure_fails_closed_and_retries_cleanup) ... ok
+test_parent_release_preserves_siblings_until_their_expansion (test_search.SearchTests.test_parent_release_preserves_siblings_until_their_expansion) ... ok
+test_partial_expansion_keeps_parent_for_separately_bounded_cleanup (test_search.SearchTests.test_partial_expansion_keeps_parent_for_separately_bounded_cleanup) ... ok
+test_queued_alias_keeps_checkpoint_live_until_last_expansion (test_search.SearchTests.test_queued_alias_keeps_checkpoint_live_until_last_expansion) ... ok
+test_rejected_fresh_closed_checkpoint_is_still_cleaned (test_search.SearchTests.test_rejected_fresh_closed_checkpoint_is_still_cleaned) ... ok
+test_search_drop_uses_remaining_budget_and_can_exhaust_it (test_search.SearchTests.test_search_drop_uses_remaining_budget_and_can_exhaust_it) ... ok
+test_siblings_follow_failure_from_unchanged_parent (test_search.SearchTests.test_siblings_follow_failure_from_unchanged_parent) ... ok
+test_unconfirmed_parent_drop_fails_closed_and_retains_cleanup_ownership (test_search.SearchTests.test_unconfirmed_parent_drop_fails_closed_and_retains_cleanup_ownership) ... ok
+test_wall_budget_before_next_action_keeps_parent_for_cleanup (test_search.SearchTests.test_wall_budget_before_next_action_keeps_parent_for_cleanup) ... ok
+test_worker_failure_is_retained_and_never_success (test_search.SearchTests.test_worker_failure_is_retained_and_never_success) ... ok
+
+======================================================================
+FAIL: test_full_frontier_is_reported_without_wasting_attempts_or_eviction (test_resources.ResourceTests.test_full_frontier_is_reported_without_wasting_attempts_or_eviction)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/universal-law-project-closure/integration/engine_audit/tests/test_resources.py", line 72, in test_full_frontier_is_reported_without_wasting_attempts_or_eviction
+    self.assertEqual(result['attempted_actions'], 4)
+AssertionError: 5 != 4
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.006s
+
+FAILED (failures=1)

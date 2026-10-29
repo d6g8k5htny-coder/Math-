@@ -1,0 +1,45 @@
+{
+  "schema": "ul-native-endpoint-contribution-index-v2",
+  "status": "READY_FOR_CBZ_IMPORT",
+  "sources_sha256": {
+    "formal/Integration/EndpointTasks.lean": "b91952f9a92bef73b64ebfdecee07e976083e0570bd84b3d63fd3e36d73f6054",
+    "integration/engine_audit/ul_engine/search.py": "39441ef24597d81c401b0ecbf6b78020d0a80d7f520d047917a0b5dd288eca09",
+    "integration/engine_audit/ul_engine/worker.py": "8abf693ed057605e1f015a789da2a7de6fd0eba3d10653c554b905bbf435bfa6",
+    "integration/native_worker/endpoint_tasks.json": "29526425d4fb5ae66472f2c0b4ece8b286437824587b982ef6c0a9c031a0361b",
+    "integration/native_worker/exec_guard.py": "b54c1cc455e00975126640d8ec6ceb8852787f84add9e8e1a12be9f1dc733e94",
+    "integration/native_worker/lean/ClosedProofCore.lean": "142ff31338e84a21248ddb140f9a1b75efa6400cc178b023979eb7711d9855ff",
+    "integration/native_worker/lean/ClosedProofWorker.lean": "cbada87f056c4743088f23ae728b9cf5f70705f7faac587349107a4544201b31",
+    "integration/native_worker/lean/ExprCodec.lean": "e223abf84826291b48ac02eb8c1ffc04309ea4b412907f6b13b76d206b67b44b",
+    "integration/native_worker/lean/ExprDag.lean": "028e8eb4c5245259d2f4ce3fb151fd14cc2bd8dab56938be5663c405041ad0ed",
+    "integration/native_worker/lean/Integration/EndpointTasks.lean": "b91952f9a92bef73b64ebfdecee07e976083e0570bd84b3d63fd3e36d73f6054",
+    "integration/native_worker/lean/TrustedTasks.lean": "6702b6402301a72fac650d2ef6b2636f87a173a41bc85bbb099afa57ee17b687",
+    "integration/native_worker/lean/WorkerBootstrap.lean": "65ab4da0506c34ff72024ffb8191a1a0d1ee25763f224ee75d3976c393fdadf9",
+    "integration/native_worker/native.py": "161334fb70af4343b3ca82fa8fc13ca0b84f23440c3c8610243f3a1f08fcfc3d",
+    "integration/native_worker/pinned_runtime.py": "16546c2e6bc386981de4a2b2ffd6538dc2f6786eaf1bb1e5b79d149a8f109213",
+    "integration/native_worker/prepare.py": "ab537a237e8326733cae51325f7326e02da91f0c8849572301ba1e0b4d26d16c",
+    "integration/native_worker/runtime_support.py": "e168330ca53452c5231fd617769647af3f04325c7a2d4102b483b8135b8f5c4e",
+    "integration/native_worker/session.py": "51a16cd6ea5e8d949fd38e56664a8440c8d69c4f2c8ad4b633cff253c83a4758",
+    "integration/native_worker/tests/test_cold_replay.py": "36c98dbd437563ebff98b4dd71096a77f107dc0e10c534a84d230ef5bd6cee1c",
+    "integration/native_worker/tests/test_saved_native.py": "20853905eb1b6fd7264ccb7a8f6ae3d0b2619eb076dce192757881ff6745b034",
+    "integration/native_worker/verify_native_saved.py": "a3c55bd2cf697592a9fb1b7381506700a914a293afd870547c8dd6eaed7660df",
+    "integration/native_worker/verify_saved.py": "5cf2077b35bfd630ea458d78fc8d79c4ec292903e8ca1e9cca475eea23fad866"
+  },
+  "native_build": "evidence/build02/results.json",
+  "fresh_formal_evidence": "../../evidence/final02/results.json",
+  "final_native_campaign": "evidence/session04/results.json",
+  "saved_bindings": "evidence/saved_verify_final04.json",
+  "python_tests": {
+    "normal": "evidence/unit_normal_final04.txt",
+    "optimized": "evidence/unit_optimized_final04.txt",
+    "count_per_mode": 9
+  },
+  "transport_full_verification": "../engine_audit/evidence/verification_teardown_final.json",
+  "source_exposed": true,
+  "training_eligible": false,
+  "scope": "Finished existing native49reuse contribution only. No additional research, discovery, learning or speedup claim.",
+  "logs_sha256": {
+    "evidence/unit_normal_final04.txt": "18a811f4a9abe63039c35292db513da86e5e8b6efddc90966262b9afff499c23",
+    "evidence/unit_optimized_final04.txt": "22f5af5887e71af68889ce6e476cdf52bd46db7c6102d9b771f0bbe7d5749911",
+    "evidence/saved_verify_final04.json": "28eb353f3506c7a0283966ab3d4bc74f644ae39dfb47694f754c8daf36931672"
+  }
+}

@@ -1,0 +1,77 @@
+/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/Closure/LocalRatio.lean:64:18: warning: Variable name `hp0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hp0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/Closure/LocalRatio.lean:121:24: warning: Variable name `hq0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/Closure/LocalRatio.lean:248:27: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+UniversalLaw.P15Closure.localRestriction {X : Type} [Fintype X] [DecidableEq X]
+  (F : UniversalLaw.Spec.P15.RealizedData X) : UniversalLaw.Spec.P15.LocalRestriction F
+UniversalLaw.P15Closure.price_le_div_common (p c pBound : ℝ) (hp0 : 0 ≤ p) (hpp : p ≤ pBound) (hp1 : pBound < 1)
+  (hc : c ≤ UniversalLaw.Spec.P15.phi p) : c ≤ p / (1 - pBound)
+UniversalLaw.P15Closure.generator_ratio_reduction {X : Type} [DecidableEq X] (B S : Finset X) (p c : X → ℝ) (pBound : ℝ)
+  (hS : S ⊆ B) (hp0 : 0 ≤ pBound) (hp1 : pBound < 1) (hp : ∀ v ∈ B, 0 ≤ p v ∧ p v ≤ pBound)
+  (hc : ∀ v ∈ B, 0 ≤ c v ∧ c v ≤ UniversalLaw.Spec.P15.phi (p v)) :
+  UniversalLaw.Spec.P15.genPrice c B ≤ pBound ^ (B.card - S.card) / (1 - pBound) ^ B.card * ∏ v ∈ S, p v
+UniversalLaw.P15Closure.exists_block_ratio_witness {X : Type} [Fintype X] [DecidableEq X]
+  (F : UniversalLaw.Spec.P15.RealizedData X) (hF : UniversalLaw.Spec.P15.IsRealizedFamily F) (p c : X → ℝ) (pBound : ℝ)
+  (hp0 : 0 ≤ pBound) (hp1 : pBound < 1) (hc : ∀ (v : X), 0 ≤ c v ∧ c v ≤ UniversalLaw.Spec.P15.phi (p v)) (i : Fin F.b)
+  (hp : ∀ v ∈ UniversalLaw.Spec.P15.block F i, 0 ≤ p v ∧ p v ≤ pBound) :
+  ∃ S ⊆ UniversalLaw.Spec.P15.block F i,
+    S.card = F.a i + 1 ∧
+      UniversalLaw.Spec.P15.genPrice c (UniversalLaw.Spec.P15.block F i) ≤
+        UniversalLaw.Spec.P15.rhoTest (F.a i) (F.d i) pBound * ∏ v ∈ S, p v
+UniversalLaw.P15Closure.le_phi (q : ℝ) (hq0 : 0 ≤ q) (hq1 : q ≤ 1) : q ≤ UniversalLaw.Spec.P15.phi q
+UniversalLaw.P15Closure.local_ratio_bound {X : Type} [Fintype X] [DecidableEq X]
+  (F : UniversalLaw.Spec.P15.RealizedData X) (hF : UniversalLaw.Spec.P15.IsRealizedFamily F) (p c : X → ℝ) (pBound : ℝ)
+  (hp0 : 0 ≤ pBound) (hp1 : pBound < 1) (hc : ∀ (v : X), 0 ≤ c v ∧ c v ≤ UniversalLaw.Spec.P15.phi (p v)) (i : Fin F.b)
+  (hp : ∀ v ∈ UniversalLaw.Spec.P15.block F i, 0 ≤ p v ∧ p v ≤ pBound) :
+  UniversalLaw.Spec.P15.genPrice c (UniversalLaw.Spec.P15.block F i) ≤
+    UniversalLaw.Spec.P15.rhoTest (F.a i) (F.d i) pBound * UniversalLaw.Spec.P15.localFailure F p i
+UniversalLaw.P15Closure.rhoTestSufficient {X : Type} [Fintype X] [DecidableEq X]
+  (F : UniversalLaw.Spec.P15.RealizedData X) : UniversalLaw.Spec.P15.RhoTestSufficient F
+UniversalLaw.P15Closure.restrictedLocalBudget {X : Type} [Fintype X] [DecidableEq X]
+  (F : UniversalLaw.Spec.P15.RealizedData X) : UniversalLaw.Spec.P15.RestrictedLocalBudget F
+UniversalLaw.P15Closure.localPriceChain {X : Type} [Fintype X] [DecidableEq X]
+  (F : UniversalLaw.Spec.P15.RealizedData X) : UniversalLaw.Spec.P15.LocalPriceChain F
+UniversalLaw.P15Closure.genPrice_phi_le_one {X : Type} (c p : X → ℝ) (B : Finset X)
+  (hc : ∀ v ∈ B, 0 ≤ c v ∧ c v ≤ UniversalLaw.Spec.P15.phi (p v)) : UniversalLaw.Spec.P15.genPrice c B ≤ 1
+UniversalLaw.P15Closure.blockWeight_map {X : Type} [DecidableEq X] (n : ℕ) (e : Fin n ↪ X) (p : X → ℝ)
+  (S : Finset (Fin n)) :
+  UniversalLaw.P15Closure.blockWeight p (Finset.map e Finset.univ) (Finset.map e S) =
+    UniversalLaw.Spec.P15.weight (fun j => p (e j)) S
+UniversalLaw.P15Closure.exists_block_embedding {X : Type} [DecidableEq X] (B : Finset X) :
+  ∃ e, Finset.map e Finset.univ = B
+UniversalLaw.P15Closure.localGood_reindex {X : Type} [Fintype X] [DecidableEq X]
+  (F : UniversalLaw.Spec.P15.RealizedData X) (hF : UniversalLaw.Spec.P15.IsRealizedFamily F) (p : X → ℝ) (i : Fin F.b)
+  (n : ℕ) (e : Fin n ↪ X) (he : Finset.map e Finset.univ = UniversalLaw.Spec.P15.block F i) :
+  UniversalLaw.Spec.P15.localGood F p i =
+    UniversalLaw.Spec.P15.muOf (UniversalLaw.Spec.P15.capacityFamily n (F.a i)) fun j => p (e j)
+UniversalLaw.P15Closure.capacityFamily_isProper (n a : ℕ) (ha : a < n) :
+  UniversalLaw.Spec.P15.IsProperDownset (UniversalLaw.Spec.P15.capacityFamily n a)
+UniversalLaw.P15Closure.localPriceBoundFull_of_hazardPhiBound {X : Type} [Fintype X] [DecidableEq X]
+  (F : UniversalLaw.Spec.P15.RealizedData X) (hHaz : UniversalLaw.Spec.P15.HazardPhiBound) :
+  UniversalLaw.Spec.P15.LocalPriceBoundFull F
+'UniversalLaw.P15Closure.localRestriction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.price_le_div_common' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.generator_ratio_reduction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.exists_block_ratio_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.le_phi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.local_ratio_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.rhoTestSufficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.restrictedLocalBudget' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.localPriceChain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.genPrice_phi_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.blockWeight_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.exists_block_embedding' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.localGood_reindex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.capacityFamily_isProper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Closure.localPriceBoundFull_of_hazardPhiBound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

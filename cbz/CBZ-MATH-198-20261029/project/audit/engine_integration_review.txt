@@ -1,0 +1,176 @@
+ENGINE INTEGRATION -- SEPARATE OFFLINE ENGINEERING REVIEW
+2026-10-29 UTC; reviewer /root/unrestricted_source
+
+Scope: integration/engine_audit/catalog.py, ul_engine/search.py, ul_engine/worker.py,
+their tests, copied source identities, saved source/receipt bindings and evidence
+claims. No native Lean/worker process, remote write, old-package edit or subagent
+was used. Only this report is owned/written by the reviewer. This is a separate
+source-exposed engineering review, not scientific review or source/alignment
+acceptance of a mathematical theorem.
+
+Reviewed implementation SHA256:
+catalog.py       f89612bfd8f51b3ad8a43ea994d5c60b57190f1039ce46d1f9523e44e2843706
+ul_engine/search.py 39441ef24597d81c401b0ecbf6b78020d0a80d7f520d047917a0b5dd288eca09
+ul_engine/worker.py 64c2e107b1a27c20ab65065954e79aff879fdf9f7375be11ad717ec67d9373fe
+
+Assessment at these source hashes: no unresolved critical/important code finding
+in the requested offline scope. Two confirmed findings were sent immediately to
+root and the engine agent, fixed by the engine agent, and independently rechecked.
+Saved report/evidence refresh is a separate final freshness check below.
+
+FINDING 1 -- IMPORTANT, FIXED: typed catalog metadata substitutions
+
+Original verify_catalog/verify_certificate used Python dict equality. Disposable
+mutations endpoints[0].training_eligible=0, source_exposed=1, or
+proof_source_line=175.0 all passed catalog verification AND coherently exported
+certificate verification because Python equates False==0, True==1, 175==175.0.
+This did not forge a theorem or turn false eligibility true; it did violate the
+advertised exact typed metadata boundary and the explicit boolean fields.
+The fix introduces canonical_json(...,allow_nan=False), compares canonical JSON
+bytes in both verification functions (catalog.py:161/177), and uses that same
+canonical encoding for the export catalog digest. All three substitutions now
+reject independently. Export-only substitutions and coherently changed exports
+are covered by the added regression. Author RED/GREEN traces are retained in
+evidence/catalog_types_red.txt and catalog_types_green.txt.
+
+FINDING 2 -- IMPORTANT LIFECYCLE REPORTING GAP, FIXED
+
+After valid separate verify acceptance, final drop rejection or timeout was
+buried only in the journal; top-level accepted/solved=true had no cleanup outcome.
+A bounded protocol double with length=0 and drop=>ok:false/status:rejected
+returned accepted,true while live={0}, with one cleanup_error. The proof fact
+itself remained valid, but callers could not distinguish it from session cleanup.
+This was inherited from certified-frontier-v2, not introduced by quota admission.
+The revised search.py:175--185 separately reports cleanup_complete, cleanup_status,
+unreleased_states, actual worker_active_state_count and worker_remaining_requests.
+Unreleased handles mean unconfirmed drops; a timed-out/terminated worker can
+already have freed storage. Keeping independently verified proof acceptance is
+correct, now without implying complete cleanup. Added accepted-then-negative-ack,
+accepted-then-timeout and successful-cleanup regressions pass. Author RED/GREEN
+traces are retained in evidence/cleanup_red.txt and cleanup_green.txt.
+
+SCHEDULER / QUOTA REVIEW
+
+The copied_engine.json source hashes match actual sealed certified-frontier-v2
+files. Its search.py hash is 3428ad70634721acd90c652ed50848a4ce35ae16f0590304ac384baefe8f7952.
+The direct diff confirms expanded-parent release, sibling/alias preservation,
+drop confirmation and depth-first fairness policy were already present there.
+The derivative accurately attributes them as history, not new integration work.
+
+search.py:56--70 checks actual session state count when supplied, before opening
+and each action. A full store yields explicit resource_exhausted/state_capacity;
+no queued child is evicted and no impossible capacity action is counted. The
+request guard uses the actual remaining session counter and reserves 3 requests
+for open/root-drop/shutdown; an action reserves len(owned)+4 for action, verify,
+one possible additional handle, cleanup and shutdown. For the pinned native
+worker this is conservative: a closed action currently returns a certificate
+without allocating a new handle. The 256 native request cap was verified by
+reading ClosedProofWorker.loop, not executing it.
+
+The finite 127-progress chain, three-slot branching frontier, true action-budget
+and actual frontier exhaustion tests pass; resource_exhausted distinguishes the
+capacity cause from attempt_budget/frontier_exhausted. Exact action-limit and
+frontier depletion can coincide; the code reports attempt_budget when both occur,
+consistent with its documented actual-attempt-limit meaning.
+
+Proof success still requires a dictionary candidate from status=closed followed
+by separate verify(task=trusted_task,certificate=candidate), with ok is True and
+status accepted (search.py:125--133). Rejected/missing candidates remain unsolved.
+Native source review confirms verify checks certificate-v2 schema, exact task,
+exact encoded target, decoded proof, closed kernel gate and actual axiom set.
+No native acceptance or correctness was inferred from synthetic protocol tests.
+
+ADAPTER RISK -- MUST BE RETAINED FOR ROOT NATIVE RUN
+
+The sealed certified-frontier-v2 ul_engine.runtime.RuntimeConfig.worker() uses a
+relative import of that sealed package's old .worker.LeanWorker. Pairing this
+old transport with the new CheckpointSearch omits the new remaining_requests and
+active_state_count properties, leaving the documented compatibility fallback
+instead of full quota admission guarantees. Root and engine agent were notified.
+Root should construct integration/engine_audit/ul_engine/worker.LeanWorker with
+the pinned config.command(), environment() and identities(), or otherwise verify
+the revised class is used. Runtime/source identity checks must remain in place.
+One scheduler per session remains a documented assumption; independent concurrent
+controllers are not made transactional by separate metadata reads.
+
+49-ENDPOINT CATALOG / EVIDENCE BOUNDARY
+
+The actual catalog has 49 unique original targets. Every row explicitly has
+source_exposed is True and training_eligible is False. Catalog and exported
+ul-saved-endpoint-evidence-v1 scope text, verification_kind and receipt fields
+explicitly say saved source/receipt integrity, kernel_executed:false and
+structural_worker_certificate:false. It does not extend the native worker's
+eight trusted task IDs to 49, supply serialized proof bodies, claim fresh kernel
+execution, discover mathematics, or create eligible training data.
+
+The checker anchors the exact prior manifest SHA256
+9ea8b07875b1cdd71bd8209a01739ca7da94a12b74f306875a4fbd2fc4d0aea9.
+It verifies the copied exact artifact inventory, endpoint map, audit index,
+17 fresh-source compile records/receipt/stream hashes, original specification,
+17 current supporting formal modules and corresponding frozen source bytes.
+All 53 saved audit rows must be closed/kernel/declaration with only allowed
+axioms, and all49 target/theorem/source locators are independently reconstructed.
+The pinned FinalAudit.lean source contains the explicit original target-typed
+examples for every catalog target; the catalog is integrity reuse of that saved
+evidence, not a new mathematical alignment review. The theorem source locator
+accepts actual leading whitespace. No probable target statement truncation was
+found among the 49 extracted definitions.
+
+Disposable mutation controls reject target/theorem/source drift, changed
+supporting module, wrong saved audit markers, altered receipt paths, coherent
+manifest repin, omitted/duplicate endpoints, training metadata changes, noncanonical
+paths and symlink components. The hard manifest pin prevents an internally
+coherent replacement catalog/export from becoming an independent trust authority.
+
+INDEPENDENT OFFLINE EXECUTION
+
+Initial snapshot: 37 integration tests passed in normal and optimized Python.
+After both fixes, disposable copies of the complete integration package plus
+formal source fixture ran:
+  python -B -m unittest discover -s tests -p 'test_*.py' -v
+  python -B -O -m unittest discover -s tests -p 'test_*.py' -v
+Both returned0: 40 tests, OK (review observations 1.918s / 1.612s).
+SHA256 of captured stderr strings:
+  normal    ed604506f4237af21fe005d2cb0e39b01d9af0794063ca513e7e0bf4bffb5c09
+  optimized 9ce4be8295aa80ed517b1d70caaf40b5db030ac35e65b8bc871f90b249c21efc
+
+A separate disposable copy of the sealed original engine, replacing only
+ul_engine/search.py and worker.py with reviewed versions, ran those same normal
+and optimized commands. Both returned0: 47 inherited tests, OK (3.485s / 3.524s).
+Captured stderr SHA256:
+  normal    3b227729c2014de419816a496e0a228d11c820feb078f7c0d7496a9530fd2153
+  optimized d261b3f9aecb9cf1abf38058121e1b7e137628a4686def20233d04c940898f56
+Temporary directories were deleted by their context managers. These durations
+are Python test observations, not native memory, proof-search or learning gains.
+
+SAVED-EVIDENCE FRESHNESS
+
+The original copied_engine.json hashes and initial saved full-engine normal/-O
+log hashes checked. Following fixes, the author was notified that the old saved
+full_engine_regression.json search hash and REPORT's37-test count were stale.
+Final readback confirms evidence/verification_final.json now binds all10 current
+source/test hashes and four fresh *_final.txt output logs, with every source and
+log hash independently matching. Its runs return0 and the logs show40 normal/
+optimized integration tests and47 normal/optimized original-engine tests, all OK.
+catalog_certificate_verify_final.json explicitly rechecks49 saved bindings with
+kernel_executed:false and structural_worker_certificate:false. REPORT's final
+addendum correctly labels the original37-test evidence as a retained historical
+snapshot and records the revised code hashes, fixes and adapter requirement.
+The saved-evidence freshness concern is resolved without rewriting old evidence.
+
+UPSTREAM INSTRUCTIONS / CLAIM LIMIT
+
+Existing recovered Math-/main AGENTS.md were read. Existing recovered main owner
+mandate, standing delegation, workflow and 25 October review-family decision are
+located under inputs/recovered_unrestricted/main_project/governance/. The current
+family decision permits a separate same-family engineering reviewer; scientific
+review requires another model family, plus its other predicates. This report
+claims engineering review only and carries no scientific independence credit.
+Math- AGENTS additionally names formal/README.md, formal/SCOPE.md, main#95 and
+docs/FORMAL_REQUIRED_CHECKS.md before claiming upstream formal verification;
+those texts were not newly fetched or asserted satisfied by this local review.
+This task makes no upstream publication, integration or scientific-status claim.
+Canonical recovered handoff links:
+https://github.com/d6g8k5htny-coder/main/blob/4ef1867175dbe1072a54a02e95f80c4e2c70a4ff/governance/OWNER_MANDATE_20261015.md
+https://github.com/d6g8k5htny-coder/main/blob/4ef1867175dbe1072a54a02e95f80c4e2c70a4ff/governance/OP-AUTONOMY-20260923-v2.1.md
+https://github.com/d6g8k5htny-coder/main/blob/4ef1867175dbe1072a54a02e95f80c4e2c70a4ff/governance/OWNER_DECISION_20261025_REVIEW_FAMILIES.md

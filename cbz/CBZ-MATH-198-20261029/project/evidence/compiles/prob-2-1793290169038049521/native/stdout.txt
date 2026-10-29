@@ -1,0 +1,30 @@
+/workspace/scratch/universal-law-project-closure/formal/General/Probability.lean:82:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+/workspace/scratch/universal-law-project-closure/formal/General/Probability.lean:88:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+/workspace/scratch/universal-law-project-closure/formal/General/Probability.lean:140:11: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+/workspace/scratch/universal-law-project-closure/formal/General/Probability.lean:143:0: warning: automatically included section variable(s) unused in theorem `UniversalLaw.General.famPrice_nonneg`:
+  [Fintype X]
+  [DecidableEq X]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype X] [DecidableEq X] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/scratch/universal-law-project-closure/formal/General/Probability.lean:145:25: warning: Variable name `g` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _g
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/scratch/universal-law-project-closure/formal/General/Probability.lean:161:60: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+/workspace/scratch/universal-law-project-closure/formal/General/Probability.lean:148:0: warning: automatically included section variable(s) unused in theorem `UniversalLaw.General.famPrice_biUnion_le`:
+  [Fintype X]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype X] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/scratch/universal-law-project-closure/formal/General/Probability.lean:193:0: warning: automatically included section variable(s) unused in theorem `UniversalLaw.General.emptyGenerator_cover`:
+  [Fintype X]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype X] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/scratch/universal-law-project-closure/formal/General/Probability.lean:213:22: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead

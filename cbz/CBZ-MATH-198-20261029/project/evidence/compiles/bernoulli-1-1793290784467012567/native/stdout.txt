@@ -1,0 +1,45 @@
+/workspace/scratch/universal-law-project-closure/formal/General/BernoulliFinner.lean:14:8: warning: automatically included section variable(s) unused in theorem `UniversalLaw.General.mem_selectedFinset`:
+  [DecidableEq X]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq X] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/scratch/universal-law-project-closure/formal/General/BernoulliFinner.lean:31:8: warning: automatically included section variable(s) unused in theorem `UniversalLaw.General.coe_bernoulliWeights`:
+  [Fintype X]
+  [DecidableEq X]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype X] [DecidableEq X] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/scratch/universal-law-project-closure/formal/General/BernoulliFinner.lean:40:8: error(lean.unknownIdentifier): Unknown constant `Bool.sum_bool`
+/workspace/scratch/universal-law-project-closure/formal/General/BernoulliFinner.lean:81:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑(∑ a, (∏ x, bernoulliWeights p hp x (a x)) * if selectedFinset a ∈ D then 1 else 0)
+in the target expression
+  ↑(∑ a, (∏ x, bernoulliWeights p hp x (a x)) * goodIndicator D a) = muOf D p
+
+X : Type
+inst✝¹ : Fintype X
+inst✝ : DecidableEq X
+D : Finset (Finset X)
+p : X → ℝ
+hp : ∀ (v : X), 0 ≤ p v ∧ p v ≤ 1
+h :
+  ↑(∑ a, (∏ x, bernoulliWeights p hp x (a x)) * if selectedFinset a ∈ D then 1 else 0) =
+    ∑ U, weight p U * ↑(if U ∈ D then 1 else 0)
+⊢ ↑(∑ a, (∏ x, bernoulliWeights p hp x (a x)) * goodIndicator D a) = muOf D p
+/workspace/scratch/universal-law-project-closure/formal/General/BernoulliFinner.lean:95:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑(∑ a, (∏ x, bernoulliWeights p hp x (a x)) * if selectedFinset a ∩ g ∈ D then 1 else 0)
+in the target expression
+  ↑(∑ a, (∏ x, bernoulliWeights p hp x (a x)) * restrictionIndicator D g a) = restrictionMass D p g
+
+X : Type
+inst✝¹ : Fintype X
+inst✝ : DecidableEq X
+D : Finset (Finset X)
+p : X → ℝ
+hp : ∀ (v : X), 0 ≤ p v ∧ p v ≤ 1
+g : Finset X
+h :
+  ↑(∑ a, (∏ x, bernoulliWeights p hp x (a x)) * if selectedFinset a ∩ g ∈ D then 1 else 0) =
+    ∑ U, weight p U * ↑(if U ∩ g ∈ D then 1 else 0)
+⊢ ↑(∑ a, (∏ x, bernoulliWeights p hp x (a x)) * restrictionIndicator D g a) = restrictionMass D p g

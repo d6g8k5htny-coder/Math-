@@ -1,0 +1,8 @@
+/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/Completion/BenchmarkPrices.lean:26:11: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/Completion/BenchmarkPrices.lean:47:2: warning: exponent 409 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/Completion/BenchmarkPrices.lean:56:54: warning: exponent 409 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/Completion/BenchmarkPrices.lean:91:24: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+/workspace/scratch/universal-law-project-closure/evidence/final02/frozen_sources/Completion/BenchmarkPrices.lean:103:24: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+'UniversalLaw.P15Completion.benchmark816Price' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Completion.benchmark816RationalPrice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.P15Completion.benchmark816TransformedRange' depends on axioms: [propext, Classical.choice, Quot.sound]

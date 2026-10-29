@@ -1,0 +1,653 @@
+{
+  "schema": "ul-project-closure-fresh-build-v1",
+  "status": "FAILED",
+  "order": [
+    "Specifications.P15",
+    "General.Definitions",
+    "General.Finner",
+    "General.FinnerBridge",
+    "General.Safety",
+    "General.Amalgamation",
+    "SpecificationProofs.P15Elementary",
+    "Closure.ProductMass",
+    "General.Probability",
+    "Closure.RatioGate",
+    "Closure.LocalRatio",
+    "Closure.DownsetMass",
+    "Closure.HazardInterpolation",
+    "General.Overlap",
+    "General.BernoulliFinner",
+    "General.WitnessLoad",
+    "General.Threshold",
+    "Closure.PaletteCover",
+    "Closure.Assembly",
+    "Completion.Structural",
+    "Completion.PaletteFormula",
+    "Completion.Benchmark",
+    "Completion.BenchmarkPrices",
+    "Completion.UnionBound",
+    "Completion.BenchmarkUnion",
+    "Completion.Numerics",
+    "Completion.FinalAudit",
+    "Integration.EndpointTasks",
+    "General.FinalAudit"
+  ],
+  "sources": {
+    "formal/Specifications/P15.lean": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+    "formal/General/Definitions.lean": "9979999a24efd3e8e6fe8d5b7e1e0da9d5f957570b7f2e580868a2f3ea15f465",
+    "formal/General/Finner.lean": "9c5a3c158d2ba1a93fa3d4d9df3775d61db4220fb5a270bb125ffd2af9582e74",
+    "formal/General/FinnerBridge.lean": "4bf0f6e35c9aa45277a0e7c61339368ee2d4e438b8d357704a533163e36b67fb",
+    "formal/General/Safety.lean": "8160c140b4276d2dd893b679ff9a3bac6012cf6b0e20a08524d7879b483d0700",
+    "formal/General/Amalgamation.lean": "be688c3e02005e253439c7c4704418fcfca6c7feab757ce41cf85661a73e1980",
+    "formal/SpecificationProofs/P15Elementary.lean": "d4d87bba1da9473cd3c5bda9c702ba4dd036de06085d5ad589f17988bf8695b1",
+    "formal/Closure/ProductMass.lean": "825b9f834f310ebfc972045291e4bb92d84f6c554647e061944a7822a27eb66d",
+    "formal/General/Probability.lean": "6e95119c24b4b31ce2cd638eb19e8636d10592992b2a1770f02db05e6a8d181e",
+    "formal/Closure/RatioGate.lean": "58b84e883ccade082fcd5772b8f50327cfc8496e64715fb305a26c924bc81a7f",
+    "formal/Closure/LocalRatio.lean": "3d8b49d0ba9740b87ea342c5dbe950947718a847f64d17059bcd8c0d2d851067",
+    "formal/Closure/DownsetMass.lean": "d65e7114ce163982c558314fe9179fc9a954a5be26fb822bb440d99da435da9c",
+    "formal/Closure/HazardInterpolation.lean": "c0b1d238abd4bf73c6bec987f35eabeec2cafb1869e2ab1966e5d2cbf09cbf76",
+    "formal/General/Overlap.lean": "78be9c0ac55223bf5baa479fbc5c3f551cc4e5e7d7fa630857643792e441072b",
+    "formal/General/BernoulliFinner.lean": "2e8e6fff3b405563e052d61bd927945b9bcd75a0b94c7f981103fe4ace2763b6",
+    "formal/General/WitnessLoad.lean": "8c7d6a5d71e7596f321bdb185400b34d1e73c2116bcee4714e1f44865a20af40",
+    "formal/General/Threshold.lean": "f963cbca672c81ac3566486a17a971fafdc657382403c0ec5a1075134f311b38",
+    "formal/Closure/PaletteCover.lean": "bb52c327da3d419f165c66fd1a6c301a53cb4ef129b8d690b1be6b070abef621",
+    "formal/Closure/Assembly.lean": "01234a50ceafa98e79cff97b171cda46ccb717537fb0fea4a1b2e31e5f6fecb1",
+    "formal/Completion/Structural.lean": "c6d2a5b59efe2bca9eca07c9e680028627067509a29fd3261972c98ac8d5f4f5",
+    "formal/Completion/PaletteFormula.lean": "eddff2aac1015d8ce76b5fb67e8176b8cdd39102fc3f03478a5abda0d2a2f6b9",
+    "formal/Completion/Benchmark.lean": "0be38d958523412ea0a088eeeafcf11a09eb3abff48b240a1d0be6d0b1b0226a",
+    "formal/Completion/BenchmarkPrices.lean": "7bb87200f51fab9e974c0dcffb93f9cefa032a71b0f7737d031d5e617fd2cdda",
+    "formal/Completion/UnionBound.lean": "e29e781301f94577369d2f7d39d8ba1fbb44cf0b866e5ee2a097db117aea2cf3",
+    "formal/Completion/BenchmarkUnion.lean": "76a585993a37b81bd17816870262a0533c0e73def410e91c6c2022dc56bd6d17",
+    "formal/Completion/Numerics.lean": "74109a62dbc28f749ff276c9c3a48410a9ed23862bc9a3d549ae592ea36e718a",
+    "formal/Completion/FinalAudit.lean": "e7f9d19afc4d82a5dd55785a1e8c8b7cd0739413bf111faf6677dfe6a8a5d7ad",
+    "formal/Integration/EndpointTasks.lean": "b91952f9a92bef73b64ebfdecee07e976083e0570bd84b3d63fd3e36d73f6054",
+    "formal/General/FinalAudit.lean": "594c44b04d65d4fe0e074442b65d767c49d6a4cb26e8d1e84708ee16dbdb0eb4"
+  },
+  "records": [
+    {
+      "module": "Specifications.P15",
+      "source_sha256": "a30d9e6938b64d4e2728c5380d41b3a627cde42448df254069293e3839a41ca6",
+      "receipt": "00-Specifications.P15/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final01/Specifications/P15.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources/Specifications/P15.lean"
+      ],
+      "pid": 3816,
+      "started_unix_ns": 1793291708274898740,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 4.973154992000218,
+      "wait4": {
+        "user_seconds": 3.985788,
+        "system_seconds": 0.9657469999999999,
+        "max_rss_kib": 6910124
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "General.Definitions",
+      "source_sha256": "9979999a24efd3e8e6fe8d5b7e1e0da9d5f957570b7f2e580868a2f3ea15f465",
+      "receipt": "01-General.Definitions/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final01/General/Definitions.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources/General/Definitions.lean"
+      ],
+      "pid": 3836,
+      "started_unix_ns": 1793291713249279642,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 3.4662078490000567,
+      "wait4": {
+        "user_seconds": 2.493861,
+        "system_seconds": 0.92912,
+        "max_rss_kib": 6866020
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "General.Finner",
+      "source_sha256": "9c5a3c158d2ba1a93fa3d4d9df3775d61db4220fb5a270bb125ffd2af9582e74",
+      "receipt": "02-General.Finner/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final01/General/Finner.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources/General/Finner.lean"
+      ],
+      "pid": 3841,
+      "started_unix_ns": 1793291716716210193,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 5.081625575000089,
+      "wait4": {
+        "user_seconds": 4.063478,
+        "system_seconds": 0.965449,
+        "max_rss_kib": 6903984
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 635,
+          "sha256": "8a04323abf751d316b06ffe038e2c4d1e708cd9ef35c3609fdf6cba4bbc44196"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "General.FinnerBridge",
+      "source_sha256": "4bf0f6e35c9aa45277a0e7c61339368ee2d4e438b8d357704a533163e36b67fb",
+      "receipt": "03-General.FinnerBridge/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final01/General/FinnerBridge.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources/General/FinnerBridge.lean"
+      ],
+      "pid": 3847,
+      "started_unix_ns": 1793291721798437026,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 4.319049610000093,
+      "wait4": {
+        "user_seconds": 3.453259,
+        "system_seconds": 0.838853,
+        "max_rss_kib": 6893048
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 96,
+          "sha256": "639351770e45480d6a6bef68752e324fbbdf90a84c2219a14107e4b390118bfd"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "General.Safety",
+      "source_sha256": "8160c140b4276d2dd893b679ff9a3bac6012cf6b0e20a08524d7879b483d0700",
+      "receipt": "04-General.Safety/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final01/General/Safety.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources/General/Safety.lean"
+      ],
+      "pid": 3853,
+      "started_unix_ns": 1793291726118069097,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 3.768750061999981,
+      "wait4": {
+        "user_seconds": 2.863511,
+        "system_seconds": 0.8674649999999999,
+        "max_rss_kib": 6894416
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 948,
+          "sha256": "3992bb7e5559ac49d9043bf328d8a21f6840b6492d934a54b9d6160a907a92d5"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "General.Amalgamation",
+      "source_sha256": "be688c3e02005e253439c7c4704418fcfca6c7feab757ce41cf85661a73e1980",
+      "receipt": "05-General.Amalgamation/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final01/General/Amalgamation.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources/General/Amalgamation.lean"
+      ],
+      "pid": 3873,
+      "started_unix_ns": 1793291729887810075,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 4.323029079000207,
+      "wait4": {
+        "user_seconds": 3.323932,
+        "system_seconds": 0.9609399999999999,
+        "max_rss_kib": 6896464
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "SpecificationProofs.P15Elementary",
+      "source_sha256": "d4d87bba1da9473cd3c5bda9c702ba4dd036de06085d5ad589f17988bf8695b1",
+      "receipt": "06-SpecificationProofs.P15Elementary/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final01/SpecificationProofs/P15Elementary.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources/SpecificationProofs/P15Elementary.lean"
+      ],
+      "pid": 3902,
+      "started_unix_ns": 1793291734211425079,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 14.28217933499991,
+      "wait4": {
+        "user_seconds": 13.182828,
+        "system_seconds": 1.089098,
+        "max_rss_kib": 6974516
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "Closure.ProductMass",
+      "source_sha256": "825b9f834f310ebfc972045291e4bb92d84f6c554647e061944a7822a27eb66d",
+      "receipt": "07-Closure.ProductMass/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final01/Closure/ProductMass.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources/Closure/ProductMass.lean"
+      ],
+      "pid": 3918,
+      "started_unix_ns": 1793291748494305442,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 5.380018216999815,
+      "wait4": {
+        "user_seconds": 4.31185,
+        "system_seconds": 1.00881,
+        "max_rss_kib": 6913176
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 4373,
+          "sha256": "9795c2d57ef32ae8e879eaeb65d76a91cb57520628c2e62063d2e05b221bd5d2"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "General.Probability",
+      "source_sha256": "6e95119c24b4b31ce2cd638eb19e8636d10592992b2a1770f02db05e6a8d181e",
+      "receipt": "08-General.Probability/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final01/General/Probability.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources/General/Probability.lean"
+      ],
+      "pid": 3924,
+      "started_unix_ns": 1793291753875671024,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 5.286011923999922,
+      "wait4": {
+        "user_seconds": 4.155172,
+        "system_seconds": 1.088711,
+        "max_rss_kib": 6911504
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 897,
+          "sha256": "398639c7ca1249952120dbe385f225ee2f0a59f87a20f5081bd1fd26732b2352"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "Closure.RatioGate",
+      "source_sha256": "58b84e883ccade082fcd5772b8f50327cfc8496e64715fb305a26c924bc81a7f",
+      "receipt": "09-Closure.RatioGate/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final01/Closure/RatioGate.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources/Closure/RatioGate.lean"
+      ],
+      "pid": 3930,
+      "started_unix_ns": 1793291759162419691,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 4.774040950000199,
+      "wait4": {
+        "user_seconds": 3.735807,
+        "system_seconds": 1.034322,
+        "max_rss_kib": 6905620
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 2097,
+          "sha256": "6852fd2a63449008bbbc306c2ce17792d564db6aa40b9ab93c1ac61397daa9de"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "Closure.LocalRatio",
+      "source_sha256": "3d8b49d0ba9740b87ea342c5dbe950947718a847f64d17059bcd8c0d2d851067",
+      "receipt": "10-Closure.LocalRatio/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final01/Closure/LocalRatio.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources/Closure/LocalRatio.lean"
+      ],
+      "pid": 3936,
+      "started_unix_ns": 1793291763937244735,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 5.933835736000219,
+      "wait4": {
+        "user_seconds": 4.854802,
+        "system_seconds": 1.072575,
+        "max_rss_kib": 6918912
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 6712,
+          "sha256": "6742017906eb703130b1ebd83217662a9d9dea4fb3eb95dd6607e4e6ed98f0b7"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "Closure.DownsetMass",
+      "source_sha256": "d65e7114ce163982c558314fe9179fc9a954a5be26fb822bb440d99da435da9c",
+      "receipt": "11-Closure.DownsetMass/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final01/Closure/DownsetMass.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources/Closure/DownsetMass.lean"
+      ],
+      "pid": 3946,
+      "started_unix_ns": 1793291769871836583,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 5.0832525329997225,
+      "wait4": {
+        "user_seconds": 4.014735,
+        "system_seconds": 1.041475,
+        "max_rss_kib": 6908036
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 4323,
+          "sha256": "07060ef9985a9842ead4a9f3fcdd8cdcf97e8052b56bed685343bada31c36514"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "Closure.HazardInterpolation",
+      "source_sha256": "c0b1d238abd4bf73c6bec987f35eabeec2cafb1869e2ab1966e5d2cbf09cbf76",
+      "receipt": "12-Closure.HazardInterpolation/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final01/Closure/HazardInterpolation.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources/Closure/HazardInterpolation.lean"
+      ],
+      "pid": 3952,
+      "started_unix_ns": 1793291774957401340,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 5.836263694000081,
+      "wait4": {
+        "user_seconds": 4.869364,
+        "system_seconds": 0.926809,
+        "max_rss_kib": 6917848
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 1402,
+          "sha256": "5eef529f815f18a63d1b9237ab4c3c4fbffb1899dea30e5689909cb00e0662a5"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    },
+    {
+      "module": "General.Overlap",
+      "source_sha256": "78be9c0ac55223bf5baa479fbc5c3f551cc4e5e7d7fa630857643792e441072b",
+      "receipt": "13-General.Overlap/receipt.json",
+      "command": [
+        "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/bin/lean",
+        "-j1",
+        "-M11000",
+        "-DElab.async=false",
+        "-DautoImplicit=false",
+        "--root=/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources",
+        "-o",
+        "/workspace/scratch/universal-law-project-closure/build/final01/General/Overlap.olean",
+        "/workspace/scratch/universal-law-project-closure/evidence/final01/frozen_sources/General/Overlap.lean"
+      ],
+      "pid": 3958,
+      "started_unix_ns": 1793291780794704264,
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "succeeded": true,
+      "failure": null,
+      "wall_seconds": 4.928488622000259,
+      "wait4": {
+        "user_seconds": 4.004248,
+        "system_seconds": 0.910076,
+        "max_rss_kib": 6911040
+      },
+      "streams": {
+        "stdout.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "cost_boundary": "This child including startup and killed failures; wall and wait4 CPU are separate. Caller parent CPU/startup is outside this receipt."
+    }
+  ],
+  "cache_was_fresh": true,
+  "old_project_cache_on_lean_path": false,
+  "runtime": {
+    "lean_executable_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+    "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "trust": "Pinned external Lean/shared libraries and precompiled Mathlib cache; no full Mathlib source rebuild."
+  },
+  "lean_path": [
+    "/workspace/scratch/universal-law-project-closure/build/final01",
+    "/workspace/scratch/universal-law-toolchains/mathlib-d13f23b7/.lake/build/lib/lean",
+    "/workspace/scratch/universal-law-toolchains/mathlib-d13f23b7/.lake/packages/LeanSearchClient/.lake/build/lib/lean",
+    "/workspace/scratch/universal-law-toolchains/mathlib-d13f23b7/.lake/packages/Qq/.lake/build/lib/lean",
+    "/workspace/scratch/universal-law-toolchains/mathlib-d13f23b7/.lake/packages/aesop/.lake/build/lib/lean",
+    "/workspace/scratch/universal-law-toolchains/mathlib-d13f23b7/.lake/packages/batteries/.lake/build/lib/lean",
+    "/workspace/scratch/universal-law-toolchains/mathlib-d13f23b7/.lake/packages/importGraph/.lake/build/lib/lean",
+    "/workspace/scratch/universal-law-toolchains/mathlib-d13f23b7/.lake/packages/plausible/.lake/build/lib/lean",
+    "/workspace/scratch/universal-law-toolchains/mathlib-d13f23b7/.lake/packages/proofwidgets/.lake/build/lib/lean",
+    "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux/lib/lean"
+  ],
+  "failure": {
+    "type": "RuntimeError",
+    "message": "Recorded child failure: "
+  },
+  "campaign_wall_seconds": 79.58808085299961,
+  "cost_boundary": "Sequential fresh Lean children plus orchestration; individual wait4 CPU/RSS in receipts. Wall and CPU separate, nested child times not added twice."
+}

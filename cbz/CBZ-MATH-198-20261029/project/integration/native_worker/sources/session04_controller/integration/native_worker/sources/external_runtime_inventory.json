@@ -1,0 +1,53 @@
+{
+  "mathlib_external": {
+    "root": "/workspace/scratch/universal-law-toolchains/mathlib-d13f23b7",
+    "regular_files": 153284,
+    "total_regular_file_bytes": 7622785221,
+    "categories": {
+      "source_or_toolchain": {
+        "files": 10123,
+        "bytes": 117710027
+      },
+      "compressed_cache": {
+        "files": 8908,
+        "bytes": 451433503
+      },
+      "git_metadata": {
+        "files": 427,
+        "bytes": 33612542
+      },
+      "build_artifact": {
+        "files": 133826,
+        "bytes": 7020029149
+      }
+    },
+    "manifest": "mathlib_external_files.jsonl.gz",
+    "manifest_bytes": 7367213,
+    "manifest_sha256": "fcc5a620db1824c170a124cc95b3147135b47e52fce08d9f32018185ea09cfa4",
+    "elapsed_s": 34.41517500500049,
+    "excludes_large_runtime_from_bundle": true
+  },
+  "lean_toolchain_external": {
+    "root": "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux",
+    "regular_files": 17738,
+    "total_regular_file_bytes": 3068313425,
+    "categories": {
+      "source_or_toolchain": {
+        "files": 17738,
+        "bytes": 3068313425
+      }
+    },
+    "manifest": "lean_toolchain_external_files.jsonl.gz",
+    "manifest_bytes": 866672,
+    "manifest_sha256": "ec9b64ae066578d073ef43d425277cdca36fe71096e6b03b7c232be75e94c865",
+    "elapsed_s": 7.578317680003238,
+    "excludes_large_runtime_from_bundle": true
+  },
+  "reused_lean_archive": {
+    "path": "/workspace/scratch/universal-law-toolchains/lean-4.34.1-linux.tar.zst",
+    "bytes": 580432872,
+    "sha256": "47bf4bbd78f70c2e9670598ab7124d92b6efb7330ff33e5fbb4030f6fd72e4e4",
+    "acquired_in_this_task": false,
+    "expected_release_url": "https://github.com/leanprover/lean4/releases/download/v4.34.1/lean-4.34.1-linux.tar.zst"
+  }
+}

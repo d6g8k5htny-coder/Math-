@@ -1,0 +1,31 @@
+{
+  "actual_training_authorized": false,
+  "blocked_registry_sha256": "9b4ea3af111abbad2184f4fba3c19511b0d9b1d6f34164b4392d2bc28dc169bb",
+  "claimed_eligibility_ignored": true,
+  "dataset_sha256": "c58ba1e0168ee048989d87f640af01b29cc0ee3ad0eada0934423e35077da74d",
+  "documented_policy_admission": true,
+  "kernel_executed": false,
+  "policy_sha256": "bcaf94961c13b13ca98894d964d44704994d95328eb5c5a7ee32b745c98f11c2",
+  "records": [
+    {
+      "admission": "policy_admitted_fixture",
+      "artifact_id": "artifact:946e8bef42c9b268b203bba7a2b293902d0e1380fc8db222773fbc8a0b449de8",
+      "id": "record:803e3a846ef6f1a9b260373ab341bbdae9a6c04a79c837272e82b4a37796a1cb",
+      "split": "train",
+      "synthetic_fixture": true,
+      "task_id": "fixture.task.0"
+    },
+    {
+      "admission": "policy_admitted_fixture",
+      "artifact_id": "artifact:f3c79a6ffd11713e1c3e7c51b6a20aeb05413dbe2e651bb7715692eaf49e34fe",
+      "id": "record:d011de1a556b47f8d2732ec9e11ec1dea08fb87ff3145cb3f300642f6b03269a",
+      "split": "test",
+      "synthetic_fixture": true,
+      "task_id": "fixture.task.1"
+    }
+  ],
+  "schema": "ul-corpus-admission-result-v1",
+  "scientific_corpus_established": false,
+  "status": "policy_admitted_fixture",
+  "violations": []
+}

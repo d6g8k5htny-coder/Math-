@@ -1,0 +1,50 @@
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:126:8: warning: This simp argument is unused:
+  Function.update_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hyx]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:138:10: warning: This simp argument is unused:
+  Function.update_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hyx]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:189:2: error: Type mismatch: After simplification, term
+  mul_le_mul_left hholder C
+ has type
+  @LE.le ℝ≥0 NNReal.instPartialOrder.toLE (C * ∑ a_1, q x a_1 * ∏ i, f i (Function.update a x a_1) ^ ↑(active i))
+    (C * ∏ i, (∑ a_1, q x a_1 * f i (Function.update a x a_1)) ^ ↑(active i))
+but is expected to have type
+  @LE.le ℝ≥0 NNReal.instPartialOrder.toLE (C * ∑ v, q x v * ∏ i, f i (Function.update a x v) ^ ↑(active i))
+    (C * ∏ i, coordinateAverage q x (f i) a ^ ↑(active i))
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:167:12: warning: This simp argument is unused:
+  C
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [active, hxi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:168:12: warning: This simp argument is unused:
+  C
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [active, hxi, functionDependsOn_update (hf i) hxi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:175:12: warning: This simp argument is unused:
+  C
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [active, hxi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/universal-law-project-closure/formal/General/Finner.lean:176:12: warning: This simp argument is unused:
+  C
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [active, hxi, coordinateAverage_eq_of_not_mem q hq (hf i) hxi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

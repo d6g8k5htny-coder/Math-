@@ -1,0 +1,28 @@
+{
+  "schema": "ul-corpus-review-red-v1",
+  "status": "expected_red",
+  "command": [
+    "python",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "exit_code": 1,
+  "observed_test_count": 42,
+  "failures": 26,
+  "errors": 2,
+  "stdout_stderr": "review_red.txt",
+  "source_snapshots": "review_red_sources",
+  "source_hashes": {
+    "admission.py": "bad563e1bf9e18822df695971110260b4773cb78de39578a9c57a106a4f9aa38",
+    "tests/test_admission.py": "bf85ac3e5f5b4364cf9784909d0d5fa87aebd8bd948683bd04ed8d5ff5a8dc48",
+    "fixture_builder.py": "17bb06fa1b5079555c682ac349a0c1e34ff61f21d3b508ecb926265c7b34c818",
+    "blocked_evidence.json": "9b4ea3af111abbad2184f4fba3c19511b0d9b1d6f34164b4392d2bc28dc169bb"
+  },
+  "native_work": false,
+  "timing": "not_separately_metered"
+}

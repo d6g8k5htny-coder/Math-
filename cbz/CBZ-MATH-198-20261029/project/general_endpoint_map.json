@@ -1,0 +1,871 @@
+{
+  "schema": "ul-general-proof-map-v1",
+  "theorems": [
+    {
+      "name": "UniversalLaw.General.localCover_amalgamation_of_safety",
+      "source": "formal/General/Amalgamation.lean",
+      "line": 10,
+      "header": "theorem localCover_amalgamation_of_safety {b K : \u2115} (D : Finset (Finset X)) (hD : decreasing D) (blk : X \u2192 Fin b) (P : Fin b \u2192 Finset (Fin K)) (k : Fin b \u2192 \u2115) (hk : \u2200 i, 0 < k i) (hsize : \u2200 i, k i \u2264 (P i).card) (hsafe : \u2200 (U : Finset X) (f : X \u2192 Fin K), allowed blk P U f \u2192 locallyGood D blk U f \u2192 \u2200 j, colorClass U f j \u2208 D) (G : Fin b \u2192 Finset (Finset X)) (hlocal : \u2200 i, localGeneratorCover D blk i (k i) (G i)) : generatorCover D K (Finset.univ.biUnion G)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.localCover_amalgamation",
+      "source": "formal/General/Amalgamation.lean",
+      "line": 104,
+      "header": "theorem localCover_amalgamation {b K : \u2115} (D : Finset (Finset X)) (hD : decreasing D) (blk : X \u2192 Fin b) (P : Fin b \u2192 Finset (Fin K)) (k : Fin b \u2192 \u2115) (hk : \u2200 i, 0 < k i) (hsize : \u2200 i, k i \u2264 (P i).card) (hPS : paletteSeparated D blk P) (G : Fin b \u2192 Finset (Finset X)) (_hgsub : \u2200 i g, g \u2208 G i \u2192 g \u2286 block blk i) (hlocal : \u2200 i, localGeneratorCover D blk i (k i) (G i)) : generatorCover D K (Finset.univ.biUnion G)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.LocalGroundRegression.twoBlock_emptyLocalCover",
+      "source": "formal/General/Amalgamation.lean",
+      "line": 123,
+      "header": "theorem twoBlock_emptyLocalCover : (0 : Fin 2) \u2260 1 \u2227 block (id : Fin 2 \u2192 Fin 2) 0 = {0} \u2227 block (id : Fin 2 \u2192 Fin 2) 1 = {1} \u2227 (\u2200 i : Fin 2, localGeneratorCover fullFamily id i 1 \u2205) \u2227 generatorCover fullFamily 1 \u2205 \u2227 UniversalLaw.Spec.P15.famPrice (fun _ : Fin 2 => (1 : \u211d)) \u2205 = 0",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.LocalGroundRegression.ambientLocalCover_fails",
+      "source": "formal/General/Amalgamation.lean",
+      "line": 172,
+      "header": "theorem ambientLocalCover_fails : \u00ac generatorCover (localFamily fullFamily (id : Fin 2 \u2192 Fin 2) 0) 1 \u2205",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.mem_selectedFinset",
+      "source": "formal/General/BernoulliFinner.lean",
+      "line": 14,
+      "header": "@[simp] theorem mem_selectedFinset (a : X \u2192 Bool) (x : X) : x \u2208 selectedFinset a \u2194 a x = true",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.coe_bernoulliWeights",
+      "source": "formal/General/BernoulliFinner.lean",
+      "line": 31,
+      "header": "@[simp] theorem coe_bernoulliWeights (p : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) (x : X) (b : Bool) : (bernoulliWeights p hp x b : \u211d) = if b then p x else 1 - p x",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.bernoulliWeights_sum",
+      "source": "formal/General/BernoulliFinner.lean",
+      "line": 36,
+      "header": "theorem bernoulliWeights_sum (p : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) (x : X) : \u2211 b, bernoulliWeights p hp x b = 1",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.bernoulli_product_weight",
+      "source": "formal/General/BernoulliFinner.lean",
+      "line": 43,
+      "header": "theorem bernoulli_product_weight (p : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) (a : X \u2192 Bool) : (\u220f x, (bernoulliWeights p hp x (a x) : \u211d)) = weight p (selectedFinset a)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.bernoulli_sum_coe",
+      "source": "formal/General/BernoulliFinner.lean",
+      "line": 59,
+      "header": "theorem bernoulli_sum_coe (p : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) (f : Finset X \u2192 \u211d\u22650) : ((\u2211 a : X \u2192 Bool, (\u220f x, bernoulliWeights p hp x (a x)) * f (selectedFinset a) : \u211d\u22650) : \u211d) = \u2211 U : Finset X, weight p U * (f U : \u211d)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.bernoulli_good_sum_coe",
+      "source": "formal/General/BernoulliFinner.lean",
+      "line": 74,
+      "header": "theorem bernoulli_good_sum_coe (D : Finset (Finset X)) (p : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) : ((\u2211 a : X \u2192 Bool, (\u220f x, bernoulliWeights p hp x (a x)) * goodIndicator D a : \u211d\u22650) : \u211d) = muOf D p",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.bernoulli_restriction_sum_coe",
+      "source": "formal/General/BernoulliFinner.lean",
+      "line": 89,
+      "header": "theorem bernoulli_restriction_sum_coe (D : Finset (Finset X)) (p : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) (g : Finset X) : ((\u2211 a : X \u2192 Bool, (\u220f x, bernoulliWeights p hp x (a x)) * restrictionIndicator D g a : \u211d\u22650) : \u211d) = restrictionMass D p g",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.restrictionIndicator_dependsOn",
+      "source": "formal/General/BernoulliFinner.lean",
+      "line": 101,
+      "header": "theorem restrictionIndicator_dependsOn (D : Finset (Finset X)) (g : Finset X) : functionDependsOn g (restrictionIndicator D g)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.goodIndicator_le_prod_restrictionIndicator",
+      "source": "formal/General/BernoulliFinner.lean",
+      "line": 114,
+      "header": "theorem goodIndicator_le_prod_restrictionIndicator {I : Type} [Fintype I] (D : Finset (Finset X)) (hD : decreasing D) (S : I \u2192 Finset X) (w : I \u2192 \u211d\u22650) (a : X \u2192 Bool) : goodIndicator D a \u2264 \u220f i, restrictionIndicator D (S i) a ^ (w i : \u211d)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.bernoulli_tensor_good_coe",
+      "source": "formal/General/BernoulliFinner.lean",
+      "line": 126,
+      "header": "theorem bernoulli_tensor_good_coe (D : Finset (Finset X)) (p : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) : (tensorAverage (bernoulliWeights p hp) (goodIndicator D) : \u211d) = muOf D p",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.bernoulli_tensor_restriction_coe",
+      "source": "formal/General/BernoulliFinner.lean",
+      "line": 133,
+      "header": "theorem bernoulli_tensor_restriction_coe (D : Finset (Finset X)) (p : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) (g : Finset X) : (tensorAverage (bernoulliWeights p hp) (restrictionIndicator D g) : \u211d) = restrictionMass D p g",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.bernoulli_tensor_good",
+      "source": "formal/General/BernoulliFinner.lean",
+      "line": 139,
+      "header": "theorem bernoulli_tensor_good (D : Finset (Finset X)) (p : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) : tensorAverage (bernoulliWeights p hp) (goodIndicator D) = Real.toNNReal (muOf D p)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.bernoulli_tensor_restriction",
+      "source": "formal/General/BernoulliFinner.lean",
+      "line": 145,
+      "header": "theorem bernoulli_tensor_restriction (D : Finset (Finset X)) (p : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) (g : Finset X) : tensorAverage (bernoulliWeights p hp) (restrictionIndicator D g) = Real.toNNReal (restrictionMass D p g)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.muOf_le_prod_restrictionMass_rpow",
+      "source": "formal/General/BernoulliFinner.lean",
+      "line": 159,
+      "header": "theorem muOf_le_prod_restrictionMass_rpow {I : Type} [Fintype I] (D : Finset (Finset X)) (hD : decreasing D) (p : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) (S : I \u2192 Finset X) (lam : I \u2192 \u211d) (hlam : \u2200 i, 0 \u2264 lam i) (hload : \u2200 x, (\u2211 i, if x \u2208 S i then lam i else 0) \u2264 1) : muOf D p \u2264 \u220f i, (restrictionMass D p (S i)) ^ (lam i)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.nnreal_prod_rpow_le_affine",
+      "source": "formal/General/Finner.lean",
+      "line": 8,
+      "header": "theorem nnreal_prod_rpow_le_affine {I : Type} [Fintype I] (w z : I \u2192 \u211d\u22650) (hw : \u2211 i, w i \u2264 1) : \u220f i, z i ^ (w i : \u211d) \u2264 (1 - \u2211 i, w i) + \u2211 i, w i * z i",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.nnreal_weightedHolder",
+      "source": "formal/General/Finner.lean",
+      "line": 21,
+      "header": "theorem nnreal_weightedHolder {I \u03a9 : Type} [Fintype I] [Fintype \u03a9] (q : \u03a9 \u2192 \u211d\u22650) (hq : \u2211 a, q a = 1) (w : I \u2192 \u211d\u22650) (hw : \u2211 i, w i \u2264 1) (f : I \u2192 \u03a9 \u2192 \u211d\u22650) : (\u2211 a, q a * \u220f i, f i a ^ (w i : \u211d)) \u2264 \u220f i, (\u2211 a, q a * f i a) ^ (w i : \u211d)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.functionDependsOn_update",
+      "source": "formal/General/Finner.lean",
+      "line": 119,
+      "header": "theorem functionDependsOn_update {X A : Type} [DecidableEq X] {S : Finset X} {f : (X \u2192 A) \u2192 \u211d\u22650} (hf : functionDependsOn S f) {x : X} (hx : x \u2209 S) (a : X \u2192 A) (v : A) : f (Function.update a x v) = f a",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.functionDependsOn_coordinateAverage",
+      "source": "formal/General/Finner.lean",
+      "line": 128,
+      "header": "theorem functionDependsOn_coordinateAverage {X A : Type} [DecidableEq X] [Fintype A] (q : X \u2192 A \u2192 \u211d\u22650) (x : X) {S : Finset X} {f : (X \u2192 A) \u2192 \u211d\u22650} (hf : functionDependsOn S f) : functionDependsOn S (coordinateAverage q x f)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.coordinateAverage_eq_of_not_mem",
+      "source": "formal/General/Finner.lean",
+      "line": 141,
+      "header": "theorem coordinateAverage_eq_of_not_mem {X A : Type} [DecidableEq X] [Fintype A] (q : X \u2192 A \u2192 \u211d\u22650) (hq : \u2200 x, \u2211 v, q x v = 1) {S : Finset X} {f : (X \u2192 A) \u2192 \u211d\u22650} (hf : functionDependsOn S f) {x : X} (hx : x \u2209 S) (a : X \u2192 A) : coordinateAverage q x f a = f a",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.coordinateAverage_prod_rpow",
+      "source": "formal/General/Finner.lean",
+      "line": 150,
+      "header": "theorem coordinateAverage_prod_rpow {X A I : Type} [DecidableEq X] [Fintype A] [Fintype I] (q : X \u2192 A \u2192 \u211d\u22650) (hq : \u2200 x, \u2211 v, q x v = 1) (S : I \u2192 Finset X) (w : I \u2192 \u211d\u22650) (f : I \u2192 (X \u2192 A) \u2192 \u211d\u22650) (hf : \u2200 i, functionDependsOn (S i) (f i)) (x : X) (hload : (\u2211 i, if x \u2208 S i then w i else 0) \u2264 1) (a : X \u2192 A) : coordinateAverage q x (fun a => \u220f i, f i a ^ (w i : \u211d)) a \u2264 \u220f i, coordinateAverage q x (f i) a ^ (w i : \u211d)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.productAverage_mono",
+      "source": "formal/General/Finner.lean",
+      "line": 191,
+      "header": "theorem productAverage_mono {X A : Type} [DecidableEq X] [Fintype A] (q : X \u2192 A \u2192 \u211d\u22650) (xs : List X) {f g : (X \u2192 A) \u2192 \u211d\u22650} (hfg : \u2200 a, f a \u2264 g a) : \u2200 a, productAverage q xs f a \u2264 productAverage q xs g a",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.finner_productAverage",
+      "source": "formal/General/Finner.lean",
+      "line": 205,
+      "header": "theorem finner_productAverage {X A I : Type} [DecidableEq X] [Fintype A] [Fintype I] (q : X \u2192 A \u2192 \u211d\u22650) (hq : \u2200 x, \u2211 v, q x v = 1) (xs : List X) (S : I \u2192 Finset X) (w : I \u2192 \u211d\u22650) (hload : \u2200 x, (\u2211 i, if x \u2208 S i then w i else 0) \u2264 1) (f : I \u2192 (X \u2192 A) \u2192 \u211d\u22650) (hf : \u2200 i, functionDependsOn (S i) (f i)) : \u2200 a, productAverage q xs (fun a => \u220f i, f i a ^ (w i : \u211d)) a \u2264 \u220f i, productAverage q xs (f i) a ^ (w i : \u211d)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.functionDependsOn_coordinateAverage_erase",
+      "source": "formal/General/Finner.lean",
+      "line": 227,
+      "header": "theorem functionDependsOn_coordinateAverage_erase {X A : Type} [DecidableEq X] [Fintype A] (q : X \u2192 A \u2192 \u211d\u22650) (x : X) {S : Finset X} {f : (X \u2192 A) \u2192 \u211d\u22650} (hf : functionDependsOn S f) : functionDependsOn (S.erase x) (coordinateAverage q x f)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.functionDependsOn_productAverage",
+      "source": "formal/General/Finner.lean",
+      "line": 242,
+      "header": "theorem functionDependsOn_productAverage {X A : Type} [DecidableEq X] [Fintype A] (q : X \u2192 A \u2192 \u211d\u22650) (xs : List X) {S : Finset X} {f : (X \u2192 A) \u2192 \u211d\u22650} (hf : functionDependsOn S f) : functionDependsOn (S \\ xs.toFinset) (productAverage q xs f)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.productAverage_eq_of_complete",
+      "source": "formal/General/Finner.lean",
+      "line": 258,
+      "header": "theorem productAverage_eq_of_complete {X A : Type} [Fintype X] [DecidableEq X] [Fintype A] (q : X \u2192 A \u2192 \u211d\u22650) (xs : List X) (hxs : \u2200 x, x \u2208 xs) (f : (X \u2192 A) \u2192 \u211d\u22650) (a b : X \u2192 A) : productAverage q xs f a = productAverage q xs f b",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.tensor_weights_sum",
+      "source": "formal/General/FinnerBridge.lean",
+      "line": 13,
+      "header": "theorem tensor_weights_sum (q : X \u2192 A \u2192 \u211d\u22650) (hq : \u2200 x, \u2211 v, q x v = 1) : (\u2211 a : X \u2192 A, \u220f x, q x (a x)) = 1",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.tensorAverage_const",
+      "source": "formal/General/FinnerBridge.lean",
+      "line": 20,
+      "header": "theorem tensorAverage_const (q : X \u2192 A \u2192 \u211d\u22650) (hq : \u2200 x, \u2211 v, q x v = 1) (c : \u211d\u22650) : tensorAverage q (fun _ => c) = c",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.tensorAverage_coordinateAverage",
+      "source": "formal/General/FinnerBridge.lean",
+      "line": 50,
+      "header": "theorem tensorAverage_coordinateAverage (q : X \u2192 A \u2192 \u211d\u22650) (hq : \u2200 x, \u2211 v, q x v = 1) (x : X) (f : (X \u2192 A) \u2192 \u211d\u22650) : tensorAverage q (coordinateAverage q x f) = tensorAverage q f",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.tensorAverage_productAverage",
+      "source": "formal/General/FinnerBridge.lean",
+      "line": 93,
+      "header": "theorem tensorAverage_productAverage (q : X \u2192 A \u2192 \u211d\u22650) (hq : \u2200 x, \u2211 v, q x v = 1) (xs : List X) (f : (X \u2192 A) \u2192 \u211d\u22650) : tensorAverage q (productAverage q xs f) = tensorAverage q f",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.productAverage_eq_tensor",
+      "source": "formal/General/FinnerBridge.lean",
+      "line": 104,
+      "header": "theorem productAverage_eq_tensor (q : X \u2192 A \u2192 \u211d\u22650) (hq : \u2200 x, \u2211 v, q x v = 1) (xs : List X) (hxs : \u2200 x, x \u2208 xs) (f : (X \u2192 A) \u2192 \u211d\u22650) (a : X \u2192 A) : productAverage q xs f a = tensorAverage q f",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.finner_tensor",
+      "source": "formal/General/FinnerBridge.lean",
+      "line": 118,
+      "header": "theorem finner_tensor {I : Type} [Fintype I] [Nonempty A] (q : X \u2192 A \u2192 \u211d\u22650) (hq : \u2200 x, \u2211 v, q x v = 1) (S : I \u2192 Finset X) (w : I \u2192 \u211d\u22650) (hload : \u2200 x, (\u2211 i, if x \u2208 S i then w i else 0) \u2264 1) (f : I \u2192 (X \u2192 A) \u2192 \u211d\u22650) (hf : \u2200 i, functionDependsOn (S i) (f i)) : tensorAverage q (fun a => \u220f i, f i a ^ (w i : \u211d)) \u2264 \u220f i, tensorAverage q (f i) ^ (w i : \u211d)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.restrictionMass_eq_ambient",
+      "source": "formal/General/Overlap.lean",
+      "line": 23,
+      "header": "theorem restrictionMass_eq_ambient (D : Finset (Finset X)) (p : X \u2192 \u211d) (g : Finset X) : restrictionMass D p g = \u2211 U : Finset X, if U \u2229 g \u2208 D then weight p U else 0",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.restrictionMass_reindex",
+      "source": "formal/General/Overlap.lean",
+      "line": 65,
+      "header": "theorem restrictionMass_reindex (D : Finset (Finset X)) (p : X \u2192 \u211d) (g : Finset X) (n : \u2115) (e : Fin n \u21aa X) (he : Finset.univ.map e = g) : restrictionMass D p g = muOf (reindexedRestriction D e) (fun j => p (e j))",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.reindexedRestriction_isProper",
+      "source": "formal/General/Overlap.lean",
+      "line": 86,
+      "header": "theorem reindexedRestriction_isProper (D : Finset (Finset X)) (hD : decreasing D) (g : Finset X) (hbad : g \u2209 D) (n : \u2115) (e : Fin n \u21aa X) (he : Finset.univ.map e = g) : IsProperDownset (reindexedRestriction D e)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.genPrice_reindex",
+      "source": "formal/General/Overlap.lean",
+      "line": 98,
+      "header": "theorem genPrice_reindex (c : X \u2192 \u211d) (g : Finset X) (n : \u2115) (e : Fin n \u21aa X) (he : Finset.univ.map e = g) : genPrice c g = \u220f j : Fin n, c (e j)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.restrictionHazardStar_pos",
+      "source": "formal/General/Overlap.lean",
+      "line": 106,
+      "header": "theorem restrictionHazardStar_pos (D : Finset (Finset X)) (hD : decreasing D) (g : Finset X) (hg : g.Nonempty) (hbad : g \u2209 D) : 0 < restrictionHazardStar D g",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.restriction_fullGroundPriceBound",
+      "source": "formal/General/Overlap.lean",
+      "line": 121,
+      "header": "theorem restriction_fullGroundPriceBound (D : Finset (Finset X)) (hD : decreasing D) (g : Finset X) (hg : g.Nonempty) (hbad : g \u2209 D) (p c : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) (hc : \u2200 v, 0 \u2264 c v \u2227 c v \u2264 phi (p v)) : genPrice c g \u2264 cappedHazard (1 / restrictionHazardStar D g) (restrictionMass D p g)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.restriction_genPrice_le_hazard_ratio",
+      "source": "formal/General/Overlap.lean",
+      "line": 138,
+      "header": "theorem restriction_genPrice_le_hazard_ratio (D : Finset (Finset X)) (hD : decreasing D) (g : Finset X) (hg : g.Nonempty) (hbad : g \u2209 D) (p c : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) (hc : \u2200 v, 0 \u2264 c v \u2227 c v \u2264 phi (p v)) (hmass : 0 < restrictionMass D p g) : genPrice c g \u2264 (-Real.log (restrictionMass D p g)) / restrictionHazardStar D g",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.restrictionMass_pos_of_muOf_pos",
+      "source": "formal/General/Overlap.lean",
+      "line": 151,
+      "header": "theorem restrictionMass_pos_of_muOf_pos (D : Finset (Finset X)) (hD : decreasing D) (p : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) (hmu : 0 < muOf D p) (g : Finset X) : 0 < restrictionMass D p g",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.famPrice_le_sum_restriction_hazard_ratios",
+      "source": "formal/General/Overlap.lean",
+      "line": 165,
+      "header": "theorem famPrice_le_sum_restriction_hazard_ratios (D : Finset (Finset X)) (hD : decreasing D) (G : Finset (Finset X)) (hnonempty : \u2200 g \u2208 G, g.Nonempty) (hbad : \u2200 g \u2208 G, g \u2209 D) (p c : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) (hc : \u2200 v, 0 \u2264 c v \u2227 c v \u2264 phi (p v)) (hmu : 0 < muOf D p) : famPrice c G \u2264 \u2211 g \u2208 G, (-Real.log (restrictionMass D p g)) / restrictionHazardStar D g",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.weightedHazard_of_productBound",
+      "source": "formal/General/Overlap.lean",
+      "line": 179,
+      "header": "theorem weightedHazard_of_productBound (D : Finset (Finset X)) (hD : decreasing D) (G : Finset (Finset X)) (hnonempty : \u2200 g \u2208 G, g.Nonempty) (hbad : \u2200 g \u2208 G, g \u2209 D) (p : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) (L : \u211d) (hL : 0 < L) (hmu : 0 < muOf D p) (hprod : muOf D p \u2264 \u220f g \u2208 G, (restrictionMass D p g) ^ (1 / (L * restrictionHazardStar D g))) : (\u2211 g \u2208 G, (-Real.log (restrictionMass D p g)) / restrictionHazardStar D g) \u2264 L * (-Real.log (muOf D p))",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.witnessLoad_budget_of_weightedHazard",
+      "source": "formal/General/Overlap.lean",
+      "line": 213,
+      "header": "theorem witnessLoad_budget_of_weightedHazard (D : Finset (Finset X)) (hD : decreasing D) (K : \u2115) (G : Finset (Finset X)) (hG : generatorCover D K G) (hnonempty : \u2200 g \u2208 G, g.Nonempty) (hbad : \u2200 g \u2208 G, g \u2209 D) (p c : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) (hc : \u2200 v, 0 \u2264 c v \u2227 c v \u2264 phi (p v)) (L : \u211d) (hweighted : 0 < muOf D p \u2192 (\u2211 g \u2208 G, (-Real.log (restrictionMass D p g)) / restrictionHazardStar D g) \u2264 L * (-Real.log (muOf D p))) : (0 < muOf D p \u2192 famPrice c G \u2264 L * (-Real.log (muOf D p))) \u2227 (\u2203 H : Finset (Finset X), generatorCover D K H \u2227 famPrice c H \u2264 cappedHazard L (muOf D p)) \u2227 coverCost D K c \u2264 cappedHazard L (muOf D p)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.witnessLoad_budget_of_productBound",
+      "source": "formal/General/Overlap.lean",
+      "line": 248,
+      "header": "theorem witnessLoad_budget_of_productBound (D : Finset (Finset X)) (hD : decreasing D) (K : \u2115) (G : Finset (Finset X)) (hG : generatorCover D K G) (hnonempty : \u2200 g \u2208 G, g.Nonempty) (hbad : \u2200 g \u2208 G, g \u2209 D) (p c : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) (hc : \u2200 v, 0 \u2264 c v \u2227 c v \u2264 phi (p v)) (L : \u211d) (hL : 0 < L) (hprod : 0 < muOf D p \u2192 muOf D p \u2264 \u220f g \u2208 G, (restrictionMass D p g) ^ (1 / (L * restrictionHazardStar D g))) : (0 < muOf D p \u2192 famPrice c G \u2264 L * (-Real.log (muOf D p))) \u2227 (\u2203 H : Finset (Finset X), generatorCover D K H \u2227 famPrice c H \u2264 cappedHazard L (muOf D p)) \u2227 coverCost D K c \u2264 cappedHazard L (muOf D p)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.emptyWitnessFamily_coverCost",
+      "source": "formal/General/Overlap.lean",
+      "line": 265,
+      "header": "theorem emptyWitnessFamily_coverCost (D : Finset (Finset X)) (K : \u2115) (c : X \u2192 \u211d) (hc : \u2200 v, 0 \u2264 c v) (hcover : generatorCover D K \u2205) : coverCost D K c \u2264 0",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.sum_block_functions",
+      "source": "formal/General/Probability.lean",
+      "line": 20,
+      "header": "theorem sum_block_functions {b : \u2115} (blk : X \u2192 Fin b) (f : Fin b \u2192 Finset X \u2192 \u211d) : (\u2211 U : Finset X, \u220f i, f i (U \u2229 block blk i)) = \u220f i, \u2211 S \u2208 (block blk i).powerset, f i S",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.weight_eq_prod_blockWeight",
+      "source": "formal/General/Probability.lean",
+      "line": 26,
+      "header": "theorem weight_eq_prod_blockWeight {b : \u2115} (blk : X \u2192 Fin b) (p : X \u2192 \u211d) (U : Finset X) : weight p U = \u220f i, P15Closure.blockWeight p (block blk i) (U \u2229 block blk i)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.localMass_nonneg",
+      "source": "formal/General/Probability.lean",
+      "line": 31,
+      "header": "theorem localMass_nonneg {b : \u2115} (D : Finset (Finset X)) (blk : X \u2192 Fin b) (p : X \u2192 \u211d) (i : Fin b) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) : 0 \u2264 localMass D blk p i",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.localMass_le_one",
+      "source": "formal/General/Probability.lean",
+      "line": 41,
+      "header": "theorem localMass_le_one {b : \u2115} (D : Finset (Finset X)) (blk : X \u2192 Fin b) (p : X \u2192 \u211d) (i : Fin b) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) : localMass D blk p i \u2264 1",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.localMass_emptyBlock",
+      "source": "formal/General/Probability.lean",
+      "line": 52,
+      "header": "theorem localMass_emptyBlock {b : \u2115} (D : Finset (Finset X)) (hD : decreasing D) (blk : X \u2192 Fin b) (p : X \u2192 \u211d) (i : Fin b) (hi : block blk i = \u2205) : localMass D blk p i = 1",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.muOf_le_prod_localMass",
+      "source": "formal/General/Probability.lean",
+      "line": 68,
+      "header": "theorem muOf_le_prod_localMass {b : \u2115} (D : Finset (Finset X)) (hD : decreasing D) (blk : X \u2192 Fin b) (p : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) : muOf D p \u2264 \u220f i, localMass D blk p i",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.localMass_pos_of_muOf_pos",
+      "source": "formal/General/Probability.lean",
+      "line": 96,
+      "header": "theorem localMass_pos_of_muOf_pos {b : \u2115} (D : Finset (Finset X)) (hD : decreasing D) (blk : X \u2192 Fin b) (p : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) (hmu : 0 < muOf D p) (i : Fin b) : 0 < localMass D blk p i",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.muOf_eq_zero_of_localMass_zero",
+      "source": "formal/General/Probability.lean",
+      "line": 106,
+      "header": "theorem muOf_eq_zero_of_localMass_zero {b : \u2115} (D : Finset (Finset X)) (hD : decreasing D) (blk : X \u2192 Fin b) (p : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) (i : Fin b) (hi : localMass D blk p i = 0) : muOf D p = 0",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.independentBlockHazard",
+      "source": "formal/General/Probability.lean",
+      "line": 115,
+      "header": "theorem independentBlockHazard {b : \u2115} (D : Finset (Finset X)) (hD : decreasing D) (blk : X \u2192 Fin b) (p : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) (hmu : 0 < muOf D p) : (\u2211 i, (1 - localMass D blk p i)) \u2264 \u2211 i, -Real.log (localMass D blk p i) \u2227 (\u2211 i, -Real.log (localMass D blk p i)) \u2264 -Real.log (muOf D p)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.sum_phi_le_hazard",
+      "source": "formal/General/Probability.lean",
+      "line": 130,
+      "header": "theorem sum_phi_le_hazard {b : \u2115} (D : Finset (Finset X)) (hD : decreasing D) (blk : X \u2192 Fin b) (p : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) (hmu : 0 < muOf D p) : (\u2211 i, phi (1 - localMass D blk p i)) \u2264 -Real.log (muOf D p)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.famPrice_nonneg",
+      "source": "formal/General/Probability.lean",
+      "line": 144,
+      "header": "theorem famPrice_nonneg (c : X \u2192 \u211d) (hc : \u2200 v, 0 \u2264 c v) (G : Finset (Finset X)) : 0 \u2264 famPrice c G",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.famPrice_biUnion_le",
+      "source": "formal/General/Probability.lean",
+      "line": 150,
+      "header": "theorem famPrice_biUnion_le {b : \u2115} (c : X \u2192 \u211d) (hc : \u2200 v, 0 \u2264 c v) (G : Fin b \u2192 Finset (Finset X)) : famPrice c (Finset.univ.biUnion G) \u2264 \u2211 i, famPrice c (G i)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.coverCost_le_family",
+      "source": "formal/General/Probability.lean",
+      "line": 187,
+      "header": "theorem coverCost_le_family (D : Finset (Finset X)) (K : \u2115) (c : X \u2192 \u211d) (hc : \u2200 v, 0 \u2264 c v) (G : Finset (Finset X)) (hG : generatorCover D K G) : coverCost D K c \u2264 famPrice c G",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.emptyGenerator_cover",
+      "source": "formal/General/Probability.lean",
+      "line": 197,
+      "header": "theorem emptyGenerator_cover (D : Finset (Finset X)) (K : \u2115) : generatorCover D K ({\u2205} : Finset (Finset X))",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.coverCost_le_one",
+      "source": "formal/General/Probability.lean",
+      "line": 202,
+      "header": "theorem coverCost_le_one (D : Finset (Finset X)) (K : \u2115) (c : X \u2192 \u211d) (hc : \u2200 v, 0 \u2264 c v) : coverCost D K c \u2264 1",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.exists_capped_cover_of_hazard",
+      "source": "formal/General/Probability.lean",
+      "line": 211,
+      "header": "theorem exists_capped_cover_of_hazard (D : Finset (Finset X)) (K : \u2115) (c : X \u2192 \u211d) (m : \u211d) (G : Finset (Finset X)) (hG : generatorCover D K G) (hbudget : 0 < m \u2192 famPrice c G \u2264 -Real.log m) : \u2203 H : Finset (Finset X), generatorCover D K H \u2227 famPrice c H \u2264 cappedHazard 1 m",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.budget_of_union_cover",
+      "source": "formal/General/Probability.lean",
+      "line": 228,
+      "header": "theorem budget_of_union_cover {b : \u2115} (D : Finset (Finset X)) (hD : decreasing D) (blk : X \u2192 Fin b) (p c : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) (hc : \u2200 v, 0 \u2264 c v) (K : \u2115) (G : Fin b \u2192 Finset (Finset X)) (hG : generatorCover D K (Finset.univ.biUnion G)) (hlocal : \u2200 i, famPrice c (G i) \u2264 phi (1 - localMass D blk p i)) : (famPrice c (Finset.univ.biUnion G) \u2264 \u2211 i, phi (1 - localMass D blk p i)) \u2227 (\u2203 H : Finset (Finset X), generatorCover D K H \u2227 famPrice c H \u2264 cappedHazard 1 (muOf D p)) \u2227 coverCost D K c \u2264 cappedHazard 1 (muOf D p)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.paletteSeparated_budget",
+      "source": "formal/General/Probability.lean",
+      "line": 250,
+      "header": "theorem paletteSeparated_budget {b K : \u2115} (D : Finset (Finset X)) (hD : decreasing D) (blk : X \u2192 Fin b) (P : Fin b \u2192 Finset (Fin K)) (k : Fin b \u2192 \u2115) (hk : \u2200 i, 0 < k i) (hsize : \u2200 i, k i \u2264 (P i).card) (hPS : paletteSeparated D blk P) (p c : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) (hc : \u2200 v, 0 \u2264 c v) (G : Fin b \u2192 Finset (Finset X)) (hgsub : \u2200 i g, g \u2208 G i \u2192 g \u2286 block blk i) (hlocal : \u2200 i, localGeneratorCover D blk i (k i) (G i)) (hprice : \u2200 i, famPrice c (G i) \u2264 phi (1 - localMass D blk p i)) : (famPrice c (Finset.univ.biUnion G) \u2264 \u2211 i, phi (1 - localMass D blk p i)) \u2227 (\u2203 H : Finset (Finset X), generatorCover D K H \u2227 famPrice c H \u2264 cappedHazard 1 (muOf D p)) \u2227 coverCost D K c \u2264 cappedHazard 1 (muOf D p)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.paletteSeparated_coverCost",
+      "source": "formal/General/Probability.lean",
+      "line": 268,
+      "header": "theorem paletteSeparated_coverCost {b K : \u2115} (D : Finset (Finset X)) (hD : decreasing D) (blk : X \u2192 Fin b) (P : Fin b \u2192 Finset (Fin K)) (k : Fin b \u2192 \u2115) (hk : \u2200 i, 0 < k i) (hsize : \u2200 i, k i \u2264 (P i).card) (hPS : paletteSeparated D blk P) (p c : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) (hc : \u2200 v, 0 \u2264 c v) (G : Fin b \u2192 Finset (Finset X)) (hgsub : \u2200 i g, g \u2208 G i \u2192 g \u2286 block blk i) (hlocal : \u2200 i, localGeneratorCover D blk i (k i) (G i)) (hprice : \u2200 i, famPrice c (G i) \u2264 phi (1 - localMass D blk p i)) : coverCost D K c \u2264 cappedHazard 1 (muOf D p)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.exists_minimalBad_subset",
+      "source": "formal/General/Safety.lean",
+      "line": 8,
+      "header": "theorem exists_minimalBad_subset (D : Finset (Finset X)) (e : Finset X) (he : e \u2209 D) : \u2203 v, v \u2286 e \u2227 minimalBad D v",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.minimalBad_nonempty",
+      "source": "formal/General/Safety.lean",
+      "line": 22,
+      "header": "theorem minimalBad_nonempty (D : Finset (Finset X)) (hD : decreasing D) (e : Finset X) (he : minimalBad D e) : e.Nonempty",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.proper_subset_good_of_minimal",
+      "source": "formal/General/Safety.lean",
+      "line": 29,
+      "header": "theorem proper_subset_good_of_minimal (D : Finset (Finset X)) (hD : decreasing D) (e : Finset X) (he : minimalBad D e) {v : Finset X} (hv : v \u2282 e) : v \u2208 D",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.crossing_block_inter_ssubset",
+      "source": "formal/General/Safety.lean",
+      "line": 36,
+      "header": "theorem crossing_block_inter_ssubset {b : \u2115} (blk : X \u2192 Fin b) (e : Finset X) (i : Fin b) (hcross : 1 < (e.image blk).card) : e \u2229 block blk i \u2282 e",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.paletteSafety_iff",
+      "source": "formal/General/Safety.lean",
+      "line": 54,
+      "header": "theorem paletteSafety_iff (D : Finset (Finset X)) (hD : decreasing D) {b K : \u2115} (blk : X \u2192 Fin b) (P : Fin b \u2192 Finset (Fin K)) : paletteSeparated D blk P \u2194 \u2200 (U : Finset X) (f : X \u2192 Fin K), allowed blk P U f \u2192 locallyGood D blk U f \u2192 \u2200 j, colorClass U f j \u2208 D",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.decomposable_iff_union",
+      "source": "formal/General/Threshold.lean",
+      "line": 21,
+      "header": "theorem decomposable_iff_union (D : Finset (Finset X)) (hD : decreasing D) (k : \u2115) (U : Finset X) : decomposable D k U \u2194 unionDecomposable D k U",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.decomposable_iff_unionCoverable",
+      "source": "formal/General/Threshold.lean",
+      "line": 33,
+      "header": "theorem decomposable_iff_unionCoverable (D : Finset (Finset X)) (hD : decreasing D) (k : \u2115) (U : Finset X) : decomposable D k U \u2194 unionCoverable D k U",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.generatorCover_iff_historical",
+      "source": "formal/General/Threshold.lean",
+      "line": 57,
+      "header": "theorem generatorCover_iff_historical (D : Finset (Finset X)) (hD : decreasing D) (q : \u2115) (G : Finset (Finset X)) : generatorCover D q G \u2194 historicalGeneratorCover D q G",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.decreasing_of_downwardClosed_muOf_pos",
+      "source": "formal/General/Threshold.lean",
+      "line": 97,
+      "header": "theorem decreasing_of_downwardClosed_muOf_pos (D : Finset (Finset X)) (hclosed : \u2200 U \u2208 D, \u2200 V : Finset X, V \u2286 U \u2192 V \u2208 D) (p : X \u2192 \u211d) (hmu : 0 < muOf D p) : decreasing D",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.high_mass_pos",
+      "source": "formal/General/Threshold.lean",
+      "line": 108,
+      "header": "theorem high_mass_pos (k : \u2115) (hk : 0 < k) (m : \u211d) (hm : 1 - 1 / (2 * (k : \u211d)) \u2264 m) : 0 < m",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.decreasing_of_high_mass",
+      "source": "formal/General/Threshold.lean",
+      "line": 117,
+      "header": "theorem decreasing_of_high_mass (D : Finset (Finset X)) (hclosed : \u2200 U \u2208 D, \u2200 V : Finset X, V \u2286 U \u2192 V \u2208 D) (k : \u2115) (hk : 0 < k) (p : \u211d) (hmu : 1 - 1 / (2 * (k : \u211d)) \u2264 muOf D (fun _ => p)) : decreasing D",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.mem_downwardHull",
+      "source": "formal/General/Threshold.lean",
+      "line": 128,
+      "header": "@[simp] theorem mem_downwardHull (A : Finset (Finset X)) (U : Finset X) : U \u2208 downwardHull A \u2194 \u2203 V \u2208 A, U \u2286 V",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.subset_downwardHull",
+      "source": "formal/General/Threshold.lean",
+      "line": 133,
+      "header": "theorem subset_downwardHull (A : Finset (Finset X)) : A \u2286 downwardHull A",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.decreasing_downwardHull",
+      "source": "formal/General/Threshold.lean",
+      "line": 136,
+      "header": "theorem decreasing_downwardHull (A : Finset (Finset X)) (hA : A.Nonempty) : decreasing (downwardHull A)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.muOf_le_downwardHull",
+      "source": "formal/General/Threshold.lean",
+      "line": 145,
+      "header": "theorem muOf_le_downwardHull (A : Finset (Finset X)) (p : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) : muOf A p \u2264 muOf (downwardHull A) p",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.unionCoverable_downwardHull_iff",
+      "source": "formal/General/Threshold.lean",
+      "line": 152,
+      "header": "theorem unionCoverable_downwardHull_iff (A : Finset (Finset X)) (q : \u2115) (U : Finset X) : unionCoverable (downwardHull A) q U \u2194 unionCoverable A q U",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.prizeStatement_iff_downset",
+      "source": "formal/General/Threshold.lean",
+      "line": 169,
+      "header": "theorem prizeStatement_iff_downset (q : \u2115) (hq : 2 \u2264 q) : PrizeStatement q \u2194 DownsetPrizeStatement q",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.cappedHazard_le_half_of_high_mass",
+      "source": "formal/General/Threshold.lean",
+      "line": 196,
+      "header": "theorem cappedHazard_le_half_of_high_mass (k : \u2115) (hk : 2 \u2264 k) (m : \u211d) (hm : 1 - 1 / (2 * (k : \u211d)) \u2264 m) : cappedHazard 1 m \u2264 (1 : \u211d) / 2",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.famPrice_const",
+      "source": "formal/General/Threshold.lean",
+      "line": 225,
+      "header": "theorem famPrice_const (r : \u211d) (G : Finset (Finset X)) : famPrice (fun _ => r) G = \u2211 g \u2208 G, r ^ g.card",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.threshold_cover_of_paletteCertificate",
+      "source": "formal/General/Threshold.lean",
+      "line": 231,
+      "header": "theorem threshold_cover_of_paletteCertificate (D : Finset (Finset X)) (hD : decreasing D) (K : \u2115) (hK : 2 \u2264 K) (L : \u211d) (hL : 1 \u2264 L) (p : \u211d) (hp0 : 0 < p) (hp1 : p < 1) (hmass : 1 - 1 / (2 * (K : \u211d)) \u2264 muOf D (fun _ => p)) (hcert : PalettePriceCertificate D K (fun _ => p) (fun _ => p / L)) : \u2203 H : Finset (Finset X), generatorCover D K H \u2227 (\u2211 g \u2208 H, (p / L) ^ g.card) \u2264 (1 : \u211d) / 2",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.ThresholdStatement_of_certificates",
+      "source": "formal/General/Threshold.lean",
+      "line": 250,
+      "header": "theorem ThresholdStatement_of_certificates (K : \u2115) (hK : 2 \u2264 K) (L : \u211d) (hL : 1 \u2264 L) (hcert : \u2200 (Y : Type) [Fintype Y] [DecidableEq Y] (p : \u211d), 0 < p \u2192 p < 1 \u2192 \u2200 D : Finset (Finset Y), decreasing D \u2192 1 - 1 / (2 * (K : \u211d)) \u2264 muOf D (fun _ => p) \u2192 PalettePriceCertificate D K (fun _ => p) (fun _ => p / L)) : ThresholdStatement K L",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.witnessCoordinateLoad_le_maximum",
+      "source": "formal/General/WitnessLoad.lean",
+      "line": 19,
+      "header": "theorem witnessCoordinateLoad_le_maximum (D G : Finset (Finset X)) (v : X) : witnessCoordinateLoad D G v \u2264 maximumWitnessLoad D G",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.maximumWitnessLoad_empty",
+      "source": "formal/General/WitnessLoad.lean",
+      "line": 24,
+      "header": "@[simp] theorem maximumWitnessLoad_empty (D : Finset (Finset X)) : maximumWitnessLoad D \u2205 = 0",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.maximumWitnessLoad_pos",
+      "source": "formal/General/WitnessLoad.lean",
+      "line": 37,
+      "header": "theorem maximumWitnessLoad_pos (D : Finset (Finset X)) (hD : decreasing D) (G : Finset (Finset X)) (hG : G.Nonempty) (hnonempty : \u2200 g \u2208 G, g.Nonempty) (hbad : \u2200 g \u2208 G, g \u2209 D) : 0 < maximumWitnessLoad D G",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.maximumWitnessLoad_attained",
+      "source": "formal/General/WitnessLoad.lean",
+      "line": 58,
+      "header": "theorem maximumWitnessLoad_attained (D : Finset (Finset X)) (hD : decreasing D) (G : Finset (Finset X)) (hG : G.Nonempty) (hnonempty : \u2200 g \u2208 G, g.Nonempty) (hbad : \u2200 g \u2208 G, g \u2209 D) : \u2203 v, witnessCoordinateLoad D G v = maximumWitnessLoad D G",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.normalize_incident_load",
+      "source": "formal/General/WitnessLoad.lean",
+      "line": 74,
+      "header": "theorem normalize_incident_load {I : Type} [Fintype I] (S : I \u2192 Finset X) (H : I \u2192 \u211d) (L : \u211d) (hL : 0 < L) (hload : \u2200 v, (\u2211 i, if v \u2208 S i then 1 / H i else 0) \u2264 L) : \u2200 v, (\u2211 i, if v \u2208 S i then 1 / (L * H i) else 0) \u2264 1",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.witnessLoad_budget",
+      "source": "formal/General/WitnessLoad.lean",
+      "line": 98,
+      "header": "theorem witnessLoad_budget (D : Finset (Finset X)) (hD : decreasing D) (K : \u2115) (G : Finset (Finset X)) (hG : generatorCover D K G) (hnonempty : \u2200 g \u2208 G, g.Nonempty) (hbad : \u2200 g \u2208 G, g \u2209 D) (p c : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) (hc : \u2200 v, 0 \u2264 c v \u2227 c v \u2264 phi (p v)) (L : \u211d) (hL : 0 < L) (hload : \u2200 v, (\u2211 g \u2208 G, if v \u2208 g then 1 / restrictionHazardStar D g else 0) \u2264 L) : (0 < muOf D p \u2192 famPrice c G \u2264 L * (-Real.log (muOf D p))) \u2227 (\u2203 H : Finset (Finset X), generatorCover D K H \u2227 famPrice c H \u2264 cappedHazard L (muOf D p)) \u2227 coverCost D K c \u2264 cappedHazard L (muOf D p)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.witnessLoad_coverCost",
+      "source": "formal/General/WitnessLoad.lean",
+      "line": 133,
+      "header": "theorem witnessLoad_coverCost (D : Finset (Finset X)) (hD : decreasing D) (K : \u2115) (G : Finset (Finset X)) (hG : generatorCover D K G) (hnonempty : \u2200 g \u2208 G, g.Nonempty) (hbad : \u2200 g \u2208 G, g \u2209 D) (p c : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) (hc : \u2200 v, 0 \u2264 c v \u2227 c v \u2264 phi (p v)) (L : \u211d) (hL : 0 < L) (hload : \u2200 v, (\u2211 g \u2208 G, if v \u2208 g then 1 / restrictionHazardStar D g else 0) \u2264 L) : coverCost D K c \u2264 cappedHazard L (muOf D p)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    },
+    {
+      "name": "UniversalLaw.General.maximumWitnessLoad_budget",
+      "source": "formal/General/WitnessLoad.lean",
+      "line": 143,
+      "header": "theorem maximumWitnessLoad_budget (D : Finset (Finset X)) (hD : decreasing D) (K : \u2115) (G : Finset (Finset X)) (hG : generatorCover D K G) (hnonempty : \u2200 g \u2208 G, g.Nonempty) (hbad : \u2200 g \u2208 G, g \u2209 D) (p c : X \u2192 \u211d) (hp : \u2200 v, 0 \u2264 p v \u2227 p v \u2264 1) (hc : \u2200 v, 0 \u2264 c v \u2227 c v \u2264 phi (p v)) : (0 < muOf D p \u2192 famPrice c G \u2264 maximumWitnessLoad D G * (-Real.log (muOf D p))) \u2227 (\u2203 H : Finset (Finset X), generatorCover D K H \u2227 famPrice c H \u2264 cappedHazard (maximumWitnessLoad D G) (muOf D p)) \u2227 coverCost D K c \u2264 cappedHazard (maximumWitnessLoad D G) (muOf D p)",
+      "status": "CLOSED",
+      "verification_evidence": "evidence/final02/results.json",
+      "verification_boundary": "Saved fresh 29-module body/type/axiom audit; CBZ final replay is separate."
+    }
+  ],
+  "scope": "Finite P15-B localization, finite Finner and witness-load certificates, source threshold alignment/reductions; no universal certificate existence asserted.",
+  "verification_sha256": "51cf6973b4c83862fc16f5630d9a916b2a76bc85238f56a952874876b0414355"
+}

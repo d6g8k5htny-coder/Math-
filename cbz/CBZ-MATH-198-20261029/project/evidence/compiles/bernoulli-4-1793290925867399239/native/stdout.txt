@@ -1,0 +1,31 @@
+/workspace/scratch/universal-law-project-closure/formal/General/BernoulliFinner.lean:14:8: warning: automatically included section variable(s) unused in theorem `UniversalLaw.General.mem_selectedFinset`:
+  [DecidableEq X]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq X] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/scratch/universal-law-project-closure/formal/General/BernoulliFinner.lean:31:8: warning: automatically included section variable(s) unused in theorem `UniversalLaw.General.coe_bernoulliWeights`:
+  [Fintype X]
+  [DecidableEq X]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype X] [DecidableEq X] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/scratch/universal-law-project-closure/formal/General/BernoulliFinner.lean:83:57: warning: This simp argument is unused:
+  mul_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [apply_ite, NNReal.coe_one, NNReal.coe_zero, mul_one, mul_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/universal-law-project-closure/formal/General/BernoulliFinner.lean:98:57: warning: This simp argument is unused:
+  mul_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [apply_ite, NNReal.coe_one, NNReal.coe_zero, mul_one, mul_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/universal-law-project-closure/formal/General/BernoulliFinner.lean:161:54: error: unexpected token 'λ'; expected '_' or identifier
+'UniversalLaw.General.bernoulli_tensor_good' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UniversalLaw.General.bernoulli_tensor_restriction' depends on axioms: [propext, Classical.choice, Quot.sound]
+/workspace/scratch/universal-law-project-closure/formal/General/BernoulliFinner.lean:189:14: error(lean.unknownIdentifier): Unknown constant `UniversalLaw.General.muOf_le_prod_restrictionMass_rpow`

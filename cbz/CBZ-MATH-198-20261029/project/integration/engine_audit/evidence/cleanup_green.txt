@@ -1,0 +1,13 @@
+test_accepted_proof_reports_unconfirmed_final_cleanup (test_resources.ResourceTests.test_accepted_proof_reports_unconfirmed_final_cleanup) ... ok
+test_compatibility_frontier_exhaustion_is_explicit (test_resources.ResourceTests.test_compatibility_frontier_exhaustion_is_explicit) ... ok
+test_full_frontier_is_reported_without_wasting_attempts_or_eviction (test_resources.ResourceTests.test_full_frontier_is_reported_without_wasting_attempts_or_eviction) ... ok
+test_reclamation_keeps_long_chain_solvable_with_sufficient_requests (test_resources.ResourceTests.test_reclamation_keeps_long_chain_solvable_with_sufficient_requests) ... ok
+test_rejected_candidate_never_becomes_proof_success (test_resources.ResourceTests.test_rejected_candidate_never_becomes_proof_success) ... ok
+test_request_limit_preserves_verification_and_cleanup_capacity (test_resources.ResourceTests.test_request_limit_preserves_verification_and_cleanup_capacity) ... ok
+test_successful_cleanup_reports_confirmed_release (test_resources.ResourceTests.test_successful_cleanup_reports_confirmed_release) ... ok
+test_true_attempt_budget_remains_distinct (test_resources.ResourceTests.test_true_attempt_budget_remains_distinct) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.002s
+
+OK
