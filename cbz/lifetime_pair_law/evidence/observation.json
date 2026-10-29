@@ -1,0 +1,24 @@
+{
+  "schema": "cbz.pair-law.history.v1",
+  "historical_commit": "5a470bfd739aba22e32b91587d5dfc031a7de3fc",
+  "historical_run": 40957238766,
+  "historical_job": 123740377857,
+  "historical_job_conclusion": "success",
+  "source_blob": "3b7712e41e8a6b0569c31c549a83857d9fe2ada6",
+  "source_sha256": "812ba30d02f16a69abdcb8b23d28fa4a8fe68e3a016911d7f08e98ebe04cdfc7",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "lean_commit": "5045d0056413266e57c625dcd7c365b10e377c52",
+  "historical_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "artifact_id": 12936365078,
+  "artifact_native_zip_sha256": "d2cebfee006c1fdb924c49dec0d9a80c745579335953b989a3225eae5b9a166d",
+  "limitations": [
+    "The artifact ZIP was not independently downloaded or verified here.",
+    "The new source location and current-base integration require a fresh execution.",
+    "The formal conclusions retain their explicit interfaces and do not construct the geometric law.",
+    "The retained job log is the connector-decoded text; the original downloaded log bytes were not independently verified."
+  ]
+}

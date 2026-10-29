@@ -8,3 +8,6 @@ imports/hardening_ebedb780/P02-LM-005/proof.md.export.txt -text
 imports/hardening_ebedb780/P02-LM-007/proof.md.export.txt -text
 imports/hardening_ebedb780/P02-LM-008/proof.md.export.txt -text
 imports/hardening_ebedb780/P15-B/P15-B_PALETTE_SEPARATED_LOCALIZATION.md -text
+
+# Preserve the retrieved decoded historical log text, including trailing whitespace.
+cbz/lifetime_pair_law/evidence/original-job.log whitespace=-blank-at-eol,-blank-at-eof

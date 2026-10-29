@@ -161,3 +161,7 @@ A reviewed/closed theorem or lemma must have its full proof or immutable byte-bo
 ## Later frontier proof paths
 
 [Frontier proof reachability and the post-C126 supplement](docs/integration/2026-10-02-proof-reachability.md) retain the original 2 October inventory and add a separately pinned 3 October cut, including routes to the nested soft-layer and A4 records. These are dated availability inventories, not new verdicts or a count of distinct theorems.
+
+## Literal conditional pair-law countermodel
+
+The [source and reproduction boundary](cbz/lifetime_pair_law/README.md) preserve two conditional declarations from the historical Lean-checked run at `5a470bfd739aba22e32b91587d5dfc031a7de3fc`: `oneLaw_upper` and `oneLaw_refutes_twoSided`. The upper predicate retains its antecedents and can be vacuous for invalid inputs; neither proof constructs an elder interface or identifies the artificial probability with the intended event. The relocated integration candidate requires its own fresh hosted check; no parent theorem or informal-model counterexample is inferred.
