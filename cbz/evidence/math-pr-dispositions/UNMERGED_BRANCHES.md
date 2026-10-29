@@ -1,11 +1,41 @@
 # Math- branches that are unmerged and have no pull request — content facts
 
-Observed 2026-10-29T17:36:29Z at `main` `8151f592918a845bf19eb8eafaf8444540a32734`. 81 branches. Counts: {"ARCHIVE-BUNDLE": 76, "SUPERSEDED-BY-OPEN-PR": 3, "SUPERSEDED-CONTENT-ON-MAIN": 2}.
+Observed 2026-10-29T23:05:51Z at `main` `9f8dbb4d18b9f3ebd9ffac6b0caa42df9f343966`. 121 branches. Counts: {"ACTIVE-LANE": 30, "ARCHIVE-BUNDLE": 76, "INTEGRATE-REVIEW": 2, "SUPERSEDED-BY-OPEN-PR": 11, "SUPERSEDED-CONTENT-ON-MAIN": 2}.
 
 Recommendations come from `disposition_lib.recommend_branch` (documented thresholds); Layer A signals are lexical. Every row is recoverable with `git push origin <tip>:refs/heads/<branch>`.
 
 | Branch | Tip | Last commit | Ahead | Paths | Dirs | Blobs = main | Signals | merge-tree→main | In open PR | Recommended | Integrable if wanted |
 |---|---|---|---|---|---|---|---|---|---|---|---|
+| `cbz/archive-paper-boundaries-522-526-20261029` | `66a6dea1` | 2026-10-29 | 7 | 1 | 1 | 0 | 0 | clean | — | **ACTIVE-LANE** | yes |
+| `cbz/core-custody-observed-evidence-20261029` | `8c176a92` | 2026-10-29 | 27 | 37 | 8 | 0 | 0 | clean | — | **ACTIVE-LANE** | yes |
+| `cbz/core-dependency-path-repair-20261029` | `16d44781` | 2026-10-29 | 30 | 35 | 8 | 0 | 0 | clean | — | **ACTIVE-LANE** | yes |
+| `cbz/core-evidence-path-repair-20261029` | `6282655d` | 2026-10-29 | 36 | 38 | 8 | 0 | 0 | clean | — | **ACTIVE-LANE** | yes |
+| `cbz/core-git-and-grader-repair-20261029` | `fad3d8d6` | 2026-10-29 | 24 | 35 | 8 | 0 | 0 | clean | — | **ACTIVE-LANE** | yes |
+| `cbz/core-git-environment-fix-20261029` | `27c72abb` | 2026-10-29 | 22 | 33 | 8 | 0 | 0 | clean | — | **ACTIVE-LANE** | yes |
+| `cbz/core-grader-strict-20261029` | `c6ccc32c` | 2026-10-29 | 26 | 35 | 8 | 0 | 0 | clean | — | **ACTIVE-LANE** | yes |
+| `cbz/core-kernel-evidence-40951539273-1` | `6d4001a5` | 2026-10-29 | 19 | 38 | 9 | 0 | 0 | clean | — | **ACTIVE-LANE** | yes |
+| `cbz/core-retirement-caveat-20261029` | `157d9926` | 2026-10-29 | 19 | 31 | 8 | 0 | 0 | clean | — | **ACTIVE-LANE** | yes |
+| `cbz/determinant-custody-arm-20261029` | `b382cffb` | 2026-10-29 | 42 | 70 | 12 | 0 | 0 | clean | — | **ACTIVE-LANE** |  |
+| `cbz/determinant-custody-native-20261029` | `486b33ae` | 2026-10-29 | 10 | 52 | 11 | 0 | 0 | clean | — | **ACTIVE-LANE** |  |
+| `cbz/determinant-dependency-symlink-20261029` | `ce24d5e9` | 2026-10-29 | 36 | 73 | 13 | 0 | 0 | clean | — | **ACTIVE-LANE** |  |
+| `cbz/determinant-retire-queued-20261029` | `12f0841a` | 2026-10-29 | 20 | 32 | 8 | 0 | 0 | clean | — | **ACTIVE-LANE** | yes |
+| `cbz/determinant-wire-evidence-40950093478-1` | `d6b3f205` | 2026-10-29 | 10 | 50 | 11 | 0 | 0 | clean | — | **ACTIVE-LANE** | yes |
+| `cbz/determinant-wire-evidence-40956555032-1` | `7816785c` | 2026-10-29 | 34 | 68 | 12 | 0 | 0 | clean | — | **ACTIVE-LANE** |  |
+| `cbz/determinant-wire-evidence-40956932510-1` | `7e618aad` | 2026-10-29 | 35 | 68 | 12 | 0 | 0 | clean | — | **ACTIVE-LANE** |  |
+| `cbz/determinant-wire-evidence-40956966570-1` | `1bf5735e` | 2026-10-29 | 36 | 68 | 12 | 0 | 0 | clean | — | **ACTIVE-LANE** |  |
+| `cbz/determinant-wire-evidence-40957148406-1` | `5372b2a0` | 2026-10-29 | 37 | 72 | 13 | 0 | 0 | clean | — | **ACTIVE-LANE** |  |
+| `cbz/lifetime-e2-e4-implication-20261029` | `f19b254e` | 2026-10-29 | 1 | 4 | 2 | 0 | 0 | clean | — | **ACTIVE-LANE** | yes |
+| `cbz/lifetime-zero-law-countermodel-20261029` | `cb1fe3d1` | 2026-10-29 | 2 | 3 | 2 | 0 | 0 | clean | — | **ACTIVE-LANE** | yes |
+| `cbz/lifetime-zero-law-integration-20261029` | `36440828` | 2026-10-29 | 1 | 4 | 2 | 0 | 0 | clean | — | **ACTIVE-LANE** | yes |
+| `cbz/lm006-outer-integrated-20261029` | `1f9c9a3b` | 2026-10-29 | 32 | 31 | 9 | 0 | 0 | clean | — | **ACTIVE-LANE** | yes |
+| `cbz/lm006-outer-red-evidence-20261029` | `5a34759a` | 2026-10-29 | 33 | 34 | 9 | 0 | 0 | clean | — | **ACTIVE-LANE** | yes |
+| `cbz/lm006-outer-test-cache-20261029` | `239e5c9a` | 2026-10-29 | 25 | 25 | 9 | 0 | 0 | clean | — | **ACTIVE-LANE** | yes |
+| `cbz/lm006-packet-red-archive-20261029` | `8ae6e087` | 2026-10-29 | 24 | 28 | 8 | 0 | 0 | clean | — | **ACTIVE-LANE** | yes |
+| `cbz/source514-census-diagnostic-20261029` | `33625259` | 2026-10-29 | 10 | 10 | 5 | 0 | 0 | clean | — | **ACTIVE-LANE** | yes |
+| `claude/nice-maxwell-7i7ok0` | `6d402474` | 2026-10-29 | 2 | 3 | 3 | 0 | 0 | clean | — | **ACTIVE-LANE** | yes |
+| `codex/all-frame-gaussian-rates-20261028` | `5a30296b` | 2026-10-28 | 4 | 34 | 6 | 0 | 0 | clean | — | **ACTIVE-LANE** | yes |
+| `codex/essential-sharp-asymptotics-20261028` | `fc5ecb67` | 2026-10-28 | 5 | 43 | 7 | 0 | 0 | clean | — | **ACTIVE-LANE** | yes |
+| `codex/gaussian-lifetime-limit-completion-20261029` | `fdddc7e6` | 2026-10-29 | 6 | 52 | 8 | 0 | 0 | clean | — | **ACTIVE-LANE** |  |
 | `benjamin/d5-collar-nonauthor-20260928b` | `2cc93a03` | 2026-09-28 | 279 | 396 | 90 | 344 | 59 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
 | `chatgpt/bq11-import-profile-20261007-f81c` | `a7971bb0` | 2026-10-06 | 7 | 7 | 2 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** | yes |
 | `chatgpt/cap-i4-adapter-envelope-20261005` | `adc9e1dc` | 2026-10-05 | 1 | 4 | 1 | 0 | 0 | clean | — | **ARCHIVE-BUNDLE** | yes |
@@ -82,6 +112,16 @@ Recommendations come from `disposition_lib.recommend_branch` (documented thresho
 | `cursor/rn-mesoscopic-chart-j0-91fa` | `84b64e1b` | 2026-09-26 | 109 | 54 | 9 | 37 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
 | `inventable/purpose-readme-seed` | `484811c5` | 2026-09-24 | 2 | 1 | 1 | 0 | 0 | CONFLICT | — | **ARCHIVE-BUNDLE** |  |
 | `support/navigation-336-344-353-on-08f86862-20261006` | `e1fc0e8c` | 2026-10-06 | 3 | 3 | 3 | 2 | 0 | clean | — | **ARCHIVE-BUNDLE** | yes |
+| `codex/essential-gaussian-rate-20261028` | `de872d97` | 2026-10-28 | 3 | 25 | 5 | 0 | 0 | clean | — | **INTEGRATE-REVIEW** | yes |
+| `codex/gaussian-lifetime-tail-20261028` | `223293d9` | 2026-10-28 | 2 | 17 | 4 | 0 | 0 | clean | — | **INTEGRATE-REVIEW** | yes |
+| `cbz/determinant-artifact-integrity-20261029` | `c84f723c` | 2026-10-29 | 7 | 41 | 8 | 0 | 0 | clean | `codex/cbz-determinant-git-endpoints-20261029` | **SUPERSEDED-BY-OPEN-PR** | yes |
+| `cbz/determinant-custody-red-20261029` | `c4a89bb9` | 2026-10-29 | 35 | 72 | 13 | 0 | 0 | clean | `codex/cbz-determinant-qualified-inventory-20261029` | **SUPERSEDED-BY-OPEN-PR** |  |
+| `cbz/determinant-wire-evidence-40945043406-1` | `3239cf5b` | 2026-10-29 | 8 | 50 | 11 | 0 | 0 | clean | `codex/cbz-determinant-git-endpoints-20261029` | **SUPERSEDED-BY-OPEN-PR** | yes |
+| `cbz/lifetime-pair-law-countermodel-20261029` | `5a470bfd` | 2026-10-29 | 1 | 2 | 2 | 0 | 0 | clean | `cbz/pair-law-closed-integration-20261029` | **SUPERSEDED-BY-OPEN-PR** | yes |
+| `cbz/lm006-loaded-code-20261029` | `86cbfe0a` | 2026-10-29 | 21 | 18 | 8 | 0 | 0 | clean | `cbz/wrapper-protocol-union-20261029` | **SUPERSEDED-BY-OPEN-PR** | yes |
+| `chatgpt/lm006-oned-replay-20261006-b91e` | `089d87ac` | 2026-10-06 | 4 | 3 | 3 | 0 | 0 | clean | `cbz/wrapper-protocol-union-20261029` | **SUPERSEDED-BY-OPEN-PR** | yes |
+| `chatgpt/soft-fold-protocol-20261006` | `fedd0056` | 2026-10-06 | 3 | 3 | 3 | 0 | 0 | clean | `cbz/wrapper-protocol-union-20261029` | **SUPERSEDED-BY-OPEN-PR** | yes |
+| `chatgpt/third-order-protocol-20261006-37bd-r4` | `9b3387bd` | 2026-10-06 | 2 | 3 | 2 | 0 | 0 | clean | `cbz/wrapper-protocol-union-20261029` | **SUPERSEDED-BY-OPEN-PR** | yes |
 | `codex/compact-cutoff-baseline-20261009-root01a11cbf` | `06bac48e` | 2026-10-10 | 1 | 37 | 2 | 0 | 0 | clean | `codex/compact-cutoff-controls-final-repair-20261011-root01a11cbf` | **SUPERSEDED-BY-OPEN-PR** | yes |
 | `codex/compact-cutoff-proof-20261010-root01a11cbf` | `bb3c92e3` | 2026-10-10 | 2 | 75 | 3 | 0 | 0 | clean | `codex/compact-cutoff-controls-final-repair-20261011-root01a11cbf` | **SUPERSEDED-BY-OPEN-PR** |  |
 | `codex/compact-cutoff-proof-repair-20261011-root01a11cbf` | `f7832c87` | 2026-10-11 | 3 | 113 | 4 | 0 | 0 | clean | `codex/compact-cutoff-controls-final-repair-20261011-root01a11cbf` | **SUPERSEDED-BY-OPEN-PR** |  |
@@ -90,6 +130,36 @@ Recommendations come from `disposition_lib.recommend_branch` (documented thresho
 
 ## Per-branch directories
 
+- `cbz/archive-paper-boundaries-522-526-20261029` `66a6dea1` (cbz, 7 ahead, 1 paths): `archive/cbz`
+- `cbz/core-custody-observed-evidence-20261029` `8c176a92` (cbz, 27 ahead, 37 paths): `.github/workflows`, `companions/d2_atom_integral_20261006`, `companions/d2_moment_bridge_20261006`, `companions/d2_square_schur_20261006`, `evidence/cbz-core-custody-20261029`, `formal`, `formal/tests`, `reviews/cbz_core_custody_20261029`
+- `cbz/core-dependency-path-repair-20261029` `16d44781` (cbz, 30 ahead, 35 paths): `.github/workflows`, `companions/d2_atom_integral_20261006`, `companions/d2_moment_bridge_20261006`, `companions/d2_square_schur_20261006`, `evidence/cbz-core-custody-20261029`, `formal`, `formal/tests`, `reviews/cbz_core_custody_20261029`
+- `cbz/core-evidence-path-repair-20261029` `6282655d` (cbz, 36 ahead, 38 paths): `.github/workflows`, `companions/d2_atom_integral_20261006`, `companions/d2_moment_bridge_20261006`, `companions/d2_square_schur_20261006`, `evidence/cbz-core-custody-20261029`, `formal`, `formal/tests`, `reviews/cbz_core_custody_20261029`
+- `cbz/core-git-and-grader-repair-20261029` `fad3d8d6` (cbz, 24 ahead, 35 paths): `.github/workflows`, `companions/d2_atom_integral_20261006`, `companions/d2_moment_bridge_20261006`, `companions/d2_square_schur_20261006`, `evidence/cbz-core-custody-20261029`, `formal`, `formal/tests`, `reviews/cbz_core_custody_20261029`
+- `cbz/core-git-environment-fix-20261029` `27c72abb` (cbz, 22 ahead, 33 paths): `.github/workflows`, `companions/d2_atom_integral_20261006`, `companions/d2_moment_bridge_20261006`, `companions/d2_square_schur_20261006`, `evidence/cbz-core-custody-20261029`, `formal`, `formal/tests`, `reviews/cbz_core_custody_20261029`
+- `cbz/core-grader-strict-20261029` `c6ccc32c` (cbz, 26 ahead, 35 paths): `.github/workflows`, `companions/d2_atom_integral_20261006`, `companions/d2_moment_bridge_20261006`, `companions/d2_square_schur_20261006`, `evidence/cbz-core-custody-20261029`, `formal`, `formal/tests`, `reviews/cbz_core_custody_20261029`
+- `cbz/core-kernel-evidence-40951539273-1` `6d4001a5` (cbz, 19 ahead, 38 paths): `.github/workflows`, `companions/d2_atom_integral_20261006`, `companions/d2_moment_bridge_20261006`, `companions/d2_square_schur_20261006`, `evidence/cbz-core-custody-20261029`, `evidence/cbz-core-kernel-40951539273-1`, `formal`, `formal/tests` … (+1 more)
+- `cbz/core-retirement-caveat-20261029` `157d9926` (cbz, 19 ahead, 31 paths): `.github/workflows`, `companions/d2_atom_integral_20261006`, `companions/d2_moment_bridge_20261006`, `companions/d2_square_schur_20261006`, `evidence/cbz-core-custody-20261029`, `formal`, `formal/tests`, `reviews/cbz_core_custody_20261029`
+- `cbz/determinant-custody-arm-20261029` `b382cffb` (cbz, 42 ahead, 70 paths): `.github/workflows`, `cbz/verification/determinant_custody`, `evidence/cbz-determinant-transport-20261029`, `evidence/cbz-determinant-transport-20261029/historical-negative`, `evidence/cbz-determinant-transport-20261029/repaired-positive`, `frontiers/cap_first_exit_lean_20261002`, `frontiers/determinant_moment_20261025`, `frontiers/determinant_moment_20261025/controls` … (+4 more)
+- `cbz/determinant-custody-native-20261029` `486b33ae` (cbz, 10 ahead, 52 paths): `.github/workflows`, `evidence/cbz-determinant-transport-20261029`, `evidence/cbz-determinant-transport-20261029/historical-negative`, `evidence/cbz-determinant-transport-20261029/repaired-positive`, `frontiers/cap_first_exit_lean_20261002`, `frontiers/determinant_moment_20261025`, `frontiers/determinant_moment_20261025/controls`, `frontiers/determinant_moment_20261025/tests` … (+3 more)
+- `cbz/determinant-dependency-symlink-20261029` `ce24d5e9` (cbz, 36 ahead, 73 paths): `.`, `.github/workflows`, `cbz/verification/determinant_custody`, `evidence/cbz-determinant-transport-20261029`, `evidence/cbz-determinant-transport-20261029/historical-negative`, `evidence/cbz-determinant-transport-20261029/repaired-positive`, `frontiers/cap_first_exit_lean_20261002`, `frontiers/determinant_moment_20261025` … (+5 more)
+- `cbz/determinant-retire-queued-20261029` `12f0841a` (cbz, 20 ahead, 32 paths): `.github/workflows`, `companions/d2_atom_integral_20261006`, `companions/d2_moment_bridge_20261006`, `companions/d2_square_schur_20261006`, `evidence/cbz-core-custody-20261029`, `formal`, `formal/tests`, `reviews/cbz_core_custody_20261029`
+- `cbz/determinant-wire-evidence-40950093478-1` `d6b3f205` (cbz, 10 ahead, 50 paths): `.github/workflows`, `evidence/cbz-determinant-transport-20261029`, `evidence/cbz-determinant-transport-20261029/historical-negative`, `evidence/cbz-determinant-transport-20261029/repaired-positive`, `frontiers/cap_first_exit_lean_20261002`, `frontiers/determinant_moment_20261025`, `frontiers/determinant_moment_20261025/controls`, `frontiers/determinant_moment_20261025/tests` … (+3 more)
+- `cbz/determinant-wire-evidence-40956555032-1` `7816785c` (cbz, 34 ahead, 68 paths): `.github/workflows`, `cbz/verification/determinant_custody`, `evidence/cbz-determinant-transport-20261029`, `evidence/cbz-determinant-transport-20261029/historical-negative`, `evidence/cbz-determinant-transport-20261029/repaired-positive`, `frontiers/cap_first_exit_lean_20261002`, `frontiers/determinant_moment_20261025`, `frontiers/determinant_moment_20261025/controls` … (+4 more)
+- `cbz/determinant-wire-evidence-40956932510-1` `7e618aad` (cbz, 35 ahead, 68 paths): `.github/workflows`, `cbz/verification/determinant_custody`, `evidence/cbz-determinant-transport-20261029`, `evidence/cbz-determinant-transport-20261029/historical-negative`, `evidence/cbz-determinant-transport-20261029/repaired-positive`, `frontiers/cap_first_exit_lean_20261002`, `frontiers/determinant_moment_20261025`, `frontiers/determinant_moment_20261025/controls` … (+4 more)
+- `cbz/determinant-wire-evidence-40956966570-1` `1bf5735e` (cbz, 36 ahead, 68 paths): `.github/workflows`, `cbz/verification/determinant_custody`, `evidence/cbz-determinant-transport-20261029`, `evidence/cbz-determinant-transport-20261029/historical-negative`, `evidence/cbz-determinant-transport-20261029/repaired-positive`, `frontiers/cap_first_exit_lean_20261002`, `frontiers/determinant_moment_20261025`, `frontiers/determinant_moment_20261025/controls` … (+4 more)
+- `cbz/determinant-wire-evidence-40957148406-1` `5372b2a0` (cbz, 37 ahead, 72 paths): `.`, `.github/workflows`, `cbz/verification/determinant_custody`, `evidence/cbz-determinant-transport-20261029`, `evidence/cbz-determinant-transport-20261029/historical-negative`, `evidence/cbz-determinant-transport-20261029/repaired-positive`, `frontiers/cap_first_exit_lean_20261002`, `frontiers/determinant_moment_20261025` … (+5 more)
+- `cbz/lifetime-e2-e4-implication-20261029` `f19b254e` (cbz, 1 ahead, 4 paths): `.github/workflows`, `cbz/lifetime_implication`
+- `cbz/lifetime-zero-law-countermodel-20261029` `cb1fe3d1` (cbz, 2 ahead, 3 paths): `.github/workflows`, `specifications/lean_statements_20261010`
+- `cbz/lifetime-zero-law-integration-20261029` `36440828` (cbz, 1 ahead, 4 paths): `.github/workflows`, `cbz/lifetime_zero_law`
+- `cbz/lm006-outer-integrated-20261029` `1f9c9a3b` (cbz, 32 ahead, 31 paths): `.github/workflows`, `cbz/evidence/lm006-bytecode-20261029`, `cbz/evidence/lm006-replacement-mutation-20261029`, `cbz/verification/lm006_outer_cache`, `reviews/cbz_wrapper_composition_20261029`, `reviews/soft_fold_protocol_20261006`, `reviews/third_order_protocol_20261006`, `tests` … (+1 more)
+- `cbz/lm006-outer-red-evidence-20261029` `5a34759a` (cbz, 33 ahead, 34 paths): `.github/workflows`, `cbz/evidence/lm006-bytecode-20261029`, `cbz/evidence/lm006-replacement-mutation-20261029`, `cbz/verification/lm006_outer_cache`, `reviews/cbz_wrapper_composition_20261029`, `reviews/soft_fold_protocol_20261006`, `reviews/third_order_protocol_20261006`, `tests` … (+1 more)
+- `cbz/lm006-outer-test-cache-20261029` `239e5c9a` (cbz, 25 ahead, 25 paths): `.github/workflows`, `cbz/evidence/lm006-bytecode-20261029`, `cbz/evidence/lm006-replacement-mutation-20261029`, `cbz/verification/lm006_outer_cache`, `reviews/cbz_wrapper_composition_20261029`, `reviews/soft_fold_protocol_20261006`, `reviews/third_order_protocol_20261006`, `tests` … (+1 more)
+- `cbz/lm006-packet-red-archive-20261029` `8ae6e087` (cbz, 24 ahead, 28 paths): `.github/workflows`, `cbz/evidence/lm006-bytecode-20261029`, `cbz/evidence/lm006-replacement-mutation-20261029`, `reviews/cbz_wrapper_composition_20261029`, `reviews/soft_fold_protocol_20261006`, `reviews/third_order_protocol_20261006`, `tests`, `tools`
+- `cbz/source514-census-diagnostic-20261029` `33625259` (cbz, 10 ahead, 10 paths): `.github/workflows`, `cbz/source514-hosted`, `cbz/source514-hosted/evidence`, `tests`, `tools`
+- `claude/nice-maxwell-7i7ok0` `6d402474` (claude, 2 ahead, 3 paths): `.github/workflows`, `tests`, `tools`
+- `codex/all-frame-gaussian-rates-20261028` `5a30296b` (codex, 4 ahead, 34 paths): `docs/superpowers/plans`, `docs/superpowers/specs`, `frontiers/all_frame_gaussian_rates_20261028`, `frontiers/essential_gaussian_rate_20261028`, `frontiers/gaussian_lifetime_exponential_tail_20261028`, `frontiers/sharp_axial_escape_20261026`
+- `codex/essential-sharp-asymptotics-20261028` `fc5ecb67` (codex, 5 ahead, 43 paths): `docs/superpowers/plans`, `docs/superpowers/specs`, `frontiers/all_frame_gaussian_rates_20261028`, `frontiers/essential_gaussian_rate_20261028`, `frontiers/essential_sharp_asymptotics_20261028`, `frontiers/gaussian_lifetime_exponential_tail_20261028`, `frontiers/sharp_axial_escape_20261026`
+- `codex/gaussian-lifetime-limit-completion-20261029` `fdddc7e6` (codex, 6 ahead, 52 paths): `docs/superpowers/plans`, `docs/superpowers/specs`, `frontiers/all_frame_gaussian_rates_20261028`, `frontiers/essential_gaussian_rate_20261028`, `frontiers/essential_sharp_asymptotics_20261028`, `frontiers/gaussian_lifetime_exponential_tail_20261028`, `frontiers/gaussian_lifetime_limit_completion_20261029`, `frontiers/sharp_axial_escape_20261026`
 - `benjamin/d5-collar-nonauthor-20260928b` `2cc93a03` (benjamin, 279 ahead, 396 paths): `.`, `.github`, `.github/workflows`, `certificates`, `certificates/bf_six_pin_hessian_20260926`, `certificates/bf_six_pin_scalar_20260926`, `claims`, `coefficients/side24_v1` … (+82 more); signals {"float_in_certificate_code_added": 59}
 - `chatgpt/bq11-import-profile-20261007-f81c` `a7971bb0` (chatgpt, 7 ahead, 7 paths): `.github/workflows`, `companions/fold_affine_bridge_20261006`
 - `chatgpt/cap-i4-adapter-envelope-20261005` `adc9e1dc` (chatgpt, 1 ahead, 4 paths): `reviews/cap_i4_adapter_envelope_20261005`
@@ -166,6 +236,16 @@ Recommendations come from `disposition_lib.recommend_branch` (documented thresho
 - `cursor/rn-mesoscopic-chart-j0-91fa` `84b64e1b` (cursor, 109 ahead, 54 paths): `.`, `.github/workflows`, `coefficients/side24_v1`, `frontiers`, `frontiers/full_price_20260924`, `frontiers/price_budget_20260924`, `frontiers/remote_window_20260924`, `frontiers/rn_mesoscopic_chart_20260925` … (+1 more)
 - `inventable/purpose-readme-seed` `484811c5` (inventable, 2 ahead, 1 paths): `.`
 - `support/navigation-336-344-353-on-08f86862-20261006` `e1fc0e8c` (support, 3 ahead, 3 paths): `.github/workflows`, `tests`, `tools`
+- `codex/essential-gaussian-rate-20261028` `de872d97` (codex, 3 ahead, 25 paths): `docs/superpowers/plans`, `docs/superpowers/specs`, `frontiers/essential_gaussian_rate_20261028`, `frontiers/gaussian_lifetime_exponential_tail_20261028`, `frontiers/sharp_axial_escape_20261026`
+- `codex/gaussian-lifetime-tail-20261028` `223293d9` (codex, 2 ahead, 17 paths): `docs/superpowers/plans`, `docs/superpowers/specs`, `frontiers/gaussian_lifetime_exponential_tail_20261028`, `frontiers/sharp_axial_escape_20261026`
+- `cbz/determinant-artifact-integrity-20261029` `c84f723c` (cbz, 7 ahead, 41 paths): `.github/workflows`, `frontiers/cap_first_exit_lean_20261002`, `frontiers/determinant_moment_20261025`, `frontiers/determinant_moment_20261025/controls`, `frontiers/determinant_moment_20261025/tests`, `frontiers/determinant_moment_20261025/tests/fixtures`, `tests`, `tools`
+- `cbz/determinant-custody-red-20261029` `c4a89bb9` (cbz, 35 ahead, 72 paths): `.`, `.github/workflows`, `cbz/verification/determinant_custody`, `evidence/cbz-determinant-transport-20261029`, `evidence/cbz-determinant-transport-20261029/historical-negative`, `evidence/cbz-determinant-transport-20261029/repaired-positive`, `frontiers/cap_first_exit_lean_20261002`, `frontiers/determinant_moment_20261025` … (+5 more)
+- `cbz/determinant-wire-evidence-40945043406-1` `3239cf5b` (cbz, 8 ahead, 50 paths): `.github/workflows`, `evidence/cbz-determinant-transport-20261029`, `evidence/cbz-determinant-transport-20261029/historical-negative`, `evidence/cbz-determinant-transport-20261029/repaired-positive`, `frontiers/cap_first_exit_lean_20261002`, `frontiers/determinant_moment_20261025`, `frontiers/determinant_moment_20261025/controls`, `frontiers/determinant_moment_20261025/tests` … (+3 more)
+- `cbz/lifetime-pair-law-countermodel-20261029` `5a470bfd` (cbz, 1 ahead, 2 paths): `.github/workflows`, `specifications/lean_statements_20261010`
+- `cbz/lm006-loaded-code-20261029` `86cbfe0a` (cbz, 21 ahead, 18 paths): `.github/workflows`, `cbz/evidence/lm006-bytecode-20261029`, `cbz/evidence/lm006-replacement-mutation-20261029`, `reviews/cbz_wrapper_composition_20261029`, `reviews/soft_fold_protocol_20261006`, `reviews/third_order_protocol_20261006`, `tests`, `tools`
+- `chatgpt/lm006-oned-replay-20261006-b91e` `089d87ac` (chatgpt, 4 ahead, 3 paths): `.github/workflows`, `tests`, `tools`
+- `chatgpt/soft-fold-protocol-20261006` `fedd0056` (chatgpt, 3 ahead, 3 paths): `.github/workflows`, `reviews/soft_fold_protocol_20261006`, `tests`
+- `chatgpt/third-order-protocol-20261006-37bd-r4` `9b3387bd` (chatgpt, 2 ahead, 3 paths): `.github/workflows`, `reviews/third_order_protocol_20261006`
 - `codex/compact-cutoff-baseline-20261009-root01a11cbf` `06bac48e` (codex, 1 ahead, 37 paths): `.github/workflows`, `frontiers/compact_source_cutoff_baseline_20261009`
 - `codex/compact-cutoff-proof-20261010-root01a11cbf` `bb3c92e3` (codex, 2 ahead, 75 paths): `.github/workflows`, `frontiers/compact_source_cutoff_baseline_20261009`, `frontiers/compact_source_cutoff_proof_20261010`
 - `codex/compact-cutoff-proof-repair-20261011-root01a11cbf` `f7832c87` (codex, 3 ahead, 113 paths): `.github/workflows`, `frontiers/compact_source_cutoff_baseline_20261009`, `frontiers/compact_source_cutoff_proof_20261010`, `frontiers/compact_source_cutoff_proof_repair_20261011`

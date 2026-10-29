@@ -39,8 +39,10 @@ def layer_a_signals(diff_text: str) -> dict:
     deleted_file = False
     for line in diff_text.splitlines():
         if line.startswith('diff --git '):
-            # "diff --git a/x b/x" -> x
-            path = line.split(' b/', 1)[1] if ' b/' in line else ''
+            # "diff --git a/x b/x" -> x; git may quote paths ("a/\303\251.lean"); strip the quotes
+            rest = line[len('diff --git '):]
+            path = rest.split(' b/', 1)[1] if ' b/' in rest else (rest.split(' "b/', 1)[1] if ' "b/' in rest else '')
+            path = path.rstrip('"')
             deleted_file = False
             continue
         if line.startswith('deleted file mode'):
@@ -149,18 +151,32 @@ def is_ancestor(repo: str, maybe_ancestor: str, descendant: str) -> bool:
     return _git(repo, 'merge-base', '--is-ancestor', maybe_ancestor, descendant, check=False).returncode == 0
 
 
+def changed_paths(repo: str, base: str, head: str) -> list:
+    """Paths that differ between two trees, NUL-delimited (no quoting) and with rename detection off, so a
+    rename appears as its deletion and its addition and a non-ASCII name is returned literally."""
+    out = _git(repo, 'diff', '--name-only', '--no-renames', '-z', base, head).stdout
+    return [p for p in out.split('\0') if p]
+
+
+def tree_entry(repo: str, rev: str, path: str):
+    """(mode, object id) of ``path`` in ``rev``, or None when absent. Modes matter: a chmod-only change
+    keeps the blob id and must still count as a difference."""
+    out = _git(repo, 'ls-tree', '-z', rev, '--', path, check=False).stdout
+    if not out.strip('\0'):
+        return None
+    meta = out.split('\0')[0].split('\t', 1)[0]
+    mode, _type, oid = meta.split(' ')
+    return (mode, oid)
+
+
 def all_changed_blobs_equal(repo: str, head: str, main: str) -> bool:
-    """True iff every path changed by head (since merge-base) has, on main, the same blob as on head."""
+    """True iff every path changed by head (since the merge-base, renames expanded) has the same tree entry
+    (mode and object id, or absence) on main as on head."""
     base = _git(repo, 'merge-base', head, main).stdout.strip()
-    paths = [p for p in _git(repo, 'diff', '--name-only', base, head).stdout.splitlines() if p]
+    paths = changed_paths(repo, base, head)
     if not paths:
         return True
-    for p in paths:
-        h = _git(repo, 'rev-parse', '-q', '--verify', f'{head}:{p}', check=False)
-        m = _git(repo, 'rev-parse', '-q', '--verify', f'{main}:{p}', check=False)
-        if h.returncode != m.returncode or h.stdout.strip() != m.stdout.strip():
-            return False
-    return True
+    return all(tree_entry(repo, head, p) == tree_entry(repo, main, p) for p in paths)
 
 
 def merge_tree_clean(repo: str, base: str, head: str) -> bool:

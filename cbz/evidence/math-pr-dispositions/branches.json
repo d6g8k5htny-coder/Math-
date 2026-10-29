@@ -1,28 +1,31 @@
 {
  "meta": {
-  "observed_at_utc": "2026-10-29T17:36:29Z",
+  "observed_at_utc": "2026-10-29T23:05:51Z",
   "repository": "d6g8k5htny-coder/Math-",
-  "main_sha": "8151f592918a845bf19eb8eafaf8444540a32734",
-  "open_pr_count": 28,
-  "branch_count": 112,
+  "main_sha": "9f8dbb4d18b9f3ebd9ffac6b0caa42df9f343966",
+  "replay": "offline from CONTEXT.json",
+  "open_pr_count": 29,
+  "branch_count": 153,
   "disposition_counts": {
-   "QUARANTINE-ARCHIVE": 9,
-   "INTEGRATE-CANDIDATE": 5,
-   "STACK-DEPENDENT": 9,
-   "ACTIVE-OWNER-LANE": 5
+   "INTEGRATE-CANDIDATE": 4,
+   "QUARANTINE-ARCHIVE": 5,
+   "STACK-DEPENDENT": 6,
+   "ACTIVE-OWNER-LANE": 14
   },
   "branch_class_counts": {
-   "OPEN_PR_REF": 30,
+   "OPEN_PR_REF": 31,
    "PROTECTED": 1,
-   "UNMERGED_NO_PR": 81
+   "UNMERGED_NO_PR": 121
   },
   "note": "Evidence only. layer_a_signals are lexical hits on added/removed diff lines, never certification. recommended_disposition is a decision table over observed facts; the integrator decides.",
   "unmerged_branch_disposition_counts": {
+   "ACTIVE-LANE": 30,
    "ARCHIVE-BUNDLE": 76,
-   "SUPERSEDED-BY-OPEN-PR": 3,
+   "INTEGRATE-REVIEW": 2,
+   "SUPERSEDED-BY-OPEN-PR": 11,
    "SUPERSEDED-CONTENT-ON-MAIN": 2
   },
-  "unmerged_integrable_if_wanted": 26,
+  "unmerged_integrable_if_wanted": 57,
   "unmerged_unrelated_history": 24,
   "fetched_manifest": "FETCHED_MANIFEST.json"
  },
@@ -50,25 +53,124 @@
    "class": "OPEN_PR_REF"
   },
   {
-   "branch": "cbz/determinant-compiled-audit-20261029-a6ce",
-   "tip": "4ccc9b0b0fb6333565e15026758fa49521de7f3d",
-   "last_commit_date": "2026-10-29T12:24:05-05:00",
+   "branch": "cbz/core-custody-native-20261029",
+   "tip": "db46797a430495c943fc45867e77d6cffc6baee2",
+   "last_commit_date": "2026-10-29T15:43:09-05:00",
    "tip_is_ancestor_of_main": false,
    "is_open_pr_ref": true,
-   "commits_ahead_of_main": 1,
+   "commits_ahead_of_main": 17,
    "protected": false,
-   "recreate_command": "git push origin 4ccc9b0b0fb6333565e15026758fa49521de7f3d:refs/heads/cbz/determinant-compiled-audit-20261029-a6ce",
+   "recreate_command": "git push origin db46797a430495c943fc45867e77d6cffc6baee2:refs/heads/cbz/core-custody-native-20261029",
+   "class": "OPEN_PR_REF"
+  },
+  {
+   "branch": "cbz/core-git-environment-controls-20261029",
+   "tip": "213b8848d0a1fad1ddf74b4f4ea4ba3fe14d8508",
+   "last_commit_date": "2026-10-29T16:36:07-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": true,
+   "commits_ahead_of_main": 24,
+   "protected": false,
+   "recreate_command": "git push origin 213b8848d0a1fad1ddf74b4f4ea4ba3fe14d8508:refs/heads/cbz/core-git-environment-controls-20261029",
+   "class": "OPEN_PR_REF"
+  },
+  {
+   "branch": "cbz/dd-exact-oracles-20261029",
+   "tip": "94a78d8bd95f0cafae85bd6b202407e418fafc2b",
+   "last_commit_date": "2026-10-29T17:37:53-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": true,
+   "commits_ahead_of_main": 4,
+   "protected": false,
+   "recreate_command": "git push origin 94a78d8bd95f0cafae85bd6b202407e418fafc2b:refs/heads/cbz/dd-exact-oracles-20261029",
+   "class": "OPEN_PR_REF"
+  },
+  {
+   "branch": "cbz/math-198-20261029",
+   "tip": "3f27e9d30600cd2f658c731defe4f35ceb54bca4",
+   "last_commit_date": "2026-10-29T20:58:48+00:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": true,
+   "commits_ahead_of_main": 3,
+   "protected": false,
+   "recreate_command": "git push origin 3f27e9d30600cd2f658c731defe4f35ceb54bca4:refs/heads/cbz/math-198-20261029",
    "class": "OPEN_PR_REF"
   },
   {
    "branch": "cbz/math-pr-dispositions-01n-20261029",
-   "tip": "24ce38735e66ab4a64d3e34d9df92c33bd64d197",
-   "last_commit_date": "2026-10-29T17:28:54+00:00",
+   "tip": "c6d4491754abbf4344dcf98d4fe8489dca50a582",
+   "last_commit_date": "2026-10-29T17:38:27+00:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": true,
+   "commits_ahead_of_main": 3,
+   "protected": false,
+   "recreate_command": "git push origin c6d4491754abbf4344dcf98d4fe8489dca50a582:refs/heads/cbz/math-pr-dispositions-01n-20261029",
+   "class": "OPEN_PR_REF"
+  },
+  {
+   "branch": "cbz/native-kernel-cusp-acee-20261029",
+   "tip": "c48194fba6cc240f78759b94e6245c6ca916d087",
+   "last_commit_date": "2026-10-29T16:17:37-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": true,
+   "commits_ahead_of_main": 4,
+   "protected": false,
+   "recreate_command": "git push origin c48194fba6cc240f78759b94e6245c6ca916d087:refs/heads/cbz/native-kernel-cusp-acee-20261029",
+   "class": "OPEN_PR_REF"
+  },
+  {
+   "branch": "cbz/pair-law-closed-integration-20261029",
+   "tip": "9e89980bfa4f281e00550f481202033775f35485",
+   "last_commit_date": "2026-10-29T16:53:46-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": true,
+   "commits_ahead_of_main": 3,
+   "protected": false,
+   "recreate_command": "git push origin 9e89980bfa4f281e00550f481202033775f35485:refs/heads/cbz/pair-law-closed-integration-20261029",
+   "class": "OPEN_PR_REF"
+  },
+  {
+   "branch": "cbz/preserve-math-deliveries-20261029",
+   "tip": "44b0db6e5bd1a534e2b6a79ba4bcb300f0ea7a2d",
+   "last_commit_date": "2026-10-29T15:14:44-05:00",
    "tip_is_ancestor_of_main": false,
    "is_open_pr_ref": true,
    "commits_ahead_of_main": 2,
    "protected": false,
-   "recreate_command": "git push origin 24ce38735e66ab4a64d3e34d9df92c33bd64d197:refs/heads/cbz/math-pr-dispositions-01n-20261029",
+   "recreate_command": "git push origin 44b0db6e5bd1a534e2b6a79ba4bcb300f0ea7a2d:refs/heads/cbz/preserve-math-deliveries-20261029",
+   "class": "OPEN_PR_REF"
+  },
+  {
+   "branch": "cbz/source514-99-domain-repair-20261029",
+   "tip": "785a71f0b8267d6d11b736dc5f621b1265bd7198",
+   "last_commit_date": "2026-10-29T16:35:18-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": true,
+   "commits_ahead_of_main": 16,
+   "protected": false,
+   "recreate_command": "git push origin 785a71f0b8267d6d11b736dc5f621b1265bd7198:refs/heads/cbz/source514-99-domain-repair-20261029",
+   "class": "OPEN_PR_REF"
+  },
+  {
+   "branch": "cbz/source514-hosted-qualification-20261029",
+   "tip": "fa42ed0ebe9e21f986ed610f39484eb9cbd1925f",
+   "last_commit_date": "2026-10-29T15:22:12-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": true,
+   "commits_ahead_of_main": 6,
+   "protected": false,
+   "recreate_command": "git push origin fa42ed0ebe9e21f986ed610f39484eb9cbd1925f:refs/heads/cbz/source514-hosted-qualification-20261029",
+   "class": "OPEN_PR_REF"
+  },
+  {
+   "branch": "cbz/wrapper-protocol-union-20261029",
+   "tip": "5d2dfd44dc25ebe4d3186e08192d115eb107d0d5",
+   "last_commit_date": "2026-10-29T16:25:37-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": true,
+   "commits_ahead_of_main": 22,
+   "protected": false,
+   "recreate_command": "git push origin 5d2dfd44dc25ebe4d3186e08192d115eb107d0d5:refs/heads/cbz/wrapper-protocol-union-20261029",
    "class": "OPEN_PR_REF"
   },
   {
@@ -102,72 +204,6 @@
    "commits_ahead_of_main": 1,
    "protected": false,
    "recreate_command": "git push origin 497dcca37abd18464a6b33cf32ce2e3263054323:refs/heads/chatgpt/lm006-coefficient-refine-4096-20261006-r22",
-   "class": "OPEN_PR_REF"
-  },
-  {
-   "branch": "chatgpt/lm006-oned-replay-20261006-b91e",
-   "tip": "089d87ace030e755511a04735c42c1f91911d4c1",
-   "last_commit_date": "2026-10-06T09:32:20-07:00",
-   "tip_is_ancestor_of_main": false,
-   "is_open_pr_ref": true,
-   "commits_ahead_of_main": 4,
-   "protected": false,
-   "recreate_command": "git push origin 089d87ace030e755511a04735c42c1f91911d4c1:refs/heads/chatgpt/lm006-oned-replay-20261006-b91e",
-   "class": "OPEN_PR_REF"
-  },
-  {
-   "branch": "chatgpt/soft-fold-protocol-20261006",
-   "tip": "fedd0056c18093e8862b7f6ac2860dc04f8133b9",
-   "last_commit_date": "2026-10-06T06:09:46-07:00",
-   "tip_is_ancestor_of_main": false,
-   "is_open_pr_ref": true,
-   "commits_ahead_of_main": 3,
-   "protected": false,
-   "recreate_command": "git push origin fedd0056c18093e8862b7f6ac2860dc04f8133b9:refs/heads/chatgpt/soft-fold-protocol-20261006",
-   "class": "OPEN_PR_REF"
-  },
-  {
-   "branch": "chatgpt/third-order-protocol-20261006-37bd-r4",
-   "tip": "9b3387bdc1cd4e1afc29916d7d7c3f9d922af722",
-   "last_commit_date": "2026-10-06T07:24:42-07:00",
-   "tip_is_ancestor_of_main": false,
-   "is_open_pr_ref": true,
-   "commits_ahead_of_main": 2,
-   "protected": false,
-   "recreate_command": "git push origin 9b3387bdc1cd4e1afc29916d7d7c3f9d922af722:refs/heads/chatgpt/third-order-protocol-20261006-37bd-r4",
-   "class": "OPEN_PR_REF"
-  },
-  {
-   "branch": "claude/determined-bardeen-mrqy4y-c8-wrappers",
-   "tip": "8dca89cfbfe773570d9ee96d0f53e8aac3825016",
-   "last_commit_date": "2026-10-28T03:40:40-05:00",
-   "tip_is_ancestor_of_main": false,
-   "is_open_pr_ref": true,
-   "commits_ahead_of_main": 2,
-   "protected": false,
-   "recreate_command": "git push origin 8dca89cfbfe773570d9ee96d0f53e8aac3825016:refs/heads/claude/determined-bardeen-mrqy4y-c8-wrappers",
-   "class": "OPEN_PR_REF"
-  },
-  {
-   "branch": "claude/nice-maxwell-7i7ok0",
-   "tip": "6d402474a4a9582a151e9f87ab5f69570a2bc58b",
-   "last_commit_date": "2026-10-29T17:20:52+00:00",
-   "tip_is_ancestor_of_main": false,
-   "is_open_pr_ref": true,
-   "commits_ahead_of_main": 2,
-   "protected": false,
-   "recreate_command": "git push origin 6d402474a4a9582a151e9f87ab5f69570a2bc58b:refs/heads/claude/nice-maxwell-7i7ok0",
-   "class": "OPEN_PR_REF"
-  },
-  {
-   "branch": "codex/all-frame-gaussian-rates-20261028",
-   "tip": "5a30296bfc6c9c886d483c87e80e2eb2d9ea047d",
-   "last_commit_date": "2026-10-28T18:09:46-05:00",
-   "tip_is_ancestor_of_main": false,
-   "is_open_pr_ref": true,
-   "commits_ahead_of_main": 4,
-   "protected": false,
-   "recreate_command": "git push origin 5a30296bfc6c9c886d483c87e80e2eb2d9ea047d:refs/heads/codex/all-frame-gaussian-rates-20261028",
    "class": "OPEN_PR_REF"
   },
   {
@@ -212,6 +248,39 @@
    "commits_ahead_of_main": 8,
    "protected": false,
    "recreate_command": "git push origin d65e4425e32f62678d4899a0488f137c9918d7ae:refs/heads/codex/c299-timeout-test-adoption-20261024",
+   "class": "OPEN_PR_REF"
+  },
+  {
+   "branch": "codex/cbz-determinant-git-endpoints-20261029",
+   "tip": "0dd9f215f158f7bffc974960471eaa6404251ab6",
+   "last_commit_date": "2026-10-29T16:41:06-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": true,
+   "commits_ahead_of_main": 15,
+   "protected": false,
+   "recreate_command": "git push origin 0dd9f215f158f7bffc974960471eaa6404251ab6:refs/heads/codex/cbz-determinant-git-endpoints-20261029",
+   "class": "OPEN_PR_REF"
+  },
+  {
+   "branch": "codex/cbz-determinant-qualified-inventory-20261029",
+   "tip": "c4a89bb99af385d0438975fae39ad3563170b874",
+   "last_commit_date": "2026-10-29T16:21:41-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": true,
+   "commits_ahead_of_main": 35,
+   "protected": false,
+   "recreate_command": "git push origin c4a89bb99af385d0438975fae39ad3563170b874:refs/heads/codex/cbz-determinant-qualified-inventory-20261029",
+   "class": "OPEN_PR_REF"
+  },
+  {
+   "branch": "codex/cbz-packet-admission-db642-20261029",
+   "tip": "d846ecb533f6e0fe242f642cdc27dfb9d08fc435",
+   "last_commit_date": "2026-10-29T14:59:13-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": true,
+   "commits_ahead_of_main": 2,
+   "protected": false,
+   "recreate_command": "git push origin d846ecb533f6e0fe242f642cdc27dfb9d08fc435:refs/heads/codex/cbz-packet-admission-db642-20261029",
    "class": "OPEN_PR_REF"
   },
   {
@@ -260,68 +329,13 @@
   },
   {
    "branch": "codex/cubic-curvature-20261026",
-   "tip": "a9846b96b5bdbdf7037a09425869ed54f8530f69",
-   "last_commit_date": "2026-10-28T19:08:12-05:00",
+   "tip": "86c00d4c08c6c2af0529ec1744693de3ca6ac6e4",
+   "last_commit_date": "2026-10-29T12:50:13-05:00",
    "tip_is_ancestor_of_main": false,
    "is_open_pr_ref": true,
-   "commits_ahead_of_main": 127,
+   "commits_ahead_of_main": 128,
    "protected": false,
-   "recreate_command": "git push origin a9846b96b5bdbdf7037a09425869ed54f8530f69:refs/heads/codex/cubic-curvature-20261026",
-   "class": "OPEN_PR_REF"
-  },
-  {
-   "branch": "codex/elder-cusp-parity-protocol-20261020",
-   "tip": "f7fbd8cf44c29103297f29220ab49fcf64b5df3a",
-   "last_commit_date": "2026-10-23T06:31:06-05:00",
-   "tip_is_ancestor_of_main": false,
-   "is_open_pr_ref": true,
-   "commits_ahead_of_main": 5,
-   "protected": false,
-   "recreate_command": "git push origin f7fbd8cf44c29103297f29220ab49fcf64b5df3a:refs/heads/codex/elder-cusp-parity-protocol-20261020",
-   "class": "OPEN_PR_REF"
-  },
-  {
-   "branch": "codex/essential-gaussian-rate-20261028",
-   "tip": "de872d97fa54eb11c0834b8f532543222900d165",
-   "last_commit_date": "2026-10-28T17:17:42-05:00",
-   "tip_is_ancestor_of_main": false,
-   "is_open_pr_ref": true,
-   "commits_ahead_of_main": 3,
-   "protected": false,
-   "recreate_command": "git push origin de872d97fa54eb11c0834b8f532543222900d165:refs/heads/codex/essential-gaussian-rate-20261028",
-   "class": "OPEN_PR_REF"
-  },
-  {
-   "branch": "codex/essential-sharp-asymptotics-20261028",
-   "tip": "fc5ecb67f4a9d6cfb1dec066499ca2daa1147b3b",
-   "last_commit_date": "2026-10-28T19:00:11-05:00",
-   "tip_is_ancestor_of_main": false,
-   "is_open_pr_ref": true,
-   "commits_ahead_of_main": 5,
-   "protected": false,
-   "recreate_command": "git push origin fc5ecb67f4a9d6cfb1dec066499ca2daa1147b3b:refs/heads/codex/essential-sharp-asymptotics-20261028",
-   "class": "OPEN_PR_REF"
-  },
-  {
-   "branch": "codex/gaussian-lifetime-limit-completion-20261029",
-   "tip": "fdddc7e6b1fd584fa566beaccedd64d177104d10",
-   "last_commit_date": "2026-10-29T11:33:44-05:00",
-   "tip_is_ancestor_of_main": false,
-   "is_open_pr_ref": true,
-   "commits_ahead_of_main": 6,
-   "protected": false,
-   "recreate_command": "git push origin fdddc7e6b1fd584fa566beaccedd64d177104d10:refs/heads/codex/gaussian-lifetime-limit-completion-20261029",
-   "class": "OPEN_PR_REF"
-  },
-  {
-   "branch": "codex/gaussian-lifetime-tail-20261028",
-   "tip": "223293d9d26a7a4158026a4225523e8a683a8794",
-   "last_commit_date": "2026-10-28T09:46:01-05:00",
-   "tip_is_ancestor_of_main": false,
-   "is_open_pr_ref": true,
-   "commits_ahead_of_main": 2,
-   "protected": false,
-   "recreate_command": "git push origin 223293d9d26a7a4158026a4225523e8a683a8794:refs/heads/codex/gaussian-lifetime-tail-20261028",
+   "recreate_command": "git push origin 86c00d4c08c6c2af0529ec1744693de3ca6ac6e4:refs/heads/codex/cubic-curvature-20261026",
    "class": "OPEN_PR_REF"
   },
   {
@@ -359,13 +373,13 @@
   },
   {
    "branch": "main",
-   "tip": "8151f592918a845bf19eb8eafaf8444540a32734",
-   "last_commit_date": "2026-10-28T11:27:59-05:00",
+   "tip": "9f8dbb4d18b9f3ebd9ffac6b0caa42df9f343966",
+   "last_commit_date": "2026-10-29T16:38:57-05:00",
    "tip_is_ancestor_of_main": true,
    "is_open_pr_ref": true,
    "commits_ahead_of_main": 0,
    "protected": true,
-   "recreate_command": "git push origin 8151f592918a845bf19eb8eafaf8444540a32734:refs/heads/main",
+   "recreate_command": "git push origin 9f8dbb4d18b9f3ebd9ffac6b0caa42df9f343966:refs/heads/main",
    "class": "PROTECTED"
   },
   {
@@ -377,6 +391,347 @@
    "commits_ahead_of_main": 279,
    "protected": false,
    "recreate_command": "git push origin 2cc93a030785a1e0a7bd0a2cbd51ef62b8e1ad19:refs/heads/benjamin/d5-collar-nonauthor-20260928b",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/archive-paper-boundaries-522-526-20261029",
+   "tip": "66a6dea19f2bf6cc2f5f88f5c35e474c970751c7",
+   "last_commit_date": "2026-10-29T15:29:58-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 7,
+   "protected": false,
+   "recreate_command": "git push origin 66a6dea19f2bf6cc2f5f88f5c35e474c970751c7:refs/heads/cbz/archive-paper-boundaries-522-526-20261029",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/core-custody-observed-evidence-20261029",
+   "tip": "8c176a9261cb43fdc8014b736046df853b887277",
+   "last_commit_date": "2026-10-29T16:29:46-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 27,
+   "protected": false,
+   "recreate_command": "git push origin 8c176a9261cb43fdc8014b736046df853b887277:refs/heads/cbz/core-custody-observed-evidence-20261029",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/core-dependency-path-repair-20261029",
+   "tip": "16d4478192aff355830fdc7a7ef5d9dd3a021817",
+   "last_commit_date": "2026-10-29T16:33:25-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 30,
+   "protected": false,
+   "recreate_command": "git push origin 16d4478192aff355830fdc7a7ef5d9dd3a021817:refs/heads/cbz/core-dependency-path-repair-20261029",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/core-evidence-path-repair-20261029",
+   "tip": "6282655d3979f26f4f0a28b2ea0395a1da211acb",
+   "last_commit_date": "2026-10-29T16:56:30-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 36,
+   "protected": false,
+   "recreate_command": "git push origin 6282655d3979f26f4f0a28b2ea0395a1da211acb:refs/heads/cbz/core-evidence-path-repair-20261029",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/core-git-and-grader-repair-20261029",
+   "tip": "fad3d8d64b0e6ccb27fb9dbfbfbecdb11fc7a5f1",
+   "last_commit_date": "2026-10-29T15:51:57-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 24,
+   "protected": false,
+   "recreate_command": "git push origin fad3d8d64b0e6ccb27fb9dbfbfbecdb11fc7a5f1:refs/heads/cbz/core-git-and-grader-repair-20261029",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/core-git-environment-fix-20261029",
+   "tip": "27c72abbb134584b7ce232fc7db91ff63a8ec044",
+   "last_commit_date": "2026-10-29T15:48:53-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 22,
+   "protected": false,
+   "recreate_command": "git push origin 27c72abbb134584b7ce232fc7db91ff63a8ec044:refs/heads/cbz/core-git-environment-fix-20261029",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/core-grader-strict-20261029",
+   "tip": "c6ccc32c6854bd7153190e32c23cd60c31530097",
+   "last_commit_date": "2026-10-29T16:27:45-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 26,
+   "protected": false,
+   "recreate_command": "git push origin c6ccc32c6854bd7153190e32c23cd60c31530097:refs/heads/cbz/core-grader-strict-20261029",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/core-kernel-evidence-40951539273-1",
+   "tip": "6d4001a540757196c7701eace0b51fbbdcf1f1f2",
+   "last_commit_date": "2026-10-29T21:23:28+00:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 19,
+   "protected": false,
+   "recreate_command": "git push origin 6d4001a540757196c7701eace0b51fbbdcf1f1f2:refs/heads/cbz/core-kernel-evidence-40951539273-1",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/core-retirement-caveat-20261029",
+   "tip": "157d99263d3b01799dfc4cf195cd54e3aaa96365",
+   "last_commit_date": "2026-10-29T15:59:59-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 19,
+   "protected": false,
+   "recreate_command": "git push origin 157d99263d3b01799dfc4cf195cd54e3aaa96365:refs/heads/cbz/core-retirement-caveat-20261029",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/determinant-artifact-integrity-20261029",
+   "tip": "c84f723ce04b529718d85158324cc888ddd55bf2",
+   "last_commit_date": "2026-10-29T14:59:48-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 7,
+   "protected": false,
+   "recreate_command": "git push origin c84f723ce04b529718d85158324cc888ddd55bf2:refs/heads/cbz/determinant-artifact-integrity-20261029",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/determinant-custody-arm-20261029",
+   "tip": "b382cffbf55331673ba5e537c660bc8e1fe50750",
+   "last_commit_date": "2026-10-29T16:20:35-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 42,
+   "protected": false,
+   "recreate_command": "git push origin b382cffbf55331673ba5e537c660bc8e1fe50750:refs/heads/cbz/determinant-custody-arm-20261029",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/determinant-custody-native-20261029",
+   "tip": "486b33ae9bd98c69b373f692ad6440ca61873442",
+   "last_commit_date": "2026-10-29T15:18:03-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 10,
+   "protected": false,
+   "recreate_command": "git push origin 486b33ae9bd98c69b373f692ad6440ca61873442:refs/heads/cbz/determinant-custody-native-20261029",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/determinant-custody-red-20261029",
+   "tip": "c4a89bb99af385d0438975fae39ad3563170b874",
+   "last_commit_date": "2026-10-29T16:21:41-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 35,
+   "protected": false,
+   "recreate_command": "git push origin c4a89bb99af385d0438975fae39ad3563170b874:refs/heads/cbz/determinant-custody-red-20261029",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/determinant-dependency-symlink-20261029",
+   "tip": "ce24d5e9a5e0d0cd852162d17b1447de2411e46c",
+   "last_commit_date": "2026-10-29T16:30:00-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 36,
+   "protected": false,
+   "recreate_command": "git push origin ce24d5e9a5e0d0cd852162d17b1447de2411e46c:refs/heads/cbz/determinant-dependency-symlink-20261029",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/determinant-retire-queued-20261029",
+   "tip": "12f0841ab85221064a0c5a2571c5db8a1b322494",
+   "last_commit_date": "2026-10-29T16:28:50-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 20,
+   "protected": false,
+   "recreate_command": "git push origin 12f0841ab85221064a0c5a2571c5db8a1b322494:refs/heads/cbz/determinant-retire-queued-20261029",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/determinant-wire-evidence-40945043406-1",
+   "tip": "3239cf5b42e03b175368839d4ea82c8aaea732cb",
+   "last_commit_date": "2026-10-29T20:02:55+00:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 8,
+   "protected": false,
+   "recreate_command": "git push origin 3239cf5b42e03b175368839d4ea82c8aaea732cb:refs/heads/cbz/determinant-wire-evidence-40945043406-1",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/determinant-wire-evidence-40950093478-1",
+   "tip": "d6b3f2052221db2be9c7cbe7bd7f6fbc26f20a25",
+   "last_commit_date": "2026-10-29T20:39:19+00:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 10,
+   "protected": false,
+   "recreate_command": "git push origin d6b3f2052221db2be9c7cbe7bd7f6fbc26f20a25:refs/heads/cbz/determinant-wire-evidence-40950093478-1",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/determinant-wire-evidence-40956555032-1",
+   "tip": "7816785c7d54b850942351be5c11861ef593807e",
+   "last_commit_date": "2026-10-29T21:34:00+00:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 34,
+   "protected": false,
+   "recreate_command": "git push origin 7816785c7d54b850942351be5c11861ef593807e:refs/heads/cbz/determinant-wire-evidence-40956555032-1",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/determinant-wire-evidence-40956932510-1",
+   "tip": "7e618aad26509f1cc45bfcfbd41d6660cd793207",
+   "last_commit_date": "2026-10-29T21:40:19+00:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 35,
+   "protected": false,
+   "recreate_command": "git push origin 7e618aad26509f1cc45bfcfbd41d6660cd793207:refs/heads/cbz/determinant-wire-evidence-40956932510-1",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/determinant-wire-evidence-40956966570-1",
+   "tip": "1bf5735ebcf42aa58351ad5c954816cb871a2c10",
+   "last_commit_date": "2026-10-29T21:43:52+00:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 36,
+   "protected": false,
+   "recreate_command": "git push origin 1bf5735ebcf42aa58351ad5c954816cb871a2c10:refs/heads/cbz/determinant-wire-evidence-40956966570-1",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/determinant-wire-evidence-40957148406-1",
+   "tip": "5372b2a0eca6a429bf3f3801d9aba15e13f4a4c3",
+   "last_commit_date": "2026-10-29T21:47:49+00:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 37,
+   "protected": false,
+   "recreate_command": "git push origin 5372b2a0eca6a429bf3f3801d9aba15e13f4a4c3:refs/heads/cbz/determinant-wire-evidence-40957148406-1",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/lifetime-e2-e4-implication-20261029",
+   "tip": "f19b254efae612ad5d4f010908cd615ca8c708fb",
+   "last_commit_date": "2026-10-29T17:12:03-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 1,
+   "protected": false,
+   "recreate_command": "git push origin f19b254efae612ad5d4f010908cd615ca8c708fb:refs/heads/cbz/lifetime-e2-e4-implication-20261029",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/lifetime-pair-law-countermodel-20261029",
+   "tip": "5a470bfd739aba22e32b91587d5dfc031a7de3fc",
+   "last_commit_date": "2026-10-29T16:22:24-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 1,
+   "protected": false,
+   "recreate_command": "git push origin 5a470bfd739aba22e32b91587d5dfc031a7de3fc:refs/heads/cbz/lifetime-pair-law-countermodel-20261029",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/lifetime-zero-law-countermodel-20261029",
+   "tip": "cb1fe3d189d94ee207750fc005eadf0596fb9cef",
+   "last_commit_date": "2026-10-29T16:48:53-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 2,
+   "protected": false,
+   "recreate_command": "git push origin cb1fe3d189d94ee207750fc005eadf0596fb9cef:refs/heads/cbz/lifetime-zero-law-countermodel-20261029",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/lifetime-zero-law-integration-20261029",
+   "tip": "36440828402102a840bc6bdffc2e1238ce6e4bea",
+   "last_commit_date": "2026-10-29T17:12:04-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 1,
+   "protected": false,
+   "recreate_command": "git push origin 36440828402102a840bc6bdffc2e1238ce6e4bea:refs/heads/cbz/lifetime-zero-law-integration-20261029",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/lm006-loaded-code-20261029",
+   "tip": "86cbfe0a221c59d5ad27f4318cdf9db2931d02b7",
+   "last_commit_date": "2026-10-29T15:45:37-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 21,
+   "protected": false,
+   "recreate_command": "git push origin 86cbfe0a221c59d5ad27f4318cdf9db2931d02b7:refs/heads/cbz/lm006-loaded-code-20261029",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/lm006-outer-integrated-20261029",
+   "tip": "1f9c9a3b1737e3ecb5d425c32f8e0f1474147087",
+   "last_commit_date": "2026-10-29T16:36:04-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 32,
+   "protected": false,
+   "recreate_command": "git push origin 1f9c9a3b1737e3ecb5d425c32f8e0f1474147087:refs/heads/cbz/lm006-outer-integrated-20261029",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/lm006-outer-red-evidence-20261029",
+   "tip": "5a34759a4e6f81d1fee3c85782b3134f8ad2c3ff",
+   "last_commit_date": "2026-10-29T16:53:29-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 33,
+   "protected": false,
+   "recreate_command": "git push origin 5a34759a4e6f81d1fee3c85782b3134f8ad2c3ff:refs/heads/cbz/lm006-outer-red-evidence-20261029",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/lm006-outer-test-cache-20261029",
+   "tip": "239e5c9ac49f42edc3b88c89bb349fb08b226a93",
+   "last_commit_date": "2026-10-29T16:31:37-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 25,
+   "protected": false,
+   "recreate_command": "git push origin 239e5c9ac49f42edc3b88c89bb349fb08b226a93:refs/heads/cbz/lm006-outer-test-cache-20261029",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/lm006-packet-red-archive-20261029",
+   "tip": "8ae6e0871dd3039e6a3a11373ec78ebf0446504d",
+   "last_commit_date": "2026-10-29T16:32:23-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 24,
+   "protected": false,
+   "recreate_command": "git push origin 8ae6e0871dd3039e6a3a11373ec78ebf0446504d:refs/heads/cbz/lm006-packet-red-archive-20261029",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "cbz/source514-census-diagnostic-20261029",
+   "tip": "3362525918bfe96ce025b25f394a57fa7d7130d9",
+   "last_commit_date": "2026-10-29T16:06:00-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 10,
+   "protected": false,
+   "recreate_command": "git push origin 3362525918bfe96ce025b25f394a57fa7d7130d9:refs/heads/cbz/source514-census-diagnostic-20261029",
    "class": "UNMERGED_NO_PR"
   },
   {
@@ -776,6 +1131,17 @@
    "class": "UNMERGED_NO_PR"
   },
   {
+   "branch": "chatgpt/lm006-oned-replay-20261006-b91e",
+   "tip": "089d87ace030e755511a04735c42c1f91911d4c1",
+   "last_commit_date": "2026-10-06T09:32:20-07:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 4,
+   "protected": false,
+   "recreate_command": "git push origin 089d87ace030e755511a04735c42c1f91911d4c1:refs/heads/chatgpt/lm006-oned-replay-20261006-b91e",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
    "branch": "chatgpt/nav-verdict-word-start-20261006-r10",
    "tip": "902660f3c6277bef9659022466c13ec80279268e",
    "last_commit_date": "2026-10-05T21:00:30-07:00",
@@ -952,6 +1318,28 @@
    "class": "UNMERGED_NO_PR"
   },
   {
+   "branch": "chatgpt/soft-fold-protocol-20261006",
+   "tip": "fedd0056c18093e8862b7f6ac2860dc04f8133b9",
+   "last_commit_date": "2026-10-06T06:09:46-07:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 3,
+   "protected": false,
+   "recreate_command": "git push origin fedd0056c18093e8862b7f6ac2860dc04f8133b9:refs/heads/chatgpt/soft-fold-protocol-20261006",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "chatgpt/third-order-protocol-20261006-37bd-r4",
+   "tip": "9b3387bdc1cd4e1afc29916d7d7c3f9d922af722",
+   "last_commit_date": "2026-10-06T07:24:42-07:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 2,
+   "protected": false,
+   "recreate_command": "git push origin 9b3387bdc1cd4e1afc29916d7d7c3f9d922af722:refs/heads/chatgpt/third-order-protocol-20261006-37bd-r4",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
    "branch": "chatgpt/three-fronts-20260924",
    "tip": "9b5fb7fa0ce3271afb4168dbada4893a53eaf307",
    "last_commit_date": "2026-09-24T12:51:04-05:00",
@@ -996,6 +1384,17 @@
    "class": "UNMERGED_NO_PR"
   },
   {
+   "branch": "claude/nice-maxwell-7i7ok0",
+   "tip": "6d402474a4a9582a151e9f87ab5f69570a2bc58b",
+   "last_commit_date": "2026-10-29T17:20:52+00:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 2,
+   "protected": false,
+   "recreate_command": "git push origin 6d402474a4a9582a151e9f87ab5f69570a2bc58b:refs/heads/claude/nice-maxwell-7i7ok0",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
    "branch": "claude/round4-triage-table-20261011",
    "tip": "43a975ec711f2f6a78d23b43d1fc835cdb741ff5",
    "last_commit_date": "2026-10-11T22:46:08+00:00",
@@ -1004,6 +1403,17 @@
    "commits_ahead_of_main": 1,
    "protected": false,
    "recreate_command": "git push origin 43a975ec711f2f6a78d23b43d1fc835cdb741ff5:refs/heads/claude/round4-triage-table-20261011",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "codex/all-frame-gaussian-rates-20261028",
+   "tip": "5a30296bfc6c9c886d483c87e80e2eb2d9ea047d",
+   "last_commit_date": "2026-10-28T18:09:46-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 4,
+   "protected": false,
+   "recreate_command": "git push origin 5a30296bfc6c9c886d483c87e80e2eb2d9ea047d:refs/heads/codex/all-frame-gaussian-rates-20261028",
    "class": "UNMERGED_NO_PR"
   },
   {
@@ -1059,6 +1469,50 @@
    "commits_ahead_of_main": 3,
    "protected": false,
    "recreate_command": "git push origin f7832c870cf31d4239a3a7d67b557e69029a1be1:refs/heads/codex/compact-cutoff-proof-repair-20261011-root01a11cbf",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "codex/essential-gaussian-rate-20261028",
+   "tip": "de872d97fa54eb11c0834b8f532543222900d165",
+   "last_commit_date": "2026-10-28T17:17:42-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 3,
+   "protected": false,
+   "recreate_command": "git push origin de872d97fa54eb11c0834b8f532543222900d165:refs/heads/codex/essential-gaussian-rate-20261028",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "codex/essential-sharp-asymptotics-20261028",
+   "tip": "fc5ecb67f4a9d6cfb1dec066499ca2daa1147b3b",
+   "last_commit_date": "2026-10-28T19:00:11-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 5,
+   "protected": false,
+   "recreate_command": "git push origin fc5ecb67f4a9d6cfb1dec066499ca2daa1147b3b:refs/heads/codex/essential-sharp-asymptotics-20261028",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "codex/gaussian-lifetime-limit-completion-20261029",
+   "tip": "fdddc7e6b1fd584fa566beaccedd64d177104d10",
+   "last_commit_date": "2026-10-29T11:33:44-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 6,
+   "protected": false,
+   "recreate_command": "git push origin fdddc7e6b1fd584fa566beaccedd64d177104d10:refs/heads/codex/gaussian-lifetime-limit-completion-20261029",
+   "class": "UNMERGED_NO_PR"
+  },
+  {
+   "branch": "codex/gaussian-lifetime-tail-20261028",
+   "tip": "223293d9d26a7a4158026a4225523e8a683a8794",
+   "last_commit_date": "2026-10-28T09:46:01-05:00",
+   "tip_is_ancestor_of_main": false,
+   "is_open_pr_ref": false,
+   "commits_ahead_of_main": 2,
+   "protected": false,
+   "recreate_command": "git push origin 223293d9d26a7a4158026a4225523e8a683a8794:refs/heads/codex/gaussian-lifetime-tail-20261028",
    "class": "UNMERGED_NO_PR"
   },
   {

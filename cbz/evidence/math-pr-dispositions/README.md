@@ -14,55 +14,57 @@ and every Math- branch, the facts an integrator needs for a terminal disposition
 
 - Repository `d6g8k5htny-coder/Math-`, `main` = `8151f592918a845bf19eb8eafaf8444540a32734`
   (the same cut as tag `pre-cbz-discovery-1`).
-- GitHub state fetched 2026-10-29 17:17Z (pull requests, issue comments, reviews, check runs);
-  git refs fetched with `--prune` at the same time: **110 branches** (the REST `branches` listing
-  paginated to 149 earlier that day; the git ref list is the authority, as CBZ-MATH-198 also found).
-- `FETCHED_MANIFEST.json` binds every raw GitHub response by SHA-256 and size. The bodies
-  (7.2 MB) are not committed; the performer retains them and republishes on request. The
-  generator replays from them with `--offline`.
+- Three observation passes on 2026-10-29: 17:17Z (`main` `8151f592`, 26 PRs, 110 branches),
+  17:34Z (28 PRs, 112 branches) and **23:05Z (`main` `9f8dbb4d`, 29 PRs, 153 branches)** — the
+  committed files describe the last one; `meta.observed_at_utc` / `meta.main_sha` say so in each
+  file. Git refs are fetched with `--prune`; the git ref list is the authority (the REST `branches`
+  listing had paginated to a wrong count earlier, as CBZ-MATH-198 also found).
+- `fetched/CONTEXT.json` records the cut (clock, `main` sha, the full `refs/remotes/origin/*`
+  snapshot) and `FETCHED_MANIFEST.json` binds every raw GitHub response by SHA-256 and size. The
+  bodies (≈ 8 MB) are not committed; the performer retains them and republishes on request. The
+  generator replays from them with `--offline`, reusing the recorded clock and refs, and the replay
+  was checked byte-identical to the live run (only `meta.replay` differs: `live` vs
+  `offline from CONTEXT.json`).
 
 ## Results
 
 | Recommended disposition | PRs |
 |---|---:|
-| `QUARANTINE-ARCHIVE` (stale; latest verdict not PASS, or a hold) | 9 |
-| `STACK-DEPENDENT` (base is another branch) | 9 |
-| `INTEGRATE-CANDIDATE` (base `main`, merge-tree clean, required check green, latest verdict PASS/PASS_SCOPED) | 5 |
-| `ACTIVE-OWNER-LANE` (updated within 24 h of observation; their lane's call) | 3 |
-| **Total open PRs** | **26** |
+| `ACTIVE-OWNER-LANE` (updated within 24 h of observation; their lane's call) | 14 |
+| `STACK-DEPENDENT` (base is another branch) | 6 |
+| `QUARANTINE-ARCHIVE` (stale; latest verdict not PASS, or a hold) | 5 |
+| `INTEGRATE-CANDIDATE` (base `main`, merge-tree clean, required check green, latest verdict PASS/PASS_SCOPED) | 4 |
+| **Total open PRs** | **29** |
 
 | Branch class | Branches |
 |---|---:|
-| `OPEN_PR_REF` (head or base of an open PR) | 28 |
-| `UNMERGED_NO_PR` (work not on `main`, no pull request) | 81 |
+| `OPEN_PR_REF` (head or base of an open PR) | 31 |
+| `UNMERGED_NO_PR` (work not on `main`, no pull request) | 121 |
 | `MERGED_NO_PR_PRUNE_ELIGIBLE` | 0 |
 | `PROTECTED` (`main`) | 1 |
 
-So Math- has **no prune-eligible merged branch**; its Phase 2 work is the open PRs and the 81
-PR-less branches (25 last touched in September, 56 in October; 41 are fewer than 10 commits
-ahead of `main`). Every record carries `recreate_command` / `recoverable_ref_command`
+So Math- has **no prune-eligible merged branch**; its Phase 2 work is the open PRs and the
+PR-less branches. Between the first and the third pass the federation itself moved: Root's and
+other Codex lanes created 40 `cbz/*` and `codex/cbz-*` working branches, which the third pass
+classifies `ACTIVE-LANE` / `OPEN_PR_REF` rather than disposing of them. Every record carries `recreate_command` / `recoverable_ref_command`
 (`git push origin <tip>:refs/heads/<name>`), so any later archive or prune is recoverable from
 these files alone.
 
-### The 81 unmerged, PR-less branches (`UNMERGED_BRANCHES.md`, `unmerged_branches.json`; second pass, 17:34Z)
+### The 121 unmerged, PR-less branches (`UNMERGED_BRANCHES.md`, `unmerged_branches.json`; third pass, 23:05Z)
 
 | Recommended disposition | Branches |
 |---|---:|
 | `ARCHIVE-BUNDLE` (distinct work, no PR, stale or conflicting or signalled: bundle + delete, recreate command recorded) | 76 |
-| `SUPERSEDED-BY-OPEN-PR` (tip is an ancestor of an open PR head — rides that PR) | 3 |
-| `SUPERSEDED-CONTENT-ON-MAIN` (every changed blob already equals `main`'s) | 2 |
-| `INTEGRATE-REVIEW` / `ACTIVE-LANE` | 0 |
+| `ACTIVE-LANE` (touched within 24 h — today's `cbz/*` consolidation branches) | 30 |
+| `SUPERSEDED-BY-OPEN-PR` (tip is an ancestor of an open PR head — rides that PR) | 11 |
+| `INTEGRATE-REVIEW` (clean, signal-free, ≤ 50 paths, touched within 14 days) | 2 |
+| `SUPERSEDED-CONTENT-ON-MAIN` (every changed tree entry already equals `main`'s) | 2 |
 
-Facts behind the 76: **24 have unrelated history** (no merge-base with `main`; most are September
-`chatgpt/` and `cursor/` review or custody branches); **41 conflict** with `main` in `merge-tree`;
-13 carry lexical signals; only 4 were touched in the last 14 days. **26 of the 76 are flagged
-`integrable_if_wanted`** (clean merge-tree, zero signals, ≤ 50 paths, related history): a lane that
-still wants one can open a PR for it; otherwise it is archived like the rest. By lane prefix the 81
-are `chatgpt/` 54, `cursor/` 11, `codex/` 9, `claude/` 3, one each `benjamin/`, `copilot/`,
-`inventable/`, `support/`.
-
-The second pass observed 28 open PRs and 112 branches (two PRs opened since 17:17Z, including this
-one); the PR table in `DISPOSITIONS.md` is from the second pass as well.
+Facts behind the 76 `ARCHIVE-BUNDLE` rows (unchanged across the passes): **24 have unrelated
+history** (no merge-base with `main`; most are September `chatgpt/` and `cursor/` review or custody
+branches); **41 conflict** with `main` in `merge-tree`; 13 carry lexical signals; the rest are stale.
+Rows flagged `integrable_if_wanted` (clean merge-tree, zero signals, ≤ 50 paths, related history) can
+still get a PR from a lane that wants them; otherwise they are archived like the rest.
 
 Integrate candidates at observation: #372, #482, #487, #490, #492 (see `DISPOSITIONS.md` for the
 verdict comment each rests on). #482 and #487 carry lexical Layer A signals (`admit` additions in
@@ -85,8 +87,9 @@ guard or a subprocess timeout, so none is a Layer A hazard.
   cleanliness, containment in an open PR head, lane prefix, days since last commit, recommendation
   (`disposition_lib.recommend_branch`) and the `integrable_if_wanted` flag.
 - `generate.py` — the generator (stdlib + git + `gh` REST). `disposition_lib.py` — the pure
-  classification logic. `test_disposition_lib.py`, `test_generate.py` — 43 tests, run in both modes.
-- `FETCHED_MANIFEST.json` — SHA-256/size of every raw GitHub response used.
+  classification logic. `test_disposition_lib.py`, `test_generate.py` — 60 tests, run in both modes.
+- `FETCHED_MANIFEST.json` — SHA-256/size of every raw GitHub response used (including
+  `CONTEXT.json`, the recorded cut).
 - `READINGS.md` — the manual reading of each flagged line (what the lexical signal actually is).
 
 ## Reproduce
@@ -95,10 +98,10 @@ guard or a subprocess timeout, so none is a Layer A hazard.
 cd <Math- clone>
 git fetch origin '+refs/heads/*:refs/remotes/origin/*' --prune
 cd cbz/evidence/math-pr-dispositions
-python3 -W error -m unittest test_disposition_lib test_generate   # 43 tests
+python3 -W error -m unittest test_disposition_lib test_generate   # 60 tests
 python3 -O -m unittest test_disposition_lib test_generate
 python3 generate.py --repo <Math- clone> --out .                  # live refetch (writes fetched/)
-python3 generate.py --repo <Math- clone> --out . --offline fetched # replay
+python3 generate.py --repo <Math- clone> --out . --offline fetched # replay of the recorded cut
 ```
 
 A live run observes the federation at a later time and will differ wherever PRs moved; the
@@ -127,5 +130,10 @@ A live run observes the federation at a later time and will differ wherever PRs 
   within 24 h; else INTEGRATE-REVIEW only for a clean, signal-free, ≤ 50-path branch touched within
   14 days; else ARCHIVE-BUNDLE. `integrable_if_wanted` repeats the INTEGRATE-REVIEW conditions
   without the age bound.
+- **Supersession compares tree entries, not blob ids alone.** Changed paths are listed NUL-delimited
+  with rename detection off (a rename is its deletion plus its addition; non-ASCII names are literal),
+  and each path's `(mode, object id)` on the head must equal `main`'s, so a chmod-only change, a
+  rename whose source survives on `main`, or a file `main` lacks is never "already on main" (four
+  Codex findings on #529, each with a regression test).
 - Check-run conclusions are those recorded at the PR head at observation time, not fresh runs
   (B-005): an integrator re-runs on the current base before merging.

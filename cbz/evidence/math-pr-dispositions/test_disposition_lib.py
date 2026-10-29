@@ -81,6 +81,11 @@ class LayerASignalTests(unittest.TestCase):
         s = lib.layer_a_signals(CLEAN_DIFF)
         self.assertEqual(sum(s.values()), 0)
 
+    def test_quoted_diff_header_paths_still_classify_as_lean(self):
+        quoted = LEAN_DIFF.replace('diff --git a/formal/A.lean b/formal/A.lean',
+                                   'diff --git "a/formal/\\303\\251.lean" "b/formal/\\303\\251.lean"')
+        self.assertEqual(lib.layer_a_signals(quoted)['lean_sorry_added'], 1)
+
     def test_signal_keys_are_stable(self):
         self.assertEqual(sorted(lib.layer_a_signals('').keys()), sorted(lib.SIGNAL_KEYS))
 
@@ -243,6 +248,29 @@ class GitHelperTests(unittest.TestCase):
     def test_blob_equality_against_main(self):
         self.assertTrue(lib.all_changed_blobs_equal(self.repo, 'samebytes', 'main'))
         self.assertFalse(lib.all_changed_blobs_equal(self.repo, 'conflict', 'main'))
+
+    def test_rename_is_not_superseded_by_an_identical_copy_on_main(self):
+        # branch renames a.txt -> c.txt; main independently has an identical c.txt but keeps a.txt
+        self.git('checkout', '-q', '-b', 'renamer', 'main')
+        self.git('mv', 'a.txt', 'c.txt'); self.git('commit', '-q', '-m', 'rename')
+        self.git('checkout', '-q', 'main')
+        _write(os.path.join(self.repo, 'c.txt'), 'one\n'); self.git('add', 'c.txt'); self.git('commit', '-q', '-m', 'copy')
+        self.assertFalse(lib.all_changed_blobs_equal(self.repo, 'renamer', 'main'))
+
+    def test_mode_only_change_is_not_superseded(self):
+        self.git('checkout', '-q', '-b', 'chmod', 'main')
+        os.chmod(os.path.join(self.repo, 'a.txt'), 0o755)
+        self.git('update-index', '--chmod=+x', 'a.txt'); self.git('commit', '-q', '-m', 'chmod')
+        self.git('checkout', '-q', '-f', 'main')
+        self.assertFalse(lib.all_changed_blobs_equal(self.repo, 'chmod', 'main'))
+
+    def test_non_ascii_path_is_compared_literally(self):
+        self.git('checkout', '-q', '-b', 'unicode', 'main')
+        _write(os.path.join(self.repo, 'é.lean'), 'theorem t : True := by sorry\n')
+        self.git('add', 'é.lean'); self.git('commit', '-q', '-m', 'unicode')
+        self.git('checkout', '-q', 'main')
+        self.assertFalse(lib.all_changed_blobs_equal(self.repo, 'unicode', 'main'))
+        self.assertEqual(lib.changed_paths(self.repo, 'main', 'unicode'), ['é.lean'])
 
     def test_merge_tree_cleanliness(self):
         self.assertTrue(lib.merge_tree_clean(self.repo, 'main', 'samebytes'))

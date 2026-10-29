@@ -66,8 +66,8 @@ def build_pr_record(repo, pr, *, main_sha, comments, reviews, check_runs, now, o
     base_is_main = base_ref == 'main'
     base_rev = main_sha if base_is_main else f'refs/remotes/origin/{base_ref}'
     merge_base = _git(repo, 'merge-base', head, main_sha).strip()
-    changed = [p for p in _git(repo, 'diff', '--name-only', merge_base, head).splitlines() if p]
-    diff_text = _git(repo, 'diff', merge_base, head, '--', *changed) if changed else ''
+    changed = lib.changed_paths(repo, merge_base, head)
+    diff_text = _git(repo, '-c', 'core.quotePath=false', 'diff', '--no-renames', merge_base, head, '--', *changed) if changed else ''
     signals = lib.layer_a_signals(diff_text)
     verdict = lib.latest_verdict(comments)
     req = [c for c in check_runs if c.get('name') == REQUIRED_CHECK]
@@ -113,15 +113,32 @@ def build_pr_record(repo, pr, *, main_sha, comments, reviews, check_runs, now, o
     return rec
 
 
-def build_branch_records(repo, *, main_sha, open_pr_refs, protected):
+def list_refs(repo):
+    """Snapshot of refs/remotes/origin/* as {branch name: tip sha}; recorded in CONTEXT.json for replay."""
+    out = {}
+    for line in _git(repo, 'for-each-ref', '--format=%(refname)%09%(objectname)', 'refs/remotes/origin/').splitlines():
+        ref, tip = line.split('\t')
+        name = ref[len('refs/remotes/origin/'):]
+        if name != 'HEAD':
+            out[name] = tip
+    return out
+
+
+def observation_context(repo, *, offline_dir, now):
+    """The cut a run describes. Live: the clone's origin/main, its ref snapshot and the clock. Offline:
+    the recorded CONTEXT.json, so a replay reproduces the committed observation (Codex finding on #529)."""
+    if offline_dir:
+        ctx_path = os.path.join(offline_dir, 'CONTEXT.json')
+        if os.path.exists(ctx_path):
+            return _load(ctx_path)
+    return {'observed_at_utc': now, 'main_sha': _git(repo, 'rev-parse', 'refs/remotes/origin/main').strip(),
+            'refs': list_refs(repo)}
+
+
+def build_branch_records(repo, *, main_sha, refs, open_pr_refs, protected):
     out = []
-    lines = _git(repo, 'for-each-ref', '--format=%(refname:short)%09%(objectname)%09%(committerdate:iso-strict)',
-                 'refs/remotes/origin/').splitlines()
-    for line in lines:
-        ref, tip, date = line.split('\t')
-        name = ref.split('/', 1)[1] if ref.startswith('origin/') else ref
-        if name == 'HEAD':
-            continue
+    for name, tip in sorted(refs.items()):
+        date = _git(repo, 'log', '-1', '--format=%cI', tip).strip()
         is_prot = name in protected or name == 'main'
         rec = {
             'branch': name, 'tip': tip, 'last_commit_date': date,
@@ -136,24 +153,20 @@ def build_branch_records(repo, *, main_sha, open_pr_refs, protected):
     return sorted(out, key=lambda r: (r['class'], r['branch']))
 
 
-def build_unmerged_branch_records(repo, *, main_sha, branches, open_pr_heads, now):
-    """Content facts for branches that are unmerged and have no PR. ``open_pr_heads`` maps head ref -> sha."""
+def build_unmerged_branch_records(repo, *, main_sha, branches, refs, open_pr_heads, now):
+    """Content facts for branches that are unmerged and have no PR. ``refs`` maps branch name -> tip sha
+    (the recorded ref snapshot); ``open_pr_heads`` maps head ref -> sha."""
     out = []
     for name in branches:
-        tip = _git(repo, 'rev-parse', f'refs/remotes/origin/{name}').strip()
+        tip = refs[name]
         mb = subprocess.run(['git', '-C', repo, 'merge-base', tip, main_sha], capture_output=True, text=True)
         merge_base = mb.stdout.strip() if mb.returncode == 0 else None
         unrelated = merge_base is None
         base_for_diff = merge_base or EMPTY_TREE
-        changed = [p for p in _git(repo, 'diff', '--name-only', base_for_diff, tip).splitlines() if p]
-        diff_text = _git(repo, 'diff', base_for_diff, tip, '--', *changed) if changed else ''
+        changed = lib.changed_paths(repo, base_for_diff, tip)
+        diff_text = _git(repo, '-c', 'core.quotePath=false', 'diff', '--no-renames', base_for_diff, tip, '--', *changed) if changed else ''
         signals = lib.layer_a_signals(diff_text)
-        equal = 0
-        for p in changed:
-            h = subprocess.run(['git', '-C', repo, 'rev-parse', '-q', '--verify', f'{tip}:{p}'], capture_output=True, text=True)
-            m = subprocess.run(['git', '-C', repo, 'rev-parse', '-q', '--verify', f'{main_sha}:{p}'], capture_output=True, text=True)
-            if h.returncode == 0 and m.returncode == 0 and h.stdout.strip() == m.stdout.strip():
-                equal += 1
+        equal = sum(1 for p in changed if lib.tree_entry(repo, tip, p) == lib.tree_entry(repo, main_sha, p))
         container = next((h for h, sha in sorted(open_pr_heads.items()) if lib.is_ancestor(repo, tip, sha)), False)
         last = _git(repo, 'log', '-1', '--format=%cI', tip).strip()
         days = (_parse(now) - _parse(last)).days
@@ -271,9 +284,13 @@ def main(argv=None):
     ap.add_argument('--protected', default='main', help='comma-separated protected branch names')
     a = ap.parse_args(argv)
 
-    now = dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace('+00:00', 'Z')
-    main_sha = _git(a.repo, 'rev-parse', 'refs/remotes/origin/main').strip()
+    clock = dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace('+00:00', 'Z')
     fetched_dir = a.offline or os.path.join(a.out, 'fetched')
+    ctx = observation_context(a.repo, offline_dir=a.offline, now=clock)
+    now, main_sha, refs = ctx['observed_at_utc'], ctx['main_sha'], ctx['refs']
+    if not a.offline:
+        os.makedirs(fetched_dir, exist_ok=True)
+        _dump(ctx, os.path.join(fetched_dir, 'CONTEXT.json'))
     prs, data = load_offline(fetched_dir) if a.offline else fetch_all(a.owner_repo, fetched_dir)
     open_heads = {pr['head']['ref'] for pr in prs}
     open_refs = open_heads | {pr['base']['ref'] for pr in prs}
@@ -282,13 +299,14 @@ def main(argv=None):
     pr_records = [build_pr_record(a.repo, pr, main_sha=main_sha, comments=data[pr['number']]['comments'],
                                   reviews=data[pr['number']]['reviews'], check_runs=data[pr['number']]['check_runs'],
                                   now=now, open_pr_heads=open_heads) for pr in sorted(prs, key=lambda p: p['number'])]
-    branch_records = build_branch_records(a.repo, main_sha=main_sha, open_pr_refs=open_refs, protected=protected)
+    branch_records = build_branch_records(a.repo, main_sha=main_sha, refs=refs, open_pr_refs=open_refs, protected=protected)
     unmerged_names = [r['branch'] for r in branch_records if r['class'] == 'UNMERGED_NO_PR']
     unmerged_records = build_unmerged_branch_records(
-        a.repo, main_sha=main_sha, branches=unmerged_names,
+        a.repo, main_sha=main_sha, branches=unmerged_names, refs=refs,
         open_pr_heads={pr['head']['ref']: pr['head']['sha'] for pr in prs}, now=now)
 
     meta = {'observed_at_utc': now, 'repository': a.owner_repo, 'main_sha': main_sha,
+            'replay': 'offline from CONTEXT.json' if a.offline else 'live',
             'open_pr_count': len(pr_records), 'branch_count': len(branch_records),
             'disposition_counts': {}, 'branch_class_counts': {}, 'note': (
                 'Evidence only. layer_a_signals are lexical hits on added/removed diff lines, never certification. '
