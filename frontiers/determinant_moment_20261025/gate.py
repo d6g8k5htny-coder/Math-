@@ -419,8 +419,13 @@ def source_check():
     require(lean_files == set(m['source_modules']) | {'ResearchFormalCoreR1.lean'}, 'unregistered Lean module')
     return m, sha(raw)
 
-def run(command, label, out, expect_success=True):
-    result = subprocess.run(command, cwd=ROOT, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=900)
+def run(command, label, out, expect_success=True, cwd=None):
+    environment = os.environ.copy()
+    for key in ('LEAN_PATH', 'LEAN_SRC_PATH'):
+        environment.pop(key, None)
+    result = subprocess.run(command, cwd=ROOT if cwd is None else cwd, text=True,
+                            stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                            timeout=900, env=environment)
     (out / (label + '.log')).write_text(result.stdout)
     print(label + ': exit ' + str(result.returncode), flush=True)
     require((result.returncode == 0) == expect_success, 'unexpected process outcome: ' + label + '\n' + result.stdout[-6000:])
@@ -454,9 +459,10 @@ def execute(m, digest):
     if m.get('compiled_inventory_version') == 2:
         # The unchanged core's injection payloads run through the same exact
         # determinant policy as the positive inventory, with frozen bindings.
-        compiled_admission = _determinant.compiled_admission(m, inventory, out, package_root=ROOT)
+        compiled_admission = _determinant.compiled_admission(m, inventory, out, package_root=ROOT, runner=run)
     else:
         _compiled.ROOT = ROOT
+        _compiled.run = run
         compiled_admission = _compiled.compiled_admission(m, modules, inventory, bound, out)
     # Real counterexample/mutation controls, not comparisons of fixed labels.
     cases = {
