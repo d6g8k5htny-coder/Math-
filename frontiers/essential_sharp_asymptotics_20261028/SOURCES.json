@@ -1,0 +1,195 @@
+{
+  "schema": "essential-sharp-asymptotics-sources/v1",
+  "sources": [
+    {
+      "id": "AF",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "5a30296bfc6c9c886d483c87e80e2eb2d9ea047d",
+      "path": "frontiers/all_frame_gaussian_rates_20261028/PROOF.md",
+      "bytes": 24938,
+      "sha256": "26c41fb4df2bc7d1efac25dbfaab4822dbf2b17ebc7f77a108975a8a35e36d20",
+      "git_blob": "65383cce52617d2a1bd908b3b57579debbcc74d6",
+      "role": "Declared spectral class, exact pin right inverse, covariance gap, C4 Gaussian norm, original determinant/normalizer estimates and conditional translation; conventional author-side source, not accepted by this citation."
+    },
+    {
+      "id": "CW",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "5a30296bfc6c9c886d483c87e80e2eb2d9ea047d",
+      "path": "frontiers/all_frame_gaussian_rates_20261028/CRITICAL_WINDOW.md",
+      "bytes": 13380,
+      "sha256": "16d15a49b5c484205c85b00d10b26c173072c946ee5be7f7da2c1d3a4ce97b17",
+      "git_blob": "520e22f219c2a6e63f229fe20755be2188b4ab50",
+      "role": "Deterministic ridge/Hermite stability and original weighted fixed-tau global essential formula. No in-law statement is silently replaced by a shared random limit; new couplings are explicit."
+    },
+    {
+      "id": "AF_SOURCES",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "5a30296bfc6c9c886d483c87e80e2eb2d9ea047d",
+      "path": "frontiers/all_frame_gaussian_rates_20261028/SOURCES.json",
+      "bytes": 7301,
+      "sha256": "7c19a1429c7d8fc2a7193dedbb0277c70f0b75ca7253813509ba0f0ee84c218d",
+      "git_blob": "a40d14fe2eda28363e23187e7a8270e8e3dc9a01",
+      "role": "Transitive exact source identities and reading restrictions for both predecessor proofs. Source bytes below repeat these identities, not their scientific verdicts."
+    },
+    {
+      "id": "AF_UPPER",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "223293d9d26a7a4158026a4225523e8a683a8794",
+      "path": "frontiers/gaussian_lifetime_exponential_tail_20261028/PROOF.md",
+      "bytes": 12843,
+      "sha256": "3dd4469511507bedf075777741f98bfbc082b6b2b5955702cfa11779c79e0ea1",
+      "git_blob": "b7c9f1dfb3c14301d192df3720d15b76fac6fb78",
+      "role": "Predecessor source-derived Gaussian upper proof. Section 7 reconstructs the argument for the declared spectral class; its old full-spectrum scope is not automatically transferred."
+    },
+    {
+      "id": "AF_UPPER_SOURCES",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "223293d9d26a7a4158026a4225523e8a683a8794",
+      "path": "frontiers/gaussian_lifetime_exponential_tail_20261028/SOURCES.json",
+      "bytes": 4816,
+      "sha256": "4969e41a1be3707c55630d0509bb942d8528b283801bf116bd66f09a6ad83f8b",
+      "git_blob": "21331d2617f70a03f68813d709107981ab071fe6",
+      "role": "Exact transitive predecessor identity set; its P/ERR/REC reading rules remain applicable."
+    },
+    {
+      "id": "AF_AXIS",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "de872d97fa54eb11c0834b8f532543222900d165",
+      "path": "frontiers/essential_gaussian_rate_20261028/PROOF.md",
+      "bytes": 11930,
+      "sha256": "8e75f467dfd91bbffce448b92e17af8a76c0c3f2f13616534973dffe437f4172",
+      "git_blob": "9d6c1c70fd95669d445fc957978447c2c36bd6c4",
+      "role": "Previous coordinate-axis essential lower rate, exact finite template and conditional Gaussian symmetry argument. All-frame construction is derived anew."
+    },
+    {
+      "id": "AF_AXIS_SOURCES",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "de872d97fa54eb11c0834b8f532543222900d165",
+      "path": "frontiers/essential_gaussian_rate_20261028/SOURCES.json",
+      "bytes": 3758,
+      "sha256": "d39767aec1972358886db1028af718feb49259961e68efa5bf8e86803da515c3",
+      "git_blob": "b893822a19482613937ece194ea9d2dd8f4d57ae",
+      "role": "Transitive exact identity set and scope limitations for axis predecessor."
+    },
+    {
+      "id": "AF_AXIAL",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "223293d9d26a7a4158026a4225523e8a683a8794",
+      "path": "frontiers/sharp_axial_escape_20261026/PROOF.md",
+      "bytes": 9974,
+      "sha256": "bd390073859b5842d9386fac8eda6122ce8fbe51f501e4951dc5c75a30d4f5d5",
+      "git_blob": "5453bc7b70fc2a4c9155f5e48d5060c882d10d2c",
+      "role": "Sharp deterministic axial escape and finite-death size bound; no Gaussian or marked-law premise supplied by this source."
+    },
+    {
+      "id": "AF_P",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/lifetime_moment_boundary_20260930/sources/P.md",
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "role": "Sections 1-5 original covariance/pin/weight conventions and Fourier spectrum, read with ERR and REC; cap selection is not used."
+    },
+    {
+      "id": "AF_ERR",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/lifetime_moment_boundary_20260930/sources/ERR.md",
+      "bytes": 1782,
+      "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028",
+      "git_blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+      "role": "Corrected Hessian congruence inherited from the upper-bound proof."
+    },
+    {
+      "id": "AF_REC",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/lifetime_moment_boundary_20260930/sources/REC.md",
+      "bytes": 23312,
+      "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da",
+      "git_blob": "75da2597971510f843f8d90c743950cb8c177342",
+      "role": "In-law correction, embedded-radius source conventions and retained parent identities; acceptance labels are historical, not transferred."
+    },
+    {
+      "id": "AF_CM",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/sard_g_pinned_transfer_20260929/PROOF.md",
+      "bytes": 8912,
+      "sha256": "6cef00efb0e4e3b0cc3a85a0f43468a22b7d2dba1525cd8489d45dfd375667bd",
+      "git_blob": "314e38c6f5f2bd78da79e423f30a341a3d45e22c",
+      "role": "Section 4 M1: conditional Cameron-Martin kernel subspace with inherited norm; no whole Sard theorem, localized input(L), or Morse-Smale premise is consumed."
+    },
+    {
+      "id": "AF_C127",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/planar_soft_layer_chain_20261003/C127/FINITE_R_INTERPOLATION.md",
+      "bytes": 18630,
+      "sha256": "c4f169c270bacd90ab357eb8b69a66533cc917c74279d5725b0dcd3673918187",
+      "git_blob": "a63449a575e365387bafbc110351730edc572e4d",
+      "role": "Related finite periodic dual interpolation, checked for reuse. Its planar remote-tail setting is not consumed as the present all-frame coalescing inverse."
+    },
+    {
+      "id": "AF_C96",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/planar_soft_layer_chain_20261003/C96/PROOF.md",
+      "bytes": 7913,
+      "sha256": "0758b5de8f4d9e4658ca3c6cf3e52c23d8e12f77999e9c3668ef0bedb15a05f5",
+      "git_blob": "93e3734279f024a7d253076a7d93712def5779ab",
+      "role": "Only dimension-independent Section 1 ordinary-superlevel H0 maximin/elder identification; no planar stochastic assumptions transferred."
+    },
+    {
+      "id": "AF_ST",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/compact_morse_elder_adapter_20261018/inputs/main/experiments/universality/fold_structural_universality/PROOF.md",
+      "bytes": 43927,
+      "sha256": "3d952a906553d578876456539a8f0dcd64aedd45099e8394cbe9db99866ec531",
+      "git_blob": "483d779cfdfdcea0bd8d0ec47c9fdaeff485fd4b",
+      "role": "Only conventional component/essential identity in Section 2. The all-order IsSmooth formal interface is not literally instantiated with C4; Section 11 supplies a finite-regularity argument."
+    },
+    {
+      "id": "AF_CUSP",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/cusp_second_order_20261001/PROOF.md",
+      "bytes": 52605,
+      "sha256": "cffc1b83ac364da58bd650c3c301ea1babd38e19af54f74010bdc120edce38a8",
+      "git_blob": "f6df5a7356a54771b0052e42a864a140709903ad",
+      "role": "CU.2 is the existing quartic model and local elder sector; CU.3 is consumed only as its self-contained deterministic C2 window decision theorem. CU.4 and Remark 8.1 are priority/comparison sources for the existing normalizer and cubic small-kappa window integral, not stochastic assumptions imported into the new spectral class. Historical statuses and all transitive stochastic results are not transferred."
+    },
+    {
+      "id": "QUINTIC",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/elder_cusp_parity_20261002/PROOF.md",
+      "bytes": 51848,
+      "sha256": "35b9c5943cf35919f2046ba194945ba759be654edf5d5ad77ba17b1f5c5377fd",
+      "git_blob": "16a1db0658918057ff741df888c13702763d9919",
+      "role": "Equation (0.1) existing quintic ridge coefficient Q1 and its polynomial adjugate formulation, attributed/reused. No higher-order stochastic law is imported."
+    },
+    {
+      "id": "A4_SCOPE",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/gaussian_a4_elder_sector_20261017/PROOF.md",
+      "bytes": 32065,
+      "sha256": "abed6f94da080a33458b78f1e60ae92ad90083323af41d241de05939d4377ff0",
+      "git_blob": "86371a58bdb12d86158c79dcc0c91da01c7c3e5b",
+      "role": "Comparison only: Section9 excludes vanishing fifth ridge derivative and sixth-order contact; not a premise of the new tiny-gap argument."
+    },
+    {
+      "id": "OLD_SMALL_GAP",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "reviews/contact_kernel_tail_20260925/KERNEL_TAILS_AND_SMALL_GAP.md",
+      "bytes": 10870,
+      "sha256": "5faa183452ec548ee1116dd199d250f597afc0fc6de3908b37a6fd4f0dcf8e76",
+      "git_blob": "4d03f110ac82a4d876f97d1910fe997b128c6ca9",
+      "role": "Comparison only: its sixth-order small-gap law concerns a different cubic off-axis witness kernel, not global essentiality or an exchange of limits."
+    }
+  ]
+}
