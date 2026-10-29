@@ -1,0 +1,27 @@
+name: Determinant dependency root symlink diagnostics
+'on':
+  push:
+    branches: [cbz/determinant-dependency-symlink-20261029]
+    paths:
+      - 'cbz/verification/determinant_custody/test_custody.py'
+      - 'frontiers/determinant_moment_20261025/gate.py'
+      - '.github/workflows/cbz-determinant-dependency-symlink.yml'
+permissions:
+  contents: read
+jobs:
+  dependency-symlink:
+    runs-on: ubuntu-24.04-arm
+    strategy:
+      fail-fast: false
+      matrix:
+        mode: [normal, optimized]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Real Git dependency symlink controls
+        run: |
+          set -euo pipefail
+          flags=''
+          if [ "${{ matrix.mode }}" = optimized ]; then flags='-O'; fi
+          python3 -B -S $flags -m unittest discover -s cbz/verification/determinant_custody -p test_custody.py -k dependency_root_symlink -k dependency_packages_ancestor_symlink -v

@@ -381,6 +381,23 @@ class DependencyCustody(unittest.TestCase):
         spec.loader.exec_module(self.gate)
         self.gate.ROOT = self.root
 
+    def test_dependency_root_symlink_is_rejected(self):
+        outside = self.root / "outside-dependency"
+        self.dep.rename(outside)
+        self.dep.symlink_to(outside, target_is_directory=True)
+        self.assertEqual(git(self.dep, "rev-parse", "HEAD"), self.m["dependency_revisions"]["dep"])
+        with self.assertRaisesRegex(ValueError, "dependency.*symlink"):
+            self.gate.dependency_state(self.m)
+
+    def test_dependency_packages_ancestor_symlink_is_rejected(self):
+        packages = self.dep.parent
+        outside = self.root / "outside-packages"
+        packages.rename(outside)
+        packages.symlink_to(outside, target_is_directory=True)
+        self.assertEqual(git(self.dep, "rev-parse", "HEAD"), self.m["dependency_revisions"]["dep"])
+        with self.assertRaisesRegex(ValueError, "dependency.*symlink"):
+            self.gate.dependency_state(self.m)
+
     def test_clean_dependency_is_admitted(self):
         self.assertEqual(self.gate.dependency_state(self.m), self.m["dependency_revisions"])
 
