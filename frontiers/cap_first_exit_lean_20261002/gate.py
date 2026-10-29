@@ -120,6 +120,23 @@ def audit_axioms(text, targets, allowed):
     return records
 
 
+def load_admission(repo, metadata):
+    """Verify fixed helper bytes BEFORE executing them; never trust a manifest path."""
+    require(isinstance(metadata, dict) and set(metadata) == {'helper_sha256', 'census', 'continuations', 'declarations'},
+            'source declaration census metadata malformed')
+    digest = metadata['helper_sha256']
+    require(isinstance(digest, str) and re.fullmatch(r'[0-9a-f]{64}', digest), 'invalid admission helper hash')
+    helper = repo / 'tools' / 'lean_packet_admission.py'
+    require(all(not part.is_symlink() for part in (helper, *helper.parents)),
+            'symlink admission helper')
+    require(helper.is_file(), 'missing admission helper')
+    data = helper.read_bytes()
+    require(sha(data) == digest, 'admission helper hash mismatch')
+    # Execute exactly the verified bytes, without importlib's second read or pyc cache.
+    namespace = {'__name__': '_verified_lean_packet_admission', '__file__': str(helper)}
+    exec(compile(data, str(helper), 'exec'), namespace)
+    return namespace
+
 def source_check(root=None, repo=None):
     root = ROOT if root is None else root  # resolved at call time, not bound at import
     repo = REPO if repo is None else repo
@@ -148,12 +165,23 @@ def source_check(root=None, repo=None):
                         if not SKIP_DIRS & set(p.relative_to(root).parts))
     require(lean_files == [MODULE + '.lean'], 'unexpected Lean files: ' + repr(lean_files))
     text = (root / (MODULE + '.lean')).read_text()
+    admission = load_admission(repo, m.get('source_admission'))
+    continuation_bindings = m['source_admission']['continuations']
+    require(isinstance(continuation_bindings, dict) and set(continuation_bindings) == {MODULE},
+            'source continuation module inventory mismatch')
+    require(continuation_bindings[MODULE] is not None, 'unsupported missing source continuation binding')
+    declaration_bindings = m['source_admission']['declarations']
+    require(isinstance(declaration_bindings, dict) and set(declaration_bindings) == {MODULE},
+            'source declaration header module inventory mismatch')
+    require(declaration_bindings[MODULE] is not None, 'unsupported missing source declaration header binding')
+    source_census = admission['census'](text, MODULE, continuation_bindings[MODULE], declaration_bindings[MODULE])
+    admission['check_census'](source_census, m['source_admission']['census'])
     code = strip_comments(text)
     imports = re.findall(r'^import\s+(\S+)', code, re.M)
     require(imports == ['Mathlib'], 'imports must be exactly Mathlib: ' + repr(imports))
     bad = forbidden_tokens(text)
     require(not bad, 'forbidden tokens in Lean source: ' + repr(bad))
-    decls = declarations(text)
+    decls = [d['name'] for d in source_census if d['kind'] in {'theorem', 'def', 'structure'} and d['privacy'] == 'public']
     require(len(decls) == len(set(decls)), 'duplicate declaration names')
     require(decls == m['targets'], 'declared targets differ from MANIFEST.json')
     require(sorted(m['expected_axioms']) == sorted(m['targets']), 'expected_axioms must cover exactly the targets')

@@ -1,0 +1,12 @@
+FAIL: test_receipt_symlink_is_unlinked_without_touching_target (test_cli_receipt_boundary.CliReceiptBoundaryTests.test_receipt_symlink_is_unlinked_without_touching_target)
+2026-10-29T21:16:12.4657204Z ----------------------------------------------------------------------
+2026-10-29T21:16:12.4657701Z Traceback (most recent call last):
+2026-10-29T21:16:12.4665031Z   File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/tests/test_cli_receipt_boundary.py", line 136, in test_receipt_symlink_is_unlinked_without_touching_target
+2026-10-29T21:16:12.4666069Z     self.assertIn('CBZ_COMPILED_INVENTORY_UNQUALIFIED', result.stderr)
+2026-10-29T21:16:12.4666733Z AssertionError: 'CBZ_COMPILED_INVENTORY_UNQUALIFIED' not found in 'FORMAL_GATE_FAIL: symlink in evidence directory\n'
+2026-10-29T21:16:12.4667250Z 
+2026-10-29T21:16:12.4667439Z ----------------------------------------------------------------------
+2026-10-29T21:16:12.4667855Z Ran 192 tests in 17.191s
+2026-10-29T21:16:12.4668049Z 
+2026-10-29T21:16:12.4668200Z FAILED (failures=1)
+2026-10-29T21:16:12.4878279Z ##[error]Process completed with exit code 1.
