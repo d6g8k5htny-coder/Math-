@@ -1,0 +1,22 @@
+{
+  "schema": "cbz.lm006.packet-cache-red.v1",
+  "source_commit": "2224dd97dd912c85dd0dcddecaa11b5f9eb692a1",
+  "workflow_run": 40951676526,
+  "checks": [
+    {
+      "mode": "normal",
+      "job": 123721131909,
+      "exit": 1,
+      "result": "two intended failures, zero errors",
+      "path": "packet-normal-red.log"
+    },
+    {
+      "mode": "optimized",
+      "job": 123721131358,
+      "exit": 1,
+      "result": "two intended failures, zero errors",
+      "path": "packet-optimized-red.log"
+    }
+  ],
+  "boundary": "Retained timestamp-preserving excerpts begin at the first failing test and end at the actual job exit. Both failures demonstrate execution of poisoned external-cache test and implementation bytecode. These are historical negative observations, not a final gate."
+}

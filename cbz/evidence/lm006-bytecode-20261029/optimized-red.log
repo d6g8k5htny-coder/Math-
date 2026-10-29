@@ -1,0 +1,20 @@
+2026-10-29T20:46:58.3271079Z test_timestamp_valid_poisoned_bytecode_cannot_replace_source (test_lm006_oned_coefficient_replay.ReplayTests.test_timestamp_valid_poisoned_bytecode_cannot_replace_source) ... FAIL
+2026-10-29T20:46:58.3274501Z 
+2026-10-29T20:46:58.3274938Z ======================================================================
+2026-10-29T20:46:58.3279353Z FAIL: test_timestamp_valid_poisoned_bytecode_cannot_replace_source (test_lm006_oned_coefficient_replay.ReplayTests.test_timestamp_valid_poisoned_bytecode_cannot_replace_source)
+2026-10-29T20:46:58.3281297Z ----------------------------------------------------------------------
+2026-10-29T20:46:58.3282377Z Traceback (most recent call last):
+2026-10-29T20:46:58.3290156Z   File "/home/runner/work/Math-/Math-/tests/test_lm006_oned_coefficient_replay.py", line 50, in test_timestamp_valid_poisoned_bytecode_cannot_replace_source
+2026-10-29T20:46:58.3291379Z     self.assertEqual(verified.REPOSITORY,'d6g8k5htny-coder/Math-')
+2026-10-29T20:46:58.3292077Z AssertionError: 'x6g8k5htny-coder/Math-' != 'd6g8k5htny-coder/Math-'
+2026-10-29T20:46:58.3292675Z - x6g8k5htny-coder/Math-
+2026-10-29T20:46:58.3293060Z ? ^
+2026-10-29T20:46:58.3293378Z + d6g8k5htny-coder/Math-
+2026-10-29T20:46:58.3293749Z ? ^
+2026-10-29T20:46:58.3293921Z 
+2026-10-29T20:46:58.3293928Z 
+2026-10-29T20:46:58.3294191Z ----------------------------------------------------------------------
+2026-10-29T20:46:58.3294764Z Ran 1 test in 0.017s
+2026-10-29T20:46:58.3294987Z 
+2026-10-29T20:46:58.3295129Z FAILED (failures=1)
+2026-10-29T20:46:58.3392301Z ##[error]Process completed with exit code 1.

@@ -1,0 +1,56 @@
+2026-10-29T21:01:25.1797459Z test_packet_pyc_implementation_is_not_executed (test_lm006_oned_coefficient_replay.ReplayTests.test_packet_pyc_implementation_is_not_executed) ... FAIL
+2026-10-29T21:01:25.4537982Z test_packet_pyc_test_module_is_not_executed (test_lm006_oned_coefficient_replay.ReplayTests.test_packet_pyc_test_module_is_not_executed) ... FAIL
+2026-10-29T21:01:25.4580167Z 
+2026-10-29T21:01:25.4580479Z ======================================================================
+2026-10-29T21:01:25.4581760Z FAIL: test_packet_pyc_implementation_is_not_executed (test_lm006_oned_coefficient_replay.ReplayTests.test_packet_pyc_implementation_is_not_executed)
+2026-10-29T21:01:25.4583136Z ----------------------------------------------------------------------
+2026-10-29T21:01:25.4583703Z Traceback (most recent call last):
+2026-10-29T21:01:25.4590856Z   File "/home/runner/work/Math-/Math-/tests/test_lm006_oned_coefficient_replay.py", line 176, in _packet_pyc_fixture
+2026-10-29T21:01:25.4591990Z     receipt=mod.execute(self.root,out,'optimized' if sys.flags.optimize else 'normal')
+2026-10-29T21:01:25.4593007Z             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:01:25.4593815Z   File "/tmp/tmpdmm9zak0/repo/tools/lm006_oned_coefficient_replay.py", line 125, in execute
+2026-10-29T21:01:25.4594778Z     try: run_step([sys.executable,*flags,*args],packet,output,name,expected,kind)
+2026-10-29T21:01:25.4595436Z          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:01:25.4596197Z   File "/tmp/tmpdmm9zak0/repo/tools/lm006_oned_coefficient_replay.py", line 89, in run_step
+2026-10-29T21:01:25.4596933Z     if failure is not None: raise ReplayError(failure)
+2026-10-29T21:01:25.4597402Z                             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:01:25.4597855Z trusted_driver.ReplayError: unexpected_exit
+2026-10-29T21:01:25.4598155Z 
+2026-10-29T21:01:25.4598440Z During handling of the above exception, another exception occurred:
+2026-10-29T21:01:25.4598861Z 
+2026-10-29T21:01:25.4599034Z Traceback (most recent call last):
+2026-10-29T21:01:25.4600006Z   File "/home/runner/work/Math-/Math-/tests/test_lm006_oned_coefficient_replay.py", line 187, in test_packet_pyc_implementation_is_not_executed
+2026-10-29T21:01:25.4600985Z     self._packet_pyc_fixture('implementation')
+2026-10-29T21:01:25.4601837Z   File "/home/runner/work/Math-/Math-/tests/test_lm006_oned_coefficient_replay.py", line 180, in _packet_pyc_fixture
+2026-10-29T21:01:25.4603047Z     self.fail('packet tests executed poisoned '+target+' bytecode')
+2026-10-29T21:01:25.4603770Z AssertionError: packet tests executed poisoned implementation bytecode
+2026-10-29T21:01:25.4604251Z 
+2026-10-29T21:01:25.4604429Z ======================================================================
+2026-10-29T21:01:25.4605718Z FAIL: test_packet_pyc_test_module_is_not_executed (test_lm006_oned_coefficient_replay.ReplayTests.test_packet_pyc_test_module_is_not_executed)
+2026-10-29T21:01:25.4606778Z ----------------------------------------------------------------------
+2026-10-29T21:01:25.4607491Z Traceback (most recent call last):
+2026-10-29T21:01:25.4608351Z   File "/home/runner/work/Math-/Math-/tests/test_lm006_oned_coefficient_replay.py", line 176, in _packet_pyc_fixture
+2026-10-29T21:01:25.4609524Z     receipt=mod.execute(self.root,out,'optimized' if sys.flags.optimize else 'normal')
+2026-10-29T21:01:25.4610296Z             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:01:25.4611168Z   File "/tmp/tmp488qtu93/repo/tools/lm006_oned_coefficient_replay.py", line 125, in execute
+2026-10-29T21:01:25.4612156Z     try: run_step([sys.executable,*flags,*args],packet,output,name,expected,kind)
+2026-10-29T21:01:25.4613189Z          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:01:25.4614073Z   File "/tmp/tmp488qtu93/repo/tools/lm006_oned_coefficient_replay.py", line 89, in run_step
+2026-10-29T21:01:25.4614932Z     if failure is not None: raise ReplayError(failure)
+2026-10-29T21:01:25.4615510Z                             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:01:25.4616032Z trusted_driver.ReplayError: unexpected_exit
+2026-10-29T21:01:25.4616389Z 
+2026-10-29T21:01:25.4616695Z During handling of the above exception, another exception occurred:
+2026-10-29T21:01:25.4617189Z 
+2026-10-29T21:01:25.4617363Z Traceback (most recent call last):
+2026-10-29T21:01:25.4618424Z   File "/home/runner/work/Math-/Math-/tests/test_lm006_oned_coefficient_replay.py", line 184, in test_packet_pyc_test_module_is_not_executed
+2026-10-29T21:01:25.4619450Z     self._packet_pyc_fixture('test')
+2026-10-29T21:01:25.4620356Z   File "/home/runner/work/Math-/Math-/tests/test_lm006_oned_coefficient_replay.py", line 180, in _packet_pyc_fixture
+2026-10-29T21:01:25.4621374Z     self.fail('packet tests executed poisoned '+target+' bytecode')
+2026-10-29T21:01:25.4621988Z AssertionError: packet tests executed poisoned test bytecode
+2026-10-29T21:01:25.4622579Z 
+2026-10-29T21:01:25.4622821Z ----------------------------------------------------------------------
+2026-10-29T21:01:25.4623356Z Ran 2 tests in 0.583s
+2026-10-29T21:01:25.4623545Z 
+2026-10-29T21:01:25.4623676Z FAILED (failures=2)
+2026-10-29T21:01:25.4741218Z ##[error]Process completed with exit code 1.

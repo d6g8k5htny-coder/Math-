@@ -1,0 +1,10 @@
+{
+  "schema": "cbz.lm006.loaded-driver-red.v1",
+  "source_commit": "ae3c35b41590ae8494c37602cdf87fc09c6ffb26",
+  "workflow_run": 40950416828,
+  "normal_job": 123716743203,
+  "optimized_job": 123716743638,
+  "normal_excerpt": "normal-red.log",
+  "optimized_excerpt": "optimized-red.log",
+  "observations": "Both modes ran one selected test, zero errors, and failed the named assertion because timestamp-valid poisoned bytecode executed while the recorded source bytes were legitimate."
+}
