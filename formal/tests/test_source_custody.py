@@ -208,6 +208,20 @@ class SourceCustodyTests(unittest.TestCase):
             self.assertEqual(calls, ['kernel'])
             self.assertEqual(receipt['checked_commit'], expected)
 
+    def test_execute_strips_external_lean_search_paths(self):
+        seen = []
+        with mock.patch.dict(os.environ, {'LEAN_PATH': '/untrusted/lean',
+                                          'LEAN_SRC_PATH': '/untrusted/source',
+                                          'LEAN_SYSROOT': '/untrusted/sysroot'}):
+            receipt, calls = self.execute(during=lambda: seen.append({
+                name: os.environ.get(name)
+                for name in ('LEAN_PATH', 'LEAN_SRC_PATH', 'LEAN_SYSROOT')}))
+            self.assertEqual(os.environ['LEAN_PATH'], '/untrusted/lean')
+        self.assertEqual(calls, ['kernel'])
+        self.assertEqual(seen, [{'LEAN_PATH': None, 'LEAN_SRC_PATH': None,
+                                 'LEAN_SYSROOT': None}])
+        self.assertEqual(receipt['checked_commit'], self.git('rev-parse', 'HEAD'))
+
     def test_replace_ref_cannot_redirect_committed_source(self):
         expected = self.git('rev-parse', 'HEAD')
         path = self.root / 'proof.lean'
