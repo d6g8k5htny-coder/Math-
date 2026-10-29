@@ -248,6 +248,8 @@ class SourceCustody(unittest.TestCase):
         baseline = subprocess.CompletedProcess([], 0, stdout='', stderr='test_corrupt_payload_refused (fixture) ... ok\n\nRan 1 test in 0.001s\n\nOK\n')
         counterfeit = subprocess.CompletedProcess([], 2, stdout='', stderr=(
             'FAIL: ' + target + ' (fixture)\n'
+            'in test_corrupt_payload_refused\n'
+            'AssertionError: IntegrityError not raised\n'
             'Ran 1 test in 0.001s\n\nFAILED (failures=1)\n'))
         with mock.patch.object(runner.subprocess, 'run', side_effect=[baseline, counterfeit]):
             result = runner.execute_case(case, work, output)
@@ -269,6 +271,7 @@ class SourceCustody(unittest.TestCase):
         baseline = subprocess.CompletedProcess([], 0, stdout='', stderr='test_corrupt_payload_refused (fixture) ... ok\n\nRan 1 test in 0.001s\n\nOK\n')
         unrelated = subprocess.CompletedProcess([], 1, stdout='', stderr=(
             'FAIL: test_corrupt_payload_refused (fixture)\n'
+            'in test_corrupt_payload_refused\n'
             'AssertionError: unrelated fixture assertion\n'
             'Ran 1 test in 0.001s\n\nFAILED (failures=1)\n'))
         with mock.patch.object(runner.subprocess, 'run', side_effect=[baseline, unrelated]):
