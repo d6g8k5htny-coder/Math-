@@ -1,0 +1,51 @@
+{
+  "checker": {
+    "bytes": 22723,
+    "git_blob": "9f10e31e8575fa1ed002505c7ab1764c61ee9b2f",
+    "sha256": "f671dd52002061a6c91f7cfd45f3a4e6405bf15a723d46258ce79f5f85ad9dc7"
+  },
+  "counts": {
+    "affine_jacobian_and_rare_exponent_cases": 24,
+    "contact_kernel_coefficients": 2,
+    "critical_ui_denominator_counterexamples": 1,
+    "invalid_schur_sign_counterexamples": 3,
+    "inverse_moment_boundary_blocks": 12,
+    "inverse_ui_coefficient_cases": 12,
+    "large_ratio_sign_and_degree_counterexamples": 2,
+    "large_ratio_weight_cases": 288,
+    "mandatory_proofs_hashed": 2,
+    "missing_edge_weight_counterexamples": 1,
+    "one_contact_taylor_monomial_cases": 28,
+    "peano_monomial_radius_cases": 33,
+    "raw_pinned_quartic_cases": 54,
+    "retained_scalar_far_counterexamples": 6,
+    "scalar_split_grid_cases": 4320,
+    "scalar_split_premise_cases": 3247,
+    "schur_congruence_and_psd_shift_cases": 144,
+    "schur_edge_integral_cases": 48,
+    "source_entries_verified": 18,
+    "spectral_integral_cases": 4,
+    "taylor_factor_counterexamples": 1
+  },
+  "proofs": {
+    "INVERSE_MOMENTS.md": {
+      "bytes": 21387,
+      "git_blob": "0aace7f578b572d71f16d7fac61eb3bd5cf1a941",
+      "sha256": "74f30c30033c2b695bee65bb0dd9232ae87bd4eec66cfcc2dc07e33b1470ffd9"
+    },
+    "LARGE_RATIO.md": {
+      "bytes": 18621,
+      "git_blob": "a8f4b3b396747489ebe0656ed93715386e73d0b5",
+      "sha256": "ef431e17fd9bafb6049e90996fb8698ded067aa5386991130ae27968ebee6897"
+    }
+  },
+  "result": "PASS",
+  "scientific_effect": "NONE",
+  "scope": "bounded exact author controls; no continuum proof or independent review",
+  "sources_manifest": {
+    "bytes": 9760,
+    "git_blob": "fa267cf6f773c5660ad66947b43dc3066bc53b08",
+    "sha256": "38deb982e240fc1c878506ed93d5f5f7b83abd6d22ae9815282b0eb8a54b37c4"
+  },
+  "total_control_cases": 8250
+}

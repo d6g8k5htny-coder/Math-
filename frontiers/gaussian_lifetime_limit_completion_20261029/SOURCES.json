@@ -1,0 +1,185 @@
+{
+  "schema": "gaussian-lifetime-limit-completion-sources/v1",
+  "sources": [
+    {
+      "id": "P",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "role": "Original model/weight/pins; Sections1\u20135 covariance, regression and full normalizer; Section6 INDIVIDUAL saddle determinant retaining mixed-square term; Sections7\u20138 global cap implication. Read with ERR/BOREL/REC/CAP; no other theorem is silently imported."
+    },
+    {
+      "id": "ERR",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+      "bytes": 1782,
+      "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028",
+      "git_blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+      "role": "Corrected Hessian congruence for P; preserve its stated normalization."
+    },
+    {
+      "id": "BOREL",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+      "bytes": 9062,
+      "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f",
+      "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+      "role": "Retained Borel/disintegration repair for P; no continuous-mark shortcut."
+    },
+    {
+      "id": "REC",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+      "bytes": 23312,
+      "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da",
+      "git_blob": "75da2597971510f843f8d90c743950cb8c177342",
+      "role": "Retained convergence-IN-LAW and r<L/(4sqrt2) embedding/source reading rules; no status verdict transferred."
+    },
+    {
+      "id": "CAP",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md",
+      "bytes": 15160,
+      "sha256": "0bf922b9203c29088b12388807aa0e2ecd020485eb0f6e919679841b5b2636fc",
+      "git_blob": "0633aca3c2a2882b0de4399da0a75d64c2e6b2e1",
+      "role": "Deterministic cap implication supplying the actual global elder event on G; no local-witness substitution."
+    },
+    {
+      "id": "FIX",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/fixed_r_inverse_lifetime_20260930/PROOF.md",
+      "bytes": 17213,
+      "sha256": "5adef725c1c696adae9bc73a525efe0bfe09d5c07e95ee3f067db9e877283630",
+      "git_blob": "0d4018777d13672c1de1696525512e80b23b7c3c",
+      "role": "Sections3\u20134 local maximum barrier and weighted spectral integral; fixed-r sharp inverse boundary from Sections5\u20136. This source explicitly does not supply contact-uniform UI; that is proved in the new consumer."
+    },
+    {
+      "id": "FIX_SOURCES",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/fixed_r_inverse_lifetime_20260930/SOURCES.json",
+      "bytes": 651,
+      "sha256": "9ca481cd235a0e16ee8175538be0eea2477fbd8340833bc84d6ba995f20cf6e0",
+      "git_blob": "a7a4ebdd902a11f5daf87e0ea8fd93576aa403fa",
+      "role": "Transitive exact identity/reading roles of fixed-r source, not scientific acceptance."
+    },
+    {
+      "id": "LOCAL",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/local_elder_geometry_20260930/PROOF.md",
+      "bytes": 39722,
+      "sha256": "f68038be79b46124b0f9b31205aa6e3682b34b6f5ef81f4a5697ae81f07cc46b",
+      "git_blob": "ef2aa57959ea9f721bbf2316ce94cf616c1c9113",
+      "role": "Existing original Gaussian actual failure-mark law in dimension2, Section8; consumed only for moment transfer with normalized lambda=-h*/k. No new proof priority claimed."
+    },
+    {
+      "id": "LOCAL_SOURCES",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/local_elder_geometry_20260930/SOURCES.json",
+      "bytes": 8233,
+      "sha256": "aefaf14b9177870028dce73a50906d06e472a21d92543f8974c10fc0726fa30a",
+      "git_blob": "d77728d1ce55be3f704685478f70c607f92238cc",
+      "role": "Transitive exact source interfaces and retained conditions for planar marked law."
+    },
+    {
+      "id": "FIBRE",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/concave_fibre_elder_20260930/PROOF.md",
+      "bytes": 23416,
+      "sha256": "5681896a6808f48fb7508914d0860ec508af7646e9e706fc260d935dd951c75e",
+      "git_blob": "923d3236b5291a29bd162937f172190db84dcef5",
+      "role": "Existing actual failure-mark law for each fixed dimension>=3, Sections5\u20136; consumed only for moment transfer at its fixed-parameter scope."
+    },
+    {
+      "id": "FIBRE_SOURCES",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/concave_fibre_elder_20260930/SOURCES.json",
+      "bytes": 7186,
+      "sha256": "b97a29ea09f8e8270bfddda8f364f0d61e431e30c1681af4b019f3fb48709a4d",
+      "git_blob": "f072e1bb5c79456be3c79451b6df5b287807edfa",
+      "role": "Transitive exact source interfaces/conditions for higher-dimensional marked law."
+    },
+    {
+      "id": "POSITIVE",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/lifetime_moment_boundary_20260930/PROOF.md",
+      "bytes": 13952,
+      "sha256": "3c69e20a332457211b8b1182a4819ce9b1dda824801f3a90157751f41b8fedf8",
+      "git_blob": "d5ee8abee120a8bec2f6c470e517ff9db4645183",
+      "role": "Section3 existing positive finite-failure moment transfer; used only in the combined q>-2/3 corollary. Essential infinity convention is preserved. Its stated marked-law interface is supplied by LOCAL/FIBRE here."
+    },
+    {
+      "id": "SA",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "fc5ecb67f4a9d6cfb1dec066499ca2daa1147b3b",
+      "path": "frontiers/essential_sharp_asymptotics_20261028/SHARP_ACTION.md",
+      "bytes": 13524,
+      "sha256": "26237d1bc5d1f07875e5e20e6f51483adff332d8c5a8b2f81e23ee2c1f4c6673",
+      "git_blob": "472016cb579e1de87f0993e9d1cfbe3ce315f7c5",
+      "role": "Exact Gaussian LDP normalization, constrained action, even minimizer and strict recovery fields; original C4/cube-three class. Draft candidate, no verdict transferred."
+    },
+    {
+      "id": "SA_SOURCES",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "fc5ecb67f4a9d6cfb1dec066499ca2daa1147b3b",
+      "path": "frontiers/essential_sharp_asymptotics_20261028/SOURCES.json",
+      "bytes": 10756,
+      "sha256": "e16fa50b903d8b2733827f38b9c24db0549c57b9574eaa1cccf9401685171bec",
+      "git_blob": "c12767031488595b0fd390d808b96bfb481881b6",
+      "role": "Transitive source identities/reading restrictions for sharp-action and preceding contact geometry."
+    },
+    {
+      "id": "CW",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "5a30296bfc6c9c886d483c87e80e2eb2d9ea047d",
+      "path": "frontiers/all_frame_gaussian_rates_20261028/CRITICAL_WINDOW.md",
+      "bytes": 13380,
+      "sha256": "16d15a49b5c484205c85b00d10b26c173072c946ee5be7f7da2c1d3a4ce97b17",
+      "git_blob": "520e22f219c2a6e63f229fe20755be2188b4ab50",
+      "role": "Exact fixed-tau global essential formula with original contact weight, regression and deterministic C4 ridge reasoning. No uniform inner-r convergence or joint-limit claim inherited."
+    },
+    {
+      "id": "CW_SOURCES",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "5a30296bfc6c9c886d483c87e80e2eb2d9ea047d",
+      "path": "frontiers/all_frame_gaussian_rates_20261028/SOURCES.json",
+      "bytes": 7301,
+      "sha256": "7c19a1429c7d8fc2a7193dedbb0277c70f0b75ca7253813509ba0f0ee84c218d",
+      "git_blob": "a40d14fe2eda28363e23187e7a8270e8e3dc9a01",
+      "role": "Exact transitive identity set and reading rules of preceding contact theorem."
+    },
+    {
+      "id": "SR",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/soft_rejected_pairs_20261002/PROOF.md",
+      "bytes": 91967,
+      "sha256": "ee2930c1434bb765d11da0690a2abf3ab330d544ce7ede1ae076a4c29e206c75",
+      "git_blob": "271412dbc96a29590f5f805258e15c9e335cb430",
+      "role": "Priority/comparison only: total rejected cusp kernel1/kappa tail and existing negative-sector Gaussian upper bound. Not a new claim and not an essential/global matching lower action."
+    },
+    {
+      "id": "EXTREME",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/elder_partner_extremes_20260930/PROOF.md",
+      "bytes": 17895,
+      "sha256": "db6a857879e5829c0da62e3812faa55be5c140589d6d800a479197c68cc8ddd7",
+      "git_blob": "91f88e392fb8aa947dac4fc81c2b45f783fa66cd",
+      "role": "Comparison only: Section5 fourth-power small-lifetime/inverse threshold belongs to the further sequential distant-partner limiting law; not a premise of the new finite-r/contact-uniform theorem."
+    }
+  ]
+}
