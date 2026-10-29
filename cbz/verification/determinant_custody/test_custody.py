@@ -254,6 +254,28 @@ class SourceCustody(unittest.TestCase):
         self.assertFalse(result['killed_by_intended_assertions'])
 
 
+
+    def test_mutation_grader_rejects_wrong_reason_with_same_test_name(self):
+        from unittest import mock
+        runner_path = DRIVER.parent / 'tests/run_cbz_mutations.py'
+        spec = importlib.util.spec_from_file_location('determinant_wrong_reason_fixture', runner_path)
+        runner = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(runner)
+        case = next(row for row in runner.CASES if row[0] == 'omit-artifact-log-hash')
+        work = self.repo / 'wrong-reason-work'
+        output = self.repo / 'wrong-reason-output'
+        work.mkdir()
+        output.mkdir()
+        baseline = subprocess.CompletedProcess([], 0, stdout='', stderr='Ran 1 test in 0.001s\n\nOK\n')
+        unrelated = subprocess.CompletedProcess([], 1, stdout='', stderr=(
+            'FAIL: test_corrupt_payload_refused (fixture)\n'
+            'AssertionError: unrelated fixture assertion\n'
+            'Ran 1 test in 0.001s\n\nFAILED (failures=1)\n'))
+        with mock.patch.object(runner.subprocess, 'run', side_effect=[baseline, unrelated]):
+            result = runner.execute_case(case, work, output)
+        self.assertFalse(result['killed_by_intended_assertions'])
+
+
 class DependencyCustody(unittest.TestCase):
     def setUp(self):
         tmp = tempfile.TemporaryDirectory()
