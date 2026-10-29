@@ -35,3 +35,5 @@ Observed: 40947126080/job123705321047 SUCCESS, 93 enumerated nonterminal runs,
 27 cancellation requests, 63 current/terminal records retained. This is run
 orchestration only and earns no mathematical/test pass.
 Owner: none, self-contained. Criteria: 5, 6, 9.
+
+Successor adds three simulated cancellation outcome/order controls to the seven selection controls and persists an in-flight record before each cancellation request. Run 40950835486 failed after a nonzero cancellation response and produced no partial report; any earlier cancellation requests in that run remain unattributed. The successor remains unqualified until its actual execution is observed. A completed run encountered after a refused POST is recorded as already terminal, not as a successful cancellation.
