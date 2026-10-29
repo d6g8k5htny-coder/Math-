@@ -106,7 +106,7 @@ class OuterEntryTests(unittest.TestCase):
         self.assertIn('DRIVER_REACHED',baseline)
         self.assertIn('\nOK\n',baseline)
         mutant_code,mutant=exercise(self,workflow.replace(anchor,replacement,1),mode,poison_path=True)
-        self.assertNotEqual(mutant_code,0,mutant)
+        self.assertEqual(mutant_code,1,mutant)
         self.assertIn("RuntimeError: POISONED_UNITTEST_PATH",mutant)
         self.assertNotIn('DRIVER_REACHED',mutant)
 

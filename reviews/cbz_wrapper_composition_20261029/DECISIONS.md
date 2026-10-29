@@ -17,3 +17,5 @@
 [2026-10-29 21:30:31 UTC] [phase3] [layer B] Remove inherited PYTHON variables and run the supported LM006 unittest entry using a fresh empty bytecode-cache prefix. Preserve the previously observed same-class driver-cache RED and all existing tests; add an independent direct-script workflow-shell control and exact poisoned-cache source mutation. Pre-repair outer-entry and repaired-source executions are queued and not asserted passing. Reversible:yes. Evidence:cbz/verification/lm006_outer_cache/test_entry.py.
 
 [2026-10-29 21:34:44 UTC] [phase3] [layer B] Add a poisoned PYTHONPATH unittest control and exact environment-scrub mutation; enable the same independent outer-entry workflow on its isolated integration branch. Preserve all prior controls. Execution pending. Reversible:yes. Evidence:cbz/verification/lm006_outer_cache/test_entry.py.
+
+[2026-10-29 21:35:30 UTC] [phase3] [layer B] Require the PYTHONPATH source mutant's exact exit 1 in addition to its intended exception marker; other crashes cannot score as the observed control. Reversible:yes. Evidence:cbz/verification/lm006_outer_cache/test_entry.py. Execution pending.
