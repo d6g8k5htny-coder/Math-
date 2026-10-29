@@ -81,3 +81,13 @@ checks every Git blob identity and reads back the complete untruncated tree.
 It creates a fresh branch parented by the checked tool commit; no shared ref is
 rewritten or deleted. This is byte preservation, not a new mathematical auditor.
 Actual publication remains pending until its readback is observed. Reversible.
+
+[2026-10-29T20:12:53Z] [Phase3] [Layer C] Add nineteen real Git determinant
+source/dependency custody controls before changing production. The existing
+gate checks a mutable manifest and reads HEAD only after execution; Git status
+also misses assume-unchanged/skip-worktree bytes. Tests require exact committed
+source/index/working bytes, loaded program identity and pre/post HEAD, and
+independent dependency bytes. Lean outcomes are mocked only in explicit
+orchestration cases; Git observations are real. Source is unchanged in this
+tests-only RED checkpoint, and no new custody qualification is awarded.
+Reversible; preserve every actual red before implementing the policy.

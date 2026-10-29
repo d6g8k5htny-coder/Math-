@@ -1,0 +1,46 @@
+name: Determinant actual Git source custody
+
+'on':
+  push:
+    branches: ['cbz/determinant-custody-native-20261029']
+    paths:
+      - 'frontiers/determinant_moment_20261025/**'
+      - '.github/workflows/cbz-determinant-custody.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  actual-git-custody:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        mode: [normal, optimized]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.11.16'
+      - name: Actual Git source and dependency custody observations
+        env:
+          CUSTODY_MODE: ${{ matrix.mode }}
+        run: |
+          set -euo pipefail
+          mkdir -p .cbz-determinant-custody
+          flags=''
+          if [ "$CUSTODY_MODE" = optimized ]; then flags='-O'; fi
+          python -B -S $flags -m unittest discover -s frontiers/determinant_moment_20261025/tests -p 'test_determinant_source_custody.py' -v 2>&1 | tee ".cbz-determinant-custody/$CUSTODY_MODE.log"
+      - name: Preserve every actual positive or negative observation
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: determinant-actual-git-custody-${{ matrix.mode }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .cbz-determinant-custody/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 90
