@@ -112,10 +112,11 @@ def invalidate_active_receipt():
     out = ROOT / '.lake' / 'formal-evidence'
     require(not (ROOT / '.lake').is_symlink() and not (ROOT / '.lake/build').is_symlink()
             and not out.is_symlink(), 'symlink build directory')
+    # Unlinking a receipt symlink removes only the link and preserves its target.
+    (out / 'receipt.json').unlink(missing_ok=True)
     if out.exists():
         require(all(not path.is_symlink() for path in out.iterdir()),
                 'symlink in evidence directory')
-    (out / 'receipt.json').unlink(missing_ok=True)
 
 def check_lean_version(text):
     version = text.strip()
