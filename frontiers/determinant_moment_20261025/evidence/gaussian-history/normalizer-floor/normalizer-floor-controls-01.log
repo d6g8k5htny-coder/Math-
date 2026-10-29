@@ -1,0 +1,16 @@
+/workspace/scratch/normalizer-floor/normalizer-floor-controls.lean:22:59: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/workspace/scratch/normalizer-floor/normalizer-floor-controls.lean:27:8: warning: Variable name `q` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _q
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ResearchFormalCoreR1.gn_normalizer_floor_of_common_coupling.{u_1} {Ω : Type u_1} [MeasurableSpace Ω] (P : Measure Ω)
+  [IsProbabilityMeasure P] (X : ℝ → Ω → Fin 6 → ℝ) (hX : ∀ (r : ℝ), Measurable (X r)) (A Q : Ω → ℝ) (m : ℝ) (v : ℝ≥0)
+  (hv : v ≠ 0) (hQ : HasLaw Q (gaussianReal m v) P)
+  (hconv : ∀ᵐ (ω : Ω) ∂P, Tendsto (fun r => X r ω) (𝓝[>] 0) (𝓝 ![-1, 1, -A ω / 2, A ω / 2, Q ω, Q ω]))
+  (hint : ∀ᶠ (r : ℝ) in 𝓝[>] 0, Integrable (fun ω => gn_normalizedWeight r (X r ω)) P) :
+  ∃ c, 0 < c ∧ ∃ δ, 0 < δ ∧ ∀ (r : ℝ), 0 < r → r < δ → c * r ^ 2 ≤ ∫ (ω : Ω), r ^ 2 * gn_normalizedWeight r (X r ω) ∂P
+'ResearchFormalCoreR1.gn_normalizer_floor_of_common_coupling' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -5,6 +5,10 @@ name: C8 cap-failure coefficient in every dimension (certified replay)
     paths:
       - 'frontiers/c8_cap_failure_coefficient_dims_20261001/**'
       - '.github/workflows/c8-cap-failure-coefficient-dims.yml'
+      - 'tools/**'
+      - 'tools.py'
+      - 'tests/test_check_mode_workflows.py'
+      - 'tests/test_legacy_workflow_triggers.py'
       - 'imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md'
       - 'imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md'
       - 'frontiers/spectral_cluster_closure_20260929/PROOF.md'
@@ -21,9 +25,16 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
-      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.11.16'
+      - name: Check trigger coverage and the complete shell rejection contract in both modes
+        env:
+          CHECK_MODE_TEST_FAMILY: 'c8-cap-failure-coefficient-dims'
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python -B -S tests/test_check_mode_workflows.py
+          python -B -O -S tests/test_check_mode_workflows.py
       - name: Verify manifest and main-resident pins, replay the certified values in both interpreter modes, reject mutants
         env:
           PYTHONDONTWRITEBYTECODE: '1'
@@ -51,17 +62,8 @@ jobs:
               blob = hashlib.sha1(b'blob %d\0' % len(data) + data).hexdigest()
               if len(data) != entry['bytes'] or hashlib.sha256(data).hexdigest() != entry['sha256'] or blob != entry['git_blob']:
                   raise ValueError('consumed source identity mismatch on this tree: ' + entry['path'])
-          script = str(root / 'cap_coefficient_dims.py')
-          for flags in (['-B', '-S'], ['-B', '-O', '-S']):
-              out = subprocess.run([sys.executable, *flags, script, '--check'], cwd=root, capture_output=True, timeout=600)
-              if out.returncode != 0:
-                  raise RuntimeError('check failed under ' + ' '.join(flags) + ': ' + out.stdout.decode()[-400:] + out.stderr.decode()[-400:])
-              print(flags, out.stdout.decode().strip()[-300:])
-          for flags in (['-B', '-S'], ['-B', '-O', '-S']):
-              for m in ('no-y-tail', 'r3-one', 'no-bp', 'frob-omega-off'):
-                  rc = subprocess.run([sys.executable, *flags, script, '--check', '--mutant', m], cwd=root, capture_output=True, timeout=600).returncode
-                  if rc != 1:
-                      raise RuntimeError('mutant ' + m + ' not rejected under ' + ' '.join(flags))
+          from tools.check_mode_replay import replay
+          replay('c8-cap-failure-coefficient-dims', root, timeout=600)
           print(json.dumps({'scientific_effect': 'NONE', 'certified_values_replayed': True, 'mutants_rejected': 8}))
           PY
           git diff --exit-code

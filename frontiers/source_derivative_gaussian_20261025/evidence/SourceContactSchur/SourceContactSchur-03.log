@@ -1,0 +1,8 @@
+SourceContactSchur.lean:189:56: error: unsolved goals
+L : ℝ
+hL : L ≠ 0
+this : IsProbabilityMeasure (smoothLaw 2 L)
+hJ : ∀ (i : Fin 6), MemLp (fun ω => sourcePinVector L ω i) 2 (smoothLaw 2 L)
+hQ : MemLp (sourceContactQ L) 2 (smoothLaw 2 L)
+⊢ (of fun i j => cov[fun ω => sourcePinVector L ω i, fun ω => sourcePinVector L ω j; smoothLaw 2 L]) =
+    sourcePinCovariance L

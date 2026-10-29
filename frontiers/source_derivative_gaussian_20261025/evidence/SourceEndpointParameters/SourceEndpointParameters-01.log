@@ -1,0 +1,13 @@
+SourceEndpointParameters.lean:220:37: error: unsolved goals
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+x : Fin 6 → ℝ
+this : IsProbabilityMeasure (smoothLaw 2 L)
+⊢ (smoothLaw 2 L).real Set.univ • (sourceRegressionMapAt L r) x = (sourceRegressionMapAt L r) x
+SourceEndpointParameters.lean:285:27: error: `fun_prop` was unable to prove `AEStronglyMeasurable (fun v => v i) (Measure.map (sourceEndpointPosterior L r x) (smoothLaw 2 L))`
+
+Issues:
+SourceEndpointParameters.lean:285:41: error: `fun_prop` was unable to prove `AEStronglyMeasurable (fun v => v j) (Measure.map (sourceEndpointPosterior L r x) (smoothLaw 2 L))`
+
+Issues:

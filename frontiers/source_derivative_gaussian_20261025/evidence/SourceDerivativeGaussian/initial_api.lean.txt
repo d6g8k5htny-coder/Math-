@@ -1,0 +1,6 @@
+import Mathlib.Probability.Distributions.Gaussian.HasGaussianLaw.Basic
+
+#check I4SourceDerivativeGaussian.derivativeCoefficient_summable
+#check I4SourceDerivativeGaussian.smoothSourceField_derivative_series
+#check I4SourceDerivativeGaussian.scalarSeries_finiteVector_hasGaussianLaw
+#check I4SourceDerivativeGaussian.smoothSourceField_derivativeVector_hasGaussianLaw

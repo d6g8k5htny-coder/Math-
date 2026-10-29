@@ -1,0 +1,6 @@
+import SourceEndpointEstimates
+open I4SourceEndpointEstimates ResearchFormalCoreR1
+-- Replacing the physical r-squared determinant factor by r is false.
+example : sourceEndpointWeight 2 ![-1,1,0,0,-1,-1] = 2 := by
+  norm_num [sourceEndpointWeight, sourcePhysicalCoordinates, egm_weight, egm_HM,
+    egm_HS, dm2_negative_iff, Matrix.det_fin_two]

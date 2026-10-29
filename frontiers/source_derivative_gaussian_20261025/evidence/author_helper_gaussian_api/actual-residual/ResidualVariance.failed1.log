@@ -1,0 +1,6 @@
+/workspace/scratch/regression-kernel/contact-schur/actual-residual/ResidualVariance.lean:27:25: error: Type mismatch
+  hG
+has type
+  @IsUnit (ι → ι → ℝ) Pi.monoid fun i j => cov[fun ω => J ω i, fun ω => J ω j; P]
+but is expected to have type
+  @IsUnit (Matrix ι ι ℝ) semiring.toMonoid G

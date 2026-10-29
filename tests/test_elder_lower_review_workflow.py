@@ -266,7 +266,7 @@ class ElderLowerReviewWorkflow(unittest.TestCase):
                        'permissions:\n  contents: read\n', 'timeout-minutes: 10\n',
                        'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1',
                        'persist-credentials: false',
-                       'actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97',
+                       'actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0',
                        "python-version: '3.11.16'", "PYTHONDONTWRITEBYTECODE: '1'",
                        "python -B -S -m unittest discover -s tests -p 'test_elder_lower_review_workflow.py' -v",
                        "python -B -O -S -m unittest discover -s tests -p 'test_elder_lower_review_workflow.py' -v"):

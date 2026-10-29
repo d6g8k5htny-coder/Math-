@@ -1,0 +1,97 @@
+GaussianWeightedMajorants.lean:26:2: error: Type mismatch: After simplification, term
+  MemLp.integrable_norm_pow' (memLp_id_gaussianReal ↑n)
+ has type
+  @Integrable ℝ PseudoMetricSpace.toUniformSpace.toTopologicalSpace SeminormedAddGroup.toContinuousENorm ℝ
+    Real.measurableSpace (fun x => |id x| ^ n) (gaussianReal 0 1)
+but is expected to have type
+  @Integrable ℝ PseudoMetricSpace.toUniformSpace.toTopologicalSpace SeminormedAddGroup.toContinuousENorm ℝ
+    Real.measurableSpace (fun z => |z| ^ n) (gaussianReal 0 1)
+GaussianWeightedMajorants.lean:36:56: error(lean.invalidField): Invalid field `abs`: The environment does not contain `Function.abs`, so it is not possible to project the field `abs` from an expression
+  hU i
+of type
+  ∀ ⦃t : Set ℝ⦄, MeasurableSet t → MeasurableSet (U i ⁻¹' t)
+GaussianWeightedMajorants.lean:43:15: error: don't know how to synthesize implicit argument `p`
+  @eLpNorm_map_measure Ω inst✝ ?m.48 P ℝ PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    SeminormedAddGroup.toContinuousENorm ℝ Real.measurableSpace (U i) (fun z => ‖z‖)
+    (AEStronglyMeasurable.norm aestronglyMeasurable_id) (hlaw i).aemeasurable
+context:
+I : Type u_1
+Ω : Type u_2
+inst✝ : MeasurableSpace Ω
+P : Measure Ω
+w : I → ℝ
+U : I → Ω → ℝ
+hw0 : ∀ (i : I), 0 ≤ w i
+hlaw : ∀ (i : I), HasLaw (U i) (gaussianReal 0 1) P
+p : ℝ≥0∞
+i : I
+⊢ ℝ≥0∞
+GaussianWeightedMajorants.lean:43:7: error: failed to infer `have` declaration type
+GaussianWeightedMajorants.lean:42:64: error: unsolved goals
+I : Type u_1
+Ω : Type u_2
+inst✝ : MeasurableSpace Ω
+P : Measure Ω
+w : I → ℝ
+U : I → Ω → ℝ
+hw0 : ∀ (i : I), 0 ≤ w i
+hlaw : ∀ (i : I), HasLaw (U i) (gaussianReal 0 1) P
+p : ℝ≥0∞
+i : I
+⊢ eLpNorm (fun ω => w i * |U i ω|) p P = ENNReal.ofReal (w i) * eLpNorm id p (gaussianReal 0 1)
+GaussianWeightedMajorants.lean:77:6: error: invalid 'calc' step, left-hand side is
+  eLpNorm (∑ i ∈ s, F i) (↑p) P : ℝ≥0∞
+but is expected to be
+  eLpNorm (fun ω => ∑ i ∈ s, F i ω) (↑p) P : ℝ≥0∞
+GaussianWeightedMajorants.lean:83:17: error(lean.unknownIdentifier): Unknown constant `Measurable.finset_sum`
+GaussianWeightedMajorants.lean:81:58: error: unsolved goals
+I : Type u_1
+Ω : Type u_2
+inst✝² : Countable I
+inst✝¹ : MeasurableSpace Ω
+P : Measure Ω
+inst✝ : IsProbabilityMeasure P
+w : I → ℝ
+U : I → Ω → ℝ
+hU : ∀ (i : I), Measurable (U i)
+hw0 : ∀ (i : I), 0 ≤ w i
+hw : Summable w
+hlaw : ∀ (i : I), HasLaw (U i) (gaussianReal 0 1) P
+p : ℝ≥0
+hp : 1 ≤ p
+F : I → Ω → ℝ := ⋯
+C : ℝ≥0∞ := ⋯
+hG : MemLp id (↑p) (gaussianReal 0 1)
+hC : C ≠ ∞
+hsum : ∑' (i : I), eLpNorm (F i) (↑p) P = C
+hae : ∀ᵐ (ω : Ω) ∂P, Summable fun i => F i ω
+hbound : ∀ (s : Finset I), eLpNorm (fun ω => ∑ i ∈ s, F i ω) (↑p) P ≤ C
+⊢ (SummationFilter.unconditional I).filter.NeBot
+
+I : Type u_1
+Ω : Type u_2
+inst✝² : Countable I
+inst✝¹ : MeasurableSpace Ω
+P : Measure Ω
+inst✝ : IsProbabilityMeasure P
+w : I → ℝ
+U : I → Ω → ℝ
+hU : ∀ (i : I), Measurable (U i)
+hw0 : ∀ (i : I), 0 ≤ w i
+hw : Summable w
+hlaw : ∀ (i : I), HasLaw (U i) (gaussianReal 0 1) P
+p : ℝ≥0
+hp : 1 ≤ p
+F : I → Ω → ℝ := ⋯
+C : ℝ≥0∞ := ⋯
+hG : MemLp id (↑p) (gaussianReal 0 1)
+hC : C ≠ ∞
+hsum : ∑' (i : I), eLpNorm (F i) (↑p) P = C
+hae : ∀ᵐ (ω : Ω) ∂P, Summable fun i => F i ω
+hbound : ∀ (s : Finset I), eLpNorm (fun ω => ∑ i ∈ s, F i ω) (↑p) P ≤ C
+⊢ (SummationFilter.unconditional I).filter.IsCountablyGenerated
+GaussianWeightedMajorants.lean:87:9: error: Invalid `⟨...⟩` notation: The expected type
+  WithTop.LT (eLpNorm (weightedAbsSeries w U) (↑p) P) ∞
+has more than one constructor
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor

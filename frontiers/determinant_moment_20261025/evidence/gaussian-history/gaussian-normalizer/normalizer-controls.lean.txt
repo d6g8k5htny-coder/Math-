@@ -1,0 +1,18 @@
+import ResearchFormalCoreR1.GaussianNormalizer
+namespace ResearchFormalCoreR1
+open MeasureTheory ProbabilityTheory
+example (a q : ℝ) :
+    gn_normalizedWeight 0 ![-1,1,-a/2,a/2,q,q] = (max (-q) 0)^2 := by
+  simp [gn_normalizedWeight, pow_two]
+example :
+    (∫ q : ℝ, (max (-q) 0)^2 ∂gaussianReal 1 0) = 0 := by
+  simp [gaussianReal_zero_var]
+example :
+    ¬ 0 < ∫ q : ℝ, (max (-q) 0)^2 ∂gaussianReal 1 0 := by
+  simp [gaussianReal_zero_var]
+#check gn_normalizedWeight
+#check gn_gaussian_reference_integrable_pos
+#check gn_open_box_floor
+#print axioms gn_gaussian_reference_integrable_pos
+#print axioms gn_open_box_floor
+end ResearchFormalCoreR1

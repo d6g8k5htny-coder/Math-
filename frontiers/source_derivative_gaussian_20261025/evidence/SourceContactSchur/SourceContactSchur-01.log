@@ -1,0 +1,24 @@
+SourceContactSchur.lean:79:6: error: Type mismatch
+  covariance_comm
+has type
+  ∀ (X Y : ?m.168 → ℝ) {μ : Measure ?m.168}, cov[X, Y; μ] = cov[Y, X; μ]
+but is expected to have type
+  cov[fun ω => sourceContactVector L ω 6, fun ω => sourceContactVector L ω j.castSucc; smoothLaw 2 L] =
+    cov[fun ω => sourceContactVector L ω j.castSucc, fun ω => sourceContactVector L ω 6; smoothLaw 2 L]
+SourceContactSchur.lean:84:48: error: Application type mismatch: The argument
+  Fin.castSucc_injective
+has type
+  ∀ (n : ℕ), Function.Injective Fin.castSucc
+but is expected to have type
+  Function.Injective Fin.castSucc
+in the application
+  PosDef.submatrix (sourceContactCovariance_posDef hL) Fin.castSucc_injective
+SourceContactSchur.lean:90:0: warning: Definition `I4SourceContact.sourcePinCovarianceInvertible` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
+definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
+SourceContactSchur.lean:109:2: error: Type mismatch: After simplification, term
+  hs
+ has type
+  ∑ j, (∑ j_1, sourceContactCross L j_1 * (sourcePinCovariance L)⁻¹ j_1 j) * sourceContactCross L j <
+    sourceContactQVariance L
+but is expected to have type
+  ∑ x, ∑ i, sourceContactCross L x * ((sourcePinCovariance L)⁻¹ x i * sourceContactCross L i) < sourceContactQVariance L

@@ -5,6 +5,7 @@ import importlib.util
 import json
 import os
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -586,3 +587,157 @@ class ProducerRuntimeTests(unittest.TestCase):
                 for name in ('preflight', 'final'):
                     self.record['observations'][name]['manifest_sha256'] = self.record['manifest_sha256']
                 self.refused('manifest has no exact dependency lock')
+
+class LayeredManifestBindingTests(unittest.TestCase):
+    """Real producer/consumer boundary and fail-closed overlay identity regimes."""
+    setUp = RequiredCheckTests.setUp
+    write_receipt = RequiredCheckTests.write_receipt
+    binding = RequiredCheckTests.binding
+    CONTRACT = {'schema': 'rf312-overlay-v1', 'overlay': 'manifest.overlay.json'}
+
+    def identity(self, digest):
+        self.record['manifest_sha256'] = digest
+        for observed in self.record['observations'].values():
+            observed['manifest_sha256'] = digest
+        self.write_receipt()
+
+    def layered(self):
+        document = json.loads(self.manifest.read_text())
+        document['source_identity'] = dict(self.CONTRACT)
+        self.manifest.write_text(json.dumps(document) + '\n')
+        self.overlay = self.manifest.with_name('manifest.overlay.json')
+        self.overlay.write_text('{"schema_version":1,"files":{}}\n')
+        self.composite_receipt()
+
+    def composite_receipt(self):
+        # Hand-derived contract bytes, independent of the consumer implementation.
+        self.identity(hashlib.sha256(
+            self.manifest.read_bytes() + b'\0RF312-OVERLAY\0' +
+            self.overlay.read_bytes()).hexdigest())
+
+    def test_actual_producer_source_check_receipt_binds(self):
+        # Exercise the actual source validator, without calling execute or any Lean process.
+        formal = self.root / 'formal'
+        shutil.copytree(ROOT / 'formal', formal,
+                        ignore=shutil.ignore_patterns('.lake', '__pycache__', '*.pyc'))
+        self.manifest = formal / 'manifest.json'
+        prior_helper = sys.modules.pop('gate_helper', None)
+        try:
+            spec = importlib.util.spec_from_file_location('receipt_binding_producer', ROOT / 'formal/gate.py')
+            producer = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(producer)
+            producer.ROOT = formal
+            checked, digest = producer.source_check()
+        finally:
+            if prior_helper is not None:
+                sys.modules['gate_helper'] = prior_helper
+        self.record['repository'] = self.env['GITHUB_REPOSITORY'] = 'd6g8k5htny-coder/Math-'
+        self.record['dependency_revisions'] = dict(checked['dependency_revisions'])
+        for observed in self.record['observations'].values():
+            observed['dependency_revisions'] = dict(checked['dependency_revisions'])
+        self.identity(digest)
+        before = self.receipt.read_bytes()
+        result = self.binding()
+        self.assertEqual(result['checked_commit'], 'a' * 40)
+        self.assertEqual(result['receipt_sha256'], hashlib.sha256(before).hexdigest())
+        self.assertEqual(self.receipt.read_bytes(), before)
+
+    def test_empty_files_overlay_receipt_binds(self):
+        self.layered()
+        self.assertEqual(self.binding()['run_attempt'], '2')
+
+    def test_raw_or_overlay_byte_drift_refused(self):
+        self.layered()
+        for path in (self.manifest, self.overlay):
+            with self.subTest(path=path.name):
+                original = path.read_bytes()
+                path.write_bytes(original + b' ')
+                try:
+                    with self.assertRaisesRegex(ValueError, 'manifest/receipt mismatch'):
+                        self.binding()
+                finally:
+                    path.write_bytes(original)
+
+    def test_missing_symlink_dangling_and_nonregular_overlay_refused(self):
+        self.layered()
+        original = self.overlay.read_bytes()
+        target = self.root / 'overlay-target.json'
+        target.write_bytes(original)
+        for kind in ('missing', 'symlink', 'dangling', 'directory'):
+            with self.subTest(kind=kind):
+                self.overlay.unlink()
+                if kind == 'symlink':
+                    self.overlay.symlink_to(target)
+                elif kind == 'dangling':
+                    self.overlay.symlink_to(self.root / 'absent-overlay-target.json')
+                elif kind == 'directory':
+                    self.overlay.mkdir()
+                try:
+                    with self.assertRaises((ValueError, OSError)):
+                        self.binding()
+                finally:
+                    if self.overlay.is_dir() and not self.overlay.is_symlink():
+                        self.overlay.rmdir()
+                    elif self.overlay.is_symlink():
+                        self.overlay.unlink()
+                    self.overlay.write_bytes(original)
+
+    def test_overlay_strict_json_and_binding_shape_refused(self):
+        self.layered()
+        for raw in (
+            b'{', b'[]', b'null', b'{"schema_version":1,"files":{},"files":{}}',
+            b'{"schema_version":NaN,"files":{}}',
+            b'{"schema_version":true,"files":{}}',
+            b'{"schema_version":2,"files":{}}',
+            b'{"schema_version":1,"files":[]}',
+            b'{"schema_version":1,"files":{"gate.py":"invalid"}}',
+            b'{"schema_version":1,"files":{},"targets":[]}', b'\xff',
+        ):
+            with self.subTest(raw=raw):
+                self.overlay.write_bytes(raw)
+                self.composite_receipt()
+                with self.assertRaises(ValueError):
+                    self.binding()
+
+    def test_unknown_identity_contract_never_becomes_legacy(self):
+        self.layered()
+        document = json.loads(self.manifest.read_text())
+        overlay_bytes = self.overlay.read_bytes()
+        for value in (
+            None, {}, [], 'rf312-overlay-v1',
+            {'schema': 'rf312-overlay-v2', 'overlay': 'manifest.overlay.json'},
+            {'schema': 'rf312-overlay-v1', 'overlay': '../manifest.overlay.json'},
+            {'schema': 'rf312-overlay-v1', 'overlay': '/tmp/manifest.overlay.json'},
+            {'schema': 'rf312-overlay-v1', 'overlay': 'manifest.overlay.json', 'extra': True},
+        ):
+            for present in (False, True):
+                with self.subTest(contract=value, overlay_present=present):
+                    document['source_identity'] = value
+                    self.manifest.write_text(json.dumps(document) + '\n')
+                    if present:
+                        self.overlay.write_bytes(overlay_bytes)
+                    else:
+                        self.overlay.unlink(missing_ok=True)
+                    # A raw receipt must not make an invalid regime acceptable.
+                    self.identity(hashlib.sha256(self.manifest.read_bytes()).hexdigest())
+                    with self.assertRaises(ValueError):
+                        self.binding()
+
+    def test_undeclared_overlay_refused_with_otherwise_valid_raw_receipt(self):
+        self.manifest.with_name('manifest.overlay.json').write_text(
+            '{"schema_version":1,"files":{}}\n')
+        with self.assertRaisesRegex(ValueError, 'undeclared manifest overlay'):
+            self.binding()
+
+    def test_raw_receipt_cannot_downgrade_declared_overlay(self):
+        self.layered()
+        self.identity(hashlib.sha256(self.manifest.read_bytes()).hexdigest())
+        with self.assertRaisesRegex(ValueError, 'manifest/receipt mismatch'):
+            self.binding()
+
+    def test_missing_declared_overlay_cannot_downgrade_to_raw(self):
+        self.layered()
+        self.overlay.unlink()
+        self.identity(hashlib.sha256(self.manifest.read_bytes()).hexdigest())
+        with self.assertRaisesRegex(ValueError, 'manifest overlay'):
+            self.binding()

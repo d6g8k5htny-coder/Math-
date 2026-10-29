@@ -1,0 +1,43 @@
+import SourceConditionalMajorant
+noncomputable section
+open I4Source I4SmoothCarrier I4Smooth I4SourceEndpointRegression I4SourceEndpointEstimates
+open I4SourceSmoothConditional I4SourceConfluentLimits I4SourceConditionalMajorant
+open MeasureTheory ProbabilityTheory Filter
+open scoped Topology
+namespace I4ConditionalMajorantControls
+
+def dcSample (t : ℝ) : SmoothSample 2 1 := by
+  classical
+  refine ⟨(fun m => if m = none then t else 0), ?_⟩
+  intro n
+  apply summable_of_ne_finset_zero (s := {none})
+  intro m hm
+  have hne : m ≠ none := by simpa only [Finset.mem_singleton] using hm
+  simp [hne]
+
+def dcWeight (m : SourceMode 2) : ℝ := by
+  classical
+  exact if m = none then 2 else 0
+
+theorem gamma_control : sampleMajorant dcWeight (dcSample (-3)) = 6 := by
+  classical
+  norm_num [sampleMajorant,dcWeight,dcSample,ite_mul,mul_ite]
+
+-- A nonzero prescribed cubic pin gives a genuine posterior drift from zero noise.
+-- Thus its absolute majorant cannot be bounded solely by the zero prior majorant.
+example {L : ℝ} (hL : L ≠ 0) (b : ℝ) :
+    ∃ r : ℝ, 0 < r ∧ 2 ≤ sampleMajorant (confluentModeMajorant L)
+      (posteriorSample hL r (sourcePrescribedPins r b) (zeroSample 2 L)) := by
+  obtain ⟨δ,hδ,hint⟩ := mem_nhdsGT_iff_exists_Ioo_subset.mp
+    (sourceEndpoint_parameter_limits hL b).1
+  change 0 < δ at hδ
+  let r := δ/2
+  have hr : 0 < r := by dsimp [r]; linarith
+  have hG := hint (show r ∈ Set.Ioo 0 δ by constructor; exact hr; dsimp [r]; linarith)
+  refine ⟨r,hr,?_⟩
+  have hb := sourceConfluentPins_abs_le hL r hr.ne'
+    (posteriorSample hL r (sourcePrescribedPins r b) (zeroSample 2 L)) 5
+  rw [sourceConfluentPinsAt_posteriorSample hL r hG] at hb
+  norm_num [sourcePrescribedPins] at hb
+  exact hb
+end I4ConditionalMajorantControls

@@ -1,0 +1,78 @@
+import SourceEndpointParameters
+import SourceContactSchur
+
+noncomputable section
+open MeasureTheory ProbabilityTheory Matrix WithLp
+open scoped BigOperators RealInnerProductSpace
+set_option autoImplicit false
+namespace I4SourceEndpointParameters
+
+theorem generic_residual_covariance {Ω ι κ : Type*} [MeasurableSpace Ω]
+    [Fintype ι] [DecidableEq ι] [Fintype κ] [DecidableEq κ]
+    {P : Measure Ω} [IsFiniteMeasure P]
+    (J : Ω → ι → ℝ) (T : Ω → κ → ℝ)
+    (hJ : ∀ i, MemLp (fun ω => J ω i) 2 P)
+    (hT : ∀ i, MemLp (fun ω => T ω i) 2 P)
+    (hG : IsUnit (Matrix.of (fun i j => covariance (fun ω => J ω i) (fun ω => J ω j) P) : Matrix ι ι ℝ)) :
+    let G : Matrix ι ι ℝ := fun i j => covariance (fun ω => J ω i) (fun ω => J ω j) P
+    let C : Matrix κ ι ℝ := fun i j => covariance (fun ω => T ω i) (fun ω => J ω j) P
+    let B : Matrix κ κ ℝ := fun i j => covariance (fun ω => T ω i) (fun ω => T ω j) P
+    let D := C * G⁻¹
+    let R := fun ω => T ω - D *ᵥ J ω
+    (∀ i j, covariance (fun ω => R ω i) (fun ω => R ω j) P = (B - C * G⁻¹ * Cᵀ) i j) ∧
+      (B - C * G⁻¹ * Cᵀ).PosSemidef := by
+  classical
+  intro G C B D R
+  have hG' : IsUnit G := hG
+  let _ : Invertible G := hG'.invertible
+  let U := fun ω => D *ᵥ J ω
+  have hU (i : κ) : MemLp (fun ω => U ω i) 2 P :=
+    memLp_finsetSum Finset.univ (fun a _ => (hJ a).const_mul (D i a))
+  have hR (i : κ) : MemLp (fun ω => R ω i) 2 P := (hT i).sub (hU i)
+  have hnormal : D * G = C := by
+    dsimp [D]
+    rw [Matrix.mul_assoc, Matrix.inv_mul_of_invertible, Matrix.mul_one]
+  have hUJ (i : κ) (j : ι) : covariance (fun ω => U ω i) (fun ω => J ω j) P = C i j := by
+    change covariance (fun ω => ∑ a, D i a * J ω a) (fun ω => J ω j) P = C i j
+    rw [covariance_fun_sum_left (fun a => (hJ a).const_mul _) (hJ j)]
+    simp_rw [covariance_const_mul_left]
+    exact congrFun (congrFun hnormal i) j
+  have hJR (i : ι) (j : κ) : covariance (fun ω => J ω i) (fun ω => R ω j) P = 0 := by
+    change covariance (fun ω => J ω i) (fun ω => T ω j - U ω j) P = 0
+    rw [covariance_fun_sub_right (hJ i) (hT j) (hU j),
+      covariance_comm (fun ω => J ω i) (fun ω => U ω j), hUJ]
+    change covariance (fun ω => J ω i) (fun ω => T ω j) P -
+      covariance (fun ω => T ω j) (fun ω => J ω i) P = 0
+    rw [covariance_comm, sub_self]
+  have hUR (i j : κ) : covariance (fun ω => U ω i) (fun ω => R ω j) P = 0 := by
+    change covariance (fun ω => ∑ a, D i a * J ω a) (fun ω => R ω j) P = 0
+    rw [covariance_fun_sum_left (fun a => (hJ a).const_mul _) (hR j)]
+    simp_rw [covariance_const_mul_left, hJR, mul_zero]
+    exact Finset.sum_const_zero
+  have hUT (i j : κ) : covariance (fun ω => U ω i) (fun ω => T ω j) P = (D * Cᵀ) i j := by
+    change covariance (fun ω => ∑ a, D i a * J ω a) (fun ω => T ω j) P = _
+    rw [covariance_fun_sum_left (fun a => (hJ a).const_mul _) (hT j)]
+    simp_rw [covariance_const_mul_left]
+    simp only [Matrix.mul_apply, C]
+    apply Finset.sum_congr rfl
+    intro a _
+    rw [covariance_comm (fun ω => J ω a)]
+    rfl
+  have hcov (i j : κ) : covariance (fun ω => R ω i) (fun ω => R ω j) P = (B - C * G⁻¹ * Cᵀ) i j := by
+    change covariance (fun ω => R ω i) (fun ω => T ω j - U ω j) P = _
+    rw [covariance_fun_sub_right (hR i) (hT j) (hU j),
+      covariance_comm (fun ω => R ω i) (fun ω => U ω j), hUR, sub_zero]
+    change covariance (fun ω => T ω i - U ω i) (fun ω => T ω j) P = _
+    rw [covariance_fun_sub_left (hT i) (hU i) (hT j), hUT]
+    rfl
+  refine ⟨hcov, ?_⟩
+  apply Matrix.PosSemidef.of_dotProduct_mulVec_nonneg
+  · ext i j
+    simp only [Matrix.conjTranspose_apply, star_trivial]
+    rw [← hcov i j, ← hcov j i]
+    exact covariance_comm _ _
+  · intro x
+    have hp := covarianceBilin_self_nonneg (μ := P.map (fun ω => toLp 2 (R ω))) (toLp 2 x)
+    rw [covarianceBilin_apply_pi hR] at hp
+    simpa [hcov, dotProduct, Matrix.mulVec, Finset.mul_sum, mul_assoc, mul_left_comm, mul_comm] using hp
+end I4SourceEndpointParameters

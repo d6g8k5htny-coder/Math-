@@ -1,0 +1,19 @@
+{
+  "provenance": "author tool-history report recorded after command; not a retrospective machine receipt",
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-o",
+    ".lake/build/lib/lean/SourceContactEndpointParameters.olean",
+    "SourceContactEndpointParameters.lean"
+  ],
+  "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+  "observed_exit_code": 0,
+  "source_sha256": "da5337a7814a008eaa8b8a98c0df4daf3efb1bc347789a2f75efc63c9c258d01",
+  "source_unchanged_since_final_successful_compile": true,
+  "log": "/workspace/scratch/contact-endpoint-parameters/contact-parameters-05.log",
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "new_kernel_receipt": "contact-parameters-leanchecker.json",
+  "new_controls_and_axiom_receipt": "contact-parameters-controls-01.json"
+}

@@ -1,0 +1,54 @@
+/workspace/scratch/dm2_landed_composition/PeanoHelper.lean:27:70: error(lean.invalidField): Invalid field `const_mul`: The environment does not contain `HasFDerivAtFilter.const_mul`, so it is not possible to project the field `const_mul` from an expression
+  hasDerivAt_id u
+of type
+  HasFDerivAtFilter id (ContinuousLinearMap.toSpanSingleton ℝ 1) (nhds u ×ˢ pure u)
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/scratch/dm2_landed_composition/PeanoHelper.lean:28:60: error: unsolved goals
+case e'_8
+f f1 f2 f3 : ℝ → ℝ
+h0 : ∀ (x : ℝ), HasDerivAt f (f1 x) x
+h1 : ∀ (x : ℝ), HasDerivAt f1 (f2 x) x
+h2 : ∀ (x : ℝ), HasDerivAt f2 (f3 x) x
+_hc1 : Continuous f1
+_hc2 : Continuous f2
+hc3 : Continuous f3
+r : ℝ
+hr : r ≠ 0
+A : ℝ → ℝ := fun u => (1 / 4 - u ^ 2) * f2 (r * u) + 2 / r * u * f1 (r * u) - 2 / r ^ 2 * f (r * u)
+u : ℝ
+hru : HasDerivAt (fun u => r * u) r u
+⊢ (fun u => 1 / 4 - u ^ 2) = fun x => 1 / 4 - (id ^ 2) x
+
+case e'_9
+f f1 f2 f3 : ℝ → ℝ
+h0 : ∀ (x : ℝ), HasDerivAt f (f1 x) x
+h1 : ∀ (x : ℝ), HasDerivAt f1 (f2 x) x
+h2 : ∀ (x : ℝ), HasDerivAt f2 (f3 x) x
+_hc1 : Continuous f1
+_hc2 : Continuous f2
+hc3 : Continuous f3
+r : ℝ
+hr : r ≠ 0
+A : ℝ → ℝ := fun u => (1 / 4 - u ^ 2) * f2 (r * u) + 2 / r * u * f1 (r * u) - 2 / r ^ 2 * f (r * u)
+u : ℝ
+hru : HasDerivAt (fun u => r * u) r u
+⊢ -(u * 2) = -(id u * 2)
+/workspace/scratch/dm2_landed_composition/PeanoHelper.lean:31:24: error(lean.invalidField): Invalid field `const_mul`: The environment does not contain `HasFDerivAtFilter.const_mul`, so it is not possible to project the field `const_mul` from an expression
+  hasDerivAt_id u
+of type
+  HasFDerivAtFilter id (ContinuousLinearMap.toSpanSingleton ℝ 1) (nhds u ×ˢ pure u)
+/workspace/scratch/dm2_landed_composition/PeanoHelper.lean:32:19: error(lean.invalidField): Invalid field `mul`: The environment does not contain `HasFDerivAtFilter.mul`, so it is not possible to project the field `mul` from an expression
+  hK
+of type
+  HasFDerivAtFilter (fun u => 1 / 4 - u ^ 2) (ContinuousLinearMap.toSpanSingleton ℝ (-2 * u)) (nhds u ×ˢ pure u)

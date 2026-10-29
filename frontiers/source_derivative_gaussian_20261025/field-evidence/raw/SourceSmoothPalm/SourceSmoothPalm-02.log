@@ -1,0 +1,35 @@
+SourceSmoothPalm.lean:167:2: error: Tactic `rfl` failed: The left-hand side
+  @ite ℝ
+    (dm2Negative (egm_HM r (sourcePhysicalCoordinates (sourceNormalizedEndpoints L r ω))) ∧
+      (egm_HS r (sourcePhysicalCoordinates (sourceNormalizedEndpoints L r ω))).det < 0)
+    (Classical.propDecidable
+      (dm2Negative (egm_HM r (sourcePhysicalCoordinates (sourceNormalizedEndpoints L r ω))) ∧
+        (egm_HS r (sourcePhysicalCoordinates (sourceNormalizedEndpoints L r ω))).det < 0))
+    |(egm_HM r (sourcePhysicalCoordinates (sourceNormalizedEndpoints L r ω))).det *
+        (egm_HS r (sourcePhysicalCoordinates (sourceNormalizedEndpoints L r ω))).det|
+    0
+is not definitionally equal to the right-hand side
+  @ite ℝ
+    (dm2Negative (egm_HM r (sourcePhysicalCoordinates (sourceNormalizedEndpoints L r ω))) ∧
+      (egm_HS r (sourcePhysicalCoordinates (sourceNormalizedEndpoints L r ω))).det < 0)
+    instDecidableAnd
+    |(egm_HM r (sourcePhysicalCoordinates (sourceNormalizedEndpoints L r ω))).det *
+        (egm_HS r (sourcePhysicalCoordinates (sourceNormalizedEndpoints L r ω))).det|
+    0
+
+L r : ℝ
+hr : r ≠ 0
+ω : SmoothSample 2 L
+⊢ (if
+        dm2Negative (egm_HM r (sourcePhysicalCoordinates (sourceNormalizedEndpoints L r ω))) ∧
+          (egm_HS r (sourcePhysicalCoordinates (sourceNormalizedEndpoints L r ω))).det < 0 then
+      |(egm_HM r (sourcePhysicalCoordinates (sourceNormalizedEndpoints L r ω))).det *
+          (egm_HS r (sourcePhysicalCoordinates (sourceNormalizedEndpoints L r ω))).det|
+    else 0) =
+    if
+        dm2Negative (egm_HM r (sourcePhysicalCoordinates (sourceNormalizedEndpoints L r ω))) ∧
+          (egm_HS r (sourcePhysicalCoordinates (sourceNormalizedEndpoints L r ω))).det < 0 then
+      |(egm_HM r (sourcePhysicalCoordinates (sourceNormalizedEndpoints L r ω))).det *
+          (egm_HS r (sourcePhysicalCoordinates (sourceNormalizedEndpoints L r ω))).det|
+    else 0
+SourceSmoothPalm.lean:192:28: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead

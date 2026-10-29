@@ -1,0 +1,15 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-o",
+    ".lake/build/lib/lean/SourceEndpointEstimates.olean",
+    "SourceEndpointEstimates.lean"
+  ],
+  "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+  "exit_code": 0,
+  "source_sha256": "d41e6afb5b57ef05e90bae703d863b501517ef36fa2a98be5e2310cfbd3ca245",
+  "scope": "NEW_SOURCE_ENDPOINT_ESTIMATES_INTEGRABILITY_AND_PIN_LIMIT",
+  "author_side_lineage": "OpenAI/Codex /root/dm2_landed_composition"
+}

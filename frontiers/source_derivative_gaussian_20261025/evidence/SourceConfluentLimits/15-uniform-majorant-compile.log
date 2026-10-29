@@ -1,0 +1,78 @@
+SourceConfluentLimits.lean:782:17: error(lean.unknownIdentifier): Unknown identifier `norm_ofNat`
+SourceConfluentLimits.lean:784:2: error: linarith failed to find a contradiction
+a b M : ℝ
+ha : ‖a‖ ≤ M
+hb : ‖b‖ ≤ M
+h : ‖a + b‖ ≤ M + M
+a✝ : M < ‖a + b‖ / ‖2‖
+⊢ False
+failed
+SourceConfluentLimits.lean:803:80: error: unexpected token '!['; expected ')', ',' or ':'
+SourceConfluentLimits.lean:803:14: error: Type mismatch: After simplification, term
+  weightedDerivativeIntegral_norm_le hL 2
+ has type
+  ∀ (u : Fin 2 → Fin 2 → ℝ) (m : SourceMode 2) (w : ℝ → ℝ) (K : ℝ),
+    0 ≤ K →
+      (∀ t ∈ Ι (-1 / 2) (1 / 2), |w t| ≤ K) →
+        ∀ (r : ℝ), ‖weightedDerivativeIntegral L 2 u m w r‖ ≤ K * derivativeMajorant 2 L 2 u m
+but is expected to have type
+  ‖regularizedPinCoefficient L r ⟨3, ⋯⟩ m‖ ≤ confluentModeMajorant L m
+SourceConfluentLimits.lean:793:71: error: unsolved goals
+case «4»
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+m : SourceMode 2
+⊢ ‖regularizedPinCoefficient L r ((fun i => i) ⟨4, ⋯⟩) m‖ ≤ confluentModeMajorant L m
+
+case «5»
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+m : SourceMode 2
+⊢ ‖regularizedPinCoefficient L r ((fun i => i) ⟨5, ⋯⟩) m‖ ≤ confluentModeMajorant L m
+SourceConfluentLimits.lean:823:80: error: unexpected token '!['; expected ')', ',' or ':'
+SourceConfluentLimits.lean:823:14: error: Type mismatch: After simplification, term
+  weightedDerivativeIntegral_norm_le hL 3
+ has type
+  ∀ (u : Fin 3 → Fin 2 → ℝ) (m : SourceMode 2) (w : ℝ → ℝ) (K : ℝ),
+    0 ≤ K →
+      (∀ t ∈ Ι (-1 / 2) (1 / 2), |w t| ≤ K) →
+        ∀ (r : ℝ), ‖weightedDerivativeIntegral L 3 u m w r‖ ≤ K * derivativeMajorant 2 L 3 u m
+but is expected to have type
+  ‖weightedDerivativeIntegral L 3 ![directionX, directionX, directionX] m peanoLeft r‖ ≤ confluentModeMajorant L m
+SourceConfluentLimits.lean:819:76: error: unsolved goals
+case «1»
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+m : SourceMode 2
+⊢ ‖regularizedAdjustedCoefficient L r ((fun i => i) ⟨1, ⋯⟩) m‖ ≤ confluentModeMajorant L m
+
+case «2»
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+m : SourceMode 2
+⊢ ‖regularizedAdjustedCoefficient L r ((fun i => i) ⟨2, ⋯⟩) m‖ ≤ confluentModeMajorant L m
+
+case «3»
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+m : SourceMode 2
+⊢ ‖regularizedAdjustedCoefficient L r ((fun i => i) ⟨3, ⋯⟩) m‖ ≤ confluentModeMajorant L m
+
+case «4»
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+m : SourceMode 2
+⊢ ‖regularizedAdjustedCoefficient L r ((fun i => i) ⟨4, ⋯⟩) m‖ ≤ confluentModeMajorant L m
+
+case «5»
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+m : SourceMode 2
+⊢ ‖regularizedAdjustedCoefficient L r ((fun i => i) ⟨5, ⋯⟩) m‖ ≤ confluentModeMajorant L m

@@ -1,0 +1,36 @@
+SourceConditionalMajorant.lean:330:25: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |sampleMajorant (orderModeBound k 2 L) ?m.328 ^ n|
+in the target expression
+  |((fun x => sourceDerivativeMajorant L k x ^ n) ∘ posteriorSample hL r (sourcePrescribedPins r b)) ω| ≤ F ω
+
+L : ℝ
+hL : L ≠ 0
+b : ℝ
+k : ℕ
+a : ℝ
+w : SourceMode 2 → ℝ
+δ : ℝ
+ha : 0 ≤ a
+hw0 : ∀ (m : SourceMode 2), 0 ≤ w m
+hw : Summable w
+_hW : 0 < ∑' (m : SourceMode 2), w m
+hδ : 0 < δ
+hδ1 : δ ≤ 1
+hdom :
+  ∀ (r : ℝ),
+    0 < r →
+      r < δ →
+        ∀ (ω : SmoothSample 2 L),
+          sourceDerivativeMajorant L k (posteriorSample hL r (sourcePrescribedPins r b) ω) ≤ a + sampleMajorant w ω
+n : ℕ
+F : SmoothSample 2 L → ℝ := fun ω => (a + sampleMajorant w ω) ^ n
+hF : Integrable F (smoothLaw 2 L)
+r : ℝ
+hr : 0 < r
+hrδ : r < δ
+hp : Measurable (posteriorSample hL r (sourcePrescribedPins r b))
+hg : Measurable fun x => sourceDerivativeMajorant L k x ^ n
+hpoint :
+  ∀ (ω : SmoothSample 2 L), sourceDerivativeMajorant L k (posteriorSample hL r (sourcePrescribedPins r b) ω) ^ n ≤ F ω
+ω : SmoothSample 2 L
+⊢ |((fun x => sourceDerivativeMajorant L k x ^ n) ∘ posteriorSample hL r (sourcePrescribedPins r b)) ω| ≤ F ω

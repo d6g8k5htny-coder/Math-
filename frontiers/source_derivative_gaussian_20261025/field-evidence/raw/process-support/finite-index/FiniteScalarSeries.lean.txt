@@ -1,0 +1,23 @@
+import SourceDerivativeGaussian
+
+noncomputable section
+open I4Foundation I4SourceGaussian I4SourceDerivativeGaussian
+open MeasureTheory ProbabilityTheory
+set_option autoImplicit false
+
+namespace I4SourceSmoothConditional
+
+/-- Any finite family of summable scalar coefficient series is jointly Gaussian,
+including the empty family. -/
+theorem scalarSeries_finite_hasGaussianLaw {ι τ : Type*} [Countable ι] [Fintype τ]
+    (a : τ → ι → ℝ) (ha : ∀ j, Summable (a j)) :
+    HasGaussianLaw (fun η j => scalarSeries (a j) η) (coefficientLaw ι) := by
+  classical
+  let e : τ ≃ Fin (Fintype.card τ) := Fintype.equivFin τ
+  let reindex : (Fin (Fintype.card τ) → ℝ) →L[ℝ] (τ → ℝ) :=
+    ContinuousLinearMap.pi (fun j => ContinuousLinearMap.proj (e j))
+  have hG := (scalarSeries_finiteVector_hasGaussianLaw (Fintype.card τ)
+    (fun j => a (e.symm j)) (fun j => ha (e.symm j))).map_fun reindex
+  simpa [reindex] using hG
+
+end I4SourceSmoothConditional

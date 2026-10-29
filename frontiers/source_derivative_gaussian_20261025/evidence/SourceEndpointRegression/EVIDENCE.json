@@ -1,0 +1,143 @@
+{
+  "source": "SourceEndpointRegression.lean",
+  "source_sha256": "67e68553e004adc3b1b6beb987b3e7ad477b4541d96fec22ee481facd2038fce",
+  "source_contract_commit": "badd443",
+  "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+  "author": "OpenAI/Codex /root/regression_kernel with OpenAI/Codex /root/regression_kernel/gaussian_api matrix normal-equations API support",
+  "scientific_effect": "NONE; author-side evidence; current invertibility of actual pin covariance remains premise until covariance-limit join; different-family review separate",
+  "build": {
+    "command": "/home/agent/.elan/bin/lake env lean -o .lake/build/lib/lean/SourceEndpointRegression.olean SourceEndpointRegression.lean",
+    "exit": 0,
+    "log": "SourceEndpointRegression-03.log"
+  },
+  "kernel": {
+    "command": "/home/agent/.elan/bin/lake env leanchecker SourceEndpointRegression",
+    "exit": 0,
+    "log": "KernelReplay-01.log"
+  },
+  "axiom_audit": {
+    "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/endpoint-regression/AxiomAudit.lean",
+    "exit": 0,
+    "targets": {
+      "I4SourceEndpointRegression.sourceConfluentPinsAt_eq": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointRegression.endpointObservationMap_actual": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointRegression.sourcePins_adjusted_hasGaussianLaw": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointRegression.sourceRegressionMapAt_apply": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointRegression.sourceRegressionMapAt_single": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointRegression.sourceRegression_normal_equations": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointRegression.sourceEndpointKernel_markov": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointRegression.sourceEndpointKernel_measurable": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointRegression.sourceEndpointKernel_apply": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointRegression.sourceEndpointKernel_hasCondDistrib": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointRegression.sourceEndpointKernel_spec": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointRegression.sourceAdjustedEndpoints_on_pin_fiber": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointRegression.sourceAdjustedEndpoints_on_prescribed": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "log": "AxiomAudit-01.log"
+  },
+  "controls": [
+    {
+      "file": "PositiveControls.lean",
+      "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/endpoint-regression/PositiveControls.lean",
+      "capture_command": "set -o pipefail\n/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/endpoint-regression/PositiveControls.lean 2>&1 | tee /workspace/scratch/regression-kernel/endpoint-regression/PositiveControls-01.log",
+      "exit": 0,
+      "log": "PositiveControls-01.log",
+      "reason": "actual joint Gaussian negative period; actual conditional law under current IsUnit; all-pin formula at prescribed d; actual pin-fiber identity"
+    },
+    {
+      "file": "RejectedOmitPinAdjustment.lean",
+      "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/endpoint-regression/RejectedOmitPinAdjustment.lean",
+      "capture_command": "set -o pipefail\n/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/endpoint-regression/RejectedOmitPinAdjustment.lean 2>&1 | tee /workspace/scratch/regression-kernel/endpoint-regression/RejectedOmitPinAdjustment-01.log",
+      "exit": 1,
+      "log": "RejectedOmitPinAdjustment-01.log",
+      "reason": "concrete false raw12 witness: subtracting X3 matters"
+    },
+    {
+      "file": "RejectedOmitCubicHeight.lean",
+      "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/endpoint-regression/RejectedOmitCubicHeight.lean",
+      "capture_command": "set -o pipefail\n/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/endpoint-regression/RejectedOmitCubicHeight.lean 2>&1 | tee /workspace/scratch/regression-kernel/endpoint-regression/RejectedOmitCubicHeight-01.log",
+      "exit": 1,
+      "log": "RejectedOmitCubicHeight-01.log",
+      "reason": "concrete false prescribed height without r^3/12 correction"
+    }
+  ],
+  "logs": {
+    "SourceEndpointRegression-03.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "PositiveControls-01.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "RejectedOmitPinAdjustment-01.log": {
+      "bytes": 126,
+      "sha256": "6eb99e68203efc622ddb65169d6c5049c8c170ebfc6b8ac552c1f78362311d7e"
+    },
+    "RejectedOmitCubicHeight-01.log": {
+      "bytes": 124,
+      "sha256": "0c54af1acff8e2137639a0bd4bb2cfe8819abdffa0c6c0c8dababdaa21df09f8"
+    },
+    "AxiomAudit-01.log": {
+      "bytes": 1559,
+      "sha256": "38483bee68f06d58e2725d4105a15101f158630030f8bff60696db492ee74142"
+    },
+    "KernelReplay-01.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "reuse": "Completed source and vendored GaussianRegressionKernel proofs/objects reused; this verification concerns only the new endpoint regression module and its controls."
+}

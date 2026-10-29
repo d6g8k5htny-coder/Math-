@@ -1,0 +1,7 @@
+/workspace/scratch/gaussian-parent-controls/gaussian_parent_positive.lean:21:30: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Measure.map ?m.41 (Measure.dirac ?m.42)
+in the target expression
+  Measure.map (fun r => r + 0 + (ContinuousLinearMap.id ℝ (Fin 1 → ℝ)) (x - 0)) (Measure.dirac 0) = Measure.dirac x
+
+x : Fin 1 → ℝ
+⊢ Measure.map (fun r => r + 0 + (ContinuousLinearMap.id ℝ (Fin 1 → ℝ)) (x - 0)) (Measure.dirac 0) = Measure.dirac x

@@ -1,0 +1,19 @@
+/workspace/scratch/regression-kernel/endpoint-regression/api/NormalEquations.lean:21:19: warning: This simp argument is unused:
+  Matrix.mulVec_single_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [matrixCLM]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/regression-kernel/endpoint-regression/api/NormalEquations.lean:46:62: error: Type mismatch
+  covariance_comm
+has type
+  ∀ (X Y : ?m.158 → ℝ) {μ : Measure ?m.158}, cov[X, Y; μ] = cov[Y, X; μ]
+but is expected to have type
+  cov[fun ω => X ω i, fun ω => V ω j; P] = C j i
+/workspace/scratch/regression-kernel/endpoint-regression/api/NormalEquations.lean:54:6: error: Type mismatch
+  covariance_comm
+has type
+  ∀ (X Y : ?m.260 → ℝ) {μ : Measure ?m.260}, cov[X, Y; μ] = cov[Y, X; μ]
+but is expected to have type
+  G l i = cov[fun ω => X ω i, fun ω => X ω l; P]

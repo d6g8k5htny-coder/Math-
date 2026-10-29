@@ -1,0 +1,9 @@
+/workspace/scratch/regression-kernel/endpoint-parameters/covariance/ResidualCovariance.lean:33:4: error: Type mismatch: After simplification, term
+  regression_residual_zero_covariance hXV B 0 0 (sourceRegression_normal_equations L r hG) l t
+ has type
+  @Eq ℝ
+    cov[fun ω => sourceConfluentPinsAt L r ω l, fun ω =>
+      (sourceAdjustedEndpoints L r ω - B (sourceConfluentPinsAt L r ω)) t; smoothLaw 2 L]
+    0
+but is expected to have type
+  @Eq ℝ cov[fun ω => X ω l, fun ω => R ω t; P] 0
