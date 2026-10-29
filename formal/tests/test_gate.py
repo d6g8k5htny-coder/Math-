@@ -239,6 +239,7 @@ class RuntimeVersionTests(unittest.TestCase):
         self.sentinel.parent.mkdir(parents=True)
         self.sentinel.write_text('old build')
         self.calls = []
+        self.custody_calls = []
         self.version_index = 0
 
     def execute_synthetic(self, versions, version_exit=0, mutate_source=False, wrong_dependency=False,
@@ -259,10 +260,20 @@ class RuntimeVersionTests(unittest.TestCase):
         }
 
         def effective_root(kwargs):
+            # Process observations may not silently repair an incorrect execution root.
             cwd = kwargs.get('cwd')
-            if cwd is not None and Path(cwd).resolve().is_relative_to(self.root.resolve()):
-                return Path(cwd)
-            return self.root
+            self.assertIsNotNone(cwd, 'Lean child has no explicit effective cwd')
+            self.assertTrue(Path(cwd).resolve().is_relative_to(self.root.resolve()),
+                            'Lean child escaped the rebound formal tree: ' + str(cwd))
+            return Path(cwd)
+
+        def source_commit(manifest, digest, expected_head=None):
+            # Process outcomes in this fixture are synthetic. Immutable Git admission
+            # is exercised independently by test_source_custody's real repositories.
+            self.assertEqual(manifest, self.manifest)
+            self.assertEqual(digest, self.digest)
+            self.custody_calls.append(expected_head)
+            return 'b' * 40
 
         def compiled_injections(package_root):
             # The compiled-admission copy carries the injected declaration in its first module.
@@ -278,6 +289,7 @@ class RuntimeVersionTests(unittest.TestCase):
 
         def external_run(command, **kwargs):
             self.calls.append(command)
+            effective_root(kwargs)
             if command == ['lake', 'env', 'lean', '--version']:
                 text = schedule[min(self.version_index, len(schedule) - 1)] + '\n'
                 self.version_index += 1
@@ -319,6 +331,8 @@ class RuntimeVersionTests(unittest.TestCase):
 
         with patch.object(gate.subprocess, 'run', side_effect=external_run), \
              patch.object(gate.subprocess, 'check_output', side_effect=external_git), \
+             patch.object(gate, 'checked_source_commit', side_effect=source_commit), \
+             patch.object(gate, 'verify_committed_files', return_value=set()), \
              patch.dict(gate.os.environ, env or {}), \
              contextlib.redirect_stdout(io.StringIO()):
             return gate.execute(self.manifest, self.digest)
@@ -393,6 +407,7 @@ class RuntimeVersionTests(unittest.TestCase):
         self.assertEqual(receipt['lean_version'], self.RELEASE)
         self.assertEqual(receipt['manifest_sha256'], self.digest)
         self.assertEqual(receipt['checked_commit'], 'b' * 40)  # synthetic Git result
+        self.assertEqual(self.custody_calls, [None, 'b' * 40])
         self.assertEqual(set(receipt['negative_controls']), {'false_fold', 'false_power', 'sorry', 'custom_imported', 'native'})
         out = self.root / '.lake/formal-evidence'
         self.assertEqual(set(receipt['logs']), {p.name for p in out.glob('*.log')})

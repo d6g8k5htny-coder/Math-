@@ -30,9 +30,22 @@ jobs:
           flags=()
           if [ "$MODE" = optimized ]; then flags+=(-O); fi
           python -B -S "${flags[@]}" -m unittest discover -s formal/tests -p test_source_custody.py -v 2>&1 | tee "$RUNNER_TEMP/custody-$MODE.log"
+      - name: Retained complete formal Python suite
+        env:
+          MODE: ${{ matrix.mode }}
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          set -o pipefail
+          flags=()
+          if [ "$MODE" = optimized ]; then flags+=(-O); fi
+          python -B -S "${flags[@]}" -m unittest discover -s formal/tests -p "test_*.py" -v 2>&1 | tee "$RUNNER_TEMP/full-formal-$MODE.log"
+      - name: Bound source preflight
+        run: python -B -S formal/gate.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: core-custody-${{ matrix.mode }}
-          path: ${{ runner.temp }}/custody-*.log
+          path: |
+            ${{ runner.temp }}/custody-*.log
+            ${{ runner.temp }}/full-formal-*.log
           if-no-files-found: error
