@@ -228,6 +228,29 @@ class SourceCustodyTests(unittest.TestCase):
         git('commit', '-qm', 'dependency source')
         return {'dependency_revisions': {'probe': git('rev-parse', 'HEAD')}}
 
+    def tracked_symlink_dependency(self):
+        manifest = self.dependency_fixture()
+        (self.dep / 'Alternate.lean').write_bytes((self.dep / 'Proof.lean').read_bytes())
+        (self.dep / 'Linked.lean').symlink_to('Proof.lean')
+        self.dep_git('add', '.')
+        self.dep_git('commit', '-qm', 'tracked immutable source symlink')
+        manifest['dependency_revisions']['probe'] = self.dep_git('rev-parse', 'HEAD')
+        return manifest
+
+    def test_dependency_accepts_tracked_symlink_with_bound_target(self):
+        manifest = self.tracked_symlink_dependency()
+        self.assertEqual(self.gate.dependency_state(manifest), manifest['dependency_revisions'])
+
+    def test_dependency_hidden_symlink_retargeting_is_refused(self):
+        manifest = self.tracked_symlink_dependency()
+        self.dep_git('update-index', '--assume-unchanged', 'Linked.lean')
+        path = self.dep / 'Linked.lean'
+        path.unlink()
+        path.symlink_to('Alternate.lean')
+        self.assertEqual(self.dep_git('status', '--porcelain'), '')
+        with self.assertRaisesRegex(ValueError, 'committed source'):
+            self.gate.dependency_state(manifest)
+
     def test_dependency_accepts_exact_clean_committed_tree(self):
         manifest = self.dependency_fixture()
         self.assertEqual(self.gate.dependency_state(manifest), manifest['dependency_revisions'])
