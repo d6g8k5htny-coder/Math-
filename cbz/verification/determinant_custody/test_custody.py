@@ -232,6 +232,28 @@ class SourceCustody(unittest.TestCase):
         self.assertEqual(victim.read_text(), 'original\n')
 
 
+
+    def test_mutation_grader_rejects_wrong_exit_even_with_forged_failure_text(self):
+        from unittest import mock
+        runner_path = DRIVER.parent / 'tests/run_cbz_mutations.py'
+        spec = importlib.util.spec_from_file_location('determinant_mutation_runner_fixture', runner_path)
+        runner = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(runner)
+        case = next(row for row in runner.CASES if row[0] == 'omit-artifact-log-hash')
+        work = self.repo / 'mutant-work'
+        output = self.repo / 'mutant-output'
+        work.mkdir()
+        output.mkdir()
+        target = 'test_corrupt_payload_refused'
+        baseline = subprocess.CompletedProcess([], 0, stdout='', stderr='Ran 1 test in 0.001s\n\nOK\n')
+        counterfeit = subprocess.CompletedProcess([], 2, stdout='', stderr=(
+            'FAIL: ' + target + ' (fixture)\n'
+            'Ran 1 test in 0.001s\n\nFAILED (failures=1)\n'))
+        with mock.patch.object(runner.subprocess, 'run', side_effect=[baseline, counterfeit]):
+            result = runner.execute_case(case, work, output)
+        self.assertFalse(result['killed_by_intended_assertions'])
+
+
 class DependencyCustody(unittest.TestCase):
     def setUp(self):
         tmp = tempfile.TemporaryDirectory()
