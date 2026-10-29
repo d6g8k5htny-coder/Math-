@@ -28,7 +28,7 @@ def load():
 # Finite unittest assertion helpers used by the frozen controls below. Code
 # identity, not filenames, function names or formatted traceback text, admits
 # an origin. This is a trusted-process test aid, not hostile-code attestation.
-_ASSERTION_CODES = frozenset(getattr(unittest.TestCase, name).__code__ for name in
+_ASSERTION_CODES = tuple(getattr(unittest.TestCase, name).__code__ for name in
     ('assertTrue', 'assertFalse', 'assertEqual', 'assertListEqual', 'assertSequenceEqual',
      '_baseAssertEqual', 'fail'))
 
@@ -67,7 +67,7 @@ class OracleOriginResult(unittest.TestResult):
         body = self.body_codes.get(test.id())
         positions = [i for i, code in enumerate(codes) if code is body]
         return (len(positions) == 1 and
-                all(code in _ASSERTION_CODES for code in codes[positions[0] + 1:]))
+                all(any(code is allowed for allowed in _ASSERTION_CODES) for code in codes[positions[0] + 1:]))
 
     def addSuccess(self, test):
         self.success_ids.append(test.id())
@@ -382,10 +382,23 @@ class OracleOriginSelfTests(unittest.TestCase):
             def test_body(self): yield 1
         self.assertFalse(run_oracle_cases(Lazy, ('test_body',)).admitted(False))
 
+    def test_cloned_approved_code_is_not_authorized_identity(self):
+        original = unittest.TestCase.fail
+        cloned_code = original.__code__.replace(co_filename='subject_fake.py')
+        self.assertIsNot(cloned_code, original.__code__)
+        self.assertEqual(cloned_code, original.__code__)
+        cloned = types.FunctionType(cloned_code, original.__globals__,
+                                    original.__name__, original.__defaults__)
+        class Probe(unittest.TestCase):
+            def test_body(self): cloned(self, 'cloned subject code')
+        self.assertFalse(run_oracle_cases(Probe, ('test_body',)).admitted(True))
+
     def test_grader_source_safeguards_are_assertion_killed(self):
         source = Path(__file__).read_text()
         controls = (
-            ('origin', 'all(code in _ASSERTION_CODES for code in codes[positions[0] + 1:])',
+            ('code_identity', 'any(code is allowed for allowed in _ASSERTION_CODES)',
+             'code in _ASSERTION_CODES', 'test_cloned_approved_code_is_not_authorized_identity'),
+            ('origin', 'all(any(code is allowed for allowed in _ASSERTION_CODES) for code in codes[positions[0] + 1:])',
              'True', 'test_rejects_subject_helper_nested_and_subtest_origin'),
             ('escaping', 'self.escaping.pop((test.id(), id(err[1])), False)',
              'True', 'test_rejects_setup_teardown_cleanup_and_manual_body'),

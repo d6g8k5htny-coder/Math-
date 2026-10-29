@@ -47,3 +47,18 @@ See [origin-repair/README.md](origin-repair/README.md) for retained counterexamp
 all unchanged original test methods,22 actual methods per mode, five effective
 grader mutations and two explicitly redundant omission controls. No production
 mathematical source changed; earlier finite evidence stays historical.
+
+
+## Exact code-object identity correction
+
+At published parent `7fc87e4db138dcd87fb329eee62fb0d8fded483c`, the clone-of-
+approved-code regression reproduced an identity-contract false acceptance:
+CodeType structural equality in a frozenset is not object identity. The allowed
+references are now a tuple and every provenance comparison explicitly uses `is`.
+The new regression first failed on the earlier source; all prior controls remain.
+Current population is23 methods, including13 origin self-tests, with six
+effective grader safeguard mutations and two explicitly redundant omissions.
+See `code-identity-repair/` for new source-bound evidence. Earlier22-method and
+five-effective-mutant records remain historical, not rewritten. Production
+mathematical outputs, certificates and actual historical kills are not refuted
+by this provenance-contract correction.
