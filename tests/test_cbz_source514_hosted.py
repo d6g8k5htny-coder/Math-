@@ -405,7 +405,7 @@ class IndependentCensusTests(unittest.TestCase):
 
     def test_overlap_requires_unique_true_owner_and_selected_kernel_row(self):
         bad=[self.overlap(candidates=[]),self.overlap(candidates=["Fixture","Other"]),
-             self.overlap(actual="Other",candidates=["Fixture"]),
+             self.overlap(actual="Other"),
              self.overlap(name="Fixture.missing")]
         for metadata in bad:
             with self.subTest(metadata=metadata):
@@ -413,17 +413,49 @@ class IndependentCensusTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     subject.parse_census(stream,["Fixture"])
 
+    def test_ambiguous_extra_provenance_rejected(self):
+        metadata=self.overlap(candidates=["Fixture","Other"])
+        stream="SOURCE514_CODEGEN_METADATA "+json.dumps(metadata)+"\n"+self.stream([self.row()])
+        with self.assertRaisesRegex(ValueError,"unique declaration provenance"):
+            subject.parse_census(stream,["Fixture"])
+
+    def test_selected_overlap_missing_from_owner_rejected(self):
+        metadata=self.overlap(name="Fixture.missing")
+        stream="SOURCE514_CODEGEN_METADATA "+json.dumps(metadata)+"\n"+self.stream([self.row()])
+        with self.assertRaisesRegex(ValueError,"selected kernel overlap missing"):
+            subject.parse_census(stream,["Fixture"])
+
+    def test_replay_generator_rejects_missing_original_ownership_anchor(self):
+        class FakeReplay:
+            def generate_program(self, helper, collector_hash, modules, imports):
+                return "changed generator", {"program_sha256":"original"}
+        with self.assertRaisesRegex(ValueError,"unexpected original replay"):
+            subject.corrected_replay_program(FakeReplay(),None,["Fixture"])
+
     def test_repeated_metadata_pair_rejected(self):
         metadata=self.overlap()
         stream=2*("SOURCE514_CODEGEN_METADATA "+json.dumps(metadata)+"\n")+self.stream([self.row()])
         with self.assertRaisesRegex(ValueError,"duplicate"):
             subject.parse_census(stream,["Fixture"])
 
+    def test_corrected_replay_uses_declaration_tables_not_extra_ownership_map(self):
+        class FakeReplay:
+            def generate_program(self, helper, collector_hash, modules, imports):
+                return subject.REPLAY_OWNER_ORIGINAL, {"program_sha256":"old"}
+        program,metadata=subject.corrected_replay_program(FakeReplay(),None,["Fixture"])
+        self.assertIn("REPLAY_DECLARATION_TABLE_PROVENANCE",program)
+        self.assertIn("tableOwners[name]?",program)
+        self.assertNotIn("env.getModuleIdxFor? name == some idx",program)
+        self.assertEqual(metadata["original_program_sha256"],"old")
+        self.assertEqual(metadata["program_sha256"],subject.sha(program.encode()))
+
     def test_generated_census_uses_exact_table_and_all_modules(self):
         program=subject.census_program(["Fixture","Other"])
         self.assertIn("let names := data.constNames.qsort Name.lt",program)
         self.assertIn("for extraName in data.extraConstNames",program)
-        self.assertIn("code-generator metadata unexpectedly has a kernel declaration",program)
+        self.assertIn("kernel overlap has non-unique declaration provenance",program)
+        self.assertIn("env.header.moduleData.size",program)
+        self.assertIn("declaring_modules",program)
         self.assertIn("#["+chr(96)+"Fixture, "+chr(96)+"Other]",program)
         self.assertIn("missing independent census module",program)
         self.assertNotIn("MODLITERAL",program)

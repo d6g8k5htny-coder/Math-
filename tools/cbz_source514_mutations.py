@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Six reason-bound source mutations of the source514 recorder's custody/domain guards."""
+"""Nine reason-bound source mutations of the source514 recorder's custody/domain guards."""
 import json
 from pathlib import Path
 import shutil
@@ -21,8 +21,11 @@ mutations=[
  ("domain",'if production != plan["production"] or support != plan["support"] or elder != plan["elder"]:  # MUTATION_DOMAIN','if False:  # MUTATION_DOMAIN',"RegisteredDomainTests.test_reordered_domain_rejected"),
  ("elder_identities",'if elder != ["SuperlevelBar", "ElderClearance", "ReusedCompactFrontier", "ClosedSuperlevel", "OrdinaryH0", "ElderInterval", "ElderBridge"]:  # MUTATION_ELDER_IDENTITIES','if False:  # MUTATION_ELDER_IDENTITIES',"RegisteredDomainTests.test_plan_and_configuration_cannot_replace_elder_root"),
  ("object_root_symlink",'if parent.is_symlink():  # MUTATION_ROOT_SYMLINK','if False:  # MUTATION_ROOT_SYMLINK',"CompiledObjectCustodyTests.test_symlinked_build_root_is_rejected"),
- ("object_nested_symlink",'if path.is_symlink():  # MUTATION_NESTED_SYMLINK','if False:  # MUTATION_NESTED_SYMLINK',"CompiledObjectCustodyTests.test_symlinked_nested_directory_is_rejected")]
-report={"schema":"cbz-source514-recorder-mutations-v1","threshold":"all six source mutants in normal and optimized Python modes","source_sha256":hashlib.sha256(source.read_bytes()).hexdigest(),"executions":[],"status":"NOT_PASS"}
+ ("object_nested_symlink",'if path.is_symlink():  # MUTATION_NESTED_SYMLINK','if False:  # MUTATION_NESTED_SYMLINK',"CompiledObjectCustodyTests.test_symlinked_nested_directory_is_rejected"),
+ ("ambiguous_overlap",'len(candidates) != 1 or not isinstance(candidates[0], str)','False or not isinstance(candidates[0], str)',"IndependentCensusTests.test_ambiguous_extra_provenance_rejected"),
+ ("missing_overlap",'if name not in result["module_declarations"][owner]:','if False:',"IndependentCensusTests.test_selected_overlap_missing_from_owner_rejected"),
+ ("generator_anchor",'if program.count(REPLAY_OWNER_ORIGINAL) != 1:','if False:',"IndependentCensusTests.test_replay_generator_rejects_missing_original_ownership_anchor")]
+report={"schema":"cbz-source514-recorder-mutations-v1","threshold":"all nine source mutants in normal and optimized Python modes","source_sha256":hashlib.sha256(source.read_bytes()).hexdigest(),"executions":[],"status":"NOT_PASS"}
 try:
  for mode in ["normal","optimized"]:
   optimize=["-O"] if mode=="optimized" else []
@@ -50,7 +53,7 @@ try:
     intended=(result.returncode==1 and "AssertionError: ValueError not raised" in stderr and "FAILED (failures=1)" in stderr and "Ran 1 test" in stderr and "ERROR:" not in stderr)
     report["executions"].append({"mode":mode,"label":label,"exit":result.returncode,"intended_guard_failure":intended})
     if not intended: raise RuntimeError("mutant not killed for its named guard: "+prefix)
- report["status"]="ALL_SIX_REASON_BOUND_MUTANTS_KILLED_IN_BOTH_MODES"
+ report["status"]="ALL_NINE_REASON_BOUND_MUTANTS_KILLED_IN_BOTH_MODES"
 finally:
  (args.output/"REPORT.json").write_text(json.dumps(report,indent=2)+"\n")
 print(report["status"])

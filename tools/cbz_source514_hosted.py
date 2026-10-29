@@ -232,20 +232,43 @@ open Lean Elab Command in
 run_cmd do
   let env := (← getEnv).setExporting false
   let modules : Array Name := MODLITERAL
+  let mut extras : Array (Name × Name) := #[]
+  let mut extraNames : Std.HashSet Name := {}
   for modName in modules do
     let some idx := env.getModuleIdx? modName
       | throwError "missing independent census module: {modName}"
-    let data := env.header.moduleData[idx]!
-    -- Pinned Lean ModuleData declares extraConstNames to be code-generator
-    -- ownership metadata absent from its ConstantInfo mapping. Record every
-    -- such name explicitly; an unexpected kernel declaration fails closed.
-    for extraName in data.extraConstNames do
-      if (env.find? extraName).isSome then
-        throwError "code-generator metadata unexpectedly has a kernel declaration: {extraName}"
+    for extraName in env.header.moduleData[idx]!.extraConstNames do
+      extras := extras.push (modName, extraName)
+      extraNames := extraNames.insert extraName
+  let mut owners : Std.HashMap Name (Array Name) := {}
+  for idx in [:env.header.moduleData.size] do
+    let owner := env.header.moduleNames[idx]!
+    for name in env.header.moduleData[idx]!.constNames do
+      if extraNames.contains name then
+        owners := owners.insert name ((owners[name]?.getD #[]).push owner)
+  for (modName, extraName) in extras do
+    let candidates := owners[extraName]?.getD #[]
+    if (env.find? extraName).isSome then
+      if candidates.size != 1 then
+        throwError "kernel overlap has non-unique declaration provenance: {extraName} {candidates}"
+      let resolved := (env.getModuleIdxFor? extraName).map fun idx => toString (env.header.moduleNames[idx]!)
+      let metadata := Json.mkObj [
+        ("module", Json.str (toString modName)), ("name", Json.str (toString extraName)),
+        ("classification", Json.str "KERNEL_CODE_GENERATOR_OVERLAP"),
+        ("declaring_modules", toJson (candidates.map toString)),
+        ("resolved_module", toJson resolved)]
+      liftIO <| IO.println s!"SOURCE514_CODEGEN_METADATA {metadata.compress}"
+    else
+      if !candidates.isEmpty then
+        throwError "non-kernel extra has declaration-table provenance: {extraName}"
       let metadata := Json.mkObj [
         ("module", Json.str (toString modName)), ("name", Json.str (toString extraName)),
         ("classification", Json.str "NON_KERNEL_CODE_GENERATOR_OWNERSHIP")]
       liftIO <| IO.println s!"SOURCE514_CODEGEN_METADATA {metadata.compress}"
+  for modName in modules do
+    let some idx := env.getModuleIdx? modName
+      | throwError "missing independent census module: {modName}"
+    let data := env.header.moduleData[idx]!
     let names := data.constNames.qsort Name.lt
     if names.isEmpty then throwError "empty independent census module: {modName}"
     for name in names do
@@ -277,17 +300,36 @@ def parse_census(text, modules):
             value[key] = item
         return value
     result = {"module_counts": {}, "module_declarations": {}}
-    rows, extra_codegen = [], []
+    rows, extra_codegen, kernel_overlaps = [], [], []
     seen, extra_seen = set(), set()
     for line in text.splitlines():
         if line.startswith("SOURCE514_CODEGEN_METADATA "):
             metadata = json.loads(line.removeprefix("SOURCE514_CODEGEN_METADATA "), object_pairs_hook=unique)
-            if set(metadata) != {"module", "name", "classification"} or metadata["module"] not in modules or metadata["classification"] != "NON_KERNEL_CODE_GENERATOR_OWNERSHIP":
-                raise ValueError("invalid non-kernel code-generator metadata")
-            if not isinstance(metadata["name"], str) or not metadata["name"] or metadata["name"] in extra_seen:
-                raise ValueError("invalid or duplicate code-generator metadata name")
-            extra_seen.add(metadata["name"])
-            extra_codegen.append(metadata)
+            if not isinstance(metadata, dict):
+                raise ValueError("invalid code-generator metadata")
+            module, name = metadata.get("module"), metadata.get("name")
+            if module not in modules or not isinstance(name, str) or not name:
+                raise ValueError("invalid code-generator metadata identity")
+            pair = (module, name)
+            if pair in extra_seen:
+                raise ValueError("duplicate code-generator metadata pair")
+            extra_seen.add(pair)
+            classification = metadata.get("classification")
+            if classification == "NON_KERNEL_CODE_GENERATOR_OWNERSHIP":
+                if set(metadata) != {"module", "name", "classification"}:
+                    raise ValueError("invalid non-kernel code-generator metadata")
+                extra_codegen.append(metadata)
+            elif classification == "KERNEL_CODE_GENERATOR_OVERLAP":
+                if set(metadata) != {"module", "name", "classification", "declaring_modules", "resolved_module"}:
+                    raise ValueError("invalid kernel overlap metadata")
+                candidates, resolved = metadata["declaring_modules"], metadata["resolved_module"]
+                if not isinstance(candidates, list) or len(candidates) != 1 or not isinstance(candidates[0], str) or not candidates[0]:
+                    raise ValueError("kernel overlap lacks unique declaration provenance")
+                if resolved is not None and (not isinstance(resolved, str) or not resolved):
+                    raise ValueError("invalid ownership-map observation")
+                kernel_overlaps.append(metadata)
+            else:
+                raise ValueError("invalid code-generator metadata classification")
             continue
         if not line.startswith("SOURCE514_CENSUS "):
             raise ValueError("unrecognized independent census output")
@@ -309,12 +351,58 @@ def parse_census(text, modules):
         rows.append(row)
     if set(result["module_declarations"]) != set(modules):
         raise ValueError("independent census omitted a registered module")
-    if seen & extra_seen:
+    if seen & {item["name"] for item in extra_codegen}:
         raise ValueError("non-kernel code-generator metadata overlaps kernel census")
+    for item in kernel_overlaps:
+        owner, name = item["declaring_modules"][0], item["name"]
+        if owner in modules:
+            if name not in result["module_declarations"][owner]:
+                raise ValueError("selected kernel overlap missing from unique declaring module")
+        elif name in seen:
+            raise ValueError("external kernel overlap incorrectly included in selected census")
     result["module_counts"] = {m: len(ns) for m, ns in result["module_declarations"].items()}
     if extra_codegen:
         result["non_kernel_codegen_ownership"] = extra_codegen
+    if kernel_overlaps:
+        result["kernel_codegen_overlaps"] = kernel_overlaps
     return result, rows
+
+# The legacy replay program uses getModuleIdxFor?, whose ownership metadata
+# may overlap a declaration actually owned by another module.  Preserve the
+# original collector and proof-closure logic; replace only seed ownership with
+# unique provenance from the complete imported constNames tables.
+REPLAY_OWNER_ORIGINAL = '''  let mut seeds : Array Name := #[]
+  for modName in modules do
+    let some idx := env.getModuleIdx? modName
+      | throwError "missing candidate module: {modName}"
+    let names := (env.constants.toList.filterMap fun (name, _) =>
+      if env.getModuleIdxFor? name == some idx then some name else none).toArray.qsort Name.lt'''
+
+REPLAY_OWNER_REPLACEMENT = '''  -- REPLAY_DECLARATION_TABLE_PROVENANCE
+  let mut tableOwners : Std.HashMap Name Name := {}
+  for idx in [:env.header.moduleData.size] do
+    let owner := env.header.moduleNames[idx]!
+    for name in env.header.moduleData[idx]!.constNames do
+      if (tableOwners[name]?).isSome then
+        throwError "kernel declaration has ambiguous table provenance: {name}"
+      tableOwners := tableOwners.insert name owner
+  let mut seeds : Array Name := #[]
+  for modName in modules do
+    let some _idx := env.getModuleIdx? modName
+      | throwError "missing candidate module: {modName}"
+    let names := (env.constants.toList.filterMap fun (name, _) =>
+      if tableOwners[name]? == some modName then some name else none).toArray.qsort Name.lt'''
+
+def corrected_replay_program(tool, helper, modules):
+    program, metadata = tool.generate_program(helper, COLLECTOR_SHA256, modules, modules)
+    if program.count(REPLAY_OWNER_ORIGINAL) != 1:
+        raise ValueError("unexpected original replay ownership program")
+    corrected = program.replace(REPLAY_OWNER_ORIGINAL, REPLAY_OWNER_REPLACEMENT, 1)
+    metadata = dict(metadata)
+    metadata["original_program_sha256"] = metadata["program_sha256"]
+    metadata["program_sha256"] = sha(corrected.encode())
+    metadata["seed_ownership"] = "unique declaration-table provenance; getModuleIdxFor is not used"
+    return corrected, metadata
 
 def load(name, path, expected_sha256):
     data = Path(path).read_bytes()
@@ -368,6 +456,53 @@ def execute(source, replay, collector, plan_path, output, carrier, carrier_head,
             for number, module in enumerate(modules):
                 phase("build-" + str(number).zfill(2) + "-" + module.replace(".", "_"), ["lake", "build", "+" + module])
             with frozen_objects(package, expected_revisions) as object_records:
+                # The source packet itself supplies a reproducible genuine
+                # extraConstNames/constNames overlap.  Require the overlap,
+                # kernel replay its actual owner once, and execute an omitted
+                # seed mutant that the transcript validator must reject for
+                # the exact beginning/completion count discrepancy.
+                fixture_module = "SourceFourierSeries"
+                fixture_name = "_private.SourceFourierSeries.0.I4Source.modeCoefficient.match_1.splitter"
+                fixture_census_path = output / "OverlapFixtureCensus.lean"
+                fixture_census_path.write_text(census_program([fixture_module]))
+                phase("overlap-fixture-census", ["lake", "env", "lean", "-j2", "-M12000", fixture_census_path], timeout=2700)
+                if (output / "overlap-fixture-census.stderr").read_bytes():
+                    raise ValueError("overlap fixture census emitted stderr")
+                fixture_expected, _ = parse_census((output / "overlap-fixture-census.stdout").read_text(), [fixture_module])
+                fixture_overlaps = [item for item in fixture_expected.get("kernel_codegen_overlaps", [])
+                                    if item["name"] == fixture_name]
+                if not fixture_overlaps or any(item["declaring_modules"] != [fixture_module] for item in fixture_overlaps):
+                    raise ValueError("actual fixture did not establish the declared kernel overlap and owner")
+                if fixture_expected["module_declarations"][fixture_module].count(fixture_name) != 1:
+                    raise ValueError("actual fixture overlap is not present exactly once in the kernel census")
+                fixture_program, fixture_metadata = corrected_replay_program(tool, helper, [fixture_module])
+                fixture_program_path = output / "OverlapFixtureReplay.lean"
+                fixture_program_path.write_text(fixture_program)
+                _, _, fixture_code = phase("overlap-fixture-replay", ["lake", "env", "lean", "-j2", "-M12000", fixture_program_path], timeout=2700)
+                fixture_result = tool.validate_transcript(
+                    (output / "overlap-fixture-replay.stdout").read_text(), fixture_expected,
+                    fixture_metadata["program_sha256"], exit_code=fixture_code,
+                    stderr=(output / "overlap-fixture-replay.stderr").read_text())
+                original_seed = "      seeds := seeds.push name"
+                mutated_seed = "      if name != `" + fixture_name + " then seeds := seeds.push name"
+                if fixture_program.count(original_seed) != 1:
+                    raise ValueError("overlap fixture seed mutation target is not unique")
+                mutated_program = fixture_program.replace(original_seed, mutated_seed, 1)
+                mutated_path = output / "OverlapFixtureOmittedSeed.lean"
+                mutated_path.write_text(mutated_program)
+                _, _, mutated_code = phase("overlap-fixture-omitted-seed", ["lake", "env", "lean", "-j2", "-M12000", mutated_path], timeout=2700)
+                try:
+                    tool.validate_transcript(
+                        (output / "overlap-fixture-omitted-seed.stdout").read_text(), fixture_expected,
+                        sha(mutated_program.encode()), exit_code=mutated_code,
+                        stderr=(output / "overlap-fixture-omitted-seed.stderr").read_text())
+                except ValueError as error:
+                    if str(error) != "replay beginning/completion/census counts disagree":
+                        raise ValueError("overlap mutant failed for an unintended reason") from error
+                else:
+                    raise ValueError("overlap omitted-seed mutant was not detected")
+                report["actual_overlap_fixture"] = {"name": fixture_name, "observations": fixture_overlaps,
+                    "positive_replay": fixture_result, "omitted_seed_mutant": "EXPECTED_COUNT_MISMATCH"}
                 census_path = output / "IndependentCensus.lean"
                 census_path.write_text(census_program(modules))
                 phase("independent-compiled-census", ["lake", "env", "lean", "-j2", "-M12000", census_path], timeout=2700)
