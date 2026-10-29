@@ -91,3 +91,11 @@ independent dependency bytes. Lean outcomes are mocked only in explicit
 orchestration cases; Git observations are real. Source is unchanged in this
 tests-only RED checkpoint, and no new custody qualification is awarded.
 Reversible; preserve every actual red before implementing the policy.
+
+[2026-10-29T20:18:01Z] [Phase3] [Layer B] Move only the narrow actual Git/Python
+custody controls to ubuntu-24.04-arm capacity, with every test and negative
+observation retained. Reason: x86 execution capacity is saturated by active
+and superseded Math workflows while local execution is unavailable. These
+controls certify source/metadata behavior, not a Lean architecture or kernel
+run. The production gate is still unchanged in this tests-only checkpoint;
+all queued x86 observations retain their actual status. Reversible.
