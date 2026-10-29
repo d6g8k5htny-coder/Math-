@@ -6,6 +6,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest import mock
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 import cbz_source514_hosted as subject
@@ -87,6 +88,22 @@ class DependencyCustodyTests(SourceBindingTests):
             with subject.frozen_dependencies(package,lock):
                 subprocess.run(["git","-C",str(self.root),"update-index","--assume-unchanged","Metadata.txt"],check=True)
                 (self.root/"Metadata.txt").write_text("actual phase mutated a dependency\n")
+
+    def test_git_replacement_cannot_relabel_a_new_tree_as_the_frozen_commit(self):
+        frozen=self.head
+        (self.root/"Proof.lean").write_text("theorem replacementFixture : True := True.intro\n")
+        subprocess.run(["git","-C",str(self.root),"add","Proof.lean"],check=True)
+        subprocess.run(["git","-C",str(self.root),"commit","-qm","replacement tree"],check=True)
+        replacement=subject.git(self.root,"rev-parse","HEAD").decode().strip()
+        subprocess.run(["git","-C",str(self.root),"replace",frozen,replacement],check=True)
+        subprocess.run(["git","-C",str(self.root),"update-ref","HEAD",frozen],check=True)
+        with self.assertRaisesRegex(ValueError,"index differs"):
+            subject.bind_dependency(self.root,frozen)
+
+    def test_inherited_git_directory_cannot_redirect_dependency_identity(self):
+        with mock.patch.dict(os.environ,{"GIT_DIR":str(self.root/"missing-git"),"GIT_WORK_TREE":str(self.root/"missing-worktree")}):
+            bound=subject.bind_dependency(self.root,self.head)
+        self.assertEqual(bound["commit"],self.head)
 
 class CompiledObjectCustodyTests(unittest.TestCase):
     def test_dependency_object_change_rejected_while_owned_object_is_stable(self):

@@ -10,6 +10,7 @@ name: CBZ source514 frozen kernel qualification
   workflow_dispatch:
 permissions:
   contents: read
+  actions: read
 concurrency:
   group: cbz-source514-${{ github.sha }}
   cancel-in-progress: false
@@ -26,6 +27,27 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.11.16'
+      - name: Read retained raw RED streams from the original native artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api repos/d6g8k5htny-coder/Math-/actions/artifacts/12929346355/zip > "$RUNNER_TEMP/source514-original-census-red.zip"
+          gh api repos/d6g8k5htny-coder/Math-/actions/artifacts/12928801439/zip > "$RUNNER_TEMP/source514-original-recorder-red.zip"
+          python - "$RUNNER_TEMP/source514-original-census-red.zip" "$RUNNER_TEMP/source514-original-recorder-red.zip" <<'PY'
+          import hashlib,sys,zipfile
+          expected=['e4602537b4b8e8929a63fb2ca316f4a5b4c10b9606d1dd54379511b54f81e586','6b655de27b769e1968a36d40e87ee376730efe778cd77068a4fdfd3321231a37']
+          for filename,wanted in zip(sys.argv[1:],expected):
+              data=open(filename,'rb').read()
+              if hashlib.sha256(data).hexdigest()!=wanted:
+                  raise ValueError('original RED artifact digest differs')
+              with zipfile.ZipFile(filename) as archive:
+                  for item in archive.infolist():
+                      if item.filename.endswith(('independent-compiled-census.stdout','independent-compiled-census.stderr','normal-baseline.stderr')):
+                          if item.file_size>1048576:
+                              raise ValueError('unexpected diagnostic stream size')
+                          print('RETAINED_ORIGINAL_RED_STREAM',item.filename)
+                          print(archive.read(item).decode('utf-8'))
+          PY
       - name: Verify recorder contracts and all three reason-bound source mutations
         run: |
           python -B -S tools/cbz_source514_mutations.py --output "$RUNNER_TEMP/cbz-source514-recorder-tests"
