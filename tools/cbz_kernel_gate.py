@@ -411,7 +411,9 @@ run_cmd do
     let originNames := (constants.filterMap fun (name, _) =>
       if env.getModuleIdxFor? name == some idx then some name else none).toArray.qsort Name.lt
     unless headerNames == originNames do
-      throwError "independent compiled census disagreement {modName}: {headerNames.size} versus {originNames.size}"
+      let headerOnly := headerNames.filter fun name => !originNames.contains name
+      let originOnly := originNames.filter fun name => !headerNames.contains name
+      throwError "independent compiled census disagreement {modName}: {headerNames.size} versus {originNames.size}; header-only {headerOnly}; origin-only {originOnly}"
     liftIO <| IO.println s!"CBZ|MODULE|{CBZInternalAudit.enc modName}|{headerNames.size}|{originNames.size}"
     for name in originNames do
       if (env.checked.get.find? name).isNone then

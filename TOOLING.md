@@ -44,3 +44,6 @@ Component-local determinant commands and the compiled-inventory quarantine are p
 
 
 Each `--execute` call creates a fresh `.lake/cbz-kernel/executions/attempt-<unique-id>/`. Read `.lake/cbz-kernel/current-execution.json` to locate the current attempt; its success receipt lives inside that directory. A failed attempt records REFUSED without a new success receipt. Previous complete/incomplete attempts and their source/control logs remain unchanged. Top-level reference history is retained separately. The source-inventory initial step and G0 mutation evidence remain separate and are not overwritten by native execution. Repeated mutation commands archive the prior mutation output under `mutations/history/`; an early refusal replaces only the current result, never leaves an old PASS as current. Use distinct output roots/checkouts for concurrent invocations.
+
+
+Latest actual attempt: run40938100721 at tested merge7db34c265162dc2538720729ac6212355e4e3e6d refused on project2 P15Hazard compiled census46versus45 after two project results. Artifact12927120552 (745675bytes; SHA2566c4fd6359a7e57732468077121ea32cf749024d6d9f160a9a40ffb58b1413eb6) preserves the failure. The eight-project tool remains unqualified until actual full-scope success.

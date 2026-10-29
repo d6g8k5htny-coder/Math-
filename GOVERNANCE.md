@@ -12,7 +12,7 @@ That checker is opt-in. Other downstream workflows do not automatically enforce 
 
 Integration source base: 74565f013575b7b05ecfc4034cd5d638ee355353, tree 19b3e91bad1a4d7f5a21b1ea5e273fd300acb6f4. The determinant engineering changes from Math-#528 and their component GOVERNANCE.md, TOOLING.md, STATUS.md and QUARANTINE.json are preserved. The generic native gate does not invent the determinant component's missing compiled_inventory binding or clear its quarantine.
 
-Current native execution status is NOT_EVALUATED. Test counts, old receipts, source scans and workflow success outside the exact audited source/scope do not supply missing kernel evidence. Scientific effect: NONE.
+Current all-native execution is REFUSED; full scope is NOT_ESTABLISHED. Test counts, old receipts, source scans and workflow success outside the exact audited source/scope do not supply missing kernel evidence. Scientific effect: NONE.
 
 
 Auditor self-testing is bounded and fail-closed: the declared Python guard mutants require intended assertion kills with healthy positive baselines and no errors/skips; the generated theorem-value collector mutation requires actual Lean execution and detection by the compiled sorry fixture. Missing, stale or unexecuted mutation evidence cannot qualify the auditor.
@@ -20,3 +20,5 @@ Auditor self-testing is bounded and fail-closed: the declared Python guard mutan
 Execution custody is append-only by attempt: fresh execution subdirectories preserve previous complete and incomplete logs/receipts, while a separate current reference states the new outcome. G0 mutation evidence stays separate. An early failure invalidates current success without destroying historical evidence.
 
 Layer B dependency metadata rule (2026-10-29): attest the literal Git payload of only the three exact catalogued noncompiler links at their pinned package revisions; never follow them. All Lean, configuration, gate and unknown symlinks remain refused. Link path/mode/blob/payload/hash/role and target_followed=false are explicit receipt records. Complete pinned-tree census and adverse controls support this narrow handling; it grants no broader source or dependency-object qualification.
+
+A partial hosted attempt is not a whole-scope success. Preserve each project result and the exact failing compiled census; require a new actual final full-scope run after repair. Source-pinned first-project evidence is historical to that tested merge and is not transferred to a successor.

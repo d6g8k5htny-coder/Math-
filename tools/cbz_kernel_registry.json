@@ -4,7 +4,7 @@
   "entrypoint": "tools/cbz_kernel_gate.py",
   "workflow": ".github/workflows/cbz-kernel.yml",
   "tests": "tests/test_cbz_kernel_gate.py",
-  "status": "HOSTED_ATTEMPT_REFUSED_REQUALIFICATION_PENDING",
+  "status": "HOSTED_SECOND_ATTEMPT_REFUSED_CENSUS_DIAGNOSIS_ACTIVE",
   "scientific_effect": "NONE",
   "runtime": {
     "lean": "leanprover/lean4:v4.34.1",
@@ -99,5 +99,39 @@
     "prior_attempts": "Preserved complete/incomplete; never reused or overwritten",
     "g0_mutations": "Separate mutations/result.json; prior mutation outputs retained under mutations/history/",
     "failure": "New current reference is REFUSED with no new success receipt; earlier receipts/logs remain historical."
+  },
+  "second_hosted_attempt": {
+    "run_id": "40938100721",
+    "job_id": "123673915168",
+    "feature_head": "fdc723e3d0c0fd7b1f270aad611ac511561c108b",
+    "checked_merge_commit": "7db34c265162dc2538720729ac6212355e4e3e6d",
+    "result": "REFUSED_AT_PROJECT_2_COMPILED_CENSUS",
+    "reason": "SpecificationProofs.P15Hazard header/origin census46versus45; no full-scope or final readback evidence.",
+    "completed_project_results": [
+      {
+        "project": "formal",
+        "modules": 9,
+        "declarations": 116
+      },
+      {
+        "project": "specifications/lean_statements_20261010",
+        "modules": 6,
+        "declarations": 590
+      }
+    ],
+    "artifact": {
+      "id": "12927120552",
+      "bytes": 745675,
+      "files": 366,
+      "sha256": "6c4fd6359a7e57732468077121ea32cf749024d6d9f160a9a40ffb58b1413eb6"
+    }
+  },
+  "census_diagnostic_successor": {
+    "policy": "Strict header/origin equality remains unchanged; refusal now prints both exact Name differences. No missing declaration excluded.",
+    "gate_sha256": "a0ba2b3a8d724e8a2b9b945373c9a8004f2e9982a5400d99ba1dfb7619b06e08",
+    "local_self_tests_per_mode": 52,
+    "declared_python_mutants_killed_per_mode": 9,
+    "actual_core_preflight": "Positive/empty and three negative compiled controls passed; generated theorem-value mutation caught; forced origin omission explicitly reports cbzValidValue and refuses.",
+    "all_native_status": "NOT_ESTABLISHED; new actual hosted diagnostic run required"
   }
 }

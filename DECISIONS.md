@@ -33,3 +33,18 @@ The first hosted native attempt40933241149 at tested merge80bdeac2c7a88b51da13a8
 ## 2026-10-29T19:04:15.984661+00:00: preserve current C8 wrapper integration (Phase 2, Layer C)
 
 Compose the fixed native gate against e877242cf68fb24c605066f16dd07f513ee75a1d, preserving all five current C8 wrapper engineering files. They change no Lean source or package configuration. No history rewrite, required-check change or mathematical promotion is performed.
+
+
+## 2026-10-29T19:53:31.221784+00:00: preserve second hosted census refusal (Phase3, LayerC)
+
+Observe actual run40938100721/tested merge7db34c265162dc2538720729ac6212355e4e3e6d. G0 and first two native projects passed in their exact scope; the third refused SpecificationProofs.P15Hazard header/origin census46versus45. Retain artifact12927120552/SHA2566c4fd6359a7e57732468077121ea32cf749024d6d9f160a9a40ffb58b1413eb6 and all actual logs. Correct current surfaces from NOT_EVALUATED to REFUSED; no all-native green, missing-declaration skip or source-success transfer. Investigate exact imported-name identity and enrich diagnostics before any soundness-changing repair. Reversible source/docs only.
+
+
+## 2026-10-29T20:00:31.938206+00:00: separate observed regression success from kernel failure (Phase3, LayerC)
+
+Native full-suite40938100424/job123674068758 records tested merge7db34c265162dc2538720729ac6212355e4e3e6d/tree203e1b48c2961eb29db415fb2a5f4c12f49428b3 and1149tests in each mode, bareOK/zero unittestskips. Preserve raw decodedlog SHA256b368ac0e1beb8ef3902fb4c249be593c7ece17dcbdfb19eef94a432a80209a90. Do not transfer it to a repaired successor or infer kernel/full-federation/CBZ acceptance. C8 binary64 replay remains diagnostic even when green. Reversible documentary observation.
+
+
+## 2026-10-29T20:04:00.518048+00:00: name the strict census mismatch (Phase3, LayerC)
+
+Add exact header-only/origin-only Name arrays to the existing generated Lean refusal. Keep the same equality gate and all declarations; do not relax for unexamined imported duplicates.52gate controls normal/O and9critical Python mutants per mode pass. Actual pinned-core preflight passes all positive/empty and negative controls and catches the generated theorem-value mutation. An actual forced-origin-omission fixture exits1 with empty stderr and exact header-only[cbzValidValue]/origin-only[] evidence. Gate SHA256a0ba2b3a8d724e8a2b9b945373c9a8004f2e9982a5400d99ba1dfb7619b06e08;26runtime hashes stable. Preserve all previous receipts; source/debug improvement only, no whole-native success. Reversible.
