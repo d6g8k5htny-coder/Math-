@@ -214,6 +214,7 @@ class SourceCustody(unittest.TestCase):
         victim = self.repo / 'preserved.txt'
         victim.write_text('original\n')
         (out / 'Audit.lean').symlink_to(victim)
+        self.m['targets'] = []  # Reach the generated-audit write in this synthetic fixture.
         calls = []
         def fake_run(command, label, output, expect_success=True):
             calls.append(label)
