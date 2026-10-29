@@ -153,6 +153,7 @@ class RuntimeVersionTests(unittest.TestCase):
         # Synthetic external-process orchestration fixture only. This is not an
         # observed inventory of the real determinant package.
         manifest['compiled_inventory'] = []
+        manifest.pop('compiled_inventory_version', None)  # Legacy strict synthetic protocol, not actual package census.
         manifest['files'] = {p.relative_to(self.root).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
                              for p in self.root.rglob('*') if p.is_file() and p.name != 'manifest.json'}
         manifest_path.write_text(json.dumps(manifest))
@@ -221,16 +222,18 @@ class RuntimeVersionTests(unittest.TestCase):
 
         def external_git(command, **kwargs):
             if command == ['git', 'rev-parse', 'HEAD']:
-                return 'b' * 40 + '\n'
+                return ('b' * 40 + '\n').encode()
             name = Path(command[2]).name
             final_phase = self.version_index >= 2  # after the final version observation
             if command[3:] == ['status', '--porcelain', '--untracked-files=normal']:
                 dirty = dirty_dependency == 'preflight' and not final_phase or dirty_dependency == 'final' and final_phase
-                return ' M Mathlib/Injected.lean\n' if dirty else ''
+                return b' M Mathlib/Injected.lean\n' if dirty else b''
             revision = self.manifest['dependency_revisions'][name]
-            return ('c' * 40 if wrong_dependency or drift_dependency and final_phase else revision) + '\n'
+            return (('c' * 40 if wrong_dependency or drift_dependency and final_phase else revision) + '\n').encode()
 
-        with patch.object(gate.subprocess, 'run', side_effect=external_run), \
+        with patch.object(gate, 'source_custody', return_value='b' * 40), \
+             patch.object(gate, 'verify_committed_files', return_value=set()), \
+             patch.object(gate.subprocess, 'run', side_effect=external_run), \
              patch.object(gate.subprocess, 'check_output', side_effect=external_git), \
              patch.dict(gate.os.environ, env or {}), \
              contextlib.redirect_stdout(io.StringIO()):
@@ -415,5 +418,152 @@ class SuccessorTests(unittest.TestCase):
         original=(ROOT/'originals/ProbabilityCompanions.lean.txt').read_text()
         expected=original.replace('  field_simp [hr, hcZ]\n  ring\n', '  field_simp [hr, hcZ]\n')
         self.assertEqual((ROOT/'ResearchFormalCoreR1/ProbabilityCompanionsV2.lean').read_text(), expected.replace("import Mathlib\n", 'import Mathlib.Analysis.Real.Sqrt\nimport Mathlib.Tactic.FieldSimp\nimport Mathlib.Tactic.Ring\nimport Mathlib.Tactic.NormNum\nimport Mathlib.Tactic.Positivity\nimport Mathlib.Tactic.Linarith\n'))
+
+class SourceAdmissionTests(unittest.TestCase):
+    def test_declaration_header_bindings_missing_malformed_or_changed_rejected(self):
+        module = 'ResearchFormalCoreR1.AlgebraV2'
+        for bad in [None, {}, [], {module: None}, {module: {}}, {module: {'sha256': '0' * 64, 'lines': 1}}]:
+            with self.subTest(bindings=bad), tempfile.TemporaryDirectory() as d:
+                packet = Path(d) / 'packet'
+                shutil.copytree(ROOT, packet, ignore=shutil.ignore_patterns('.lake', '__pycache__'))
+                m = json.loads((packet / 'manifest.json').read_text())
+                if isinstance(bad, dict) and module in bad:
+                    m['source_admission']['declarations'][module] = bad[module]
+                else:
+                    m['source_admission']['declarations'] = bad
+                for name in m['files']:
+                    m['files'][name] = hashlib.sha256((packet / name).read_bytes()).hexdigest()
+                (packet / 'manifest.json').write_text(json.dumps(m))
+                with patch.object(gate, 'ROOT', packet), self.assertRaisesRegex(ValueError, 'source declaration header'):
+                    gate.source_check()
+
+    def test_rebound_one_line_declaration_tail_rejected(self):
+        anchor = 'noncomputable def foldPotential (s x : ℝ) : ℝ := -(x ^ 3) / 3 + (s ^ 2) * x'
+        for tail in [' register_option cbzHidden : Bool := { defValue := false, descr := "review" }',
+                     ' newUnknownCommand cbz', ' (unreviewed : Nat)']:
+            with self.subTest(tail=tail), tempfile.TemporaryDirectory() as d:
+                packet = Path(d) / 'packet'
+                shutil.copytree(ROOT, packet, ignore=shutil.ignore_patterns('.lake', '__pycache__'))
+                path = packet / 'ResearchFormalCoreR1/AlgebraV2.lean'
+                original = path.read_text()
+                self.assertEqual(original.count(anchor), 1)
+                path.write_text(original.replace(anchor, anchor + tail))
+                m = json.loads((packet / 'manifest.json').read_text())
+                for name in m['files']:
+                    m['files'][name] = hashlib.sha256((packet / name).read_bytes()).hexdigest()
+                (packet / 'manifest.json').write_text(json.dumps(m))
+                with patch.object(gate, 'ROOT', packet), self.assertRaisesRegex(ValueError, 'unsupported changed source declaration header binding'):
+                    gate.source_check()
+
+    def test_commented_fake_declaration_does_not_change_census_or_targets(self):
+        with tempfile.TemporaryDirectory() as d:
+            packet = Path(d) / 'packet'
+            shutil.copytree(ROOT, packet, ignore=shutil.ignore_patterns('.lake', '__pycache__'))
+            path = packet / 'ResearchFormalCoreR1/AlgebraV2.lean'
+            path.write_text(path.read_text() + '\n/-\ntheorem cbzComment : False := by sorry\n-/\n')
+            m = json.loads((packet / 'manifest.json').read_text())
+            for name in m['files']:
+                m['files'][name] = hashlib.sha256((packet / name).read_bytes()).hexdigest()
+            (packet / 'manifest.json').write_text(json.dumps(m))
+            with patch.object(gate, 'ROOT', packet):
+                gate.source_check()
+
+    def test_malformed_or_stale_census_rejected_after_hash_rebind(self):
+        for bad in [None, {}, [], ['bad'], [{'module': 'X'}]]:
+            with self.subTest(census=bad), tempfile.TemporaryDirectory() as d:
+                packet = Path(d) / 'packet'
+                shutil.copytree(ROOT, packet, ignore=shutil.ignore_patterns('.lake', '__pycache__'))
+                m = json.loads((packet / 'manifest.json').read_text())
+                m['source_admission']['census'] = bad
+                for name in m['files']:
+                    m['files'][name] = hashlib.sha256((packet / name).read_bytes()).hexdigest()
+                (packet / 'manifest.json').write_text(json.dumps(m))
+                with patch.object(gate, 'ROOT', packet), self.assertRaisesRegex(ValueError, 'source declaration census'):
+                    gate.source_check()
+
+    def test_continuation_inventory_missing_malformed_or_changed_rejected(self):
+        module = 'ResearchFormalCoreR1.AlgebraV2'
+        for bad in [None, {}, [], {module: None}, {module: {}}, {module: {'sha256': '0' * 64, 'lines': 1}}]:
+            with self.subTest(bindings=bad), tempfile.TemporaryDirectory() as d:
+                packet = Path(d) / 'packet'
+                shutil.copytree(ROOT, packet, ignore=shutil.ignore_patterns('.lake', '__pycache__'))
+                m = json.loads((packet / 'manifest.json').read_text())
+                if isinstance(bad, dict) and module in bad:
+                    m['source_admission']['continuations'][module] = bad[module]
+                else:
+                    m['source_admission']['continuations'] = bad
+                for name in m['files']:
+                    m['files'][name] = hashlib.sha256((packet / name).read_bytes()).hexdigest()
+                (packet / 'manifest.json').write_text(json.dumps(m))
+                with patch.object(gate, 'ROOT', packet), self.assertRaisesRegex(ValueError, 'source continuation'):
+                    gate.source_check()
+
+    def test_placeholder_refused_even_with_rebound_continuation_binding(self):
+        with tempfile.TemporaryDirectory() as d:
+            packet = Path(d) / 'packet'
+            shutil.copytree(ROOT, packet, ignore=shutil.ignore_patterns('.lake', '__pycache__'))
+            path = packet / 'ResearchFormalCoreR1/AlgebraV2.lean'
+            path.write_text(path.read_text().replace(':= by\n', ':= by\n  have cbzUnused : False := sorryAx False true\n', 1))
+            m = json.loads((packet / 'manifest.json').read_text())
+            admission = gate.load_admission(gate.REPO, m['source_admission'])
+            m['source_admission']['continuations']['ResearchFormalCoreR1.AlgebraV2'] = admission['continuation_binding'](path.read_text())
+            for name in m['files']:
+                m['files'][name] = hashlib.sha256((packet / name).read_bytes()).hexdigest()
+            (packet / 'manifest.json').write_text(json.dumps(m))
+            with patch.object(gate, 'ROOT', packet), self.assertRaisesRegex(ValueError, 'forbidden token'):
+                gate.source_check()
+
+    def test_rebound_unknown_continuation_and_direct_placeholder_rejected(self):
+        for command, reason in [
+            ('newUnknownCommand cbz', 'unsupported.*continuation'),
+            ('register_option cbzHidden : Bool := { defValue := false, descr := "review" }', 'unsupported.*continuation'),
+            ('have cbzUnused : False := sorryAx False true', 'forbidden token'),
+            ('have cbzUnused : False := _root_.sorryAx False true', 'forbidden token'),
+        ]:
+            for location in ['after_namespace', 'between_declarations', 'existing_proof']:
+                with self.subTest(command=command, location=location), tempfile.TemporaryDirectory() as d:
+                    packet = Path(d) / 'packet'
+                    shutil.copytree(ROOT, packet, ignore=shutil.ignore_patterns('.lake', '__pycache__'))
+                    path = packet / 'ResearchFormalCoreR1/AlgebraV2.lean'
+                    text = path.read_text()
+                    insertion = '  ' + command + '\n'
+                    if location == 'after_namespace':
+                        text += '\n' + insertion
+                    elif location == 'between_declarations':
+                        text = text.replace('theorem ec008_factor_expansion', insertion + '\ntheorem ec008_factor_expansion', 1)
+                    else:
+                        text = text.replace(':= by\n', ':= by\n' + insertion, 1)
+                    path.write_text(text)
+                    m = json.loads((packet / 'manifest.json').read_text())
+                    for name in m['files']:
+                        m['files'][name] = hashlib.sha256((packet / name).read_bytes()).hexdigest()
+                    (packet / 'manifest.json').write_text(json.dumps(m))
+                    with patch.object(gate, 'ROOT', packet), self.assertRaisesRegex(ValueError, reason):
+                        gate.source_check()
+
+    def test_digest_rebound_omitted_declarations_rejected(self):
+        cases = [
+            ('private theorem cbzPrivate : True := by trivial', 'source declaration census mismatch'),
+            ('  theorem cbzIndented : True := by trivial', 'unsupported declaration spelling'),
+            ('@[simp] theorem cbzAttributed : True := by trivial', 'unsupported'),
+            ('axiom cbzAxiom : False', 'forbidden token'),
+            ('noncomputable def cbzSorry : False := by sorry', 'forbidden token'),
+            ('theorem cbzNative : True := by native_decide', 'forbidden token'),
+        ]
+        for insertion, reason in cases:
+            with self.subTest(insertion=insertion), tempfile.TemporaryDirectory() as d:
+                packet = Path(d) / 'packet'
+                shutil.copytree(ROOT, packet, ignore=shutil.ignore_patterns('.lake', '__pycache__'))
+                path = packet / 'ResearchFormalCoreR1/AlgebraV2.lean'
+                path.write_text(path.read_text().replace('end ResearchFormalCoreR1', insertion + '\nend ResearchFormalCoreR1'))
+                m = json.loads((packet / 'manifest.json').read_text())
+                if reason == 'source declaration census mismatch':
+                    admission = gate.load_admission(gate.REPO, m['source_admission'])
+                    m['source_admission']['declarations']['ResearchFormalCoreR1.AlgebraV2'] = admission['declaration_binding'](path.read_text())
+                for name in m['files']:
+                    m['files'][name] = hashlib.sha256((packet / name).read_bytes()).hexdigest()
+                (packet / 'manifest.json').write_text(json.dumps(m))
+                with patch.object(gate, 'ROOT', packet), self.assertRaisesRegex(ValueError, reason):
+                    gate.source_check()
 
 if __name__ == '__main__': unittest.main()

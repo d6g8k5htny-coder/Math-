@@ -1,0 +1,28 @@
+test_ambient_git_environment_cannot_redirect_the_checked_commit (test_custody.SourceCustody.test_ambient_git_environment_cannot_redirect_the_checked_commit) ... ok
+2026-10-29T20:57:43.0202821Z test_assume_unchanged_cannot_hide_source_bytes (test_custody.SourceCustody.test_assume_unchanged_cannot_hide_source_bytes) ... ok
+2026-10-29T20:57:43.0622905Z test_clean_committed_source_is_admitted (test_custody.SourceCustody.test_clean_committed_source_is_admitted) ... ok
+2026-10-29T20:57:43.0969367Z test_dirty_refreshed_manifest_is_rejected (test_custody.SourceCustody.test_dirty_refreshed_manifest_is_rejected) ... ok
+2026-10-29T20:57:43.1316322Z test_head_drift_is_rejected (test_custody.SourceCustody.test_head_drift_is_rejected) ... ok
+2026-10-29T20:57:43.1735754Z environment: exit 0
+2026-10-29T20:57:43.1747892Z test_inherited_lean_search_paths_are_not_sent_to_execution (test_custody.SourceCustody.test_inherited_lean_search_paths_are_not_sent_to_execution) ... FAIL
+2026-10-29T20:57:43.2202076Z test_loaded_driver_substitution_is_rejected (test_custody.SourceCustody.test_loaded_driver_substitution_is_rejected) ... ok
+2026-10-29T20:57:43.2521080Z test_owned_symlink_source_is_rejected (test_custody.SourceCustody.test_owned_symlink_source_is_rejected) ... ok
+2026-10-29T20:57:43.3057693Z test_replace_refs_cannot_relabel_the_committed_source (test_custody.SourceCustody.test_replace_refs_cannot_relabel_the_committed_source) ... ok
+2026-10-29T20:57:43.3411830Z test_skip_worktree_cannot_hide_source_bytes (test_custody.SourceCustody.test_skip_worktree_cannot_hide_source_bytes) ... ok
+2026-10-29T20:57:43.3753873Z test_staged_change_is_rejected (test_custody.SourceCustody.test_staged_change_is_rejected) ... ok
+2026-10-29T20:57:43.3755131Z 
+2026-10-29T20:57:43.3755371Z ======================================================================
+2026-10-29T20:57:43.3756582Z FAIL: test_inherited_lean_search_paths_are_not_sent_to_execution (test_custody.SourceCustody.test_inherited_lean_search_paths_are_not_sent_to_execution)
+2026-10-29T20:57:43.3757757Z ----------------------------------------------------------------------
+2026-10-29T20:57:43.3758414Z Traceback (most recent call last):
+2026-10-29T20:57:43.3768087Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 135, in test_inherited_lean_search_paths_are_not_sent_to_execution
+2026-10-29T20:57:43.3769597Z     self.assertEqual(json.loads(result), {'LEAN_PATH': None, 'LEAN_SRC_PATH': None})
+2026-10-29T20:57:43.3770951Z AssertionError: {'LEAN_PATH': '/outside/lean', 'LEAN_SRC_PATH': '/outside/source'} != {'LEAN_PATH': None, 'LEAN_SRC_PATH': None}
+2026-10-29T20:57:43.3771956Z - {'LEAN_PATH': '/outside/lean', 'LEAN_SRC_PATH': '/outside/source'}
+2026-10-29T20:57:43.3772881Z + {'LEAN_PATH': None, 'LEAN_SRC_PATH': None}
+2026-10-29T20:57:43.3773188Z 
+2026-10-29T20:57:43.3773425Z ----------------------------------------------------------------------
+2026-10-29T20:57:43.3773970Z Ran 15 tests in 0.630s
+2026-10-29T20:57:43.3774200Z 
+2026-10-29T20:57:43.3774332Z FAILED (failures=1)
+2026-10-29T20:57:43.3932028Z ##[error]Process completed with exit code 1.

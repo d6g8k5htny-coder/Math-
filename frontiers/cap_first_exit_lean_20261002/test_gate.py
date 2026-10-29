@@ -33,6 +33,8 @@ def packet_copy(case):
     for p in HERE.iterdir():
         if p.is_file():
             shutil.copy2(p, packet / p.name)
+    (repo / 'tools').mkdir()
+    shutil.copy2(gate.REPO / 'tools/lean_packet_admission.py', repo / 'tools/lean_packet_admission.py')
     m = json.loads((HERE / 'MANIFEST.json').read_text())
     for pin in m['pins_on_main']:
         dst = repo / pin['path']
@@ -42,6 +44,36 @@ def packet_copy(case):
 
 
 class SourceGate(unittest.TestCase):
+    def test_declaration_header_bindings_missing_malformed_or_changed_rejected(self):
+        for bad in [None, {}, [], {'CapFirstExit': None}, {'CapFirstExit': {}},
+                    {'CapFirstExit': {'sha256': '0' * 64, 'lines': 1}}]:
+            with self.subTest(bindings=bad):
+                repo, packet = self.copy()
+                m = json.loads((packet / 'MANIFEST.json').read_text())
+                m['source_admission']['declarations'] = bad
+                for entry in m['files']:
+                    data = (packet / entry['path']).read_bytes()
+                    entry.update(sha256=hashlib.sha256(data).hexdigest(), bytes=len(data))
+                (packet / 'MANIFEST.json').write_text(json.dumps(m))
+                self.assertGateFails(repo, packet, 'source declaration header')
+
+    def test_rebound_one_line_declaration_tail_rejected(self):
+        anchor = 'theorem toy_frontier : frontier (Icc (-2 : ℝ) 1) = {-2, 1} := frontier_Icc (by norm_num)'
+        for tail in [' register_option cbzHidden : Bool := { defValue := false, descr := "review" }',
+                     ' newUnknownCommand cbz', ' (unreviewed : Nat)']:
+            with self.subTest(tail=tail):
+                repo, packet = self.copy()
+                path = packet / 'CapFirstExit.lean'
+                original = path.read_text()
+                self.assertEqual(original.count(anchor), 1)
+                path.write_text(original.replace(anchor, anchor + tail))
+                m = json.loads((packet / 'MANIFEST.json').read_text())
+                for entry in m['files']:
+                    data = (packet / entry['path']).read_bytes()
+                    entry.update(sha256=hashlib.sha256(data).hexdigest(), bytes=len(data))
+                (packet / 'MANIFEST.json').write_text(json.dumps(m))
+                self.assertGateFails(repo, packet, 'unsupported changed source declaration header binding')
+
     def test_tree_passes(self):
         m = gate.source_check()
         self.assertEqual(len(m["targets"]), 152)
@@ -76,6 +108,96 @@ class SourceGate(unittest.TestCase):
         p = repo / m['pins_on_main'][0]['path']
         p.write_bytes(p.read_bytes() + b'\n')
         self.assertGateFails(repo, packet, 'pinned source drifted')
+
+    def test_malformed_or_stale_census_rejected_after_hash_rebind(self):
+        for bad in [None, {}, [], ['bad'], [{'module': 'X'}]]:
+            with self.subTest(census=bad):
+                repo, packet = self.copy()
+                m = json.loads((packet / 'MANIFEST.json').read_text())
+                m['source_admission']['census'] = bad
+                for entry in m['files']:
+                    data = (packet / entry['path']).read_bytes()
+                    entry.update(sha256=hashlib.sha256(data).hexdigest(), bytes=len(data))
+                (packet / 'MANIFEST.json').write_text(json.dumps(m))
+                self.assertGateFails(repo, packet, 'source declaration census')
+
+    def test_continuation_inventory_missing_malformed_or_changed_rejected(self):
+        for bad in [None, {}, [], {'CapFirstExit': None}, {'CapFirstExit': {}},
+                    {'CapFirstExit': {'sha256': '0' * 64, 'lines': 1}}]:
+            with self.subTest(bindings=bad):
+                repo, packet = self.copy()
+                m = json.loads((packet / 'MANIFEST.json').read_text())
+                m['source_admission']['continuations'] = bad
+                for entry in m['files']:
+                    data = (packet / entry['path']).read_bytes()
+                    entry.update(sha256=hashlib.sha256(data).hexdigest(), bytes=len(data))
+                (packet / 'MANIFEST.json').write_text(json.dumps(m))
+                self.assertGateFails(repo, packet, 'source continuation')
+
+    def test_placeholder_refused_even_with_rebound_continuation_binding(self):
+        repo, packet = self.copy()
+        path = packet / 'CapFirstExit.lean'
+        path.write_text(path.read_text().replace(':= by\n', ':= by\n  have cbzUnused : False := sorryAx False true\n', 1))
+        m = json.loads((packet / 'MANIFEST.json').read_text())
+        admission = gate.load_admission(repo, m['source_admission'])
+        m['source_admission']['continuations']['CapFirstExit'] = admission['continuation_binding'](path.read_text())
+        for entry in m['files']:
+            data = (packet / entry['path']).read_bytes()
+            entry.update(sha256=hashlib.sha256(data).hexdigest(), bytes=len(data))
+        (packet / 'MANIFEST.json').write_text(json.dumps(m))
+        self.assertGateFails(repo, packet, 'forbidden token')
+
+    def test_rebound_unknown_continuation_and_direct_placeholder_rejected(self):
+        for command, reason in [
+            ('newUnknownCommand cbz', 'unsupported.*continuation'),
+            ('register_option cbzHidden : Bool := { defValue := false, descr := "review" }', 'unsupported.*continuation'),
+            ('have cbzUnused : False := sorryAx False true', 'forbidden token'),
+            ('have cbzUnused : False := _root_.sorryAx False true', 'forbidden token'),
+        ]:
+            for location in ['after_namespace', 'between_declarations', 'existing_proof']:
+                with self.subTest(command=command, location=location):
+                    repo, packet = self.copy()
+                    path = packet / 'CapFirstExit.lean'
+                    text = path.read_text()
+                    insertion = '  ' + command + '\n'
+                    if location == 'after_namespace':
+                        text += '\n' + insertion
+                    elif location == 'between_declarations':
+                        text = text.replace('theorem preconnected_subset_of_frontier_disjoint', insertion + '\ntheorem preconnected_subset_of_frontier_disjoint', 1)
+                    else:
+                        text = text.replace(':= by\n', ':= by\n' + insertion, 1)
+                    path.write_text(text)
+                    m = json.loads((packet / 'MANIFEST.json').read_text())
+                    for entry in m['files']:
+                        data = (packet / entry['path']).read_bytes()
+                        entry.update(sha256=hashlib.sha256(data).hexdigest(), bytes=len(data))
+                    (packet / 'MANIFEST.json').write_text(json.dumps(m))
+                    with self.assertRaisesRegex(ValueError, reason):
+                        gate.source_check(packet, repo)
+
+    def test_digest_rebound_omitted_declarations_rejected(self):
+        cases = [
+            ('private theorem cbzPrivate : True := by trivial', 'source declaration census mismatch'),
+            ('  theorem cbzIndented : True := by trivial', 'unsupported declaration spelling'),
+            ('@[simp] theorem cbzAttributed : True := by trivial', 'unsupported'),
+            ('axiom cbzAxiom : False', 'forbidden token'),
+            ('noncomputable def cbzSorry : False := by sorry', 'forbidden token'),
+            ('theorem cbzNative : True := by native_decide', 'forbidden token'),
+        ]
+        for insertion, reason in cases:
+            with self.subTest(insertion=insertion):
+                repo, packet = self.copy()
+                path = packet / 'CapFirstExit.lean'
+                path.write_text(path.read_text() + '\n' + insertion + '\n')
+                m = json.loads((packet / 'MANIFEST.json').read_text())
+                if reason == 'source declaration census mismatch':
+                    admission = gate.load_admission(repo, m['source_admission'])
+                    m['source_admission']['declarations']['CapFirstExit'] = admission['declaration_binding'](path.read_text())
+                for entry in m['files']:
+                    data = (packet / entry['path']).read_bytes()
+                    entry.update(sha256=hashlib.sha256(data).hexdigest(), bytes=len(data))
+                (packet / 'MANIFEST.json').write_text(json.dumps(m))
+                self.assertGateFails(repo, packet, reason)
 
 
 class Tokens(unittest.TestCase):
@@ -348,6 +470,9 @@ class Execute(unittest.TestCase):
             for e in manifest['files']:
                 if e['path'] == 'CapFirstExit.lean':
                     e['bytes'], e['sha256'] = len(data), hashlib.sha256(data).hexdigest()
+            admission = gate.load_admission(self.repo, manifest['source_admission'])
+            manifest['source_admission']['continuations']['CapFirstExit'] = admission['continuation_binding'](p.read_text())
+            manifest['source_admission']['declarations']['CapFirstExit'] = admission['declaration_binding'](p.read_text())
             (self.packet / 'MANIFEST.json').write_text(json.dumps(manifest, indent=1, ensure_ascii=False) + '\n')
             gate.source_check(self.packet, self.repo)  # the rewritten packet is self-consistent
         self.assertExecuteFails('MANIFEST.json differs from the manifest bound before execution', during=rewrite)
