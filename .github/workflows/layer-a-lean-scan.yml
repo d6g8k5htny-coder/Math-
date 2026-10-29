@@ -1,0 +1,41 @@
+name: Layer A Lean scan
+
+# CBZ-0 gates G0 and G1: mutation-test the Layer A scanner, then scan every tracked
+# Lean file for placeholders, axiom injection, trust escapes and floating point in code.
+# Static only: it does not replace a kernel build or #print axioms.
+'on':
+  pull_request:
+    paths:
+      - '**/*.lean'
+      - '.github/workflows/layer-a-lean-scan.yml'
+      - 'tools/lean_layer_a_scan.py'
+      - 'tests/test_lean_layer_a_scan.py'
+  push:
+    branches: [main]
+    paths:
+      - '**/*.lean'
+      - 'tools/lean_layer_a_scan.py'
+      - 'tests/test_lean_layer_a_scan.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.11.16'
+      - name: G0 scanner self-test and G1 repository scan, both modes
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python -B -S tests/test_lean_layer_a_scan.py
+          python -B -O -S tests/test_lean_layer_a_scan.py
+          python -B -S tools/lean_layer_a_scan.py --root .
