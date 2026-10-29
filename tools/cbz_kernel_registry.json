@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "tool_id": "CBZ-MATH-NATIVE-KERNEL-01",
+  "entrypoint": "tools/cbz_kernel_gate.py",
+  "workflow": ".github/workflows/cbz-kernel.yml",
+  "tests": "tests/test_cbz_kernel_gate.py",
+  "status": "CANDIDATE_NOT_HOSTED_EXECUTED",
+  "scientific_effect": "NONE",
+  "runtime": {
+    "lean": "leanprover/lean4:v4.34.1",
+    "lean_commit": "5045d0056413266e57c625dcd7c365b10e377c52",
+    "mathlib": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "python": "3.11.16"
+  },
+  "inventory_command": "python3 -B -S tools/cbz_kernel_gate.py --inventory",
+  "execution_command": "python3 -B -S tools/cbz_kernel_gate.py --execute --expected-commit \"$GITHUB_SHA\"",
+  "scope": "All native Lean sources in the eight fixed package roots; explicit srcDir mappings; no proof, bound or scientific status changes.",
+  "outputs": ".lake/cbz-kernel/",
+  "failure_behavior": "REFUSED terminal result; no success receipt; retain actual command exits and stdout/stderr.",
+  "success_requirements": [
+    "exact source checkout and pinned dependency commits",
+    "all native project build directories freshly removed",
+    "native library builds and standalone orphan modules",
+    "standalone leanchecker on every inventoried module",
+    "independent compiled header/environment-origin census agreement",
+    "every native declaration in checked kernel environment",
+    "all-declaration transitive axiom closure inside explicit core set",
+    "compiled unused-axiom, sorry and native_decide controls refused for exact forbidden findings",
+    "final source and dependency identity readback"
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "not_established": [
+    "local or hosted Lean execution before the workflow runs",
+    "mathematical semantic alignment",
+    "all Mathlib objects rebuilt from source",
+    "all Lean files outside the eight native package roots",
+    "parent theorem or scientific status closure"
+  ],
+  "mutation_entrypoint": "tools/cbz_kernel_mutations.py",
+  "mutation_tests": "tests/test_cbz_kernel_mutations.py",
+  "mutation_command": "python3 -B -S tools/cbz_kernel_mutations.py --output .lake/cbz-kernel/mutations",
+  "mutation_threshold": {
+    "unmodified_baseline_tests_per_mode": 44,
+    "declared_python_source_mutants": 8,
+    "modes": [
+      "normal",
+      "optimized"
+    ],
+    "required": "Every nonstale compiling mutant must yield exactly its intended assertion failure, positive count, zero errors/skips/startup failures; stale cases refuse.",
+    "actual_generated_lean_mutants": 1,
+    "generated_threshold": "Omitting theorem-value traversal must compile/run and be detected by the compiled sorry control before long native builds."
+  },
+  "execution_custody": {
+    "attempts": "Fresh executions/attempt-<unique-id>/ directory per --execute call",
+    "current_reference": "current-execution.json",
+    "receipt": "receipt.json inside the referenced execution directory",
+    "prior_attempts": "Preserved complete/incomplete; never reused or overwritten",
+    "g0_mutations": "Separate mutations/result.json; prior mutation outputs retained under mutations/history/",
+    "failure": "New current reference is REFUSED with no new success receipt; earlier receipts/logs remain historical."
+  }
+}
