@@ -1,5 +1,6 @@
 """CBZ native gate refusals: omitted source, forged census, stale output and bad child exit."""
 import importlib.util
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -237,6 +238,97 @@ class NativeGateTests(unittest.TestCase):
             (dependency / "M.lean").write_text("def x : Nat := 999\n")
             with self.assertRaisesRegex(gate.GateError, "HEAD blob"):
                 gate.share_dependencies(root, {"projects": [{"project": "formal"}]}, {"mathlib": head})
+
+    def dependency_link_repo(self, root, relative="docs/README.md", payload="../README.md"):
+        dependency = root / "formal/.lake/packages/batteries"
+        dependency.mkdir(parents=True)
+        self.committed_repo(dependency)
+        link = dependency / relative
+        link.parent.mkdir(parents=True, exist_ok=True)
+        link.symlink_to(payload)
+        subprocess.run(["git", "-C", str(dependency), "add", relative], check=True)
+        subprocess.run(["git", "-C", str(dependency), "-c", "user.name=CBZ test", "-c", "user.email=cbz-test@example.invalid", "commit", "--quiet", "-m", "link fixture"], check=True)
+        head = subprocess.check_output(["git", "-C", str(dependency), "rev-parse", "HEAD"], text=True).strip()
+        return dependency, head
+
+    def reviewed_link_policy(self, head):
+        payload = b"../README.md"
+        return {("batteries", head): {"docs/README.md": {
+            "git_blob": hashlib.sha1(b"blob 12\0" + payload).hexdigest(),
+            "payload_hex": payload.hex(), "role": "documentation alias"}}}
+
+    def test_reviewed_dependency_link_payload_is_attested_without_following(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d);dependency, head = self.dependency_link_repo(root)
+            self.assertFalse((dependency / "docs/README.md").exists(), "fixture target must be absent")
+            with patch.object(gate, "DEPENDENCY_METADATA_LINKS", self.reviewed_link_policy(head), create=True):
+                result = gate.share_dependencies(root, {"projects": [{"project": "formal"}]}, {"batteries": head})
+            report = result["batteries"]["tracked_source_attestation"]
+            link = next(row for row in report["source_records"] if row["path"] == "docs/README.md")
+            self.assertEqual(report["symlink_files"], 1)
+            self.assertEqual(link["mode"], "120000")
+            self.assertEqual(link["kind"], "symlink_payload")
+            self.assertEqual(link["payload_hex"], b"../README.md".hex())
+            self.assertEqual(link["sha256"], hashlib.sha256(b"../README.md").hexdigest())
+            self.assertEqual(link["role"], "documentation alias")
+            self.assertIs(link["target_followed"], False)
+
+    def test_changed_reviewed_link_target_cannot_hide_behind_clean_git_status(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d);dependency, head = self.dependency_link_repo(root)
+            subprocess.run(["git", "-C", str(dependency), "update-index", "--assume-unchanged", "docs/README.md"], check=True)
+            link = dependency / "docs/README.md";link.unlink();link.symlink_to("../M.lean")
+            self.assertEqual(gate.git_output(dependency, "status", "--porcelain"), "")
+            with patch.object(gate, "DEPENDENCY_METADATA_LINKS", self.reviewed_link_policy(head), create=True):
+                with self.assertRaisesRegex(gate.GateError, "HEAD blob"):
+                    gate.attest_sources(dependency, head, {"docs/README.md"}, dependency="batteries")
+
+    def test_documentation_symlink_is_refused_by_default(self):
+        with tempfile.TemporaryDirectory() as d:
+            dependency, head = self.dependency_link_repo(Path(d))
+            with self.assertRaisesRegex(gate.GateError, "source mode"):
+                gate.attest_sources(dependency, head, {"docs/README.md"})
+
+    def test_dependency_source_configuration_and_gate_links_remain_refused(self):
+        for name in ("Hidden.lean", "lakefile.toml", "lakefile.lean", "lake-manifest.json", "lean-toolchain", "tools/cbz_kernel_gate.py"):
+            with self.subTest(name=name), tempfile.TemporaryDirectory() as d:
+                root = Path(d);dependency, head = self.dependency_link_repo(root, name)
+                with patch.object(gate, "DEPENDENCY_METADATA_LINKS", self.reviewed_link_policy(head), create=True):
+                    with self.assertRaisesRegex(gate.GateError, "source mode"):
+                        gate.share_dependencies(root, {"projects": [{"project": "formal"}]}, {"batteries": head})
+
+    def test_reviewed_metadata_link_with_symlinked_ancestor_is_refused(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d);dependency, head = self.dependency_link_repo(root)
+            (dependency / "docs").rename(root / "external-docs")
+            (dependency / "docs").symlink_to(root / "external-docs", target_is_directory=True)
+            with patch.object(gate, "DEPENDENCY_METADATA_LINKS", self.reviewed_link_policy(head), create=True):
+                with self.assertRaisesRegex(gate.GateError, "symlink.*ancestor"):
+                    gate.attest_sources(dependency, head, {"docs/README.md"}, dependency="batteries")
+
+    def test_reviewed_metadata_link_must_retain_git_symlink_mode(self):
+        with tempfile.TemporaryDirectory() as d:
+            dependency, head = self.dependency_link_repo(Path(d))
+            link = dependency / "docs/README.md";link.unlink();link.write_bytes(b"../README.md")
+            with patch.object(gate, "DEPENDENCY_METADATA_LINKS", self.reviewed_link_policy(head), create=True):
+                with self.assertRaisesRegex(gate.GateError, "symlink mode"):
+                    gate.attest_sources(dependency, head, {"docs/README.md"}, dependency="batteries")
+
+    def test_metadata_link_review_does_not_transfer_to_another_revision(self):
+        with tempfile.TemporaryDirectory() as d:
+            dependency, head = self.dependency_link_repo(Path(d))
+            with patch.object(gate, "DEPENDENCY_METADATA_LINKS", self.reviewed_link_policy("0" * 40), create=True):
+                with self.assertRaisesRegex(gate.GateError, "source mode"):
+                    gate.attest_sources(dependency, head, {"docs/README.md"}, dependency="batteries")
+
+    def test_metadata_link_must_match_the_independently_reviewed_git_blob(self):
+        with tempfile.TemporaryDirectory() as d:
+            dependency, head = self.dependency_link_repo(Path(d))
+            policy = self.reviewed_link_policy(head)
+            policy[("batteries", head)]["docs/README.md"]["git_blob"] = "0" * 40
+            with patch.object(gate, "DEPENDENCY_METADATA_LINKS", policy, create=True):
+                with self.assertRaisesRegex(gate.GateError, "reviewed metadata"):
+                    gate.attest_sources(dependency, head, {"docs/README.md"}, dependency="batteries")
 
     def test_standard_core_axiom_is_the_explicit_exception(self):
         r = gate.parse_audit(BASE.replace("CBZ|AXIOMS|", "CBZ|AXIOMS|s70726f70657874"), ["M"])

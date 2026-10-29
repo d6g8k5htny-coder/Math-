@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Eight bounded source-guard mutations; crashes/errors/skips never count as kills."""
+"""Nine bounded source-guard mutations; crashes/errors/skips never count as kills."""
 from __future__ import annotations
 import argparse
 import hashlib
@@ -16,7 +16,7 @@ import uuid
 ROOT = Path(__file__).resolve().parents[1]
 TOOL = Path("tools/cbz_kernel_gate.py")
 TEST = Path("tests/test_cbz_kernel_gate.py")
-EXPECTED_BASELINE_TESTS = 44
+EXPECTED_BASELINE_TESTS = 52
 CASES = [
     ("independent_census",
      'require(first == second, "independent compiled census disagreement: " + render_name(name))',
@@ -38,6 +38,10 @@ CASES = [
      'require(blob == entry["blob"], "consumed bytes differ from HEAD blob: " + relative)',
      'require(True, "consumed bytes differ from HEAD blob: " + relative)',
      "test_assume_unchanged_cannot_hide_bytes_from_commit_attestation"),
+    ("dependency_link_payload_binding",
+     'require(link_blob == entry["blob"] and data.hex() == reviewed["payload_hex"],\n                    "symlink payload differs from HEAD blob: " + relative)',
+     'require(True, "symlink payload differs from HEAD blob: " + relative)',
+     "test_changed_reviewed_link_target_cannot_hide_behind_clean_git_status"),
     ("source_subdirectory_omission",
      'if stat.S_ISDIR(mode):\n                    walk(path)',
      'if stat.S_ISDIR(mode):\n                    continue',
@@ -83,7 +87,7 @@ def require_baseline(result):
             and result["tests_run"] == EXPECTED_BASELINE_TESTS
             and result["assertion_failures"] == result["test_errors"] == result["tests_skipped"] == 0
             and not result["failing_tests"] and not result["error_tests"]
-            and result["summary"].startswith("OK"), "unmodified 44-test baseline is not healthy")
+            and result["summary"].startswith("OK"), "unmodified 52-test baseline is not healthy")
 
 def require_kill(result, selector):
     require(result["valid_protocol"] and result["returncode"] == 1 and result["tests_run"] == 1
@@ -138,7 +142,7 @@ def execute(output):
         previous.replace(output / "history" / previous.name)
     else:
         output.mkdir(parents=True, exist_ok=True)
-    report = {"schema_version": 1, "status": "RUNNING", "scope": "Eight Python source guards only; generated Lean mutation is executed by the real control preflight.",
+    report = {"schema_version": 1, "status": "RUNNING", "scope": "Nine Python source guards only; generated Lean mutation is executed by the real control preflight.",
               "source_binding": None, "expected_baseline_tests": EXPECTED_BASELINE_TESTS,
               "declared_mutants": len(CASES), "baselines": {}, "mutants": []}
     output.mkdir(parents=True, exist_ok=True)
@@ -185,7 +189,7 @@ def execute(output):
                 and sha((ROOT / TEST).read_bytes()) == binding["test_sha256"],
                 "auditor source/test changed during mutation execution")
         report.update(status="PASS", killed_mutants=len(report["mutants"]),
-                      threshold="All eight declared nonstale mutants killed in both modes; zero errors/skips/startup failures")
+                      threshold="All nine declared nonstale mutants killed in both modes; zero errors/skips/startup failures")
         retain()
         return report
     except (MutationError, OSError, ValueError, TypeError) as exc:

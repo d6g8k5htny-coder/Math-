@@ -24,3 +24,12 @@ Require eight declared source-guard mutations against the unchanged 44-test base
 ## 2026-10-29: preserve sequential rerun custody
 
 Use a fresh native execution directory per call and retain old attempts plus top-level reference history. Keep G0 mutation results separate; archive their old output on rerun and publish REFUSED even for early input/precondition failures. Current success must never be inferred from a previous attempt.
+
+
+## 2026-10-29T19:04:15.984661+00:00: exact dependency metadata links (Phase 2, Layer B)
+
+The first hosted native attempt40933241149 at tested merge80bdeac2c7a88b51da13a81d47d458c0d474f0c6 refused before proof builds on Batteries docs/README.md. Preserve its failure,174-file artifact12924216223 (630934bytes; SHA256b319f068e05980750d3803944da42d2c54a336ecec8ee4accbbc6f5d19784094) and original eight-mutant/44-test records. Inspect every tree of all nine pinned dependencies. Handle only three exact reviewed noncompiler aliases by package, revision, path, mode, Git blob and raw readlink payload; never follow the target. Preserve refusal for unknown or Lean/config/gate/ancestor links. Record every link payload and its limited role; omit nothing silently. The fixed52-test baseline and13 harness methods pass per mode;9/9 Python mutations are killed per mode and the actual generated Lean mutation is detected. The full eight-project run remains unqualified. This reversible source repair is registered in tools/cbz_kernel_registry.json and TOOLING.md.
+
+## 2026-10-29T19:04:15.984661+00:00: preserve current C8 wrapper integration (Phase 2, Layer C)
+
+Compose the fixed native gate against e877242cf68fb24c605066f16dd07f513ee75a1d, preserving all five current C8 wrapper engineering files. They change no Lean source or package configuration. No history rewrite, required-check change or mathematical promotion is performed.

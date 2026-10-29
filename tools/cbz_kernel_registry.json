@@ -4,7 +4,7 @@
   "entrypoint": "tools/cbz_kernel_gate.py",
   "workflow": ".github/workflows/cbz-kernel.yml",
   "tests": "tests/test_cbz_kernel_gate.py",
-  "status": "CANDIDATE_NOT_HOSTED_EXECUTED",
+  "status": "HOSTED_ATTEMPT_REFUSED_REQUALIFICATION_PENDING",
   "scientific_effect": "NONE",
   "runtime": {
     "lean": "leanprover/lean4:v4.34.1",
@@ -17,6 +17,44 @@
   "scope": "All native Lean sources in the eight fixed package roots; explicit srcDir mappings; no proof, bound or scientific status changes.",
   "outputs": ".lake/cbz-kernel/",
   "failure_behavior": "REFUSED terminal result; no success receipt; retain actual command exits and stdout/stderr.",
+  "first_hosted_attempt": {
+    "run_id": "40933241149",
+    "job_id": "123656926883",
+    "checked_merge_commit": "80bdeac2c7a88b51da13a81d47d458c0d474f0c6",
+    "result": "REFUSED_BEFORE_NATIVE_BUILDS",
+    "reason": "Regular-only dependency attestation refused the pinned Batteries documentation symlink docs/README.md; fixed candidate requires a new actual hosted run."
+  },
+  "dependency_metadata_links": {
+    "policy": "Only these exact reviewed package/revision/path/blob/payload tuples; raw link payload attested and enumerated without following targets. All other symlinks and symlinked source ancestors refuse.",
+    "tree_census": "All nine pinned dependency trees inspected recursively without truncation; three symlinks total.",
+    "compiler_role": "None in this gate; installed Lean runtime remains separate. Benchmark aliases are inactive.",
+    "entries": [
+      {
+        "package": "batteries",
+        "revision": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+        "path": "docs/README.md",
+        "git_blob": "32d46ee883b58d6a383eed06eb98f33aa6530ded",
+        "payload_hex": "2e2e2f524541444d452e6d64",
+        "role": "documentation alias"
+      },
+      {
+        "package": "mathlib",
+        "revision": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "path": "scripts/bench/build/fake-root/bin/lean.py",
+        "git_blob": "819298943e1a8c331413fb55e2c4bbc98d05e562",
+        "payload_hex": "6c65616e",
+        "role": "inactive benchmark alias; not gate runtime or compiler input"
+      },
+      {
+        "package": "mathlib",
+        "revision": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "path": "scripts/bench/size/run.py",
+        "git_blob": "e5224d533ef27b001224859a9b36696846a7e7fe",
+        "payload_hex": "72756e",
+        "role": "inactive benchmark alias; not gate runtime or compiler input"
+      }
+    ]
+  },
   "success_requirements": [
     "exact source checkout and pinned dependency commits",
     "all native project build directories freshly removed",
@@ -34,7 +72,7 @@
     "Quot.sound"
   ],
   "not_established": [
-    "local or hosted Lean execution before the workflow runs",
+    "all-eight-project native kernel/axiom qualification until a source-bound success receipt exists",
     "mathematical semantic alignment",
     "all Mathlib objects rebuilt from source",
     "all Lean files outside the eight native package roots",
@@ -44,8 +82,8 @@
   "mutation_tests": "tests/test_cbz_kernel_mutations.py",
   "mutation_command": "python3 -B -S tools/cbz_kernel_mutations.py --output .lake/cbz-kernel/mutations",
   "mutation_threshold": {
-    "unmodified_baseline_tests_per_mode": 44,
-    "declared_python_source_mutants": 8,
+    "unmodified_baseline_tests_per_mode": 52,
+    "declared_python_source_mutants": 9,
     "modes": [
       "normal",
       "optimized"

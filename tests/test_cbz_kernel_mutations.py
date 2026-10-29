@@ -61,10 +61,10 @@ class MutationHarnessTests(unittest.TestCase):
             with self.subTest(code=code), self.assertRaises(harness.MutationError):
                 harness.require_kill(harness.suite_result(code, KILL), SELECTOR)
 
-    def test_baseline_requires_all_44_healthy_tests(self):
-        harness.require_baseline(harness.suite_result(0, "Ran 44 tests in 0.1s\nOK\n"))
-        for text in ("Ran 0 tests in 0.1s\nOK\n", "Ran 43 tests in 0.1s\nOK\n",
-                     "Ran 44 tests in 0.1s\nOK (skipped=1)\n"):
+    def test_baseline_requires_all_52_healthy_tests(self):
+        harness.require_baseline(harness.suite_result(0, "Ran 52 tests in 0.1s\nOK\n"))
+        for text in ("Ran 0 tests in 0.1s\nOK\n", "Ran 51 tests in 0.1s\nOK\n",
+                     "Ran 52 tests in 0.1s\nOK (skipped=1)\n"):
             with self.subTest(text=text), self.assertRaises(harness.MutationError):
                 harness.require_baseline(harness.suite_result(0, text))
 

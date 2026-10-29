@@ -33,6 +33,22 @@ MATHLIB_REV = "d13f23b723b8a846827a245b89c10fc7d3f11612"
 MODULE = re.compile(r"[A-Za-z_][A-Za-z0-9_]*(?:\.[A-Za-z_][A-Za-z0-9_]*)*")
 SAFE_KINDS = frozenset({"theorem", "def", "inductive", "ctor", "rec"})
 
+# Complete link census of the nine pinned dependency trees. These exact aliases
+# are not compiler inputs to this gate. Never resolve their targets or extend
+# this reviewed catalog from checkout contents or an invocation parameter.
+DEPENDENCY_METADATA_LINKS = {
+    ("batteries", "f2effa3d803fda822b1f97b806c47cf2adfbcbc2"): {
+        "docs/README.md": {"git_blob": "32d46ee883b58d6a383eed06eb98f33aa6530ded",
+                           "payload_hex": "2e2e2f524541444d452e6d64", "role": "documentation alias"}},
+    ("mathlib", MATHLIB_REV): {
+        "scripts/bench/build/fake-root/bin/lean.py": {
+            "git_blob": "819298943e1a8c331413fb55e2c4bbc98d05e562", "payload_hex": "6c65616e",
+            "role": "inactive benchmark alias; not gate runtime or compiler input"},
+        "scripts/bench/size/run.py": {
+            "git_blob": "e5224d533ef27b001224859a9b36696846a7e7fe", "payload_hex": "72756e",
+            "role": "inactive benchmark alias; not gate runtime or compiler input"}},
+}
+
 class GateError(ValueError):
     pass
 
@@ -450,26 +466,45 @@ def git_tree_entries(repo, commit):
     require(entries, "empty canonical Git tree")
     return entries
 
-def attest_sources(repo, commit, paths, entries=None):
+def attest_sources(repo, commit, paths, entries=None, *, dependency=None):
     """Bind actual consumed bytes to commit blobs; index flags/status cannot substitute."""
-    repo = Path(repo).resolve()
+    repo = Path(repo).absolute()
+    require(not any(p.is_symlink() for p in [repo, *repo.parents]), "symlink source checkout ancestor")
     entries = git_tree_entries(repo, commit) if entries is None else entries
+    metadata_links = DEPENDENCY_METADATA_LINKS.get((dependency, commit), {})
     rows = []
     for relative in sorted(paths):
         pure = Path(relative)
         require(not pure.is_absolute() and ".." not in pure.parts and pure.as_posix() == relative,
                 "unsafe consumed source path")
         entry = entries.get(relative)
-        require(entry is not None and entry["kind"] == "blob" and entry["mode"] in {"100644", "100755"},
+        require(entry is not None and entry["kind"] == "blob"
+                and (entry["mode"] in {"100644", "100755"}
+                     or entry["mode"] == "120000" and relative in metadata_links),
                 "unsupported or missing HEAD blob source mode: " + relative)
         path = repo / pure
-        require(path.is_file() and not any(p.is_symlink() for p in [path, *path.parents] if p != repo.parent),
+        ancestors = [repo.joinpath(*pure.parts[:i]) for i in range(1, len(pure.parts))]
+        require(not any(p.is_symlink() for p in ancestors), "symlink HEAD blob source ancestor: " + relative)
+        if entry["mode"] == "120000":
+            reviewed = metadata_links[relative]
+            require(entry["blob"] == reviewed["git_blob"], "unreviewed metadata Git blob: " + relative)
+            require(path.is_symlink(), "reviewed metadata link lost Git symlink mode: " + relative)
+            data = os.readlink(os.fsencode(path))
+            link_blob = hashlib.sha1(b"blob " + str(len(data)).encode() + b"\0" + data).hexdigest()
+            require(link_blob == entry["blob"] and data.hex() == reviewed["payload_hex"],
+                    "symlink payload differs from HEAD blob: " + relative)
+            rows.append({"path": relative, "git_blob": link_blob, "sha256": hashlib.sha256(data).hexdigest(),
+                         "mode": entry["mode"], "kind": "symlink_payload", "payload_hex": data.hex(),
+                         "role": reviewed["role"], "target_followed": False})
+            continue
+        require(path.is_file() and not path.is_symlink(),
                 "missing or symlink HEAD blob source: " + relative)
         data = path.read_bytes()
         blob = hashlib.sha1(b"blob " + str(len(data)).encode() + b"\0" + data).hexdigest()
         require(blob == entry["blob"], "consumed bytes differ from HEAD blob: " + relative)
         rows.append({"path": relative, "git_blob": blob, "sha256": hashlib.sha256(data).hexdigest(), "mode": entry["mode"]})
     return {"commit": commit, "files": len(rows), "source_records": rows,
+            "symlink_files": sum(row.get("kind") == "symlink_payload" for row in rows),
             "records_sha256": hashlib.sha256(json.dumps(rows, sort_keys=True).encode()).hexdigest()}
 
 def dependency_pins(snapshot):
@@ -501,7 +536,7 @@ def share_dependencies(repo, snapshot, pins):
         require(path.is_dir() and git_output(path, "rev-parse", "HEAD") == revision, "dependency checkout differs from pinned revision: " + name)
         require(not git_output(path, "status", "--porcelain", "--untracked-files=normal"), "dirty dependency checkout: " + name)
         entries = git_tree_entries(path, revision)
-        attestation = attest_sources(path, revision, set(entries), entries)
+        attestation = attest_sources(path, revision, set(entries), entries, dependency=name)
         verified[name] = {"revision": revision, "path": str(path.resolve()), "tracked_source_attestation": attestation,
                           "compiled_cache_trust": "Pinned dependency cache accepted; dependency objects are not claimed freshly rebuilt or independently source-qualified."}
     for report in snapshot["projects"]:

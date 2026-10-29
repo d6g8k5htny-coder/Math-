@@ -20,3 +20,7 @@ The determinant component's earlier receipts, proved metadata and source-only/un
 
 Integration base read and source-verified: 74565f013575b7b05ecfc4034cd5d638ee355353, tree 19b3e91bad1a4d7f5a21b1ea5e273fd300acb6f4. Scientific effect: NONE.
 
+
+## First actual native attempt and bounded repair
+
+Run40933241149, tested merge80bdeac2c7a88b51da13a81d47d458c0d474f0c6, passed auditor controls and Lean installation, then REFUSED before proof builds on a legitimate Batteries documentation symlink. Its174-file/630934-byte artifact12924216223 is retained. The repair enumerates three exact reviewed Batteries/Mathlib metadata links without dereference; all source/configuration and unknown links remain refused. The fixed source has52 kernel controls plus13 harness controls per mode,9/9 Python mutants killed per mode, and an actual compiled-control preflight. The complete eight-project run at the fixed source is NOT_EVALUATED.
