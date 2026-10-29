@@ -1,0 +1,58 @@
+name: CBZ preserve exact mathematical deliveries
+'on':
+  pull_request:
+    paths:
+      - '.github/workflows/cbz-preserve-math-deliveries.yml'
+      - 'cbz/math-delivery-snapshots/**'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  preserve-exact-source-history:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: true
+      - name: Create immutable annotated source snapshots and verify every remote peel
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/cbz-math-snapshots"
+          python3 - <<'PY' > "$RUNNER_TEMP/cbz-math-snapshots/plan.tsv"
+          import json,re
+          from pathlib import Path
+          plan=json.loads(Path('cbz/math-delivery-snapshots/plan.json').read_text())
+          if plan['schema']!='cbz-exact-mathematical-delivery-snapshots-v1' or len(plan['snapshots'])!=6:
+              raise ValueError('unexpected snapshot domain')
+          tags=set()
+          for row in plan['snapshots']:
+              tag,commit,identity=row['tag'],row['commit'],row['id']
+              if not re.fullmatch('[a-z0-9-]+',tag) or tag in tags or not re.fullmatch('[0-9a-f]{40}',commit) or not re.fullmatch('[A-Za-z0-9-]+',identity):
+                  raise ValueError('unsafe or duplicate exact snapshot entry')
+              tags.add(tag)
+              print(tag,commit,identity,sep='\t')
+          PY
+          while IFS=$'\t' read -r snapshot_tag source_commit identity; do
+            git fetch --no-tags origin "$source_commit"
+            test "$(git cat-file -t "$source_commit")" = commit
+            git ls-remote --tags origin "refs/tags/$snapshot_tag" "refs/tags/$snapshot_tag^{}" > "$RUNNER_TEMP/cbz-math-snapshots/$snapshot_tag.before"
+            if test ! -s "$RUNNER_TEMP/cbz-math-snapshots/$snapshot_tag.before"; then
+              git -c user.name='CBZ source preservation' -c user.email='cbz-baseline@users.noreply.github.com' tag -a "$snapshot_tag" "$source_commit" -m "Immutable CBZ snapshot $identity at $source_commit; original proofs, controls, source and full ancestry preserved. No mathematical or scientific promotion. See cbz/math-delivery-snapshots/plan.json and federation proof index for disposition."
+              git push origin "refs/tags/$snapshot_tag"
+            fi
+            git ls-remote --exit-code --tags origin "refs/tags/$snapshot_tag" "refs/tags/$snapshot_tag^{}" > "$RUNNER_TEMP/cbz-math-snapshots/$snapshot_tag.after"
+            actual_commit="$(awk -v ref="refs/tags/$snapshot_tag^{}" '$2 == ref {print $1}' "$RUNNER_TEMP/cbz-math-snapshots/$snapshot_tag.after")"
+            test "$actual_commit" = "$source_commit"
+            printf '%s\t%s\t%s\n' "$snapshot_tag" "$source_commit" VERIFIED >> "$RUNNER_TEMP/cbz-math-snapshots/observed.tsv"
+          done < "$RUNNER_TEMP/cbz-math-snapshots/plan.tsv"
+          test "$(wc -l < "$RUNNER_TEMP/cbz-math-snapshots/observed.tsv")" -eq 6
+      - name: Preserve successful and unsuccessful remote readbacks
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: cbz-math-source-snapshots-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/cbz-math-snapshots/
+          if-no-files-found: error
+          retention-days: 90
