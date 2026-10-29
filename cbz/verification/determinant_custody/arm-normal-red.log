@@ -1,0 +1,121 @@
+test_assume_unchanged_dependency_source_is_rejected (test_custody.DependencyCustody.test_assume_unchanged_dependency_source_is_rejected) ... ok
+2026-10-29T21:07:15.3841844Z test_clean_dependency_is_admitted (test_custody.DependencyCustody.test_clean_dependency_is_admitted) ... ok
+2026-10-29T21:07:15.4134037Z test_ignored_untracked_lean_source_is_rejected (test_custody.DependencyCustody.test_ignored_untracked_lean_source_is_rejected) ... ok
+2026-10-29T21:07:15.4430105Z test_skip_worktree_dependency_source_is_rejected (test_custody.DependencyCustody.test_skip_worktree_dependency_source_is_rejected) ... ok
+2026-10-29T21:07:15.5202790Z test_ambient_git_environment_cannot_redirect_the_checked_commit (test_custody.SourceCustody.test_ambient_git_environment_cannot_redirect_the_checked_commit) ... ok
+2026-10-29T21:07:15.5495377Z test_assume_unchanged_cannot_hide_source_bytes (test_custody.SourceCustody.test_assume_unchanged_cannot_hide_source_bytes) ... ok
+2026-10-29T21:07:15.5811342Z test_clean_committed_source_is_admitted (test_custody.SourceCustody.test_clean_committed_source_is_admitted) ... ok
+2026-10-29T21:07:15.6079313Z test_dirty_refreshed_manifest_is_rejected (test_custody.SourceCustody.test_dirty_refreshed_manifest_is_rejected) ... ok
+2026-10-29T21:07:15.6292680Z test_generated_audit_symlink_is_refused_before_overwrite (test_custody.SourceCustody.test_generated_audit_symlink_is_refused_before_overwrite) ... FAIL
+2026-10-29T21:07:15.6593431Z test_head_drift_is_rejected (test_custody.SourceCustody.test_head_drift_is_rejected) ... ok
+2026-10-29T21:07:15.6953802Z git-environment: exit 0
+2026-10-29T21:07:15.6960720Z test_inherited_git_redirects_are_not_sent_to_execution (test_custody.SourceCustody.test_inherited_git_redirects_are_not_sent_to_execution) ... FAIL
+2026-10-29T21:07:15.7335684Z environment: exit 0
+2026-10-29T21:07:15.7353167Z test_inherited_lean_search_paths_are_not_sent_to_execution (test_custody.SourceCustody.test_inherited_lean_search_paths_are_not_sent_to_execution) ... ok
+2026-10-29T21:07:15.7712555Z test_loaded_driver_substitution_is_rejected (test_custody.SourceCustody.test_loaded_driver_substitution_is_rejected) ... ok
+2026-10-29T21:07:15.7997435Z probe: exit 0
+2026-10-29T21:07:15.7998998Z test_log_symlink_is_refused_without_overwriting_its_target (test_custody.SourceCustody.test_log_symlink_is_refused_without_overwriting_its_target) ... FAIL
+2026-10-29T21:07:15.8507816Z test_mutation_grader_accepts_the_expected_failure_reason (test_custody.SourceCustody.test_mutation_grader_accepts_the_expected_failure_reason) ... ok
+2026-10-29T21:07:15.8935552Z test_mutation_grader_rejects_wrong_exit_even_with_forged_failure_text (test_custody.SourceCustody.test_mutation_grader_rejects_wrong_exit_even_with_forged_failure_text) ... FAIL
+2026-10-29T21:07:15.9408899Z test_mutation_grader_rejects_wrong_reason_with_same_test_name (test_custody.SourceCustody.test_mutation_grader_rejects_wrong_reason_with_same_test_name) ... FAIL
+2026-10-29T21:07:15.9664439Z test_nested_build_symlinks_are_rejected_before_admission (test_custody.SourceCustody.test_nested_build_symlinks_are_rejected_before_admission) ... FAIL
+2026-10-29T21:07:15.9927616Z test_owned_symlink_source_is_rejected (test_custody.SourceCustody.test_owned_symlink_source_is_rejected) ... ok
+2026-10-29T21:07:16.0267177Z test_refreshed_external_admission_helper_is_rejected (test_custody.SourceCustody.test_refreshed_external_admission_helper_is_rejected) ... ok
+2026-10-29T21:07:16.0718655Z test_replace_refs_cannot_relabel_the_committed_source (test_custody.SourceCustody.test_replace_refs_cannot_relabel_the_committed_source) ... ok
+2026-10-29T21:07:16.1019886Z test_skip_worktree_cannot_hide_source_bytes (test_custody.SourceCustody.test_skip_worktree_cannot_hide_source_bytes) ... ok
+2026-10-29T21:07:16.1303599Z test_staged_change_is_rejected (test_custody.SourceCustody.test_staged_change_is_rejected) ... ok
+2026-10-29T21:07:16.1587768Z test_staged_only_change_is_rejected_when_working_bytes_are_original (test_custody.SourceCustody.test_staged_only_change_is_rejected_when_working_bytes_are_original) ... ok
+2026-10-29T21:07:16.1788767Z test_unreferenced_evidence_symlink_is_refused_before_use (test_custody.SourceCustody.test_unreferenced_evidence_symlink_is_refused_before_use) ... FAIL
+2026-10-29T21:07:16.1801172Z 
+2026-10-29T21:07:16.1802051Z ======================================================================
+2026-10-29T21:07:16.1802920Z FAIL: test_generated_audit_symlink_is_refused_before_overwrite (test_custody.SourceCustody.test_generated_audit_symlink_is_refused_before_overwrite)
+2026-10-29T21:07:16.1803755Z ----------------------------------------------------------------------
+2026-10-29T21:07:16.1804137Z Traceback (most recent call last):
+2026-10-29T21:07:16.1811368Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 232, in test_generated_audit_symlink_is_refused_before_overwrite
+2026-10-29T21:07:16.1812292Z     self.gate.execute(self.m, digest(self.manifest.read_bytes()))
+2026-10-29T21:07:16.1812978Z   File "/tmp/tmp61w6k22y/frontiers/determinant/gate.py", line 448, in execute
+2026-10-29T21:07:16.1813584Z     text = run(['lake', 'env', 'lean', str(audit)], 'axioms', out)
+2026-10-29T21:07:16.1813957Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:07:16.1814569Z   File "/opt/hostedtoolcache/Python/3.11.16/arm64/lib/python3.11/unittest/mock.py", line 1124, in __call__
+2026-10-29T21:07:16.1815112Z     return self._mock_call(*args, **kwargs)
+2026-10-29T21:07:16.1815463Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:07:16.1816087Z   File "/opt/hostedtoolcache/Python/3.11.16/arm64/lib/python3.11/unittest/mock.py", line 1128, in _mock_call
+2026-10-29T21:07:16.1816636Z     return self._execute_mock_call(*args, **kwargs)
+2026-10-29T21:07:16.1817008Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:07:16.1817616Z   File "/opt/hostedtoolcache/Python/3.11.16/arm64/lib/python3.11/unittest/mock.py", line 1189, in _execute_mock_call
+2026-10-29T21:07:16.1818222Z     result = effect(*args, **kwargs)
+2026-10-29T21:07:16.1818560Z              ^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:07:16.1819125Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 224, in fake_run
+2026-10-29T21:07:16.1819762Z     self.fail('unsafe audit file reached ' + label)
+2026-10-29T21:07:16.1820133Z AssertionError: unsafe audit file reached axioms
+2026-10-29T21:07:16.1820687Z 
+2026-10-29T21:07:16.1820830Z ======================================================================
+2026-10-29T21:07:16.1821554Z FAIL: test_inherited_git_redirects_are_not_sent_to_execution (test_custody.SourceCustody.test_inherited_git_redirects_are_not_sent_to_execution)
+2026-10-29T21:07:16.1822245Z ----------------------------------------------------------------------
+2026-10-29T21:07:16.1822687Z Traceback (most recent call last):
+2026-10-29T21:07:16.1823952Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 330, in test_inherited_git_redirects_are_not_sent_to_execution
+2026-10-29T21:07:16.1824898Z     self.assertEqual(json.loads(result), {
+2026-10-29T21:07:16.1825590Z AssertionError: {'GIT_DIR': '/outside/git', 'GIT_WORK_TREE': '/outsid[32 chars] '1'} != {'GIT_DIR': None, 'GIT_WORK_TREE': None, 'GIT_CONFIG_COUNT': None}
+2026-10-29T21:07:16.1826269Z + {'GIT_CONFIG_COUNT': None, 'GIT_DIR': None, 'GIT_WORK_TREE': None}
+2026-10-29T21:07:16.1826640Z - {'GIT_CONFIG_COUNT': '1',
+2026-10-29T21:07:16.1827076Z -  'GIT_DIR': '/outside/git',
+2026-10-29T21:07:16.1827369Z -  'GIT_WORK_TREE': '/outside/worktree'}
+2026-10-29T21:07:16.1827545Z 
+2026-10-29T21:07:16.1827737Z ======================================================================
+2026-10-29T21:07:16.1828423Z FAIL: test_log_symlink_is_refused_without_overwriting_its_target (test_custody.SourceCustody.test_log_symlink_is_refused_without_overwriting_its_target)
+2026-10-29T21:07:16.1829128Z ----------------------------------------------------------------------
+2026-10-29T21:07:16.1829587Z Traceback (most recent call last):
+2026-10-29T21:07:16.1830952Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 206, in test_log_symlink_is_refused_without_overwriting_its_target
+2026-10-29T21:07:16.1831879Z     with self.assertRaisesRegex(ValueError, 'symlink|evidence'):
+2026-10-29T21:07:16.1832272Z AssertionError: ValueError not raised
+2026-10-29T21:07:16.1832483Z 
+2026-10-29T21:07:16.1832595Z ======================================================================
+2026-10-29T21:07:16.1833457Z FAIL: test_mutation_grader_rejects_wrong_exit_even_with_forged_failure_text (test_custody.SourceCustody.test_mutation_grader_rejects_wrong_exit_even_with_forged_failure_text)
+2026-10-29T21:07:16.1834274Z ----------------------------------------------------------------------
+2026-10-29T21:07:16.1834668Z Traceback (most recent call last):
+2026-10-29T21:07:16.1835523Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 257, in test_mutation_grader_rejects_wrong_exit_even_with_forged_failure_text
+2026-10-29T21:07:16.1836327Z     self.assertFalse(result['killed_by_intended_assertions'])
+2026-10-29T21:07:16.1836814Z AssertionError: True is not false
+2026-10-29T21:07:16.1837013Z 
+2026-10-29T21:07:16.1837132Z ======================================================================
+2026-10-29T21:07:16.1837887Z FAIL: test_mutation_grader_rejects_wrong_reason_with_same_test_name (test_custody.SourceCustody.test_mutation_grader_rejects_wrong_reason_with_same_test_name)
+2026-10-29T21:07:16.1838617Z ----------------------------------------------------------------------
+2026-10-29T21:07:16.1839000Z Traceback (most recent call last):
+2026-10-29T21:07:16.1839809Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 280, in test_mutation_grader_rejects_wrong_reason_with_same_test_name
+2026-10-29T21:07:16.1840771Z     self.assertFalse(result['killed_by_intended_assertions'])
+2026-10-29T21:07:16.1841198Z AssertionError: True is not false
+2026-10-29T21:07:16.1841402Z 
+2026-10-29T21:07:16.1841542Z ======================================================================
+2026-10-29T21:07:16.1842237Z FAIL: test_nested_build_symlinks_are_rejected_before_admission (test_custody.SourceCustody.test_nested_build_symlinks_are_rejected_before_admission)
+2026-10-29T21:07:16.1842977Z ----------------------------------------------------------------------
+2026-10-29T21:07:16.1843331Z Traceback (most recent call last):
+2026-10-29T21:07:16.1844130Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 168, in test_nested_build_symlinks_are_rejected_before_admission
+2026-10-29T21:07:16.1844914Z     self.gate.execute(self.m, digest(self.manifest.read_bytes()))
+2026-10-29T21:07:16.1845488Z   File "/tmp/tmpsxlysjml/frontiers/determinant/gate.py", line 445, in execute
+2026-10-29T21:07:16.1846361Z     run(['lake', 'env', 'leanchecker', 'ResearchFormalCoreR1'], 'leanchecker', out)
+2026-10-29T21:07:16.1847169Z   File "/opt/hostedtoolcache/Python/3.11.16/arm64/lib/python3.11/unittest/mock.py", line 1124, in __call__
+2026-10-29T21:07:16.1847747Z     return self._mock_call(*args, **kwargs)
+2026-10-29T21:07:16.1848094Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:07:16.1848717Z   File "/opt/hostedtoolcache/Python/3.11.16/arm64/lib/python3.11/unittest/mock.py", line 1128, in _mock_call
+2026-10-29T21:07:16.1849450Z     return self._execute_mock_call(*args, **kwargs)
+2026-10-29T21:07:16.1849778Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:07:16.1850656Z   File "/opt/hostedtoolcache/Python/3.11.16/arm64/lib/python3.11/unittest/mock.py", line 1189, in _execute_mock_call
+2026-10-29T21:07:16.1851303Z     result = effect(*args, **kwargs)
+2026-10-29T21:07:16.1851576Z              ^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:07:16.1852252Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 157, in fake_run
+2026-10-29T21:07:16.1852853Z     self.fail('unsafe build directory reached ' + label)
+2026-10-29T21:07:16.1853306Z AssertionError: unsafe build directory reached leanchecker
+2026-10-29T21:07:16.1853617Z 
+2026-10-29T21:07:16.1853734Z ======================================================================
+2026-10-29T21:07:16.1854417Z FAIL: test_unreferenced_evidence_symlink_is_refused_before_use (test_custody.SourceCustody.test_unreferenced_evidence_symlink_is_refused_before_use)
+2026-10-29T21:07:16.1855163Z ----------------------------------------------------------------------
+2026-10-29T21:07:16.1855525Z Traceback (most recent call last):
+2026-10-29T21:07:16.1856281Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 313, in test_unreferenced_evidence_symlink_is_refused_before_use
+2026-10-29T21:07:16.1857084Z     with self.assertRaisesRegex(ValueError, 'symlink|evidence'):
+2026-10-29T21:07:16.1857498Z AssertionError: ValueError not raised
+2026-10-29T21:07:16.1857746Z 
+2026-10-29T21:07:16.1857931Z ----------------------------------------------------------------------
+2026-10-29T21:07:16.1858298Z Ran 25 tests in 0.857s
+2026-10-29T21:07:16.1858434Z 
+2026-10-29T21:07:16.1858574Z FAILED (failures=7)
+2026-10-29T21:07:16.1978060Z ##[error]Process completed with exit code 1.

@@ -1,0 +1,54 @@
+test_assume_unchanged_dependency_source_is_rejected (test_custody.DependencyCustody.test_assume_unchanged_dependency_source_is_rejected) ... ok
+2026-10-29T21:07:36.4161647Z test_clean_dependency_is_admitted (test_custody.DependencyCustody.test_clean_dependency_is_admitted) ... ok
+2026-10-29T21:07:36.4499224Z test_ignored_untracked_lean_source_is_rejected (test_custody.DependencyCustody.test_ignored_untracked_lean_source_is_rejected) ... ok
+2026-10-29T21:07:36.4852542Z test_skip_worktree_dependency_source_is_rejected (test_custody.DependencyCustody.test_skip_worktree_dependency_source_is_rejected) ... ok
+2026-10-29T21:07:36.5769197Z test_ambient_git_environment_cannot_redirect_the_checked_commit (test_custody.SourceCustody.test_ambient_git_environment_cannot_redirect_the_checked_commit) ... ok
+2026-10-29T21:07:36.6115953Z test_assume_unchanged_cannot_hide_source_bytes (test_custody.SourceCustody.test_assume_unchanged_cannot_hide_source_bytes) ... ok
+2026-10-29T21:07:36.6500273Z test_clean_committed_source_is_admitted (test_custody.SourceCustody.test_clean_committed_source_is_admitted) ... ok
+2026-10-29T21:07:36.6813058Z test_dirty_refreshed_manifest_is_rejected (test_custody.SourceCustody.test_dirty_refreshed_manifest_is_rejected) ... ok
+2026-10-29T21:07:36.7159268Z test_head_drift_is_rejected (test_custody.SourceCustody.test_head_drift_is_rejected) ... ok
+2026-10-29T21:07:36.7574385Z environment: exit 0
+2026-10-29T21:07:36.7587316Z test_inherited_lean_search_paths_are_not_sent_to_execution (test_custody.SourceCustody.test_inherited_lean_search_paths_are_not_sent_to_execution) ... FAIL
+2026-10-29T21:07:36.8050460Z test_loaded_driver_substitution_is_rejected (test_custody.SourceCustody.test_loaded_driver_substitution_is_rejected) ... ok
+2026-10-29T21:07:36.8374069Z test_nested_build_symlinks_are_rejected_before_admission (test_custody.SourceCustody.test_nested_build_symlinks_are_rejected_before_admission) ... FAIL
+2026-10-29T21:07:36.8726185Z test_owned_symlink_source_is_rejected (test_custody.SourceCustody.test_owned_symlink_source_is_rejected) ... ok
+2026-10-29T21:07:36.9314551Z test_replace_refs_cannot_relabel_the_committed_source (test_custody.SourceCustody.test_replace_refs_cannot_relabel_the_committed_source) ... ok
+2026-10-29T21:07:36.9664223Z test_skip_worktree_cannot_hide_source_bytes (test_custody.SourceCustody.test_skip_worktree_cannot_hide_source_bytes) ... ok
+2026-10-29T21:07:37.0002897Z test_staged_change_is_rejected (test_custody.SourceCustody.test_staged_change_is_rejected) ... ok
+2026-10-29T21:07:37.0003649Z 
+2026-10-29T21:07:37.0004104Z ======================================================================
+2026-10-29T21:07:37.0005392Z FAIL: test_inherited_lean_search_paths_are_not_sent_to_execution (test_custody.SourceCustody.test_inherited_lean_search_paths_are_not_sent_to_execution)
+2026-10-29T21:07:37.0007189Z ----------------------------------------------------------------------
+2026-10-29T21:07:37.0007851Z Traceback (most recent call last):
+2026-10-29T21:07:37.0014941Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 135, in test_inherited_lean_search_paths_are_not_sent_to_execution
+2026-10-29T21:07:37.0016231Z     self.assertEqual(json.loads(result), {'LEAN_PATH': None, 'LEAN_SRC_PATH': None})
+2026-10-29T21:07:37.0016948Z AssertionError: {'LEAN_PATH': '/outside/lean', 'LEAN_SRC_PATH': '/outside/source'} != {'LEAN_PATH': None, 'LEAN_SRC_PATH': None}
+2026-10-29T21:07:37.0017591Z - {'LEAN_PATH': '/outside/lean', 'LEAN_SRC_PATH': '/outside/source'}
+2026-10-29T21:07:37.0017975Z + {'LEAN_PATH': None, 'LEAN_SRC_PATH': None}
+2026-10-29T21:07:37.0018176Z 
+2026-10-29T21:07:37.0018294Z ======================================================================
+2026-10-29T21:07:37.0019001Z FAIL: test_nested_build_symlinks_are_rejected_before_admission (test_custody.SourceCustody.test_nested_build_symlinks_are_rejected_before_admission)
+2026-10-29T21:07:37.0019717Z ----------------------------------------------------------------------
+2026-10-29T21:07:37.0020089Z Traceback (most recent call last):
+2026-10-29T21:07:37.0020856Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 168, in test_nested_build_symlinks_are_rejected_before_admission
+2026-10-29T21:07:37.0021628Z     self.gate.execute(self.m, digest(self.manifest.read_bytes()))
+2026-10-29T21:07:37.0022142Z   File "/tmp/tmph9cnw3m_/frontiers/determinant/gate.py", line 440, in execute
+2026-10-29T21:07:37.0022661Z     run(['lake', 'env', 'leanchecker', 'ResearchFormalCoreR1'], 'leanchecker', out)
+2026-10-29T21:07:37.0023282Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1124, in __call__
+2026-10-29T21:07:37.0024344Z     return self._mock_call(*args, **kwargs)
+2026-10-29T21:07:37.0024672Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:07:37.0025222Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1128, in _mock_call
+2026-10-29T21:07:37.0025790Z     return self._execute_mock_call(*args, **kwargs)
+2026-10-29T21:07:37.0026105Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:07:37.0026649Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/unittest/mock.py", line 1189, in _execute_mock_call
+2026-10-29T21:07:37.0027170Z     result = effect(*args, **kwargs)
+2026-10-29T21:07:37.0027422Z              ^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-29T21:07:37.0027954Z   File "/home/runner/work/Math-/Math-/cbz/verification/determinant_custody/test_custody.py", line 157, in fake_run
+2026-10-29T21:07:37.0028534Z     self.fail('unsafe build directory reached ' + label)
+2026-10-29T21:07:37.0028917Z AssertionError: unsafe build directory reached leanchecker
+2026-10-29T21:07:37.0029162Z 
+2026-10-29T21:07:37.0029314Z ----------------------------------------------------------------------
+2026-10-29T21:07:37.0029652Z Ran 16 tests in 0.658s
+2026-10-29T21:07:37.0029798Z 
+2026-10-29T21:07:37.0029880Z FAILED (failures=2)
+2026-10-29T21:07:37.0161717Z ##[error]Process completed with exit code 1.
