@@ -61,13 +61,13 @@ class SourceCustodyTests(unittest.TestCase):
                         'commit custody verifier is missing')
         return self.gate.checked_source_commit(self.manifest, self.digest, expected)
 
-    def execute(self, during=None):
+    def execute(self, during=None, checked_commit=None):
         calls = []
         def kernel(manifest, digest):
             calls.append('kernel')
             if during:
                 during()
-            receipt = {'checked_commit': self.git('rev-parse', 'HEAD'), 'logs': {}}
+            receipt = {'checked_commit': checked_commit or self.git('rev-parse', 'HEAD'), 'logs': {}}
             (self.root / '.lake/formal-evidence/receipt.json').write_text(json.dumps(receipt))
             return receipt
         with mock.patch.object(self.gate, 'run', return_value=VERSION), \
@@ -110,6 +110,24 @@ class SourceCustodyTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.execute()
         self.assertFalse((out / 'receipt.json').exists())
+
+    def test_execute_refuses_helper_receipt_for_another_commit(self):
+        with self.assertRaisesRegex(ValueError, 'helper checked commit'):
+            self.execute(checked_commit='d' * 40)
+        self.assertFalse((self.root / '.lake/formal-evidence/receipt.json').exists())
+
+    def test_helper_loader_ignores_poisoned_bytecode_cache(self):
+        from importlib._bootstrap_external import _code_to_timestamp_pyc
+        helper = self.root / 'gate_helper.py'
+        info = helper.stat()
+        poison = compile("raise RuntimeError('POISONED_CACHED_HELPER')\n", str(helper), 'exec')
+        cache = Path(importlib.util.cache_from_source(str(helper)))
+        cache.parent.mkdir(parents=True, exist_ok=True)
+        cache.write_bytes(_code_to_timestamp_pyc(poison, int(info.st_mtime), info.st_size))
+        spec = importlib.util.spec_from_file_location('custody_poisoned_cache_gate', self.root / 'gate.py')
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        self.assertEqual(module._HELPER_EXECUTE.__name__, 'execute')
 
     def test_clean_committed_source_is_bound_to_exact_head(self):
         self.assertEqual(self.checked(), self.git('rev-parse', 'HEAD'))

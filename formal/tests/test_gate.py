@@ -329,8 +329,13 @@ class RuntimeVersionTests(unittest.TestCase):
             revision = self.manifest['dependency_revisions'][name]
             return ('c' * 40 if wrong_dependency or drift_dependency and final_phase else revision) + '\n'
 
+        def git_response(command, **kwargs):
+            result = external_git(command, **kwargs)
+            # Preserve subprocess.check_output's real bytes/text boundary explicitly.
+            return result if kwargs.get('text') else result.encode()
+
         with patch.object(gate.subprocess, 'run', side_effect=external_run), \
-             patch.object(gate.subprocess, 'check_output', side_effect=external_git), \
+             patch.object(gate.subprocess, 'check_output', side_effect=git_response), \
              patch.object(gate, 'checked_source_commit', side_effect=source_commit), \
              patch.object(gate, 'verify_committed_files', return_value=set()), \
              patch.dict(gate.os.environ, env or {}), \
