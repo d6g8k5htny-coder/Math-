@@ -195,6 +195,43 @@ class SourceCustody(unittest.TestCase):
             self.call_guard(expected_head=head)
 
 
+
+    def test_log_symlink_is_refused_without_overwriting_its_target(self):
+        import sys
+        out = self.root / '.lake/formal-evidence'
+        out.mkdir(parents=True)
+        victim = self.repo / 'preserved.txt'
+        victim.write_text('original\n')
+        (out / 'probe.log').symlink_to(victim)
+        with self.assertRaisesRegex(ValueError, 'symlink|evidence'):
+            self.gate.run([sys.executable, '-c', "print('overwritten')"], 'probe', out)
+        self.assertEqual(victim.read_text(), 'original\n')
+
+    def test_generated_audit_symlink_is_refused_before_overwrite(self):
+        from unittest import mock
+        out = self.root / '.lake/formal-evidence'
+        out.mkdir(parents=True)
+        victim = self.repo / 'preserved.txt'
+        victim.write_text('original\n')
+        (out / 'Audit.lean').symlink_to(victim)
+        calls = []
+        def fake_run(command, label, output, expect_success=True):
+            calls.append(label)
+            if label == 'build':
+                (self.root / '.lake/build').mkdir(parents=True)
+            if label not in ('version-preflight', 'build', 'leanchecker'):
+                self.fail('unsafe audit file reached ' + label)
+            return 'fixture version'
+        with mock.patch.object(self.gate, 'source_custody', return_value=self.initial_head), \
+             mock.patch.object(self.gate, 'compiled_contract', return_value=({}, {})), \
+             mock.patch.object(self.gate, 'check_lean_version', return_value='fixture'), \
+             mock.patch.object(self.gate, 'dependency_state', return_value={} ), \
+             mock.patch.object(self.gate, 'run', side_effect=fake_run):
+            with self.assertRaisesRegex(ValueError, 'symlink|evidence'):
+                self.gate.execute(self.m, digest(self.manifest.read_bytes()))
+        self.assertEqual(victim.read_text(), 'original\n')
+
+
 class DependencyCustody(unittest.TestCase):
     def setUp(self):
         tmp = tempfile.TemporaryDirectory()
