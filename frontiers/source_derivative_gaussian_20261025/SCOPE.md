@@ -1,3 +1,11 @@
+# CBZ mathematical contribution: closed lower-inclusion separation
+
+The source package now registers67 modules /1137 written targets (1128 propositions+9 data instances)/32 inherited support inputs. The stage67 addition is the exact conditional actual closed-band component-inclusion injection theorem. Its complete source, strict compilation, exhaustive five-owned/std3 audit and proper final own-module kernel passed. The separately attempted ordinary Fourier fixture and its global-hm/positive/collision/negative obligations are QUARANTINED; they are not production dependencies or proved applications. See [the exact proof index and evidence](cbz/stage67/PROOF_INDEX.md).
+
+No final federation CBZ status is asserted by these historical module receipts. The canonical consolidation lane is main#684/#685. Old approval/quorum/freezing text below and in retained evidence is historical, not current authority.
+
+## Historical stage66 publication and lineage (retained verbatim)
+
 # Proposed66 modules/1136 written/32 inputs
 
 [SourceActualRegularLocalCollar.lean](SourceActualRegularLocalCollar.lean) appends exactly one actual quotient regular-local-collar proposition and no public data. Actual nonzero-fderiv quotient regular collar: positive original period/sample and actual fderiv nonzero, no global hm. For EVERY prescribed open O obtain ONE rho/phi, centered at the actual quotient point, source contained in O, exact finite-Pi2 target ball, and ordered actual field identity F=c+coordinate1. The SAME phi/rho serves ALL |epsilon|<rho, with NONEMPTY path-connected CLOSED uppercuts AND level slices. Derive the physical triangular continuous-linear equivalence/actual IFT and public quotient descent; no64/65 mathematical dependency, supplied desired chart/certificate, torus C1 atlas or norm-isometry premise. Sole public Prop/no public data.

@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "scientific_effect": "NONE",
-  "goal_status": "FULL_ORIGINAL_RESEARCH_GOAL_ACTIVE",
-  "alignment_status": "PENDING_NEW_SOURCE_ALIGNMENT_AND_CONVENTIONAL_APPLICATION_DIFFERENT_FAMILY_REVIEWS",
-  "qualification_role": "Root proposal66/1136written=1127Prop+9data/32 against qualified65 263b9d4329043e6debd299a8c27327ee515670d7",
+  "goal_status": "CBZ0_CONSOLIDATION_CONTRIBUTION_NOT_FEDERATION_BASELINE",
+  "alignment_status": "CONDITIONAL_KERNEL_CLOSURE_RECORDED_UNPROVED_APPLICATIONS_QUARANTINED_NO_SCIENTIFIC_PROMOTION",
+  "qualification_role": "67 registered modules/1137 written=1128Prop+9data/32 inherited inputs; source67 exact conditional kernel closure and isolated ordinary quarantine; final federation CBZ gates not asserted",
   "source_modules": [
     "SourceDerivativeGaussian.lean",
     "ContactJetCovariance.lean",
@@ -70,7 +70,8 @@
     "SourceActualFiniteSuperlevelComponents.lean",
     "SourceActualQuotientSaddleCollar.lean",
     "SourceActualSaddleUppercuts.lean",
-    "SourceActualRegularLocalCollar.lean"
+    "SourceActualRegularLocalCollar.lean",
+    "SourceActualLowerSeparation.lean"
   ],
   "targets": [
     "I4SourceDerivativeGaussian.derivativeCoefficient_summable",
@@ -1208,7 +1209,8 @@
     "I4SourceActualFiniteSuperlevelComponents.actualSource_finite_closedSuperlevel_components",
     "I4SourceActualQuotientSaddleCollar.actualSource_quotient_saddle_local_collar",
     "I4SourceActualSaddleUppercuts.actualSource_quotient_saddle_uniform_closed_uppercuts",
-    "I4SourceActualRegularLocalCollar.actualSource_quotient_regular_local_collar"
+    "I4SourceActualRegularLocalCollar.actualSource_quotient_regular_local_collar",
+    "I4SourceActualLowerSeparation.actualSource_closedSuperlevel_componentInclusion_locally_injective"
   ],
   "inherited_input_count": 32,
   "catalog_sha256": "b814de0d24141dd0f2fd9087b61c2d7eeb1596836eb439898a5c7506675fc24b",
@@ -1227,8 +1229,8 @@
     "INPUT_BINDING.json": "42292a58cf84e118b34f4b8b952fa3b650126dc3d167cee85d8048b9bc6d4b13",
     "ORIGIN_SOURCE_MANIFEST.json": "d3fe096b830c4c5bf2fff47a2a2aa528ae2a79d4cb9816afb6be536685d8d9ca",
     "ORIGIN_SOURCE_SHA256SUMS": "1c8b5045a5260e5da03c5da6042d6c92681e26f05935f13f362084fe3d1572a6",
-    "README.md": "86387377477a7a938f4455f84f81b40231d2cef4979953b20f64e1bdf62c1915",
-    "SCOPE.md": "6fce2ff8ea6e074afac9085e2de78b1e237aa6b647a67a19fa5dd9136babbb75",
+    "README.md": "ad58577ea583a63d4f840da9ead8eb730d467b4fa4637b76f01d8cb0ba2e264a",
+    "SCOPE.md": "225bac5eaee0cf693b626a37fa1059464f9bd02e8da6f99b56867a47dd948b50",
     "SOURCE_CONDITIONAL_MAJORANT.md": "d7742ca40a564897fb1a1f1e7812e8ce0bd6ff531c5616dc8b4bd2ebb83815b0",
     "SOURCE_CONFLUENT_INTEGRALS.md": "445700bdeecc7d539931e64d618155bf50b936777716d596ae8a6b01352d9ce9",
     "SOURCE_CONFLUENT_LIMITS.md": "1abd81c44781aeb12a90955fdf75a8c2c0c1a382e60efe94f9e49aec410942fc",
@@ -1869,7 +1871,7 @@
     "inputs/SourceTorusC4.lean": "b67b13030389dea4521e8e2afcac30ea44f84abd65c374bf208067b288fc64a1",
     "inputs/SpectralWeights.lean": "92af14a2d83304de3f8576ee10b3d376587e93c4464f8c715b8d2e32360f44b0",
     "lake-manifest.json": "4cc60e1f98fc3a46bccafe6b8315445d950ca1db55ceba26fdebe3a45eafe59a",
-    "lakefile.toml": "c6d67551b9d25401bdf192a26e04b2685c4dcc3aee91f10594b0b222a7efd982",
+    "lakefile.toml": "32505e663fea5a9bc69c51dd93306853800a29fc8cb01df395cdb436b5d23b3f",
     "lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
     "SOURCE_CURVATURE_DECOMPOSITION.md": "e85f7ec047647cce2707982b3ef452efb56558ca4a00b2f9eb778f2672f88a1f",
     "SOURCE_PIN_CURVATURE_BOUNDS.md": "a21412102e4962873a58633df5327c751ca2a17ace7b9341d055887f679374b6",
@@ -12785,14 +12787,36 @@
     "actual-source-regular-local-collar-evidence/raw/root/runtime-before-first-worker/adopt66_worker.py": "1c728b9fe6e4fa3dc7ff724c11915252370e5d216df65e01948db3a13bda46a4",
     "actual-source-regular-local-collar-evidence/raw/root/runtime-before-first-worker/entry66.py": "4647a9ab56a702da63b345fcd822ab33e7cc77dd48f5deb4e83cfdc601eb046e",
     "actual-source-regular-local-collar-evidence/raw/root/runtime-before-first-worker/outer66.py": "9ab5e35d60786e4f4dcd5aa5f512dfe1645ba963977d96749a8f9a97abaa8acc",
-    "actual-source-regular-local-collar-evidence/raw/root/runtime-before-first-worker/record_worker66.py": "42a22b43593f8bebe4134cd4f8b2f7c61c1dac05ff12bc43e92d3de1e0665b62"
+    "actual-source-regular-local-collar-evidence/raw/root/runtime-before-first-worker/record_worker66.py": "42a22b43593f8bebe4134cd4f8b2f7c61c1dac05ff12bc43e92d3de1e0665b62",
+    "SourceActualLowerSeparation.lean": "e72ed4f92e7867dc210b771e6afb4548cfad679e8b38795110fa6fd76a15e121",
+    "cbz/stage67/CBZ_HANDOFF.json": "1b20dcc46850bc4d05c692541649bdc16b26b0c09666ebe31624922eff31e16d",
+    "cbz/stage67/evidence/production006-strict/receipt.json": "f9754c1a921019b1fed2c69bb098c6f56718a2538c20e8ace71b2721546f30af",
+    "cbz/stage67/evidence/production006-strict/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cbz/stage67/evidence/production006-strict/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cbz/stage67/evidence/production-inventory002/receipt.json": "ab916b2d9504ae5bd5d843e43b79ff15d0dad70f53907c6d7038a2eb7b317cac",
+    "cbz/stage67/evidence/production-inventory002/stdout.log": "e88a6b3284f19899a78592f56af133728648c501fa5899450a558750cf26761e",
+    "cbz/stage67/evidence/production-inventory002/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cbz/stage67/evidence/production-final-kernel001/receipt.json": "d33213036c4a1ffb3d53402d9a1434c01c9d64eb527d1e843e33fdd354216ab1",
+    "cbz/stage67/evidence/production-final-kernel001/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cbz/stage67/evidence/production-final-kernel001/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cbz/stage67/evidence/Inventory.lean": "1b82a70e12c79efd410db18199b7541f849eaf0760324fb0890d296b36e5d2c7",
+    "cbz/stage67/quarantine/Q-MATH-SDGA-67-ORDINARY/ActualLowerSeparationControls.lean": "204712ebd8ef7ba60b29daf11d43d4f0baf1a4077418a8590598bf288d640ac2",
+    "cbz/stage67/quarantine/Q-MATH-SDGA-67-ORDINARY/ordinary002-strict/receipt.json": "29b69a4a5e0abaaa51b739972b94e08708ba07bfc3ca0407e0f6cac1529cec69",
+    "cbz/stage67/quarantine/Q-MATH-SDGA-67-ORDINARY/ordinary002-strict/stdout.log": "2e90185045432461780a318a68cac5bc3cc1efc4b2fecda40797729b8c8ff52a",
+    "cbz/stage67/quarantine/Q-MATH-SDGA-67-ORDINARY/ordinary002-strict/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cbz/stage67/quarantine/Q-MATH-SDGA-67-ORDINARY/QUARANTINE.json": "6cc4bffb657a17df5f356fab083c6d9326a24746f0e771e3bd019f5b6af38080",
+    "cbz/stage67/PROOF_INDEX.md": "198975746c448f426fc099896382f7bf746255fc25b350f4e89bba108ecbdb51",
+    "cbz/stage67/CLOSURE.json": "56ebe35897ecd7cf81c55faefd28e918cc181e58f6dcef7ce2df8f71be492621",
+    "cbz/stage67/evidence/registered-lake-build/stdout.log": "2acee3f975e67e00c06b97c6b624985b886c0038e7b0d9ba2d333bd685f63270",
+    "cbz/stage67/evidence/registered-lake-build/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cbz/stage67/evidence/registered-lake-build/receipt.json": "4e6245299cb83a3c4c8925b72c06300c45dcb54302d958839f47119e5654d969"
   },
-  "verification_reuse": "Completed applicable verification reusable across agents/sessions/heads; provider-distinct process tracked separately.",
+  "verification_reuse": "Completed exact-scope mathematical evidence remains reusable; the CBZ directive separately requires one fresh final federation G0-G11 run. Legacy provider quorum/approval holds are historical, not current gates.",
   "not_qualified_by_this_manifest": [
-    "Full Lean geometric Campbell/Kac-Rice area/count identity; separate completed conventional application retained and submitted for new scoped review",
+    "Full Lean geometric Campbell/Kac-Rice area/count identity; conventional application is retained prose, not a kernel proof.",
     "Formal local stable/unstable selector, ODE flow, hitting and capture-event measurability; the proved Banach family alone does not establish these",
     "Full Lean capture dynamics and parent capture probability, quotient/inertia/elder/lifetime/counting transports",
-    "P0.2/GT5 closure, scientific-status promotion, or clearing the PR512 integration-process incident"
+    "P0.2/GT5 or scientific-status promotion. Legacy PR512 integration-process records are historical, not current approval gates."
   ],
   "catalogs": [
     {
@@ -14912,5 +14936,34 @@
       "scientific_effect": "NONE",
       "same_family_credit": 0
     }
+  },
+  "cbz_stage67_scope": {
+    "status": "OBSERVED_KERNEL_CLOSED_CONDITIONAL_GENERAL_THEOREM_NOT_FINAL_FEDERATION_GATE",
+    "module": "SourceActualLowerSeparation",
+    "public_target": "I4SourceActualLowerSeparation.actualSource_closedSuperlevel_componentInclusion_locally_injective",
+    "source_sha256": "e72ed4f92e7867dc210b771e6afb4548cfad679e8b38795110fa6fd76a15e121",
+    "source_bytes": 14899,
+    "owned_math_constants": 5,
+    "owned_public_Prop": 1,
+    "owned_private_theorems": 4,
+    "owned_data_or_generated_remainder": 0,
+    "approved_axiom_set": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "existing_evidence": [
+      "production006-strict",
+      "production-inventory002",
+      "production-final-kernel001"
+    ],
+    "quarantine": "Q-MATH-SDGA-67-ORDINARY",
+    "quarantine_is_production_dependency": false,
+    "ordinary_fixture_or_nonvacuity_witness_claimed": false,
+    "new_production_data": 0,
+    "final_cbz_G0_G11": "NOT_RUN",
+    "proof_index": "cbz/stage67/PROOF_INDEX.md",
+    "registered_build_evidence": "cbz/stage67/evidence/registered-lake-build/receipt.json",
+    "registered_build_scope": "lake build SourceActualLowerSeparation observed exit0 at2026-10-29T17:33:58.953065Z; changed registration only, not final federation G3"
   }
 }
