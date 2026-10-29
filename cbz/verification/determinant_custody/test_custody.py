@@ -299,6 +299,18 @@ class SourceCustody(unittest.TestCase):
         self.assertTrue(result['killed_by_intended_assertions'])
 
 
+
+    def test_unreferenced_evidence_symlink_is_refused_before_use(self):
+        out = self.root / '.lake/formal-evidence'
+        out.mkdir(parents=True)
+        victim = self.repo / 'preserved.txt'
+        victim.write_text('original\n')
+        (out / 'unexpected.log').symlink_to(victim)
+        with self.assertRaisesRegex(ValueError, 'symlink|evidence'):
+            self.gate.invalidate_active_receipt()
+        self.assertEqual(victim.read_text(), 'original\n')
+
+
 class DependencyCustody(unittest.TestCase):
     def setUp(self):
         tmp = tempfile.TemporaryDirectory()
