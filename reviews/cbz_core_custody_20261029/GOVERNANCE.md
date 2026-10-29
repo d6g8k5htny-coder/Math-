@@ -37,3 +37,5 @@ orchestration only and earns no mathematical/test pass.
 Owner: none, self-contained. Criteria: 5, 6, 9.
 
 Successor adds three simulated cancellation outcome/order controls to the seven selection controls and persists an in-flight record before each cancellation request. Run 40950835486 failed after a nonzero cancellation response and produced no partial report; any earlier cancellation requests in that run remain unattributed. The successor remains unqualified until its actual execution is observed. A completed run encountered after a refused POST is recorded as already terminal, not as a successful cancellation.
+
+The retirement tool performs a fresh PR-head and run-state read immediately before its cancellation POST. These are separate API operations; the cancel endpoint has no atomic expected-head precondition, so a concurrent ref change between them is not excluded. Its report establishes the observed states and requests, not a lock on later ref changes.
