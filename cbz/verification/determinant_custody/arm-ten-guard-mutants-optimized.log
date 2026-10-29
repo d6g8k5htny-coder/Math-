@@ -1,0 +1,47 @@
+test_assume_unchanged_dependency_source_is_rejected (test_custody.DependencyCustody.test_assume_unchanged_dependency_source_is_rejected) ... ok
+2026-10-29T21:18:51.7240193Z test_clean_dependency_is_admitted (test_custody.DependencyCustody.test_clean_dependency_is_admitted) ... ok
+2026-10-29T21:18:51.7508526Z test_ignored_untracked_lean_source_is_rejected (test_custody.DependencyCustody.test_ignored_untracked_lean_source_is_rejected) ... ok
+2026-10-29T21:18:51.7797595Z test_skip_worktree_dependency_source_is_rejected (test_custody.DependencyCustody.test_skip_worktree_dependency_source_is_rejected) ... ok
+2026-10-29T21:18:51.9311390Z test_ambient_git_environment_cannot_redirect_the_checked_commit (test_custody.SourceCustody.test_ambient_git_environment_cannot_redirect_the_checked_commit) ... ok
+2026-10-29T21:18:51.9602793Z test_assume_unchanged_cannot_hide_source_bytes (test_custody.SourceCustody.test_assume_unchanged_cannot_hide_source_bytes) ... ok
+2026-10-29T21:18:51.9928459Z test_clean_committed_source_is_admitted (test_custody.SourceCustody.test_clean_committed_source_is_admitted) ... ok
+2026-10-29T21:18:52.0184237Z test_dirty_refreshed_manifest_is_rejected (test_custody.SourceCustody.test_dirty_refreshed_manifest_is_rejected) ... ok
+2026-10-29T21:18:52.0387305Z test_generated_audit_symlink_is_refused_before_overwrite (test_custody.SourceCustody.test_generated_audit_symlink_is_refused_before_overwrite) ... ok
+2026-10-29T21:18:52.0858670Z test_grader_source_mutation_is_detected_by_wrong_exit_control (test_custody.SourceCustody.test_grader_source_mutation_is_detected_by_wrong_exit_control) ... ok
+2026-10-29T21:18:52.1141753Z test_head_drift_is_rejected (test_custody.SourceCustody.test_head_drift_is_rejected) ... ok
+2026-10-29T21:18:52.1488873Z git-environment: exit 0
+2026-10-29T21:18:52.1505098Z test_inherited_git_redirects_are_not_sent_to_execution (test_custody.SourceCustody.test_inherited_git_redirects_are_not_sent_to_execution) ... ok
+2026-10-29T21:18:52.1855245Z environment: exit 0
+2026-10-29T21:18:52.1870649Z test_inherited_lean_search_paths_are_not_sent_to_execution (test_custody.SourceCustody.test_inherited_lean_search_paths_are_not_sent_to_execution) ... ok
+2026-10-29T21:18:52.2206967Z test_loaded_driver_substitution_is_rejected (test_custody.SourceCustody.test_loaded_driver_substitution_is_rejected) ... ok
+2026-10-29T21:18:52.2501292Z test_log_symlink_is_refused_without_overwriting_its_target (test_custody.SourceCustody.test_log_symlink_is_refused_without_overwriting_its_target) ... ok
+2026-10-29T21:18:52.2964558Z test_mutation_grader_accepts_the_expected_failure_reason (test_custody.SourceCustody.test_mutation_grader_accepts_the_expected_failure_reason) ... ok
+2026-10-29T21:18:52.3423005Z test_mutation_grader_rejects_wrong_exit_even_with_forged_failure_text (test_custody.SourceCustody.test_mutation_grader_rejects_wrong_exit_even_with_forged_failure_text) ... ok
+2026-10-29T21:18:52.3867137Z test_mutation_grader_rejects_wrong_reason_with_same_test_name (test_custody.SourceCustody.test_mutation_grader_rejects_wrong_reason_with_same_test_name) ... ok
+2026-10-29T21:18:52.4069391Z test_nested_build_symlinks_are_rejected_before_admission (test_custody.SourceCustody.test_nested_build_symlinks_are_rejected_before_admission) ... ok
+2026-10-29T21:18:52.4312568Z test_owned_symlink_source_is_rejected (test_custody.SourceCustody.test_owned_symlink_source_is_rejected) ... ok
+2026-10-29T21:18:52.4643341Z test_refreshed_external_admission_helper_is_rejected (test_custody.SourceCustody.test_refreshed_external_admission_helper_is_rejected) ... ok
+2026-10-29T21:18:52.5069351Z test_replace_refs_cannot_relabel_the_committed_source (test_custody.SourceCustody.test_replace_refs_cannot_relabel_the_committed_source) ... ok
+2026-10-29T21:18:52.5358075Z test_skip_worktree_cannot_hide_source_bytes (test_custody.SourceCustody.test_skip_worktree_cannot_hide_source_bytes) ... ok
+2026-10-29T21:18:52.5628658Z test_staged_change_is_rejected (test_custody.SourceCustody.test_staged_change_is_rejected) ... ok
+2026-10-29T21:18:52.5898023Z test_staged_only_change_is_rejected_when_working_bytes_are_original (test_custody.SourceCustody.test_staged_only_change_is_rejected_when_working_bytes_are_original) ... ok
+2026-10-29T21:18:52.6087422Z test_unreferenced_evidence_symlink_is_refused_before_use (test_custody.SourceCustody.test_unreferenced_evidence_symlink_is_refused_before_use) ... ok
+2026-10-29T21:18:53.1122124Z DETERMINANT_CUSTODY_MUTANT dependency-bytes test_assume_unchanged_dependency_source_is_rejected ValueError not raised
+2026-10-29T21:18:53.6173292Z DETERMINANT_CUSTODY_MUTANT staged-index test_staged_only_change_is_rejected_when_working_bytes_are_original ValueError not raised
+2026-10-29T21:18:54.1322304Z DETERMINANT_CUSTODY_MUTANT head-drift test_head_drift_is_rejected ValueError not raised
+2026-10-29T21:18:54.8705173Z DETERMINANT_CUSTODY_MUTANT lean-path test_inherited_lean_search_paths_are_not_sent_to_execution /outside/lean
+2026-10-29T21:18:55.6176889Z DETERMINANT_CUSTODY_MUTANT git-child-environment test_inherited_git_redirects_are_not_sent_to_execution /outside/git
+2026-10-29T21:18:56.3241606Z DETERMINANT_CUSTODY_MUTANT nested-build-symlink test_nested_build_symlinks_are_rejected_before_admission unsafe build directory reached
+2026-10-29T21:18:56.8239987Z DETERMINANT_CUSTODY_MUTANT evidence-leaf test_log_symlink_is_refused_without_overwriting_its_target ValueError not raised
+2026-10-29T21:18:57.3355479Z DETERMINANT_CUSTODY_MUTANT admission-helper test_refreshed_external_admission_helper_is_rejected ValueError not raised
+2026-10-29T21:18:57.8479599Z DETERMINANT_CUSTODY_MUTANT loaded-driver test_loaded_driver_substitution_is_rejected ValueError not raised
+2026-10-29T21:18:58.3376858Z DETERMINANT_CUSTODY_MUTANT evidence-directory test_unreferenced_evidence_symlink_is_refused_before_use ValueError not raised
+2026-10-29T21:18:58.3379882Z test_all_named_gate_source_mutants_fail_for_the_expected_reason (test_source_mutations.SourceMutationTests.test_all_named_gate_source_mutants_fail_for_the_expected_reason) ... ok
+2026-10-29T21:18:58.3381377Z test_baseline_rejects_missing_wrong_skipped_and_error_cases (test_source_mutations.SourceMutationTests.test_baseline_rejects_missing_wrong_skipped_and_error_cases) ... ok
+2026-10-29T21:18:58.3382859Z test_grader_rejects_wrong_exit_missing_test_and_wrong_reason (test_source_mutations.SourceMutationTests.test_grader_rejects_wrong_exit_missing_test_and_wrong_reason) ... ok
+2026-10-29T21:18:58.3394674Z test_grader_source_mutation_is_detected (test_source_mutations.SourceMutationTests.test_grader_source_mutation_is_detected) ... ok
+2026-10-29T21:18:58.3395413Z 
+2026-10-29T21:18:58.3395822Z ----------------------------------------------------------------------
+2026-10-29T21:18:58.3396347Z Ran 30 tests in 6.671s
+2026-10-29T21:18:58.3396510Z 
+2026-10-29T21:18:58.3396893Z OK
