@@ -18,6 +18,10 @@ SHA256 = re.compile(r'[0-9a-f]{64}')
 COMMIT = re.compile(r'[0-9a-f]{40}')
 ROOT = Path(__file__).resolve().parent
 REPO = ROOT.parents[1]
+_LOADED_SOURCE_PATH = Path(__file__).resolve()
+_LOADED_SOURCE_BYTES = _LOADED_SOURCE_PATH.read_bytes()
+_LOADED_CODE = sys._getframe().f_code
+
 
 # Load only after CLI invalidation and bound-file checks, so a missing or invalid
 # bound helper cannot bypass active-receipt invalidation during import.
@@ -119,15 +123,141 @@ def check_worktree_clean(name, status):
     """`git status --porcelain` output of a dependency: staged, unstaged or untracked changes fail."""
     require(status.strip() == '', 'dependency worktree is not clean: ' + name + ': ' + status.strip()[:200])
 
+def _git_bytes(repo, *args):
+    env = {key: value for key, value in os.environ.items() if not key.startswith('GIT_')}
+    env.update(GIT_CONFIG_NOSYSTEM='1', GIT_CONFIG_GLOBAL=os.devnull,
+               GIT_NO_REPLACE_OBJECTS='1', GIT_NO_LAZY_FETCH='1', GIT_OPTIONAL_LOCKS='0')
+    return subprocess.check_output(['git', '-C', str(repo), *args], env=env)
+
+def verify_committed_files(repo, head, paths=None, allow_symlinks=False):
+    """Compare HEAD, stage-zero index and actual file bytes, ignoring no index flags.
+
+    SHA-1 here is Git's exact blob object identity, not a mathematical bound.
+    Manifest file identities separately use SHA-256. Owned symlinks, all gitlinks
+    and non-stage-zero entries are refused. Dependency file symlinks additionally
+    bind their literal link bytes and resolved tracked regular-file targets.
+    """
+    repo = Path(repo).resolve()
+    selected = [] if paths is None else sorted(set(paths))
+    require(paths is None or selected, 'empty committed source domain')
+    args = ['ls-tree', '-rz', head]
+    if paths is not None:
+        args += ['--', *selected]
+    tree = {}
+    for row in _git_bytes(repo, *args).split(b'\0'):
+        if not row:
+            continue
+        fields, separator, encoded = row.partition(b'\t')
+        require(separator, 'malformed committed source inventory')
+        mode, kind, oid = fields.decode('ascii').split()
+        name = encoded.decode('utf-8')
+        require(name not in tree and kind == 'blob' and mode in (('100644', '100755', '120000') if allow_symlinks else ('100644', '100755')),
+                'unsupported or symlink committed source: ' + name)
+        require(not Path(name).is_absolute() and '..' not in Path(name).parts,
+                'unsafe committed source path')
+        tree[name] = (mode, oid)
+    require(bool(tree), 'empty committed source tree')
+    if paths is not None:
+        require(set(tree) == set(selected), 'uncommitted source domain entry')
+    index = {}
+    index_args = ['ls-files', '--stage', '-z']
+    if paths is not None:
+        index_args += ['--', *selected]
+    for row in _git_bytes(repo, *index_args).split(b'\0'):
+        if not row:
+            continue
+        fields, separator, encoded = row.partition(b'\t')
+        require(separator, 'malformed source index')
+        mode, oid, stage = fields.decode('ascii').split()
+        name = encoded.decode('utf-8')
+        require(stage == '0' and name not in index, 'unmerged or duplicate source index')
+        index[name] = (mode, oid)
+    require(index == tree, 'source index differs from committed source')
+    for name, (mode, oid) in tree.items():
+        path = repo / name
+        if mode == '120000':
+            require(allow_symlinks and path.is_symlink() and path.parent.resolve() == path.parent,
+                    'missing or substituted committed source symlink: ' + name)
+            target = path.resolve()
+            require(target.is_relative_to(repo) and
+                    target.relative_to(repo).as_posix() in tree and
+                    tree[target.relative_to(repo).as_posix()][0] in ('100644', '100755') and target.is_file(),
+                    'unbound symlink target in committed source: ' + name)
+            data = os.fsencode(os.readlink(path))
+        else:
+            require(not path.is_symlink() and path.resolve() == path and path.is_file(),
+                    'missing or symlink committed source: ' + name)
+            data = path.read_bytes()
+        actual = hashlib.sha1(b'blob ' + str(len(data)).encode('ascii') + b'\0' + data).hexdigest()
+        require(actual == oid, 'working bytes differ from committed source: ' + name)
+        require(mode == '120000' or bool(path.stat().st_mode & 0o111) == (mode == '100755'),
+                'working mode differs from committed source: ' + name)
+    return set(tree)
+
+
+def source_custody(m, digest, expected_head=None):
+    """Bind observed package bytes and code to a commit; not an immutable mount."""
+    root = Path(ROOT).resolve()
+    repo = Path(_git_bytes(root, 'rev-parse', '--show-toplevel').decode().strip()).resolve()
+    prefix = root.relative_to(repo).as_posix() + '/'
+    head = _git_bytes(repo, 'rev-parse', 'HEAD').decode().strip()
+    require(COMMIT.fullmatch(head), 'missing exact checked commit')
+    require(expected_head is None or head == expected_head, 'HEAD changed during execution')
+    require(isinstance(m.get('files'), dict) and 'gate.py' in m['files'], 'unbound loaded driver')
+    names = set(m['files']) | {'manifest.json'}
+    require(all(isinstance(name, str) and not Path(name).is_absolute() and
+                '..' not in Path(name).parts for name in names), 'unsafe bound source path')
+    owned = [prefix + name for name in names]
+    admission = m.get('source_admission')
+    if admission is not None:
+        require(isinstance(admission, dict) and SHA256.fullmatch(admission.get('helper_sha256', '')),
+                'invalid source admission helper binding')
+        helper_name = 'tools/lean_packet_admission.py'
+        owned.append(helper_name)
+    verify_committed_files(repo, head, owned)
+    raw = (root / 'manifest.json').read_bytes()
+    require(sha(raw) == digest and load_json(raw) == m, 'manifest identity differs from execution')
+    for name, expected in m['files'].items():
+        require(sha((root / name).read_bytes()) == expected, 'bound source identity differs: ' + name)
+    if admission is not None:
+        require(sha((repo / helper_name).read_bytes()) == admission['helper_sha256'],
+                'source admission helper identity differs')
+    require(root / 'gate.py' == _LOADED_SOURCE_PATH and
+            (root / 'gate.py').read_bytes() == _LOADED_SOURCE_BYTES and
+            _LOADED_CODE == compile(_LOADED_SOURCE_BYTES, _LOADED_CODE.co_filename,
+                                    'exec', dont_inherit=True, optimize=sys.flags.optimize),
+            'loaded driver differs from committed source')
+    require(_git_bytes(repo, 'rev-parse', 'HEAD').decode().strip() == head,
+            'HEAD changed during source observation')
+    return head
+
 def dependency_state(m):
     """Exact locked revision and a clean worktree for every dependency, read from the checkouts."""
     actual = {}
     for name in m['dependency_revisions']:
         repo = str(ROOT / '.lake' / 'packages' / name)
-        actual[name] = subprocess.check_output(['git', '-C', repo, 'rev-parse', 'HEAD'], text=True).strip()
-        check_worktree_clean(name, subprocess.check_output(
-            ['git', '-C', repo, 'status', '--porcelain', '--untracked-files=normal'], text=True))
+        actual[name] = _git_bytes(repo, 'rev-parse', 'HEAD').decode().strip()
+        check_worktree_clean(name, _git_bytes(
+            repo, 'status', '--porcelain', '--untracked-files=normal').decode())
     require(actual == m['dependency_revisions'], 'installed dependency HEAD differs from lock')
+    for name, head in actual.items():
+        repo = (ROOT / '.lake' / 'packages' / name).resolve()
+        try:
+            tracked = verify_committed_files(repo, head, allow_symlinks=True)
+        except ValueError as exc:
+            raise ValueError('dependency ' + name + ' source custody: ' + str(exc)) from exc
+        for directory, folders, files in os.walk(repo, followlinks=False):
+            folders[:] = [part for part in folders if part not in ('.git', '.lake')]
+            for part in folders:
+                require(not (Path(directory) / part).is_symlink(),
+                        'dependency source directory symlink: ' + name)
+            for filename in files:
+                path = Path(directory) / filename
+                relative = path.relative_to(repo).as_posix()
+                if filename.endswith(('.lean', '.olean', '.ilean')):
+                    require(relative in tracked, 'dependency untracked Lean source: ' + name + '/' + relative)
+        require(_git_bytes(repo, 'rev-parse', 'HEAD').decode().strip() == head,
+                'dependency HEAD changed during source observation: ' + name)
     return actual
 
 def observation(version, dependencies, digest):
@@ -299,6 +429,7 @@ def run(command, label, out, expect_success=True):
 def execute(m, digest):
     invalidate_active_receipt()
     out = ROOT / '.lake' / 'formal-evidence'
+    checked_head = source_custody(m, digest)
     modules, bound = compiled_contract(m)
     out.mkdir(parents=True, exist_ok=True)
     preflight_version = check_lean_version(run(['lake', 'env', 'lean', '--version'], 'version-preflight', out))
@@ -354,14 +485,14 @@ def execute(m, digest):
             require('unsolved goals' in log or 'norm_num' in log and 'failed' in log, 'negative control did not fail on its proof goal')
             outcomes[label] = 'REJECTED_BY_LEAN'
     # Recheck after compilation: a build hook must not rewrite bound sources/lock.
+    source_custody(m, digest, checked_head)
     _, after = source_check(); require(after == digest, 'manifest changed during execution')
     # Final observation after the last Lean execution: the same exact release, the same locked
     # and clean dependencies and the same bound sources as before the first one.
     version = check_lean_version(run(['lake', 'env', 'lean', '--version'], 'version', out))
     final = observation(version, dependency_state(m), after)
     require(final == preflight, 'runtime, dependencies or sources changed during execution')
-    head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
-    require(COMMIT.fullmatch(head), 'missing exact checked commit')
+    head = source_custody(m, digest, checked_head)
     receipt = dict(schema_version=1, scientific_effect='NONE', formalization_status='kernel-checked',
                    alignment_status='PENDING_INDEPENDENT_REVIEW', manifest_sha256=digest,
                    checked_commit=head, repository=os.environ.get('GITHUB_REPOSITORY'),
@@ -385,6 +516,9 @@ def main():
         p.add_argument('--execute', action='store_true', help='run build, transitive axiom audit and negative controls')
         p.add_argument('--alignment', type=Path, help='validate a separately authenticated alignment record; never promotes science')
         args = p.parse_args()
+        if args.execute:
+            initial_raw = (ROOT / 'manifest.json').read_bytes()
+            source_custody(load_json(initial_raw), sha(initial_raw))
         m, digest = source_check()
         if args.alignment:
             check_alignment(load_json(args.alignment.read_text()), digest, m['targets'], m['files']['SCOPE.md'])
