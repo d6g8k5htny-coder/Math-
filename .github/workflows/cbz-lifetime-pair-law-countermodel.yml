@@ -1,7 +1,7 @@
 name: CBZ conditional pair-law countermodel
 on:
   push:
-    branches: ["cbz/lifetime-pair-law-countermodel-20261029"]
+    branches: ["cbz/lifetime-zero-law-countermodel-20261029"]
 permissions:
   contents: read
 jobs:
@@ -33,7 +33,9 @@ jobs:
           mkdir -p .lake/build/lib/lean
           lake env lean -o .lake/build/lib/lean/CounterexampleE4.olean CounterexampleE4.lean 2>&1 | tee "$RUNNER_TEMP/cbz-countermodel-lean.log"
           lake env leanchecker CounterexampleE4 2>&1 | tee "$RUNNER_TEMP/cbz-countermodel-kernel.log"
-          sha256sum CounterexampleE4.lean "$RUNNER_TEMP"/cbz-countermodel-*.log
+          lake env lean -o .lake/build/lib/lean/CounterexampleZero.olean CounterexampleZero.lean 2>&1 | tee "$RUNNER_TEMP/cbz-zero-countermodel-lean.log"
+          lake env leanchecker CounterexampleZero 2>&1 | tee "$RUNNER_TEMP/cbz-zero-countermodel-kernel.log"
+          sha256sum CounterexampleE4.lean CounterexampleZero.lean "$RUNNER_TEMP"/cbz-countermodel-*.log "$RUNNER_TEMP"/cbz-zero-countermodel-*.log
       - name: Retain outputs even on failure
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
@@ -41,5 +43,7 @@ jobs:
           name: cbz-pair-law-countermodel-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
             specifications/lean_statements_20261010/CounterexampleE4.lean
+            specifications/lean_statements_20261010/CounterexampleZero.lean
             ${{ runner.temp }}/cbz-countermodel-*.log
+            ${{ runner.temp }}/cbz-zero-countermodel-*.log
           if-no-files-found: error
