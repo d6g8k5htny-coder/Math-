@@ -1,0 +1,43 @@
+"""Author final-input JSON from retained immutable metadata only; no hash/copy/check execution."""
+from pathlib import Path
+import json
+r=Path('/workspace/scratch/actual-source-torus-superlevel-local-basis-packaging-proposal')
+p=Path('/workspace/scratch/actual-source-torus-superlevel-local-basis-construct')
+u=Path('/workspace/scratch/actual-source-torus-superlevel-local-basis-publication')
+v=Path('/workspace/scratch/actual-source-torus-superlevel-local-basis-source-review')
+def read(path):return json.loads(path.read_text())
+c=read(r/'FINAL_INPUTS.schema.json');go=read(u/'ROOT_FINALIZATION_GO.json');reading=read(u/'ROOT_FINAL_EVIDENCE_READING.json');review=read(v/'scope.json')
+a=read(p/'ARTIFACT_IDENTITIES.json');docs=read(p/'FINAL_DOCUMENT_IDS.json');allow=read(p/'PACKAGING_ALLOWLIST.json');inv=read(p/'INVENTORY.json');index=read(p/'EXECUTION_RECORD_INDEX.json');controls=read(p/'CONTROL_RECEIPT.json');cut=read(u/'ROOT_SOURCE_CUT.json');copy=read(u/'ROOT_OWN_OBJECT_COPY.json')
+c.update(status=go['status'],root_finalization_go=str(u/'ROOT_FINALIZATION_GO.json'),all_math_complete=True,final_review_pass=True,source_cut_committed=True,own_object_copied_once=True,immutable_payloads_frozen=True,source_cut=cut['source_cut'],source_cut_parent=cut['parent'],source_identity=cut['source'],eligible_object_identity=copy['eligible_own_object_identity'],root_object_copy_record=str(u/'ROOT_OWN_OBJECT_COPY.json'),root_reading_record=str(u/'ROOT_FINAL_EVIDENCE_READING.json'))
+c['root_reading_summary']='BOUNDED production: header1-52/declaration map/tail525-629, full initial Main/Public sections before small corrections; full initial context and actual changes. FULL final25582B ordinary Controls,131B importing harness/129Bstdout/emptyerr, REPORT/HANDOFF/finaldocIDs/allowlist/READY and control/stream/runner/source-object summaries. Structured/partial aggregate identities/execution index/inventory; no full629source/all65axiomrows/all11rawreceipts-streams/allhelpers-patches claim. Exact root record retained verbatim.'
+c['reviewer_reading_summary']='Nonauthor actual_fold_chart_source_review: finalsource1-629 full ONCE; proper docs and root method001/context001+actual002-004/ACKs; both production originals and separate ordinary original/full actual patches; final ordinary content via original+complete delta; all65 classification/full18361Baxiomstream; all11receipts/22originalstreams; final producer docs and all164artifact rows/68historicalsnapshot mappings. No identical snapshot-body rereads, no literal aggregate full-text reread claim. All5 verdictsPASS/no findings; same-family0/scienceNONE, no different-family scientific acceptance. Exact scope/report retained.'
+c['immutable_directories']=[]
+c['immutable_files']=[{'source':s,'archive_path':'raw/producer/'+str(Path(s).relative_to(p))}for s in allow['producer_payloads']]
+rootnames=['PRECODE61_IDENTITIES.json','ROOT_PRECODE_PUBLICATION.json','ROOT_GO61_COPY.json','ROOT_CONTEXT_READING_ACCEPTANCE.json','ROOT_FINAL_EVIDENCE_READING.json','ROOT_FINALIZATION_GO.json','ROOT_SOURCE_CUT.json','ROOT_OWN_OBJECT_COPY_INTENT.json','ROOT_OWN_OBJECT_COPY.json','ROOT_SOURCE_CUT_COMMANDS.json','ROOT_SOURCE_CUT_OUTER.json','ROOT_SOURCE_CUT_OUTER.stdout.txt','ROOT_SOURCE_CUT_OUTER.stderr.txt','ROOT_PRECUT_ROUTINE_CORRECTION.json','WORKSPACE_GUIDANCE_LATEST.json','root_source_cut.py','CONTROL_PLAN_AMENDMENT_001.md','CONTROL_PLAN_AMENDMENT_001_ID.json','CONTROL_PLAN_AMENDMENT_001_NATIVE_MATCH.json','CONTROL_PLAN_AMENDMENT_001_NATIVE_READBACK.json','CONTROL_PLAN_AMENDMENT_001_NATIVE_READBACK.stderr','CLAIM61_BODY.md','CLAIM61_BOARD_BODY.md','CLAIM61_NATIVE_POST.json','CLAIM61_NATIVE_READBACK.json','CLAIM61_NATIVE_READBACK.stderr','CLAIM61_FULL_BODY_MATCH.json','CLAIM61_BOARD_READBACK.json','CLAIM61_BOARD_READBACK.stderr','CLAIM61_BOARD_READBACK_MATCH.json','CLAIM61_FRESH_PR.json','CLAIM61_FRESH_PR.stderr','CLAIM61_FRESH_BOARD.json','CLAIM61_FRESH_BOARD.stderr','CLAIM61_POSTCLAIM_PR.json','CLAIM61_POSTCLAIM_PR.stderr','CLAIM61_POSTCLAIM_BOARD.json','CLAIM61_POSTCLAIM_BOARD.stderr','CHECKPOINT1645_BODY.md','CHECKPOINT1645_NATIVE_MATCH.json','CHECKPOINT1645_NATIVE_READBACK.json','CHECKPOINT1645_NATIVE_READBACK.stderr','CHECKPOINT1645_BOARD_BODY.md','CHECKPOINT1645_BOARD_READBACK.json','CHECKPOINT1645_BOARD_READBACK.stderr','CHECKPOINT1645_BOARD_READBACK_MATCH.json','FRESH_REVIEW_DELTA1648.json','FRESH_REVIEW_DELTA1648.stderr','PRECLAIM61_PR522.json','PRECLAIM61_PR522.stderr','PRECLAIM61_PR522_FILES.json','PRECLAIM61_PR522_FILES.stderr']
+rootnames += ['SOURCE_CUT_%02d.%s.txt'%(n,stream)for n in range(1,8)for stream in ['stdout','stderr']]
+c['immutable_files'] += [{'source':str(u/n),'archive_path':'raw/root-process/'+n}for n in rootnames]
+for n in ['ROOT_GO.json','CONTROL_CONTRACT.md']:
+ c['immutable_files'].append({'source':str(p/n),'archive_path':'raw/root-process/producer-installed/'+n})
+for n in ['REPORT.md','scope.json']:c['immutable_files'].append({'source':str(v/n),'archive_path':'raw/review/'+n})
+c['excluded_artifact_directories']=[str(p/'build')]
+ids={}
+for x in a['artifact_identities']+docs['documents']:
+ ids[x['path']]={'source':x['path'],'bytes':x['bytes'],'sha256':x['sha256']}
+for x in a['historical_source_snapshots']:
+ old=x['source_identity_reused'];ids[x['immutable_snapshot']]={'source':x['immutable_snapshot'],'bytes':old['bytes'],'sha256':old['sha256']}
+method=read(u/'CONTROL_PLAN_AMENDMENT_001_ID.json');ids[method['path']]={'source':method['path'],'bytes':method['bytes'],'sha256':method['sha256']}
+c['existing_file_identities']=list(ids.values())
+c['run_records']=[x['receipt_path']for x in index['executions']]
+c['inventory_archive_path']='raw/producer/INVENTORY.json'
+c['inventory_summary']={'all_module_index_owned_constants':inv['total'],'authored_public_Prop':1,'authored_public_data':0,'counts':inv['counts'],'foreign_generated_names':[x['name']for x in inv['declarations']if x['classification']=='foreign-namespace generated defining equation'],'foreign_generated_count':inv['counts']['foreign-namespace generated defining equation'],'standard_three_guard':'PASS: reused exhaustive inventory-001 collection of every actual-owned row, allowed propext/Classical.choice/Quot.sound only; READY/final review bind the stored successful result','allowed_axioms':inv['allowed_axioms'],'coverage':inv['axiom_coverage']}
+c['production_helper_integrations']=[]
+for key,n in [('A-regular','REGULAR_CUSTODY.json'),('B-fixture','FIXTURE_CUSTODY.json')]:
+ q=read(p/'originals'/n);c['production_helper_integrations'].append({'key':key,'record_path':'raw/producer/originals/'+n,'integration_count':q['integrations'],'helper_executions':0,'originals':q['originals'],'zero_execution_basis':'RootGO/producerREADY/final nonauthor review; no standalone helper execution'})
+q=read(p/'originals/CONTROLS_CUSTODY.json');c['ordinary_controls_integration']={'record_path':'raw/producer/originals/CONTROLS_CUSTODY.json','integration_count':q['integrations'],'helper_executions':0,'originals':q['originals']}
+c['qualification']={k:'runs/'+n+'/receipt.json'for k,n in [('strict','compile-final'),('inventory','inventory-001'),('kernel','kernel-001'),('positive_controls','controls-002'),('negative','false-control-001')]}
+c['negative_binding'].update(counterproof_in_passed_controls=True,exactly_one_intendedFalse=True,ordinary_controls_object_identity=controls['positive']['object'],negative_harness_identity=controls['sole_negative']['identity'],stdout_bytes=129,stderr_bytes=0,stdout_identity=controls['sole_negative']['actual_stdout'],stderr_identity=controls['sole_negative']['actual_stderr'],method_amendment=controls['method_amendment'],method='Root-adopted sine separator/preconnected IVT plus ONE box lift, no injective chart or continuous representative; SAME primary field and sole <= to < mutation unchanged')
+c['curated_producer_files']=['REPORT.md','HANDOFF.md','ARTIFACT_IDENTITIES.json','FINAL_DOCUMENT_IDS.json','PACKAGING_ALLOWLIST.json','READY.json','STREAM_COUNTS.json','CONTROL_RECEIPT.json','INVENTORY.json','EXECUTION_RECORD_INDEX.json','CONTROL_IDS.json','FINAL_SOURCE_OBJECT_IDS.json','RUNNER_HISTORY.md','CONTEXT_ACKS.md']
+c['packaging_scripts'] += ['prepare_final_inputs.py','prepare_final_inputs.pre-index-correction.py','INPUT_PREPARATION_CORRECTION.json']
+c['metadata_preparation']='Inputs authored from exact retained immutable metadata only. No archive/hash/validation/math command occurred in input preparation. No62 paths inspected/registered.'
+(r/'FINAL_INPUTS.json').write_text(json.dumps(c,indent=2)+'\n')
+print('FINAL_INPUTS prepared from actual frozen61 schemas; no archive/hash/validation executed.')

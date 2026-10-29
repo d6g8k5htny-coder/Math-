@@ -1,0 +1,16 @@
+--- history/production-fixtures-fix002/SourceActualRegularLocalCollar.lean.ORIGINAL
++++ SourceActualRegularLocalCollar.lean
+@@ -534,7 +534,12 @@
+   have heq : I4LifetimeField.actualField 2 2 fixtureSample =
+       fun Z : E2 => Real.cos (Real.pi * (Q Z) 0) +
+         2 * Real.cos (Real.pi * (Q Z) 1) := funext fixture_actual_formula
+-  rw [heq, hd.fderiv]
++  have hactual : HasFDerivAt (I4LifetimeField.actualField 2 2 fixtureSample)
++      (-Real.sin (Real.pi * (Q Y) 0) • Real.pi • d0 +
++        (2 : ℝ) • -Real.sin (Real.pi * (Q Y) 1) • Real.pi • d1) Y := by
++    rw [heq]
++    exact hd
++  rw [hactual.fderiv]
+   simp only [ContinuousLinearMap.add_apply, ContinuousLinearMap.smul_apply,
+     smul_eq_mul, d0, d1, ContinuousLinearMap.comp_apply, ContinuousLinearMap.proj_apply]
+   ring

@@ -1,0 +1,25 @@
+{
+  "created_utc": "2026-10-26T17:43:48.506173+00:00",
+  "purpose": "Rootidentifiednewcustodyobligation: completelyaccount actualhelpertextamendments. No mathematics/sourcechange/verificationreplay.",
+  "historical_integration_record_preserved": "/workspace/scratch/two-remote-firstjet-witness-construct/HELPER_INTEGRATION.json",
+  "original_frozen_needed_text": "/workspace/scratch/two-remote-firstjet-witness-construct/ARITHMETIC_NEEDED_SECTION.lean.txt",
+  "actual_frozen_source": "b523da924513fc312c5432c241fc031d4fbe3567fbeedbba981f36dd798574a4",
+  "complete_diff": "/workspace/scratch/two-remote-firstjet-witness-construct/HELPER_ACTUAL_AMENDMENTS.diff",
+  "amendments": [
+    {
+      "name": "firstJetGerm_contDiff",
+      "change": "Replace fin_cases/dsimp-underfunction with explicitconstant/sine-formula C2cases; retainedpriorinterfaceevidence reused, no deliberatefailure/oldreplay.",
+      "before_attempt": "develop-001"
+    },
+    {
+      "name": "firstJet_mul",
+      "change": "Original all3 fin_cases/simpa becomes valuecase rfl and two derivativecase simpa, correcting strict001 unnecessarySimpa warning; mathematical product identity unchanged.",
+      "after_attempt": "develop-001",
+      "first_success": "develop-003"
+    }
+  ],
+  "helper_integration_count": 1,
+  "helper_executions_or_objects": 0,
+  "source_changed_for_custody_correction": false,
+  "new_math_or_check_campaign": false
+}

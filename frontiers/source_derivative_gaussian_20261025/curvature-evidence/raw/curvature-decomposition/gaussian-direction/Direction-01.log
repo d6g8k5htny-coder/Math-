@@ -1,0 +1,16 @@
+/workspace/scratch/source-curvature-implementation/gaussian-direction/Direction.lean:118:37: error: Type mismatch
+  z 0
+has type
+  ℝ
+of sort `Type` but is expected to have type
+  MeasurableSet z → MeasurableSet (?m.86 ⁻¹' z)
+of sort `Prop`
+/workspace/scratch/source-curvature-implementation/gaussian-direction/Direction.lean:118:60: error: Type mismatch
+  z
+has type
+  ↥I → ℝ
+of sort `Type` but is expected to have type
+  MeasurableSet z → MeasurableSet (?m.87 ⁻¹' z)
+of sort `Prop`
+/workspace/scratch/source-curvature-implementation/gaussian-direction/Direction.lean:118:67: error: `Set (SmoothSample 2 L)` is not a `fun_prop` goal! Consider marking `Set` with `@[fun_prop]`.
+lean_exit=1

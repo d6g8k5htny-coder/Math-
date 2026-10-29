@@ -1,0 +1,38 @@
+--- history/ordinary-fix001/RegularLocalCollarControls.lean.ORIGINAL
++++ RegularLocalCollarControls.lean
+@@ -156,8 +156,8 @@
+     apply (pi_norm_lt_iff hρ).mpr
+     intro i
+     fin_cases i
+-    · simpa only [Matrix.cons_val_zero, Real.norm_eq_abs] using ha
+-    · simpa only [Matrix.cons_val_one, Real.norm_eq_abs] using hε
++    · simpa using ha
++    · simpa using hε
+   have hz := φ.map_target ht
+   have hi := φ.right_inv ht
+   have hv : F (φ.symm ![a, ε]) = c + ε := by
+@@ -273,9 +273,10 @@
+     intro i
+     fin_cases i
+     · simpa using hρ
+-    · simp only [Matrix.cons_val_one, Real.norm_eq_abs]
+-      rw [abs_of_pos (by positivity : 0 < ρ / 2)]
+-      linarith
++    · have hh : |ρ / 2| < ρ := by
++        rw [abs_of_pos (by positivity : 0 < ρ / 2)]
++        linarith
++      simpa using hh
+   have hz := φ.map_target hu
+   have hi := φ.right_inv hu
+   have hv := hheight (φ.symm ![0, ρ / 2]) hz
+--- history/ordinary-fix001/classify_inventory.py.ORIGINAL
++++ runner/classify_inventory.py
+@@ -8,7 +8,7 @@
+ raw=(B/'runs'/label/'stdout.log').read_text()
+ text=source.read_text()
+ authored={m.group(3):(m.group(1) or '',m.group(2)) for m in re.finditer(r'^(private )?(theorem|def|abbrev|structure) ([A-Za-z0-9_]+)',text,re.M)}
+-props={'FixedCutChecks','FixtureOutput','omittedNonzeroDerivativeMutation'}
++props={'FixedCutChecks','FixtureOutput','InversePoint','FixedCases','PositiveAt','omittedNonzeroDerivativeMutation'}
+ rows=[]
+ for line in raw.splitlines():
+  if not line.startswith('INVENTORY|'):continue

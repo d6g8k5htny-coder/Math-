@@ -1,0 +1,44 @@
+{
+  "label": "controls-002",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/fold-weighted-probability-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/fold-weighted-probability-construct -o /workspace/scratch/fold-weighted-probability-construct/build/Controls.olean /workspace/scratch/fold-weighted-probability-construct/Controls.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFoldWeightedProbability.lean",
+      "bytes": 7837,
+      "sha256": "58b77d6c0886fb5ef005749f468648d3c3ce6c99905f89963bf99c4ebee763d0"
+    },
+    "object": {
+      "path": "/workspace/scratch/fold-weighted-probability-construct/build/SourceFoldWeightedProbability.olean",
+      "bytes": 414736,
+      "sha256": "3c5e59ee676f589de711731c6b414d54c2ee41f819cd0418593fd594e6eaaff7"
+    }
+  },
+  "started_utc": "2026-10-26T09:47:26.122363+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 4.437439441680908,
+  "ended_utc": "2026-10-26T09:47:30.559882+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFoldWeightedProbability.lean",
+      "bytes": 7837,
+      "sha256": "58b77d6c0886fb5ef005749f468648d3c3ce6c99905f89963bf99c4ebee763d0"
+    },
+    "object": {
+      "path": "/workspace/scratch/fold-weighted-probability-construct/build/SourceFoldWeightedProbability.olean",
+      "bytes": 414736,
+      "sha256": "3c5e59ee676f589de711731c6b414d54c2ee41f819cd0418593fd594e6eaaff7"
+    }
+  },
+  "log": {
+    "path": "/workspace/scratch/fold-weighted-probability-construct/runs/controls-002/output.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

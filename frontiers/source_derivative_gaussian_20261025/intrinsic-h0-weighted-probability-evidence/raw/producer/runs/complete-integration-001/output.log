@@ -1,0 +1,245 @@
+SourceIntrinsicH0WeightedProbability.lean:242:2: error: Type mismatch: After simplification, term
+  hQ (planarInertiaVector u v)
+ has type
+  @Eq ℝ (hessian 2 g x (planarInertiaVector u v) (planarInertiaVector u v))
+    (a * ![u, v] 0 ^ 2 + 2 * b * ![u, v] 0 * ![u, v] 1 + c * ![u, v] 1 ^ 2)
+but is expected to have type
+  @Eq ℝ (hessian 2 g x (planarInertiaVector u v) (planarInertiaVector u v)) (a * u ^ 2 + 2 * b * u * v + c * v ^ 2)
+SourceIntrinsicH0WeightedProbability.lean:438:24: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+SourceIntrinsicH0WeightedProbability.lean:445:24: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+SourceIntrinsicH0WeightedProbability.lean:588:13: error: don't know how to synthesize implicit argument `s₂`
+  @MeasurableSet.inter (SmoothSample 2 L) Subtype.instMeasurableSpace {ω | IsCriticalPoint 2 (actualField 2 L ω) x}
+    ({a | hA (actualField 2 L a) x < ?m.103} ∩
+      {a |
+        ?m.123 <
+          (((fun ω => hA (actualField 2 L ω) x) * fun ω => hC (actualField 2 L ω) x) - fun x_1 =>
+              hB (actualField 2 L x_1) x ^ 2)
+            a})
+    (actualCritical_measurable hL x)
+    (MeasurableSet.inter (measurableSet_lt ha measurable_const) (measurableSet_lt measurable_const hd))
+context:
+L : ℝ
+hL : 0 < L
+x : E 2
+ha : Measurable fun ω => hA (actualField 2 L ω) x
+hb : Measurable fun ω => hB (actualField 2 L ω) x
+hc : Measurable fun ω => hC (actualField 2 L ω) x
+hd :
+  Measurable
+    (((fun ω => hA (actualField 2 L ω) x) * fun ω => hC (actualField 2 L ω) x) - fun x_1 =>
+      hB (actualField 2 L x_1) x ^ 2)
+⊢ Set (SmoothSample 2 L)
+SourceIntrinsicH0WeightedProbability.lean:589:5: error: don't know how to synthesize implicit argument `s₂`
+  @MeasurableSet.inter (SmoothSample 2 L) Subtype.instMeasurableSpace {a | hA (actualField 2 L a) x < ?m.103}
+    {a |
+      ?m.123 <
+        (((fun ω => hA (actualField 2 L ω) x) * fun ω => hC (actualField 2 L ω) x) - fun x_1 =>
+            hB (actualField 2 L x_1) x ^ 2)
+          a}
+    (measurableSet_lt ha measurable_const) (measurableSet_lt measurable_const hd)
+context:
+L : ℝ
+hL : 0 < L
+x : E 2
+ha : Measurable fun ω => hA (actualField 2 L ω) x
+hb : Measurable fun ω => hB (actualField 2 L ω) x
+hc : Measurable fun ω => hC (actualField 2 L ω) x
+hd :
+  Measurable
+    (((fun ω => hA (actualField 2 L ω) x) * fun ω => hC (actualField 2 L ω) x) - fun x_1 =>
+      hB (actualField 2 L x_1) x ^ 2)
+⊢ Set (SmoothSample 2 L)
+SourceIntrinsicH0WeightedProbability.lean:589:5: error: don't know how to synthesize implicit argument `s₁`
+  @MeasurableSet.inter (SmoothSample 2 L) Subtype.instMeasurableSpace {a | hA (actualField 2 L a) x < ?m.103}
+    {a |
+      ?m.123 <
+        (((fun ω => hA (actualField 2 L ω) x) * fun ω => hC (actualField 2 L ω) x) - fun x_1 =>
+            hB (actualField 2 L x_1) x ^ 2)
+          a}
+    (measurableSet_lt ha measurable_const) (measurableSet_lt measurable_const hd)
+context:
+L : ℝ
+hL : 0 < L
+x : E 2
+ha : Measurable fun ω => hA (actualField 2 L ω) x
+hb : Measurable fun ω => hB (actualField 2 L ω) x
+hc : Measurable fun ω => hC (actualField 2 L ω) x
+hd :
+  Measurable
+    (((fun ω => hA (actualField 2 L ω) x) * fun ω => hC (actualField 2 L ω) x) - fun x_1 =>
+      hB (actualField 2 L x_1) x ^ 2)
+⊢ Set (SmoothSample 2 L)
+SourceIntrinsicH0WeightedProbability.lean:589:51: error: don't know how to synthesize implicit argument `f`
+  @measurableSet_lt ℝ (SmoothSample 2 L) PseudoMetricSpace.toUniformSpace.toTopologicalSpace Real.measurableSpace
+    BorelSpace.opensMeasurable Subtype.instMeasurableSpace Real.linearOrder instSecondCountableTopologyReal
+    HasSolidNorm.orderClosedTopology (fun x => ?m.123)
+    (((fun ω => hA (actualField 2 L ω) x) * fun ω => hC (actualField 2 L ω) x) - fun x_1 =>
+      hB (actualField 2 L x_1) x ^ 2)
+    measurable_const hd
+context:
+L : ℝ
+hL : 0 < L
+x : E 2
+ha : Measurable fun ω => hA (actualField 2 L ω) x
+hb : Measurable fun ω => hB (actualField 2 L ω) x
+hc : Measurable fun ω => hC (actualField 2 L ω) x
+hd :
+  Measurable
+    (((fun ω => hA (actualField 2 L ω) x) * fun ω => hC (actualField 2 L ω) x) - fun x_1 =>
+      hB (actualField 2 L x_1) x ^ 2)
+⊢ SmoothSample 2 L → ℝ
+SourceIntrinsicH0WeightedProbability.lean:589:68: error: don't know how to synthesize implicit argument `a`
+  @measurable_const ℝ (SmoothSample 2 L) Real.measurableSpace Subtype.instMeasurableSpace ?m.123
+context:
+L : ℝ
+hL : 0 < L
+x : E 2
+ha : Measurable fun ω => hA (actualField 2 L ω) x
+hb : Measurable fun ω => hB (actualField 2 L ω) x
+hc : Measurable fun ω => hC (actualField 2 L ω) x
+hd :
+  Measurable
+    (((fun ω => hA (actualField 2 L ω) x) * fun ω => hC (actualField 2 L ω) x) - fun x_1 =>
+      hB (actualField 2 L x_1) x ^ 2)
+⊢ ℝ
+SourceIntrinsicH0WeightedProbability.lean:589:6: error: don't know how to synthesize implicit argument `g`
+  @measurableSet_lt ℝ (SmoothSample 2 L) PseudoMetricSpace.toUniformSpace.toTopologicalSpace Real.measurableSpace
+    BorelSpace.opensMeasurable Subtype.instMeasurableSpace Real.linearOrder instSecondCountableTopologyReal
+    HasSolidNorm.orderClosedTopology (fun ω => hA (actualField 2 L ω) x) (fun x => ?m.103) ha measurable_const
+context:
+L : ℝ
+hL : 0 < L
+x : E 2
+ha : Measurable fun ω => hA (actualField 2 L ω) x
+hb : Measurable fun ω => hB (actualField 2 L ω) x
+hc : Measurable fun ω => hC (actualField 2 L ω) x
+hd :
+  Measurable
+    (((fun ω => hA (actualField 2 L ω) x) * fun ω => hC (actualField 2 L ω) x) - fun x_1 =>
+      hB (actualField 2 L x_1) x ^ 2)
+⊢ SmoothSample 2 L → ℝ
+SourceIntrinsicH0WeightedProbability.lean:589:26: error: don't know how to synthesize implicit argument `a`
+  @measurable_const ℝ (SmoothSample 2 L) Real.measurableSpace Subtype.instMeasurableSpace ?m.103
+context:
+L : ℝ
+hL : 0 < L
+x : E 2
+ha : Measurable fun ω => hA (actualField 2 L ω) x
+hb : Measurable fun ω => hB (actualField 2 L ω) x
+hc : Measurable fun ω => hC (actualField 2 L ω) x
+hd :
+  Measurable
+    (((fun ω => hA (actualField 2 L ω) x) * fun ω => hC (actualField 2 L ω) x) - fun x_1 =>
+      hB (actualField 2 L x_1) x ^ 2)
+⊢ ℝ
+SourceIntrinsicH0WeightedProbability.lean:588:7: error: failed to infer `have` declaration type
+SourceIntrinsicH0WeightedProbability.lean:580:82: error: unsolved goals
+L : ℝ
+hL : 0 < L
+x : E 2
+ha : Measurable fun ω => hA (actualField 2 L ω) x
+hb : Measurable fun ω => hB (actualField 2 L ω) x
+hc : Measurable fun ω => hC (actualField 2 L ω) x
+hd :
+  Measurable
+    (((fun ω => hA (actualField 2 L ω) x) * fun ω => hC (actualField 2 L ω) x) - fun x_1 =>
+      hB (actualField 2 L x_1) x ^ 2)
+⊢ MeasurableSet {ω | IsNondegMax 2 (actualField 2 L ω) x}
+SourceIntrinsicH0WeightedProbability.lean:606:13: error: don't know how to synthesize implicit argument `s₂`
+  @MeasurableSet.inter (SmoothSample 2 L) Subtype.instMeasurableSpace {ω | IsCriticalPoint 2 (actualField 2 L ω) x}
+    {a |
+      (((fun ω => hA (actualField 2 L ω) x) * fun ω => hC (actualField 2 L ω) x) - fun x_1 =>
+            hB (actualField 2 L x_1) x ^ 2)
+          a <
+        ?m.103}
+    (actualCritical_measurable hL x) (measurableSet_lt hd measurable_const)
+context:
+L : ℝ
+hL : 0 < L
+x : E 2
+ha : Measurable fun ω => hA (actualField 2 L ω) x
+hb : Measurable fun ω => hB (actualField 2 L ω) x
+hc : Measurable fun ω => hC (actualField 2 L ω) x
+hd :
+  Measurable
+    (((fun ω => hA (actualField 2 L ω) x) * fun ω => hC (actualField 2 L ω) x) - fun x_1 =>
+      hB (actualField 2 L x_1) x ^ 2)
+⊢ Set (SmoothSample 2 L)
+SourceIntrinsicH0WeightedProbability.lean:606:53: error: don't know how to synthesize implicit argument `g`
+  @measurableSet_lt ℝ (SmoothSample 2 L) PseudoMetricSpace.toUniformSpace.toTopologicalSpace Real.measurableSpace
+    BorelSpace.opensMeasurable Subtype.instMeasurableSpace Real.linearOrder instSecondCountableTopologyReal
+    HasSolidNorm.orderClosedTopology
+    (((fun ω => hA (actualField 2 L ω) x) * fun ω => hC (actualField 2 L ω) x) - fun x_1 =>
+      hB (actualField 2 L x_1) x ^ 2)
+    (fun x => ?m.103) hd measurable_const
+context:
+L : ℝ
+hL : 0 < L
+x : E 2
+ha : Measurable fun ω => hA (actualField 2 L ω) x
+hb : Measurable fun ω => hB (actualField 2 L ω) x
+hc : Measurable fun ω => hC (actualField 2 L ω) x
+hd :
+  Measurable
+    (((fun ω => hA (actualField 2 L ω) x) * fun ω => hC (actualField 2 L ω) x) - fun x_1 =>
+      hB (actualField 2 L x_1) x ^ 2)
+⊢ SmoothSample 2 L → ℝ
+SourceIntrinsicH0WeightedProbability.lean:606:73: error: don't know how to synthesize implicit argument `a`
+  @measurable_const ℝ (SmoothSample 2 L) Real.measurableSpace Subtype.instMeasurableSpace ?m.103
+context:
+L : ℝ
+hL : 0 < L
+x : E 2
+ha : Measurable fun ω => hA (actualField 2 L ω) x
+hb : Measurable fun ω => hB (actualField 2 L ω) x
+hc : Measurable fun ω => hC (actualField 2 L ω) x
+hd :
+  Measurable
+    (((fun ω => hA (actualField 2 L ω) x) * fun ω => hC (actualField 2 L ω) x) - fun x_1 =>
+      hB (actualField 2 L x_1) x ^ 2)
+⊢ ℝ
+SourceIntrinsicH0WeightedProbability.lean:606:7: error: failed to infer `have` declaration type
+SourceIntrinsicH0WeightedProbability.lean:598:84: error: unsolved goals
+L : ℝ
+hL : 0 < L
+x : E 2
+ha : Measurable fun ω => hA (actualField 2 L ω) x
+hb : Measurable fun ω => hB (actualField 2 L ω) x
+hc : Measurable fun ω => hC (actualField 2 L ω) x
+hd :
+  Measurable
+    (((fun ω => hA (actualField 2 L ω) x) * fun ω => hC (actualField 2 L ω) x) - fun x_1 =>
+      hB (actualField 2 L x_1) x ^ 2)
+⊢ MeasurableSet {ω | IsIndexSaddle 2 (actualField 2 L ω) x}
+SourceIntrinsicH0WeightedProbability.lean:621:15: error: don't know how to synthesize implicit argument `f`
+  @measurableSet_lt ℝ (SmoothSample 2 L) PseudoMetricSpace.toUniformSpace.toTopologicalSpace Real.measurableSpace
+    BorelSpace.opensMeasurable Subtype.instMeasurableSpace Real.linearOrder instSecondCountableTopologyReal
+    HasSolidNorm.orderClosedTopology (fun x => ?m.53)
+    ((fun ω => actualField 2 L ω (endpointLiftM r)) - fun ω => actualField 2 L ω (endpointLiftS r)) measurable_const
+    (Measurable.sub (actualField_eval_measurable 2 L (endpointLiftM r))
+      (actualField_eval_measurable 2 L (endpointLiftS r)))
+context:
+L : ℝ
+hL : 0 < L
+r : ℝ
+hdist : MeasurableSet {ω | 0 < torusDist 2 L (endpointLiftM r) (endpointLiftS r)}
+⊢ SmoothSample 2 L → ℝ
+SourceIntrinsicH0WeightedProbability.lean:621:32: error: don't know how to synthesize implicit argument `a`
+  @measurable_const ℝ (SmoothSample 2 L) Real.measurableSpace Subtype.instMeasurableSpace ?m.53
+context:
+L : ℝ
+hL : 0 < L
+r : ℝ
+hdist : MeasurableSet {ω | 0 < torusDist 2 L (endpointLiftM r) (endpointLiftS r)}
+⊢ ℝ
+SourceIntrinsicH0WeightedProbability.lean:621:7: error: failed to infer `have` declaration type
+SourceIntrinsicH0WeightedProbability.lean:617:57: error: unsolved goals
+L : ℝ
+hL : 0 < L
+r : ℝ
+hdist : MeasurableSet {ω | 0 < torusDist 2 L (endpointLiftM r) (endpointLiftS r)}
+⊢ MeasurableSet (sourceIntrinsicFiniteBarEvent L r)

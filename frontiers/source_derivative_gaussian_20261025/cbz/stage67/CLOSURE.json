@@ -1,0 +1,29 @@
+{
+  "status": "OBSERVED_KERNEL_CLOSED_CONDITIONAL_GENERAL_THEOREM_NOT_FINAL_FEDERATION_GATE",
+  "module": "SourceActualLowerSeparation",
+  "public_target": "I4SourceActualLowerSeparation.actualSource_closedSuperlevel_componentInclusion_locally_injective",
+  "source_sha256": "e72ed4f92e7867dc210b771e6afb4548cfad679e8b38795110fa6fd76a15e121",
+  "source_bytes": 14899,
+  "owned_math_constants": 5,
+  "owned_public_Prop": 1,
+  "owned_private_theorems": 4,
+  "owned_data_or_generated_remainder": 0,
+  "approved_axiom_set": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "existing_evidence": [
+    "production006-strict",
+    "production-inventory002",
+    "production-final-kernel001"
+  ],
+  "quarantine": "Q-MATH-SDGA-67-ORDINARY",
+  "quarantine_is_production_dependency": false,
+  "ordinary_fixture_or_nonvacuity_witness_claimed": false,
+  "new_production_data": 0,
+  "final_cbz_G0_G11": "NOT_RUN",
+  "proof_index": "cbz/stage67/PROOF_INDEX.md",
+  "registered_build_evidence": "cbz/stage67/evidence/registered-lake-build/receipt.json",
+  "registered_build_scope": "lake build SourceActualLowerSeparation observed exit0 at2026-10-29T17:33:58.953065Z; changed registration only, not final federation G3"
+}

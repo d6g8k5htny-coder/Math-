@@ -1,0 +1,1857 @@
+{
+  "role": "Projection of existing records, not new verification execution.",
+  "records": [
+    {
+      "path": "raw/scalar-product/scalar-product-01.json",
+      "original_path": "/workspace/scratch/scalar-product-curvature/scalar-product-01.json",
+      "bytes": 551,
+      "sha256": "b22805b5d183641785323f24e24ef4a08db9e6c7c370020593d77862f0bc0445",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-o",
+          ".lake/build/lib/lean/ScalarProductCurvatureBound.olean",
+          "ScalarProductCurvatureBound.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source_sha256_before": "ff17c44d453f79ed70026151670b4fa6ffbdd29d7bf05890a9dc653e9a73b851",
+        "source_sha256_after": "ff17c44d453f79ed70026151670b4fa6ffbdd29d7bf05890a9dc653e9a73b851",
+        "log_sha256": "1041554e1c6c56726d4260056aadf91bfdad8f000817a15ffd667fc1a0309368"
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/scalar-product/scalar-product-02.json",
+      "original_path": "/workspace/scratch/scalar-product-curvature/scalar-product-02.json",
+      "bytes": 551,
+      "sha256": "a07039fb4fe95c12a35d95430e8674b31ecd293d6c89f9047ecbdb637d20a67b",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-o",
+          ".lake/build/lib/lean/ScalarProductCurvatureBound.olean",
+          "ScalarProductCurvatureBound.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source_sha256_before": "fb77c9a4eaf165a39c6c06535fbb3f3f164bca12ddbc2f29b01a33e512564b71",
+        "source_sha256_after": "fb77c9a4eaf165a39c6c06535fbb3f3f164bca12ddbc2f29b01a33e512564b71",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/scalar-product/scalar-product-controls-01.json",
+      "original_path": "/workspace/scratch/scalar-product-curvature/scalar-product-controls-01.json",
+      "bytes": 504,
+      "sha256": "06e1b4f0ad45db27c84327910e3f3e173c81436d733190cf6fe5d7e5fd2214ae",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/scalar-product-curvature/Controls.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source_sha256_before": "fb77c9a4eaf165a39c6c06535fbb3f3f164bca12ddbc2f29b01a33e512564b71",
+        "source_sha256_after": "fb77c9a4eaf165a39c6c06535fbb3f3f164bca12ddbc2f29b01a33e512564b71",
+        "log_sha256": "386a1b1fd256cfc37b1e43c26ab3d3f0d0dd7f08d8fff3d10030006cf828e90f"
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/scalar-product/scalar-product-controls-02.json",
+      "original_path": "/workspace/scratch/scalar-product-curvature/scalar-product-controls-02.json",
+      "bytes": 504,
+      "sha256": "1223f8ed782a3bf184cb273a43910f71640b1dd33a0bce8fea9134e8e8e936ff",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/scalar-product-curvature/Controls.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source_sha256_before": "fb77c9a4eaf165a39c6c06535fbb3f3f164bca12ddbc2f29b01a33e512564b71",
+        "source_sha256_after": "fb77c9a4eaf165a39c6c06535fbb3f3f164bca12ddbc2f29b01a33e512564b71",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/scalar-product/scalar-product-kernel.json",
+      "original_path": "/workspace/scratch/scalar-product-curvature/scalar-product-kernel.json",
+      "bytes": 481,
+      "sha256": "69fbcc6c65d972c45f1a38f5c8890d8aa6b90f7679011203e73cd34289966245",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "leanchecker",
+          "ScalarProductCurvatureBound"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source_sha256_before": "fb77c9a4eaf165a39c6c06535fbb3f3f164bca12ddbc2f29b01a33e512564b71",
+        "source_sha256_after": "fb77c9a4eaf165a39c6c06535fbb3f3f164bca12ddbc2f29b01a33e512564b71",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/Controls.attempt1.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/Controls.attempt1.json",
+      "bytes": 1019,
+      "sha256": "301fad29d3ef072071a1a29b5a01f4ccfc10ba94e8c1bd855b1512f399c40d3e",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/pin-curvature-implementation/Controls.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "duration_seconds": 3.515303373336792,
+        "timestamp_utc": "2026-10-26T00:31:35.074373+00:00",
+        "sha256_before": {
+          "source": "7989e229a66b6c20033ce29559dda50ee8eb3d896aa9c5a983f4d5391ffe207f",
+          "olean": "36dd25c17899287ff63422fb3f30d7d9436b38e1e3070a09cf2ce05530c48f7e",
+          "control": "f92d4989a42aa8b61209d0b848611d39f9386567e572ab80a105e7851d1db77c"
+        },
+        "sha256_after": {
+          "source": "7989e229a66b6c20033ce29559dda50ee8eb3d896aa9c5a983f4d5391ffe207f",
+          "olean": "36dd25c17899287ff63422fb3f30d7d9436b38e1e3070a09cf2ce05530c48f7e",
+          "control": "f92d4989a42aa8b61209d0b848611d39f9386567e572ab80a105e7851d1db77c"
+        },
+        "author_side_helper_lineage": "OpenAI/Codex /root/dm2_landed_composition/peano_strategy",
+        "scope": "NEW_SOURCE_PIN_CURVATURE_CONTROLS_ONLY"
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/Controls.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/Controls.json",
+      "bytes": 1020,
+      "sha256": "9848ec0efd5fd210af45357abe60c3db83d65566dcf2a59e1cba2c0a8fa54bce",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/pin-curvature-implementation/Controls.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "duration_seconds": 3.1327574253082275,
+        "timestamp_utc": "2026-10-26T00:32:04.963829+00:00",
+        "sha256_before": {
+          "source": "fdccc592a7551cb96c32ac683cfc0be9fa40f76f778c758d9688483826dc2a1f",
+          "olean": "36dd25c17899287ff63422fb3f30d7d9436b38e1e3070a09cf2ce05530c48f7e",
+          "control": "707c5e90ba04e5032d8f31a4a3c5bca14ac07914bb1cedb7d54aaf4a817fe6bb"
+        },
+        "sha256_after": {
+          "source": "fdccc592a7551cb96c32ac683cfc0be9fa40f76f778c758d9688483826dc2a1f",
+          "olean": "36dd25c17899287ff63422fb3f30d7d9436b38e1e3070a09cf2ce05530c48f7e",
+          "control": "707c5e90ba04e5032d8f31a4a3c5bca14ac07914bb1cedb7d54aaf4a817fe6bb"
+        },
+        "author_side_helper_lineage": "OpenAI/Codex /root/dm2_landed_composition/peano_strategy",
+        "scope": "NEW_SOURCE_PIN_CURVATURE_CONTROLS_ONLY"
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/FalseMissingCubicPin.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/FalseMissingCubicPin.json",
+      "bytes": 1032,
+      "sha256": "8cc6670a6b5db1d25bbb542eaf953a4b4efb25d86154957c87a2eb46f9c310ae",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/pin-curvature-implementation/FalseMissingCubicPin.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "duration_seconds": 2.8413174152374268,
+        "timestamp_utc": "2026-10-26T00:31:34.402486+00:00",
+        "sha256_before": {
+          "source": "7989e229a66b6c20033ce29559dda50ee8eb3d896aa9c5a983f4d5391ffe207f",
+          "olean": "36dd25c17899287ff63422fb3f30d7d9436b38e1e3070a09cf2ce05530c48f7e",
+          "control": "7f6df03eed4bdb15584a92ee00569debf7746ddc549307a0445771417628e4a8"
+        },
+        "sha256_after": {
+          "source": "7989e229a66b6c20033ce29559dda50ee8eb3d896aa9c5a983f4d5391ffe207f",
+          "olean": "36dd25c17899287ff63422fb3f30d7d9436b38e1e3070a09cf2ce05530c48f7e",
+          "control": "7f6df03eed4bdb15584a92ee00569debf7746ddc549307a0445771417628e4a8"
+        },
+        "author_side_helper_lineage": "OpenAI/Codex /root/dm2_landed_composition/peano_strategy",
+        "scope": "NEW_SOURCE_PIN_CURVATURE_CONTROLS_ONLY"
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/FalseNegativeRadius.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/FalseNegativeRadius.json",
+      "bytes": 1030,
+      "sha256": "01e10e7188f58ef5789d801a5f5273426519876f806f674107f11b920ecd35ed",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/pin-curvature-implementation/FalseNegativeRadius.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "duration_seconds": 2.633436679840088,
+        "timestamp_utc": "2026-10-26T00:31:34.210663+00:00",
+        "sha256_before": {
+          "source": "7989e229a66b6c20033ce29559dda50ee8eb3d896aa9c5a983f4d5391ffe207f",
+          "olean": "36dd25c17899287ff63422fb3f30d7d9436b38e1e3070a09cf2ce05530c48f7e",
+          "control": "fcbaf897ea8e88c537effae717de06e6ebeff3bc2ca3e7f4968a972177970a8a"
+        },
+        "sha256_after": {
+          "source": "7989e229a66b6c20033ce29559dda50ee8eb3d896aa9c5a983f4d5391ffe207f",
+          "olean": "36dd25c17899287ff63422fb3f30d7d9436b38e1e3070a09cf2ce05530c48f7e",
+          "control": "fcbaf897ea8e88c537effae717de06e6ebeff3bc2ca3e7f4968a972177970a8a"
+        },
+        "author_side_helper_lineage": "OpenAI/Codex /root/dm2_landed_composition/peano_strategy",
+        "scope": "NEW_SOURCE_PIN_CURVATURE_CONTROLS_ONLY"
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/actual_curve_attempt1.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/actual_curve_attempt1.json",
+      "bytes": 375,
+      "sha256": "399b8af5b02a8be4ac27305d8c86261920ee76121c98b42eee77ace2298dff31",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/pin-curvature-implementation/ActualCurveBounds.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "duration_seconds": 3.1165804862976074,
+        "source_sha256": "b09867f9d724eb21b8ddd8d1eb57dfe3e2d9d513586e6af65aa5b1b056479d30"
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/actual_curve_attempt2.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/actual_curve_attempt2.json",
+      "bytes": 374,
+      "sha256": "48567cac442d32ad17f3e7071d70064b9013635d5626a9e0411a2a716e999d0c",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/pin-curvature-implementation/ActualCurveBounds.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "duration_seconds": 4.329826831817627,
+        "source_sha256": "d173fffd59888143a5f4efec9de933de8169318aaeed9563d81d79ea5e4f153b"
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/actual_curve_final.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/actual_curve_final.json",
+      "bytes": 617,
+      "sha256": "0dcdb8e99d63ed501863cb925860b4bf38000696b9a4192e80792f663bcafcf3",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/pin-curvature-implementation/ActualCurveBounds.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "duration_seconds": 3.321852684020996,
+        "source_sha256_before": "e6ffce339a0b23695083b333e9a0dcb5fcb259e95e4201a13db48af22193dfea",
+        "source_sha256_after": "e6ffce339a0b23695083b333e9a0dcb5fcb259e95e4201a13db48af22193dfea",
+        "scope": "NEW_SCRATCH_ACTUAL_CURVE_LEMMAS_ONLY",
+        "author_side_helper_lineage": "OpenAI/Codex /root/dm2_landed_composition/peano_strategy"
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/algebra01.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/algebra01.json",
+      "bytes": 630,
+      "sha256": "a2d46085982dcb3f09220e23492f6262d847e572a1b74416b8eac2e39e358e87",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "--root=/workspace/scratch/pin-curvature-implementation",
+          "-o",
+          "/workspace/scratch/pin-curvature-implementation/CurvatureAlgebra.olean",
+          "/workspace/scratch/pin-curvature-implementation/CurvatureAlgebra.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit": 1,
+        "sourceSHA_before": "b10c90185b1e51d57f92b5d4179ea66b238dfbbafd00ecf509a33034e3f1baa9",
+        "sourceSHA_after": "b10c90185b1e51d57f92b5d4179ea66b238dfbbafd00ecf509a33034e3f1baa9",
+        "elapsed": 3.4235432147979736
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/algebra02.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/algebra02.json",
+      "bytes": 629,
+      "sha256": "91f5267f78ec874c7453aa50fdfddd9df8c5db103abe27af6c2dd25fda38b6ba",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "--root=/workspace/scratch/pin-curvature-implementation",
+          "-o",
+          "/workspace/scratch/pin-curvature-implementation/CurvatureAlgebra.olean",
+          "/workspace/scratch/pin-curvature-implementation/CurvatureAlgebra.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit": 1,
+        "sourceSHA_before": "c967a3e9e2816db0840a898d94cd8afc6acdae2ba1610efbf254d6fa562fe7d3",
+        "sourceSHA_after": "c967a3e9e2816db0840a898d94cd8afc6acdae2ba1610efbf254d6fa562fe7d3",
+        "elapsed": 4.825626611709595
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/algebra03.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/algebra03.json",
+      "bytes": 629,
+      "sha256": "baf5763c7e0ad73ffdfe2fe9848f3b86d3f0665486ebfa26446c249d213bfe42",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "--root=/workspace/scratch/pin-curvature-implementation",
+          "-o",
+          "/workspace/scratch/pin-curvature-implementation/CurvatureAlgebra.olean",
+          "/workspace/scratch/pin-curvature-implementation/CurvatureAlgebra.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit": 0,
+        "sourceSHA_before": "5188814513124b08fb9bc8a4fcd626a22a776f9513c7f9578763f061b74fd19f",
+        "sourceSHA_after": "5188814513124b08fb9bc8a4fcd626a22a776f9513c7f9578763f061b74fd19f",
+        "elapsed": 7.021928310394287
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/axioms.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/axioms.json",
+      "bytes": 673,
+      "sha256": "d9f302467a26063de375b2dc815c273802da91823dc9917f18df7a067fe2f08d",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/pin-curvature-implementation/AxiomAudit.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit": 0,
+        "sourceSHA_before": "b19a673aa594d1d5ef929cc598f0a142efb56c10b78c4634c92a8a749d1f1d51",
+        "sourceSHA_after": "b19a673aa594d1d5ef929cc598f0a142efb56c10b78c4634c92a8a749d1f1d51",
+        "oleanSHA_before": "44f65e77425fec3b6de34f5e0caf4e2e9657af62e141ef65f4dbfa04bc54f2fc",
+        "oleanSHA_after": "44f65e77425fec3b6de34f5e0caf4e2e9657af62e141ef65f4dbfa04bc54f2fc",
+        "startedUTC": "2026-10-26T00:35:48.402385+00:00",
+        "elapsed": 3.154836416244507
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/compile01.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/compile01.json",
+      "bytes": 508,
+      "sha256": "5e3907da4f54cd3cc24d837bbf03441fb2afe0d3ff293ade3e38a41c7b3c39c7",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourcePinCurvatureBounds.olean",
+          "SourcePinCurvatureBounds.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit": 1,
+        "sourceSHA_before": "c7a581fd0f9568bf67b7d1ffefe5e8c07a9dbfc8606d7989a2e5559dc43c9d72",
+        "sourceSHA_after": "c7a581fd0f9568bf67b7d1ffefe5e8c07a9dbfc8606d7989a2e5559dc43c9d72",
+        "elapsed": 2.678603172302246
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/compile02.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/compile02.json",
+      "bytes": 509,
+      "sha256": "18e4a2ef5a4e06fde9faedb6e31a2d87d00257faa33c8b9526da9edb58035863",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourcePinCurvatureBounds.olean",
+          "SourcePinCurvatureBounds.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit": 0,
+        "sourceSHA_before": "b1b31f2b716d1ad2c9025cf81df945711ca178a490ba217769edc81775faf617",
+        "sourceSHA_after": "b1b31f2b716d1ad2c9025cf81df945711ca178a490ba217769edc81775faf617",
+        "elapsed": 2.8186771869659424
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/compile03.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/compile03.json",
+      "bytes": 508,
+      "sha256": "50809513211998acce554b77bb56869ed5f407b77f0a44aae74830ab8e1657e0",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourcePinCurvatureBounds.olean",
+          "SourcePinCurvatureBounds.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit": 0,
+        "sourceSHA_before": "53c38b17cc16a1d69a72f9c696e231d27b1558c76c2e086db0f43c4739e1bb67",
+        "sourceSHA_after": "53c38b17cc16a1d69a72f9c696e231d27b1558c76c2e086db0f43c4739e1bb67",
+        "elapsed": 3.220170736312866
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/compile04.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/compile04.json",
+      "bytes": 508,
+      "sha256": "3066efcf6773146f6662906e327aa52403570613db2222f5133f2c4103c3dfff",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourcePinCurvatureBounds.olean",
+          "SourcePinCurvatureBounds.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit": 0,
+        "sourceSHA_before": "9b07faa0250c0347fcc51c11b05f16ba020a14ada4aada3763b9880f5d16ed8e",
+        "sourceSHA_after": "9b07faa0250c0347fcc51c11b05f16ba020a14ada4aada3763b9880f5d16ed8e",
+        "elapsed": 6.867613792419434
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/compile05.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/compile05.json",
+      "bytes": 508,
+      "sha256": "3d9f4b865708b1c76bb381bc6d1439e20cbd14c1a3e306b719d3ce5423492e3c",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourcePinCurvatureBounds.olean",
+          "SourcePinCurvatureBounds.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit": 1,
+        "sourceSHA_before": "193beb6c20d969f2839b848404cf0d3a0da059632b3921105aa6b1437a607bea",
+        "sourceSHA_after": "193beb6c20d969f2839b848404cf0d3a0da059632b3921105aa6b1437a607bea",
+        "elapsed": 6.813614368438721
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/compile06.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/compile06.json",
+      "bytes": 508,
+      "sha256": "2c8e9773d0c195a614558552d1a6bb6ee16d85c116104525d177d4099f08529a",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourcePinCurvatureBounds.olean",
+          "SourcePinCurvatureBounds.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit": 0,
+        "sourceSHA_before": "7989e229a66b6c20033ce29559dda50ee8eb3d896aa9c5a983f4d5391ffe207f",
+        "sourceSHA_after": "7989e229a66b6c20033ce29559dda50ee8eb3d896aa9c5a983f4d5391ffe207f",
+        "elapsed": 6.343689441680908
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/compile07.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/compile07.json",
+      "bytes": 560,
+      "sha256": "0b4f6b23b6e3a73a80cbb254b1afdf13ca3fbe7d810fef21747698f4a9c57119",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourcePinCurvatureBounds.olean",
+          "SourcePinCurvatureBounds.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit": 1,
+        "sourceSHA_before": "fdccc592a7551cb96c32ac683cfc0be9fa40f76f778c758d9688483826dc2a1f",
+        "sourceSHA_after": "fdccc592a7551cb96c32ac683cfc0be9fa40f76f778c758d9688483826dc2a1f",
+        "startedUTC": "2026-10-26T00:31:45.484295+00:00",
+        "elapsed": 7.282488584518433
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/compile08.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/compile08.json",
+      "bytes": 562,
+      "sha256": "323494ee193c0e80610555d37712ff109f0fcba9c56bb2f69538fe3a70a5ae94",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourcePinCurvatureBounds.olean",
+          "SourcePinCurvatureBounds.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit": 143,
+        "sourceSHA_before": "734fa7436ef15ac206c353551bf6686875cb799986722f8004a7ccc7f46aa595",
+        "sourceSHA_after": "734fa7436ef15ac206c353551bf6686875cb799986722f8004a7ccc7f46aa595",
+        "startedUTC": "2026-10-26T00:32:43.442927+00:00",
+        "elapsed": 93.53128957748413
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/compile09.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/compile09.json",
+      "bytes": 562,
+      "sha256": "51fed385602e82f3393a0398bd8c8b49100a1f69ecc04e8694cbe06310b61183",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourcePinCurvatureBounds.olean",
+          "SourcePinCurvatureBounds.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit": 143,
+        "sourceSHA_before": "5a362dfd076705ee0eb2845eb89bba11738f52cfc069de82c3e2702f5fdb0ea2",
+        "sourceSHA_after": "5a362dfd076705ee0eb2845eb89bba11738f52cfc069de82c3e2702f5fdb0ea2",
+        "startedUTC": "2026-10-26T00:34:17.346797+00:00",
+        "elapsed": 64.58427381515503
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/compile10.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/compile10.json",
+      "bytes": 561,
+      "sha256": "1dea6dafcd2f5a123569cf63ef2c39bd65acfae79469eee62edc12c71220e8db",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourcePinCurvatureBounds.olean",
+          "SourcePinCurvatureBounds.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit": 0,
+        "sourceSHA_before": "b19a673aa594d1d5ef929cc598f0a142efb56c10b78c4634c92a8a749d1f1d51",
+        "sourceSHA_after": "b19a673aa594d1d5ef929cc598f0a142efb56c10b78c4634c92a8a749d1f1d51",
+        "startedUTC": "2026-10-26T00:35:22.282037+00:00",
+        "elapsed": 12.210818767547607
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/control_receipt.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/control_receipt.json",
+      "bytes": 5820,
+      "sha256": "1ce796e0015cf0353cbac29e9c86ae36647e1b1a562091ca120bebb5ee308669",
+      "record": {
+        "scope": "NEW_SOURCE_PIN_CURVATURE_CONTROLS_ONLY",
+        "author_side_helper_lineage": "OpenAI/Codex /root/dm2_landed_composition/peano_strategy",
+        "scientific_review_credit": 0,
+        "production_module": "SourcePinCurvatureBounds",
+        "consumed_compile_metadata": "/workspace/scratch/pin-curvature-implementation/compile06.json",
+        "consumed_compile_source_sha256": "7989e229a66b6c20033ce29559dda50ee8eb3d896aa9c5a983f4d5391ffe207f",
+        "consumed_olean_sha256": "36dd25c17899287ff63422fb3f30d7d9436b38e1e3070a09cf2ce05530c48f7e",
+        "checks": {
+          "Controls": {
+            "command": [
+              "lake",
+              "env",
+              "lean",
+              "/workspace/scratch/pin-curvature-implementation/Controls.lean"
+            ],
+            "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+            "exit_code": 0,
+            "duration_seconds": 3.1327574253082275,
+            "timestamp_utc": "2026-10-26T00:32:04.963829+00:00",
+            "sha256_before": {
+              "source": "fdccc592a7551cb96c32ac683cfc0be9fa40f76f778c758d9688483826dc2a1f",
+              "olean": "36dd25c17899287ff63422fb3f30d7d9436b38e1e3070a09cf2ce05530c48f7e",
+              "control": "707c5e90ba04e5032d8f31a4a3c5bca14ac07914bb1cedb7d54aaf4a817fe6bb"
+            },
+            "sha256_after": {
+              "source": "fdccc592a7551cb96c32ac683cfc0be9fa40f76f778c758d9688483826dc2a1f",
+              "olean": "36dd25c17899287ff63422fb3f30d7d9436b38e1e3070a09cf2ce05530c48f7e",
+              "control": "707c5e90ba04e5032d8f31a4a3c5bca14ac07914bb1cedb7d54aaf4a817fe6bb"
+            },
+            "author_side_helper_lineage": "OpenAI/Codex /root/dm2_landed_composition/peano_strategy",
+            "scope": "NEW_SOURCE_PIN_CURVATURE_CONTROLS_ONLY",
+            "expected_exit": 0,
+            "raw_log": "/workspace/scratch/pin-curvature-implementation/Controls.log",
+            "raw_log_sha256": "b79c519f8bb0fca2f505b5455e3fd6a61a1e799d7efa4d6dbc8632205999cdde"
+          },
+          "FalseMissingCubicPin": {
+            "command": [
+              "lake",
+              "env",
+              "lean",
+              "/workspace/scratch/pin-curvature-implementation/FalseMissingCubicPin.lean"
+            ],
+            "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+            "exit_code": 1,
+            "duration_seconds": 2.8413174152374268,
+            "timestamp_utc": "2026-10-26T00:31:34.402486+00:00",
+            "sha256_before": {
+              "source": "7989e229a66b6c20033ce29559dda50ee8eb3d896aa9c5a983f4d5391ffe207f",
+              "olean": "36dd25c17899287ff63422fb3f30d7d9436b38e1e3070a09cf2ce05530c48f7e",
+              "control": "7f6df03eed4bdb15584a92ee00569debf7746ddc549307a0445771417628e4a8"
+            },
+            "sha256_after": {
+              "source": "7989e229a66b6c20033ce29559dda50ee8eb3d896aa9c5a983f4d5391ffe207f",
+              "olean": "36dd25c17899287ff63422fb3f30d7d9436b38e1e3070a09cf2ce05530c48f7e",
+              "control": "7f6df03eed4bdb15584a92ee00569debf7746ddc549307a0445771417628e4a8"
+            },
+            "author_side_helper_lineage": "OpenAI/Codex /root/dm2_landed_composition/peano_strategy",
+            "scope": "NEW_SOURCE_PIN_CURVATURE_CONTROLS_ONLY",
+            "expected_exit": 1,
+            "raw_log": "/workspace/scratch/pin-curvature-implementation/FalseMissingCubicPin.log",
+            "raw_log_sha256": "ad385efb55c5670f89c7e8878692888ab423c338e3fb55f0b2c86465e82df3fe"
+          },
+          "FalseNegativeRadius": {
+            "command": [
+              "lake",
+              "env",
+              "lean",
+              "/workspace/scratch/pin-curvature-implementation/FalseNegativeRadius.lean"
+            ],
+            "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+            "exit_code": 1,
+            "duration_seconds": 2.633436679840088,
+            "timestamp_utc": "2026-10-26T00:31:34.210663+00:00",
+            "sha256_before": {
+              "source": "7989e229a66b6c20033ce29559dda50ee8eb3d896aa9c5a983f4d5391ffe207f",
+              "olean": "36dd25c17899287ff63422fb3f30d7d9436b38e1e3070a09cf2ce05530c48f7e",
+              "control": "fcbaf897ea8e88c537effae717de06e6ebeff3bc2ca3e7f4968a972177970a8a"
+            },
+            "sha256_after": {
+              "source": "7989e229a66b6c20033ce29559dda50ee8eb3d896aa9c5a983f4d5391ffe207f",
+              "olean": "36dd25c17899287ff63422fb3f30d7d9436b38e1e3070a09cf2ce05530c48f7e",
+              "control": "fcbaf897ea8e88c537effae717de06e6ebeff3bc2ca3e7f4968a972177970a8a"
+            },
+            "author_side_helper_lineage": "OpenAI/Codex /root/dm2_landed_composition/peano_strategy",
+            "scope": "NEW_SOURCE_PIN_CURVATURE_CONTROLS_ONLY",
+            "expected_exit": 1,
+            "raw_log": "/workspace/scratch/pin-curvature-implementation/FalseNegativeRadius.log",
+            "raw_log_sha256": "a62bd0d69592254d2e0c9963c8e9630f8ccb3bdd4832b38a83650e677e8090c5"
+          }
+        },
+        "positive_control_initial_attempt": {
+          "raw_log": "/workspace/scratch/pin-curvature-implementation/Controls.attempt1.log",
+          "source": "/workspace/scratch/pin-curvature-implementation/Controls.attempt1.lean",
+          "metadata": "/workspace/scratch/pin-curvature-implementation/Controls.attempt1.json",
+          "failure": "Missing namespace opening I4PeanoErrorBounds for three scalar helper names; no production mathematical failure. Corrected only Controls.lean and checked its affected scope."
+        },
+        "source_identity_note": "The successful positive control observed the strictly additive a.e wrapper source revision while importing the unchanged compile06 olean. Imported artifact identity is explicit. Parent stated prior definitions/statements/proofs unchanged; final wrapper kernel/audit qualification is a distinct parent obligation. No unchanged controls are to be repeated solely for that additive integration.",
+        "positive_warning": "One unnecessarySimpa linter suggestion at Controls.lean:53; Lean exit0. No cosmetic rerun performed.",
+        "not_claimed": [
+          "scientific acceptance",
+          "noncapture inclusion",
+          "adjacency",
+          "final module wrapper qualification",
+          "overall research completion"
+        ]
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/errors01.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/errors01.json",
+      "bytes": 623,
+      "sha256": "e6414033c38d94acc71ebeef56bb3d840f6652d5874a3537efe09c3e61dccee9",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "--root=/workspace/scratch/pin-curvature-implementation",
+          "-o",
+          "/workspace/scratch/pin-curvature-implementation/EndpointErrors.olean",
+          "/workspace/scratch/pin-curvature-implementation/EndpointErrors.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit": 1,
+        "sourceSHA_before": "88aed5e3a8d5ae77c52e8a67fa6a782dd8198fcf8851b1fa8c1a08dd742b3e2e",
+        "sourceSHA_after": "88aed5e3a8d5ae77c52e8a67fa6a782dd8198fcf8851b1fa8c1a08dd742b3e2e",
+        "elapsed": 7.4861741065979
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/errors02.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/errors02.json",
+      "bytes": 625,
+      "sha256": "7371036e0ccb84ae54b6fa90ff0bda3eea1505e07f6b9db964162b517f247696",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "--root=/workspace/scratch/pin-curvature-implementation",
+          "-o",
+          "/workspace/scratch/pin-curvature-implementation/EndpointErrors.olean",
+          "/workspace/scratch/pin-curvature-implementation/EndpointErrors.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit": 1,
+        "sourceSHA_before": "cfc9cfe71cead0e869a14b438b4935e20fd92672c92370dcf99fa00d2ad6fe6b",
+        "sourceSHA_after": "cfc9cfe71cead0e869a14b438b4935e20fd92672c92370dcf99fa00d2ad6fe6b",
+        "elapsed": 6.627179145812988
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/errors03.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/errors03.json",
+      "bytes": 625,
+      "sha256": "a4df6c23cff449de3f9e924c4212e1b463f474d3687827368bff3f3e8f7414dc",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "--root=/workspace/scratch/pin-curvature-implementation",
+          "-o",
+          "/workspace/scratch/pin-curvature-implementation/EndpointErrors.olean",
+          "/workspace/scratch/pin-curvature-implementation/EndpointErrors.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit": 1,
+        "sourceSHA_before": "b0798e222de4f2c4dd97ebb33df6be752bdd1258d14fa9735a103c738009406e",
+        "sourceSHA_after": "b0798e222de4f2c4dd97ebb33df6be752bdd1258d14fa9735a103c738009406e",
+        "elapsed": 5.242873668670654
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/errors04.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/errors04.json",
+      "bytes": 625,
+      "sha256": "0be5807e62991b473471c3cff5685965051c1c1a772acb3b58454b62d95ecea0",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "--root=/workspace/scratch/pin-curvature-implementation",
+          "-o",
+          "/workspace/scratch/pin-curvature-implementation/EndpointErrors.olean",
+          "/workspace/scratch/pin-curvature-implementation/EndpointErrors.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit": 0,
+        "sourceSHA_before": "d21dbe5b43337dc6e13207819fec5b6bfe984e4b4e68229920dc508891752f29",
+        "sourceSHA_after": "d21dbe5b43337dc6e13207819fec5b6bfe984e4b4e68229920dc508891752f29",
+        "elapsed": 4.456639528274536
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/kernel.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/kernel.json",
+      "bytes": 640,
+      "sha256": "623036367d24502bf56519c58d6921af8b79599d574ad792afa980fa67f0d6a3",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "leanchecker",
+          "SourcePinCurvatureBounds"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit": 0,
+        "sourceSHA_before": "b19a673aa594d1d5ef929cc598f0a142efb56c10b78c4634c92a8a749d1f1d51",
+        "sourceSHA_after": "b19a673aa594d1d5ef929cc598f0a142efb56c10b78c4634c92a8a749d1f1d51",
+        "oleanSHA_before": "44f65e77425fec3b6de34f5e0caf4e2e9657af62e141ef65f4dbfa04bc54f2fc",
+        "oleanSHA_after": "44f65e77425fec3b6de34f5e0caf4e2e9657af62e141ef65f4dbfa04bc54f2fc",
+        "startedUTC": "2026-10-26T00:35:48.394303+00:00",
+        "elapsed": 6.44209361076355
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/peano_error_attempt1.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/peano_error_attempt1.json",
+      "bytes": 373,
+      "sha256": "eb734f0b3ef023f35897ff95ccb234ee20e83408b8879b1a6c299070452df27c",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/pin-curvature-implementation/PeanoErrorBounds.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "duration_seconds": 9.124490976333618,
+        "source_sha256": "ca35a7e2e2316d25ee22293593b7168fa53200e770b21cb6a359f744a6b1503b"
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/peano_error_attempt2.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/peano_error_attempt2.json",
+      "bytes": 373,
+      "sha256": "4f0bc34813caab04f3792f5f6a65da22602fcb2c8c97ef2422ab4aed5192b55e",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/pin-curvature-implementation/PeanoErrorBounds.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "duration_seconds": 4.285922527313232,
+        "source_sha256": "43384f2ce50ac93ede8e7faa22bd5206d38a4c0c58effaf7d42eb3320fb47118"
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/peano_error_final.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/peano_error_final.json",
+      "bytes": 604,
+      "sha256": "908e31c05933af18c242352aa341c9adc4cfcb8bb1eb459c97f4e619358aef52",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/pin-curvature-implementation/PeanoErrorBounds.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "duration_seconds": 4.0803844928741455,
+        "source_sha256_before": "1bd59cb3ab31e5481ed95da3078d5ab5918d0835bc0e786cae404660f538a68c",
+        "source_sha256_after": "1bd59cb3ab31e5481ed95da3078d5ab5918d0835bc0e786cae404660f538a68c",
+        "scope": "NEW_SCRATCH_LEMMAS_ONLY",
+        "author_side_helper_lineage": "OpenAI/Codex /root/dm2_landed_composition/peano_strategy"
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/peanoactual01.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/peanoactual01.json",
+      "bytes": 650,
+      "sha256": "cea8fc83ce5581c96e69739d7bd21ff65fdb35100a7c18083333934f2b88dde5",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "--root=/workspace/scratch/pin-curvature-implementation",
+          "-o",
+          "/workspace/scratch/pin-curvature-implementation/ActualPeanoRepresentations.olean",
+          "/workspace/scratch/pin-curvature-implementation/ActualPeanoRepresentations.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit": 1,
+        "sourceSHA_before": "aa21831a1743d0ef6ffe6f04bf124ee3db0de57606b24fd09333e47e6c2df7c9",
+        "sourceSHA_after": "aa21831a1743d0ef6ffe6f04bf124ee3db0de57606b24fd09333e47e6c2df7c9",
+        "elapsed": 4.7541584968566895
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/peanoactual02.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/peanoactual02.json",
+      "bytes": 649,
+      "sha256": "400b63d320a5cd8203dc62f121bb495c570a15c30726029282bad5fc863c5578",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "--root=/workspace/scratch/pin-curvature-implementation",
+          "-o",
+          "/workspace/scratch/pin-curvature-implementation/ActualPeanoRepresentations.olean",
+          "/workspace/scratch/pin-curvature-implementation/ActualPeanoRepresentations.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit": 1,
+        "sourceSHA_before": "2773f62b9ceabca01a41b49fd7827240a138303fa9ab6d257eda0942d01d96f1",
+        "sourceSHA_after": "2773f62b9ceabca01a41b49fd7827240a138303fa9ab6d257eda0942d01d96f1",
+        "elapsed": 7.343621492385864
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/pin-curvature/peanoactual03.json",
+      "original_path": "/workspace/scratch/pin-curvature-implementation/peanoactual03.json",
+      "bytes": 649,
+      "sha256": "7ca0a044054814009aa8daa44800d21140d1c00994d5ca671c0f238a82959ced",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "--root=/workspace/scratch/pin-curvature-implementation",
+          "-o",
+          "/workspace/scratch/pin-curvature-implementation/ActualPeanoRepresentations.olean",
+          "/workspace/scratch/pin-curvature-implementation/ActualPeanoRepresentations.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit": 0,
+        "sourceSHA_before": "06946288f03d20967dadbb157aa026b4dd6c41c2a3ee213924b769e1a27120ac",
+        "sourceSHA_after": "06946288f03d20967dadbb157aa026b4dd6c41c2a3ee213924b769e1a27120ac",
+        "elapsed": 4.039325952529907
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/curvature-decomposition/01-definitions.json",
+      "original_path": "/workspace/scratch/source-curvature-implementation/01-definitions.json",
+      "bytes": 1065,
+      "sha256": "33d4ef924e1d4714b170029dfa71a20abe5a4719e3d7395dc22fa571f858bc7a",
+      "record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceCurvatureDecomposition.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean",
+        "source_sha256_before": "7361ae3e22730631d3afbfc545d7505599dc7fe1128b3fe89af84e71a6c6b209",
+        "source_sha256_after": "7361ae3e22730631d3afbfc545d7505599dc7fe1128b3fe89af84e71a6c6b209",
+        "production_source_sha256_before": "7361ae3e22730631d3afbfc545d7505599dc7fe1128b3fe89af84e71a6c6b209",
+        "production_source_sha256_after": "7361ae3e22730631d3afbfc545d7505599dc7fe1128b3fe89af84e71a6c6b209",
+        "log_sha256": "ff6159195ecc025236bcff7c746690eae2d56cfd54979e26cfffe97e9ae49421",
+        "elapsed_seconds": 2.9814631938934326
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/curvature-decomposition/02-definitions.json",
+      "original_path": "/workspace/scratch/source-curvature-implementation/02-definitions.json",
+      "bytes": 1064,
+      "sha256": "6d396b963ebea8f46a7c75d5a3e99f947853185220528044de949b08eb5b0192",
+      "record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceCurvatureDecomposition.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean",
+        "source_sha256_before": "04be93693a37e1841aee0af62f599715816caeae827f172c4f0eaa10a903efc8",
+        "source_sha256_after": "04be93693a37e1841aee0af62f599715816caeae827f172c4f0eaa10a903efc8",
+        "production_source_sha256_before": "04be93693a37e1841aee0af62f599715816caeae827f172c4f0eaa10a903efc8",
+        "production_source_sha256_after": "04be93693a37e1841aee0af62f599715816caeae827f172c4f0eaa10a903efc8",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 4.018387794494629
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/curvature-decomposition/03-direction-algebra.json",
+      "original_path": "/workspace/scratch/source-curvature-implementation/03-direction-algebra.json",
+      "bytes": 1065,
+      "sha256": "c03276350f5792da912938b8d701fdee325d0726a311c37f3ea0ba865bc35387",
+      "record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceCurvatureDecomposition.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean",
+        "source_sha256_before": "b2157e96e192aee7f6ea6f8a7957995f3c3869ab7999e8b340c937ee6cbfded0",
+        "source_sha256_after": "b2157e96e192aee7f6ea6f8a7957995f3c3869ab7999e8b340c937ee6cbfded0",
+        "production_source_sha256_before": "b2157e96e192aee7f6ea6f8a7957995f3c3869ab7999e8b340c937ee6cbfded0",
+        "production_source_sha256_after": "b2157e96e192aee7f6ea6f8a7957995f3c3869ab7999e8b340c937ee6cbfded0",
+        "log_sha256": "34d6b8bfb958b4819c56da040634d6f007dffba995efe97bb4e7700328b7eee4",
+        "elapsed_seconds": 2.8864989280700684
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/curvature-decomposition/04-direction-algebra.json",
+      "original_path": "/workspace/scratch/source-curvature-implementation/04-direction-algebra.json",
+      "bytes": 1064,
+      "sha256": "1b6c964100cfdad506f227f2c98bf9f16c3cb829ca189f34d935d22495089334",
+      "record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceCurvatureDecomposition.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean",
+        "source_sha256_before": "28a5d1802aa1bff63304e3e26975fa91c9064f550637b18b212146fe0a221c9a",
+        "source_sha256_after": "28a5d1802aa1bff63304e3e26975fa91c9064f550637b18b212146fe0a221c9a",
+        "production_source_sha256_before": "28a5d1802aa1bff63304e3e26975fa91c9064f550637b18b212146fe0a221c9a",
+        "production_source_sha256_after": "28a5d1802aa1bff63304e3e26975fa91c9064f550637b18b212146fe0a221c9a",
+        "log_sha256": "f69aaa6e3f8a0d60f5a4e121da0718a52ecb16a7c6a6b8b0855ffb6df3285f0f",
+        "elapsed_seconds": 4.196326971054077
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/curvature-decomposition/05-normalized-direction-and-limits.json",
+      "original_path": "/workspace/scratch/source-curvature-implementation/05-normalized-direction-and-limits.json",
+      "bytes": 1065,
+      "sha256": "55793905d62831d478bec9e1882228da90bbdd37dc1cc4f1c656939c4b46266f",
+      "record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceCurvatureDecomposition.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean",
+        "source_sha256_before": "a681773090fffe548778ecdf5a085d657548ee68e3db66bc9772438cee4fa877",
+        "source_sha256_after": "a681773090fffe548778ecdf5a085d657548ee68e3db66bc9772438cee4fa877",
+        "production_source_sha256_before": "a681773090fffe548778ecdf5a085d657548ee68e3db66bc9772438cee4fa877",
+        "production_source_sha256_after": "a681773090fffe548778ecdf5a085d657548ee68e3db66bc9772438cee4fa877",
+        "log_sha256": "a9bbc5b7c9c3d56dc569302d84740ebaf9d4347709616d51302f2c1f04f2cfb8",
+        "elapsed_seconds": 3.6379857063293457
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/curvature-decomposition/06-normalized-direction-and-limits.json",
+      "original_path": "/workspace/scratch/source-curvature-implementation/06-normalized-direction-and-limits.json",
+      "bytes": 1064,
+      "sha256": "c22c5da47e1c77c35fb6e92dfb715769e74c729a8503ea4a2cec572f0ca1a798",
+      "record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceCurvatureDecomposition.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean",
+        "source_sha256_before": "7bee63c8f1424ec7a8491d9aa2c02a0beb215862b8dffe20ee7af754e5da06be",
+        "source_sha256_after": "7bee63c8f1424ec7a8491d9aa2c02a0beb215862b8dffe20ee7af754e5da06be",
+        "production_source_sha256_before": "7bee63c8f1424ec7a8491d9aa2c02a0beb215862b8dffe20ee7af754e5da06be",
+        "production_source_sha256_after": "7bee63c8f1424ec7a8491d9aa2c02a0beb215862b8dffe20ee7af754e5da06be",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 4.279278516769409
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/curvature-decomposition/07-carrier-and-reconstruction.json",
+      "original_path": "/workspace/scratch/source-curvature-implementation/07-carrier-and-reconstruction.json",
+      "bytes": 1064,
+      "sha256": "42cb62b7e3de43aa561ff15b790ff8c635e56a8c284e90fee71fa1a83fb96778",
+      "record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceCurvatureDecomposition.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean",
+        "source_sha256_before": "ff20e384e287fec02bc941850e14e2abce4f5dbcd5fef446237928cf67cc7236",
+        "source_sha256_after": "ff20e384e287fec02bc941850e14e2abce4f5dbcd5fef446237928cf67cc7236",
+        "production_source_sha256_before": "ff20e384e287fec02bc941850e14e2abce4f5dbcd5fef446237928cf67cc7236",
+        "production_source_sha256_after": "ff20e384e287fec02bc941850e14e2abce4f5dbcd5fef446237928cf67cc7236",
+        "log_sha256": "290bf55070b12f6b9858dad2bf8405470a93c4b7d30c613e31b4a9e7bbb678d0",
+        "elapsed_seconds": 5.041417121887207
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/curvature-decomposition/08-carrier-reconstruction-and-envelope.json",
+      "original_path": "/workspace/scratch/source-curvature-implementation/08-carrier-reconstruction-and-envelope.json",
+      "bytes": 1064,
+      "sha256": "58afd828fe4495e8a60c8a105dd366597e379af63b702c5d0c832d9fd382f9eb",
+      "record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceCurvatureDecomposition.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean",
+        "source_sha256_before": "bfbe865122ab784a723768217fc54c3e91640fca0c71bf0c7d59c8abdb6eec9c",
+        "source_sha256_after": "bfbe865122ab784a723768217fc54c3e91640fca0c71bf0c7d59c8abdb6eec9c",
+        "production_source_sha256_before": "bfbe865122ab784a723768217fc54c3e91640fca0c71bf0c7d59c8abdb6eec9c",
+        "production_source_sha256_after": "bfbe865122ab784a723768217fc54c3e91640fca0c71bf0c7d59c8abdb6eec9c",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 4.141686677932739
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/curvature-decomposition/09-product-law.json",
+      "original_path": "/workspace/scratch/source-curvature-implementation/09-product-law.json",
+      "bytes": 1063,
+      "sha256": "8958a6f5bfc03e4c2ec0d136073b1e2bc7cc51ee84b74aa7e19f1824feee31d0",
+      "record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceCurvatureDecomposition.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean",
+        "source_sha256_before": "129ac6895ba05f81fe49e903a32fd6f3cb3cd4b4640eb164d20331272de4cec2",
+        "source_sha256_after": "129ac6895ba05f81fe49e903a32fd6f3cb3cd4b4640eb164d20331272de4cec2",
+        "production_source_sha256_before": "129ac6895ba05f81fe49e903a32fd6f3cb3cd4b4640eb164d20331272de4cec2",
+        "production_source_sha256_after": "129ac6895ba05f81fe49e903a32fd6f3cb3cd4b4640eb164d20331272de4cec2",
+        "log_sha256": "64ba9c48acadaf98bd1af4754bfec3c678368bd825f2eb15d79076b992854058",
+        "elapsed_seconds": 17.0240740776062
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/curvature-decomposition/10-product-law.json",
+      "original_path": "/workspace/scratch/source-curvature-implementation/10-product-law.json",
+      "bytes": 1064,
+      "sha256": "e0c345de477b5a4d3d280baf9d39b51892584650c95564eb47bf39d3124033c0",
+      "record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceCurvatureDecomposition.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean",
+        "source_sha256_before": "9f377012d1a6a475f5de9b71d1b7bb5dfe6b3871acaebc774d64307b22641432",
+        "source_sha256_after": "9f377012d1a6a475f5de9b71d1b7bb5dfe6b3871acaebc774d64307b22641432",
+        "production_source_sha256_before": "9f377012d1a6a475f5de9b71d1b7bb5dfe6b3871acaebc774d64307b22641432",
+        "production_source_sha256_after": "9f377012d1a6a475f5de9b71d1b7bb5dfe6b3871acaebc774d64307b22641432",
+        "log_sha256": "8228b2d78e9204ef37cc40feb62e0b5774951551f17be2cbb1215fdcc232bde2",
+        "elapsed_seconds": 4.442819595336914
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/curvature-decomposition/11-product-law.json",
+      "original_path": "/workspace/scratch/source-curvature-implementation/11-product-law.json",
+      "bytes": 1064,
+      "sha256": "452132e41e37183a8f695000370cde95e23c204d4e9dce53ec5cef69f40090e4",
+      "record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceCurvatureDecomposition.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean",
+        "source_sha256_before": "279fa19a2e25c342459c7f6411a967c48abf36b281a3fbf58af26a299c189235",
+        "source_sha256_after": "279fa19a2e25c342459c7f6411a967c48abf36b281a3fbf58af26a299c189235",
+        "production_source_sha256_before": "279fa19a2e25c342459c7f6411a967c48abf36b281a3fbf58af26a299c189235",
+        "production_source_sha256_after": "279fa19a2e25c342459c7f6411a967c48abf36b281a3fbf58af26a299c189235",
+        "log_sha256": "37a046a68ee55574315851ccff05e1da1668b4305d44f55a260342741863b2f8",
+        "elapsed_seconds": 4.784995079040527
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/curvature-decomposition/12-product-and-density.json",
+      "original_path": "/workspace/scratch/source-curvature-implementation/12-product-and-density.json",
+      "bytes": 1065,
+      "sha256": "7d33eaccf4453021921f5da6ae1551dd68c2d4f58a59d02c5dc7161cab244879",
+      "record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceCurvatureDecomposition.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean",
+        "source_sha256_before": "025aae071e96924b0b28e4f9d43715d7dfce5e4c7b4ef3dee0923187c3525c72",
+        "source_sha256_after": "025aae071e96924b0b28e4f9d43715d7dfce5e4c7b4ef3dee0923187c3525c72",
+        "production_source_sha256_before": "025aae071e96924b0b28e4f9d43715d7dfce5e4c7b4ef3dee0923187c3525c72",
+        "production_source_sha256_after": "025aae071e96924b0b28e4f9d43715d7dfce5e4c7b4ef3dee0923187c3525c72",
+        "log_sha256": "0e48d01fe5a408026e3865f9fc67c8056a55b9b2eead021ded65ab0c729a04cc",
+        "elapsed_seconds": 19.716453552246094
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/curvature-decomposition/13-product-and-density.json",
+      "original_path": "/workspace/scratch/source-curvature-implementation/13-product-and-density.json",
+      "bytes": 1065,
+      "sha256": "f24ff90b081d2245e1f291d88621519c98bc25b690e428fd8c0a60d0a0e671a3",
+      "record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceCurvatureDecomposition.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean",
+        "source_sha256_before": "cac4c1e845051907176366f3ac5ceca1cc07ade269b07935a8682a3d5547842a",
+        "source_sha256_after": "cac4c1e845051907176366f3ac5ceca1cc07ade269b07935a8682a3d5547842a",
+        "production_source_sha256_before": "cac4c1e845051907176366f3ac5ceca1cc07ade269b07935a8682a3d5547842a",
+        "production_source_sha256_after": "cac4c1e845051907176366f3ac5ceca1cc07ade269b07935a8682a3d5547842a",
+        "log_sha256": "228efd50772ec8c2985c0976a27ca7ebb261653a8928561927cfc75eaf60894d",
+        "elapsed_seconds": 22.076287746429443
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/curvature-decomposition/14-product-and-density.json",
+      "original_path": "/workspace/scratch/source-curvature-implementation/14-product-and-density.json",
+      "bytes": 1064,
+      "sha256": "0475439ea4cdf325fc514a4c8a5a417fe93c79946208a157cc3a82d15410f2eb",
+      "record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceCurvatureDecomposition.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean",
+        "source_sha256_before": "6547a9c39e57b23c0d2fe7c0f13a71e802a4e8392c6163e4b6e7c02f76b57dcb",
+        "source_sha256_after": "6547a9c39e57b23c0d2fe7c0f13a71e802a4e8392c6163e4b6e7c02f76b57dcb",
+        "production_source_sha256_before": "6547a9c39e57b23c0d2fe7c0f13a71e802a4e8392c6163e4b6e7c02f76b57dcb",
+        "production_source_sha256_after": "6547a9c39e57b23c0d2fe7c0f13a71e802a4e8392c6163e4b6e7c02f76b57dcb",
+        "log_sha256": "2e469fc7ecbeab9d06f406222f10decdc3d1cdd3d7dcc6fb7f07645edde99b93",
+        "elapsed_seconds": 78.63743329048157
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/curvature-decomposition/15-full-product-and-uniform-moments.json",
+      "original_path": "/workspace/scratch/source-curvature-implementation/15-full-product-and-uniform-moments.json",
+      "bytes": 1064,
+      "sha256": "6130e98110c5e7c9024a4e44298a5af56655b6cf7d1e89645dce82043058327d",
+      "record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceCurvatureDecomposition.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean",
+        "source_sha256_before": "ca2e6334482d28caa80e859d96422697966a543ed8efa8fe12df655d7da89952",
+        "source_sha256_after": "ca2e6334482d28caa80e859d96422697966a543ed8efa8fe12df655d7da89952",
+        "production_source_sha256_before": "ca2e6334482d28caa80e859d96422697966a543ed8efa8fe12df655d7da89952",
+        "production_source_sha256_after": "ca2e6334482d28caa80e859d96422697966a543ed8efa8fe12df655d7da89952",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 8.950331449508667
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/curvature-decomposition/16-explicit-contract-exports.json",
+      "original_path": "/workspace/scratch/source-curvature-implementation/16-explicit-contract-exports.json",
+      "bytes": 1064,
+      "sha256": "d76e88cd7b9cccb6ce9c7c08eb14e89edec03fd7606050bec622a31aa982bdc9",
+      "record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceCurvatureDecomposition.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean",
+        "source_sha256_before": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+        "source_sha256_after": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+        "production_source_sha256_before": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+        "production_source_sha256_after": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 6.004431962966919
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/curvature-decomposition/17-controls.json",
+      "original_path": "/workspace/scratch/source-curvature-implementation/17-controls.json",
+      "bytes": 892,
+      "sha256": "262655053669ab32bd7c9468061174cf7dd5e76b7871cd4ab6abf53498e6a40f",
+      "record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/source-curvature-implementation/Controls.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/source-curvature-implementation/Controls.lean",
+        "source_sha256_before": "7292831c00d370d4f054c057ac7586235056785d16b185fe547794630fec43dc",
+        "source_sha256_after": "7292831c00d370d4f054c057ac7586235056785d16b185fe547794630fec43dc",
+        "production_source_sha256_before": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+        "production_source_sha256_after": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+        "log_sha256": "b0ac4441f7d5961538f72fea3321c120e1579326e0c29a17e8c27a5368d1bd35",
+        "elapsed_seconds": 3.5016260147094727
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/curvature-decomposition/18-public-axiom-audit.json",
+      "original_path": "/workspace/scratch/source-curvature-implementation/18-public-axiom-audit.json",
+      "bytes": 896,
+      "sha256": "76a3b1794455e6f24f1e06547c1ac18ef161255355918f94122956e871e11a87",
+      "record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/source-curvature-implementation/AxiomAudit.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/scratch/source-curvature-implementation/AxiomAudit.lean",
+        "source_sha256_before": "4a6d448bbe95ce894f769b60770895ca709e00d4206ac9cbcd9fc420804c908e",
+        "source_sha256_after": "4a6d448bbe95ce894f769b60770895ca709e00d4206ac9cbcd9fc420804c908e",
+        "production_source_sha256_before": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+        "production_source_sha256_after": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+        "log_sha256": "c4e50e0d5404b2ceb65c8939acb509c4c177f7210496961263948456b1f2ad2e",
+        "elapsed_seconds": 2.8462510108947754
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/curvature-decomposition/19-kernel-replay.json",
+      "original_path": "/workspace/scratch/source-curvature-implementation/19-kernel-replay.json",
+      "bytes": 545,
+      "sha256": "ba5b715f9c857e64b460b5007628fb8d1c47f528e6d6141d9fd8abdcb1ed4c8c",
+      "record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "leanchecker",
+          "SourceCurvatureDecomposition"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source_sha256_before": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+        "source_sha256_after": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 6.1832804679870605
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/curvature-decomposition/20-controls-fixed.json",
+      "original_path": "/workspace/scratch/source-curvature-implementation/20-controls-fixed.json",
+      "bytes": 892,
+      "sha256": "e0dc9a91d77820c0154c2274b486d14da0dc5117af3aeb0f69b30e1fd2d676ce",
+      "record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/source-curvature-implementation/Controls.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/scratch/source-curvature-implementation/Controls.lean",
+        "source_sha256_before": "e400f9e68fafbd5ebc2aca516e9693510bdd2ad93dd493d3c46ca84b8e0258dd",
+        "source_sha256_after": "e400f9e68fafbd5ebc2aca516e9693510bdd2ad93dd493d3c46ca84b8e0258dd",
+        "production_source_sha256_before": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+        "production_source_sha256_after": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 2.6308374404907227
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/curvature-decomposition/QUALIFICATION_RECEIPT.json",
+      "original_path": "/workspace/scratch/source-curvature-implementation/QUALIFICATION_RECEIPT.json",
+      "bytes": 5262,
+      "sha256": "9e1ad393d365b7c284ebb62fff4a03c837672a16a0b5d3cca67456db3ab1492b",
+      "record": {
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean",
+        "source_sha256": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+        "checks": {
+          "16-explicit-contract-exports": {
+            "command": [
+              "/home/agent/.elan/bin/lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "-o",
+              ".lake/build/lib/lean/SourceCurvatureDecomposition.olean",
+              "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean"
+            ],
+            "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+            "exit_code": 0,
+            "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean",
+            "source_sha256_before": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+            "source_sha256_after": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+            "production_source_sha256_before": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+            "production_source_sha256_after": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+            "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "elapsed_seconds": 6.004431962966919
+          },
+          "18-public-axiom-audit": {
+            "command": [
+              "/home/agent/.elan/bin/lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "/workspace/scratch/source-curvature-implementation/AxiomAudit.lean"
+            ],
+            "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+            "exit_code": 0,
+            "source": "/workspace/scratch/source-curvature-implementation/AxiomAudit.lean",
+            "source_sha256_before": "4a6d448bbe95ce894f769b60770895ca709e00d4206ac9cbcd9fc420804c908e",
+            "source_sha256_after": "4a6d448bbe95ce894f769b60770895ca709e00d4206ac9cbcd9fc420804c908e",
+            "production_source_sha256_before": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+            "production_source_sha256_after": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+            "log_sha256": "c4e50e0d5404b2ceb65c8939acb509c4c177f7210496961263948456b1f2ad2e",
+            "elapsed_seconds": 2.8462510108947754
+          },
+          "19-kernel-replay": {
+            "command": [
+              "/home/agent/.elan/bin/lake",
+              "env",
+              "leanchecker",
+              "SourceCurvatureDecomposition"
+            ],
+            "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+            "exit_code": 0,
+            "source_sha256_before": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+            "source_sha256_after": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+            "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "elapsed_seconds": 6.1832804679870605
+          },
+          "20-controls-fixed": {
+            "command": [
+              "/home/agent/.elan/bin/lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "/workspace/scratch/source-curvature-implementation/Controls.lean"
+            ],
+            "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+            "exit_code": 0,
+            "source": "/workspace/scratch/source-curvature-implementation/Controls.lean",
+            "source_sha256_before": "e400f9e68fafbd5ebc2aca516e9693510bdd2ad93dd493d3c46ca84b8e0258dd",
+            "source_sha256_after": "e400f9e68fafbd5ebc2aca516e9693510bdd2ad93dd493d3c46ca84b8e0258dd",
+            "production_source_sha256_before": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+            "production_source_sha256_after": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+            "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "elapsed_seconds": 2.6308374404907227
+          }
+        },
+        "axiom_coverage": {
+          "source_sha256": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+          "public_declaration_count": 112,
+          "printed_count": 112,
+          "missing": [],
+          "extra": [],
+          "unexpected_axioms": {}
+        },
+        "scope": "Only new SourceCurvatureDecomposition; unchanged baseline18 evidence reused; SourcePinCurvatureBounds new dependency qualified separately by owner.",
+        "coauthors": [
+          {
+            "agent": "/root/normalizer_palm_research/gaussian_reference_probe",
+            "scratch_files": [
+              "gaussian-direction/Direction.lean",
+              "gaussian-direction/CrossLimits.lean",
+              "gaussian-direction/Envelope.lean",
+              "radius/RadiusResidual.lean"
+            ]
+          },
+          {
+            "agent": "/root",
+            "scratch_files": [
+              "/workspace/scratch/gaussian-variance-floor/GaussianVarianceFloor.lean"
+            ]
+          },
+          {
+            "agent": "/root/uniform_jet_moment_sources",
+            "contribution": "Actual coefficient regression algebra/normalization, smooth shifts and independence transport, all-pin reconstruction/product law, actual density specialization and explicit contract exports; sole production author."
+          }
+        ],
+        "scientific_review_credit": false,
+        "production_edits_frozen": true
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/weighted-curvature/qualification_receipt.json",
+      "original_path": "/workspace/scratch/weighted-curvature-implementation/qualification_receipt.json",
+      "bytes": 8058,
+      "sha256": "1c2062bf6d3d1f3ad97bb5febc993a4eb92d41f074c746e26b7aa87ecd198450",
+      "record": {
+        "source": "SourceWeightedCurvatureBound.lean",
+        "source_sha256": "9926f650c8fb9baf13261ba7ea1d01bd7a5cfb95c7175163888c42a62934a3f9",
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "source_contract_commit": "8236e1d",
+        "author": "OpenAI/Codex /root/regression_kernel",
+        "scientific_effect": "NONE; author-side qualification only; no geometric noncapture/P0.2/critical-point Palm theorem; different-family scientific review separate",
+        "source_unchanged_since_successful_build": true,
+        "build": {
+          "command": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceWeightedCurvatureBound.olean SourceWeightedCurvatureBound.lean",
+          "exit": 0,
+          "log": "SourceWeightedCurvatureBound-10.log"
+        },
+        "kernel": {
+          "command": "/home/agent/.elan/bin/lake env leanchecker SourceWeightedCurvatureBound",
+          "exit": 0,
+          "log": "KernelReplay-01.log"
+        },
+        "axioms": {
+          "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/weighted-curvature-implementation/AxiomAudit.lean",
+          "exit": 0,
+          "targets": {
+            "I4SourceWeightedCurvature.sourceRegularityBad_measurable": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourceWeightedCurvature.sourceRegularityBad_base_bound": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourceWeightedCurvature.sourceRegularityBad_weighted_cubic": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourceWeightedCurvature.sourceQ_measurable_actual": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourceWeightedCurvature.sourceCurvatureSlab_measurable": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourceWeightedCurvature.sourceRegularCurvatureSlab_measurable": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourceWeightedCurvature.sourceCurvatureOneSided_measurable": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourceWeightedCurvature.sourceRegularCurvatureSlab_weighted_of_numerator": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourceWeightedCurvature.sourceCurvatureUnion_reduce": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourceWeightedCurvature.sourceRegularCurvatureSlab_numerator_of_product": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourceWeightedCurvature.sourceCurvatureUnion_weighted_cubic_of_numerator": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourceWeightedCurvature.sourceRegularCurvatureSlab_numerator": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourceWeightedCurvature.sourceWeightedCurvature_bound": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourceWeightedCurvature.sourceWeightedCurvature_slab_bound": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ]
+          },
+          "log": "AxiomAudit-01.log"
+        },
+        "controls": [
+          {
+            "file": "PositiveControls.lean",
+            "command": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true /workspace/scratch/weighted-curvature-implementation/PositiveControls.lean",
+            "capture_command": "set -o pipefail\n/home/agent/.elan/bin/lake env lean -DwarningAsError=true /workspace/scratch/weighted-curvature-implementation/PositiveControls.lean 2>&1 | tee /workspace/scratch/weighted-curvature-implementation/PositiveControls-02.log",
+            "exit": 0,
+            "log": "PositiveControls-02.log",
+            "reason": "actual source-only cubic union bound at L1,b3,K2,epsilon1/2; actual zero-epsilon bad event has full base mass; regular-cutoff q-dependent radius arithmetic",
+            "source_sha256": "9c9d5fbc6b3dbd4f1e14bfd943a7fc9879c755b4dccf5f2326927ccb96bcc93e"
+          },
+          {
+            "file": "RejectedZeroEpsilon.lean",
+            "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/weighted-curvature-implementation/RejectedZeroEpsilon.lean",
+            "capture_command": "set -o pipefail\n/home/agent/.elan/bin/lake env lean /workspace/scratch/weighted-curvature-implementation/RejectedZeroEpsilon.lean 2>&1 | tee /workspace/scratch/weighted-curvature-implementation/RejectedZeroEpsilon-01.log",
+            "exit": 1,
+            "log": "RejectedZeroEpsilon-01.log",
+            "reason": "actual base probability of zero-epsilon bad event is1, so false Markov bound with denominator0 rejects",
+            "source_sha256": "4f4921afe6117f14ccd5d70fc547c09bc837713a9e0f9b41716de6899d5ddb0e"
+          },
+          {
+            "file": "RejectedOmitRegularCutoff.lean",
+            "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/weighted-curvature-implementation/RejectedOmitRegularCutoff.lean",
+            "capture_command": "set -o pipefail\n/home/agent/.elan/bin/lake env lean /workspace/scratch/weighted-curvature-implementation/RejectedOmitRegularCutoff.lean 2>&1 | tee /workspace/scratch/weighted-curvature-implementation/RejectedOmitRegularCutoff-01.log",
+            "exit": 1,
+            "log": "RejectedOmitRegularCutoff-01.log",
+            "reason": "q100,R101,S1,r1/100 satisfies original slab and Rdom but lies outside regular cutoff; false O(r) interval claim rejects",
+            "source_sha256": "7fcc9a31bf9e4039c9881b88083052b553cd7841334dddba92510be197425163"
+          }
+        ],
+        "logs": {
+          "SourceWeightedCurvatureBound-10.log": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "PositiveControls-02.log": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "RejectedZeroEpsilon-01.log": {
+            "bytes": 154,
+            "sha256": "16b782ecfd072e9e270ac7d3a0ff9ba8673e32f6bef671dfdcfed85b1cd9326c"
+          },
+          "RejectedOmitRegularCutoff-01.log": {
+            "bytes": 208,
+            "sha256": "cda5b3c6d487d21631a07e97b920d454dbf1b3d20b9ff36d1cbb4dba5f770761"
+          },
+          "AxiomAudit-01.log": {
+            "bytes": 1737,
+            "sha256": "04f00f13e4254b2f7b25d8314a68832ac72d5e20633328d73c7861bd8120ae74"
+          },
+          "KernelReplay-01.log": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        },
+        "artifact": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceWeightedCurvatureBound.olean",
+          "sha256": "bff73ad1a3dc5604ad71dd4637265b086ba50f0a20d34e088bb41bd701450eae"
+        },
+        "new_support_authorship": [
+          {
+            "module": "SourcePinCurvatureBounds.lean",
+            "helper": "orderModeBound_mono/sourceDerivativeMajorant_mono/sourceGammaRadius_le_fifth/sourceGammaRadius_moments",
+            "coauthor": "OpenAI/Codex /root/regression_kernel",
+            "scratch": "/workspace/scratch/weighted-curvature-implementation/radius/RadiusMoments.lean",
+            "validation": "RadiusMoments-02.log exit0 empty; bridge owner integrated ONE productioncopy"
+          }
+        ],
+        "failure_history": {
+          "all_retained": true,
+          "final_module_attempts": "-01 and-02 clean partial proofs; -03 missing prw namespace; -04 extra tactic after goal closed; -05 clean helpers; -06 unusedhTwarn; -07 clean conditionalcomposition; -08 and-09 sourceSlab set-membership elaboration errors; -10 finalcleanWerror",
+          "control_attempts": "PositiveControls-01 had invalid .1_2 projection; PositiveControls-02 corrected and passed cleanWerror. Negative controls failed as intended with False goals.",
+          "container_failures": "None in this lane; all commands were actual exec tool calls.",
+          "reconstructed_command_prefixes": "None; commands/capture pipelines above are actual executed calls, not reconstructed evidence."
+        },
+        "reuse": "No checks on18qualifiedmodules/23inputs rerun; consumed current new scalar-product/pin/decomposition objects and verified only new finalmodule/controls."
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/cutoff-arithmetic-helper/RECEIPT.json",
+      "original_path": "/workspace/scratch/curvature-cutoff-arithmetic/RECEIPT.json",
+      "bytes": 649,
+      "sha256": "581a337c4fc25ca054ffa1b74a323f9a902d440726925e1fd09388db3e383ad0",
+      "record": {
+        "source_sha256": "1ff01e809c1ad4509ff5b90e6cc6bd52c9dcb2bfe8c376457f0d72deb53b217f",
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/curvature-cutoff-arithmetic/CurvatureCutoff.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "compile02_exit_code": 0,
+        "compile02_output_empty": true,
+        "compile01_exit_code": 1,
+        "compile01_retained": "compile-01.log",
+        "scope": "New scratch arithmetic only; final module audit will cover transplanted proof. Baseline evidence reused.",
+        "coauthor": "OpenAI/Codex root"
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    },
+    {
+      "path": "raw/variance-floor-helper/RECEIPT.json",
+      "original_path": "/workspace/scratch/gaussian-variance-floor/RECEIPT.json",
+      "bytes": 693,
+      "sha256": "f2be4fbdc85c6cf848aa1d4174eee2e8954f5ccf888b45f4e3a80ba382900c0f",
+      "record": {
+        "author": "OpenAI/Codex root",
+        "source_sha256_observed_after_execution": "f58e2530c01823c06214eb71dbde98bdce311a1eb5b8eb8996c4761bfb663eca",
+        "source_unchanged_since_write": true,
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/gaussian-variance-floor/GaussianVarianceFloor.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "output": "compile-01.log",
+        "output_empty": true,
+        "scope": "Only new scratch scalar PDF/floor integration proof. No baseline rerun; production transplantation requires final-source axiom/kernel evidence."
+      },
+      "projection_role": "Read-only index of an existing author record; not a newly executed verification receipt."
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "schema": "controls-first-three-block-diagonal-PSD-text/v1",
+  "frozen_utc": "2026-10-26T18:42:56.573797+00:00",
+  "agent": "/root/two_remote_firstjet_arithmetic",
+  "status": "FROZEN_UNCOMPILED_CONTROLS_ONLY_TEXT_FOR_ONE_INTEGRATION",
+  "native_pickup": 6424105296,
+  "precode": "98ec56b05b8b729c5f1638227280711f2f3b1718",
+  "checkpoint_utc": "2026-10-26T19:15:00Z",
+  "terminal_utc": "2026-10-26T20:30:00Z",
+  "timer_reset": false,
+  "writable_scope": "/workspace/scratch/two-remote-firstjet-gaussian-controls-psd-text",
+  "expected_namespace": "TwoRemoteFirstJetGaussianControls",
+  "files": [
+    {
+      "path": "/workspace/scratch/two-remote-firstjet-gaussian-controls-psd-text/SECTION.lean.txt",
+      "bytes": 1542,
+      "sha256": "f703463e65a7395c821f7fb2c4f7ff009320317087551b67aafe345a4d202f3e"
+    },
+    {
+      "path": "/workspace/scratch/two-remote-firstjet-gaussian-controls-psd-text/IMPORTS.txt",
+      "bytes": 333,
+      "sha256": "b20f649fcdcffdd0de71d534992463bec0b6e36fdd4209e7730cb06d90c71f41"
+    }
+  ],
+  "declarations": [
+    "private firstThreeBlockDiagonal",
+    "private firstThreeBlockDiagonal_posSemidef"
+  ],
+  "definition_scope": "Literal Fin.addCases3+3 in both indices; both diagonal blocks are the first3 principal block of supplied Fin6 S, cross blocks0.",
+  "proof_route": "Public PosSemidef.submatrix on S.PosDef.posSemidef; two fixed6x3 coordinate inclusions; public PosSemidef.mul_mul_conjTranspose_same and add; one fixed6x6 entry equality. No inverse/Schur premise, generic block library or independent covariance/Gaussian argument.",
+  "Controls_only": true,
+  "production_eligible": false,
+  "public_research_target_credit": 0,
+  "integration_rule": "Producer integrates frozen needed text ONCE into Controls harness only. Preserve originals and any local amendment lineage. Actual new Controls qualification covers the integrated text; no standalone helper test/build/control campaign.",
+  "execution_counts": {
+    "Lean": 0,
+    "name_probes": 0,
+    "builds": 0,
+    "compiles": 0,
+    "checks": 0,
+    "kernel": 0,
+    "audit": 0,
+    "control_campaigns": 0,
+    "objects": 0,
+    "Git": 0,
+    "cache": 0,
+    "shared_metadata": 0,
+    "external": 0
+  },
+  "read_scope": "Bounded public Mathlib PosDef/matrix block/finite-sum API source lookup only; no in-flight55 production source or56 source/helper inspected. Producer confirmed exact Controls namespace/imports/signature.",
+  "hash_policy": "Only newly authored unrecorded section/import files hashed once here. This newly written provenance then receives one external custody hash, not a recursive self-hash. No old helper/source payload hash replay.",
+  "prior_files": "All earlier53 arithmetic helper, Gaussian preflight and55 covariance helper files remain unchanged; no repeated hashes/checks.",
+  "reuse_rule": "Completed applicable verification is reused under unchanged assumptions/dependencies; new agent/session/handoff/freeze/process does not warrant old replay. Pending actual different-family review/process is separate from established mathematics.",
+  "root_ownership": "Root solely owns shared metadata/config/cache/registry/Git/external publication.",
+  "scientific_effect": "NONE",
+  "same_family_provider_distinct_credit": 0,
+  "canonical_authority": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/main/governance/OWNER_DECISION_20261025_REVIEW_FAMILIES.md"
+  ],
+  "canonical_link_delivery_does_not_establish_reading": true
+}

@@ -1,0 +1,150 @@
+{
+  "status": "ADOPTED_ONLY_11_ACTUAL_CLOSED_METADATA_PATHS",
+  "observed_utc": "2026-10-28T23:58:24.563050+00:00",
+  "actual_entry_end": "2026-10-28T23:48:04.575597+00:00",
+  "documents": [
+    {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/final-documents001/receipt.json",
+      "bytes": 36851,
+      "sha256": "df19e33f33e40a01330e621a48b2f6c9dc39889ad9744269449c8a499489c4c0",
+      "marker": [
+        36851,
+        1793231284489560557
+      ],
+      "first_observed_utc": "2026-10-28T23:58:24.562634+00:00",
+      "origin": "FIRST previously unrecorded NEW closed metadata payload ONCE after actual entry closure"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/final-documents001/stdout.log",
+      "bytes": 419,
+      "sha256": "0e3b84de1c6a9f5144e4a77fba13a7fb277f2dd7a993ac73c88186176ad4b484",
+      "marker": [
+        419,
+        1793231284434867152
+      ],
+      "first_observed_utc": "2026-10-28T23:48:04.491695+00:00",
+      "origin": "REUSE producer FIRST_ID_CACHE matching immutable marker; no hash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/final-documents001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "marker": [
+        0,
+        1793231284229810547
+      ],
+      "first_observed_utc": "2026-10-28T23:48:04.491784+00:00",
+      "origin": "REUSE producer FIRST_ID_CACHE matching immutable marker; no hash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/final-documents001/RECEIPT.json",
+      "bytes": 1753,
+      "sha256": "941a90d3b68dc69132fcc38e96a7d7ca6cb02cb90248765ad65a062e47827ff1",
+      "marker": [
+        1753,
+        1793231284519493154
+      ],
+      "first_observed_utc": "2026-10-28T23:58:24.562706+00:00",
+      "origin": "FIRST previously unrecorded NEW closed metadata payload ONCE after actual entry closure"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/final-documents001/RESULT.json",
+      "bytes": 1753,
+      "sha256": "941a90d3b68dc69132fcc38e96a7d7ca6cb02cb90248765ad65a062e47827ff1",
+      "marker": [
+        1753,
+        1793231284521119222
+      ],
+      "origin": "REUSE exact duplicate newly adopted closed metadata bytes; no repeat hash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/final-documents001/stdout.log",
+      "bytes": 182,
+      "sha256": "e03aad7276dee67304e05e963031e416918b3362e2e2c1d1e02a85e950bf5fa2",
+      "marker": [
+        182,
+        1793231284501560208
+      ],
+      "first_observed_utc": "2026-10-28T23:58:24.562741+00:00",
+      "origin": "FIRST previously unrecorded NEW closed metadata payload ONCE after actual entry closure"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/final-documents001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "marker": [
+        0,
+        1793231284163410870
+      ],
+      "origin": "REUSE known EMPTY identity; no hash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/final-documents001/RECEIPT.json",
+      "bytes": 2468,
+      "sha256": "a3d315b63fa1a277f420a9fbef9303b9f9fe183b07249c100ec9db669a536513",
+      "marker": [
+        2468,
+        1793231284576667528
+      ],
+      "first_observed_utc": "2026-10-28T23:58:24.562797+00:00",
+      "origin": "FIRST previously unrecorded NEW closed metadata payload ONCE after actual entry closure"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/final-documents001/RESULT.json",
+      "bytes": 2468,
+      "sha256": "a3d315b63fa1a277f420a9fbef9303b9f9fe183b07249c100ec9db669a536513",
+      "marker": [
+        2468,
+        1793231284577495299
+      ],
+      "origin": "REUSE exact duplicate newly adopted closed metadata bytes; no repeat hash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/final-documents001/stdout.log",
+      "bytes": 198,
+      "sha256": "7483b2246c09570d015306c38cdea1a2ae6dccb8d62742e9bd657dd4fc9c8039",
+      "marker": [
+        198,
+        1793231284521119222
+      ],
+      "first_observed_utc": "2026-10-28T23:58:24.562830+00:00",
+      "origin": "FIRST previously unrecorded NEW closed metadata payload ONCE after actual entry closure"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/final-documents001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "marker": [
+        0,
+        1793231284121262497
+      ],
+      "origin": "REUSE known EMPTY identity; no hash"
+    }
+  ],
+  "first_closed_metadata_ids": 5,
+  "reused_closed_metadata_ids": 6,
+  "root_addendum_identity": {
+    "path": "/workspace/scratch/actual-source-regular-local-collar-publication/ROOT_CUT_COPY_ADDENDUM66.json",
+    "bytes": 1649,
+    "sha256": "3fa66b3c2cef75fba91ec2d36f33e2216dbc56a2af07241494d49e2230aa3fd8",
+    "marker": [
+      1649,
+      1793231904563022287
+    ],
+    "first_observed_utc": "2026-10-28T23:58:24.563045+00:00",
+    "origin": "FIRST genuinely NEW immutable root metadata addendum once"
+  },
+  "final_document_ids_self_identity_reused": {
+    "path": "/workspace/scratch/actual-source-regular-local-collar-construct/FINAL_DOCUMENT_IDS.json",
+    "bytes": 6068,
+    "sha256": "9d2c0af4872f4d4ff07c52a4453c8526be491433cd7b3bfcadd4ecf02b4fc390",
+    "marker": [
+      6068,
+      1793231284425450095
+    ],
+    "first_observed_utc": "2026-10-28T23:48:04.425479+00:00",
+    "origin": "FIRST previously unrecorded NEW immutable documentary payload ID, once"
+  },
+  "producer_cache_mutated": false,
+  "mathematical_or_source_object_verification_replayed": false
+}

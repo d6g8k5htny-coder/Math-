@@ -1,0 +1,143 @@
+/- Complete positive-only numeric companion to unchanged qualified Controls003.
+No production/private normalization calls, no negative, no helper execution. -/
+
+noncomputable section
+set_option autoImplicit false
+open scoped BigOperators Matrix Topology
+open Set I4Source I4SourceConfluentPins I4SourceRawPinConditioning
+  I4SourceFinitePinKernel I4SourceRemoteJetWitness I4SourceTwoRemoteFirstJetWitness
+  GapMorseDistinctControls
+
+namespace GapMorseDistinctNumericControls
+
+local instance numeric_period_pos : Fact (0 < (2:ℝ)) := ⟨by norm_num⟩
+
+def numeric_x : Fin 2 → ℝ := control59_xStar
+def numeric_y : Fin 2 → ℝ := ![1,1/2]
+
+private theorem numeric_Ico_ne (x y : ℝ)
+    (hx : x ∈ Ico (0:ℝ) 2) (hy : y ∈ Ico (0:ℝ) 2) (hne : x ≠ y) :
+    (x : AddCircle (2:ℝ)) ≠ (y : AddCircle (2:ℝ)) := by
+  intro h
+  apply hne
+  exact (AddCircle.coe_eq_coe_iff_of_mem_Ico (p:=(2:ℝ)) (a:=(0:ℝ))
+    (by simpa using hx) (by simpa using hy)).mp h
+
+theorem numeric_x_ne_pinM :
+    I4Torus.torusProjection 2 2 numeric_x ≠
+      I4Torus.torusProjection 2 2 (endpointM 0) := by
+  intro h
+  have hh := congrFun h 0
+  have hn := numeric_Ico_ne (1/2) 0 (by norm_num) (by norm_num) (by norm_num)
+  apply hn
+  simpa [numeric_x,control59_xStar,I4Torus.torusProjection,endpointM] using hh
+
+theorem numeric_x_ne_pinS :
+    I4Torus.torusProjection 2 2 numeric_x ≠
+      I4Torus.torusProjection 2 2 (endpointS 0) := by
+  intro h
+  have hh := congrFun h 0
+  have hn := numeric_Ico_ne (1/2) 0 (by norm_num) (by norm_num) (by norm_num)
+  apply hn
+  simpa [numeric_x,control59_xStar,I4Torus.torusProjection,endpointS] using hh
+
+theorem numeric_y_ne_pinM :
+    I4Torus.torusProjection 2 2 numeric_y ≠
+      I4Torus.torusProjection 2 2 (endpointM 0) := by
+  intro h
+  have hh := congrFun h 0
+  have hn := numeric_Ico_ne 1 0 (by norm_num) (by norm_num) (by norm_num)
+  apply hn
+  simpa [numeric_y,I4Torus.torusProjection,endpointM] using hh
+
+theorem numeric_y_ne_pinS :
+    I4Torus.torusProjection 2 2 numeric_y ≠
+      I4Torus.torusProjection 2 2 (endpointS 0) := by
+  intro h
+  have hh := congrFun h 0
+  have hn := numeric_Ico_ne 1 0 (by norm_num) (by norm_num) (by norm_num)
+  apply hn
+  simpa [numeric_y,I4Torus.torusProjection,endpointS] using hh
+
+theorem numeric_x_ne_y :
+    I4Torus.torusProjection 2 2 numeric_x ≠ I4Torus.torusProjection 2 2 numeric_y := by
+  intro h
+  have hh := congrFun h 0
+  have hn := numeric_Ico_ne (1/2) 1 (by norm_num) (by norm_num) (by norm_num)
+  apply hn
+  simpa [numeric_x,numeric_y,control59_xStar,I4Torus.torusProjection] using hh
+
+theorem numeric_remote_rank_neighborhood :
+    ∃ U : Set (Fin 2 → ℝ), IsOpen U ∧ numeric_x ∈ U ∧
+      ∀ z ∈ U,
+        I4Torus.torusProjection 2 2 z ≠ I4Torus.torusProjection 2 2 (endpointM 0) ∧
+        I4Torus.torusProjection 2 2 z ≠ I4Torus.torusProjection 2 2 (endpointS 0) ∧
+        Function.Bijective (control59_B z) := by
+  let R : Set (Fin 2 → ℝ) := {z |
+    I4Torus.torusProjection 2 2 z ≠ I4Torus.torusProjection 2 2 (endpointM 0) ∧
+    I4Torus.torusProjection 2 2 z ≠ I4Torus.torusProjection 2 2 (endpointS 0)}
+  have hp : Continuous (I4Torus.torusProjection 2 (2:ℝ)) := by
+    apply continuous_pi
+    intro i
+    exact (AddCircle.continuous_mk' (2:ℝ)).comp (continuous_apply i)
+  have hR : IsOpen R :=
+    (isOpen_ne_fun hp continuous_const).inter (isOpen_ne_fun hp continuous_const)
+  obtain ⟨V,hV,hxV,hVB⟩ := control59_actual_rank_neighborhood
+  refine ⟨V ∩ R,hV.inter hR,⟨hxV,numeric_x_ne_pinM,numeric_x_ne_pinS⟩,?_⟩
+  intro z hz
+  exact ⟨hz.2.1,hz.2.2,(hVB z hz.1).1⟩
+
+/- These are exactly the coefficient responses of the ordered constraints
+(f-alpha,dx,dy); subtracting symbolic alpha does not change a free response. -/
+def numeric_level_rows : Fin 3 → SourceMode 2 → ℝ :=
+  ![remoteJetCoefficient 2 numeric_x 0,
+    remoteJetCoefficient 2 numeric_x 1,
+    remoteJetCoefficient 2 numeric_x 2]
+
+def numeric_level_select : Fin 3 → Fin 6 := ![0,1,2]
+
+theorem numeric_level_witnesses :
+    ∃ v : Fin 3 → (SourceMode 2 →₀ ℝ),
+      (∀ (i : Fin 6) (s : Fin 3), finitePairing (rawPinCoefficient 2 0 i) (v s) = 0) ∧
+      (∀ i s : Fin 3, finitePairing (numeric_level_rows i) (v s) = if i=s then 1 else 0) := by
+  obtain ⟨v,hraw,hresponse⟩ := actual_finite_remoteJet_witnesses
+    (by norm_num : (2:ℝ) ≠ 0) 0 numeric_x numeric_x_ne_pinM numeric_x_ne_pinS
+  refine ⟨fun s => v (numeric_level_select s),?_,?_⟩
+  · intro i s
+    exact hraw i (numeric_level_select s)
+  · intro i s
+    fin_cases i <;> fin_cases s <;>
+      norm_num [numeric_level_rows,numeric_level_select,hresponse]
+
+/- Columns1,2,4,5,0 against rows dxu,dyu,dxv,dyv,fu-fv.
+The last row is the actual value difference, with its retained minus sign. -/
+def numeric_tie_rows : Fin 5 → SourceMode 2 → ℝ :=
+  ![twoRemoteFirstJetCoefficient 2 numeric_x numeric_y 1,
+    twoRemoteFirstJetCoefficient 2 numeric_x numeric_y 2,
+    twoRemoteFirstJetCoefficient 2 numeric_x numeric_y 4,
+    twoRemoteFirstJetCoefficient 2 numeric_x numeric_y 5,
+    fun m => twoRemoteFirstJetCoefficient 2 numeric_x numeric_y 0 m -
+      twoRemoteFirstJetCoefficient 2 numeric_x numeric_y 3 m]
+
+def numeric_tie_select : Fin 5 → Fin 6 := ![1,2,4,5,0]
+
+private theorem numeric_pairing_sub (a b : SourceMode 2 → ℝ) (v : SourceMode 2 →₀ ℝ) :
+    finitePairing (fun m => a m-b m) v = finitePairing a v-finitePairing b v := by
+  classical
+  simp only [finitePairing,Finsupp.sum,sub_mul,Finset.sum_sub_distrib]
+
+theorem numeric_tie_witnesses :
+    ∃ v : Fin 5 → (SourceMode 2 →₀ ℝ),
+      (∀ (i : Fin 6) (s : Fin 5), finitePairing (rawPinCoefficient 2 0 i) (v s) = 0) ∧
+      (∀ i s : Fin 5, finitePairing (numeric_tie_rows i) (v s) = if i=s then 1 else 0) := by
+  obtain ⟨v,hraw,hresponse⟩ := actual_finite_twoRemoteFirstJet_witnesses
+    (by norm_num : (2:ℝ) ≠ 0) 0 numeric_x numeric_y
+    numeric_x_ne_pinM numeric_x_ne_pinS numeric_y_ne_pinM numeric_y_ne_pinS numeric_x_ne_y
+  refine ⟨fun s => v (numeric_tie_select s),?_,?_⟩
+  · intro i s
+    exact hraw i (numeric_tie_select s)
+  · intro i s
+    fin_cases i <;> fin_cases s <;>
+      norm_num [numeric_tie_rows,numeric_tie_select,numeric_pairing_sub,hresponse]
+
+end GapMorseDistinctNumericControls

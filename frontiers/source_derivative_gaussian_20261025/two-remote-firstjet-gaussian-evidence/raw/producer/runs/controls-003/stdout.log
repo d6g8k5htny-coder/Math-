@@ -1,0 +1,14 @@
+/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:114:44: error: This simp argument is unused:
+  Fin.sum_univ_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [firstThreeBlockDiagonal, P₀, P₁, A, Fin.addCases]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:252:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  cov[fun ω => remoteJet 2 ![1, 0] ω (Fin.castAdd 3 0), fun ω => remoteJet 2 ![1, 0] ω (Fin.castAdd 3 0);
+    (rawPinKernel ⋯ 0) 0]
+in the target expression
+  0 < cov[fun ω => remoteJet 2 ![1, 0] ω 0, fun ω => remoteJet 2 ![1, 0] ω 0; (rawPinKernel ⋯ 0) 0]
+
+⊢ 0 < cov[fun ω => remoteJet 2 ![1, 0] ω 0, fun ω => remoteJet 2 ![1, 0] ω 0; (rawPinKernel ⋯ 0) 0]

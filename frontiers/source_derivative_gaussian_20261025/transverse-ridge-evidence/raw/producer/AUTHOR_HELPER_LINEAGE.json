@@ -1,0 +1,21 @@
+{
+  "author": "/root/transverse_ridge_construct",
+  "helper": "/root/transverse_ridge_jets",
+  "review_credit": "OpenAI author-side decomposition only; zero independent-family review credit",
+  "integrated_once": [
+    {
+      "snapshot": "/workspace/scratch/transverse-ridge-jets/runs/run-004/TransverseRidgeJets.lean",
+      "sha256": "7415419e565b7f8bfb443c26cc5b39057ade38ae1e6b9e5d18531ccd86a89cc1",
+      "segment": "clm_graph_vector through zero_graph_derivative_formulas; scratch duplicate ex/ey/partialX/partialY omitted"
+    },
+    {
+      "snapshot": "/workspace/scratch/transverse-ridge-jets/runs/run-007/TransverseRidgeJets.lean",
+      "sha256": "5695d5815ca1bf5ba03c81643192326249902351a068a915f8df891bef841767",
+      "segment": "bilinear_graph_vector through zero_graph_center_bound only; prior derivative helpers not recopied"
+    }
+  ],
+  "excluded": "Optional run008 profile helpers were not integrated; production profile jets are producer-authored.",
+  "helper_report": "/workspace/scratch/transverse-ridge-jets/REPORT.md",
+  "helper_evidence": "/workspace/scratch/transverse-ridge-jets/BINDINGS.json",
+  "full_construction_owner": "producer: compact collar, IVT/unique choice, reciprocal invertibility, local C2 IFT equality patch, actual potential theorem, profile jets and final constructed-ridge instantiation"
+}

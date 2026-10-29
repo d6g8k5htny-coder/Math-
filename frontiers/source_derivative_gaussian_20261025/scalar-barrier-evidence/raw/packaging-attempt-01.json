@@ -1,0 +1,10 @@
+{
+  "command": [
+    "python",
+    "/workspace/scratch/adaptive-fold-scalar-barrier/package.py"
+  ],
+  "exit_code": 1,
+  "snapshot": "package.attempt-01.py",
+  "failure": "AssertionError at assert len(accessors)==14: Python field parser omitted re.M. This is a packaging-parser failure, not a Lean/math failure.",
+  "timestamp": "NOT_SEPARATELY_CAPTURED"
+}

@@ -1,0 +1,9 @@
+SourceCompactGapNormalizer.lean:448:32: error: Application type mismatch: The argument
+  add_le_add_left hb 1
+has type
+  |b| + 1 ≤ B + 1
+but is expected to have type
+  1 + |b| ≤ 1 + B
+in the application
+  mul_le_mul_of_nonneg_left (add_le_add_left hb 1)
+SourceCompactGapNormalizer.lean:449:11: error: invalid 'by' tactic, expected type has not been provided

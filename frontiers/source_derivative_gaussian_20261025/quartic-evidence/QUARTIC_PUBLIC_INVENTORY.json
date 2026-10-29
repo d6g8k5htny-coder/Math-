@@ -1,0 +1,2408 @@
+{
+  "scope_id": "SOURCE_PIN_PRESERVING_QUARTIC_ONLY_20261026",
+  "module": "SourcePinPreservingQuartic",
+  "source_sha256": "8e23717ef98518b6d701db921d1f17958c3dee2c893745cafa7aa6172f1621d9",
+  "public_count": 141,
+  "proof_count": 112,
+  "definition_abbreviation_count": 29,
+  "direct_printed_report_count": 141,
+  "targets": [
+    {
+      "name": "I4ActualQuarticTransfer.peanoCubic_first_moment",
+      "kind": "theorem",
+      "line": 25,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4ActualQuarticTransfer.peanoCubic_normalized_second_moment",
+      "kind": "theorem",
+      "line": 39,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4ActualQuarticTransfer.symmetric_cubic_pin_second_order",
+      "kind": "theorem",
+      "line": 54,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4ActualQuarticTransfer.endpoint_taylor_low_coefficients",
+      "kind": "theorem",
+      "line": 122,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4ActualQuarticTransfer.corrected_axial_constant",
+      "kind": "theorem",
+      "line": 145,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4ActualQuarticTransfer.scalarTaylor",
+      "kind": "def",
+      "line": 163,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4ActualQuarticTransfer.scalar_taylor_remainder",
+      "kind": "theorem",
+      "line": 178,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4ActualQuarticTransfer.scalarTaylor_one",
+      "kind": "theorem",
+      "line": 196,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4ActualQuarticTransfer.scalarTaylor_three",
+      "kind": "theorem",
+      "line": 201,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4ActualQuarticTransfer.scalarTaylor_two",
+      "kind": "theorem",
+      "line": 208,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4ActualQuarticTransfer.scalar_taylor_one_bound",
+      "kind": "theorem",
+      "line": 214,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4ActualQuarticTransfer.scalar_taylor_three_bound",
+      "kind": "theorem",
+      "line": 226,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4ActualQuarticTransfer.scalar_taylor_two_bound",
+      "kind": "theorem",
+      "line": 238,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4ActualQuarticTransfer.smooth_iteratedDeriv",
+      "kind": "theorem",
+      "line": 252,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4ActualQuarticTransfer.iteratedDeriv_iteratedDeriv",
+      "kind": "theorem",
+      "line": 261,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4ActualQuarticTransfer.sourceF_smooth",
+      "kind": "theorem",
+      "line": 265,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4ActualQuarticTransfer.sourceH_smooth",
+      "kind": "theorem",
+      "line": 269,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4ActualQuarticTransfer.sourceF_iteratedDeriv_abs_le",
+      "kind": "theorem",
+      "line": 273,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4ActualQuarticTransfer.sourceH_iteratedDeriv_abs_le",
+      "kind": "theorem",
+      "line": 281,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.SourcePlane",
+      "kind": "abbrev",
+      "line": 298,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceAxialThird",
+      "kind": "def",
+      "line": 300,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceRawU",
+      "kind": "def",
+      "line": 304,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceRawRadius",
+      "kind": "def",
+      "line": 314,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourcePhysicalPins",
+      "kind": "def",
+      "line": 318,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.pinPreservingQuartic",
+      "kind": "def",
+      "line": 324,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic",
+      "kind": "def",
+      "line": 334,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceScaledGradientRaw",
+      "kind": "def",
+      "line": 337,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceScaledGradient",
+      "kind": "def",
+      "line": 342,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.pi_norm_le_euclidean_norm",
+      "kind": "theorem",
+      "line": 348,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.euclidean_two_norm_sq",
+      "kind": "theorem",
+      "line": 354,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.euclidean_two_norm_le_abs_sum",
+      "kind": "theorem",
+      "line": 358,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.euclidean_two_norm_le_two_mul",
+      "kind": "theorem",
+      "line": 365,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.matrixLinearEuclidean",
+      "kind": "def",
+      "line": 370,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.matrixLinearEuclidean_apply",
+      "kind": "theorem",
+      "line": 374,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.matrixLinearEuclidean_norm_le_of_sqsum",
+      "kind": "theorem",
+      "line": 379,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.matrixLinearEuclidean_norm_le_two_mul",
+      "kind": "theorem",
+      "line": 403,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.matrixLinearEuclidean_offdiag_norm_le",
+      "kind": "theorem",
+      "line": 411,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.matrixLinearEuclidean_symmetric_norm_le_abs_sum",
+      "kind": "theorem",
+      "line": 426,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.matrixLinearEuclidean_symmetric_norm_le_three_mul",
+      "kind": "theorem",
+      "line": 450,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.lineMap",
+      "kind": "def",
+      "line": 458,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.line_iteratedDeriv",
+      "kind": "theorem",
+      "line": 461,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.derivativeComponent_smooth",
+      "kind": "theorem",
+      "line": 470,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.derivativeComponent_iteratedFDeriv",
+      "kind": "theorem",
+      "line": 475,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.line_gradient_iteratedDeriv",
+      "kind": "theorem",
+      "line": 486,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_derivative_abs_le",
+      "kind": "theorem",
+      "line": 493,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_line_gradient_taylor",
+      "kind": "theorem",
+      "line": 501,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.modeCoefficient_analytic_order",
+      "kind": "theorem",
+      "line": 536,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_derivative_comp_perm",
+      "kind": "theorem",
+      "line": 550,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_axial_third_error",
+      "kind": "theorem",
+      "line": 607,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_low_pin_coefficients",
+      "kind": "theorem",
+      "line": 660,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.coordinateDirection",
+      "kind": "def",
+      "line": 707,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.coordinateDirection_zero",
+      "kind": "theorem",
+      "line": 709,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.coordinateDirection_one",
+      "kind": "theorem",
+      "line": 713,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.euclideanToPi",
+      "kind": "def",
+      "line": 717,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.piToEuclidean",
+      "kind": "def",
+      "line": 720,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.gradientPi",
+      "kind": "def",
+      "line": 723,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.gradientEuclidean",
+      "kind": "def",
+      "line": 726,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.hessianMatrix",
+      "kind": "def",
+      "line": 730,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.hessianMatrix_apply",
+      "kind": "theorem",
+      "line": 734,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.coordinate_decomposition",
+      "kind": "theorem",
+      "line": 748,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.hasFDerivAt_gradientEuclidean",
+      "kind": "theorem",
+      "line": 755,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.gradientEuclidean_eq_components",
+      "kind": "theorem",
+      "line": 782,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.scaledGradientEuclidean",
+      "kind": "def",
+      "line": 789,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.hasFDerivAt_scaledGradientEuclidean",
+      "kind": "theorem",
+      "line": 795,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.scaledGradientEuclidean_eq_components",
+      "kind": "theorem",
+      "line": 815,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.hessianEntry_eq_derivativeComponent",
+      "kind": "theorem",
+      "line": 827,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.hessianEntry_smooth",
+      "kind": "theorem",
+      "line": 836,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.line_hessian_iteratedDeriv",
+      "kind": "theorem",
+      "line": 845,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_line_hessian_taylor",
+      "kind": "theorem",
+      "line": 856,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.quarticK0",
+      "kind": "def",
+      "line": 898,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.quarticEpsilonStar",
+      "kind": "def",
+      "line": 899,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.quarticKcap",
+      "kind": "def",
+      "line": 900,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.quarticFstar",
+      "kind": "def",
+      "line": 902,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.quarticWidth",
+      "kind": "def",
+      "line": 905,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.one_le_quarticFstar",
+      "kind": "theorem",
+      "line": 908,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.quarticWidth_pos",
+      "kind": "theorem",
+      "line": 915,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.cutoff_raw_regularity",
+      "kind": "theorem",
+      "line": 922,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.cutoff_scaled_error_budget",
+      "kind": "theorem",
+      "line": 934,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.cutoff_adaptive_tolerance",
+      "kind": "theorem",
+      "line": 954,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.cutoff_quarticWidth_tolerance",
+      "kind": "theorem",
+      "line": 973,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.cutoff_curvature_threshold",
+      "kind": "theorem",
+      "line": 982,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.certificate_width_geometry",
+      "kind": "theorem",
+      "line": 1011,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_origin_derivative_abs_le",
+      "kind": "theorem",
+      "line": 1024,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceRawU_abs_le",
+      "kind": "theorem",
+      "line": 1031,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceRawRadius_one_le",
+      "kind": "theorem",
+      "line": 1041,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceRawRadius_le_majorants",
+      "kind": "theorem",
+      "line": 1045,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceRawRadius_le_global",
+      "kind": "theorem",
+      "line": 1055,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourcePhysicalPins_ae",
+      "kind": "theorem",
+      "line": 1062,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourcePhysicalPins_eventually",
+      "kind": "theorem",
+      "line": 1071,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceGradientTaylorRaw",
+      "kind": "def",
+      "line": 1082,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceGradientTaylor",
+      "kind": "def",
+      "line": 1089,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceHessianTaylor",
+      "kind": "def",
+      "line": 1092,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceScaledGradient_eq",
+      "kind": "theorem",
+      "line": 1101,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceScaledGradient_hasFDerivAt",
+      "kind": "theorem",
+      "line": 1107,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_third_ppx_expansion",
+      "kind": "theorem",
+      "line": 1341,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_third_ppy_expansion",
+      "kind": "theorem",
+      "line": 1350,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_fourth_pppx_expansion",
+      "kind": "theorem",
+      "line": 1359,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_fourth_pppy_expansion",
+      "kind": "theorem",
+      "line": 1368,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_second_p_basis",
+      "kind": "theorem",
+      "line": 1377,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_third_p_basis_basis",
+      "kind": "theorem",
+      "line": 1390,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_fourth_pp_basis_basis",
+      "kind": "theorem",
+      "line": 1406,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.pinPreservingJacobian",
+      "kind": "def",
+      "line": 1423,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.hasFDerivAt_pinPreservingQuartic",
+      "kind": "theorem",
+      "line": 1436,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.fderiv_pinPreservingQuartic",
+      "kind": "theorem",
+      "line": 1489,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceGradientTaylorRaw_sub_quartic_zero",
+      "kind": "theorem",
+      "line": 1498,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceGradientTaylorRaw_sub_quartic_one",
+      "kind": "theorem",
+      "line": 1521,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceHessianTaylor_sub_quarticJacobian",
+      "kind": "theorem",
+      "line": 1553,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.matrixLinearEuclidean_sub",
+      "kind": "theorem",
+      "line": 1574,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.coordinateDirection_norm_le_one",
+      "kind": "theorem",
+      "line": 1581,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceScaledGradientRaw_apply",
+      "kind": "theorem",
+      "line": 1586,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_scaled_gradient_taylor_coordinate_error",
+      "kind": "theorem",
+      "line": 1600,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_scaled_gradient_taylor_error",
+      "kind": "theorem",
+      "line": 1628,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_scaled_hessian_taylor_coordinate_error",
+      "kind": "theorem",
+      "line": 1643,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_scaled_hessian_taylor_error",
+      "kind": "theorem",
+      "line": 1674,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.coefficient_vector_error_le",
+      "kind": "theorem",
+      "line": 1698,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.coefficient_matrix_error_le",
+      "kind": "theorem",
+      "line": 1734,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceGradientTaylor_quartic_error_le",
+      "kind": "theorem",
+      "line": 1788,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceHessianTaylor_quartic_error_le",
+      "kind": "theorem",
+      "line": 1814,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceScaledPotential",
+      "kind": "def",
+      "line": 1841,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": false,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceScaledPotential_hasGradientAt",
+      "kind": "theorem",
+      "line": 1844,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceScaledGradient_eq_gradient",
+      "kind": "theorem",
+      "line": 1868,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceScaledGradient_smooth",
+      "kind": "theorem",
+      "line": 1873,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.pinPreservingQuartic_pins",
+      "kind": "theorem",
+      "line": 1886,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceScaledGradient_pins",
+      "kind": "theorem",
+      "line": 1891,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_value_comparison",
+      "kind": "theorem",
+      "line": 1920,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_operator_comparison",
+      "kind": "theorem",
+      "line": 1933,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_C1_comparison",
+      "kind": "theorem",
+      "line": 1950,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_cutoff_tolerance",
+      "kind": "theorem",
+      "line": 1976,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_curvature_threshold",
+      "kind": "theorem",
+      "line": 1996,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_C1_comparison_ae",
+      "kind": "theorem",
+      "line": 2003,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_C1_estimates",
+      "kind": "theorem",
+      "line": 2012,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceRawU_abs_le_radius",
+      "kind": "theorem",
+      "line": 2027,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_Fstar_le_radius",
+      "kind": "theorem",
+      "line": 2033,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_width_size",
+      "kind": "theorem",
+      "line": 2043,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_width_geometry",
+      "kind": "theorem",
+      "line": 2062,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.quartic_strip_in_ball_two",
+      "kind": "theorem",
+      "line": 2072,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.quartic_endpoint_ball_in_ball_two",
+      "kind": "theorem",
+      "line": 2076,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.quartic_axis_endpoint_norm",
+      "kind": "theorem",
+      "line": 2083,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_cutoff_estimates",
+      "kind": "theorem",
+      "line": 2091,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_weighted_C1_estimates",
+      "kind": "theorem",
+      "line": 2113,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_weighted_cutoff_estimates",
+      "kind": "theorem",
+      "line": 2127,
+      "module": "SourcePinPreservingQuartic",
+      "counts_as_public_proof_target": true,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/final/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "coverage_source": "completed axiom_summary.json; no re-execution"
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetWitness.lean:50:18: error: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetWitness.lean:173:4: error: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetWitness.lean:217:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  fderiv ℝ (fun y => (squaredFactor c (a 0) (k 0) * squaredFactor c (a 1) (k 1)) y * squaredFactor c (a 2) (k 2) y)
+    (a i)
+in the target expression
+  fderiv ℝ (fun z => squaredFactor c (a 0) (k 0) z * squaredFactor c (a 1) (k 1) z * squaredFactor c (a 2) (k 2) z)
+      (a i) =
+    0
+
+case right
+c : ℝ
+a : Fin 3 → Fin 2 → ℝ
+k : Fin 3 → Fin 2
+i : Fin 3
+hA : ∀ (j : Fin 3), Differentiable ℝ (squaredFactor c (a j) (k j))
+hz : ∀ (j : Fin 3), squaredFactor c (a j) (k j) (a j) = 0 ∧ fderiv ℝ (squaredFactor c (a j) (k j)) (a j) = 0
+⊢ fderiv ℝ (fun z => squaredFactor c (a 0) (k 0) z * squaredFactor c (a 1) (k 1) z * squaredFactor c (a 2) (k 2) z)
+      (a i) =
+    0
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetWitness.lean:237:2: error: Type mismatch: After simplification, term
+  Real.cos_sub_pi_div_two (sourceC L * (z j - a j))
+ has type
+  Real.cos (sourceC L * (z j + -a j) + -(Real.pi / 2)) = Real.sin (sourceC L * (z j + -a j))
+but is expected to have type
+  Real.cos (phase 2 L (Pi.single j 1) (z + -a) + -(Real.pi / 2)) = Real.sin (sourceC L * (z j + -a j))
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetWitness.lean:375:30: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.

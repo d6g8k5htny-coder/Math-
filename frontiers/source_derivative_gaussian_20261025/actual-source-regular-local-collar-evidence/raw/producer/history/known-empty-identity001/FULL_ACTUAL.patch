@@ -1,0 +1,16 @@
+--- history/known-empty-identity001/record_run.py.ORIGINAL
++++ runner/record_run.py
+@@ -37,6 +37,13 @@
+     old = cache.get(key)
+     if old and old.get('marker') == marker:
+         return old
++    if info.st_size == 0:
++        row = {'path': key, 'bytes': 0,
++               'sha256': 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855',
++               'marker': marker, 'first_observed_utc': utc(),
++               'origin': 'Literal known EMPTY content identity REUSED; zero hashes'}
++        cache[key] = row
++        return row
+     row = {'path': key, 'bytes': info.st_size,
+            'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
+            'marker': marker, 'first_observed_utc': utc(),

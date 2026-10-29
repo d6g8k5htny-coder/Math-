@@ -1,0 +1,12 @@
+# Frozen finite plan: SourceTwoRemoteFirstJetGaussian
+
+26 October2026. Root adopts this finite plan and the companion contract after fully reading the report and separate source/API preflight. Original scratch drafts remain preserved; no source implementation is claimed by this document. No code/probes/checks/build/kernel/hash/Git/cache/external action occurred. Root publishes a proper new precode/native pickup before implementation and confirms prospective53 qualification/availability.
+
+1. Freeze four public data definitions, two public written propositions and the one cross-remote-block covariance mutation. Preserve signed L, arbitrary r/x/y/target for the sampling law and exactly five quotient inequalities for PosDef. Reuse all completed applicable source/Gaussian/Gram verification; pending process remains separate, scienceNONE/credit0.
+2. Define the literal joint firstjet6, concatenated49 R, full mean R*t and residual Gram using prospective53 B. Assemble the exact posterior observation identity from49's public pointwise identities; keep it private.
+3. Form the one actual12-derivative vector (raw6,jointremote6), prove its joint Gaussianity with the old generic derivative theorem and split by a finite CLM. Use the old regression-residual Gaussian map and one constant translation; do not copy49 private code or infer joint law/independence from one-point marginals.
+4. Match public derivative coordinate means/covariances. Derive the affine mean and fixed finite covariance/Gram transport with old integrability/product summability and finite covariance rules. No sample-weighted residual-series proof or new generic library is needed.
+5. Apply the existing finite Gaussian parameter theorem and raw sampling pushforward to prove the all-r public law. Apply prospective53's arbitrary-R Gram theorem at actual R to prove public PosDef under its five separations.
+6. Root qualifies only new adapters/source inventory/controls, one own-module kernel and one actual equal-point cross-block mutation, preserving all actual attempts. Existing verification is reused without freshness campaigns; root owns cache/registration/Git/publication and independent/process accounting.
+
+Stop at the two public propositions. Conditional tie incidence, finite free-coordinate decomposition, global Morse and canonical/Rice/Parent joins remain separate. The law at coincident points is valid and degenerate; the PosDef theorem requires distinct remote quotient points.

@@ -1,0 +1,135 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:499:28: error: `ContinuousMultilinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:499:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq ℝ ((iteratedFDeriv ℝ k (f + g) p) u) ((iteratedFDeriv ℝ k f p) u + (iteratedFDeriv ℝ k g p) u)
+but is expected to have type
+  @Eq ℝ ((iteratedFDeriv ℝ k (fun x => f x + g x) p) u) ((iteratedFDeriv ℝ k f p) u + (iteratedFDeriv ℝ k g p) u)
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:761:4: error: Type mismatch: After simplification, term
+  OrthonormalBasis.inner_eq_ite R 0 0
+ has type
+  True
+but is expected to have type
+  (R 0).ofLp 0 * (R 0).ofLp 0 + (R 0).ofLp 1 * (R 0).ofLp 1 = 1
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:764:4: error: Type mismatch: After simplification, term
+  OrthonormalBasis.inner_eq_ite R 1 1
+ has type
+  True
+but is expected to have type
+  (R 1).ofLp 0 * (R 1).ofLp 0 + (R 1).ofLp 1 * (R 1).ofLp 1 = 1
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:766:4: error: Type mismatch: After simplification, term
+  OrthonormalBasis.inner_eq_ite R 0 1
+ has type
+  True
+but is expected to have type
+  (R 0).ofLp 0 * (R 1).ofLp 0 + (R 0).ofLp 1 * (R 1).ofLp 1 = 0
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1174:2: error: unsolved goals
+case «0»
+L : ℝ
+hL : L ≠ 0
+ω : SmoothSample 2 L
+z e n : E 2
+r : ℝ
+⊢ smoothSourceField 2 L ω ((coordinates 2) z - (r / 2) • (coordinates 2) e) =
+    ![smoothSourceField 2 L ω ((coordinates 2) z - (r / 2) • (coordinates 2) e),
+        smoothSourceField 2 L ω ((coordinates 2) z + (r / 2) • (coordinates 2) e),
+        (fderiv ℝ (smoothSourceField 2 L ω) ((coordinates 2) z - (r / 2) • (coordinates 2) e)) ((coordinates 2) e),
+        (fderiv ℝ (smoothSourceField 2 L ω) ((coordinates 2) z + (r / 2) • (coordinates 2) e)) ((coordinates 2) e),
+        (fderiv ℝ (smoothSourceField 2 L ω) ((coordinates 2) z - (r / 2) • (coordinates 2) e)) ((coordinates 2) n),
+        (fderiv ℝ (smoothSourceField 2 L ω) ((coordinates 2) z + (r / 2) • (coordinates 2) e)) ((coordinates 2) n)]
+      ((fun i => i) ⟨0, ⋯⟩)
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1176:2: error: unsolved goals
+case «1»
+L : ℝ
+hL : L ≠ 0
+ω : SmoothSample 2 L
+z e n : E 2
+r : ℝ
+⊢ smoothSourceField 2 L ω ((coordinates 2) z + (r / 2) • (coordinates 2) e) =
+    ![smoothSourceField 2 L ω ((coordinates 2) z - (r / 2) • (coordinates 2) e),
+        smoothSourceField 2 L ω ((coordinates 2) z + (r / 2) • (coordinates 2) e),
+        (fderiv ℝ (smoothSourceField 2 L ω) ((coordinates 2) z - (r / 2) • (coordinates 2) e)) ((coordinates 2) e),
+        (fderiv ℝ (smoothSourceField 2 L ω) ((coordinates 2) z + (r / 2) • (coordinates 2) e)) ((coordinates 2) e),
+        (fderiv ℝ (smoothSourceField 2 L ω) ((coordinates 2) z - (r / 2) • (coordinates 2) e)) ((coordinates 2) n),
+        (fderiv ℝ (smoothSourceField 2 L ω) ((coordinates 2) z + (r / 2) • (coordinates 2) e)) ((coordinates 2) n)]
+      ((fun i => i) ⟨1, ⋯⟩)
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1178:4: error: Type mismatch: After simplification, term
+  physical_first hL ω (z - (r / 2) • e) e
+ has type
+  @Eq ℝ ((fderiv ℝ (actualField 2 L ω) (z - (r / 2) • e)) e)
+    ((fderiv ℝ (smoothSourceField 2 L ω) ((coordinates 2) z - (r / 2) • (coordinates 2) e)) ((coordinates 2) e))
+but is expected to have type
+  @Eq ℝ
+    (![actualField 2 L ω (z - (r / 2) • e), actualField 2 L ω (z + (r / 2) • e),
+        (fderiv ℝ (actualField 2 L ω) (z - (r / 2) • e)) e, (fderiv ℝ (actualField 2 L ω) (z + (r / 2) • e)) e,
+        (fderiv ℝ (actualField 2 L ω) (z - (r / 2) • e)) n, (fderiv ℝ (actualField 2 L ω) (z + (r / 2) • e)) n]
+      ⟨2, ⋯⟩)
+    (![smoothSourceField 2 L ω ((coordinates 2) z - (r / 2) • (coordinates 2) e),
+        smoothSourceField 2 L ω ((coordinates 2) z + (r / 2) • (coordinates 2) e),
+        (fderiv ℝ (smoothSourceField 2 L ω) ((coordinates 2) z - (r / 2) • (coordinates 2) e)) ((coordinates 2) e),
+        (fderiv ℝ (smoothSourceField 2 L ω) ((coordinates 2) z + (r / 2) • (coordinates 2) e)) ((coordinates 2) e),
+        (fderiv ℝ (smoothSourceField 2 L ω) ((coordinates 2) z - (r / 2) • (coordinates 2) e)) ((coordinates 2) n),
+        (fderiv ℝ (smoothSourceField 2 L ω) ((coordinates 2) z + (r / 2) • (coordinates 2) e)) ((coordinates 2) n)]
+      ⟨2, ⋯⟩)
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1179:4: error: Type mismatch: After simplification, term
+  physical_first hL ω (z + (r / 2) • e) e
+ has type
+  @Eq ℝ ((fderiv ℝ (actualField 2 L ω) (z + (r / 2) • e)) e)
+    ((fderiv ℝ (smoothSourceField 2 L ω) ((coordinates 2) z + (r / 2) • (coordinates 2) e)) ((coordinates 2) e))
+but is expected to have type
+  @Eq ℝ
+    (![actualField 2 L ω (z - (r / 2) • e), actualField 2 L ω (z + (r / 2) • e),
+        (fderiv ℝ (actualField 2 L ω) (z - (r / 2) • e)) e, (fderiv ℝ (actualField 2 L ω) (z + (r / 2) • e)) e,
+        (fderiv ℝ (actualField 2 L ω) (z - (r / 2) • e)) n, (fderiv ℝ (actualField 2 L ω) (z + (r / 2) • e)) n]
+      ⟨3, ⋯⟩)
+    (![smoothSourceField 2 L ω ((coordinates 2) z - (r / 2) • (coordinates 2) e),
+        smoothSourceField 2 L ω ((coordinates 2) z + (r / 2) • (coordinates 2) e),
+        (fderiv ℝ (smoothSourceField 2 L ω) ((coordinates 2) z - (r / 2) • (coordinates 2) e)) ((coordinates 2) e),
+        (fderiv ℝ (smoothSourceField 2 L ω) ((coordinates 2) z + (r / 2) • (coordinates 2) e)) ((coordinates 2) e),
+        (fderiv ℝ (smoothSourceField 2 L ω) ((coordinates 2) z - (r / 2) • (coordinates 2) e)) ((coordinates 2) n),
+        (fderiv ℝ (smoothSourceField 2 L ω) ((coordinates 2) z + (r / 2) • (coordinates 2) e)) ((coordinates 2) n)]
+      ⟨3, ⋯⟩)
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1180:4: error: Type mismatch: After simplification, term
+  physical_first hL ω (z - (r / 2) • e) n
+ has type
+  @Eq ℝ ((fderiv ℝ (actualField 2 L ω) (z - (r / 2) • e)) n)
+    ((fderiv ℝ (smoothSourceField 2 L ω) ((coordinates 2) z - (r / 2) • (coordinates 2) e)) ((coordinates 2) n))
+but is expected to have type
+  @Eq ℝ
+    (![actualField 2 L ω (z - (r / 2) • e), actualField 2 L ω (z + (r / 2) • e),
+        (fderiv ℝ (actualField 2 L ω) (z - (r / 2) • e)) e, (fderiv ℝ (actualField 2 L ω) (z + (r / 2) • e)) e,
+        (fderiv ℝ (actualField 2 L ω) (z - (r / 2) • e)) n, (fderiv ℝ (actualField 2 L ω) (z + (r / 2) • e)) n]
+      ⟨4, ⋯⟩)
+    (![smoothSourceField 2 L ω ((coordinates 2) z - (r / 2) • (coordinates 2) e),
+        smoothSourceField 2 L ω ((coordinates 2) z + (r / 2) • (coordinates 2) e),
+        (fderiv ℝ (smoothSourceField 2 L ω) ((coordinates 2) z - (r / 2) • (coordinates 2) e)) ((coordinates 2) e),
+        (fderiv ℝ (smoothSourceField 2 L ω) ((coordinates 2) z + (r / 2) • (coordinates 2) e)) ((coordinates 2) e),
+        (fderiv ℝ (smoothSourceField 2 L ω) ((coordinates 2) z - (r / 2) • (coordinates 2) e)) ((coordinates 2) n),
+        (fderiv ℝ (smoothSourceField 2 L ω) ((coordinates 2) z + (r / 2) • (coordinates 2) e)) ((coordinates 2) n)]
+      ⟨4, ⋯⟩)
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1181:4: error: Type mismatch: After simplification, term
+  physical_first hL ω (z + (r / 2) • e) n
+ has type
+  @Eq ℝ ((fderiv ℝ (actualField 2 L ω) (z + (r / 2) • e)) n)
+    ((fderiv ℝ (smoothSourceField 2 L ω) ((coordinates 2) z + (r / 2) • (coordinates 2) e)) ((coordinates 2) n))
+but is expected to have type
+  @Eq ℝ
+    (![actualField 2 L ω (z - (r / 2) • e), actualField 2 L ω (z + (r / 2) • e),
+        (fderiv ℝ (actualField 2 L ω) (z - (r / 2) • e)) e, (fderiv ℝ (actualField 2 L ω) (z + (r / 2) • e)) e,
+        (fderiv ℝ (actualField 2 L ω) (z - (r / 2) • e)) n, (fderiv ℝ (actualField 2 L ω) (z + (r / 2) • e)) n]
+      ⟨5, ⋯⟩)
+    (![smoothSourceField 2 L ω ((coordinates 2) z - (r / 2) • (coordinates 2) e),
+        smoothSourceField 2 L ω ((coordinates 2) z + (r / 2) • (coordinates 2) e),
+        (fderiv ℝ (smoothSourceField 2 L ω) ((coordinates 2) z - (r / 2) • (coordinates 2) e)) ((coordinates 2) e),
+        (fderiv ℝ (smoothSourceField 2 L ω) ((coordinates 2) z + (r / 2) • (coordinates 2) e)) ((coordinates 2) e),
+        (fderiv ℝ (smoothSourceField 2 L ω) ((coordinates 2) z - (r / 2) • (coordinates 2) e)) ((coordinates 2) n),
+        (fderiv ℝ (smoothSourceField 2 L ω) ((coordinates 2) z + (r / 2) • (coordinates 2) e)) ((coordinates 2) n)]
+      ⟨5, ⋯⟩)
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1195:2: error: Type mismatch: After simplification, term
+  hh
+ has type
+  (I4ContactGram.coefficientGram (residualCoefficient a (framedConfluentCoefficient L z R 0) 0)).PosDef
+but is expected to have type
+  (I4ContactGram.coefficientGram (framedConfluentCoefficient L z R 0)).PosDef

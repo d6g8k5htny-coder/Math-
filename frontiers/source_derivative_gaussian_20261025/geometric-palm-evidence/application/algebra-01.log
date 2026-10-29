@@ -1,0 +1,102 @@
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:12:31: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Monoid (Matrix n n ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:13:19: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HMul (Matrix n n ℝ) (Matrix n n ℝ) ?m.14
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:13:48: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Inv (Matrix n n ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:14:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Mul (Matrix n n ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:14:2: error: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:20:31: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Monoid (Matrix n n ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:21:21: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HMul (Matrix n n ℝ) (Matrix n n ℝ) ?m.24
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:21:48: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NonUnitalNonAssocSemiring ℝ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:21:20: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NonUnitalNonAssocSemiring ℝ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:21:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NonUnitalNonAssocSemiring ℝ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:21:20: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Inv (Matrix n n ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:21:59: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Inv (Matrix n n ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:21:59: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NonUnitalNonAssocSemiring ℝ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:22:2: error: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:26:31: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Monoid (Matrix n n ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:27:5: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NonUnitalNonAssocSemiring ℝ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:27:18: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HMul (Matrix n n ℝ) (Matrix n n ℝ) ?m.26
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:27:45: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NonUnitalNonAssocSemiring ℝ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:27:17: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NonUnitalNonAssocSemiring ℝ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:27:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Mul ℝ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:27:17: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Inv (Matrix n n ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:27:62: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Inv (Matrix n n ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:27:62: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NonUnitalNonAssocSemiring ℝ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:27:56: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Mul ℝ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:31:14: error(lean.unknownIdentifier): Unknown constant `inverse_congruence`
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:32:14: error(lean.unknownIdentifier): Unknown constant `inverse_congruence_mulVec`
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:33:14: error(lean.unknownIdentifier): Unknown constant `coefficient_lift_congr`

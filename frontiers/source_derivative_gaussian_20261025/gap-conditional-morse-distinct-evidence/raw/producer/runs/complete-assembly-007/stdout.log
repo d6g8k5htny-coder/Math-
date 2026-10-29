@@ -1,0 +1,23 @@
+SourceGapConditionalMorseDistinct.lean:1578:9: error: Function expected at
+  isOpen_ne
+but this term has type
+  IsOpen[?m.10] {y | y ≠ ?m.12}
+
+Note: Expected a function because this term is being applied to the argument
+  hp
+SourceGapConditionalMorseDistinct.lean:1584:7: error: Function expected at
+  isOpen_ne
+but this term has type
+  IsOpen[?m.37] {y | y ≠ ?m.39}
+
+Note: Expected a function because this term is being applied to the argument
+  (hp.comp continuous_fst)
+SourceGapConditionalMorseDistinct.lean:1593:35: error: unexpected token '('; expected ')'
+SourceGapConditionalMorseDistinct.lean:1647:35: error: unexpected token '('; expected ')'
+SourceGapConditionalMorseDistinct.lean:1678:35: error: unexpected token '('; expected ')'
+SourceGapConditionalMorseDistinct.lean:1706:16: error: declaration uses `sorry`
+SourceGapConditionalMorseDistinct.lean:1720:16: error: declaration uses `sorry`
+SourceGapConditionalMorseDistinct.lean:1744:16: error: declaration uses `sorry`
+SourceGapConditionalMorseDistinct.lean:1774:35: error: unexpected token '('; expected ')'
+SourceGapConditionalMorseDistinct.lean:1787:35: error: unexpected token '('; expected ')'
+SourceGapConditionalMorseDistinct.lean:1799:35: error: unexpected token '('; expected ')'

@@ -1,0 +1,50 @@
+{
+  "label": "boundary-control-001",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "env",
+    "LEAN_PATH=/workspace/scratch/transverse-ridge-construct/build:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Cli/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/batteries/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Qq/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/aesop/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/plausible/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean:/home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean",
+    "lean",
+    "-R",
+    "/workspace/scratch/transverse-ridge-construct",
+    "-DwarningAsError=true",
+    "-o",
+    "/workspace/scratch/transverse-ridge-construct/build/BoundarySignControl.olean",
+    "/workspace/scratch/transverse-ridge-construct/BoundarySignControl.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/AdaptiveFoldTransverseRidge.lean",
+      "bytes": 28516,
+      "sha256": "715b01c2ae3b6e2bceb4196e53361530c8c9c69550e7cf675904cd5661b3de20"
+    },
+    "object": {
+      "path": "/workspace/scratch/transverse-ridge-construct/build/AdaptiveFoldTransverseRidge.olean",
+      "bytes": 841192,
+      "sha256": "f3957a3afe2d4d1f492c3ddd9463f93526c821f3210a48094267d56a7a527749"
+    }
+  },
+  "started_utc": "2026-10-26T05:03:32.315758+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 2.5961058139801025,
+  "ended_utc": "2026-10-26T05:03:34.911911+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/AdaptiveFoldTransverseRidge.lean",
+      "bytes": 28516,
+      "sha256": "715b01c2ae3b6e2bceb4196e53361530c8c9c69550e7cf675904cd5661b3de20"
+    },
+    "object": {
+      "path": "/workspace/scratch/transverse-ridge-construct/build/AdaptiveFoldTransverseRidge.olean",
+      "bytes": 841192,
+      "sha256": "f3957a3afe2d4d1f492c3ddd9463f93526c821f3210a48094267d56a7a527749"
+    }
+  },
+  "log": {
+    "path": "/workspace/scratch/transverse-ridge-construct/runs/boundary-control-001/output.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

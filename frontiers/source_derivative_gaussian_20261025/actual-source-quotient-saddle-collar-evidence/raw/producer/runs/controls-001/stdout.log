@@ -1,0 +1,51 @@
+/workspace/scratch/actual-source-quotient-saddle-collar-construct/QuotientSaddleCollarControls.lean:391:58: error: This simp argument is unused:
+  zero_pow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.cons_val_zero, Matrix.cons_val_one, sub_zero] at hid
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/actual-source-quotient-saddle-collar-construct/QuotientSaddleCollarControls.lean:391:68: error: This simp argument is unused:
+  sub_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.cons_val_zero, Matrix.cons_val_one, zero_pow] at hid
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/actual-source-quotient-saddle-collar-construct/QuotientSaddleCollarControls.lean:397:58: error: This simp argument is unused:
+  zero_pow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.cons_val_zero, Matrix.cons_val_one, sub_zero] at hid
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/actual-source-quotient-saddle-collar-construct/QuotientSaddleCollarControls.lean:397:68: error: This simp argument is unused:
+  sub_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.cons_val_zero, Matrix.cons_val_one, zero_pow] at hid
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/actual-source-quotient-saddle-collar-construct/QuotientSaddleCollarControls.lean:401:2: error: Type mismatch: After simplification, term
+  congrFun strictPlus_coordinates 1
+ has type
+  @Eq ℝ (↑chosenChart strictPointPlus 1) (![chosenRadius / 2] 0)
+but is expected to have type
+  @Eq ℝ (↑chosenChart strictPointPlus 1) (chosenRadius / 2)
+/workspace/scratch/actual-source-quotient-saddle-collar-construct/QuotientSaddleCollarControls.lean:404:2: error: Type mismatch: After simplification, term
+  congrFun strictMinus_coordinates 1
+ has type
+  @Eq ℝ (↑chosenChart strictPointMinus 1) (![-chosenRadius / 2] 0)
+but is expected to have type
+  @Eq ℝ (↑chosenChart strictPointMinus 1) (-chosenRadius / 2)
+/workspace/scratch/actual-source-quotient-saddle-collar-construct/QuotientSaddleCollarControls.lean:412:72: error: Tactic `assumption` failed
+
+hpc : IsPathConnected chosenStrictTrace
+hj : JoinedIn chosenStrictTrace strictPointMinus strictPointPlus
+z : I4Torus.SourceTorus 2 2
+hz : z ∈ chosenStrictTrace
+⊢ ↑chosenChart.toPartialEquiv z ∈ ?m.49
+/workspace/scratch/actual-source-quotient-saddle-collar-construct/QuotientSaddleCollarControls.lean:406:85: error: unsolved goals
+hpc : IsPathConnected chosenStrictTrace
+hj : JoinedIn chosenStrictTrace strictPointMinus strictPointPlus
+⊢ False

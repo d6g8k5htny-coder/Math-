@@ -1,0 +1,30 @@
+SourceActualTorusRegularSlab.lean:737:4: error: Type mismatch: After simplification, term
+  hq
+ has type
+  @LE.le ℝ Real.instLE a (smoothSourceField 2 L omega ((coordinates 2) X))
+but is expected to have type
+  @LE.le ℝ Real.instLE a (actualField 2 L omega X)
+SourceActualTorusRegularSlab.lean:862:33: error: Application type mismatch: The argument
+  hXq
+has type
+  restrictedProjection hL omega b X = q
+but is expected to have type
+  restrictedProjection hL omega a ⟨↑X, ⋯⟩ = ⟨↑q, ⋯⟩
+in the application
+  congrArg Subtype.val hXq
+SourceActualTorusRegularSlab.lean:910:31: error: Application type mismatch: The argument
+  hfix ⟨↑X, hX⟩
+has type
+  R ⟨↑⟨↑X, hX⟩, ⋯⟩ = ⟨↑X, hX⟩
+but is expected to have type
+  r ((TorusFiltration.superlevel_inclusion F ⋯) X) = X
+in the application
+  congrArg Subtype.val (hfix ⟨↑X, hX⟩)
+SourceActualTorusRegularSlab.lean:919:2: error: Type mismatch: After simplification, term
+  hp
+ has type
+  @JoinedIn (I4Torus.SourceTorus 2 L) Pi.topologicalSpace {z | a ≤ SourceActualFoldTorus.actualTorusField ⋯ omega z}
+    ↑(R ⟨↑X, hX⟩) ↑X
+but is expected to have type
+  @JoinedIn (I4Torus.SourceTorus 2 L) Pi.topologicalSpace {x | a ≤ F x}
+    ↑((TorusFiltration.superlevel_inclusion (SourceActualFoldTorus.actualTorusField ⋯ omega) ⋯) (r X)) ↑X

@@ -1,0 +1,51 @@
+{
+  "recorded_utc": "2026-10-28T19:59:52.518316+00:00",
+  "logical_id": "STAGE64-ACTUAL-QUOTIENT-SADDLE-CHART-ORIGINAL-V1-COMPLETE",
+  "helper": "/root/actual_canonical_capture_application",
+  "full_context002_ACK_observed_utc": "2026-10-28T19:54:27Z",
+  "release_preparation_observed_utc": "2026-10-28T19:55:04Z",
+  "proof_text_start_observed_utc": "2026-10-28T19:56:48Z",
+  "original_frozen_utc": "2026-10-28T19:58:07Z",
+  "integrations": 1,
+  "helper_executions": 0,
+  "helper_hashes": 0,
+  "original_context": "002; later003narrowimport does not regenerate A",
+  "status": "Complete UNELABORATED TEXT, no helper PASS",
+  "originals": [
+    {
+      "original": "/workspace/scratch/actual-source-quotient-saddle-collar-chart-text/QuotientChartSection.ORIGINAL.lean.txt",
+      "immutable_retained": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/originals/A.QuotientChartSection.ORIGINAL.lean.txt",
+      "bytes": 5206,
+      "sha256": "65e9de7dac57552a091a44b6a8dd0c303e4effcf4fd3c784a426c6fb2f323971",
+      "origin": "Producer FIRST complete frozen original identity BEFORE ONEintegration; helperhash0"
+    },
+    {
+      "original": "/workspace/scratch/actual-source-quotient-saddle-collar-chart-text/CONTEXT.ORIGINAL.md",
+      "immutable_retained": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/originals/A.CONTEXT.ORIGINAL.md",
+      "bytes": 26196,
+      "sha256": "12446497b2944bdccb326962ee218d77cc3028968fbb88f073e37c272a34d521",
+      "origin": "Producer FIRST complete frozen original identity BEFORE ONEintegration; helperhash0"
+    },
+    {
+      "original": "/workspace/scratch/actual-source-quotient-saddle-collar-chart-text/IMPORTS.ORIGINAL.txt",
+      "immutable_retained": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/originals/A.IMPORTS.ORIGINAL.txt",
+      "bytes": 1175,
+      "sha256": "e7fcc942c94a73f38257701c3e7d94e6d57b7d752664c3b720727a4df8c71cf6",
+      "origin": "Producer FIRST complete frozen original identity BEFORE ONEintegration; helperhash0"
+    },
+    {
+      "original": "/workspace/scratch/actual-source-quotient-saddle-collar-chart-text/PROVENANCE.md",
+      "immutable_retained": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/originals/A.PROVENANCE.md",
+      "bytes": 5154,
+      "sha256": "049374f1d69b1add4acbee852626ece0d85037e086f624ce0fcc7181cb896a24",
+      "origin": "Producer FIRST complete frozen original identity BEFORE ONEintegration; helperhash0"
+    },
+    {
+      "original": "/workspace/scratch/actual-source-quotient-saddle-collar-chart-text/FROZEN.json",
+      "immutable_retained": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/originals/A.FROZEN.json",
+      "bytes": 993,
+      "sha256": "74cceced7090891f1a695b400135a5d5ea1a81736f53e9bf8d7e89cc94fe7ff8",
+      "origin": "Producer FIRST complete frozen original identity BEFORE ONEintegration; helperhash0"
+    }
+  ]
+}

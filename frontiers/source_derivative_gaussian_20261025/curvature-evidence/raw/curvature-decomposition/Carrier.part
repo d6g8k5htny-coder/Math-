@@ -1,0 +1,219 @@
+
+namespace I4SourceCurvatureDecomposition
+
+theorem curvatureZ_measurable (L r : ℝ) : Measurable (curvatureZ L r) :=
+  (scalarSeries_measurable _).comp measurable_subtype_coe
+
+theorem sourceContactQ_measurable {L : ℝ} (hL : L ≠ 0) : Measurable (sourceContactQ L) := by
+  have h : sourceContactQ L = fun ω => scalarSeries (curvatureCoefficient L) ω.val :=
+    funext (sourceContactQ_series hL)
+  rw [h]
+  exact (scalarSeries_measurable _).comp measurable_subtype_coe
+
+theorem curvatureZ_hasLaw {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (hG : IsUnit (sourcePinCovarianceAt L r)) (hτ : 0 < curvatureVariance L r) :
+    HasLaw (curvatureZ L r) (gaussianReal 0 1) (smoothLaw 2 L) :=
+  unitDirection_hasLaw hL _ (curvatureDirection_summable hL r)
+    (curvatureDirection_normSquared hL r hG hτ)
+
+theorem curvatureDirection_goodSample {L : ℝ} (hL : L ≠ 0) (r : ℝ) :
+    goodSample 2 L (curvatureDirection L r) := by
+  intro n
+  exact coefficient_product_summable (orderModeBound_summable n 2 hL)
+    (curvatureDirection_summable hL r).abs
+
+def curvatureShift {L : ℝ} (hL : L ≠ 0) (r t : ℝ) (ω : SmoothSample 2 L) : SmoothSample 2 L :=
+  ⟨fun m => ω.val m + curvatureDirection L r m * t, by
+    apply goodSample_add _ _ ω.property
+    intro n
+    simpa only [abs_mul, mul_assoc] using ((curvatureDirection_goodSample hL r) n).mul_right |t|⟩
+
+@[simp] theorem curvatureShift_val {L : ℝ} (hL : L ≠ 0) (r t : ℝ)
+    (ω : SmoothSample 2 L) (m : SourceMode 2) :
+    (curvatureShift hL r t ω).val m = ω.val m + curvatureDirection L r m * t := rfl
+
+theorem curvatureShift_measurable {L : ℝ} (hL : L ≠ 0) (r : ℝ) :
+    Measurable (fun p : ℝ × SmoothSample 2 L => curvatureShift hL r p.1 p.2) := by
+  apply Measurable.subtype_mk
+  apply Measurable.of_eval
+  intro m
+  exact ((measurable_pi_apply m).comp (measurable_subtype_coe.comp measurable_snd)).add
+    (measurable_const.mul measurable_fst)
+
+def curvatureResidualSample {L : ℝ} (hL : L ≠ 0) (r : ℝ) (ω : SmoothSample 2 L) : SmoothSample 2 L :=
+  curvatureShift hL r (-curvatureZ L r ω) ω
+
+def curvatureResidualLaw {L : ℝ} (hL : L ≠ 0) (r : ℝ) : Measure (SmoothSample 2 L) :=
+  (smoothLaw 2 L).map (curvatureResidualSample hL r)
+
+theorem curvatureResidualSample_measurable {L : ℝ} (hL : L ≠ 0) (r : ℝ) :
+    Measurable (curvatureResidualSample hL r) :=
+  (curvatureShift_measurable hL r).comp ((curvatureZ_measurable L r).neg.prodMk measurable_id)
+
+instance curvatureResidualLaw_isProbabilityMeasure {L : ℝ} (hL : L ≠ 0) (r : ℝ) :
+    IsProbabilityMeasure (curvatureResidualLaw hL r) := by
+  have : IsProbabilityMeasure (smoothLaw 2 L) := smoothLaw_isProbabilityMeasure 2 hL
+  exact Measure.isProbabilityMeasure_map (curvatureResidualSample_measurable hL r).aemeasurable
+
+private theorem scalarSeries_curvatureShift {L : ℝ} (hL : L ≠ 0) (r t : ℝ)
+    (ω : SmoothSample 2 L) (a : SourceMode 2 → ℝ) (ha : Summable a)
+    (hω : Summable (fun m => a m * ω.val m)) :
+    scalarSeries a (curvatureShift hL r t ω).val =
+      scalarSeries a ω.val + (∑' m, a m * curvatureDirection L r m) * t := by
+  have hs := ((coefficient_product_summable ha (curvatureDirection_summable hL r)).hasSum).mul_right t
+  have ht := hω.hasSum.add hs
+  change (∑' m, a m * (ω.val m + curvatureDirection L r m * t)) = _
+  convert ht.tsum_eq using 1
+  · apply tsum_congr
+    intro m
+    ring
+  · rfl
+
+theorem sourceConfluentPinsAt_curvatureShift {L : ℝ} (hL : L ≠ 0) (r t : ℝ)
+    (hG : IsUnit (sourcePinCovarianceAt L r)) (ω : SmoothSample 2 L) :
+    sourceConfluentPinsAt L r (curvatureShift hL r t ω) = sourceConfluentPinsAt L r ω := by
+  rw [sourceConfluentPinsAt_series hL r (curvatureShift hL r t ω), sourceConfluentPinsAt_series hL r ω]
+  funext i
+  rw [scalarSeries_curvatureShift hL r t ω _ (pinCoefficient_summable hL r i)
+    (pinCoefficient_weighted_summable hL r ω i), curvatureDirection_pin_orthogonal hL r hG i]
+  simp
+
+theorem sourceContactQ_curvatureShift {L : ℝ} (hL : L ≠ 0) (r t : ℝ)
+    (hτ : 0 < curvatureVariance L r) (ω : SmoothSample 2 L) :
+    sourceContactQ L (curvatureShift hL r t ω) = sourceContactQ L ω + curvatureSigma L r * t := by
+  rw [sourceContactQ_series hL (curvatureShift hL r t ω), sourceContactQ_series hL ω,
+    scalarSeries_curvatureShift hL r t ω _ (curvatureCoefficient_summable hL)
+      (curvatureCoefficient_weighted_summable hL ω), curvatureDirection_q_pairing hL r hτ]
+
+theorem curvatureZ_curvatureShift {L : ℝ} (hL : L ≠ 0) (r t : ℝ)
+    (hG : IsUnit (sourcePinCovarianceAt L r)) (hτ : 0 < curvatureVariance L r)
+    (ω : SmoothSample 2 L) :
+    curvatureZ L r (curvatureShift hL r t ω) = curvatureZ L r ω + t := by
+  unfold curvatureZ
+  rw [scalarSeries_curvatureShift hL r t ω _ (curvatureDirection_summable hL r)
+    (curvatureDirection_weighted_summable hL r ω)]
+  have h : (∑' m, curvatureDirection L r m * curvatureDirection L r m) = 1 := by
+    simpa only [pow_two] using curvatureDirection_normSquared hL r hG hτ
+  rw [h, one_mul]
+
+theorem curvatureResidualSample_pins {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (hG : IsUnit (sourcePinCovarianceAt L r)) (ω : SmoothSample 2 L) :
+    sourceConfluentPinsAt L r (curvatureResidualSample hL r ω) = sourceConfluentPinsAt L r ω :=
+  sourceConfluentPinsAt_curvatureShift hL r _ hG ω
+
+theorem curvatureResidualSample_Z {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (hG : IsUnit (sourcePinCovarianceAt L r)) (hτ : 0 < curvatureVariance L r)
+    (ω : SmoothSample 2 L) : curvatureZ L r (curvatureResidualSample hL r ω) = 0 := by
+  rw [curvatureResidualSample, curvatureZ_curvatureShift hL r _ hG hτ]
+  exact add_neg_cancel _
+
+theorem curvatureResidualSample_inclusion {L : ℝ} (hL : L ≠ 0) (r : ℝ) (ω : SmoothSample 2 L) :
+    (curvatureResidualSample hL r ω).val = unitDirectionCoefficientResidual (curvatureDirection L r) ω := by
+  funext m
+  change ω.val m + curvatureDirection L r m * (-curvatureZ L r ω) = _
+  unfold unitDirectionCoefficientResidual unitDirection curvatureZ
+  ring
+
+theorem curvatureResidualSample_indepFun {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (hG : IsUnit (sourcePinCovarianceAt L r)) (hτ : 0 < curvatureVariance L r) :
+    IndepFun (curvatureZ L r) (curvatureResidualSample hL r) (smoothLaw 2 L) := by
+  obtain ⟨q,hq,hret⟩ := exists_measurable_sampleProjection 2 L
+  have hi := (unitDirectionCoefficientResidual_indepFun hL (curvatureDirection L r)
+    (curvatureDirection_summable hL r) (curvatureDirection_normSquared hL r hG hτ)).comp measurable_id hq
+  have heq : q ∘ (fun ω => unitDirectionCoefficientResidual (curvatureDirection L r) ω) =
+      curvatureResidualSample hL r := by
+    funext ω
+    rw [Function.comp_apply, ← curvatureResidualSample_inclusion hL r ω]
+    exact hret _
+  simpa only [Function.id_comp, heq] using hi
+
+theorem curvatureResidualSample_joint_map {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (hG : IsUnit (sourcePinCovarianceAt L r)) (hτ : 0 < curvatureVariance L r) :
+    (smoothLaw 2 L).map (fun ω => (curvatureResidualSample hL r ω, curvatureZ L r ω)) =
+      (curvatureResidualLaw hL r).prod (gaussianReal 0 1) := by
+  rw [(curvatureResidualSample_indepFun hL r hG hτ).symm.map_prod_eq_prod_map_map
+    (curvatureResidualSample_measurable hL r).aemeasurable (curvatureZ_measurable L r).aemeasurable,
+    (curvatureZ_hasLaw hL r hG hτ).map_eq]
+  rfl
+
+theorem sourceContactQ_posteriorSample {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (x : Fin 6 → ℝ) (ω : SmoothSample 2 L) :
+    sourceContactQ L (posteriorSample hL r x ω) = sourceContactQ L ω +
+      curvatureMean L r (x - sourceConfluentPinsAt L r ω) := by
+  rw [sourceContactQ_series hL (posteriorSample hL r x ω), sourceContactQ_series hL ω]
+  change scalarSeries (curvatureCoefficient L)
+    (fun m => ω.val m + ∑ i, pinCoefficient L r i m *
+      (((sourcePinCovarianceAt L r)⁻¹ *ᵥ (x - sourceConfluentPinsAt L r ω)) i)) = _
+  rw [scalarSeries_add_finiteShift _ _ _ _ (curvatureCoefficient_summable hL)
+    (pinCoefficient_summable hL r) (curvatureCoefficient_weighted_summable hL ω)]
+  simp_rw [← curvatureCross_coefficient hL r]
+  change _ + curvatureCross L r ⬝ᵥ (sourcePinCovarianceAt L r)⁻¹ *ᵥ _ = _
+  rw [Matrix.dotProduct_mulVec]
+  rfl
+
+theorem sourceContactQ_posteriorSample_Z {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (hτ : 0 < curvatureVariance L r) (x : Fin 6 → ℝ) (ω : SmoothSample 2 L) :
+    sourceContactQ L (posteriorSample hL r x ω) = curvatureMean L r x +
+      curvatureSigma L r * curvatureZ L r ω := by
+  have hz := (div_eq_iff (curvatureSigma_pos hτ).ne').mp (curvatureZ_eq hL r ω)
+  rw [sourceContactQ_posteriorSample hL r x ω]
+  simp only [curvatureMean, dotProduct_sub] at *
+  nlinarith only [hz]
+
+theorem sourceContactQ_posteriorResidual {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (hG : IsUnit (sourcePinCovarianceAt L r)) (hτ : 0 < curvatureVariance L r)
+    (x : Fin 6 → ℝ) (ω : SmoothSample 2 L) :
+    sourceContactQ L (posteriorSample hL r x (curvatureResidualSample hL r ω)) = curvatureMean L r x := by
+  rw [sourceContactQ_posteriorSample_Z hL r hτ x, curvatureResidualSample_Z hL r hG hτ, mul_zero, add_zero]
+
+theorem curvaturePosterior_reconstruction {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (hG : IsUnit (sourcePinCovarianceAt L r)) (x : Fin 6 → ℝ) (ω : SmoothSample 2 L) :
+    curvatureShift hL r (curvatureZ L r ω)
+      (posteriorSample hL r x (curvatureResidualSample hL r ω)) = posteriorSample hL r x ω := by
+  apply Subtype.ext
+  funext m
+  simp only [curvatureShift_val, posteriorSample_val, curvatureResidualSample_pins hL r hG,
+    curvatureResidualSample, curvatureShift_val]
+  ring
+
+def curvatureReconstruct {L : ℝ} (hL : L ≠ 0) (r : ℝ) (x : Fin 6 → ℝ)
+    (ρ : SmoothSample 2 L) (q : ℝ) : SmoothSample 2 L :=
+  curvatureShift hL r ((q - sourceContactQ L (posteriorSample hL r x ρ)) / curvatureSigma L r)
+    (posteriorSample hL r x ρ)
+
+theorem curvatureReconstruct_measurable {L : ℝ} (hL : L ≠ 0) (r : ℝ) (x : Fin 6 → ℝ) :
+    Measurable (fun p : SmoothSample 2 L × ℝ => curvatureReconstruct hL r x p.1 p.2) := by
+  have hp : Measurable (fun p : SmoothSample 2 L × ℝ => posteriorSample hL r x p.1) :=
+    (posteriorSample_measurable hL r).comp (measurable_const.prodMk measurable_fst)
+  exact (curvatureShift_measurable hL r).comp
+    (((measurable_snd.sub ((sourceContactQ_measurable hL).comp hp)).div_const _).prodMk hp)
+
+theorem curvatureReconstruct_pins {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (hG : IsUnit (sourcePinCovarianceAt L r)) (x : Fin 6 → ℝ) (ρ : SmoothSample 2 L) (q : ℝ) :
+    sourceConfluentPinsAt L r (curvatureReconstruct hL r x ρ q) = x := by
+  rw [curvatureReconstruct, sourceConfluentPinsAt_curvatureShift hL r _ hG,
+    sourceConfluentPinsAt_posteriorSample hL r hG]
+
+theorem curvatureReconstruct_Q {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (hτ : 0 < curvatureVariance L r) (x : Fin 6 → ℝ) (ρ : SmoothSample 2 L) (q : ℝ) :
+    sourceContactQ L (curvatureReconstruct hL r x ρ q) = q := by
+  rw [curvatureReconstruct, sourceContactQ_curvatureShift hL r _ hτ]
+  have hs := (curvatureSigma_pos hτ).ne'
+  field_simp
+  <;> ring
+
+theorem curvatureReconstruct_residual_image {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (hG : IsUnit (sourcePinCovarianceAt L r)) (hτ : 0 < curvatureVariance L r)
+    (x : Fin 6 → ℝ) (ω : SmoothSample 2 L) :
+    curvatureReconstruct hL r x (curvatureResidualSample hL r ω)
+      (curvatureMean L r x + curvatureSigma L r * curvatureZ L r ω) = posteriorSample hL r x ω := by
+  unfold curvatureReconstruct
+  rw [sourceContactQ_posteriorResidual hL r hG hτ x ω]
+  have hs : (curvatureMean L r x + curvatureSigma L r * curvatureZ L r ω - curvatureMean L r x) /
+      curvatureSigma L r = curvatureZ L r ω := by
+    field_simp
+    <;> ring
+  rw [hs]
+  exact curvaturePosterior_reconstruction hL r hG x ω
+
+end I4SourceCurvatureDecomposition

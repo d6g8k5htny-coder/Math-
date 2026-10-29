@@ -1,0 +1,31 @@
+--- Controls002.lean
++++ Controls003.lean
+@@ -421,7 +421,10 @@
+     change chosenPhi.symm (![0,(1-2*(1 : ℝ))*chosenRho/2] : Point2) = minusPoint
+     congr 1
+     ext i
+-    fin_cases i <;> simp <;> ring
++    fin_cases i
++    · rfl
++    · change (1-2*(1 : ℝ))*chosenRho/2 = -chosenRho/2
++      ring
+ 
+ private theorem boundaryPath_formula (t : unitInterval) :
+     boundaryPath t = chosenPhi.symm (boundaryTargetPoint t) := rfl
+@@ -453,8 +456,14 @@
+   have hp : (![0,chosenRho/2] : Point2) ∈ chosenPhi.target := by
+     simpa [boundaryTargetPoint] using boundaryTargetPoint_mem (0 : unitInterval)
+   have hm : (![0,-chosenRho/2] : Point2) ∈ chosenPhi.target := by
+-    convert boundaryTargetPoint_mem (1 : unitInterval) using 1 <;>
+-      congr 1 <;> ext i <;> fin_cases i <;> simp <;> ring
++    have h := boundaryTargetPoint_mem (1 : unitInterval)
++    have he : boundaryTargetPoint (1 : unitInterval) = (![0,-chosenRho/2] : Point2) := by
++      ext i
++      fin_cases i
++      · rfl
++      · change (1-2*(1 : ℝ))*chosenRho/2 = -chosenRho/2
++        ring
++    rwa [he] at h
+   change (chosenPhi (chosenPhi.symm (![0,chosenRho/2] : Point2)) 1)*
+     (chosenPhi (chosenPhi.symm (![0,-chosenRho/2] : Point2)) 1) = _
+   rw [chosenPhi.right_inv hp, chosenPhi.right_inv hm]

@@ -1,0 +1,17 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/scratch/quartic-capture-algebra/CaptureAlgebra.lean:79:37: error: unsolved goals
+r : ℝ
+hr : 0 ≤ r
+U : Fin 8 → ℝ
+X : ℝ
+hX : |X| ≤ 1 / 2
+hb :
+  |X ^ 2 - 1 / 4| ≤ 1 / 4 ∧
+    |X * (X ^ 2 - 1 / 4)| ≤ 1 / 8 ∧ |3 * X ^ 2 - 1 / 4| ≤ 1 / 2 ∧ |X ^ 2| ≤ 1 / 4 ∧ |0 ^ 2| ≤ 0 / 16 ∧ |0 ^ 3| ≤ 0 / 256
+h0 : |U 0 / 2 * (X ^ 2 - 1 / 4)| ≤ |U 0| / 8
+⊢ True ∨ X = 0 ∨ -1 / 4 + X ^ 2 = 0

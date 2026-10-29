@@ -1,0 +1,282 @@
+private theorem source_directionX_eq : directionX = Pi.single (0 : Fin 2) (1 : ℝ) := by
+  ext i
+  fin_cases i <;> simp [directionX]
+
+private theorem source_directionY_eq : directionY = Pi.single (1 : Fin 2) (1 : ℝ) := by
+  ext i
+  fin_cases i <;> simp [directionY]
+
+private theorem mode_smooth (L : ℝ) (m : SourceMode 2) :
+    ContDiff ℝ (⊤ : ℕ∞) (modeCoefficient 2 L m) := by
+  cases m with
+  | none => exact contDiff_const
+  | some p =>
+    rcases p with ⟨k,b⟩
+    have hp : ContDiff ℝ (⊤ : ℕ∞) (phase 2 L k) := by
+      have he : phase 2 L k = (I4C4.phaseCLM 2 L k : Point2 → ℝ) := by
+        funext x
+        exact (I4C4.phaseCLM_apply 2 L k x).symm
+      rw [he]
+      exact (I4C4.phaseCLM 2 L k).contDiff
+    cases b
+    · change ContDiff ℝ (⊤ : ℕ∞) (fun x : Point2 =>
+        Real.sqrt (2*I4Weights.sourceWeight 2 L k/I4Weights.sourceZ 2 L) *
+          Real.cos (phase 2 L k x))
+      exact contDiff_const.mul hp.cos
+    · change ContDiff ℝ (⊤ : ℕ∞) (fun x : Point2 =>
+        Real.sqrt (2*I4Weights.sourceWeight 2 L k/I4Weights.sourceZ 2 L) *
+          Real.sin (phase 2 L k x))
+      exact contDiff_const.mul hp.sin
+
+private theorem gradientRows_eq (L : ℝ) (x : Point2) (i : Fin 2) (m : SourceMode 2) :
+    gradientRows L x i m = coordinateGradient (modeCoefficient 2 L m) x i := by
+  fin_cases i <;>
+    simp [gradientRows,remoteJetCoefficient,derivativeCoefficient,coordinateGradient,
+      iteratedFDeriv_one_apply,source_directionX_eq,source_directionY_eq]
+
+private theorem levelRows_eq (L : ℝ) (x : Point2) (i : Fin 3) (m : SourceMode 2) :
+    levelRows L x i m = ![modeCoefficient 2 L m x,
+      coordinateGradient (modeCoefficient 2 L m) x 0,
+      coordinateGradient (modeCoefficient 2 L m) x 1] i := by
+  fin_cases i <;>
+    simp [levelRows,remoteJetCoefficient,derivativeCoefficient,coordinateGradient,
+      iteratedFDeriv_one_apply,source_directionX_eq,source_directionY_eq]
+
+private theorem tieRows_eq (L : ℝ) (p : Point4) (i : Fin 5) (m : SourceMode 2) :
+    tieRows L p i m = ![coordinateGradient (modeCoefficient 2 L m) p.1 0,
+      coordinateGradient (modeCoefficient 2 L m) p.1 1,
+      coordinateGradient (modeCoefficient 2 L m) p.2 0,
+      coordinateGradient (modeCoefficient 2 L m) p.2 1,
+      modeCoefficient 2 L m p.1-modeCoefficient 2 L m p.2] i := by
+  fin_cases i <;>
+    simp [tieRows,twoRemoteFirstJetCoefficient,remoteJetCoefficient,derivativeCoefficient,
+      coordinateGradient,iteratedFDeriv_one_apply,source_directionX_eq,source_directionY_eq]
+
+private theorem rowResponse_smooth
+    {X : Type*} [NormedAddCommGroup X] [NormedSpace ℝ X]
+    {L r : ℝ} {n : ℕ} (a : X → Fin n → SourceMode 2 → ℝ)
+    (F : RawPinFreeFrame L r n)
+    (ha : ∀ i j, ContDiff ℝ (⊤ : ℕ∞) (fun x => finitePairing (a x i) (F.chi j))) :
+    ContDiff ℝ (⊤ : ℕ∞) (fun x => rowResponse (a x) F) := by
+  apply contDiff_clm_apply_iff.mpr
+  intro z
+  apply contDiff_pi.mpr
+  intro i
+  simp_rw [rowResponse_apply]
+  exact ContDiff.sum (fun j _ => (ha i j).mul contDiff_const)
+
+private theorem gradient_response_smooth {L r : ℝ} (F : RawPinFreeFrame L r 2) :
+    ContDiff ℝ (⊤ : ℕ∞) (fun x => rowResponse (gradientRows L x) F) := by
+  classical
+  apply rowResponse_smooth
+  intro i j
+  simp_rw [finitePairing,Finsupp.sum,gradientRows_eq]
+  exact ContDiff.sum (fun m _ =>
+    ((contDiff_pi.mp (coordinateGradient_contDiff _ (mode_smooth L m))) i).mul contDiff_const)
+
+private theorem level_response_smooth {L r : ℝ} (F : RawPinFreeFrame L r 3) :
+    ContDiff ℝ (⊤ : ℕ∞) (fun x => rowResponse (levelRows L x) F) := by
+  classical
+  apply rowResponse_smooth
+  intro i j
+  simp_rw [finitePairing,Finsupp.sum,levelRows_eq]
+  apply ContDiff.sum
+  intro m _
+  fin_cases i
+  · exact (mode_smooth L m).mul contDiff_const
+  · exact ((contDiff_pi.mp (coordinateGradient_contDiff _ (mode_smooth L m))) 0).mul contDiff_const
+  · exact ((contDiff_pi.mp (coordinateGradient_contDiff _ (mode_smooth L m))) 1).mul contDiff_const
+
+private theorem tie_response_smooth {L r : ℝ} (F : RawPinFreeFrame L r 5) :
+    ContDiff ℝ (⊤ : ℕ∞) (fun x => rowResponse (tieRows L x) F) := by
+  classical
+  apply rowResponse_smooth
+  intro i j
+  simp_rw [finitePairing,Finsupp.sum,tieRows_eq]
+  apply ContDiff.sum
+  intro m _
+  have hg := coordinateGradient_contDiff _ (mode_smooth L m)
+  fin_cases i
+  · exact (((contDiff_pi.mp hg) 0).comp contDiff_fst).mul contDiff_const
+  · exact (((contDiff_pi.mp hg) 1).comp contDiff_fst).mul contDiff_const
+  · exact (((contDiff_pi.mp hg) 0).comp contDiff_snd).mul contDiff_const
+  · exact (((contDiff_pi.mp hg) 1).comp contDiff_snd).mul contDiff_const
+  · exact (((mode_smooth L m).comp contDiff_fst).sub
+      ((mode_smooth L m).comp contDiff_snd)).mul contDiff_const
+
+private theorem response_neighborhood
+    {X : Type*} [TopologicalSpace X] {n : ℕ}
+    (B : X → (Fin n → ℝ) →L[ℝ] (Fin n → ℝ)) (hB : Continuous B)
+    (x : X) (hx : Function.Bijective (B x)) :
+    ∃ U : Set X, IsOpen U ∧ x∈U ∧ ∀ y∈U, Function.Bijective (B y) := by
+  refine ⟨{y | IsUnit (B y)},Units.isOpen.preimage hB,?_,?_⟩
+  · exact ContinuousLinearMap.isUnit_iff_bijective.mpr hx
+  · intro y hy
+    exact ContinuousLinearMap.isUnit_iff_bijective.mp hy
+
+private def levelConstraint {L : ℝ} (α : ℝ) (ω : SmoothSample 2 L)
+    (x : Point2) : Fin 3 → ℝ :=
+  ![smoothSourceField 2 L ω x-α,coordinateGradient (smoothSourceField 2 L ω) x 0,
+    coordinateGradient (smoothSourceField 2 L ω) x 1]
+
+private def tieConstraint {L : ℝ} (ω : SmoothSample 2 L) (p : Point4) : Fin 5 → ℝ :=
+  ![coordinateGradient (smoothSourceField 2 L ω) p.1 0,
+    coordinateGradient (smoothSourceField 2 L ω) p.1 1,
+    coordinateGradient (smoothSourceField 2 L ω) p.2 0,
+    coordinateGradient (smoothSourceField 2 L ω) p.2 1,
+    smoothSourceField 2 L ω p.1-smoothSourceField 2 L ω p.2]
+
+private theorem level_constraint_smooth {L : ℝ} (hL : L≠0) (α : ℝ)
+    (ω : SmoothSample 2 L) : ContDiff ℝ (⊤ : ℕ∞) (levelConstraint α ω) := by
+  have hf := smoothSourceField_smooth 2 hL ω
+  have hg := coordinateGradient_contDiff _ hf
+  apply contDiff_pi.mpr
+  intro i
+  fin_cases i
+  · exact hf.sub contDiff_const
+  · exact (contDiff_pi.mp hg) 0
+  · exact (contDiff_pi.mp hg) 1
+
+private theorem tie_constraint_smooth {L : ℝ} (hL : L≠0) (ω : SmoothSample 2 L) :
+    ContDiff ℝ (⊤ : ℕ∞) (tieConstraint ω) := by
+  have hf := smoothSourceField_smooth 2 hL ω
+  have hg := coordinateGradient_contDiff _ hf
+  apply contDiff_pi.mpr
+  intro i
+  fin_cases i
+  · exact ((contDiff_pi.mp hg) 0).comp contDiff_fst
+  · exact ((contDiff_pi.mp hg) 1).comp contDiff_fst
+  · exact ((contDiff_pi.mp hg) 0).comp contDiff_snd
+  · exact ((contDiff_pi.mp hg) 1).comp contDiff_snd
+  · exact (hf.comp contDiff_fst).sub (hf.comp contDiff_snd)
+
+private theorem freeShift_value {L r : ℝ} {n : ℕ} (hL : L≠0)
+    (F : RawPinFreeFrame L r n) (z : Fin n → ℝ) (ω : SmoothSample 2 L) (x : Point2) :
+    smoothSourceField 2 L (freeShiftSample F z ω) x = smoothSourceField 2 L ω x+
+      ∑ j,z j*finitePairing (fun m => modeCoefficient 2 L m x) (F.chi j) := by
+  simpa only [iteratedFDeriv_zero_apply,derivativeCoefficient] using
+    freeShift_derivative hL F z ω 0 x (fun i => Fin.elim0 i)
+
+private theorem freeShift_gradient_component {L r : ℝ} {n : ℕ} (hL : L≠0)
+    (F : RawPinFreeFrame L r n) (z : Fin n → ℝ) (ω : SmoothSample 2 L)
+    (x : Point2) (i : Fin 2) :
+    coordinateGradient (smoothSourceField 2 L (freeShiftSample F z ω)) x i =
+      coordinateGradient (smoothSourceField 2 L ω) x i+
+        ∑ j,z j*finitePairing (fun m => coordinateGradient (modeCoefficient 2 L m) x i)
+          (F.chi j) := by
+  simpa only [iteratedFDeriv_one_apply,derivativeCoefficient,coordinateGradient] using
+    freeShift_derivative hL F z ω 1 x (fun _ => Pi.single i 1)
+
+private theorem freeShift_gradient {L r : ℝ} (hL : L≠0)
+    (F : RawPinFreeFrame L r 2) (z : Fin 2 → ℝ) (ω : SmoothSample 2 L) (x : Point2) :
+    coordinateGradient (smoothSourceField 2 L (freeShiftSample F z ω)) x =
+      coordinateGradient (smoothSourceField 2 L ω) x+rowResponse (gradientRows L x) F z := by
+  ext i
+  rw [freeShift_gradient_component hL]
+  simp only [Pi.add_apply,rowResponse_apply,gradientRows_eq,mul_comm]
+
+private theorem freeShift_level {L r : ℝ} (hL : L≠0)
+    (F : RawPinFreeFrame L r 3) (z : Fin 3 → ℝ) (ω : SmoothSample 2 L)
+    (α : ℝ) (x : Point2) :
+    levelConstraint α (freeShiftSample F z ω) x =
+      levelConstraint α ω x+rowResponse (levelRows L x) F z := by
+  ext i
+  fin_cases i
+  · simp only [levelConstraint,Matrix.cons_val_zero,Pi.add_apply,rowResponse_apply,levelRows_eq]
+    rw [freeShift_value hL]
+    simp only [Matrix.cons_val_zero,mul_comm]
+    ring
+  · simp only [levelConstraint,Matrix.cons_val_one,Matrix.cons_val_zero,Pi.add_apply,
+      rowResponse_apply,levelRows_eq]
+    rw [freeShift_gradient_component hL]
+    simp only [Matrix.cons_val_one,Matrix.cons_val_zero,mul_comm]
+  · simp only [levelConstraint,Matrix.cons_val_one,Pi.add_apply,rowResponse_apply,levelRows_eq]
+    rw [freeShift_gradient_component hL]
+    simp only [Matrix.cons_val_one,mul_comm]
+
+private theorem finitePairing_sub_observation {ι : Type*} (a b : ι → ℝ) (v : ι →₀ ℝ) :
+    finitePairing (fun m => a m-b m) v = finitePairing a v-finitePairing b v := by
+  classical
+  simp [finitePairing,Finsupp.sum,sub_mul,Finset.sum_sub_distrib]
+
+private theorem freeShift_tie {L r : ℝ} (hL : L≠0)
+    (F : RawPinFreeFrame L r 5) (z : Fin 5 → ℝ) (ω : SmoothSample 2 L) (p : Point4) :
+    tieConstraint (freeShiftSample F z ω) p =
+      tieConstraint ω p+rowResponse (tieRows L p) F z := by
+  ext i
+  fin_cases i <;>
+    simp only [tieConstraint,Matrix.cons_val_zero,Matrix.cons_val_one,Pi.add_apply,
+      rowResponse_apply,tieRows_eq]
+  · rw [freeShift_gradient_component hL]
+    simp only [mul_comm]
+  · rw [freeShift_gradient_component hL]
+    simp only [mul_comm]
+  · rw [freeShift_gradient_component hL]
+    simp only [mul_comm]
+  · rw [freeShift_gradient_component hL]
+    simp only [mul_comm]
+  · rw [freeShift_value hL,freeShift_value hL]
+    simp only [finitePairing_sub_observation,mul_sub,Finset.sum_sub_distrib,mul_comm]
+    ring
+
+private theorem sourceGradient_eval_measurable {L : ℝ} (hL : L≠0) (x : Point2) :
+    Measurable (fun ω : SmoothSample 2 L => coordinateGradient (smoothSourceField 2 L ω) x) := by
+  apply Measurable.of_eval
+  intro i
+  simpa only [iteratedFDeriv_one_apply,coordinateGradient,Matrix.cons_val_zero] using
+    sourceDerivative_eval_measurable 2 hL 1 x (fun _ => Pi.single i 1)
+
+private theorem level_eval_measurable {L : ℝ} (hL : L≠0) (α : ℝ) (x : Point2) :
+    Measurable (fun ω : SmoothSample 2 L => levelConstraint α ω x) := by
+  apply Measurable.of_eval
+  intro i
+  fin_cases i
+  · exact ((I4Source.sourceField_eval_measurable 2 L x).comp
+      (sampleInclusion_measurable 2 L)).sub measurable_const
+  · exact (measurable_pi_apply 0).comp (sourceGradient_eval_measurable hL x)
+  · exact (measurable_pi_apply 1).comp (sourceGradient_eval_measurable hL x)
+
+private theorem tie_eval_measurable {L : ℝ} (hL : L≠0) (p : Point4) :
+    Measurable (fun ω : SmoothSample 2 L => tieConstraint ω p) := by
+  apply Measurable.of_eval
+  intro i
+  fin_cases i
+  · exact (measurable_pi_apply 0).comp (sourceGradient_eval_measurable hL p.1)
+  · exact (measurable_pi_apply 1).comp (sourceGradient_eval_measurable hL p.1)
+  · exact (measurable_pi_apply 0).comp (sourceGradient_eval_measurable hL p.2)
+  · exact (measurable_pi_apply 1).comp (sourceGradient_eval_measurable hL p.2)
+  · exact (((I4Source.sourceField_eval_measurable 2 L p.1).comp
+      (sampleInclusion_measurable 2 L))).sub
+      ((I4Source.sourceField_eval_measurable 2 L p.2).comp (sampleInclusion_measurable 2 L))
+
+private def constraintSquare {n : ℕ} (v : Fin n → ℝ) : ℝ := ∑ i,v i^2
+
+private theorem constraintSquare_pos_iff {n : ℕ} (v : Fin n → ℝ) :
+    0<constraintSquare v ↔ v≠0 := by
+  classical
+  constructor
+  · intro h hv
+    simp [hv,constraintSquare] at h
+  · intro hv
+    have hex : ∃ i,v i≠0 := by
+      by_contra! h
+      exact hv (funext h)
+    obtain ⟨i,hi⟩ := hex
+    exact Finset.sum_pos' (fun j _ => sq_nonneg (v j))
+      ⟨i,Finset.mem_univ i,sq_pos_of_ne_zero hi⟩
+
+private theorem constraintSquare_continuous {n : ℕ} :
+    Continuous (constraintSquare : (Fin n → ℝ) → ℝ) := by
+  unfold constraintSquare
+  fun_prop
+
+private theorem rawKernel_ae_of_sections {L r : ℝ} {n : ℕ}
+    (hL : L≠0) (F : RawPinFreeFrame L r n) (t : Fin 6 → ℝ)
+    (P : SmoothSample 2 L → Prop) (hP : MeasurableSet {ω | P ω})
+    (hsections : ∀ ρ : SmoothSample 2 L,
+      ∀ᵐ z ∂Measure.pi(fun _ : Fin n => gaussianReal 0 1),
+        P (freeShiftSample F z (rawPosteriorSample hL r t ρ))) :
+    ∀ᵐ ω ∂rawPinKernel hL r t,P ω := by
+  apply (ae_iff).2
+  exact rawKernel_null_of_sections hL F t {ω | ¬P ω} hP.compl
+    (fun ρ => (ae_iff).1 (hsections ρ))

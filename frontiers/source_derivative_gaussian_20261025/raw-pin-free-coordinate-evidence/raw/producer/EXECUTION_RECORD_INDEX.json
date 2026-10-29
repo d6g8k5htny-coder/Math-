@@ -1,0 +1,284 @@
+{
+  "finalized_utc": "2026-10-26T20:32:34.162231+00:00",
+  "new_module_only": true,
+  "actual_Lean_invocations": 14,
+  "capture": "Every runs/*/output.log is the complete original merged stdout/stderr. No separate streams or unobserved captures invented.",
+  "invocations": [
+    {
+      "label": "core-001",
+      "started_utc": "2026-10-26T20:11:56.812508+00:00",
+      "ended_utc": "2026-10-26T20:12:15.377306+00:00",
+      "exit_code": 1,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/raw-pin-free-coordinate-construct/build/SourceRawPinFreeCoordinates.olean",
+        "SourceRawPinFreeCoordinates.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-001/output.log",
+        "bytes": 2377,
+        "sha256": "21f8a73100000f6fd9b9a1d73f57db0f492997395d4e66d144e789d580465aba"
+      }
+    },
+    {
+      "label": "core-002",
+      "started_utc": "2026-10-26T20:12:52.563333+00:00",
+      "ended_utc": "2026-10-26T20:13:09.571896+00:00",
+      "exit_code": 1,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/raw-pin-free-coordinate-construct/build/SourceRawPinFreeCoordinates.olean",
+        "SourceRawPinFreeCoordinates.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-002/output.log",
+        "bytes": 305,
+        "sha256": "5e91ee2796c205030716e2c9da608fcbf6c016cc730de84c60472dce38e7f2f2"
+      }
+    },
+    {
+      "label": "core-003",
+      "started_utc": "2026-10-26T20:13:18.782811+00:00",
+      "ended_utc": "2026-10-26T20:13:41.321382+00:00",
+      "exit_code": 1,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/raw-pin-free-coordinate-construct/build/SourceRawPinFreeCoordinates.olean",
+        "SourceRawPinFreeCoordinates.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-003/output.log",
+        "bytes": 95,
+        "sha256": "2ff0bb1be209fc2d7dfdc1a26c5603ba40f22f44c2e20d67de0843181ae6187b"
+      }
+    },
+    {
+      "label": "core-004",
+      "started_utc": "2026-10-26T20:13:46.102068+00:00",
+      "ended_utc": "2026-10-26T20:14:12.032962+00:00",
+      "exit_code": 0,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/raw-pin-free-coordinate-construct/build/SourceRawPinFreeCoordinates.olean",
+        "SourceRawPinFreeCoordinates.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-004/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "core-005",
+      "started_utc": "2026-10-26T20:14:38.273855+00:00",
+      "ended_utc": "2026-10-26T20:15:03.531967+00:00",
+      "exit_code": 0,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/raw-pin-free-coordinate-construct/build/SourceRawPinFreeCoordinates.olean",
+        "SourceRawPinFreeCoordinates.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-005/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "gaussian-integration-001",
+      "started_utc": "2026-10-26T20:16:53.249182+00:00",
+      "ended_utc": "2026-10-26T20:17:17.083523+00:00",
+      "exit_code": 1,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/raw-pin-free-coordinate-construct/build/SourceRawPinFreeCoordinates.olean",
+        "SourceRawPinFreeCoordinates.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/gaussian-integration-001/output.log",
+        "bytes": 1056,
+        "sha256": "ca869679b24ed69bd70e3fedda310a542d3c41702a4573519bf840fc7fd55212"
+      }
+    },
+    {
+      "label": "gaussian-integration-002",
+      "started_utc": "2026-10-26T20:17:27.490205+00:00",
+      "ended_utc": "2026-10-26T20:17:53.546374+00:00",
+      "exit_code": 0,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/raw-pin-free-coordinate-construct/build/SourceRawPinFreeCoordinates.olean",
+        "SourceRawPinFreeCoordinates.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/gaussian-integration-002/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "kernel-001",
+      "started_utc": "2026-10-26T20:18:23.449029+00:00",
+      "ended_utc": "2026-10-26T20:18:30.064539+00:00",
+      "exit_code": 0,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/raw-pin-free-coordinate-construct/build:$LEAN_PATH exec leanchecker SourceRawPinFreeCoordinates"
+      ],
+      "log": {
+        "path": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/kernel-001/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "inventory-001",
+      "started_utc": "2026-10-26T20:18:23.457127+00:00",
+      "ended_utc": "2026-10-26T20:18:26.754345+00:00",
+      "exit_code": 0,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/raw-pin-free-coordinate-construct/build:$LEAN_PATH exec lean -DwarningAsError=true /workspace/scratch/raw-pin-free-coordinate-construct/Inventory.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/inventory-001/output.log",
+        "bytes": 14367,
+        "sha256": "03e4bc9b86cbf2665e1ed3505e5c35a3aed077557161cd07abff950d073dba4e"
+      }
+    },
+    {
+      "label": "controls-001",
+      "started_utc": "2026-10-26T20:24:14.096036+00:00",
+      "ended_utc": "2026-10-26T20:24:14.855191+00:00",
+      "exit_code": 1,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/raw-pin-free-coordinate-construct/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/raw-pin-free-coordinate-construct/build/FreeCoordinateControls.olean /workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-001/output.log",
+        "bytes": 214,
+        "sha256": "0027382486f9471c8e119803f209dc9d3d53fedc9963cbef524eaf2db2415ee6"
+      }
+    },
+    {
+      "label": "controls-002",
+      "started_utc": "2026-10-26T20:24:23.842605+00:00",
+      "ended_utc": "2026-10-26T20:24:29.666567+00:00",
+      "exit_code": 1,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/raw-pin-free-coordinate-construct/build:$LEAN_PATH exec lean -R /workspace/scratch/raw-pin-free-coordinate-construct -DwarningAsError=true -o /workspace/scratch/raw-pin-free-coordinate-construct/build/FreeCoordinateControls.olean /workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-002/output.log",
+        "bytes": 14811,
+        "sha256": "f774460cef90ccbee1e75b55f37bb57aeab24c9de5152351e6bfc5d28aae03d3"
+      }
+    },
+    {
+      "label": "controls-003",
+      "started_utc": "2026-10-26T20:27:11.891172+00:00",
+      "ended_utc": "2026-10-26T20:27:17.812604+00:00",
+      "exit_code": 1,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/raw-pin-free-coordinate-construct/build:$LEAN_PATH exec lean -R /workspace/scratch/raw-pin-free-coordinate-construct -DwarningAsError=true -o /workspace/scratch/raw-pin-free-coordinate-construct/build/FreeCoordinateControls.olean /workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-003/output.log",
+        "bytes": 6116,
+        "sha256": "913ba750085c07c6cde38f0cea1902625c18b7cd045626d170b6b83e6c8c4e9c"
+      }
+    },
+    {
+      "label": "controls-004",
+      "started_utc": "2026-10-26T20:28:19.568921+00:00",
+      "ended_utc": "2026-10-26T20:28:25.481807+00:00",
+      "exit_code": 0,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/raw-pin-free-coordinate-construct/build:$LEAN_PATH exec lean -R /workspace/scratch/raw-pin-free-coordinate-construct -DwarningAsError=true -o /workspace/scratch/raw-pin-free-coordinate-construct/build/FreeCoordinateControls.olean /workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-004/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "false-second-projection-001",
+      "started_utc": "2026-10-26T20:28:53.948031+00:00",
+      "ended_utc": "2026-10-26T20:28:56.961704+00:00",
+      "exit_code": 1,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/raw-pin-free-coordinate-construct/build:$LEAN_PATH exec lean -R /workspace/scratch/raw-pin-free-coordinate-construct -DwarningAsError=true /workspace/scratch/raw-pin-free-coordinate-construct/FalseSecondProjectionMutation.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/false-second-projection-001/output.log",
+        "bytes": 126,
+        "sha256": "1785c54ba91db3054e2e142d938d7a7cf5d368a5497ac72bc99276834aa4f58e"
+      }
+    }
+  ],
+  "exactly_one_kernel": [
+    "kernel-001"
+  ],
+  "exactly_one_negative": [
+    "false-second-projection-001"
+  ],
+  "strict_reuse": "Exact gaussian-integration002 successful frozen source/object reused after freeze, root cut, object copy and all later controls/custody; no production recompile.",
+  "all_attempts": "All failed/partial source/control snapshots, harnesses, original runner versions, commands, times, exits and original streams retained in their run directories.",
+  "old_campaign_replays": false,
+  "orchestration_note": "One functions.exec JavaScript syntax typo while requesting a document read did not invoke any shell or Lean process; corrected read only. It is not a mathematical invocation."
+}

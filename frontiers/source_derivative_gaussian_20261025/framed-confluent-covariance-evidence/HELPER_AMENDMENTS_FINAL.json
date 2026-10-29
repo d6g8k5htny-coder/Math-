@@ -1,0 +1,70 @@
+{
+  "contact": {
+    "onceIntegrationHistoricalRecord": "HELPER_INTEGRATION.json",
+    "frozenOriginal": "CONTACT_HELPER_SECTION.lean.txt",
+    "actualIntegratedFragment": "/workspace/scratch/framed-confluent-covariance-construct/CONTACT_ACTUAL_SECTION.lean.txt",
+    "actualFragmentBytes": 24611,
+    "actualFragmentSHA256": "cc262f391b462d210f2c29d89bad78b11c26d76b75063f3cb892243ee00f7be3",
+    "completeBodyDiff": "CONTACT_PRODUCER_AMENDMENTS.diff",
+    "namespaceWrapperAdded": false,
+    "bodyUnchanged": false,
+    "helperExecutions": 0,
+    "helperQualificationObjects": 0,
+    "finalQualificationTargetOnly": "SourceFramedConfluentCovariance",
+    "noHelperReintegration": true,
+    "amendmentSummary": [
+      "Reuse producer mode_smooth from public finite-order ContDiff API instead of unexported modeCoefficient_smooth.",
+      "Use current map/smul/add application simp names and fun_iteratedFDeriv_add_apply at explicit point.",
+      "Use explicit function congruence for linear coordinate/direction equalities, avoiding rewrites in their own right-hand sides.",
+      "Use public R.inner_eq_one/zero and explicit two-coordinate inner-product expansions; commute scalar product in cross equality.",
+      "Simplify shifted sine/CLM equality and use sin_three_mul before field_simp; use contDiff_const.mul.",
+      "Prove literal derivativeCoefficient function equalities and explicit finitePairing goals instead of opaque folding.",
+      "Remove unused simp arguments/closed-goal rfl and explicitly expose numerical contact row5."
+    ]
+  },
+  "peano": {
+    "onceIntegrationHistoricalRecord": "HELPER_INTEGRATION.json",
+    "frozenOriginal": "PEANO_HELPER_SECTION.lean.txt",
+    "actualIntegratedFragment": "/workspace/scratch/framed-confluent-covariance-construct/PEANO_ACTUAL_SECTION.lean.txt",
+    "actualFragmentBytes": 4880,
+    "actualFragmentSHA256": "44685597a65e821f91744c6d0e9dbed74d311caa7ac5f595bcfb6c5a3d520a89",
+    "completeBodyDiff": "PEANO_PRODUCER_AMENDMENTS.diff",
+    "namespaceWrapperAdded": true,
+    "bodyUnchanged": true,
+    "helperExecutions": 0,
+    "helperQualificationObjects": 0,
+    "finalQualificationTargetOnly": "SourceFramedConfluentCovariance",
+    "noHelperReintegration": true
+  },
+  "compact": {
+    "onceIntegrationHistoricalRecord": "HELPER_INTEGRATION.json",
+    "frozenOriginal": "COMPACT_HELPER_SECTION.lean.txt",
+    "actualIntegratedFragment": "/workspace/scratch/framed-confluent-covariance-construct/COMPACT_ACTUAL_SECTION.lean.txt",
+    "actualFragmentBytes": 24603,
+    "actualFragmentSHA256": "376d6b22eb70ed4f556fc7ea14be0a42f2dd324d069dbdc0aea3472504721e6b",
+    "completeBodyDiff": "COMPACT_PRODUCER_AMENDMENTS.diff",
+    "namespaceWrapperAdded": true,
+    "bodyUnchanged": false,
+    "helperExecutions": 0,
+    "helperQualificationObjects": 0,
+    "finalQualificationTargetOnly": "SourceFramedConfluentCovariance",
+    "noHelperReintegration": true,
+    "amendmentSummary": [
+      "Reuse mode_smooth; annotate natural derivative order and WithTop smoothness side conditions.",
+      "Provide typed finite moving-direction continuous maps, explicit fixed integrands and volume in interval continuity.",
+      "Use Set.ofPred_forall and explicit inverse-coordinate identity for closed frame/midpoint sets.",
+      "Use explicitly typed physical coordinate/subtype pullback, correct Continuous.comp g-outer/f-inner parameters, shallow Function.comp_def.",
+      "Flatten seven-by-seven Gram to Fin7\u00d7Fin7\u2192\u211d for metric uniform continuity; preserve entrywise estimate.",
+      "Use ContinuousOn in compact uniform continuity and explicit scalar product continuity maps.",
+      "Use sq_eq_zero_iff, current continuous_finsetSum, finite sum arithmetic and remove unused simp arguments.",
+      "Prove castAdd injection with Fin.ext, install invertibility via let, orient mulVec_mulVec correctly, and expose Fin.last6=6 in Schur row.",
+      "Explicitly type contact quadratic pullback and image membership/upper-bound element to avoid unifier expansion."
+    ]
+  },
+  "outsideFragmentContext": [
+    "Global open I4SourceConfluentPins supplies public directionX/directionY names; no foreign private name used.",
+    "Namespace wrappers for Peano/compact are lexical only. Peano proof body is unchanged.",
+    "All actual source attempts001..013 retained; amendments are producer-owned, not new helper campaigns."
+  ],
+  "createdUTC": "2026-10-26T21:05:38.950809+00:00"
+}

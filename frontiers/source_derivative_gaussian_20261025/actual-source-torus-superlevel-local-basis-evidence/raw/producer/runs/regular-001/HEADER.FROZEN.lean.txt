@@ -1,0 +1,34 @@
+import SourceActualMorseLocalModel
+import SourceActualFoldTorus
+import SourceFiniteTrig
+import SourceSmoothConditionalKernel
+import Mathlib.Analysis.Calculus.InverseFunctionTheorem.ContDiff
+import Mathlib.Analysis.Convex.Topology
+import Mathlib.Analysis.Convex.PathConnected
+import Mathlib.Analysis.Normed.Module.FiniteDimension
+import Mathlib.Topology.Connected.PathConnected
+import Mathlib.Topology.Instances.AddCircle.Defs
+import Mathlib.Topology.OpenPartialHomeomorph.Constructions
+import Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds
+import Mathlib.Tactic.FinCases
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.FunProp
+import Mathlib.Tactic.Positivity
+import Mathlib.Tactic.Omega
+import Mathlib.Tactic.GCongr
+
+noncomputable section
+open Set Filter
+open I4SmoothCarrier I4LifetimeField
+open UniversalLaw.Spec.Lifetime
+open scoped Topology BigOperators Matrix
+set_option autoImplicit false
+namespace I4SourceActualTorusSuperlevelLocalBasis
+
+private def coverProjection (L : ℝ) (X : UniversalLaw.Spec.Lifetime.E 2) :
+    I4Torus.SourceTorus 2 L :=
+  I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)
+

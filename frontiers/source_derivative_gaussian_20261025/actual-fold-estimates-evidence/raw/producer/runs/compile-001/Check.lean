@@ -1,0 +1,17 @@
+import SourceAdaptiveFoldChart
+import AdaptiveFoldBoundaryPath
+#check ContinuousMultilinearMap.opNorm_le_bound
+#check ContinuousMultilinearMap.norm_compContinuousLinearMap_le
+#check ContDiff.iteratedFDeriv
+#check ContDiff.continuous_iteratedFDeriv
+#check HasFDerivAt.clm_apply
+#check HasFDerivAt.continuousMultilinear_apply_const
+#check fderiv_continuousMultilinear_apply_const
+#check norm_fst_le
+#check norm_snd_le
+#check ContinuousMultilinearMap.norm_compContinuousLinearMap_le
+#check ContinuousLinearMap.opNorm_le_bound
+#check Convex.norm_image_sub_le_of_norm_fderiv_le
+#check Convex.mul_sub_le_image_sub_of_le_deriv
+#check Convex.image_sub_le_mul_sub_of_deriv_le
+#check image_sub_le_mul_sub_of_deriv_le

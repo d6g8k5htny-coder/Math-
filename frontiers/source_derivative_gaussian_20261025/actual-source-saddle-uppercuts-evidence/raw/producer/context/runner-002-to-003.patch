@@ -1,0 +1,16 @@
+--- record_run.002.py
++++ record_run.003.py
+@@
+     old=cache.get(key)
+     if old and old.get('marker')==marker: return old
++    copies={str(BASE/'INITIAL_SOURCE_COMMON.lean.txt'):str(PROJECT/'SourceActualSaddleUppercuts.lean'),
++            str(BASE/'FixtureSection.DRAFT001.lean.txt'):str(BASE/'FixtureSection.INITIAL.lean.txt')}
++    source=copies.get(key)
++    if source and pathlib.Path(source).read_bytes()==p.read_bytes():
++        original=identity(source,cache)
++        row={**original,'path':key,'marker':marker,'origin':'known exact byte-copy identity reused',
++             'copied_from':source}
++        cache[key]=row
++        return row
+
+Actual change made by apply_patch tool before next worker, specifically to reuse the two already-known draft/source copy identities rather than recalculate them. The initial runner and actual002 are retained. No worker or mathematical check was replayed.

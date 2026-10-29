@@ -1,0 +1,27 @@
+SourceActualFoldDeath.lean:50:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?r • ![-1 / 2, 0]
+in the target expression
+  (coordinates 2).symm (r • ![-(1 / 2), 0]) = (coordinates 2).symm (endpointM r)
+
+r : ℝ
+hr : r ≠ 0
+⊢ (coordinates 2).symm (r • ![-(1 / 2), 0]) = (coordinates 2).symm (endpointM r)
+SourceActualFoldDeath.lean:49:16: error: This simp argument is unused:
+  neg_div
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [M]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceActualFoldDeath.lean:134:4: error: Type mismatch: After simplification, term
+  hm
+ has type
+  smoothSourceField 2 L sample (endpointM r) = b
+but is expected to have type
+  smoothSourceField 2 L sample ![r * M.1, r * M.2] = b
+SourceActualFoldDeath.lean:136:4: error: Type mismatch: After simplification, term
+  hs
+ has type
+  smoothSourceField 2 L sample (endpointS r) = b - k * r ^ 3
+but is expected to have type
+  smoothSourceField 2 L sample ![r * S.1, r * S.2] = b - k * r ^ 3

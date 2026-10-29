@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "role": "Qualification of one new actual-source moment module; inherited verification reused",
+  "scope": [
+    "SourceCompactTargetMoments"
+  ],
+  "source_sha256": "4fc28898f09381b4bfd0a15324556d2f3cb68f4b39063aa3acf12db7759ccfc8",
+  "base_sourcecut": "458058b9a004482de4e80ddae6d1a34ba31287eb",
+  "sourcecut": "PENDING_ROOT_INTEGRATION",
+  "compile_record": "raw/compile-03.json",
+  "kernel_record": "raw/kernel.json",
+  "named_kernel_checks": 1,
+  "axiom_record": "raw/inventory-01.json",
+  "public_inventory": "COMPACT_TARGET_PUBLIC_INVENTORY.json",
+  "controls": "CONTROL_RECEIPT.json",
+  "identity_record": "SOURCE_OBJECT_IDENTITIES.json",
+  "lineage": "AUTHOR_HELPER_LINEAGE.json",
+  "parent_inventory": "Existing 29-module/25-input completed verification is reusable under /workspace/AGENTS.md. No frozen check was rerun.",
+  "process_review": {
+    "provider_distinct_review": "PENDING_SEPARATE_PROCESS_REQUIREMENT",
+    "mathematical_evidence": "Compile, one named kernel check, direct axiom audit and controls complete for the new module. Process review does not invalidate completed mathematics."
+  },
+  "no_inference": [
+    "angular or weighted normalizer bounds",
+    "capture or elder conclusions",
+    "geometric Palm conclusions",
+    "parent application status",
+    "scientific status changes"
+  ]
+}

@@ -1,0 +1,25 @@
+/workspace/scratch/all-target-curvature-residual-construct/AllTargetResidualControls.lean:77:39: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/all-target-curvature-residual-construct/AllTargetResidualControls.lean:104:2: error: Type mismatch: After simplification, term
+  hCbound r hr hrδ 3 2
+    (Mathlib.Meta.NormNum.isNat_le_true
+      (Mathlib.Meta.NormNum.isNat_abs_nonneg (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2)))
+      (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2)) (Eq.refl true))
+ has type
+  Integrable (fun ρ => allTargetCurvatureResidualRadius negativePeriodNonzero r (sourceGapPins r 3 2) ρ ^ n)
+      (curvatureResidualLaw negativePeriodNonzero r) ∧
+    ∫ (ρ : SmoothSample 2 (-1)),
+        allTargetCurvatureResidualRadius negativePeriodNonzero r (sourceGapPins r 3 2) ρ ^
+          n ∂curvatureResidualLaw negativePeriodNonzero r ≤
+      C * (1 + 3) ^ n
+but is expected to have type
+  Integrable (fun ρ => allTargetCurvatureResidualRadius negativePeriodNonzero r (sourceGapPins r 3 2) ρ ^ n)
+      (curvatureResidualLaw negativePeriodNonzero r) ∧
+    ∫ (ρ : SmoothSample 2 (-1)),
+        allTargetCurvatureResidualRadius negativePeriodNonzero r (sourceGapPins r 3 2) ρ ^
+          n ∂curvatureResidualLaw negativePeriodNonzero r ≤
+      C * 4 ^ n
+/workspace/scratch/all-target-curvature-residual-construct/AllTargetResidualControls.lean:114:4: error: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`

@@ -1,0 +1,81 @@
+SourceActualSaddleUppercuts.lean:390:6: error: Type mismatch: After simplification, term
+  hus
+ has type
+  u ∈ {u : Point2 | sign (u 1)}
+but is expected to have type
+  ↑phi.symm u ∈ {z : I4Torus.SourceTorus 2 L | sign (↑phi z 1)}
+SourceActualSaddleUppercuts.lean:409:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  phi.target
+in the target expression
+  u ∈ phi.symm.source
+
+L : ℝ
+F : I4Torus.SourceTorus 2 L → ℝ
+q : I4Torus.SourceTorus 2 L
+O : Set (I4Torus.SourceTorus 2 L)
+rho : ℝ
+phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) Point2
+h : InheritedCollar F q O rho phi
+eps : ℝ
+heps : 0 < eps
+hg : ClosedBranchFacts rho eps
+hpimage : ↑phi.symm '' (targetUpper rho eps ∩ {u | 0 < u 1}) = upperTrace F q phi eps ∩ {z | 0 < ↑phi z 1}
+hmimage : ↑phi.symm '' (targetUpper rho eps ∩ {u | u 1 < 0}) = upperTrace F q phi eps ∩ {z | ↑phi z 1 < 0}
+u : Point2
+hu : u ∈ targetUpperPos rho eps
+⊢ u ∈ phi.symm.source
+SourceActualSaddleUppercuts.lean:413:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  phi.target
+in the target expression
+  u ∈ phi.symm.source
+
+L : ℝ
+F : I4Torus.SourceTorus 2 L → ℝ
+q : I4Torus.SourceTorus 2 L
+O : Set (I4Torus.SourceTorus 2 L)
+rho : ℝ
+phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) Point2
+h : InheritedCollar F q O rho phi
+eps : ℝ
+heps : 0 < eps
+hg : ClosedBranchFacts rho eps
+hpimage : ↑phi.symm '' (targetUpper rho eps ∩ {u | 0 < u 1}) = upperTrace F q phi eps ∩ {z | 0 < ↑phi z 1}
+hmimage : ↑phi.symm '' (targetUpper rho eps ∩ {u | u 1 < 0}) = upperTrace F q phi eps ∩ {z | ↑phi z 1 < 0}
+hpcont : ContinuousOn (↑phi.symm) (targetUpperPos rho eps)
+u : Point2
+hu : u ∈ targetUpperNeg rho eps
+⊢ u ∈ phi.symm.source
+SourceActualSaddleUppercuts.lean:425:67: error: Application type mismatch: The argument
+  hp.right
+has type
+  z ∈ {z | ↑phi z 1 < 0}
+but is expected to have type
+  ?m.227 z hz hp < ?m.226 z hz hp
+in the application
+  not_lt_of_gt ?m.220 hp.right
+SourceActualSaddleUppercuts.lean:481:67: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |(-?a)|
+in the target expression
+  |-rho / 4| < rho
+
+L : ℝ
+F : I4Torus.SourceTorus 2 L → ℝ
+q : I4Torus.SourceTorus 2 L
+O : Set (I4Torus.SourceTorus 2 L)
+rho : ℝ
+hrho : 0 < rho
+phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) Point2
+h : UniformCutResult F q O rho phi
+ht : phi.target = Metric.ball 0 rho
+hf : ∀ z ∈ phi.source, F z = F q - ↑phi z 0 ^ 2 + ↑phi z 1 ^ 2
+hball : ∀ (s : ℝ), |s| < rho → ![0, s] ∈ phi.target
+hp : ![0, rho / 4] ∈ phi.target
+⊢ |-rho / 4| < rho
+SourceActualSaddleUppercuts.lean:523:52: error: Application type mismatch: The argument
+  O
+has type
+  I4Torus.SourceTorus 2 L → ℝ
+but is expected to have type
+  Set (I4Torus.SourceTorus 2 L)
+in the application
+  actualUniformSaddleCuts hL omega X hcrit hI O

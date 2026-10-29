@@ -1,0 +1,1590 @@
+{
+  "actualModule": "SourceFramedConfluentCovariance",
+  "sourceIdentityReusedFrom": "FROZEN.json",
+  "receipt": "runs/inventory-001/record.json",
+  "total": 153,
+  "counts": {
+    "written-private-theorem": 86,
+    "generated-private": 33,
+    "written-private-def": 22,
+    "written-private-instance": 1,
+    "written-public-def": 3,
+    "generated-own-namespace": 3,
+    "written-private-abbrev": 1,
+    "written-public-theorem": 3,
+    "foreign-generated": 1
+  },
+  "publicWritten": [
+    {
+      "name": "I4SourceFramedConfluentCovariance.framedConfluentCoefficient",
+      "kind": "definition",
+      "classification": "written-public-def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFramedConfluentCovariance.framedConfluentVector",
+      "kind": "definition",
+      "classification": "written-public-def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFramedConfluentCovariance.framedConfluent_family_bounds",
+      "kind": "theorem",
+      "classification": "written-public-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFramedConfluentCovariance.framedConfluentVector_actual",
+      "kind": "theorem",
+      "classification": "written-public-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFramedConfluentCovariance.framedConfluentCovariance",
+      "kind": "definition",
+      "classification": "written-public-def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFramedConfluentCovariance.framedConfluent_covariance_uniform_floor",
+      "kind": "theorem",
+      "classification": "written-public-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "foreignGenerated": [
+    {
+      "name": "I4SourceRemoteJetWitness.localGerm.eq_1",
+      "kind": "theorem",
+      "classification": "foreign-generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "standardAxiomsAllowed": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "allActualOwnedConstants": [
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.coefficient_summable",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_cube_third_one._simp_1_6",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.physical_first",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_contact_lower_formula",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.vector_covariance",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.average_abs_le",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_cube_third_one._simp_1_2",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.envelope",
+      "kind": "definition",
+      "classification": "written-private-def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_quad_smul",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_gram_continuous",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_entry_perturb",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compactFrame_compactSpace",
+      "kind": "theorem",
+      "classification": "written-private-instance",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.envelope_summable",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_normalize_bounds._simp_1_3",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_lowerTransform._proof_1",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_eval_axisSin._simp_1_2",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": []
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.envelope.eq_1",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFramedConfluentCovariance.framedConfluentCoefficient",
+      "kind": "definition",
+      "classification": "written-public-def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_cube_third_one._simp_1_1",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_cubePoly.eq_1",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_lowerTransform.eq_1",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_quad.eq_1",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.raw_physical_coordinates",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_axisSinPoly",
+      "kind": "definition",
+      "classification": "written-private-def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_entry_perturb._simp_1_2",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_axisGermIndex.eq_1",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.envelope_square_summable",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.pairCoefficient_bound",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.contact_finite_directions",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_entry_perturb._simp_1_3",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_frame_basis",
+      "kind": "definition",
+      "classification": "written-private-def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.peano_weight_bound",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_cube_third_one._simp_1_7",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_axisGermIndex",
+      "kind": "definition",
+      "classification": "written-private-def",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_germPoly",
+      "kind": "definition",
+      "classification": "written-private-def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_parameters",
+      "kind": "definition",
+      "classification": "written-private-def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.physical_second",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_germPoly_eval",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFramedConfluentCovariance.framedConfluentCoefficient.eq_1",
+      "kind": "theorem",
+      "classification": "generated-own-namespace",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_cube_third_one._simp_1_3",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.CompactFrame",
+      "kind": "definition",
+      "classification": "written-private-abbrev",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_gram_hermitian",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFramedConfluentCovariance.framedConfluentCovariance.eq_1",
+      "kind": "theorem",
+      "classification": "generated-own-namespace",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_ifd_add",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_frame_basis.eq_1",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_lowerTransform",
+      "kind": "definition",
+      "classification": "written-private-def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_quad_continuous",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.peanoRows_zero",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_inverseLower",
+      "kind": "definition",
+      "classification": "written-private-def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_gram",
+      "kind": "definition",
+      "classification": "written-private-def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.peanoRows._proof_3",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.derivative_unit_bound",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFramedConfluentCovariance.framedConfluentVector",
+      "kind": "definition",
+      "classification": "written-public-def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_normalize_bounds",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.peanoCurve_deriv",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_square_eq_zero",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.peanoRows._proof_2",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_cubePoly",
+      "kind": "definition",
+      "classification": "written-private-def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.UniformContactLimit",
+      "kind": "definition",
+      "classification": "written-private-def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_pair_row_scale",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_frame_block_determinants",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_unit_isCompact",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.UniformCovarianceFloor._proof_1",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_frames_isCompact",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_pair_direction_add_smul",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFramedConfluentCovariance.framedConfluentCoefficient._proof_1",
+      "kind": "theorem",
+      "classification": "generated-own-namespace",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.peanoCurve_iteratedDeriv",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_cube_third_one._simp_1_5",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_ordinary_finite_interpolation",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.peanoRows",
+      "kind": "definition",
+      "classification": "written-private-def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_pair_lower",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_cube_third_one._simp_1_4",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_unit",
+      "kind": "definition",
+      "classification": "written-private-def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_frame_delta_four",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_lower_inverse",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFramedConfluentCovariance.framedConfluent_family_bounds",
+      "kind": "theorem",
+      "classification": "written-public-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_linear_coordinates",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_frame_coordinates",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_cube_third_one",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_quad_dot",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_contact_target",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.UniformCovarianceFloor",
+      "kind": "definition",
+      "classification": "written-private-def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_eval_axisSin",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_jet2_scale",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.unit_interval_abs_le",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.peanoRows._proof_1",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.physical_derivative",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceRemoteJetWitness.localGerm.eq_1",
+      "kind": "theorem",
+      "classification": "foreign-generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.series_const_mul",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.peanoRows_confluent",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.physical_third",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_parameters_isCompact",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_frame_basis._proof_2",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.peano_interval_abs_le",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFramedConfluentCovariance.framedConfluentVector_actual",
+      "kind": "theorem",
+      "classification": "written-public-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_pair_direction_sum",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.peanoCurve_transverse_iteratedDeriv",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_square_nonneg",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_contact_pair",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.envelope._proof_1",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_peano_continuous",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.envelope_sample_summable",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_uniform_contact",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_lowerIndex",
+      "kind": "definition",
+      "classification": "written-private-def",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.pairCovariance.eq_1",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_axis_sine_third",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFramedConfluentCovariance.framedConfluentCovariance",
+      "kind": "definition",
+      "classification": "written-public-def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_square.eq_1",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_quad",
+      "kind": "definition",
+      "classification": "written-private-def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.physical_contactRows",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_frames_isCompact._simp_1_1",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_second_coordinates",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.peanoRows.eq_1",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_frame_basis_apply",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_germPoly.eq_1",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_pair_row_add",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_mode_iterated_continuous",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_axisSinPoly.eq_1",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_axisGerm_value",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_cubePoly_eval",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.envelope_weighted_summable",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.vector_hasGaussianLaw",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_cube_lower_zero",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.mode_smooth",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.contactRows",
+      "kind": "definition",
+      "classification": "written-private-def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_eval_smooth",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.coordinates_norm_le_one",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_eval_axisCos",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_pair_lc",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.coefficient_contact",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_contact_bounds",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_frame_basis._proof_1",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.pairCoefficient",
+      "kind": "definition",
+      "classification": "written-private-def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_axisCosPoly.eq_1",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_ifd_scale",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.peanoRows_series",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_principal_schur",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_square",
+      "kind": "definition",
+      "classification": "written-private-def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.derivative_peano_series",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_midpoints",
+      "kind": "definition",
+      "classification": "written-private-def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_gram.eq_1",
+      "kind": "theorem",
+      "classification": "generated-private",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.contact_posDef",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFramedConfluentCovariance.framedConfluent_covariance_uniform_floor",
+      "kind": "theorem",
+      "classification": "written-public-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_axisCosPoly",
+      "kind": "definition",
+      "classification": "written-private-def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_pair_ordinary",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.envelope_nonneg",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.pairCovariance",
+      "kind": "definition",
+      "classification": "written-private-def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_mode_smooth",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.ct58_shifted_sine_third",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_midpoints_isCompact",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_coefficient_continuous",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.vector_peano",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.series_average",
+      "kind": "theorem",
+      "classification": "written-private-theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ]
+}

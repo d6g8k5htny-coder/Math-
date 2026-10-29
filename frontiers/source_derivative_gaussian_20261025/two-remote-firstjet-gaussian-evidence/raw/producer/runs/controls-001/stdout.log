@@ -1,0 +1,124 @@
+/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:91:2: error: failed to elaborate eliminator, insufficient number of arguments, expected type:
+  Matrix (Fin 6) (Fin 6) ℝ
+/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:92:22: error: failed to elaborate eliminator, expected type is not available
+/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:94:22: error: failed to elaborate eliminator, expected type is not available
+/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:105:4: error: failed to elaborate eliminator, insufficient number of arguments, expected type:
+  Matrix (Fin 6) (Fin 3) ℝ
+/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:106:6: error: Type mismatch
+  fun x x_1 => 0
+has type
+  Fin 3 → Fin 3 → ℕ
+but is expected to have type
+  (i : Fin 3) → ?m.63 (Fin.natAdd 3 i)
+/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:185:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:237:8: error: Function expected at
+  Matrix.PosDef.diag_pos hp
+but this term has type
+  0 < remoteResidualCovariance 2 0 ![1, 0] ?m.319 ?m.319
+
+Note: Expected a function because this term is being applied to the argument
+  0
+/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:254:45: error: Application type mismatch: The argument
+  rfl
+has type
+  ?m.1510 = ?m.1510
+but is expected to have type
+  zeroCrossCandidate (Fin.natAdd 3 ((fun i => i) ⟨0, ⋯⟩)) (Fin.natAdd 3 ((fun i => i) ⟨0, ⋯⟩)) =
+    twoRemoteResidualCovariance 2 0 ![1, 0] ![1, 0] (Fin.natAdd 3 ((fun i => i) ⟨0, ⋯⟩))
+      (Fin.natAdd 3 ((fun i => i) ⟨0, ⋯⟩))
+in the application
+  ⟨?m.1508, rfl⟩
+/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:254:45: error: Application type mismatch: The argument
+  rfl
+has type
+  ?m.1510 = ?m.1510
+but is expected to have type
+  zeroCrossCandidate (Fin.natAdd 3 ((fun i => i) ⟨0, ⋯⟩)) (Fin.natAdd 3 ((fun i => i) ⟨1, ⋯⟩)) =
+    twoRemoteResidualCovariance 2 0 ![1, 0] ![1, 0] (Fin.natAdd 3 ((fun i => i) ⟨0, ⋯⟩))
+      (Fin.natAdd 3 ((fun i => i) ⟨1, ⋯⟩))
+in the application
+  ⟨?m.1508, rfl⟩
+/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:254:45: error: Application type mismatch: The argument
+  rfl
+has type
+  ?m.1510 = ?m.1510
+but is expected to have type
+  zeroCrossCandidate (Fin.natAdd 3 ((fun i => i) ⟨0, ⋯⟩)) (Fin.natAdd 3 ((fun i => i) ⟨2, ⋯⟩)) =
+    twoRemoteResidualCovariance 2 0 ![1, 0] ![1, 0] (Fin.natAdd 3 ((fun i => i) ⟨0, ⋯⟩))
+      (Fin.natAdd 3 ((fun i => i) ⟨2, ⋯⟩))
+in the application
+  ⟨?m.1508, rfl⟩
+/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:254:45: error: Application type mismatch: The argument
+  rfl
+has type
+  ?m.1510 = ?m.1510
+but is expected to have type
+  zeroCrossCandidate (Fin.natAdd 3 ((fun i => i) ⟨1, ⋯⟩)) (Fin.natAdd 3 ((fun i => i) ⟨0, ⋯⟩)) =
+    twoRemoteResidualCovariance 2 0 ![1, 0] ![1, 0] (Fin.natAdd 3 ((fun i => i) ⟨1, ⋯⟩))
+      (Fin.natAdd 3 ((fun i => i) ⟨0, ⋯⟩))
+in the application
+  ⟨?m.1508, rfl⟩
+/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:254:45: error: Application type mismatch: The argument
+  rfl
+has type
+  ?m.1510 = ?m.1510
+but is expected to have type
+  zeroCrossCandidate (Fin.natAdd 3 ((fun i => i) ⟨1, ⋯⟩)) (Fin.natAdd 3 ((fun i => i) ⟨1, ⋯⟩)) =
+    twoRemoteResidualCovariance 2 0 ![1, 0] ![1, 0] (Fin.natAdd 3 ((fun i => i) ⟨1, ⋯⟩))
+      (Fin.natAdd 3 ((fun i => i) ⟨1, ⋯⟩))
+in the application
+  ⟨?m.1508, rfl⟩
+/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:254:45: error: Application type mismatch: The argument
+  rfl
+has type
+  ?m.1510 = ?m.1510
+but is expected to have type
+  zeroCrossCandidate (Fin.natAdd 3 ((fun i => i) ⟨1, ⋯⟩)) (Fin.natAdd 3 ((fun i => i) ⟨2, ⋯⟩)) =
+    twoRemoteResidualCovariance 2 0 ![1, 0] ![1, 0] (Fin.natAdd 3 ((fun i => i) ⟨1, ⋯⟩))
+      (Fin.natAdd 3 ((fun i => i) ⟨2, ⋯⟩))
+in the application
+  ⟨?m.1508, rfl⟩
+/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:254:45: error: Application type mismatch: The argument
+  rfl
+has type
+  ?m.1510 = ?m.1510
+but is expected to have type
+  zeroCrossCandidate (Fin.natAdd 3 ((fun i => i) ⟨2, ⋯⟩)) (Fin.natAdd 3 ((fun i => i) ⟨0, ⋯⟩)) =
+    twoRemoteResidualCovariance 2 0 ![1, 0] ![1, 0] (Fin.natAdd 3 ((fun i => i) ⟨2, ⋯⟩))
+      (Fin.natAdd 3 ((fun i => i) ⟨0, ⋯⟩))
+in the application
+  ⟨?m.1508, rfl⟩
+/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:254:45: error: Application type mismatch: The argument
+  rfl
+has type
+  ?m.1510 = ?m.1510
+but is expected to have type
+  zeroCrossCandidate (Fin.natAdd 3 ((fun i => i) ⟨2, ⋯⟩)) (Fin.natAdd 3 ((fun i => i) ⟨1, ⋯⟩)) =
+    twoRemoteResidualCovariance 2 0 ![1, 0] ![1, 0] (Fin.natAdd 3 ((fun i => i) ⟨2, ⋯⟩))
+      (Fin.natAdd 3 ((fun i => i) ⟨1, ⋯⟩))
+in the application
+  ⟨?m.1508, rfl⟩
+/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:254:45: error: Application type mismatch: The argument
+  rfl
+has type
+  ?m.1510 = ?m.1510
+but is expected to have type
+  zeroCrossCandidate (Fin.natAdd 3 ((fun i => i) ⟨2, ⋯⟩)) (Fin.natAdd 3 ((fun i => i) ⟨2, ⋯⟩)) =
+    twoRemoteResidualCovariance 2 0 ![1, 0] ![1, 0] (Fin.natAdd 3 ((fun i => i) ⟨2, ⋯⟩))
+      (Fin.natAdd 3 ((fun i => i) ⟨2, ⋯⟩))
+in the application
+  ⟨?m.1508, rfl⟩
+/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:260:0: error: Not a definitional equality: the left-hand side
+  zeroCrossCandidate 0 3
+is not definitionally equal to the right-hand side
+  0
+/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:261:67: error: Type mismatch
+  rfl
+has type
+  ?m.9 = ?m.9
+but is expected to have type
+  zeroCrossCandidate 0 3 = 0

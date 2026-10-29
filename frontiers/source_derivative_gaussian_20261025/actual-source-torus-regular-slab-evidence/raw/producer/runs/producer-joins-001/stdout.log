@@ -1,0 +1,6 @@
+SourceActualTorusRegularSlab.lean:736:4: error: Type mismatch: After simplification, term
+  q.property
+ has type
+  ↑q ∈ TorusSuperlevel hL omega a
+but is expected to have type
+  a ≤ actualField 2 L omega X

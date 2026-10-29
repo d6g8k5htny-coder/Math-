@@ -1,0 +1,6 @@
+/workspace/scratch/lifetime-pair-finiteness/RejectedEverySample.lean:10:2: error: Type mismatch
+  smoothLaw_ae_finite_criticalFundDomain hL
+has type
+  ∀ᵐ (ω : SmoothSample 2 L) ∂smoothLaw 2 L, {x | x ∈ FundDomain 2 L ∧ IsCriticalPoint 2 (actualField 2 L ω) x}.Finite
+but is expected to have type
+  {x | x ∈ FundDomain 2 L ∧ IsCriticalPoint 2 (actualField 2 L ω) x}.Finite

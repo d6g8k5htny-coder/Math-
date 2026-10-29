@@ -1,0 +1,58 @@
+
+namespace I4SourceCurvatureDecomposition
+
+/-- Joint measurability also includes the pin parameter, not only fixed-pin sections. -/
+theorem curvatureReconstruct_joint_measurable {L : ℝ} (hL : L ≠ 0) (r : ℝ) :
+    Measurable (fun p : (Fin 6 → ℝ) × (SmoothSample 2 L × ℝ) =>
+      curvatureReconstruct hL r p.1 p.2.1 p.2.2) := by
+  have hp : Measurable (fun p : (Fin 6 → ℝ) × (SmoothSample 2 L × ℝ) =>
+      posteriorSample hL r p.1 p.2.1) :=
+    (posteriorSample_measurable hL r).comp
+      (measurable_fst.prodMk (measurable_fst.comp measurable_snd))
+  exact (curvatureShift_measurable hL r).comp
+    ((((measurable_snd.comp measurable_snd).sub ((sourceContactQ_measurable hL).comp hp)).div_const _).prodMk hp)
+
+/-- The actual curvature, actual pins and every finite original coefficient
+family are jointly Gaussian, with no finite-mode substitute. -/
+theorem curvaturePin_finiteCoefficients_hasGaussianLaw {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (I : Finset (SourceMode 2)) :
+    HasGaussianLaw (fun ω : SmoothSample 2 L =>
+      ((sourceContactQ L ω, sourceConfluentPinsAt L r ω), fun m : I => ω.val m)) (smoothLaw 2 L) := by
+  classical
+  let a : (Unit ⊕ (Fin 6 ⊕ I)) → SourceMode 2 → ℝ :=
+    Sum.elim (fun _ => curvatureCoefficient L)
+      (Sum.elim (pinCoefficient L r) (fun m => Pi.single m.val 1))
+  have ha (j : Unit ⊕ (Fin 6 ⊕ I)) : Summable (a j) := by
+    cases j with
+    | inl u => exact curvatureCoefficient_summable hL
+    | inr j =>
+      cases j with
+      | inl i => exact pinCoefficient_summable hL r i
+      | inr m =>
+        apply summable_of_ne_finset_zero (s := {m.val})
+        intro n hn
+        simp only [Finset.mem_singleton] at hn
+        simp [a, hn]
+  have hG := scalarSeries_finite_hasGaussianLaw a ha
+  have hm : Measurable (fun η j => scalarSeries (a j) η) :=
+    Measurable.of_eval (fun j => scalarSeries_measurable (a j))
+  have hμ : HasGaussianLaw (fun ω : SmoothSample 2 L =>
+      fun j => scalarSeries (a j) (sampleInclusion 2 L ω)) (smoothLaw 2 L) := by
+    refine ⟨(hm.comp (sampleInclusion_measurable 2 L)).aemeasurable, ?_⟩
+    rw [observation_map_eq 2 hL _ hm]
+    exact hG.isGaussian_map
+  let T : ((Unit ⊕ (Fin 6 ⊕ I)) → ℝ) →L[ℝ] ((ℝ × (Fin 6 → ℝ)) × (I → ℝ)) :=
+    ((ContinuousLinearMap.proj (Sum.inl ())).prod
+      (ContinuousLinearMap.pi (fun i => ContinuousLinearMap.proj (Sum.inr (Sum.inl i))))).prod
+        (ContinuousLinearMap.pi (fun m => ContinuousLinearMap.proj (Sum.inr (Sum.inr m))))
+  apply (hμ.map_fun T).congr
+  filter_upwards with ω
+  apply Prod.ext
+  · apply Prod.ext
+    · exact (sourceContactQ_series hL ω).symm
+    · funext i
+      exact (congrFun (sourceConfluentPinsAt_series hL r ω) i).symm
+  · funext m
+    exact scalarSeries_single m.val ω.val
+
+end I4SourceCurvatureDecomposition

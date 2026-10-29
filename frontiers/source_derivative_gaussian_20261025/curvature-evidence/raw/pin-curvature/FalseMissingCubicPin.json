@@ -1,0 +1,24 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "/workspace/scratch/pin-curvature-implementation/FalseMissingCubicPin.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit_code": 1,
+  "duration_seconds": 2.8413174152374268,
+  "timestamp_utc": "2026-10-26T00:31:34.402486+00:00",
+  "sha256_before": {
+    "source": "7989e229a66b6c20033ce29559dda50ee8eb3d896aa9c5a983f4d5391ffe207f",
+    "olean": "36dd25c17899287ff63422fb3f30d7d9436b38e1e3070a09cf2ce05530c48f7e",
+    "control": "7f6df03eed4bdb15584a92ee00569debf7746ddc549307a0445771417628e4a8"
+  },
+  "sha256_after": {
+    "source": "7989e229a66b6c20033ce29559dda50ee8eb3d896aa9c5a983f4d5391ffe207f",
+    "olean": "36dd25c17899287ff63422fb3f30d7d9436b38e1e3070a09cf2ce05530c48f7e",
+    "control": "7f6df03eed4bdb15584a92ee00569debf7746ddc549307a0445771417628e4a8"
+  },
+  "author_side_helper_lineage": "OpenAI/Codex /root/dm2_landed_composition/peano_strategy",
+  "scope": "NEW_SOURCE_PIN_CURVATURE_CONTROLS_ONLY"
+}

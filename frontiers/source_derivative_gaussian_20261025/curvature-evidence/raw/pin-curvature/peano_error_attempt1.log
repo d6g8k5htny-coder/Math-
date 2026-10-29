@@ -1,0 +1,73 @@
+/workspace/scratch/pin-curvature-implementation/PeanoErrorBounds.lean:26:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |?a * ?b|
+in the target expression
+  |(w * f) t| ≤ ((fun x => B) * w) t
+
+w f : ℝ → ℝ
+hwc : Continuous w
+hfc : Continuous f
+B : ℝ
+hw : ∀ t ∈ Icc (-1 / 2) (1 / 2), 0 ≤ w t
+hf : ∀ t ∈ Icc (-1 / 2) (1 / 2), |f t| ≤ B
+t : ℝ
+ht : t ∈ Icc (-1 / 2) (1 / 2)
+⊢ |(w * f) t| ≤ ((fun x => B) * w) t
+/workspace/scratch/pin-curvature-implementation/PeanoErrorBounds.lean:47:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (x : ℝ) in ?m.356..?m.357, (w * fun t => g (r * t)) x - (w * fun x => ?m.350) x ∂?m.353
+in the target expression
+  ∫ (t : ℝ) in -1 / 2..1 / 2, w t * g (r * t) - w t * c =
+    (∫ (t : ℝ) in -1 / 2..1 / 2, w t * g (r * t)) - c * ∫ (t : ℝ) in -1 / 2..1 / 2, w t
+
+w g : ℝ → ℝ
+hwc : Continuous w
+hgc : Continuous g
+r c B : ℝ
+hw : ∀ t ∈ Icc (-1 / 2) (1 / 2), 0 ≤ w t
+hg : ∀ t ∈ Icc (-1 / 2) (1 / 2), |g (r * t) - c| ≤ B
+hc : Continuous fun t => g (r * t)
+⊢ ∫ (t : ℝ) in -1 / 2..1 / 2, w t * g (r * t) - w t * c =
+    (∫ (t : ℝ) in -1 / 2..1 / 2, w t * g (r * t)) - c * ∫ (t : ℝ) in -1 / 2..1 / 2, w t
+/workspace/scratch/pin-curvature-implementation/PeanoErrorBounds.lean:84:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (x : ℝ) in ?m.581..?m.582, (peanoCubic * fun x => ?m.537) x - (peanoCubic * g ∘ ((fun x => ?m.565) * id)) x ∂?m.578
+in the target expression
+  6 * ∫ (t : ℝ) in -1 / 2..1 / 2, peanoCubic t * g (r * u) - peanoCubic t * g (r * t) = g (r * u) - 2
+
+g : ℝ → ℝ
+hgc : Continuous g
+C r : ℝ
+hC : 0 ≤ C
+hr : 0 ≤ r
+hlip : ∀ (x y : ℝ), |g x - g y| ≤ C * |x - y|
+hpin : 6 * ∫ (t : ℝ) in -1 / 2..1 / 2, peanoCubic t * g (r * t) = 2
+u : ℝ
+hu : u ∈ Icc (-1 / 2) (1 / 2)
+hcK : Continuous peanoCubic
+hcG : Continuous fun t => g (r * u) - g (r * t)
+hbound : ∀ t ∈ Icc (-1 / 2) (1 / 2), |g (r * u) - g (r * t)| ≤ r * C
+hi :
+  |∫ (t : ℝ) in -1 / 2..1 / 2, peanoCubic t * (g (r * u) - g (r * t))| ≤
+    r * C * ∫ (t : ℝ) in -1 / 2..1 / 2, peanoCubic t
+hmass : 6 * ∫ (t : ℝ) in -1 / 2..1 / 2, peanoCubic t = 1
+⊢ 6 * ∫ (t : ℝ) in -1 / 2..1 / 2, peanoCubic t * g (r * u) - peanoCubic t * g (r * t) = g (r * u) - 2
+/workspace/scratch/pin-curvature-implementation/PeanoErrorBounds.lean:94:2: error: linarith failed to find a contradiction
+g : ℝ → ℝ
+hgc : Continuous g
+C r : ℝ
+hC : 0 ≤ C
+hr : 0 ≤ r
+hlip : ∀ (x y : ℝ), |g x - g y| ≤ C * |x - y|
+hpin : 6 * ∫ (t : ℝ) in -1 / 2..1 / 2, peanoCubic t * g (r * t) = 2
+u : ℝ
+hu : u ∈ Icc (-1 / 2) (1 / 2)
+hcK : Continuous peanoCubic
+hcG : Continuous fun t => g (r * u) - g (r * t)
+hbound : ∀ t ∈ Icc (-1 / 2) (1 / 2), |g (r * u) - g (r * t)| ≤ r * C
+hi :
+  |∫ (t : ℝ) in -1 / 2..1 / 2, peanoCubic t * (g (r * u) - g (r * t))| ≤
+    r * C * ∫ (t : ℝ) in -1 / 2..1 / 2, peanoCubic t
+hmass : 6 * ∫ (t : ℝ) in -1 / 2..1 / 2, peanoCubic t = 1
+heq : 6 * ∫ (t : ℝ) in -1 / 2..1 / 2, peanoCubic t * (g (r * u) - g (r * t)) = g (r * u) - 2
+habs : |g (r * u) - 2| = 6 * |∫ (t : ℝ) in -1 / 2..1 / 2, peanoCubic t * (g (r * u) - g (r * t))|
+a✝ : r * C < 6 * |∫ (t : ℝ) in -1 / 2..1 / 2, peanoCubic t * (g (r * u) - g (r * t))|
+⊢ False
+failed

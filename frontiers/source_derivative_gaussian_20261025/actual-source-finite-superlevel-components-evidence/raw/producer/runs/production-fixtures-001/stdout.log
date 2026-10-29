@@ -1,0 +1,25 @@
+SourceActualFiniteSuperlevelComponents.lean:176:8: error(lean.unknownIdentifier): Unknown constant `AddCircle.coe_eq_zero_iff.mpr`
+SourceActualFiniteSuperlevelComponents.lean:177:2: error: No goals to be solved
+SourceActualFiniteSuperlevelComponents.lean:198:6: error: Type mismatch: After simplification, term
+  coordinate_max_zero hx0
+ has type
+  @Eq (ℝ ⧸ AddSubgroup.zmultiples 2) (↑(x 0)) 0
+but is expected to have type
+  @Eq (AddCircle 2) (↑(x ⟨0, ⋯⟩)) 0
+SourceActualFiniteSuperlevelComponents.lean:200:6: error: Type mismatch: After simplification, term
+  coordinate_max_zero hx1
+ has type
+  @Eq (ℝ ⧸ AddSubgroup.zmultiples 2) (↑(x 1)) 0
+but is expected to have type
+  @Eq (AddCircle 2) (↑(x ⟨1, ⋯⟩)) 0
+SourceActualFiniteSuperlevelComponents.lean:240:8: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LocallyPathConnectedSpace (I4Torus.SourceTorus 2 2)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualFiniteSuperlevelComponents.lean:256:10: error: Type mismatch: After simplification, term
+  fixture_wholeLocalTopology
+ has type
+  LocallyPathConnectedSpace ↑(TorusFiltration.superlevel_set fixtureTorusField 4)
+but is expected to have type
+  LocallyPathConnectedSpace
+    ↑(TorusFiltration.superlevel_set (SourceActualFoldTorus.actualTorusField ⋯ fixtureSample) (- -4))

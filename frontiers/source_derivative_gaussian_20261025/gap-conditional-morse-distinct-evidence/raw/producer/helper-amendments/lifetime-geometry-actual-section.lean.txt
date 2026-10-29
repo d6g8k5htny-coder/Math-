@@ -1,0 +1,348 @@
+/- Complete TEXT ONLY for one integration inside
+namespace I4SourceGapConditionalMorseDistinct.
+All declarations are private. No helper execution or qualification is claimed. -/
+
+private theorem geometry59_spectral_quadratic
+    (A : Matrix (Fin 2) (Fin 2) ℝ) (hA : A.IsHermitian) (v : E 2) :
+    dotProduct (coordinates 2 v) (A *ᵥ coordinates 2 v) =
+      ∑ i : Fin 2, hA.eigenvalues i * (hA.eigenvectorBasis.repr v i)^2 := by
+  classical
+  let b : OrthonormalBasis (Fin 2) ℝ (E 2) := hA.eigenvectorBasis
+  let T : (E 2) →ₗ[ℝ] (E 2) := A.toEuclideanLin
+  have hT : T.IsSymmetric := Matrix.isSymmetric_toEuclideanLin_iff.mpr hA
+  have hTb (i : Fin 2) : T (b i) = hA.eigenvalues i • b i := by
+    change toLp 2 (A *ᵥ (b i : Fin 2 → ℝ)) = hA.eigenvalues i • b i
+    rw [show A *ᵥ (b i : Fin 2 → ℝ) =
+      hA.eigenvalues i • (b i : Fin 2 → ℝ) from hA.mulVec_eigenvectorBasis i]
+    rfl
+  have hrepr (i : Fin 2) :
+      b.repr (T v) i = hA.eigenvalues i * b.repr v i := by
+    calc
+      b.repr (T v) i = inner ℝ (b i) (T v) := b.repr_apply_apply _ _
+      _ = inner ℝ (T (b i)) v := (hT (b i) v).symm
+      _ = hA.eigenvalues i * b.repr v i := by
+        rw [hTb]
+        simp only [real_inner_smul_left, b.repr_apply_apply]
+  have hinner : inner ℝ v (T v) =
+      ∑ i : Fin 2, hA.eigenvalues i * (b.repr v i)^2 := by
+    rw [← b.sum_inner_mul_inner v (T v)]
+    apply Finset.sum_congr rfl
+    intro i _hi
+    have he1 : inner ℝ v (b i) = b.repr v i := by
+      exact (real_inner_comm _ _).trans (b.repr_apply_apply v i).symm
+    have he2 : inner ℝ (b i) (T v) = b.repr (T v) i :=
+      (b.repr_apply_apply (T v) i).symm
+    rw [he1,he2,hrepr]
+    ring
+  calc
+    dotProduct (coordinates 2 v) (A *ᵥ coordinates 2 v) = inner ℝ v (T v) := by
+      change dotProduct (coordinates 2 v) (A *ᵥ coordinates 2 v) =
+        dotProduct (A *ᵥ coordinates 2 v) (coordinates 2 v)
+      exact dotProduct_comm _ _
+    _ = _ := hinner
+
+/-- A spectral sign decomposition, with genuine submodules and no pivot premise. -/
+private theorem inertia_of_symmetric_matrix
+    (g : E 2 → ℝ) (X : E 2) (A : Matrix (Fin 2) (Fin 2) ℝ)
+    (hA : A.IsHermitian)
+    (hform : ∀ v : E 2, hessian 2 g X v v =
+      dotProduct (coordinates 2 v) (A *ᵥ coordinates 2 v))
+    (hdet : A.det ≠ 0) : ∃ j : ℕ, HessianHasInertia 2 g X j := by
+  classical
+  let b : OrthonormalBasis (Fin 2) ℝ (E 2) := hA.eigenvectorBasis
+  let eigen : Fin 2 → ℝ := hA.eigenvalues
+  have heigen : ∀ i : Fin 2, eigen i ≠ 0 := by
+    have hp : (∏ i : Fin 2, eigen i) ≠ 0 := by
+      have hdprod : A.det = ∏ i : Fin 2, eigen i := by
+        simpa [eigen] using hA.det_eq_prod_eigenvalues
+      rw [← hdprod]
+      exact hdet
+    intro i
+    exact (Finset.prod_ne_zero_iff.mp hp) i (Finset.mem_univ i)
+  have hq (v : E 2) :
+      hessian 2 g X v v = ∑ i : Fin 2, eigen i * (b.repr v i)^2 := by
+    exact (hform v).trans (geometry59_spectral_quadratic A hA v)
+  let V : Submodule ℝ (E 2) :=
+    { carrier := {v | ∀ i : Fin 2, ¬ eigen i < 0 → b.repr v i = 0}
+      zero_mem' := by intro i _hi; simp
+      add_mem' := by
+        intro v w hv hw i hi
+        simp only [map_add, PiLp.add_apply, hv i hi, hw i hi, add_zero]
+      smul_mem' := by
+        intro c v hv i hi
+        simp only [map_smul, PiLp.smul_apply, hv i hi, smul_zero] }
+  let W : Submodule ℝ (E 2) :=
+    { carrier := {v | ∀ i : Fin 2, eigen i < 0 → b.repr v i = 0}
+      zero_mem' := by intro i _hi; simp
+      add_mem' := by
+        intro v w hv hw i hi
+        simp only [map_add, PiLp.add_apply, hv i hi, hw i hi, add_zero]
+      smul_mem' := by
+        intro c v hv i hi
+        simp only [map_smul, PiLp.smul_apply, hv i hi, smul_zero] }
+  have hdis : Disjoint V W := by
+    apply Submodule.disjoint_def.mpr
+    intro v hv hw
+    apply b.repr.injective
+    ext i
+    by_cases hi : eigen i < 0
+    · simpa only [map_zero, PiLp.zero_apply] using hw i hi
+    · simpa only [map_zero, PiLp.zero_apply] using hv i hi
+  have hsup : V ⊔ W = ⊤ := by
+    apply le_antisymm le_top
+    intro v _hv
+    let vn : E 2 := b.repr.symm (toLp 2 (fun i =>
+      if eigen i < 0 then b.repr v i else 0))
+    let vp : E 2 := b.repr.symm (toLp 2 (fun i =>
+      if eigen i < 0 then 0 else b.repr v i))
+    have hvn : vn ∈ V := by
+      intro i hi
+      simp only [vn, LinearIsometryEquiv.apply_symm_apply, PiLp.toLp_apply,
+        ite_eq_right hi]
+    have hvp : vp ∈ W := by
+      intro i hi
+      simp only [vp, LinearIsometryEquiv.apply_symm_apply, PiLp.toLp_apply,
+        ite_eq_left hi]
+    have hvsum : vn + vp = v := by
+      apply b.repr.injective
+      ext i
+      by_cases hi : eigen i < 0
+      · simp only [map_add, PiLp.add_apply, vn, vp,
+          LinearIsometryEquiv.apply_symm_apply,
+          ite_eq_left hi, add_zero]
+      · simp only [map_add, PiLp.add_apply, vn, vp,
+          LinearIsometryEquiv.apply_symm_apply,
+          ite_eq_right hi, zero_add]
+    exact Submodule.mem_sup.mpr ⟨vn, hvn, vp, hvp, hvsum⟩
+  have hcompl : IsCompl V W := ⟨hdis, codisjoint_iff.mpr hsup⟩
+  have hdim : Module.finrank ℝ V + Module.finrank ℝ W = 2 := by
+    simpa only [finrank_euclideanSpace_fin] using
+      (Submodule.finrank_add_eq_of_isCompl hcompl)
+  have hnonzero_coordinate (v : E 2) (hv : v ≠ 0) :
+      ∃ i : Fin 2, b.repr v i ≠ 0 := by
+    by_contra h
+    have hz (i : Fin 2) : b.repr v i = 0 := by
+      by_contra hi
+      exact h ⟨i, hi⟩
+    apply hv
+    apply b.repr.injective
+    ext i
+    simpa only [map_zero, PiLp.zero_apply] using hz i
+  refine ⟨Module.finrank ℝ V, V, W, hcompl, rfl, ?_, ?_, ?_⟩
+  · omega
+  · intro v hv hv0
+    rw [hq]
+    apply Finset.sum_neg'
+    · intro i _hi
+      by_cases hn : eigen i < 0
+      · exact mul_nonpos_of_nonpos_of_nonneg hn.le (sq_nonneg _)
+      · rw [hv i hn]
+        simp only [zero_pow (by decide : 2 ≠ 0), mul_zero, le_refl]
+    · obtain ⟨i, hi⟩ := hnonzero_coordinate v hv0
+      have hn : eigen i < 0 := by
+        by_contra hni
+        exact hi (hv i hni)
+      exact ⟨i, Finset.mem_univ i, mul_neg_of_neg_of_pos hn (sq_pos_of_ne_zero hi)⟩
+  · intro v hv hv0
+    rw [hq]
+    apply Finset.sum_pos'
+    · intro i _hi
+      by_cases hn : eigen i < 0
+      · rw [hv i hn]
+        simp only [zero_pow (by decide : 2 ≠ 0), mul_zero, le_refl]
+      · exact mul_nonneg (le_of_not_gt hn) (sq_nonneg _)
+    · obtain ⟨i, hi⟩ := hnonzero_coordinate v hv0
+      have hn : ¬ eigen i < 0 := by
+        intro hni
+        exact hi (hv i hni)
+      have hp : 0 < eigen i := lt_of_le_of_ne (le_of_not_gt hn) (heigen i).symm
+      exact ⟨i, Finset.mem_univ i, mul_pos hp (sq_pos_of_ne_zero hi)⟩
+
+private theorem actual_inertia_of_source_det {L : ℝ} (hL : 0 < L)
+    (ω : SmoothSample 2 L) (X : E 2)
+    (hdet :
+      (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (coordinates 2 X)
+        ![directionX, directionX]) *
+      (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (coordinates 2 X)
+        ![directionY, directionY]) -
+      (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (coordinates 2 X)
+        ![directionX, directionY])^2 ≠ 0) :
+    ∃ j : ℕ, HessianHasInertia 2 (actualField 2 L ω) X j := by
+  let D := fderiv ℝ (fderiv ℝ (smoothSourceField 2 L ω)) (coordinates 2 X)
+  let a : ℝ := D directionX directionX
+  let b : ℝ := D directionX directionY
+  let c : ℝ := D directionY directionY
+  let A : Matrix (Fin 2) (Fin 2) ℝ := ![![a,b], ![b,c]]
+  have hsym : D directionY directionX = b :=
+    ((smoothSourceField_smooth 2 hL.ne' ω).contDiffAt.isSymmSndFDerivAt
+      (by simp)) directionY directionX
+  have hA : A.IsHermitian := by
+    change Aᴴ = A
+    ext i j
+    change A j i = A i j
+    fin_cases i <;> fin_cases j <;> rfl
+  have hdetA : A.det ≠ 0 := by
+    have hd : a*c-b^2 ≠ 0 := by
+      simpa only [a, b, c, D, iteratedFDeriv_two_apply,
+        Matrix.cons_val_zero, Matrix.cons_val_one] using hdet
+    rw [Matrix.det_fin_two]
+    change a*c-b*b≠0
+    simpa only [pow_two] using hd
+  have hquad (u : Point2) : D u u = a*u 0^2+2*b*u 0*u 1+c*u 1^2 := by
+    have hu : u = u 0 • directionX + u 1 • directionY := by
+      ext i
+      fin_cases i <;> simp [directionX, directionY]
+    calc
+      D u u = D (u 0 • directionX + u 1 • directionY)
+          (u 0 • directionX + u 1 • directionY) := congrArg₂ (fun v w => D v w) hu hu
+      _ = _ := by
+        simp only [map_add, map_smul, _root_.add_apply,
+          _root_.smul_apply, smul_eq_mul]
+        change u 0*(u 0*a+u 1*(D directionY directionX))+u 1*(u 0*b+u 1*c) = _
+        rw [hsym]
+        ring
+  apply inertia_of_symmetric_matrix (actualField 2 L ω) X A hA _ hdetA
+  intro v
+  calc
+    hessian 2 (actualField 2 L ω) X v v = D (coordinates 2 v) (coordinates 2 v) := by
+      rw [actual_hessian_coordinates hL, iteratedFDeriv_two_apply]
+      rfl
+    _ = a*(coordinates 2 v 0)^2+2*b*(coordinates 2 v 0)*(coordinates 2 v 1)+
+        c*(coordinates 2 v 1)^2 := hquad _
+    _ = dotProduct (coordinates 2 v) (A *ᵥ coordinates 2 v) := by
+      simp only [A, Matrix.mulVec, dotProduct, Fin.sum_univ_two,
+        Matrix.cons_val_zero, Matrix.cons_val_one]
+      ring
+
+/- Honest finite-form positives. The premise is the displayed quadratic identity,
+not a Gaussian realization or supplied inertia certificate. Each directly calls
+the new generic spectral adapter, including the zero-diagonal saddle. -/
+private theorem inertia_control_positive (g : E 2 → ℝ) (X : E 2)
+    (hq : ∀ v : E 2, hessian 2 g X v v =
+      (coordinates 2 v 0)^2 + (coordinates 2 v 1)^2) :
+    ∃ j : ℕ, HessianHasInertia 2 g X j := by
+  let A : Matrix (Fin 2) (Fin 2) ℝ := ![![1,0], ![0,1]]
+  apply inertia_of_symmetric_matrix g X A
+  · change Aᴴ = A
+    ext i j
+    change A j i = A i j
+    fin_cases i <;> fin_cases j <;> rfl
+  · intro v
+    rw [hq]
+    simp only [A, Matrix.mulVec, dotProduct, Fin.sum_univ_two,
+      Matrix.cons_val_zero, Matrix.cons_val_one]
+    ring
+  · rw [Matrix.det_fin_two]
+    norm_num [A]
+
+private theorem inertia_control_negative (g : E 2 → ℝ) (X : E 2)
+    (hq : ∀ v : E 2, hessian 2 g X v v =
+      -(coordinates 2 v 0)^2 - (coordinates 2 v 1)^2) :
+    ∃ j : ℕ, HessianHasInertia 2 g X j := by
+  let A : Matrix (Fin 2) (Fin 2) ℝ := ![![-1,0], ![0,-1]]
+  apply inertia_of_symmetric_matrix g X A
+  · change Aᴴ = A
+    ext i j
+    change A j i = A i j
+    fin_cases i <;> fin_cases j <;> rfl
+  · intro v
+    rw [hq]
+    simp only [A, Matrix.mulVec, dotProduct, Fin.sum_univ_two,
+      Matrix.cons_val_zero, Matrix.cons_val_one]
+    ring
+  · rw [Matrix.det_fin_two]
+    norm_num [A]
+
+private theorem inertia_control_axis_saddle (g : E 2 → ℝ) (X : E 2)
+    (hq : ∀ v : E 2, hessian 2 g X v v =
+      (coordinates 2 v 0)^2 - (coordinates 2 v 1)^2) :
+    ∃ j : ℕ, HessianHasInertia 2 g X j := by
+  let A : Matrix (Fin 2) (Fin 2) ℝ := ![![1,0], ![0,-1]]
+  apply inertia_of_symmetric_matrix g X A
+  · change Aᴴ = A
+    ext i j
+    change A j i = A i j
+    fin_cases i <;> fin_cases j <;> rfl
+  · intro v
+    rw [hq]
+    simp only [A, Matrix.mulVec, dotProduct, Fin.sum_univ_two,
+      Matrix.cons_val_zero, Matrix.cons_val_one]
+    ring
+  · rw [Matrix.det_fin_two]
+    norm_num [A]
+
+private theorem inertia_control_zero_diagonal_saddle (g : E 2 → ℝ) (X : E 2)
+    (hq : ∀ v : E 2, hessian 2 g X v v =
+      2*(coordinates 2 v 0)*(coordinates 2 v 1)) :
+    ∃ j : ℕ, HessianHasInertia 2 g X j := by
+  let A : Matrix (Fin 2) (Fin 2) ℝ := ![![0,1], ![1,0]]
+  apply inertia_of_symmetric_matrix g X A
+  · change Aᴴ = A
+    ext i j
+    change A j i = A i j
+    fin_cases i <;> fin_cases j <;> rfl
+  · intro v
+    rw [hq]
+    simp only [A, Matrix.mulVec, dotProduct, Fin.sum_univ_two,
+      Matrix.cons_val_zero, Matrix.cons_val_one]
+    ring
+  · rw [Matrix.det_fin_two]
+    norm_num [A]
+
+private theorem geometry59_projection_eq_lattice {L : ℝ} (x y : Point2)
+    (h : I4Torus.torusProjection 2 L x = I4Torus.torusProjection 2 L y) :
+    ∃ n : Fin 2 → ℤ, y = fun i => x i + L*(n i : ℝ) := by
+  classical
+  have hz (i : Fin 2) : ∃ n : ℤ, n • L = y i - x i := by
+    apply (AddCircle.coe_eq_zero_iff (p := L)).mp
+    rw [AddCircle.coe_sub]
+    exact sub_eq_zero.mpr (congrFun h i).symm
+  choose n hn using hz
+  refine ⟨n, ?_⟩
+  ext i
+  have hi := hn i
+  rw [zsmul_eq_mul] at hi
+  linarith
+
+private theorem projection_eq_torusDist_zero {L : ℝ} (_hL : 0 < L) (X Y : E 2)
+    (h : I4Torus.torusProjection 2 L (coordinates 2 X) =
+      I4Torus.torusProjection 2 L (coordinates 2 Y)) : torusDist 2 L X Y = 0 := by
+  obtain ⟨n, hn⟩ := geometry59_projection_eq_lattice (coordinates 2 X) (coordinates 2 Y) h
+  have hY : Y = X + latticeVec 2 L n := by
+    apply (coordinates 2).injective
+    rw [map_add, coordinates_latticeVec]
+    exact hn
+  have hzero : X-Y+latticeVec 2 L n = 0 := by rw [hY]; abel
+  change (⨅ m : Fin 2 → ℤ, ‖X-Y+latticeVec 2 L m‖) = 0
+  apply le_antisymm
+  · have hbounded : BddBelow (Set.range (fun m : Fin 2 → ℤ => ‖X-Y+latticeVec 2 L m‖)) :=
+      ⟨0, by rintro z ⟨m, rfl⟩; exact norm_nonneg _⟩
+    have hle := ciInf_le hbounded n
+    simpa only [hzero, norm_zero] using hle
+  · exact le_ciInf (fun m => norm_nonneg (X-Y+latticeVec 2 L m))
+
+private theorem source_jets_of_projection_eq {L : ℝ} (hL : 0 < L)
+    (ω : SmoothSample 2 L) (x y : Point2)
+    (h : I4Torus.torusProjection 2 L x = I4Torus.torusProjection 2 L y) :
+    smoothSourceField 2 L ω x = smoothSourceField 2 L ω y ∧
+      (∀ k : ℕ, iteratedFDeriv ℝ k (smoothSourceField 2 L ω) x =
+        iteratedFDeriv ℝ k (smoothSourceField 2 L ω) y) := by
+  obtain ⟨n, hn⟩ := geometry59_projection_eq_lattice x y h
+  let s : Point2 := fun i => L*(n i : ℝ)
+  have hy : y = x+s := hn
+  have hp (z : Point2) : smoothSourceField 2 L ω (z+s) = smoothSourceField 2 L ω z := by
+    exact I4Lattice.sourceField_lattice_shift 2 hL.ne' (sampleInclusion 2 L ω) n z
+  have hfun : (fun z : Point2 => smoothSourceField 2 L ω (z+s)) =
+      smoothSourceField 2 L ω := funext hp
+  refine ⟨?_, ?_⟩
+  · rw [hy]
+    exact (hp x).symm
+  · intro k
+    rw [hy]
+    calc
+      iteratedFDeriv ℝ k (smoothSourceField 2 L ω) x =
+          iteratedFDeriv ℝ k (fun z : Point2 => smoothSourceField 2 L ω (z+s)) x :=
+        (congrArg (fun F : Point2 → ℝ => iteratedFDeriv ℝ k F x) hfun).symm
+      _ = iteratedFDeriv ℝ k (smoothSourceField 2 L ω) (x+s) :=
+        iteratedFDeriv_comp_add_right k s x
+

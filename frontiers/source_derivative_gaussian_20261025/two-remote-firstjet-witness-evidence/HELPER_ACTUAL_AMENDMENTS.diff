@@ -1,0 +1,29 @@
+--- frozen_helper_original_needed_text
++++ actual_integrated_helper_in_sourceb523da92
+@@ -22,7 +22,10 @@
+   have h := jet2_mul P Q hP hQ p
+   ext j
+   have hj := congrFun h (Fin.castAdd 3 j)
+-  fin_cases j <;> simpa [firstJet, firstJetProduct, jet2, mulJet2] using hj
++  fin_cases j
++  · rfl
++  · simpa [firstJet, firstJetProduct, jet2, mulJet2] using hj
++  · simpa [firstJet, firstJetProduct, jet2, mulJet2] using hj
+ 
+ private theorem firstJet_scale (a : ℝ) (f : (Fin 2 → ℝ) → ℝ)
+     (hf : ContDiff ℝ 2 f) (p : Fin 2 → ℝ) :
+@@ -57,7 +60,13 @@
+ 
+ private theorem firstJetGerm_contDiff (c : ℝ) (p : Fin 2 → ℝ) (s : Fin 3) :
+     ContDiff ℝ 2 (localGerm c p (Fin.castAdd 3 s)) := by
+-  fin_cases s <;> dsimp [localGerm] <;> fun_prop
++  fin_cases s
++  · change ContDiff ℝ 2 (fun _ : Fin 2 → ℝ => (1:ℝ))
++    exact contDiff_const
++  · change ContDiff ℝ 2 (fun z : Fin 2 → ℝ => Real.sin (c*(z 0-p 0))/c)
++    fun_prop
++  · change ContDiff ℝ 2 (fun z : Fin 2 → ℝ => Real.sin (c*(z 1-p 1))/c)
++    fun_prop
+ 
+ private theorem firstJet_localGerm (c : ℝ) (hc : c ≠ 0) (p : Fin 2 → ℝ)
+     (j s : Fin 3) :

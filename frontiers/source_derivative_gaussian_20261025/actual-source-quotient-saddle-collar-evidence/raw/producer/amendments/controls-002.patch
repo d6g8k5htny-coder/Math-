@@ -1,0 +1,39 @@
+--- runs/controls-001/QuotientSaddleCollarControls.lean
++++ QuotientSaddleCollarControls.lean
+@@ -388,28 +388,30 @@
+     change chosenHeight < fixtureTorusField strictPointPlus
+     have hid := chosenChart_structure.2.2.2.2.2 strictPointPlus hplus
+     rw [strictPlus_coordinates] at hid
+-    simp only [Matrix.cons_val_zero, Matrix.cons_val_one, zero_pow, sub_zero] at hid
++    simp only [Matrix.cons_val_zero, Matrix.cons_val_one] at hid
+     nlinarith [sq_pos_of_pos hr]
+   · refine ⟨hminus, ?_⟩
+     change chosenHeight < fixtureTorusField strictPointMinus
+     have hid := chosenChart_structure.2.2.2.2.2 strictPointMinus hminus
+     rw [strictMinus_coordinates] at hid
+-    simp only [Matrix.cons_val_zero, Matrix.cons_val_one, zero_pow, sub_zero] at hid
++    simp only [Matrix.cons_val_zero, Matrix.cons_val_one] at hid
+     nlinarith [sq_pos_of_pos hr]
+ 
+ private theorem strictPlus_coordinate1 : chosenChart strictPointPlus 1 = chosenRadius/2 := by
+-  simpa only [Matrix.cons_val_one] using congrFun strictPlus_coordinates 1
++  simpa only [Matrix.cons_val_one, Matrix.cons_val_zero] using congrFun strictPlus_coordinates 1
+ 
+ private theorem strictMinus_coordinate1 : chosenChart strictPointMinus 1 = -chosenRadius/2 := by
+-  simpa only [Matrix.cons_val_one] using congrFun strictMinus_coordinates 1
++  simpa only [Matrix.cons_val_one, Matrix.cons_val_zero] using congrFun strictMinus_coordinates 1
+ 
+ theorem not_pathConnected_chosenStrictTrace : ¬ IsPathConnected chosenStrictTrace := by
+   intro hpc
+   have hj := hpc.joinedIn strictPointMinus strictPoints_mem.2 strictPointPlus strictPoints_mem.1
++  have heval : ContinuousOn (fun u : Fin 2 → ℝ => u 1) Set.univ :=
++    (continuous_apply (1 : Fin 2)).continuousOn
+   have hcoordinate : ContinuousOn (fun z : I4Torus.SourceTorus 2 2 => chosenChart z 1)
+       chosenStrictTrace :=
+-    (continuous_apply (1 : Fin 2)).continuousOn.comp
+-      (chosenChart.continuousOn.mono inter_subset_left) (by intro z hz; trivial)
++    heval.comp (chosenChart.continuousOn.mono inter_subset_left)
++      (by intro z hz; exact Set.mem_univ _)
+   have hjReal := hj.map hcoordinate
+   let gamma := hjReal.somePath
+   have hg0 : gamma (0 : unitInterval) = -chosenRadius/2 := by

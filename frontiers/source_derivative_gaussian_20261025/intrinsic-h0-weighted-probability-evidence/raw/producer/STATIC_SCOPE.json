@@ -1,0 +1,29 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+    "bytes": 32555,
+    "sha256": "14eefa9f0572e215a9170c1b3206e67b60d1e6f3861f36c66ca6701cf19a4f46"
+  },
+  "imports": [
+    "SourceIntrinsicH0Interface",
+    "SourceCompactFoldWeightedProbability",
+    "SourceSmoothTopology",
+    "Mathlib.Analysis.Calculus.FDeriv.Symmetric",
+    "Mathlib.MeasureTheory.Constructions.BorelSpace.Order",
+    "ResearchFormalCoreR1.DeterminantMoment",
+    "Mathlib.LinearAlgebra.FiniteDimensional.Lemmas"
+  ],
+  "forbidden_scan": {
+    "sorry": false,
+    "admit": false,
+    "custom_axiom": false,
+    "native_decide": false,
+    "implemented_by": false,
+    "umbrella_mathlib": false,
+    "private_foreign_API": false
+  },
+  "authored_public_defs": 2,
+  "authored_public_theorems": 2,
+  "full_inventory": "INVENTORY.json",
+  "unchanged_since_complete_integration002": true
+}

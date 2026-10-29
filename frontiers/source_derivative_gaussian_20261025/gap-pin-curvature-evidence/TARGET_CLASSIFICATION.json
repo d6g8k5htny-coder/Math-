@@ -1,0 +1,29 @@
+{
+  "module": "SourceGapPinCurvature",
+  "total_kernel_constants": 10,
+  "named_public_theorems": 10,
+  "named_public_definitions": 0,
+  "named_prop_bundles": 0,
+  "handwritten_private_theorems": 0,
+  "generated_constants": 0,
+  "generated_theorems": 0,
+  "generated_definitions": 0,
+  "public_theorem_targets": [
+    "I4SourceGapPinCurvature.sourceGapLaw_curvature_bounds",
+    "I4SourceGapPinCurvature.sourceSmoothKernel_curvature_bounds_ae",
+    "I4SourceGapPinCurvature.sourceSmoothWeight_curvature_bound",
+    "I4SourceGapPinCurvature.sourceSmoothWeight_radius_bound",
+    "I4SourceGapPinCurvature.source_bad_curvature_slab",
+    "I4SourceGapPinCurvature.source_normalized_determinant_bounds",
+    "I4SourceGapPinCurvature.source_normalized_first_four_bound",
+    "I4SourceGapPinCurvature.source_normalized_first_four_third_bound",
+    "I4SourceGapPinCurvature.source_normalized_transverse_errors",
+    "I4SourceGapPinCurvature.source_positive_weight_curvature_upper"
+  ],
+  "definitions": [],
+  "prop_bundles": [],
+  "private_support_theorems": [],
+  "generated_constants_names": [],
+  "classification_policy": "Every actual module-index constant was classified. All ten constants are named public theorem targets; no generated/private/definition/Prop-bundle declarations were found.",
+  "rows": "INVENTORY.json"
+}

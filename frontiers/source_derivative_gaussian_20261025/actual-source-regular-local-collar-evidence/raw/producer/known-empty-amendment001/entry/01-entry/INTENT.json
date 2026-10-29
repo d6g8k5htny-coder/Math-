@@ -1,0 +1,30 @@
+{
+  "command_argv": [
+    "python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/native-runtime/capture.py",
+    "--run-dir",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/known-empty-amendment001/outer",
+    "--cwd",
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "--scope",
+    "outer",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/native-runtime/capture.py",
+    "--run-dir",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/known-empty-amendment001/worker",
+    "--cwd",
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "--scope",
+    "worker",
+    "--",
+    "python3",
+    "-c",
+    "import datetime,difflib,hashlib,json,pathlib,shutil\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nH=B/'history/known-empty-identity001'\nH.mkdir(parents=True,exist_ok=False)\np=B/'runner/record_run.py'\nbefore=p.read_text()\nold=\"\"\"    if old and old.get('marker') == marker:\n        return old\n    row = {'path': key, 'bytes': info.st_size,\n\"\"\"\nnew=\"\"\"    if old and old.get('marker') == marker:\n        return old\n    if info.st_size == 0:\n        row = {'path': key, 'bytes': 0,\n               'sha256': 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855',\n               'marker': marker, 'first_observed_utc': utc(),\n               'origin': 'Literal known EMPTY content identity REUSED; zero hashes'}\n        cache[key] = row\n        return row\n    row = {'path': key, 'bytes': info.st_size,\n\"\"\"\nassert before.count(old)==1,'Exact current runner block required'\ncachepath=B/'FIRST_ID_CACHE.json'\ncache=json.loads(cachepath.read_text())\nshutil.copyfile(cachepath,H/'FIRST_ID_CACHE.BEFORE.json')\noldrow=cache[str(p)]\norig=H/'record_run.py.ORIGINAL'\norig.write_text(before);st=orig.stat()\ncache[str(orig)]={**oldrow,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact initial runner original identity REUSED; no hash','copied_from':str(p)}\nafter=before.replace(old,new)\np.write_text(after)\npatch=''.join(difflib.unified_diff(before.splitlines(keepends=True),after.splitlines(keepends=True),fromfile='history/known-empty-identity001/record_run.py.ORIGINAL',tofile='runner/record_run.py'))\npatchpath=H/'FULL_ACTUAL.patch';patchpath.write_text(patch)\ndef first(path):\n st=path.stat();row={'path':str(path),'bytes':st.st_size,'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST necessary NEW metadata version identity, once'};cache[str(path)]=row;return row\nrunnerrow=first(p);patchrow=first(patchpath)\nsnap=H/'record_run.AMENDED.py.txt';shutil.copyfile(p,snap);st=snap.stat()\ncache[str(snap)]={**runnerrow,'path':str(snap),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact amended runner snapshot identity REUSED; no hash','copied_from':str(p)}\ncachepath.write_text(json.dumps(cache,indent=2)+'\\n')\nrecord={'status':'NEW66_RUNNER_KNOWN_EMPTY_REUSE_AMENDMENT_FROZEN_BEFORE_OWN_EXECUTION','observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'amended_runner':runnerrow,'new_metadata_full_patch':patchrow,'initial_runner_original_ID_reused':cache[str(orig)],'amended_runner_snapshot_ID_reused':cache[str(snap)],'new_nonempty_metadata_hashes_once':2,'known_source_object_or_empty_hashes_here':0,'first_initial_known_empty_metadata_digest_avoidable':1,'initial_receipt_preserved_unchanged':str(B/'runs/context-bootstrap001/receipt.json'),'exact_before_cache_preserved':str(H/'FIRST_ID_CACHE.BEFORE.json'),'mathematical_impact':'NONE; no proof/source/object/Lean/check action; actual initial origin claim retained honestly','amended_runner_executions_so_far':0,'prospective_action':'Static review before future mathematical execution; no duplicate bootstrap replay'}\n(B/'RUNNER_KNOWN_EMPTY_AMENDMENT.json').write_text(json.dumps(record,indent=2)+'\\n')\nprint(json.dumps({'status':record['status'],'observed_utc':record['observed_utc'],'amended_runner':runnerrow,'full_patch':patchrow,'initial_avoidable_known_empty_digest':1,'new_empty_hashes':0}))\n"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "started_utc": "2026-10-28T23:20:30.698502+00:00",
+  "explicit_environment_overrides": {},
+  "stdin_binding": null,
+  "original_separate_capture": true
+}

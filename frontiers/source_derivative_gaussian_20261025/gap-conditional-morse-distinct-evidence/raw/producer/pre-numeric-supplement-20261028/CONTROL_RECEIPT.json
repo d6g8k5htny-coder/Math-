@@ -1,0 +1,69 @@
+{
+  "status": "PASS_ALL_FINITE_CONTROLS_AND_SOLE_INTENDED_FALSE",
+  "positive_receipt": "runs/controls-003/receipt.json",
+  "positive_ended_utc": "2026-10-28T14:57:02.396662+00:00",
+  "negative_receipt": "runs/false-drop-DBtheta-001/receipt.json",
+  "negative_ended_utc": "2026-10-28T14:58:10.965184+00:00",
+  "negative_count": 1,
+  "kernel_count": 1,
+  "negative_result": {
+    "exit_code": 1,
+    "only_error": "unsolved goals",
+    "exact_goal": "False",
+    "stdout": {
+      "path": "/workspace/scratch/gap-conditional-morse-distinct-construct/runs/false-drop-DBtheta-001/stdout.log",
+      "bytes": 120,
+      "sha256": "3ff0d94024fd58576ab365b8dab0a9af54d43dbb38c703560fa3c09262cc0e18"
+    },
+    "stderr": {
+      "path": "/workspace/scratch/gap-conditional-morse-distinct-construct/runs/false-drop-DBtheta-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "groups": [
+    {
+      "name": "actual_nonorthogonal_normalization",
+      "production": "actual_nonorthogonal_normalization obtains actual48-derived normalizedF, mixes2chi0/chi0+3chi1, proves offdiagonal2, LI/rawzero, invokes new finiteGS adapter, same span and bijective changed frame-basis response.",
+      "scratch": "Actual qualified57finitechi arithmetic; Gram[[4,2],[2,10]], rawzero and exact normalization identities."
+    },
+    {
+      "name": "full_variable_response_normal_equation",
+      "production": "incidence_full_normal_equation and actual_source_normal_equation retain DBtheta on actual sourceg/B.",
+      "scratch": "Literal finite phi0/phi1, actualgradientresponseB, derived invertible neighborhood, theta constant(-1,0), Dtheta0, Dg nonzero, DBtheta cancels Dg; actual freeShift field/Hessian zero."
+    },
+    {
+      "name": "three_constraint_row_ledger",
+      "production": "level_frame consumes actual48witness, selects0/1/2 and verifies allresponsepairings beforeGS; normalizedresponse bijective at arbitrary remote source point, no supplied rank/frame.",
+      "scratch": "No direct calls to production-private APIs claimed."
+    },
+    {
+      "name": "five_constraint_row_ledger",
+      "production": "tie_frame consumes actual53witness, selects1/2/4/5/0 with finalfu-fv row and verifies all25 beforeGS; actual pair remoteness/distinctquotientguard.",
+      "scratch": "No direct private adapter access claimed."
+    },
+    {
+      "name": "dummy_coordinate_defect",
+      "production": "Explicit project3/embed3/project5/embed5, nonzero last kernel vectors, killed derivative/det0/imagecontainment, actual_level_dummy_control and actual_tie_dummy_control on solvedsource theta.",
+      "scratch": "No Gaussian realization or assumed null-image premise."
+    },
+    {
+      "name": "genuine_inertia_and_lattice",
+      "production": "Four conditional exactquadratic finite symmetric forms directly invoke genuine spectral submodule inertia adapter, including zero-diagonal saddle; actual_lattice_translate_control directly invokes torusDist/value/all-orderjet adapters.",
+      "scratch": "No positive Gaussian mass or inertiacertificate premise claimed."
+    },
+    {
+      "name": "actual_positive_gap_public_specialization",
+      "scratch": "control59_public_global_specialization atL2,b3,k1; deriveddelta before r; actual sourceGapLaw/actualField/literal IsMorseDistinct."
+    },
+    {
+      "name": "equal_height_forced_pin_tie_limit",
+      "scratch": "Actualk0 sourceGapLaw on derived nonsingular interval has distinct criticalpin lifts and equal heights; proves ae notliteralIsMorseDistinct. TRUEpositiveLIMIT, notsecondmutation."
+    },
+    {
+      "name": "counterexample_backed_DBtheta_omission",
+      "scratch": "dropped_DBtheta_actual_counterexample passed inControls003 before sole negative; concreteactualequality rewrites by ordinarydropped_DBtheta_eq_iff_false tooneFalse."
+    }
+  ],
+  "coverage_boundary": "Four production text helpers and source-local private positives: final production strict012/full167inventory/onekernel001. Fifth Controls-only helper and all amendments: positiveControls003. Productionkernel DOES NOT cover scratchControls. Negativeimports only qualifiedGapMorseDistinctControls ordinarynames, no copiedproduction/foreignprivateAPI."
+}

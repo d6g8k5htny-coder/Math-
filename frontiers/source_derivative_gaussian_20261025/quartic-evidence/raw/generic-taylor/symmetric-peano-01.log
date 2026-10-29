@@ -1,0 +1,59 @@
+/workspace/scratch/actual-quartic-transfer/lean/SymmetricPeano.lean:20:11: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (x : ℝ) in ?m.135..?m.136, ((fun x => ?m.101) * id) x - (id ^ 3) x ∂?m.132
+in the target expression
+  ∫ (u : ℝ) in -1 / 2..1 / 2, 1 / 4 * u - u ^ 3 = 0
+
+heq : (fun u => peanoCubic u * u) = fun u => 1 / 4 * u - u ^ 3
+⊢ ∫ (u : ℝ) in -1 / 2..1 / 2, 1 / 4 * u - u ^ 3 = 0
+/workspace/scratch/actual-quartic-transfer/lean/SymmetricPeano.lean:32:11: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (x : ℝ) in ?m.220..?m.221, ((fun x => ?m.177) * id ^ 2) x - (id ^ 4) x ∂?m.217
+in the target expression
+  6 * ∫ (u : ℝ) in -1 / 2..1 / 2, 1 / 4 * u ^ 2 - u ^ 4 = 1 / 20
+
+heq : (fun u => peanoCubic u * u ^ 2) = fun u => 1 / 4 * u ^ 2 - u ^ 4
+⊢ 6 * ∫ (u : ℝ) in -1 / 2..1 / 2, 1 / 4 * u ^ 2 - u ^ 4 = 1 / 20
+/workspace/scratch/actual-quartic-transfer/lean/SymmetricPeano.lean:62:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (x : ℝ) in ?m.792..?m.793,
+    ((peanoCubic * fun u => g (r * u)) - peanoCubic * fun x => ?m.770) x - (peanoCubic * ?m.785) x ∂?m.789
+in the target expression
+  6 * ∫ (u : ℝ) in -1 / 2..1 / 2, peanoCubic u * g (r * u) - peanoCubic u * t - peanoCubic u * (r * u * c) = 2 - t
+
+g : ℝ → ℝ
+hgc : Continuous g
+r t c G : ℝ
+_hG : 0 ≤ G
+hpin : 6 * ∫ (u : ℝ) in -1 / 2..1 / 2, peanoCubic u * g (r * u) = 2
+hrem : ∀ u ∈ Icc (-1 / 2) (1 / 2), |g (r * u) - t - r * u * c| ≤ G * r ^ 2 * u ^ 2 / 2
+f : ℝ → ℝ := fun u => g (r * u) - t - r * u * c
+hcK : Continuous peanoCubic
+hcf : Continuous f
+hcg : Continuous fun u => g (r * u)
+hmass : ∫ (u : ℝ) in -1 / 2..1 / 2, peanoCubic u = 1 / 6
+hmom : ∫ (u : ℝ) in -1 / 2..1 / 2, peanoCubic u * u ^ 2 = 1 / 120
+hlinear : ∫ (u : ℝ) in -1 / 2..1 / 2, peanoCubic u * (r * u * c) = 0
+⊢ 6 * ∫ (u : ℝ) in -1 / 2..1 / 2, peanoCubic u * g (r * u) - peanoCubic u * t - peanoCubic u * (r * u * c) = 2 - t
+/workspace/scratch/actual-quartic-transfer/lean/SymmetricPeano.lean:64:20: error: `fun_prop` was unable to prove `Continuous ?m.785`
+
+Issues:
+/workspace/scratch/actual-quartic-transfer/lean/SymmetricPeano.lean:78:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |?a * ?b|
+in the target expression
+  |(peanoCubic * f) u| ≤ (peanoCubic * fun u => G * r ^ 2 * u ^ 2 / 2) u
+
+g : ℝ → ℝ
+hgc : Continuous g
+r t c G : ℝ
+_hG : 0 ≤ G
+hpin : 6 * ∫ (u : ℝ) in -1 / 2..1 / 2, peanoCubic u * g (r * u) = 2
+hrem : ∀ u ∈ Icc (-1 / 2) (1 / 2), |g (r * u) - t - r * u * c| ≤ G * r ^ 2 * u ^ 2 / 2
+f : ℝ → ℝ := fun u => g (r * u) - t - r * u * c
+hcK : Continuous peanoCubic
+hcf : Continuous f
+hcg : Continuous fun u => g (r * u)
+hmass : ∫ (u : ℝ) in -1 / 2..1 / 2, peanoCubic u = 1 / 6
+hmom : ∫ (u : ℝ) in -1 / 2..1 / 2, peanoCubic u * u ^ 2 = 1 / 120
+hlinear : ∫ (u : ℝ) in -1 / 2..1 / 2, peanoCubic u * (r * u * c) = 0
+heq : 6 * ∫ (u : ℝ) in -1 / 2..1 / 2, peanoCubic u * f u = 2 - t
+u : ℝ
+hu : u ∈ Icc (-1 / 2) (1 / 2)
+⊢ |(peanoCubic * f) u| ≤ (peanoCubic * fun u => G * r ^ 2 * u ^ 2 / 2) u

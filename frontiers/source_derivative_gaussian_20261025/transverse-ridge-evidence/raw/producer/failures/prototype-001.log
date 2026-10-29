@@ -1,0 +1,11 @@
+/workspace/scratch/transverse-ridge-construct/ExamplePrototype.lean:20:2: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/transverse-ridge-construct/ExamplePrototype.lean:23:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  fderiv ℝ (Prod.fst - Prod.snd) p
+in the target expression
+  (fderiv ℝ (fun q => q.1 - q.2) p) (0, 1) = -1
+
+p : ℝ × ℝ
+hfun : Vy = fun q => q.1 - q.2
+⊢ (fderiv ℝ (fun q => q.1 - q.2) p) (0, 1) = -1

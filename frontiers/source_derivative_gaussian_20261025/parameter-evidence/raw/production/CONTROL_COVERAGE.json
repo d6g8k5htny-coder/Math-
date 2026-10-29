@@ -1,0 +1,20 @@
+{
+  "record": "/workspace/scratch/smooth-parameter-production/08-controls-fixed.json",
+  "source": "/workspace/scratch/smooth-parameter-production/Controls.lean",
+  "coverage": [
+    "Constant mode weight equals6 times its amplitude",
+    "L=-1 positivity, no hidden L>0 assumption",
+    "Actual zero carrier maps to zero parameter",
+    "Normalized lp.single parameter recovers literal source mode exactly",
+    "Whole finite Banach jet CLM opnorm\u22641",
+    "Arbitrary ell1 parameter genuineC5 without all-order carrier premise",
+    "Physical Euclidean gradient finiteC2 without C-infinity premise",
+    "Literal Pi and Euclidean derivative identities",
+    "Whole-parameter completeness/separability/Polishness",
+    "Actual norm-functional conditional law in the norm Borel sigma algebra"
+  ],
+  "failed_control": {
+    "record": "/workspace/scratch/smooth-parameter-production/05-controls.json",
+    "reason": "lp.single_apply_ne rewrite needed an explicit dependent family/type annotation in control only; production remained frozen"
+  }
+}

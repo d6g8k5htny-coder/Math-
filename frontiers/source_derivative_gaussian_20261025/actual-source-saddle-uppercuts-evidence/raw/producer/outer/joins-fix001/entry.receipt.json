@@ -1,0 +1,20 @@
+{
+  "label": "joins-fix001",
+  "command_argv": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/outer_capture.py",
+    "joins-fix001",
+    "documentary",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/fix_joins001.py"
+  ],
+  "cwd": "/workspace/scratch/actual-source-saddle-uppercuts-construct",
+  "start_utc": "2026-10-28T21:30:51.111450+00:00",
+  "end_utc": "2026-10-28T21:30:51.219223+00:00",
+  "elapsed_seconds": 0.10777286299708067,
+  "exit_code": 0,
+  "stdout": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/joins-fix001/entry.stdout.log",
+  "stderr": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/joins-fix001/entry.stderr.log",
+  "invocation_scope": "entry process begins here; caller tool stdout is only this closed receipt summary"
+}

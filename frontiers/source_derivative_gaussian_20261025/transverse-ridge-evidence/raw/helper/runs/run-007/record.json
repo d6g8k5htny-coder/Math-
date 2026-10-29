@@ -1,0 +1,25 @@
+{
+  "command_argv": [
+    "lake",
+    "env",
+    "bash",
+    "-c",
+    "export LEAN_PATH=\"$1:$LEAN_PATH\"; printenv LEAN_PATH; exec lean -R \"$4\" -o \"$2\" \"$3\"",
+    "_ ",
+    "/workspace/scratch/transverse-ridge-jets/build",
+    "/workspace/scratch/transverse-ridge-jets/build/TransverseRidgeJets.olean",
+    "/workspace/scratch/transverse-ridge-jets/TransverseRidgeJets.lean",
+    "/workspace/scratch/transverse-ridge-jets"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "source": "/workspace/scratch/transverse-ridge-jets/TransverseRidgeJets.lean",
+  "snapshot": "/workspace/scratch/transverse-ridge-jets/runs/run-007/TransverseRidgeJets.lean",
+  "source_sha256": "5695d5815ca1bf5ba03c81643192326249902351a068a915f8df891bef841767",
+  "output": "/workspace/scratch/transverse-ridge-jets/build/TransverseRidgeJets.olean",
+  "start_utc": "2026-10-26T04:59:06.115545+00:00",
+  "end_utc": "2026-10-26T04:59:09.869015+00:00",
+  "seconds": 3.75347,
+  "exit_code": 0,
+  "purpose": "Elaborate new helper source only; unchanged completed 31-module/25-input evidence reused.",
+  "artifact_sha256": "8ce4e1dfa2fadd2aaf358109a13e4a12d2041ac8bcb10da5b2ccecefd9f236a4"
+}

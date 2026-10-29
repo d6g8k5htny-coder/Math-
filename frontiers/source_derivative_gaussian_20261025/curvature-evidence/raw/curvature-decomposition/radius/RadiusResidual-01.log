@@ -1,0 +1,15 @@
+/workspace/scratch/source-curvature-implementation/radius/RadiusResidual.lean:61:28: warning: Variable name `hU` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hU
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/scratch/source-curvature-implementation/radius/RadiusResidual.lean:135:2: error: 'change' tactic failed, pattern
+  1 + ∑ k, sourceDerivativeMajorant L (↑k) (posteriorSample hL r (sourcePrescribedPins r b) ρ) +
+      (∑ k, ∑' (m : SourceMode 2), orderModeBound (↑k) 2 L m * U m) * (|q| + curvatureResidualRadius hL r b ρ) ≤
+    ?m.162
+is not definitionally equal to target
+  ∑ i, sourceDerivativeMajorant L (↑i) (curvatureReconstruct hL r (sourcePrescribedPins r b) ρ q) ≤
+    ∑ x, sourceDerivativeMajorant L (↑x) (posteriorSample hL r (sourcePrescribedPins r b) ρ) +
+      (∑ i, ∑' (m : SourceMode 2), orderModeBound (↑i) 2 L m * U m) * (|q| + curvatureResidualRadius hL r b ρ)
+lean_exit=1

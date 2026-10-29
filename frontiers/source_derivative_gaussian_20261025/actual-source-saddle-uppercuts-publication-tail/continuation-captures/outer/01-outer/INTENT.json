@@ -1,0 +1,20 @@
+{
+  "command_argv": [
+    "python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/native-runtime/capture.py",
+    "--run-dir",
+    "/workspace/scratch/actual-source-saddle-uppercuts-packaging/continuation-captures/worker",
+    "--cwd",
+    "/workspace",
+    "--scope",
+    "worker",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-packaging/resume_interrupted_attempt001.py"
+  ],
+  "cwd": "/workspace",
+  "started_utc": "2026-10-28T22:41:22.225492+00:00",
+  "explicit_environment_overrides": {},
+  "stdin_binding": null,
+  "original_separate_capture": true
+}

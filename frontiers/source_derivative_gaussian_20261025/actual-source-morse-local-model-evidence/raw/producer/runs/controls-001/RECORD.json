@@ -1,0 +1,49 @@
+{
+  "label": "controls-001",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "lake",
+    "env",
+    "python",
+    "-c",
+    "import os,subprocess,sys; os.environ[\"LEAN_PATH\"]=sys.argv[1]+os.pathsep+os.environ.get(\"LEAN_PATH\",\"\"); sys.exit(subprocess.run([\"lean\",\"-DwarningAsError=true\",\"--root=\"+sys.argv[2],\"-o\",sys.argv[3],sys.argv[4]],check=False).returncode)",
+    "/workspace/scratch/actual-source-morse-local-model-construct/objects",
+    "/workspace/scratch/actual-source-morse-local-model-construct/controls",
+    "/workspace/scratch/actual-source-morse-local-model-construct/objects/MorseLocalModelControls.olean",
+    "/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean"
+  ],
+  "start_utc": "2026-10-28T15:34:58.117276+00:00",
+  "source_identity": {
+    "role": "owned_ordinary_source_MorseLocalModelControls",
+    "path": "/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean",
+    "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0046-MorseLocalModelControls.lean",
+    "bytes": 10072,
+    "sha256": "a6023d8850e39fca5e62aaa382884850bd625850345e51a39e8acf3a17554b6a",
+    "first_bound_utc": "2026-10-28T15:34:58.100391+00:00",
+    "new_sha256_operations": 1,
+    "reused_identity": false
+  },
+  "harness_identity": {
+    "role": "owned_ordinary_execution_harness",
+    "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_ordinary.py",
+    "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0044-run_ordinary.py",
+    "bytes": 2857,
+    "sha256": "b403d52a574372a05e9f9b6e9518e1f5d22525fd0eaa8d23f654dda50edadcc2",
+    "first_bound_utc": "2026-10-28T15:33:06.169926+00:00",
+    "new_sha256_operations": 1,
+    "reused_identity": true
+  },
+  "production_object_identity": {
+    "role": "owned_production_object",
+    "path": "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+    "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0042-SourceActualMorseLocalModel.olean",
+    "bytes": 3409752,
+    "sha256": "7bc2d9fc1edcbd936dc04b583fa2b4642fc6fd968c594350df8eec28093d7ad3",
+    "first_bound_utc": "2026-10-28T15:30:47.921140+00:00",
+    "new_sha256_operations": 1,
+    "reused_identity": true
+  },
+  "coverage": "ordinary source only, separate from production kernel",
+  "exit_code": 1,
+  "end_utc": "2026-10-28T15:35:02.822309+00:00"
+}

@@ -1,0 +1,158 @@
+{
+  "status": "qualified import-only successor artifacts; accepted mathematics reused",
+  "generated_utc": "2026-10-26T06:00:32.216419+00:00",
+  "source_bindings": [
+    {
+      "module": "SuperlevelBar",
+      "origin_repository": "/workspace/Math-curvature-20261026",
+      "origin_head": "1a7c51b01902146cf0809d576b99a6fc0be06bad",
+      "origin_last_change_commit": "c4eabc1a917ba2c1b96fe4af425cf2a484877c03",
+      "origin_path": "companions/torus_filtration_20261011/SuperlevelBar.lean",
+      "origin_sha256": "346eea948e18d5904422904006827930e27d3141ccbc19ee8ac2c24bcf65a4a9",
+      "origin_bytes": 15309,
+      "successor_path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/elder/SuperlevelBar.lean",
+      "successor_sha256": "f328d66d7240469f080c8bbf83f7259677fee21593465977e23a95685667ebd9",
+      "successor_bytes": 15523,
+      "body_equality": true,
+      "body_sha256": "073707c3ce1bb78cddcc6f7e556ebc62de6d8df401c26187d9db1aa2a640ad82",
+      "body_boundary": "all bytes after the first import line, including its following blank line; new header is the six import lines",
+      "exact_original_body_equals_successor_body": true,
+      "only_import_header_changed": true,
+      "origin_commit_blob_equals_original_bytes": true,
+      "artifacts": [
+        {
+          "path": "/workspace/scratch/actual-fold-clearance-inputs/build/SuperlevelBar.olean",
+          "sha256": "a9b0cba546587329f4c4cfa999e764e196d033b1e0614198221f4d486f2a069b",
+          "bytes": 234760
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-clearance-inputs/build/SuperlevelBar.ilean",
+          "sha256": "f057603caab1a172c3f65994350363e248f18d5c4eb4f32d4c2ee9fd0547f1f2",
+          "bytes": 25830
+        }
+      ]
+    },
+    {
+      "module": "ElderClearance",
+      "origin_repository": "/workspace/Math-curvature-20261026",
+      "origin_head": "1a7c51b01902146cf0809d576b99a6fc0be06bad",
+      "origin_last_change_commit": "c4eabc1a917ba2c1b96fe4af425cf2a484877c03",
+      "origin_path": "frontiers/asymmetric_elder_bridge_20261017/ElderClearance.lean",
+      "origin_sha256": "d3d78472881059546402218cc77792eeef00755c222bb02499d69abd3b5cd57e",
+      "origin_bytes": 5866,
+      "successor_path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/elder/ElderClearance.lean",
+      "successor_sha256": "d3d78472881059546402218cc77792eeef00755c222bb02499d69abd3b5cd57e",
+      "successor_bytes": 5866,
+      "body_equality": true,
+      "exact_whole_file_equal": true,
+      "only_import_header_changed": false,
+      "origin_commit_blob_equals_original_bytes": true,
+      "artifacts": [
+        {
+          "path": "/workspace/scratch/actual-fold-clearance-inputs/build/ElderClearance.olean",
+          "sha256": "b7e451c701e38d37be48f68a500ca253ba8ed72007b085797f9f1d57b4a61596",
+          "bytes": 91280
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-clearance-inputs/build/ElderClearance.ilean",
+          "sha256": "00a0f1e7fb10b007973e2a5d01c91e5f2f9e28f8f429160ebf31977016a7af18",
+          "bytes": 12134
+        }
+      ]
+    }
+  ],
+  "environment": {
+    "lean_toolchain_file": "leanprover/lean4:v4.34.1",
+    "lean_version": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+    "mathlib_origin": "/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/mathlib",
+    "mathlib_head": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "new_support_source_root": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/elder",
+    "initial_packet_elder_registration": false,
+    "module_imports": {
+      "SuperlevelBar": [
+        "import Mathlib.Analysis.InnerProductSpace.PiL2",
+        "import Mathlib.Analysis.Convex.PathConnected",
+        "import Mathlib.Topology.Order.Compact",
+        "import Mathlib.Topology.Homotopy.Path",
+        "import Mathlib.Tactic.Linarith",
+        "import Mathlib.Tactic.NormNum"
+      ],
+      "ElderClearance": [
+        "import SuperlevelBar"
+      ]
+    }
+  },
+  "spec_and_historical_bindings": [
+    {
+      "commit": "a0244330461ac5bbf9faabcbf5ac33e8cc1fa877",
+      "path": "frontiers/source_derivative_gaussian_20261025/SOURCE_ACTUAL_FOLD_DEATH.md",
+      "frozen_sha256": "8c5efd979ddd17df2fc62571dfd9526ad588e4ff31a6a2d5718dd450ba2d13da",
+      "current_sha256": "eb46fc402ebd46f7968928e9eb7362b932c6bdd70be82455fbe29dbfe8ed2f8b",
+      "exact_equal": false
+    },
+    {
+      "commit": "a0244330461ac5bbf9faabcbf5ac33e8cc1fa877",
+      "path": "frontiers/source_derivative_gaussian_20261025/SOURCE_ACTUAL_FOLD_DEATH_PLAN.md",
+      "frozen_sha256": "534f22ffcfd2dcc374e7f63de8f94ab9295b5ddfbab715b06e932f828a6ce2fd",
+      "current_sha256": "534f22ffcfd2dcc374e7f63de8f94ab9295b5ddfbab715b06e932f828a6ce2fd",
+      "exact_equal": true
+    },
+    {
+      "accepted_execution_report_path": "/workspace/Math-curvature-20261026/frontiers/asymmetric_elder_bridge_20261017/historical-results/LOCAL_FORMAL_EXECUTION_REPORT.md",
+      "sha256": "e20efb5dc96454882d64f4e96138e6acfbcf4d7baab96734bfafa7c7cacc9031",
+      "reused_without_rerun": true
+    }
+  ],
+  "compile_receipts": [
+    {
+      "module": "ElderClearance",
+      "mode": "strict",
+      "command": [
+        "/home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/actual-fold-clearance-inputs/build/ElderClearance.olean",
+        "-i",
+        "/workspace/scratch/actual-fold-clearance-inputs/build/ElderClearance.ilean",
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/elder/ElderClearance.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "LEAN_PATH": "/workspace/scratch/actual-fold-clearance-inputs/build:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Cli/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/batteries/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Qq/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/aesop/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/plausible/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean:/home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean",
+      "started_utc": "2026-10-26T05:59:09.681772+00:00",
+      "elapsed_seconds": 2.0482866870006546,
+      "exit_code": 0,
+      "source_sha256": "d3d78472881059546402218cc77792eeef00755c222bb02499d69abd3b5cd57e",
+      "stdout": "/workspace/scratch/actual-fold-clearance-inputs/ElderClearance-strict-01.stdout",
+      "stderr": "/workspace/scratch/actual-fold-clearance-inputs/ElderClearance-strict-01.stderr"
+    },
+    {
+      "module": "SuperlevelBar",
+      "mode": "strict",
+      "command": [
+        "/home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/actual-fold-clearance-inputs/build/SuperlevelBar.olean",
+        "-i",
+        "/workspace/scratch/actual-fold-clearance-inputs/build/SuperlevelBar.ilean",
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/elder/SuperlevelBar.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "LEAN_PATH": "/workspace/scratch/actual-fold-clearance-inputs/build:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Cli/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/batteries/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Qq/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/aesop/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/plausible/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean:/home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean",
+      "started_utc": "2026-10-26T05:58:48.227405+00:00",
+      "elapsed_seconds": 2.844337672999245,
+      "exit_code": 0,
+      "source_sha256": "f328d66d7240469f080c8bbf83f7259677fee21593465977e23a95685667ebd9",
+      "stdout": "/workspace/scratch/actual-fold-clearance-inputs/SuperlevelBar-strict-01.stdout",
+      "stderr": "/workspace/scratch/actual-fold-clearance-inputs/SuperlevelBar-strict-01.stderr"
+    }
+  ],
+  "failed_attempts": [],
+  "plain_lean_compile_run": false,
+  "warning_as_error_compile_success": true,
+  "old_kernel_controls_axiom_campaigns_rerun": false,
+  "new_support_theorem_count": 0,
+  "root_cache_modified_by_helper": false,
+  "registration_modified_by_helper": false,
+  "provider_distinct_review_credit_claimed": false
+}

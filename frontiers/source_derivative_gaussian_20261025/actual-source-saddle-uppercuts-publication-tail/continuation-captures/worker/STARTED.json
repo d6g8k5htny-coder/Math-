@@ -1,0 +1,19 @@
+{
+  "operation": "root65-worker-capture",
+  "script_argv": [
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/native-runtime/capture.py",
+    "--run-dir",
+    "/workspace/scratch/actual-source-saddle-uppercuts-packaging/continuation-captures/worker",
+    "--cwd",
+    "/workspace",
+    "--scope",
+    "worker",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-packaging/resume_interrupted_attempt001.py"
+  ],
+  "cwd": "/workspace",
+  "started_utc": "2026-10-28T22:41:22.259564+00:00",
+  "policy": "No automatic retry; all actual command streams remain original and separate.",
+  "credential_environment_logged": false
+}

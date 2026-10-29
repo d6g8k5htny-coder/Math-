@@ -1,0 +1,21 @@
+/workspace/scratch/remote-jet-arithmetic/runs/run-006/Arithmetic.lean:240:28: error: This simp argument is unused:
+  mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/remote-jet-arithmetic/runs/run-006/Arithmetic.lean:255:63: error(lean.invalidField): Invalid field `const_mul`: The environment does not contain `Exists.const_mul`, so it is not possible to project the field `const_mul` from an expression
+  hf
+of type
+  ∃ p, HasFTaylorSeriesUpTo (↑↑2) (fun y => Real.cos (c * (y i - x i))) p
+/workspace/scratch/remote-jet-arithmetic/runs/run-006/Arithmetic.lean:246:64: error: unsolved goals
+c : ℝ
+hc : c ≠ 0
+x : Fin 2 → ℝ
+i : Fin 2
+hf : ContDiff ℝ 2 fun y => Real.cos (c * (y i - x i))
+hn : ContDiff ℝ 2 fun y => 1 + -1 * Real.cos (c * (y i - x i))
+hfun : (fun y => (1 - Real.cos (c * (y i - x i))) / c ^ 2) = fun y => (c ^ 2)⁻¹ * (1 + -1 * Real.cos (c * (y i - x i)))
+⊢ (fun j => (c ^ 2)⁻¹ * jet2 (fun y => 1 + -1 * Real.cos (c * (y i - x i))) x j) =
+    ![0, 0, 0, directionX i * directionX i, directionX i * directionY i, directionY i * directionY i]

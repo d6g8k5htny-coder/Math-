@@ -1,0 +1,327 @@
+[
+  {
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "lean",
+      "-DwarningAsError=true",
+      "-o",
+      "/workspace/scratch/adaptive-fold-scalar-barrier/build/AdaptiveFoldScalarBarrier.olean",
+      "AdaptiveFoldScalarBarrier.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "started_unix": 1792988806.5932782,
+    "elapsed_seconds": 7.880740165710449,
+    "exit_code": 1,
+    "snapshots": {
+      "AdaptiveFoldScalarBarrier.lean": "5dcaeb56c7c464dac65775e8d3f6885f34e9acd721700b045d7aa0b83cd321bb"
+    },
+    "label": "compile-01",
+    "started_utc": "2026-10-26T04:26:46.593278+00:00",
+    "record": "raw/runs/compile-01/receipt.json",
+    "log": "raw/runs/compile-01/output.log"
+  },
+  {
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "lean",
+      "-DwarningAsError=true",
+      "-o",
+      "/workspace/scratch/adaptive-fold-scalar-barrier/build/AdaptiveFoldScalarBarrier.olean",
+      "AdaptiveFoldScalarBarrier.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "started_unix": 1792988829.146642,
+    "elapsed_seconds": 7.358708143234253,
+    "exit_code": 1,
+    "snapshots": {
+      "AdaptiveFoldScalarBarrier.lean": "104138c8e0a43594ea96a1730ebd9446a1106b48fe495a0eae3289c436c367c9"
+    },
+    "label": "compile-02",
+    "started_utc": "2026-10-26T04:27:09.146642+00:00",
+    "record": "raw/runs/compile-02/receipt.json",
+    "log": "raw/runs/compile-02/output.log"
+  },
+  {
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "lean",
+      "-DwarningAsError=true",
+      "-o",
+      "/workspace/scratch/adaptive-fold-scalar-barrier/build/AdaptiveFoldScalarBarrier.olean",
+      "AdaptiveFoldScalarBarrier.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "started_unix": 1792988860.2406507,
+    "elapsed_seconds": 12.766632795333862,
+    "exit_code": 1,
+    "snapshots": {
+      "AdaptiveFoldScalarBarrier.lean": "e1bbf0dda01fb18b8627be1bb6a12579085d9339c69c4e39bdc7997ea070cca5"
+    },
+    "label": "compile-03",
+    "started_utc": "2026-10-26T04:27:40.240651+00:00",
+    "record": "raw/runs/compile-03/receipt.json",
+    "log": "raw/runs/compile-03/output.log"
+  },
+  {
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "lean",
+      "-DwarningAsError=true",
+      "-o",
+      "/workspace/scratch/adaptive-fold-scalar-barrier/build/AdaptiveFoldScalarBarrier.olean",
+      "AdaptiveFoldScalarBarrier.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "started_unix": 1792988900.8189318,
+    "elapsed_seconds": 13.038797855377197,
+    "exit_code": 1,
+    "snapshots": {
+      "AdaptiveFoldScalarBarrier.lean": "ad79cd71df896d33729253e80fcf5e5eb69a0b49f3f2e58a867250c0a7d4753a"
+    },
+    "label": "compile-04",
+    "started_utc": "2026-10-26T04:28:20.818932+00:00",
+    "record": "raw/runs/compile-04/receipt.json",
+    "log": "raw/runs/compile-04/output.log"
+  },
+  {
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "lean",
+      "-DwarningAsError=true",
+      "-o",
+      "/workspace/scratch/adaptive-fold-scalar-barrier/build/AdaptiveFoldScalarBarrier.olean",
+      "AdaptiveFoldScalarBarrier.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "started_unix": 1792988958.5888186,
+    "elapsed_seconds": 11.018892526626587,
+    "exit_code": 0,
+    "snapshots": {
+      "AdaptiveFoldScalarBarrier.lean": "cfe6a63a789ae085c2351d9d0be9bcf998f911d8c2e80bb01e1dd9e2b74c30d5"
+    },
+    "label": "compile-05",
+    "started_utc": "2026-10-26T04:29:18.588819+00:00",
+    "record": "raw/runs/compile-05/receipt.json",
+    "log": "raw/runs/compile-05/output.log"
+  },
+  {
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "env",
+      "LEAN_PATH=/workspace/scratch/adaptive-fold-scalar-barrier/build:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Cli/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/batteries/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Qq/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/aesop/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/plausible/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean:/home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean",
+      "lean",
+      "-DwarningAsError=true",
+      "-o",
+      "/workspace/scratch/adaptive-fold-scalar-barrier/build/Controls.olean",
+      "/workspace/scratch/adaptive-fold-scalar-barrier/Controls.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "started_unix": 1792989006.1542978,
+    "elapsed_seconds": 0.6400299072265625,
+    "exit_code": 1,
+    "snapshots": {
+      "AdaptiveFoldScalarBarrier.lean": "cfe6a63a789ae085c2351d9d0be9bcf998f911d8c2e80bb01e1dd9e2b74c30d5",
+      "Inventory.lean": "110cdc80f8950de36d42cff8181dea0ebbfd647663ee9495e69872c3b6767232",
+      "Controls.lean": "7f6ab2070064de0a05cc2e2c39ea99ab6e3484b14ad13a9cdebd88bbb10496e8",
+      "NegativeSymmetricCeiling.lean": "c5808fc08769e2292e028c6cc50566b5a44378f021185d3564cb3daab152fbdd"
+    },
+    "label": "controls-01",
+    "started_utc": "2026-10-26T04:30:06.154298+00:00",
+    "record": "raw/runs/controls-01/receipt.json",
+    "log": "raw/runs/controls-01/output.log"
+  },
+  {
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "env",
+      "LEAN_PATH=/workspace/scratch/adaptive-fold-scalar-barrier/build:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Cli/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/batteries/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Qq/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/aesop/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/plausible/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean:/home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean",
+      "lean",
+      "-R",
+      "/workspace/scratch/adaptive-fold-scalar-barrier",
+      "-DwarningAsError=true",
+      "-o",
+      "/workspace/scratch/adaptive-fold-scalar-barrier/build/Controls.olean",
+      "/workspace/scratch/adaptive-fold-scalar-barrier/Controls.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "started_unix": 1792989027.8760338,
+    "elapsed_seconds": 3.5595409870147705,
+    "exit_code": 1,
+    "snapshots": {
+      "AdaptiveFoldScalarBarrier.lean": "cfe6a63a789ae085c2351d9d0be9bcf998f911d8c2e80bb01e1dd9e2b74c30d5",
+      "Inventory.lean": "110cdc80f8950de36d42cff8181dea0ebbfd647663ee9495e69872c3b6767232",
+      "Controls.lean": "7f6ab2070064de0a05cc2e2c39ea99ab6e3484b14ad13a9cdebd88bbb10496e8",
+      "NegativeSymmetricCeiling.lean": "c5808fc08769e2292e028c6cc50566b5a44378f021185d3564cb3daab152fbdd"
+    },
+    "label": "controls-02",
+    "started_utc": "2026-10-26T04:30:27.876034+00:00",
+    "record": "raw/runs/controls-02/receipt.json",
+    "log": "raw/runs/controls-02/output.log"
+  },
+  {
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "env",
+      "LEAN_PATH=/workspace/scratch/adaptive-fold-scalar-barrier/build:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Cli/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/batteries/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Qq/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/aesop/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/plausible/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean:/home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean",
+      "lean",
+      "-R",
+      "/workspace/scratch/adaptive-fold-scalar-barrier",
+      "-DwarningAsError=true",
+      "-o",
+      "/workspace/scratch/adaptive-fold-scalar-barrier/build/Controls.olean",
+      "/workspace/scratch/adaptive-fold-scalar-barrier/Controls.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "started_unix": 1792989056.2464287,
+    "elapsed_seconds": 2.6954708099365234,
+    "exit_code": 0,
+    "snapshots": {
+      "AdaptiveFoldScalarBarrier.lean": "cfe6a63a789ae085c2351d9d0be9bcf998f911d8c2e80bb01e1dd9e2b74c30d5",
+      "Inventory.lean": "110cdc80f8950de36d42cff8181dea0ebbfd647663ee9495e69872c3b6767232",
+      "Controls.lean": "4f06a059b01d381b7c65b84f7e3eda6201e11759d8581a7768302452cc9aa895",
+      "DirectAxioms.lean": "2c996973eccd492242cd97a76723a315b3b46e6f4971ed6ba0828a41cdf01161",
+      "NegativeSymmetricCeiling.lean": "c5808fc08769e2292e028c6cc50566b5a44378f021185d3564cb3daab152fbdd"
+    },
+    "label": "controls-03",
+    "started_utc": "2026-10-26T04:30:56.246429+00:00",
+    "record": "raw/runs/controls-03/receipt.json",
+    "log": "raw/runs/controls-03/output.log"
+  },
+  {
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "env",
+      "LEAN_PATH=/workspace/scratch/adaptive-fold-scalar-barrier/build:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Cli/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/batteries/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Qq/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/aesop/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/plausible/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean:/home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean",
+      "lean",
+      "-DwarningAsError=true",
+      "/workspace/scratch/adaptive-fold-scalar-barrier/DirectAxioms.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "started_unix": 1792989029.2544572,
+    "elapsed_seconds": 3.3174550533294678,
+    "exit_code": 1,
+    "snapshots": {
+      "AdaptiveFoldScalarBarrier.lean": "cfe6a63a789ae085c2351d9d0be9bcf998f911d8c2e80bb01e1dd9e2b74c30d5",
+      "Inventory.lean": "110cdc80f8950de36d42cff8181dea0ebbfd647663ee9495e69872c3b6767232",
+      "Controls.lean": "7f6ab2070064de0a05cc2e2c39ea99ab6e3484b14ad13a9cdebd88bbb10496e8",
+      "DirectAxioms.lean": "e6c575362c35c4ba64ce73f5a36ecf12aa38ede7ef15e7aab790626c7589cfb9",
+      "NegativeSymmetricCeiling.lean": "c5808fc08769e2292e028c6cc50566b5a44378f021185d3564cb3daab152fbdd"
+    },
+    "label": "direct-axioms-01",
+    "started_utc": "2026-10-26T04:30:29.254457+00:00",
+    "record": "raw/runs/direct-axioms-01/receipt.json",
+    "log": "raw/runs/direct-axioms-01/output.log"
+  },
+  {
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "env",
+      "LEAN_PATH=/workspace/scratch/adaptive-fold-scalar-barrier/build:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Cli/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/batteries/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Qq/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/aesop/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/plausible/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean:/home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean",
+      "lean",
+      "-DwarningAsError=true",
+      "/workspace/scratch/adaptive-fold-scalar-barrier/DirectAxioms.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "started_unix": 1792989056.2543063,
+    "elapsed_seconds": 2.328861951828003,
+    "exit_code": 0,
+    "snapshots": {
+      "AdaptiveFoldScalarBarrier.lean": "cfe6a63a789ae085c2351d9d0be9bcf998f911d8c2e80bb01e1dd9e2b74c30d5",
+      "Inventory.lean": "110cdc80f8950de36d42cff8181dea0ebbfd647663ee9495e69872c3b6767232",
+      "Controls.lean": "4f06a059b01d381b7c65b84f7e3eda6201e11759d8581a7768302452cc9aa895",
+      "DirectAxioms.lean": "2c996973eccd492242cd97a76723a315b3b46e6f4971ed6ba0828a41cdf01161",
+      "NegativeSymmetricCeiling.lean": "c5808fc08769e2292e028c6cc50566b5a44378f021185d3564cb3daab152fbdd"
+    },
+    "label": "direct-axioms-02",
+    "started_utc": "2026-10-26T04:30:56.254306+00:00",
+    "record": "raw/runs/direct-axioms-02/receipt.json",
+    "log": "raw/runs/direct-axioms-02/output.log"
+  },
+  {
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "env",
+      "LEAN_PATH=/workspace/scratch/adaptive-fold-scalar-barrier/build:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Cli/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/batteries/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Qq/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/aesop/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/plausible/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean:/home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean",
+      "lean",
+      "-DwarningAsError=true",
+      "/workspace/scratch/adaptive-fold-scalar-barrier/Inventory.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "started_unix": 1792989006.0967886,
+    "elapsed_seconds": 3.3647146224975586,
+    "exit_code": 0,
+    "snapshots": {
+      "AdaptiveFoldScalarBarrier.lean": "cfe6a63a789ae085c2351d9d0be9bcf998f911d8c2e80bb01e1dd9e2b74c30d5",
+      "Inventory.lean": "110cdc80f8950de36d42cff8181dea0ebbfd647663ee9495e69872c3b6767232",
+      "Controls.lean": "7f6ab2070064de0a05cc2e2c39ea99ab6e3484b14ad13a9cdebd88bbb10496e8",
+      "NegativeSymmetricCeiling.lean": "c5808fc08769e2292e028c6cc50566b5a44378f021185d3564cb3daab152fbdd"
+    },
+    "label": "inventory-01",
+    "started_utc": "2026-10-26T04:30:06.096789+00:00",
+    "record": "raw/runs/inventory-01/receipt.json",
+    "log": "raw/runs/inventory-01/output.log"
+  },
+  {
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "env",
+      "LEAN_PATH=/workspace/scratch/adaptive-fold-scalar-barrier/build:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Cli/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/batteries/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Qq/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/aesop/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/plausible/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean:/home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean",
+      "leanchecker",
+      "AdaptiveFoldScalarBarrier"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "started_unix": 1792989006.103607,
+    "elapsed_seconds": 5.369356870651245,
+    "exit_code": 0,
+    "snapshots": {
+      "AdaptiveFoldScalarBarrier.lean": "cfe6a63a789ae085c2351d9d0be9bcf998f911d8c2e80bb01e1dd9e2b74c30d5",
+      "Inventory.lean": "110cdc80f8950de36d42cff8181dea0ebbfd647663ee9495e69872c3b6767232",
+      "Controls.lean": "7f6ab2070064de0a05cc2e2c39ea99ab6e3484b14ad13a9cdebd88bbb10496e8",
+      "NegativeSymmetricCeiling.lean": "c5808fc08769e2292e028c6cc50566b5a44378f021185d3564cb3daab152fbdd"
+    },
+    "label": "kernel-01",
+    "started_utc": "2026-10-26T04:30:06.103607+00:00",
+    "record": "raw/runs/kernel-01/receipt.json",
+    "log": "raw/runs/kernel-01/output.log"
+  },
+  {
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "env",
+      "LEAN_PATH=/workspace/scratch/adaptive-fold-scalar-barrier/build:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Cli/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/batteries/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Qq/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/aesop/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/plausible/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean:/home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean",
+      "lean",
+      "-R",
+      "/workspace/scratch/adaptive-fold-scalar-barrier",
+      "-DwarningAsError=true",
+      "/workspace/scratch/adaptive-fold-scalar-barrier/NegativeSymmetricCeiling.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "started_unix": 1792989068.1755574,
+    "elapsed_seconds": 2.2824785709381104,
+    "exit_code": 1,
+    "snapshots": {
+      "AdaptiveFoldScalarBarrier.lean": "cfe6a63a789ae085c2351d9d0be9bcf998f911d8c2e80bb01e1dd9e2b74c30d5",
+      "Inventory.lean": "110cdc80f8950de36d42cff8181dea0ebbfd647663ee9495e69872c3b6767232",
+      "Controls.lean": "4f06a059b01d381b7c65b84f7e3eda6201e11759d8581a7768302452cc9aa895",
+      "DirectAxioms.lean": "2c996973eccd492242cd97a76723a315b3b46e6f4971ed6ba0828a41cdf01161",
+      "NegativeSymmetricCeiling.lean": "c5808fc08769e2292e028c6cc50566b5a44378f021185d3564cb3daab152fbdd"
+    },
+    "label": "negative-01",
+    "started_utc": "2026-10-26T04:31:08.175557+00:00",
+    "record": "raw/runs/negative-01/receipt.json",
+    "log": "raw/runs/negative-01/output.log"
+  }
+]

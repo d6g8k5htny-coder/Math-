@@ -1,0 +1,8 @@
+import SourceTwoRemoteFirstJetGaussian
+import Lean.Elab.Tactic.Omega
+
+-- Exact existing Controls import context; no added producer import.
+-- noncomputable section; set_option autoImplicit false
+-- open MeasureTheory ProbabilityTheory WithLp
+-- open scoped BigOperators Matrix Topology
+-- namespace TwoRemoteFirstJetGaussianControls

@@ -1,0 +1,79 @@
+"""Stage66 frozen explicit-file archive; no operation occurs on import."""
+from pathlib import Path
+import custody as f
+R,P,U,B,A,E=f.R,f.P,f.U,f.B,f.A,f.E
+BAD={'.olean','.ilean','.c','.o','.so','.a','.pyc','.bin','.pkl','.pickle','.index'}
+
+def artifact(path):
+    path=Path(path)
+    return path.suffix in BAD or any(x in path.name for x in ['.olean','.ilean']) or any(x in path.parts for x in ['.lake','__pycache__'])
+def gate(c):
+    f.require(c['status']=='ROOT_GO_FINAL66_ASSEMBLY_AND_ONE_METADATA_ATTEMPT','Actual final66 root GO required')
+    go=Path(c['root_finalization_go']);f.require(go.is_file(),'Missing actual root final66 GO')
+    f.require(f.read(go)['status']==c['status'],'Final66 GO status mismatch')
+    f.require(all(c[k] for k in ['all_math_complete','final_review_pass','source_cut_committed','own_object_copied_once','immutable_payloads_frozen']),'Unfinished production/review/cut/copy payload')
+    f.require(c['qualified_baseline']==f.BASE and len(c['source_cut'])==40,'Qualified65/actual66 sourcecut required')
+    f.require(c['inventory_summary']['authored_public_Prop']==1 and c['inventory_summary']['authored_public_data']==0,'One public66 Prop/no data')
+    f.require(c['immutable_directories']==[],'Only explicit frozen files; no live directory expansion')
+    f.require(c['metadata_script_identities'],'External FIRST script identities must precede their first execution')
+    required={str(R/name) for name in ['custody.py','archive_prepare.py','finalize_metadata.py','capture_boundary.py','run_finalization.py','launch_finalization.py','entry_finalization.py']}
+    f.require(required<={row['source'] for row in c['metadata_script_identities']},'External FIRST identities must bind every executed metadata script')
+    new=c['new_packaging_payloads']
+    f.require(isinstance(new,list) and all(isinstance(name,str) for name in new),'Explicit new-packaging metadata filename list required')
+    f.require(len(new)==len(set(new)) and set(new)<={'FINAL_INPUTS.json'},'FIRST identity authority is limited to NEW immutable FINAL_INPUTS.json')
+    f.require(set(new)<=set(c['packaging_scripts']),'New metadata identity authority must name an explicit packaging member')
+def record_path(value):
+    path=Path(value);return path if path.is_absolute() else P/path
+def prepare(c):
+    gate(c)
+    prior=R/'ARCHIVE_RESULT.json'
+    if prior.exists():
+        value=f.read(prior);f.require(value['source_cut']==c['source_cut'],'Changed cut requires explicit new process binding');return value
+    f.retain(B/f.SOURCE,c['source_identity'])
+    for row in c['existing_file_identities']:
+        if not artifact(row['source']):f.retain(Path(row['source']),row)
+    for row in c['metadata_script_identities']:f.retain(Path(row['source']),row)
+    runs=[]
+    for value in c['run_records']:
+        path=record_path(value);receipt=f.read(path)
+        f.require(path.name=='receipt.json' and all(k in receipt for k in ['scope_kind','command_argv','cwd','start_utc','end_utc','exit_code','before','before_snapshots','streams','outer_capture_dir','entry_capture_dir']),'Unexpected or unfinished actual66 dedicated receipt')
+        f.require('spawn_or_worker_exception' in receipt,'Actual exception field must be preserved, including historical failed attempts')
+        runs.append({'label':receipt['label'],'scope_kind':receipt['scope_kind'],'record_path':str(path),'record':receipt})
+        for canonical,snapshot in receipt['before_snapshots'].items():
+            if not artifact(snapshot):f.retain(Path(snapshot),receipt['before'][canonical])
+        for name in ['stdout.log','stderr.log']:
+            row=receipt['streams'][name];f.require(Path(row['path'])==path.parent/name,'Original66 stream path differs');f.retain(Path(row['path']),row)
+    pre=f.read(U/'PRECODE66_IDENTITIES.json')['documents']
+    f.require(len(pre)==4,'Exactly four published-before-code proper66 documents')
+    for row in pre:
+        f.retain(B/Path(row['path']).name,row)
+        if row.get('mirror'):f.retain(Path(row['mirror']),row)
+    members=[];destinations=set()
+    def add(source,relative,first_new=False):
+        source=Path(source);relative=Path(relative)
+        f.require(not relative.is_absolute() and '..' not in relative.parts,'Unsafe archive path')
+        f.require(not artifact(source),'All binaries/cache/index files excluded')
+        f.require(str(relative) not in destinations,'Duplicate archive destination');destinations.add(str(relative))
+        row=f.copied(source,A/E/relative,first_new=first_new)
+        members.append({'path':str(relative),'source':str(source),'bytes':row['bytes'],'sha256':row['sha256'],'identity_origin':row['origin']})
+    for row in c['immutable_files']:add(row['source'],row['archive_path'],row.get('identity_status')=='NEW_UNRECORDED')
+    for name in c['packaging_scripts']:
+        add(R/name,'raw/packaging-scripts/'+name,first_new=name in c['new_packaging_payloads'])
+    bindings=[]
+    for name in [f.SOURCE,*[Path(row['path']).name for row in pre]]:
+        row=f.copied(B/name,A/'bindings'/name)
+        bindings.append({'path':name,'bytes':row['bytes'],'sha256':row['sha256'],'action':'SKIP_ROOT_INSTALLED_BINDING'})
+    actual={str(Path(row['record_path']).parent/name) for row in runs for name in ['stdout.log','stderr.log']}
+    streams=[row for row in members if row['source'] in actual]
+    result={'status':'IMMUTABLE66_ARCHIVE_READY_NO_SHARED_APPLY','source_cut':c['source_cut'],'qualified_baseline':f.BASE,
+        'members':members,'bindings':bindings,'excluded_artifacts':c['excluded_artifacts'],'runs':runs,
+        'actual_run_count':len(runs),'verification_run_count':sum(row['scope_kind']=='math' for row in runs),
+        'documentary_run_count':sum(row['scope_kind']=='documentary' for row in runs),
+        'unlabeled_run_count':sum(row['scope_kind'] not in ['math','documentary'] for row in runs),
+        'actual_worker_split_stream_files':len(streams),'actual_worker_split_stream_bytes':sum(row['bytes'] for row in streams),
+        'documentary_capture_records':c['documentary_capture_records'],'production_helpers':c['production_helper_integrations'],
+        'ordinary_controls_custody':c['ordinary_controls_custody'],'historical_pending_records_preserved':True,
+        'initial_external_freeze_separate_from_dedicated_receipts':True,
+        'initial_known_empty_metadata_hash_issue_preserved':True,'forward_known_empty_fix_not_bootstrap_replayed':True,
+        'own_object_action':'SKIP_ROOT_COPIED_ONCE_ALL_FURTHER_COPIES_SKIP','old_payload_hashes':0,'proof_replays':0}
+    f.write(prior,result);return result

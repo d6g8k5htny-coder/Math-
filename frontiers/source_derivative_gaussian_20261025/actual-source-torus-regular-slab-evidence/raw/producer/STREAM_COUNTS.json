@@ -1,0 +1,409 @@
+{
+  "runs": 21,
+  "stdout_streams": 21,
+  "stderr_streams": 21,
+  "total_streams": 42,
+  "stdout_bytes": 48496,
+  "stderr_bytes": 0,
+  "streams": [
+    {
+      "label": "normalized-001",
+      "exit_code": 1,
+      "started_utc": "2026-10-28T17:35:43.931818+00:00",
+      "ended_utc": "2026-10-28T17:35:49.367709+00:00",
+      "elapsed_seconds": 5.4357443310000235,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-001/stdout.log",
+        "bytes": 18522,
+        "sha256": "d483a8401a2435d42dc98fcb5e93a4be3ddcfc8be33322884592af3689ca5dbe",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      }
+    },
+    {
+      "label": "normalized-002",
+      "exit_code": 1,
+      "started_utc": "2026-10-28T17:38:11.157689+00:00",
+      "ended_utc": "2026-10-28T17:38:15.760452+00:00",
+      "elapsed_seconds": 4.602555800000118,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-002/stdout.log",
+        "bytes": 3529,
+        "sha256": "ac663db37a9c442f5fa3c945243862d16d96b141fe9cc88423820c098cbbd0c1",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-002/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      }
+    },
+    {
+      "label": "normalized-003",
+      "exit_code": 1,
+      "started_utc": "2026-10-28T17:40:41.534425+00:00",
+      "ended_utc": "2026-10-28T17:40:46.114312+00:00",
+      "elapsed_seconds": 4.57960526900024,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-003/stdout.log",
+        "bytes": 191,
+        "sha256": "5929b587661439cd80a2abfbd8d0d08c5dad8ee052c8ce54788cf5213b33f527",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-003/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      }
+    },
+    {
+      "label": "normalized-004",
+      "exit_code": 0,
+      "started_utc": "2026-10-28T17:41:13.026501+00:00",
+      "ended_utc": "2026-10-28T17:41:17.459166+00:00",
+      "elapsed_seconds": 4.432395719999477,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-004/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-004/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      }
+    },
+    {
+      "label": "finite-horizon-001",
+      "exit_code": 1,
+      "started_utc": "2026-10-28T17:41:58.154265+00:00",
+      "ended_utc": "2026-10-28T17:42:02.560424+00:00",
+      "elapsed_seconds": 4.405926595998608,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/finite-horizon-001/stdout.log",
+        "bytes": 424,
+        "sha256": "a899ea09b69075cf8557efc3dc443468a64b2461990ee0f7916dc66474ace02a",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/finite-horizon-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      }
+    },
+    {
+      "label": "finite-horizon-002",
+      "exit_code": 0,
+      "started_utc": "2026-10-28T17:42:45.522233+00:00",
+      "ended_utc": "2026-10-28T17:42:51.162967+00:00",
+      "elapsed_seconds": 5.6404112210002495,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/finite-horizon-002/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/finite-horizon-002/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      }
+    },
+    {
+      "label": "height-hitting-001",
+      "exit_code": 1,
+      "started_utc": "2026-10-28T17:43:43.202175+00:00",
+      "ended_utc": "2026-10-28T17:43:49.189561+00:00",
+      "elapsed_seconds": 5.9870308299996395,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/height-hitting-001/stdout.log",
+        "bytes": 540,
+        "sha256": "18fd410669d0c70382c0e11531acadadd66672a1171511a697d1c8b974fcdfd3",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/height-hitting-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      }
+    },
+    {
+      "label": "height-hitting-002",
+      "exit_code": 0,
+      "started_utc": "2026-10-28T17:45:17.123508+00:00",
+      "ended_utc": "2026-10-28T17:45:21.852786+00:00",
+      "elapsed_seconds": 4.728980469999442,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/height-hitting-002/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/height-hitting-002/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      }
+    },
+    {
+      "label": "producer-joins-001",
+      "exit_code": 1,
+      "started_utc": "2026-10-28T17:46:57.161232+00:00",
+      "ended_utc": "2026-10-28T17:47:02.161356+00:00",
+      "elapsed_seconds": 4.999822767000296,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-001/stdout.log",
+        "bytes": 212,
+        "sha256": "68da832f866cdcb51a376f433a068bab0d52c63bfa030043619ac66d334e1319",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      }
+    },
+    {
+      "label": "producer-joins-002",
+      "exit_code": 1,
+      "started_utc": "2026-10-28T17:49:43.943169+00:00",
+      "ended_utc": "2026-10-28T17:49:49.307344+00:00",
+      "elapsed_seconds": 5.363693246999901,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-002/stdout.log",
+        "bytes": 1345,
+        "sha256": "0f0f375a5f1b99ef6c5a4060c84c1eceeafa899de4e79e32fbcfad13b7900362",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-002/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      }
+    },
+    {
+      "label": "producer-joins-003",
+      "exit_code": 1,
+      "started_utc": "2026-10-28T17:53:34.424400+00:00",
+      "ended_utc": "2026-10-28T17:53:41.063966+00:00",
+      "elapsed_seconds": 6.639114752000751,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-003/stdout.log",
+        "bytes": 536,
+        "sha256": "0927746e49606ecd2cf8c5bc25020f81675d7bf255cfc953909d5a4abbfe85a5",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-003/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      }
+    },
+    {
+      "label": "producer-joins-004",
+      "exit_code": 1,
+      "started_utc": "2026-10-28T17:56:26.251017+00:00",
+      "ended_utc": "2026-10-28T17:56:31.262700+00:00",
+      "elapsed_seconds": 5.011342662999596,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-004/stdout.log",
+        "bytes": 570,
+        "sha256": "0cb1a15c8ed25eaf8d7c70eebb24ccd5db47d2f86bb7178c152d90449d0dad47",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-004/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      }
+    },
+    {
+      "label": "producer-joins-005",
+      "exit_code": 1,
+      "started_utc": "2026-10-28T17:58:58.936364+00:00",
+      "ended_utc": "2026-10-28T17:59:06.813610+00:00",
+      "elapsed_seconds": 7.876841725999839,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/stdout.log",
+        "bytes": 1671,
+        "sha256": "14a2b6863c6b3538f18b1de84c7501f116288ce8d1756d8317b3b2c70d58536a",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      }
+    },
+    {
+      "label": "producer-joins-006",
+      "exit_code": 1,
+      "started_utc": "2026-10-28T18:02:15.071607+00:00",
+      "ended_utc": "2026-10-28T18:02:21.508382+00:00",
+      "elapsed_seconds": 6.436160152999946,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-006/stdout.log",
+        "bytes": 567,
+        "sha256": "84518867321472436c0cb395b6655e7e34ec405274cdbb311b5e54a88d7ca36a",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-006/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      }
+    },
+    {
+      "label": "producer-joins-007",
+      "exit_code": 1,
+      "started_utc": "2026-10-28T18:06:05.306039+00:00",
+      "ended_utc": "2026-10-28T18:06:11.213889+00:00",
+      "elapsed_seconds": 5.9074459559997194,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-007/stdout.log",
+        "bytes": 630,
+        "sha256": "7d27cdfc06782f0560a43374bc8dde95812e6a6e45d905a363721456d541f658",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-007/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      }
+    },
+    {
+      "label": "compile-final",
+      "exit_code": 0,
+      "started_utc": "2026-10-28T18:06:57.970734+00:00",
+      "ended_utc": "2026-10-28T18:07:03.762278+00:00",
+      "elapsed_seconds": 5.791136857998936,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/compile-final/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/compile-final/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      }
+    },
+    {
+      "label": "inventory-001",
+      "exit_code": 0,
+      "started_utc": "2026-10-28T18:08:26.336810+00:00",
+      "ended_utc": "2026-10-28T18:08:29.512395+00:00",
+      "elapsed_seconds": 3.175133303000621,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/inventory-001/stdout.log",
+        "bytes": 18511,
+        "sha256": "e20246774a2288c6af8ea37c1caf760ab7cd19ecea98b0128af019cdcf5c967c",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/inventory-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      }
+    },
+    {
+      "label": "kernel-001",
+      "exit_code": 0,
+      "started_utc": "2026-10-28T18:11:10.197145+00:00",
+      "ended_utc": "2026-10-28T18:11:15.372164+00:00",
+      "elapsed_seconds": 5.174549492001461,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/kernel-001/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/kernel-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      }
+    },
+    {
+      "label": "controls-001",
+      "exit_code": 1,
+      "started_utc": "2026-10-28T18:13:41.337780+00:00",
+      "ended_utc": "2026-10-28T18:13:46.362907+00:00",
+      "elapsed_seconds": 5.024589984001068,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-001/stdout.log",
+        "bytes": 1129,
+        "sha256": "b460dd24ab74deaa76caba4ceb406768fa206ecbfa0f2142b79cea6c55a68dc6",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      }
+    },
+    {
+      "label": "controls-002",
+      "exit_code": 0,
+      "started_utc": "2026-10-28T18:16:31.341311+00:00",
+      "ended_utc": "2026-10-28T18:16:36.170883+00:00",
+      "elapsed_seconds": 4.82865674399909,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-002/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-002/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      }
+    },
+    {
+      "label": "false-control-001",
+      "exit_code": 1,
+      "started_utc": "2026-10-28T18:24:28.969347+00:00",
+      "ended_utc": "2026-10-28T18:24:31.694288+00:00",
+      "elapsed_seconds": 2.7244351629997254,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/false-control-001/stdout.log",
+        "bytes": 119,
+        "sha256": "abb5288367560bbfbff9e4ff171159a9389ff30965449abcbf480d3e36288155",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/false-control-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      }
+    }
+  ]
+}

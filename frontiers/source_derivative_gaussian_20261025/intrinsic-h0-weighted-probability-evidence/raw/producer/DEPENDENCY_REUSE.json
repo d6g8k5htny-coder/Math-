@@ -1,0 +1,244 @@
+{
+  "schema": "intrinsic-h0-weighted-dependency-reuse/v1",
+  "recorded_utc": "2026-10-26T18:55:03.376928+00:00",
+  "owner_rule": "Completed applicable verification reusable; no old payload hashes/builds/kernel/audit/control replays due to new module/agent/session/handoff/environment/process labels.",
+  "old_payloads_rehashed": false,
+  "old_verification_replayed": false,
+  "retained54_source_object_manifest": {
+    "path": "/workspace/scratch/intrinsic-h0-interface-construct/SOURCE_OBJECT_IDENTITIES.json",
+    "bytes": 1758,
+    "sha256": "495d88e01d3ad34b985aca01c83e8c5178822838140e6a02bc8056e44ad76501"
+  },
+  "retained54_dependency_route_manifest": {
+    "path": "/workspace/scratch/intrinsic-h0-interface-construct/DEPENDENCY_REUSE.json",
+    "bytes": 10329,
+    "sha256": "0b6f0ad6a7ac991a164e489bc93d451cf7f1326a74ea3628fa4607d0770e27a5"
+  },
+  "qualified54_root_reported_publication": "72eb5de8b70c16816a31424197d733820509cfe5 / RESULT6423967369; own54object copied once by root; no new Git/external lookup",
+  "consumed54": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0Interface.lean",
+      "bytes": 8366,
+      "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef"
+    },
+    "olean": {
+      "path": "/workspace/scratch/intrinsic-h0-interface-construct/build/SourceIntrinsicH0Interface.olean",
+      "bytes": 975440,
+      "sha256": "ff59fe74b6d755b1173b2300559c7fd896e3ec567b43df447a9b3ad2ab5a5fec"
+    },
+    "strict_receipt": {
+      "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/strict-002/receipt.json",
+      "bytes": 1777,
+      "sha256": "e89ac25fefebfa7afa51ea747bca32087923d6dc2d090b5c2a96fefdc6225a96"
+    },
+    "kernel_receipt": {
+      "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/kernel-001/receipt.json",
+      "bytes": 1938,
+      "sha256": "246aa85a373d276b983adff00414ccdf0308d30cc46472f7cd0294a76f6aa484"
+    }
+  },
+  "inherited54_old_module_bindings": [
+    {
+      "module": "SourceH0OlderClearance",
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceH0OlderClearance.lean",
+        "bytes": 5856,
+        "sha256": "6e42bb33d81e0a76fc0abb409b4f4811b7e91fe07d1398300e2e9792f29e794a"
+      },
+      "olean": {
+        "path": "/workspace/scratch/h0-older-clearance-construct/build/SourceH0OlderClearance.olean",
+        "bytes": 328568,
+        "sha256": "b6c0b7cf8ede4445e9a6a3304bd67187558fc296f474180d2d82972f229e1ec6"
+      },
+      "strict_receipt": {
+        "path": "/workspace/scratch/h0-older-clearance-construct/runs/strict-003/receipt.json",
+        "bytes": 1634,
+        "sha256": "3ae56ad2aad36b43e015438a7ef9b77ad0fd00c01d0ca702203f6911db5a664e"
+      },
+      "kernel_receipt": {
+        "path": "/workspace/scratch/h0-older-clearance-construct/runs/kernel-001/receipt.json",
+        "bytes": 1791,
+        "sha256": "32e7cc39af937ef6cbe33910e507ed91bebdd943815c582611e16d74c0423fad"
+      },
+      "status": "Completed qualified51 evidence reused; original producer pending-cut handoff preserved, root separate cut/publication supplies process binding"
+    },
+    {
+      "module": "SourceActualFoldCandidate",
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFoldCandidate.lean",
+        "bytes": 34367,
+        "sha256": "a03d6cc83ec35971d8e67a0ccb3032681eed76ca056a075bbd3bbddff7727e0e"
+      },
+      "olean": {
+        "path": "/workspace/scratch/actual-fold-candidate-construct/build/SourceActualFoldCandidate.olean",
+        "bytes": 2037352,
+        "sha256": "a545f758072accbe4a97cb48a8ce30b542215bc8218c408b28fccd6d30f85f99"
+      },
+      "strict_receipt": {
+        "path": "/workspace/scratch/actual-fold-candidate-construct/runs/strict-007/record.json",
+        "bytes": 681,
+        "sha256": "3ef324ad725d1d16ec612c610057c4cd6a2c320595be366cab5629c7e44c09b7"
+      },
+      "kernel_receipt": {
+        "path": "/workspace/scratch/actual-fold-candidate-construct/runs/kernel-001/record.json",
+        "bytes": 1693,
+        "sha256": "066a3be7184ef792e155755b052ff6fd7643e7f239cd57e8601219387c3da45a"
+      },
+      "status": "Completed actual candidate qualification reused"
+    },
+    {
+      "module": "SourceActualFoldH0",
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFoldH0.lean",
+        "bytes": 7131,
+        "sha256": "7d54c2cc08751365cc71949016fcbdd64872e5fbc4f67baea1fdd526a4e86cfd"
+      },
+      "olean": {
+        "path": "/workspace/scratch/actual-fold-h0-construct/build/SourceActualFoldH0.olean",
+        "bytes": 734776,
+        "sha256": "79718f2001a30ab73ad891eeff66aababf27da2a7433058ab40bc1eeb827989c"
+      },
+      "strict_receipt": {
+        "path": "/workspace/scratch/actual-fold-h0-construct/runs/strict-001/receipt.json",
+        "bytes": 1630,
+        "sha256": "a9c4fb36144a600df3fe02c4224e201b2ae901d645819d32641e06fd796225c0"
+      },
+      "kernel_receipt": {
+        "path": "/workspace/scratch/actual-fold-h0-construct/runs/kernel-001/receipt.json",
+        "bytes": 1705,
+        "sha256": "d2b1c625a454a2b9a4cc8264147f92032e06a1712c2b067620711533ada48c23"
+      },
+      "retained_published_source_cut": "0fb66d72af5ea71479d998f4a7857e1fd252b912",
+      "status": "applicable completed qualification reused"
+    },
+    {
+      "module": "ClosedSuperlevel",
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/elder/ClosedSuperlevel.lean",
+        "bytes": 8243,
+        "sha256": "51cb46da0f1aae823fd91ec5e93c6edcd694d72f0a40d7a83686fee66c8ffffa"
+      },
+      "olean": {
+        "path": "/workspace/scratch/actual-h0-support-inputs/build/ClosedSuperlevel.olean",
+        "bytes": 230536,
+        "sha256": "4372038c7f75ad1bc904c2b7e9d0fa4c9b8d27525a33fec3bdcc9c7ad8030ca3"
+      },
+      "strict_receipt_path": "/workspace/scratch/actual-h0-support-inputs/runs/ClosedSuperlevel-strict-001/receipt.json",
+      "status": "applicable old-body narrow-import qualified support reused"
+    },
+    {
+      "module": "OrdinaryH0",
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/elder/OrdinaryH0.lean",
+        "bytes": 19851,
+        "sha256": "3e91484d8b8499bee94c652a13dbab957712a180d4644e5ea5915082a79836f5"
+      },
+      "olean": {
+        "path": "/workspace/scratch/actual-h0-support-inputs/build/OrdinaryH0.olean",
+        "bytes": 326840,
+        "sha256": "5689b0ae7e306ec40997b054d120f296143b3f1815452c334439193be032eeb6"
+      },
+      "strict_receipt_path": "/workspace/scratch/actual-h0-support-inputs/runs/OrdinaryH0-strict-001/receipt.json",
+      "status": "applicable old-body narrow-import qualified support reused"
+    },
+    {
+      "module": "ElderInterval",
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/elder/ElderInterval.lean",
+        "bytes": 16140,
+        "sha256": "69daa2e2a6afbdedde20d0c3b1ecdb52e2626da8ad49138b9db388b41ee71491"
+      },
+      "olean": {
+        "path": "/workspace/scratch/actual-h0-support-inputs/build/ElderInterval.olean",
+        "bytes": 834784,
+        "sha256": "ecc7adf81aa5dbe4ef4ad7175c1806a630c3a5be64bc5f74bb8895908bc7004e"
+      },
+      "strict_receipt_path": "/workspace/scratch/actual-h0-support-inputs/runs/ElderInterval-strict-001/receipt.json",
+      "status": "applicable old-body narrow-import qualified support reused"
+    },
+    {
+      "module": "ElderBridge",
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/elder/ElderBridge.lean",
+        "bytes": 3683,
+        "sha256": "6b0be1116f6b357b0ffbda202c572c27c2788b98bee639e228375a5ebeea1fa9"
+      },
+      "olean": {
+        "path": "/workspace/scratch/actual-h0-support-inputs/build/ElderBridge.olean",
+        "bytes": 109200,
+        "sha256": "1f3ff6ebeafb97181d28cf33b98626a01c95bff6ca24b4ba0aa42eb790874c52"
+      },
+      "strict_receipt_path": "/workspace/scratch/actual-h0-support-inputs/runs/ElderBridge-strict-001/receipt.json",
+      "status": "applicable old-body narrow-import qualified support reused"
+    },
+    {
+      "module": "SourceActualFoldTorus",
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFoldTorus.lean",
+        "bytes": 17840,
+        "sha256": "d2ca01d1f881852372c371215c30216bee7d917fdf2eaafbbd097f8c840e20c6"
+      },
+      "olean": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceActualFoldTorus.olean",
+        "bytes": 733480,
+        "sha256": "9dd9d93e12ddb685ece1348b0699045b7e57b362cb48eaa54ac4373ddb9fd6e9"
+      },
+      "source_cut": "33a305a35312eca7fbfd04a4ed4f5269db69b97c",
+      "retained_evidence": "/workspace/scratch/actual-fold-torus-construct/SOURCE_OBJECT_IDENTITIES.json",
+      "status": "applicable actual torus qualification reused"
+    }
+  ],
+  "qualified44_manifest": {
+    "path": "/workspace/scratch/compact-fold-weighted-probability-construct/SOURCE_OBJECT_IDENTITIES.json",
+    "sha256_registered_reused": "8c6f9cc2595fbe37403ad8f9c7dbcfb92affec498e0b329df66ca9ee6cab3dff"
+  },
+  "consumed44": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactFoldWeightedProbability.lean",
+      "bytes": 8882,
+      "sha256": "97e6c694b62d90f6b723b0e510691e019f763ff26ebba743664d596dc72223b9"
+    },
+    "olean": {
+      "path": "/workspace/scratch/compact-fold-weighted-probability-construct/build/SourceCompactFoldWeightedProbability.olean",
+      "bytes": 499208,
+      "sha256": "7f5e51ce282049a8ea7a72af338b826fe8faa16eb739a2f697b88a63270140b6"
+    },
+    "strict_receipt": {
+      "path": "/workspace/scratch/compact-fold-weighted-probability-construct/runs/compile-001/receipt.json",
+      "bytes": 1906,
+      "sha256": "27979744c45eddd626d54c085601bfa93e2ad922f30bca288f6bfb84b7b04d63"
+    },
+    "kernel_receipt": {
+      "path": "/workspace/scratch/compact-fold-weighted-probability-construct/runs/kernel-001/receipt.json",
+      "bytes": 1937,
+      "sha256": "f6c5b8d1d00b2b02f6e1ec0bd6fa749713bd4353ed2058237e5bbd29e296ebd8"
+    }
+  },
+  "topology_qualification": {
+    "path": "/workspace/scratch/source-smooth-topology/QUALIFICATION_RECEIPT.json",
+    "sha256_registered_reused": "561ac3700e77b61b108423db13ae452f151e5c5fa0016ace15433b5b2a07b6c2",
+    "source_sha256_reused": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+    "object_path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceSmoothTopology.olean",
+    "original_object_sha256": null,
+    "null_hash_reason": "Original object hash not captured; no new hash fabricated or taken. Accepted compile06 wrote object; audit08/kernel09/controls10 consumed unchanged source; retained qualification/campaign lineage reused.",
+    "verification_records": {
+      "compile": "/workspace/scratch/source-smooth-topology/06-final-norm-borel-fields.json",
+      "controls": "/workspace/scratch/source-smooth-topology/10-controls-fixed.json",
+      "axiom_audit": "/workspace/scratch/source-smooth-topology/08-axiom-audit.json",
+      "kernel_replay": "/workspace/scratch/source-smooth-topology/09-kernel-replay.json"
+    },
+    "catalog": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/topology-evidence/TOPOLOGY_EVIDENCE_CATALOG.json"
+  },
+  "exact_final_qualification_route": [
+    "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build",
+    "/workspace/scratch/intrinsic-h0-interface-construct/build",
+    "/workspace/scratch/h0-older-clearance-construct/build",
+    "/workspace/scratch/actual-fold-candidate-construct/build",
+    "/workspace/scratch/actual-fold-h0-construct/build",
+    "/workspace/scratch/actual-h0-support-inputs/build",
+    "/workspace/scratch/compact-fold-weighted-probability-construct/build",
+    "$LEAN_PATH from lake env for accepted packet/mathlib cache and accepted topology object"
+  ],
+  "partial_route_note": "Early partial new-core calls used old44 baseline packet cache. Starting complete-integration001, full new qualification prepended the exact retained qualified44 scratch object. No old source/object hash or old check replay was performed for this route refinement.",
+  "cache_guidance": "Root copies ONLY new own SourceIntrinsicH0WeightedProbability.olean; retain exact verified dependency priority. All helper/control objects excluded. No old rebuild or ilean refresh."
+}

@@ -1,0 +1,12 @@
+/workspace/scratch/pin-preserving-quartic-implementation/HessianTaylor.lean:19:2: error: Type mismatch: After simplification, term
+  Eq.symm h
+ has type
+  @Eq ℝ ((iteratedFDeriv ℝ (1 + 1) f x) ![u, w]) ((fderiv ℝ (fun y => (fderiv ℝ f y) w) x) (![u] 0))
+but is expected to have type
+  @Eq ℝ ((iteratedFDeriv ℝ 2 f x) ![u, w]) ((fderiv ℝ (fun y => (fderiv ℝ f y) w) x) u)
+/workspace/scratch/pin-preserving-quartic-implementation/HessianTaylor.lean:35:44: error: typeclass instance problem is stuck
+  HSMul ?m.130 (Fin 2 → ℝ) (Fin 2 → ℝ)
+
+Note: Lean will not try to resolve this typeclass instance problem because the first type argument to `HSMul` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.

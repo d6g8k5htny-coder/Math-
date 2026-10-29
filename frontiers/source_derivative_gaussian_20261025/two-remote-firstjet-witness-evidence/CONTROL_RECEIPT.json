@@ -1,0 +1,54 @@
+{
+  "contract": {
+    "path": "/workspace/scratch/two-remote-firstjet-witness-construct/CONTROL_CONTRACT.md",
+    "bytes": 4285,
+    "sha256": "b97ddc19850438552340697d7527bb603159d8a3fdc2510e536a44d36f893b42"
+  },
+  "contract_before_source_and_helper_implementation": true,
+  "positive_source": {
+    "path": "/workspace/scratch/two-remote-firstjet-witness-construct/Controls.lean",
+    "bytes": 8566,
+    "sha256": "523a8d0c498199e1273898712cd8311f2e95e7d9bf1c1acc1531e609757092eb"
+  },
+  "positive_receipt": {
+    "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-002/record.json",
+    "bytes": 1399,
+    "sha256": "087a10ebb9759d2e98959ca35024c5ba094e0d8baa53ea00bf5d0e5fc7d1ec92"
+  },
+  "public_controls": 9,
+  "private_control_adapters": 5,
+  "positive_scope": [
+    "actualL2r0x10y01internallyconstructedfiniteoriginaldirections all36raw+36jointfirstjetpairings",
+    "literalvalueX,dxX,dyX,valueY,dxY,dyYroworder",
+    "actualfinitecombination realizesdistincttarget1,2,3,4,5,6 andrawzeros",
+    "signednegativeLminus2 sameadmissiblerepeatedpins",
+    "negative-rL2rminus1x00y01literalendpoints",
+    "exactquotientseparationsbyintegerparity atunit/halfdifferences",
+    "actualresidualGramRzero andconcretenonsymmetricR(j,i)=(j+1)*(i+2)",
+    "collisionL2r0x=y10all4retainedremote-pinsep",
+    "actualcollisionB0=B3jointwitnessnonexistence"
+  ],
+  "negative_source": {
+    "path": "/workspace/scratch/two-remote-firstjet-witness-construct/CollisionMutation.lean",
+    "bytes": 513,
+    "sha256": "fc19ea0ee7fcea258250ac719fb2d16f5b075a746800dec692d0ad77139dfedb"
+  },
+  "negative_receipt": {
+    "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/collision-001/record.json",
+    "bytes": 1426,
+    "sha256": "e3b1e6be44dc91b9ae2314c5df9c1ddd43c44cc7e2edf486c343e628ba271118"
+  },
+  "distinct_mutation_count": 1,
+  "mutation_attempts": 1,
+  "negative_mechanism": "OmitONLYhxy fromactualjointwitnessclaim. L2r0x=y10 retainsLne0/all4remotepinsep exactparity. Actualcoefficientrows0and3coincide. Column0identity demands samefinitepairing1and0; independentlyprovedpassednonexistence simplifiesexactweakenedexistentialtoONEFalse. No construction-only failure or Gaussianconfigurationclaim.",
+  "sole_false_count": 1,
+  "unrelated_negative_diagnostics": 0,
+  "positive_counterexample_object_reuse": {
+    "path": "/workspace/scratch/two-remote-firstjet-witness-construct/build/Controls.olean",
+    "bytes": 262240,
+    "sha256": "bdc4d48dcfc94c6ee7d221323a6569a8281335dad3051405694bf5c00c6f4c8e"
+  },
+  "control_object_production_eligible": false,
+  "source_unchanged_through_qualification": true,
+  "failed_positive_attempts": "controls001 onlynegative-radius rational/group simp choseoppositesignmembership form; controls002 exactrealrationalrewrite beforeAddCirclecastPASS. Notnegativecontrolcredit."
+}

@@ -1,0 +1,26 @@
+{
+  "label": "false-control001",
+  "command_argv": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/outer_capture.py",
+    "false-control001",
+    "math",
+    "--",
+    "env",
+    "LEAN_PATH=/workspace/scratch/actual-source-saddle-uppercuts-construct/build",
+    "lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "--root=/workspace/scratch/actual-source-saddle-uppercuts-construct",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/FalseControl.lean"
+  ],
+  "cwd": "/workspace/scratch/actual-source-saddle-uppercuts-construct",
+  "start_utc": "2026-10-28T21:44:40.709307+00:00",
+  "end_utc": "2026-10-28T21:44:43.133033+00:00",
+  "elapsed_seconds": 2.4237322170010884,
+  "exit_code": 1,
+  "stdout": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/false-control001/entry.stdout.log",
+  "stderr": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/false-control001/entry.stderr.log",
+  "invocation_scope": "entry process begins here; caller tool stdout is only this closed receipt summary"
+}

@@ -1,0 +1,615 @@
+{
+  "schema_version": 1,
+  "archive_root": "raw",
+  "members": [
+    {
+      "path": "raw/producer/ARITHMETIC_NEEDED_SECTION.lean.txt",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/ARITHMETIC_NEEDED_SECTION.lean.txt",
+      "bytes": 5404,
+      "sha256": "c6d7ee9d2198f5f31c5e323e8e3335c1289b12d6d6ffdab3803da278da560e55",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/AUTHOR_HELPER_LINEAGE.json",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/AUTHOR_HELPER_LINEAGE.json",
+      "bytes": 3068,
+      "sha256": "5c3862af385553cb621ffa24e735b5b582f9cd103a6a4cb1ce65ec77a5c1e81e",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/CONTROL_CONTRACT.md",
+      "bytes": 4285,
+      "sha256": "b97ddc19850438552340697d7527bb603159d8a3fdc2510e536a44d36f893b42",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/CONTROL_RECEIPT.json",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/CONTROL_RECEIPT.json",
+      "bytes": 2858,
+      "sha256": "26a11402bb4e3ca4932ac064140ae6d55801258b16f18b829764a03fed670909",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/CollisionMutation.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/CollisionMutation.lean",
+      "bytes": 513,
+      "sha256": "fc19ea0ee7fcea258250ac719fb2d16f5b075a746800dec692d0ad77139dfedb",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/Controls.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/Controls.lean",
+      "bytes": 8566,
+      "sha256": "523a8d0c498199e1273898712cd8311f2e95e7d9bf1c1acc1531e609757092eb",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/EXECUTION_RECORD_INDEX.json",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/EXECUTION_RECORD_INDEX.json",
+      "bytes": 25181,
+      "sha256": "b362dc50e1c446fbcfe7beb818eaceb85cf4d3bf9917e8149f6d4d4fd46eefea",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/FROZEN_SOURCE.json",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/FROZEN_SOURCE.json",
+      "bytes": 1328,
+      "sha256": "86265de471af7dee22a734b5c81a52fc01dc0be08781f39430a7cc2c6df1b071",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/HANDOFF.json",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/HANDOFF.json",
+      "bytes": 4677,
+      "sha256": "b3170de2d1b37c513c8979c65e271dec65fc574534968f00772e3ce800013529",
+      "identity_origin": "New final packaging payload hashed once after final write."
+    },
+    {
+      "path": "raw/producer/HELPER_ACTUAL_AMENDMENTS.diff",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/HELPER_ACTUAL_AMENDMENTS.diff",
+      "bytes": 1156,
+      "sha256": "113e7f98985f2a2551aa37f6d72eb4dafed02d2822f933aed1a5b85caa35b97f",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/HELPER_AMENDMENTS.json",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/HELPER_AMENDMENTS.json",
+      "bytes": 1412,
+      "sha256": "709b7bb78d4943ad9789a9dfb1a6769be506a7bfe587d29719147c331fa3ddad",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/HELPER_INTEGRATION.json",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/HELPER_INTEGRATION.json",
+      "bytes": 1321,
+      "sha256": "17ea0f77a419f8b1e1249b8c7113ab27167c77f4af9f2ca4fef42a2b7b641555",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/INVENTORY.json",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/INVENTORY.json",
+      "bytes": 23933,
+      "sha256": "2760b6b18597150e62a3c049b012fb33c67a0a53ab354dbcf6fcd788963ffb10",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/Inventory.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/Inventory.lean",
+      "bytes": 1088,
+      "sha256": "49f5f4d9fa8ee29a2423f43e701f533429b2ba43905eaf44fa75227fd842f12b",
+      "identity_origin": "New final packaging payload hashed once after final write."
+    },
+    {
+      "path": "raw/producer/RAW_LEDGER.jsonl",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/RAW_LEDGER.jsonl",
+      "bytes": 9995,
+      "sha256": "2d6da2734462ff04b0a586f3aac90b2bc8f7ac30ff3b4e4bf086d78f5eb08dc4",
+      "identity_origin": "New final packaging payload hashed once after final write."
+    },
+    {
+      "path": "raw/producer/REPORT.md",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/REPORT.md",
+      "bytes": 9236,
+      "sha256": "54a88df70c6058be70440fd0552392537f19c71ffba186c66fbc1eb95489198e",
+      "identity_origin": "New final packaging payload hashed once after final write."
+    },
+    {
+      "path": "raw/producer/SOURCE_OBJECT_IDENTITIES.json",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/SOURCE_OBJECT_IDENTITIES.json",
+      "bytes": 2334,
+      "sha256": "58eaebfd5f31e01205f82c639d73312978bdd6d4fda2d1cae57cdbdb3fd31f12",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/STATIC_SCOPE.json",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/STATIC_SCOPE.json",
+      "bytes": 1578,
+      "sha256": "54219d2bf6a159c9e5cf9aa7691a7560fd15efdfce67108462a5791a745b30cf",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/TARGET_CLASSIFICATION.json",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/TARGET_CLASSIFICATION.json",
+      "bytes": 23553,
+      "sha256": "fdb48130f4857336416136d829c6af7f9fc10e465f2e796c8d89d93ca15b4ab4",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/classify.py",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/classify.py",
+      "bytes": 2688,
+      "sha256": "5e87d7dde2d3fb5211e6aff91982df33a8515bbd1e5f6da93d8091dbf04ccbfa",
+      "identity_origin": "New final packaging payload hashed once after final write."
+    },
+    {
+      "path": "raw/producer/finalize.py",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/finalize.py",
+      "bytes": 10614,
+      "sha256": "ca57af64989ec0403e110c8d92da30c557f77fb1dd7ea298c59f0c486d15e477",
+      "identity_origin": "New final packaging payload hashed once after final write."
+    },
+    {
+      "path": "raw/producer/run.py",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/run.py",
+      "bytes": 2101,
+      "sha256": "ce186377225cdc670e228cb22ed7398111df6dcd3561581919758b5fe8d81ce8",
+      "identity_origin": "New final packaging payload hashed once after final write."
+    },
+    {
+      "path": "raw/producer/runs/collision-001/CollisionMutation.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/collision-001/CollisionMutation.lean",
+      "bytes": 513,
+      "sha256": "fc19ea0ee7fcea258250ac719fb2d16f5b075a746800dec692d0ad77139dfedb",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/collision-001/Controls.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/collision-001/Controls.lean",
+      "bytes": 8566,
+      "sha256": "523a8d0c498199e1273898712cd8311f2e95e7d9bf1c1acc1531e609757092eb",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/collision-001/Inventory.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/collision-001/Inventory.lean",
+      "bytes": 1088,
+      "sha256": "49f5f4d9fa8ee29a2423f43e701f533429b2ba43905eaf44fa75227fd842f12b",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/collision-001/SourceTwoRemoteFirstJetWitness.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/collision-001/SourceTwoRemoteFirstJetWitness.lean",
+      "bytes": 21442,
+      "sha256": "b523da924513fc312c5432c241fc031d4fbe3567fbeedbba981f36dd798574a4",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/collision-001/record.json",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/collision-001/record.json",
+      "bytes": 1426,
+      "sha256": "e3b1e6be44dc91b9ae2314c5df9c1ddd43c44cc7e2edf486c343e628ba271118",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/collision-001/stderr.log",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/collision-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/collision-001/stdout.log",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/collision-001/stdout.log",
+      "bytes": 119,
+      "sha256": "6c8a43e0a670f58e88e0d5ac7715396c03bd32089972c197b57024df01733b9b",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-001/CollisionMutation.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-001/CollisionMutation.lean",
+      "bytes": 513,
+      "sha256": "fc19ea0ee7fcea258250ac719fb2d16f5b075a746800dec692d0ad77139dfedb",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-001/Controls.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-001/Controls.lean",
+      "bytes": 8485,
+      "sha256": "86a6a6052055c66ab7b28e1baf3fd18ddf4e93ac2b2d2221fc31bb9d524c28dc",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-001/Inventory.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-001/Inventory.lean",
+      "bytes": 1088,
+      "sha256": "49f5f4d9fa8ee29a2423f43e701f533429b2ba43905eaf44fa75227fd842f12b",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-001/SourceTwoRemoteFirstJetWitness.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-001/SourceTwoRemoteFirstJetWitness.lean",
+      "bytes": 21442,
+      "sha256": "b523da924513fc312c5432c241fc031d4fbe3567fbeedbba981f36dd798574a4",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-001/record.json",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-001/record.json",
+      "bytes": 1404,
+      "sha256": "38408ba862089d986620a624fb64826657e849ab66047f8168f6c1c1804dae9a",
+      "identity_origin": "New final packaging payload hashed once after final write."
+    },
+    {
+      "path": "raw/producer/runs/controls-001/stderr.log",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-001/stdout.log",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-001/stdout.log",
+      "bytes": 259,
+      "sha256": "0bad27136fe321d897619ac9266f43cef45f09081724f644dc337d53d8e7fe48",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-002/CollisionMutation.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-002/CollisionMutation.lean",
+      "bytes": 513,
+      "sha256": "fc19ea0ee7fcea258250ac719fb2d16f5b075a746800dec692d0ad77139dfedb",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-002/Controls.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-002/Controls.lean",
+      "bytes": 8566,
+      "sha256": "523a8d0c498199e1273898712cd8311f2e95e7d9bf1c1acc1531e609757092eb",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-002/Inventory.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-002/Inventory.lean",
+      "bytes": 1088,
+      "sha256": "49f5f4d9fa8ee29a2423f43e701f533429b2ba43905eaf44fa75227fd842f12b",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-002/SourceTwoRemoteFirstJetWitness.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-002/SourceTwoRemoteFirstJetWitness.lean",
+      "bytes": 21442,
+      "sha256": "b523da924513fc312c5432c241fc031d4fbe3567fbeedbba981f36dd798574a4",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-002/record.json",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-002/record.json",
+      "bytes": 1399,
+      "sha256": "087a10ebb9759d2e98959ca35024c5ba094e0d8baa53ea00bf5d0e5fc7d1ec92",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-002/stderr.log",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-002/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-002/stdout.log",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-002/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-001/Inventory.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-001/Inventory.lean",
+      "bytes": 1088,
+      "sha256": "49f5f4d9fa8ee29a2423f43e701f533429b2ba43905eaf44fa75227fd842f12b",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-001/SourceTwoRemoteFirstJetWitness.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-001/SourceTwoRemoteFirstJetWitness.lean",
+      "bytes": 20162,
+      "sha256": "4aaa7977ca4a4fb48f65997d50601cc5811655345d556eebbb529f75ba60f1bb",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-001/record.json",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-001/record.json",
+      "bytes": 1323,
+      "sha256": "5f345c960216267d35563b5ceeaa47ffeb0031960ed19a235957f405dd4d4e79",
+      "identity_origin": "New final packaging payload hashed once after final write."
+    },
+    {
+      "path": "raw/producer/runs/develop-001/stderr.log",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-001/stdout.log",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-001/stdout.log",
+      "bytes": 2419,
+      "sha256": "aad2b76617d7de6389ced0f30fbce1607052e3f278e96e0169617211f2f1696e",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-002/CollisionMutation.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-002/CollisionMutation.lean",
+      "bytes": 513,
+      "sha256": "fc19ea0ee7fcea258250ac719fb2d16f5b075a746800dec692d0ad77139dfedb",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-002/Controls.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-002/Controls.lean",
+      "bytes": 8485,
+      "sha256": "86a6a6052055c66ab7b28e1baf3fd18ddf4e93ac2b2d2221fc31bb9d524c28dc",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-002/Inventory.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-002/Inventory.lean",
+      "bytes": 1088,
+      "sha256": "49f5f4d9fa8ee29a2423f43e701f533429b2ba43905eaf44fa75227fd842f12b",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-002/SourceTwoRemoteFirstJetWitness.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-002/SourceTwoRemoteFirstJetWitness.lean",
+      "bytes": 21375,
+      "sha256": "8731a333dd266e6054a5bdbf5a5ef2cab58409163fee69369086343bbeab3457",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-002/record.json",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-002/record.json",
+      "bytes": 1322,
+      "sha256": "006599414504270a2ebb6fdda40fa040b56b1da75e5fa9b42ed8ad5cfa137ea9",
+      "identity_origin": "New final packaging payload hashed once after final write."
+    },
+    {
+      "path": "raw/producer/runs/develop-002/stderr.log",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-002/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-002/stdout.log",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-002/stdout.log",
+      "bytes": 2263,
+      "sha256": "17c1e92e5afcedeee4a0aae5a19528ec92da59cc65d21c9b6e34d854c43bc528",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-003/CollisionMutation.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-003/CollisionMutation.lean",
+      "bytes": 513,
+      "sha256": "fc19ea0ee7fcea258250ac719fb2d16f5b075a746800dec692d0ad77139dfedb",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-003/Controls.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-003/Controls.lean",
+      "bytes": 8485,
+      "sha256": "86a6a6052055c66ab7b28e1baf3fd18ddf4e93ac2b2d2221fc31bb9d524c28dc",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-003/Inventory.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-003/Inventory.lean",
+      "bytes": 1088,
+      "sha256": "49f5f4d9fa8ee29a2423f43e701f533429b2ba43905eaf44fa75227fd842f12b",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-003/SourceTwoRemoteFirstJetWitness.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-003/SourceTwoRemoteFirstJetWitness.lean",
+      "bytes": 21442,
+      "sha256": "b523da924513fc312c5432c241fc031d4fbe3567fbeedbba981f36dd798574a4",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-003/record.json",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-003/record.json",
+      "bytes": 1319,
+      "sha256": "8bc0de2d2df07f555a7f02a1e476f0c1c9e2109c4fc6bf1d42f140edbaed20cc",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-003/stderr.log",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-003/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-003/stdout.log",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-003/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/CollisionMutation.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/inventory-001/CollisionMutation.lean",
+      "bytes": 513,
+      "sha256": "fc19ea0ee7fcea258250ac719fb2d16f5b075a746800dec692d0ad77139dfedb",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/Controls.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/inventory-001/Controls.lean",
+      "bytes": 8485,
+      "sha256": "86a6a6052055c66ab7b28e1baf3fd18ddf4e93ac2b2d2221fc31bb9d524c28dc",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/Inventory.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/inventory-001/Inventory.lean",
+      "bytes": 1088,
+      "sha256": "49f5f4d9fa8ee29a2423f43e701f533429b2ba43905eaf44fa75227fd842f12b",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/SourceTwoRemoteFirstJetWitness.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/inventory-001/SourceTwoRemoteFirstJetWitness.lean",
+      "bytes": 21442,
+      "sha256": "b523da924513fc312c5432c241fc031d4fbe3567fbeedbba981f36dd798574a4",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/record.json",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/inventory-001/record.json",
+      "bytes": 1413,
+      "sha256": "4b711d8d4727f07d7d121bcdfb8616cec28b1bd804dd860bafe4d9896d162cb8",
+      "identity_origin": "New final packaging payload hashed once after final write."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/stderr.log",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/inventory-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/stdout.log",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/inventory-001/stdout.log",
+      "bytes": 17663,
+      "sha256": "881f1814d03b4485552632aaaf10187d5b5e574bd6bd09b8dff70ecb15bee8c5",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/CollisionMutation.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/kernel-001/CollisionMutation.lean",
+      "bytes": 513,
+      "sha256": "fc19ea0ee7fcea258250ac719fb2d16f5b075a746800dec692d0ad77139dfedb",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/Controls.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/kernel-001/Controls.lean",
+      "bytes": 8566,
+      "sha256": "523a8d0c498199e1273898712cd8311f2e95e7d9bf1c1acc1531e609757092eb",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/Inventory.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/kernel-001/Inventory.lean",
+      "bytes": 1088,
+      "sha256": "49f5f4d9fa8ee29a2423f43e701f533429b2ba43905eaf44fa75227fd842f12b",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/SourceTwoRemoteFirstJetWitness.lean",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/kernel-001/SourceTwoRemoteFirstJetWitness.lean",
+      "bytes": 21442,
+      "sha256": "b523da924513fc312c5432c241fc031d4fbe3567fbeedbba981f36dd798574a4",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/record.json",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/kernel-001/record.json",
+      "bytes": 1181,
+      "sha256": "532f210a622cfc1cd2aecb29fd27ce163aed1069de7d5bc1f86113547965baf0",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/stderr.log",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/kernel-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/stdout.log",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/kernel-001/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/helper-arithmetic/FROZEN_PROVENANCE.json",
+      "source": "/workspace/scratch/two-remote-firstjet-arithmetic/FROZEN_PROVENANCE.json",
+      "bytes": 2982,
+      "sha256": "eaa2807517fb4c88aa178b8a4e837eb19a71c6c01d6940ed8cbae9088885b315",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/helper-arithmetic/IMPORTS.txt",
+      "source": "/workspace/scratch/two-remote-firstjet-arithmetic/IMPORTS.txt",
+      "bytes": 271,
+      "sha256": "eb8aaa70eb743519b01154773fbc05aee530a1b20197aeeb28998bca2ca1e0e1",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/helper-arithmetic/SECTION.lean.txt",
+      "source": "/workspace/scratch/two-remote-firstjet-arithmetic/SECTION.lean.txt",
+      "bytes": 5404,
+      "sha256": "c6d7ee9d2198f5f31c5e323e8e3335c1289b12d6d6ffdab3803da278da560e55",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/review/PREFLIGHT.md",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-source-review/PREFLIGHT.md",
+      "bytes": 9345,
+      "sha256": "4428ffc99d63a0301936beb679619d91724dcd540dede76fa8c54e37dd4e6e01",
+      "identity_origin": "New final packaging payload hashed once after final write."
+    },
+    {
+      "path": "raw/review/REPORT.md",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-source-review/REPORT.md",
+      "bytes": 11818,
+      "sha256": "fbe0c2adc59ae50e416d09403a9bc2d12a90bcc94b5e16b8f38f157c6ab963ba",
+      "identity_origin": "New final packaging payload hashed once after final write."
+    },
+    {
+      "path": "raw/root-source-cut/ROOT_SOURCE_CUT.json",
+      "source": "/workspace/scratch/two-remote-firstjet-witness-publication/ROOT_SOURCE_CUT.json",
+      "bytes": 1309,
+      "sha256": "8c3d2bf6f0abe8ed5b9322ccb3ffeac46aba8ec3eaf8a841cf2cd7568453aecf",
+      "identity_origin": "New final packaging payload hashed once after final write."
+    }
+  ],
+  "raw_files": 82,
+  "raw_stream_files": 16,
+  "raw_stream_bytes": 22723,
+  "capture_mode": "Actual original separate stdout.log/stderr.log per run, exact bytes preserved.",
+  "excluded_actual_artifacts": [
+    {
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/build/Controls.olean",
+      "bytes": 262240,
+      "reason": "Actual generated artifact excluded from overlay/archive/production; only named new own object eligible separately for ROOT copy."
+    },
+    {
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/build/SourceTwoRemoteFirstJetWitness.olean",
+      "bytes": 1445664,
+      "reason": "Actual generated artifact excluded from overlay/archive/production; only named new own object eligible separately for ROOT copy."
+    },
+    {
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-002/Controls.olean",
+      "bytes": 262240,
+      "reason": "Actual generated artifact excluded from overlay/archive/production; only named new own object eligible separately for ROOT copy."
+    },
+    {
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-003/SourceTwoRemoteFirstJetWitness.olean",
+      "bytes": 1445664,
+      "reason": "Actual generated artifact excluded from overlay/archive/production; only named new own object eligible separately for ROOT copy."
+    },
+    {
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/inventory-001/Inventory.olean",
+      "bytes": 2712,
+      "reason": "Actual generated artifact excluded from overlay/archive/production; only named new own object eligible separately for ROOT copy."
+    }
+  ],
+  "all_attempts_failures_full_streams_preserved": true,
+  "formatting": "Raw payload and byte-preserved top copies must not be reformatted.",
+  "old_payload_hashes_recomputed": 0,
+  "mathematical_verification_replays": 0
+}

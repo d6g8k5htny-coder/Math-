@@ -1,0 +1,723 @@
+{
+  "schema": "stage66-original-documentary-custody-personal-reading-v1",
+  "reader": "/root/regular_collar_technical_review/documentary_custody_reader/production_families",
+  "role": "NONAUTHOR documentary custody reader",
+  "completed_utc": "2026-10-28T23:45:04Z",
+  "verification_policy": "Completed applicable verification is reusable; no unchanged mathematical/source/object verification replay; process requirements remain distinct.",
+  "read_mode": "FULL",
+  "original_receipt_fields_read": "ALL, including complete embedded command code and argv, cwd, times/status, before/after identity records, before_snapshots paths, stream metadata, all flags",
+  "original_content_output_truncated": false,
+  "source_or_math_execution": 0,
+  "new_hashes": 0,
+  "scientific_or_provider_distinct_credit": false,
+  "referenced_snapshot_contents_read": false,
+  "history_or_patch_files_read": false,
+  "binary_objects_read": false,
+  "cache_files_read": false,
+  "runner_code_read": false,
+  "runner_code_evidence": "Reuse completed FULL runner reading by /root/regular_collar_technical_review",
+  "sidecars_read": false,
+  "sidecars_excluded": [
+    "INTENT.json",
+    "STARTED.json",
+    "RESULT.json"
+  ],
+  "families": [
+    {
+      "label": "production-fixtures001",
+      "scope_kind": "documentary",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "worker_receipt": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures001/receipt.json",
+        "bytes": 34543,
+        "read_extent": "FULL",
+        "command_argv": [
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nS=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();ending='end I4SourceActualRegularLocalCollar\\n';assert old.endswith(ending)\nnew=old[:-len(ending)]+\"\\nprivate theorem fixture_derivative_apply (Y V : E2) :\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) Y) V =\\n      -Real.pi * Real.sin (Real.pi * (Q Y) 0) * (Q V) 0 -\\n        2 * Real.pi * Real.sin (Real.pi * (Q Y) 1) * (Q V) 1 := by\\n  let d0 : E2 →L[ℝ] ℝ := (ContinuousLinearMap.proj (0 : Fin 2)).comp Q\\n  let d1 : E2 →L[ℝ] ℝ := (ContinuousLinearMap.proj (1 : Fin 2)).comp Q\\n  have h0 : HasFDerivAt (fun Z : E2 => Real.pi * (Q Z) 0) (Real.pi • d0) Y :=\\n    d0.hasFDerivAt.const_mul Real.pi\\n  have h1 : HasFDerivAt (fun Z : E2 => Real.pi * (Q Z) 1) (Real.pi • d1) Y :=\\n    d1.hasFDerivAt.const_mul Real.pi\\n  have hd := h0.cos.add (h1.cos.const_mul 2)\\n  have heq : I4LifetimeField.actualField 2 2 fixtureSample =\\n      fun Z : E2 => Real.cos (Real.pi * (Q Z) 0) +\\n        2 * Real.cos (Real.pi * (Q Z) 1) := funext fixture_actual_formula\\n  rw [heq, hd.fderiv]\\n  simp only [ContinuousLinearMap.add_apply, ContinuousLinearMap.smul_apply,\\n    smul_eq_mul, d0, d1, ContinuousLinearMap.comp_apply, ContinuousLinearMap.proj_apply]\\n  ring\\n\\nprivate def fixtureXx : E2 := Q.symm ![(1 / 2 : ℝ), 0]\\nprivate def fixtureXy : E2 := Q.symm ![0, (1 / 2 : ℝ)]\\nprivate def fixtureXseam : E2 := Q.symm ![(-3 / 2 : ℝ), 0]\\nprivate def fixtureXmax : E2 := Q.symm ![(0 : ℝ), 0]\\n\\nprivate theorem fixture_regularX_value :\\n    I4LifetimeField.actualField 2 2 fixtureSample fixtureXx = 2 := by\\n  rw [fixture_actual_formula]\\n  norm_num [fixtureXx, mul_one_div]\\n\\nprivate theorem fixture_regularY_value :\\n    I4LifetimeField.actualField 2 2 fixtureSample fixtureXy = 1 := by\\n  rw [fixture_actual_formula]\\n  norm_num [fixtureXy, mul_one_div]\\n\\nprivate theorem fixture_regularX_derivative :\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXx) physicalBasis0 =\\n      -Real.pi ∧\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXx) physicalBasis1 = 0 := by\\n  constructor <;> rw [fixture_derivative_apply] <;>\\n    norm_num [fixtureXx, physicalBasis0, physicalBasis1, mul_one_div]\\n\\nprivate theorem fixture_regularY_derivative :\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXy) physicalBasis0 = 0 ∧\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXy) physicalBasis1 =\\n      -2 * Real.pi := by\\n  constructor <;> rw [fixture_derivative_apply] <;>\\n    norm_num [fixtureXy, physicalBasis0, physicalBasis1, mul_one_div]\\n\\nprivate theorem fixture_seam_phase :\\n    Real.sin (Real.pi * (-3 / 2 : ℝ)) = 1 ∧\\n    Real.cos (Real.pi * (-3 / 2 : ℝ)) = 0 := by\\n  have heq : Real.pi * (-3 / 2 : ℝ) = Real.pi / 2 - 2 * Real.pi := by ring\\n  rw [heq, Real.sin_sub_two_pi, Real.cos_sub_two_pi]\\n  exact ⟨Real.sin_pi_div_two, Real.cos_pi_div_two⟩\\n\\nprivate theorem fixture_seam_value :\\n    I4LifetimeField.actualField 2 2 fixtureSample fixtureXseam = 2 := by\\n  rw [fixture_actual_formula]\\n  simpa [fixtureXseam, fixture_seam_phase.2] using fixture_seam_phase.2\\n\\nprivate theorem fixture_seam_derivative :\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXseam) physicalBasis0 =\\n      -Real.pi ∧\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXseam) physicalBasis1 = 0 := by\\n  constructor <;> rw [fixture_derivative_apply] <;>\\n    simp [fixtureXseam, physicalBasis0, physicalBasis1, fixture_seam_phase.1]\\n\\nprivate theorem fixture_seam_quotient : cover 2 fixtureXseam = cover 2 fixtureXx := by\\n  have hq : ((-3 / 2 : ℝ) : AddCircle (2 : ℝ)) =\\n      ((1 / 2 : ℝ) : AddCircle (2 : ℝ)) := by\\n    have hp := (AddCircle.coe_add_period (2 : ℝ) (-3 / 2 : ℝ)).symm\\n    norm_num at hp\\n    exact hp\\n  ext i\\n  fin_cases i\\n  · simpa [cover, fixtureXseam, fixtureXx, I4Torus.torusProjection] using hq\\n  · simp [cover, fixtureXseam, fixtureXx, I4Torus.torusProjection]\\n\\nprivate theorem smallO_isOpen (L : ℝ) (X : E2) : IsOpen (smallO L X) := by\\n  have hp : IsOpenMap (cover L) :=\\n    (SourceActualFoldTorus.torusProjection2L_open L).comp Q.toHomeomorph.isOpenMap\\n  exact hp _ Metric.isOpen_ball\\n\\nprivate theorem center_mem_smallO (L : ℝ) (X : E2) : cover L X ∈ smallO L X :=\\n  ⟨X, Metric.mem_ball_self (by norm_num), rfl⟩\\n\\nprivate def FixedCutChecks {L : ℝ} (F : Torus2 L → ℝ) (c ρ : ℝ)\\n    (φ : OpenPartialHomeomorph (Torus2 L) Point2) : Prop :=\\n  ∀ ε : ℝ, (ε = 0 ∨ ε = ρ / 2 ∨ ε = -ρ / 2) →\\n    let z := φ.symm ![0, ε]\\n    let zm := φ.symm ![-ρ / 2, ε]\\n    let zp := φ.symm ![ρ / 2, ε]\\n    z ∈ φ.source ∧ zm ∈ φ.source ∧ zp ∈ φ.source ∧\\n    φ z = ![0, ε] ∧ φ zm = ![-ρ / 2, ε] ∧ φ zp = ![ρ / 2, ε] ∧\\n    F z = c + ε ∧ F zm = c + ε ∧ F zp = c + ε ∧\\n    z ∈ φ.source ∩ {p | c + ε ≤ F p} ∧\\n    z ∈ φ.source ∩ {p | F p = c + ε} ∧\\n    zm ∈ φ.source ∩ {p | F p = c + ε} ∧\\n    zp ∈ φ.source ∩ {p | F p = c + ε} ∧\\n    zm ≠ zp ∧ JoinedIn (φ.source ∩ {p | F p = c + ε}) zm zp\\n\\nprivate theorem fixed_cut_checks {L : ℝ} (F : Torus2 L → ℝ) (c ρ : ℝ)\\n    (hρ : 0 < ρ) (φ : OpenPartialHomeomorph (Torus2 L) Point2)\\n    (htarget : φ.target = Metric.ball (0 : Point2) ρ)\\n    (hheight : ∀ z ∈ φ.source, F z = c + φ z 1)\\n    (hpc : ∀ ε : ℝ, |ε| < ρ →\\n      IsPathConnected (φ.source ∩ {z | c + ε ≤ F z}) ∧\\n      IsPathConnected (φ.source ∩ {z | F z = c + ε})) :\\n    FixedCutChecks F c ρ φ := by\\n  intro ε he\\n  have hhalf : |ρ / 2| < ρ := by\\n    rw [abs_of_pos (by positivity : 0 < ρ / 2)]\\n    linarith\\n  have hε : |ε| < ρ := by\\n    rcases he with rfl | rfl | rfl\\n    · simpa using hρ\\n    · exact hhalf\\n    · simpa only [neg_div, abs_neg] using hhalf\\n  have ht0 : (![0, ε] : Point2) ∈ φ.target := by\\n    rw [htarget]\\n    apply point_mem_ball hρ\\n    intro i\\n    fin_cases i\\n    · simpa using hρ\\n    · simpa using hε\\n  have htm : (![-ρ / 2, ε] : Point2) ∈ φ.target := by\\n    rw [htarget]\\n    apply point_mem_ball hρ\\n    intro i\\n    fin_cases i\\n    · simpa only [Matrix.cons_val_zero, neg_div, abs_neg] using hhalf\\n    · simpa using hε\\n  have htp : (![ρ / 2, ε] : Point2) ∈ φ.target := by\\n    rw [htarget]\\n    apply point_mem_ball hρ\\n    intro i\\n    fin_cases i\\n    · simpa using hhalf\\n    · simpa using hε\\n  have hs0 := φ.map_target ht0\\n  have hsm := φ.map_target htm\\n  have hsp := φ.map_target htp\\n  have hi0 := φ.right_inv ht0\\n  have him := φ.right_inv htm\\n  have hip := φ.right_inv htp\\n  have hv0 : F (φ.symm ![0, ε]) = c + ε := by\\n    rw [hheight _ hs0, hi0]\\n    rfl\\n  have hvm : F (φ.symm ![-ρ / 2, ε]) = c + ε := by\\n    rw [hheight _ hsm, him]\\n    rfl\\n  have hvp : F (φ.symm ![ρ / 2, ε]) = c + ε := by\\n    rw [hheight _ hsp, hip]\\n    rfl\\n  have hneq : φ.symm ![-ρ / 2, ε] ≠ φ.symm ![ρ / 2, ε] := by\\n    intro heq\\n    have he0 := congrArg (fun z => φ z 0) heq\\n    rw [him, hip] at he0\\n    change -ρ / 2 = ρ / 2 at he0\\n    linarith\\n  have hm : φ.symm ![-ρ / 2, ε] ∈ φ.source ∩ {p | F p = c + ε} :=\\n    ⟨hsm, hvm⟩\\n  have hp : φ.symm ![ρ / 2, ε] ∈ φ.source ∩ {p | F p = c + ε} :=\\n    ⟨hsp, hvp⟩\\n  exact ⟨hs0, hsm, hsp, hi0, him, hip, hv0, hvm, hvp,\\n    ⟨hs0, hv0.ge⟩, ⟨hs0, hv0⟩, hm, hp, hneq, (hpc ε hε).2.joinedIn hm hp⟩\\n\\nprivate def FixtureOutput (X : E2) : Prop :=\\n  ∃ ρ : ℝ, 0 < ρ ∧ ∃ φ : OpenPartialHomeomorph (Torus2 2) Point2,\\n    cover 2 X ∈ φ.source ∧ φ (cover 2 X) = 0 ∧\\n    φ.source ⊆ smallO 2 X ∧ φ.target = Metric.ball (0 : Point2) ρ ∧\\n    (∀ z ∈ φ.source,\\n      actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample z =\\n        actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample (cover 2 X) + φ z 1) ∧\\n    (∀ ε : ℝ, |ε| < ρ →\\n      IsPathConnected (φ.source ∩ {z |\\n        actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample (cover 2 X) + ε ≤\\n          actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample z}) ∧\\n      IsPathConnected (φ.source ∩ {z |\\n        actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample z =\\n          actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample (cover 2 X) + ε})) ∧\\n    FixedCutChecks (actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample)\\n      (actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample (cover 2 X)) ρ φ\\n\\nprivate theorem fixture_output (X : E2)\\n    (hreg : fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) X ≠ 0) :\\n    FixtureOutput X := by\\n  obtain ⟨ρ, hρ, φ, hq, hc, hO, ht, hh, hp⟩ :=\\n    actualSource_quotient_regular_local_collar (show (0 : ℝ) < 2 by norm_num)\\n      fixtureSample X hreg (smallO 2 X) (smallO_isOpen 2 X) (center_mem_smallO 2 X)\\n  exact ⟨ρ, hρ, φ, hq, hc, hO, ht, hh, hp,\\n    fixed_cut_checks _ _ ρ hρ φ ht hh hp⟩\\n\\nprivate theorem fixture_regularX_consumer : FixtureOutput fixtureXx := by\\n  apply fixture_output\\n  intro hz\\n  have he := fixture_regularX_derivative.1\\n  rw [hz] at he\\n  simp only [ContinuousLinearMap.zero_apply] at he\\n  linarith [Real.pi_pos]\\n\\nprivate theorem fixture_regularY_consumer : FixtureOutput fixtureXy := by\\n  apply fixture_output\\n  intro hz\\n  have he := fixture_regularY_derivative.2\\n  rw [hz] at he\\n  simp only [ContinuousLinearMap.zero_apply] at he\\n  linarith [Real.pi_pos]\\n\\nprivate theorem fixture_seam_consumer : FixtureOutput fixtureXseam := by\\n  apply fixture_output\\n  intro hz\\n  have he := fixture_seam_derivative.1\\n  rw [hz] at he\\n  simp only [ContinuousLinearMap.zero_apply] at he\\n  linarith [Real.pi_pos]\\n\"+'\\n'+ending\nH=B/'history/production-fixtures001';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'PRODUCTION_FIXTURES001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/production-fixtures001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual production-fixture patch identity, once'}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Complete actual production regular partials/seam/physicalsmallO/universal+fixedcut coherent inverse positives','full_patch':str(p),'ordinary_not_created':True}))\n"
+        ],
+        "start_utc": "2026-10-28T23:34:02.398931+00:00",
+        "end_utc": "2026-10-28T23:34:02.439743+00:00",
+        "elapsed_seconds": 0.040811163002217654,
+        "exit_code": 0,
+        "exception": null,
+        "before_entries": 18,
+        "after_entries": 18,
+        "before_snapshots_count": 14,
+        "before_snapshots": {
+          "/workspace/scratch/actual-source-regular-local-collar-construct/FROZEN_CONTEXT.md": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures001/before/0-FROZEN_CONTEXT.md",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/INITIAL_SOURCE_COMMON.lean.txt": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures001/before/1-INITIAL_SOURCE_COMMON.lean.txt",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/BOOTSTRAP_PLAN.md": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures001/before/2-BOOTSTRAP_PLAN.md",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/CONTROL_CONTRACT.md": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures001/before/3-CONTROL_CONTRACT.md",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/bootstrap_context.py": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures001/before/4-bootstrap_context.py",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures001/before/5-capture66.py",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures001/before/6-record_run.py",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures001/before/7-SourceActualRegularLocalCollar.lean",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/HELPER_FIX001_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures001/before/12-HELPER_FIX001_FULL.patch",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/HELPER_INTEGRATION001_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures001/before/13-HELPER_INTEGRATION001_FULL.patch",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/SOURCE_FIX001_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures001/before/14-SOURCE_FIX001_FULL.patch",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/SOURCE_INITIAL_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures001/before/15-SOURCE_INITIAL_FULL.patch",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/TRANSFER_FIXTURE001_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures001/before/16-TRANSFER_FIXTURE001_FULL.patch",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/TRANSFER_STATICFIX001_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures001/before/17-TRANSFER_STATICFIX001_FULL.patch"
+        },
+        "binary_snapshot_or_canonical_object_copy": false
+      },
+      "outer_receipt": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures001/RECEIPT.json",
+        "bytes": 26710,
+        "read_extent": "FULL",
+        "script_argv": [
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures001",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "outer",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "production-fixtures001",
+          "documentary",
+          "--",
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nS=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();ending='end I4SourceActualRegularLocalCollar\\n';assert old.endswith(ending)\nnew=old[:-len(ending)]+\"\\nprivate theorem fixture_derivative_apply (Y V : E2) :\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) Y) V =\\n      -Real.pi * Real.sin (Real.pi * (Q Y) 0) * (Q V) 0 -\\n        2 * Real.pi * Real.sin (Real.pi * (Q Y) 1) * (Q V) 1 := by\\n  let d0 : E2 →L[ℝ] ℝ := (ContinuousLinearMap.proj (0 : Fin 2)).comp Q\\n  let d1 : E2 →L[ℝ] ℝ := (ContinuousLinearMap.proj (1 : Fin 2)).comp Q\\n  have h0 : HasFDerivAt (fun Z : E2 => Real.pi * (Q Z) 0) (Real.pi • d0) Y :=\\n    d0.hasFDerivAt.const_mul Real.pi\\n  have h1 : HasFDerivAt (fun Z : E2 => Real.pi * (Q Z) 1) (Real.pi • d1) Y :=\\n    d1.hasFDerivAt.const_mul Real.pi\\n  have hd := h0.cos.add (h1.cos.const_mul 2)\\n  have heq : I4LifetimeField.actualField 2 2 fixtureSample =\\n      fun Z : E2 => Real.cos (Real.pi * (Q Z) 0) +\\n        2 * Real.cos (Real.pi * (Q Z) 1) := funext fixture_actual_formula\\n  rw [heq, hd.fderiv]\\n  simp only [ContinuousLinearMap.add_apply, ContinuousLinearMap.smul_apply,\\n    smul_eq_mul, d0, d1, ContinuousLinearMap.comp_apply, ContinuousLinearMap.proj_apply]\\n  ring\\n\\nprivate def fixtureXx : E2 := Q.symm ![(1 / 2 : ℝ), 0]\\nprivate def fixtureXy : E2 := Q.symm ![0, (1 / 2 : ℝ)]\\nprivate def fixtureXseam : E2 := Q.symm ![(-3 / 2 : ℝ), 0]\\nprivate def fixtureXmax : E2 := Q.symm ![(0 : ℝ), 0]\\n\\nprivate theorem fixture_regularX_value :\\n    I4LifetimeField.actualField 2 2 fixtureSample fixtureXx = 2 := by\\n  rw [fixture_actual_formula]\\n  norm_num [fixtureXx, mul_one_div]\\n\\nprivate theorem fixture_regularY_value :\\n    I4LifetimeField.actualField 2 2 fixtureSample fixtureXy = 1 := by\\n  rw [fixture_actual_formula]\\n  norm_num [fixtureXy, mul_one_div]\\n\\nprivate theorem fixture_regularX_derivative :\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXx) physicalBasis0 =\\n      -Real.pi ∧\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXx) physicalBasis1 = 0 := by\\n  constructor <;> rw [fixture_derivative_apply] <;>\\n    norm_num [fixtureXx, physicalBasis0, physicalBasis1, mul_one_div]\\n\\nprivate theorem fixture_regularY_derivative :\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXy) physicalBasis0 = 0 ∧\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXy) physicalBasis1 =\\n      -2 * Real.pi := by\\n  constructor <;> rw [fixture_derivative_apply] <;>\\n    norm_num [fixtureXy, physicalBasis0, physicalBasis1, mul_one_div]\\n\\nprivate theorem fixture_seam_phase :\\n    Real.sin (Real.pi * (-3 / 2 : ℝ)) = 1 ∧\\n    Real.cos (Real.pi * (-3 / 2 : ℝ)) = 0 := by\\n  have heq : Real.pi * (-3 / 2 : ℝ) = Real.pi / 2 - 2 * Real.pi := by ring\\n  rw [heq, Real.sin_sub_two_pi, Real.cos_sub_two_pi]\\n  exact ⟨Real.sin_pi_div_two, Real.cos_pi_div_two⟩\\n\\nprivate theorem fixture_seam_value :\\n    I4LifetimeField.actualField 2 2 fixtureSample fixtureXseam = 2 := by\\n  rw [fixture_actual_formula]\\n  simpa [fixtureXseam, fixture_seam_phase.2] using fixture_seam_phase.2\\n\\nprivate theorem fixture_seam_derivative :\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXseam) physicalBasis0 =\\n      -Real.pi ∧\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXseam) physicalBasis1 = 0 := by\\n  constructor <;> rw [fixture_derivative_apply] <;>\\n    simp [fixtureXseam, physicalBasis0, physicalBasis1, fixture_seam_phase.1]\\n\\nprivate theorem fixture_seam_quotient : cover 2 fixtureXseam = cover 2 fixtureXx := by\\n  have hq : ((-3 / 2 : ℝ) : AddCircle (2 : ℝ)) =\\n      ((1 / 2 : ℝ) : AddCircle (2 : ℝ)) := by\\n    have hp := (AddCircle.coe_add_period (2 : ℝ) (-3 / 2 : ℝ)).symm\\n    norm_num at hp\\n    exact hp\\n  ext i\\n  fin_cases i\\n  · simpa [cover, fixtureXseam, fixtureXx, I4Torus.torusProjection] using hq\\n  · simp [cover, fixtureXseam, fixtureXx, I4Torus.torusProjection]\\n\\nprivate theorem smallO_isOpen (L : ℝ) (X : E2) : IsOpen (smallO L X) := by\\n  have hp : IsOpenMap (cover L) :=\\n    (SourceActualFoldTorus.torusProjection2L_open L).comp Q.toHomeomorph.isOpenMap\\n  exact hp _ Metric.isOpen_ball\\n\\nprivate theorem center_mem_smallO (L : ℝ) (X : E2) : cover L X ∈ smallO L X :=\\n  ⟨X, Metric.mem_ball_self (by norm_num), rfl⟩\\n\\nprivate def FixedCutChecks {L : ℝ} (F : Torus2 L → ℝ) (c ρ : ℝ)\\n    (φ : OpenPartialHomeomorph (Torus2 L) Point2) : Prop :=\\n  ∀ ε : ℝ, (ε = 0 ∨ ε = ρ / 2 ∨ ε = -ρ / 2) →\\n    let z := φ.symm ![0, ε]\\n    let zm := φ.symm ![-ρ / 2, ε]\\n    let zp := φ.symm ![ρ / 2, ε]\\n    z ∈ φ.source ∧ zm ∈ φ.source ∧ zp ∈ φ.source ∧\\n    φ z = ![0, ε] ∧ φ zm = ![-ρ / 2, ε] ∧ φ zp = ![ρ / 2, ε] ∧\\n    F z = c + ε ∧ F zm = c + ε ∧ F zp = c + ε ∧\\n    z ∈ φ.source ∩ {p | c + ε ≤ F p} ∧\\n    z ∈ φ.source ∩ {p | F p = c + ε} ∧\\n    zm ∈ φ.source ∩ {p | F p = c + ε} ∧\\n    zp ∈ φ.source ∩ {p | F p = c + ε} ∧\\n    zm ≠ zp ∧ JoinedIn (φ.source ∩ {p | F p = c + ε}) zm zp\\n\\nprivate theorem fixed_cut_checks {L : ℝ} (F : Torus2 L → ℝ) (c ρ : ℝ)\\n    (hρ : 0 < ρ) (φ : OpenPartialHomeomorph (Torus2 L) Point2)\\n    (htarget : φ.target = Metric.ball (0 : Point2) ρ)\\n    (hheight : ∀ z ∈ φ.source, F z = c + φ z 1)\\n    (hpc : ∀ ε : ℝ, |ε| < ρ →\\n      IsPathConnected (φ.source ∩ {z | c + ε ≤ F z}) ∧\\n      IsPathConnected (φ.source ∩ {z | F z = c + ε})) :\\n    FixedCutChecks F c ρ φ := by\\n  intro ε he\\n  have hhalf : |ρ / 2| < ρ := by\\n    rw [abs_of_pos (by positivity : 0 < ρ / 2)]\\n    linarith\\n  have hε : |ε| < ρ := by\\n    rcases he with rfl | rfl | rfl\\n    · simpa using hρ\\n    · exact hhalf\\n    · simpa only [neg_div, abs_neg] using hhalf\\n  have ht0 : (![0, ε] : Point2) ∈ φ.target := by\\n    rw [htarget]\\n    apply point_mem_ball hρ\\n    intro i\\n    fin_cases i\\n    · simpa using hρ\\n    · simpa using hε\\n  have htm : (![-ρ / 2, ε] : Point2) ∈ φ.target := by\\n    rw [htarget]\\n    apply point_mem_ball hρ\\n    intro i\\n    fin_cases i\\n    · simpa only [Matrix.cons_val_zero, neg_div, abs_neg] using hhalf\\n    · simpa using hε\\n  have htp : (![ρ / 2, ε] : Point2) ∈ φ.target := by\\n    rw [htarget]\\n    apply point_mem_ball hρ\\n    intro i\\n    fin_cases i\\n    · simpa using hhalf\\n    · simpa using hε\\n  have hs0 := φ.map_target ht0\\n  have hsm := φ.map_target htm\\n  have hsp := φ.map_target htp\\n  have hi0 := φ.right_inv ht0\\n  have him := φ.right_inv htm\\n  have hip := φ.right_inv htp\\n  have hv0 : F (φ.symm ![0, ε]) = c + ε := by\\n    rw [hheight _ hs0, hi0]\\n    rfl\\n  have hvm : F (φ.symm ![-ρ / 2, ε]) = c + ε := by\\n    rw [hheight _ hsm, him]\\n    rfl\\n  have hvp : F (φ.symm ![ρ / 2, ε]) = c + ε := by\\n    rw [hheight _ hsp, hip]\\n    rfl\\n  have hneq : φ.symm ![-ρ / 2, ε] ≠ φ.symm ![ρ / 2, ε] := by\\n    intro heq\\n    have he0 := congrArg (fun z => φ z 0) heq\\n    rw [him, hip] at he0\\n    change -ρ / 2 = ρ / 2 at he0\\n    linarith\\n  have hm : φ.symm ![-ρ / 2, ε] ∈ φ.source ∩ {p | F p = c + ε} :=\\n    ⟨hsm, hvm⟩\\n  have hp : φ.symm ![ρ / 2, ε] ∈ φ.source ∩ {p | F p = c + ε} :=\\n    ⟨hsp, hvp⟩\\n  exact ⟨hs0, hsm, hsp, hi0, him, hip, hv0, hvm, hvp,\\n    ⟨hs0, hv0.ge⟩, ⟨hs0, hv0⟩, hm, hp, hneq, (hpc ε hε).2.joinedIn hm hp⟩\\n\\nprivate def FixtureOutput (X : E2) : Prop :=\\n  ∃ ρ : ℝ, 0 < ρ ∧ ∃ φ : OpenPartialHomeomorph (Torus2 2) Point2,\\n    cover 2 X ∈ φ.source ∧ φ (cover 2 X) = 0 ∧\\n    φ.source ⊆ smallO 2 X ∧ φ.target = Metric.ball (0 : Point2) ρ ∧\\n    (∀ z ∈ φ.source,\\n      actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample z =\\n        actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample (cover 2 X) + φ z 1) ∧\\n    (∀ ε : ℝ, |ε| < ρ →\\n      IsPathConnected (φ.source ∩ {z |\\n        actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample (cover 2 X) + ε ≤\\n          actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample z}) ∧\\n      IsPathConnected (φ.source ∩ {z |\\n        actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample z =\\n          actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample (cover 2 X) + ε})) ∧\\n    FixedCutChecks (actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample)\\n      (actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample (cover 2 X)) ρ φ\\n\\nprivate theorem fixture_output (X : E2)\\n    (hreg : fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) X ≠ 0) :\\n    FixtureOutput X := by\\n  obtain ⟨ρ, hρ, φ, hq, hc, hO, ht, hh, hp⟩ :=\\n    actualSource_quotient_regular_local_collar (show (0 : ℝ) < 2 by norm_num)\\n      fixtureSample X hreg (smallO 2 X) (smallO_isOpen 2 X) (center_mem_smallO 2 X)\\n  exact ⟨ρ, hρ, φ, hq, hc, hO, ht, hh, hp,\\n    fixed_cut_checks _ _ ρ hρ φ ht hh hp⟩\\n\\nprivate theorem fixture_regularX_consumer : FixtureOutput fixtureXx := by\\n  apply fixture_output\\n  intro hz\\n  have he := fixture_regularX_derivative.1\\n  rw [hz] at he\\n  simp only [ContinuousLinearMap.zero_apply] at he\\n  linarith [Real.pi_pos]\\n\\nprivate theorem fixture_regularY_consumer : FixtureOutput fixtureXy := by\\n  apply fixture_output\\n  intro hz\\n  have he := fixture_regularY_derivative.2\\n  rw [hz] at he\\n  simp only [ContinuousLinearMap.zero_apply] at he\\n  linarith [Real.pi_pos]\\n\\nprivate theorem fixture_seam_consumer : FixtureOutput fixtureXseam := by\\n  apply fixture_output\\n  intro hz\\n  have he := fixture_seam_derivative.1\\n  rw [hz] at he\\n  simp only [ContinuousLinearMap.zero_apply] at he\\n  linarith [Real.pi_pos]\\n\"+'\\n'+ending\nH=B/'history/production-fixtures001';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'PRODUCTION_FIXTURES001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/production-fixtures001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual production-fixture patch identity, once'}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Complete actual production regular partials/seam/physicalsmallO/universal+fixedcut coherent inverse positives','full_patch':str(p),'ordinary_not_created':True}))\n"
+        ],
+        "command_argv": [
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "production-fixtures001",
+          "documentary",
+          "--",
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nS=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();ending='end I4SourceActualRegularLocalCollar\\n';assert old.endswith(ending)\nnew=old[:-len(ending)]+\"\\nprivate theorem fixture_derivative_apply (Y V : E2) :\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) Y) V =\\n      -Real.pi * Real.sin (Real.pi * (Q Y) 0) * (Q V) 0 -\\n        2 * Real.pi * Real.sin (Real.pi * (Q Y) 1) * (Q V) 1 := by\\n  let d0 : E2 →L[ℝ] ℝ := (ContinuousLinearMap.proj (0 : Fin 2)).comp Q\\n  let d1 : E2 →L[ℝ] ℝ := (ContinuousLinearMap.proj (1 : Fin 2)).comp Q\\n  have h0 : HasFDerivAt (fun Z : E2 => Real.pi * (Q Z) 0) (Real.pi • d0) Y :=\\n    d0.hasFDerivAt.const_mul Real.pi\\n  have h1 : HasFDerivAt (fun Z : E2 => Real.pi * (Q Z) 1) (Real.pi • d1) Y :=\\n    d1.hasFDerivAt.const_mul Real.pi\\n  have hd := h0.cos.add (h1.cos.const_mul 2)\\n  have heq : I4LifetimeField.actualField 2 2 fixtureSample =\\n      fun Z : E2 => Real.cos (Real.pi * (Q Z) 0) +\\n        2 * Real.cos (Real.pi * (Q Z) 1) := funext fixture_actual_formula\\n  rw [heq, hd.fderiv]\\n  simp only [ContinuousLinearMap.add_apply, ContinuousLinearMap.smul_apply,\\n    smul_eq_mul, d0, d1, ContinuousLinearMap.comp_apply, ContinuousLinearMap.proj_apply]\\n  ring\\n\\nprivate def fixtureXx : E2 := Q.symm ![(1 / 2 : ℝ), 0]\\nprivate def fixtureXy : E2 := Q.symm ![0, (1 / 2 : ℝ)]\\nprivate def fixtureXseam : E2 := Q.symm ![(-3 / 2 : ℝ), 0]\\nprivate def fixtureXmax : E2 := Q.symm ![(0 : ℝ), 0]\\n\\nprivate theorem fixture_regularX_value :\\n    I4LifetimeField.actualField 2 2 fixtureSample fixtureXx = 2 := by\\n  rw [fixture_actual_formula]\\n  norm_num [fixtureXx, mul_one_div]\\n\\nprivate theorem fixture_regularY_value :\\n    I4LifetimeField.actualField 2 2 fixtureSample fixtureXy = 1 := by\\n  rw [fixture_actual_formula]\\n  norm_num [fixtureXy, mul_one_div]\\n\\nprivate theorem fixture_regularX_derivative :\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXx) physicalBasis0 =\\n      -Real.pi ∧\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXx) physicalBasis1 = 0 := by\\n  constructor <;> rw [fixture_derivative_apply] <;>\\n    norm_num [fixtureXx, physicalBasis0, physicalBasis1, mul_one_div]\\n\\nprivate theorem fixture_regularY_derivative :\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXy) physicalBasis0 = 0 ∧\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXy) physicalBasis1 =\\n      -2 * Real.pi := by\\n  constructor <;> rw [fixture_derivative_apply] <;>\\n    norm_num [fixtureXy, physicalBasis0, physicalBasis1, mul_one_div]\\n\\nprivate theorem fixture_seam_phase :\\n    Real.sin (Real.pi * (-3 / 2 : ℝ)) = 1 ∧\\n    Real.cos (Real.pi * (-3 / 2 : ℝ)) = 0 := by\\n  have heq : Real.pi * (-3 / 2 : ℝ) = Real.pi / 2 - 2 * Real.pi := by ring\\n  rw [heq, Real.sin_sub_two_pi, Real.cos_sub_two_pi]\\n  exact ⟨Real.sin_pi_div_two, Real.cos_pi_div_two⟩\\n\\nprivate theorem fixture_seam_value :\\n    I4LifetimeField.actualField 2 2 fixtureSample fixtureXseam = 2 := by\\n  rw [fixture_actual_formula]\\n  simpa [fixtureXseam, fixture_seam_phase.2] using fixture_seam_phase.2\\n\\nprivate theorem fixture_seam_derivative :\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXseam) physicalBasis0 =\\n      -Real.pi ∧\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXseam) physicalBasis1 = 0 := by\\n  constructor <;> rw [fixture_derivative_apply] <;>\\n    simp [fixtureXseam, physicalBasis0, physicalBasis1, fixture_seam_phase.1]\\n\\nprivate theorem fixture_seam_quotient : cover 2 fixtureXseam = cover 2 fixtureXx := by\\n  have hq : ((-3 / 2 : ℝ) : AddCircle (2 : ℝ)) =\\n      ((1 / 2 : ℝ) : AddCircle (2 : ℝ)) := by\\n    have hp := (AddCircle.coe_add_period (2 : ℝ) (-3 / 2 : ℝ)).symm\\n    norm_num at hp\\n    exact hp\\n  ext i\\n  fin_cases i\\n  · simpa [cover, fixtureXseam, fixtureXx, I4Torus.torusProjection] using hq\\n  · simp [cover, fixtureXseam, fixtureXx, I4Torus.torusProjection]\\n\\nprivate theorem smallO_isOpen (L : ℝ) (X : E2) : IsOpen (smallO L X) := by\\n  have hp : IsOpenMap (cover L) :=\\n    (SourceActualFoldTorus.torusProjection2L_open L).comp Q.toHomeomorph.isOpenMap\\n  exact hp _ Metric.isOpen_ball\\n\\nprivate theorem center_mem_smallO (L : ℝ) (X : E2) : cover L X ∈ smallO L X :=\\n  ⟨X, Metric.mem_ball_self (by norm_num), rfl⟩\\n\\nprivate def FixedCutChecks {L : ℝ} (F : Torus2 L → ℝ) (c ρ : ℝ)\\n    (φ : OpenPartialHomeomorph (Torus2 L) Point2) : Prop :=\\n  ∀ ε : ℝ, (ε = 0 ∨ ε = ρ / 2 ∨ ε = -ρ / 2) →\\n    let z := φ.symm ![0, ε]\\n    let zm := φ.symm ![-ρ / 2, ε]\\n    let zp := φ.symm ![ρ / 2, ε]\\n    z ∈ φ.source ∧ zm ∈ φ.source ∧ zp ∈ φ.source ∧\\n    φ z = ![0, ε] ∧ φ zm = ![-ρ / 2, ε] ∧ φ zp = ![ρ / 2, ε] ∧\\n    F z = c + ε ∧ F zm = c + ε ∧ F zp = c + ε ∧\\n    z ∈ φ.source ∩ {p | c + ε ≤ F p} ∧\\n    z ∈ φ.source ∩ {p | F p = c + ε} ∧\\n    zm ∈ φ.source ∩ {p | F p = c + ε} ∧\\n    zp ∈ φ.source ∩ {p | F p = c + ε} ∧\\n    zm ≠ zp ∧ JoinedIn (φ.source ∩ {p | F p = c + ε}) zm zp\\n\\nprivate theorem fixed_cut_checks {L : ℝ} (F : Torus2 L → ℝ) (c ρ : ℝ)\\n    (hρ : 0 < ρ) (φ : OpenPartialHomeomorph (Torus2 L) Point2)\\n    (htarget : φ.target = Metric.ball (0 : Point2) ρ)\\n    (hheight : ∀ z ∈ φ.source, F z = c + φ z 1)\\n    (hpc : ∀ ε : ℝ, |ε| < ρ →\\n      IsPathConnected (φ.source ∩ {z | c + ε ≤ F z}) ∧\\n      IsPathConnected (φ.source ∩ {z | F z = c + ε})) :\\n    FixedCutChecks F c ρ φ := by\\n  intro ε he\\n  have hhalf : |ρ / 2| < ρ := by\\n    rw [abs_of_pos (by positivity : 0 < ρ / 2)]\\n    linarith\\n  have hε : |ε| < ρ := by\\n    rcases he with rfl | rfl | rfl\\n    · simpa using hρ\\n    · exact hhalf\\n    · simpa only [neg_div, abs_neg] using hhalf\\n  have ht0 : (![0, ε] : Point2) ∈ φ.target := by\\n    rw [htarget]\\n    apply point_mem_ball hρ\\n    intro i\\n    fin_cases i\\n    · simpa using hρ\\n    · simpa using hε\\n  have htm : (![-ρ / 2, ε] : Point2) ∈ φ.target := by\\n    rw [htarget]\\n    apply point_mem_ball hρ\\n    intro i\\n    fin_cases i\\n    · simpa only [Matrix.cons_val_zero, neg_div, abs_neg] using hhalf\\n    · simpa using hε\\n  have htp : (![ρ / 2, ε] : Point2) ∈ φ.target := by\\n    rw [htarget]\\n    apply point_mem_ball hρ\\n    intro i\\n    fin_cases i\\n    · simpa using hhalf\\n    · simpa using hε\\n  have hs0 := φ.map_target ht0\\n  have hsm := φ.map_target htm\\n  have hsp := φ.map_target htp\\n  have hi0 := φ.right_inv ht0\\n  have him := φ.right_inv htm\\n  have hip := φ.right_inv htp\\n  have hv0 : F (φ.symm ![0, ε]) = c + ε := by\\n    rw [hheight _ hs0, hi0]\\n    rfl\\n  have hvm : F (φ.symm ![-ρ / 2, ε]) = c + ε := by\\n    rw [hheight _ hsm, him]\\n    rfl\\n  have hvp : F (φ.symm ![ρ / 2, ε]) = c + ε := by\\n    rw [hheight _ hsp, hip]\\n    rfl\\n  have hneq : φ.symm ![-ρ / 2, ε] ≠ φ.symm ![ρ / 2, ε] := by\\n    intro heq\\n    have he0 := congrArg (fun z => φ z 0) heq\\n    rw [him, hip] at he0\\n    change -ρ / 2 = ρ / 2 at he0\\n    linarith\\n  have hm : φ.symm ![-ρ / 2, ε] ∈ φ.source ∩ {p | F p = c + ε} :=\\n    ⟨hsm, hvm⟩\\n  have hp : φ.symm ![ρ / 2, ε] ∈ φ.source ∩ {p | F p = c + ε} :=\\n    ⟨hsp, hvp⟩\\n  exact ⟨hs0, hsm, hsp, hi0, him, hip, hv0, hvm, hvp,\\n    ⟨hs0, hv0.ge⟩, ⟨hs0, hv0⟩, hm, hp, hneq, (hpc ε hε).2.joinedIn hm hp⟩\\n\\nprivate def FixtureOutput (X : E2) : Prop :=\\n  ∃ ρ : ℝ, 0 < ρ ∧ ∃ φ : OpenPartialHomeomorph (Torus2 2) Point2,\\n    cover 2 X ∈ φ.source ∧ φ (cover 2 X) = 0 ∧\\n    φ.source ⊆ smallO 2 X ∧ φ.target = Metric.ball (0 : Point2) ρ ∧\\n    (∀ z ∈ φ.source,\\n      actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample z =\\n        actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample (cover 2 X) + φ z 1) ∧\\n    (∀ ε : ℝ, |ε| < ρ →\\n      IsPathConnected (φ.source ∩ {z |\\n        actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample (cover 2 X) + ε ≤\\n          actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample z}) ∧\\n      IsPathConnected (φ.source ∩ {z |\\n        actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample z =\\n          actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample (cover 2 X) + ε})) ∧\\n    FixedCutChecks (actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample)\\n      (actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample (cover 2 X)) ρ φ\\n\\nprivate theorem fixture_output (X : E2)\\n    (hreg : fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) X ≠ 0) :\\n    FixtureOutput X := by\\n  obtain ⟨ρ, hρ, φ, hq, hc, hO, ht, hh, hp⟩ :=\\n    actualSource_quotient_regular_local_collar (show (0 : ℝ) < 2 by norm_num)\\n      fixtureSample X hreg (smallO 2 X) (smallO_isOpen 2 X) (center_mem_smallO 2 X)\\n  exact ⟨ρ, hρ, φ, hq, hc, hO, ht, hh, hp,\\n    fixed_cut_checks _ _ ρ hρ φ ht hh hp⟩\\n\\nprivate theorem fixture_regularX_consumer : FixtureOutput fixtureXx := by\\n  apply fixture_output\\n  intro hz\\n  have he := fixture_regularX_derivative.1\\n  rw [hz] at he\\n  simp only [ContinuousLinearMap.zero_apply] at he\\n  linarith [Real.pi_pos]\\n\\nprivate theorem fixture_regularY_consumer : FixtureOutput fixtureXy := by\\n  apply fixture_output\\n  intro hz\\n  have he := fixture_regularY_derivative.2\\n  rw [hz] at he\\n  simp only [ContinuousLinearMap.zero_apply] at he\\n  linarith [Real.pi_pos]\\n\\nprivate theorem fixture_seam_consumer : FixtureOutput fixtureXseam := by\\n  apply fixture_output\\n  intro hz\\n  have he := fixture_seam_derivative.1\\n  rw [hz] at he\\n  simp only [ContinuousLinearMap.zero_apply] at he\\n  linarith [Real.pi_pos]\\n\"+'\\n'+ending\nH=B/'history/production-fixtures001';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'PRODUCTION_FIXTURES001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/production-fixtures001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual production-fixture patch identity, once'}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Complete actual production regular partials/seam/physicalsmallO/universal+fixedcut coherent inverse positives','full_patch':str(p),'ordinary_not_created':True}))\n"
+        ],
+        "started_utc": "2026-10-28T23:34:02.360631+00:00",
+        "ended_utc": "2026-10-28T23:34:02.454165+00:00",
+        "child_exit_code": 0,
+        "status": "PASS_ACTUAL_CHILD_EXIT_ZERO",
+        "exception": null,
+        "original_split_streams": true
+      },
+      "entry_receipt": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/production-fixtures001/RECEIPT.json",
+        "bytes": 27435,
+        "read_extent": "FULL",
+        "script_argv": [
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/entry/production-fixtures001",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "entry",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures001",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "outer",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "production-fixtures001",
+          "documentary",
+          "--",
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nS=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();ending='end I4SourceActualRegularLocalCollar\\n';assert old.endswith(ending)\nnew=old[:-len(ending)]+\"\\nprivate theorem fixture_derivative_apply (Y V : E2) :\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) Y) V =\\n      -Real.pi * Real.sin (Real.pi * (Q Y) 0) * (Q V) 0 -\\n        2 * Real.pi * Real.sin (Real.pi * (Q Y) 1) * (Q V) 1 := by\\n  let d0 : E2 →L[ℝ] ℝ := (ContinuousLinearMap.proj (0 : Fin 2)).comp Q\\n  let d1 : E2 →L[ℝ] ℝ := (ContinuousLinearMap.proj (1 : Fin 2)).comp Q\\n  have h0 : HasFDerivAt (fun Z : E2 => Real.pi * (Q Z) 0) (Real.pi • d0) Y :=\\n    d0.hasFDerivAt.const_mul Real.pi\\n  have h1 : HasFDerivAt (fun Z : E2 => Real.pi * (Q Z) 1) (Real.pi • d1) Y :=\\n    d1.hasFDerivAt.const_mul Real.pi\\n  have hd := h0.cos.add (h1.cos.const_mul 2)\\n  have heq : I4LifetimeField.actualField 2 2 fixtureSample =\\n      fun Z : E2 => Real.cos (Real.pi * (Q Z) 0) +\\n        2 * Real.cos (Real.pi * (Q Z) 1) := funext fixture_actual_formula\\n  rw [heq, hd.fderiv]\\n  simp only [ContinuousLinearMap.add_apply, ContinuousLinearMap.smul_apply,\\n    smul_eq_mul, d0, d1, ContinuousLinearMap.comp_apply, ContinuousLinearMap.proj_apply]\\n  ring\\n\\nprivate def fixtureXx : E2 := Q.symm ![(1 / 2 : ℝ), 0]\\nprivate def fixtureXy : E2 := Q.symm ![0, (1 / 2 : ℝ)]\\nprivate def fixtureXseam : E2 := Q.symm ![(-3 / 2 : ℝ), 0]\\nprivate def fixtureXmax : E2 := Q.symm ![(0 : ℝ), 0]\\n\\nprivate theorem fixture_regularX_value :\\n    I4LifetimeField.actualField 2 2 fixtureSample fixtureXx = 2 := by\\n  rw [fixture_actual_formula]\\n  norm_num [fixtureXx, mul_one_div]\\n\\nprivate theorem fixture_regularY_value :\\n    I4LifetimeField.actualField 2 2 fixtureSample fixtureXy = 1 := by\\n  rw [fixture_actual_formula]\\n  norm_num [fixtureXy, mul_one_div]\\n\\nprivate theorem fixture_regularX_derivative :\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXx) physicalBasis0 =\\n      -Real.pi ∧\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXx) physicalBasis1 = 0 := by\\n  constructor <;> rw [fixture_derivative_apply] <;>\\n    norm_num [fixtureXx, physicalBasis0, physicalBasis1, mul_one_div]\\n\\nprivate theorem fixture_regularY_derivative :\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXy) physicalBasis0 = 0 ∧\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXy) physicalBasis1 =\\n      -2 * Real.pi := by\\n  constructor <;> rw [fixture_derivative_apply] <;>\\n    norm_num [fixtureXy, physicalBasis0, physicalBasis1, mul_one_div]\\n\\nprivate theorem fixture_seam_phase :\\n    Real.sin (Real.pi * (-3 / 2 : ℝ)) = 1 ∧\\n    Real.cos (Real.pi * (-3 / 2 : ℝ)) = 0 := by\\n  have heq : Real.pi * (-3 / 2 : ℝ) = Real.pi / 2 - 2 * Real.pi := by ring\\n  rw [heq, Real.sin_sub_two_pi, Real.cos_sub_two_pi]\\n  exact ⟨Real.sin_pi_div_two, Real.cos_pi_div_two⟩\\n\\nprivate theorem fixture_seam_value :\\n    I4LifetimeField.actualField 2 2 fixtureSample fixtureXseam = 2 := by\\n  rw [fixture_actual_formula]\\n  simpa [fixtureXseam, fixture_seam_phase.2] using fixture_seam_phase.2\\n\\nprivate theorem fixture_seam_derivative :\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXseam) physicalBasis0 =\\n      -Real.pi ∧\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXseam) physicalBasis1 = 0 := by\\n  constructor <;> rw [fixture_derivative_apply] <;>\\n    simp [fixtureXseam, physicalBasis0, physicalBasis1, fixture_seam_phase.1]\\n\\nprivate theorem fixture_seam_quotient : cover 2 fixtureXseam = cover 2 fixtureXx := by\\n  have hq : ((-3 / 2 : ℝ) : AddCircle (2 : ℝ)) =\\n      ((1 / 2 : ℝ) : AddCircle (2 : ℝ)) := by\\n    have hp := (AddCircle.coe_add_period (2 : ℝ) (-3 / 2 : ℝ)).symm\\n    norm_num at hp\\n    exact hp\\n  ext i\\n  fin_cases i\\n  · simpa [cover, fixtureXseam, fixtureXx, I4Torus.torusProjection] using hq\\n  · simp [cover, fixtureXseam, fixtureXx, I4Torus.torusProjection]\\n\\nprivate theorem smallO_isOpen (L : ℝ) (X : E2) : IsOpen (smallO L X) := by\\n  have hp : IsOpenMap (cover L) :=\\n    (SourceActualFoldTorus.torusProjection2L_open L).comp Q.toHomeomorph.isOpenMap\\n  exact hp _ Metric.isOpen_ball\\n\\nprivate theorem center_mem_smallO (L : ℝ) (X : E2) : cover L X ∈ smallO L X :=\\n  ⟨X, Metric.mem_ball_self (by norm_num), rfl⟩\\n\\nprivate def FixedCutChecks {L : ℝ} (F : Torus2 L → ℝ) (c ρ : ℝ)\\n    (φ : OpenPartialHomeomorph (Torus2 L) Point2) : Prop :=\\n  ∀ ε : ℝ, (ε = 0 ∨ ε = ρ / 2 ∨ ε = -ρ / 2) →\\n    let z := φ.symm ![0, ε]\\n    let zm := φ.symm ![-ρ / 2, ε]\\n    let zp := φ.symm ![ρ / 2, ε]\\n    z ∈ φ.source ∧ zm ∈ φ.source ∧ zp ∈ φ.source ∧\\n    φ z = ![0, ε] ∧ φ zm = ![-ρ / 2, ε] ∧ φ zp = ![ρ / 2, ε] ∧\\n    F z = c + ε ∧ F zm = c + ε ∧ F zp = c + ε ∧\\n    z ∈ φ.source ∩ {p | c + ε ≤ F p} ∧\\n    z ∈ φ.source ∩ {p | F p = c + ε} ∧\\n    zm ∈ φ.source ∩ {p | F p = c + ε} ∧\\n    zp ∈ φ.source ∩ {p | F p = c + ε} ∧\\n    zm ≠ zp ∧ JoinedIn (φ.source ∩ {p | F p = c + ε}) zm zp\\n\\nprivate theorem fixed_cut_checks {L : ℝ} (F : Torus2 L → ℝ) (c ρ : ℝ)\\n    (hρ : 0 < ρ) (φ : OpenPartialHomeomorph (Torus2 L) Point2)\\n    (htarget : φ.target = Metric.ball (0 : Point2) ρ)\\n    (hheight : ∀ z ∈ φ.source, F z = c + φ z 1)\\n    (hpc : ∀ ε : ℝ, |ε| < ρ →\\n      IsPathConnected (φ.source ∩ {z | c + ε ≤ F z}) ∧\\n      IsPathConnected (φ.source ∩ {z | F z = c + ε})) :\\n    FixedCutChecks F c ρ φ := by\\n  intro ε he\\n  have hhalf : |ρ / 2| < ρ := by\\n    rw [abs_of_pos (by positivity : 0 < ρ / 2)]\\n    linarith\\n  have hε : |ε| < ρ := by\\n    rcases he with rfl | rfl | rfl\\n    · simpa using hρ\\n    · exact hhalf\\n    · simpa only [neg_div, abs_neg] using hhalf\\n  have ht0 : (![0, ε] : Point2) ∈ φ.target := by\\n    rw [htarget]\\n    apply point_mem_ball hρ\\n    intro i\\n    fin_cases i\\n    · simpa using hρ\\n    · simpa using hε\\n  have htm : (![-ρ / 2, ε] : Point2) ∈ φ.target := by\\n    rw [htarget]\\n    apply point_mem_ball hρ\\n    intro i\\n    fin_cases i\\n    · simpa only [Matrix.cons_val_zero, neg_div, abs_neg] using hhalf\\n    · simpa using hε\\n  have htp : (![ρ / 2, ε] : Point2) ∈ φ.target := by\\n    rw [htarget]\\n    apply point_mem_ball hρ\\n    intro i\\n    fin_cases i\\n    · simpa using hhalf\\n    · simpa using hε\\n  have hs0 := φ.map_target ht0\\n  have hsm := φ.map_target htm\\n  have hsp := φ.map_target htp\\n  have hi0 := φ.right_inv ht0\\n  have him := φ.right_inv htm\\n  have hip := φ.right_inv htp\\n  have hv0 : F (φ.symm ![0, ε]) = c + ε := by\\n    rw [hheight _ hs0, hi0]\\n    rfl\\n  have hvm : F (φ.symm ![-ρ / 2, ε]) = c + ε := by\\n    rw [hheight _ hsm, him]\\n    rfl\\n  have hvp : F (φ.symm ![ρ / 2, ε]) = c + ε := by\\n    rw [hheight _ hsp, hip]\\n    rfl\\n  have hneq : φ.symm ![-ρ / 2, ε] ≠ φ.symm ![ρ / 2, ε] := by\\n    intro heq\\n    have he0 := congrArg (fun z => φ z 0) heq\\n    rw [him, hip] at he0\\n    change -ρ / 2 = ρ / 2 at he0\\n    linarith\\n  have hm : φ.symm ![-ρ / 2, ε] ∈ φ.source ∩ {p | F p = c + ε} :=\\n    ⟨hsm, hvm⟩\\n  have hp : φ.symm ![ρ / 2, ε] ∈ φ.source ∩ {p | F p = c + ε} :=\\n    ⟨hsp, hvp⟩\\n  exact ⟨hs0, hsm, hsp, hi0, him, hip, hv0, hvm, hvp,\\n    ⟨hs0, hv0.ge⟩, ⟨hs0, hv0⟩, hm, hp, hneq, (hpc ε hε).2.joinedIn hm hp⟩\\n\\nprivate def FixtureOutput (X : E2) : Prop :=\\n  ∃ ρ : ℝ, 0 < ρ ∧ ∃ φ : OpenPartialHomeomorph (Torus2 2) Point2,\\n    cover 2 X ∈ φ.source ∧ φ (cover 2 X) = 0 ∧\\n    φ.source ⊆ smallO 2 X ∧ φ.target = Metric.ball (0 : Point2) ρ ∧\\n    (∀ z ∈ φ.source,\\n      actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample z =\\n        actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample (cover 2 X) + φ z 1) ∧\\n    (∀ ε : ℝ, |ε| < ρ →\\n      IsPathConnected (φ.source ∩ {z |\\n        actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample (cover 2 X) + ε ≤\\n          actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample z}) ∧\\n      IsPathConnected (φ.source ∩ {z |\\n        actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample z =\\n          actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample (cover 2 X) + ε})) ∧\\n    FixedCutChecks (actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample)\\n      (actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample (cover 2 X)) ρ φ\\n\\nprivate theorem fixture_output (X : E2)\\n    (hreg : fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) X ≠ 0) :\\n    FixtureOutput X := by\\n  obtain ⟨ρ, hρ, φ, hq, hc, hO, ht, hh, hp⟩ :=\\n    actualSource_quotient_regular_local_collar (show (0 : ℝ) < 2 by norm_num)\\n      fixtureSample X hreg (smallO 2 X) (smallO_isOpen 2 X) (center_mem_smallO 2 X)\\n  exact ⟨ρ, hρ, φ, hq, hc, hO, ht, hh, hp,\\n    fixed_cut_checks _ _ ρ hρ φ ht hh hp⟩\\n\\nprivate theorem fixture_regularX_consumer : FixtureOutput fixtureXx := by\\n  apply fixture_output\\n  intro hz\\n  have he := fixture_regularX_derivative.1\\n  rw [hz] at he\\n  simp only [ContinuousLinearMap.zero_apply] at he\\n  linarith [Real.pi_pos]\\n\\nprivate theorem fixture_regularY_consumer : FixtureOutput fixtureXy := by\\n  apply fixture_output\\n  intro hz\\n  have he := fixture_regularY_derivative.2\\n  rw [hz] at he\\n  simp only [ContinuousLinearMap.zero_apply] at he\\n  linarith [Real.pi_pos]\\n\\nprivate theorem fixture_seam_consumer : FixtureOutput fixtureXseam := by\\n  apply fixture_output\\n  intro hz\\n  have he := fixture_seam_derivative.1\\n  rw [hz] at he\\n  simp only [ContinuousLinearMap.zero_apply] at he\\n  linarith [Real.pi_pos]\\n\"+'\\n'+ending\nH=B/'history/production-fixtures001';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'PRODUCTION_FIXTURES001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/production-fixtures001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual production-fixture patch identity, once'}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Complete actual production regular partials/seam/physicalsmallO/universal+fixedcut coherent inverse positives','full_patch':str(p),'ordinary_not_created':True}))\n"
+        ],
+        "command_argv": [
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures001",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "outer",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "production-fixtures001",
+          "documentary",
+          "--",
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nS=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();ending='end I4SourceActualRegularLocalCollar\\n';assert old.endswith(ending)\nnew=old[:-len(ending)]+\"\\nprivate theorem fixture_derivative_apply (Y V : E2) :\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) Y) V =\\n      -Real.pi * Real.sin (Real.pi * (Q Y) 0) * (Q V) 0 -\\n        2 * Real.pi * Real.sin (Real.pi * (Q Y) 1) * (Q V) 1 := by\\n  let d0 : E2 →L[ℝ] ℝ := (ContinuousLinearMap.proj (0 : Fin 2)).comp Q\\n  let d1 : E2 →L[ℝ] ℝ := (ContinuousLinearMap.proj (1 : Fin 2)).comp Q\\n  have h0 : HasFDerivAt (fun Z : E2 => Real.pi * (Q Z) 0) (Real.pi • d0) Y :=\\n    d0.hasFDerivAt.const_mul Real.pi\\n  have h1 : HasFDerivAt (fun Z : E2 => Real.pi * (Q Z) 1) (Real.pi • d1) Y :=\\n    d1.hasFDerivAt.const_mul Real.pi\\n  have hd := h0.cos.add (h1.cos.const_mul 2)\\n  have heq : I4LifetimeField.actualField 2 2 fixtureSample =\\n      fun Z : E2 => Real.cos (Real.pi * (Q Z) 0) +\\n        2 * Real.cos (Real.pi * (Q Z) 1) := funext fixture_actual_formula\\n  rw [heq, hd.fderiv]\\n  simp only [ContinuousLinearMap.add_apply, ContinuousLinearMap.smul_apply,\\n    smul_eq_mul, d0, d1, ContinuousLinearMap.comp_apply, ContinuousLinearMap.proj_apply]\\n  ring\\n\\nprivate def fixtureXx : E2 := Q.symm ![(1 / 2 : ℝ), 0]\\nprivate def fixtureXy : E2 := Q.symm ![0, (1 / 2 : ℝ)]\\nprivate def fixtureXseam : E2 := Q.symm ![(-3 / 2 : ℝ), 0]\\nprivate def fixtureXmax : E2 := Q.symm ![(0 : ℝ), 0]\\n\\nprivate theorem fixture_regularX_value :\\n    I4LifetimeField.actualField 2 2 fixtureSample fixtureXx = 2 := by\\n  rw [fixture_actual_formula]\\n  norm_num [fixtureXx, mul_one_div]\\n\\nprivate theorem fixture_regularY_value :\\n    I4LifetimeField.actualField 2 2 fixtureSample fixtureXy = 1 := by\\n  rw [fixture_actual_formula]\\n  norm_num [fixtureXy, mul_one_div]\\n\\nprivate theorem fixture_regularX_derivative :\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXx) physicalBasis0 =\\n      -Real.pi ∧\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXx) physicalBasis1 = 0 := by\\n  constructor <;> rw [fixture_derivative_apply] <;>\\n    norm_num [fixtureXx, physicalBasis0, physicalBasis1, mul_one_div]\\n\\nprivate theorem fixture_regularY_derivative :\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXy) physicalBasis0 = 0 ∧\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXy) physicalBasis1 =\\n      -2 * Real.pi := by\\n  constructor <;> rw [fixture_derivative_apply] <;>\\n    norm_num [fixtureXy, physicalBasis0, physicalBasis1, mul_one_div]\\n\\nprivate theorem fixture_seam_phase :\\n    Real.sin (Real.pi * (-3 / 2 : ℝ)) = 1 ∧\\n    Real.cos (Real.pi * (-3 / 2 : ℝ)) = 0 := by\\n  have heq : Real.pi * (-3 / 2 : ℝ) = Real.pi / 2 - 2 * Real.pi := by ring\\n  rw [heq, Real.sin_sub_two_pi, Real.cos_sub_two_pi]\\n  exact ⟨Real.sin_pi_div_two, Real.cos_pi_div_two⟩\\n\\nprivate theorem fixture_seam_value :\\n    I4LifetimeField.actualField 2 2 fixtureSample fixtureXseam = 2 := by\\n  rw [fixture_actual_formula]\\n  simpa [fixtureXseam, fixture_seam_phase.2] using fixture_seam_phase.2\\n\\nprivate theorem fixture_seam_derivative :\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXseam) physicalBasis0 =\\n      -Real.pi ∧\\n    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXseam) physicalBasis1 = 0 := by\\n  constructor <;> rw [fixture_derivative_apply] <;>\\n    simp [fixtureXseam, physicalBasis0, physicalBasis1, fixture_seam_phase.1]\\n\\nprivate theorem fixture_seam_quotient : cover 2 fixtureXseam = cover 2 fixtureXx := by\\n  have hq : ((-3 / 2 : ℝ) : AddCircle (2 : ℝ)) =\\n      ((1 / 2 : ℝ) : AddCircle (2 : ℝ)) := by\\n    have hp := (AddCircle.coe_add_period (2 : ℝ) (-3 / 2 : ℝ)).symm\\n    norm_num at hp\\n    exact hp\\n  ext i\\n  fin_cases i\\n  · simpa [cover, fixtureXseam, fixtureXx, I4Torus.torusProjection] using hq\\n  · simp [cover, fixtureXseam, fixtureXx, I4Torus.torusProjection]\\n\\nprivate theorem smallO_isOpen (L : ℝ) (X : E2) : IsOpen (smallO L X) := by\\n  have hp : IsOpenMap (cover L) :=\\n    (SourceActualFoldTorus.torusProjection2L_open L).comp Q.toHomeomorph.isOpenMap\\n  exact hp _ Metric.isOpen_ball\\n\\nprivate theorem center_mem_smallO (L : ℝ) (X : E2) : cover L X ∈ smallO L X :=\\n  ⟨X, Metric.mem_ball_self (by norm_num), rfl⟩\\n\\nprivate def FixedCutChecks {L : ℝ} (F : Torus2 L → ℝ) (c ρ : ℝ)\\n    (φ : OpenPartialHomeomorph (Torus2 L) Point2) : Prop :=\\n  ∀ ε : ℝ, (ε = 0 ∨ ε = ρ / 2 ∨ ε = -ρ / 2) →\\n    let z := φ.symm ![0, ε]\\n    let zm := φ.symm ![-ρ / 2, ε]\\n    let zp := φ.symm ![ρ / 2, ε]\\n    z ∈ φ.source ∧ zm ∈ φ.source ∧ zp ∈ φ.source ∧\\n    φ z = ![0, ε] ∧ φ zm = ![-ρ / 2, ε] ∧ φ zp = ![ρ / 2, ε] ∧\\n    F z = c + ε ∧ F zm = c + ε ∧ F zp = c + ε ∧\\n    z ∈ φ.source ∩ {p | c + ε ≤ F p} ∧\\n    z ∈ φ.source ∩ {p | F p = c + ε} ∧\\n    zm ∈ φ.source ∩ {p | F p = c + ε} ∧\\n    zp ∈ φ.source ∩ {p | F p = c + ε} ∧\\n    zm ≠ zp ∧ JoinedIn (φ.source ∩ {p | F p = c + ε}) zm zp\\n\\nprivate theorem fixed_cut_checks {L : ℝ} (F : Torus2 L → ℝ) (c ρ : ℝ)\\n    (hρ : 0 < ρ) (φ : OpenPartialHomeomorph (Torus2 L) Point2)\\n    (htarget : φ.target = Metric.ball (0 : Point2) ρ)\\n    (hheight : ∀ z ∈ φ.source, F z = c + φ z 1)\\n    (hpc : ∀ ε : ℝ, |ε| < ρ →\\n      IsPathConnected (φ.source ∩ {z | c + ε ≤ F z}) ∧\\n      IsPathConnected (φ.source ∩ {z | F z = c + ε})) :\\n    FixedCutChecks F c ρ φ := by\\n  intro ε he\\n  have hhalf : |ρ / 2| < ρ := by\\n    rw [abs_of_pos (by positivity : 0 < ρ / 2)]\\n    linarith\\n  have hε : |ε| < ρ := by\\n    rcases he with rfl | rfl | rfl\\n    · simpa using hρ\\n    · exact hhalf\\n    · simpa only [neg_div, abs_neg] using hhalf\\n  have ht0 : (![0, ε] : Point2) ∈ φ.target := by\\n    rw [htarget]\\n    apply point_mem_ball hρ\\n    intro i\\n    fin_cases i\\n    · simpa using hρ\\n    · simpa using hε\\n  have htm : (![-ρ / 2, ε] : Point2) ∈ φ.target := by\\n    rw [htarget]\\n    apply point_mem_ball hρ\\n    intro i\\n    fin_cases i\\n    · simpa only [Matrix.cons_val_zero, neg_div, abs_neg] using hhalf\\n    · simpa using hε\\n  have htp : (![ρ / 2, ε] : Point2) ∈ φ.target := by\\n    rw [htarget]\\n    apply point_mem_ball hρ\\n    intro i\\n    fin_cases i\\n    · simpa using hhalf\\n    · simpa using hε\\n  have hs0 := φ.map_target ht0\\n  have hsm := φ.map_target htm\\n  have hsp := φ.map_target htp\\n  have hi0 := φ.right_inv ht0\\n  have him := φ.right_inv htm\\n  have hip := φ.right_inv htp\\n  have hv0 : F (φ.symm ![0, ε]) = c + ε := by\\n    rw [hheight _ hs0, hi0]\\n    rfl\\n  have hvm : F (φ.symm ![-ρ / 2, ε]) = c + ε := by\\n    rw [hheight _ hsm, him]\\n    rfl\\n  have hvp : F (φ.symm ![ρ / 2, ε]) = c + ε := by\\n    rw [hheight _ hsp, hip]\\n    rfl\\n  have hneq : φ.symm ![-ρ / 2, ε] ≠ φ.symm ![ρ / 2, ε] := by\\n    intro heq\\n    have he0 := congrArg (fun z => φ z 0) heq\\n    rw [him, hip] at he0\\n    change -ρ / 2 = ρ / 2 at he0\\n    linarith\\n  have hm : φ.symm ![-ρ / 2, ε] ∈ φ.source ∩ {p | F p = c + ε} :=\\n    ⟨hsm, hvm⟩\\n  have hp : φ.symm ![ρ / 2, ε] ∈ φ.source ∩ {p | F p = c + ε} :=\\n    ⟨hsp, hvp⟩\\n  exact ⟨hs0, hsm, hsp, hi0, him, hip, hv0, hvm, hvp,\\n    ⟨hs0, hv0.ge⟩, ⟨hs0, hv0⟩, hm, hp, hneq, (hpc ε hε).2.joinedIn hm hp⟩\\n\\nprivate def FixtureOutput (X : E2) : Prop :=\\n  ∃ ρ : ℝ, 0 < ρ ∧ ∃ φ : OpenPartialHomeomorph (Torus2 2) Point2,\\n    cover 2 X ∈ φ.source ∧ φ (cover 2 X) = 0 ∧\\n    φ.source ⊆ smallO 2 X ∧ φ.target = Metric.ball (0 : Point2) ρ ∧\\n    (∀ z ∈ φ.source,\\n      actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample z =\\n        actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample (cover 2 X) + φ z 1) ∧\\n    (∀ ε : ℝ, |ε| < ρ →\\n      IsPathConnected (φ.source ∩ {z |\\n        actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample (cover 2 X) + ε ≤\\n          actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample z}) ∧\\n      IsPathConnected (φ.source ∩ {z |\\n        actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample z =\\n          actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample (cover 2 X) + ε})) ∧\\n    FixedCutChecks (actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample)\\n      (actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample (cover 2 X)) ρ φ\\n\\nprivate theorem fixture_output (X : E2)\\n    (hreg : fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) X ≠ 0) :\\n    FixtureOutput X := by\\n  obtain ⟨ρ, hρ, φ, hq, hc, hO, ht, hh, hp⟩ :=\\n    actualSource_quotient_regular_local_collar (show (0 : ℝ) < 2 by norm_num)\\n      fixtureSample X hreg (smallO 2 X) (smallO_isOpen 2 X) (center_mem_smallO 2 X)\\n  exact ⟨ρ, hρ, φ, hq, hc, hO, ht, hh, hp,\\n    fixed_cut_checks _ _ ρ hρ φ ht hh hp⟩\\n\\nprivate theorem fixture_regularX_consumer : FixtureOutput fixtureXx := by\\n  apply fixture_output\\n  intro hz\\n  have he := fixture_regularX_derivative.1\\n  rw [hz] at he\\n  simp only [ContinuousLinearMap.zero_apply] at he\\n  linarith [Real.pi_pos]\\n\\nprivate theorem fixture_regularY_consumer : FixtureOutput fixtureXy := by\\n  apply fixture_output\\n  intro hz\\n  have he := fixture_regularY_derivative.2\\n  rw [hz] at he\\n  simp only [ContinuousLinearMap.zero_apply] at he\\n  linarith [Real.pi_pos]\\n\\nprivate theorem fixture_seam_consumer : FixtureOutput fixtureXseam := by\\n  apply fixture_output\\n  intro hz\\n  have he := fixture_seam_derivative.1\\n  rw [hz] at he\\n  simp only [ContinuousLinearMap.zero_apply] at he\\n  linarith [Real.pi_pos]\\n\"+'\\n'+ending\nH=B/'history/production-fixtures001';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'PRODUCTION_FIXTURES001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/production-fixtures001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual production-fixture patch identity, once'}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Complete actual production regular partials/seam/physicalsmallO/universal+fixedcut coherent inverse positives','full_patch':str(p),'ordinary_not_created':True}))\n"
+        ],
+        "started_utc": "2026-10-28T23:34:02.328123+00:00",
+        "ended_utc": "2026-10-28T23:34:02.464120+00:00",
+        "child_exit_code": 0,
+        "status": "PASS_ACTUAL_CHILD_EXIT_ZERO",
+        "exception": null,
+        "original_split_streams": true
+      },
+      "streams": [
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures001/stdout.log",
+          "bytes": 268,
+          "read_extent": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures001/stderr.log",
+          "bytes": 0,
+          "read_extent": "FULL empty"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures001/stdout.log",
+          "bytes": 190,
+          "read_extent": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures001/stderr.log",
+          "bytes": 0,
+          "read_extent": "FULL empty"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/production-fixtures001/stdout.log",
+          "bytes": 202,
+          "read_extent": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/production-fixtures001/stderr.log",
+          "bytes": 0,
+          "read_extent": "FULL empty"
+        }
+      ]
+    },
+    {
+      "label": "production-fixtures-fix001",
+      "scope_kind": "documentary",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "worker_receipt": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix001/receipt.json",
+        "bytes": 25720,
+        "read_extent": "FULL",
+        "command_argv": [
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct');S=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();new=old\nfor a,b in [[\"(ContinuousLinearMap.proj (0 : Fin 2)).comp Q\",\"(ContinuousLinearMap.proj (0 : Fin 2) : Point2 →L[ℝ] ℝ).comp (Q : E2 →L[ℝ] Point2)\"],[\"(ContinuousLinearMap.proj (1 : Fin 2)).comp Q\",\"(ContinuousLinearMap.proj (1 : Fin 2) : Point2 →L[ℝ] ℝ).comp (Q : E2 →L[ℝ] Point2)\"],[\"  simpa [fixtureXseam, fixture_seam_phase.2] using fixture_seam_phase.2\",\"  simp [fixtureXseam, fixture_seam_phase.2]\"],[\"    exact hp\\n  ext i\",\"    simpa [neg_div] using hp\\n  ext i\"],[\"    · simpa only [Matrix.cons_val_zero, neg_div, abs_neg] using hhalf\",\"    · simpa [neg_div, abs_neg] using hhalf\"],[\"(hpc ε hε).2.joinedIn hm hp\",\"(hpc ε hε).2.joinedIn _ hm _ hp\"],[\"ContinuousLinearMap.zero_apply\",\"zero_apply\"]]:\n assert a in new,a;new=new.replace(a,b)\nH=B/'history/production-fixtures-fix001';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'PRODUCTION_FIXTURES_FIX001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/production-fixtures-fix001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual full patch identity, once'};cp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only fixtures001 concrete CLM type/simp/coercion/JoinedIn/deprecation findings','full_patch':str(p)}))\n"
+        ],
+        "start_utc": "2026-10-28T23:34:34.851888+00:00",
+        "end_utc": "2026-10-28T23:34:34.896367+00:00",
+        "elapsed_seconds": 0.04448022799988394,
+        "exit_code": 0,
+        "exception": null,
+        "before_entries": 19,
+        "after_entries": 19,
+        "before_snapshots_count": 15,
+        "before_snapshots": {
+          "/workspace/scratch/actual-source-regular-local-collar-construct/FROZEN_CONTEXT.md": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix001/before/0-FROZEN_CONTEXT.md",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/INITIAL_SOURCE_COMMON.lean.txt": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix001/before/1-INITIAL_SOURCE_COMMON.lean.txt",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/BOOTSTRAP_PLAN.md": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix001/before/2-BOOTSTRAP_PLAN.md",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/CONTROL_CONTRACT.md": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix001/before/3-CONTROL_CONTRACT.md",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/bootstrap_context.py": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix001/before/4-bootstrap_context.py",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix001/before/5-capture66.py",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix001/before/6-record_run.py",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix001/before/7-SourceActualRegularLocalCollar.lean",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/HELPER_FIX001_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix001/before/12-HELPER_FIX001_FULL.patch",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/HELPER_INTEGRATION001_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix001/before/13-HELPER_INTEGRATION001_FULL.patch",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/PRODUCTION_FIXTURES001_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix001/before/14-PRODUCTION_FIXTURES001_FULL.patch",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/SOURCE_FIX001_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix001/before/15-SOURCE_FIX001_FULL.patch",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/SOURCE_INITIAL_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix001/before/16-SOURCE_INITIAL_FULL.patch",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/TRANSFER_FIXTURE001_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix001/before/17-TRANSFER_FIXTURE001_FULL.patch",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/TRANSFER_STATICFIX001_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix001/before/18-TRANSFER_STATICFIX001_FULL.patch"
+        },
+        "binary_snapshot_or_canonical_object_copy": false
+      },
+      "outer_receipt": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures-fix001/RECEIPT.json",
+        "bytes": 6271,
+        "read_extent": "FULL",
+        "script_argv": [
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures-fix001",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "outer",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "production-fixtures-fix001",
+          "documentary",
+          "--",
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct');S=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();new=old\nfor a,b in [[\"(ContinuousLinearMap.proj (0 : Fin 2)).comp Q\",\"(ContinuousLinearMap.proj (0 : Fin 2) : Point2 →L[ℝ] ℝ).comp (Q : E2 →L[ℝ] Point2)\"],[\"(ContinuousLinearMap.proj (1 : Fin 2)).comp Q\",\"(ContinuousLinearMap.proj (1 : Fin 2) : Point2 →L[ℝ] ℝ).comp (Q : E2 →L[ℝ] Point2)\"],[\"  simpa [fixtureXseam, fixture_seam_phase.2] using fixture_seam_phase.2\",\"  simp [fixtureXseam, fixture_seam_phase.2]\"],[\"    exact hp\\n  ext i\",\"    simpa [neg_div] using hp\\n  ext i\"],[\"    · simpa only [Matrix.cons_val_zero, neg_div, abs_neg] using hhalf\",\"    · simpa [neg_div, abs_neg] using hhalf\"],[\"(hpc ε hε).2.joinedIn hm hp\",\"(hpc ε hε).2.joinedIn _ hm _ hp\"],[\"ContinuousLinearMap.zero_apply\",\"zero_apply\"]]:\n assert a in new,a;new=new.replace(a,b)\nH=B/'history/production-fixtures-fix001';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'PRODUCTION_FIXTURES_FIX001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/production-fixtures-fix001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual full patch identity, once'};cp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only fixtures001 concrete CLM type/simp/coercion/JoinedIn/deprecation findings','full_patch':str(p)}))\n"
+        ],
+        "command_argv": [
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "production-fixtures-fix001",
+          "documentary",
+          "--",
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct');S=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();new=old\nfor a,b in [[\"(ContinuousLinearMap.proj (0 : Fin 2)).comp Q\",\"(ContinuousLinearMap.proj (0 : Fin 2) : Point2 →L[ℝ] ℝ).comp (Q : E2 →L[ℝ] Point2)\"],[\"(ContinuousLinearMap.proj (1 : Fin 2)).comp Q\",\"(ContinuousLinearMap.proj (1 : Fin 2) : Point2 →L[ℝ] ℝ).comp (Q : E2 →L[ℝ] Point2)\"],[\"  simpa [fixtureXseam, fixture_seam_phase.2] using fixture_seam_phase.2\",\"  simp [fixtureXseam, fixture_seam_phase.2]\"],[\"    exact hp\\n  ext i\",\"    simpa [neg_div] using hp\\n  ext i\"],[\"    · simpa only [Matrix.cons_val_zero, neg_div, abs_neg] using hhalf\",\"    · simpa [neg_div, abs_neg] using hhalf\"],[\"(hpc ε hε).2.joinedIn hm hp\",\"(hpc ε hε).2.joinedIn _ hm _ hp\"],[\"ContinuousLinearMap.zero_apply\",\"zero_apply\"]]:\n assert a in new,a;new=new.replace(a,b)\nH=B/'history/production-fixtures-fix001';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'PRODUCTION_FIXTURES_FIX001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/production-fixtures-fix001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual full patch identity, once'};cp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only fixtures001 concrete CLM type/simp/coercion/JoinedIn/deprecation findings','full_patch':str(p)}))\n"
+        ],
+        "started_utc": "2026-10-28T23:34:34.804181+00:00",
+        "ended_utc": "2026-10-28T23:34:34.906371+00:00",
+        "child_exit_code": 0,
+        "status": "PASS_ACTUAL_CHILD_EXIT_ZERO",
+        "exception": null,
+        "original_split_streams": true
+      },
+      "entry_receipt": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/production-fixtures-fix001/RECEIPT.json",
+        "bytes": 7003,
+        "read_extent": "FULL",
+        "script_argv": [
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/entry/production-fixtures-fix001",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "entry",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures-fix001",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "outer",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "production-fixtures-fix001",
+          "documentary",
+          "--",
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct');S=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();new=old\nfor a,b in [[\"(ContinuousLinearMap.proj (0 : Fin 2)).comp Q\",\"(ContinuousLinearMap.proj (0 : Fin 2) : Point2 →L[ℝ] ℝ).comp (Q : E2 →L[ℝ] Point2)\"],[\"(ContinuousLinearMap.proj (1 : Fin 2)).comp Q\",\"(ContinuousLinearMap.proj (1 : Fin 2) : Point2 →L[ℝ] ℝ).comp (Q : E2 →L[ℝ] Point2)\"],[\"  simpa [fixtureXseam, fixture_seam_phase.2] using fixture_seam_phase.2\",\"  simp [fixtureXseam, fixture_seam_phase.2]\"],[\"    exact hp\\n  ext i\",\"    simpa [neg_div] using hp\\n  ext i\"],[\"    · simpa only [Matrix.cons_val_zero, neg_div, abs_neg] using hhalf\",\"    · simpa [neg_div, abs_neg] using hhalf\"],[\"(hpc ε hε).2.joinedIn hm hp\",\"(hpc ε hε).2.joinedIn _ hm _ hp\"],[\"ContinuousLinearMap.zero_apply\",\"zero_apply\"]]:\n assert a in new,a;new=new.replace(a,b)\nH=B/'history/production-fixtures-fix001';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'PRODUCTION_FIXTURES_FIX001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/production-fixtures-fix001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual full patch identity, once'};cp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only fixtures001 concrete CLM type/simp/coercion/JoinedIn/deprecation findings','full_patch':str(p)}))\n"
+        ],
+        "command_argv": [
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures-fix001",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "outer",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "production-fixtures-fix001",
+          "documentary",
+          "--",
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct');S=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();new=old\nfor a,b in [[\"(ContinuousLinearMap.proj (0 : Fin 2)).comp Q\",\"(ContinuousLinearMap.proj (0 : Fin 2) : Point2 →L[ℝ] ℝ).comp (Q : E2 →L[ℝ] Point2)\"],[\"(ContinuousLinearMap.proj (1 : Fin 2)).comp Q\",\"(ContinuousLinearMap.proj (1 : Fin 2) : Point2 →L[ℝ] ℝ).comp (Q : E2 →L[ℝ] Point2)\"],[\"  simpa [fixtureXseam, fixture_seam_phase.2] using fixture_seam_phase.2\",\"  simp [fixtureXseam, fixture_seam_phase.2]\"],[\"    exact hp\\n  ext i\",\"    simpa [neg_div] using hp\\n  ext i\"],[\"    · simpa only [Matrix.cons_val_zero, neg_div, abs_neg] using hhalf\",\"    · simpa [neg_div, abs_neg] using hhalf\"],[\"(hpc ε hε).2.joinedIn hm hp\",\"(hpc ε hε).2.joinedIn _ hm _ hp\"],[\"ContinuousLinearMap.zero_apply\",\"zero_apply\"]]:\n assert a in new,a;new=new.replace(a,b)\nH=B/'history/production-fixtures-fix001';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'PRODUCTION_FIXTURES_FIX001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/production-fixtures-fix001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual full patch identity, once'};cp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only fixtures001 concrete CLM type/simp/coercion/JoinedIn/deprecation findings','full_patch':str(p)}))\n"
+        ],
+        "started_utc": "2026-10-28T23:34:34.766307+00:00",
+        "ended_utc": "2026-10-28T23:34:34.913907+00:00",
+        "child_exit_code": 0,
+        "status": "PASS_ACTUAL_CHILD_EXIT_ZERO",
+        "exception": null,
+        "original_split_streams": true
+      },
+      "streams": [
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix001/stdout.log",
+          "bytes": 211,
+          "read_extent": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix001/stderr.log",
+          "bytes": 0,
+          "read_extent": "FULL empty"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures-fix001/stdout.log",
+          "bytes": 198,
+          "read_extent": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures-fix001/stderr.log",
+          "bytes": 0,
+          "read_extent": "FULL empty"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/production-fixtures-fix001/stdout.log",
+          "bytes": 206,
+          "read_extent": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/production-fixtures-fix001/stderr.log",
+          "bytes": 0,
+          "read_extent": "FULL empty"
+        }
+      ]
+    },
+    {
+      "label": "production-fixtures-fix002",
+      "scope_kind": "documentary",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "worker_receipt": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix002/receipt.json",
+        "bytes": 26534,
+        "read_extent": "FULL",
+        "command_argv": [
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct');S=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();a=\"  rw [heq, hd.fderiv]\";assert old.count(a)==1;new=old.replace(a,\"  have hactual : HasFDerivAt (I4LifetimeField.actualField 2 2 fixtureSample)\\n      (-Real.sin (Real.pi * (Q Y) 0) • Real.pi • d0 +\\n        (2 : ℝ) • -Real.sin (Real.pi * (Q Y) 1) • Real.pi • d1) Y := by\\n    rw [heq]\\n    exact hd\\n  rw [hactual.fderiv]\")\nH=B/'history/production-fixtures-fix002';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'PRODUCTION_FIXTURES_FIX002_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/production-fixtures-fix002/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual full patch identity, once'};cp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only fixtures002 pointwise function-add derivative rewrite shape','full_patch':str(p)}))\n"
+        ],
+        "start_utc": "2026-10-28T23:35:01.553555+00:00",
+        "end_utc": "2026-10-28T23:35:01.595723+00:00",
+        "elapsed_seconds": 0.04216638900106773,
+        "exit_code": 0,
+        "exception": null,
+        "before_entries": 20,
+        "after_entries": 20,
+        "before_snapshots_count": 16,
+        "before_snapshots": {
+          "/workspace/scratch/actual-source-regular-local-collar-construct/FROZEN_CONTEXT.md": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix002/before/0-FROZEN_CONTEXT.md",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/INITIAL_SOURCE_COMMON.lean.txt": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix002/before/1-INITIAL_SOURCE_COMMON.lean.txt",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/BOOTSTRAP_PLAN.md": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix002/before/2-BOOTSTRAP_PLAN.md",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/CONTROL_CONTRACT.md": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix002/before/3-CONTROL_CONTRACT.md",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/bootstrap_context.py": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix002/before/4-bootstrap_context.py",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix002/before/5-capture66.py",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix002/before/6-record_run.py",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix002/before/7-SourceActualRegularLocalCollar.lean",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/HELPER_FIX001_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix002/before/12-HELPER_FIX001_FULL.patch",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/HELPER_INTEGRATION001_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix002/before/13-HELPER_INTEGRATION001_FULL.patch",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/PRODUCTION_FIXTURES001_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix002/before/14-PRODUCTION_FIXTURES001_FULL.patch",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/PRODUCTION_FIXTURES_FIX001_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix002/before/15-PRODUCTION_FIXTURES_FIX001_FULL.patch",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/SOURCE_FIX001_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix002/before/16-SOURCE_FIX001_FULL.patch",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/SOURCE_INITIAL_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix002/before/17-SOURCE_INITIAL_FULL.patch",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/TRANSFER_FIXTURE001_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix002/before/18-TRANSFER_FIXTURE001_FULL.patch",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/TRANSFER_STATICFIX001_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix002/before/19-TRANSFER_STATICFIX001_FULL.patch"
+        },
+        "binary_snapshot_or_canonical_object_copy": false
+      },
+      "outer_receipt": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures-fix002/RECEIPT.json",
+        "bytes": 5242,
+        "read_extent": "FULL",
+        "script_argv": [
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures-fix002",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "outer",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "production-fixtures-fix002",
+          "documentary",
+          "--",
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct');S=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();a=\"  rw [heq, hd.fderiv]\";assert old.count(a)==1;new=old.replace(a,\"  have hactual : HasFDerivAt (I4LifetimeField.actualField 2 2 fixtureSample)\\n      (-Real.sin (Real.pi * (Q Y) 0) • Real.pi • d0 +\\n        (2 : ℝ) • -Real.sin (Real.pi * (Q Y) 1) • Real.pi • d1) Y := by\\n    rw [heq]\\n    exact hd\\n  rw [hactual.fderiv]\")\nH=B/'history/production-fixtures-fix002';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'PRODUCTION_FIXTURES_FIX002_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/production-fixtures-fix002/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual full patch identity, once'};cp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only fixtures002 pointwise function-add derivative rewrite shape','full_patch':str(p)}))\n"
+        ],
+        "command_argv": [
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "production-fixtures-fix002",
+          "documentary",
+          "--",
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct');S=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();a=\"  rw [heq, hd.fderiv]\";assert old.count(a)==1;new=old.replace(a,\"  have hactual : HasFDerivAt (I4LifetimeField.actualField 2 2 fixtureSample)\\n      (-Real.sin (Real.pi * (Q Y) 0) • Real.pi • d0 +\\n        (2 : ℝ) • -Real.sin (Real.pi * (Q Y) 1) • Real.pi • d1) Y := by\\n    rw [heq]\\n    exact hd\\n  rw [hactual.fderiv]\")\nH=B/'history/production-fixtures-fix002';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'PRODUCTION_FIXTURES_FIX002_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/production-fixtures-fix002/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual full patch identity, once'};cp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only fixtures002 pointwise function-add derivative rewrite shape','full_patch':str(p)}))\n"
+        ],
+        "started_utc": "2026-10-28T23:35:01.507440+00:00",
+        "ended_utc": "2026-10-28T23:35:01.605728+00:00",
+        "child_exit_code": 0,
+        "status": "PASS_ACTUAL_CHILD_EXIT_ZERO",
+        "exception": null,
+        "original_split_streams": true
+      },
+      "entry_receipt": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/production-fixtures-fix002/RECEIPT.json",
+        "bytes": 5975,
+        "read_extent": "FULL",
+        "script_argv": [
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/entry/production-fixtures-fix002",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "entry",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures-fix002",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "outer",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "production-fixtures-fix002",
+          "documentary",
+          "--",
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct');S=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();a=\"  rw [heq, hd.fderiv]\";assert old.count(a)==1;new=old.replace(a,\"  have hactual : HasFDerivAt (I4LifetimeField.actualField 2 2 fixtureSample)\\n      (-Real.sin (Real.pi * (Q Y) 0) • Real.pi • d0 +\\n        (2 : ℝ) • -Real.sin (Real.pi * (Q Y) 1) • Real.pi • d1) Y := by\\n    rw [heq]\\n    exact hd\\n  rw [hactual.fderiv]\")\nH=B/'history/production-fixtures-fix002';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'PRODUCTION_FIXTURES_FIX002_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/production-fixtures-fix002/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual full patch identity, once'};cp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only fixtures002 pointwise function-add derivative rewrite shape','full_patch':str(p)}))\n"
+        ],
+        "command_argv": [
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures-fix002",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "outer",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "production-fixtures-fix002",
+          "documentary",
+          "--",
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct');S=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();a=\"  rw [heq, hd.fderiv]\";assert old.count(a)==1;new=old.replace(a,\"  have hactual : HasFDerivAt (I4LifetimeField.actualField 2 2 fixtureSample)\\n      (-Real.sin (Real.pi * (Q Y) 0) • Real.pi • d0 +\\n        (2 : ℝ) • -Real.sin (Real.pi * (Q Y) 1) • Real.pi • d1) Y := by\\n    rw [heq]\\n    exact hd\\n  rw [hactual.fderiv]\")\nH=B/'history/production-fixtures-fix002';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'PRODUCTION_FIXTURES_FIX002_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/production-fixtures-fix002/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual full patch identity, once'};cp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only fixtures002 pointwise function-add derivative rewrite shape','full_patch':str(p)}))\n"
+        ],
+        "started_utc": "2026-10-28T23:35:01.465082+00:00",
+        "ended_utc": "2026-10-28T23:35:01.616580+00:00",
+        "child_exit_code": 0,
+        "status": "PASS_ACTUAL_CHILD_EXIT_ZERO",
+        "exception": null,
+        "original_split_streams": true
+      },
+      "streams": [
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix002/stdout.log",
+          "bytes": 197,
+          "read_extent": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix002/stderr.log",
+          "bytes": 0,
+          "read_extent": "FULL empty"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures-fix002/stdout.log",
+          "bytes": 198,
+          "read_extent": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures-fix002/stderr.log",
+          "bytes": 0,
+          "read_extent": "FULL empty"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/production-fixtures-fix002/stdout.log",
+          "bytes": 206,
+          "read_extent": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/production-fixtures-fix002/stderr.log",
+          "bytes": 0,
+          "read_extent": "FULL empty"
+        }
+      ]
+    },
+    {
+      "label": "production-fixtures-fix003",
+      "scope_kind": "documentary",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "worker_receipt": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix003/receipt.json",
+        "bytes": 27875,
+        "read_extent": "FULL",
+        "command_argv": [
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct');S=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();a=\"  simp only [ContinuousLinearMap.add_apply, ContinuousLinearMap.smul_apply,\\n    smul_eq_mul, d0, d1, ContinuousLinearMap.comp_apply, ContinuousLinearMap.proj_apply]\\n  ring\";assert old.count(a)==1;new=old.replace(a,\"  change -Real.sin (Real.pi * (Q Y) 0) * (Real.pi * (Q V) 0) +\\n    2 * (-Real.sin (Real.pi * (Q Y) 1) * (Real.pi * (Q V) 1)) = _\\n  ring\")\nH=B/'history/production-fixtures-fix003';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'PRODUCTION_FIXTURES_FIX003_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/production-fixtures-fix003/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual full patch identity, once'};cp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only fixtures003 deprecated CLM simp names and equivalent coerced-Q ring atoms','full_patch':str(p)}))\n"
+        ],
+        "start_utc": "2026-10-28T23:35:31.161047+00:00",
+        "end_utc": "2026-10-28T23:35:31.203331+00:00",
+        "elapsed_seconds": 0.04233950599882519,
+        "exit_code": 0,
+        "exception": null,
+        "before_entries": 21,
+        "after_entries": 21,
+        "before_snapshots_count": 17,
+        "before_snapshots": {
+          "/workspace/scratch/actual-source-regular-local-collar-construct/FROZEN_CONTEXT.md": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix003/before/0-FROZEN_CONTEXT.md",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/INITIAL_SOURCE_COMMON.lean.txt": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix003/before/1-INITIAL_SOURCE_COMMON.lean.txt",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/BOOTSTRAP_PLAN.md": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix003/before/2-BOOTSTRAP_PLAN.md",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/CONTROL_CONTRACT.md": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix003/before/3-CONTROL_CONTRACT.md",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/bootstrap_context.py": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix003/before/4-bootstrap_context.py",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix003/before/5-capture66.py",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix003/before/6-record_run.py",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix003/before/7-SourceActualRegularLocalCollar.lean",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/HELPER_FIX001_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix003/before/12-HELPER_FIX001_FULL.patch",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/HELPER_INTEGRATION001_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix003/before/13-HELPER_INTEGRATION001_FULL.patch",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/PRODUCTION_FIXTURES001_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix003/before/14-PRODUCTION_FIXTURES001_FULL.patch",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/PRODUCTION_FIXTURES_FIX001_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix003/before/15-PRODUCTION_FIXTURES_FIX001_FULL.patch",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/PRODUCTION_FIXTURES_FIX002_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix003/before/16-PRODUCTION_FIXTURES_FIX002_FULL.patch",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/SOURCE_FIX001_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix003/before/17-SOURCE_FIX001_FULL.patch",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/SOURCE_INITIAL_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix003/before/18-SOURCE_INITIAL_FULL.patch",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/TRANSFER_FIXTURE001_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix003/before/19-TRANSFER_FIXTURE001_FULL.patch",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/TRANSFER_STATICFIX001_FULL.patch": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix003/before/20-TRANSFER_STATICFIX001_FULL.patch"
+        },
+        "binary_snapshot_or_canonical_object_copy": false
+      },
+      "outer_receipt": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures-fix003/RECEIPT.json",
+        "bytes": 5277,
+        "read_extent": "FULL",
+        "script_argv": [
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures-fix003",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "outer",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "production-fixtures-fix003",
+          "documentary",
+          "--",
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct');S=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();a=\"  simp only [ContinuousLinearMap.add_apply, ContinuousLinearMap.smul_apply,\\n    smul_eq_mul, d0, d1, ContinuousLinearMap.comp_apply, ContinuousLinearMap.proj_apply]\\n  ring\";assert old.count(a)==1;new=old.replace(a,\"  change -Real.sin (Real.pi * (Q Y) 0) * (Real.pi * (Q V) 0) +\\n    2 * (-Real.sin (Real.pi * (Q Y) 1) * (Real.pi * (Q V) 1)) = _\\n  ring\")\nH=B/'history/production-fixtures-fix003';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'PRODUCTION_FIXTURES_FIX003_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/production-fixtures-fix003/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual full patch identity, once'};cp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only fixtures003 deprecated CLM simp names and equivalent coerced-Q ring atoms','full_patch':str(p)}))\n"
+        ],
+        "command_argv": [
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "production-fixtures-fix003",
+          "documentary",
+          "--",
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct');S=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();a=\"  simp only [ContinuousLinearMap.add_apply, ContinuousLinearMap.smul_apply,\\n    smul_eq_mul, d0, d1, ContinuousLinearMap.comp_apply, ContinuousLinearMap.proj_apply]\\n  ring\";assert old.count(a)==1;new=old.replace(a,\"  change -Real.sin (Real.pi * (Q Y) 0) * (Real.pi * (Q V) 0) +\\n    2 * (-Real.sin (Real.pi * (Q Y) 1) * (Real.pi * (Q V) 1)) = _\\n  ring\")\nH=B/'history/production-fixtures-fix003';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'PRODUCTION_FIXTURES_FIX003_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/production-fixtures-fix003/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual full patch identity, once'};cp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only fixtures003 deprecated CLM simp names and equivalent coerced-Q ring atoms','full_patch':str(p)}))\n"
+        ],
+        "started_utc": "2026-10-28T23:35:31.122299+00:00",
+        "ended_utc": "2026-10-28T23:35:31.214862+00:00",
+        "child_exit_code": 0,
+        "status": "PASS_ACTUAL_CHILD_EXIT_ZERO",
+        "exception": null,
+        "original_split_streams": true
+      },
+      "entry_receipt": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/production-fixtures-fix003/RECEIPT.json",
+        "bytes": 6009,
+        "read_extent": "FULL",
+        "script_argv": [
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/entry/production-fixtures-fix003",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "entry",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures-fix003",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "outer",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "production-fixtures-fix003",
+          "documentary",
+          "--",
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct');S=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();a=\"  simp only [ContinuousLinearMap.add_apply, ContinuousLinearMap.smul_apply,\\n    smul_eq_mul, d0, d1, ContinuousLinearMap.comp_apply, ContinuousLinearMap.proj_apply]\\n  ring\";assert old.count(a)==1;new=old.replace(a,\"  change -Real.sin (Real.pi * (Q Y) 0) * (Real.pi * (Q V) 0) +\\n    2 * (-Real.sin (Real.pi * (Q Y) 1) * (Real.pi * (Q V) 1)) = _\\n  ring\")\nH=B/'history/production-fixtures-fix003';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'PRODUCTION_FIXTURES_FIX003_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/production-fixtures-fix003/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual full patch identity, once'};cp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only fixtures003 deprecated CLM simp names and equivalent coerced-Q ring atoms','full_patch':str(p)}))\n"
+        ],
+        "command_argv": [
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures-fix003",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "outer",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "production-fixtures-fix003",
+          "documentary",
+          "--",
+          "python3",
+          "-c",
+          "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct');S=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();a=\"  simp only [ContinuousLinearMap.add_apply, ContinuousLinearMap.smul_apply,\\n    smul_eq_mul, d0, d1, ContinuousLinearMap.comp_apply, ContinuousLinearMap.proj_apply]\\n  ring\";assert old.count(a)==1;new=old.replace(a,\"  change -Real.sin (Real.pi * (Q Y) 0) * (Real.pi * (Q V) 0) +\\n    2 * (-Real.sin (Real.pi * (Q Y) 1) * (Real.pi * (Q V) 1)) = _\\n  ring\")\nH=B/'history/production-fixtures-fix003';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'PRODUCTION_FIXTURES_FIX003_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/production-fixtures-fix003/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual full patch identity, once'};cp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only fixtures003 deprecated CLM simp names and equivalent coerced-Q ring atoms','full_patch':str(p)}))\n"
+        ],
+        "started_utc": "2026-10-28T23:35:31.091045+00:00",
+        "ended_utc": "2026-10-28T23:35:31.221790+00:00",
+        "child_exit_code": 0,
+        "status": "PASS_ACTUAL_CHILD_EXIT_ZERO",
+        "exception": null,
+        "original_split_streams": true
+      },
+      "streams": [
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix003/stdout.log",
+          "bytes": 211,
+          "read_extent": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix003/stderr.log",
+          "bytes": 0,
+          "read_extent": "FULL empty"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures-fix003/stdout.log",
+          "bytes": 198,
+          "read_extent": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures-fix003/stderr.log",
+          "bytes": 0,
+          "read_extent": "FULL empty"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/production-fixtures-fix003/stdout.log",
+          "bytes": 206,
+          "read_extent": "FULL"
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/production-fixtures-fix003/stderr.log",
+          "bytes": 0,
+          "read_extent": "FULL empty"
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "families": 4,
+    "receipts": 12,
+    "receipt_bytes": 204594,
+    "streams": 24,
+    "stream_bytes": 2491,
+    "nonempty_streams": 12,
+    "empty_stderr_streams": 12
+  },
+  "custody_issue_found": false,
+  "capture_qualifications": [
+    "Documentary exit zero establishes mutation/custody operation, not successful mathematical elaboration of each intermediate source.",
+    "Original worker streams differ from outer and entry summary streams.",
+    "Worker end_utc ends child timing; recorded after identities can be observed later within wrapper interval.",
+    "Tracked path list for a run is fixed before its worker; newly written patch appears among later-family tracked paths.",
+    "Recorded preexisting object identity remains unchanged while documentary source versions change; it is not a claim that the object represents those changed sources."
+  ],
+  "reusable_evidence": "These FULL original-record reads apply across agents/sessions/heads/handoffs on unchanged material under the same relevant assumptions. Do not replay mathematical/source/object checks because of this handoff."
+}

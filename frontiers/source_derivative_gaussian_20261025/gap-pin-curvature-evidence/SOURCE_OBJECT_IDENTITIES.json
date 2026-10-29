@@ -1,0 +1,49 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceGapPinCurvature.lean",
+    "bytes": 13281,
+    "sha256": "67f6c671e4ed8a7cb8557fc6027403f4fd1e94cba984e672eaa3ceb94ab8847e"
+  },
+  "olean": {
+    "path": "/workspace/scratch/gap-pin-curvature-construct/build/SourceGapPinCurvature.olean",
+    "bytes": 467776,
+    "sha256": "00378503fe93cca757712046d9c6818296880b5524d7c0096f87794c2657eb2c"
+  },
+  "ilean": null,
+  "strict_receipt": {
+    "path": "/workspace/scratch/gap-pin-curvature-construct/runs/compile-002/receipt.json",
+    "bytes": 1512,
+    "sha256": "53a573e786782b6928a46f49354bf3141e3d75ac8ad6b6d1b83a4d7337dda7b1"
+  },
+  "kernel_receipt": {
+    "path": "/workspace/scratch/gap-pin-curvature-construct/runs/kernel-001/receipt.json",
+    "bytes": 1684,
+    "sha256": "57dd8ca510e7cfafed9917e673d8cf5662d512648118598ccd835546d649ea3d"
+  },
+  "direct_import_source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactTargetMoments.lean",
+    "bytes": 11349,
+    "sha256": "4fc28898f09381b4bfd0a15324556d2f3cb68f4b39063aa3acf12db7759ccfc8"
+  },
+  "direct_import_object": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceCompactTargetMoments.olean",
+    "bytes": 847192,
+    "sha256": "c880d2497a20f8857b8b1ea5fc0de2e365470f29d7a24f9c58afe1d62a11a38d"
+  },
+  "reused_peano_curvature_source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourcePinCurvatureBounds.lean",
+    "bytes": 46891,
+    "sha256": "b19a673aa594d1d5ef929cc598f0a142efb56c10b78c4634c92a8a749d1f1d51"
+  },
+  "reused_peano_curvature_object": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourcePinCurvatureBounds.olean",
+    "bytes": 2038336,
+    "sha256": "44f65e77425fec3b6de34f5e0caf4e2e9657af62e141ef65f4dbfa04bc54f2fc"
+  },
+  "qualified_existing_packet": "38 modules / 989 targets / 32 inputs at published source cut 19f7baf; completed applicable verification reused, no old replay. Root owns qualification metadata.",
+  "precode_commit": "c47964f89d819dde79019b0ac544dc9b4bfd710c",
+  "production_eligible": [
+    "SourceGapPinCurvature.olean"
+  ],
+  "ineligible": "Controls.olean and all other helper/control/mutation objects; root alone owns production cache copy."
+}

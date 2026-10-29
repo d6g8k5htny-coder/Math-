@@ -1,0 +1,8 @@
+/workspace/scratch/pin-preserving-quartic-implementation/EuclideanBridge.lean:28:20: error: unexpected token '|*'; expected '|' or '|ₘ'
+/workspace/scratch/pin-preserving-quartic-implementation/EuclideanBridge.lean:28:7: error: Missing cases:
+/workspace/scratch/pin-preserving-quartic-implementation/EuclideanBridge.lean:25:25: error: unsolved goals
+v : EuclideanSpace ℝ (Fin 2)
+hs : ‖v‖ ^ 2 = v.ofLp 0 ^ 2 + v.ofLp 1 ^ 2
+habs : 0 ≤ |v.ofLp 0| + |v.ofLp 1|
+hp : 0 ≤ |v.ofLp 0|
+⊢ ‖v‖ ≤ |v.ofLp 0| + |v.ofLp 1|

@@ -1,0 +1,33 @@
+/- Uncompiled Controls-only text for ONE integration inside
+TwoRemoteFirstJetGaussianControls. No production declaration or separate
+helper proof/control campaign is introduced. -/
+
+private def firstThreeBlockDiagonal (S : Matrix (Fin 6) (Fin 6) ℝ) :
+    Matrix (Fin 6) (Fin 6) ℝ :=
+  Fin.addCases
+    (fun i : Fin 3 => Fin.addCases
+      (fun j : Fin 3 => S (Fin.castAdd 3 i) (Fin.castAdd 3 j)) (fun _ : Fin 3 => 0))
+    (fun i : Fin 3 => Fin.addCases
+      (fun _ : Fin 3 => 0) (fun j : Fin 3 => S (Fin.castAdd 3 i) (Fin.castAdd 3 j)))
+
+private theorem firstThreeBlockDiagonal_posSemidef
+    (S : Matrix (Fin 6) (Fin 6) ℝ) (hS : S.PosDef) :
+    (firstThreeBlockDiagonal S).PosSemidef := by
+  let A : Matrix (Fin 3) (Fin 3) ℝ :=
+    fun i j => S (Fin.castAdd 3 i) (Fin.castAdd 3 j)
+  have hA : A.PosSemidef :=
+    hS.posSemidef.submatrix (Fin.castAdd 3 : Fin 3 → Fin 6)
+  let P₀ : Matrix (Fin 6) (Fin 3) ℝ :=
+    Fin.addCases (fun i j : Fin 3 => if i=j then 1 else 0)
+      (fun (_ : Fin 3) (_ : Fin 3) => 0)
+  let P₁ : Matrix (Fin 6) (Fin 3) ℝ :=
+    Fin.addCases (fun (_ : Fin 3) (_ : Fin 3) => 0)
+      (fun i j : Fin 3 => if i=j then 1 else 0)
+  have heq : firstThreeBlockDiagonal S = P₀ * A * P₀ᴴ + P₁ * A * P₁ᴴ := by
+    ext i j
+    fin_cases i <;> fin_cases j <;>
+      simp [firstThreeBlockDiagonal, P₀, P₁, A, Matrix.mul_apply,
+        Matrix.conjTranspose_apply, Fin.sum_univ_succ, Fin.addCases]
+  rw [heq]
+  exact (hA.mul_mul_conjTranspose_same P₀).add
+    (hA.mul_mul_conjTranspose_same P₁)

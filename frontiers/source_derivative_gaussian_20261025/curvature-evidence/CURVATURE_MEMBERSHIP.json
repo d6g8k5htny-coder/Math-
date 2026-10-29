@@ -1,0 +1,65 @@
+{
+  "scope_id": "SOURCE_CURVATURE_FOUR_NEW_MODULES_20261026",
+  "modules": [
+    {
+      "module": "SourcePinCurvatureBounds",
+      "source_sha256": "b19a673aa594d1d5ef929cc598f0a142efb56c10b78c4634c92a8a749d1f1d51",
+      "public_inventory_count": 71,
+      "kind_counts": {
+        "theorem": 60,
+        "def": 8,
+        "lemma": 3
+      }
+    },
+    {
+      "module": "ScalarProductCurvatureBound",
+      "source_sha256": "fb77c9a4eaf165a39c6c06535fbb3f3f164bca12ddbc2f29b01a33e512564b71",
+      "public_inventory_count": 3,
+      "kind_counts": {
+        "theorem": 3
+      }
+    },
+    {
+      "module": "SourceCurvatureDecomposition",
+      "source_sha256": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+      "public_inventory_count": 112,
+      "kind_counts": {
+        "def": 21,
+        "theorem": 88,
+        "lemma": 1,
+        "instance": 2
+      }
+    },
+    {
+      "module": "SourceWeightedCurvatureBound",
+      "source_sha256": "9926f650c8fb9baf13261ba7ea1d01bd7a5cfb95c7175163888c42a62934a3f9",
+      "public_inventory_count": 18,
+      "kind_counts": {
+        "def": 4,
+        "theorem": 13,
+        "lemma": 1
+      }
+    }
+  ],
+  "new_public_declarations": 204,
+  "kind_counts": {
+    "theorem": 164,
+    "def": 33,
+    "lemma": 5,
+    "instance": 2
+  },
+  "new_theorem_lemma_targets": 169,
+  "new_named_instances": 2,
+  "new_definitions": 33,
+  "direct_printed_declarations": 200,
+  "direct_printed_proofs_and_instances": 171,
+  "direct_printed_definitions": 29,
+  "definitions_without_direct_reports": [
+    "I4SourceWeightedCurvature.sourceRegularityBad",
+    "I4SourceWeightedCurvature.sourceCurvatureSlab",
+    "I4SourceWeightedCurvature.sourceRegularCurvatureSlab",
+    "I4SourceWeightedCurvature.sourceCurvatureOneSided"
+  ],
+  "excluded_successor": "SourcePinPreservingQuartic.lean: newly authorized/active successor, outside these four qualified modules.",
+  "excluded_comparison": "Published analytic paper comparison is a research candidate, not Lean-qualified evidence or a target in this catalog."
+}

@@ -1,0 +1,44 @@
+{
+  "label": "kernel-001",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/compact-fold-weighted-probability-construct/build:/workspace/scratch/compact-gap-normalizer-construct/build:/workspace/scratch/gap-weighted-numerator-construct/build:$LEAN_PATH exec leanchecker SourceCompactFoldWeightedProbability"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactFoldWeightedProbability.lean",
+      "bytes": 8882,
+      "sha256": "97e6c694b62d90f6b723b0e510691e019f763ff26ebba743664d596dc72223b9"
+    },
+    "object": {
+      "path": "/workspace/scratch/compact-fold-weighted-probability-construct/build/SourceCompactFoldWeightedProbability.olean",
+      "bytes": 499208,
+      "sha256": "7f5e51ce282049a8ea7a72af338b826fe8faa16eb739a2f697b88a63270140b6"
+    }
+  },
+  "started_utc": "2026-10-26T10:31:06.108943+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 5.437551975250244,
+  "ended_utc": "2026-10-26T10:31:11.546519+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactFoldWeightedProbability.lean",
+      "bytes": 8882,
+      "sha256": "97e6c694b62d90f6b723b0e510691e019f763ff26ebba743664d596dc72223b9"
+    },
+    "object": {
+      "path": "/workspace/scratch/compact-fold-weighted-probability-construct/build/SourceCompactFoldWeightedProbability.olean",
+      "bytes": 499208,
+      "sha256": "7f5e51ce282049a8ea7a72af338b826fe8faa16eb739a2f697b88a63270140b6"
+    }
+  },
+  "log": {
+    "path": "/workspace/scratch/compact-fold-weighted-probability-construct/runs/kernel-001/output.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

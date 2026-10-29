@@ -1,0 +1,117 @@
+{
+  "created_utc": "2026-10-26T19:25:04.336672+00:00",
+  "scope": "Root supplementary source55 dependency custody. Producerbaselinefields remain frozen inline; no separate producerDEPENDENCY_REUSE file was authored or required.",
+  "source_cut": "8a21124e0f77679d8be0c0e16b8f5693f60785ae",
+  "qualified_baseline54_manifest_sha_reused": "ca67103c33b8683338d7757a224d554284f331d0bdecd2a8df041f63959741c4",
+  "direct_source_imports": [
+    "SourceTwoRemoteFirstJetWitness",
+    "SourceRemoteJetGaussian",
+    "SourceSmoothTopology"
+  ],
+  "retained_records": [
+    {
+      "registered_record_path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/remote-jet-gaussian-evidence/SOURCE_OBJECT_IDENTITIES.json",
+      "registered_record_sha256_reused": "5700731ebf6e00044fcdba6b5e039f82a0f65fc305e175a6ca8e037b11039ede",
+      "record": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetGaussian.lean",
+          "bytes": 17053,
+          "sha256": "65694d00f575333b3b896338ecaf047ce8e166fbb8eddc03bd0836cce521a034"
+        },
+        "object": {
+          "path": "/workspace/scratch/remote-jet-gaussian-construct/build/SourceRemoteJetGaussian.olean",
+          "bytes": 439696,
+          "sha256": "860a695d73f7a800442e03a7c1c1f9ccf77bd70692239a96a95674df03f39d0c"
+        },
+        "compiled_object": {
+          "path": "/workspace/scratch/remote-jet-gaussian-construct/runs/develop-003/SourceRemoteJetGaussian.olean",
+          "bytes": 439696,
+          "sha256": "860a695d73f7a800442e03a7c1c1f9ccf77bd70692239a96a95674df03f39d0c"
+        },
+        "strict_receipt": {
+          "path": "/workspace/scratch/remote-jet-gaussian-construct/runs/develop-003/record.json",
+          "bytes": 1275,
+          "sha256": "f75d65d26031017a3dc2fbf4ec227c96d1a8064d85db96ec0bf44dab470d3eaa"
+        },
+        "kernel_receipt": {
+          "path": "/workspace/scratch/remote-jet-gaussian-construct/runs/kernel-001/record.json",
+          "bytes": 1143,
+          "sha256": "9ad38c94a8e170fbfa2a09e180a8364aa634d55432d2458ff126c454dfb5e14e"
+        },
+        "freeze": {
+          "path": "/workspace/scratch/remote-jet-gaussian-construct/FROZEN_SOURCE.json",
+          "bytes": 1082,
+          "sha256": "f31e56417b987f4e0d9c47f5b7c101516ef4267a319748bec73bc4781b1fc752"
+        },
+        "eligible_production_objects": [
+          "SourceRemoteJetGaussian.olean"
+        ],
+        "ineligible_objects": "All helper/control/inventory/mutation and earlier attempt objects. Scratch build/Controls.olean only reuses passed positive counterexample for negative harness, never production-eligible. No ilean or freshness compilation. Root alone owns production cache.",
+        "baseline_reused": "48modules/1101targets/32inputs at9a1f52baf3bc8719d37c7696a7c364211de3ee56; sourcecut689b8eef7dd2107e51d46007c1be3dfd4a909b81, source c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf; eligible own stage48objectab78 already cached. All applicable old source/series/finiteGaussian/Gram/regression/rawkernel/inverse evidence reused without replay.",
+        "root_local_sourcecut": "9ce7b9519aac1b1052d9c6f0c5082581d39da0f6",
+        "published_precode": "fa7bce305cd1b95f26abde3e21e13e1e08362766",
+        "no_current_source_hosted_CI_claim": true
+      }
+    },
+    {
+      "registered_record_path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/two-remote-firstjet-witness-evidence/SOURCE_OBJECT_IDENTITIES.json",
+      "registered_record_sha256_reused": "58eaebfd5f31e01205f82c639d73312978bdd6d4fda2d1cae57cdbdb3fd31f12",
+      "record": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetWitness.lean",
+          "bytes": 21442,
+          "sha256": "b523da924513fc312c5432c241fc031d4fbe3567fbeedbba981f36dd798574a4"
+        },
+        "object": {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/build/SourceTwoRemoteFirstJetWitness.olean",
+          "bytes": 1445664,
+          "sha256": "5466505132cd10c5a9ca362ba6e473de52eb949260e6b8fe801a16eff1f7f90c"
+        },
+        "compiled_object": {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-003/SourceTwoRemoteFirstJetWitness.olean",
+          "bytes": 1445664,
+          "sha256": "5466505132cd10c5a9ca362ba6e473de52eb949260e6b8fe801a16eff1f7f90c"
+        },
+        "strict_receipt": {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-003/record.json",
+          "bytes": 1319,
+          "sha256": "8bc0de2d2df07f555a7f02a1e476f0c1c9e2109c4fc6bf1d42f140edbaed20cc"
+        },
+        "kernel_receipt": {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/kernel-001/record.json",
+          "bytes": 1181,
+          "sha256": "532f210a622cfc1cd2aecb29fd27ce163aed1069de7d5bc1f86113547965baf0"
+        },
+        "freeze": {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/FROZEN_SOURCE.json",
+          "bytes": 1328,
+          "sha256": "86265de471af7dee22a734b5c81a52fc01dc0be08781f39430a7cc2c6df1b071"
+        },
+        "eligible_production_objects": [
+          "SourceTwoRemoteFirstJetWitness.olean"
+        ],
+        "ineligible_objects": "All helper/control/inventory/mutation and earlier attempt objects. Scratch build/Controls.olean only reuses passed actualcollisioncounterexample for negativeharness; neverproductioneligible. Noileanfreshnesscompile. Rootsoleproductioncache.",
+        "baseline_reused": "qualified47/48 finiteTrig/source/localgerm/Gram/finitekernel proofsandobjects plusallapplicableearliermath unchanged. Qualified52publication677f8aef426a6f754ad9a77f122b6597ec4bc1e9/RESULT6422828482 retained but53doesnotimport52law/helper.",
+        "root_sourcecut": {
+          "status": "root owns Git/cut; not supplied at producer evidencefreeze. Rootmay separatelybindactualprocesscut withoutrewriting/replaying thisfrozenqualification."
+        },
+        "published_precode": "c9eab66fc13968de4bcf391c4effd9db5321ac11",
+        "no_current_source_hosted_CI_claim": true
+      }
+    }
+  ],
+  "topology": {
+    "module": "SourceSmoothTopology",
+    "source_path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothTopology.lean",
+    "source_sha256": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+    "olean_path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceSmoothTopology.olean",
+    "olean_sha256": null,
+    "olean_hash_note": "Not captured by original topology records; no object hash is fabricated or newly computed",
+    "artifact_binding": "Final compile explicitly wrote SourceSmoothTopology.olean; subsequent named leanchecker/import audit and controls consumed it under the unchanged frozen source. Original records retain source before/after hashes; they do not separately digest the object."
+  },
+  "new55_route": "strict006 uses accepted packet lake env baseline; own-module inventory/kernel/controls/solemutation prepend ONLY new55scratchbuild. Root earlier owncachecopies ofqualified49/53 reused; no new oldobjectcopy/build/hash.",
+  "old_source_object_SHA256_replays": 0,
+  "old_proof_kernel_audit_control_replays": 0,
+  "topology_original_object_hash_missing_honestly_retained": true,
+  "production_copy_guidance": "LaterrootONLYnew SourceTwoRemoteFirstJetGaussian.olean ONCE, not control/helper/inventory/priorpartial/ilean; no sourceor dependencyrefresh forGitlabels."
+}

@@ -1,0 +1,46 @@
+--- initial/import_native_source_commit.py
++++ amended/import_native_source_commit_observed_message.py
+@@ -1,5 +1,5 @@
+ #!/usr/bin/env python3
+-"""PROPOSAL: ONE unsigned candidate from actual metadata + exact requested message.
++"""ROOT AMENDMENT: ONE unsigned candidate using literal observed API message bytes.
+ Only a matching native Git SHA permits root's local CAS/source-index sync.
+ """
+ from pathlib import Path
+@@ -72,11 +72,13 @@
+     api_message = commit.get('message')
+     require(isinstance(api_message, str) and api_message.rstrip('\n') == requested_text.rstrip('\n'),
+             'API normalized message does not match exact retained requested message.')
+-    # The API strips final LF in observed representations. Actual raw candidate uses
+-    # the retained REQUEST bytes, never an appended/guessed API-message newline.
++    # Concrete first import failed exact SHA matching with retained request bytes.
++    # This revised NEW candidate uses the literal actual Git-data message value,
++    # with NO newline addition/removal and no author/timezone alternatives.
++    # Exact native SHA equality remains mandatory before ANY local movement.
+     raw = b'\n'.join([('tree ' + tree).encode('ascii'), ('parent ' + PARENT).encode('ascii'),
+                       identity_header('author', commit.get('author')),
+-                      identity_header('committer', commit.get('committer'))]) + b'\n\n' + requested
++                      identity_header('committer', commit.get('committer'))]) + b'\n\n' + api_message.encode('utf-8')
+     write_bytes_new(run.path / 'NATIVE_COMMIT_RESPONSE.exact.json', response_bytes)
+     write_bytes_new(run.path / 'REQUESTED_MESSAGE.exact.txt', requested)
+     write_bytes_new(run.path / 'CANDIDATE_RAW_COMMIT.bin', raw)
+@@ -90,7 +92,8 @@
+     require(actual_ref == branch_ref, 'Actual local branch differs; no detached/other-branch update.')
+     run.event({'event': 'ONE_NEW_RAW_COMMIT_CONSTRUCTION_INTENT', 'native_sha': native,
+                'raw_candidate': str(run.path / 'CANDIDATE_RAW_COMMIT.bin'),
+-               'no_alternative_author_timezone_newline_candidates': True})
++               'literal_actual_API_message_no_newline_modification': True,
++               'prior_failed_request_message_candidate_preserved': '/workspace/scratch/actual-source-saddle-uppercuts-publication/native-source-import001/action/RESULT.json'})
+     imported = oid(run.command('ONE-new-commit-object', ['git', 'hash-object', '-w', '-t', 'commit', '--stdin'], repo,
+                                stdin_bytes=raw,
+                                stdin_binding={'path': str(run.path / 'CANDIDATE_RAW_COMMIT.bin'),
+@@ -117,7 +120,8 @@
+             'remote_ref_write': False,
+             'remote_ref_scope': 'No remote operation in this script. Root retains separate actual ee5 remote-head observation; remote ref remains unmoved by these local actions until later final publication.',
+             'requested_message': str(requested_path), 'actual_commit_response': str(response_path),
+-            'author_committer_source': 'Actual returned ISO metadata/offsets; one candidate only, exact native SHA matched.',
++            'author_committer_source': 'Actual returned ISO metadata/offsets; exact native SHA matched.',
++            'message_source': 'Literal actual Git-data API message UTF8 bytes, no newline modification; previous request-message candidate failed and is retained.',
+             'sha256_computations': 0, **state}
+ 
+ 

@@ -1,0 +1,71 @@
+{
+  "status": "NEW66_NATIVE_PUBLICATION_RUNTIME_EXTERNALLY_FROZEN_BEFORE_FIRST_EXECUTION",
+  "rows": [
+    {
+      "source": "/workspace/scratch/stage66-native-publication-support/publication66.py",
+      "immutable_exact_copy": "/workspace/scratch/actual-source-regular-local-collar-publication/native-runtime/publication66.py",
+      "bytes": 18794,
+      "sha256": "6cd8ddef9c546852dafbdf43144cc9ddb3a36e80353db00fa42bf3dcc1c8a951",
+      "first_observed_utc": "2026-10-28T23:49:53.681738+00:00",
+      "origin": "FIRST_ONCE_NEW66_PUBLICATION_METADATA; exact copy REUSES ID"
+    },
+    {
+      "source": "/workspace/scratch/stage66-native-publication-support/SOURCE_GO.template.json",
+      "immutable_exact_copy": "/workspace/scratch/actual-source-regular-local-collar-publication/native-runtime/SOURCE_GO.template.json",
+      "bytes": 952,
+      "sha256": "0f089fc4468e51b5c0c11cd0bbca483a96083263d1e5155f59a148656c655c57",
+      "first_observed_utc": "2026-10-28T23:49:53.681876+00:00",
+      "origin": "FIRST_ONCE_NEW66_PUBLICATION_METADATA; exact copy REUSES ID"
+    },
+    {
+      "source": "/workspace/scratch/stage66-native-publication-support/README.md",
+      "immutable_exact_copy": "/workspace/scratch/actual-source-regular-local-collar-publication/native-runtime/README.md",
+      "bytes": 4970,
+      "sha256": "0b93e90abaa41df77ede5a5e7ac37b42fe622d4be8d81461904afe022443b54f",
+      "first_observed_utc": "2026-10-28T23:49:53.681930+00:00",
+      "origin": "FIRST_ONCE_NEW66_PUBLICATION_METADATA; exact copy REUSES ID"
+    },
+    {
+      "source": "/workspace/scratch/stage66-native-publication-support/TAIL_FILE_CHOICES.json",
+      "immutable_exact_copy": "/workspace/scratch/actual-source-regular-local-collar-publication/native-runtime/TAIL_FILE_CHOICES.json",
+      "bytes": 2640,
+      "sha256": "224d4bffd659fef98d6ca78b47b12431d8ad27fc260be31c7426069d18bbb2df",
+      "first_observed_utc": "2026-10-28T23:49:53.681971+00:00",
+      "origin": "FIRST_ONCE_NEW66_PUBLICATION_METADATA; exact copy REUSES ID"
+    },
+    {
+      "source": "/workspace/scratch/stage66-native-publication-support/preparation-history/static-amendment001/publication66.py.ORIGINAL",
+      "immutable_exact_copy": "/workspace/scratch/actual-source-regular-local-collar-publication/native-runtime/preparation-history/static-amendment001/publication66.py.ORIGINAL",
+      "bytes": 17542,
+      "sha256": "d7d3a92275e309e9a1911d943f357da002371e4fe2c14550f19d665fe54dc046",
+      "first_observed_utc": "2026-10-28T23:49:53.682160+00:00",
+      "origin": "FIRST_ONCE_NEW66_PUBLICATION_METADATA; exact copy REUSES ID"
+    },
+    {
+      "source": "/workspace/scratch/stage66-native-publication-support/preparation-history/static-amendment001/publication66.py.FULL_ACTUAL.patch",
+      "immutable_exact_copy": "/workspace/scratch/actual-source-regular-local-collar-publication/native-runtime/preparation-history/static-amendment001/publication66.py.FULL_ACTUAL.patch",
+      "bytes": 3181,
+      "sha256": "1d0dc43da2eef873fd0ad5af620b2a508c01fdf674e52293cd0c4483bf2d5020",
+      "first_observed_utc": "2026-10-28T23:49:53.682237+00:00",
+      "origin": "FIRST_ONCE_NEW66_PUBLICATION_METADATA; exact copy REUSES ID"
+    },
+    {
+      "source": "/workspace/scratch/stage66-native-publication-support/preparation-history/static-amendment002/publication66.py.ORIGINAL",
+      "immutable_exact_copy": "/workspace/scratch/actual-source-regular-local-collar-publication/native-runtime/preparation-history/static-amendment002/publication66.py.ORIGINAL",
+      "bytes": 18039,
+      "sha256": "b4d1db02fa6f84fbce2ba592d066e604c569a9c75def31c1ab972f1d1de87cd9",
+      "first_observed_utc": "2026-10-28T23:49:53.682328+00:00",
+      "origin": "FIRST_ONCE_NEW66_PUBLICATION_METADATA; exact copy REUSES ID"
+    },
+    {
+      "source": "/workspace/scratch/stage66-native-publication-support/preparation-history/static-amendment002/publication66.py.FULL_ACTUAL.patch",
+      "immutable_exact_copy": "/workspace/scratch/actual-source-regular-local-collar-publication/native-runtime/preparation-history/static-amendment002/publication66.py.FULL_ACTUAL.patch",
+      "bytes": 4015,
+      "sha256": "29ec9ab4bcdf805e6f3be6f4ffd35f9b5dbaa08772da973de49263f58002f5bd",
+      "first_observed_utc": "2026-10-28T23:49:53.682371+00:00",
+      "origin": "FIRST_ONCE_NEW66_PUBLICATION_METADATA; exact copy REUSES ID"
+    }
+  ],
+  "root_full_reading": "FULLcurrentpublication66.py4510tokens after001; FULLactual002delta1004 +README/readiness/static2828 andactualsourceGOtemplate/tail934. NewindependentstaticreviewPASS, oldcodec/rawPUBLICGittransport reusedwithoutretest/hash/copy.",
+  "old_source_object_hashes": 0
+}

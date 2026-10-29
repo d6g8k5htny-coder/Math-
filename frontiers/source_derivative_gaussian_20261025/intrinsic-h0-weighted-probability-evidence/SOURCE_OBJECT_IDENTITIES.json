@@ -1,0 +1,36 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+    "bytes": 32555,
+    "sha256": "14eefa9f0572e215a9170c1b3206e67b60d1e6f3861f36c66ca6701cf19a4f46"
+  },
+  "olean": {
+    "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+    "bytes": 1371120,
+    "sha256": "56eb99ad2a1358f693a00d92004e4091c306ff98b0a5c53c04b149a2fad81968"
+  },
+  "strict_receipt": {
+    "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/complete-integration-002/receipt.json",
+    "bytes": 2256,
+    "sha256": "50c72117a3979d378c5480d6746d2d223235d551334d67b072dcbede60f4dec1"
+  },
+  "inventory_receipt": {
+    "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/inventory-001/receipt.json",
+    "bytes": 2295,
+    "sha256": "e942911891640b57daf366c27731705db62bf03dab9d386373c93d025e536ccc"
+  },
+  "kernel_receipt": {
+    "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/kernel-001/receipt.json",
+    "bytes": 2164,
+    "sha256": "02db5349c3922433feb07a7815e342ad0754afc2e093388a27ac9a97424b784e"
+  },
+  "source_frozen_unchanged_since_complete_integration002": true,
+  "exact_success_reused_after_freeze_and_process_cuts": true,
+  "own_module_kernel_invocations": 1,
+  "new_ilean_generated": false,
+  "production_eligible": [
+    "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean"
+  ],
+  "ineligible": "Every helper/control/mutation/prior partial object; IntrinsicProbabilityControls.olean is not eligible. Root alone owns cache copy.",
+  "root_source_cut": "PENDING root serial55-before56 process; original pending-cut producer records may remain immutable and be bound by a separate root cut record without math replay"
+}

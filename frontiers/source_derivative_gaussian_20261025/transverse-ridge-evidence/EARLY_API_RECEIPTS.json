@@ -1,0 +1,32 @@
+{
+  "note": "Raw API exploration outputs and failing prototype are retained; these preceded the per-run timing wrapper. No invented exact process timestamp.",
+  "prototype": {
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "lean",
+      "-DwarningAsError=true",
+      "/workspace/scratch/transverse-ridge-construct/ExamplePrototype.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "exit_code": 1,
+    "source_snapshot": "snapshots/ExamplePrototype.lean",
+    "source_sha256": "63b3cd76dc7a1e2c859d5bbb8a97fc1e73cae9f3ec43a9d74da69138d06cdd5e",
+    "log": "failures/prototype-001.log"
+  },
+  "check_002": {
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "lean",
+      "/workspace/scratch/transverse-ridge-construct/Check.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "source_snapshot": "snapshots/Check.lean",
+    "source_sha256": "cf3488c76e6303f87e56f5476ee53c22332f63b42c2e6169cfe99a91fc3303d7",
+    "log": "check-002.log",
+    "shell_exit_code": 0,
+    "lean_exit_code": null,
+    "note": "Shell displayed the redirected Lean diagnostics through cat without capturing Lean exit. Unknown .pow/.div_const errors are preserved; not represented as proof verification."
+  }
+}

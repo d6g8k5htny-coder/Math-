@@ -1,0 +1,31 @@
+{
+  "status": "SEPARATE_ORDINARY_ALL_OWNED_COLLECTOR_FROZEN_AFTER_ORDINARY_STRICT_PASS",
+  "observed_utc": "2026-10-28T23:41:47.715756+00:00",
+  "collector": {
+    "path": "/workspace/scratch/actual-source-regular-local-collar-construct/ControlsInventory.lean",
+    "bytes": 1077,
+    "sha256": "a10e2b6e4d61deeae8645cb0e9560c1a5e867ca1ed29f886e6f3291d425c61d6",
+    "marker": [
+      1077,
+      1793230907711202487
+    ],
+    "first_observed_utc": "2026-10-28T23:41:47.711234+00:00",
+    "origin": "FIRST actual NEW ordinary exhaustive inventory collector before first execution"
+  },
+  "immutable_original": "/workspace/scratch/actual-source-regular-local-collar-construct/frozen/INITIAL_ControlsInventory.lean",
+  "final_ordinary_source_ID_reused": {
+    "path": "/workspace/scratch/actual-source-regular-local-collar-construct/frozen/FINAL_CONTROLS.lean",
+    "bytes": 12876,
+    "sha256": "0be4442e2363a445a1c5a369c8c6559118b7cdd8fe4efb52b893a659b7091827",
+    "marker": [
+      12876,
+      1793230907711038092
+    ],
+    "first_observed_utc": "2026-10-28T23:41:20.876966+00:00",
+    "origin": "Known exact final ordinary source copy ID REUSED; no hash",
+    "copied_from": "/workspace/scratch/actual-source-regular-local-collar-construct/RegularLocalCollarControls.lean"
+  },
+  "ordinary_strict_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/controls004/receipt.json",
+  "ordinary_named_kernel": "NONE",
+  "negative_harness_created": false
+}

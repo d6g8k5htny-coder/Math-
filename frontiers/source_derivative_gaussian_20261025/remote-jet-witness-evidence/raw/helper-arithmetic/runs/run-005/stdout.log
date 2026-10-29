@@ -1,0 +1,11 @@
+/workspace/scratch/remote-jet-arithmetic/runs/run-005/Arithmetic.lean:160:2: error: Type mismatch: After simplification, term
+  HasFDerivAt.const_mul (HasFDerivAt.sub (hasFDerivAt_apply i y) (hasFDerivAt_const (z i) y)) c
+ has type
+  @HasFDerivAt ℝ DenselyNormedField.toNontriviallyNormedField (Fin 2 → ℝ) Pi.normedAddCommGroup.toAddCommGroup
+    Pi.normedSpace.toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace ℝ Real.normedCommRing.toAddCommGroup
+    (NormedAlgebra.toNormedSpace ℝ).toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    (fun y => c * ((fun f => f i) - fun x => z i) y) (c • ContinuousLinearMap.proj i) y
+but is expected to have type
+  @HasFDerivAt ℝ DenselyNormedField.toNontriviallyNormedField (Fin 2 → ℝ) Pi.addCommGroup
+    (Pi.module (Fin 2) (fun a => ℝ) ℝ) Pi.topologicalSpace ℝ Real.instAddCommGroup Semiring.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace (fun w => c * (w i - z i)) (c • ContinuousLinearMap.proj i) y

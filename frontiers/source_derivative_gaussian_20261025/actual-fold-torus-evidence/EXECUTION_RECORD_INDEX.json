@@ -1,0 +1,183 @@
+{
+  "runner": "run_stage.py",
+  "record_count": 10,
+  "records": [
+    {
+      "label": "controls-001",
+      "receipt": "runs/controls-001/receipt.json",
+      "log": "runs/controls-001/output.log",
+      "exit_code": 1,
+      "elapsed_seconds": 3.4303975105285645,
+      "started_utc": "2026-10-26T06:40:56.080457+00:00",
+      "ended_utc": "2026-10-26T06:40:59.510892+00:00",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-torus-construct/build:/workspace/scratch/actual-fold-death-construct/build:/workspace/scratch/reused-compact-frontier/build:$LEAN_PATH exec lean -DwarningAsError=true -R /workspace/scratch/actual-fold-torus-construct -o /workspace/scratch/actual-fold-torus-construct/build/ActualTorusControls.olean /workspace/scratch/actual-fold-torus-construct/ActualTorusControls.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025"
+    },
+    {
+      "label": "controls-002",
+      "receipt": "runs/controls-002/receipt.json",
+      "log": "runs/controls-002/output.log",
+      "exit_code": 0,
+      "elapsed_seconds": 3.9034855365753174,
+      "started_utc": "2026-10-26T06:41:25.423680+00:00",
+      "ended_utc": "2026-10-26T06:41:29.327217+00:00",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-torus-construct/build:/workspace/scratch/actual-fold-death-construct/build:/workspace/scratch/reused-compact-frontier/build:$LEAN_PATH exec lean -DwarningAsError=true -R /workspace/scratch/actual-fold-torus-construct -o /workspace/scratch/actual-fold-torus-construct/build/ActualTorusControls.olean /workspace/scratch/actual-fold-torus-construct/ActualTorusControls.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025"
+    },
+    {
+      "label": "false-control-001",
+      "receipt": "runs/false-control-001/receipt.json",
+      "log": "runs/false-control-001/output.log",
+      "exit_code": 1,
+      "elapsed_seconds": 8.690637111663818,
+      "started_utc": "2026-10-26T09:16:28.421004+00:00",
+      "ended_utc": "2026-10-26T09:16:37.111666+00:00",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-torus-construct/build:/workspace/scratch/actual-fold-death-construct/build:/workspace/scratch/reused-compact-frontier/build:$LEAN_PATH exec lean -DwarningAsError=true /workspace/scratch/actual-fold-torus-construct/FalseMutation.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025"
+    },
+    {
+      "label": "generic-001",
+      "receipt": "runs/generic-001/receipt.json",
+      "log": "runs/generic-001/output.log",
+      "exit_code": 0,
+      "elapsed_seconds": 3.8604979515075684,
+      "started_utc": "2026-10-26T06:35:41.706118+00:00",
+      "ended_utc": "2026-10-26T06:35:45.566658+00:00",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/scratch/actual-fold-torus-construct/Generic.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025"
+    },
+    {
+      "label": "inventory-001",
+      "receipt": "runs/inventory-001/receipt.json",
+      "log": "runs/inventory-001/output.log",
+      "exit_code": 0,
+      "elapsed_seconds": 4.834219694137573,
+      "started_utc": "2026-10-26T06:40:24.857749+00:00",
+      "ended_utc": "2026-10-26T06:40:29.692050+00:00",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-torus-construct/build:/workspace/scratch/reused-compact-frontier/build:$LEAN_PATH exec lean -DwarningAsError=true /workspace/scratch/actual-fold-torus-construct/Inventory.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025"
+    },
+    {
+      "label": "kernel-001",
+      "receipt": "runs/kernel-001/receipt.json",
+      "log": "runs/kernel-001/output.log",
+      "exit_code": 0,
+      "elapsed_seconds": 6.939608097076416,
+      "started_utc": "2026-10-26T06:40:24.850625+00:00",
+      "ended_utc": "2026-10-26T06:40:31.790256+00:00",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-torus-construct/build:/workspace/scratch/reused-compact-frontier/build:$LEAN_PATH exec leanchecker SourceActualFoldTorus"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025"
+    },
+    {
+      "label": "strict-001",
+      "receipt": "runs/strict-001/receipt.json",
+      "log": "runs/strict-001/output.log",
+      "exit_code": 1,
+      "elapsed_seconds": 2.9639673233032227,
+      "started_utc": "2026-10-26T06:39:03.823825+00:00",
+      "ended_utc": "2026-10-26T06:39:06.787813+00:00",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/reused-compact-frontier/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/actual-fold-torus-construct/build/SourceActualFoldTorus.olean -i /workspace/scratch/actual-fold-torus-construct/build/SourceActualFoldTorus.ilean SourceActualFoldTorus.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025"
+    },
+    {
+      "label": "strict-002",
+      "receipt": "runs/strict-002/receipt.json",
+      "log": "runs/strict-002/output.log",
+      "exit_code": 1,
+      "elapsed_seconds": 3.2261064052581787,
+      "started_utc": "2026-10-26T06:39:40.731262+00:00",
+      "ended_utc": "2026-10-26T06:39:43.957399+00:00",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/reused-compact-frontier/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/actual-fold-torus-construct/build/SourceActualFoldTorus.olean -i /workspace/scratch/actual-fold-torus-construct/build/SourceActualFoldTorus.ilean SourceActualFoldTorus.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025"
+    },
+    {
+      "label": "strict-003",
+      "receipt": "runs/strict-003/receipt.json",
+      "log": "runs/strict-003/output.log",
+      "exit_code": 0,
+      "elapsed_seconds": 3.469219207763672,
+      "started_utc": "2026-10-26T06:39:51.290217+00:00",
+      "ended_utc": "2026-10-26T06:39:54.759454+00:00",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/reused-compact-frontier/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/actual-fold-torus-construct/build/SourceActualFoldTorus.olean -i /workspace/scratch/actual-fold-torus-construct/build/SourceActualFoldTorus.ilean SourceActualFoldTorus.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025"
+    },
+    {
+      "label": "transport-001",
+      "receipt": "runs/transport-001/receipt.json",
+      "log": "runs/transport-001/output.log",
+      "exit_code": 0,
+      "elapsed_seconds": 3.034421682357788,
+      "started_utc": "2026-10-26T06:36:30.567254+00:00",
+      "ended_utc": "2026-10-26T06:36:33.601720+00:00",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/reused-compact-frontier/build:$LEAN_PATH exec lean -DwarningAsError=true /workspace/scratch/actual-fold-torus-construct/Transport.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025"
+    }
+  ],
+  "new_recovery_execution_only": [
+    "false-control-001"
+  ],
+  "one_own_module_kernel": [
+    "kernel-001"
+  ],
+  "all_attempts_preserved": true
+}

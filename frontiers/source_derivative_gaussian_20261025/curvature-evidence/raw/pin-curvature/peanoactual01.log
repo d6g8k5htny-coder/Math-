@@ -1,0 +1,41 @@
+/workspace/scratch/pin-curvature-implementation/ActualPeanoRepresentations.lean:30:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq ℝ (deriv (fun s => smoothSourceField 2 L ω ![s, 0]) t) ((fderiv ℝ (smoothSourceField 2 L ω) ![t, 0]) directionX)
+but is expected to have type
+  @Eq ℝ (deriv (sourceF L ω) t) ((fderiv ℝ (smoothSourceField 2 L ω) ![t, 0]) directionX)
+/workspace/scratch/pin-curvature-implementation/ActualPeanoRepresentations.lean:38:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq ℝ (iteratedDeriv 2 (fun s => smoothSourceField 2 L ω ![s, 0]) t)
+    ((iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) ![t, 0]) ![directionX, directionX])
+but is expected to have type
+  @Eq ℝ (iteratedDeriv 2 (sourceF L ω) t)
+    ((iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) ![t, 0]) ![directionX, directionX])
+/workspace/scratch/pin-curvature-implementation/ActualPeanoRepresentations.lean:46:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq ℝ (deriv (fun s => (fderiv ℝ (smoothSourceField 2 L ω) ![s, 0]) directionY) t)
+    ((iteratedFDeriv ℝ (1 + 1) (smoothSourceField 2 L ω) ![t, 0]) ![directionX, directionY])
+but is expected to have type
+  @Eq ℝ (deriv (sourceH L ω) t) ((iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) ![t, 0]) ![directionX, directionY])
+/workspace/scratch/pin-curvature-implementation/ActualPeanoRepresentations.lean:53:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  iteratedDeriv 2 (fun s => (fderiv ℝ (smoothSourceField 2 L ω) ![s, 0]) directionY) 0 =
+    (iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) ![0, 0]) ![directionX, directionX, directionY]
+but is expected to have type
+  iteratedDeriv 2 (sourceH L ω) 0 =
+    (iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0) ![directionX, directionX, directionY]
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/scratch/pin-curvature-implementation/ActualPeanoRepresentations.lean:64:60: error: unsolved goals
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+ω : SmoothSample 2 L
+⊢ True ∨ r = 0

@@ -1,0 +1,524 @@
+namespace I4SourceFramedConfluentCovariance
+/-
+TEXT ONLY. Insert inside namespace I4SourceFramedConfluentCovariance after
+pairCoefficient_bound and the shared definitions. No producer declaration
+is redeclared here. The extra imports are listed in IMPORTS.txt.
+-/
+
+private theorem compact_mode_smooth (L : ℝ) (m : SourceMode 2) :
+    ContDiff ℝ (⊤ : ℕ∞) (modeCoefficient 2 L m) :=
+  mode_smooth L m
+
+private theorem compact_mode_iterated_continuous (L : ℝ) (m : SourceMode 2) (k : ℕ) :
+    Continuous (fun p : (Fin 2 → ℝ) × (Fin k → (Fin 2 → ℝ)) =>
+      iteratedFDeriv ℝ k (modeCoefficient 2 L m) p.1 p.2) := by
+  have h := (compact_mode_smooth L m).continuous_iteratedFDeriv (m := k)
+    (by simp)
+  exact continuous_eval.comp ((h.comp continuous_fst).prodMk continuous_snd)
+
+private theorem compact_peano_continuous (L : ℝ) (m : SourceMode 2) (i : Fin 7) :
+    Continuous (fun p : ((Fin 2 → ℝ) × (Fin 2 → ℝ) × (Fin 2 → ℝ)) × ℝ =>
+      peanoRows (modeCoefficient 2 L m) p.1.1 p.1.2.1 p.1.2.2 p.2 i) := by
+  have hf := (compact_mode_smooth L m).continuous
+  have hd := (compact_mode_smooth L m).continuous_fderiv
+    (by simp)
+  have h2 := compact_mode_iterated_continuous L m 2
+  have h3 := compact_mode_iterated_continuous L m 3
+  have h22 : Continuous (fun p :
+      (((Fin 2 → ℝ) × (Fin 2 → ℝ) × (Fin 2 → ℝ)) × ℝ) × ℝ =>
+      iteratedFDeriv ℝ 2 (modeCoefficient 2 L m)
+        (p.1.1.1 + (p.1.2 * p.2) • p.1.1.2.1)
+        ![p.1.1.2.1, p.1.1.2.1]) := by
+    exact h2.comp (show Continuous (fun p :
+      (((Fin 2 → ℝ) × (Fin 2 → ℝ) × (Fin 2 → ℝ)) × ℝ) × ℝ =>
+      (p.1.1.1 + (p.1.2 * p.2) • p.1.1.2.1, ![p.1.1.2.1, p.1.1.2.1])) by fun_prop)
+  have h2n : Continuous (fun p :
+      (((Fin 2 → ℝ) × (Fin 2 → ℝ) × (Fin 2 → ℝ)) × ℝ) × ℝ =>
+      iteratedFDeriv ℝ 2 (modeCoefficient 2 L m)
+        (p.1.1.1 + (p.1.2 * p.2) • p.1.1.2.1)
+        ![p.1.1.2.1, p.1.1.2.2]) := by
+    exact h2.comp (show Continuous (fun p :
+      (((Fin 2 → ℝ) × (Fin 2 → ℝ) × (Fin 2 → ℝ)) × ℝ) × ℝ =>
+      (p.1.1.1 + (p.1.2 * p.2) • p.1.1.2.1, ![p.1.1.2.1, p.1.1.2.2])) by fun_prop)
+  have h33 : Continuous (fun p :
+      (((Fin 2 → ℝ) × (Fin 2 → ℝ) × (Fin 2 → ℝ)) × ℝ) × ℝ =>
+      (1 / 4 - p.2 ^ 2) * iteratedFDeriv ℝ 3 (modeCoefficient 2 L m)
+        (p.1.1.1 + (p.1.2 * p.2) • p.1.1.2.1)
+        ![p.1.1.2.1, p.1.1.2.1, p.1.1.2.1]) := by
+    have hh : Continuous (fun p :
+        (((Fin 2 → ℝ) × (Fin 2 → ℝ) × (Fin 2 → ℝ)) × ℝ) × ℝ =>
+        iteratedFDeriv ℝ 3 (modeCoefficient 2 L m)
+          (p.1.1.1 + (p.1.2 * p.2) • p.1.1.2.1)
+          ![p.1.1.2.1, p.1.1.2.1, p.1.1.2.1]) := by
+      exact h3.comp (show Continuous (fun p :
+        (((Fin 2 → ℝ) × (Fin 2 → ℝ) × (Fin 2 → ℝ)) × ℝ) × ℝ =>
+        (p.1.1.1 + (p.1.2 * p.2) • p.1.1.2.1,
+          ![p.1.1.2.1, p.1.1.2.1, p.1.1.2.1])) by fun_prop)
+    exact (show Continuous (fun p :
+      (((Fin 2 → ℝ) × (Fin 2 → ℝ) × (Fin 2 → ℝ)) × ℝ) × ℝ =>
+      (1 / 4 : ℝ) - p.2 ^ 2) by fun_prop).mul hh
+  have hi22 := intervalIntegral.continuous_parametric_intervalIntegral_of_continuous' (μ := volume)
+    (f := fun (p : ((Fin 2 → ℝ) × (Fin 2 → ℝ) × (Fin 2 → ℝ)) × ℝ) t =>
+      iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) (p.1.1 + (p.2*t) • p.1.2.1)
+        ![p.1.2.1,p.1.2.1]) h22 (-1 / 2 : ℝ) (1 / 2 : ℝ)
+  have hi2n := intervalIntegral.continuous_parametric_intervalIntegral_of_continuous' (μ := volume)
+    (f := fun (p : ((Fin 2 → ℝ) × (Fin 2 → ℝ) × (Fin 2 → ℝ)) × ℝ) t =>
+      iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) (p.1.1 + (p.2*t) • p.1.2.1)
+        ![p.1.2.1,p.1.2.2]) h2n (-1 / 2 : ℝ) (1 / 2 : ℝ)
+  have hi33 := intervalIntegral.continuous_parametric_intervalIntegral_of_continuous' (μ := volume)
+    (f := fun (p : ((Fin 2 → ℝ) × (Fin 2 → ℝ) × (Fin 2 → ℝ)) × ℝ) t =>
+      (1/4-t^2)*iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) (p.1.1 + (p.2*t) • p.1.2.1)
+        ![p.1.2.1,p.1.2.1,p.1.2.1]) h33 (-1 / 2 : ℝ) (1 / 2 : ℝ)
+  fin_cases i <;> simp only [peanoRows] <;>
+    first | exact hi22 | exact hi2n | exact continuous_const.mul hi33 |
+      fun_prop
+
+private abbrev CompactFrame := {u : Fin 2 → E 2 // Orthonormal ℝ u}
+
+private theorem compact_frames_isCompact :
+    IsCompact {u : Fin 2 → E 2 | Orthonormal ℝ u} := by
+  have hc : IsClosed {u : Fin 2 → E 2 | Orthonormal ℝ u} := by
+    simp only [orthonormal_iff_ite, Set.ofPred_forall]
+    change IsClosed (⋂ i : Fin 2, ⋂ j : Fin 2,
+      {u : Fin 2 → E 2 | inner ℝ (u i) (u j) = if i = j then 1 else 0})
+    exact isClosed_iInter (fun i => isClosed_iInter (fun j =>
+      isClosed_eq (by fun_prop) continuous_const))
+  apply (isCompact_closedBall (0 : Fin 2 → E 2) 1).of_isClosed_subset hc
+  intro u hu
+  rw [Metric.mem_closedBall, dist_zero_right]
+  exact (pi_norm_le_iff_of_nonneg (by norm_num)).2
+    (fun i => (hu.norm_eq_one i).le)
+
+private instance compactFrame_compactSpace : CompactSpace CompactFrame :=
+  isCompact_iff_compactSpace.mp compact_frames_isCompact
+
+private def compact_frame_basis (u : CompactFrame) :
+    OrthonormalBasis (Fin 2) ℝ (E 2) :=
+  OrthonormalBasis.mk u.property
+    ((u.property.linearIndependent.span_eq_top_of_card_eq_finrank'
+      (by simp [E])).ge)
+
+private theorem compact_frame_basis_apply (u : CompactFrame) (i : Fin 2) :
+    compact_frame_basis u i = u.val i := by
+  simp [compact_frame_basis]
+
+private def compact_midpoints (L : ℝ) : Set (E 2) :=
+  {z | ∀ a : Fin 2, |coordinates 2 z a| ≤ |L| / 2}
+
+private theorem compact_midpoints_isCompact (L : ℝ) :
+    IsCompact (compact_midpoints L) := by
+  have hh := (isCompact_Icc : IsCompact
+    (Set.Icc (fun _ : Fin 2 => -(|L| / 2)) (fun _ : Fin 2 => |L| / 2))).image
+      (coordinates 2).symm.continuous
+  convert hh using 1
+  ext z
+  constructor
+  · intro hz
+    refine ⟨coordinates 2 z, ?_, by simp⟩
+    exact ⟨fun a => (abs_le.mp (hz a)).1, fun a => (abs_le.mp (hz a)).2⟩
+  · rintro ⟨x, hx, rfl⟩ a
+    change |coordinates 2 ((coordinates 2).symm x) a| ≤ |L|/2
+    rw [(coordinates 2).apply_symm_apply x]
+    exact abs_le.mpr ⟨hx.1 a, hx.2 a⟩
+
+private def compact_parameters (L : ℝ) : Set ((E 2 × CompactFrame) × ℝ) :=
+  (compact_midpoints L ×ˢ Set.univ) ×ˢ Set.Icc 0 1
+
+private theorem compact_parameters_isCompact (L : ℝ) :
+    IsCompact (compact_parameters L) :=
+  ((compact_midpoints_isCompact L).prod isCompact_univ).prod isCompact_Icc
+
+private def compact_gram (L : ℝ) (p : (E 2 × CompactFrame) × ℝ) :
+    Matrix (Fin 7) (Fin 7) ℝ :=
+  pairCovariance L p.1.1 (p.1.2.val 0) (p.1.2.val 1) p.2
+
+private theorem compact_coefficient_continuous (L : ℝ) (i : Fin 7) (m : SourceMode 2) :
+    Continuous (fun p : (E 2 × CompactFrame) × ℝ =>
+      pairCoefficient L p.1.1 (p.1.2.val 0) (p.1.2.val 1) p.2 i m) := by
+  change Continuous (fun p : (E 2 × CompactFrame) × ℝ =>
+    peanoRows (modeCoefficient 2 L m) (coordinates 2 p.1.1)
+      (coordinates 2 (p.1.2.val 0)) (coordinates 2 (p.1.2.val 1)) p.2 i)
+  have hz : Continuous (fun p : (E 2 × CompactFrame) × ℝ => coordinates 2 p.1.1) :=
+    (coordinates 2).continuous.comp (continuous_fst.comp continuous_fst)
+  have hu : Continuous (fun p : (E 2 × CompactFrame) × ℝ => p.1.2.val) :=
+    continuous_subtype_val.comp (continuous_snd.comp continuous_fst)
+  have he : Continuous (fun p : (E 2 × CompactFrame) × ℝ => coordinates 2 (p.1.2.val 0)) :=
+    (coordinates 2).continuous.comp ((continuous_apply (0 : Fin 2)).comp hu)
+  have hn : Continuous (fun p : (E 2 × CompactFrame) × ℝ => coordinates 2 (p.1.2.val 1)) :=
+    (coordinates 2).continuous.comp ((continuous_apply (1 : Fin 2)).comp hu)
+  have hg : Continuous (fun p : (E 2 × CompactFrame) × ℝ =>
+      ((coordinates 2 p.1.1, coordinates 2 (p.1.2.val 0),
+        coordinates 2 (p.1.2.val 1)),p.2)) :=
+    (hz.prodMk (he.prodMk hn)).prodMk continuous_snd
+  have h := Continuous.comp
+    (g := fun q : ((Fin 2 → ℝ) × (Fin 2 → ℝ) × (Fin 2 → ℝ)) × ℝ =>
+      peanoRows (modeCoefficient 2 L m) q.1.1 q.1.2.1 q.1.2.2 q.2 i)
+    (f := fun p : (E 2 × CompactFrame) × ℝ =>
+      ((coordinates 2 p.1.1, coordinates 2 (p.1.2.val 0),
+        coordinates 2 (p.1.2.val 1)),p.2))
+    (compact_peano_continuous L m i) hg
+  simpa only [Function.comp_def] using h
+
+private theorem compact_gram_continuous {L : ℝ} (hL : L ≠ 0) :
+    Continuous (compact_gram L) := by
+  apply continuous_pi
+  intro i
+  apply continuous_pi
+  intro j
+  change Continuous (fun p : (E 2 × CompactFrame) × ℝ =>
+    ∑' m, pairCoefficient L p.1.1 (p.1.2.val 0) (p.1.2.val 1) p.2 i m *
+      pairCoefficient L p.1.1 (p.1.2.val 0) (p.1.2.val 1) p.2 j m)
+  apply continuous_tsum
+  · intro m
+    exact (compact_coefficient_continuous L i m).mul
+      (compact_coefficient_continuous L j m)
+  · exact envelope_square_summable hL
+  · intro m p
+    rw [Real.norm_eq_abs, abs_mul]
+    exact mul_le_mul
+      (pairCoefficient_bound hL _ _ _ _
+        ((p.1.2.property.norm_eq_one 0).le)
+        ((p.1.2.property.norm_eq_one 1).le) i m)
+      (pairCoefficient_bound hL _ _ _ _
+        ((p.1.2.property.norm_eq_one 0).le)
+        ((p.1.2.property.norm_eq_one 1).le) j m)
+      (abs_nonneg _) (envelope_nonneg L m)
+
+private theorem compact_gram_hermitian (L : ℝ) (p : (E 2 × CompactFrame) × ℝ) :
+    (compact_gram L p).IsHermitian := by
+  ext i j
+  simp only [Matrix.conjTranspose_apply, star_trivial]
+  change (∑' m, _ * _) = ∑' m, _ * _
+  apply tsum_congr
+  intro m
+  ring
+
+private theorem compact_uniform_contact {L : ℝ} (hL : L ≠ 0) :
+    UniformContactLimit L := by
+  intro eps heps
+  let f : ((E 2 × CompactFrame) × ℝ) → (Fin 7 × Fin 7 → ℝ) :=
+    fun p ij => compact_gram L p ij.1 ij.2
+  have hf : Continuous f := by
+    apply continuous_pi
+    intro ij
+    exact (continuous_apply ij.2).comp ((continuous_apply ij.1).comp
+      (compact_gram_continuous hL))
+  have hu := (compact_parameters_isCompact L).uniformContinuousOn_of_continuous hf.continuousOn
+  obtain ⟨d, hd, hdist⟩ := Metric.uniformContinuousOn_iff.mp hu eps heps
+  refine ⟨min (d / 2) 1, lt_min (half_pos hd) zero_lt_one, ?_⟩
+  intro z hz R r hr hrδ i j
+  let u : CompactFrame := ⟨fun a => R a, R.orthonormal⟩
+  have hr1 : r ≤ 1 := hrδ.trans (min_le_right _ _)
+  have hrd : r < d := lt_of_le_of_lt
+    (hrδ.trans (min_le_left _ _)) (half_lt_self hd)
+  have hp : ((z, u), r) ∈ compact_parameters L := ⟨⟨hz, mem_univ _⟩, hr, hr1⟩
+  have h0 : ((z, u), 0) ∈ compact_parameters L :=
+    ⟨⟨hz, mem_univ _⟩, le_rfl, zero_le_one⟩
+  have he := hdist ((z, u), r) hp ((z, u), 0) h0 (by
+    simpa [Prod.dist_eq, Real.dist_eq, abs_of_nonneg hr] using And.intro hd hrd)
+  have hij : dist (f ((z,u),r) (i,j)) (f ((z,u),0) (i,j)) < eps :=
+    lt_of_le_of_lt (dist_le_pi_dist (f ((z,u),r)) (f ((z,u),0)) (i,j)) he
+  change |compact_gram L ((z,u),r) i j - compact_gram L ((z,u),0) i j| < eps
+  simpa only [Real.dist_eq, f] using hij
+
+private def compact_square (v : Fin 7 → ℝ) : ℝ := ∑ i, (v i) ^ 2
+
+private def compact_quad (G : Matrix (Fin 7) (Fin 7) ℝ) (v : Fin 7 → ℝ) : ℝ :=
+  ∑ i, ∑ j, v i * G i j * v j
+
+private theorem compact_quad_dot (G : Matrix (Fin 7) (Fin 7) ℝ) (v : Fin 7 → ℝ) :
+    compact_quad G v = v ⬝ᵥ (G *ᵥ v) := by
+  simp [compact_quad, dotProduct, Matrix.mulVec, Finset.mul_sum, mul_assoc]
+
+private theorem compact_quad_smul (G : Matrix (Fin 7) (Fin 7) ℝ)
+    (a : ℝ) (v : Fin 7 → ℝ) :
+    compact_quad G (a • v) = a ^ 2 * compact_quad G v := by
+  simp only [compact_quad, Pi.smul_apply, smul_eq_mul]
+  simp_rw [Finset.mul_sum]
+  apply Finset.sum_congr rfl
+  intro i hi
+  apply Finset.sum_congr rfl
+  intro j hj
+  ring
+
+private theorem compact_square_nonneg (v : Fin 7 → ℝ) : 0 ≤ compact_square v :=
+  Finset.sum_nonneg (fun _ _ => sq_nonneg _)
+
+private theorem compact_square_eq_zero {v : Fin 7 → ℝ} :
+    compact_square v = 0 ↔ v = 0 := by
+  constructor
+  · intro hv
+    funext i
+    have hi : (v i) ^ 2 ≤ compact_square v :=
+      Finset.single_le_sum (fun j _ => sq_nonneg (v j)) (Finset.mem_univ i)
+    have : (v i) ^ 2 = 0 := le_antisymm (hv ▸ hi) (sq_nonneg _)
+    exact sq_eq_zero_iff.mp this
+  · rintro rfl
+    simp [compact_square]
+
+private def compact_unit : Set (Fin 7 → ℝ) := {v | compact_square v = 1}
+
+private theorem compact_unit_isCompact : IsCompact compact_unit := by
+  have hc : IsClosed compact_unit := isClosed_eq (by
+    unfold compact_square
+    fun_prop) continuous_const
+  apply (isCompact_closedBall (0 : Fin 7 → ℝ) 1).of_isClosed_subset hc
+  intro v hv
+  rw [Metric.mem_closedBall, dist_zero_right]
+  apply (pi_norm_le_iff_of_nonneg (by norm_num)).2
+  intro i
+  have hi : (v i) ^ 2 ≤ (1 : ℝ) := by
+    calc
+      (v i) ^ 2 ≤ compact_square v :=
+        Finset.single_le_sum (fun j _ => sq_nonneg (v j)) (Finset.mem_univ i)
+      _ = 1 := hv
+  rw [Real.norm_eq_abs]
+  nlinarith [sq_abs (v i), abs_nonneg (v i)]
+
+private theorem compact_normalize_bounds (G : Matrix (Fin 7) (Fin 7) ℝ)
+    (a b : ℝ)
+    (hb : ∀ w ∈ compact_unit, a ≤ compact_quad G w ∧ compact_quad G w ≤ b)
+    (v : Fin 7 → ℝ) :
+    a * compact_square v ≤ compact_quad G v ∧
+      compact_quad G v ≤ b * compact_square v := by
+  by_cases hv : v = 0
+  · subst v
+    simp [compact_quad, compact_square]
+  have hs : 0 < compact_square v :=
+    lt_of_le_of_ne (compact_square_nonneg v)
+      (Ne.symm (fun h => hv (compact_square_eq_zero.mp h)))
+  let c : ℝ := (Real.sqrt (compact_square v))⁻¹
+  let w : Fin 7 → ℝ := c • v
+  have hsq : (Real.sqrt (compact_square v)) ^ 2 = compact_square v :=
+    Real.sq_sqrt hs.le
+  have hc : c ^ 2 * compact_square v = 1 := by
+    dsimp [c]
+    rw [inv_pow, hsq, inv_mul_cancel₀ hs.ne']
+  have hw : w ∈ compact_unit := by
+    change (∑ i, (c * v i) ^ 2) = 1
+    simp_rw [mul_pow, ← Finset.mul_sum]
+    exact hc
+  have hq : compact_quad G v = compact_square v * compact_quad G w := by
+    dsimp [w]
+    rw [compact_quad_smul]
+    calc
+      compact_quad G v = (c ^ 2 * compact_square v) * compact_quad G v := by rw [hc, one_mul]
+      _ = compact_square v * (c ^ 2 * compact_quad G v) := by ring
+  rw [hq]
+  constructor
+  · simpa [mul_comm] using mul_le_mul_of_nonneg_left (hb w hw).1 hs.le
+  · simpa [mul_comm] using mul_le_mul_of_nonneg_left (hb w hw).2 hs.le
+
+private theorem compact_quad_continuous {L : ℝ} (hL : L ≠ 0) :
+    Continuous (fun p : ((E 2 × CompactFrame) × ℝ) × (Fin 7 → ℝ) =>
+      compact_quad (compact_gram L p.1) p.2) := by
+  unfold compact_quad
+  apply continuous_finsetSum
+  intro i hi
+  apply continuous_finsetSum
+  intro j hj
+  have hg : Continuous (fun p : ((E 2 × CompactFrame) × ℝ) × (Fin 7 → ℝ) =>
+      compact_gram L p.1 i j) :=
+    (continuous_apply j).comp ((continuous_apply i).comp
+      ((compact_gram_continuous hL).comp continuous_fst))
+  have hvi : Continuous (fun p : ((E 2 × CompactFrame) × ℝ) × (Fin 7 → ℝ) => p.2 i) :=
+    (continuous_apply i).comp continuous_snd
+  have hvj : Continuous (fun p : ((E 2 × CompactFrame) × ℝ) × (Fin 7 → ℝ) => p.2 j) :=
+    (continuous_apply j).comp continuous_snd
+  exact (hvi.mul hg).mul hvj
+
+private theorem compact_entry_perturb (A B : Matrix (Fin 7) (Fin 7) ℝ)
+    (eta : ℝ) (heta : 0 ≤ eta) (hAB : ∀ i j, |A i j - B i j| ≤ eta)
+    (v : Fin 7 → ℝ) :
+    |compact_quad A v - compact_quad B v| ≤ 7 * eta * compact_square v := by
+  have hh : compact_quad A v - compact_quad B v =
+      ∑ i, ∑ j, v i * (A i j - B i j) * v j := by
+    simp only [compact_quad, mul_sub, sub_mul, Finset.sum_sub_distrib]
+  rw [hh]
+  calc
+    |∑ i, ∑ j, v i * (A i j - B i j) * v j|
+      ≤ ∑ i, ∑ j, |v i * (A i j - B i j) * v j| := by
+        exact (Finset.abs_sum_le_sum_abs _ _).trans
+          (Finset.sum_le_sum (fun i _ => Finset.abs_sum_le_sum_abs _ _))
+    _ ≤ ∑ i, ∑ j, eta * ((v i) ^ 2 + (v j) ^ 2) / 2 := by
+      apply Finset.sum_le_sum
+      intro i hi
+      apply Finset.sum_le_sum
+      intro j hj
+      rw [abs_mul, abs_mul]
+      have h : 2 * |v i| * |v j| ≤ (v i) ^ 2 + (v j) ^ 2 := by
+        nlinarith [sq_nonneg (|v i| - |v j|), sq_abs (v i), sq_abs (v j)]
+      have he := mul_le_mul_of_nonneg_left (hAB i j)
+        (mul_nonneg (abs_nonneg (v i)) (abs_nonneg (v j)))
+      have heta' := mul_le_mul_of_nonneg_left h heta
+      nlinarith [he, heta']
+    _ = 7 * eta * compact_square v := by
+      simp only [mul_add, add_div, Finset.sum_add_distrib]
+      simp only [Finset.sum_const, Finset.card_univ, Fintype.card_fin, nsmul_eq_mul]
+      simp only [← Finset.sum_div, ← Finset.mul_sum, compact_square]
+      ring
+
+private theorem compact_principal_schur (G : Matrix (Fin 7) (Fin 7) ℝ)
+    (gamma : ℝ) (hgamma : 0 < gamma) (hH : G.IsHermitian)
+    (hlower : ∀ v : Fin 7 → ℝ,
+      gamma * compact_square v ≤ v ⬝ᵥ (G *ᵥ v)) :
+    let A : Matrix (Fin 6) (Fin 6) ℝ :=
+      fun i j => G (Fin.castAdd 1 i) (Fin.castAdd 1 j)
+    G.PosDef ∧ A.PosDef ∧ IsUnit A ∧
+      gamma ≤ G 6 6 - ∑ i : Fin 6, ∑ j : Fin 6,
+        G 6 (Fin.castAdd 1 i) * (A⁻¹) i j * G (Fin.castAdd 1 j) 6 := by
+  let A : Matrix (Fin 6) (Fin 6) ℝ :=
+    fun i j => G (Fin.castAdd 1 i) (Fin.castAdd 1 j)
+  have hG : G.PosDef := Matrix.PosDef.of_dotProduct_mulVec_pos hH (by
+    intro v hv
+    have hs : 0 < compact_square v :=
+      lt_of_le_of_ne (compact_square_nonneg v)
+        (Ne.symm (fun h => hv (compact_square_eq_zero.mp h)))
+    simpa only [star_trivial] using
+      lt_of_lt_of_le (mul_pos hgamma hs) (hlower v))
+  have hA : A.PosDef := by
+    exact hG.submatrix (e := Fin.castAdd 1) (by
+      intro i j h
+      exact Fin.ext (congrArg (fun t : Fin 7 => t.val) h))
+  let : Invertible A := hA.isUnit.invertible
+  let b : Fin 6 → ℝ := fun i => G (Fin.castAdd 1 i) 6
+  let x : Fin 6 → ℝ := -(A⁻¹ *ᵥ b)
+  let w : Fin 7 → ℝ := Fin.snoc x 1
+  have hAx : A *ᵥ x = -b := by
+    dsimp [x]
+    rw [Matrix.mulVec_neg, Matrix.mulVec_mulVec, Matrix.mul_inv_of_invertible,
+      Matrix.one_mulVec]
+  have hcast (i : Fin 6) : Fin.castAdd 1 i = i.castSucc := rfl
+  have hrow (i : Fin 6) : (G *ᵥ w) i.castSucc = 0 := by
+    have hi : (A *ᵥ x) i + b i = 0 := by rw [hAx]; simp
+    change (∑ j : Fin 7, G i.castSucc j * w j) = 0
+    rw [Fin.sum_univ_castSucc]
+    change (∑ j : Fin 6, G i.castSucc j.castSucc * x j) + G i.castSucc (Fin.last 6) * 1 = 0
+    rw [show (Fin.last 6 : Fin 7) = 6 from rfl, mul_one]
+    simpa only [Matrix.mulVec, dotProduct, A, b, hcast] using hi
+  have hqw : compact_quad G w =
+      G 6 6 - ∑ i : Fin 6, ∑ j : Fin 6,
+        G 6 (Fin.castAdd 1 i) * (A⁻¹) i j * G (Fin.castAdd 1 j) 6 := by
+    rw [compact_quad_dot]
+    change (∑ i : Fin 7, w i * (G *ᵥ w) i) = _
+    rw [Fin.sum_univ_castSucc]
+    simp only [w, Fin.snoc_castSucc, Fin.snoc_last, hrow, mul_zero,
+      Finset.sum_const_zero, one_mul, zero_add]
+    change (∑ j : Fin 7, G 6 j * w j) = _
+    rw [Fin.sum_univ_castSucc]
+    simp only [w, Fin.snoc_castSucc, Fin.snoc_last, mul_one]
+    calc
+      (∑ i : Fin 6, G 6 i.castSucc * x i) + G 6 6 =
+          G 6 6 - ∑ i : Fin 6, ∑ j : Fin 6,
+            G 6 i.castSucc * ((A⁻¹) i j * b j) := by
+        simp only [x, Pi.neg_apply, Matrix.mulVec, dotProduct,
+          Finset.mul_sum, mul_neg, Finset.sum_neg_distrib]
+        ring
+      _ = G 6 6 - ∑ i : Fin 6, ∑ j : Fin 6,
+          G 6 (Fin.castAdd 1 i) * (A⁻¹) i j * G (Fin.castAdd 1 j) 6 := by
+        congr 1
+        apply Finset.sum_congr rfl
+        intro i hi
+        apply Finset.sum_congr rfl
+        intro j hj
+        simp only [b, hcast]
+        ring
+  have hsw : 1 ≤ compact_square w := by
+    unfold compact_square
+    rw [Fin.sum_univ_castSucc]
+    simp only [w,
+      Fin.snoc_castSucc, Fin.snoc_last, one_pow]
+    exact le_add_of_nonneg_left (Finset.sum_nonneg (fun _ _ => sq_nonneg _))
+  refine ⟨hG, hA, hA.isUnit, ?_⟩
+  rw [← hqw]
+  calc
+    gamma ≤ gamma * compact_square w := by nlinarith
+    _ ≤ compact_quad G w := by simpa [compact_quad_dot] using hlower w
+
+/- The only rank input below is PRIVATE. Production discharges it from the
+   actual finite original-source contact witnesses before invoking this theorem. -/
+private theorem compact_contact_bounds {L : ℝ} (hL : L ≠ 0)
+    (hcontact : ∀ z : E 2, ∀ R : OrthonormalBasis (Fin 2) ℝ (E 2),
+      (framedConfluentCovariance L z R 0).PosDef) :
+    UniformContactLimit L ∧ UniformCovarianceFloor L := by
+  have hlimit : UniformContactLimit L := compact_uniform_contact hL
+  refine ⟨hlimit, ?_⟩
+  let K : Set ((E 2 × CompactFrame) × (Fin 7 → ℝ)) :=
+    (compact_midpoints L ×ˢ Set.univ) ×ˢ compact_unit
+  have hK : IsCompact K :=
+    ((compact_midpoints_isCompact L).prod isCompact_univ).prod compact_unit_isCompact
+  let Q0 : ((E 2 × CompactFrame) × (Fin 7 → ℝ)) → ℝ :=
+    fun p => compact_quad (compact_gram L (p.1, 0)) p.2
+  have hQ0 : Continuous Q0 := by
+    exact (compact_quad_continuous hL).comp
+      (show Continuous (fun p : (E 2 × CompactFrame) × (Fin 7 → ℝ) =>
+        ((p.1,(0:ℝ)),p.2)) by fun_prop)
+  have hpositive : ∀ p ∈ K, 0 < Q0 p := by
+    intro p hp
+    have hv : p.2 ≠ 0 := by
+      intro hv
+      have hh : compact_square p.2 = 1 := hp.2
+      simp [hv, compact_square] at hh
+    have hg := (hcontact p.1.1 (compact_frame_basis p.1.2)).dotProduct_mulVec_pos hv
+    simpa only [Q0, compact_quad_dot, compact_gram, pairCovariance,
+      framedConfluentCovariance, framedConfluentCoefficient,
+      compact_frame_basis_apply, star_trivial] using hg
+  obtain ⟨m, hm, hmle⟩ := hK.exists_forall_le' hQ0.continuousOn hpositive
+  let KT : Set (((E 2 × CompactFrame) × ℝ) × (Fin 7 → ℝ)) :=
+    compact_parameters L ×ˢ compact_unit
+  have hKT : IsCompact KT :=
+    (compact_parameters_isCompact L).prod compact_unit_isCompact
+  let QT : (((E 2 × CompactFrame) × ℝ) × (Fin 7 → ℝ)) → ℝ :=
+    fun p => compact_quad (compact_gram L p.1) p.2
+  obtain ⟨M, hM⟩ := hKT.bddAbove_image (compact_quad_continuous hL).continuousOn
+  have heps : 0 < m / 14 := div_pos hm (by norm_num)
+  obtain ⟨d, hd, hdlim⟩ := hlimit (m / 14) heps
+  let gamma : ℝ := m / 2
+  let Lambda : ℝ := max M 1
+  let delta : ℝ := min d (min 1 (|L| / 8))
+  have hgamma : 0 < gamma := half_pos hm
+  have hLambda : 0 < Lambda := lt_of_lt_of_le zero_lt_one (le_max_right _ _)
+  have hdelta : 0 < delta := by
+    exact lt_min hd (lt_min zero_lt_one (div_pos (abs_pos.mpr hL) (by norm_num)))
+  have hdelta1 : delta ≤ 1 :=
+    (min_le_right _ _).trans (min_le_left _ _)
+  have hdeltaL : delta ≤ |L| / 8 :=
+    (min_le_right _ _).trans (min_le_right _ _)
+  refine ⟨gamma, Lambda, delta, hgamma, hLambda, hdelta, hdelta1, hdeltaL, ?_⟩
+  intro z hz R r hr hrδ
+  let u : CompactFrame := ⟨fun a => R a, R.orthonormal⟩
+  let p : (E 2 × CompactFrame) × ℝ := ((z, u), r)
+  let G : Matrix (Fin 7) (Fin 7) ℝ := compact_gram L p
+  have hp : p ∈ compact_parameters L :=
+    ⟨⟨hz, mem_univ _⟩, hr, hrδ.trans hdelta1⟩
+  have hrd : r ≤ d := hrδ.trans (min_le_left _ _)
+  have hentry : ∀ i j : Fin 7,
+      |G i j - compact_gram L ((z, u), 0) i j| ≤ m / 14 := by
+    intro i j
+    exact (hdlim z hz R r hr hrd i j).le
+  have hunit : ∀ w ∈ compact_unit,
+      gamma ≤ compact_quad G w ∧ compact_quad G w ≤ Lambda := by
+    intro w hw
+    have hcontactmin : m ≤ compact_quad (compact_gram L ((z, u), 0)) w :=
+      hmle ((z, u), w) ⟨⟨hz, mem_univ _⟩, hw⟩
+    have hpert := compact_entry_perturb G (compact_gram L ((z, u), 0))
+      (m / 14) heps.le hentry w
+    have hws : compact_square w = 1 := hw
+    have hupp : compact_quad G w ≤ M := by
+      change QT (p,w) ≤ M
+      exact hM (a := QT (p,w)) ⟨(p,w),⟨hp,hw⟩,rfl⟩
+    refine ⟨?_, hupp.trans (le_max_left _ _)⟩
+    rw [hws] at hpert
+    have hminus := (abs_le.mp hpert).1
+    dsimp [gamma]
+    nlinarith
+  have hquad : ∀ v : Fin 7 → ℝ,
+      gamma * compact_square v ≤ v ⬝ᵥ (G *ᵥ v) ∧
+        v ⬝ᵥ (G *ᵥ v) ≤ Lambda * compact_square v := by
+    intro v
+    simpa only [compact_quad_dot] using compact_normalize_bounds G gamma Lambda hunit v
+  have hschur := compact_principal_schur G gamma hgamma
+    (compact_gram_hermitian L p) (fun v => (hquad v).1)
+  exact ⟨hquad, hschur.1, hschur.2.1, hschur.2.2.1, hschur.2.2.2⟩
+
+end I4SourceFramedConfluentCovariance

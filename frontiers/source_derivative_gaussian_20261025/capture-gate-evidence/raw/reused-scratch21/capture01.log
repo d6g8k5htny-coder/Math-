@@ -1,0 +1,49 @@
+/workspace/scratch/quartic-capture-algebra/CaptureAlgebra.lean:13:23: error: unsolved goals
+case b0
+a x y A B C : ℝ
+ha : |a| ≤ A
+hx : |x| ≤ B
+hy : |y| ≤ C
+⊢ 0 ≤ A * B
+
+case b0
+a x y A B C : ℝ
+ha : |a| ≤ A
+hx : |x| ≤ B
+hy : |y| ≤ C
+⊢ 0 ≤ A
+/workspace/scratch/quartic-capture-algebra/CaptureAlgebra.lean:18:51: error: unsolved goals
+case b0
+a x A B : ℝ
+ha : |a| ≤ A
+hx : |x| ≤ B
+⊢ 0 ≤ A
+/workspace/scratch/quartic-capture-algebra/CaptureAlgebra.lean:58:16: error: unexpected token '|*'; expected '|' or '|ₘ'
+/workspace/scratch/quartic-capture-algebra/CaptureAlgebra.lean:57:4: error: Unexpected syntax
+  failed to pretty print term (use 'set_option pp.rawOnError true' for raw representation)
+/workspace/scratch/quartic-capture-algebra/CaptureAlgebra.lean:46:70: error: unsolved goals
+X Y W : ℝ
+hX : |X| ≤ 1 / 2
+hW0 : 0 ≤ W
+hW : W ≤ 1 / 16
+hY : |Y| ≤ W
+hX2 : X ^ 2 ≤ 1 / 4
+hbase : |X ^ 2 - 1 / 4| ≤ 1 / 4
+hxb : |X * (X ^ 2 - 1 / 4)| ≤ 1 / 8
+hmix : |3 * X ^ 2 - 1 / 4| ≤ 1 / 2
+hY2 : |Y ^ 2| ≤ W ^ 2
+hW2 : W ^ 2 ≤ W / 16
+hY3 : |Y ^ 3| ≤ W / 256
+⊢ |X ^ 2 - 1 / 4| ≤ 1 / 4 ∧
+    |X * (X ^ 2 - 1 / 4)| ≤ 1 / 8 ∧ |3 * X ^ 2 - 1 / 4| ≤ 1 / 2 ∧ |X ^ 2| ≤ 1 / 4 ∧ |Y ^ 2| ≤ W / 16 ∧ |Y ^ 3| ≤ W / 256
+/workspace/scratch/quartic-capture-algebra/CaptureAlgebra.lean:76:37: error: unsolved goals
+r : ℝ
+hr : 0 ≤ r
+U : Fin 8 → ℝ
+X : ℝ
+hX : |X| ≤ 1 / 2
+hb :
+  |X ^ 2 - 1 / 4| ≤ 1 / 4 ∧
+    |X * (X ^ 2 - 1 / 4)| ≤ 1 / 8 ∧ |3 * X ^ 2 - 1 / 4| ≤ 1 / 2 ∧ |X ^ 2| ≤ 1 / 4 ∧ |0 ^ 2| ≤ 0 / 16 ∧ |0 ^ 3| ≤ 0 / 256
+h0 : |U 0 / 2 * (X ^ 2 - 1 / 4)| ≤ |U 0| / 8
+⊢ r * (|U 4| / 6) = r * |U 4| / 6 ∨ X = 0 ∨ X ^ 2 - 1 / 4 = 0

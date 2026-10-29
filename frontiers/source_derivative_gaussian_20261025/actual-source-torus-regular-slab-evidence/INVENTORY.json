@@ -1,0 +1,842 @@
+{
+  "module": "SourceActualTorusRegularSlab",
+  "total": 73,
+  "counts": {
+    "private generated proof auxiliary": 11,
+    "authored private theorem": 35,
+    "private generated congruence or other declaration": 1,
+    "authored private definition": 8,
+    "private generated simp theorem": 3,
+    "authored private type or level-set alias": 3,
+    "authored private Prop bundle": 3,
+    "private generated defining equation": 6,
+    "sole authored public theorem": 1,
+    "foreign-namespace generated declaration": 2
+  },
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "declarations": [
+    {
+      "kind": "theorem",
+      "name": "I4SmoothCarrier.sampleInclusion.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "foreign-namespace generated declaration"
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SmoothCarrier.smoothSourceField.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "foreign-namespace generated declaration"
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceActualTorusRegularSlab.actualSource_closedSlab_componentInclusion_bijective",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "sole authored public theorem"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.CoverSuperlevel",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "abbrev",
+      "classification": "authored private type or level-set alias"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.E2",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "abbrev",
+      "classification": "authored private type or level-set alias"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.FiniteHorizonFacts",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "def",
+      "classification": "authored private Prop bundle"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.FiniteHorizonFacts._proof_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.HeightHittingFacts",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "def",
+      "classification": "authored private Prop bundle"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.HeightHittingFacts._proof_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.NormalizedFieldFacts",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "def",
+      "classification": "authored private Prop bundle"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.TorusSuperlevel",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "abbrev",
+      "classification": "authored private type or level-set alias"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.TorusSuperlevel._proof_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.TorusSuperlevel.congr_simp",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated congruence or other declaration"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.actualGradient_closedBand_floor",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.actualGradient_periodic",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.actualGradient_upperBounds",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.actualNormalizedVelocity_estimates",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.boundedFiniteHorizonFamily",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.closedBand_componentBijective_core",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.coverProjection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "def",
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.coverProjection.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated defining equation"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.coverProjection_add_lattice",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.coverProjection_eq_lattice",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.descendedHittingData",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.emptyBand_componentBijective",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.finiteHorizon_curve_unique",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.finiteSourceField",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixtureCoord",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "def",
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixtureCoord._proof_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixtureCoord.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated defining equation"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixtureDerivative",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "def",
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixtureDerivative._proof_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixtureDerivative._proof_2",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixtureDerivative._proof_3",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixtureDerivative._proof_4",
+      "axioms": [
+        "propext"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixtureDerivative.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated defining equation"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixturePoint",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "def",
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixturePoint_apply",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixturePolynomial",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "def",
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixturePolynomial._proof_1",
+      "axioms": [
+        "propext"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixturePolynomial.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated defining equation"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixtureSample",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "def",
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixtureSample.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated defining equation"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixture_actualField",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixture_band_nonempty",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixture_closedRegular",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixture_closedRegular_noCritical",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixture_closedRegular_noCritical._simp_1_1",
+      "axioms": [
+        "propext"
+      ],
+      "classification": "private generated simp theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixture_closedRegular_noCritical._simp_1_2",
+      "axioms": [
+        "propext"
+      ],
+      "classification": "private generated simp theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixture_coordinateField",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixture_criticalHeights",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixture_emptyBand",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixture_emptyBand_whole_nonempty",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixture_fieldBounds",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixture_hasFDerivAt",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixture_regularObjects",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixture_torusBounds",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.fixture_zeroWidth",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.heightHittingData",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.height_scalar_increment_bounds",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.literalComponentBijective_of_hitting",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.normalizedFieldData",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.normalizedVelocity",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "def",
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.normalizedVelocity._proof_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.normalizedVelocity.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated defining equation"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.physical_closedCell_representative",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.restrictedProjection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "def",
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.restrictedProjection._proof_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.restrictedProjectionQuotient",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.restrictedProjectionQuotient._simp_1_1",
+      "axioms": [
+        "propext"
+      ],
+      "classification": "private generated simp theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.restrictedProjection_continuous",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.restrictedProjection_surjective",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusRegularSlab.0.I4SourceActualTorusRegularSlab.zeroWidth_componentBijective",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "private": true,
+      "authored_kind": "theorem",
+      "classification": "authored private theorem"
+    }
+  ],
+  "coverage": "Every actual module-owned declaration enumerated once; classification only parses completed raw inventory, no repeatcheck"
+}

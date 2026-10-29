@@ -1,0 +1,26 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRawPinConditioning.lean:128:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq (Fin 6 → Fin 6 → ℝ)
+    (fun i j => cov[fun ω => sourceConfluentPinsAt L r ω i, fun ω => sourceConfluentPinsAt L r ω j; smoothLaw 2 L])
+    ((confluentMatrix r hr * of fun i j => cov[fun ω => rawPins L r ω i, fun ω => rawPins L r ω j; smoothLaw 2 L]) *
+      (confluentMatrix r hr)ᵀ)
+but is expected to have type
+  @Eq (Matrix (Fin 6) (Fin 6) ℝ) (sourcePinCovarianceAt L r)
+    (confluentMatrix r hr * rawPinCovariance L r * (confluentMatrix r hr)ᵀ)
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRawPinConditioning.lean:248:2: error: Tactic `rfl` failed: The left-hand side
+  Measure.map (fun p => rawPosteriorSample hL r p.1 p.2) (Measure.map (Prod.mk t) (smoothLaw 2 L))
+is not definitionally equal to the right-hand side
+  Measure.map (rawPosteriorSample hL r t) (smoothLaw 2 L)
+
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+t : Fin 6 → ℝ
+this : IsProbabilityMeasure (smoothLaw 2 L)
+⊢ Measure.map (fun p => rawPosteriorSample hL r p.1 p.2) (Measure.map (Prod.mk t) (smoothLaw 2 L)) =
+    Measure.map (rawPosteriorSample hL r t) (smoothLaw 2 L)
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRawPinConditioning.lean:273:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  SFinite (smoothLaw 2 L)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.

@@ -1,0 +1,553 @@
+{
+  "sourcecut_base": "458058b9a004482de4e80ddae6d1a34ba31287eb",
+  "final_registered_sourcecut": "PENDING_ROOT_INTEGRATION",
+  "local_import_closure": {
+    "SourceCompactTargetMoments.lean": {
+      "source_sha256": "4fc28898f09381b4bfd0a15324556d2f3cb68f4b39063aa3acf12db7759ccfc8",
+      "imports": [
+        "SourcePinCurvatureBounds",
+        "SourceRawPinConditioning"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceCompactTargetMoments.olean",
+      "cached_object_sha256": "c880d2497a20f8857b8b1ea5fc0de2e365470f29d7a24f9c58afe1d62a11a38d",
+      "evidence_role": "NEW_QUALIFIED_MODULE"
+    },
+    "SourcePinCurvatureBounds.lean": {
+      "source_sha256": "b19a673aa594d1d5ef929cc598f0a142efb56c10b78c4634c92a8a749d1f1d51",
+      "imports": [
+        "SourceConditionalMajorant",
+        "ConfluentIntegralIdentities",
+        "Mathlib.Analysis.Calculus.MeanValue"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourcePinCurvatureBounds.olean",
+      "cached_object_sha256": "44f65e77425fec3b6de34f5e0caf4e2e9657af62e141ef65f4dbfa04bc54f2fc",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "SourceConditionalMajorant.lean": {
+      "source_sha256": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691",
+      "imports": [
+        "SourceSmoothConditionalKernel",
+        "GaussianWeightedMajorants",
+        "SourceSmoothPalm"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceConditionalMajorant.olean",
+      "cached_object_sha256": "a1bb915b5cfec6b7635748067989d616d3c1dfd57ae6801521ccdcd0c012a7df",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "SourceSmoothConditionalKernel.lean": {
+      "source_sha256": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+      "imports": [
+        "SourceEndpointEstimates",
+        "Mathlib.Probability.Independence.Process.Basic",
+        "Mathlib.MeasureTheory.MeasurableSpace.Embedding"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceSmoothConditionalKernel.olean",
+      "cached_object_sha256": "b5f22827f9bfc5d2dc858c4368246a2e0d486580541a03cd7168e31b1cac93d3",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "SourceEndpointEstimates.lean": {
+      "source_sha256": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+      "imports": [
+        "SourceEndpointParameters",
+        "SourceConfluentLimits",
+        "SourceContactEndpointParameters",
+        "SourcePhysicalEndpointKernel",
+        "GaussianRegressionLimits",
+        "ResearchFormalCoreR1.GaussianNormalizerLimit",
+        "ResearchFormalCoreR1.PalmReweighting"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceEndpointEstimates.olean",
+      "cached_object_sha256": "2ad9411a286706586228a0e8a7361e965ac77c73d5c523e7db179c32f3e85393",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "SourceEndpointParameters.lean": {
+      "source_sha256": "efc88ac59217ab1960d5518abcd9f16a71b42080a2810f1e337eeb2f686c1e3a",
+      "imports": [
+        "SourceEndpointRegression",
+        "Mathlib.Probability.Distributions.Gaussian.Multivariate"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceEndpointParameters.olean",
+      "cached_object_sha256": "721810f2edb24896ccefb28bef12f3f40c0cd50f5c8b29bf31ed72720a8ec9fb",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "SourceEndpointRegression.lean": {
+      "source_sha256": "67e68553e004adc3b1b6beb987b3e7ad477b4541d96fec22ee481facd2038fce",
+      "imports": [
+        "SourceConfluentPins",
+        "ResearchFormalCoreR1.GaussianRegressionKernel",
+        "Mathlib.LinearAlgebra.Matrix.ToLin"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceEndpointRegression.olean",
+      "cached_object_sha256": "75f1ba7e71aff5e5ec0829593c5a72aa8719dd65ee09f8a9e17302bf1dc6993c",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "SourceConfluentPins.lean": {
+      "source_sha256": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+      "imports": [
+        "SourceDerivativeGaussian",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.FinCases",
+        "Mathlib.Tactic.Ring"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceConfluentPins.olean",
+      "cached_object_sha256": "9f3b07faba817bae21138ab90242dedbfaf9ae56e4c2a1d5ce9b4908d943aefc",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "SourceDerivativeGaussian.lean": {
+      "source_sha256": "c9754debcbf2aab7ff8d9604f2c13726723e8a8c1921ae68f83349205e43885d",
+      "imports": [
+        "SourceSmoothCarrier",
+        "Mathlib.Analysis.Calculus.SmoothSeries",
+        "Mathlib.Topology.Algebra.Module.Multilinear.Topology"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceDerivativeGaussian.olean",
+      "cached_object_sha256": "eadeaa178d231d0a5eebda63a58ee20d0450d04a1029b834a7d7b416151e096c",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "inputs/SourceSmoothCarrier.lean": {
+      "source_sha256": "5defdf223e85e7ccd23b5a903a1a306fe7f723727eb6aabf62eef523ef8639ed",
+      "imports": [
+        "SourceSmooth",
+        "SourceGaussianLaw",
+        "SourceCovariance",
+        "SourceTorusC4",
+        "Mathlib.MeasureTheory.Measure.Restrict",
+        "Mathlib.MeasureTheory.Measure.Typeclasses.Probability",
+        "Mathlib.MeasureTheory.Constructions.BorelSpace.Real"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceSmoothCarrier.olean",
+      "cached_object_sha256": "9cc272c1c77909d24efac880b94a8aaf808aa77b896ce9a0aaff71dd8a75656b",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "inputs/SourceSmooth.lean": {
+      "source_sha256": "12ad7263267a970bd5d5c95d7c7aa62d9c971f7beebf28f1aa7ed16d3a112f1b",
+      "imports": [
+        "SourceC4",
+        "Mathlib.Data.Nat.Choose.Sum"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceSmooth.olean",
+      "cached_object_sha256": "1e4c10bf34c699daa8fb6c85f220c2b1127b3904ab38f1bc1ca14ecc35a917d1",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "inputs/SourceC4.lean": {
+      "source_sha256": "b15e53b825c2e2d6af2af18182da227d8794dddcc3e1b29611a913f89a889397",
+      "imports": [
+        "SourceFourierSeries",
+        "Mathlib.Analysis.Calculus.SmoothSeries",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceC4.olean",
+      "cached_object_sha256": "14654272e6bf8f9db36f1df854eef79628f8440b3538559dfb81318d6da0dcd3",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "inputs/SourceFourierSeries.lean": {
+      "source_sha256": "5f145e8e8693bfe4d1554092c8258dbda4f17f8e078c503029e4e8ff2c018014",
+      "imports": [
+        "GaussianSeriesFoundation",
+        "SpectralWeights",
+        "Mathlib.Logic.Equiv.Option",
+        "Mathlib.Topology.Algebra.InfiniteSum.TsumUniformlyOn"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceFourierSeries.olean",
+      "cached_object_sha256": "970570d2d3683afffb5ac9fa6f004e4c4a9373e1ecd92a81cd27d63529b2f435",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "inputs/GaussianSeriesFoundation.lean": {
+      "source_sha256": "feea566d5aeba58459bd4a1f20f070bdcd80ee30712817324cdd594e3e232c95",
+      "imports": [
+        "Mathlib.Probability.Distributions.Gaussian.Real",
+        "Mathlib.Probability.Independence.InfinitePi",
+        "Mathlib.MeasureTheory.Function.LpSpace.InfiniteSum",
+        "Mathlib.MeasureTheory.Function.LpSeminorm.SMul"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/GaussianSeriesFoundation.olean",
+      "cached_object_sha256": "5131e6c25a7023e39d6a946f5daf9a99522f53a993f405aef2dceb78136b1072",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "inputs/SpectralWeights.lean": {
+      "source_sha256": "92af14a2d83304de3f8576ee10b3d376587e93c4464f8c715b8d2e32360f44b0",
+      "imports": [
+        "Mathlib.NumberTheory.ModularForms.JacobiTheta.TwoVariable",
+        "Mathlib.Analysis.Normed.Ring.InfiniteSum",
+        "Mathlib.Data.Fin.Tuple.Basic",
+        "Mathlib.Algebra.BigOperators.Fin"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SpectralWeights.olean",
+      "cached_object_sha256": "2502a8a3b80cc89500a64e2772444c423e228c3fe6bd85f7deaaf0220bedb798",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "inputs/SourceGaussianLaw.lean": {
+      "source_sha256": "a60ab6099d3cef0eeecaefa9e35d95ec14ec54ffd6c89e42dfcf6170907166e8",
+      "imports": [
+        "SourceFourierSeries",
+        "Mathlib.MeasureTheory.Integral.DominatedConvergence",
+        "Mathlib.Probability.Independence.CharacteristicFunction",
+        "Mathlib.Probability.Distributions.Gaussian.HasGaussianLaw.Independence",
+        "Mathlib.Analysis.Normed.Ring.InfiniteSum",
+        "Mathlib.Probability.Distributions.Gaussian.IsGaussianProcess.Def"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceGaussianLaw.olean",
+      "cached_object_sha256": "b377c2675d5c56de1deed65d084411a58a0d2c55015a29119bbc872ddc3a63bb",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "inputs/SourceCovariance.lean": {
+      "source_sha256": "30560009582659a100637b5510c657cf1fa762f68a37bae8fab42c1eeee6aee5",
+      "imports": [
+        "SourceKernel",
+        "SourceGaussianLaw",
+        "Mathlib.Probability.Moments.Covariance",
+        "Mathlib.Probability.Moments.Variance"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceCovariance.olean",
+      "cached_object_sha256": "864792af70f31a6ca041037a1d4b2d12f959585e95d05e40b528a60577975899",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "inputs/SourceKernel.lean": {
+      "source_sha256": "5fa3abc8fb0db0c14c67b4ee840e659cdf80f7d22c9fd4cb5e6c1c7b204fbd21",
+      "imports": [
+        "SourceLattice",
+        "Mathlib.Analysis.Normed.Ring.InfiniteSum"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceKernel.olean",
+      "cached_object_sha256": "bfbb925c6703a49b75151fe84c69a0f17e983d24885f2f494c31d0c112672fca",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "inputs/SourceLattice.lean": {
+      "source_sha256": "c644305a426bc876f609c055ce999b8008f028c67a1091639d919f4122981b7b",
+      "imports": [
+        "SourceFourierSeries",
+        "Mathlib.Data.Finset.Max"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceLattice.olean",
+      "cached_object_sha256": "5d49ae784a78d3ac0da94cbe56c25656ce2c979259040adc194ce93acdc645f9",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "inputs/SourceTorusC4.lean": {
+      "source_sha256": "b67b13030389dea4521e8e2afcac30ea44f84abd65c374bf208067b288fc64a1",
+      "imports": [
+        "SourceC4",
+        "SourceTorus",
+        "Mathlib.Topology.OpenPartialHomeomorph.Constructions",
+        "Mathlib.Geometry.Manifold.ContMDiff.Basic",
+        "Mathlib.Geometry.Manifold.ContMDiff.NormedSpace",
+        "Mathlib.Topology.LocallyConstant.Basic"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceTorusC4.olean",
+      "cached_object_sha256": "145efced2b5f7167eb39907db06cfc3f04892a9a0044da64db12f6b38af14cd5",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "inputs/SourceTorus.lean": {
+      "source_sha256": "02857b44552ab0e51a756b3b095c4ba43f8168ac332b069acb5bc8146d337eef",
+      "imports": [
+        "SourceCovariance",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Periodic",
+        "Mathlib.Probability.Distributions.Gaussian.IsGaussianProcess.Basic"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceTorus.olean",
+      "cached_object_sha256": "be99160d4499233e930ba8625d757946dac713ce6f39c07cf1ebfe0a024198bb",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "inputs/ResearchFormalCoreR1/GaussianRegressionKernel.lean": {
+      "source_sha256": "66d4fbee044a1a0c0b434bcd7614e220fad21d1ac275ce9b01070a66c5780460",
+      "imports": [
+        "Mathlib.Probability.HasCondDistrib",
+        "Mathlib.Probability.Distributions.Gaussian.HasGaussianLaw.Independence"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/ResearchFormalCoreR1/GaussianRegressionKernel.olean",
+      "cached_object_sha256": "e81779f44223efe8d5f059ba5086793ebd88afef58d40ceb938299da725469fb",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "SourceConfluentLimits.lean": {
+      "source_sha256": "1635a05bbd5b56608bc0a1a04eb4404c2df4601f1255f5846c1342a597bf5b0b",
+      "imports": [
+        "SourceEndpointRegression",
+        "SourceDerivativeContinuity",
+        "SourceContactSchur",
+        "SourceContactEndpointParameters",
+        "ConfluentIntegralIdentities",
+        "Mathlib.Analysis.Normed.Group.Tannery",
+        "Mathlib.MeasureTheory.Integral.DominatedConvergence",
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceConfluentLimits.olean",
+      "cached_object_sha256": "8974c834bca78e3517fc163f07c5b82d258202e4293280c1de835de5ff43cc63",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "SourceDerivativeContinuity.lean": {
+      "source_sha256": "552511e0aee227133b7d067faeceaab9c43c0094b07d68b8eddab0ab2419775e",
+      "imports": [
+        "SourceDerivativeGaussian",
+        "Mathlib.Analysis.Normed.Group.FunctionSeries"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceDerivativeContinuity.olean",
+      "cached_object_sha256": "40289b974ed001cc4e3a334e3a8d47b43f881623b5245195f2041aa6d0c9cbb0",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "SourceContactSchur.lean": {
+      "source_sha256": "2fe122a50ec1889b579558d80086251d87ed0cec2420d268ab1d04f6bfff4409",
+      "imports": [
+        "SourceContactCovariance"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceContactSchur.olean",
+      "cached_object_sha256": "b54fde3dce657ff3640b19864f02786d754bdcc087a1359d8c818fc310fa4f41",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "SourceContactCovariance.lean": {
+      "source_sha256": "4189cbaf4c18c55f21e3af2c96b0b2842d83161f44596eb691c507dcc1a439c8",
+      "imports": [
+        "SourceDerivativeGaussian",
+        "ContactJetCovariance",
+        "Mathlib.Tactic.FinCases",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceContactCovariance.olean",
+      "cached_object_sha256": "385850694cccb8930773e76d945789ce30a32dfc8367371b1e8604635946e5bd",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "ContactJetCovariance.lean": {
+      "source_sha256": "50df0281c580ac7af018713a38c6bdd5dd34b52e3834b573165045bc64acd49d",
+      "imports": [
+        "Mathlib.LinearAlgebra.Matrix.PosDef",
+        "Mathlib.LinearAlgebra.Matrix.Notation",
+        "Mathlib.Analysis.Normed.Ring.InfiniteSum",
+        "Mathlib.Analysis.Normed.Module.FiniteDimension",
+        "Mathlib.Tactic.FinCases",
+        "Mathlib.Tactic.Linarith"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/ContactJetCovariance.olean",
+      "cached_object_sha256": "9274f140905548b9d483dd786683a7a66a2485047956d1644f47200cb0725c70",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "SourceContactEndpointParameters.lean": {
+      "source_sha256": "da5337a7814a008eaa8b8a98c0df4daf3efb1bc347789a2f75efc63c9c258d01",
+      "imports": [
+        "SourceContactSchur",
+        "Mathlib.Probability.Moments.CovarianceBilin"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceContactEndpointParameters.olean",
+      "cached_object_sha256": "6af8c9a3116367f42277780e99c16ca1ffb4825a9d53ba9e1efd825328fc6497",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "ConfluentIntegralIdentities.lean": {
+      "source_sha256": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+      "imports": [
+        "Mathlib.Analysis.Calculus.IteratedDeriv.Defs",
+        "Mathlib.Analysis.Calculus.Deriv.Pow",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.IntegrationByParts",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Ring"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/ConfluentIntegralIdentities.olean",
+      "cached_object_sha256": "6957bab026802bfe96bdc898498997ff7036ef360f9f55f491136a1d5727a27b",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "SourcePhysicalEndpointKernel.lean": {
+      "source_sha256": "689ced2a760b38333b0224f19af52812d0057527d5a790ba50116cb5f07b7e3a",
+      "imports": [
+        "SourceEndpointParameters"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourcePhysicalEndpointKernel.olean",
+      "cached_object_sha256": "aab0cfdfb1971fb576957b745fb6478a702f2408c450fc1a58b461002506faf3",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "GaussianRegressionLimits.lean": {
+      "source_sha256": "26c403ea1104fbce89f5c2833f603edd4d2703669d8a94a77b2c9a2a06b572be",
+      "imports": [
+        "Mathlib.Topology.Instances.Matrix",
+        "Mathlib.Topology.Algebra.GroupWithZero",
+        "Mathlib.Topology.Algebra.Ring.Real",
+        "Mathlib.Topology.Order.LeftRightNhds",
+        "Mathlib.Analysis.Normed.Group.Real",
+        "Mathlib.Analysis.Normed.Group.Constructions",
+        "Mathlib.Analysis.Normed.Group.Continuity",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.FunProp"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/GaussianRegressionLimits.olean",
+      "cached_object_sha256": "9f011e134967e11b4ab45813f3e0774a4733f21b2a151bc2638bffe088d35657",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "inputs/ResearchFormalCoreR1/GaussianNormalizerLimit.lean": {
+      "source_sha256": "12c98054b5bcf47f4619c624ef5e91c37f316d7c4848f560279d1f1e96fe0049",
+      "imports": [
+        "ResearchFormalCoreR1.GaussianCoupling",
+        "ResearchFormalCoreR1.NormalizerFloor",
+        "ResearchFormalCoreR1.EndpointNormalizerBridge",
+        "Mathlib.Probability.Moments.Variance",
+        "Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/ResearchFormalCoreR1/GaussianNormalizerLimit.olean",
+      "cached_object_sha256": "c1456a634cd739b72c388d241d454dd9363c434a083f2b018ecddae898f0bc30",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "inputs/ResearchFormalCoreR1/GaussianCoupling.lean": {
+      "source_sha256": "426a53c139215650e961601c12f3cc1e09069520c5ebb96234a29483280551bb",
+      "imports": [
+        "Mathlib.Probability.Distributions.Gaussian.Multivariate",
+        "Mathlib.Probability.HasLaw",
+        "Mathlib.Analysis.SpecialFunctions.ContinuousFunctionalCalculus.Rpow.Isometric"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/ResearchFormalCoreR1/GaussianCoupling.olean",
+      "cached_object_sha256": "f0d94fd43dee29c24be7a06ea533b387f930420dd72706315b191bf49c34152f",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "inputs/ResearchFormalCoreR1/NormalizerFloor.lean": {
+      "source_sha256": "428eefd71b8c64fc4bcb208d9f73658058f29765f01a01c591f20a2d2359ec3e",
+      "imports": [
+        "ResearchFormalCoreR1.GaussianNormalizer",
+        "Mathlib.Probability.HasLaw",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Add",
+        "Mathlib.Topology.Instances.ENNReal.Lemmas",
+        "Mathlib.Topology.Order.LeftRightNhds"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/ResearchFormalCoreR1/NormalizerFloor.olean",
+      "cached_object_sha256": "022bfa6eb64e28ce5b17ed5be59f7be4e00d6b5cb622d00f73d4b58acb856da1",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "inputs/ResearchFormalCoreR1/GaussianNormalizer.lean": {
+      "source_sha256": "32b7202cba2a9a0e0ed603d1a6db9ba2031714375b4e955614d5a40826a14aeb",
+      "imports": [
+        "Mathlib.Probability.Distributions.Gaussian.Real",
+        "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.Basic",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.FunProp",
+        "Mathlib.Tactic.Positivity"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/ResearchFormalCoreR1/GaussianNormalizer.olean",
+      "cached_object_sha256": "7bdfa45678b98a80119cc64f68764beaa275bd6d7fc17e89d6945221333b0f8f",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "inputs/ResearchFormalCoreR1/EndpointNormalizerBridge.lean": {
+      "source_sha256": "36eab3b805fcba5160cb7e286dbd7f96940b0c6a85b464aad5fdad2f624ceb7e",
+      "imports": [
+        "ResearchFormalCoreR1.EndpointGaussianMoments",
+        "ResearchFormalCoreR1.NormalizerFloor"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/ResearchFormalCoreR1/EndpointNormalizerBridge.olean",
+      "cached_object_sha256": "3be1b3469121b7f84a18495e3388bbf510fc1e11271e858c1a79a1d3cb52eb92",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "inputs/ResearchFormalCoreR1/EndpointGaussianMoments.lean": {
+      "source_sha256": "c6351881326491ce30f1a266ea60e44c5adb8b3a1e5882c90575c67e459479d1",
+      "imports": [
+        "ResearchFormalCoreR1.GaussianJetMoments"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/ResearchFormalCoreR1/EndpointGaussianMoments.olean",
+      "cached_object_sha256": "b17625f8cc169225d5833ea43979faf7242733facec1059a71ac8ac0b4443897",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "inputs/ResearchFormalCoreR1/GaussianJetMoments.lean": {
+      "source_sha256": "f2e785975aee6915848fe78dc3ecde02b8f13a0a1fb56ae3771e4c727c723360",
+      "imports": [
+        "ResearchFormalCoreR1.DeterminantMoment",
+        "ResearchFormalCoreR1.GaussianScalarMoments",
+        "Mathlib.Probability.HasLaw",
+        "Mathlib.Algebra.Order.Chebyshev"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/ResearchFormalCoreR1/GaussianJetMoments.olean",
+      "cached_object_sha256": "e1eb57f5f944b8a629c65243f26aaed0f0d7b9159765c503b418874415f6e72f",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "inputs/ResearchFormalCoreR1/DeterminantMoment.lean": {
+      "source_sha256": "661b73c3f21c6d2529f5e09ce426d89c01939ab27a5cc868db3802c7e66ea82d",
+      "imports": [
+        "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+        "Mathlib.LinearAlgebra.Matrix.Determinant.Basic",
+        "Mathlib.Topology.Instances.Matrix",
+        "Mathlib.MeasureTheory.Order.Group.Lattice",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Ring",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.FinCases",
+        "Mathlib.Tactic.FunProp",
+        "Mathlib.Tactic.Push"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/ResearchFormalCoreR1/DeterminantMoment.olean",
+      "cached_object_sha256": "475d8aad0466a1e3d0834158f8d597efc4a7aef07a859460d3dc0f5fdbdf9d04",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "inputs/ResearchFormalCoreR1/GaussianScalarMoments.lean": {
+      "source_sha256": "71ce88ad2c97891858a5196f3293907bdffdd2341dfbace24204f2318c7510df",
+      "imports": [
+        "Mathlib.Probability.Distributions.Gaussian.Real",
+        "Mathlib.Algebra.Order.Ring.Basic",
+        "Mathlib.Tactic.FunProp",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/ResearchFormalCoreR1/GaussianScalarMoments.olean",
+      "cached_object_sha256": "13bd9a5836da9b0838b9f7d3a8466521d9b81ecb2f8fb05ef3b82c7397edc60b",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "inputs/ResearchFormalCoreR1/PalmReweighting.lean": {
+      "source_sha256": "d34e422693f1d449bfcaf9c844c99c8fef4f19503312d3677ca525bd2d67c4d6",
+      "imports": [
+        "Mathlib.MeasureTheory.Function.L2Space",
+        "Mathlib.MeasureTheory.Measure.WithDensity",
+        "Mathlib.MeasureTheory.Integral.Bochner.Set",
+        "Mathlib.MeasureTheory.Measure.Real",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.FieldSimp"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/ResearchFormalCoreR1/PalmReweighting.olean",
+      "cached_object_sha256": "503c9830bf493432b3a9fef635984e51defc9016b23624bda557664dac57b6b7",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "GaussianWeightedMajorants.lean": {
+      "source_sha256": "3bde84aa83d02b364ca17f242cc5dbca83908c02f2f75649075d7da6a3d1bfd0",
+      "imports": [
+        "Mathlib.MeasureTheory.Order.Group.Lattice",
+        "Mathlib.Analysis.Convex.Jensen",
+        "Mathlib.Analysis.Convex.SpecificFunctions.Basic",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Add",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Ring",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Probability.Distributions.Gaussian.Real",
+        "Mathlib.Probability.HasLaw",
+        "Mathlib.MeasureTheory.Constructions.BorelSpace.Order",
+        "Mathlib.Tactic.FunProp",
+        "Mathlib.MeasureTheory.Function.LpSpace.InfiniteSum",
+        "Mathlib.MeasureTheory.Function.LpSeminorm.SMul",
+        "Mathlib.MeasureTheory.Function.L1Space.Integrable"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/GaussianWeightedMajorants.olean",
+      "cached_object_sha256": "f0c3d4fcff2b4f5971419ac394bef57f0f506936f36ffce0cbcb7e5f21394b90",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "SourceSmoothPalm.lean": {
+      "source_sha256": "1b1d47b640b541195dad1472a07fa9490f203bd1619b1759b29587a0effe631d",
+      "imports": [
+        "SourceSmoothConditionalKernel"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceSmoothPalm.olean",
+      "cached_object_sha256": "9cd9b0544e70b0550911515749344ca4cec77e8b7834fb29c4b657b692b7cd5b",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    },
+    "SourceRawPinConditioning.lean": {
+      "source_sha256": "77e521c7fc3fc3da1c922a4ef547b065be58b232b321480948c8fe50d76c2aa5",
+      "imports": [
+        "SourceSmoothPalm",
+        "Mathlib.LinearAlgebra.Matrix.ToLin"
+      ],
+      "cached_object": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceRawPinConditioning.olean",
+      "cached_object_sha256": "757a9326500ed5ed1205eaccde2d0480aefafeceb66a3122852223c57cb2e090",
+      "evidence_role": "REUSED_COMPLETED_VERIFICATION_NO_REPLAY"
+    }
+  },
+  "source": "4fc28898f09381b4bfd0a15324556d2f3cb68f4b39063aa3acf12db7759ccfc8",
+  "objects": {
+    "SourceCompactTargetMoments.ilean": "a58c0cb307662dd598db5a7abb00bed967a961fc239c2b18e1b38a195b8459c5",
+    "SourceCompactTargetMoments.olean": "c880d2497a20f8857b8b1ea5fc0de2e365470f29d7a24f9c58afe1d62a11a38d"
+  }
+}

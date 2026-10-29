@@ -1,0 +1,63 @@
+{
+  "producer": "/root/remote_jet_gaussian_construct",
+  "provider": "OpenAI",
+  "family": "GPT-6",
+  "root": "/root",
+  "root_dispatched_helpers": [
+    "/root/two_remote_firstjet_arithmetic production covariance section",
+    "/root/two_remote_firstjet_arithmetic subsequent disjoint Controls-only PSD section"
+  ],
+  "integration": {
+    "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/HELPER_INTEGRATION.json",
+    "bytes": 3839,
+    "sha256": "97be42bcb69057dad5fee1e0fc5706e1d1d64fc31a7da26f84115fda1ab063f6"
+  },
+  "helper_amendments": {
+    "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/HELPER_AMENDMENTS.json",
+    "bytes": 1475,
+    "sha256": "a0aaaf38f080946b7d7786386addde3e4086e8c93a0c8d381f837b339c921a32"
+  },
+  "exact_helper_diff": {
+    "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/PSD_HELPER_ACTUAL_AMENDMENTS.diff",
+    "bytes": 2062,
+    "sha256": "541c5cde41719160c4f1bb12c556899ed3ca2aef2f957e43aba0882287ef6a11"
+  },
+  "route_amendment": {
+    "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/CONTROL_ROUTE_AMENDMENT.md",
+    "bytes": 1806,
+    "sha256": "97acd0a34d0f25130825f5867d63caf3420cbd16ce59571b8b8a62dba5bf8f9c"
+  },
+  "helper_compilations": 0,
+  "helper_objects": 0,
+  "helper_audit_kernel_control_campaigns": 0,
+  "helper_research_target_credit": 0,
+  "each_helper_once_integration": true,
+  "production_needed": "fixed12_affine_covariance only",
+  "controls_only": "firstThreeBlockDiagonal and its PosSemidef theorem; no test-only production bloat",
+  "precode_commit": "98ec56b05b8b729c5f1638227280711f2f3b1718",
+  "root_sourcecut": {
+    "status": "root owns source-only Git/cut; not supplied at producer evidencefreeze. Root can separately bind actual processcut without rewriting/replaying this frozen qualification."
+  },
+  "native_pickup": "https://github.com/d6g8k5htny-coder/Math-/pull/514#issuecomment-6424105296",
+  "completed_verification_reuse_rule": "Owner /workspace/AGENTS.md25Oct: completed applicable verification remains reusable under unchanged hypotheses/dependencies. Agent/session/handoff/freeze/Git/process labels never justify old replay; separate pending review does not erase math. Exact successful strict reused after freeze; no freshness compile.",
+  "authority_read": [
+    "/workspace/AGENTS.md",
+    "repository AGENTS.md",
+    "frozen SOURCE_TWO_REMOTE_FIRSTJET_GAUSSIAN.md/PLAN/CONTENDERS",
+    "adopted preflight REPORT and separate PREFLIGHT review"
+  ],
+  "canonical_authority": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/main/governance/OWNER_DECISION_20261025_REVIEW_FAMILIES.md"
+  ],
+  "link_delivery_not_reading": true,
+  "review_family_decision": {
+    "same_family_technical_credit": 0,
+    "actual_different_family_alignment_for55": "separate process; no presumed review",
+    "native_Claude_PASS": "5655734753 covers only unchanged SourceLifetimePairFiniteness plus2inputs/d2/conditionalupstream/no-rerun. Not55/newleaf.",
+    "R48_Elder_review": "6423621794 only scoped ElderClearance/ElderBridge unchanged11declarations/6adapter predicates/conditional upstream; not55"
+  },
+  "scientific_effect": "NONE",
+  "organizational_independence_credit": 0
+}

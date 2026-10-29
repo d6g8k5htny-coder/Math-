@@ -1,0 +1,43 @@
+{
+  "label": "compile-003",
+  "purpose": "new arbitrary-gap deterministic join elaboration only; completed dependencies reused",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "--root=/workspace/scratch/compact-normalizer-deterministic",
+    "-DwarningAsError=true",
+    "-o",
+    "/workspace/scratch/compact-normalizer-deterministic/build/Deterministic.olean",
+    "/workspace/scratch/compact-normalizer-deterministic/Deterministic.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/scratch/compact-normalizer-deterministic/Deterministic.lean",
+      "bytes": 9959,
+      "sha256": "2e9d3f0fe355ffe109876d25624b019fa87ba4ea11bf8d9b2416387777274b58"
+    }
+  },
+  "started_utc": "2026-10-26T10:07:23.930525+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 7.472893476486206,
+  "ended_utc": "2026-10-26T10:07:31.403544+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/scratch/compact-normalizer-deterministic/Deterministic.lean",
+      "bytes": 9959,
+      "sha256": "2e9d3f0fe355ffe109876d25624b019fa87ba4ea11bf8d9b2416387777274b58"
+    },
+    "object": {
+      "path": "/workspace/scratch/compact-normalizer-deterministic/build/Deterministic.olean",
+      "bytes": 902480,
+      "sha256": "c3731f70a7a47ce7eba5e444943034ccc68364b6ec09bc6ffd10f4a90023b0d2"
+    }
+  },
+  "log": {
+    "path": "/workspace/scratch/compact-normalizer-deterministic/runs/compile-003/output.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

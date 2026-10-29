@@ -1,0 +1,53 @@
+{
+  "created_utc": "2026-10-28T19:11:16.909137+00:00",
+  "status": "PASS",
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFiniteSuperlevelComponents.lean",
+    "bytes": 11683,
+    "sha256": "e63abe693a6d23e5679adbb7110cb7b569bd3171db596d470f32b8566bc01a5c",
+    "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+  },
+  "own_object": {
+    "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/build/SourceActualFiniteSuperlevelComponents.olean",
+    "bytes": 404464,
+    "sha256": "84d7797bc22096d9d3c9ead68542e952b8a752fe74767812bd4ae093c3876d89",
+    "identity_origin": "FIRST identity of newly created or changed owned payload"
+  },
+  "source_lines": 267,
+  "strict_receipt": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/receipt.json",
+  "strict_end_utc": "2026-10-28T18:58:27.600568+00:00",
+  "strict_label_note": "This actual final Werror pass is reused; no redundant compile-final run",
+  "inventory_receipt": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/receipt.json",
+  "inventory_end_utc": "2026-10-28T18:59:33.409617+00:00",
+  "owned_count": 30,
+  "classifications": {
+    "authored private theorem": 18,
+    "sole authored public theorem": 1,
+    "private generated proof auxiliary": 3,
+    "authored private definition": 4,
+    "private generated defining equation": 2,
+    "private generated simp theorem": 2
+  },
+  "zero_count_categories": [
+    "authored private Prop bundle",
+    "authored private type or level-set alias",
+    "foreign-namespace generated declaration",
+    "private generated congruence or other declaration"
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "own_kernel_count": 1,
+  "kernel_receipt": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/receipt.json",
+  "kernel_end_utc": "2026-10-28T19:01:11.980048+00:00",
+  "immutable_historical_freeze": "FINAL_SOURCE_OBJECT_IDS.PRE_KERNEL.json truthfully records earlier kernel0; not rewritten",
+  "source_cut": "93a82fa357c55a42035e2303d051a38fca31d775",
+  "source_parent": "139aa244cccb16395b71e244dd5b81bd330e1595",
+  "git_blob": "7eaf86e56cc4f7c243ea4fdc4ba5d25cb2e149c8",
+  "root_eligible_own_copy_count": 1,
+  "root_own_copy_utc": "2026-10-28T19:03:11.668202Z",
+  "all_further_copies": "SKIP",
+  "dependencies": "Qualified61 PUBLIC only plus old public inputs/mathlib; NO source62 mathematical dependency. Generic inventory infrastructure template reused, not its old execution or proof bodies."
+}

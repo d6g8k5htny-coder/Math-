@@ -1,0 +1,17 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "--root=/workspace/scratch/pin-curvature-implementation",
+    "-o",
+    "/workspace/scratch/pin-curvature-implementation/ActualPeanoRepresentations.olean",
+    "/workspace/scratch/pin-curvature-implementation/ActualPeanoRepresentations.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 1,
+  "sourceSHA_before": "aa21831a1743d0ef6ffe6f04bf124ee3db0de57606b24fd09333e47e6c2df7c9",
+  "sourceSHA_after": "aa21831a1743d0ef6ffe6f04bf124ee3db0de57606b24fd09333e47e6c2df7c9",
+  "elapsed": 4.7541584968566895
+}

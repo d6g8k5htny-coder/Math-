@@ -1,0 +1,22 @@
+/workspace/scratch/actual-fold-estimates-construct/Check.lean:4:7: error(lean.unknownIdentifier): Unknown identifier `peano_kernel_masses`
+ContDiff.differentiable_iteratedFDeriv.{u, uE, uF} {𝕜 : Type u} [NontriviallyNormedField 𝕜] {E : Type uE}
+  [NormedAddCommGroup E] [NormedSpace 𝕜 E] {F : Type uF} [NormedAddCommGroup F] [NormedSpace 𝕜 F] {f : E → F}
+  {n : WithTop ℕ∞} {m : ℕ} (hm : ↑m < n) (hf : ContDiff 𝕜 n f) : Differentiable 𝕜 fun x => iteratedFDeriv 𝕜 m f x
+/workspace/scratch/actual-fold-estimates-construct/Check.lean:6:7: error(lean.unknownIdentifier): Unknown constant `ContinuousMultilinearMap.continuous_eval_const`
+ContDiff.continuous_iteratedFDeriv.{u, uE, uF} {𝕜 : Type u} [NontriviallyNormedField 𝕜] {E : Type uE}
+  [NormedAddCommGroup E] [NormedSpace 𝕜 E] {F : Type uF} [NormedAddCommGroup F] [NormedSpace 𝕜 F] {f : E → F}
+  {n : WithTop ℕ∞} {m : ℕ} (hm : ↑m ≤ n) (hf : ContDiff 𝕜 n f) : Continuous fun x => iteratedFDeriv 𝕜 m f x
+/workspace/scratch/actual-fold-estimates-construct/Check.lean:8:7: error(lean.unknownIdentifier): Unknown constant `Continuous.continuousMultilinear_apply_const`
+/workspace/scratch/actual-fold-estimates-construct/Check.lean:9:7: error(lean.unknownIdentifier): Unknown constant `ContDiff.contDiff_fderiv`
+ContDiff.fderiv_right.{u_1, u_2, u_3} {𝕜 : Type u_1} {E : Type u_2} {F : Type u_3} [NontriviallyNormedField 𝕜]
+  [NormedAddCommGroup E] [NormedSpace 𝕜 E] [NormedAddCommGroup F] [NormedSpace 𝕜 F] {f : E → F} {m n : WithTop ℕ∞}
+  (hf : ContDiff 𝕜 n f) (hmn : m + 1 ≤ n) : ContDiff 𝕜 m (fderiv 𝕜 f)
+Continuous.clm_apply.{u_1, u_2, u_3, u_5} {𝕜 : Type u_1} [NontriviallyNormedField 𝕜] {E : Type u_2}
+  [SeminormedAddCommGroup E] [NormedSpace 𝕜 E] {F : Type u_3} [SeminormedAddCommGroup F] [NormedSpace 𝕜 F]
+  {X : Type u_5} [TopologicalSpace X] {f : X → E →L[𝕜] F} {g : X → E} (hf : Continuous f) (hg : Continuous g) :
+  Continuous fun x => (f x) (g x)
+ContDiff.clm_apply.{u_1, u_2, u_3, u_4} {𝕜 : Type u_1} {E : Type u_2} {F : Type u_3} {G : Type u_4}
+  [NontriviallyNormedField 𝕜] [NormedAddCommGroup E] [NormedSpace 𝕜 E] [NormedAddCommGroup F] [NormedSpace 𝕜 F]
+  [NormedAddCommGroup G] [NormedSpace 𝕜 G] {n : WithTop ℕ∞} {f : E → F →L[𝕜] G} {g : E → F} (hf : ContDiff 𝕜 n f)
+  (hg : ContDiff 𝕜 n g) : ContDiff 𝕜 n fun x => (f x) (g x)
+/workspace/scratch/actual-fold-estimates-construct/Check.lean:13:7: error(lean.unknownIdentifier): Unknown constant `ContinuousMultilinearMap.continuous`

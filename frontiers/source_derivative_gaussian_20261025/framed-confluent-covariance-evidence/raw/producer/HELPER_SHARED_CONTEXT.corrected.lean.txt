@@ -1,0 +1,107 @@
+import SourceDerivativeContinuity
+import SourceFiniteTrig
+import SourceRemoteJetWitness
+import SourceLifetimeGeometry
+import SourceSmoothTopology
+import ConfluentIntegralIdentities
+import Mathlib.MeasureTheory.Integral.DominatedConvergence
+import Mathlib.MeasureTheory.Integral.IntervalIntegral.DerivIntegrable
+import Mathlib.Analysis.Calculus.FDeriv.CompCLM
+
+/-! Actual seven Peano rows in physical orthonormal frames on the unchanged
+source carrier. The contact extension keeps the exact cubic factor six. -/
+
+noncomputable section
+set_option autoImplicit false
+open scoped BigOperators Matrix Topology Interval
+open I4Foundation I4Source I4Weights I4Smooth I4SmoothCarrier I4SourceGaussian
+open I4SourceCovariance I4SourceDerivativeGaussian I4SourceDerivativeContinuity
+open I4SourceFiniteTrig I4SourceFinitePinKernel I4SourceRemoteJetWitness
+open UniversalLaw.Spec.Lifetime I4LifetimeField
+open MeasureTheory ProbabilityTheory WithLp Set
+
+namespace I4SourceFramedConfluentCovariance
+
+private def contactRows (f : (Fin 2 → ℝ) → ℝ) (p e n : Fin 2 → ℝ) : Fin 7 → ℝ :=
+  ![f p,fderiv ℝ f p e,fderiv ℝ f p n,
+    iteratedFDeriv ℝ 2 f p ![e,e],iteratedFDeriv ℝ 2 f p ![e,n],
+    iteratedFDeriv ℝ 3 f p ![e,e,e],iteratedFDeriv ℝ 2 f p ![n,n] ]
+
+private def peanoRows (f : (Fin 2 → ℝ) → ℝ) (p e n : Fin 2 → ℝ) (r : ℝ) : Fin 7 → ℝ :=
+  ![(f (p-(r/2) • e)+f (p+(r/2) • e))/2,
+    (fderiv ℝ f (p-(r/2) • e) e+fderiv ℝ f (p+(r/2) • e) e)/2,
+    (fderiv ℝ f (p-(r/2) • e) n+fderiv ℝ f (p+(r/2) • e) n)/2,
+    ∫ t in (-1/2:ℝ)..(1/2:ℝ), iteratedFDeriv ℝ 2 f (p+(r*t) • e) ![e,e],
+    ∫ t in (-1/2:ℝ)..(1/2:ℝ), iteratedFDeriv ℝ 2 f (p+(r*t) • e) ![e,n],
+    6*∫ t in (-1/2:ℝ)..(1/2:ℝ), (1/4-t^2)*iteratedFDeriv ℝ 3 f (p+(r*t) • e) ![e,e,e],
+    iteratedFDeriv ℝ 2 f p ![n,n] ]
+
+private def pairCoefficient (L : ℝ) (z e n : E 2) (r : ℝ) : Fin 7 → SourceMode 2 → ℝ :=
+  fun i m => peanoRows (modeCoefficient 2 L m) (coordinates 2 z)
+    (coordinates 2 e) (coordinates 2 n) r i
+
+/-- Actual original mode rows, including the ordinary mixed derivative and cubic factor six. -/
+def framedConfluentCoefficient (L : ℝ) (z : E 2)
+    (R : OrthonormalBasis (Fin 2) ℝ (E 2)) (r : ℝ) : Fin 7 → SourceMode 2 → ℝ :=
+  pairCoefficient L z (R 0) (R 1) r
+
+/-- The literal finite series observation on the same original smooth carrier. -/
+def framedConfluentVector (L : ℝ) (z : E 2)
+    (R : OrthonormalBasis (Fin 2) ℝ (E 2)) (r : ℝ) (ω : SmoothSample 2 L) : Fin 7 → ℝ :=
+  fun i => scalarSeries (framedConfluentCoefficient L z R r i) (sampleInclusion 2 L ω)
+
+/-- Target-free Gram of the literal seven-row original coefficient family. -/
+def framedConfluentCovariance (L : ℝ) (z : E 2)
+    (R : OrthonormalBasis (Fin 2) ℝ (E 2)) (r : ℝ) : Matrix (Fin 7) (Fin 7) ℝ :=
+  I4ContactGram.coefficientGram (framedConfluentCoefficient L z R r)
+
+private def pairCovariance (L : ℝ) (z e n : E 2) (r : ℝ) : Matrix (Fin 7) (Fin 7) ℝ :=
+  I4ContactGram.coefficientGram (pairCoefficient L z e n r)
+
+private def envelope (L : ℝ) (m : SourceMode 2) : ℝ :=
+  8*∑ j : Fin 4, orderModeBound (j:ℕ) 2 L m
+
+private theorem envelope_nonneg (L : ℝ) (m : SourceMode 2) : 0 ≤ envelope L m := by
+  exact mul_nonneg (by norm_num) (Finset.sum_nonneg (fun j _ => orderModeBound_nonneg j 2 L m))
+
+private theorem envelope_summable {L : ℝ} (hL : L ≠ 0) : Summable (envelope L) := by
+  exact (summable_sum (fun j (_ : j ∈ (Finset.univ : Finset (Fin 4))) =>
+    orderModeBound_summable j 2 hL)).mul_left 8
+
+private theorem envelope_weighted_summable {L : ℝ} (hL : L ≠ 0) (ell : ℕ) :
+    Summable (fun m => orderModeBound ell 2 L m * envelope L m) :=
+  I4ContactGram.coefficient_product_summable (orderModeBound_summable ell 2 hL)
+    (envelope_summable hL)
+
+private theorem envelope_square_summable {L : ℝ} (hL : L ≠ 0) :
+    Summable (fun m => envelope L m*envelope L m) :=
+  I4ContactGram.coefficient_product_summable (envelope_summable hL) (envelope_summable hL)
+
+private theorem envelope_sample_summable {L : ℝ} (ω : SmoothSample 2 L) :
+    Summable (fun m => envelope L m*|sampleInclusion 2 L ω m|) := by
+  have h := (summable_sum (fun j (_ : j ∈ (Finset.univ : Finset (Fin 4))) => ω.property j)).mul_left 8
+  simpa only [envelope,Finset.sum_mul,mul_assoc,sampleInclusion] using h
+
+
+private def UniformContactLimit (L : ℝ) : Prop :=
+  ∀ eps : ℝ, 0 < eps → ∃ delta : ℝ, 0 < delta ∧
+    ∀ z : E 2, (∀ a : Fin 2, |coordinates 2 z a| ≤ |L|/2) →
+      ∀ R : OrthonormalBasis (Fin 2) ℝ (E 2), ∀ r : ℝ,
+        0 ≤ r → r ≤ delta → ∀ i j : Fin 7,
+          |framedConfluentCovariance L z R r i j-framedConfluentCovariance L z R 0 i j| < eps
+
+private def UniformCovarianceFloor (L : ℝ) : Prop :=
+  ∃ gamma Lambda delta : ℝ, 0 < gamma ∧ 0 < Lambda ∧ 0 < delta ∧ delta ≤ 1 ∧ delta ≤ |L|/8 ∧
+    ∀ z : E 2, (∀ a : Fin 2, |coordinates 2 z a| ≤ |L|/2) →
+      ∀ R : OrthonormalBasis (Fin 2) ℝ (E 2), ∀ r : ℝ, 0 ≤ r → r ≤ delta →
+        let G := framedConfluentCovariance L z R r
+        let G6 : Matrix (Fin 6) (Fin 6) ℝ := fun i j => G (Fin.castAdd 1 i) (Fin.castAdd 1 j)
+        (∀ v : Fin 7 → ℝ,
+          gamma*(∑ i, (v i)^2) ≤ v ⬝ᵥ (G *ᵥ v) ∧
+          v ⬝ᵥ (G *ᵥ v) ≤ Lambda*(∑ i, (v i)^2)) ∧
+        G.PosDef ∧ G6.PosDef ∧ IsUnit G6 ∧
+        gamma ≤ G 6 6-∑ i : Fin 6, ∑ j : Fin 6,
+          G 6 (Fin.castAdd 1 i)*(G6⁻¹) i j*G (Fin.castAdd 1 j) 6
+
+
+end I4SourceFramedConfluentCovariance

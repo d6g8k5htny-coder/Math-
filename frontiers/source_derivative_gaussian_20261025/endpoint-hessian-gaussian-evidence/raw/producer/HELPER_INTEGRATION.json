@@ -1,0 +1,57 @@
+{
+  "integrations": [
+    {
+      "helper": "/root/endpoint_determinant_null_text",
+      "integrated_utc": "2026-10-26T17:00:40.811233+00:00",
+      "original_section": {
+        "path": "/workspace/scratch/endpoint-hessian-determinant-null-text/DETERMINANT_NULLITY_SECTION.lean",
+        "bytes": 2548,
+        "sha256": "adeafa591d85a20a5ffe30989d97ed59e0e4534ec19cb83b24b39ff5a0cde7e8"
+      },
+      "needed_section": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/DETERMINANT_NEEDED_SECTION.lean.txt",
+        "bytes": 2046,
+        "sha256": "fb604449a72d091ad02992d6dc47d772c698c7bca60a8dbb52aead03353c348c"
+      },
+      "provenance": {
+        "path": "/workspace/scratch/endpoint-hessian-determinant-null-text/PROVENANCE.md",
+        "bytes": 3215,
+        "sha256": "45c8272d9b1a06d4e31eabf8919b6700e7e993ee86c4d95337b26e67b0d22589"
+      },
+      "integration_count": 1,
+      "helper_compilations": 0,
+      "helper_objects": 0,
+      "helper_kernel_audit_control_campaigns": 0,
+      "helper_target_credit": 0
+    },
+    {
+      "helper": "/root/endpoint_gaussian_ac_text",
+      "integrated_utc": "2026-10-26T17:03:12.026314+00:00",
+      "original_section": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-ac-text/SECTION.lean.txt",
+        "bytes": 3016,
+        "sha256": "215a43663985a9896fdfca1a8bab50b7435ac664905be4beb65ab3a32269e2ba"
+      },
+      "needed_section": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/AC_NEEDED_SECTION.lean.txt",
+        "bytes": 3016,
+        "sha256": "215a43663985a9896fdfca1a8bab50b7435ac664905be4beb65ab3a32269e2ba"
+      },
+      "imports": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-ac-text/IMPORTS.txt",
+        "bytes": 169,
+        "sha256": "e1fced9a8e86767788cd12682dca6bc71cf29fbaf78912da056edb154055e569"
+      },
+      "provenance": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-ac-text/FROZEN_PROVENANCE.md",
+        "bytes": 4558,
+        "sha256": "a3e2fd817ef662ae8b019d907341fd49b2091fdcf3757cda4b8e9a3b3e0fb467"
+      },
+      "integration_count": 1,
+      "helper_compilations": 0,
+      "helper_objects": 0,
+      "helper_kernel_audit_control_campaigns": 0,
+      "helper_target_credit": 0
+    }
+  ]
+}

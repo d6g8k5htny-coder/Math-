@@ -1,0 +1,24 @@
+{
+  "frozen_utc": "2026-10-26T20:28:53.907115+00:00",
+  "controls": {
+    "path": "/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean",
+    "bytes": 27218,
+    "sha256": "801100e37373045ed1d77962839a9bdc574322fae8c4091202c80fc6238891a4"
+  },
+  "controls_object": {
+    "path": "/workspace/scratch/raw-pin-free-coordinate-construct/build/FreeCoordinateControls.olean",
+    "bytes": 1888680,
+    "sha256": "17f2ba55cc996f330999ab58506ef4353138b49fb05aa24bb1bfdc1968502fd9"
+  },
+  "positive_receipt": "runs/controls-004/receipt.json",
+  "positive_ended_before_negative": "2026-10-26T20:28:25.481807+00:00",
+  "sole_mutation": {
+    "path": "/workspace/scratch/raw-pin-free-coordinate-construct/FalseSecondProjectionMutation.lean",
+    "bytes": 297,
+    "sha256": "afa33b0421110d0ebdfa43a2ac0ae8bb3b162932da7682f981588f67b13b4876"
+  },
+  "negative_campaign_prior_attempts": 0,
+  "control_coverage": "All seven frozen groups, actualfinite2frame+Fin0wholelaw, positiveprojection-vs-erasure, alltargetsingular reconstruction, independent actualqvs2q mismatch.",
+  "helper_coverage": "Controls-only helper qualified by positiveControls004; production ownkernel covers production only.",
+  "no_production_change_or_replay": true
+}

@@ -1,0 +1,6 @@
+SourcePinCurvatureBounds.lean:890:4: error: Type mismatch: After simplification, term
+  h2
+ has type
+  |sourceNormalizedEndpoints L r ω 2 + sourceA L ω / 2| ≤ r * sourceDerivativeMajorant L 4 ω
+but is expected to have type
+  |sourceNormalizedEndpoints L r ω 2 - -sourceA L ω / 2| ≤ r * sourceDerivativeMajorant L 4 ω

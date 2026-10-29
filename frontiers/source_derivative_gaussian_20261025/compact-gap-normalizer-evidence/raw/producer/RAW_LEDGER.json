@@ -1,0 +1,543 @@
+{
+  "own_all_receipts": {
+    "compile-001": {
+      "label": "compile-001",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "env",
+        "LEAN_PATH=/workspace/scratch/gap-weighted-numerator-construct/build",
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+        "-i",
+        "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.ilean",
+        "SourceCompactGapNormalizer.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactGapNormalizer.lean",
+          "bytes": 5098,
+          "sha256": "aada24db05ae78596f1efb9fa4133f47c287140e9e32bdbe5e3424b077699c75"
+        },
+        "object": null
+      },
+      "started_utc": "2026-10-26T10:07:14.202360+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 3.3790838718414307,
+      "ended_utc": "2026-10-26T10:07:17.581469+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactGapNormalizer.lean",
+          "bytes": 5098,
+          "sha256": "aada24db05ae78596f1efb9fa4133f47c287140e9e32bdbe5e3424b077699c75"
+        },
+        "object": null
+      },
+      "log": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/compile-001/output.log",
+        "bytes": 2138,
+        "sha256": "a41fc98be39bd91819f9ee848db64f67bacfe268513e69e3157581facd462c0a"
+      }
+    },
+    "compile-002": {
+      "label": "compile-002",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "env",
+        "LEAN_PATH=/workspace/scratch/gap-weighted-numerator-construct/build",
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+        "-i",
+        "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.ilean",
+        "SourceCompactGapNormalizer.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactGapNormalizer.lean",
+          "bytes": 10506,
+          "sha256": "2eed552777a5093a4753e2f8921d37a4d850fc411c7e50a73e69e171ac4bd249"
+        },
+        "object": null
+      },
+      "started_utc": "2026-10-26T10:07:55.984700+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 3.604705333709717,
+      "ended_utc": "2026-10-26T10:07:59.589444+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactGapNormalizer.lean",
+          "bytes": 10506,
+          "sha256": "2eed552777a5093a4753e2f8921d37a4d850fc411c7e50a73e69e171ac4bd249"
+        },
+        "object": null
+      },
+      "log": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/compile-002/output.log",
+        "bytes": 3134,
+        "sha256": "d1da965c87aa7790c146947070ebc0f714fd4d43fd2bed81f97d9bfd2b30cdd2"
+      }
+    },
+    "compile-003": {
+      "label": "compile-003",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "env",
+        "LEAN_PATH=/workspace/scratch/gap-weighted-numerator-construct/build",
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+        "-i",
+        "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.ilean",
+        "SourceCompactGapNormalizer.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactGapNormalizer.lean",
+          "bytes": 10675,
+          "sha256": "ab01b084fb72e72b9601599b595192f4c1158519db14cea9afc94a2c5cf80de5"
+        },
+        "object": null
+      },
+      "started_utc": "2026-10-26T10:08:36.369246+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 4.358340501785278,
+      "ended_utc": "2026-10-26T10:08:40.727619+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactGapNormalizer.lean",
+          "bytes": 10675,
+          "sha256": "ab01b084fb72e72b9601599b595192f4c1158519db14cea9afc94a2c5cf80de5"
+        },
+        "object": {
+          "path": "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+          "bytes": 507136,
+          "sha256": "0ccda5fa2ad637c7b8d3fa78ac4a628be2f61b18a0904a4b7256e9176af48627"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/compile-003/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "compile-004": {
+      "label": "compile-004",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "env",
+        "LEAN_PATH=/workspace/scratch/gap-weighted-numerator-construct/build",
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+        "-i",
+        "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.ilean",
+        "SourceCompactGapNormalizer.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactGapNormalizer.lean",
+          "bytes": 24675,
+          "sha256": "36232c083de570caddeb461568e3fae40e3be7e236486f32e4a30b1b29ef11be"
+        },
+        "object": {
+          "path": "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+          "bytes": 507136,
+          "sha256": "0ccda5fa2ad637c7b8d3fa78ac4a628be2f61b18a0904a4b7256e9176af48627"
+        }
+      },
+      "started_utc": "2026-10-26T10:09:50.469168+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 8.978084802627563,
+      "ended_utc": "2026-10-26T10:09:59.447309+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactGapNormalizer.lean",
+          "bytes": 24675,
+          "sha256": "36232c083de570caddeb461568e3fae40e3be7e236486f32e4a30b1b29ef11be"
+        },
+        "object": {
+          "path": "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+          "bytes": 507136,
+          "sha256": "0ccda5fa2ad637c7b8d3fa78ac4a628be2f61b18a0904a4b7256e9176af48627"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/compile-004/output.log",
+        "bytes": 362,
+        "sha256": "13c59728ab6eae87c39407330db308e08a5d11073bec2891a175f175b6c79866"
+      }
+    },
+    "compile-005": {
+      "label": "compile-005",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "env",
+        "LEAN_PATH=/workspace/scratch/gap-weighted-numerator-construct/build",
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+        "-i",
+        "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.ilean",
+        "SourceCompactGapNormalizer.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactGapNormalizer.lean",
+          "bytes": 24753,
+          "sha256": "d0f9319ac2ca792a9733659453583f4f71acc7ccccbcaba4ba1942566516065a"
+        },
+        "object": {
+          "path": "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+          "bytes": 507136,
+          "sha256": "0ccda5fa2ad637c7b8d3fa78ac4a628be2f61b18a0904a4b7256e9176af48627"
+        }
+      },
+      "started_utc": "2026-10-26T10:10:06.652296+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 10.22118353843689,
+      "ended_utc": "2026-10-26T10:10:16.873680+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactGapNormalizer.lean",
+          "bytes": 24753,
+          "sha256": "d0f9319ac2ca792a9733659453583f4f71acc7ccccbcaba4ba1942566516065a"
+        },
+        "object": {
+          "path": "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+          "bytes": 1477944,
+          "sha256": "36548ee275e757fe1a7fc507395d5d2bd6353cc65e686eb631472dbe5e40eed3"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/compile-005/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "controls-001": {
+      "label": "controls-001",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "env",
+        "LEAN_PATH=/workspace/scratch/compact-gap-normalizer-construct/build:/workspace/scratch/gap-weighted-numerator-construct/build",
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/compact-gap-normalizer-construct/build/Controls.olean",
+        "/workspace/scratch/compact-gap-normalizer-construct/Controls.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactGapNormalizer.lean",
+          "bytes": 24753,
+          "sha256": "d0f9319ac2ca792a9733659453583f4f71acc7ccccbcaba4ba1942566516065a"
+        },
+        "object": {
+          "path": "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+          "bytes": 1477944,
+          "sha256": "36548ee275e757fe1a7fc507395d5d2bd6353cc65e686eb631472dbe5e40eed3"
+        }
+      },
+      "started_utc": "2026-10-26T10:11:21.164711+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 1.0922212600708008,
+      "ended_utc": "2026-10-26T10:11:22.256958+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactGapNormalizer.lean",
+          "bytes": 24753,
+          "sha256": "d0f9319ac2ca792a9733659453583f4f71acc7ccccbcaba4ba1942566516065a"
+        },
+        "object": {
+          "path": "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+          "bytes": 1477944,
+          "sha256": "36548ee275e757fe1a7fc507395d5d2bd6353cc65e686eb631472dbe5e40eed3"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/controls-001/output.log",
+        "bytes": 199,
+        "sha256": "9d9987a7238772a7f980bbb64dc3476b280fc321e5c4790fd9e9414532c0f4ed"
+      }
+    },
+    "controls-002": {
+      "label": "controls-002",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "env",
+        "LEAN_PATH=/workspace/scratch/compact-gap-normalizer-construct/build:/workspace/scratch/gap-weighted-numerator-construct/build",
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-R",
+        "/workspace/scratch/compact-gap-normalizer-construct",
+        "-o",
+        "/workspace/scratch/compact-gap-normalizer-construct/build/Controls.olean",
+        "/workspace/scratch/compact-gap-normalizer-construct/Controls.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactGapNormalizer.lean",
+          "bytes": 24753,
+          "sha256": "d0f9319ac2ca792a9733659453583f4f71acc7ccccbcaba4ba1942566516065a"
+        },
+        "object": {
+          "path": "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+          "bytes": 1477944,
+          "sha256": "36548ee275e757fe1a7fc507395d5d2bd6353cc65e686eb631472dbe5e40eed3"
+        }
+      },
+      "started_utc": "2026-10-26T10:11:39.267052+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 3.7902793884277344,
+      "ended_utc": "2026-10-26T10:11:43.057381+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactGapNormalizer.lean",
+          "bytes": 24753,
+          "sha256": "d0f9319ac2ca792a9733659453583f4f71acc7ccccbcaba4ba1942566516065a"
+        },
+        "object": {
+          "path": "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+          "bytes": 1477944,
+          "sha256": "36548ee275e757fe1a7fc507395d5d2bd6353cc65e686eb631472dbe5e40eed3"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/controls-002/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "false-omitted-radius-001": {
+      "label": "false-omitted-radius-001",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "env",
+        "LEAN_PATH=/workspace/scratch/compact-gap-normalizer-construct/build:/workspace/scratch/gap-weighted-numerator-construct/build",
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-R",
+        "/workspace/scratch/compact-gap-normalizer-construct",
+        "/workspace/scratch/compact-gap-normalizer-construct/FalseOmittedRadiusSquare.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactGapNormalizer.lean",
+          "bytes": 24753,
+          "sha256": "d0f9319ac2ca792a9733659453583f4f71acc7ccccbcaba4ba1942566516065a"
+        },
+        "object": {
+          "path": "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+          "bytes": 1477944,
+          "sha256": "36548ee275e757fe1a7fc507395d5d2bd6353cc65e686eb631472dbe5e40eed3"
+        }
+      },
+      "started_utc": "2026-10-26T10:12:14.666127+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 2.9290809631347656,
+      "ended_utc": "2026-10-26T10:12:17.595245+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactGapNormalizer.lean",
+          "bytes": 24753,
+          "sha256": "d0f9319ac2ca792a9733659453583f4f71acc7ccccbcaba4ba1942566516065a"
+        },
+        "object": {
+          "path": "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+          "bytes": 1477944,
+          "sha256": "36548ee275e757fe1a7fc507395d5d2bd6353cc65e686eb631472dbe5e40eed3"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/false-omitted-radius-001/output.log",
+        "bytes": 197,
+        "sha256": "749a563dac377a3eab70774119449373366d3ef4d4303b162b564b0b77711ecb"
+      }
+    },
+    "inventory-001": {
+      "label": "inventory-001",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "env",
+        "LEAN_PATH=/workspace/scratch/compact-gap-normalizer-construct/build:/workspace/scratch/gap-weighted-numerator-construct/build",
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-R",
+        "/workspace/scratch/compact-gap-normalizer-construct",
+        "/workspace/scratch/compact-gap-normalizer-construct/Inventory.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactGapNormalizer.lean",
+          "bytes": 24753,
+          "sha256": "d0f9319ac2ca792a9733659453583f4f71acc7ccccbcaba4ba1942566516065a"
+        },
+        "object": {
+          "path": "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+          "bytes": 1477944,
+          "sha256": "36548ee275e757fe1a7fc507395d5d2bd6353cc65e686eb631472dbe5e40eed3"
+        }
+      },
+      "started_utc": "2026-10-26T10:14:17.201583+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 3.2874653339385986,
+      "ended_utc": "2026-10-26T10:14:20.489073+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactGapNormalizer.lean",
+          "bytes": 24753,
+          "sha256": "d0f9319ac2ca792a9733659453583f4f71acc7ccccbcaba4ba1942566516065a"
+        },
+        "object": {
+          "path": "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+          "bytes": 1477944,
+          "sha256": "36548ee275e757fe1a7fc507395d5d2bd6353cc65e686eb631472dbe5e40eed3"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/inventory-001/output.log",
+        "bytes": 3385,
+        "sha256": "df8898f135417b3681e0a9f9abe90e46a2e9a087e7d59953b54a87ffbcdfd522"
+      }
+    },
+    "kernel-001": {
+      "label": "kernel-001",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/compact-gap-normalizer-construct/build:/workspace/scratch/gap-weighted-numerator-construct/build:$LEAN_PATH exec leanchecker SourceCompactGapNormalizer"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactGapNormalizer.lean",
+          "bytes": 24753,
+          "sha256": "d0f9319ac2ca792a9733659453583f4f71acc7ccccbcaba4ba1942566516065a"
+        },
+        "object": {
+          "path": "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+          "bytes": 1477944,
+          "sha256": "36548ee275e757fe1a7fc507395d5d2bd6353cc65e686eb631472dbe5e40eed3"
+        }
+      },
+      "started_utc": "2026-10-26T10:14:10.086951+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 5.87357234954834,
+      "ended_utc": "2026-10-26T10:14:15.960582+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactGapNormalizer.lean",
+          "bytes": 24753,
+          "sha256": "d0f9319ac2ca792a9733659453583f4f71acc7ccccbcaba4ba1942566516065a"
+        },
+        "object": {
+          "path": "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+          "bytes": 1477944,
+          "sha256": "36548ee275e757fe1a7fc507395d5d2bd6353cc65e686eb631472dbe5e40eed3"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/kernel-001/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  "helper_ledger_references": [
+    "/workspace/scratch/compact-normalizer-gaussian/FROZEN_HANDOFF.json",
+    "/workspace/scratch/compact-normalizer-deterministic/EXECUTION_RECORD_INDEX.json"
+  ],
+  "no_helper_kernel_audit_control_campaign": true,
+  "frozen_source": {
+    "frozen_utc": "2026-10-26T10:12:46.169522+00:00",
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactGapNormalizer.lean",
+      "bytes": 24753,
+      "sha256": "d0f9319ac2ca792a9733659453583f4f71acc7ccccbcaba4ba1942566516065a"
+    },
+    "source_status": "frozen final source; completed strict compile-005 reused by unchanged consumed interface",
+    "helpers_frozen": [
+      {
+        "role": "gaussian",
+        "needed_section": {
+          "path": "/workspace/scratch/compact-normalizer-gaussian/FROZEN_SECTION.lean",
+          "bytes": 3532,
+          "sha256": "2286f304a69e742b84d762f8df649d4788643237d67be90009ed2cfa76bf671f"
+        },
+        "lineage_record": {
+          "path": "/workspace/scratch/compact-normalizer-gaussian/FROZEN_HANDOFF.json",
+          "bytes": 3367,
+          "sha256": "84fd42a3029fd4a4324b09ee630979f4a3845f594ad435a6273c0056ab92aef4"
+        },
+        "body_integrated_exactly_once": true,
+        "body_sha256": "c5e199460d849b0c21179102e659f39fcff6ce9d0a48329f5abc62de8ef33316"
+      },
+      {
+        "role": "deterministic",
+        "needed_section": {
+          "path": "/workspace/scratch/compact-normalizer-deterministic/INTEGRATION_SECTION.lean",
+          "bytes": 9906,
+          "sha256": "3ac2bdd270d54608cca584be8083598d5c813e552a75dc2caaa191b9348d7f41"
+        },
+        "lineage_record": {
+          "path": "/workspace/scratch/compact-normalizer-deterministic/FROZEN_SECTION.json",
+          "bytes": 1826,
+          "sha256": "be256cd5b3a630cda618e0fc4e4c38c7a49d59056c4d5594cccd4e4e91acc644"
+        },
+        "body_integrated_exactly_once": true,
+        "body_sha256": "1e5fd5e47ac752be9f3de307f791d02c8cfb76e0e343c9109dfce25d509e63e6"
+      }
+    ],
+    "no_own_kernel_yet": false,
+    "planned_exactly_one_named_kernel": "SourceCompactGapNormalizer",
+    "new_numerator_dependency_status": "qualified final frozen artifact; producer strict006/kernel001/inventory001/controls003 passed",
+    "precode_commit": "40f22f53bc5897e45fa8679d4d90dc88e1b28ba6",
+    "numerator_source_sha256": "b2fedf3739884ff716d11c85ebcf5de328fc76bc2a5bed31e8ea72c61d2f87a3",
+    "numerator_object_sha256": "2e6708f3f238cc5a6e1756edf926dab74cab2f05333978853cb6384cb3ff4a63",
+    "dependency_join_utc": "2026-10-26T10:14:00.161405+00:00",
+    "strict_compile_reuse": {
+      "receipt": "runs/compile-005/receipt.json",
+      "consumed_numerator_declaration": "I4SourceGapWeightedNumerator.sourceGapLaw_weight_integrable",
+      "early_object_sha256": "99e2996556d42d5bbfe41d7be2d3dd7f4f3ce680f96efa608861dc58dae5d831",
+      "consumed_statement_and_proof_byte_identical": true,
+      "consumed_declaration_sha256": "662f4614ace6995188f2c03d79f7019accbb765e8c9f23133ba326f9e2527744",
+      "final_environment_import_exercised_by": "runs/controls-002/receipt.json; ran after final numerator artifact creation",
+      "reason": "Owner reuse clarification: later qualification status and unused appended declarations do not justify recompiling unchanged material."
+    },
+    "exactly_one_named_own_module_kernel": true,
+    "kernel_receipt": {
+      "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/kernel-001/receipt.json",
+      "bytes": 1788,
+      "sha256": "504c6dd7fdfb08fe89f23e840620d4268964cd33f142b4a54c3147a10f2cf8fd"
+    },
+    "source_unchanged_since_strict_compile": true,
+    "all_frozen_before_kernel_start": true
+  },
+  "all_failures_preserved": true
+}

@@ -1,0 +1,22 @@
+QuotientAddGroup.isOpenMap_coe.{u_1} {G : Type u_1} [TopologicalSpace G] [AddGroup G] [SeparatelyContinuousAdd G]
+  {N : AddSubgroup G} : IsOpenMap QuotientAddGroup.mk
+QuotientAddGroup.mk_surjective.{u_1} {α : Type u_1} [AddGroup α] {s : AddSubgroup α} :
+  Function.Surjective QuotientAddGroup.mk
+continuous_quotient_mk'.{u} {X : Type u} [TopologicalSpace X] {s : Setoid X} : Continuous Quotient.mk'
+IsOpenMap.piMap.{u_2, u_3, u_4} {ι : Type u_2} {A : ι → Type u_3} {B : ι → Type u_4}
+  [T : (i : ι) → TopologicalSpace (A i)] [(i : ι) → TopologicalSpace (B i)] {f : (i : ι) → A i → B i}
+  (hfo : ∀ (i : ι), IsOpenMap (f i)) (hsurj : ∀ᶠ (i : ι) in Filter.cofinite, Function.Surjective (f i)) :
+  IsOpenMap (Pi.map f)
+Continuous.piMap.{u_2, u_3, u_4} {ι : Type u_2} {A : ι → Type u_3} {B : ι → Type u_4}
+  [T : (i : ι) → TopologicalSpace (A i)] [(i : ι) → TopologicalSpace (B i)] {f : (i : ι) → A i → B i}
+  (hf : ∀ (i : ι), Continuous (f i)) : Continuous (Pi.map f)
+/workspace/scratch/actual-torus-descent/Probe.lean:8:7: error(lean.unknownIdentifier): Unknown identifier `QuotientMap.continuous_iff`
+/workspace/scratch/actual-torus-descent/Probe.lean:9:7: error(lean.unknownIdentifier): Unknown identifier `IsQuotientMap.continuous_iff`
+/workspace/scratch/actual-torus-descent/Probe.lean:10:7: error(lean.unknownIdentifier): Unknown constant `AddSubgroup.isClosed_zmultiples`
+/workspace/scratch/actual-torus-descent/Probe.lean:11:7: error(lean.unknownIdentifier): Unknown constant `AddSubgroup.closed_zmultiples`
+AddSubgroup.zmultiples.{u_1} {G : Type u_1} [AddGroup G] (g : G) : AddSubgroup G
+AddCircle.continuous_mk'.{u_1} {𝕜 : Type u_1} [AddCommGroup 𝕜] (p : 𝕜) [TopologicalSpace 𝕜] :
+  Continuous ⇑(QuotientAddGroup.mk' (AddSubgroup.zmultiples p))
+TopologicalSpace.t2Space_of_metrizableSpace
+TopologicalSpace.t2Space_of_metrizableSpace
+I4SourceActualFoldDeath.physicalChart (r : ℝ) (hr : r ≠ 0) : ℝ × ℝ ≃ₜ TorusFiltration.superlevelBar_E 2

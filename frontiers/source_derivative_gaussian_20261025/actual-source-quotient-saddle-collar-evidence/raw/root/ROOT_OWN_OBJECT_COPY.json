@@ -1,0 +1,50 @@
+{
+  "created_utc": "2026-10-28T20:25:01.658625+00:00",
+  "source_cut": "57f73698fb84efd56166fda57639557794312754",
+  "source": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/build/SourceActualQuotientSaddleCollar.olean",
+  "destination": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceActualQuotientSaddleCollar.olean",
+  "source_identity": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualQuotientSaddleCollar.lean",
+    "bytes": 40252,
+    "sha256": "e0e0a0f77bd75bbbd8994d620ee43b18b2edd50d7649cd8cb9837e7148762265",
+    "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+  },
+  "eligible_own_object_identity": {
+    "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/build/SourceActualQuotientSaddleCollar.olean",
+    "bytes": 1654224,
+    "sha256": "a57489eb917c4f2fd4d314ab5f7ae9dea60619caf9160e044700114551c1e15e",
+    "identity_origin": "FIRST identity of newly created or changed owned payload"
+  },
+  "qualification_receipts": {
+    "fixtures-002": {
+      "receipt": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/fixtures-002/receipt.json",
+      "started_utc": "2026-10-28T20:15:12.777473+00:00",
+      "ended_utc": "2026-10-28T20:15:18.577258+00:00",
+      "exit_code": 0
+    },
+    "inventory-001": {
+      "receipt": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/inventory-001/receipt.json",
+      "started_utc": "2026-10-28T20:17:15.711727+00:00",
+      "ended_utc": "2026-10-28T20:17:18.941994+00:00",
+      "exit_code": 0
+    },
+    "kernel-001": {
+      "receipt": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/kernel-001/receipt.json",
+      "started_utc": "2026-10-28T20:22:58.661012+00:00",
+      "ended_utc": "2026-10-28T20:23:03.990459+00:00",
+      "exit_code": 0
+    }
+  },
+  "copy_once": true,
+  "copy_scope": "ONLYnewfinal64own.olean; nohelper/Controls/ilean/oldobject",
+  "all_further_copy_actions": "SKIP",
+  "completed_utc": "2026-10-28T20:25:01.660046+00:00",
+  "action": "COPIED_ONCE",
+  "destination_size_metadata": 1654224,
+  "identity_reused_no_rehash": "a57489eb917c4f2fd4d314ab5f7ae9dea60619caf9160e044700114551c1e15e",
+  "mathematical_checks": 0,
+  "payload_hashes": 0,
+  "old_object_copies": 0,
+  "helper_or_controls_copies": 0,
+  "ilean_copies": 0
+}

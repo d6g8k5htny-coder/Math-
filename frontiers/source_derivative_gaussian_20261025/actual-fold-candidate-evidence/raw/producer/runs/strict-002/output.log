@@ -1,0 +1,8 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFoldCandidate.lean:76:2: error: Type mismatch: After simplification, term
+  hh
+ has type
+  @Eq ℝ ((iteratedFDeriv ℝ 2 (fun x => smoothSourceField 2 L sample ((coordinates 2) x)) x) ![v, w])
+    ((iteratedFDeriv ℝ 2 (smoothSourceField 2 L sample) ((coordinates 2) x)) ![(coordinates 2) v, (coordinates 2) w])
+but is expected to have type
+  @Eq ℝ ((iteratedFDeriv ℝ 2 (actualField 2 L sample) x) ![v, w])
+    ((iteratedFDeriv ℝ 2 (smoothSourceField 2 L sample) ((coordinates 2) x)) ![(coordinates 2) v, (coordinates 2) w])

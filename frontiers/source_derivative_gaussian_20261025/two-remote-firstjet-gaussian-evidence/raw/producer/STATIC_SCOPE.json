@@ -1,0 +1,53 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean",
+    "bytes": 21774,
+    "sha256": "4677ada085e7c53b4e9b4fd2160bcffc326e6a73b20cbb6cb7540ee3aece2a91"
+  },
+  "imports": [
+    "SourceTwoRemoteFirstJetWitness",
+    "SourceRemoteJetGaussian",
+    "SourceSmoothTopology"
+  ],
+  "forbidden_matches": [],
+  "public_prop_count": 2,
+  "public_data_names": [
+    "twoRemoteFirstJet",
+    "twoRemoteRegressionMatrix",
+    "twoRemotePosteriorMean",
+    "twoRemoteResidualCovariance"
+  ],
+  "single_actual_joint_derivative_Gaussian_input": true,
+  "literal_joint12_order": "rawfM,fS,fxM,fxS,fyM,fyS,valueX,dxX,dyX,valueY,dxY,dyY",
+  "derivative_orders": [
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1,
+    1,
+    0,
+    1,
+    1
+  ],
+  "actual_route": "one heterogeneous public derivative Gaussian -> fixed12-to6+6 CLM split -> public arbitrary-R regression residual jointGaussian -> translation -> public zero means/covariance + fixed finite Gram transport -> finiteGaussian_law_parameters -> actual49 posterior pointwise identity + rawPinKernel pushforward",
+  "law_hypotheses": [
+    "original signed Lne0",
+    "all real r,x,y,t; collisions and singular covariance retained"
+  ],
+  "PD_hypotheses": [
+    "Lne0",
+    "xM,xS,yM,yS,xy quotient inequalities ONLY; actual concatenatedR"
+  ],
+  "no_foreign_private_names": true,
+  "foreign_namespace_generated_inventory": [],
+  "nonclaims": [
+    "independence or joint law from separate marginals",
+    "all-r RCD/fibers",
+    "conditional Schur/tie/globalMorse",
+    "canonical H0/Lifetime/selection/Rice/count/Parent"
+  ]
+}

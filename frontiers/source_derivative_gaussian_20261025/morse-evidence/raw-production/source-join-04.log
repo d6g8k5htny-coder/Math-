@@ -1,0 +1,16 @@
+SourceMorseIncidence.lean:1411:68: error: Application type mismatch: The argument
+  a
+has type
+  ↥fourModeSet → ℝ
+but is expected to have type
+  (i : ↥fourModeSet) → ?m.125 (fourModeEquiv.symm i)
+in the application
+  MeasurableEquiv.piCongrLeft_apply_apply fourModeEquiv.symm a
+SourceMorseIncidence.lean:1499:6: error: No applicable extensionality theorem found for type
+  ℝ
+
+Note: Extensionality theorems can be registered by marking them with the `[ext]` attribute
+SourceMorseIncidence.lean:1504:6: error: No applicable extensionality theorem found for type
+  ℝ
+
+Note: Extensionality theorems can be registered by marking them with the `[ext]` attribute

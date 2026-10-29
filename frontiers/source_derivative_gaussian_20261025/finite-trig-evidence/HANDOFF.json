@@ -1,0 +1,98 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFiniteTrig.lean",
+    "bytes": 12393,
+    "sha256": "d0f0dea0b2f8296d129a3759271076848e35dd5a4b1ab2f5f0cee58837c72b14"
+  },
+  "object": {
+    "path": "/workspace/scratch/finite-trig-construct/build/SourceFiniteTrig.olean",
+    "bytes": 508920,
+    "sha256": "5b96c7d331cd73697379c52a59a5b93749c134d89971b6926a79def657949c4c"
+  },
+  "qualification_complete_utc": "2026-10-26T11:43:12.787932+00:00",
+  "counts": {
+    "written_public_structure": 1,
+    "generated_theorem": 27,
+    "structure_projection": 3,
+    "written_public_theorem": 7,
+    "generated_structure_definition": 9,
+    "written_private_theorem": 16,
+    "generated_structure_theorem": 3,
+    "written_private_def": 3,
+    "written_public_def": 7,
+    "written_public_abbrev": 1,
+    "generated_structure_constructor": 1,
+    "generated_structure_recursor": 1
+  },
+  "foreign_namespace_generated": [
+    "I4SourceSmoothConditional.zeroSample.eq_1"
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/scratch/finite-trig-construct/FROZEN_SOURCE.json",
+      "bytes": 817,
+      "sha256": "1db66fe08bcdc5d4e08e6a2373cd07cbcce6a4f91e0573f1fb854d138406c2f7"
+    },
+    {
+      "path": "/workspace/scratch/finite-trig-construct/HELPER_INTEGRATION.json",
+      "bytes": 1648,
+      "sha256": "e704e33d591167c48b7520ec4d33c4ffe111253b582f0dc4b5ed7336adb00eee"
+    },
+    {
+      "path": "/workspace/scratch/finite-trig-construct/EXECUTION_RECORD_INDEX.json",
+      "bytes": 31225,
+      "sha256": "8c66f669fbd35756fe9c26acabb87ba327d5c1cf2b7fcc55aa65e2350d5fd133"
+    },
+    {
+      "path": "/workspace/scratch/finite-trig-construct/SOURCE_OBJECT_IDENTITIES.json",
+      "bytes": 1932,
+      "sha256": "7ccf6b0544db1a8490b8583c020b3289c6df86b20f668cd314aea852b8b4b186"
+    },
+    {
+      "path": "/workspace/scratch/finite-trig-construct/CONTROL_RECEIPT.json",
+      "bytes": 2751,
+      "sha256": "83ea728c7593b096f595683b0998d0e61fe89de55a5ba73246d3b046a926fde5"
+    },
+    {
+      "path": "/workspace/scratch/finite-trig-construct/INVENTORY.json",
+      "bytes": 22792,
+      "sha256": "a68279cbb277d745a85e56e632d15f7da5d6f0b9a66b2da3988591f5ad5356b6"
+    },
+    {
+      "path": "/workspace/scratch/finite-trig-construct/TARGET_CLASSIFICATION.json",
+      "bytes": 3129,
+      "sha256": "96130e5e8c5a8cf194de76dc82f17968d3da0b93aa589e176a549b4c0af9ebb5"
+    },
+    {
+      "path": "/workspace/scratch/finite-trig-construct/CLASSIFICATION_CORRECTION.json",
+      "bytes": 689,
+      "sha256": "652d9c0a209ebf2b1186caaf1a6162fd47ca6804f47994487de6103b7f98c95d"
+    },
+    {
+      "path": "/workspace/scratch/finite-trig-construct/STATIC_SCOPE.json",
+      "bytes": 1384,
+      "sha256": "f46ca99d688e458b7ff4a7dfbff21e6ccd5b15496850bcc8f6b1b621978e00e5"
+    },
+    {
+      "path": "/workspace/scratch/finite-trig-construct/AUTHOR_HELPER_LINEAGE.json",
+      "bytes": 2298,
+      "sha256": "1e93aeb9a55f0815ed83cacb2eed33081fa979601a9c76d9716b27576672551c"
+    }
+  ],
+  "root_remaining": "Root owns registration/cache/publication/current-source CI and separate provider-distinct process; no further mathematical recheck indicated for unchanged frozen source.",
+  "scientific_effect": "NONE",
+  "provider_distinct_credit": 0,
+  "producer_report": {
+    "path": "/workspace/scratch/finite-trig-construct/REPORT.md",
+    "bytes": 7190,
+    "sha256": "06d338dd13ef4411d246bd306e25b2193a09b5075ca0a4d4b0360072c90981e2"
+  },
+  "technical_review": {
+    "path": "/workspace/scratch/finite-trig-source-review/REPORT.md",
+    "bytes": 15906,
+    "sha256": "7eb94535669a41572fb9820cc0aeb7860025e54714de7af50c5fe1d1603f8356",
+    "disposition": "PASS no source amendments or unresolved findings",
+    "metadata_finding_FT_M1": "closed after readback",
+    "provider_distinct_credit": 0
+  }
+}

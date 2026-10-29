@@ -1,0 +1,46 @@
+{
+  "source_author": "OpenAI/Codex /root/uniform_jet_moment_sources",
+  "coauthor": "OpenAI/Codex /root/uniform_jet_moment_sources/torus_interface_recon",
+  "coauthor_role": "Scratch weighted carrier/Polish proof, coherent BCF structure diagnostic, gradient and Euclidean derivative contraction proofs; copied once into sole production module",
+  "independent_scientific_review_credit": 0,
+  "reused_completed_dependencies": "Prior24 qualified modules, new raw capture code if present, and23 source inputs; no dependency checks/hashes repeated",
+  "actual_helpers": [
+    {
+      "source": "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean",
+      "record": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-07.json",
+      "sha256": "b27ea234a57a84d296e965860d35bb5f9e805178d8b3e6027d29c4aa1ac62e6b",
+      "contribution": "Actual alpha membership/norm/strong Borel/completeness/separability/Polishness"
+    },
+    {
+      "source": "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean",
+      "record": "/workspace/scratch/source-smooth-parameter-space/diagnostics-06.json",
+      "sha256": "feeacb43980327c2f6d240533a42d694393824d7653094d477d87c6d11845431",
+      "contribution": "Six explicit coherent inherited BCF/whole-jet structure instances; API diagnostics only"
+    },
+    {
+      "source": "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean",
+      "record": "/workspace/scratch/source-smooth-parameter-space/synthesis-08.json",
+      "sha256": "da9d13be1551492fda66a6cc8325dfa1b5da0e5d6122c626dc7194fe2b276452",
+      "contribution": "Main-author finiteC5/normalized synthesis/actual recovery/periodicity"
+    },
+    {
+      "source": "/workspace/scratch/source-smooth-parameter-space/ParameterKernel.lean",
+      "record": "/workspace/scratch/source-smooth-parameter-space/parameter-kernel-01.json",
+      "sha256": "65b59f4496cc7b27191310263cec35e60eaadb51fa8b2047ecdc48aeee2968e0",
+      "contribution": "Main-author actual kernel composition; descriptive runner-scope label corrected in separate original note, no fabricated reexecution",
+      "metadata_note": "/workspace/scratch/source-smooth-parameter-space/PARAMETER_KERNEL_METADATA_NOTE.json"
+    },
+    {
+      "source": "/workspace/scratch/smooth-parameter-production/GradientFamily.lean",
+      "record": "/workspace/scratch/smooth-parameter-production/gradient-04.json",
+      "sha256": "7135caaf30b14066bc1fad91a61af38e0ae05aed57ab002b0d752d1dad7809f7",
+      "contribution": "Pi-gradient/tensor/D1 assignments, finite spatial C2, Euclidean gradient transport"
+    },
+    {
+      "source": "/workspace/scratch/smooth-parameter-production/EuclideanDerivative.lean",
+      "record": "/workspace/scratch/smooth-parameter-production/euclidean-derivative-01.json",
+      "sha256": "fd4fc0bf109fa4405c27db2131ae4474c913944eda99f0211da76811477625bb",
+      "contribution": "Literal Euclidean derivative BCF and finiteC2 chain rule"
+    }
+  ]
+}

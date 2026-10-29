@@ -1,0 +1,19 @@
+SourceMorseIncidence.lean:1130:36: error: Ambiguous term
+  sub_apply
+Possible interpretations:
+  _root_.sub_apply : ∀ (f g : ?m.702) (x : ?m.703), (f - g) x = f x - g x
+  
+  Measure.sub_apply : MeasurableSet ?m.706 → ?m.705 ≤ ?m.704 → (?m.704 - ?m.705) ?m.706 = ?m.704 ?m.706 - ?m.705 ?m.706
+SourceMorseIncidence.lean:1130:47: error: Ambiguous term
+  smul_apply
+Possible interpretations:
+  _root_.smul_apply : ∀ (f : ?m.703) (r : ?m.702) (x : ?m.704), (r • f) x = r • f x
+  
+  Measure.smul_apply : ∀ (c : ?m.703) (μ : Measure ?m.702) (s : Set ?m.702), (c • μ) s = c • μ s
+SourceMorseIncidence.lean:1130:59: warning: This simp argument is unused:
+  smul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_sub, map_smul, sub_apply, smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

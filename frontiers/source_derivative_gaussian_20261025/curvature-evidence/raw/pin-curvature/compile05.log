@@ -1,0 +1,22 @@
+SourcePinCurvatureBounds.lean:14:5: error: unknown namespace `I4PeanoErrorBounds`
+SourcePinCurvatureBounds.lean:626:13: error(lean.unknownIdentifier): Unknown identifier `cubic_pin_pointwise_error`
+SourcePinCurvatureBounds.lean:617:92: error: unsolved goals
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+hr : 0 < r
+ω : SmoothSample 2 L
+h3 : sourceConfluentPinsAt L r ω 3 = 0
+h4 : sourceConfluentPinsAt L r ω 4 = 0
+h5 : sourceConfluentPinsAt L r ω 5 = 2
+hΓ4 : 0 ≤ sourceDerivativeMajorant L 4 ω
+hΓ3 : 0 ≤ sourceDerivativeMajorant L 3 ω
+hhalf : r * sourceDerivativeMajorant L 4 ω / 2 ≤ r * sourceDerivativeMajorant L 4 ω
+hpin : 2 = 6 * ∫ (u : ℝ) in -1 / 2..1 / 2, (1 / 4 - u ^ 2) * iteratedDeriv 3 (sourceF L ω) (r * u)
+hp : 6 * ∫ (t : ℝ) in -1 / 2..1 / 2, peanoCubic t * iteratedDeriv 3 (sourceF L ω) (r * t) = 2
+⊢ |sourceNormalizedEndpoints L r ω 0 + 1| ≤ r * sourceDerivativeMajorant L 4 ω ∧
+    |sourceNormalizedEndpoints L r ω 1 - 1| ≤ r * sourceDerivativeMajorant L 4 ω ∧
+      |sourceNormalizedEndpoints L r ω 2 + sourceA L ω / 2| ≤ r * sourceDerivativeMajorant L 4 ω ∧
+        |sourceNormalizedEndpoints L r ω 3 - sourceA L ω / 2| ≤ r * sourceDerivativeMajorant L 4 ω ∧
+          |sourceNormalizedEndpoints L r ω 4 - sourceQ L ω| ≤ r * sourceDerivativeMajorant L 3 ω ∧
+            |sourceNormalizedEndpoints L r ω 5 - sourceQ L ω| ≤ r * sourceDerivativeMajorant L 3 ω

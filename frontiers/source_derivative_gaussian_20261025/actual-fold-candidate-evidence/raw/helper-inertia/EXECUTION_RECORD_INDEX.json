@@ -1,0 +1,86 @@
+[
+  {
+    "path": "/workspace/scratch/actual-fold-candidate-inertia/logs/run-001",
+    "receipt": {
+      "argv": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/scratch/actual-fold-candidate-inertia/logs/run-001/Inertia.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "utc_start": "2026-10-26T10:34:59.935039+00:00",
+      "utc_end": "2026-10-26T10:35:03.713432+00:00",
+      "elapsed_seconds": 3.7783732160023646,
+      "exit_code": 1,
+      "source_sha256": "d61e13d8054cd33f90c165ce2a5260b76c70e141578dc1700957b34bd4f7fc55",
+      "runner_sha256": "08068e142137a2db0225598bb30f03dc69ccd55a0e5534fd7491c15d05146fe2"
+    },
+    "stdout_sha256": "99f886b2aab4f80818778eced272176a352f24d557112f71432152ccd401d684",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/workspace/scratch/actual-fold-candidate-inertia/logs/run-002",
+    "receipt": {
+      "argv": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/scratch/actual-fold-candidate-inertia/logs/run-002/Inertia.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "utc_start": "2026-10-26T10:35:30.639578+00:00",
+      "utc_end": "2026-10-26T10:35:34.275893+00:00",
+      "elapsed_seconds": 3.6362827500051935,
+      "exit_code": 1,
+      "source_sha256": "12a285458a12331580f4290f476bce2656246145109f1af0ba9f6449243d53e4",
+      "runner_sha256": "08068e142137a2db0225598bb30f03dc69ccd55a0e5534fd7491c15d05146fe2"
+    },
+    "stdout_sha256": "2238e2649630ea9445810c5498ef64b31df68b7cb1a0bbcd9f43be52a8b2bbcc",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/workspace/scratch/actual-fold-candidate-inertia/logs/run-003",
+    "receipt": {
+      "argv": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/scratch/actual-fold-candidate-inertia/logs/run-003/Inertia.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "utc_start": "2026-10-26T10:35:49.079513+00:00",
+      "utc_end": "2026-10-26T10:35:52.917046+00:00",
+      "elapsed_seconds": 3.8375140340067446,
+      "exit_code": 1,
+      "source_sha256": "7c7a610de4178f2480906570284ec7c841456aa8d38b9aff8b26107cb53be603",
+      "runner_sha256": "08068e142137a2db0225598bb30f03dc69ccd55a0e5534fd7491c15d05146fe2"
+    },
+    "stdout_sha256": "c093b1a791ef4ba312421eb38690b78609cacc4a4cd03a10c0eb52f0bc7345dd",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/workspace/scratch/actual-fold-candidate-inertia/logs/run-004",
+    "receipt": {
+      "argv": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/scratch/actual-fold-candidate-inertia/logs/run-004/Inertia.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "utc_start": "2026-10-26T10:36:20.408392+00:00",
+      "utc_end": "2026-10-26T10:36:23.950303+00:00",
+      "elapsed_seconds": 3.541879799995513,
+      "exit_code": 0,
+      "source_sha256": "b234842b8d4c68991d1c4e0310f2a46a7512bd6f403d9acdae85338050783a9d",
+      "runner_sha256": "08068e142137a2db0225598bb30f03dc69ccd55a0e5534fd7491c15d05146fe2"
+    },
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

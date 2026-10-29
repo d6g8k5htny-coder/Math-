@@ -1,0 +1,111 @@
+private def ordinaryChosen :
+    {rho : ℝ // 0 < rho ∧ ∃ phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 2) Point2,
+      UniformCutResult fixtureField (fixtureCenter 1 0) (fixtureOpen 1 0) rho phi} := by
+  obtain ⟨rho, hrho, phi, hu, _⟩ := ordinary_positive_consumer
+  exact ⟨rho, hrho, phi, hu⟩
+private def chosenRho : ℝ := ordinaryChosen.val
+private def chosenPhi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 2) Point2 :=
+  Classical.choose ordinaryChosen.property.2
+private def chosenCenter : I4Torus.SourceTorus 2 2 := fixtureCenter 1 0
+private def chosenBound : ℝ := chosenRho^2/4
+private def chosenTrace (eps : ℝ) : Set (I4Torus.SourceTorus 2 2) :=
+  upperTrace fixtureField chosenCenter chosenPhi eps
+private def plusPoint : I4Torus.SourceTorus 2 2 := chosenPhi.symm (![0,chosenRho/2] : Point2)
+private def minusPoint : I4Torus.SourceTorus 2 2 := chosenPhi.symm (![0,-chosenRho/2] : Point2)
+private def boundaryTargetPoint (t : unitInterval) : Point2 :=
+  ![0, (1-2*(t : ℝ))*chosenRho/2]
+def nonnegativeUpperMutation : Prop :=
+  ∀ eps : ℝ, 0 ≤ eps → eps < chosenBound → UpperClause fixtureField chosenCenter chosenPhi eps
+
+private theorem chosen_positive : 0 < chosenRho := ordinaryChosen.property.1
+private theorem chosen_uniform :
+    UniformCutResult fixtureField chosenCenter (fixtureOpen 1 0) chosenRho chosenPhi :=
+  Classical.choose_spec ordinaryChosen.property.2
+private theorem chosen_structural : chosenCenter ∈ chosenPhi.source ∧
+    chosenPhi chosenCenter = 0 ∧ chosenPhi.source ⊆ fixtureOpen 1 0 ∧
+    chosenPhi.target = Metric.ball 0 chosenRho ∧
+    ∀ z ∈ chosenPhi.source, fixtureField z = fixtureField chosenCenter -
+      (chosenPhi z 0)^2 + (chosenPhi z 1)^2 :=
+  ⟨chosen_uniform.1, chosen_uniform.2.1, chosen_uniform.2.2.1,
+    chosen_uniform.2.2.2.1, chosen_uniform.2.2.2.2.1⟩
+
+private theorem boundaryTargetPoint_mem (t : unitInterval) :
+    boundaryTargetPoint t ∈ chosenPhi.target := by
+  rw [chosen_structural.2.2.2.1, Metric.mem_ball, dist_zero_right]
+  apply (pi_norm_lt_iff chosen_positive).2
+  intro i
+  fin_cases i
+  · change |(0 : ℝ)| < chosenRho
+    simpa using chosen_positive
+  · change |(1-2*(t : ℝ))*chosenRho/2| < chosenRho
+    have h0 := mul_nonneg t.property.1 chosen_positive.le
+    have h1 := mul_le_mul_of_nonneg_right t.property.2 chosen_positive.le
+    apply lt_of_le_of_lt (abs_le.mpr ?_) (show chosenRho/2 < chosenRho by linarith [chosen_positive])
+    constructor <;> nlinarith
+
+private def boundaryPath : Path plusPoint minusPoint where
+  toFun := fun t => chosenPhi.symm (boundaryTargetPoint t)
+  continuous_toFun := by
+    apply chosenPhi.symm.continuousOn.comp_continuous
+    · unfold boundaryTargetPoint
+      fun_prop
+    · intro t
+      exact boundaryTargetPoint_mem t
+  source' := by simp [boundaryTargetPoint, plusPoint]
+  target' := by
+    change chosenPhi.symm (![0,(1-2*(1 : ℝ))*chosenRho/2] : Point2) = minusPoint
+    congr 1
+    ext i
+    fin_cases i <;> simp [minusPoint] <;> ring
+
+private theorem boundaryPath_formula (t : unitInterval) :
+    boundaryPath t = chosenPhi.symm (boundaryTargetPoint t) := rfl
+private theorem boundaryPath_source (t : unitInterval) : boundaryPath t ∈ chosenPhi.source :=
+  chosenPhi.map_target (boundaryTargetPoint_mem t)
+private theorem boundaryPath_coordinates (t : unitInterval) :
+    chosenPhi (boundaryPath t) = boundaryTargetPoint t :=
+  chosenPhi.right_inv (boundaryTargetPoint_mem t)
+private theorem boundaryPath_zero_cut (t : unitInterval) : boundaryPath t ∈ chosenTrace 0 := by
+  refine ⟨boundaryPath_source t, ?_⟩
+  have hf := chosen_structural.2.2.2.2 _ (boundaryPath_source t)
+  rw [boundaryPath_coordinates] at hf
+  change fixtureField chosenCenter + 0 ≤ fixtureField (boundaryPath t)
+  change fixtureField (boundaryPath t) = fixtureField chosenCenter - 0^2 +
+    ((1-2*(t : ℝ))*chosenRho/2)^2 at hf
+  nlinarith [sq_nonneg ((1-2*(t : ℝ))*chosenRho/2)]
+private theorem boundaryPath_midpoint :
+    boundaryPath ⟨(1/2 : ℝ), by constructor <;> norm_num⟩ = chosenCenter := by
+  rw [boundaryPath_formula]
+  have he : boundaryTargetPoint ⟨(1/2 : ℝ), by constructor <;> norm_num⟩ = 0 := by
+    ext i
+    fin_cases i <;> norm_num [boundaryTargetPoint]
+  rw [he, ← chosen_structural.2.1]
+  exact chosenPhi.left_inv chosen_structural.1
+private theorem boundary_joined : JoinedIn (chosenTrace 0) plusPoint minusPoint :=
+  ⟨boundaryPath, boundaryPath_zero_cut⟩
+private theorem boundary_endpoint_product :
+    (chosenPhi plusPoint 1)*(chosenPhi minusPoint 1) = -chosenRho^2/4 := by
+  have hp : (![0,chosenRho/2] : Point2) ∈ chosenPhi.target := by
+    simpa [boundaryTargetPoint] using boundaryTargetPoint_mem (0 : unitInterval)
+  have hm : (![0,-chosenRho/2] : Point2) ∈ chosenPhi.target := by
+    convert boundaryTargetPoint_mem (1 : unitInterval) using 1 <;>
+      congr 1 <;> ext i <;> fin_cases i <;> simp [boundaryTargetPoint] <;> ring
+  change (chosenPhi (chosenPhi.symm (![0,chosenRho/2] : Point2)) 1)*
+    (chosenPhi (chosenPhi.symm (![0,-chosenRho/2] : Point2)) 1) = _
+  rw [chosenPhi.right_inv hp, chosenPhi.right_inv hm]
+  simp only [Fin.isValue, Matrix.cons_val_one]
+  ring
+private theorem ordinary_cutoff_equality : CutoffEquality fixtureField chosenCenter chosenRho chosenPhi :=
+  cutoffEquality _ _ (fixtureOpen 1 0) chosenRho chosen_positive chosenPhi chosen_uniform
+
+theorem nonnegativeUpperMutation_false : ¬ nonnegativeUpperMutation := by
+  intro hmut
+  have hzero := hmut 0 (le_refl 0) (by exact div_pos (sq_pos_of_pos chosen_positive) (by norm_num))
+  have hp : plusPoint ∈ chosenTrace 0 := by
+    simpa using boundaryPath_zero_cut (0 : unitInterval)
+  have hm : minusPoint ∈ chosenTrace 0 := by
+    simpa using boundaryPath_zero_cut (1 : unitInterval)
+  have hpositive := (hzero.2.2.2.2 plusPoint hp minusPoint hm).mp boundary_joined
+  rw [boundary_endpoint_product] at hpositive
+  have hs := sq_pos_of_pos chosen_positive
+  linarith

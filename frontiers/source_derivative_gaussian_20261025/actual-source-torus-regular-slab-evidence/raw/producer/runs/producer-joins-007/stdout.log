@@ -1,0 +1,14 @@
+SourceActualTorusRegularSlab.lean:1001:85: error: This simp argument is unused:
+  Int.cast_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.cons_val_zero, Matrix.cons_val_one, Int.cast_ofNat, Int.cast_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceActualTorusRegularSlab.lean:1006:56: error: This simp argument is unused:
+  Int.cast_ofNat
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.cons_val_zero, Matrix.cons_val_one, Int.cast_zero, Int.cast_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

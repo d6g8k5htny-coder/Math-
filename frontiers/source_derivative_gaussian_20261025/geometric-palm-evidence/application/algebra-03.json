@@ -1,0 +1,16 @@
+{
+  "scope": "Only new scratch RawConfluentLift algebra; no baseline checks or Kac\u2013Rice formalization",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit_code": 0,
+  "source_sha256_before": "b5ff1c3837f80f186733bc2f4d6c03b0c11bcdf6da85b2b51806aaf99bf1dff6",
+  "source_sha256_after": "b5ff1c3837f80f186733bc2f4d6c03b0c11bcdf6da85b2b51806aaf99bf1dff6",
+  "log_sha256": "ab5e080b2584b2aa2a3be567a05b9ad3214cbe8ecc14b566089ba773054128e0",
+  "elapsed_seconds": 1.9127779006958008
+}

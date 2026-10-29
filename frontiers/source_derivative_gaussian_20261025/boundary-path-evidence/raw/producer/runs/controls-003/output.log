@@ -1,0 +1,27 @@
+/workspace/scratch/ridge-boundary-path-construct/Controls.lean:145:71: error: unsolved goals
+⊢ 8 = 2 * 4
+/workspace/scratch/ridge-boundary-path-construct/Controls.lean:156:54: error: unsolved goals
+hs : StructuralRectangleData (polynomial 4) univ 1 8 0 0 0 2
+U : Set ℝ
+z : ℝ → ℝ
+hz : RidgeScalarData (polynomial 4) univ 1 8 0 0 0 U z
+hg : RectangleBoundaryPathData (polynomial 4) 1 8 z
+heq : ∀ x ∈ U, z x = 0
+γ : Path M (olderPoint z)
+hγ : ∀ (t : ↑unitInterval), γ t = (pathX t, z (pathX t))
+hfloor : ∀ (t : ↑unitInterval), polynomial 4 S ≤ polynomial 4 (γ t)
+hmid : γ pathMidpoint = S
+⊢ -(3 / 2) ≤ ?m.338 ∧ ?m.338 ≤ 3 / 2
+/workspace/scratch/ridge-boundary-path-construct/Controls.lean:156:2: error: unsolved goals
+case refine_1
+hs : StructuralRectangleData (polynomial 4) univ 1 8 0 0 0 2
+U : Set ℝ
+z : ℝ → ℝ
+hz : RidgeScalarData (polynomial 4) univ 1 8 0 0 0 U z
+hg : RectangleBoundaryPathData (polynomial 4) 1 8 z
+heq : ∀ x ∈ U, z x = 0
+γ : Path M (olderPoint z)
+hγ : ∀ (t : ↑unitInterval), γ t = (pathX t, z (pathX t))
+hfloor : ∀ (t : ↑unitInterval), polynomial 4 S ≤ polynomial 4 (γ t)
+hmid : γ pathMidpoint = S
+⊢ (3 / 2, z (3 / 2)) = (3 / 2, 0)

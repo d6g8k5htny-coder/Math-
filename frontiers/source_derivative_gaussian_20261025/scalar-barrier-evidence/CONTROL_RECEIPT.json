@@ -1,0 +1,33 @@
+{
+  "positive": {
+    "record": "raw/runs/controls-03/receipt.json",
+    "exit_code": 0,
+    "theorems": [
+      "AdaptiveFoldScalarControls.canonical_barrier",
+      "AdaptiveFoldScalarControls.canonical_arm_separation",
+      "AdaptiveFoldScalarControls.canonical_asymmetric_ceiling",
+      "AdaptiveFoldScalarControls.canonical_symmetric_violation",
+      "AdaptiveFoldScalarControls.no_full_symmetric_ceiling"
+    ],
+    "scope": "Concrete canonical a=x²-1/4, a1=2x, a2=2, phi=x³/3-x/4; explicit jets and pins instantiate final theorem; bundle margins/one-sided ceiling used; successful arithmetic refutation of full symmetric ceiling."
+  },
+  "negative": {
+    "record": "raw/runs/negative-01/receipt.json",
+    "source": "raw/NegativeSymmetricCeiling.lean",
+    "exit_code": 1,
+    "mutation": "Replace asymmetric ceiling domain [-3/2,1/2] by full symmetric J=[-3/2,3/2]",
+    "substantive_failure": "At the required concrete endpoint inequality phi(3/2)≤phi(-1/2), norm_num leaves False because 3/4>1/12. No import, binder, name or typeclass failure is credited.",
+    "diagnostic": "raw/runs/negative-01/output.log"
+  },
+  "not_kernel_replayed": "Controls are elaborated; only the new production module received the one named kernel replay.",
+  "failure_history": [
+    "compile-01: derivative conversion, continuity packaging and local syntax",
+    "compile-02: derivative conversion and extra parenthesis",
+    "compile-03: two tactic-linter warnings under warningAsError",
+    "compile-04: remaining derivative conversion goal/tactic closure",
+    "controls-01: output module root-directory invocation mismatch, not mathematical negative credit",
+    "controls-02: canonical derivative helper conversions",
+    "direct-axioms-01: three auxiliary proof names trigger warningAsError auxLemma linter; all33 collectAxioms rows already succeed. Stable-name print audit was corrected to30 names without disabling linters."
+  ],
+  "verification_reuse": "Successful unchanged new-module compile/kernel/axiom/control evidence is reusable; old29/25-input and qualified30th-module evidence was not replayed."
+}

@@ -1,0 +1,45 @@
+{
+  "frozen_at_utc": "2026-10-26T13:26:04.549714+00:00",
+  "helper": "/root/remote_jet_row_adapters",
+  "producer": "/root/remote_jet_gaussian_construct",
+  "source49_native_pickup": "6417018542",
+  "precode_revision": "fa7bce3",
+  "needed_sections": [
+    {
+      "path": "/workspace/scratch/remote-jet-gaussian-row-adapters/ProductionRows.lean.txt",
+      "sha256": "7875cf69b1e88f69b0faa2d1f6ad39773c60e3a190bd1a7b79915f09d6283cbf",
+      "bytes": 3667,
+      "destination": "new production namespace after remoteJet definition"
+    },
+    {
+      "path": "/workspace/scratch/remote-jet-gaussian-row-adapters/ConcreteSeparation.lean.txt",
+      "sha256": "8655af6ac79583d3fb6a689ac5044d13bfa713ee6ab4a9833f4fee459fe86460",
+      "bytes": 1171,
+      "destination": "actual source controls before concrete signed-period PosDef example"
+    }
+  ],
+  "scope": "Three private six-case adapters plus literal negative-period repeated-pin quotient separation only. Producer integrates needed text once. No helper object or target credit.",
+  "evidence_reused": {
+    "qualified_stage48": "9a1f52baf3bc8719d37c7696a7c364211de3ee56",
+    "source_cut": "689b8eef7dd2107e51d46007c1be3dfd4a909b81",
+    "source_sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf",
+    "native_result": "6416959065",
+    "rule": "/workspace/AGENTS.md: completed applicable verification remains reusable; a new agent/session/handoff alone never warrants replay."
+  },
+  "verification_boundary": "No compilation, Lean check, schema/name probe, kernel, old control replay, or qualification campaign performed. Hashes identify frozen integration text only. Producer final new-module compile is the only compile covering this text.",
+  "public_source_apis_used": [
+    "I4SourceRemoteJetWitness.remoteJetCoefficient",
+    "I4SourceRemoteJetWitness.jet2",
+    "I4SourceDerivativeGaussian.smoothSourceField_derivative_series",
+    "I4SourceDerivativeGaussian.derivativeCoefficient_summable",
+    "I4SourceSmoothConditional.derivativeCoefficient_weighted_summable",
+    "iteratedFDeriv_zero_apply",
+    "iteratedFDeriv_one_apply",
+    "I4Torus.torusProjection",
+    "I4SourceConfluentPins.endpointM",
+    "I4SourceConfluentPins.endpointS",
+    "AddCircle.coe_eq_zero_iff"
+  ],
+  "private_source_access": "No foreign-private generated constant accessed.",
+  "control_tactic_import": "Mathlib.Tactic.Omega"
+}

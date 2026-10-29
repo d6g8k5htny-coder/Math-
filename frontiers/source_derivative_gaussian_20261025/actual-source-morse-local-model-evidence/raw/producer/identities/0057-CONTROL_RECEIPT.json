@@ -1,0 +1,25 @@
+{
+  "production_private_fixtures": "core019 + inventory173 + EXACTLYONE kernel001",
+  "ordinary_controls_coverage": "controls003 only; NOT production kernel",
+  "correct_entry": 1,
+  "sole_omitted_weight_entry": 2,
+  "negative_after_positive": true,
+  "negative_only_intendedFalse": true,
+  "negative_stderr_empty": true,
+  "receipts": {
+    "production_strict": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core019/RECORD.json",
+    "all_owned_inventory_std3": "/workspace/scratch/actual-source-morse-local-model-construct/runs/inventory-001/RECORD.json",
+    "exactly_one_kernel": "/workspace/scratch/actual-source-morse-local-model-construct/runs/kernel-001/RECORD.json",
+    "ordinary_controls_counterproof": "/workspace/scratch/actual-source-morse-local-model-construct/runs/controls-003/RECORD.json",
+    "sole_intendedFalse": "/workspace/scratch/actual-source-morse-local-model-construct/runs/omitted-weight-false-001/RECORD.json",
+    "full_production_patches": {
+      "A": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core019/HELPER_A_FULL_AMENDMENTS.patch",
+      "B": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core019/HELPER_B_FULL_AMENDMENTS.patch",
+      "C": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core019/HELPER_C_FULL_AMENDMENTS.patch"
+    },
+    "full_ordinary_patch": "/workspace/scratch/actual-source-morse-local-model-construct/runs/controls-003/CONTROLS_FULL_AMENDMENTS.patch"
+  },
+  "negative_harness_source_bytes": 175,
+  "negative_stdout_bytes": 138,
+  "negative_stderr_bytes": 0
+}

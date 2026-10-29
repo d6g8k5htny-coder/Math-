@@ -1,0 +1,122 @@
+[
+  {
+    "label": "SOURCE_CUT_01",
+    "command": [
+      "git",
+      "-C",
+      "/workspace/Math-curvature-20261026",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace",
+    "started_utc": "2026-10-28T20:25:01.556865+00:00",
+    "ended_utc": "2026-10-28T20:25:01.559249+00:00",
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-quotient-saddle-collar-publication/SOURCE_CUT_01.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-quotient-saddle-collar-publication/SOURCE_CUT_01.stderr.txt"
+  },
+  {
+    "label": "SOURCE_CUT_02",
+    "command": [
+      "git",
+      "-C",
+      "/workspace/Math-curvature-20261026",
+      "add",
+      "--",
+      "frontiers/source_derivative_gaussian_20261025/SourceActualQuotientSaddleCollar.lean"
+    ],
+    "cwd": "/workspace",
+    "started_utc": "2026-10-28T20:25:01.559867+00:00",
+    "ended_utc": "2026-10-28T20:25:01.574590+00:00",
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-quotient-saddle-collar-publication/SOURCE_CUT_02.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-quotient-saddle-collar-publication/SOURCE_CUT_02.stderr.txt"
+  },
+  {
+    "label": "SOURCE_CUT_03",
+    "command": [
+      "git",
+      "-C",
+      "/workspace/Math-curvature-20261026",
+      "commit",
+      "--only",
+      "-m",
+      "Formalize actual quotient saddle collar and local branches",
+      "--",
+      "frontiers/source_derivative_gaussian_20261025/SourceActualQuotientSaddleCollar.lean"
+    ],
+    "cwd": "/workspace",
+    "started_utc": "2026-10-28T20:25:01.574921+00:00",
+    "ended_utc": "2026-10-28T20:25:01.644440+00:00",
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-quotient-saddle-collar-publication/SOURCE_CUT_03.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-quotient-saddle-collar-publication/SOURCE_CUT_03.stderr.txt"
+  },
+  {
+    "label": "SOURCE_CUT_04",
+    "command": [
+      "git",
+      "-C",
+      "/workspace/Math-curvature-20261026",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace",
+    "started_utc": "2026-10-28T20:25:01.645085+00:00",
+    "ended_utc": "2026-10-28T20:25:01.647111+00:00",
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-quotient-saddle-collar-publication/SOURCE_CUT_04.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-quotient-saddle-collar-publication/SOURCE_CUT_04.stderr.txt"
+  },
+  {
+    "label": "SOURCE_CUT_05",
+    "command": [
+      "git",
+      "-C",
+      "/workspace/Math-curvature-20261026",
+      "rev-parse",
+      "HEAD^"
+    ],
+    "cwd": "/workspace",
+    "started_utc": "2026-10-28T20:25:01.647404+00:00",
+    "ended_utc": "2026-10-28T20:25:01.649551+00:00",
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-quotient-saddle-collar-publication/SOURCE_CUT_05.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-quotient-saddle-collar-publication/SOURCE_CUT_05.stderr.txt"
+  },
+  {
+    "label": "SOURCE_CUT_06",
+    "command": [
+      "git",
+      "-C",
+      "/workspace/Math-curvature-20261026",
+      "rev-parse",
+      "HEAD:frontiers/source_derivative_gaussian_20261025/SourceActualQuotientSaddleCollar.lean"
+    ],
+    "cwd": "/workspace",
+    "started_utc": "2026-10-28T20:25:01.649906+00:00",
+    "ended_utc": "2026-10-28T20:25:01.652212+00:00",
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-quotient-saddle-collar-publication/SOURCE_CUT_06.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-quotient-saddle-collar-publication/SOURCE_CUT_06.stderr.txt"
+  },
+  {
+    "label": "SOURCE_CUT_07",
+    "command": [
+      "git",
+      "-C",
+      "/workspace/Math-curvature-20261026",
+      "diff-tree",
+      "--no-commit-id",
+      "--name-only",
+      "-r",
+      "HEAD"
+    ],
+    "cwd": "/workspace",
+    "started_utc": "2026-10-28T20:25:01.652690+00:00",
+    "ended_utc": "2026-10-28T20:25:01.657925+00:00",
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-quotient-saddle-collar-publication/SOURCE_CUT_07.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-quotient-saddle-collar-publication/SOURCE_CUT_07.stderr.txt"
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "status": "AUTHORING_SCHEMA_CORRECTION_BEFORE_ARCHIVE_OR_METADATA_ATTEMPT",
+  "command": [
+    "python",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-packaging-proposal/prepare_final_inputs.py"
+  ],
+  "tool_exit": 1,
+  "quoted_tool_output": "Traceback (most recent call last):\n  File \"/workspace/scratch/actual-source-torus-superlevel-local-basis-packaging-proposal/prepare_final_inputs.py\", line 30, in <module>\n    c['run_records']=[x['receipt_path']for x in index['runs']]\n                                                ~~~~~^^^^^^^^\nKeyError: 'runs'\n",
+  "original_capture": "Original command/output retained in tool transcript; this is a quoted documentary record, not claimed original stderr capture.",
+  "archive_or_validation_attempts_before_error": 0,
+  "hashes_or_copies": 0
+}

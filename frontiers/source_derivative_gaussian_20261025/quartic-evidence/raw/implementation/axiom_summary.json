@@ -1,0 +1,719 @@
+{
+  "public_target_count": 141,
+  "all_public_targets_covered": true,
+  "theorem_lemma_count": 112,
+  "definition_abbreviation_count": 29,
+  "private_declarations_replayed": 42,
+  "observed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "targets": {
+    "I4ActualQuarticTransfer.peanoCubic_first_moment": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4ActualQuarticTransfer.peanoCubic_normalized_second_moment": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4ActualQuarticTransfer.symmetric_cubic_pin_second_order": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4ActualQuarticTransfer.endpoint_taylor_low_coefficients": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4ActualQuarticTransfer.corrected_axial_constant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4ActualQuarticTransfer.scalarTaylor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4ActualQuarticTransfer.scalar_taylor_remainder": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4ActualQuarticTransfer.scalarTaylor_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4ActualQuarticTransfer.scalarTaylor_three": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4ActualQuarticTransfer.scalarTaylor_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4ActualQuarticTransfer.scalar_taylor_one_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4ActualQuarticTransfer.scalar_taylor_three_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4ActualQuarticTransfer.scalar_taylor_two_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4ActualQuarticTransfer.smooth_iteratedDeriv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4ActualQuarticTransfer.iteratedDeriv_iteratedDeriv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4ActualQuarticTransfer.sourceF_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4ActualQuarticTransfer.sourceH_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4ActualQuarticTransfer.sourceF_iteratedDeriv_abs_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4ActualQuarticTransfer.sourceH_iteratedDeriv_abs_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.SourcePlane": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceAxialThird": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceRawU": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceRawRadius": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourcePhysicalPins": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.pinPreservingQuartic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceQuartic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceScaledGradientRaw": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceScaledGradient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.pi_norm_le_euclidean_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.euclidean_two_norm_sq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.euclidean_two_norm_le_abs_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.euclidean_two_norm_le_two_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.matrixLinearEuclidean": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.matrixLinearEuclidean_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.matrixLinearEuclidean_norm_le_of_sqsum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.matrixLinearEuclidean_norm_le_two_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.matrixLinearEuclidean_offdiag_norm_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.matrixLinearEuclidean_symmetric_norm_le_abs_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.matrixLinearEuclidean_symmetric_norm_le_three_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.lineMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.line_iteratedDeriv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.derivativeComponent_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.derivativeComponent_iteratedFDeriv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.line_gradient_iteratedDeriv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.source_derivative_abs_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.source_line_gradient_taylor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.modeCoefficient_analytic_order": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.source_derivative_comp_perm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.source_axial_third_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.source_low_pin_coefficients": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.coordinateDirection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.coordinateDirection_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.coordinateDirection_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.euclideanToPi": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.piToEuclidean": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.gradientPi": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.gradientEuclidean": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.hessianMatrix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.hessianMatrix_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.coordinate_decomposition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.hasFDerivAt_gradientEuclidean": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.gradientEuclidean_eq_components": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.scaledGradientEuclidean": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.hasFDerivAt_scaledGradientEuclidean": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.scaledGradientEuclidean_eq_components": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.hessianEntry_eq_derivativeComponent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.hessianEntry_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.line_hessian_iteratedDeriv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.source_line_hessian_taylor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.quarticK0": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.quarticEpsilonStar": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.quarticKcap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.quarticFstar": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.quarticWidth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.one_le_quarticFstar": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.quarticWidth_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.cutoff_raw_regularity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.cutoff_scaled_error_budget": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.cutoff_adaptive_tolerance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.cutoff_quarticWidth_tolerance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.cutoff_curvature_threshold": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.certificate_width_geometry": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.source_origin_derivative_abs_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceRawU_abs_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceRawRadius_one_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceRawRadius_le_majorants": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceRawRadius_le_global": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourcePhysicalPins_ae": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourcePhysicalPins_eventually": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceGradientTaylorRaw": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceGradientTaylor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceHessianTaylor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceScaledGradient_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceScaledGradient_hasFDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.source_third_ppx_expansion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.source_third_ppy_expansion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.source_fourth_pppx_expansion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.source_fourth_pppy_expansion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.source_second_p_basis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.source_third_p_basis_basis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.source_fourth_pp_basis_basis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.pinPreservingJacobian": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.hasFDerivAt_pinPreservingQuartic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.fderiv_pinPreservingQuartic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceGradientTaylorRaw_sub_quartic_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceGradientTaylorRaw_sub_quartic_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceHessianTaylor_sub_quarticJacobian": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.matrixLinearEuclidean_sub": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.coordinateDirection_norm_le_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceScaledGradientRaw_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.source_scaled_gradient_taylor_coordinate_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.source_scaled_gradient_taylor_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.source_scaled_hessian_taylor_coordinate_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.source_scaled_hessian_taylor_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.coefficient_vector_error_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.coefficient_matrix_error_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceGradientTaylor_quartic_error_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceHessianTaylor_quartic_error_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceScaledPotential": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceScaledPotential_hasGradientAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceScaledGradient_eq_gradient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceScaledGradient_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.pinPreservingQuartic_pins": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceScaledGradient_pins": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceQuartic_value_comparison": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceQuartic_operator_comparison": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceQuartic_C1_comparison": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceQuartic_cutoff_tolerance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceQuartic_curvature_threshold": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceQuartic_C1_comparison_ae": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceQuartic_C1_estimates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceRawU_abs_le_radius": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceQuartic_Fstar_le_radius": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceQuartic_width_size": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceQuartic_width_geometry": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.quartic_strip_in_ball_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.quartic_endpoint_ball_in_ball_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.quartic_axis_endpoint_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceQuartic_cutoff_estimates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceQuartic_weighted_C1_estimates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinPreservingQuartic.sourceQuartic_weighted_cutoff_estimates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  }
+}

@@ -1,0 +1,78 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:276:32: error: unsolved goals
+case «0»
+L : ℝ
+hL : L ≠ 0
+ω : SmoothSample 2 L
+p : Fin 2 → ℝ
+h :
+  (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![p, ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩)] =
+    p 0 *
+        (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0)
+          ![directionX, ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩)] +
+      p 1 *
+        (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionY, ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩)]
+⊢ p 0 * (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionX, ![directionX, directionY] ⟨0, ⋯⟩] +
+      p 1 * (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionY, ![directionX, directionY] ⟨0, ⋯⟩] =
+    ![p 0 * (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionX, directionX] +
+          p 1 * (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionX, directionY],
+        p 0 * (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionX, directionY] + p 1 * sourceQ L ω]
+      ⟨0, ⋯⟩
+
+case «1»
+L : ℝ
+hL : L ≠ 0
+ω : SmoothSample 2 L
+p : Fin 2 → ℝ
+h :
+  (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![p, ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩)] =
+    p 0 *
+        (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0)
+          ![directionX, ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩)] +
+      p 1 *
+        (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionY, ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩)]
+⊢ p 0 * (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionX, ![directionX, directionY] ⟨1, ⋯⟩] +
+      p 1 * (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionY, ![directionX, directionY] ⟨1, ⋯⟩] =
+    ![p 0 * (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionX, directionX] +
+          p 1 * (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionX, directionY],
+        p 0 * (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionX, directionY] + p 1 * sourceQ L ω]
+      ⟨1, ⋯⟩
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:280:29: error: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.cons_val_one, source_word_2_yx hL ω, source_word_2_yy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:280:50: error: This simp argument is unused:
+  Matrix.cons_val_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.cons_val_zero, source_word_2_yx hL ω, source_word_2_yy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:281:4: error: This simp argument is unused:
+  source_word_2_yx hL ω
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.cons_val_zero, Matrix.cons_val_one, source_word_2_yy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:281:26: error: This simp argument is unused:
+  source_word_2_yy hL ω
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.cons_val_zero, Matrix.cons_val_one, source_word_2_yx hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

@@ -1,0 +1,231 @@
+private theorem remote_open (L r : ℝ) : IsOpen {x : Point2 | Remote L r x} := by
+  have hp := SourceActualFoldTorus.torusProjection2L_continuous L
+  exact (isOpen_ne hp continuous_const).inter (isOpen_ne hp continuous_const)
+
+private theorem remotePair_open (L r : ℝ) : IsOpen {p : Point4 | RemotePair L r p} := by
+  have hp := SourceActualFoldTorus.torusProjection2L_continuous L
+  exact ((remote_open L r).preimage continuous_fst).inter
+    (((remote_open L r).preimage continuous_snd).inter
+      (isOpen_ne (hp.comp continuous_fst) (hp.comp continuous_snd)))
+
+private theorem morse_discriminant_nonneg {L : ℝ} (ω : SmoothSample 2 L) (x : Point2) :
+    0≤sourceMorseDiscriminant L ω x := by
+  unfold sourceMorseDiscriminant
+  positivity
+
+private theorem rawKernel_morse_compact {L r : ℝ} (hL : L≠0)
+    (F : RawPinFreeFrame L r 2) (U : Set Point2) (hU : IsOpen U)
+    (hinv : ∀x∈U,Function.Bijective(rowResponse (gradientRows L x) F))
+    (K : Set Point2) (hK : IsCompact K) (hKU : K⊆U) (t : Fin 6 → ℝ) :
+    ∀ᵐ ω ∂rawPinKernel hL r t,∀x∈K,0<sourceMorseDiscriminant L ω x := by
+  classical
+  apply rawKernel_ae_of_sections hL F t (fun ω => ∀x∈K,0<sourceMorseDiscriminant L ω x)
+  · exact measurableSet_forall_mem_pos_of_isCompact hK (sourceMorseDiscriminant L)
+      (fun ω => (sourceMorseDiscriminant_spatial_continuous hL ω).continuousOn)
+      (fun x _ => sourceMorseDiscriminant_eval_measurable hL x)
+  · intro ρ
+    let σ := rawPosteriorSample hL r t ρ
+    let g := coordinateGradient (smoothSourceField 2 L σ)
+    let B := fun x => rowResponse (gradientRows L x) F
+    have hnull := incidence_morse_null U hU g B
+      (coordinateGradient_contDiff _ (smoothSourceField_smooth 2 hL σ)).contDiffOn
+      (gradient_response_smooth F).contDiffOn hinv
+    apply (ae_iff).2
+    apply measure_mono_null ?_ hnull
+    intro z hz
+    simp only [not_forall,not_imp,not_lt] at hz
+    obtain ⟨x,hx,hbad⟩ := hz
+    have hd : sourceMorseDiscriminant L (freeShiftSample F z σ) x=0 :=
+      le_antisymm hbad (morse_discriminant_nonneg _ _)
+    rw [sourceMorseDiscriminant_eq L hL] at hd
+    let G := coordinateGradient (smoothSourceField 2 L (freeShiftSample F z σ))
+    have h0 : G x 0=0 := by
+      apply sq_eq_zero_iff.mp
+      have h1 := sq_nonneg (G x 1)
+      have h2 := sq_nonneg ((fderiv ℝ G x).det)
+      change (G x 0)^2+(G x 1)^2+(fderiv ℝ G x).det^2=0 at hd
+      nlinarith
+    have h1 : G x 1=0 := by
+      apply sq_eq_zero_iff.mp
+      have h2 := sq_nonneg ((fderiv ℝ G x).det)
+      change (G x 0)^2+(G x 1)^2+(fderiv ℝ G x).det^2=0 at hd
+      nlinarith
+    have hG : G x=0 := by ext i; fin_cases i <;> assumption
+    have hdet : (fderiv ℝ G x).det=0 := by
+      apply sq_eq_zero_iff.mp
+      change (G x 0)^2+(G x 1)^2+(fderiv ℝ G x).det^2=0 at hd
+      simpa only [h0,h1,zero_pow (by decide : 2≠0),zero_add] using hd
+    have hsing : ¬Function.Injective (fderiv ℝ G x) := by
+      have hk := LinearMap.det_eq_zero_iff_ker_ne_bot.mp hdet
+      intro hi
+      exact hk (LinearMap.ker_eq_bot.mpr hi)
+    have hfun : (fun y => g y+B y z)=G := by
+      funext y
+      exact (freeShift_gradient hL F z σ y).symm
+    refine ⟨x,hKU hx,?_,?_⟩
+    · rw [← hfun] at hG
+      exact hG
+    · simpa only [hfun] using hsing
+
+private theorem rawKernel_level_compact {L r : ℝ} (hL : L≠0)
+    (F : RawPinFreeFrame L r 3) (U : Set Point2) (hU : IsOpen U)
+    (hinv : ∀x∈U,Function.Bijective(rowResponse (levelRows L x) F))
+    (K : Set Point2) (hK : IsCompact K) (hKU : K⊆U)
+    (t : Fin 6 → ℝ) (α : ℝ) :
+    ∀ᵐ ω ∂rawPinKernel hL r t,∀x∈K,0<constraintSquare (levelConstraint α ω x) := by
+  classical
+  apply rawKernel_ae_of_sections hL F t
+    (fun ω => ∀x∈K,0<constraintSquare (levelConstraint α ω x))
+  · apply measurableSet_forall_mem_pos_of_isCompact hK
+      (fun ω x => constraintSquare (levelConstraint α ω x))
+    · intro ω
+      exact (constraintSquare_continuous.comp (level_constraint_smooth hL α ω).continuous).continuousOn
+    · intro x _
+      exact constraintSquare_continuous.measurable.comp (level_eval_measurable hL α x)
+  · intro ρ
+    let σ := rawPosteriorSample hL r t ρ
+    have hnull := incidence_level_null U hU (levelConstraint α σ)
+      (fun x => rowResponse (levelRows L x) F)
+      (level_constraint_smooth hL α σ).contDiffOn
+      (level_response_smooth F).contDiffOn hinv
+    apply (ae_iff).2
+    apply measure_mono_null ?_ hnull
+    intro z hz
+    simp only [not_forall,not_imp] at hz
+    obtain ⟨x,hx,hbad⟩ := hz
+    have hc : levelConstraint α (freeShiftSample F z σ) x=0 := by
+      by_contra hc
+      exact hbad ((constraintSquare_pos_iff _).2 hc)
+    exact ⟨x,hKU hx,(freeShift_level hL F z σ α x).symm.trans hc⟩
+
+private theorem rawKernel_tie_compact {L r : ℝ} (hL : L≠0)
+    (F : RawPinFreeFrame L r 5) (U : Set Point4) (hU : IsOpen U)
+    (hinv : ∀x∈U,Function.Bijective(rowResponse (tieRows L x) F))
+    (K : Set Point4) (hK : IsCompact K) (hKU : K⊆U) (t : Fin 6 → ℝ) :
+    ∀ᵐ ω ∂rawPinKernel hL r t,∀x∈K,0<constraintSquare (tieConstraint ω x) := by
+  classical
+  apply rawKernel_ae_of_sections hL F t
+    (fun ω => ∀x∈K,0<constraintSquare (tieConstraint ω x))
+  · apply measurableSet_forall_mem_pos_of_isCompact hK
+      (fun ω x => constraintSquare (tieConstraint ω x))
+    · intro ω
+      exact (constraintSquare_continuous.comp (tie_constraint_smooth hL ω).continuous).continuousOn
+    · intro x _
+      exact constraintSquare_continuous.measurable.comp (tie_eval_measurable hL x)
+  · intro ρ
+    let σ := rawPosteriorSample hL r t ρ
+    have hnull := incidence_tie_null U hU (tieConstraint σ)
+      (fun x => rowResponse (tieRows L x) F)
+      (tie_constraint_smooth hL σ).contDiffOn
+      (tie_response_smooth F).contDiffOn hinv
+    apply (ae_iff).2
+    apply measure_mono_null ?_ hnull
+    intro z hz
+    simp only [not_forall,not_imp] at hz
+    obtain ⟨x,hx,hbad⟩ := hz
+    have hc : tieConstraint (freeShiftSample F z σ) x=0 := by
+      by_contra hc
+      exact hbad ((constraintSquare_pos_iff _).2 hc)
+    exact ⟨x,hKU hx,(freeShift_tie hL F z σ x).symm.trans hc⟩
+
+private theorem rawKernel_remote_morse {L : ℝ} (hL : L≠0) (r : ℝ) (t : Fin 6 → ℝ) :
+    ∀ᵐ ω ∂rawPinKernel hL r t,∀x,Remote L r x → 0<sourceMorseDiscriminant L ω x := by
+  apply countable_compact_local_ae (rawPinKernel hL r t) {x | Remote L r x}
+    (remote_open L r) (fun ω x => 0<sourceMorseDiscriminant L ω x)
+  intro x hx
+  obtain ⟨F,hF⟩ := gradient_frame hL r x hx
+  obtain ⟨U,hU,hxU,hInv⟩ := response_neighborhood
+    (fun y => rowResponse (gradientRows L y) F) (gradient_response_smooth F).continuous x hF
+  refine ⟨U∩{y | Remote L r y},hU.inter (remote_open L r),⟨hxU,hx⟩,
+    inter_subset_right,?_⟩
+  intro K hK hKU
+  exact rawKernel_morse_compact hL F U hU hInv K hK
+    (hKU.trans inter_subset_left) t
+
+private theorem rawKernel_remote_level {L : ℝ} (hL : L≠0) (r : ℝ)
+    (t : Fin 6 → ℝ) (α : ℝ) :
+    ∀ᵐ ω ∂rawPinKernel hL r t,∀x,Remote L r x →
+      coordinateGradient (smoothSourceField 2 L ω) x=0 → smoothSourceField 2 L ω x≠α := by
+  have hall : ∀ᵐ ω ∂rawPinKernel hL r t,∀x∈{x | Remote L r x},
+      0<constraintSquare (levelConstraint α ω x) := by
+    apply countable_compact_local_ae (rawPinKernel hL r t) {x | Remote L r x}
+      (remote_open L r) (fun ω x => 0<constraintSquare (levelConstraint α ω x))
+    intro x hx
+    obtain ⟨F,hF⟩ := level_frame hL r x hx
+    obtain ⟨U,hU,hxU,hInv⟩ := response_neighborhood
+      (fun y => rowResponse (levelRows L y) F) (level_response_smooth F).continuous x hF
+    refine ⟨U∩{y | Remote L r y},hU.inter (remote_open L r),⟨hxU,hx⟩,
+      inter_subset_right,?_⟩
+    intro K hK hKU
+    exact rawKernel_level_compact hL F U hU hInv K hK
+      (hKU.trans inter_subset_left) t α
+  filter_upwards [hall] with ω hω
+  intro x hx hc hv
+  have hn := (constraintSquare_pos_iff _).1 (hω x hx)
+  apply hn
+  ext i
+  fin_cases i <;> simp [levelConstraint,hv,hc]
+
+private theorem rawKernel_remote_tie {L : ℝ} (hL : L≠0) (r : ℝ) (t : Fin 6 → ℝ) :
+    ∀ᵐ ω ∂rawPinKernel hL r t,∀p,RemotePair L r p →
+      coordinateGradient (smoothSourceField 2 L ω) p.1=0 →
+      coordinateGradient (smoothSourceField 2 L ω) p.2=0 →
+      smoothSourceField 2 L ω p.1≠smoothSourceField 2 L ω p.2 := by
+  have hall : ∀ᵐ ω ∂rawPinKernel hL r t,∀p∈{p | RemotePair L r p},
+      0<constraintSquare (tieConstraint ω p) := by
+    apply countable_compact_local_ae (rawPinKernel hL r t) {p | RemotePair L r p}
+      (remotePair_open L r) (fun ω p => 0<constraintSquare (tieConstraint ω p))
+    intro p hp
+    obtain ⟨F,hF⟩ := tie_frame hL r p hp
+    obtain ⟨U,hU,hpU,hInv⟩ := response_neighborhood
+      (fun q => rowResponse (tieRows L q) F) (tie_response_smooth F).continuous p hF
+    refine ⟨U∩{q | RemotePair L r q},hU.inter (remotePair_open L r),⟨hpU,hp⟩,
+      inter_subset_right,?_⟩
+    intro K hK hKU
+    exact rawKernel_tie_compact hL F U hU hInv K hK
+      (hKU.trans inter_subset_left) t
+  filter_upwards [hall] with ω hω
+  intro p hp hc1 hc2 hv
+  have hn := (constraintSquare_pos_iff _).1 (hω p hp)
+  apply hn
+  ext i
+  fin_cases i <;> simp [tieConstraint,hv,hc1,hc2]
+
+/- These source-local positives directly exercise the new private solved-source
+   normal-equation and dummy adapters, with actual original source functions. -/
+private theorem actual_source_normal_equation {L r : ℝ} (hL : L≠0)
+    (F : RawPinFreeFrame L r 2) (ω : SmoothSample 2 L)
+    (U : Set Point2) (hU : IsOpen U)
+    (hinv : ∀x∈U,Function.Bijective(rowResponse (gradientRows L x) F))
+    (x : Point2) (hx : x∈U) (v : Point2) :
+    let g := coordinateGradient (smoothSourceField 2 L ω)
+    let B := fun y => rowResponse (gradientRows L y) F
+    B x (fderiv ℝ (incidence_theta g B) x v)=
+      -(fderiv ℝ g x v+(fderiv ℝ B x v) (incidence_theta g B x)) := by
+  exact incidence_full_normal_equation U hU _ _
+    (coordinateGradient_contDiff _ (smoothSourceField_smooth 2 hL ω)).contDiffOn
+    (gradient_response_smooth F).contDiffOn hinv x hx v
+
+private theorem actual_level_dummy_control {L r : ℝ} (hL : L≠0)
+    (F : RawPinFreeFrame L r 3) (ω : SmoothSample 2 L) (α : ℝ)
+    (U : Set Point2) (hU : IsOpen U)
+    (hinv : ∀x∈U,Function.Bijective(rowResponse (levelRows L x) F))
+    (x : Point2) (hx : x∈U) :
+    let θ := incidence_theta (levelConstraint α ω) (fun y => rowResponse (levelRows L y) F)
+    (fderiv ℝ (fun y => θ (incidence_project3 y)) (incidence_embed3 x)).det=0 := by
+  apply incidence_dummy3_det_zero
+  rw [incidence_project3_embed3]
+  exact incidence_theta_differentiable U hU _ _
+    (level_constraint_smooth hL α ω).contDiffOn (level_response_smooth F).contDiffOn hinv x hx
+
+private theorem actual_tie_dummy_control {L r : ℝ} (hL : L≠0)
+    (F : RawPinFreeFrame L r 5) (ω : SmoothSample 2 L)
+    (U : Set Point4) (hU : IsOpen U)
+    (hinv : ∀x∈U,Function.Bijective(rowResponse (tieRows L x) F))
+    (x : Point4) (hx : x∈U) :
+    let θ := incidence_theta (tieConstraint ω) (fun y => rowResponse (tieRows L y) F)
+    (fderiv ℝ (fun y => θ (incidence_project5 y)) (incidence_embed5 x)).det=0 := by
+  apply incidence_dummy5_det_zero
+  rw [incidence_project5_embed5]
+  exact incidence_theta_differentiable U hU _ _
+    (tie_constraint_smooth hL ω).contDiffOn (tie_response_smooth F).contDiffOn hinv x hx

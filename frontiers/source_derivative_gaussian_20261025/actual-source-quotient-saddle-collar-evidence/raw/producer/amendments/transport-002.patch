@@ -1,0 +1,32 @@
+--- runs/transport-001/SourceActualQuotientSaddleCollar.lean
++++ SourceActualQuotientSaddleCollar.lean
+@@ -500,12 +500,14 @@
+     ext z
+     constructor
+     · rintro ⟨hz, hv⟩
++      change F q < F z at hv
+       refine ⟨hz, hball hz, ?_⟩
+       have hid := hchart.identity z hz
+       dsimp [saddleQ]
+       linarith
+     · rintro ⟨hz, _, hv⟩
+       refine ⟨hz, ?_⟩
++      change F q < F z
+       have hid := hchart.identity z hz
+       dsimp [saddleQ] at hv
+       linarith
+@@ -575,12 +577,14 @@
+       ext z
+       constructor
+       · rintro ⟨hz, hv⟩
++        change F q-delta ≤ F z at hv
+         refine ⟨hz, hball hz, ?_⟩
+         have hid := hchart.identity z hz
+         dsimp [saddleQ]
+         linarith
+       · rintro ⟨hz, _, hv⟩
+         refine ⟨hz, ?_⟩
++        change F q-delta ≤ F z
+         have hid := hchart.identity z hz
+         dsimp [saddleQ] at hv
+         linarith

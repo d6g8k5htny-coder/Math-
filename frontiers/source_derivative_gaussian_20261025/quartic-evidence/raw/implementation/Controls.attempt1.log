@@ -1,0 +1,53 @@
+/workspace/scratch/pin-preserving-quartic-implementation/Controls.lean:88:4: error: Tactic `apply` failed: could not unify the conclusion of `matrixLinearEuclidean_norm_le_two_mul ?m.42 1 ?m.45`
+  ‖matrixLinearEuclidean ?m.42‖ ≤ 2 * 1
+with the goal
+  ‖matrixLinearEuclidean !![1, 1; 1, 1]‖ ≤ 2
+
+Note: The full type of `matrixLinearEuclidean_norm_le_two_mul ?m.42 1 ?m.45` is
+  (∀ (i j : Fin 2), |?m.42 i j| ≤ 1) → ‖matrixLinearEuclidean ?m.42‖ ≤ 2 * 1
+
+case a
+⊢ ‖matrixLinearEuclidean !![1, 1; 1, 1]‖ ≤ 2
+/workspace/scratch/pin-preserving-quartic-implementation/Controls.lean:97:65: error: unsolved goals
+case «0»
+v : EuclideanSpace ℝ (Fin 2) := !₂[1, 1]
+hv : 0 < ‖v‖
+⊢ 1 + 1 = 2
+
+case «1»
+v : EuclideanSpace ℝ (Fin 2) := !₂[1, 1]
+hv : 0 < ‖v‖
+⊢ 1 + 1 = 2
+/workspace/scratch/pin-preserving-quartic-implementation/Controls.lean:103:32: error(lean.invalidField): Invalid field `mp`: The environment does not contain `Function.mp`, so it is not possible to project the field `mp` from an expression
+  mul_le_mul_right ?m.459
+of type
+  ∀ (a : ?m.453), a * ?m.454 ≤ a * ?m.455
+/workspace/scratch/pin-preserving-quartic-implementation/Controls.lean:103:28: error: Application type mismatch: The argument
+  hv
+has type
+  0 < ‖v‖
+but is expected to have type
+  ?m.454 ≤ ?m.455
+in the application
+  mul_le_mul_right hv
+/workspace/scratch/pin-preserving-quartic-implementation/Controls.lean:99:50: warning: This simp argument is unused:
+  Matrix.mulVec
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [matrixLinearEuclidean, dotProduct, Fin.sum_univ_two, v]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/Controls.lean:99:64: warning: This simp argument is unused:
+  dotProduct
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [matrixLinearEuclidean, Matrix.mulVec, Fin.sum_univ_two, v]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/Controls.lean:99:75: warning: This simp argument is unused:
+  Fin.sum_univ_two
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [matrixLinearEuclidean, Matrix.mulVec, dotProduct, v]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

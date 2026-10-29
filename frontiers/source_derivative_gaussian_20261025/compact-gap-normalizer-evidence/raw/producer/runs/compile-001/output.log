@@ -1,0 +1,49 @@
+SourceCompactGapNormalizer.lean:35:4: error: Application type mismatch: The argument
+  add_le_add_right hb (13 * K)
+has type
+  13 * K + |b| ≤ 13 * K + B
+but is expected to have type
+  |b| + 13 * K ≤ ?m.68
+in the application
+  LE.le.trans (sourceGapPins_norm_le r b k K hr hr1 hK hk) (add_le_add_right hb (13 * K))
+SourceCompactGapNormalizer.lean:89:54: error: Type mismatch
+  LT.lt.le ?m.175
+has type
+  ?m.173 ≤ ?m.174
+but is expected to have type
+  x✝ ∈ {ω | A ≤ sourceGammaRadius L ω}
+SourceCompactGapNormalizer.lean:99:15: error: Ambiguous term
+  mem_sdiff
+Possible interpretations:
+  Filter.mem_sdiff : ?m.242 ∈ ?m.240 \ ?m.241 ↔ ∀ t ∈ ?m.241, ?m.242 ⊆ t → t ∈ ?m.240
+  
+  Set.mem_sdiff : ∀ (x : ?m.239), x ∈ ?m.240 \ ?m.241 ↔ x ∈ ?m.240 ∧ x ∉ ?m.241
+SourceCompactGapNormalizer.lean:99:26: error: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+SourceCompactGapNormalizer.lean:97:70: error: unsolved goals
+L : ℝ
+Q : Measure (SmoothSample 2 L)
+inst✝ : IsFiniteMeasure Q
+η H : ℝ
+hη : 0 < η
+hH : 0 ≤ H
+hΓ : Integrable (sourceGammaRadius L) Q
+hmoment : ∫ (ω : SmoothSample 2 L), sourceGammaRadius L ω ∂Q ≤ H
+hq : η ≤ Q.real {ω | sourceQ L ω ∈ Icc (-2) (-1)}
+A : ℝ := max 1 (2 * H / η)
+hA : 0 < A
+hAH : 2 * H ≤ A * η
+hMarkov : A * Q.real {x | A ≤ sourceGammaRadius L x} ≤ ∫ (x : SmoothSample 2 L), sourceGammaRadius L x ∂Q
+hbad : Q.real {ω | A < sourceGammaRadius L ω} ≤ η / 2
+hsubtract :
+  Q.real {ω | sourceQ L ω ∈ Icc (-2) (-1)} - Q.real {ω | A < sourceGammaRadius L ω} ≤
+    Q.real ({ω | sourceQ L ω ∈ Icc (-2) (-1)} \ {ω | A < sourceGammaRadius L ω})
+ω : SmoothSample 2 L
+⊢ ω ∈ {ω | sourceQ L ω ∈ Icc (-2) (-1)} \ {ω | A < sourceGammaRadius L ω} ↔
+    sourceQ L ω ∈ Icc (-2) (-1) ∧ sourceGammaRadius L ω ≤ A
+SourceCompactGapNormalizer.lean:99:40: error: This simp argument is unused:
+  not_lt
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mem_sdiff, mem_setOf_eq, sourceCompactGoodEvent]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

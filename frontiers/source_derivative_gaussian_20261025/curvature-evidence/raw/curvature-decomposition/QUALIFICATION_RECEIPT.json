@@ -1,0 +1,108 @@
+{
+  "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean",
+  "source_sha256": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+  "checks": {
+    "16-explicit-contract-exports": {
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        ".lake/build/lib/lean/SourceCurvatureDecomposition.olean",
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 0,
+      "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean",
+      "source_sha256_before": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+      "source_sha256_after": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+      "production_source_sha256_before": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+      "production_source_sha256_after": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "elapsed_seconds": 6.004431962966919
+    },
+    "18-public-axiom-audit": {
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/scratch/source-curvature-implementation/AxiomAudit.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 0,
+      "source": "/workspace/scratch/source-curvature-implementation/AxiomAudit.lean",
+      "source_sha256_before": "4a6d448bbe95ce894f769b60770895ca709e00d4206ac9cbcd9fc420804c908e",
+      "source_sha256_after": "4a6d448bbe95ce894f769b60770895ca709e00d4206ac9cbcd9fc420804c908e",
+      "production_source_sha256_before": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+      "production_source_sha256_after": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+      "log_sha256": "c4e50e0d5404b2ceb65c8939acb509c4c177f7210496961263948456b1f2ad2e",
+      "elapsed_seconds": 2.8462510108947754
+    },
+    "19-kernel-replay": {
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "leanchecker",
+        "SourceCurvatureDecomposition"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 0,
+      "source_sha256_before": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+      "source_sha256_after": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "elapsed_seconds": 6.1832804679870605
+    },
+    "20-controls-fixed": {
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/scratch/source-curvature-implementation/Controls.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 0,
+      "source": "/workspace/scratch/source-curvature-implementation/Controls.lean",
+      "source_sha256_before": "e400f9e68fafbd5ebc2aca516e9693510bdd2ad93dd493d3c46ca84b8e0258dd",
+      "source_sha256_after": "e400f9e68fafbd5ebc2aca516e9693510bdd2ad93dd493d3c46ca84b8e0258dd",
+      "production_source_sha256_before": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+      "production_source_sha256_after": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "elapsed_seconds": 2.6308374404907227
+    }
+  },
+  "axiom_coverage": {
+    "source_sha256": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+    "public_declaration_count": 112,
+    "printed_count": 112,
+    "missing": [],
+    "extra": [],
+    "unexpected_axioms": {}
+  },
+  "scope": "Only new SourceCurvatureDecomposition; unchanged baseline18 evidence reused; SourcePinCurvatureBounds new dependency qualified separately by owner.",
+  "coauthors": [
+    {
+      "agent": "/root/normalizer_palm_research/gaussian_reference_probe",
+      "scratch_files": [
+        "gaussian-direction/Direction.lean",
+        "gaussian-direction/CrossLimits.lean",
+        "gaussian-direction/Envelope.lean",
+        "radius/RadiusResidual.lean"
+      ]
+    },
+    {
+      "agent": "/root",
+      "scratch_files": [
+        "/workspace/scratch/gaussian-variance-floor/GaussianVarianceFloor.lean"
+      ]
+    },
+    {
+      "agent": "/root/uniform_jet_moment_sources",
+      "contribution": "Actual coefficient regression algebra/normalization, smooth shifts and independence transport, all-pin reconstruction/product law, actual density specialization and explicit contract exports; sole production author."
+    }
+  ],
+  "scientific_review_credit": false,
+  "production_edits_frozen": true
+}

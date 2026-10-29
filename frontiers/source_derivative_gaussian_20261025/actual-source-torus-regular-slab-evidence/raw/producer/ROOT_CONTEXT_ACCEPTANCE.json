@@ -1,0 +1,15 @@
+{
+  "recorded_utc": "2026-10-28T17:28:58.231208+00:00",
+  "root_acceptance": "Root personally FULLREAD complete5105token context, ACCEPTED allbindings/public/control, nofinding; actualmessage retained",
+  "root_event_exact_utc": null,
+  "producer_clock_observation_after_acceptance": "2026-10-28T17:27:00Z",
+  "context": "context/CONTEXT.001.md",
+  "helper_full_ACK_observed_UTC": {
+    "A": "2026-10-28T17:25:19Z",
+    "B": "2026-10-28T17:25:20Z",
+    "C": "2026-10-28T17:25:45Z"
+  },
+  "ordering": "All3personalFULLACKs before root acceptance/release and dependentprooftext; C actualobservedstart17:26:33 afterACK/release",
+  "root_release": "directroot+producerexplicitSTARTtoall3, no remainingHOLD",
+  "no_invented_eventtimes": true
+}

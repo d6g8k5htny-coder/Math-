@@ -1,0 +1,53 @@
+AdaptiveFoldScalarBarrier.lean:49:5: error: `simp` made no progress
+AdaptiveFoldScalarBarrier.lean:49:5: error: `simp` made no progress
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+AdaptiveFoldScalarBarrier.lean:53:59: error: unsolved goals
+case e'_8
+x : ℝ
+⊢ (fun t => t * (-1 / 8) + t ^ 3 * (1 / 6)) = (fun x => x ^ 3 * (1 / 6)) - fun x => x * (1 / 8)
+AdaptiveFoldScalarBarrier.lean:55:63: error: This simp argument is unused:
+  Pi.sub_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q, id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+AdaptiveFoldScalarBarrier.lean:176:7: error: typeclass instance problem is stuck
+  IsLocallyFiniteMeasure ?m.2131
+
+Note: Lean will not try to resolve this typeclass instance problem because the fourth type argument to `IsLocallyFiniteMeasure` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+AdaptiveFoldScalarBarrier.lean:86:28: error: unsolved goals
+a a₁ φ : ℝ → ℝ
+hconv : ConvexOn ℝ J fun x => a x - q x
+ha : ∀ x ∈ J, HasDerivAt a (a₁ x) x
+hφ : ∀ x ∈ J, HasDerivAt φ (a x) x
+hleft : a (-(1 / 2)) = 0
+hright : a (1 / 2) = 0
+hgap : φ (-(1 / 2)) - φ (1 / 2) = 1 / 6
+hlJ : -(1 / 2) ∈ J
+hrJ : 1 / 2 ∈ J
+hlq : a (-(1 / 2)) - q (-(1 / 2)) = 0
+hrq : a (1 / 2) - q (1 / 2) = 0
+hmid : ∀ x ∈ Icc (-(1 / 2)) (1 / 2), a x ≤ q x
+hL : ∀ x ∈ Icc (-(3 / 2)) (-(1 / 2)), q x ≤ a x
+hR : ∀ x ∈ Icc (1 / 2) (3 / 2), q x ≤ a x
+hmn : ∀ x ∈ Ioo (-(1 / 2)) (1 / 2), a x < 0
+hLp : ∀ x ∈ Ico (-(3 / 2)) (-(1 / 2)), 0 < a x
+hRp : ∀ x ∈ Ioc (1 / 2) (3 / 2), 0 < a x
+hld : a₁ (-(1 / 2)) ≤ -(1 / 2)
+hrd : 1 / 2 ≤ a₁ (1 / 2)
+hcq : Continuous q
+hca : ContinuousOn a J
+hLa : IntervalIntegrable a volume (-(3 / 2)) (-(1 / 2))
+hRa : IntervalIntegrable a volume (1 / 2) (3 / 2)
+hlg : φ (-(3 / 2)) ≤ φ (-(1 / 2)) - 5 / 12
+hrg : φ (1 / 2) + 5 / 12 ≤ φ (3 / 2)
+⊢ ScalarBarrier a a₁ φ
+AdaptiveFoldScalarBarrier.lean:176:54: error: unexpected token ')'; expected command

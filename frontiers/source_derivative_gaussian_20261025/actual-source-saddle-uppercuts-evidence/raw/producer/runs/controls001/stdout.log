@@ -1,0 +1,24 @@
+/workspace/scratch/actual-source-saddle-uppercuts-construct/SaddleUppercutsControls.lean:424:26: error: This simp argument is unused:
+  minusPoint
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/scratch/actual-source-saddle-uppercuts-construct/SaddleUppercutsControls.lean:452:73: error: unsolved goals
+hp : ![0, chosenRho / 2] ∈ chosenPhi.target
+hm : ![0, -chosenRho / 2] ∈ chosenPhi.target
+⊢ ![chosenRho * (1 / 2)] 0 * ![chosenRho * (-1 / 2)] 0 = chosenRho ^ 2 * (-1 / 4)
+/workspace/scratch/actual-source-saddle-uppercuts-construct/SaddleUppercutsControls.lean:457:50: error: This simp argument is unused:
+  boundaryTargetPoint
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

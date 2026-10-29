@@ -1,0 +1,11 @@
+import AdaptiveFoldBoundaryPath
+#check pow_le_pow_right₀
+#check one_le_pow₀
+#check Real.sq_sqrt
+#check Real.sqrt_pos.2
+#check Real.sqrt_le_sqrt
+#check Real.sqrt_sq
+#check div_le_div_iff₀
+#check div_le_iff₀
+#check mul_self_le_mul_self
+#check sq_le_sq₀

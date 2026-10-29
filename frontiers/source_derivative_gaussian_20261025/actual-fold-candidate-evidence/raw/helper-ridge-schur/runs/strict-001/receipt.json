@@ -1,0 +1,30 @@
+{
+  "label": "strict-001",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "-o",
+    "/workspace/scratch/actual-fold-candidate-ridge-schur/build/RidgeSchur.olean",
+    "-i",
+    "/workspace/scratch/actual-fold-candidate-ridge-schur/build/RidgeSchur.ilean",
+    "/workspace/scratch/actual-fold-candidate-ridge-schur/RidgeSchur.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "started_utc": "2026-10-26T10:35:17.911414+00:00",
+  "ended_utc": "2026-10-26T10:35:18.470530+00:00",
+  "elapsed_seconds": 0.5591220855712891,
+  "exit_code": 1,
+  "source": {
+    "path": "/workspace/scratch/actual-fold-candidate-ridge-schur/RidgeSchur.lean",
+    "bytes": 6426,
+    "sha256": "fbc0f125b77ac47a402bdb23516f41a51218235eccb79bf7990b639dcef00201"
+  },
+  "object": null,
+  "log": {
+    "path": "/workspace/scratch/actual-fold-candidate-ridge-schur/runs/strict-001/output.log",
+    "bytes": 202,
+    "sha256": "ff132c2efea97d3f7d03651ad4ee52ddd0077b9ebbebc2136e9964f9c71ffbd7"
+  }
+}

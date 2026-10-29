@@ -1,0 +1,59 @@
+SourceGapWeightedNumerator.lean:332:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  E.indicator ?f ω
+in the target expression
+  sourceSmoothWeight L r ω ≤ (E.indicator (sourceSmoothWeight L r) + F.indicator (sourceSmoothWeight L r)) ω
+
+case pos
+L : ℝ
+hL : L ≠ 0
+r A eps : ℝ
+hr : 0 < r
+Q : Measure (SmoothSample 2 L)
+hW : Integrable (sourceSmoothWeight L r) Q
+E : Set (SmoothSample 2 L) := sourceRegularityBad L r eps
+F : Set (SmoothSample 2 L) := sourceRegularCurvatureSlab L r (max A 1) eps
+U : Set (SmoothSample 2 L) := E ∪ sourceCurvatureOneSided L r A
+hE : MeasurableSet E
+hF : MeasurableSet F
+hU : MeasurableSet U
+ω : SmoothSample 2 L
+hW0 : 0 ≤ sourceSmoothWeight L r ω
+hEI : 0 ≤ E.indicator (sourceSmoothWeight L r) ω
+hFI : 0 ≤ F.indicator (sourceSmoothWeight L r) ω
+hωU : ω ∈ U
+hωE : ω ∈ E
+⊢ sourceSmoothWeight L r ω ≤ (E.indicator (sourceSmoothWeight L r) + F.indicator (sourceSmoothWeight L r)) ω
+SourceGapWeightedNumerator.lean:338:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  E.indicator ?f ω
+in the target expression
+  sourceSmoothWeight L r ω ≤ (E.indicator (sourceSmoothWeight L r) + F.indicator (sourceSmoothWeight L r)) ω
+
+case pos
+L : ℝ
+hL : L ≠ 0
+r A eps : ℝ
+hr : 0 < r
+Q : Measure (SmoothSample 2 L)
+hW : Integrable (sourceSmoothWeight L r) Q
+E : Set (SmoothSample 2 L) := sourceRegularityBad L r eps
+F : Set (SmoothSample 2 L) := sourceRegularCurvatureSlab L r (max A 1) eps
+U : Set (SmoothSample 2 L) := E ∪ sourceCurvatureOneSided L r A
+hE : MeasurableSet E
+hF : MeasurableSet F
+hU : MeasurableSet U
+ω : SmoothSample 2 L
+hW0 : 0 ≤ sourceSmoothWeight L r ω
+hEI : 0 ≤ E.indicator (sourceSmoothWeight L r) ω
+hFI : 0 ≤ F.indicator (sourceSmoothWeight L r) ω
+hωU : ω ∈ U
+hωE : ω ∉ E
+hq : -A * r * sourceGammaRadius L ω ^ 5 ≤ sourceQ L ω
+hpos : 0 < sourceSmoothWeight L r ω
+hωF : ω ∈ F
+⊢ sourceSmoothWeight L r ω ≤ (E.indicator (sourceSmoothWeight L r) + F.indicator (sourceSmoothWeight L r)) ω
+SourceGapWeightedNumerator.lean:349:47: error: Variable name `hA` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hA
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

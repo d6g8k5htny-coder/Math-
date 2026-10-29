@@ -1,0 +1,46 @@
+{
+  "label": "controls-003",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/raw-pin-free-coordinate-construct/build:$LEAN_PATH exec lean -R /workspace/scratch/raw-pin-free-coordinate-construct -DwarningAsError=true -o /workspace/scratch/raw-pin-free-coordinate-construct/build/FreeCoordinateControls.olean /workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRawPinFreeCoordinates.lean",
+      "bytes": 18982,
+      "sha256": "82be00780c7070e999a47d397e4fe047535bd1d5b349efe82e252ccd5cd52cd4"
+    },
+    "object": {
+      "path": "/workspace/scratch/raw-pin-free-coordinate-construct/build/SourceRawPinFreeCoordinates.olean",
+      "bytes": 543112,
+      "sha256": "e4a3b8e7a4560858f1d5eb665fdf9f9785d0e99c7b90bdee8f48cc3362539ee4"
+    },
+    "controls_object": null
+  },
+  "started_utc": "2026-10-26T20:27:11.891172+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 5.921385049819946,
+  "ended_utc": "2026-10-26T20:27:17.812604+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRawPinFreeCoordinates.lean",
+      "bytes": 18982,
+      "sha256": "82be00780c7070e999a47d397e4fe047535bd1d5b349efe82e252ccd5cd52cd4"
+    },
+    "object": {
+      "path": "/workspace/scratch/raw-pin-free-coordinate-construct/build/SourceRawPinFreeCoordinates.olean",
+      "bytes": 543112,
+      "sha256": "e4a3b8e7a4560858f1d5eb665fdf9f9785d0e99c7b90bdee8f48cc3362539ee4"
+    },
+    "controls_object": null
+  },
+  "log": {
+    "path": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-003/output.log",
+    "bytes": 6116,
+    "sha256": "913ba750085c07c6cde38f0cea1902625c18b7cd045626d170b6b83e6c8c4e9c"
+  }
+}

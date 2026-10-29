@@ -1,0 +1,15 @@
+hasFDerivAt_fst.{u_1, u_2, u_3} {𝕜 : Type u_1} [NontriviallyNormedField 𝕜] {E : Type u_2} [NormedAddCommGroup E]
+  [NormedSpace 𝕜 E] {F : Type u_3} [NormedAddCommGroup F] [NormedSpace 𝕜 F] {p : E × F} :
+  HasFDerivAt Prod.fst (ContinuousLinearMap.fst 𝕜 E F) p
+hasFDerivAt_snd.{u_1, u_2, u_3} {𝕜 : Type u_1} [NontriviallyNormedField 𝕜] {E : Type u_2} [NormedAddCommGroup E]
+  [NormedSpace 𝕜 E] {F : Type u_3} [NormedAddCommGroup F] [NormedSpace 𝕜 F] {p : E × F} :
+  HasFDerivAt Prod.snd (ContinuousLinearMap.snd 𝕜 E F) p
+HasFDerivAt.mul.{u_1, u_2, u_5} {𝕜 : Type u_1} [NontriviallyNormedField 𝕜] {E : Type u_2} [NormedAddCommGroup E]
+  [NormedSpace 𝕜 E] {x : E} {𝔸' : Type u_5} [NormedCommRing 𝔸'] [NormedAlgebra 𝕜 𝔸'] {c d : E → 𝔸'} {c' d' : E →L[𝕜] 𝔸'}
+  (hc : HasFDerivAt c c' x) (hd : HasFDerivAt d d' x) : HasFDerivAt (c * d) (c x • d' + d x • c') x
+/workspace/scratch/transverse-ridge-construct/Check.lean:6:7: error(lean.unknownIdentifier): Unknown constant `HasFDerivAt.pow`
+/workspace/scratch/transverse-ridge-construct/Check.lean:7:7: error(lean.unknownIdentifier): Unknown constant `HasFDerivAt.div_const`
+ContinuousLinearMap.smul_apply.{u_1, u_2, u_3, u_4} {M : Type u_1} {F : Type u_2} {α : outParam (Type u_3)}
+  {β : outParam (Type u_4)} {inst✝ : FunLike F α β} {inst✝¹ : SMul M β} {inst✝² : SMul M F} [self : IsSMulApply M F α β]
+  (f : F) (r : M) (x : α) : (r • f) x = r • f x
+Lean.Elab.Command.CommandElabM (α : Type) : Type

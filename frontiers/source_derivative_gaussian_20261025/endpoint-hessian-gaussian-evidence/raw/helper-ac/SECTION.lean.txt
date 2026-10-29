@@ -1,0 +1,56 @@
+/- UNCOMPILED TEXT ONLY. Insert inside namespace I4SourceEndpointHessianGaussian,
+   in its noncomputable section. Required imports are frozen in IMPORTS.txt. -/
+
+open MeasureTheory MeasureTheory.Measure ProbabilityTheory WithLp Matrix
+open scoped MatrixOrder Matrix.Norms.L2Operator
+
+private theorem finiteGaussian3_absolutelyContinuous
+    (m : EuclideanSpace ℝ (Fin 3)) (S : Matrix (Fin 3) (Fin 3) ℝ)
+    (hS : S.PosDef) : multivariateGaussian m S ≪ volume := by
+  have hg : gaussianReal 0 1 ≪ (volume : Measure ℝ) :=
+    gaussianReal_absolutelyContinuous 0 one_ne_zero
+  have h2 :
+      (Measure.pi fun _ : Fin 2 => gaussianReal 0 1) ≪
+        (volume : Measure (Fin 2 → ℝ)) := by
+    let e := MeasurableEquiv.piFinTwo (fun _ : Fin 2 => ℝ)
+    have hp := measurePreserving_piFinTwo (fun _ : Fin 2 => gaussianReal 0 1)
+    have hv := volume_preserving_piFinTwo (fun _ : Fin 2 => ℝ)
+    have hmap := (hg.prod hg).map e.symm.measurable
+    rw [(hp.symm e).map_eq] at hmap
+    change (Measure.pi fun _ : Fin 2 => gaussianReal 0 1) ≪
+      (volume : Measure (ℝ × ℝ)).map e.symm at hmap
+    rwa [(hv.symm e).map_eq] at hmap
+  have h3 :
+      (Measure.pi fun _ : Fin 3 => gaussianReal 0 1) ≪
+        (volume : Measure (Fin 3 → ℝ)) := by
+    let e := MeasurableEquiv.piFinSuccAbove (fun _ : Fin 3 => ℝ) 0
+    have hp := measurePreserving_piFinSuccAbove
+      (fun _ : Fin 3 => gaussianReal 0 1) 0
+    have hv := volume_preserving_piFinSuccAbove (fun _ : Fin 3 => ℝ) 0
+    have hmap := (hg.prod h2).map e.symm.measurable
+    rw [(hp.symm e).map_eq] at hmap
+    change (Measure.pi fun _ : Fin 3 => gaussianReal 0 1) ≪
+      (volume : Measure (ℝ × (Fin 2 → ℝ))).map e.symm at hmap
+    rwa [(hv.symm e).map_eq] at hmap
+  have hstd : stdGaussian (EuclideanSpace ℝ (Fin 3)) ≪ volume := by
+    have hmap := h3.map (PiLp.volume_preserving_toLp (Fin 3)).measurable
+    rw [map_pi_eq_stdGaussian, (PiLp.volume_preserving_toLp (Fin 3)).map_eq] at hmap
+    exact hmap
+  have hsqrt : IsUnit (CFC.sqrt S) := by
+    apply isUnit_mul_self_iff.mp
+    rw [CFC.sqrt_mul_sqrt_self S hS.posSemidef.nonneg]
+    exact hS.isUnit
+  let A : EuclideanSpace ℝ (Fin 3) →L[ℝ] EuclideanSpace ℝ (Fin 3) :=
+    Matrix.toEuclideanCLM (𝕜 := ℝ) (CFC.sqrt S)
+  have hA : IsUnit A := hsqrt.map (Matrix.toEuclideanCLM (𝕜 := ℝ))
+  have hdet : A.det ≠ 0 :=
+    (LinearMap.isUnit_det A.toLinearMap
+      (hA.map ContinuousLinearMap.toLinearMapRingHom)).ne_zero
+  have hq : QuasiMeasurePreserving
+      (fun x : EuclideanSpace ℝ (Fin 3) => m + A x)
+      (volume : Measure (EuclideanSpace ℝ (Fin 3))) volume :=
+    (measurePreserving_add_left (volume : Measure (EuclideanSpace ℝ (Fin 3))) m).quasiMeasurePreserving.comp
+        (ContinuousLinearMap.quasiMeasurePreserving
+          (volume : Measure (EuclideanSpace ℝ (Fin 3))) A hdet)
+  change (stdGaussian (EuclideanSpace ℝ (Fin 3))).map (fun x => m + A x) ≪ volume
+  exact (hstd.map hq.measurable).trans hq.absolutelyContinuous

@@ -1,0 +1,321 @@
+{
+  "module": "SourceCompactGapNormalizer",
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactGapNormalizer.lean",
+    "bytes": 24753,
+    "sha256": "d0f9319ac2ca792a9733659453583f4f71acc7ccccbcaba4ba1942566516065a"
+  },
+  "object": {
+    "path": "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+    "bytes": 1477944,
+    "sha256": "36548ee275e757fe1a7fc507395d5d2bd6353cc65e686eb631472dbe5e40eed3"
+  },
+  "coverage": "Every constant selected by actual environment module index SourceCompactGapNormalizer, not by namespace prefix. Transitive collectAxioms of every owned constant.",
+  "receipt": {
+    "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/inventory-001/receipt.json",
+    "bytes": 1919,
+    "sha256": "844e2cb38cb2de0555d3da24044733a46c74ce31be3f6c818a65c6bf19977b05"
+  },
+  "complete_constant_count": 19,
+  "all_axioms_standard3_subset": true,
+  "rows": [
+    {
+      "name": "ResearchFormalCoreR1.egm_weight.eq_1",
+      "kind": "theorem",
+      "generated": true,
+      "private": false,
+      "handwritten": false,
+      "public_research_theorem": false,
+      "prop_bundle": false,
+      "classification": "generated-theorem",
+      "research_role": "Compiler-generated equation theorem for imported egm_weight, emitted in this module while unfolding the literal physical branch. Its external namespace is why actual module-index inventory is required.",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceCompactGapNormalizer.cubic_pin_pointwise_error_target",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "research_role": "Translate old cubic pointwise error by g-c+2; reuse kernel mass1/6.",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceCompactGapNormalizer.endpointWeight_gap_floor",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "research_role": "Literal strict physical maximum/saddle types and k0^2*r^2 physical weight lower bound.",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceCompactGapNormalizer.gaussianCompactLowerConstant",
+      "kind": "definition",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": false,
+      "prop_bundle": false,
+      "classification": "named-public-definition",
+      "research_role": "Explicit positive lower density constant eta(V,M).",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceCompactGapNormalizer.gaussianCompactLowerConstant._proof_1",
+      "kind": "theorem",
+      "generated": true,
+      "private": false,
+      "handwritten": false,
+      "public_research_theorem": false,
+      "prop_bundle": false,
+      "classification": "generated-theorem",
+      "research_role": "Generated scalar normalization proof for eta definition.",
+      "transitive_axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "SourceCompactGapNormalizer.gaussianCompactLowerConstant._proof_2",
+      "kind": "theorem",
+      "generated": true,
+      "private": false,
+      "handwritten": false,
+      "public_research_theorem": false,
+      "prop_bundle": false,
+      "classification": "generated-theorem",
+      "research_role": "Generated scalar normalization proof for eta definition.",
+      "transitive_axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "SourceCompactGapNormalizer.gaussianCompactLowerConstant_pos",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "research_role": "Positivity of eta for positive variance reference.",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceCompactGapNormalizer.gaussianPDFReal_lower_compact",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "research_role": "New bounded-affine-mean lower PDF; upper variance controls prefactor and lower variance controls exponent.",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceCompactGapNormalizer.gaussianReal_Icc_lower_compact",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "research_role": "New real Gaussian mass floor on Icc(-2,-1), by length-one integration.",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceCompactGapNormalizer.sourceCompactGoodEvent",
+      "kind": "definition",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": false,
+      "prop_bundle": false,
+      "classification": "named-public-definition",
+      "research_role": "Measurable negative-q and original-radius cutoff intersection; no independence.",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceCompactGapNormalizer.sourceCompactGoodEvent_mass",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "research_role": "First-moment Markov and finite real-measure subtraction yield mass eta/2 without independence.",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceCompactGapNormalizer.sourceCompactGoodEvent_mass._simp_1_3",
+      "kind": "theorem",
+      "generated": true,
+      "private": false,
+      "handwritten": false,
+      "public_research_theorem": false,
+      "prop_bundle": false,
+      "classification": "generated-theorem",
+      "research_role": "Generated simplification theorem in the finite-mass subtraction proof.",
+      "transitive_axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "SourceCompactGapNormalizer.sourceCompactGoodEvent_measurable",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "research_role": "Measurability of actual good event.",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceCompactGapNormalizer.sourceGapLaw_compact_normalizer",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "research_role": "Closed compact actual-law endpoint: c>0 and delta>0 before r,b,k; real W integrability and positive quadratic integral floor.",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceCompactGapNormalizer.sourceGapLaw_negative_interval_mass",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "research_role": "Uniform actual q interval mass from beta bounds, old variance limit and new lower Gaussian mass.",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceCompactGapNormalizer.sourceGapLaw_q_hasLaw",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "research_role": "Actual gap q marginal composed from accepted every-target whole-carrier reconstruction.",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceCompactGapNormalizer.sourceGap_curvatureMean_bound",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "research_role": "Literal six-factor Pi-norm mean bound 6*J*(B+13*K); affine target retained.",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceCompactGapNormalizer.sourceSmoothWeight_gap_floor",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "research_role": "Actual field wrapper deriving strict physical types and W floor from needed pins and good event.",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceCompactGapNormalizer.source_normalized_gap_axial_errors",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "research_role": "Actual axial centers plus/minus6*k for literal pin5=12*k.",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ]
+}

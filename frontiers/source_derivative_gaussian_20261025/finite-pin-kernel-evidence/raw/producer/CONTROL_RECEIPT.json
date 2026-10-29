@@ -1,0 +1,52 @@
+{
+  "precode_contract": {
+    "path": "/workspace/scratch/finite-pin-kernel-construct/CONTROL_CONTRACT.md",
+    "bytes": 1854,
+    "sha256": "5115e134853dcaf477074055fae91f018c11389aa943833861dd50f6d5c33828"
+  },
+  "contract_before_source": true,
+  "positive_source": {
+    "path": "/workspace/scratch/finite-pin-kernel-construct/Controls.lean",
+    "bytes": 6749,
+    "sha256": "a0307ee529314cde806320e5f3df8555c80b2a76f233448505d60bb33fd2a8c9"
+  },
+  "positive_receipt": {
+    "path": "/workspace/scratch/finite-pin-kernel-construct/runs/controls-002/record.json",
+    "bytes": 2060,
+    "sha256": "9b46449e00519bc8a7c43569cde6ecfbb1bcd3970a4bcaa7104470adb6ffa07e"
+  },
+  "positive_count": 14,
+  "positive_scope": [
+    "nontrivial observation-times-direction pairing2,3 and\u22121,4 equals10",
+    "nontrivial a=(1,1),b=(0,1),v=(\u22121,1) pin-kernel/rightinverse",
+    "arbitrary correction matrix R gives genuine residual GramPosDef",
+    "R7 corrected pairing1",
+    "residual row summability",
+    "p0 no-pin PosDef",
+    "q0 no-observation PosDef",
+    "same original carrier evenL0",
+    "concrete original DC coefficient shift2",
+    "exact raw pin response at r0",
+    "exact raw pin response arbitraryr",
+    "everytargetposterior arbitraryr",
+    "everytargetposterior r0 no invertibility",
+    "proved scalar omitted-hker counterexample"
+  ],
+  "negative_source": {
+    "path": "/workspace/scratch/finite-pin-kernel-construct/FalseKernelMutation.lean",
+    "bytes": 1636,
+    "sha256": "8102c4c57677596aa8ef26e8b9e29bc7113ca5fbc92035a20f809e49a3b4b9f0"
+  },
+  "negative_receipt": {
+    "path": "/workspace/scratch/finite-pin-kernel-construct/runs/false-kernel-002/record.json",
+    "bytes": 2104,
+    "sha256": "84efee81f2d35c93f156851045582ea91d3041673f7ed00808bf00a73c2e0288"
+  },
+  "distinct_mutation_count": 1,
+  "mutation_attempts": 2,
+  "negative_mechanism": "Drops only pin-kernel witness hypothesis. Fin1 a=b=R=v=1 retains original-observation rightinverse but residualzero and Gramzero. Direct expansion of PosDef quadratic test leaves exactly False, with proved finite counterexample in context.",
+  "sole_false_count": 1,
+  "unrelated_final_negative_diagnostics": 0,
+  "earlier_negative_attempt": "false-kernel001 reached False but carried unused-simp warning; retained without claiming clean rejection. Corrected only warning argument.",
+  "original_source_unchanged_for_all_controls": true
+}

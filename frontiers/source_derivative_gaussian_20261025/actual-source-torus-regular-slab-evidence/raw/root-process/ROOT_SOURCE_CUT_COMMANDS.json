@@ -1,0 +1,97 @@
+[
+  {
+    "command": [
+      "git",
+      "diff",
+      "--cached",
+      "--name-only"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T18:14:34.546729+00:00",
+    "ended_utc": "2026-10-28T18:14:34.552375+00:00",
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-regular-slab-publication/SOURCE_CUT_01.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-regular-slab-publication/SOURCE_CUT_01.stderr.txt"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T18:14:34.552715+00:00",
+    "ended_utc": "2026-10-28T18:14:34.554789+00:00",
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-regular-slab-publication/SOURCE_CUT_02.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-regular-slab-publication/SOURCE_CUT_02.stderr.txt"
+  },
+  {
+    "command": [
+      "git",
+      "add",
+      "--",
+      "frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T18:14:34.555325+00:00",
+    "ended_utc": "2026-10-28T18:14:34.637627+00:00",
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-regular-slab-publication/SOURCE_CUT_03.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-regular-slab-publication/SOURCE_CUT_03.stderr.txt"
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--cached",
+      "--name-only"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T18:14:34.638190+00:00",
+    "ended_utc": "2026-10-28T18:14:34.642569+00:00",
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-regular-slab-publication/SOURCE_CUT_04.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-regular-slab-publication/SOURCE_CUT_04.stderr.txt"
+  },
+  {
+    "command": [
+      "git",
+      "commit",
+      "-m",
+      "Prove actual regular-slab component inclusion bijective"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T18:14:34.642932+00:00",
+    "ended_utc": "2026-10-28T18:14:34.674713+00:00",
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-regular-slab-publication/SOURCE_CUT_05.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-regular-slab-publication/SOURCE_CUT_05.stderr.txt"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T18:14:34.675031+00:00",
+    "ended_utc": "2026-10-28T18:14:34.678116+00:00",
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-regular-slab-publication/SOURCE_CUT_06.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-regular-slab-publication/SOURCE_CUT_06.stderr.txt"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "f99b2e1b4efb7e0d9d3d83420ba7859a611a2016:frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T18:14:34.678504+00:00",
+    "ended_utc": "2026-10-28T18:14:34.680824+00:00",
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-regular-slab-publication/SOURCE_CUT_07.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-regular-slab-publication/SOURCE_CUT_07.stderr.txt"
+  }
+]

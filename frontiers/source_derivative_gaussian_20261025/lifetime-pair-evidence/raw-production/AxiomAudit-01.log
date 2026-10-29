@@ -1,0 +1,520 @@
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.IsWindowElderPair: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime generated_inductive_data UniversalLaw.Spec.Lifetime.PairLawInterface.mk: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.RemainderBoundedR1: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.hessian: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime theorem UniversalLaw.Spec.Lifetime.GaussianFieldInterface.covariance: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.PairLawInterface.p: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.noConfusionType: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.GaussianFieldInterface.casesOn: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.pairCount: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime theorem UniversalLaw.Spec.Lifetime.PairLawInterface.p_nonneg: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime theorem UniversalLaw.Spec.Lifetime.GaussianFieldInterface.quad_nonneg: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.GaussianFieldInterface.noConfusion: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.GaussianFieldInterface.mk.noConfusion: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.pinS: AXIOMS [propext, Classical.choice, Quot.sound]
+DECLARATION Lifetime theorem UniversalLaw.Spec.Lifetime.GaussianFieldInterface.mk.sizeOf_spec: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.scaledGap: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime theorem UniversalLaw.Spec.Lifetime.PairLawInterface.mk.inj: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.FundDomain: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.ParentUniformSelectionA: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.PlanarElderLowerE2: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.HessianHasInertia: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime theorem UniversalLaw.Spec.Lifetime.GaussianFieldInterface.summable: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.IsUnrestrictedLeadingCoefficient: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime generated_inductive_data UniversalLaw.Spec.Lifetime.GaussianFieldInterface: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.thetaSum: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime theorem UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.essential_iff: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.PairLawInterface.noConfusion: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.GaussianFieldInterface.F: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.IsMorseDistinct: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.GaussianFieldInterface.recOn: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime theorem UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.mk.injEq: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.IsUnrestrictedPair: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.IsIndexSaddle: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.PairLawInterface.casesOn: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.IsFiniteBar: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.mk._flat_ctor: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.PairLawInterface._sizeOf_inst: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime theorem UniversalLaw.Spec.Lifetime.GaussianFieldInterface.mk.injEq: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime theorem UniversalLaw.Spec.Lifetime.PairLawInterface.mk.injEq: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.GaussianFieldInterface.mΩ: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.GaussianFieldInterface._sizeOf_1: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.ParentUnrestrictedLeadingDensityC: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime theorem UniversalLaw.Spec.Lifetime.PairLawInterface.mk.sizeOf_spec: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.ParentCompactWindowDensityB: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime generated_inductive_data UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.rec: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.GaussianFieldInterface.Ω: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime generated_inductive_data UniversalLaw.Spec.Lifetime.PairLawInterface: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime theorem UniversalLaw.Spec.Lifetime.GaussianFieldInterface.mk.inj: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.PairLawInterface.ctorIdx: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.noConfusion: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime theorem UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.mk.inj: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime generated_inductive_data UniversalLaw.Spec.Lifetime.GaussianFieldInterface.mk: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.ctorIdx: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime theorem UniversalLaw.Spec.Lifetime.GaussianFieldInterface.smooth: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.pairSet: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.torusDist: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime theorem UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.deathHeight_maximin: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime generated_inductive_data UniversalLaw.Spec.Lifetime.SuperlevelBarInterface: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.latticeVec: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.E: AXIOMS [propext, Classical.choice, Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.IsLifetimeDensityVersion: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime generated_inductive_data UniversalLaw.Spec.Lifetime.PairLawInterface.rec: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime theorem UniversalLaw.Spec.Lifetime.GaussianFieldInterface.isProb: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.SuperlevelBarInterface._sizeOf_1: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.IsCriticalPoint: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.SuperlevelBarInterface._sizeOf_inst: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime theorem UniversalLaw.Spec.Lifetime.GaussianFieldInterface.periodic: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime theorem UniversalLaw.Spec.Lifetime.IsLifetimeDensityVersion._proof_1: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime theorem UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.mk.sizeOf_spec: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.PlanarTwoSidedRateE4: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.IsCandidatePair: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.PairLawInterface.noConfusionType: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.heightGap: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.periodicCovariance: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.PlanarDensityGapE11: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.covQuadForm: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime theorem UniversalLaw.Spec.Lifetime.ParentCompactWindowDensityB._proof_1: AXIOMS [propext]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.PairLawInterface._sizeOf_1: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.IsEssential: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.IsLPeriodic: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.mk.noConfusion: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.GaussianFieldInterface.ctorIdx: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime theorem UniversalLaw.Spec.Lifetime.thetaSum._proof_1: AXIOMS [propext]
+DECLARATION Lifetime generated_inductive_data UniversalLaw.Spec.Lifetime.GaussianFieldInterface.rec: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.GaussianFieldInterface.P: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.casesOn: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.IsSmooth: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.recOn: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.deathHeight: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.ElderPartner: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime theorem UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.elderPartner_iff: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime generated_inductive_data UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.mk: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.PairLawInterface.recOn: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.PairLawInterface.mk.noConfusion: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime theorem UniversalLaw.Spec.Lifetime.PairLawInterface.p_le_one: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.pinM: AXIOMS [propext, Classical.choice, Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.GaussianFieldInterface.noConfusionType: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.PairLawInterface.mk._flat_ctor: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.GaussianFieldInterface.mk._flat_ctor: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.IsNondegMax: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime theorem UniversalLaw.Spec.Lifetime.GaussianFieldInterface.gaussian: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.GaussianFieldInterface._sizeOf_inst: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION Lifetime definition_or_data UniversalLaw.Spec.Lifetime.IsWindowPair: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+COMPLETE_MODULE_AXIOM_AUDIT Lifetime declarations=103; allowed=[propext, Classical.choice, Quot.sound]
+DECLARATION SourceLifetimeGeometry theorem I4LifetimeField.actualField_eval_measurable: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION SourceLifetimeGeometry theorem I4LifetimeField.actualField.eq_1: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION SourceLifetimeGeometry theorem UniversalLaw.Spec.Lifetime.latticeVec.eq_1: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION SourceLifetimeGeometry theorem I4LifetimeField.actualField_covariance_spectral: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION SourceLifetimeGeometry theorem I4LifetimeField.coordinates.eq_1: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION SourceLifetimeGeometry theorem I4LifetimeField.coordinates_apply: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION SourceLifetimeGeometry theorem I4LifetimeField.actualField_eval_hasGaussianLaw: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION SourceLifetimeGeometry definition_or_data I4LifetimeField.coordinates: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION SourceLifetimeGeometry theorem I4LifetimeField.coordinates_latticeVec: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION SourceLifetimeGeometry theorem I4LifetimeField.actualField_periodic: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION SourceLifetimeGeometry theorem I4LifetimeField.actualField_linearCombination_measurable: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION SourceLifetimeGeometry theorem I4LifetimeField.actualField_smooth: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION SourceLifetimeGeometry theorem I4LifetimeField.actualField_linearCombination_hasGaussianLaw: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION SourceLifetimeGeometry definition_or_data I4LifetimeField.actualField: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION SourceLifetimeGeometry theorem I4LifetimeField.actualField_linearCombination_integral_zero: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION SourceLifetimeGeometry theorem I4LifetimeField.actualField_integral_zero: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+COMPLETE_MODULE_AXIOM_AUDIT SourceLifetimeGeometry declarations=16; allowed=[propext, Classical.choice, Quot.sound]
+DECLARATION SourceLifetimePairFiniteness theorem I4SourceLifetimePairFiniteness.smoothLaw_ae_finite_criticalFundDomain: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION SourceLifetimePairFiniteness theorem I4SourceLifetimePairFiniteness.smoothLaw_ae_finite_windowPairSet: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION SourceLifetimePairFiniteness theorem I4SourceLifetimePairFiniteness.smoothLaw_ae_finite_finiteBarPairSet: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION SourceLifetimePairFiniteness theorem I4SourceLifetimePairFiniteness.smoothLaw_ae_finite_candidatePairSet: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION SourceLifetimePairFiniteness theorem I4SourceLifetimePairFiniteness.actual_critical_coordinateGradient_zero: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION SourceLifetimePairFiniteness theorem I4SourceLifetimePairFiniteness.smoothLaw_ae_finite_pairSet_of_critical: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION SourceLifetimePairFiniteness theorem I4SourceLifetimePairFiniteness.smoothLaw_ae_finite_unrestrictedPairSet: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION SourceLifetimePairFiniteness theorem I4SourceLifetimePairFiniteness.coordinates_fundDomain_mem_sourceMorseCube: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+DECLARATION SourceLifetimePairFiniteness theorem I4SourceLifetimePairFiniteness.smoothLaw_ae_finite_windowElderPairSet: AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+COMPLETE_MODULE_AXIOM_AUDIT SourceLifetimePairFiniteness declarations=9; allowed=[propext, Classical.choice, Quot.sound]
+theorem I4SourceLifetimePairFiniteness.actual_critical_coordinateGradient_zero : ∀ {L : ℝ},
+  0 < L →
+    ∀ (ω : I4SmoothCarrier.SmoothSample 2 L) (x : UniversalLaw.Spec.Lifetime.E 2),
+      UniversalLaw.Spec.Lifetime.IsCriticalPoint 2 (I4LifetimeField.actualField 2 L ω) x →
+        I4ActualSourceMorse.coordinateGradient (I4SmoothCarrier.smoothSourceField 2 L ω)
+            ((I4LifetimeField.coordinates 2) x) =
+          0 :=
+fun {L} hL ω x hx =>
+  have hdiff :=
+    DifferentiableAt.hasFDerivAt
+      (ContDiff.differentiable (I4SmoothCarrier.smoothSourceField_contDiff 2 (LT.lt.ne' hL) ω 1)
+        (of_eq_true
+          (Eq.trans (congrFun' (congrArg Ne Nat.cast_one) 0)
+            (Eq.trans (congrArg Not one_ne_zero._simp_1) not_false_eq_true)))
+        ((I4LifetimeField.coordinates 2) x));
+  have hcomp := HasFDerivAt.comp x hdiff (ContinuousLinearEquiv.hasFDerivAt (I4LifetimeField.coordinates 2));
+  id
+    (fun hx =>
+      have hz := Eq.trans (Eq.symm (HasFDerivAt.fderiv hcomp)) hx;
+      funext fun i =>
+        have hzi := congrArg (fun D => D ((I4LifetimeField.coordinates 2).symm (Pi.single i 1))) hz;
+        id
+          (Eq.mp
+            (congr
+              (congrArg Eq
+                (congrArg (⇑(fderiv ℝ (I4SmoothCarrier.smoothSourceField 2 L ω) ((I4LifetimeField.coordinates 2) x)))
+                  (ContinuousLinearEquiv.apply_symm_apply (I4LifetimeField.coordinates 2) (Pi.single i 1))))
+              (zero_apply ((I4LifetimeField.coordinates 2).symm (Pi.single i 1))))
+            hzi))
+    hx
+theorem I4SourceLifetimePairFiniteness.coordinates_fundDomain_mem_sourceMorseCube : ∀ {L : ℝ},
+  0 < L →
+    ∀ {x : UniversalLaw.Spec.Lifetime.E 2},
+      x ∈ UniversalLaw.Spec.Lifetime.FundDomain 2 L →
+        (I4LifetimeField.coordinates 2) x ∈ I4ActualSourceMorse.sourceMorseCube L :=
+fun {L} hL {x} hx =>
+  ⟨fun i => (hx i).left, fun i =>
+    id (Eq.mpr (id (congrArg (fun _a => x.ofLp i ≤ _a) (abs_of_pos hL))) (LT.lt.le (hx i).right))⟩
+theorem I4SourceLifetimePairFiniteness.smoothLaw_ae_finite_criticalFundDomain : ∀ {L : ℝ},
+  0 < L →
+    ∀ᵐ (ω : I4SmoothCarrier.SmoothSample 2 L) ∂I4SmoothCarrier.smoothLaw 2 L,
+      {x |
+          x ∈ UniversalLaw.Spec.Lifetime.FundDomain 2 L ∧
+            UniversalLaw.Spec.Lifetime.IsCriticalPoint 2 (I4LifetimeField.actualField 2 L ω) x}.Finite :=
+fun {L} hL =>
+  Filter.mp_mem (I4ActualSourceMorse.smoothLaw_ae_finite_sourceCriticalCube (LT.lt.ne' hL))
+    (Filter.univ_mem'
+      (id fun ω hω =>
+        Set.Finite.subset
+          (Set.Finite.preimage
+            (Function.Injective.injOn (ContinuousLinearEquiv.injective (I4LifetimeField.coordinates 2))) hω)
+          fun ⦃x⦄ a =>
+          And.casesOn a fun hx hcrit =>
+            ⟨I4SourceLifetimePairFiniteness.coordinates_fundDomain_mem_sourceMorseCube hL hx,
+              I4SourceLifetimePairFiniteness.actual_critical_coordinateGradient_zero hL ω x hcrit⟩))
+theorem I4SourceLifetimePairFiniteness.smoothLaw_ae_finite_pairSet_of_critical : ∀ {L : ℝ},
+  0 < L →
+    ∀ᵐ (ω : I4SmoothCarrier.SmoothSample 2 L) ∂I4SmoothCarrier.smoothLaw 2 L,
+      ∀
+        (Pair :
+          (UniversalLaw.Spec.Lifetime.E 2 → ℝ) →
+            UniversalLaw.Spec.Lifetime.E 2 → UniversalLaw.Spec.Lifetime.E 2 → Prop),
+        (∀ (M S : UniversalLaw.Spec.Lifetime.E 2),
+            Pair (I4LifetimeField.actualField 2 L ω) M S →
+              UniversalLaw.Spec.Lifetime.IsCriticalPoint 2 (I4LifetimeField.actualField 2 L ω) M ∧
+                UniversalLaw.Spec.Lifetime.IsCriticalPoint 2 (I4LifetimeField.actualField 2 L ω) S) →
+          ∀ (A : Set ℝ), (UniversalLaw.Spec.Lifetime.pairSet 2 L Pair (I4LifetimeField.actualField 2 L ω) A).Finite :=
+fun {L} hL =>
+  Filter.mp_mem (I4SourceLifetimePairFiniteness.smoothLaw_ae_finite_criticalFundDomain hL)
+    (Filter.univ_mem'
+      (id fun ω hω Pair hPair A =>
+        Set.Finite.subset (Set.Finite.prod hω hω) fun ⦃a⦄ =>
+          Prod.casesOn (motive := fun x =>
+            x ∈ UniversalLaw.Spec.Lifetime.pairSet 2 L Pair (I4LifetimeField.actualField 2 L ω) A →
+              x ∈
+                {x |
+                    x ∈ UniversalLaw.Spec.Lifetime.FundDomain 2 L ∧
+                      UniversalLaw.Spec.Lifetime.IsCriticalPoint 2 (I4LifetimeField.actualField 2 L ω) x} ×ˢ
+                  {x |
+                    x ∈ UniversalLaw.Spec.Lifetime.FundDomain 2 L ∧
+                      UniversalLaw.Spec.Lifetime.IsCriticalPoint 2 (I4LifetimeField.actualField 2 L ω) x})
+            a fun M S a =>
+            And.casesOn a fun hM right =>
+              And.casesOn right fun hS right =>
+                And.casesOn right fun hpair right => ⟨⟨hM, (hPair M S hpair).left⟩, ⟨hS, (hPair M S hpair).right⟩⟩))
+theorem I4SourceLifetimePairFiniteness.smoothLaw_ae_finite_candidatePairSet : ∀ {L : ℝ},
+  0 < L →
+    ∀ᵐ (ω : I4SmoothCarrier.SmoothSample 2 L) ∂I4SmoothCarrier.smoothLaw 2 L,
+      ∀ (A : Set ℝ),
+        (UniversalLaw.Spec.Lifetime.pairSet 2 L (UniversalLaw.Spec.Lifetime.IsCandidatePair 2 L)
+            (I4LifetimeField.actualField 2 L ω) A).Finite :=
+fun {L} hL =>
+  Filter.mp_mem (I4SourceLifetimePairFiniteness.smoothLaw_ae_finite_pairSet_of_critical hL)
+    (Filter.univ_mem'
+      (id fun ω hω =>
+        hω (UniversalLaw.Spec.Lifetime.IsCandidatePair 2 L) fun x x_1 h => ⟨h.left.left, h.right.left.left⟩))
+theorem I4SourceLifetimePairFiniteness.smoothLaw_ae_finite_windowPairSet : ∀ {L : ℝ},
+  0 < L →
+    ∀ᵐ (ω : I4SmoothCarrier.SmoothSample 2 L) ∂I4SmoothCarrier.smoothLaw 2 L,
+      ∀ (ρ bLo bHi kLo kHi : ℝ) (A : Set ℝ),
+        (UniversalLaw.Spec.Lifetime.pairSet 2 L (UniversalLaw.Spec.Lifetime.IsWindowPair 2 L ρ bLo bHi kLo kHi)
+            (I4LifetimeField.actualField 2 L ω) A).Finite :=
+fun {L} hL =>
+  Filter.mp_mem (I4SourceLifetimePairFiniteness.smoothLaw_ae_finite_pairSet_of_critical hL)
+    (Filter.univ_mem'
+      (id fun ω hω ρ bLo bHi kLo kHi =>
+        hω (UniversalLaw.Spec.Lifetime.IsWindowPair 2 L ρ bLo bHi kLo kHi) fun x x_1 h =>
+          ⟨h.left.left.left, h.left.right.left.left⟩))
+theorem I4SourceLifetimePairFiniteness.smoothLaw_ae_finite_windowElderPairSet : ∀ {L : ℝ},
+  0 < L →
+    ∀ᵐ (ω : I4SmoothCarrier.SmoothSample 2 L) ∂I4SmoothCarrier.smoothLaw 2 L,
+      ∀ (ρ bLo bHi kLo kHi : ℝ) (I : UniversalLaw.Spec.Lifetime.SuperlevelBarInterface 2 L) (A : Set ℝ),
+        (UniversalLaw.Spec.Lifetime.pairSet 2 L (UniversalLaw.Spec.Lifetime.IsWindowElderPair 2 L ρ bLo bHi kLo kHi I)
+            (I4LifetimeField.actualField 2 L ω) A).Finite :=
+fun {L} hL =>
+  Filter.mp_mem (I4SourceLifetimePairFiniteness.smoothLaw_ae_finite_pairSet_of_critical hL)
+    (Filter.univ_mem'
+      (id fun ω hω ρ bLo bHi kLo kHi I =>
+        hω (UniversalLaw.Spec.Lifetime.IsWindowElderPair 2 L ρ bLo bHi kLo kHi I) fun x x_1 h =>
+          ⟨h.left.left.left.left, h.left.left.right.left.left⟩))
+theorem I4SourceLifetimePairFiniteness.smoothLaw_ae_finite_unrestrictedPairSet : ∀ {L : ℝ},
+  0 < L →
+    ∀ᵐ (ω : I4SmoothCarrier.SmoothSample 2 L) ∂I4SmoothCarrier.smoothLaw 2 L,
+      ∀ (A : Set ℝ),
+        (UniversalLaw.Spec.Lifetime.pairSet 2 L (UniversalLaw.Spec.Lifetime.IsUnrestrictedPair 2 L)
+            (I4LifetimeField.actualField 2 L ω) A).Finite :=
+fun {L} hL =>
+  Filter.mp_mem (I4SourceLifetimePairFiniteness.smoothLaw_ae_finite_pairSet_of_critical hL)
+    (Filter.univ_mem'
+      (id fun ω hω =>
+        hω (UniversalLaw.Spec.Lifetime.IsUnrestrictedPair 2 L) fun x x_1 h =>
+          ⟨h.left.left.left, h.left.right.left.left⟩))
+theorem I4SourceLifetimePairFiniteness.smoothLaw_ae_finite_finiteBarPairSet : ∀ {L : ℝ},
+  0 < L →
+    ∀ᵐ (ω : I4SmoothCarrier.SmoothSample 2 L) ∂I4SmoothCarrier.smoothLaw 2 L,
+      ∀ (I : UniversalLaw.Spec.Lifetime.SuperlevelBarInterface 2 L) (A : Set ℝ),
+        (UniversalLaw.Spec.Lifetime.pairSet 2 L (UniversalLaw.Spec.Lifetime.IsFiniteBar 2 L I)
+            (I4LifetimeField.actualField 2 L ω) A).Finite :=
+fun {L} hL =>
+  Filter.mp_mem (I4SourceLifetimePairFiniteness.smoothLaw_ae_finite_pairSet_of_critical hL)
+    (Filter.univ_mem'
+      (id fun ω hω I =>
+        hω (UniversalLaw.Spec.Lifetime.IsFiniteBar 2 L I) fun x x_1 h => ⟨h.left.left.left, h.left.right.left.left⟩))

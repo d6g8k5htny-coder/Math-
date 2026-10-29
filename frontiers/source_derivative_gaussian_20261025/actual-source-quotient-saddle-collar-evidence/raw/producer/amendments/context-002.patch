@@ -1,0 +1,103 @@
+--- context/CONTEXT.001.md
++++ context/CONTEXT.002.md
+@@ -280,13 +280,26 @@
+   IsOpen (fixtureSmallOpen X) ∧ physicalProjection 2 X ∈ fixtureSmallOpen X
+ ```
+ 
+-For EACH literal `(x,y)=(1,0),(0,1),(-1,0)`, the required stable private consumers `fixture_saddlePositive`, `fixture_saddleNegative`, `fixture_seam` have the SAME literal signature below with that substituted x,y (not a premise supplied by caller):
+-
+-```lean
+-∃ rho : ℝ, 0 < rho ∧
+-  ∃ phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 2) Point2,
+-    CollarFacts fixtureTorusField (physicalProjection 2 (fixturePoint x y))
+-      (fixtureSmallOpen (fixturePoint x y)) rho phi
++The three literal stable private consumer signatures are:
++
++```lean
++private theorem fixture_saddlePositive :
++  ∃ rho : ℝ, 0 < rho ∧
++    ∃ phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 2) Point2,
++      CollarFacts fixtureTorusField (physicalProjection 2 (fixturePoint 1 0))
++        (fixtureSmallOpen (fixturePoint 1 0)) rho phi
++
++private theorem fixture_saddleNegative :
++  ∃ rho : ℝ, 0 < rho ∧
++    ∃ phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 2) Point2,
++      CollarFacts fixtureTorusField (physicalProjection 2 (fixturePoint 0 1))
++        (fixtureSmallOpen (fixturePoint 0 1)) rho phi
++
++private theorem fixture_seam :
++  ∃ rho : ℝ, 0 < rho ∧
++    ∃ phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 2) Point2,
++      CollarFacts fixtureTorusField (physicalProjection 2 (fixturePoint (-1) 0))
++        (fixtureSmallOpen (fixturePoint (-1) 0)) rho phi
+ ```
+ 
+ They call actualSaddleCollar with independently derived actual local inputs/small O, hence exercise new actual chart, geometry and transport. Both saddles have genuinely complementary negative/positive lines; seam uses its own physical lift/O. No equality of chosen noncanonical charts.
+@@ -295,9 +308,55 @@
+ 
+ File `QuotientSaddleCollarControls.lean`, namespace `QuotientSaddleCollarControls`, same literal common imports prefixed by new public module. Producer alone authors ordinary TEXT/proofs/edits; NO third/helper ordinary author. Reconstruct same fixture definitions with private removed; define ordinary `physicalProjection` literally as above, no production-private call. Reuse actual field/local facts within this scope once, with no global hm.
+ 
+-Normative ordinary positive names: `fixture_actualField`, `saddleInputs`, `seamInputs`, `smallOpen`, `positiveSaddle`, `negativeSaddle`, `seamSaddle`. They independently derive the exact literal fixture premises/small O and call the new PUBLIC theorem at the three physical lifts. Their existential witness conclusions expand the exact public statement above at those fixed inputs; do not weaken to an assumed certificate or O=univ.
+-
+-Normative chosen objects: `chosenRadius`, `chosenChart` choose ONE actual witness from positiveSaddle; `chosenCenter=physicalProjection2(fixturePoint1 0)`, `chosenHeight=fixtureTorusField chosenCenter`, `chosenSource=chosenChart.source`, `chosenStrictTrace=chosenSource∩{z|chosenHeight<fixtureTorusField z}`. These are ordinary data only. `chosenChart_structure` extracts ONLY positivity/source/centering/containment/exact-target/ordered-identity; it does NOT supply branch PC/disjoint/JoinedIn facts to the counterproof.
++Ordinary uses its own literal `physicalProjection`, `fixturePolynomial`, `fixtureSample`, `fixtureTorusField`, `fixturePoint`, `fixtureSmallOpen` definitions, as above with private removed. Its derived local input/open theorems `saddleInputs`, `seamInputs`, `smallOpen` have exactly the production fixture_saddleInputs/fixture_seamInputs/fixture_smallOpen types with private removed. No assumed positive certificate or global hm.
++
++The following ordinary predicate is producer-defined, fully expanded, and is NOT a production-private API:
++
++```lean
++def OrdinaryCollar (X : UniversalLaw.Spec.Lifetime.E 2) : Prop :=
++  let q := physicalProjection 2 X
++  let c := fixtureTorusField q
++  ∃ rho : ℝ, 0 < rho ∧
++    ∃ phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 2) (Fin 2 → ℝ),
++      q ∈ phi.source ∧ phi q = 0 ∧ phi.source ⊆ fixtureSmallOpen X ∧
++      phi.target = Metric.ball (0 : Fin 2 → ℝ) rho ∧
++      (∀ z ∈ phi.source, fixtureTorusField z = c-(phi z 0)^2+(phi z 1)^2) ∧
++      let W := phi.source ∩ {z | c < fixtureTorusField z}
++      let Bplus := W ∩ {z | 0 < phi z 1}
++      let Bminus := W ∩ {z | phi z 1 < 0}
++      IsPathConnected Bplus ∧ IsPathConnected Bminus ∧ Disjoint Bplus Bminus ∧
++        W = Bplus ∪ Bminus ∧
++        (∀ p ∈ W, ∀ r ∈ W, JoinedIn W p r ↔ 0 < (phi p 1)*(phi r 1)) ∧
++        (∀ delta : ℝ, 0 ≤ delta →
++          IsPathConnected (phi.source ∩ {z | c-delta ≤ fixtureTorusField z}))
++
++theorem positiveSaddle : OrdinaryCollar (fixturePoint 1 0)
++theorem negativeSaddle : OrdinaryCollar (fixturePoint 0 1)
++theorem seamSaddle : OrdinaryCollar (fixturePoint (-1) 0)
++
++def chosenRadius : ℝ
++def chosenChart : OpenPartialHomeomorph (I4Torus.SourceTorus 2 2) (Fin 2 → ℝ)
++def chosenCenter : I4Torus.SourceTorus 2 2 := physicalProjection 2 (fixturePoint 1 0)
++def chosenHeight : ℝ := fixtureTorusField chosenCenter
++def chosenSource : Set (I4Torus.SourceTorus 2 2) := chosenChart.source
++def chosenStrictTrace : Set (I4Torus.SourceTorus 2 2) :=
++  chosenSource ∩ {z | chosenHeight < fixtureTorusField z}
++
++theorem chosenChart_structure :
++  0 < chosenRadius ∧ chosenCenter ∈ chosenChart.source ∧ chosenChart chosenCenter = 0 ∧
++    chosenChart.source ⊆ fixtureSmallOpen (fixturePoint 1 0) ∧
++    chosenChart.target = Metric.ball (0 : Fin 2 → ℝ) chosenRadius ∧
++    (∀ z ∈ chosenChart.source,
++      fixtureTorusField z = chosenHeight-(chosenChart z 0)^2+(chosenChart z 1)^2)
++
++def strictPointPlus : I4Torus.SourceTorus 2 2 := chosenChart.symm ![0,chosenRadius/2]
++def strictPointMinus : I4Torus.SourceTorus 2 2 := chosenChart.symm ![0,-chosenRadius/2]
++theorem strictPoints_mem :
++  strictPointPlus ∈ chosenStrictTrace ∧ strictPointMinus ∈ chosenStrictTrace
++theorem not_pathConnected_chosenStrictTrace : ¬ IsPathConnected chosenStrictTrace
++```
++
++The typed chosenRadius/chosenChart signatures above are normative declarations whose bodies later choose ONE witness from positiveSaddle (Classical.choose and its SAME existential specification); neither is an additional premise. The three positive theorems independently derive local actual premises/open small O, then call the new PUBLIC theorem. chosenChart_structure extracts ONLY structural fields, NEVER branch/JoinedIn fields. No re-selection for delta or counterproof.
+ 
+ `strictPointPlus=chosenChart.symm ![0,chosenRadius/2]` and `strictPointMinus=chosenChart.symm ![0,-chosenRadius/2]`. `strictPoints_mem` proves both actually belong to chosenStrictTrace from exact target/inverse/identity, independently of production branch fields. `not_pathConnected_chosenStrictTrace` uses a hypothetical PC path, coordinate1 continuity/IVT at0 and actual identity F≤c contradicting strict c<F. Fixed rho/phi/source/field/level/carrier/strictness throughout. No use of production branch/JoinedIn result, alternative chosenchart, empty shortcut, global incidence or second mutation.
+ 
+@@ -317,3 +376,7 @@
+ - Dynamic exhaustive own-module ownership/classification, including private definitions/Prop bundles/generated/foreigngenerated; standard3 ONLY. Exactly ONE final complete named own-module kernel AFTER whole finalsource+private positives/strict/inventory/earlyreview; no partialkernel. Root ONLY eligible new own object ONCE after sourcecut; furthercopiesSKIP, no helper/Controls/ilean/old promotion.
+ 
+ Scope remains local saddle only: no uniform positive CLOSEDuppercuts, regular collars, finite adjacency, lower clopen separation, global H0 merger/unique elder saddle/count/oncecount/Borel/Rice/PairLaw/Parent result. Original larger goal remains active. No future65 role/code/claim/GO/timer is implied.
++
++## Context002 exact pre-text interface refinement
++
++Before any helper proof text or Lean execution, expand the three private fixture consumer signatures to their literal fixed points, and expand the ordinary predicate/positive/chosen object signatures. No imports/instances/private chart or geometry signature/public target/locked path/mathematical/control change. Original001 and complete actual001→002 patch remain immutable. Helpers receive FULL final002 for personal ACK; no earlier helper proof text exists.

@@ -1,0 +1,395 @@
+[
+  {
+    "run": "develop-001",
+    "start": "2026-10-26T18:37:50.672536+00:00",
+    "end": "2026-10-26T18:38:43.912614+00:00",
+    "exit": 1,
+    "stdout_bytes": 26876,
+    "stderr_bytes": 0,
+    "compiler_panic_count": 0,
+    "error_lines": [
+      {
+        "line": 1,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:53:86: error: unsolved goals"
+      },
+      {
+        "line": 193,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:56:45: error: This simp argument is unused:"
+      },
+      {
+        "line": 201,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:56:71: error: This simp argument is unused:"
+      },
+      {
+        "line": 209,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:60:46: error: unsolved goals"
+      },
+      {
+        "line": 341,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:63:4: error: This simp argument is unused:"
+      },
+      {
+        "line": 350,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:63:22: error: This simp argument is unused:"
+      },
+      {
+        "line": 359,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:63:47: error: This simp argument is unused:"
+      },
+      {
+        "line": 368,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:63:66: error: This simp argument is unused:"
+      },
+      {
+        "line": 377,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:64:4: error: This simp argument is unused:"
+      },
+      {
+        "line": 386,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:65:26: error: This simp argument is unused:"
+      },
+      {
+        "line": 395,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:79:91: error: unsolved goals"
+      },
+      {
+        "line": 402,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:89:45: error: unsolved goals"
+      },
+      {
+        "line": 408,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:91:48: error: This simp argument is unused:"
+      },
+      {
+        "line": 415,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:91:65: error: This simp argument is unused:"
+      },
+      {
+        "line": 422,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:109:48: error: unsolved goals"
+      },
+      {
+        "line": 431,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:231:2: error: Type mismatch: After simplification, term"
+      },
+      {
+        "line": 445,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:280:6: error: Type mismatch: After simplification, term"
+      },
+      {
+        "line": 451,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:280:6: error: Type mismatch: After simplification, term"
+      },
+      {
+        "line": 457,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:280:6: error: Type mismatch: After simplification, term"
+      },
+      {
+        "line": 463,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:280:6: error: Type mismatch: After simplification, term"
+      },
+      {
+        "line": 469,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:280:6: error: Type mismatch: After simplification, term"
+      },
+      {
+        "line": 475,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:280:6: error: Type mismatch: After simplification, term"
+      }
+    ],
+    "full_stream_path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/runs/develop-001/stdout.log",
+    "diagnostic_summary_only": true,
+    "signal_terminated_available_stream_only": false
+  },
+  {
+    "run": "develop-002",
+    "start": "2026-10-26T18:39:46.511340+00:00",
+    "end": "2026-10-26T18:40:44.500276+00:00",
+    "exit": 1,
+    "stdout_bytes": 2615,
+    "stderr_bytes": 0,
+    "compiler_panic_count": 0,
+    "error_lines": [
+      {
+        "line": 1,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:55:50: error: Application type mismatch: The argument"
+      },
+      {
+        "line": 9,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:67:50: error: Application type mismatch: The argument"
+      },
+      {
+        "line": 17,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:108:2: error: Tactic `rfl` failed: The left-hand side"
+      },
+      {
+        "line": 27,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:107:29: error: This simp argument is unused:"
+      },
+      {
+        "line": 35,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:107:48: error: This simp argument is unused:"
+      },
+      {
+        "line": 43,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:107:64: error: This simp argument is unused:"
+      }
+    ],
+    "full_stream_path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/runs/develop-002/stdout.log",
+    "diagnostic_summary_only": true,
+    "signal_terminated_available_stream_only": false
+  },
+  {
+    "run": "develop-003",
+    "start": "2026-10-26T18:41:04.680624+00:00",
+    "end": "2026-10-26T18:45:01.059665+00:00",
+    "exit": 1,
+    "stdout_bytes": 1380890,
+    "stderr_bytes": 0,
+    "compiler_panic_count": 90,
+    "error_lines": [
+      {
+        "line": 9181,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:63:16: error: (kernel) deterministic timeout"
+      },
+      {
+        "line": 9182,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:245:16: error: (kernel) unknown constant '_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointCoefficient_actual'"
+      }
+    ],
+    "full_stream_path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/runs/develop-003/stdout.log",
+    "diagnostic_summary_only": true,
+    "signal_terminated_available_stream_only": false
+  },
+  {
+    "run": "develop-004",
+    "start": "2026-10-26T18:46:32.633625+00:00",
+    "end": "2026-10-26T18:49:54.653383+00:00",
+    "exit": 1,
+    "stdout_bytes": 425,
+    "stderr_bytes": 0,
+    "compiler_panic_count": 0,
+    "error_lines": [
+      {
+        "line": 1,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:81:16: error: (kernel) deterministic timeout"
+      },
+      {
+        "line": 2,
+        "text": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:270:16: error: (kernel) unknown constant '_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointCoefficient_actual'"
+      }
+    ],
+    "full_stream_path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/runs/develop-004/stdout.log",
+    "diagnostic_summary_only": true,
+    "signal_terminated_available_stream_only": false
+  },
+  {
+    "run": "develop-005",
+    "start": "2026-10-26T18:51:06.321424+00:00",
+    "end": "2026-10-26T18:56:43.960080+00:00",
+    "exit": 143,
+    "stdout_bytes": 0,
+    "stderr_bytes": 0,
+    "compiler_panic_count": 0,
+    "error_lines": [],
+    "full_stream_path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/runs/develop-005/stdout.log",
+    "diagnostic_summary_only": true,
+    "signal_terminated_available_stream_only": true
+  },
+  {
+    "run": "develop-006",
+    "start": "2026-10-26T18:58:18.391070+00:00",
+    "end": "2026-10-26T18:59:20.912955+00:00",
+    "exit": 0,
+    "stdout_bytes": 0,
+    "stderr_bytes": 0,
+    "compiler_panic_count": 0,
+    "error_lines": [],
+    "full_stream_path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/runs/develop-006/stdout.log",
+    "diagnostic_summary_only": true,
+    "signal_terminated_available_stream_only": false
+  },
+  {
+    "run": "inventory-001",
+    "start": "2026-10-26T19:00:46.868088+00:00",
+    "end": "2026-10-26T19:00:52.861111+00:00",
+    "exit": 0,
+    "stdout_bytes": 8500,
+    "stderr_bytes": 0,
+    "compiler_panic_count": 0,
+    "error_lines": [],
+    "full_stream_path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/runs/inventory-001/stdout.log",
+    "diagnostic_summary_only": true,
+    "signal_terminated_available_stream_only": false
+  },
+  {
+    "run": "controls-001",
+    "start": "2026-10-26T19:00:46.876650+00:00",
+    "end": "2026-10-26T19:02:41.351313+00:00",
+    "exit": 1,
+    "stdout_bytes": 6311,
+    "stderr_bytes": 0,
+    "compiler_panic_count": 0,
+    "error_lines": [
+      {
+        "line": 1,
+        "text": "/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:91:2: error: failed to elaborate eliminator, insufficient number of arguments, expected type:"
+      },
+      {
+        "line": 3,
+        "text": "/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:92:22: error: failed to elaborate eliminator, expected type is not available"
+      },
+      {
+        "line": 4,
+        "text": "/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:94:22: error: failed to elaborate eliminator, expected type is not available"
+      },
+      {
+        "line": 5,
+        "text": "/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:105:4: error: failed to elaborate eliminator, insufficient number of arguments, expected type:"
+      },
+      {
+        "line": 7,
+        "text": "/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:106:6: error: Type mismatch"
+      },
+      {
+        "line": 13,
+        "text": "/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:185:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached"
+      },
+      {
+        "line": 18,
+        "text": "/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:237:8: error: Function expected at"
+      },
+      {
+        "line": 25,
+        "text": "/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:254:45: error: Application type mismatch: The argument"
+      },
+      {
+        "line": 35,
+        "text": "/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:254:45: error: Application type mismatch: The argument"
+      },
+      {
+        "line": 45,
+        "text": "/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:254:45: error: Application type mismatch: The argument"
+      },
+      {
+        "line": 55,
+        "text": "/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:254:45: error: Application type mismatch: The argument"
+      },
+      {
+        "line": 65,
+        "text": "/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:254:45: error: Application type mismatch: The argument"
+      },
+      {
+        "line": 75,
+        "text": "/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:254:45: error: Application type mismatch: The argument"
+      },
+      {
+        "line": 85,
+        "text": "/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:254:45: error: Application type mismatch: The argument"
+      },
+      {
+        "line": 95,
+        "text": "/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:254:45: error: Application type mismatch: The argument"
+      },
+      {
+        "line": 105,
+        "text": "/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:254:45: error: Application type mismatch: The argument"
+      },
+      {
+        "line": 115,
+        "text": "/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:260:0: error: Not a definitional equality: the left-hand side"
+      },
+      {
+        "line": 119,
+        "text": "/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:261:67: error: Type mismatch"
+      }
+    ],
+    "full_stream_path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/runs/controls-001/stdout.log",
+    "diagnostic_summary_only": true,
+    "signal_terminated_available_stream_only": false
+  },
+  {
+    "run": "kernel-001",
+    "start": "2026-10-26T19:01:21.078303+00:00",
+    "end": "2026-10-26T19:02:08.301860+00:00",
+    "exit": 0,
+    "stdout_bytes": 0,
+    "stderr_bytes": 0,
+    "compiler_panic_count": 0,
+    "error_lines": [],
+    "full_stream_path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/runs/kernel-001/stdout.log",
+    "diagnostic_summary_only": true,
+    "signal_terminated_available_stream_only": false
+  },
+  {
+    "run": "controls-002",
+    "start": "2026-10-26T19:05:01.591755+00:00",
+    "end": "2026-10-26T19:10:23.541434+00:00",
+    "exit": 143,
+    "stdout_bytes": 69632,
+    "stderr_bytes": 0,
+    "compiler_panic_count": 0,
+    "error_lines": [
+      {
+        "line": 1,
+        "text": "/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:110:72: error: unsolved goals"
+      }
+    ],
+    "full_stream_path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/runs/controls-002/stdout.log",
+    "diagnostic_summary_only": true,
+    "signal_terminated_available_stream_only": true
+  },
+  {
+    "run": "controls-003",
+    "start": "2026-10-26T19:11:45.244063+00:00",
+    "end": "2026-10-26T19:15:01.128284+00:00",
+    "exit": 1,
+    "stdout_bytes": 863,
+    "stderr_bytes": 0,
+    "compiler_panic_count": 0,
+    "error_lines": [
+      {
+        "line": 1,
+        "text": "/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:114:44: error: This simp argument is unused:"
+      },
+      {
+        "line": 8,
+        "text": "/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean:252:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern"
+      }
+    ],
+    "full_stream_path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/runs/controls-003/stdout.log",
+    "diagnostic_summary_only": true,
+    "signal_terminated_available_stream_only": false
+  },
+  {
+    "run": "controls-004",
+    "start": "2026-10-26T19:15:52.932000+00:00",
+    "end": "2026-10-26T19:19:04.442492+00:00",
+    "exit": 0,
+    "stdout_bytes": 0,
+    "stderr_bytes": 0,
+    "compiler_panic_count": 0,
+    "error_lines": [],
+    "full_stream_path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/runs/controls-004/stdout.log",
+    "diagnostic_summary_only": true,
+    "signal_terminated_available_stream_only": false
+  },
+  {
+    "run": "cross-block-001",
+    "start": "2026-10-26T19:19:31.887165+00:00",
+    "end": "2026-10-26T19:19:36.225981+00:00",
+    "exit": 1,
+    "stdout_bytes": 120,
+    "stderr_bytes": 0,
+    "compiler_panic_count": 0,
+    "error_lines": [
+      {
+        "line": 1,
+        "text": "/workspace/scratch/two-remote-firstjet-gaussian-construct/CrossBlockMutation.lean:8:78: error: unsolved goals"
+      }
+    ],
+    "full_stream_path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/runs/cross-block-001/stdout.log",
+    "diagnostic_summary_only": true,
+    "signal_terminated_available_stream_only": false
+  }
+]

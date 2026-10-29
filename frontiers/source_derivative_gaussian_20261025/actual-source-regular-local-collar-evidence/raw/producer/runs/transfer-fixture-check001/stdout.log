@@ -1,0 +1,37 @@
+SourceActualRegularLocalCollar.lean:182:6: error: linarith failed to find a contradiction
+case mp
+L : ℝ
+F : Torus2 L → ℝ
+c ρ : ℝ
+hρ : 0 < ρ
+φ : OpenPartialHomeomorph (Torus2 L) Point2
+htarget : φ.target = Metric.ball 0 ρ
+hheight : ∀ z ∈ φ.source, F z = c + ↑φ z 1
+ε : ℝ
+hε : |ε| < ρ
+u : Point2
+hu : u ∈ Metric.ball 0 ρ ∩ {u | ε ≤ u 1}
+hut : u ∈ φ.target
+hh : F (↑φ.symm u) = c + u 1
+huc : ε ≤ u 1
+⊢ False
+failed
+SourceActualRegularLocalCollar.lean:202:6: error: linarith failed to find a contradiction
+case mp
+L : ℝ
+F : Torus2 L → ℝ
+c ρ : ℝ
+hρ : 0 < ρ
+φ : OpenPartialHomeomorph (Torus2 L) Point2
+htarget : φ.target = Metric.ball 0 ρ
+hheight : ∀ z ∈ φ.source, F z = c + ↑φ z 1
+ε : ℝ
+hε : |ε| < ρ
+hupper_image : ↑φ.symm '' (Metric.ball 0 ρ ∩ {u | ε ≤ u 1}) = φ.source ∩ {z | c + ε ≤ F z}
+u : Point2
+hu : u ∈ Metric.ball 0 ρ ∩ {u | u 1 = ε}
+hut : u ∈ φ.target
+hh : F (↑φ.symm u) = c + u 1
+huc : u 1 = ε
+⊢ False
+failed

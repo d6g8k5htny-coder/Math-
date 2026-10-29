@@ -1,0 +1,131 @@
+{
+  "created_utc": "2026-10-28T16:47:45.323548+00:00",
+  "status": "SOURCE_ONLY_CUT_NEW61_PRODUCTION_MATH_PASSED_ORDINARY_CONTROLS_AND_REGISTRATION_PENDING",
+  "source_cut": "917271a33398d58ab3471da2bb3a452849950660",
+  "parent": "526d696ce49a574610f614cfd93ba6db76225066",
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusSuperlevelLocalBasis.lean",
+    "bytes": 29527,
+    "sha256": "f52c247c1fb8956eebb166badf62de550566a0c2e4f56f5bda30bf5a5531d04c",
+    "identity_origin": "reused prior own first identity; unchanged size/mtime"
+  },
+  "source_git_blob": "8ad923c4981bd099d4fa989302977ef002f62f9b",
+  "own_object": {
+    "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/build/SourceActualTorusSuperlevelLocalBasis.olean",
+    "bytes": 1508072,
+    "sha256": "dbe211717c515a2a47353197b78185028551b782c78b14e3e67a9b921609bf2c",
+    "identity_origin": "first identity of newly created/changed OWN payload"
+  },
+  "qualification_receipts": {
+    "compile-final": {
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/compile-final/receipt.json",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/build/SourceActualTorusSuperlevelLocalBasis.olean",
+        "SourceActualTorusSuperlevelLocalBasis.lean"
+      ],
+      "started_utc": "2026-10-28T16:42:25.280409+00:00",
+      "ended_utc": "2026-10-28T16:42:30.983466+00:00",
+      "exit_code": 0,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/compile-final/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "first identity of newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/compile-final/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "first identity of newly created/changed OWN payload"
+      }
+    },
+    "inventory-001": {
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/inventory-001/receipt.json",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/build:$LEAN_PATH exec lean -DwarningAsError=true /workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Inventory.lean"
+      ],
+      "started_utc": "2026-10-28T16:43:04.240030+00:00",
+      "ended_utc": "2026-10-28T16:43:07.423971+00:00",
+      "exit_code": 0,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/inventory-001/stdout.log",
+        "bytes": 18361,
+        "sha256": "c50e592c2a9cd2d2223f4edfc477ddd139472af9a1889bda9f31cb01590e43b9",
+        "identity_origin": "first identity of newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/inventory-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "first identity of newly created/changed OWN payload"
+      }
+    },
+    "kernel-001": {
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/receipt.json",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/build:$LEAN_PATH exec leanchecker SourceActualTorusSuperlevelLocalBasis"
+      ],
+      "started_utc": "2026-10-28T16:44:58.740147+00:00",
+      "ended_utc": "2026-10-28T16:45:03.880958+00:00",
+      "exit_code": 0,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "first identity of newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "first identity of newly created/changed OWN payload"
+      }
+    }
+  },
+  "inventory_summary": {
+    "module": "SourceActualTorusSuperlevelLocalBasis",
+    "total": 65,
+    "counts": {
+      "authored private definition": 9,
+      "authored private theorem": 25,
+      "private generated proof auxiliary": 18,
+      "private generated defining equation": 6,
+      "public generated simp theorem": 1,
+      "foreign-namespace generated defining equation": 4,
+      "private generated simp theorem": 1,
+      "sole authored public theorem": 1
+    },
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "axiom_coverage": "Every actual module-index-owned declaration collected once, including all private/generated and foreign-namespace lazily generated equations."
+  },
+  "root_actual_reading": "Bounded final source header1\u201352/declaration map/tail525\u2013629; full initial producer Main/Public section text before final small corrections. Root read selected receipt source/object bindings/command/times/exit/stream identities, not all65 inventory bodies/raw stream contents. Independent reviewer personally full source1\u2013629/source-surface PASS; final evidence review pending.",
+  "qualified_registry_remains": {
+    "modules": 60,
+    "written": 1130,
+    "Prop": 1121,
+    "data": 9,
+    "inputs": 32
+  },
+  "old_checks_replayed": 0,
+  "old_hashes_replayed": 0,
+  "scientific_effect": "NONE",
+  "draft": true,
+  "routine_correction_record": "/workspace/scratch/actual-source-torus-superlevel-local-basis-publication/ROOT_PRECUT_ROUTINE_CORRECTION.json"
+}

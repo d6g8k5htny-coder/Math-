@@ -1,0 +1,37 @@
+{
+  "schema": "h0-older-clearance-source-freeze/v1",
+  "frozen_utc": "2026-10-26T16:23:54.212190+00:00",
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceH0OlderClearance.lean",
+    "bytes": 5856,
+    "sha256": "6e42bb33d81e0a76fc0abb409b4f4811b7e91fe07d1398300e2e9792f29e794a"
+  },
+  "object": {
+    "path": "/workspace/scratch/h0-older-clearance-construct/build/SourceH0OlderClearance.olean",
+    "bytes": 328568,
+    "sha256": "b6c0b7cf8ede4445e9a6a3304bd67187558fc296f474180d2d82972f229e1ec6"
+  },
+  "strict_success_reused": "runs/strict-003/receipt.json",
+  "controls_success": "runs/controls-005/receipt.json",
+  "harnesses": {
+    "OlderClearanceControls.lean": {
+      "path": "/workspace/scratch/h0-older-clearance-construct/OlderClearanceControls.lean",
+      "bytes": 6026,
+      "sha256": "53ac143afe0cd63cc1ee0c7fc189691ff9609604ab92870dc15de0b721b89af5"
+    },
+    "FalseStrictMarginMutation.lean": {
+      "path": "/workspace/scratch/h0-older-clearance-construct/FalseStrictMarginMutation.lean",
+      "bytes": 546,
+      "sha256": "ebcb559dfeab92ae5d687e9d4dea036191b2e9d4ed4e6143d1735744f2bd1b6a"
+    },
+    "Inventory.lean": {
+      "path": "/workspace/scratch/h0-older-clearance-construct/Inventory.lean",
+      "bytes": 1148,
+      "sha256": "37eaef90ac322dc30d0d00e276b11d7678fbafc87f70c3144d11575ec0663199"
+    }
+  },
+  "source_frozen_after_strict_003": true,
+  "source_not_recompiled_for_freeze": true,
+  "first_negative_pending": true,
+  "own_module_leanchecker_calls_so_far": 0
+}

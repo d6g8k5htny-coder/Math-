@@ -1,0 +1,395 @@
+{
+  "source_sha256": "b9900b7553f7722241137f8f0cba08862b19ae415253a9a14bfd7c9b53c3e613",
+  "inventory_run": "inventory-001",
+  "constant_count": 35,
+  "counts": {
+    "generated_theorem": 10,
+    "written_private_def": 5,
+    "written_private_theorem": 14,
+    "written_public_def": 3,
+    "written_public_theorem": 3
+  },
+  "foreign_namespace_generated": [
+    "I4SourceRemoteJetGaussian.remoteResidualCovariance.eq_1"
+  ],
+  "entries": [
+    {
+      "name": "_private.SourceEndpointHessianGaussian.0.I4SourceEndpointHessianGaussian.finiteGaussian3_det_ne_zero._simp_1_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianGaussian.0.I4SourceEndpointHessianGaussian.hessianProjection",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianGaussian.0.I4SourceEndpointHessianGaussian.endpointHessian_eq_remote",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianGaussian.0.I4SourceEndpointHessianGaussian.endpointHessian_borel",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianGaussian.0.I4SourceEndpointHessianGaussian.finiteGaussian3_absolutelyContinuous",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianGaussian.0.I4SourceEndpointHessianGaussian.hessianProjection_apply",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianGaussian.0.I4SourceEndpointHessianGaussian.derivative_borel",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianGaussian.0.I4SourceEndpointHessianGaussian.remoteCovariance_posSemidef",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianGaussian.0.I4SourceEndpointHessianGaussian.projected_multivariateGaussian",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianGaussian.0.I4SourceEndpointHessianGaussian.jetIndex._proof_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianGaussian.0.I4SourceEndpointHessianGaussian.hessianProjection.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceEndpointHessianGaussian.endpointHessianMean",
+      "kind": "definition",
+      "classification": "written_public_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceEndpointHessianGaussian.rawPinKernel_endpointHessian_eq_multivariateGaussian",
+      "kind": "theorem",
+      "classification": "written_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianGaussian.0.I4SourceEndpointHessianGaussian.remoteJet_borel",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianGaussian.0.I4SourceEndpointHessianGaussian.finiteGaussian3_det_ne_zero",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceEndpointHessianGaussian.endpointHessianCovariance.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianGaussian.0.I4SourceEndpointHessianGaussian.hessianProjection._proof_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianGaussian.0.I4SourceEndpointHessianGaussian.determinant3_zero_volume._simp_1_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianGaussian.0.I4SourceEndpointHessianGaussian.endpointCovariance_eq_Gram",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianGaussian.0.I4SourceEndpointHessianGaussian.selectedCorrection.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianGaussian.0.I4SourceEndpointHessianGaussian.endpointCoefficient_eq_remote",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianGaussian.0.I4SourceEndpointHessianGaussian.endpoint",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianGaussian.0.I4SourceEndpointHessianGaussian.hessianProjection._proof_2",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianGaussian.0.I4SourceEndpointHessianGaussian.determinant3_zero_volume",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceEndpointHessianGaussian.endpointHessianCovariance",
+      "kind": "definition",
+      "classification": "written_public_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianGaussian.0.I4SourceEndpointHessianGaussian.rawIndex",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceEndpointHessianGaussian.endpointHessianCovariance_posDef",
+      "kind": "theorem",
+      "classification": "written_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceRemoteJetGaussian.remoteResidualCovariance.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": true
+    },
+    {
+      "name": "I4SourceEndpointHessianGaussian.rawPinKernel_ae_endpointHessian_det_ne_zero",
+      "kind": "theorem",
+      "classification": "written_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianGaussian.0.I4SourceEndpointHessianGaussian.jetIndex",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianGaussian.0.I4SourceEndpointHessianGaussian.selectedCorrection",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianGaussian.0.I4SourceEndpointHessianGaussian.rawIndex._proof_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceEndpointHessianGaussian.endpointHessian",
+      "kind": "definition",
+      "classification": "written_public_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianGaussian.0.I4SourceEndpointHessianGaussian.noncentered_finiteGaussian_control",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianGaussian.0.I4SourceEndpointHessianGaussian.remoteRows_summable",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    }
+  ],
+  "complete_actual_module_index": true,
+  "foreign_namespace_inclusion_method": "env.getModuleIdxFor? equals actual module index, not namespace filter",
+  "standard_axioms_only": true,
+  "written_research_targets": 3,
+  "generated_private_data_inventory_only": true
+}

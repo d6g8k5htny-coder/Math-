@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "status": "EXACT_FROZEN_SOURCE_AND_PRECODE_ALREADY_ROOT_INSTALLED_SKIP_ALL_FOUR",
+  "source_cut": "9ce7b9519aac1b1052d9c6f0c5082581d39da0f6",
+  "binding_precode": "fa7bce305cd1b95f26abde3e21e13e1e08362766",
+  "native_activation": 6417018542,
+  "source": {
+    "path": "SourceRemoteJetGaussian.lean",
+    "bytes": 17053,
+    "sha256": "65694d00f575333b3b896338ecaf047ce8e166fbb8eddc03bd0836cce521a034",
+    "root_apply_action": "SKIP_UNCHANGED_ALREADY_INSTALLED_BY_ROOT",
+    "identity_origin": "Root read final frozen source and supplied retained producer exact-source identity; no source hash replay."
+  },
+  "precode_documents": [
+    {
+      "path": "SOURCE_REMOTE_JET_GAUSSIAN.md",
+      "bytes": 17035,
+      "sha256": "b0916c0fa02dc7e8c4e66c80d34e93a5a7934cb67e9a0ed4cbbe08733f39a736",
+      "root_apply_action": "SKIP_UNCHANGED_ALREADY_INSTALLED_BY_ROOT",
+      "expected_binding_cut": "fa7bce305cd1b95f26abde3e21e13e1e08362766",
+      "identity_origin": "New49 PRECODE scratch custody hashed once by explicit root relay; no old48 payload hashing."
+    },
+    {
+      "path": "SOURCE_REMOTE_JET_GAUSSIAN_PLAN.md",
+      "bytes": 2322,
+      "sha256": "e350b568d5a042536b287d7119823494efcac1bdeffb982d7c88b003311a0c13",
+      "root_apply_action": "SKIP_UNCHANGED_ALREADY_INSTALLED_BY_ROOT",
+      "expected_binding_cut": "fa7bce305cd1b95f26abde3e21e13e1e08362766",
+      "identity_origin": "New49 PRECODE scratch custody hashed once by explicit root relay; no old48 payload hashing."
+    },
+    {
+      "path": "SOURCE_REMOTE_JET_GAUSSIAN_CONTENDERS.json",
+      "bytes": 4080,
+      "sha256": "c1222b6127cd90278f02e8f5555cd4eae4434fd4885bd596f620c9ebd323e97c",
+      "root_apply_action": "SKIP_UNCHANGED_ALREADY_INSTALLED_BY_ROOT",
+      "expected_binding_cut": "fa7bce305cd1b95f26abde3e21e13e1e08362766",
+      "identity_origin": "New49 PRECODE scratch custody hashed once by explicit root relay; no old48 payload hashing."
+    }
+  ],
+  "source_and_precode_custody_snapshots": "bindings/",
+  "old_payload_hashes_recomputed": 0,
+  "scientific_effect": "NONE"
+}

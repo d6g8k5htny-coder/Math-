@@ -1,0 +1,50 @@
+{
+  "kind": "controls",
+  "run": "controls-002",
+  "start": "2026-10-26T11:38:39.937527+00:00",
+  "end": "2026-10-26T11:38:44.601924+00:00",
+  "seconds": 4.664422782996553,
+  "command": [
+    "lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/finite-trig-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/finite-trig-construct /workspace/scratch/finite-trig-construct/Controls.lean -o /workspace/scratch/finite-trig-construct/runs/controls-002/Controls.olean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 1,
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFiniteTrig.lean",
+      "bytes": 12393,
+      "sha256": "d0f0dea0b2f8296d129a3759271076848e35dd5a4b1ab2f5f0cee58837c72b14"
+    },
+    "object": {
+      "path": "/workspace/scratch/finite-trig-construct/build/SourceFiniteTrig.olean",
+      "bytes": 508920,
+      "sha256": "5b96c7d331cd73697379c52a59a5b93749c134d89971b6926a79def657949c4c"
+    }
+  },
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFiniteTrig.lean",
+      "bytes": 12393,
+      "sha256": "d0f0dea0b2f8296d129a3759271076848e35dd5a4b1ab2f5f0cee58837c72b14"
+    },
+    "object": {
+      "path": "/workspace/scratch/finite-trig-construct/build/SourceFiniteTrig.olean",
+      "bytes": 508920,
+      "sha256": "5b96c7d331cd73697379c52a59a5b93749c134d89971b6926a79def657949c4c"
+    }
+  },
+  "stdout": {
+    "path": "/workspace/scratch/finite-trig-construct/runs/controls-002/stdout.log",
+    "bytes": 4019,
+    "sha256": "227cfc0c6ec93517e20397fcc0e5a399b56f3bfcfd6a72d280defc5785e74e4f"
+  },
+  "stderr": {
+    "path": "/workspace/scratch/finite-trig-construct/runs/controls-002/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

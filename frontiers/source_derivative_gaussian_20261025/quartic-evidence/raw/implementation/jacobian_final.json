@@ -1,0 +1,21 @@
+{
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "/workspace/scratch/pin-preserving-quartic-implementation/QuarticJacobian.lean"
+  ],
+  "exit_code": 0,
+  "source_sha256_before": "b6f873930c73c0a6150e6f0fb0daa3eed7aa29ad2ceefab6763ff2aed00c1793",
+  "source_sha256_after": "b6f873930c73c0a6150e6f0fb0daa3eed7aa29ad2ceefab6763ff2aed00c1793",
+  "seconds": 4.852997541427612,
+  "scope": "NEW_POLYNOMIAL_JACOBIAN_PROOF_ACTUAL_PRODUCTION_DEFINITION_INTEGRATION",
+  "author_side_helper_lineage": "OpenAI/Codex /root/dm2_landed_composition/peano_strategy",
+  "integrated_definition": "I4SourcePinPreservingQuartic.pinPreservingJacobian from parent-reported clean stage07 production olean",
+  "public_targets": [
+    "I4SourcePinPreservingQuartic.hasFDerivAt_pinPreservingQuartic",
+    "I4SourcePinPreservingQuartic.fderiv_pinPreservingQuartic"
+  ],
+  "preservation_note": "The successful private-candidate proof was reused. This final scoped command checks only replacement of that temporary identical formula by the actual production definition; no baseline or dependency rebuild."
+}

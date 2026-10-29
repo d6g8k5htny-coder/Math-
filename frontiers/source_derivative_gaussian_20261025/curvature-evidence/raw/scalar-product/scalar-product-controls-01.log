@@ -1,0 +1,17 @@
+/workspace/scratch/scalar-product-curvature/Controls.lean:20:2: error: Type mismatch: After simplification, term
+  hb
+ has type
+  (scalar (Icc (-a) a)).toReal ≤ a + a
+but is expected to have type
+  (scalar (Icc (-a) a)).toReal ≤ 2 * a
+/workspace/scratch/scalar-product-curvature/Controls.lean:24:7: warning: Variable name `p` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _p
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'I4ScalarProductCurvature.regular_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ScalarProductCurvature.scalar_product_tube_integral_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ScalarProductCurvature.scalar_product_regular_integral_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

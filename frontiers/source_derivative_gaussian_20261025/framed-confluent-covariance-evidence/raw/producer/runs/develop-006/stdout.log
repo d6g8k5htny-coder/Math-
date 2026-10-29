@@ -1,0 +1,366 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:489:42: error: `ContinuousMultilinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:498:12: error: don't know how to synthesize implicit argument `a₂`
+  @congrArg ((Fin 2 → ℝ) [×k]→L[ℝ] ℝ) ℝ (iteratedFDeriv ℝ k (f + g) ?m.144)
+    (iteratedFDeriv ℝ k f ?m.144 + iteratedFDeriv ℝ k g ?m.144) (fun A => A u)
+    (iteratedFDeriv_add_apply (ContDiff.contDiffAt hf') (ContDiff.contDiffAt hg'))
+context:
+f g : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ (↑⊤) f
+hg : ContDiff ℝ (↑⊤) g
+k : ℕ
+p : Fin 2 → ℝ
+u : Fin k → Fin 2 → ℝ
+hf' : ContDiff ℝ (↑↑k) f
+hg' : ContDiff ℝ (↑↑k) g
+⊢ (Fin 2 → ℝ) [×k]→L[ℝ] ℝ
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:498:12: error: don't know how to synthesize implicit argument `a₁`
+  @congrArg ((Fin 2 → ℝ) [×k]→L[ℝ] ℝ) ℝ (iteratedFDeriv ℝ k (f + g) ?m.144)
+    (iteratedFDeriv ℝ k f ?m.144 + iteratedFDeriv ℝ k g ?m.144) (fun A => A u)
+    (iteratedFDeriv_add_apply (ContDiff.contDiffAt hf') (ContDiff.contDiffAt hg'))
+context:
+f g : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ (↑⊤) f
+hg : ContDiff ℝ (↑⊤) g
+k : ℕ
+p : Fin 2 → ℝ
+u : Fin k → Fin 2 → ℝ
+hf' : ContDiff ℝ (↑↑k) f
+hg' : ContDiff ℝ (↑↑k) g
+⊢ (Fin 2 → ℝ) [×k]→L[ℝ] ℝ
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:498:37: error: don't know how to synthesize implicit argument `x`
+  @iteratedFDeriv_add_apply ℝ DenselyNormedField.toNontriviallyNormedField (Fin 2 → ℝ) Pi.normedAddCommGroup
+    Pi.normedSpace ℝ Real.normedAddCommGroup RCLike.toInnerProductSpaceReal.toNormedSpace ?m.144 k f g
+    (ContDiff.contDiffAt hf') (ContDiff.contDiffAt hg')
+context:
+f g : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ (↑⊤) f
+hg : ContDiff ℝ (↑⊤) g
+k : ℕ
+p : Fin 2 → ℝ
+u : Fin k → Fin 2 → ℝ
+hf' : ContDiff ℝ (↑↑k) f
+hg' : ContDiff ℝ (↑↑k) g
+⊢ Fin 2 → ℝ
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:498:77: error: don't know how to synthesize implicit argument `x`
+  @ContDiff.contDiffAt ℝ DenselyNormedField.toNontriviallyNormedField (Fin 2 → ℝ) Pi.normedAddCommGroup Pi.normedSpace ℝ
+    Real.normedAddCommGroup RCLike.toInnerProductSpaceReal.toNormedSpace g ?m.144 (↑↑k) hg'
+context:
+f g : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ (↑⊤) f
+hg : ContDiff ℝ (↑⊤) g
+k : ℕ
+p : Fin 2 → ℝ
+u : Fin k → Fin 2 → ℝ
+hf' : ContDiff ℝ (↑↑k) f
+hg' : ContDiff ℝ (↑↑k) g
+⊢ Fin 2 → ℝ
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:498:62: error: don't know how to synthesize implicit argument `x`
+  @ContDiff.contDiffAt ℝ DenselyNormedField.toNontriviallyNormedField (Fin 2 → ℝ) Pi.normedAddCommGroup Pi.normedSpace ℝ
+    Real.normedAddCommGroup RCLike.toInnerProductSpaceReal.toNormedSpace f ?m.144 (↑↑k) hf'
+context:
+f g : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ (↑⊤) f
+hg : ContDiff ℝ (↑⊤) g
+k : ℕ
+p : Fin 2 → ℝ
+u : Fin k → Fin 2 → ℝ
+hf' : ContDiff ℝ (↑↑k) f
+hg' : ContDiff ℝ (↑↑k) g
+⊢ Fin 2 → ℝ
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:498:7: error: failed to infer `have` declaration type
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:495:59: error: unsolved goals
+f g : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ (↑⊤) f
+hg : ContDiff ℝ (↑⊤) g
+k : ℕ
+p : Fin 2 → ℝ
+u : Fin k → Fin 2 → ℝ
+hf' : ContDiff ℝ (↑↑k) f
+hg' : ContDiff ℝ (↑↑k) g
+⊢ (iteratedFDeriv ℝ k (fun x => f x + g x) p) u = (iteratedFDeriv ℝ k f p) u + (iteratedFDeriv ℝ k g p) u
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:508:34: error(lean.unknownIdentifier): Unknown identifier `directionX`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:510:34: error(lean.unknownIdentifier): Unknown identifier `directionY`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:512:34: error(lean.unknownIdentifier): Unknown identifier `directionX`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:512:45: error(lean.unknownIdentifier): Unknown identifier `directionX`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:514:34: error(lean.unknownIdentifier): Unknown identifier `directionX`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:514:45: error(lean.unknownIdentifier): Unknown identifier `directionY`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:516:34: error(lean.unknownIdentifier): Unknown identifier `directionY`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:516:45: error(lean.unknownIdentifier): Unknown identifier `directionY`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:522:6: error: Type mismatch: After simplification, term
+  contDiff_const
+ has type
+  @ContDiff ℝ DenselyNormedField.toNontriviallyNormedField (Fin 2 → ℝ) Pi.normedAddCommGroup Pi.normedSpace ℝ
+    Real.normedAddCommGroup RCLike.toInnerProductSpaceReal.toNormedSpace ↑⊤ fun x => 0
+but is expected to have type
+  @ContDiff ℝ DenselyNormedField.toNontriviallyNormedField (Fin 2 → ℝ) Pi.normedAddCommGroup Pi.normedSpace ℝ
+    Real.normedAddCommGroup RCLike.toInnerProductSpaceReal.toNormedSpace (↑⊤) (eval L [])
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:543:65: error: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [eval, termEval, phase, Fin.sum_univ_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:549:51: error: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [eval, termEval, phase, Fin.sum_univ_two, ← sub_eq_add_neg, Real.cos_sub_pi_div_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:577:37: error(lean.unknownIdentifier): Unknown identifier `directionX`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:579:37: error(lean.unknownIdentifier): Unknown identifier `directionY`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:581:37: error(lean.unknownIdentifier): Unknown identifier `directionX`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:581:48: error(lean.unknownIdentifier): Unknown identifier `directionX`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:583:37: error(lean.unknownIdentifier): Unknown identifier `directionX`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:583:48: error(lean.unknownIdentifier): Unknown identifier `directionY`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:585:37: error(lean.unknownIdentifier): Unknown identifier `directionY`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:585:48: error(lean.unknownIdentifier): Unknown identifier `directionY`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:604:12: error: This simp argument is unused:
+  eq_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hw]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:617:34: error(lean.unknownIdentifier): Unknown identifier `directionX`
+
+Note: It is not possible to treat `directionX` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:617:51: error(lean.unknownIdentifier): Unknown identifier `directionY`
+
+Note: It is not possible to treat `directionY` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:618:22: error(lean.unknownIdentifier): Unknown identifier `directionX`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:618:39: error(lean.unknownIdentifier): Unknown identifier `directionY`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:620:26: error(lean.unknownIdentifier): Unknown identifier `directionX`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:620:37: error(lean.unknownIdentifier): Unknown identifier `directionY`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:620:26: error(lean.unknownIdentifier): Unknown identifier `directionX`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:620:37: error(lean.unknownIdentifier): Unknown identifier `directionY`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:618:53: error: unsolved goals
+case «0»
+A : (Fin 2 → ℝ) →L[ℝ] ℝ
+u : Fin 2 → ℝ
+⊢ u 0 = u 0 * sorry () 0 + u 1 * sorry () 0
+
+case «1»
+A : (Fin 2 → ℝ) →L[ℝ] ℝ
+u : Fin 2 → ℝ
+⊢ u 1 = u 0 * sorry () 1 + u 1 * sorry () 1
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:630:14: error(lean.unknownIdentifier): Unknown identifier `directionY`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:630:25: error(lean.unknownIdentifier): Unknown identifier `directionX`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:630:40: error(lean.unknownIdentifier): Unknown identifier `directionX`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:630:51: error(lean.unknownIdentifier): Unknown identifier `directionY`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:631:51: error(lean.unknownIdentifier): Unknown identifier `directionY`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:631:62: error(lean.unknownIdentifier): Unknown identifier `directionX`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:632:22: error(lean.unknownIdentifier): Unknown identifier `directionX`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:632:39: error(lean.unknownIdentifier): Unknown identifier `directionY`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:634:26: error(lean.unknownIdentifier): Unknown identifier `directionX`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:634:37: error(lean.unknownIdentifier): Unknown identifier `directionY`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:634:26: error(lean.unknownIdentifier): Unknown identifier `directionX`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:634:37: error(lean.unknownIdentifier): Unknown identifier `directionY`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:632:53: error: unsolved goals
+case «0»
+f : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ (↑⊤) f
+p u v : Fin 2 → ℝ
+B : (Fin 2 → ℝ) →L[ℝ] (Fin 2 → ℝ) →L[ℝ] ℝ := fderiv ℝ (fderiv ℝ f) p
+hs : (B sorry) sorry = (B sorry) sorry
+⊢ u 0 = u 0 * sorry () 0 + u 1 * sorry () 0
+
+case «1»
+f : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ (↑⊤) f
+p u v : Fin 2 → ℝ
+B : (Fin 2 → ℝ) →L[ℝ] (Fin 2 → ℝ) →L[ℝ] ℝ := fderiv ℝ (fderiv ℝ f) p
+hs : (B sorry) sorry = (B sorry) sorry
+⊢ u 1 = u 0 * sorry () 1 + u 1 * sorry () 1
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:635:26: error(lean.unknownIdentifier): Unknown identifier `directionX`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:635:45: error(lean.unknownIdentifier): Unknown identifier `directionY`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:637:34: error: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:638:6: error: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:635:61: error: unsolved goals
+f : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ (↑⊤) f
+p u v : Fin 2 → ℝ
+B : (Fin 2 → ℝ) →L[ℝ] (Fin 2 → ℝ) →L[ℝ] ℝ := fderiv ℝ (fderiv ℝ f) p
+hs : (B sorry) sorry = (B sorry) sorry
+hu : u = u 0 • sorry + u 1 • sorry
+⊢ u 0 * (B sorry) v + u 1 * (B sorry) v =
+    (u 0 • sorry + u 1 • sorry) 0 * (B sorry) v + (u 0 • sorry + u 1 • sorry) 1 * (B sorry) v
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:641:37: error(lean.unknownIdentifier): Unknown identifier `directionX`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:628:30: error: unsolved goals
+f : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ (↑⊤) f
+p u v : Fin 2 → ℝ
+B : (Fin 2 → ℝ) →L[ℝ] (Fin 2 → ℝ) →L[ℝ] ℝ := fderiv ℝ (fderiv ℝ f) p
+hs : (B sorry) sorry = (B sorry) sorry
+hu : u = u 0 • sorry + u 1 • sorry
+hB : (B u) v = u 0 * (B sorry) v + u 1 * (B sorry) v
+⊢ u 0 * (B sorry) v + u 1 * (B sorry) v =
+    u 0 * v 0 * jet2 f p 3 + (u 0 * v 1 + u 1 * v 0) * jet2 f p 4 + u 1 * v 1 * jet2 f p 5
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:647:16: error: declaration uses `sorry`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:746:52: error(lean.invalidField): Invalid field `inner_eq`: The environment does not contain `And.inner_eq`, so it is not possible to project the field `inner_eq` from an expression
+  OrthonormalBasis.orthonormal R
+of type
+  (∀ (i : Fin 2), ‖R i‖ = 1) ∧ Pairwise fun i j => inner ℝ (R i) (R j) = 0
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:749:52: error(lean.invalidField): Invalid field `inner_eq`: The environment does not contain `And.inner_eq`, so it is not possible to project the field `inner_eq` from an expression
+  OrthonormalBasis.orthonormal R
+of type
+  (∀ (i : Fin 2), ‖R i‖ = 1) ∧ Pairwise fun i j => inner ℝ (R i) (R j) = 0
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:751:53: error(lean.invalidField): Invalid field `inner_eq`: The environment does not contain `And.inner_eq`, so it is not possible to project the field `inner_eq` from an expression
+  OrthonormalBasis.orthonormal R
+of type
+  (∀ (i : Fin 2), ‖R i‖ = 1) ∧ Pairwise fun i j => inner ℝ (R i) (R j) = 0
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:768:4: error: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:771:4: error: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:774:4: error: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:783:70: error: unsolved goals
+c : ℝ
+p e : Fin 2 → ℝ
+j : Fin 2
+A : (Fin 2 → ℝ) →L[ℝ] ℝ := c • ContinuousLinearMap.proj j
+g : ℝ → ℝ := fun t => Real.sin (t - c * p j)
+hg : ContDiff ℝ (↑⊤) g
+y : Fin 2 → ℝ
+⊢ c * y j - c * p j = -(c * p j) + (c • ContinuousLinearMap.proj j) y
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:865:4: error: linarith failed to find a contradiction
+case h1
+L : ℝ
+hL : L ≠ 0
+p e : Fin 2 → ℝ
+j : Fin 2
+hej : e j ≠ 0
+c : ℝ := sourceC L
+hc : c ≠ 0
+f : (Fin 2 → ℝ) → ℝ := fun y => Real.sin (c * (y j - p j))
+g : (Fin 2 → ℝ) → ℝ := fun y => Real.sin (3 * c * (y j - p j))
+hf : ContDiff ℝ (↑⊤) f
+hg : ContDiff ℝ (↑⊤) g
+y : Fin 2 → ℝ
+hs : Real.sin (3 * (c * (y j - p j))) = 3 * Real.sin (c * (y j - p j)) - 4 * Real.sin (c * (y j - p j)) ^ 3
+a✝ : Real.sin (c * (y j - p j)) ^ 3 * 24 < 6 * (Real.sin (c * (y j - p j)) * 3 + -Real.sin (c * (y j - p j) * 3))
+⊢ False
+failed
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:866:32: error(lean.invalidField): Invalid field `const_mul`: The environment does not contain `Exists.const_mul`, so it is not possible to project the field `const_mul` from an expression
+  hf
+of type
+  ∃ p, HasFTaylorSeriesUpTo (↑⊤) f p
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:867:25: error(lean.invalidField): Invalid field `const_mul`: The environment does not contain `Exists.const_mul`, so it is not possible to project the field `const_mul` from an expression
+  hf
+of type
+  ∃ p, HasFTaylorSeriesUpTo (↑⊤) f p
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:867:42: error(lean.invalidField): Invalid field `const_mul`: The environment does not contain `Exists.const_mul`, so it is not possible to project the field `const_mul` from an expression
+  hg
+of type
+  ∃ p, HasFTaylorSeriesUpTo (↑⊤) g p
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:846:74: error: unsolved goals
+L : ℝ
+hL : L ≠ 0
+p e : Fin 2 → ℝ
+j : Fin 2
+hej : e j ≠ 0
+c : ℝ := sourceC L
+hc : c ≠ 0
+f : (Fin 2 → ℝ) → ℝ := fun y => Real.sin (c * (y j - p j))
+g : (Fin 2 → ℝ) → ℝ := fun y => Real.sin (3 * c * (y j - p j))
+hf : ContDiff ℝ (↑⊤) f
+hg : ContDiff ℝ (↑⊤) g
+heq : eval L (ct58_cubePoly L p e j) = fun y => (24 * c ^ 3 * e j ^ 3)⁻¹ * (3 * f y + -1 * g y)
+⊢ (24 * c ^ 3 * e j ^ 3)⁻¹ * (iteratedFDeriv ℝ 3 (fun y => 3 * f y + -1 * g y) p) ![e, e, e] = 1
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:880:4: error: Type mismatch: After simplification, term
+  toSource_derivative hL P 1 p ![e]
+ has type
+  finitePairing (derivativeCoefficient 2 L 1 p ![e]) (toSource L P) = (fderiv ℝ (eval L P) p) e
+but is expected to have type
+  finitePairing (fun m => (fderiv ℝ (modeCoefficient 2 L m) p) e) (toSource L P) = (fderiv ℝ (eval L P) p) e
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:882:4: error: Type mismatch: After simplification, term
+  toSource_derivative hL P 1 p ![n]
+ has type
+  finitePairing (derivativeCoefficient 2 L 1 p ![n]) (toSource L P) = (fderiv ℝ (eval L P) p) n
+but is expected to have type
+  finitePairing (fun m => (fderiv ℝ (modeCoefficient 2 L m) p) n) (toSource L P) = (fderiv ℝ (eval L P) p) n
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:884:4: error: Type mismatch: After simplification, term
+  toSource_derivative hL P 2 p ![e, e]
+ has type
+  @Eq ℝ (finitePairing (derivativeCoefficient 2 L 2 p ![e, e]) (toSource L P))
+    ((iteratedFDeriv ℝ 2 (eval L P) p) ![e, e])
+but is expected to have type
+  @Eq ℝ (finitePairing (fun m => (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) p) ![e, e]) (toSource L P))
+    ((iteratedFDeriv ℝ 2 (eval L P) p) ![e, e])
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:885:4: error: Type mismatch: After simplification, term
+  toSource_derivative hL P 2 p ![e, n]
+ has type
+  @Eq ℝ (finitePairing (derivativeCoefficient 2 L 2 p ![e, n]) (toSource L P))
+    ((iteratedFDeriv ℝ 2 (eval L P) p) ![e, n])
+but is expected to have type
+  @Eq ℝ (finitePairing (fun m => (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) p) ![e, n]) (toSource L P))
+    ((iteratedFDeriv ℝ 2 (eval L P) p) ![e, n])
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:886:4: error: Type mismatch: After simplification, term
+  toSource_derivative hL P 3 p ![e, e, e]
+ has type
+  @Eq ℝ (finitePairing (derivativeCoefficient 2 L 3 p ![e, e, e]) (toSource L P))
+    ((iteratedFDeriv ℝ 3 (eval L P) p) ![e, e, e])
+but is expected to have type
+  @Eq ℝ (finitePairing (fun m => (iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) p) ![e, e, e]) (toSource L P))
+    ((iteratedFDeriv ℝ 3 (eval L P) p) ![e, e, e])
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:887:4: error: Type mismatch: After simplification, term
+  toSource_derivative hL P 2 p ![n, n]
+ has type
+  @Eq ℝ (finitePairing (derivativeCoefficient 2 L 2 p ![n, n]) (toSource L P))
+    ((iteratedFDeriv ℝ 2 (eval L P) p) ![n, n])
+but is expected to have type
+  @Eq ℝ (finitePairing (fun m => (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) p) ![n, n]) (toSource L P))
+    ((iteratedFDeriv ℝ 2 (eval L P) p) ![n, n])
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:903:4: error: No goals to be solved
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:918:6: error: No goals to be solved
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:939:70: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  finitePairing (fun m => contactRows (modeCoefficient 2 L m) p e n 5) q
+in the target expression
+  finitePairing (fun m => contactRows (modeCoefficient 2 L m) p e n ((fun i => i) ⟨5, ⋯⟩)) w +
+      (t 5 - beta) * finitePairing (fun m => contactRows (modeCoefficient 2 L m) p e n ((fun i => i) ⟨5, ⋯⟩)) q =
+    t ((fun i => i) ⟨5, ⋯⟩)
+
+case «5»
+L : ℝ
+hL : L ≠ 0
+p e n : Fin 2 → ℝ
+he : e 0 ^ 2 + e 1 ^ 2 = 1
+hn : n 0 ^ 2 + n 1 ^ 2 = 1
+hen : e 0 * n 0 + e 1 * n 1 = 0
+t : Fin 7 → ℝ
+tlo : Fin 6 → ℝ := fun j => t (ct58_lowerIndex j)
+w : SourceMode 2 →₀ ℝ
+hw : ∀ (j : Fin 6), finitePairing (fun m => jet2 (modeCoefficient 2 L m) p j) w = ct58_inverseLower e n tlo j
+hwlo :
+  ∀ (j : Fin 6),
+    finitePairing (fun m => contactRows (modeCoefficient 2 L m) p e n (ct58_lowerIndex j)) w = t (ct58_lowerIndex j)
+j : Fin 2
+hej : e j ≠ 0
+q : SourceMode 2 →₀ ℝ := toSource L (ct58_cubePoly L p e j)
+hqlo : ∀ (k : Fin 6), finitePairing (fun m => contactRows (modeCoefficient 2 L m) p e n (ct58_lowerIndex k)) q = 0
+hq5 : finitePairing (fun m => contactRows (modeCoefficient 2 L m) p e n 5) q = 1
+beta : ℝ := finitePairing (fun m => contactRows (modeCoefficient 2 L m) p e n 5) w
+v : SourceMode 2 →₀ ℝ := w + (t 5 - beta) • q
+hvlo :
+  ∀ (k : Fin 6),
+    finitePairing (fun m => contactRows (modeCoefficient 2 L m) p e n (ct58_lowerIndex k)) v = t (ct58_lowerIndex k)
+⊢ finitePairing (fun m => contactRows (modeCoefficient 2 L m) p e n ((fun i => i) ⟨5, ⋯⟩)) w +
+      (t 5 - beta) * finitePairing (fun m => contactRows (modeCoefficient 2 L m) p e n ((fun i => i) ⟨5, ⋯⟩)) q =
+    t ((fun i => i) ⟨5, ⋯⟩)

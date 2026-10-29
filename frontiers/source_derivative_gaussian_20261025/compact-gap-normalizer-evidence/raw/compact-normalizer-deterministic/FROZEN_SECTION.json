@@ -1,0 +1,43 @@
+{
+  "frozen_utc": "2026-10-26T10:09:05.257881+00:00",
+  "author": {
+    "provider": "OpenAI",
+    "family": "Codex",
+    "agent": "/root/compact_normalizer_deterministic"
+  },
+  "scientific_effect": "NONE",
+  "provider_distinct_credit": 0,
+  "source": {
+    "path": "/workspace/scratch/compact-normalizer-deterministic/Deterministic.lean",
+    "bytes": 9959,
+    "sha256": "2e9d3f0fe355ffe109876d25624b019fa87ba4ea11bf8d9b2416387777274b58"
+  },
+  "integration_section": {
+    "path": "/workspace/scratch/compact-normalizer-deterministic/INTEGRATION_SECTION.lean",
+    "bytes": 9906,
+    "sha256": "3ac2bdd270d54608cca584be8083598d5c813e552a75dc2caaa191b9348d7f41"
+  },
+  "scratch_elaboration_object": {
+    "path": "/workspace/scratch/compact-normalizer-deterministic/build/Deterministic.olean",
+    "bytes": 902480,
+    "sha256": "c3731f70a7a47ce7eba5e444943034ccc68364b6ec09bc6ffd10f4a90023b0d2"
+  },
+  "verification": {
+    "strict_warning_as_error": "runs/compile-003/receipt.json",
+    "standalone_kernel": "NOT RUN: producer owns one integrated new-module kernel after all source frozen",
+    "standalone_audit": "NOT RUN",
+    "standalone_controls": "NOT RUN"
+  },
+  "reused_dependency": {
+    "module": "SourceGapPinCurvature",
+    "source_sha256": "67f6c671e4ed8a7cb8557fc6027403f4fd1e94cba984e672eaa3ceb94ab8847e",
+    "object_sha256": "00378503fe93cca757712046d9c6818296880b5524d7c0096f87794c2657eb2c",
+    "identity_provenance": "transcribed /workspace/scratch/gap-pin-curvature-construct/REPORT.md; no old hash/check replay"
+  },
+  "declarations": [
+    "SourceCompactGapNormalizer.cubic_pin_pointwise_error_target",
+    "SourceCompactGapNormalizer.source_normalized_gap_axial_errors",
+    "SourceCompactGapNormalizer.endpointWeight_gap_floor",
+    "SourceCompactGapNormalizer.sourceSmoothWeight_gap_floor"
+  ]
+}

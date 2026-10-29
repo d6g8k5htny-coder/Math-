@@ -1,0 +1,15 @@
+SourceActualFiniteSuperlevelComponents.lean:260:22: error: unsolved goals
+case e'_2
+e_1✝ :
+  ↑(TorusFiltration.superlevel_set (SourceActualFoldTorus.actualTorusField ⋯ fixtureSample) (- -4)) =
+    ↑(TorusFiltration.superlevel_set fixtureTorusField 4)
+⊢ instTopologicalSpaceSubtype ≍ instTopologicalSpaceSubtype
+SourceActualFiniteSuperlevelComponents.lean:257:84: error: unsolved goals
+hp :
+  LocallyPathConnectedSpace
+    ↑(TorusFiltration.superlevel_set (SourceActualFoldTorus.actualTorusField ⋯ fixtureSample) (- -4))
+hf :
+  Finite
+    (ZerothHomotopy ↑(TorusFiltration.superlevel_set (SourceActualFoldTorus.actualTorusField ⋯ fixtureSample) (- -4)))
+⊢ ZerothHomotopy ↑(TorusFiltration.superlevel_set fixtureTorusField 4) =
+    ZerothHomotopy ↑(TorusFiltration.superlevel_set (SourceActualFoldTorus.actualTorusField ⋯ fixtureSample) (- -4))

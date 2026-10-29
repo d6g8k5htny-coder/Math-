@@ -1,0 +1,22 @@
+import SourceActualMorseLocalModel
+import SourceActualFoldTorus
+import SourceFiniteTrig
+import SourceSmoothConditionalKernel
+import Mathlib.Analysis.Calculus.InverseFunctionTheorem.ContDiff
+import Mathlib.Analysis.Convex.Topology
+import Mathlib.Analysis.Convex.PathConnected
+import Mathlib.Analysis.Normed.Module.FiniteDimension
+import Mathlib.Topology.Connected.PathConnected
+import Mathlib.Topology.Instances.AddCircle.Defs
+import Mathlib.Topology.OpenPartialHomeomorph.Constructions
+import Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds
+import Mathlib.Tactic.FinCases
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.FunProp
+import Mathlib.Tactic.Positivity
+import Mathlib.Tactic.Omega
+import Mathlib.Tactic.GCongr
+

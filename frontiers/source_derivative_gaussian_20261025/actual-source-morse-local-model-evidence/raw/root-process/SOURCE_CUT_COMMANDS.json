@@ -1,0 +1,92 @@
+[
+  {
+    "label": "SOURCE_CUT_PARENT",
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T15:45:12.495429+00:00",
+    "ended_utc": "2026-10-28T15:45:12.498430+00:00",
+    "exit_code": 0,
+    "stdout": "SOURCE_CUT_PARENT.stdout",
+    "stderr": "SOURCE_CUT_PARENT.stderr"
+  },
+  {
+    "label": "SOURCE_CUT_STAGED_BEFORE",
+    "command": [
+      "git",
+      "diff",
+      "--cached",
+      "--name-only"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T15:45:12.498613+00:00",
+    "ended_utc": "2026-10-28T15:45:12.505235+00:00",
+    "exit_code": 0,
+    "stdout": "SOURCE_CUT_STAGED_BEFORE.stdout",
+    "stderr": "SOURCE_CUT_STAGED_BEFORE.stderr"
+  },
+  {
+    "label": "SOURCE_CUT_ADD",
+    "command": [
+      "git",
+      "add",
+      "--",
+      "frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T15:45:12.505429+00:00",
+    "ended_utc": "2026-10-28T15:45:12.535940+00:00",
+    "exit_code": 0,
+    "stdout": "SOURCE_CUT_ADD.stdout",
+    "stderr": "SOURCE_CUT_ADD.stderr"
+  },
+  {
+    "label": "SOURCE_CUT_COMMIT",
+    "command": [
+      "git",
+      "commit",
+      "--only",
+      "-m",
+      "Construct actual-source C1 Morse coordinates and connected critical neighborhoods",
+      "--",
+      "frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T15:45:12.536111+00:00",
+    "ended_utc": "2026-10-28T15:45:12.588683+00:00",
+    "exit_code": 0,
+    "stdout": "SOURCE_CUT_COMMIT.stdout",
+    "stderr": "SOURCE_CUT_COMMIT.stderr"
+  },
+  {
+    "label": "SOURCE_CUT_HEAD",
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T15:45:12.588839+00:00",
+    "ended_utc": "2026-10-28T15:45:12.591298+00:00",
+    "exit_code": 0,
+    "stdout": "SOURCE_CUT_HEAD.stdout",
+    "stderr": "SOURCE_CUT_HEAD.stderr"
+  },
+  {
+    "label": "SOURCE_CUT_BLOB",
+    "command": [
+      "git",
+      "rev-parse",
+      "c43a952b3fd71f7239fe31be51cba074cd5bd82b:frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T15:45:12.591446+00:00",
+    "ended_utc": "2026-10-28T15:45:12.594121+00:00",
+    "exit_code": 0,
+    "stdout": "SOURCE_CUT_BLOB.stdout",
+    "stderr": "SOURCE_CUT_BLOB.stderr"
+  }
+]

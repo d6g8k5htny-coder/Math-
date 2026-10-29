@@ -1,0 +1,46 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactGapNormalizer.lean",
+    "bytes": 24753,
+    "sha256": "d0f9319ac2ca792a9733659453583f4f71acc7ccccbcaba4ba1942566516065a"
+  },
+  "olean": {
+    "path": "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+    "bytes": 1477944,
+    "sha256": "36548ee275e757fe1a7fc507395d5d2bd6353cc65e686eb631472dbe5e40eed3"
+  },
+  "ilean": {
+    "path": "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.ilean",
+    "bytes": 78051,
+    "sha256": "731d025cbce2e7cdf3a71263a1c4010a834439ef7b2bc184f2a9465c5b17f759"
+  },
+  "strict_receipt": {
+    "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/compile-005/receipt.json",
+    "bytes": 1964,
+    "sha256": "c63e7c898b3651d509a7bbc98304246a73717591e221c592e49a8f5e2a0107b7"
+  },
+  "kernel_receipt": {
+    "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/kernel-001/receipt.json",
+    "bytes": 1788,
+    "sha256": "504c6dd7fdfb08fe89f23e840620d4268964cd33f142b4a54c3147a10f2cf8fd"
+  },
+  "dependency_join": "FROZEN_SOURCE.json strict_compile_reuse records unchanged consumed numerator statement/proof and final artifact; no irrelevant repeat compile.",
+  "new_numerator_source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceGapWeightedNumerator.lean",
+    "bytes": 20999,
+    "sha256": "b2fedf3739884ff716d11c85ebcf5de328fc76bc2a5bed31e8ea72c61d2f87a3"
+  },
+  "new_numerator_object": {
+    "path": "/workspace/scratch/gap-weighted-numerator-construct/build/SourceGapWeightedNumerator.olean",
+    "bytes": 1730640,
+    "sha256": "2e6708f3f238cc5a6e1756edf926dab74cab2f05333978853cb6384cb3ff4a63"
+  },
+  "reused_gap_curvature_source_sha256": "67f6c671e4ed8a7cb8557fc6027403f4fd1e94cba984e672eaa3ceb94ab8847e",
+  "reused_gap_curvature_object_sha256": "00378503fe93cca757712046d9c6818296880b5524d7c0096f87794c2657eb2c",
+  "qualified_existing_packet": "41 modules /1023 targets /32 inputs at 6638c5f; completed applicable verification reused, no old replay; root owns qualification metadata.",
+  "precode_commit": "40f22f53bc5897e45fa8679d4d90dc88e1b28ba6",
+  "production_eligible": [
+    "SourceCompactGapNormalizer.olean"
+  ],
+  "ineligible": "Controls.olean, all helper/control/mutation objects; root alone owns production cache copy."
+}

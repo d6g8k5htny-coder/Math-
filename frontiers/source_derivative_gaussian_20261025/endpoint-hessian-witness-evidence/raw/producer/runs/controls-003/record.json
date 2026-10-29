@@ -1,0 +1,31 @@
+{
+  "kind": "controls",
+  "run": "controls-003",
+  "start": "2026-10-26T16:18:49.288888+00:00",
+  "end": "2026-10-26T16:18:54.550148+00:00",
+  "seconds": 5.261299281002721,
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/endpoint-hessian-witness-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/endpoint-hessian-witness-construct /workspace/scratch/endpoint-hessian-witness-construct/Controls.lean -o /workspace/scratch/endpoint-hessian-witness-construct/runs/controls-003/Controls.olean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 0,
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianWitness.lean",
+    "bytes": 16783,
+    "sha256": "45f69d75cb4418b239f6402d0552da546bccc127e3102fac7da7d4c30324ae8f"
+  },
+  "stdout": {
+    "path": "/workspace/scratch/endpoint-hessian-witness-construct/runs/controls-003/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr": {
+    "path": "/workspace/scratch/endpoint-hessian-witness-construct/runs/controls-003/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

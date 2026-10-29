@@ -1,0 +1,1233 @@
+{
+  "schema": "intrinsic-h0-weighted-execution/v1",
+  "capture_mode": "Complete original stdout/stderr merged in output.log by binary runner; no separate-stream claim",
+  "attempt_count": 18,
+  "records": [
+    {
+      "label": "core-001",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean SourceIntrinsicH0WeightedProbability.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 5352,
+          "sha256": "6d7281ca52ff01762adbf5f4da3f77e6b70057a709ae43269f58e19c220c1585"
+        },
+        "object": null
+      },
+      "started_utc": "2026-10-26T18:34:16.029158+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 6.946418762207031,
+      "ended_utc": "2026-10-26T18:34:22.975745+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 5352,
+          "sha256": "6d7281ca52ff01762adbf5f4da3f77e6b70057a709ae43269f58e19c220c1585"
+        },
+        "object": null
+      },
+      "log": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-001/output.log",
+        "bytes": 2297,
+        "sha256": "30b3d22831acc0fc826437e968b6217cd3c99a00a1e0e590cebd9ddd3f6cc481"
+      },
+      "receipt": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-001/receipt.json",
+        "bytes": 1679,
+        "sha256": "d441c091ffa9efaa00dc7fdf98e0b43aa1891bb5b218dace1d5c60dad8f13967"
+      },
+      "snapshots": [
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-001/CONTROL_CONTRACT.md",
+          "bytes": 4418,
+          "sha256": "aef7c3bc42c9aca2f08233e013140e6787519472e5f08136b962ffebf8d0d868"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-001/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 5352,
+          "sha256": "6d7281ca52ff01762adbf5f4da3f77e6b70057a709ae43269f58e19c220c1585"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-001/run_stage.py",
+          "bytes": 1505,
+          "sha256": "5e965617ddba617b0f6e170dd156919b18279f676648ac7326a51f9086e2cabd"
+        }
+      ]
+    },
+    {
+      "label": "core-002",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean SourceIntrinsicH0WeightedProbability.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 5244,
+          "sha256": "169915daaa3f711e9797c62fd3619d4b79697c7c65079df06598ba33b56266db"
+        },
+        "object": null
+      },
+      "started_utc": "2026-10-26T18:34:37.934162+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 3.630408525466919,
+      "ended_utc": "2026-10-26T18:34:41.564591+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 5244,
+          "sha256": "169915daaa3f711e9797c62fd3619d4b79697c7c65079df06598ba33b56266db"
+        },
+        "object": null
+      },
+      "log": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-002/output.log",
+        "bytes": 804,
+        "sha256": "0613fadb1737685fa860b04282f8bc60416a9ac2042181506044a4a2636a054e"
+      },
+      "receipt": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-002/receipt.json",
+        "bytes": 1678,
+        "sha256": "2a678626abebd93a8d5b13375c043f4686bdb75007d666cc74ffd180ab546303"
+      },
+      "snapshots": [
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-002/CONTROL_CONTRACT.md",
+          "bytes": 4418,
+          "sha256": "aef7c3bc42c9aca2f08233e013140e6787519472e5f08136b962ffebf8d0d868"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-002/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 5244,
+          "sha256": "169915daaa3f711e9797c62fd3619d4b79697c7c65079df06598ba33b56266db"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-002/run_stage.py",
+          "bytes": 1505,
+          "sha256": "5e965617ddba617b0f6e170dd156919b18279f676648ac7326a51f9086e2cabd"
+        }
+      ]
+    },
+    {
+      "label": "core-003",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean SourceIntrinsicH0WeightedProbability.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 5235,
+          "sha256": "c80320ac24509f34dc674a07338456be5c857f9ffeaf949ec9e581e74720474c"
+        },
+        "object": null
+      },
+      "started_utc": "2026-10-26T18:34:47.227495+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 3.5089383125305176,
+      "ended_utc": "2026-10-26T18:34:50.736454+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 5235,
+          "sha256": "c80320ac24509f34dc674a07338456be5c857f9ffeaf949ec9e581e74720474c"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 200440,
+          "sha256": "ca72da54786cf8fb8cb94082faa4b1c74e243470a2558ebc9a5635d46e4144b3"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-003/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "receipt": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-003/receipt.json",
+        "bytes": 1915,
+        "sha256": "4990eff598833ceb5c0eaa8e35adbebef59d47caf5edc284516349c5c57e07d4"
+      },
+      "snapshots": [
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-003/CONTROL_CONTRACT.md",
+          "bytes": 4418,
+          "sha256": "aef7c3bc42c9aca2f08233e013140e6787519472e5f08136b962ffebf8d0d868"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-003/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 5235,
+          "sha256": "c80320ac24509f34dc674a07338456be5c857f9ffeaf949ec9e581e74720474c"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-003/run_stage.py",
+          "bytes": 1505,
+          "sha256": "5e965617ddba617b0f6e170dd156919b18279f676648ac7326a51f9086e2cabd"
+        }
+      ]
+    },
+    {
+      "label": "core-004",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean SourceIntrinsicH0WeightedProbability.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 6661,
+          "sha256": "9f6f737dce5ec08a73a4aa3536aa1dc1d23570a2671bc11d33e295c1dd0ffa53"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 200440,
+          "sha256": "ca72da54786cf8fb8cb94082faa4b1c74e243470a2558ebc9a5635d46e4144b3"
+        }
+      },
+      "started_utc": "2026-10-26T18:35:27.448973+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 3.5815141201019287,
+      "ended_utc": "2026-10-26T18:35:31.030508+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 6661,
+          "sha256": "9f6f737dce5ec08a73a4aa3536aa1dc1d23570a2671bc11d33e295c1dd0ffa53"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 200440,
+          "sha256": "ca72da54786cf8fb8cb94082faa4b1c74e243470a2558ebc9a5635d46e4144b3"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-004/output.log",
+        "bytes": 1462,
+        "sha256": "36a5fbc8a0ba83e774ed2bdc49616a45e98c94c18cebe7c76c5301ea6b6edcfb"
+      },
+      "receipt": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-004/receipt.json",
+        "bytes": 2156,
+        "sha256": "a85739cca963a14ec9480f644569349111f0c5155c05b4353914509c61fbc8c5"
+      },
+      "snapshots": [
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-004/CONTROL_CONTRACT.md",
+          "bytes": 4418,
+          "sha256": "aef7c3bc42c9aca2f08233e013140e6787519472e5f08136b962ffebf8d0d868"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-004/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 6661,
+          "sha256": "9f6f737dce5ec08a73a4aa3536aa1dc1d23570a2671bc11d33e295c1dd0ffa53"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-004/run_stage.py",
+          "bytes": 1505,
+          "sha256": "5e965617ddba617b0f6e170dd156919b18279f676648ac7326a51f9086e2cabd"
+        }
+      ]
+    },
+    {
+      "label": "core-005",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean SourceIntrinsicH0WeightedProbability.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 6799,
+          "sha256": "b1e2870394ef90c53990982b7fde4f33d139612b4faf265811d3b7fdf6695022"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 200440,
+          "sha256": "ca72da54786cf8fb8cb94082faa4b1c74e243470a2558ebc9a5635d46e4144b3"
+        }
+      },
+      "started_utc": "2026-10-26T18:36:06.290010+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 3.623997449874878,
+      "ended_utc": "2026-10-26T18:36:09.914029+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 6799,
+          "sha256": "b1e2870394ef90c53990982b7fde4f33d139612b4faf265811d3b7fdf6695022"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 200440,
+          "sha256": "ca72da54786cf8fb8cb94082faa4b1c74e243470a2558ebc9a5635d46e4144b3"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-005/output.log",
+        "bytes": 80,
+        "sha256": "8234650ea42ff95840c0de2e5516b51a5c8108ee81bd3e2f815bc9bb6d144d78"
+      },
+      "receipt": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-005/receipt.json",
+        "bytes": 2153,
+        "sha256": "f56c7916475aa71220eb5917d6a6239a1c878add10da48797c0f06a2de2c0d7b"
+      },
+      "snapshots": [
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-005/CONTROL_CONTRACT.md",
+          "bytes": 4418,
+          "sha256": "aef7c3bc42c9aca2f08233e013140e6787519472e5f08136b962ffebf8d0d868"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-005/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 6799,
+          "sha256": "b1e2870394ef90c53990982b7fde4f33d139612b4faf265811d3b7fdf6695022"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-005/run_stage.py",
+          "bytes": 1505,
+          "sha256": "5e965617ddba617b0f6e170dd156919b18279f676648ac7326a51f9086e2cabd"
+        }
+      ]
+    },
+    {
+      "label": "core-006",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean SourceIntrinsicH0WeightedProbability.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 6813,
+          "sha256": "2ac682965e10d852e73f797e62d5e87bda2818489696f84015c2384bc583a995"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 200440,
+          "sha256": "ca72da54786cf8fb8cb94082faa4b1c74e243470a2558ebc9a5635d46e4144b3"
+        }
+      },
+      "started_utc": "2026-10-26T18:36:35.669480+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 3.724165916442871,
+      "ended_utc": "2026-10-26T18:36:39.393703+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 6813,
+          "sha256": "2ac682965e10d852e73f797e62d5e87bda2818489696f84015c2384bc583a995"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 200440,
+          "sha256": "ca72da54786cf8fb8cb94082faa4b1c74e243470a2558ebc9a5635d46e4144b3"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-006/output.log",
+        "bytes": 953,
+        "sha256": "2199df3a2a2ea1068c3a9cd4def448da1d3e48e0bb17aea8670f805822231033"
+      },
+      "receipt": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-006/receipt.json",
+        "bytes": 2154,
+        "sha256": "8d3752478ceb51e6aafeb79551c768d8a97d1e5ccbc5a2c619aa59b119966d7a"
+      },
+      "snapshots": [
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-006/CONTROL_CONTRACT.md",
+          "bytes": 4418,
+          "sha256": "aef7c3bc42c9aca2f08233e013140e6787519472e5f08136b962ffebf8d0d868"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-006/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 6813,
+          "sha256": "2ac682965e10d852e73f797e62d5e87bda2818489696f84015c2384bc583a995"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-006/run_stage.py",
+          "bytes": 1505,
+          "sha256": "5e965617ddba617b0f6e170dd156919b18279f676648ac7326a51f9086e2cabd"
+        }
+      ]
+    },
+    {
+      "label": "core-007",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean SourceIntrinsicH0WeightedProbability.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 6842,
+          "sha256": "bafd0bc2ddf8421437f714fceae68520f12eeb993129097de7c5d433803fa6e8"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 200440,
+          "sha256": "ca72da54786cf8fb8cb94082faa4b1c74e243470a2558ebc9a5635d46e4144b3"
+        }
+      },
+      "started_utc": "2026-10-26T18:36:47.741251+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 3.690558910369873,
+      "ended_utc": "2026-10-26T18:36:51.431831+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 6842,
+          "sha256": "bafd0bc2ddf8421437f714fceae68520f12eeb993129097de7c5d433803fa6e8"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 360088,
+          "sha256": "5ebeb103ad378e25e00af6bf01c852ad10ba776347d7a0940f49d82871cdfa4c"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-007/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "receipt": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-007/receipt.json",
+        "bytes": 2152,
+        "sha256": "2a145aecb9b45ce57cbb600f30203b135e89a1555ed2cb8d7375288668ee606c"
+      },
+      "snapshots": [
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-007/CONTROL_CONTRACT.md",
+          "bytes": 4418,
+          "sha256": "aef7c3bc42c9aca2f08233e013140e6787519472e5f08136b962ffebf8d0d868"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-007/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 6842,
+          "sha256": "bafd0bc2ddf8421437f714fceae68520f12eeb993129097de7c5d433803fa6e8"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-007/run_stage.py",
+          "bytes": 1505,
+          "sha256": "5e965617ddba617b0f6e170dd156919b18279f676648ac7326a51f9086e2cabd"
+        }
+      ]
+    },
+    {
+      "label": "core-008",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean SourceIntrinsicH0WeightedProbability.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 9524,
+          "sha256": "21895f19d87bc46dfb236003b3d16330b3cb1c93940bb2a510b05f2fccd1fb45"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 360088,
+          "sha256": "5ebeb103ad378e25e00af6bf01c852ad10ba776347d7a0940f49d82871cdfa4c"
+        }
+      },
+      "started_utc": "2026-10-26T18:38:35.397192+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 7.28803014755249,
+      "ended_utc": "2026-10-26T18:38:42.685287+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 9524,
+          "sha256": "21895f19d87bc46dfb236003b3d16330b3cb1c93940bb2a510b05f2fccd1fb45"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 360088,
+          "sha256": "5ebeb103ad378e25e00af6bf01c852ad10ba776347d7a0940f49d82871cdfa4c"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-008/output.log",
+        "bytes": 3499,
+        "sha256": "d61c15fffdb7d743503958ee5ecb734fc14163f456f930918c5850cd03b3f0f1"
+      },
+      "receipt": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-008/receipt.json",
+        "bytes": 2154,
+        "sha256": "64a9e9d1ecce4be1c0673c1c6c91d1d352b0618b2a257674e4bfc3be375c7af0"
+      },
+      "snapshots": [
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-008/CONTROL_CONTRACT.md",
+          "bytes": 4418,
+          "sha256": "aef7c3bc42c9aca2f08233e013140e6787519472e5f08136b962ffebf8d0d868"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-008/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 9524,
+          "sha256": "21895f19d87bc46dfb236003b3d16330b3cb1c93940bb2a510b05f2fccd1fb45"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-008/run_stage.py",
+          "bytes": 1505,
+          "sha256": "5e965617ddba617b0f6e170dd156919b18279f676648ac7326a51f9086e2cabd"
+        }
+      ]
+    },
+    {
+      "label": "core-009",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean SourceIntrinsicH0WeightedProbability.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 9706,
+          "sha256": "72cb94a49aecab2871cdb85fe6b2383cfc38db8a7ef574e14081e04bd1243290"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 360088,
+          "sha256": "5ebeb103ad378e25e00af6bf01c852ad10ba776347d7a0940f49d82871cdfa4c"
+        }
+      },
+      "started_utc": "2026-10-26T18:38:56.713101+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 5.266909599304199,
+      "ended_utc": "2026-10-26T18:39:01.980212+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 9706,
+          "sha256": "72cb94a49aecab2871cdb85fe6b2383cfc38db8a7ef574e14081e04bd1243290"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 544176,
+          "sha256": "c5e900c4379db37a1755fee8b89bdb3ff2c31531852b88a273e8f77fa8dd1610"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-009/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "receipt": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-009/receipt.json",
+        "bytes": 2152,
+        "sha256": "da7df682276c883fe24ffb7fb88ccc5238ce266bb3fe16886dc98b91c944196a"
+      },
+      "snapshots": [
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-009/CONTROL_CONTRACT.md",
+          "bytes": 4418,
+          "sha256": "aef7c3bc42c9aca2f08233e013140e6787519472e5f08136b962ffebf8d0d868"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-009/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 9706,
+          "sha256": "72cb94a49aecab2871cdb85fe6b2383cfc38db8a7ef574e14081e04bd1243290"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-009/run_stage.py",
+          "bytes": 1505,
+          "sha256": "5e965617ddba617b0f6e170dd156919b18279f676648ac7326a51f9086e2cabd"
+        }
+      ]
+    },
+    {
+      "label": "core-010",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean SourceIntrinsicH0WeightedProbability.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 12007,
+          "sha256": "003133b264ab27db545b09af96d5c835f29b39b3f608bbb743f8559b357723d8"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 544176,
+          "sha256": "c5e900c4379db37a1755fee8b89bdb3ff2c31531852b88a273e8f77fa8dd1610"
+        }
+      },
+      "started_utc": "2026-10-26T18:39:35.169948+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 5.614137172698975,
+      "ended_utc": "2026-10-26T18:39:40.784140+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 12007,
+          "sha256": "003133b264ab27db545b09af96d5c835f29b39b3f608bbb743f8559b357723d8"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 587840,
+          "sha256": "14308b8a58b8e8ab1d2f7b0e73ace1a1f0be65169f98b40d1a3e3d352b49d74c"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-010/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "receipt": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-010/receipt.json",
+        "bytes": 2154,
+        "sha256": "28da0d580b680af15fbbd4f3f1e8c5565607e0a1d78590755a11f13f389ffe60"
+      },
+      "snapshots": [
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-010/CONTROL_CONTRACT.md",
+          "bytes": 4418,
+          "sha256": "aef7c3bc42c9aca2f08233e013140e6787519472e5f08136b962ffebf8d0d868"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-010/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 12007,
+          "sha256": "003133b264ab27db545b09af96d5c835f29b39b3f608bbb743f8559b357723d8"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-010/run_stage.py",
+          "bytes": 1505,
+          "sha256": "5e965617ddba617b0f6e170dd156919b18279f676648ac7326a51f9086e2cabd"
+        }
+      ]
+    },
+    {
+      "label": "bcf-integration-001",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean SourceIntrinsicH0WeightedProbability.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 16002,
+          "sha256": "aa1515013cde4317ed1078e201146faac904a16035ed2462d0c235435e82d5ca"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 587840,
+          "sha256": "14308b8a58b8e8ab1d2f7b0e73ace1a1f0be65169f98b40d1a3e3d352b49d74c"
+        }
+      },
+      "started_utc": "2026-10-26T18:40:25.386197+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 6.501705884933472,
+      "ended_utc": "2026-10-26T18:40:31.887924+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 16002,
+          "sha256": "aa1515013cde4317ed1078e201146faac904a16035ed2462d0c235435e82d5ca"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 733576,
+          "sha256": "3ec2a7c6185198960b7730b31ad3ff56b659745e5d4328ec77c17d3c33889d3b"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/bcf-integration-001/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "receipt": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/bcf-integration-001/receipt.json",
+        "bytes": 2176,
+        "sha256": "8067f87dc792473014ee3df0ceda2872feaecd3719dc27046e4cc5062745261f"
+      },
+      "snapshots": [
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/bcf-integration-001/CONTROL_CONTRACT.md",
+          "bytes": 4418,
+          "sha256": "aef7c3bc42c9aca2f08233e013140e6787519472e5f08136b962ffebf8d0d868"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/bcf-integration-001/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 16002,
+          "sha256": "aa1515013cde4317ed1078e201146faac904a16035ed2462d0c235435e82d5ca"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/bcf-integration-001/run_stage.py",
+          "bytes": 1505,
+          "sha256": "5e965617ddba617b0f6e170dd156919b18279f676648ac7326a51f9086e2cabd"
+        }
+      ]
+    },
+    {
+      "label": "bcf-pullback-001",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean SourceIntrinsicH0WeightedProbability.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 17082,
+          "sha256": "029e4ef9c398359e20e1757d777b8b3f35253acb351f54858ea17496146d60f0"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 733576,
+          "sha256": "3ec2a7c6185198960b7730b31ad3ff56b659745e5d4328ec77c17d3c33889d3b"
+        }
+      },
+      "started_utc": "2026-10-26T18:41:25.777239+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 5.14806604385376,
+      "ended_utc": "2026-10-26T18:41:30.925341+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 17082,
+          "sha256": "029e4ef9c398359e20e1757d777b8b3f35253acb351f54858ea17496146d60f0"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 746416,
+          "sha256": "c60a31130c226f78050c19ac1942cd9b7d7535f6a2717cc3e0421c2580f57c8c"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/bcf-pullback-001/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "receipt": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/bcf-pullback-001/receipt.json",
+        "bytes": 2169,
+        "sha256": "220efed99870366d5d4ab34a32290a926cd86370605b4eefd3fb8ce03c660d57"
+      },
+      "snapshots": [
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/bcf-pullback-001/CONTROL_CONTRACT.md",
+          "bytes": 4418,
+          "sha256": "aef7c3bc42c9aca2f08233e013140e6787519472e5f08136b962ffebf8d0d868"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/bcf-pullback-001/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 17082,
+          "sha256": "029e4ef9c398359e20e1757d777b8b3f35253acb351f54858ea17496146d60f0"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/bcf-pullback-001/run_stage.py",
+          "bytes": 1505,
+          "sha256": "5e965617ddba617b0f6e170dd156919b18279f676648ac7326a51f9086e2cabd"
+        }
+      ]
+    },
+    {
+      "label": "complete-integration-001",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:/workspace/scratch/compact-fold-weighted-probability-construct/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean SourceIntrinsicH0WeightedProbability.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 32442,
+          "sha256": "8fa12ef2420367c9405810ac63dc0755ec95158068b60be1a6044461516fb40a"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 746416,
+          "sha256": "c60a31130c226f78050c19ac1942cd9b7d7535f6a2717cc3e0421c2580f57c8c"
+        }
+      },
+      "started_utc": "2026-10-26T18:49:35.399019+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 20.009477138519287,
+      "ended_utc": "2026-10-26T18:49:55.408540+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 32442,
+          "sha256": "8fa12ef2420367c9405810ac63dc0755ec95158068b60be1a6044461516fb40a"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 746416,
+          "sha256": "c60a31130c226f78050c19ac1942cd9b7d7535f6a2717cc3e0421c2580f57c8c"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/complete-integration-001/output.log",
+        "bytes": 11298,
+        "sha256": "d22bd1705799b5a9197c8638337ec3a358b5ad24dd58761edc51111298c83bfa"
+      },
+      "receipt": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/complete-integration-001/receipt.json",
+        "bytes": 2260,
+        "sha256": "2ed3d07db56e68ff5072c27e3344ebca19b734ea04a1348689ac0daaa27c08b0"
+      },
+      "snapshots": [
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/complete-integration-001/CONTROL_CONTRACT.md",
+          "bytes": 4418,
+          "sha256": "aef7c3bc42c9aca2f08233e013140e6787519472e5f08136b962ffebf8d0d868"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/complete-integration-001/IntrinsicProbabilityControls.lean",
+          "bytes": 4499,
+          "sha256": "d93bc3dfa9a00264472bdd3f0ea866f51406ea133fd7f9513caacc9ecbbfe6f3"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/complete-integration-001/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 32442,
+          "sha256": "8fa12ef2420367c9405810ac63dc0755ec95158068b60be1a6044461516fb40a"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/complete-integration-001/run_stage.py",
+          "bytes": 1505,
+          "sha256": "5e965617ddba617b0f6e170dd156919b18279f676648ac7326a51f9086e2cabd"
+        }
+      ]
+    },
+    {
+      "label": "complete-integration-002",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:/workspace/scratch/compact-fold-weighted-probability-construct/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean SourceIntrinsicH0WeightedProbability.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 32555,
+          "sha256": "14eefa9f0572e215a9170c1b3206e67b60d1e6f3861f36c66ca6701cf19a4f46"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 746416,
+          "sha256": "c60a31130c226f78050c19ac1942cd9b7d7535f6a2717cc3e0421c2580f57c8c"
+        }
+      },
+      "started_utc": "2026-10-26T18:50:19.157044+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 7.994899749755859,
+      "ended_utc": "2026-10-26T18:50:27.151966+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 32555,
+          "sha256": "14eefa9f0572e215a9170c1b3206e67b60d1e6f3861f36c66ca6701cf19a4f46"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 1371120,
+          "sha256": "56eb99ad2a1358f693a00d92004e4091c306ff98b0a5c53c04b149a2fad81968"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/complete-integration-002/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "receipt": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/complete-integration-002/receipt.json",
+        "bytes": 2256,
+        "sha256": "50c72117a3979d378c5480d6746d2d223235d551334d67b072dcbede60f4dec1"
+      },
+      "snapshots": [
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/complete-integration-002/CONTROL_CONTRACT.md",
+          "bytes": 4418,
+          "sha256": "aef7c3bc42c9aca2f08233e013140e6787519472e5f08136b962ffebf8d0d868"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/complete-integration-002/IntrinsicProbabilityControls.lean",
+          "bytes": 4499,
+          "sha256": "d93bc3dfa9a00264472bdd3f0ea866f51406ea133fd7f9513caacc9ecbbfe6f3"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/complete-integration-002/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 32555,
+          "sha256": "14eefa9f0572e215a9170c1b3206e67b60d1e6f3861f36c66ca6701cf19a4f46"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/complete-integration-002/run_stage.py",
+          "bytes": 1505,
+          "sha256": "5e965617ddba617b0f6e170dd156919b18279f676648ac7326a51f9086e2cabd"
+        }
+      ]
+    },
+    {
+      "label": "inventory-001",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/intrinsic-h0-weighted-probability-construct/build:/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:/workspace/scratch/compact-fold-weighted-probability-construct/build:$LEAN_PATH exec lean -DwarningAsError=true -R /workspace/scratch/intrinsic-h0-weighted-probability-construct /workspace/scratch/intrinsic-h0-weighted-probability-construct/Inventory.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 32555,
+          "sha256": "14eefa9f0572e215a9170c1b3206e67b60d1e6f3861f36c66ca6701cf19a4f46"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 1371120,
+          "sha256": "56eb99ad2a1358f693a00d92004e4091c306ff98b0a5c53c04b149a2fad81968"
+        }
+      },
+      "started_utc": "2026-10-26T18:51:18.689393+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 11.37113904953003,
+      "ended_utc": "2026-10-26T18:51:30.060873+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 32555,
+          "sha256": "14eefa9f0572e215a9170c1b3206e67b60d1e6f3861f36c66ca6701cf19a4f46"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 1371120,
+          "sha256": "56eb99ad2a1358f693a00d92004e4091c306ff98b0a5c53c04b149a2fad81968"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/inventory-001/output.log",
+        "bytes": 16982,
+        "sha256": "f2976504ba64c3b296e284276651a6ea2c28c88e2fe81f59f76a2f5eb27ef400"
+      },
+      "receipt": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/inventory-001/receipt.json",
+        "bytes": 2295,
+        "sha256": "e942911891640b57daf366c27731705db62bf03dab9d386373c93d025e536ccc"
+      },
+      "snapshots": [
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/inventory-001/CONTROL_CONTRACT.md",
+          "bytes": 4418,
+          "sha256": "aef7c3bc42c9aca2f08233e013140e6787519472e5f08136b962ffebf8d0d868"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/inventory-001/IntrinsicProbabilityControls.lean",
+          "bytes": 4499,
+          "sha256": "d93bc3dfa9a00264472bdd3f0ea866f51406ea133fd7f9513caacc9ecbbfe6f3"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/inventory-001/Inventory.lean",
+          "bytes": 1101,
+          "sha256": "f61215ae853e98ff512866969393f17f8527be13e9208e8d130136214791d516"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/inventory-001/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 32555,
+          "sha256": "14eefa9f0572e215a9170c1b3206e67b60d1e6f3861f36c66ca6701cf19a4f46"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/inventory-001/run_stage.py",
+          "bytes": 1505,
+          "sha256": "5e965617ddba617b0f6e170dd156919b18279f676648ac7326a51f9086e2cabd"
+        }
+      ]
+    },
+    {
+      "label": "kernel-001",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/intrinsic-h0-weighted-probability-construct/build:/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:/workspace/scratch/compact-fold-weighted-probability-construct/build:$LEAN_PATH exec leanchecker SourceIntrinsicH0WeightedProbability"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 32555,
+          "sha256": "14eefa9f0572e215a9170c1b3206e67b60d1e6f3861f36c66ca6701cf19a4f46"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 1371120,
+          "sha256": "56eb99ad2a1358f693a00d92004e4091c306ff98b0a5c53c04b149a2fad81968"
+        }
+      },
+      "started_utc": "2026-10-26T18:51:18.729899+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 14.075005054473877,
+      "ended_utc": "2026-10-26T18:51:32.805037+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 32555,
+          "sha256": "14eefa9f0572e215a9170c1b3206e67b60d1e6f3861f36c66ca6701cf19a4f46"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 1371120,
+          "sha256": "56eb99ad2a1358f693a00d92004e4091c306ff98b0a5c53c04b149a2fad81968"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/kernel-001/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "receipt": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/kernel-001/receipt.json",
+        "bytes": 2164,
+        "sha256": "02db5349c3922433feb07a7815e342ad0754afc2e093388a27ac9a97424b784e"
+      },
+      "snapshots": [
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/kernel-001/CONTROL_CONTRACT.md",
+          "bytes": 4418,
+          "sha256": "aef7c3bc42c9aca2f08233e013140e6787519472e5f08136b962ffebf8d0d868"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/kernel-001/IntrinsicProbabilityControls.lean",
+          "bytes": 4499,
+          "sha256": "d93bc3dfa9a00264472bdd3f0ea866f51406ea133fd7f9513caacc9ecbbfe6f3"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/kernel-001/Inventory.lean",
+          "bytes": 1101,
+          "sha256": "f61215ae853e98ff512866969393f17f8527be13e9208e8d130136214791d516"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/kernel-001/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 32555,
+          "sha256": "14eefa9f0572e215a9170c1b3206e67b60d1e6f3861f36c66ca6701cf19a4f46"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/kernel-001/run_stage.py",
+          "bytes": 1505,
+          "sha256": "5e965617ddba617b0f6e170dd156919b18279f676648ac7326a51f9086e2cabd"
+        }
+      ]
+    },
+    {
+      "label": "controls-001",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/intrinsic-h0-weighted-probability-construct/build:/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:/workspace/scratch/compact-fold-weighted-probability-construct/build:$LEAN_PATH exec lean -DwarningAsError=true -R /workspace/scratch/intrinsic-h0-weighted-probability-construct -o /workspace/scratch/intrinsic-h0-weighted-probability-construct/build/IntrinsicProbabilityControls.olean /workspace/scratch/intrinsic-h0-weighted-probability-construct/IntrinsicProbabilityControls.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 32555,
+          "sha256": "14eefa9f0572e215a9170c1b3206e67b60d1e6f3861f36c66ca6701cf19a4f46"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 1371120,
+          "sha256": "56eb99ad2a1358f693a00d92004e4091c306ff98b0a5c53c04b149a2fad81968"
+        }
+      },
+      "started_utc": "2026-10-26T18:51:18.749633+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 10.735984563827515,
+      "ended_utc": "2026-10-26T18:51:29.485734+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 32555,
+          "sha256": "14eefa9f0572e215a9170c1b3206e67b60d1e6f3861f36c66ca6701cf19a4f46"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 1371120,
+          "sha256": "56eb99ad2a1358f693a00d92004e4091c306ff98b0a5c53c04b149a2fad81968"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/controls-001/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "receipt": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/controls-001/receipt.json",
+        "bytes": 2416,
+        "sha256": "155e47e0bf54abc54088465ac38474edd0396af455a3f5b4e45ef65aa23e3836"
+      },
+      "snapshots": [
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/controls-001/CONTROL_CONTRACT.md",
+          "bytes": 4418,
+          "sha256": "aef7c3bc42c9aca2f08233e013140e6787519472e5f08136b962ffebf8d0d868"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/controls-001/IntrinsicProbabilityControls.lean",
+          "bytes": 4499,
+          "sha256": "d93bc3dfa9a00264472bdd3f0ea866f51406ea133fd7f9513caacc9ecbbfe6f3"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/controls-001/Inventory.lean",
+          "bytes": 1101,
+          "sha256": "f61215ae853e98ff512866969393f17f8527be13e9208e8d130136214791d516"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/controls-001/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 32555,
+          "sha256": "14eefa9f0572e215a9170c1b3206e67b60d1e6f3861f36c66ca6701cf19a4f46"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/controls-001/run_stage.py",
+          "bytes": 1505,
+          "sha256": "5e965617ddba617b0f6e170dd156919b18279f676648ac7326a51f9086e2cabd"
+        }
+      ]
+    },
+    {
+      "label": "false-empty-branch-001",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/intrinsic-h0-weighted-probability-construct/build:/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:/workspace/scratch/compact-fold-weighted-probability-construct/build:$LEAN_PATH exec lean -DwarningAsError=true -R /workspace/scratch/intrinsic-h0-weighted-probability-construct /workspace/scratch/intrinsic-h0-weighted-probability-construct/FalseEmptyCutPreimageMutation.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 32555,
+          "sha256": "14eefa9f0572e215a9170c1b3206e67b60d1e6f3861f36c66ca6701cf19a4f46"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 1371120,
+          "sha256": "56eb99ad2a1358f693a00d92004e4091c306ff98b0a5c53c04b149a2fad81968"
+        }
+      },
+      "started_utc": "2026-10-26T18:52:49.742957+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 8.069294929504395,
+      "ended_utc": "2026-10-26T18:52:57.812287+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 32555,
+          "sha256": "14eefa9f0572e215a9170c1b3206e67b60d1e6f3861f36c66ca6701cf19a4f46"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+          "bytes": 1371120,
+          "sha256": "56eb99ad2a1358f693a00d92004e4091c306ff98b0a5c53c04b149a2fad81968"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/false-empty-branch-001/output.log",
+        "bytes": 137,
+        "sha256": "4b561f907f0ef315c1c203ac73cf5bc44a09ccdf07ccd4a7a0b07f3722cd3149"
+      },
+      "receipt": {
+        "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/false-empty-branch-001/receipt.json",
+        "bytes": 2331,
+        "sha256": "a47df907319e116b59c7d11b444be09c1ef52f3e871228c9c22a93328293289a"
+      },
+      "snapshots": [
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/false-empty-branch-001/CONTROL_CONTRACT.md",
+          "bytes": 4418,
+          "sha256": "aef7c3bc42c9aca2f08233e013140e6787519472e5f08136b962ffebf8d0d868"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/false-empty-branch-001/FalseEmptyCutPreimageMutation.lean",
+          "bytes": 630,
+          "sha256": "14072f458a16e05946a305e29cc9b0f494b61fce8eeb282002bd6ba4d69b2c4a"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/false-empty-branch-001/IntrinsicProbabilityControls.lean",
+          "bytes": 4499,
+          "sha256": "d93bc3dfa9a00264472bdd3f0ea866f51406ea133fd7f9513caacc9ecbbfe6f3"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/false-empty-branch-001/Inventory.lean",
+          "bytes": 1101,
+          "sha256": "f61215ae853e98ff512866969393f17f8527be13e9208e8d130136214791d516"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/false-empty-branch-001/SourceIntrinsicH0WeightedProbability.lean",
+          "bytes": 32555,
+          "sha256": "14eefa9f0572e215a9170c1b3206e67b60d1e6f3861f36c66ca6701cf19a4f46"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/false-empty-branch-001/run_stage.py",
+          "bytes": 1505,
+          "sha256": "5e965617ddba617b0f6e170dd156919b18279f676648ac7326a51f9086e2cabd"
+        }
+      ]
+    }
+  ],
+  "own_module_leanchecker_count": 1,
+  "sole_mutation_attempts": 1,
+  "environment_status_messages": "Root reported transient unavailable marker superseded by restored rev70/files intact; active complete-integration001 subprocess session26551 was awaited to actual exit1, not restarted. No completed verification replay for the transition."
+}

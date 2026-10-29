@@ -1,0 +1,8 @@
+--- frozen-original/A
++++ actual-source/A
+@@ -168,4 +168,4 @@
+   change (d⁻¹ • (Z+s • (1 : Mat2))).transpose * jMatrix j *
+     (d⁻¹ • (Z+s • (1 : Mat2))) = M
+   simp only [Matrix.transpose_smul,Matrix.smul_mul,Matrix.mul_smul,smul_smul]
+-  rw [hnum,smul_smul,hc,one_smul]
++  rw [hnum,smul_smul,hc,one_smul]

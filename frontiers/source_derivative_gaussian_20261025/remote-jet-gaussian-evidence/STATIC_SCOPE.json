@@ -1,0 +1,36 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetGaussian.lean",
+    "bytes": 17053,
+    "sha256": "65694d00f575333b3b896338ecaf047ce8e166fbb8eddc03bd0836cce521a034"
+  },
+  "imports": [
+    "SourceRemoteJetWitness",
+    "SourceCompactTargetMoments"
+  ],
+  "forbidden_matches": [],
+  "public_prop_count": 4,
+  "public_data_names": [
+    "remoteJet",
+    "remoteCrossCovariance",
+    "remoteRegressionMatrix",
+    "remoteResidualCoefficient",
+    "remoteResidualCovariance",
+    "remotePosteriorMean"
+  ],
+  "actual_sample": "SmoothSample2L and literalrawPosteriorSample",
+  "orders": "remote value,dx,dy,dxx,dxy,dyy; raw fM,fS,fxM,fxS,fyM,fyS",
+  "covariance_orientation": "C(remote,raw)=tsum b*a;R=C*Graw^-1;c=b-Ra;S=coefficientGramc, targetindependent",
+  "allradius_scope": "signedLne0, arbitraryr,x,t; defined samplingonly",
+  "positive_scope": "literal quotient remote distinctfrombothpins, arbitraryr includingrepeatedpins",
+  "conditional_scope": "one existing inverseinterval delta chosenbeforex,t; rpositive; actualmapRCD and everyrawfiber",
+  "no_foreign_private_names": true,
+  "nonclaims": [
+    "new source/samplecarrier/kernel",
+    "new generic Gaussian/regression/Schur theory",
+    "density or variancefloor",
+    "endpoint Hessian/globalMorse/Sard/ties",
+    "canonicalH0/Lifetime/Parent",
+    "commonfullmeasureevent overuncountabletargets"
+  ]
+}

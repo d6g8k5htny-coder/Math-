@@ -1,0 +1,50 @@
+/-
+Stage63 Helper A: complete original actual public61-to-subtype LP adapter.
+Literal input: final common CONTEXT003. No imports/namespace/end/common defs.
+Complete unelaborated TEXT only; zero helper Lean/probes/checks/hashes.
+-/
+
+private theorem actualClosedSuperlevel_locallyPathConnected
+    {L : ℝ} (hL : 0 < L) (omega : I4SmoothCarrier.SmoothSample 2 L)
+    (hm : UniversalLaw.Spec.Lifetime.IsMorseDistinct 2 L
+      (I4LifetimeField.actualField 2 L omega)) (a : ℝ) :
+    LocallyPathConnectedSpace (TorusFiltration.superlevel_set
+      (SourceActualFoldTorus.actualTorusField hL.ne' omega) (-a)) := by
+  let F : I4Torus.SourceTorus 2 L → ℝ :=
+    SourceActualFoldTorus.actualTorusField hL.ne' omega
+  let S : Set (I4Torus.SourceTorus 2 L) :=
+    TorusFiltration.superlevel_set F (-a)
+  have hlevel (y : S) : a ≤ F y.val := by
+    have hy : -(-a) ≤ F y.val := y.property
+    simpa only [neg_neg] using hy
+  change LocallyPathConnectedSpace S
+  refine ⟨fun x => ?_⟩
+  rw [hasBasis_self]
+  intro N hN
+  obtain ⟨U, hU, hUN⟩ := (mem_nhds_subtype S x N).1 hN
+  obtain ⟨O, hOU, hO, hxO⟩ := mem_nhds_iff.1 hU
+  obtain ⟨V, hV, hxV, hVO, hpc⟩ :=
+    I4SourceActualTorusSuperlevelLocalBasis.actualSource_torus_closedSuperlevel_localPathConnectedBasis
+      hL omega hm a x.val (hlevel x) O hO hxO
+  let W : Set S := (Subtype.val : S → I4Torus.SourceTorus 2 L) ⁻¹' V
+  have hWopen : IsOpen W := hV.preimage continuous_subtype_val
+  have hxW : x ∈ W := hxV
+  have hWnhds : W ∈ 𝓝 x := hWopen.mem_nhds hxW
+  have hWN : W ⊆ N := by
+    intro y hy
+    exact hUN (hOU (hVO hy))
+  have htrace : V ∩ {z : I4Torus.SourceTorus 2 L | a ≤ F z} ⊆ S := by
+    intro z hz
+    change -(-a) ≤ F z
+    simpa only [neg_neg] using hz.2
+  have hpreimage :
+      (Subtype.val : S → I4Torus.SourceTorus 2 L) ⁻¹'
+        (V ∩ {z : I4Torus.SourceTorus 2 L | a ≤ F z}) = W := by
+    ext y
+    change (y.val ∈ V ∧ a ≤ F y.val) ↔ y.val ∈ V
+    exact ⟨And.left, fun hy => ⟨hy, hlevel y⟩⟩
+  have hWpc : IsPathConnected W := by
+    have hp := hpc.preimage_coe htrace
+    rw [hpreimage] at hp
+    exact hp
+  exact ⟨W, hWnhds, hWpc, hWN⟩

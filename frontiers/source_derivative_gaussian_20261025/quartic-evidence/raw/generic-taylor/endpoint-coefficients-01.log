@@ -1,0 +1,19 @@
+/workspace/scratch/actual-quartic-transfer/lean/EndpointCoefficients.lean:28:31: error(lean.invalidField): Invalid field `mp`: The environment does not contain `Function.mp`, so it is not possible to project the field `mp` from an expression
+  mul_le_mul_left ?m.1062
+of type
+  ∀ (a : ?m.1056), ?m.1057 * a ≤ ?m.1058 * a
+/workspace/scratch/actual-quartic-transfer/lean/EndpointCoefficients.lean:28:27: error: Application type mismatch: The argument
+  hr
+has type
+  0 < r
+but is expected to have type
+  ?m.1057 ≤ ?m.1058
+in the application
+  mul_le_mul_left hr
+/workspace/scratch/actual-quartic-transfer/lean/EndpointCoefficients.lean:42:26: error: unexpected token '|*'; expected '|' or '|ₘ'
+/workspace/scratch/actual-quartic-transfer/lean/EndpointCoefficients.lean:38:39: error: unsolved goals
+case calc.step
+r G A T : ℝ
+hconst : |A + T * r ^ 2 / 8| ≤ G * r ^ 4 / 384
+hcubic : |T - 2| ≤ G * r ^ 2 / 40
+⊢ |A + T * r ^ 2 / 8| + |T - 2| ≤ 11 / 1920 * G * r ^ 4

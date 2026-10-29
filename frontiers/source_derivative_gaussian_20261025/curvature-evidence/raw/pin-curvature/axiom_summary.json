@@ -1,0 +1,367 @@
+{
+  "coverage_count": 71,
+  "target_names_equal_public_inventory": true,
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "observed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "targets": {
+    "I4PeanoErrorBounds.abs_weighted_integral_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4PeanoErrorBounds.abs_weighted_integral_sub_mass_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4PeanoErrorBounds.peanoCubic_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4PeanoErrorBounds.scaled_lipschitz_center_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4PeanoErrorBounds.cubic_pin_pointwise_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4PeanoErrorBounds.left_weighted_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4PeanoErrorBounds.right_weighted_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceGammaRadius": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceQ": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceA": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceQ_eq_sourceContactQ": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceA_eq_sourceContactA": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceDerivativeMajorant_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceGammaRadius_measurable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.one_le_sourceGammaRadius": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceGammaRadius_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceDerivativeMajorant_le_radius": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.orderModeBound_mono": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceDerivativeMajorant_mono": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceGammaRadius_le_fifth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceGammaRadius_moments": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceF": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceH": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceQCurve": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.directionX_norm_le_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.directionY_norm_le_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.axis_point_sub_norm_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.axis_derivative_lipschitz": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.source_axis_derivative_abs_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceF_third_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceH_second_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceF_third_lipschitz": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceH_second_lipschitz": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceQCurve_lipschitz": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceF_third_abs_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceH_second_abs_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceQCurve_abs_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceF_C3": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceH_C2": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceF_deriv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceF_second": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceH_deriv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceH_second_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.source_pin3_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.source_pin4_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.source_pin5_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.source_normalized_peano": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.endpoint_det_abs_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.endpointWeight_curvature_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.strict_endpoint_transverse_neg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.curvature_slab_of_upper": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceQCurve_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceQ_abs_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceA_abs_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.source_normalized_endpoint_errors": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceGammaRadius_ge_third_fourth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.source_normalized_endpoint_first_four_bounds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceQ_measurable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceA_measurable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.source_normalized_determinant_bounds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceSmoothWeight_curvature_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.source_positive_weight_curvature_upper": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.source_bad_curvature_slab": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.source_prescribed_pin_constraints_ae": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceSmoothLaw_curvature_bound_ae": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.source_curvature_estimates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceEndpointCenters": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.source_normalized_endpoint_errors_all": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceSmoothLaw_endpoint_errors_ae": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.source_endpoint_error_estimates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourcePinCurvatureBounds.sourceEndpointErrorOrder": []
+  }
+}

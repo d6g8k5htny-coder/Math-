@@ -1,0 +1,33 @@
+--- runs/production-fixtures-001/SourceActualFiniteSuperlevelComponents.lean
++++ SourceActualFiniteSuperlevelComponents.lean
+@@ -173,7 +173,7 @@
+ private theorem coordinate_max_zero {x : ℝ} (hx : Real.cos (Real.pi * x) = 1) :
+     (x : AddCircle (2 : ℝ)) = 0 := by
+   rcases (Real.cos_eq_one_iff _).mp hx with ⟨k, hk⟩
+-  apply AddCircle.coe_eq_zero_iff.mpr
++  apply (AddCircle.coe_eq_zero_iff (2 : ℝ)).mpr
+   refine ⟨k, ?_⟩
+   rw [zsmul_eq_mul]
+   apply (mul_left_cancel₀ Real.pi_ne_zero)
+@@ -236,6 +236,10 @@
+ 
+ private theorem fixture_wholeLocalTopology :
+     LocallyPathConnectedSpace (TorusFiltration.superlevel_set fixtureTorusField 4) := by
++  let _ : LocallyPathConnectedSpace (I4Torus.SourceTorus 2 2) :=
++    ((SourceActualFoldTorus.torusProjection2L_open 2).isQuotientMap
++      (SourceActualFoldTorus.torusProjection2L_continuous 2)
++      (SourceActualFoldTorus.torusProjection2L_surjective 2)).locallyPathConnectedSpace
+   rw [fixture_wholeLevel]
+   exact isOpen_univ.locallyPathConnectedSpace
+ 
+@@ -251,8 +255,8 @@
+ 
+ private theorem fixture_finite_whole :
+     Finite (ZerothHomotopy (TorusFiltration.superlevel_set fixtureTorusField 4)) := by
+-  simpa only [neg_neg] using
++  simpa [fixtureTorusField] using
+     consumeFiniteClosedSubtype (by norm_num : (0 : ℝ) < 2) fixtureSample (-4)
+-      (by simpa only [neg_neg] using fixture_wholeLocalTopology)
++      (by simpa [fixtureTorusField] using fixture_wholeLocalTopology)
+ 
+ end I4SourceActualFiniteSuperlevelComponents

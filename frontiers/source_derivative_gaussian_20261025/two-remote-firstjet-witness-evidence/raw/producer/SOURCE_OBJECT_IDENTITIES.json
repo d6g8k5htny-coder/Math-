@@ -1,0 +1,42 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetWitness.lean",
+    "bytes": 21442,
+    "sha256": "b523da924513fc312c5432c241fc031d4fbe3567fbeedbba981f36dd798574a4"
+  },
+  "object": {
+    "path": "/workspace/scratch/two-remote-firstjet-witness-construct/build/SourceTwoRemoteFirstJetWitness.olean",
+    "bytes": 1445664,
+    "sha256": "5466505132cd10c5a9ca362ba6e473de52eb949260e6b8fe801a16eff1f7f90c"
+  },
+  "compiled_object": {
+    "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-003/SourceTwoRemoteFirstJetWitness.olean",
+    "bytes": 1445664,
+    "sha256": "5466505132cd10c5a9ca362ba6e473de52eb949260e6b8fe801a16eff1f7f90c"
+  },
+  "strict_receipt": {
+    "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-003/record.json",
+    "bytes": 1319,
+    "sha256": "8bc0de2d2df07f555a7f02a1e476f0c1c9e2109c4fc6bf1d42f140edbaed20cc"
+  },
+  "kernel_receipt": {
+    "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/kernel-001/record.json",
+    "bytes": 1181,
+    "sha256": "532f210a622cfc1cd2aecb29fd27ce163aed1069de7d5bc1f86113547965baf0"
+  },
+  "freeze": {
+    "path": "/workspace/scratch/two-remote-firstjet-witness-construct/FROZEN_SOURCE.json",
+    "bytes": 1328,
+    "sha256": "86265de471af7dee22a734b5c81a52fc01dc0be08781f39430a7cc2c6df1b071"
+  },
+  "eligible_production_objects": [
+    "SourceTwoRemoteFirstJetWitness.olean"
+  ],
+  "ineligible_objects": "All helper/control/inventory/mutation and earlier attempt objects. Scratch build/Controls.olean only reuses passed actualcollisioncounterexample for negativeharness; neverproductioneligible. Noileanfreshnesscompile. Rootsoleproductioncache.",
+  "baseline_reused": "qualified47/48 finiteTrig/source/localgerm/Gram/finitekernel proofsandobjects plusallapplicableearliermath unchanged. Qualified52publication677f8aef426a6f754ad9a77f122b6597ec4bc1e9/RESULT6422828482 retained but53doesnotimport52law/helper.",
+  "root_sourcecut": {
+    "status": "root owns Git/cut; not supplied at producer evidencefreeze. Rootmay separatelybindactualprocesscut withoutrewriting/replaying thisfrozenqualification."
+  },
+  "published_precode": "c9eab66fc13968de4bcf391c4effd9db5321ac11",
+  "no_current_source_hosted_CI_claim": true
+}

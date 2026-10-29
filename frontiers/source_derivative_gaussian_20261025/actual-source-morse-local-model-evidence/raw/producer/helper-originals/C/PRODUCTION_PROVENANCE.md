@@ -1,0 +1,20 @@
+# Complete private production fixtures60C
+
+Logical original identity: `60C-PRODUCTION-ORIGINAL-V1-COMPLETE`. Files are PRODUCTION_SECTION.lean.txt and PRODUCTION_IMPORTS.txt, together with this provenance and CONTEXT.md. They freeze before ONE producer integration. No hashes, helper Lean execution, name probes, build/check/kernel/control/audit execution or object creation were performed. Logical custody is intentional; root/producer owns any later authorized first physical custody identity. Frozen originals remain unchanged; producer retains every actual amendment in full.
+
+The root-authorized contract is SOURCE_ACTUAL_MORSE_LOCAL_MODEL{,_PLAN,_CONTROLS}.md in the stage60 publication scratch, read completely along with ROOT_GO14:42:03UTC28October2026. PRECODE4e41aaec1d6a63d2425112141372a2d23d7c7409; pickup6471999400. Checkpoint15:20/terminal16:30UTC or invocation end are unreset. SHARED_CONTEXT60_V1 was read and acknowledged directly to producer before proof text. Producer then explicitly released proof text after all helper ACKs. Supplement C was read and ACKed before its actual Taylor-neighborhood consumer was authored; no existing interface was changed.
+
+The complete section is PRIVATE and inserted once inside the producer's exact namespace and aliases. All fixture data, linear equivalences and lemmas use private fixture_ names. Four samples are literal finiteShiftSample(toSource2p)(zeroSample22). Their trigonometric lists use public scale/append/mul and sine offsets -pi/2. The inline finite support series evaluation uses the public finite-sum theorem and public toSource_eval, not a foreign-private represented sample or finite-pairing lemma. The same original-mode derivative rows are explicitly linked with public toSource_derivative. Analytic derivatives are independently derived for the new actual fields. No old57 scratch Controls object or source59/private helper is inspected or consumed.
+
+The four rows are exactly the minimum negative cosine sum, maximum positive cosine sum, diagonal cosine difference and true zero-diagonal sine product. Criticality and the full bilinear Hessian are derived. Explicit P maps are continuous linear equivalences: sqrt2/pi I on the first three; pi^-1[[1,1],[-1,1]] on the fourth. The full ordered 2J normalization is proved. Genuine literal inertia is derived by complementary top/bottom subspaces or the two actual P-column lines with proved dimensions and strict signs; no determinant/rank shortcut or desired inertia premise replaces it. The zero-diagonal saddle entries are separately recorded.
+
+Every actual row directly specializes the new actual Taylor center, branch center, normalizedResponse derivative and normalized_localModel interfaces with its explicit P. Supplement C supplies actual Taylor C1/symmetry, and the helper derives an actual open preimage branch neighborhood and actual local J-congruence. The normalized h value, derivative and full second derivative are recorded. The localModel and criticalConeBasis consequences use the same returned chart. No equality of noncanonical chosen charts is asserted.
+
+These source-private positives belong to final production strict/inventory and its ONE own-module kernel after actual integration/amendments. The separate ordinary Controls delivery has independent qualification scope; production kernel does not cover that Controls-only section. No Gaussian law, positive point mass or global-Morse assertion is attached to these deterministic source samples.
+
+Completed applicable verification is reusable under /workspace/AGENTS.md. No old campaign was replayed. Same-family/provider-distinct credit0; scientific statusNONE. Root alone owns sharedmetadata/cache/config/Git/registry/external. Delivery is not reading or different-provider review.
+
+Standing authority:
+
+- https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md
+- https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md

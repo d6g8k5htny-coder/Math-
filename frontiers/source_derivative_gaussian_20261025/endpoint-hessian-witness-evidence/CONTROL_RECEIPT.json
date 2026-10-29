@@ -1,0 +1,60 @@
+{
+  "contract": {
+    "path": "/workspace/scratch/endpoint-hessian-witness-construct/CONTROL_CONTRACT.md",
+    "bytes": 4162,
+    "sha256": "51570bf6e42a750876d4f3437fceeba68a5e0890f75f652b33d0d33fb2d7fc8e"
+  },
+  "contract_before_source": true,
+  "positive_source": {
+    "path": "/workspace/scratch/endpoint-hessian-witness-construct/Controls.lean",
+    "bytes": 10941,
+    "sha256": "37cafe57c676768ddd74d9954b23b1a57debe526abc8f53ccc0ca7ad0fcefefd"
+  },
+  "positive_receipt": {
+    "path": "/workspace/scratch/endpoint-hessian-witness-construct/runs/controls-003/record.json",
+    "bytes": 1381,
+    "sha256": "6cecf82b80169b4d4da8a519c4e82e9ef093d96d7f0fb3e438f93a14b17309c9"
+  },
+  "public_controls": 14,
+  "private_control_adapters": 5,
+  "positive_scope": [
+    "literal rawHessianrowsM6,7,8/S9,10,11",
+    "ordinaryXYdirectionandnormalization",
+    "actualrawPinsWithHessians seriesselects theserows",
+    "internallyconstructed originaldirections all36raw+18ownHessianpairings",
+    "distinctactualHessian target1,2,3 finiteoriginaldirections",
+    "negativeperiodLminus2r1 actualfamilies",
+    "negativeradiusL2rminus1 actualfamilies",
+    "actualquotient separation from integerparity for signedinstances",
+    "bothendpointtags arbitraryrectangularinterface concreteR(j,i)=(j+1)*(i+2)",
+    "bothendpointtags zero3x6correction",
+    "bothoppositepin multiplieralpha4",
+    "ownpublicgerm sixjet identity including zerolowerjet/ordinarymixed",
+    "othermultiplier value/fullfderivzero",
+    "actualunnormalized finitepoly toSource literalrow6pairing4",
+    "counterexample actualnormalizationomission pairing4ne1"
+  ],
+  "negative_source": {
+    "path": "/workspace/scratch/endpoint-hessian-witness-construct/NormalizationMutation.lean",
+    "bytes": 339,
+    "sha256": "e1fde3cee92c50b69ae001103443c813a8ceb026a7777f9556560ea5ebc0b314"
+  },
+  "negative_receipt": {
+    "path": "/workspace/scratch/endpoint-hessian-witness-construct/runs/normalization-001/record.json",
+    "bytes": 1435,
+    "sha256": "cfacb407c3d1672b4b4a6d2526ea4dc549dc798e70db0790b42d48e6b73b320a"
+  },
+  "distinct_mutation_count": 1,
+  "mutation_attempts": 1,
+  "negative_mechanism": "Omit only alpha^-1 from concreteM,column0 witnesspoly L2r1, retain desired identitypairing1. Passedcontrols prove actualpoly Pq*g0 and toSource rawrow6pairing4, with alpha4. Counterexample rewrites exactmutatedpairingclaim to soleFalse. No collision/rank/separationomission mutation.",
+  "sole_false_count": 1,
+  "unrelated_negative_diagnostics": 0,
+  "positive_counterexample_object_reuse": {
+    "path": "/workspace/scratch/endpoint-hessian-witness-construct/build/Controls.olean",
+    "bytes": 545144,
+    "sha256": "63b68aa755cf3ad83eac008f3802052d1e63d710824ea37047e5b4277be85512"
+  },
+  "control_object_production_eligible": false,
+  "source_unchanged_through_qualification": true,
+  "failed_positive_attempts": "controls001 local harness unfolding/direction arrays, missingFoundationopen, signedcast/layout, no-goal/unusedsimp and fderivunfold; controls002 needed publicgermvector equality before muljet expansion plus explicit smoothformula change; controls003 PASS. All attempts retained."
+}

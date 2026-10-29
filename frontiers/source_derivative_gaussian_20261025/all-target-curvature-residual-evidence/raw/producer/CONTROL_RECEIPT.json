@@ -1,0 +1,79 @@
+{
+  "contract": {
+    "path": "/workspace/scratch/all-target-curvature-residual-construct/CONTROL_CONTRACT.md",
+    "bytes": 3426,
+    "sha256": "9db26396782c901f9e82b08973f99b38e6d5e1a5b993330e41514202067aebb5"
+  },
+  "freeze": {
+    "path": "/workspace/scratch/all-target-curvature-residual-construct/CONTROL_FREEZE.json",
+    "bytes": 440,
+    "sha256": "121e820911aa83b7eddca0f883290e66a017a591e0ba5ac95e7cf8b69edaa8c9"
+  },
+  "positive_source": {
+    "path": "/workspace/scratch/all-target-curvature-residual-construct/AllTargetResidualControls.lean",
+    "bytes": 6171,
+    "sha256": "5f11300b6279ad1e244522c0dd6f9d674146bc4dda597590996e72e3826f415a"
+  },
+  "positive_object": {
+    "path": "/workspace/scratch/all-target-curvature-residual-construct/build/AllTargetResidualControls.olean",
+    "bytes": 191384,
+    "sha256": "81d884298a9efaa956eb87a0408b83c5acd29a225f77890bbcb7b3d80efdf5aa"
+  },
+  "positive_receipt": {
+    "path": "/workspace/scratch/all-target-curvature-residual-construct/runs/controls-002/receipt.json",
+    "bytes": 2025,
+    "sha256": "5c4865ac9be489c9e2961d2956c29aebabb832bbfbbb8d86413b1bf08ea1f1e0"
+  },
+  "positive_theorems": [
+    "negativePeriodNonzero",
+    "literal_radius",
+    "arbitrary_target_measurable",
+    "arbitrary_target_lower_bound",
+    "arbitrary_target_contact_bound",
+    "exact_old_default_specialization",
+    "closed_negative_period_endpoint",
+    "literal_residual_law",
+    "zeroth_moment_integrable",
+    "zeroth_moment_exact",
+    "nondefault_gap_literal",
+    "all_height_gap_quantifiers",
+    "nondefault_gap_moments",
+    "constant_three_norm",
+    "target_growth_erasure_counterexample"
+  ],
+  "positive_theorem_count": 15,
+  "negative_period": -1,
+  "generic_target": "all p : Fin 6 \u2192 \u211d",
+  "nondefault_gap": {
+    "k": 2,
+    "b": 3,
+    "sixth_pin": 24
+  },
+  "n_zero": "integrable for every r,p and exact residual-law integral = 1",
+  "radius_quantifier_order": "exists delta A H before all r,p,rho,q,n; delta before n then Cn before r,p",
+  "moment_law": "literal curvatureResidualLaw; literal residual sample pushforward tested",
+  "target_growth": "Cn*(1+norm p)^n retained; gap Cn*(1+abs b)^n retained",
+  "exact_default_specialization": "allTarget radius at sourcePrescribedPins = old curvatureResidualRadius by rfl; checked via new API",
+  "false_source": {
+    "path": "/workspace/scratch/all-target-curvature-residual-construct/FalseGrowthErasureMutation.lean",
+    "bytes": 500,
+    "sha256": "8c2d6c278fc117f5f5b2b7166ac98a316879623e2b506f5235ebaa782bc0e7de"
+  },
+  "false_receipt": {
+    "path": "/workspace/scratch/all-target-curvature-residual-construct/runs/false-growth-001/receipt.json",
+    "bytes": 1937,
+    "sha256": "9f17e2f2c9033b76e3a59575cfee279e5dae6e6b55f02f5ea5b838fb3b825a07"
+  },
+  "false_log": {
+    "path": "/workspace/scratch/all-target-curvature-residual-construct/runs/false-growth-001/output.log",
+    "bytes": 182,
+    "sha256": "b47a7cccd9a330822dfb86667ba6d8816da01870659499a387696c0a75c61d2c"
+  },
+  "distinct_mutation_count": 1,
+  "negative_exit_code": 1,
+  "residual_false_count": 1,
+  "unrelated_diagnostic_count": 0,
+  "negative_scope": "Only arithmetic inequality (1+norm p)^n <= 1 is refuted at constant p=3,n=1. This is not a counterexample to every conceivable target-uniform residual moment bound.",
+  "production_source_and_object_unchanged_for_all_controls": true,
+  "all_historical_attempts_preserved": true
+}

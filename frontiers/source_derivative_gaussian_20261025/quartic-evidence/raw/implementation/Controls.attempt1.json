@@ -1,0 +1,25 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "/workspace/scratch/pin-preserving-quartic-implementation/Controls.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit_code": 1,
+  "duration_seconds": 6.580517530441284,
+  "timestamp_utc": "2026-10-26T01:10:55.992232+00:00",
+  "sha256_before": {
+    "source": "8e23717ef98518b6d701db921d1f17958c3dee2c893745cafa7aa6172f1621d9",
+    "olean": "d4cff4ad4c99947b084df20691dfc1228e9f46710faf52d9f28f7e3d57a97f72",
+    "control": "0157a0c847c9b2715fbfeb239ab0b09346af4f528e4ff96bd1080eb3ddec1677"
+  },
+  "sha256_after": {
+    "source": "8e23717ef98518b6d701db921d1f17958c3dee2c893745cafa7aa6172f1621d9",
+    "olean": "d4cff4ad4c99947b084df20691dfc1228e9f46710faf52d9f28f7e3d57a97f72",
+    "control": "0157a0c847c9b2715fbfeb239ab0b09346af4f528e4ff96bd1080eb3ddec1677"
+  },
+  "author_side_helper_lineage": "OpenAI/Codex /root/dm2_landed_composition/peano_strategy",
+  "scope": "NEW_SOURCE_PIN_PRESERVING_QUARTIC_CONTROLS_ONLY",
+  "raw_log": "/workspace/scratch/pin-preserving-quartic-implementation/Controls.attempt1.log"
+}

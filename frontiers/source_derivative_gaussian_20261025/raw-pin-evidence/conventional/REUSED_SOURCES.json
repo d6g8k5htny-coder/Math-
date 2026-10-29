@@ -1,0 +1,135 @@
+{
+  "role": "Read-only source/review identity projection; completed verification reused, not rerun.",
+  "actual_sources": [
+    {
+      "unit": "smooth_gaussian_manifold_admission",
+      "kind": "full_accepted_proof",
+      "bytes": 40231,
+      "sha256": "8d992e194f0a898e563c4c3d05b8079cde292f9e87d7ff51030ad12ef5faf319",
+      "git_blob_sha1": "d61fd11a826856baecb4cf4cd8a76ad5c25350dd",
+      "path": "frontiers/gaussian_short_bar_theory_20261017/smooth_gaussian_manifold_admission/PROOF.md"
+    },
+    {
+      "unit": "smooth_gaussian_manifold_admission",
+      "kind": "full_integrated_nonauthor_review",
+      "bytes": 38035,
+      "sha256": "6fedc43ba34408f23f8934166b3898e2cd19175c57e61e37227c85f3ca5d4c70",
+      "git_blob_sha1": "554994ce28ea6b9e63450aa12301e5f220ec2e40",
+      "path": "frontiers/gaussian_short_bar_theory_20261017/smooth_gaussian_manifold_admission/REVIEW.md"
+    },
+    {
+      "unit": "smooth_gaussian_manifold_admission",
+      "kind": "original_integrated_verdict",
+      "bytes": 6512,
+      "sha256": "555cccea916ad2f7443a87b724190f38f4a3af96b30afb79bbb03c515b75a15b",
+      "git_blob_sha1": "7199e9301c2c28d928e69eff1ae55498b3c819aa",
+      "path": "frontiers/gaussian_short_bar_theory_20261017/smooth_gaussian_manifold_admission/REVIEW_RESULT.json"
+    },
+    {
+      "unit": "smooth_gaussian_manifold_admission",
+      "kind": "original_focused_review_record",
+      "bytes": 24252,
+      "sha256": "a14f009f44a74ff25c9cac3aa779f17c8429865089d7ae656c7c6aeac0b6276b",
+      "git_blob_sha1": "2ce2b64fd0f5e959887831cf32e6fc8c0ba12e0d",
+      "path": "frontiers/gaussian_short_bar_theory_20261017/smooth_gaussian_manifold_admission/focused/REVIEW.md"
+    },
+    {
+      "unit": "smooth_gaussian_manifold_admission",
+      "kind": "original_focused_review_record",
+      "bytes": 2736,
+      "sha256": "b82e9fcf4a0f7a30ffc8fec3288188c41c9cc8f6814b1ab6da73f5c278ce07f7",
+      "git_blob_sha1": "36839911d1ee5a5ebddf64889a6168613e4b5e49",
+      "path": "frontiers/gaussian_short_bar_theory_20261017/smooth_gaussian_manifold_admission/focused/RESULT.json"
+    },
+    {
+      "unit": "smooth_gaussian_manifold_admission",
+      "kind": "original_focused_review_record",
+      "bytes": 3161,
+      "sha256": "9da5ea841f20d8227aec89d2564a2c1a24865bbfd4358b224e3e994b8c49e469",
+      "git_blob_sha1": "77b320c2fb2c073946e753937f7fe190a61904df",
+      "path": "frontiers/gaussian_short_bar_theory_20261017/smooth_gaussian_manifold_admission/focused/MANIFEST.json"
+    }
+  ],
+  "finite_L_actual_binding": {
+    "proof_path": "frontiers/original_finite_l_gaussian_binding_20261017/PROOF.md",
+    "proof_sha256_from_existing_review": "ad9ab5afea28062dfc661d0d19b43f20e67cfd67cb6910d3cc6c3fb8b81398d8",
+    "proof_git_blob_from_readonly_ls_tree": "e8bb07fe8fab94616f02bdf792c34e3b337e1cf6",
+    "review_path": "frontiers/original_finite_l_gaussian_binding_20261017/REVIEW.md",
+    "review_git_blob_from_readonly_ls_tree": "95c0d25a1caa49f95c8bcd3a2d3f131d460da890",
+    "repository_commit_containing_both": "c4eabc1a917ba2c1b96fe4af425cf2a484877c03",
+    "review": "ACCEPT_SCOPED, OpenAI/Codex nonauthor; provider-distinct credit0",
+    "consumed_scope": "Sections3-4 actual independent Fourier law/dense span/all-smooth norm sums and source-law identity. Later numerical/coefficient/elder conclusions not needed."
+  },
+  "c6_marked_precedent": {
+    "path": "frontiers/c6_palm_route_20260929/PROOF.md",
+    "git_blob": "89eb8adf08fe7afc2cab9662d3a9875c05ae5cc5",
+    "scope": "Section5.1 canonical all-Borel marks and kernel convention only; additional-point pinned formula is not used as the unconditioned pair theorem.",
+    "existing_review_record": "Math-PR145 review5358116559 at06bc0d6, sections5-7 scopedACCEPT; SOURCE_MAP states consumed sections remain byte-identical. Not a new or provider-distinct review."
+  },
+  "LM006_interfaces": [
+    {
+      "path": "reviews/lm006_endpoint_extension_20261005/NOTE.md",
+      "git_blob": "551aa563562bc88a19e33d146259c03aa2d318f6",
+      "commit": "e31b6ad8356e0760c8a7fb6e816ff640c45176c9",
+      "scope": "Literal raw/confluent rows, inverse and prescribedtarget; no implicit historical-frame identity."
+    },
+    {
+      "path": "reviews/lm006_tilted_endpoint_law_20261005/NOTE.md",
+      "git_blob": "6633cdf0bfee55e2fc2046176effbf44634454b3",
+      "sha256_from_sources": "ebff808093e4fcc9959ff8690c9cf049d91ac3306297853e559d70739747f113",
+      "scope": "Common-carrier normalized weighting and the warning that unrelated endpoint marginals do not identify full-field events."
+    },
+    {
+      "path": "reviews/lm006_positive_radius_density_20261006/NOTE.md",
+      "git_blob": "a6d5209a64d37b3ea28cb7dd64d92888a74acfe1",
+      "sha256_from_sources": "2df0973dfc4f1682fafe69a044c515a6a9173dc835f55f57c769f7be00edbf91",
+      "scope": "Actual distinct-site joint jet density/rank precedent; its fixedL24 specialization is not used as an allL theorem. Current local covarianceminor derived independently from reused provedsmallr covariance."
+    }
+  ],
+  "current_formal_sources": [
+    {
+      "path": "frontiers/source_derivative_gaussian_20261025/SourceConfluentPins.lean",
+      "sha256_from_existing_manifest": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f"
+    },
+    {
+      "path": "frontiers/source_derivative_gaussian_20261025/SourceDerivativeContinuity.lean",
+      "sha256_from_existing_manifest": "552511e0aee227133b7d067faeceaab9c43c0094b07d68b8eddab0ab2419775e"
+    },
+    {
+      "path": "frontiers/source_derivative_gaussian_20261025/SourceConfluentLimits.lean",
+      "sha256_from_existing_manifest": "1635a05bbd5b56608bc0a1a04eb4404c2df4601f1255f5846c1342a597bf5b0b"
+    },
+    {
+      "path": "frontiers/source_derivative_gaussian_20261025/SourceEndpointEstimates.lean",
+      "sha256_from_existing_manifest": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598"
+    },
+    {
+      "path": "frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean",
+      "sha256_from_existing_manifest": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517"
+    },
+    {
+      "path": "frontiers/source_derivative_gaussian_20261025/SourceSmoothPalm.lean",
+      "sha256_from_existing_manifest": "1b1d47b640b541195dad1472a07fa9490f203bd1619b1759b29587a0effe631d"
+    }
+  ],
+  "current_formal_review": {
+    "url": "https://github.com/d6g8k5htny-coder/Math-/pull/513#issuecomment-6405469445",
+    "cut": "37f8f01db8b7e30190f09bf784d1b4e3419da540",
+    "verdict": "AnthropicClaude01Cz PASS_SCOPED for four wholefieldmodules only, including canonicalcarrierkernel/rawweight/eventtransfer. No Lean rerun by reviewer; does not review new geometricjoin."
+  },
+  "read_extents": [
+    "GAD source\u00a76 and\u00a712 fully reread; actual series/regression passages consulted",
+    "GAD focusedreview\u00a75-6 fully reread, with exactsource/coverageverdictJSON",
+    "FiniteL binding\u00a7\u00a71-4 and review fully read for exactlaw admission",
+    "C6 source\u00a75.1 and consumedsource/reviewmetadata",
+    "Relevant LM006 endpointframe and weighting/rank passages; not a claimed fullnew review of allhistoricalparents",
+    "Current rawpins/confluent/kernel/physicalweight/exportAPI passages and existingmanifestmetadata"
+  ],
+  "no_reverification": "No oldLean/kernel/control/math sourcechecks were rerun. Existing identity values came from recorded source maps/reviews/manifests or read-only git object lookup. Only new scratch algebra was compiled.",
+  "provider_family": "OpenAI author-side; process review tracked separately",
+  "coordination": {
+    "topology_owner": "/root/uniform_jet_moment_sources",
+    "Morse_finiteness_owner": "/root/normalizer_palm_research",
+    "production_and_contender_custody": "/root; this lane makes no production or remote changes"
+  }
+}

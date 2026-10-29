@@ -1,0 +1,20 @@
+SourceMorseIncidence.lean:1409:2: error: Tactic `rfl` failed: The left-hand side
+  fourReindex a j
+is not definitionally equal to the right-hand side
+  (MeasurableEquiv.piCongrLeft (fun x => ℝ) fourModeEquiv.symm) a j
+
+a : ↥fourModeSet → ℝ
+j : Fin 4
+⊢ fourReindex a j = (MeasurableEquiv.piCongrLeft (fun x => ℝ) fourModeEquiv.symm) a j
+SourceMorseIncidence.lean:1494:6: error: Type mismatch: After simplification, term
+  hp
+ has type
+  (fderiv ℝ (smoothSourceField 2 L ω) x) ![1, 0] = 0
+but is expected to have type
+  (fderiv ℝ (smoothSourceField 2 L ω) x) (Function.update 0 0 1) = 0
+SourceMorseIncidence.lean:1496:6: error: Type mismatch: After simplification, term
+  hq
+ has type
+  (fderiv ℝ (smoothSourceField 2 L ω) x) ![0, 1] = 0
+but is expected to have type
+  (fderiv ℝ (smoothSourceField 2 L ω) x) (Function.update 0 1 1) = 0

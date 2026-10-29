@@ -1,0 +1,2078 @@
+{
+  "module": "SourceActualMorseLocalModel",
+  "inventory_run": "inventory-001",
+  "all_module_index_owned_constants": 173,
+  "counts": {
+    "authored_private_data": 37,
+    "owned_private_generated": 64,
+    "authored_private_Prop": 68,
+    "authored_public_Prop": 1,
+    "owned_foreign_generated": 3
+  },
+  "kinds": {
+    "definition": 37,
+    "theorem": 136
+  },
+  "authored_public_Prop": 1,
+  "authored_public_data": 0,
+  "foreign_generated_names": [
+    "LinearEquiv.toContinuousLinearEquiv.congr_simp",
+    "I4Weights.sourceC.eq_1",
+    "sigNeg.eq_1"
+  ],
+  "standard_three_guard": "PASS all173",
+  "items": [
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.parameterDerivative",
+      "short": "parameterDerivative",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_ordered._simp_1_8",
+      "short": "fixture_ordered._simp_1_8",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_D._proof_2",
+      "short": "fixture_D._proof_2",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_axisSin.eq_1",
+      "short": "fixture_axisSin.eq_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_inertia_zero",
+      "short": "fixture_inertia_zero",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_scalarEquiv._proof_4",
+      "short": "fixture_scalarEquiv._proof_4",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.inertia60_swap",
+      "short": "inertia60_swap",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.q2.eq_1",
+      "short": "q2.eq_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_ordered._simp_1_9",
+      "short": "fixture_ordered._simp_1_9",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_true_zero_diagonal",
+      "short": "fixture_true_zero_diagonal",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.bilinear_coordinates",
+      "short": "bilinear_coordinates",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_poly.eq_1",
+      "short": "fixture_poly.eq_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_P",
+      "short": "fixture_P",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.localModel.eq_1",
+      "short": "localModel.eq_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.actual_ordered_normalizer",
+      "short": "actual_ordered_normalizer",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.inertia60_swap._proof_2",
+      "short": "inertia60_swap._proof_2",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.E2",
+      "short": "E2",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_ordered._simp_1_7",
+      "short": "fixture_ordered._simp_1_7",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_original_mode_derivative",
+      "short": "fixture_original_mode_derivative",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.jBranch_sign_square",
+      "short": "jBranch_sign_square",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.orderedNormalization",
+      "short": "orderedNormalization",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.normalized_hessian_zero",
+      "short": "normalized_hessian_zero",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_critical",
+      "short": "fixture_critical",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.inertia60_swap.eq_1",
+      "short": "inertia60_swap.eq_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.actual_taylorMatrix_symm",
+      "short": "actual_taylorMatrix_symm",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.inertia60_bilin",
+      "short": "inertia60_bilin",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.q2",
+      "short": "q2",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_mixedEquiv._simp_1",
+      "short": "fixture_mixedEquiv._simp_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.hessianEntry_contDiff",
+      "short": "hessianEntry_contDiff",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_B.eq_1",
+      "short": "fixture_B.eq_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_normalized_jet",
+      "short": "fixture_normalized_jet",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.Mat2",
+      "short": "Mat2",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_axisCos",
+      "short": "fixture_axisCos",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.inertia60_order_weights",
+      "short": "inertia60_order_weights",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_poly",
+      "short": "fixture_poly",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_mixedEquiv._proof_4",
+      "short": "fixture_mixedEquiv._proof_4",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.sign2",
+      "short": "sign2",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.jBranchDomain",
+      "short": "jBranchDomain",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.jBranch_det_contDiff",
+      "short": "jBranch_det_contDiff",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.localModel",
+      "short": "localModel",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.normalizedField.eq_1",
+      "short": "normalizedField.eq_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.point2_decomp",
+      "short": "point2_decomp",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_scalarEquiv._simp_1",
+      "short": "fixture_scalarEquiv._simp_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_a.eq_1",
+      "short": "fixture_a.eq_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.inertia60_bilin._proof_2",
+      "short": "inertia60_bilin._proof_2",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.actual_taylorMatrix_zero",
+      "short": "actual_taylorMatrix_zero",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_consumers",
+      "short": "fixture_consumers",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "I4SourceActualMorseLocalModel.actualSource_c1_quadratic_localModel",
+      "short": "I4SourceActualMorseLocalModel.actualSource_c1_quadratic_localModel",
+      "kind": "theorem",
+      "classification": "authored_public_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.inertia60_bilin._proof_5",
+      "short": "inertia60_bilin._proof_5",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.matrixCLM.eq_1",
+      "short": "matrixCLM.eq_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.normalizedField",
+      "short": "normalizedField",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_scalarEquiv._proof_2",
+      "short": "fixture_scalarEquiv._proof_2",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.jMatrix_mem_jBranchDomain",
+      "short": "jMatrix_mem_jBranchDomain",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.normalized_localModel",
+      "short": "normalized_localModel",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.taylorMatrix.eq_1",
+      "short": "taylorMatrix.eq_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_scalarEquiv._proof_3",
+      "short": "fixture_scalarEquiv._proof_3",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_axisCos_eval",
+      "short": "fixture_axisCos_eval",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_b",
+      "short": "fixture_b",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.compact_interval_integral_c1._simp_1_1",
+      "short": "compact_interval_integral_c1._simp_1_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_c.eq_1",
+      "short": "fixture_c.eq_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_ordered._simp_1_10",
+      "short": "fixture_ordered._simp_1_10",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.q2_smul",
+      "short": "q2_smul",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.inertia60_separating",
+      "short": "inertia60_separating",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_hessian",
+      "short": "fixture_hessian",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.hessianMatrix",
+      "short": "hessianMatrix",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_sample_field",
+      "short": "fixture_sample_field",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.actual_taylor_formula",
+      "short": "actual_taylor_formula",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_P._proof_1",
+      "short": "fixture_P._proof_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.matrixCLM_one",
+      "short": "matrixCLM_one",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_axisSin_eval",
+      "short": "fixture_axisSin_eval",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_sample",
+      "short": "fixture_sample",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.criticalConeBasis",
+      "short": "criticalConeBasis",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_expr_hasFDerivAt",
+      "short": "fixture_expr_hasFDerivAt",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.criticalConeBasis_of_chart",
+      "short": "criticalConeBasis_of_chart",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.basis2.eq_1",
+      "short": "basis2.eq_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.jMatrix",
+      "short": "jMatrix",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.jBranch_cayleyHamilton2",
+      "short": "jBranch_cayleyHamilton2",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.jBranch_center",
+      "short": "jBranch_center",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.inertia60_bilin._proof_3",
+      "short": "inertia60_bilin._proof_3",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.jMatrix.eq_1",
+      "short": "jMatrix.eq_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_index",
+      "short": "fixture_index",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.jBranch_numerator_congruence",
+      "short": "jBranch_numerator_congruence",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_index.eq_1",
+      "short": "fixture_index.eq_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.taylorMatrix",
+      "short": "taylorMatrix",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_axisCos.eq_1",
+      "short": "fixture_axisCos.eq_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.inertia60_bilin._proof_4",
+      "short": "inertia60_bilin._proof_4",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.inertia60_swap._proof_3",
+      "short": "inertia60_swap._proof_3",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_mixedEquiv.eq_1",
+      "short": "fixture_mixedEquiv.eq_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_A",
+      "short": "fixture_A",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.taylor_weight_integral",
+      "short": "taylor_weight_integral",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_scale",
+      "short": "fixture_scale",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.matrixCLM_apply",
+      "short": "matrixCLM_apply",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "LinearEquiv.toContinuousLinearEquiv.congr_simp",
+      "short": "LinearEquiv.toContinuousLinearEquiv.congr_simp",
+      "kind": "theorem",
+      "classification": "owned_foreign_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.cone_ball_pathConnected",
+      "short": "cone_ball_pathConnected",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_proj.eq_1",
+      "short": "fixture_proj.eq_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.matrixCLM",
+      "short": "matrixCLM",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.taylor_integral_coordinates",
+      "short": "taylor_integral_coordinates",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.basis2",
+      "short": "basis2",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.sign2.eq_1",
+      "short": "sign2.eq_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_axisSin",
+      "short": "fixture_axisSin",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.jBranch_product_contDiff",
+      "short": "jBranch_product_contDiff",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_D",
+      "short": "fixture_D",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.criticalConeBasis.eq_1",
+      "short": "criticalConeBasis.eq_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_actual_branch_neighborhood",
+      "short": "fixture_actual_branch_neighborhood",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.jBranchDomain_isOpen",
+      "short": "jBranchDomain_isOpen",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.inertia60_bilin._proof_1",
+      "short": "inertia60_bilin._proof_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.matrixCLM_contDiff",
+      "short": "matrixCLM_contDiff",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.Point2",
+      "short": "Point2",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_P.eq_1",
+      "short": "fixture_P.eq_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.jBranch_jMatrix_square",
+      "short": "jBranch_jMatrix_square",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_field_formula",
+      "short": "fixture_field_formula",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_mixedEquiv._proof_1",
+      "short": "fixture_mixedEquiv._proof_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.normalizedResponse.eq_1",
+      "short": "normalizedResponse.eq_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.actual_normalized_critical",
+      "short": "actual_normalized_critical",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.jBranch_congruence",
+      "short": "jBranch_congruence",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_A_hasFDerivAt_zero",
+      "short": "fixture_A_hasFDerivAt_zero",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "I4Weights.sourceC.eq_1",
+      "short": "I4Weights.sourceC.eq_1",
+      "kind": "theorem",
+      "classification": "owned_foreign_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_same_chart_cone",
+      "short": "fixture_same_chart_cone",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_b.eq_1",
+      "short": "fixture_b.eq_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.inertia60_swap._proof_4",
+      "short": "inertia60_swap._proof_4",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.actual_taylorMatrix_contDiff",
+      "short": "actual_taylorMatrix_contDiff",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.inertia60_swap._proof_1",
+      "short": "inertia60_swap._proof_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.normalizedResponse_contDiffAt",
+      "short": "normalizedResponse_contDiffAt",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.parameterDerivative._proof_1",
+      "short": "parameterDerivative._proof_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_expr",
+      "short": "fixture_expr",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_B_hasFDerivAt_zero",
+      "short": "fixture_B_hasFDerivAt_zero",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_A.eq_1",
+      "short": "fixture_A.eq_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.compact_interval_integral_c1",
+      "short": "compact_interval_integral_c1",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.jBranch",
+      "short": "jBranch",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.congruence_quadratic",
+      "short": "congruence_quadratic",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_ordered._simp_1_13",
+      "short": "fixture_ordered._simp_1_13",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.jBranch_trace_contDiff",
+      "short": "jBranch_trace_contDiff",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.taylorMatrix_zero_general",
+      "short": "taylorMatrix_zero_general",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_inertia_one",
+      "short": "fixture_inertia_one",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_inertia_two",
+      "short": "fixture_inertia_two",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_B",
+      "short": "fixture_B",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_mixedEquiv._proof_2",
+      "short": "fixture_mixedEquiv._proof_2",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_values_at_zero",
+      "short": "fixture_values_at_zero",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_c",
+      "short": "fixture_c",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_ordered",
+      "short": "fixture_ordered",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_expr.eq_1",
+      "short": "fixture_expr.eq_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.inertia60_bilin_apply",
+      "short": "inertia60_bilin_apply",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_scalarEquiv.eq_1",
+      "short": "fixture_scalarEquiv.eq_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_mixedEquiv._proof_3",
+      "short": "fixture_mixedEquiv._proof_3",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_scalarEquiv._proof_1",
+      "short": "fixture_scalarEquiv._proof_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.normalizedResponse_hasFDerivAt",
+      "short": "normalizedResponse_hasFDerivAt",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_scalarEquiv._proof_7",
+      "short": "fixture_scalarEquiv._proof_7",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.normalizedField_contDiff",
+      "short": "normalizedField_contDiff",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_a",
+      "short": "fixture_a",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_D.eq_1",
+      "short": "fixture_D.eq_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "sigNeg.eq_1",
+      "short": "sigNeg.eq_1",
+      "kind": "theorem",
+      "classification": "owned_foreign_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_scale_ne",
+      "short": "fixture_scale_ne",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.jBranch_jMatrix_transpose",
+      "short": "jBranch_jMatrix_transpose",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_expr_jet",
+      "short": "fixture_expr_jet",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_axis_phase",
+      "short": "fixture_axis_phase",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_inertia",
+      "short": "fixture_inertia",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_P_coordinates",
+      "short": "fixture_P_coordinates",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_scalarEquiv._proof_8",
+      "short": "fixture_scalarEquiv._proof_8",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_scalarEquiv._proof_6",
+      "short": "fixture_scalarEquiv._proof_6",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_poly_eval",
+      "short": "fixture_poly_eval",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_point_sq_pos",
+      "short": "fixture_point_sq_pos",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_proj",
+      "short": "fixture_proj",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.matrixCLM._proof_1",
+      "short": "matrixCLM._proof_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.normalizedResponse",
+      "short": "normalizedResponse",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_scale.eq_1",
+      "short": "fixture_scale.eq_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_ordered._simp_1_11",
+      "short": "fixture_ordered._simp_1_11",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_scalarEquiv",
+      "short": "fixture_scalarEquiv",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_D._proof_1",
+      "short": "fixture_D._proof_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_ordered._simp_1_12",
+      "short": "fixture_ordered._simp_1_12",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.jBranch_contDiffOn",
+      "short": "jBranch_contDiffOn",
+      "kind": "theorem",
+      "classification": "authored_private_Prop",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_mixedEquiv",
+      "short": "fixture_mixedEquiv",
+      "kind": "definition",
+      "classification": "authored_private_data",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.fixture_scalarEquiv._proof_5",
+      "short": "fixture_scalarEquiv._proof_5",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "explicit_source_reference": false
+    },
+    {
+      "name": "_private.SourceActualMorseLocalModel.0.I4SourceActualMorseLocalModel.orderedNormalization._proof_1",
+      "short": "orderedNormalization._proof_1",
+      "kind": "theorem",
+      "classification": "owned_private_generated",
+      "axioms": [
+        "propext"
+      ],
+      "explicit_source_reference": false
+    }
+  ]
+}

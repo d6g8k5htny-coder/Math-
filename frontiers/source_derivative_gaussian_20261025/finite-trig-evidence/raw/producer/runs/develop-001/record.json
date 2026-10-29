@@ -1,0 +1,19 @@
+{
+  "kind": "develop",
+  "run": "develop-001",
+  "start": "2026-10-26T11:31:26.386233+00:00",
+  "end": "2026-10-26T11:31:29.539192+00:00",
+  "seconds": 3.1529708320013015,
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFiniteTrig.lean",
+    "-o",
+    "/workspace/scratch/finite-trig-construct/runs/develop-001/SourceFiniteTrig.olean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 1,
+  "source_sha256": "c29ed48349066a9427c21fbcd43c0d727929173e2249f4394f9185c464672a75"
+}

@@ -1,0 +1,47 @@
+{
+  "operation": "stage66-outer-capture",
+  "scope": "outer",
+  "script_argv": [
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+    "--run-dir",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures-fix001",
+    "--cwd",
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "--scope",
+    "outer",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+    "production-fixtures-fix001",
+    "documentary",
+    "--",
+    "python3",
+    "-c",
+    "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct');S=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();new=old\nfor a,b in [[\"(ContinuousLinearMap.proj (0 : Fin 2)).comp Q\",\"(ContinuousLinearMap.proj (0 : Fin 2) : Point2 \u2192L[\u211d] \u211d).comp (Q : E2 \u2192L[\u211d] Point2)\"],[\"(ContinuousLinearMap.proj (1 : Fin 2)).comp Q\",\"(ContinuousLinearMap.proj (1 : Fin 2) : Point2 \u2192L[\u211d] \u211d).comp (Q : E2 \u2192L[\u211d] Point2)\"],[\"  simpa [fixtureXseam, fixture_seam_phase.2] using fixture_seam_phase.2\",\"  simp [fixtureXseam, fixture_seam_phase.2]\"],[\"    exact hp\\n  ext i\",\"    simpa [neg_div] using hp\\n  ext i\"],[\"    \u00b7 simpa only [Matrix.cons_val_zero, neg_div, abs_neg] using hhalf\",\"    \u00b7 simpa [neg_div, abs_neg] using hhalf\"],[\"(hpc \u03b5 h\u03b5).2.joinedIn hm hp\",\"(hpc \u03b5 h\u03b5).2.joinedIn _ hm _ hp\"],[\"ContinuousLinearMap.zero_apply\",\"zero_apply\"]]:\n assert a in new,a;new=new.replace(a,b)\nH=B/'history/production-fixtures-fix001';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'PRODUCTION_FIXTURES_FIX001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/production-fixtures-fix001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual full patch identity, once'};cp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only fixtures001 concrete CLM type/simp/coercion/JoinedIn/deprecation findings','full_patch':str(p)}))\n"
+  ],
+  "command_argv": [
+    "python3",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+    "production-fixtures-fix001",
+    "documentary",
+    "--",
+    "python3",
+    "-c",
+    "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct');S=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();new=old\nfor a,b in [[\"(ContinuousLinearMap.proj (0 : Fin 2)).comp Q\",\"(ContinuousLinearMap.proj (0 : Fin 2) : Point2 \u2192L[\u211d] \u211d).comp (Q : E2 \u2192L[\u211d] Point2)\"],[\"(ContinuousLinearMap.proj (1 : Fin 2)).comp Q\",\"(ContinuousLinearMap.proj (1 : Fin 2) : Point2 \u2192L[\u211d] \u211d).comp (Q : E2 \u2192L[\u211d] Point2)\"],[\"  simpa [fixtureXseam, fixture_seam_phase.2] using fixture_seam_phase.2\",\"  simp [fixtureXseam, fixture_seam_phase.2]\"],[\"    exact hp\\n  ext i\",\"    simpa [neg_div] using hp\\n  ext i\"],[\"    \u00b7 simpa only [Matrix.cons_val_zero, neg_div, abs_neg] using hhalf\",\"    \u00b7 simpa [neg_div, abs_neg] using hhalf\"],[\"(hpc \u03b5 h\u03b5).2.joinedIn hm hp\",\"(hpc \u03b5 h\u03b5).2.joinedIn _ hm _ hp\"],[\"ContinuousLinearMap.zero_apply\",\"zero_apply\"]]:\n assert a in new,a;new=new.replace(a,b)\nH=B/'history/production-fixtures-fix001';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'PRODUCTION_FIXTURES_FIX001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/production-fixtures-fix001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual full patch identity, once'};cp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only fixtures001 concrete CLM type/simp/coercion/JoinedIn/deprecation findings','full_patch':str(p)}))\n"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "started_utc": "2026-10-28T23:34:34.804181+00:00",
+  "original_split_streams": true,
+  "environment_recorded": {
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "credential_environment_logged": false,
+  "automatic_retry": false,
+  "ended_utc": "2026-10-28T23:34:34.906371+00:00",
+  "elapsed_seconds": 0.10219314000278246,
+  "child_exit_code": 0,
+  "spawn_or_wrapper_exception": null,
+  "stdout": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures-fix001/stdout.log",
+  "stderr": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures-fix001/stderr.log",
+  "status": "PASS_ACTUAL_CHILD_EXIT_ZERO"
+}

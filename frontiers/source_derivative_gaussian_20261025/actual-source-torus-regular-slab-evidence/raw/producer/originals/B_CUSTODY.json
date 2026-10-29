@@ -1,0 +1,41 @@
+{
+  "recorded_utc": "2026-10-28T17:30:43.209106+00:00",
+  "logical_id": "STAGE62-FINITE-HORIZON-ORIGINAL-V1-COMPLETE",
+  "helper": "/root/actual_canonical_capture_application",
+  "actual_helper_freeze_observed": "2026-10-28T17:30:00Z",
+  "integrations": 1,
+  "section_status": "complete unexecuted TEXT original; not qualified and not a binary",
+  "first_check_order": "WHOLEAfirst, Bnext; no standalonehelpercheck",
+  "originals": [
+    {
+      "original": "/workspace/scratch/actual-source-regular-slab-finite-horizon-text/FiniteHorizonSection.ORIGINAL.lean.txt",
+      "immutable_retained": "/workspace/scratch/actual-source-torus-regular-slab-construct/originals/B.FiniteHorizonSection.ORIGINAL.lean.txt",
+      "bytes": 6089,
+      "sha256": "6c12771f821ccf25b23ad0cdce1c1e51243c2af122a44b9d016a7d9cacbc9fb0",
+      "origin": "producer FIRST ID of newly delivered owned helper original BEFORE integration; helper hashes0"
+    },
+    {
+      "original": "/workspace/scratch/actual-source-regular-slab-finite-horizon-text/CONTEXT.ORIGINAL.md",
+      "immutable_retained": "/workspace/scratch/actual-source-torus-regular-slab-construct/originals/B.CONTEXT.ORIGINAL.md",
+      "bytes": 20420,
+      "sha256": "1b48695dd6b45576121181fd538ad2a47cc8cb8063e714346f4591ee068a4e0a",
+      "origin": "producer FIRST ID of newly delivered owned helper original BEFORE integration; helper hashes0"
+    },
+    {
+      "original": "/workspace/scratch/actual-source-regular-slab-finite-horizon-text/PROVENANCE.md",
+      "immutable_retained": "/workspace/scratch/actual-source-torus-regular-slab-construct/originals/B.PROVENANCE.md",
+      "bytes": 3953,
+      "sha256": "408a7a206ec16cc2d9588ece3bc854b384876300c42687801e871638e2e14989",
+      "origin": "producer FIRST ID of newly delivered owned helper original BEFORE integration; helper hashes0"
+    },
+    {
+      "original": "/workspace/scratch/actual-source-regular-slab-finite-horizon-text/FROZEN.json",
+      "immutable_retained": "/workspace/scratch/actual-source-torus-regular-slab-construct/originals/B.FROZEN.json",
+      "bytes": 885,
+      "sha256": "a3ab48ccc0988ea8366c75507f04336e210c9abcca2a12a474db4ba8c65a17ec",
+      "origin": "producer FIRST ID of newly delivered owned helper original BEFORE integration; helper hashes0"
+    }
+  ],
+  "integrated_recorded_utc": "2026-10-28T17:41:58.119031+00:00",
+  "integration": "Complete exactBoriginal integratedONCE after wholeA strictPASS; all futureactualamendmentsproducerowned"
+}

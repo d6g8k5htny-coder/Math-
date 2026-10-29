@@ -1,0 +1,24 @@
+SourceActualFoldDeath.lean:45:2: error: 'change' tactic failed, pattern
+  (coordinates 2).symm (r • ![-1 / 2, 0]) = ?m.67
+is not definitionally equal to target
+  (physicalChart r hr) M = (coordinates 2).symm (endpointM r)
+SourceActualFoldDeath.lean:57:54: error: unsolved goals
+L r k : ℝ
+sample : SmoothSample 2 L
+hr : r ≠ 0
+hk : k ≠ 0
+p : ℝ × ℝ
+⊢ smoothSourceField 2 L sample
+      ((coordinates 2)
+        ({ toFun := fun p => (coordinates 2).symm (r • ![p.1, p.2]),
+            invFun := fun x => (((1 / r) • (coordinates 2) x) 0, ((1 / r) • (coordinates 2) x) 1), left_inv := ⋯,
+            right_inv := ⋯, continuous_toFun := ⋯, continuous_invFun := ⋯ }
+          p)) =
+    smoothSourceField 2 L sample (r • ![p.1, p.2])
+SourceActualFoldDeath.lean:58:41: error: This simp argument is unused:
+  ContinuousLinearEquiv.apply_symm_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [actualField, physicalChart, actualFoldPotential]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

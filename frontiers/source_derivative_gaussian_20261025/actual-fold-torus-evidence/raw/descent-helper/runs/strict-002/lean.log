@@ -1,0 +1,11 @@
+/workspace/scratch/actual-torus-descent/runs/strict-002/SourceActualTorusDescent.lean:31:30: warning: Variable name `hL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/scratch/actual-torus-descent/runs/strict-002/SourceActualTorusDescent.lean:74:4: error: failed to synthesize
+  Fintype ?m.32
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/scratch/actual-torus-descent/runs/strict-002/SourceActualTorusDescent.lean:76:4: error: No goals to be solved

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "execution_owner": "root",
+  "executed": false,
+  "source_cut": "8a21124e0f77679d8be0c0e16b8f5693f60785ae",
+  "source_sha256": "4677ada085e7c53b4e9b4fd2160bcffc326e6a73b20cbb6cb7540ee3aece2a91",
+  "copies": [
+    {
+      "source": "/workspace/scratch/two-remote-firstjet-gaussian-construct/build/SourceTwoRemoteFirstJetGaussian.olean",
+      "destination": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceTwoRemoteFirstJetGaussian.olean",
+      "bytes": 753408,
+      "sha256": "2eb9c10def60add68448a5465947491679e7961332e57eab242aa7331751c7f1",
+      "root_action": "SKIP_ALREADY_COPIED_ONCE_REUSE_ROOT_RECEIPT"
+    }
+  ],
+  "old_dependency_objects_to_copy": [],
+  "root_copy_already_completed": true,
+  "root_copy_receipt": "ROOT_OWN_OBJECT_COPY.json",
+  "further_copy_actions": [],
+  "no_ilean_freshness_compile": true,
+  "guidance": "Root already copied this qualified named ownolean exactly once; reuse ROOT_OWN_OBJECT_COPY.json and DO NOT COPY AGAIN. No control/inventory/helper/mutation/earlier objects or old dependency copies. Reuse strict006/one ownkernel and final controls/negative evidence."
+}

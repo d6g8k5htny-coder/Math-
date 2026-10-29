@@ -1,0 +1,8 @@
+SourceActualTorusRegularSlab.lean:919:2: error: Type mismatch: After simplification, term
+  hp
+ has type
+  @JoinedIn (I4Torus.SourceTorus 2 L) Pi.topologicalSpace {z | a ≤ SourceActualFoldTorus.actualTorusField ⋯ omega z}
+    ↑(R ⟨↑X, hX⟩) ↑X
+but is expected to have type
+  @JoinedIn (I4Torus.SourceTorus 2 L) Pi.topologicalSpace {x | a ≤ SourceActualFoldTorus.actualTorusField ⋯ omega x}
+    ↑((ContinuousMap.inclusion ⋯) ({ toFun := fun q => ⟨↑(R ⟨↑q, ⋯⟩), ⋯⟩, continuous_toFun := ⋯ } X)) ↑X

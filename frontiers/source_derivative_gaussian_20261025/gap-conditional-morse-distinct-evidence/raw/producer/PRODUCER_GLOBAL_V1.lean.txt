@@ -1,0 +1,152 @@
+private def sourceDet {L : ℝ} (ω : SmoothSample 2 L) (x : Point2) : ℝ :=
+  (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) x ![directionX,directionX]) *
+    (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) x ![directionY,directionY]) -
+    (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) x ![directionX,directionY])^2
+
+private theorem positive_discriminant_det {L : ℝ} (hL : L≠0)
+    (ω : SmoothSample 2 L) (x : Point2)
+    (hpos : 0<sourceMorseDiscriminant L ω x)
+    (hcrit : coordinateGradient (smoothSourceField 2 L ω) x=0) : sourceDet ω x≠0 := by
+  have hx := congrFun hcrit (0 : Fin 2)
+  have hy := congrFun hcrit (1 : Fin 2)
+  change fderiv ℝ (smoothSourceField 2 L ω) x (Pi.single 0 1)=0 at hx
+  change fderiv ℝ (smoothSourceField 2 L ω) x (Pi.single 1 1)=0 at hy
+  change (iteratedFDeriv ℝ 1 (smoothSourceField 2 L ω) x ![directionX])^2+
+    (iteratedFDeriv ℝ 1 (smoothSourceField 2 L ω) x ![directionY])^2+
+      (sourceDet ω x)^2>0 at hpos
+  simp only [iteratedFDeriv_one_apply,Matrix.cons_val_zero,source_directionX_eq,
+    source_directionY_eq,hx,hy,zero_pow (by decide : 2≠0),zero_add] at hpos
+  exact sq_pos_iff.mp hpos
+
+private theorem sourceDet_projection {L : ℝ} (hL : 0<L) (ω : SmoothSample 2 L)
+    (x y : Point2) (h : I4Torus.torusProjection 2 L x=I4Torus.torusProjection 2 L y) :
+    sourceDet ω x=sourceDet ω y := by
+  unfold sourceDet
+  rw [(source_jets_of_projection_eq hL ω x y h).2 2]
+
+private theorem small_pins_separate {L r : ℝ} (hL : 0<L) (hr : 0<r) (hrL : r<L/2) :
+    I4Torus.torusProjection 2 L (endpointM r)≠I4Torus.torusProjection 2 L (endpointS r) := by
+  intro h
+  have hzero := projection_eq_torusDist_zero hL (endpointLiftM r) (endpointLiftS r)
+    (by simpa [endpointLiftM,endpointLiftS] using h)
+  rw [endpoint_lifts_torusDist hL hr hrL] at hzero
+  exact hr.ne' hzero
+
+private theorem endpoint_determinants {L : ℝ} (hL : L≠0) (r : ℝ)
+    (hsep : I4Torus.torusProjection 2 L (endpointM r)≠I4Torus.torusProjection 2 L (endpointS r))
+    (t : Fin 6 → ℝ) :
+    ∀ᵐ ω ∂rawPinKernel hL r t,sourceDet ω (endpointM r)≠0 ∧ sourceDet ω (endpointS r)≠0 := by
+  filter_upwards [I4SourceEndpointHessianGaussian.rawPinKernel_ae_endpointHessian_det_ne_zero
+    hL r hsep t] with ω hω
+  have hM := hω (0 : Fin 2)
+  have hS := hω (1 : Fin 2)
+  change sourceDet ω (endpointM r)≠0 at hM
+  change sourceDet ω (endpointS r)≠0 at hS
+  exact ⟨hM,hS⟩
+
+private theorem critical_values_distinct {L r b k : ℝ} (ω : SmoothSample 2 L)
+    (hgap : b≠b-k*r^3)
+    (hM : ∀x, I4Torus.torusProjection 2 L x=I4Torus.torusProjection 2 L (endpointM r) →
+      smoothSourceField 2 L ω x=b)
+    (hS : ∀x, I4Torus.torusProjection 2 L x=I4Torus.torusProjection 2 L (endpointS r) →
+      smoothSourceField 2 L ω x=b-k*r^3)
+    (hlevelM : ∀x,Remote L r x → coordinateGradient (smoothSourceField 2 L ω) x=0 →
+      smoothSourceField 2 L ω x≠b)
+    (hlevelS : ∀x,Remote L r x → coordinateGradient (smoothSourceField 2 L ω) x=0 →
+      smoothSourceField 2 L ω x≠b-k*r^3)
+    (htie : ∀p,RemotePair L r p → coordinateGradient (smoothSourceField 2 L ω) p.1=0 →
+      coordinateGradient (smoothSourceField 2 L ω) p.2=0 →
+      smoothSourceField 2 L ω p.1≠smoothSourceField 2 L ω p.2)
+    (x y : Point2) (hx : coordinateGradient (smoothSourceField 2 L ω) x=0)
+    (hy : coordinateGradient (smoothSourceField 2 L ω) y=0)
+    (hxy : I4Torus.torusProjection 2 L x≠I4Torus.torusProjection 2 L y) :
+    smoothSourceField 2 L ω x≠smoothSourceField 2 L ω y := by
+  classical
+  intro heq
+  by_cases hxM : I4Torus.torusProjection 2 L x=I4Torus.torusProjection 2 L (endpointM r)
+  · by_cases hyM : I4Torus.torusProjection 2 L y=I4Torus.torusProjection 2 L (endpointM r)
+    · exact hxy (hxM.trans hyM.symm)
+    by_cases hyS : I4Torus.torusProjection 2 L y=I4Torus.torusProjection 2 L (endpointS r)
+    · exact hgap ((hM x hxM).symm.trans (heq.trans (hS y hyS)))
+    · exact hlevelM y ⟨hyM,hyS⟩ hy (heq.symm.trans (hM x hxM))
+  by_cases hxS : I4Torus.torusProjection 2 L x=I4Torus.torusProjection 2 L (endpointS r)
+  · by_cases hyM : I4Torus.torusProjection 2 L y=I4Torus.torusProjection 2 L (endpointM r)
+    · exact hgap ((hM y hyM).symm.trans (heq.symm.trans (hS x hxS)))
+    by_cases hyS : I4Torus.torusProjection 2 L y=I4Torus.torusProjection 2 L (endpointS r)
+    · exact hxy (hxS.trans hyS.symm)
+    · exact hlevelS y ⟨hyM,hyS⟩ hy (heq.symm.trans (hS x hxS))
+  by_cases hyM : I4Torus.torusProjection 2 L y=I4Torus.torusProjection 2 L (endpointM r)
+  · exact hlevelM x ⟨hxM,hxS⟩ hx (heq.trans (hM y hyM))
+  by_cases hyS : I4Torus.torusProjection 2 L y=I4Torus.torusProjection 2 L (endpointS r)
+  · exact hlevelS x ⟨hxM,hxS⟩ hx (heq.trans (hS y hyS))
+  exact htie (x,y) ⟨⟨hxM,hxS⟩,⟨hyM,hyS⟩,hxy⟩ hx hy heq
+
+private theorem rawKernel_gap_morseDistinct {L r b k : ℝ} (hL : 0<L)
+    (hr : 0<r) (hrL : r<L/2) (hk : 0<k)
+    (hG : IsUnit (I4SourceEndpointRegression.sourcePinCovarianceAt L r)) :
+    ∀ᵐ ω ∂rawPinKernel hL.ne' r ![b,b-k*r^3,0,0,0,0],
+      IsMorseDistinct 2 L (actualField 2 L ω) := by
+  let t : Fin 6 → ℝ := ![b,b-k*r^3,0,0,0,0]
+  have hfiber : ∀ᵐ ω ∂rawPinKernel hL.ne' r t, rawPins L r ω=t := by
+    apply (mem_ae_iff_prob_eq_one
+      (measurableSet_eq_fun (rawPins_measurable hL.ne' r) measurable_const)).2
+    exact rawPinKernel_pin_fiber hL.ne' r hr.ne' hG t
+  have hgap : b≠b-k*r^3 := by
+    have hp := mul_pos hk (pow_pos hr 3)
+    linarith
+  filter_upwards [hfiber,rawKernel_remote_morse hL.ne' r t,
+    rawKernel_remote_level hL.ne' r t b,rawKernel_remote_level hL.ne' r t (b-k*r^3),
+    rawKernel_remote_tie hL.ne' r t,
+    endpoint_determinants hL.ne' r (small_pins_separate hL hr hrL) t] with
+      ω hp hremote hlevelM hlevelS htie hend
+  have hheights := actual_rawPins_heights ω hp
+  have hM0 : smoothSourceField 2 L ω (endpointM r)=b := by
+    simpa only [actualField,ContinuousLinearEquiv.apply_symm_apply] using hheights.1
+  have hS0 : smoothSourceField 2 L ω (endpointS r)=b-k*r^3 := by
+    simpa only [actualField,ContinuousLinearEquiv.apply_symm_apply] using hheights.2.1
+  have hM (x : Point2)
+      (hx : I4Torus.torusProjection 2 L x=I4Torus.torusProjection 2 L (endpointM r)) :
+      smoothSourceField 2 L ω x=b :=
+    (source_jets_of_projection_eq hL ω x (endpointM r) hx).1.trans hM0
+  have hS (x : Point2)
+      (hx : I4Torus.torusProjection 2 L x=I4Torus.torusProjection 2 L (endpointS r)) :
+      smoothSourceField 2 L ω x=b-k*r^3 :=
+    (source_jets_of_projection_eq hL ω x (endpointS r) hx).1.trans hS0
+  constructor
+  · intro X hX
+    have hcrit := actual_critical_coordinateGradient_zero hL ω X hX
+    apply actual_inertia_of_source_det hL ω X
+    change sourceDet ω (coordinates 2 X)≠0
+    by_cases hxM : I4Torus.torusProjection 2 L (coordinates 2 X)=
+        I4Torus.torusProjection 2 L (endpointM r)
+    · rw [sourceDet_projection hL ω _ _ hxM]
+      exact hend.1
+    by_cases hxS : I4Torus.torusProjection 2 L (coordinates 2 X)=
+        I4Torus.torusProjection 2 L (endpointS r)
+    · rw [sourceDet_projection hL ω _ _ hxS]
+      exact hend.2
+    exact positive_discriminant_det hL.ne' ω _ (hremote _ ⟨hxM,hxS⟩) hcrit
+  · intro X Y hX hY hdist
+    have hxy : I4Torus.torusProjection 2 L (coordinates 2 X)≠
+        I4Torus.torusProjection 2 L (coordinates 2 Y) := by
+      intro heq
+      exact (ne_of_gt hdist) (projection_eq_torusDist_zero hL X Y heq)
+    exact critical_values_distinct ω hgap hM hS hlevelM hlevelS htie
+      (coordinates 2 X) (coordinates 2 Y)
+      (actual_critical_coordinateGradient_zero hL ω X hX)
+      (actual_critical_coordinateGradient_zero hL ω Y hY) hxy
+
+/-- The actual positive-gap sampling law is almost surely literally Morse with
+distinct critical values; one interval precedes all target marks. -/
+theorem sourceGapLaw_ae_isMorseDistinct {L : ℝ} (hL : 0<L) :
+    ∃ δ : ℝ, 0<δ ∧ δ≤1 ∧ δ≤L/2 ∧
+      ∀ r : ℝ, 0<r → r<δ → ∀ b k : ℝ, 0<k →
+        ∀ᵐ ω ∂sourceGapLaw hL.ne' r b k,IsMorseDistinct 2 L (actualField 2 L ω) := by
+  obtain ⟨C,δ0,_hC,hδ0,hδ01,hI⟩ := sourceInverse_target_uniform_bounds hL.ne'
+  refine ⟨min δ0 (L/2),lt_min hδ0 (half_pos hL),
+    (min_le_left _ _).trans hδ01,min_le_right _ _,?_⟩
+  intro r hr hrδ b k hk
+  have hrδ0 := hrδ.trans_le (min_le_left δ0 (L/2))
+  have hrL := hrδ.trans_le (min_le_right δ0 (L/2))
+  rw [sourceGapLaw_eq_rawPinKernel hL.ne' r b k hr.ne']
+  exact rawKernel_gap_morseDistinct hL hr hrL hk (hI r hr hrδ0).1

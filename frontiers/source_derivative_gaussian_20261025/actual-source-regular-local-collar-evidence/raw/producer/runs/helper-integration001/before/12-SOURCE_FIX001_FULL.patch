@@ -1,0 +1,27 @@
+--- history/source-fix001/SourceActualRegularLocalCollar.lean.ORIGINAL
++++ SourceActualRegularLocalCollar.lean
+@@ -52,7 +52,7 @@
+         φ.source ⊆ O ∧ φ.target = Metric.ball (0 : Point2) ρ ∧
+         ∀ z ∈ φ.source,
+           actualF hL ω z = actualF hL ω (cover L X) + φ z 1 := by
+-  letI : Fact (0 < L) := ⟨hL⟩
++  let : Fact (0 < L) := ⟨hL⟩
+   let c : OpenPartialHomeomorph Point2 (Torus2 L) :=
+     OpenPartialHomeomorph.pi (fun i : Fin 2 =>
+       AddCircle.openPartialHomeomorphCoe L ((Q X) i - L / 2))
+@@ -124,8 +124,13 @@
+   have hc : Convex ℝ {u : Point2 | ε ≤ u 1} := by
+     intro x hx y hy a b ha hb hab
+     change ε ≤ a * x 1 + b * y 1
+-    nlinarith [mul_nonneg ha (sub_nonneg.mpr hx),
+-      mul_nonneg hb (sub_nonneg.mpr hy)]
++    change ε ≤ x 1 at hx
++    change ε ≤ y 1 at hy
++    calc
++      ε = a * ε + b * ε := by rw [← add_mul, hab, one_mul]
++      _ ≤ a * x 1 + b * y 1 :=
++        add_le_add (mul_le_mul_of_nonneg_left hx ha)
++          (mul_le_mul_of_nonneg_left hy hb)
+   apply ((convex_ball (0 : Point2) ρ).inter hc).isPathConnected
+   refine ⟨![0, ε], ?_, ?_⟩
+   · apply point_mem_ball hρ

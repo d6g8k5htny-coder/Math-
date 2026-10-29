@@ -1,0 +1,13 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFinitePinKernel.lean:102:6: error(lean.unknownIdentifier): Unknown constant `Finsupp.not_mem_support_iff.mp`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFinitePinKernel.lean:96:49: error: unsolved goals
+L : ℝ
+v : SourceMode 2 →₀ ℝ
+ω : SmoothSample 2 L
+m : SourceMode 2
+hm : m ∉ v.support
+⊢ ↑ω m = ↑ω m + v m
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFinitePinKernel.lean:111:48: error(lean.unknownIdentifier): Unknown identifier `rawDerivativeOrder`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFinitePinKernel.lean:112:5: error(lean.unknownIdentifier): Unknown identifier `rawDerivativePoint`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFinitePinKernel.lean:112:46: error(lean.unknownIdentifier): Unknown identifier `rawDerivativeDirections`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFinitePinKernel.lean:119:13: error(lean.unknownIdentifier): Unknown constant `Finsupp.not_mem_support_iff.mp`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFinitePinKernel.lean:119:2: error: `simp` made no progress

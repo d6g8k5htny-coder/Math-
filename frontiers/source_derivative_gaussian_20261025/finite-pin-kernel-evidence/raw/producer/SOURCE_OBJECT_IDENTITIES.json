@@ -1,0 +1,39 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFinitePinKernel.lean",
+    "bytes": 6893,
+    "sha256": "d45fbf6ca2d7a2c3e54a8edcd5d5c482497751ec1c3d820a1a198a204c8ce5d1"
+  },
+  "object": {
+    "path": "/workspace/scratch/finite-pin-kernel-construct/build/SourceFinitePinKernel.olean",
+    "bytes": 227840,
+    "sha256": "9d6ab1b544efd400b3ef2d58d1dedbafdd36563993a30558fa1e6fee2fdb362f"
+  },
+  "compiled_object": {
+    "path": "/workspace/scratch/finite-pin-kernel-construct/runs/develop-002/SourceFinitePinKernel.olean",
+    "bytes": 227840,
+    "sha256": "9d6ab1b544efd400b3ef2d58d1dedbafdd36563993a30558fa1e6fee2fdb362f"
+  },
+  "strict_Werror_receipt": {
+    "path": "/workspace/scratch/finite-pin-kernel-construct/runs/develop-002/record.json",
+    "bytes": 673,
+    "sha256": "c906833b361b8ba41ca8fe98b627324f26ce4b8b46e651af6f2cc72af1490431"
+  },
+  "kernel_receipt": {
+    "path": "/workspace/scratch/finite-pin-kernel-construct/runs/kernel-001/record.json",
+    "bytes": 1861,
+    "sha256": "7014f8900893ba263c5c42463c422a33209c5ea68f86aac3531b4b11088a7e39"
+  },
+  "freeze": {
+    "path": "/workspace/scratch/finite-pin-kernel-construct/FROZEN_SOURCE.json",
+    "bytes": 814,
+    "sha256": "002feeddf37afb09f23c9fa127a4bc0cc4d214a381adcb63dfc292ebb5131ae8"
+  },
+  "eligible_production_objects": [
+    "SourceFinitePinKernel.olean"
+  ],
+  "ineligible_objects": "All control, inventory, mutation and failed/development-attempt objects except the final source-bound named own-module olean. No ilean generated; no freshness compile. Root alone owns production cache.",
+  "reused_baseline": "45modules/1083targets/32inputs at8d86a06e8b78d3dc183bd705caad548778fe8511; no old proof/build/kernel/audit/control/hash campaign replay.",
+  "root_owned_local_sourcecut": "27184289e3bf49853b3e6fe3fa4f5b5bd4445af1",
+  "hosted_checks": "No current-source CI claim. Root reports PRECODE72baa5f checks pass; not rebound to local sourcecut."
+}

@@ -1,0 +1,37 @@
+{
+  "binding_brief_semantic_freeze": "e2c819cf8161f0dc37de113f0157a058ba0fd2ec",
+  "binding_brief_wording_correction": "e88bb14225fb18d11201cb63f733b61ef8826855",
+  "final_registered_sourcecut": "PENDING_ROOT_INTEGRATION",
+  "toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_rev": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "source": {
+    "original_path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/AdaptiveFoldScalarBarrier.lean",
+    "package_path": "sources/AdaptiveFoldScalarBarrier.lean",
+    "sha256": "cfe6a63a789ae085c2351d9d0be9bcf998f911d8c2e80bb01e1dd9e2b74c30d5",
+    "bytes": 12087,
+    "direct_imports": [
+      "Mathlib.Analysis.Convex.Deriv",
+      "Mathlib.Analysis.Calculus.Deriv.Pow",
+      "Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus",
+      "Mathlib.Tactic.NormNum",
+      "Mathlib.Tactic.Ring",
+      "Mathlib.Tactic.Linarith"
+    ]
+  },
+  "new_objects": [
+    {
+      "name": "AdaptiveFoldScalarBarrier.olean",
+      "path": "objects/AdaptiveFoldScalarBarrier.olean",
+      "sha256": "24823adb6411e5fba146220b13be842086da9e2d30c87e665e57f781c7673553",
+      "bytes": 874936
+    },
+    {
+      "name": "Controls.olean",
+      "path": "objects/Controls.olean",
+      "sha256": "91b86ef41021891bfe11087c29c955ccc45c1836c970ecafa936bfc4dd7a5c6c",
+      "bytes": 281760
+    }
+  ],
+  "object_binding": "Source compile-05 writes the named scratch object. No later source edits or module builds occurred; kernel-01, inventory-01 and controls use that same object by the explicitly recorded first LEAN_PATH entry. Package copies bind the resulting new object bytes. No old dependency hashes were recomputed.",
+  "kernel_mode": "One standard named leanchecker own-module replay against cached imported environment; not fresh replay of mathlib or an external verifier."
+}

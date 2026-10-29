@@ -1,0 +1,45 @@
+{
+  "label": "kernel-001",
+  "start_utc": "2026-10-28T15:39:01.355093+00:00",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/actual-source-morse-local-model-construct/objects:$LEAN_PATH exec leanchecker SourceActualMorseLocalModel"
+  ],
+  "source_identity": {
+    "role": "owned_production_source",
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+    "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0041-SourceActualMorseLocalModel.lean",
+    "bytes": 65754,
+    "sha256": "d6776bd34a2ae1371c2af8fbfcc54d2a536e7c96b2e4db517a5f4a81b4128cd5",
+    "first_bound_utc": "2026-10-28T15:30:36.412696+00:00",
+    "new_sha256_operations": 1,
+    "reused_identity": true
+  },
+  "object_identity": {
+    "role": "owned_production_object",
+    "path": "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+    "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0042-SourceActualMorseLocalModel.olean",
+    "bytes": 3409752,
+    "sha256": "7bc2d9fc1edcbd936dc04b583fa2b4642fc6fd968c594350df8eec28093d7ad3",
+    "first_bound_utc": "2026-10-28T15:30:47.921140+00:00",
+    "new_sha256_operations": 1,
+    "reused_identity": true
+  },
+  "harness_identity": {
+    "role": "owned_one_kernel_harness",
+    "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_kernel.py",
+    "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0050-run_kernel.py",
+    "bytes": 2121,
+    "sha256": "08251b0c26564e6548da078c019a5d8a2585cd29afeacf5d09bc4585e4d9e49a",
+    "first_bound_utc": "2026-10-28T15:39:01.354682+00:00",
+    "new_sha256_operations": 1,
+    "reused_identity": false
+  },
+  "invocation_number": 1,
+  "end_utc": "2026-10-28T15:39:08.870724+00:00",
+  "exit_code": 0
+}

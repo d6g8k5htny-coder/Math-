@@ -1,0 +1,1060 @@
+{
+  "rows": [
+    {
+      "kind": "definition",
+      "name": "AdaptiveFoldBoundaryPath.pathX",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "explicit-definition",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldTransverseRidge.profile.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": false
+    },
+    {
+      "kind": "definition",
+      "name": "AdaptiveFoldBoundaryPath.profileError",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "explicit-definition",
+      "own_namespace": true
+    },
+    {
+      "kind": "definition",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.mk._flat_ctor",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.RidgeScalarData.pin_left",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.Hxx_lower",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.RidgeScalarData.root",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.domain_open",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "inductive",
+      "name": "AdaptiveFoldBoundaryPath.RectangleBoundaryPathData",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "explicit-Prop-bundle",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.RidgeScalarData.bounds",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.RidgeScalarData.jets",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "definition",
+      "name": "AdaptiveFoldBoundaryPath.leftBox",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "explicit-definition",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.ridgePath._proof_3",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.RidgeScalarData.barrier",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.regularity",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.pin_right",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.RidgeScalarData.interval_subset",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.Hyy_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.pin_left",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.RectangleBoundaryPathData.maximum_mem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.rectangle_subset",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "constructor",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.mk",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.potential_gap",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.exists_transverse_ridge_scalar_barrier",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "explicit-written-proof",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.pathMidpoint.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.Gx_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.Gyx_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "inductive",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "explicit-Prop-bundle",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.quadratic_loss_of_second_derivative",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "explicit-written-proof",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.RidgeScalarData.pin_right",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldTransverseRidge.profileSlope.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": false
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.leftBox.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.concavity_pos",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.Hyx_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.pathX.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.RectangleBoundaryPathData.frontier_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "recursor",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.rec",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.curvature_budget",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.M.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "definition",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.recOn",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.side_drop_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "explicit-written-proof",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.lower_positive",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.olderPoint._proof_1",
+      "axioms": [
+        "propext"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.olderPoint.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.center_nonneg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.upper_negative",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.Gxy_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "definition",
+      "name": "AdaptiveFoldBoundaryPath.olderPoint",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "explicit-definition",
+      "own_namespace": true
+    },
+    {
+      "kind": "definition",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.casesOn",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.RidgeScalarData.regularity",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "definition",
+      "name": "AdaptiveFoldBoundaryPath.S",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "explicit-definition",
+      "own_namespace": true
+    },
+    {
+      "kind": "recursor",
+      "name": "AdaptiveFoldBoundaryPath.RectangleBoundaryPathData.rec",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.pathX_mem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "explicit-written-proof",
+      "own_namespace": true
+    },
+    {
+      "kind": "definition",
+      "name": "AdaptiveFoldBoundaryPath.RectangleBoundaryPathData.casesOn",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.profileError._proof_1",
+      "axioms": [
+        "propext"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.vertical_quadratic_loss",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "explicit-written-proof",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.S.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.Gyy_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.center_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.RidgeScalarData.curvature",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.RidgeScalarData.domain_open",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "definition",
+      "name": "AdaptiveFoldBoundaryPath.ridgePath",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "explicit-definition",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.Gxx_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.RectangleBoundaryPathData.box_closed",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "definition",
+      "name": "AdaptiveFoldBoundaryPath.pathMidpoint",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "explicit-definition",
+      "own_namespace": true
+    },
+    {
+      "kind": "definition",
+      "name": "AdaptiveFoldBoundaryPath.RectangleBoundaryPathData.recOn",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.Hxy_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.Hy_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.RectangleBoundaryPathData.ceiling",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "definition",
+      "name": "AdaptiveFoldBoundaryPath.RectangleBoundaryPathData.mk._flat_ctor",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "constructor",
+      "name": "AdaptiveFoldBoundaryPath.RectangleBoundaryPathData.mk",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "constructor",
+      "name": "AdaptiveFoldBoundaryPath.RidgeScalarData.mk",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.RectangleBoundaryPathData.death_lt_maximum",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.radius_pos",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.second_nonneg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.exists_transverse_ridge_boundary_path",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "explicit-written-proof",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.vertical_negative",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.ridgePath._proof_2",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "recursor",
+      "name": "AdaptiveFoldBoundaryPath.RidgeScalarData.rec",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "definition",
+      "name": "AdaptiveFoldBoundaryPath.RidgeScalarData.recOn",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "definition",
+      "name": "AdaptiveFoldBoundaryPath.RidgeScalarData.casesOn",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.profileSlopeSecond_error",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "explicit-written-proof",
+      "own_namespace": true
+    },
+    {
+      "kind": "definition",
+      "name": "AdaptiveFoldBoundaryPath.RidgeScalarData.mk._flat_ctor",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "inductive",
+      "name": "AdaptiveFoldBoundaryPath.RidgeScalarData",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "explicit-Prop-bundle",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.ridgePath._proof_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.RidgeScalarData.unique",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.RectangleBoundaryPathData.vertical_loss",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.frontier_leftBox_sides",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "explicit-written-proof",
+      "own_namespace": true
+    },
+    {
+      "kind": "definition",
+      "name": "AdaptiveFoldBoundaryPath.slopeRadius",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "explicit-definition",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.RectangleBoundaryPathData.older_gain",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.StructuralRectangleData.first_nonneg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "definition",
+      "name": "AdaptiveFoldBoundaryPath.accelerationRadius",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "explicit-definition",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.pathMidpoint._proof_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "theorem",
+      "name": "AdaptiveFoldBoundaryPath.RectangleBoundaryPathData.path",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated",
+      "own_namespace": true
+    },
+    {
+      "kind": "definition",
+      "name": "AdaptiveFoldBoundaryPath.M",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "explicit-definition",
+      "own_namespace": true
+    }
+  ],
+  "counts": {
+    "explicit-definition": 10,
+    "generated": 74,
+    "explicit-Prop-bundle": 3,
+    "explicit-written-proof": 8
+  },
+  "kind_counts": {
+    "definition": 19,
+    "theorem": 67,
+    "inductive": 3,
+    "constructor": 3,
+    "recursor": 3
+  },
+  "own_module_total": 95,
+  "own_namespace_total": 93
+}

@@ -1,0 +1,22 @@
+/workspace/scratch/finite-trig-source-conversion/raw/attempt002/AtomConversion.lean:78:2: error: unsolved goals
+case pos
+L : ℝ
+hL : L ≠ 0
+θ : ℝ
+x : Fin 2 → ℝ
+hA : √(1 / sourceZ 2 L) ≠ 0
+⊢ Real.cos θ = Real.cos (∑ x_1, 0 * x x_1 + θ)
+/workspace/scratch/finite-trig-source-conversion/raw/attempt002/AtomConversion.lean:83:62: error: This simp argument is unused:
+  Finset.sum_const_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [phase, Pi.zero_apply, Int.cast_zero, mul_zero, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/finite-trig-source-conversion/raw/attempt002/AtomConversion.lean:84:6: error: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [phase, Pi.zero_apply, Int.cast_zero, mul_zero, Finset.sum_const_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

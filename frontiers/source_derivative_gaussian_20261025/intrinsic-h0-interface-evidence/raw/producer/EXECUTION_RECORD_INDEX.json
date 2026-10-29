@@ -1,0 +1,516 @@
+{
+  "schema": "intrinsic-h0-execution/v1",
+  "capture_mode": "Original stdout and stderr merged into binary output.log, complete original bytes retained; no separate-stream claim",
+  "attempt_count": 7,
+  "records": [
+    {
+      "label": "strict-001",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/intrinsic-h0-interface-construct/build/SourceIntrinsicH0Interface.olean SourceIntrinsicH0Interface.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0Interface.lean",
+          "bytes": 8361,
+          "sha256": "91b0b35171bc3e13731f6aa62000fa7accd8420727ac945167e04327e30b53bd"
+        },
+        "object": null
+      },
+      "started_utc": "2026-10-26T17:35:17.394937+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 4.810100793838501,
+      "ended_utc": "2026-10-26T17:35:22.205067+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0Interface.lean",
+          "bytes": 8361,
+          "sha256": "91b0b35171bc3e13731f6aa62000fa7accd8420727ac945167e04327e30b53bd"
+        },
+        "object": null
+      },
+      "log": {
+        "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/strict-001/output.log",
+        "bytes": 102,
+        "sha256": "1302a07638a86a89d8de1db538e9ff05b72740cebe935e7eb1be9f89d674d640"
+      },
+      "receipt": {
+        "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/strict-001/receipt.json",
+        "bytes": 1562,
+        "sha256": "e83a08ffe251dd9eedef22e7393aba9042a4eecd8f1b018288e1e10f461bbbeb"
+      },
+      "snapshots": [
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/strict-001/CONTROL_CONTRACT.md",
+          "bytes": 4322,
+          "sha256": "6c5663ca61b43e9cb7293e2519a3a0f2c2b6381b900895afb0be37efc73c364b"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/strict-001/SourceIntrinsicH0Interface.lean",
+          "bytes": 8361,
+          "sha256": "91b0b35171bc3e13731f6aa62000fa7accd8420727ac945167e04327e30b53bd"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/strict-001/run_stage.py",
+          "bytes": 1474,
+          "sha256": "f48cb6ad509ff16cfd7e9f395958bf454d83eb28dddf95e47241d31098728b2c"
+        }
+      ]
+    },
+    {
+      "label": "strict-002",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/intrinsic-h0-interface-construct/build/SourceIntrinsicH0Interface.olean SourceIntrinsicH0Interface.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0Interface.lean",
+          "bytes": 8366,
+          "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef"
+        },
+        "object": null
+      },
+      "started_utc": "2026-10-26T17:35:32.986655+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 3.926669120788574,
+      "ended_utc": "2026-10-26T17:35:36.913344+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0Interface.lean",
+          "bytes": 8366,
+          "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/build/SourceIntrinsicH0Interface.olean",
+          "bytes": 975440,
+          "sha256": "ff59fe74b6d755b1173b2300559c7fd896e3ec567b43df447a9b3ad2ab5a5fec"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/strict-002/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "receipt": {
+        "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/strict-002/receipt.json",
+        "bytes": 1777,
+        "sha256": "e89ac25fefebfa7afa51ea747bca32087923d6dc2d090b5c2a96fefdc6225a96"
+      },
+      "snapshots": [
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/strict-002/CONTROL_CONTRACT.md",
+          "bytes": 4322,
+          "sha256": "6c5663ca61b43e9cb7293e2519a3a0f2c2b6381b900895afb0be37efc73c364b"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/strict-002/SourceIntrinsicH0Interface.lean",
+          "bytes": 8366,
+          "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/strict-002/run_stage.py",
+          "bytes": 1474,
+          "sha256": "f48cb6ad509ff16cfd7e9f395958bf454d83eb28dddf95e47241d31098728b2c"
+        }
+      ]
+    },
+    {
+      "label": "controls-partial-001",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -R /workspace/scratch/intrinsic-h0-interface-construct -o /workspace/scratch/intrinsic-h0-interface-construct/build/IntrinsicH0Controls.olean /workspace/scratch/intrinsic-h0-interface-construct/IntrinsicH0Controls.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0Interface.lean",
+          "bytes": 8366,
+          "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/build/SourceIntrinsicH0Interface.olean",
+          "bytes": 975440,
+          "sha256": "ff59fe74b6d755b1173b2300559c7fd896e3ec567b43df447a9b3ad2ab5a5fec"
+        }
+      },
+      "started_utc": "2026-10-26T17:37:28.450498+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 3.9400999546051025,
+      "ended_utc": "2026-10-26T17:37:32.390635+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0Interface.lean",
+          "bytes": 8366,
+          "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/build/SourceIntrinsicH0Interface.olean",
+          "bytes": 975440,
+          "sha256": "ff59fe74b6d755b1173b2300559c7fd896e3ec567b43df447a9b3ad2ab5a5fec"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-partial-001/output.log",
+        "bytes": 680,
+        "sha256": "034b773a91a0e6b24246cc77cac11dd90a70a4d9c72a46213ef20fb777eba121"
+      },
+      "receipt": {
+        "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-partial-001/receipt.json",
+        "bytes": 2168,
+        "sha256": "c354f96e4e09ff03ab0963168952871daf4d06ff00ed17c6f03b1b8524f48c69"
+      },
+      "snapshots": [
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-partial-001/CONTROL_CONTRACT.md",
+          "bytes": 4322,
+          "sha256": "6c5663ca61b43e9cb7293e2519a3a0f2c2b6381b900895afb0be37efc73c364b"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-partial-001/IntrinsicH0Controls.lean",
+          "bytes": 5257,
+          "sha256": "3e2862c9f0a5c07db2fced6a75a4a3d0f28cd8b793a0d881e3494586505b92f7"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-partial-001/SourceIntrinsicH0Interface.lean",
+          "bytes": 8366,
+          "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-partial-001/run_stage.py",
+          "bytes": 1474,
+          "sha256": "f48cb6ad509ff16cfd7e9f395958bf454d83eb28dddf95e47241d31098728b2c"
+        }
+      ]
+    },
+    {
+      "label": "inventory-001",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -R /workspace/scratch/intrinsic-h0-interface-construct /workspace/scratch/intrinsic-h0-interface-construct/Inventory.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0Interface.lean",
+          "bytes": 8366,
+          "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/build/SourceIntrinsicH0Interface.olean",
+          "bytes": 975440,
+          "sha256": "ff59fe74b6d755b1173b2300559c7fd896e3ec567b43df447a9b3ad2ab5a5fec"
+        }
+      },
+      "started_utc": "2026-10-26T17:37:59.409565+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 4.741745233535767,
+      "ended_utc": "2026-10-26T17:38:04.151358+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0Interface.lean",
+          "bytes": 8366,
+          "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/build/SourceIntrinsicH0Interface.olean",
+          "bytes": 975440,
+          "sha256": "ff59fe74b6d755b1173b2300559c7fd896e3ec567b43df447a9b3ad2ab5a5fec"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/inventory-001/output.log",
+        "bytes": 3027,
+        "sha256": "0fcba3ed20b156c924cc88126df1b12474d317f1a450d3dddc1adbe7126db4ed"
+      },
+      "receipt": {
+        "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/inventory-001/receipt.json",
+        "bytes": 2057,
+        "sha256": "52c9d48c2902679ae8b581ad1e6e474f609ac0762626ac2bc3e3d831a3eb742c"
+      },
+      "snapshots": [
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/inventory-001/CONTROL_CONTRACT.md",
+          "bytes": 4322,
+          "sha256": "6c5663ca61b43e9cb7293e2519a3a0f2c2b6381b900895afb0be37efc73c364b"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/inventory-001/IntrinsicH0Controls.lean",
+          "bytes": 5331,
+          "sha256": "c534bafdc4ec97858167955043443098168f5e8e5e0ec20bca9cbf4285c3c194"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/inventory-001/Inventory.lean",
+          "bytes": 1081,
+          "sha256": "6114b623420620e873efc4046a2633dc358ae65d7aa87b6b02515a355433ae44"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/inventory-001/SourceIntrinsicH0Interface.lean",
+          "bytes": 8366,
+          "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/inventory-001/run_stage.py",
+          "bytes": 1474,
+          "sha256": "f48cb6ad509ff16cfd7e9f395958bf454d83eb28dddf95e47241d31098728b2c"
+        }
+      ]
+    },
+    {
+      "label": "kernel-001",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec leanchecker SourceIntrinsicH0Interface"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0Interface.lean",
+          "bytes": 8366,
+          "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/build/SourceIntrinsicH0Interface.olean",
+          "bytes": 975440,
+          "sha256": "ff59fe74b6d755b1173b2300559c7fd896e3ec567b43df447a9b3ad2ab5a5fec"
+        }
+      },
+      "started_utc": "2026-10-26T17:37:59.490593+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 7.211978197097778,
+      "ended_utc": "2026-10-26T17:38:06.702608+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0Interface.lean",
+          "bytes": 8366,
+          "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/build/SourceIntrinsicH0Interface.olean",
+          "bytes": 975440,
+          "sha256": "ff59fe74b6d755b1173b2300559c7fd896e3ec567b43df447a9b3ad2ab5a5fec"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/kernel-001/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "receipt": {
+        "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/kernel-001/receipt.json",
+        "bytes": 1938,
+        "sha256": "246aa85a373d276b983adff00414ccdf0308d30cc46472f7cd0294a76f6aa484"
+      },
+      "snapshots": [
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/kernel-001/CONTROL_CONTRACT.md",
+          "bytes": 4322,
+          "sha256": "6c5663ca61b43e9cb7293e2519a3a0f2c2b6381b900895afb0be37efc73c364b"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/kernel-001/IntrinsicH0Controls.lean",
+          "bytes": 5331,
+          "sha256": "c534bafdc4ec97858167955043443098168f5e8e5e0ec20bca9cbf4285c3c194"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/kernel-001/Inventory.lean",
+          "bytes": 1081,
+          "sha256": "6114b623420620e873efc4046a2633dc358ae65d7aa87b6b02515a355433ae44"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/kernel-001/SourceIntrinsicH0Interface.lean",
+          "bytes": 8366,
+          "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/kernel-001/run_stage.py",
+          "bytes": 1474,
+          "sha256": "f48cb6ad509ff16cfd7e9f395958bf454d83eb28dddf95e47241d31098728b2c"
+        }
+      ]
+    },
+    {
+      "label": "controls-001",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -R /workspace/scratch/intrinsic-h0-interface-construct -o /workspace/scratch/intrinsic-h0-interface-construct/build/IntrinsicH0Controls.olean /workspace/scratch/intrinsic-h0-interface-construct/IntrinsicH0Controls.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0Interface.lean",
+          "bytes": 8366,
+          "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/build/SourceIntrinsicH0Interface.olean",
+          "bytes": 975440,
+          "sha256": "ff59fe74b6d755b1173b2300559c7fd896e3ec567b43df447a9b3ad2ab5a5fec"
+        }
+      },
+      "started_utc": "2026-10-26T17:42:01.734873+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 4.520230531692505,
+      "ended_utc": "2026-10-26T17:42:06.255157+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0Interface.lean",
+          "bytes": 8366,
+          "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/build/SourceIntrinsicH0Interface.olean",
+          "bytes": 975440,
+          "sha256": "ff59fe74b6d755b1173b2300559c7fd896e3ec567b43df447a9b3ad2ab5a5fec"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-001/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "receipt": {
+        "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-001/receipt.json",
+        "bytes": 2149,
+        "sha256": "e2d1442c88c6a7594aea2447c9ab03b4af6fd60ef6802df1f2ceeb59d732dc12"
+      },
+      "snapshots": [
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-001/CONTROL_CONTRACT.md",
+          "bytes": 4322,
+          "sha256": "6c5663ca61b43e9cb7293e2519a3a0f2c2b6381b900895afb0be37efc73c364b"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-001/IntrinsicH0Controls.lean",
+          "bytes": 8291,
+          "sha256": "e374fae511349c45c5e3ed181ad47739c558761ccf9258bc05fa73c9370c3e25"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-001/Inventory.lean",
+          "bytes": 1081,
+          "sha256": "6114b623420620e873efc4046a2633dc358ae65d7aa87b6b02515a355433ae44"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-001/SourceIntrinsicH0Interface.lean",
+          "bytes": 8366,
+          "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-001/run_stage.py",
+          "bytes": 1474,
+          "sha256": "f48cb6ad509ff16cfd7e9f395958bf454d83eb28dddf95e47241d31098728b2c"
+        }
+      ]
+    },
+    {
+      "label": "false-essential-default-001",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -R /workspace/scratch/intrinsic-h0-interface-construct /workspace/scratch/intrinsic-h0-interface-construct/FalseEssentialDefaultMutation.lean"
+      ],
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0Interface.lean",
+          "bytes": 8366,
+          "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/build/SourceIntrinsicH0Interface.olean",
+          "bytes": 975440,
+          "sha256": "ff59fe74b6d755b1173b2300559c7fd896e3ec567b43df447a9b3ad2ab5a5fec"
+        }
+      },
+      "started_utc": "2026-10-26T17:42:22.632658+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 4.7396485805511475,
+      "ended_utc": "2026-10-26T17:42:27.372368+00:00",
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0Interface.lean",
+          "bytes": 8366,
+          "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef"
+        },
+        "object": {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/build/SourceIntrinsicH0Interface.olean",
+          "bytes": 975440,
+          "sha256": "ff59fe74b6d755b1173b2300559c7fd896e3ec567b43df447a9b3ad2ab5a5fec"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/false-essential-default-001/output.log",
+        "bytes": 126,
+        "sha256": "ec9ba15087385d5de0926dd17216d969cd7cfc920b803f4dd4b61f5c91e4f8b2"
+      },
+      "receipt": {
+        "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/false-essential-default-001/receipt.json",
+        "bytes": 2105,
+        "sha256": "69e690a5ef50e8279b200175633a72ef0d58bdd66df06e73c95f11b487543c43"
+      },
+      "snapshots": [
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/false-essential-default-001/CONTROL_CONTRACT.md",
+          "bytes": 4322,
+          "sha256": "6c5663ca61b43e9cb7293e2519a3a0f2c2b6381b900895afb0be37efc73c364b"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/false-essential-default-001/FalseEssentialDefaultMutation.lean",
+          "bytes": 510,
+          "sha256": "cee97613a7920950b780bcfca6536e947e258353dc5a067db5f5430a8d828d26"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/false-essential-default-001/IntrinsicH0Controls.lean",
+          "bytes": 8291,
+          "sha256": "e374fae511349c45c5e3ed181ad47739c558761ccf9258bc05fa73c9370c3e25"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/false-essential-default-001/Inventory.lean",
+          "bytes": 1081,
+          "sha256": "6114b623420620e873efc4046a2633dc358ae65d7aa87b6b02515a355433ae44"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/false-essential-default-001/SourceIntrinsicH0Interface.lean",
+          "bytes": 8366,
+          "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef"
+        },
+        {
+          "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/false-essential-default-001/run_stage.py",
+          "bytes": 1474,
+          "sha256": "f48cb6ad509ff16cfd7e9f395958bf454d83eb28dddf95e47241d31098728b2c"
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "production_strict_attempts": 2,
+    "own_module_leanchecker": 1,
+    "actual_inventory": 1,
+    "partial_control_attempts": 1,
+    "complete_controls": 1,
+    "sole_counterexample_mutation": 1
+  },
+  "environment_restoration": "Root reported environment rev70 restoration after inventory/kernel, files intact/no leaf process running; all completed applicable evidence reused without replay or timer reset"
+}

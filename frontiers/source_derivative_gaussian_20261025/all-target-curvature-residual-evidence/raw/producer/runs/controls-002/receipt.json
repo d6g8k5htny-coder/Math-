@@ -1,0 +1,44 @@
+{
+  "label": "controls-002",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/all-target-curvature-residual-construct/build:$LEAN_PATH exec lean -DwarningAsError=true -R /workspace/scratch/all-target-curvature-residual-construct -o /workspace/scratch/all-target-curvature-residual-construct/build/AllTargetResidualControls.olean /workspace/scratch/all-target-curvature-residual-construct/AllTargetResidualControls.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAllTargetCurvatureResidual.lean",
+      "bytes": 16631,
+      "sha256": "4ae29bc3f2f206cca558df3f78853061cf4892499ac918e40253edd68d44371f"
+    },
+    "object": {
+      "path": "/workspace/scratch/all-target-curvature-residual-construct/build/SourceAllTargetCurvatureResidual.olean",
+      "bytes": 599296,
+      "sha256": "0a193cd6fc68ac0507169dc0a601d8f804dd51fc382d6ea86c2997715d2d245e"
+    }
+  },
+  "started_utc": "2026-10-26T09:51:13.163895+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 3.231260061264038,
+  "ended_utc": "2026-10-26T09:51:16.395178+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAllTargetCurvatureResidual.lean",
+      "bytes": 16631,
+      "sha256": "4ae29bc3f2f206cca558df3f78853061cf4892499ac918e40253edd68d44371f"
+    },
+    "object": {
+      "path": "/workspace/scratch/all-target-curvature-residual-construct/build/SourceAllTargetCurvatureResidual.olean",
+      "bytes": 599296,
+      "sha256": "0a193cd6fc68ac0507169dc0a601d8f804dd51fc382d6ea86c2997715d2d245e"
+    }
+  },
+  "log": {
+    "path": "/workspace/scratch/all-target-curvature-residual-construct/runs/controls-002/output.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

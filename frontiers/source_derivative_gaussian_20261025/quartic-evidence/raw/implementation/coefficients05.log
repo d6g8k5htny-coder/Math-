@@ -1,0 +1,578 @@
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:240:37: error: This simp argument is unused:
+  source_word_3_xxy hL ω
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [source_word_3_xxx hL ω, source_word_3_xyx hL ω, source_word_3_xyy hL ω, source_word_3_yxx hL ω,
+    source_word_3_yxy hL ω, source_word_3_yyx hL ω, source_word_3_yyy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:240:85: error: This simp argument is unused:
+  source_word_3_xyy hL ω
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [source_word_3_xxx hL ω, source_word_3_xxy hL ω, source_word_3_xyx hL ω, source_word_3_yxx hL ω,
+    source_word_3_yxy hL ω, source_word_3_yyx hL ω, source_word_3_yyy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:240:133: error: This simp argument is unused:
+  source_word_3_yxy hL ω
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [source_word_3_xxx hL ω, source_word_3_xxy hL ω, source_word_3_xyx hL ω, source_word_3_xyy hL ω,
+    source_word_3_yxx hL ω, source_word_3_yyx hL ω, source_word_3_yyy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:240:181: error: This simp argument is unused:
+  source_word_3_yyy hL ω
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [source_word_3_xxx hL ω, source_word_3_xxy hL ω, source_word_3_xyx hL ω, source_word_3_xyy hL ω,
+    source_word_3_yxx hL ω, source_word_3_yxy hL ω, source_word_3_yyx hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:249:13: error: This simp argument is unused:
+  source_word_3_xxx hL ω
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [source_word_3_xxy hL ω, source_word_3_xyx hL ω, source_word_3_xyy hL ω, source_word_3_yxx hL ω,
+    source_word_3_yxy hL ω, source_word_3_yyx hL ω, source_word_3_yyy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:249:61: error: This simp argument is unused:
+  source_word_3_xyx hL ω
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [source_word_3_xxx hL ω, source_word_3_xxy hL ω, source_word_3_xyy hL ω, source_word_3_yxx hL ω,
+    source_word_3_yxy hL ω, source_word_3_yyx hL ω, source_word_3_yyy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:249:109: error: This simp argument is unused:
+  source_word_3_yxx hL ω
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [source_word_3_xxx hL ω, source_word_3_xxy hL ω, source_word_3_xyx hL ω, source_word_3_xyy hL ω,
+    source_word_3_yxy hL ω, source_word_3_yyx hL ω, source_word_3_yyy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:249:157: error: This simp argument is unused:
+  source_word_3_yyx hL ω
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [source_word_3_xxx hL ω, source_word_3_xxy hL ω, source_word_3_xyx hL ω, source_word_3_xyy hL ω,
+    source_word_3_yxx hL ω, source_word_3_yxy hL ω, source_word_3_yyy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:258:38: error: This simp argument is unused:
+  source_word_4_xxxy hL ω
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [source_word_4_xxxx hL ω, source_word_4_xxyx hL ω, source_word_4_xxyy hL ω, source_word_4_xyxx hL ω,
+    source_word_4_xyxy hL ω, source_word_4_xyyx hL ω, source_word_4_xyyy hL ω, source_word_4_yxxx hL ω,
+    source_word_4_yxxy hL ω, source_word_4_yxyx hL ω, source_word_4_yxyy hL ω, source_word_4_yyxx hL ω,
+    source_word_4_yyxy hL ω, source_word_4_yyyx hL ω, source_word_4_yyyy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:258:88: error: This simp argument is unused:
+  source_word_4_xxyy hL ω
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [source_word_4_xxxx hL ω, source_word_4_xxxy hL ω, source_word_4_xxyx hL ω, source_word_4_xyxx hL ω,
+    source_word_4_xyxy hL ω, source_word_4_xyyx hL ω, source_word_4_xyyy hL ω, source_word_4_yxxx hL ω,
+    source_word_4_yxxy hL ω, source_word_4_yxyx hL ω, source_word_4_yxyy hL ω, source_word_4_yyxx hL ω,
+    source_word_4_yyxy hL ω, source_word_4_yyyx hL ω, source_word_4_yyyy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:258:138: error: This simp argument is unused:
+  source_word_4_xyxy hL ω
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [source_word_4_xxxx hL ω, source_word_4_xxxy hL ω, source_word_4_xxyx hL ω, source_word_4_xxyy hL ω,
+    source_word_4_xyxx hL ω, source_word_4_xyyx hL ω, source_word_4_xyyy hL ω, source_word_4_yxxx hL ω,
+    source_word_4_yxxy hL ω, source_word_4_yxyx hL ω, source_word_4_yxyy hL ω, source_word_4_yyxx hL ω,
+    source_word_4_yyxy hL ω, source_word_4_yyyx hL ω, source_word_4_yyyy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:258:188: error: This simp argument is unused:
+  source_word_4_xyyy hL ω
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [source_word_4_xxxx hL ω, source_word_4_xxxy hL ω, source_word_4_xxyx hL ω, source_word_4_xxyy hL ω,
+    source_word_4_xyxx hL ω, source_word_4_xyxy hL ω, source_word_4_xyyx hL ω, source_word_4_yxxx hL ω,
+    source_word_4_yxxy hL ω, source_word_4_yxyx hL ω, source_word_4_yxyy hL ω, source_word_4_yyxx hL ω,
+    source_word_4_yyxy hL ω, source_word_4_yyyx hL ω, source_word_4_yyyy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:258:238: error: This simp argument is unused:
+  source_word_4_yxxy hL ω
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [source_word_4_xxxx hL ω, source_word_4_xxxy hL ω, source_word_4_xxyx hL ω, source_word_4_xxyy hL ω,
+    source_word_4_xyxx hL ω, source_word_4_xyxy hL ω, source_word_4_xyyx hL ω, source_word_4_xyyy hL ω,
+    source_word_4_yxxx hL ω, source_word_4_yxyx hL ω, source_word_4_yxyy hL ω, source_word_4_yyxx hL ω,
+    source_word_4_yyxy hL ω, source_word_4_yyyx hL ω, source_word_4_yyyy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:258:288: error: This simp argument is unused:
+  source_word_4_yxyy hL ω
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [source_word_4_xxxx hL ω, source_word_4_xxxy hL ω, source_word_4_xxyx hL ω, source_word_4_xxyy hL ω,
+    source_word_4_xyxx hL ω, source_word_4_xyxy hL ω, source_word_4_xyyx hL ω, source_word_4_xyyy hL ω,
+    source_word_4_yxxx hL ω, source_word_4_yxxy hL ω, source_word_4_yxyx hL ω, source_word_4_yyxx hL ω,
+    source_word_4_yyxy hL ω, source_word_4_yyyx hL ω, source_word_4_yyyy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:258:338: error: This simp argument is unused:
+  source_word_4_yyxy hL ω
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [source_word_4_xxxx hL ω, source_word_4_xxxy hL ω, source_word_4_xxyx hL ω, source_word_4_xxyy hL ω,
+    source_word_4_xyxx hL ω, source_word_4_xyxy hL ω, source_word_4_xyyx hL ω, source_word_4_xyyy hL ω,
+    source_word_4_yxxx hL ω, source_word_4_yxxy hL ω, source_word_4_yxyx hL ω, source_word_4_yxyy hL ω,
+    source_word_4_yyxx hL ω, source_word_4_yyyx hL ω, source_word_4_yyyy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:258:388: error: This simp argument is unused:
+  source_word_4_yyyy hL ω
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [source_word_4_xxxx hL ω, source_word_4_xxxy hL ω, source_word_4_xxyx hL ω, source_word_4_xxyy hL ω,
+    source_word_4_xyxx hL ω, source_word_4_xyxy hL ω, source_word_4_xyyx hL ω, source_word_4_xyyy hL ω,
+    source_word_4_yxxx hL ω, source_word_4_yxxy hL ω, source_word_4_yxyx hL ω, source_word_4_yxyy hL ω,
+    source_word_4_yyxx hL ω, source_word_4_yyxy hL ω, source_word_4_yyyx hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:267:13: error: This simp argument is unused:
+  source_word_4_xxxx hL ω
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [source_word_4_xxxy hL ω, source_word_4_xxyx hL ω, source_word_4_xxyy hL ω, source_word_4_xyxx hL ω,
+    source_word_4_xyxy hL ω, source_word_4_xyyx hL ω, source_word_4_xyyy hL ω, source_word_4_yxxx hL ω,
+    source_word_4_yxxy hL ω, source_word_4_yxyx hL ω, source_word_4_yxyy hL ω, source_word_4_yyxx hL ω,
+    source_word_4_yyxy hL ω, source_word_4_yyyx hL ω, source_word_4_yyyy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:267:63: error: This simp argument is unused:
+  source_word_4_xxyx hL ω
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [source_word_4_xxxx hL ω, source_word_4_xxxy hL ω, source_word_4_xxyy hL ω, source_word_4_xyxx hL ω,
+    source_word_4_xyxy hL ω, source_word_4_xyyx hL ω, source_word_4_xyyy hL ω, source_word_4_yxxx hL ω,
+    source_word_4_yxxy hL ω, source_word_4_yxyx hL ω, source_word_4_yxyy hL ω, source_word_4_yyxx hL ω,
+    source_word_4_yyxy hL ω, source_word_4_yyyx hL ω, source_word_4_yyyy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:267:113: error: This simp argument is unused:
+  source_word_4_xyxx hL ω
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [source_word_4_xxxx hL ω, source_word_4_xxxy hL ω, source_word_4_xxyx hL ω, source_word_4_xxyy hL ω,
+    source_word_4_xyxy hL ω, source_word_4_xyyx hL ω, source_word_4_xyyy hL ω, source_word_4_yxxx hL ω,
+    source_word_4_yxxy hL ω, source_word_4_yxyx hL ω, source_word_4_yxyy hL ω, source_word_4_yyxx hL ω,
+    source_word_4_yyxy hL ω, source_word_4_yyyx hL ω, source_word_4_yyyy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:267:163: error: This simp argument is unused:
+  source_word_4_xyyx hL ω
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [source_word_4_xxxx hL ω, source_word_4_xxxy hL ω, source_word_4_xxyx hL ω, source_word_4_xxyy hL ω,
+    source_word_4_xyxx hL ω, source_word_4_xyxy hL ω, source_word_4_xyyy hL ω, source_word_4_yxxx hL ω,
+    source_word_4_yxxy hL ω, source_word_4_yxyx hL ω, source_word_4_yxyy hL ω, source_word_4_yyxx hL ω,
+    source_word_4_yyxy hL ω, source_word_4_yyyx hL ω, source_word_4_yyyy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:267:213: error: This simp argument is unused:
+  source_word_4_yxxx hL ω
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [source_word_4_xxxx hL ω, source_word_4_xxxy hL ω, source_word_4_xxyx hL ω, source_word_4_xxyy hL ω,
+    source_word_4_xyxx hL ω, source_word_4_xyxy hL ω, source_word_4_xyyx hL ω, source_word_4_xyyy hL ω,
+    source_word_4_yxxy hL ω, source_word_4_yxyx hL ω, source_word_4_yxyy hL ω, source_word_4_yyxx hL ω,
+    source_word_4_yyxy hL ω, source_word_4_yyyx hL ω, source_word_4_yyyy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:267:263: error: This simp argument is unused:
+  source_word_4_yxyx hL ω
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [source_word_4_xxxx hL ω, source_word_4_xxxy hL ω, source_word_4_xxyx hL ω, source_word_4_xxyy hL ω,
+    source_word_4_xyxx hL ω, source_word_4_xyxy hL ω, source_word_4_xyyx hL ω, source_word_4_xyyy hL ω,
+    source_word_4_yxxx hL ω, source_word_4_yxxy hL ω, source_word_4_yxyy hL ω, source_word_4_yyxx hL ω,
+    source_word_4_yyxy hL ω, source_word_4_yyyx hL ω, source_word_4_yyyy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:267:313: error: This simp argument is unused:
+  source_word_4_yyxx hL ω
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [source_word_4_xxxx hL ω, source_word_4_xxxy hL ω, source_word_4_xxyx hL ω, source_word_4_xxyy hL ω,
+    source_word_4_xyxx hL ω, source_word_4_xyxy hL ω, source_word_4_xyyx hL ω, source_word_4_xyyy hL ω,
+    source_word_4_yxxx hL ω, source_word_4_yxxy hL ω, source_word_4_yxyx hL ω, source_word_4_yxyy hL ω,
+    source_word_4_yyxy hL ω, source_word_4_yyyx hL ω, source_word_4_yyyy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:267:363: error: This simp argument is unused:
+  source_word_4_yyyx hL ω
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [source_word_4_xxxx hL ω, source_word_4_xxxy hL ω, source_word_4_xxyx hL ω, source_word_4_xxyy hL ω,
+    source_word_4_xyxx hL ω, source_word_4_xyxy hL ω, source_word_4_xyyx hL ω, source_word_4_xyyy hL ω,
+    source_word_4_yxxx hL ω, source_word_4_yxxy hL ω, source_word_4_yxyx hL ω, source_word_4_yxyy hL ω,
+    source_word_4_yyxx hL ω, source_word_4_yyxy hL ω, source_word_4_yyyy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:276:32: error: unsolved goals
+case «0»
+L : ℝ
+hL : L ≠ 0
+ω : SmoothSample 2 L
+p : Fin 2 → ℝ
+h :
+  (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![p, ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩)] =
+    p 0 *
+        (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0)
+          ![directionX, ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩)] +
+      p 1 *
+        (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionY, ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩)]
+⊢ p 0 * (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionX, ![directionX, directionY] ⟨0, ⋯⟩] +
+      p 1 * (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionY, ![directionX, directionY] ⟨0, ⋯⟩] =
+    ![p 0 * (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionX, directionX] +
+          p 1 * (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionX, directionY],
+        p 0 * (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionX, directionY] + p 1 * sourceQ L ω]
+      ⟨0, ⋯⟩
+
+case «1»
+L : ℝ
+hL : L ≠ 0
+ω : SmoothSample 2 L
+p : Fin 2 → ℝ
+h :
+  (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![p, ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩)] =
+    p 0 *
+        (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0)
+          ![directionX, ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩)] +
+      p 1 *
+        (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionY, ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩)]
+⊢ p 0 * (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionX, ![directionX, directionY] ⟨1, ⋯⟩] +
+      p 1 * (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionY, ![directionX, directionY] ⟨1, ⋯⟩] =
+    ![p 0 * (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionX, directionX] +
+          p 1 * (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionX, directionY],
+        p 0 * (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionX, directionY] + p 1 * sourceQ L ω]
+      ⟨1, ⋯⟩
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:280:29: error: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.cons_val_one, source_word_2_yx hL ω, source_word_2_yy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:280:50: error: This simp argument is unused:
+  Matrix.cons_val_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.cons_val_zero, source_word_2_yx hL ω, source_word_2_yy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:281:4: error: This simp argument is unused:
+  source_word_2_yx hL ω
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.cons_val_zero, Matrix.cons_val_one, source_word_2_yy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:281:26: error: This simp argument is unused:
+  source_word_2_yy hL ω
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.cons_val_zero, Matrix.cons_val_one, source_word_2_yx hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:290:60: error: unsolved goals
+case «0».«0»
+L : ℝ
+hL : L ≠ 0
+ω : SmoothSample 2 L
+p : Fin 2 → ℝ
+h :
+  (iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0)
+      ![p, ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩), ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩)] =
+    p 0 *
+        (iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0)
+          ![directionX, ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩),
+            ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩)] +
+      p 1 *
+        (iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0)
+          ![directionY, ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩),
+            ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩)]
+⊢ p 0 * sourceAxialThird L ω + p 1 * sourceRawU L ω 0 =
+    !![p 0 * sourceAxialThird L ω + p 1 * sourceRawU L ω 0, p 0 * sourceRawU L ω 0 + p 1 * sourceRawU L ω 1;
+        p 0 * sourceRawU L ω 0 + p 1 * sourceRawU L ω 1, p 0 * sourceRawU L ω 1 + p 1 * sourceRawU L ω 2]
+      0 0
+
+case «0».«1»
+L : ℝ
+hL : L ≠ 0
+ω : SmoothSample 2 L
+p : Fin 2 → ℝ
+h :
+  (iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0)
+      ![p, ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩), ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩)] =
+    p 0 *
+        (iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0)
+          ![directionX, ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩),
+            ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩)] +
+      p 1 *
+        (iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0)
+          ![directionY, ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩),
+            ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩)]
+⊢ p 0 * sourceRawU L ω 0 + p 1 * sourceRawU L ω 1 =
+    !![p 0 * sourceAxialThird L ω + sourceRawU L ω 0 * p 1, p 0 * sourceRawU L ω 0 + p 1 * sourceRawU L ω 1;
+        p 0 * sourceRawU L ω 0 + p 1 * sourceRawU L ω 1, p 0 * sourceRawU L ω 1 + p 1 * sourceRawU L ω 2]
+      0 1
+
+case «1».«0»
+L : ℝ
+hL : L ≠ 0
+ω : SmoothSample 2 L
+p : Fin 2 → ℝ
+h :
+  (iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0)
+      ![p, ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩), ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩)] =
+    p 0 *
+        (iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0)
+          ![directionX, ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩),
+            ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩)] +
+      p 1 *
+        (iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0)
+          ![directionY, ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩),
+            ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩)]
+⊢ p 0 * sourceRawU L ω 0 + p 1 * sourceRawU L ω 1 =
+    !![p 0 * sourceAxialThird L ω + sourceRawU L ω 0 * p 1, p 0 * sourceRawU L ω 0 + p 1 * sourceRawU L ω 1;
+        p 0 * sourceRawU L ω 0 + p 1 * sourceRawU L ω 1, p 0 * sourceRawU L ω 1 + p 1 * sourceRawU L ω 2]
+      1 0
+
+case «1».«1»
+L : ℝ
+hL : L ≠ 0
+ω : SmoothSample 2 L
+p : Fin 2 → ℝ
+h :
+  (iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0)
+      ![p, ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩), ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩)] =
+    p 0 *
+        (iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0)
+          ![directionX, ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩),
+            ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩)] +
+      p 1 *
+        (iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0)
+          ![directionY, ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩),
+            ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩)]
+⊢ p 0 * sourceRawU L ω 1 + p 1 * sourceRawU L ω 2 =
+    !![p 0 * sourceAxialThird L ω + p 1 * sourceRawU L ω 0, p 0 * sourceRawU L ω 0 + sourceRawU L ω 1 * p 1;
+        p 0 * sourceRawU L ω 0 + sourceRawU L ω 1 * p 1, p 0 * sourceRawU L ω 1 + p 1 * sourceRawU L ω 2]
+      1 1
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:296:56: error: This simp argument is unused:
+  Matrix.cons_val
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.cons_val_zero, Matrix.cons_val_one, Fin.reduceFinMk, source_word_3_xxx hL ω,
+    source_word_3_xxy hL ω, source_word_3_xyx hL ω, source_word_3_xyy hL ω, source_word_3_yxx hL ω,
+    source_word_3_yxy hL ω, source_word_3_yyx hL ω, source_word_3_yyy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:306:95: error: unsolved goals
+case «0».«0»
+L : ℝ
+hL : L ≠ 0
+ω : SmoothSample 2 L
+p : Fin 2 → ℝ
+h :
+  (iteratedFDeriv ℝ 4 (smoothSourceField 2 L ω) 0)
+      ![p, p, ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩), ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩)] =
+    p 0 ^ 2 *
+            (iteratedFDeriv ℝ 4 (smoothSourceField 2 L ω) 0)
+              ![directionX, directionX, ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩),
+                ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩)] +
+          p 0 * p 1 *
+            (iteratedFDeriv ℝ 4 (smoothSourceField 2 L ω) 0)
+              ![directionX, directionY, ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩),
+                ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩)] +
+        p 0 * p 1 *
+          (iteratedFDeriv ℝ 4 (smoothSourceField 2 L ω) 0)
+            ![directionY, directionX, ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩),
+              ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩)] +
+      p 1 ^ 2 *
+        (iteratedFDeriv ℝ 4 (smoothSourceField 2 L ω) 0)
+          ![directionY, directionY, ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩),
+            ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩)]
+⊢ p 0 * p 1 * sourceRawU L ω 4 * 2 + p 0 ^ 2 * sourceRawU L ω 3 + p 1 ^ 2 * sourceRawU L ω 5 =
+    !![p 0 * p 1 * sourceRawU L ω 4 * 2 + p 0 ^ 2 * sourceRawU L ω 3 + p 1 ^ 2 * sourceRawU L ω 5,
+          p 0 * p 1 * sourceRawU L ω 5 * 2 + p 0 ^ 2 * sourceRawU L ω 4 + p 1 ^ 2 * sourceRawU L ω 6;
+        p 0 * p 1 * sourceRawU L ω 5 * 2 + p 0 ^ 2 * sourceRawU L ω 4 + p 1 ^ 2 * sourceRawU L ω 6,
+          p 0 * p 1 * sourceRawU L ω 6 * 2 + p 0 ^ 2 * sourceRawU L ω 5 + p 1 ^ 2 * sourceRawU L ω 7]
+      0 0
+
+case «0».«1»
+L : ℝ
+hL : L ≠ 0
+ω : SmoothSample 2 L
+p : Fin 2 → ℝ
+h :
+  (iteratedFDeriv ℝ 4 (smoothSourceField 2 L ω) 0)
+      ![p, p, ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩), ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩)] =
+    p 0 ^ 2 *
+            (iteratedFDeriv ℝ 4 (smoothSourceField 2 L ω) 0)
+              ![directionX, directionX, ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩),
+                ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩)] +
+          p 0 * p 1 *
+            (iteratedFDeriv ℝ 4 (smoothSourceField 2 L ω) 0)
+              ![directionX, directionY, ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩),
+                ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩)] +
+        p 0 * p 1 *
+          (iteratedFDeriv ℝ 4 (smoothSourceField 2 L ω) 0)
+            ![directionY, directionX, ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩),
+              ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩)] +
+      p 1 ^ 2 *
+        (iteratedFDeriv ℝ 4 (smoothSourceField 2 L ω) 0)
+          ![directionY, directionY, ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩),
+            ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩)]
+⊢ p 0 * p 1 * sourceRawU L ω 5 * 2 + p 0 ^ 2 * sourceRawU L ω 4 + p 1 ^ 2 * sourceRawU L ω 6 =
+    !![p 0 * sourceRawU L ω 4 * p 1 * 2 + p 0 ^ 2 * sourceRawU L ω 3 + p 1 ^ 2 * sourceRawU L ω 5,
+          p 0 * p 1 * sourceRawU L ω 5 * 2 + p 0 ^ 2 * sourceRawU L ω 4 + p 1 ^ 2 * sourceRawU L ω 6;
+        p 0 * p 1 * sourceRawU L ω 5 * 2 + p 0 ^ 2 * sourceRawU L ω 4 + p 1 ^ 2 * sourceRawU L ω 6,
+          p 0 * p 1 * sourceRawU L ω 6 * 2 + p 0 ^ 2 * sourceRawU L ω 5 + p 1 ^ 2 * sourceRawU L ω 7]
+      0 1
+
+case «1».«0»
+L : ℝ
+hL : L ≠ 0
+ω : SmoothSample 2 L
+p : Fin 2 → ℝ
+h :
+  (iteratedFDeriv ℝ 4 (smoothSourceField 2 L ω) 0)
+      ![p, p, ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩), ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩)] =
+    p 0 ^ 2 *
+            (iteratedFDeriv ℝ 4 (smoothSourceField 2 L ω) 0)
+              ![directionX, directionX, ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩),
+                ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩)] +
+          p 0 * p 1 *
+            (iteratedFDeriv ℝ 4 (smoothSourceField 2 L ω) 0)
+              ![directionX, directionY, ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩),
+                ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩)] +
+        p 0 * p 1 *
+          (iteratedFDeriv ℝ 4 (smoothSourceField 2 L ω) 0)
+            ![directionY, directionX, ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩),
+              ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩)] +
+      p 1 ^ 2 *
+        (iteratedFDeriv ℝ 4 (smoothSourceField 2 L ω) 0)
+          ![directionY, directionY, ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩),
+            ![directionX, directionY] ((fun i => i) ⟨0, ⋯⟩)]
+⊢ p 0 * p 1 * sourceRawU L ω 5 * 2 + p 0 ^ 2 * sourceRawU L ω 4 + p 1 ^ 2 * sourceRawU L ω 6 =
+    !![p 0 * sourceRawU L ω 4 * p 1 * 2 + p 0 ^ 2 * sourceRawU L ω 3 + p 1 ^ 2 * sourceRawU L ω 5,
+          p 0 * p 1 * sourceRawU L ω 5 * 2 + p 0 ^ 2 * sourceRawU L ω 4 + p 1 ^ 2 * sourceRawU L ω 6;
+        p 0 * p 1 * sourceRawU L ω 5 * 2 + p 0 ^ 2 * sourceRawU L ω 4 + p 1 ^ 2 * sourceRawU L ω 6,
+          p 0 * p 1 * sourceRawU L ω 6 * 2 + p 0 ^ 2 * sourceRawU L ω 5 + p 1 ^ 2 * sourceRawU L ω 7]
+      1 0
+
+case «1».«1»
+L : ℝ
+hL : L ≠ 0
+ω : SmoothSample 2 L
+p : Fin 2 → ℝ
+h :
+  (iteratedFDeriv ℝ 4 (smoothSourceField 2 L ω) 0)
+      ![p, p, ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩), ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩)] =
+    p 0 ^ 2 *
+            (iteratedFDeriv ℝ 4 (smoothSourceField 2 L ω) 0)
+              ![directionX, directionX, ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩),
+                ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩)] +
+          p 0 * p 1 *
+            (iteratedFDeriv ℝ 4 (smoothSourceField 2 L ω) 0)
+              ![directionX, directionY, ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩),
+                ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩)] +
+        p 0 * p 1 *
+          (iteratedFDeriv ℝ 4 (smoothSourceField 2 L ω) 0)
+            ![directionY, directionX, ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩),
+              ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩)] +
+      p 1 ^ 2 *
+        (iteratedFDeriv ℝ 4 (smoothSourceField 2 L ω) 0)
+          ![directionY, directionY, ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩),
+            ![directionX, directionY] ((fun i => i) ⟨1, ⋯⟩)]
+⊢ p 0 * p 1 * sourceRawU L ω 6 * 2 + p 0 ^ 2 * sourceRawU L ω 5 + p 1 ^ 2 * sourceRawU L ω 7 =
+    !![p 0 * p 1 * sourceRawU L ω 4 * 2 + p 0 ^ 2 * sourceRawU L ω 3 + sourceRawU L ω 5 * p 1 ^ 2,
+          p 0 * sourceRawU L ω 5 * p 1 * 2 + p 0 ^ 2 * sourceRawU L ω 4 + p 1 ^ 2 * sourceRawU L ω 6;
+        p 0 * sourceRawU L ω 5 * p 1 * 2 + p 0 ^ 2 * sourceRawU L ω 4 + p 1 ^ 2 * sourceRawU L ω 6,
+          p 0 * p 1 * sourceRawU L ω 6 * 2 + p 0 ^ 2 * sourceRawU L ω 5 + p 1 ^ 2 * sourceRawU L ω 7]
+      1 1
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:312:56: error: This simp argument is unused:
+  Matrix.cons_val
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.cons_val_zero, Matrix.cons_val_one, Fin.reduceFinMk, source_word_4_xxxx hL ω,
+    source_word_4_xxxy hL ω, source_word_4_xxyx hL ω, source_word_4_xxyy hL ω, source_word_4_xyxx hL ω,
+    source_word_4_xyxy hL ω, source_word_4_xyyx hL ω, source_word_4_xyyy hL ω, source_word_4_yxxx hL ω,
+    source_word_4_yxxy hL ω, source_word_4_yxyx hL ω, source_word_4_yxyy hL ω, source_word_4_yyxx hL ω,
+    source_word_4_yyxy hL ω, source_word_4_yyyx hL ω, source_word_4_yyyy hL ω]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

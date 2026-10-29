@@ -1,0 +1,36 @@
+{
+  "label": "strict-002",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/h0-older-clearance-construct/build/SourceH0OlderClearance.olean SourceH0OlderClearance.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceH0OlderClearance.lean",
+      "bytes": 5761,
+      "sha256": "4d8571aa75393fd0cbfa3afde8782ba103c85123f5c8972c4ce245136e203e42"
+    },
+    "object": null
+  },
+  "started_utc": "2026-10-26T16:19:08.553359+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 4.512157440185547,
+  "ended_utc": "2026-10-26T16:19:13.065537+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceH0OlderClearance.lean",
+      "bytes": 5761,
+      "sha256": "4d8571aa75393fd0cbfa3afde8782ba103c85123f5c8972c4ce245136e203e42"
+    },
+    "object": null
+  },
+  "log": {
+    "path": "/workspace/scratch/h0-older-clearance-construct/runs/strict-002/output.log",
+    "bytes": 3385,
+    "sha256": "b6b32032a35929877ed95ac917ddcb289b097828eefece4113bbda5dd10fcd10"
+  }
+}

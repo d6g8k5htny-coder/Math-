@@ -1,0 +1,32 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactGapNormalizer.lean",
+    "bytes": 24753,
+    "sha256": "d0f9319ac2ca792a9733659453583f4f71acc7ccccbcaba4ba1942566516065a"
+  },
+  "imports": [
+    "SourceGapPinCurvature",
+    "SourceCurvatureDecomposition",
+    "SourceGapWeightedNumerator"
+  ],
+  "forbidden_token_matches": {
+    "\\bsorry\\b": false,
+    "^\\s*axiom\\b": false,
+    "\\bnative_decide\\b": false,
+    "\\bimplemented_by\\b": false,
+    "^import Mathlib\\s*$": false
+  },
+  "final_endpoint": "sourceGapLaw_compact_normalizer",
+  "final_premises": [
+    "L!=0",
+    "B>=0",
+    "0<k0",
+    "k0<=k1"
+  ],
+  "literal_same_actual_carrier_and_measure": true,
+  "actual_sourceSmoothWeight_retained": true,
+  "literal_sixth_target": "12*k",
+  "constants": "eta from bounded affine mean and two-sided variance; A=max1(2*C*(1+B)/eta); c=k0^2*eta/2; positive minimum radius before r,b,k",
+  "no_final_model_certificate_premises": true,
+  "scope": "Coarse positive actual physical normalizer floor only. No contact-limit, normalized probability, global Morse, torus, H0, canonical partner, framed law, count density or Parent closure."
+}

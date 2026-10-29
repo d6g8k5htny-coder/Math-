@@ -1,0 +1,82 @@
+theorem clm_graph_vector (L : (ℝ × ℝ) →L[ℝ] ℝ) (z : ℝ) :
+    L (1, z) = L ex + z * L ey
+
+theorem clm_vertical_vector (L : (ℝ × ℝ) →L[ℝ] ℝ) (z : ℝ) :
+    L (0, z) = z * L ey
+
+theorem c2_full_derivative_jets {ζ : ℝ → ℝ} {U : Set ℝ}
+    (hU : IsOpen U) (hζ : ContDiffOn ℝ 2 ζ U) {x : ℝ} (hx : x ∈ U) :
+    HasDerivAt ζ (deriv ζ x) x ∧
+      HasDerivAt (deriv ζ) (deriv (deriv ζ) x) x
+
+theorem zero_graph_first_chain {G : ℝ × ℝ → ℝ} {ζ : ℝ → ℝ}
+    {O : Set (ℝ × ℝ)} {U : Set ℝ}
+    (hO : IsOpen O) (hU : IsOpen U)
+    (hG : ContDiffOn ℝ 2 G O) (hζ : ContDiffOn ℝ 2 ζ U)
+    (hgraph : ∀ x ∈ U, (x, ζ x) ∈ O) (hzero : ∀ x ∈ U, G (x, ζ x) = 0)
+    {x : ℝ} (hx : x ∈ U) :
+    fderiv ℝ G (x, ζ x) (1, deriv ζ x) = 0
+
+theorem zero_graph_second_chain {G : ℝ × ℝ → ℝ} {ζ : ℝ → ℝ}
+    {O : Set (ℝ × ℝ)} {U : Set ℝ}
+    (hO : IsOpen O) (hU : IsOpen U)
+    (hG : ContDiffOn ℝ 2 G O) (hζ : ContDiffOn ℝ 2 ζ U)
+    (hgraph : ∀ x ∈ U, (x, ζ x) ∈ O) (hzero : ∀ x ∈ U, G (x, ζ x) = 0)
+    {x : ℝ} (hx : x ∈ U) :
+    fderiv ℝ (fderiv ℝ G) (x, ζ x) (1, deriv ζ x) (1, deriv ζ x) +
+      fderiv ℝ G (x, ζ x) (0, deriv (deriv ζ) x) = 0
+
+theorem zero_graph_derivative_formulas {G : ℝ × ℝ → ℝ} {ζ : ℝ → ℝ}
+    {O : Set (ℝ × ℝ)} {U : Set ℝ}
+    (hO : IsOpen O) (hU : IsOpen U)
+    (hG : ContDiffOn ℝ 2 G O) (hζ : ContDiffOn ℝ 2 ζ U)
+    (hgraph : ∀ x ∈ U, (x, ζ x) ∈ O) (hzero : ∀ x ∈ U, G (x, ζ x) = 0)
+    {x : ℝ} (hx : x ∈ U) (hy : partialY G (x, ζ x) ≠ 0) :
+    deriv ζ x = -partialX G (x, ζ x) / partialY G (x, ζ x) ∧
+    deriv (deriv ζ) x =
+      -(fderiv ℝ (fderiv ℝ G) (x, ζ x) (1, deriv ζ x) (1, deriv ζ x)) /
+        partialY G (x, ζ x)
+
+theorem bilinear_graph_vector
+    (B : (ℝ × ℝ) →L[ℝ] (ℝ × ℝ) →L[ℝ] ℝ) (z : ℝ) :
+    B (1, z) (1, z) = B ex ex + z * B ex ey + z * B ey ex + z ^ 2 * B ey ey
+
+theorem abs_bilinear_graph_vector_le
+    (B : (ℝ × ℝ) →L[ℝ] (ℝ × ℝ) →L[ℝ] ℝ) {M : ℝ}
+    (hxx : |B ex ex| ≤ M) (hxy : |B ex ey| ≤ M)
+    (hyx : |B ey ex| ≤ M) (hyy : |B ey ey| ≤ M) (z : ℝ) :
+    |B (1, z) (1, z)| ≤ M * (1 + |z|) ^ 2
+
+theorem abs_neg_div_le_of_le_neg {a b c M : ℝ} (hc : 0 < c) (hM : 0 ≤ M)
+    (hb : b ≤ -c) (ha : |a| ≤ M) : |(-a) / b| ≤ M / c
+
+theorem zero_graph_derivative_bounds {G : ℝ × ℝ → ℝ} {ζ : ℝ → ℝ}
+    {O : Set (ℝ × ℝ)} {U : Set ℝ} {c M₁ M₂ : ℝ}
+    (hO : IsOpen O) (hU : IsOpen U)
+    (hG : ContDiffOn ℝ 2 G O) (hζ : ContDiffOn ℝ 2 ζ U)
+    (hgraph : ∀ x ∈ U, (x, ζ x) ∈ O) (hzero : ∀ x ∈ U, G (x, ζ x) = 0)
+    (hc : 0 < c) (hM₁ : 0 ≤ M₁) (hM₂ : 0 ≤ M₂)
+    {x : ℝ} (hx : x ∈ U) (hy : partialY G (x, ζ x) ≤ -c)
+    (hfirst : |partialX G (x, ζ x)| ≤ M₁)
+    (hxx : |fderiv ℝ (fderiv ℝ G) (x, ζ x) ex ex| ≤ M₂)
+    (hxy : |fderiv ℝ (fderiv ℝ G) (x, ζ x) ex ey| ≤ M₂)
+    (hyx : |fderiv ℝ (fderiv ℝ G) (x, ζ x) ey ex| ≤ M₂)
+    (hyy : |fderiv ℝ (fderiv ℝ G) (x, ζ x) ey ey| ≤ M₂) :
+    |deriv ζ x| ≤ M₁ / c ∧
+      |deriv (deriv ζ) x| ≤ (M₂ / c) * (1 + |deriv ζ x|) ^ 2
+
+theorem root_abs_le_center_div {f : ℝ → ℝ} {R c M z : ℝ}
+    (hR : 0 ≤ R) (hc : 0 < c)
+    (hf : ContinuousOn f (Icc (-R) R))
+    (hdf : DifferentiableOn ℝ f (interior (Icc (-R) R)))
+    (hneg : ∀ y ∈ interior (Icc (-R) R), deriv f y ≤ -c)
+    (hz : z ∈ Icc (-R) R) (hroot : f z = 0) (hcenter : |f 0| ≤ M) :
+    |z| ≤ M / c
+
+theorem zero_graph_center_bound {G : ℝ × ℝ → ℝ} {O : Set (ℝ × ℝ)}
+    {R c M x z : ℝ} (hO : IsOpen O) (hG : ContDiffOn ℝ 2 G O)
+    (hR : 0 ≤ R) (hc : 0 < c)
+    (hstrip : ∀ y ∈ Icc (-R) R, (x, y) ∈ O)
+    (hneg : ∀ y ∈ Icc (-R) R, partialY G (x, y) ≤ -c)
+    (hz : z ∈ Icc (-R) R) (hroot : G (x, z) = 0) (hcenter : |G (x, 0)| ≤ M) :
+    |z| ≤ M / c

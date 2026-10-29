@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "role": "Locally qualified new-only actual finite remote2jet witnesses and arbitrary-R residual coefficient Gram positivity",
+  "qualification_status": "COMPLETE_NEW_SOURCE_LOCAL_REGISTRATION_PROPOSAL",
+  "module": "SourceRemoteJetWitness",
+  "namespace": "I4SourceRemoteJetWitness",
+  "source_cut": "689b8eef7dd2107e51d46007c1be3dfd4a909b81",
+  "source_sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf",
+  "source_bytes": 29687,
+  "object_sha256": "ab78dc5c42be8bc32d211507a85d0d59ef36ab9acf933605d3da41fa8d8eac87",
+  "object_bytes": 2856432,
+  "binding_precode": "b43c1c023574a19fda86bc82108c5cd0f9999f78",
+  "native_activation": 6415454977,
+  "binding_specification": "../SOURCE_REMOTE_JET_WITNESS.md",
+  "binding_plan": "../SOURCE_REMOTE_JET_WITNESS_PLAN.md",
+  "precode_contender_record": "../SOURCE_REMOTE_JET_WITNESS_CONTENDERS.json",
+  "compile_record": "raw/producer/runs/develop-008/record.json",
+  "warningAsError": true,
+  "strict_evidence_reuse": "Completed develop008 Werror covers exact integrated final bytes; formal freeze followed without source change. No relabel/freshness compile.",
+  "kernel_record": "raw/producer/runs/kernel-001/record.json",
+  "named_kernel_checks": 1,
+  "complete_axiom_audit_record": "raw/producer/runs/inventory-001/record.json",
+  "axiom_audit_mode": "Retained exhaustive actual-module-index98 constants with transitive standard-three/subset rows. Every private/generated/foreign-namespace artifact included; no redundant direct-print audit claimed.",
+  "public_written_theorems": 5,
+  "public_written_definitions": 6,
+  "private_written_theorems_separate": 38,
+  "private_written_definitions_separate": 11,
+  "generated_theorems_separate": 38,
+  "complete_own_module_declarations": 98,
+  "complete_classification_counts": {
+    "written_private_def": 11,
+    "generated_theorem": 38,
+    "written_private_theorem": 38,
+    "written_public_def": 6,
+    "written_public_theorem": 5
+  },
+  "foreign_namespace_generated": [
+    "I4SourceConfluentPins.directionY.eq_1"
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "inventory": "INVENTORY.json",
+  "classification": "TARGET_CLASSIFICATION.json",
+  "public_target_append": "PUBLIC_PROOF_NAMES_APPEND.json",
+  "controls": "CONTROL_RECEIPT.json",
+  "positive_controls": 16,
+  "positive_record": "raw/producer/runs/controls-005/record.json",
+  "negative_record": "raw/producer/runs/false-collision-001/record.json",
+  "negative_result": "One distinct mutation drops ONLY hxM atL2r1x=M, retains genuine hL/hxS. Passed Controls separately proves hxS by actual cosine/quotient separation and nonexistence from literal pinrow0=remotevaluerow. The mutation reuses the passed scratch Controls object and reduces the exact weakened existence claim to one False, no unrelated diagnostic or duplicated counterproof campaign.",
+  "negative_harness_control_object": "Scratch-only passed Controls.olean reused; never eligible for production cache or included in overlay.",
+  "execution_records": 16,
+  "execution_records_index": "EXECUTION_RECORD_INDEX.json",
+  "execution_record_runs": [
+    "develop-001",
+    "develop-002",
+    "develop-003",
+    "develop-004",
+    "develop-005",
+    "develop-006",
+    "develop-007",
+    "develop-008",
+    "inventory-001",
+    "controls-001",
+    "controls-002",
+    "controls-003",
+    "controls-004",
+    "controls-005",
+    "false-collision-001",
+    "kernel-001"
+  ],
+  "all_failures_retained": true,
+  "identities": "SOURCE_OBJECT_IDENTITIES.json",
+  "lineage": "AUTHOR_HELPER_LINEAGE.json",
+  "author_side_review": "AUTHOR_SIDE_REVIEW.md",
+  "author_side_review_verdict": "PASS exact-source/spec/helper/98classifications/controls/mutation/kernel receipts with no amendments or unresolved findings; OpenAI same-family technical review.",
+  "review_provider_distinct_credit": 0,
+  "personal_owner_reading": "PENDING as recorded by reviewer",
+  "helper_integration": "HELPER_INTEGRATION.json",
+  "helper_integration_utc": "2026-10-26T12:10:30.936800+00:00",
+  "helper_archives": [
+    {
+      "role": "arithmetic",
+      "archive": "raw/helper-arithmetic",
+      "report": "raw/helper-arithmetic/REPORT.md",
+      "identity": "raw/helper-arithmetic/FREEZE.json",
+      "needed_section": "raw/helper-arithmetic/NEEDED_SECTION.lean.txt",
+      "strict_record": "raw/helper-arithmetic/runs/run-009/receipt.json",
+      "section_bytes": 13163,
+      "section_sha256": "7f59349e9b1b995314762a0bc886818dc6db59db027121a4c1663600d473a304",
+      "whole_source_sha256": "9e14fe373330975de713e17662a8fdb41431e795f6b12c06478066d2b71d00bc",
+      "source_lines": [
+        13,
+        342
+      ],
+      "strict_attempts": 9,
+      "integration_count": 1,
+      "helper_object_emitted": false
+    },
+    {
+      "role": "torus-separation",
+      "archive": "raw/helper-torus",
+      "report": "raw/helper-torus/REPORT.md",
+      "identity": "raw/helper-torus/FROZEN_SECTION.json",
+      "needed_section": "raw/helper-torus/NEEDED_SECTION.lean.txt",
+      "strict_record": "raw/helper-torus/runs/strict-003/record.json",
+      "section_bytes": 2201,
+      "section_sha256": "24483ebad3befebc16ae12b498a606b73548989e2717c3c6242d99f8f7148c78",
+      "whole_source_sha256": "6623bd6a46481c5c4ae2c4fed5af1afe5d30e7b42687d8eaf8106cc500434993",
+      "source_lines": [
+        8,
+        63
+      ],
+      "strict_attempts": 3,
+      "integration_count": 1,
+      "helper_object_excluded": true
+    }
+  ],
+  "helper_objects_imported_or_copied": false,
+  "helper_kernel_audit_control_campaigns": 0,
+  "separate_helper_research_target_credit": 0,
+  "reused_registry_baseline": {
+    "modules": 47,
+    "public_written_targets": 1096,
+    "Prop_targets": 1087,
+    "data_targets": 9,
+    "support_inputs": 32,
+    "qualification_publication": "c0398e27fe8da6363a9a1f6d50c206918778491e",
+    "manifest_sha256": "8a40666b5074dbe93e5cb1ac0f520db8da09d89efac62e8edb9dc6774e53af1c"
+  },
+  "proposed_local_registry": {
+    "modules": 48,
+    "public_written_targets": 1101,
+    "Prop_targets": 1092,
+    "data_targets": 9,
+    "support_inputs": 32
+  },
+  "publication": {
+    "status_at_final_root_relay": "BLOCKED_GITHUB_AUTH401_NATIVE_TRANSPORT_CLOSED",
+    "registration_scope": "PROPOSED_LOCAL_QUALIFIED48_METADATA_NOT_APPLIED_BY_PACKAGING_AGENT",
+    "published_registry": {
+      "modules": 47,
+      "public_written_targets": 1096,
+      "Prop_targets": 1087,
+      "data_targets": 9,
+      "support_inputs": 32,
+      "qualification_publication": "c0398e27fe8da6363a9a1f6d50c206918778491e"
+    },
+    "last_public_GET_remote_head": "b43c1c023574a19fda86bc82108c5cd0f9999f78",
+    "public_GET_scope": "Root observed only remote PRECODE head, base180 prefix and Draft state; no local-source/current-source CI or48 publication inferred.",
+    "queued_external_actions": [
+      "remote source/registration metadata publication",
+      "native RESULT",
+      "release",
+      "new exact-source alignment request",
+      "current-source hosted CI"
+    ],
+    "effect": "Publication/process limitation only; completed mathematical evidence remains established. Root may finish local registration/cache/commit.",
+    "remote_registration_or_current_source_CI_claimed": false
+  },
+  "parent_evidence_reuse": "Completed47-module/32-input mathematics and applicable verification reused; no old proof/build/kernel/audit/control/hash-campaign replay or whole-old-archive check. Publication outage does not invalidate proof evidence.",
+  "archive_membership": "ARCHIVE_MEMBERSHIP.json",
+  "source_bindings": "SOURCE_BINDINGS.json",
+  "copy_plan": "COPY_PLAN.json",
+  "artifact_cache": "Root alone copies final named SourceRemoteJetWitness.olean locally. No ilean generated and no actual artifact enters overlay.",
+  "scope": "Actual finite original SourceMode2 pin-kernel/remote2jet right-inverse witnesses constructed internally from concrete periodic annihilators, six germs and explicit jet inversion; actual residual coefficient Gram PosDef for ANY correction R. Only original signed L≠0, arbitrary r and separate literal remote quotient inequalities from both endpoints; repeated pins/r0 included. No conditional Gaussian/covariance-law or pin-inverse claim.",
+  "row_order": {
+    "raw_pins": [
+      "valueM",
+      "valueS",
+      "dxM",
+      "dxS",
+      "dyM",
+      "dyS"
+    ],
+    "remote_jet": [
+      "value",
+      "dx",
+      "dy",
+      "dxx",
+      "dxy",
+      "dyy"
+    ]
+  },
+  "no_inference": [
+    "Actual every-target conditional remote Gaussian law/covariance, pin invertibility or conditioning law at singular configurations",
+    "Quantitative covariance floors, conditional global Morse/distinctness, Sard/incidence, equal-value ties or joint selection",
+    "Canonical/intrinsic Lifetime/H0 labels, IsFiniteBar, framed source-law transport, Rice count density or Parent A/B Lean closure",
+    "Common probability-one event over uncountably many targets",
+    "Remote48 registration/publication, new native RESULT/release/alignment request or current-source hosted CI before authentication restoration",
+    "Combined48-module hosted proof build, scientific acceptance, provider-distinct credit or app-server RPC repair"
+  ],
+  "qualification_complete_utc": "2026-10-26T12:21:20.731492+00:00",
+  "new_stage_checkpoint_utc": "2026-10-26T12:45:00Z",
+  "new_stage_terminal_utc": "2026-10-26T13:45:00Z",
+  "timer_reset": false,
+  "scientific_effect": "NONE",
+  "canonical_authority": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md"
+  ]
+}

@@ -1,0 +1,53 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean:623:37: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  P (endpointM r)
+in the target expression
+  annihilator L r jM jS (endpointM r) • fderiv ℝ Q (endpointM r) +
+      Q (endpointM r) • fderiv ℝ (annihilator L r jM jS) (endpointM r) =
+    0
+
+L r : ℝ
+x : Fin 2 → ℝ
+jM jS : Fin 2
+t : Fin 6 → ℝ
+P : (Fin 2 → ℝ) → ℝ := annihilator L r jM jS
+a : Fin 6 → ℝ := inverseMulJet2Coefficients (jet2 P x) t
+Q : (Fin 2 → ℝ) → ℝ := fun y => ∑ s, a s * localGerm (sourceC L) x s y
+hP : Differentiable ℝ (annihilator L r jM jS)
+hQtop : ContDiff ℝ (↑⊤) Q
+hQ : Differentiable ℝ Q
+hvM : P (endpointM r) = 0
+hvS : P (endpointS r) = 0
+hdM : fderiv ℝ P (endpointM r) = 0
+hdS : fderiv ℝ P (endpointS r) = 0
+hFM : interpolant (sourceC L) x P t (endpointM r) = 0
+hFS : interpolant (sourceC L) x P t (endpointS r) = 0
+⊢ annihilator L r jM jS (endpointM r) • fderiv ℝ Q (endpointM r) +
+      Q (endpointM r) • fderiv ℝ (annihilator L r jM jS) (endpointM r) =
+    0
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean:627:37: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  P (endpointS r)
+in the target expression
+  annihilator L r jM jS (endpointS r) • fderiv ℝ Q (endpointS r) +
+      Q (endpointS r) • fderiv ℝ (annihilator L r jM jS) (endpointS r) =
+    0
+
+L r : ℝ
+x : Fin 2 → ℝ
+jM jS : Fin 2
+t : Fin 6 → ℝ
+P : (Fin 2 → ℝ) → ℝ := annihilator L r jM jS
+a : Fin 6 → ℝ := inverseMulJet2Coefficients (jet2 P x) t
+Q : (Fin 2 → ℝ) → ℝ := fun y => ∑ s, a s * localGerm (sourceC L) x s y
+hP : Differentiable ℝ (annihilator L r jM jS)
+hQtop : ContDiff ℝ (↑⊤) Q
+hQ : Differentiable ℝ Q
+hvM : P (endpointM r) = 0
+hvS : P (endpointS r) = 0
+hdM : fderiv ℝ P (endpointM r) = 0
+hdS : fderiv ℝ P (endpointS r) = 0
+hFM : interpolant (sourceC L) x P t (endpointM r) = 0
+hFS : interpolant (sourceC L) x P t (endpointS r) = 0
+hdFM : fderiv ℝ (interpolant (sourceC L) x P t) (endpointM r) = 0
+⊢ annihilator L r jM jS (endpointS r) • fderiv ℝ Q (endpointS r) +
+      Q (endpointS r) • fderiv ℝ (annihilator L r jM jS) (endpointS r) =
+    0

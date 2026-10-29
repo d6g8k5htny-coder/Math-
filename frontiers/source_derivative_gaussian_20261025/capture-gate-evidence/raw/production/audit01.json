@@ -1,0 +1,17 @@
+{
+  "command_argv": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-R",
+    "/workspace/scratch/quartic-capture-production",
+    "-DwarningAsError=true",
+    "/workspace/scratch/quartic-capture-production/Audit.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "started_utc": "2026-10-26T02:12:10.584134+00:00",
+  "exit_code": 0,
+  "source_sha256": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+  "log": "audit01.log",
+  "scope": "New SourceQuarticCaptureAlgebra declarations only; imported applicable verification reused."
+}

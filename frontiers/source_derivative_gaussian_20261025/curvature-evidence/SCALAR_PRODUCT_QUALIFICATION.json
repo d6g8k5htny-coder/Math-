@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "scope": "THREE NEW SCALAR PRODUCT PROOFS ONLY; curvature layer implementation active",
+  "base_commit": "37f8f01db8b7e30190f09bf784d1b4e3419da540",
+  "contract_commit": "8236e1d",
+  "author_family": "OpenAI/Codex",
+  "source": {
+    "path": "ScalarProductCurvatureBound.lean",
+    "sha256": "fb77c9a4eaf165a39c6c06535fbb3f3f164bca12ddbc2f29b01a33e512564b71"
+  },
+  "targets": [
+    "I4ScalarProductCurvature.regular_bounds",
+    "I4ScalarProductCurvature.scalar_product_tube_integral_bound",
+    "I4ScalarProductCurvature.scalar_product_regular_integral_bound"
+  ],
+  "compile_receipt": "raw/scalar-product/scalar-product-02.json",
+  "kernel_receipt": "raw/scalar-product/scalar-product-kernel.json",
+  "controls_receipt": "raw/scalar-product/scalar-product-controls-02.json",
+  "direct_axiom_reports": {
+    "path": "raw/scalar-product/scalar-product-controls-01.log",
+    "count": 3,
+    "allowed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "container_exit_code": 1,
+    "qualification": "All three reports exist in an initially failing concrete-control container. Later control-only correction passed; no invented clean audit or audit repeat."
+  },
+  "old_modules_and_inputs": "18 qualified modules and23 exact inputs unchanged; all existing evidence reused",
+  "independent_review": "PENDING; native PR512 scoped reviews are prior exact scopes only",
+  "scientific_effect": "NONE",
+  "note": "Root scratch arithmetic and all-mean variance-floor helpers included for authorship/evidence. Only arithmetic transplanted in this module; Gaussian helper awaits actual-decomposition transplantation/final qualification."
+}

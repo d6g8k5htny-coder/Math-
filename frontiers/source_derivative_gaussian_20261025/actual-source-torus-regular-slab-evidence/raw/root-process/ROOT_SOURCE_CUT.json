@@ -1,0 +1,136 @@
+{
+  "created_utc": "2026-10-28T18:14:34.681446+00:00",
+  "status": "SOURCE_ONLY62_PRODUCTION_QUALIFIED_ORDINARY_CONTROLS_AND_REGISTRATION_PENDING",
+  "source_cut": "f99b2e1b4efb7e0d9d3d83420ba7859a611a2016",
+  "parent": "c18ad0b8f62060cb78670f5f806af25f1307614b",
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+    "bytes": 57423,
+    "sha256": "14c900c4e81be9b9ffc85e56fe9c3f191ae8405670d15d0e151a766751b6a23b",
+    "identity_origin": "existing OWN first identity reused; unchanged stat"
+  },
+  "own_object": {
+    "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean",
+    "bytes": 1880192,
+    "sha256": "73dcf886a5f3d2614b93b941d15008b9828ee86d93ff15692823e79f3b03afe8",
+    "identity_origin": "FIRST identity newly created/changed OWN payload"
+  },
+  "source_git_blob": "362b629da2b1895e259decf052f40343e5ce6e24",
+  "qualification_receipts": {
+    "compile-final": {
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean",
+        "SourceActualTorusRegularSlab.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "started_utc": "2026-10-28T18:06:57.970734+00:00",
+      "ended_utc": "2026-10-28T18:07:03.762278+00:00",
+      "exit_code": 0,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/compile-final/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/compile-final/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/compile-final/receipt.json"
+    },
+    "inventory-001": {
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-source-torus-regular-slab-construct/build:$LEAN_PATH exec lean -DwarningAsError=true /workspace/scratch/actual-source-torus-regular-slab-construct/Inventory.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "started_utc": "2026-10-28T18:08:26.336810+00:00",
+      "ended_utc": "2026-10-28T18:08:29.512395+00:00",
+      "exit_code": 0,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/inventory-001/stdout.log",
+        "bytes": 18511,
+        "sha256": "e20246774a2288c6af8ea37c1caf760ab7cd19ecea98b0128af019cdcf5c967c",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/inventory-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/inventory-001/receipt.json"
+    },
+    "kernel-001": {
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-source-torus-regular-slab-construct/build:$LEAN_PATH exec leanchecker SourceActualTorusRegularSlab"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "started_utc": "2026-10-28T18:11:10.197145+00:00",
+      "ended_utc": "2026-10-28T18:11:15.372164+00:00",
+      "exit_code": 0,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/kernel-001/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/kernel-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/kernel-001/receipt.json"
+    }
+  },
+  "inventory_summary": {
+    "module": "SourceActualTorusRegularSlab",
+    "total": 73,
+    "counts": {
+      "private generated proof auxiliary": 11,
+      "authored private theorem": 35,
+      "private generated congruence or other declaration": 1,
+      "authored private definition": 8,
+      "private generated simp theorem": 3,
+      "authored private type or level-set alias": 3,
+      "authored private Prop bundle": 3,
+      "private generated defining equation": 6,
+      "sole authored public theorem": 1,
+      "foreign-namespace generated declaration": 2
+    },
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "coverage": "Every actual module-owned declaration enumerated once; classification only parses completed raw inventory, no repeatcheck"
+  },
+  "kernel_count": 1,
+  "historical_source_freeze_record": "/workspace/scratch/actual-source-torus-regular-slab-construct/FINAL_SOURCE_OBJECT_IDS.PRE_KERNEL.json",
+  "root_reading": "BOUNDED production: selected component-map assembly/endpoint repair, fixture phase/derivative sections and final literal public declaration. Full proper contract/shared context read. NOT full1141 source/all73/raw streams. Nonauthor reviewer full source early PASS; final evidence/custody review pending.",
+  "qualified_registry_remains": {
+    "modules": 61,
+    "written": 1131,
+    "Prop": 1122,
+    "data": 9,
+    "inputs": 32
+  },
+  "mathematical_replays": 0,
+  "old_hashes": 0,
+  "scientific_effect": "NONE"
+}

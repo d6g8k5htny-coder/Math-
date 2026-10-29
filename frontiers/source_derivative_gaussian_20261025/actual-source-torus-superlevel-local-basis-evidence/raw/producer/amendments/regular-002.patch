@@ -1,0 +1,11 @@
+--- regular-001/source
++++ regular-002/source
+@@ -17,7 +17,7 @@
+ import Mathlib.Tactic.NormNum
+ import Mathlib.Tactic.FunProp
+ import Mathlib.Tactic.Positivity
+-import Mathlib.Tactic.Omega
++import Lean.Elab.Tactic.Omega
+ import Mathlib.Tactic.GCongr
+ 
+ noncomputable section

@@ -1,0 +1,25 @@
+SourceIntrinsicH0WeightedProbability.lean:94:71: error: unsolved goals
+case «0»
+v : E 2
+⊢ v.ofLp 0 = v.ofLp 0 * ((coordinates 2).symm ![1, 0]).ofLp 0 + v.ofLp 1 * ((coordinates 2).symm ![0, 1]).ofLp 0
+
+case «1»
+v : E 2
+⊢ v.ofLp 1 = v.ofLp 0 * ((coordinates 2).symm ![1, 0]).ofLp 1 + v.ofLp 1 * ((coordinates 2).symm ![0, 1]).ofLp 1
+SourceIntrinsicH0WeightedProbability.lean:106:18: error(lean.invalidField): Invalid field `isSymmSndFDerivAt`: The environment does not contain `Function.isSymmSndFDerivAt`, so it is not possible to project the field `isSymmSndFDerivAt` from an expression
+  ContDiff.contDiffAt hg
+of type
+  ∀ (m : ℕ), ↑m ≤ ↑2 → ∃ u ∈ nhdsWithin ?m.142 (insert ?m.142 univ), ∃ p, HasFTaylorSeriesUpToOn (↑m) g p u
+SourceIntrinsicH0WeightedProbability.lean:110:32: error: Ambiguous term
+  add_apply
+Possible interpretations:
+  _root_.add_apply : ∀ (f g : ?m.157) (x : ?m.158), (f + g) x = f x + g x
+  
+  BoundedContinuousFunction.add_apply : ∀ (f g : ?m.157 →ᵇ ?m.158) (x : ?m.157), (f + g) x = f x + g x
+SourceIntrinsicH0WeightedProbability.lean:110:43: error: Ambiguous term
+  smul_apply
+Possible interpretations:
+  _root_.smul_apply : ∀ (f : ?m.158) (r : ?m.157) (x : ?m.159), (r • f) x = r • f x
+  
+  BoundedContinuousFunction.smul_apply : ∀ (c : ?m.159) (f : ?m.157 →ᵇ ?m.158) (x : ?m.157), (c • f) x = c • f x
+SourceIntrinsicH0WeightedProbability.lean:110:2: error: `simp` made no progress

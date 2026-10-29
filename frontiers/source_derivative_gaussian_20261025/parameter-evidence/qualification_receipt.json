@@ -1,0 +1,49 @@
+{
+  "scope": "ONLY new SourceSmoothParameterSpace.lean; no prior-module/input rechecks",
+  "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothParameterSpace.lean",
+  "source_sha256": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+  "olean": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceSmoothParameterSpace.olean",
+  "olean_sha256": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+  "line_count": 594,
+  "frozen_contract_commit": "ebf49a429ec737f24c29f7c0ca4d9a7b1457c5cd",
+  "contract": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SOURCE_SMOOTH_PARAMETER_SPACE.md",
+  "contract_sha256": "3ec89dcf181e2bfc888d415c79c90bc7ebc682f6fe81a7c73795ae8bc00b4c22",
+  "verification_records": {
+    "compile": "/workspace/scratch/smooth-parameter-production/04-complete-parameter-family.json",
+    "controls": "/workspace/scratch/smooth-parameter-production/08-controls-fixed.json",
+    "axioms": "/workspace/scratch/smooth-parameter-production/06-public-axioms.json",
+    "kernel": "/workspace/scratch/smooth-parameter-production/07-kernel-replay.json"
+  },
+  "all_exit_zero": true,
+  "source_and_artifact_unchanged_across_final_qualification": true,
+  "named_kernel_replay_count": 1,
+  "public_inventory": "/workspace/scratch/smooth-parameter-production/targets.json",
+  "axiom_coverage": "/workspace/scratch/smooth-parameter-production/AXIOM_COVERAGE.json",
+  "direct_public_declaration_reports": 88,
+  "public_theorems": 61,
+  "named_local_instances": 8,
+  "instance_classification": {
+    "proposition_valued": 1,
+    "structural_data": 7,
+    "proposition_instance": "I4SourceSmoothParameterSpace.parameterBorelSpace",
+    "data_note": "6 inherited algebra/norm structures and1 MeasurableSpace; local attributes do not make named declarations private"
+  },
+  "registration_theorem_instance_declarations": 69,
+  "definitions_abbreviations": 19,
+  "private_declarations": 0,
+  "axioms_only_standard_three": true,
+  "lineage": "/workspace/scratch/smooth-parameter-production/AUTHOR_HELPER_LINEAGE.json",
+  "controls": "/workspace/scratch/smooth-parameter-production/CONTROL_COVERAGE.json",
+  "failed_history_retained": [
+    "02-gradient-family (new uniform-bound multiline syntax only)",
+    "05-controls (dependent lp.single type annotation only)",
+    "All preceding scratch WeightedCarrier/diagnostic/synthesis/gradient attempts in original helper paths"
+  ],
+  "application_boundary": "No arbitrary-parameter C-infinity assertion. The selector/flow/hitting/capture-event pullback is an explicit further theorem; Polishness and continuous C1/C2 field assignment alone do not prove that event Borel. No native C3 torus Banach identification/surjection, geometric Palm, Morse/elder/counting or original-parent closure is claimed.",
+  "independent_scientific_review_credit": 0,
+  "user_reuse_rule": "Completed applicable verification reused; no new agent/session/worktree reruns. Scientific review requirements are separate.",
+  "owner_mandate_links": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md"
+  ]
+}

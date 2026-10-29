@@ -1,0 +1,107 @@
+{
+  "scope": "NEW_SOURCE_PIN_CURVATURE_CONTROLS_ONLY",
+  "author_side_helper_lineage": "OpenAI/Codex /root/dm2_landed_composition/peano_strategy",
+  "scientific_review_credit": 0,
+  "production_module": "SourcePinCurvatureBounds",
+  "consumed_compile_metadata": "/workspace/scratch/pin-curvature-implementation/compile06.json",
+  "consumed_compile_source_sha256": "7989e229a66b6c20033ce29559dda50ee8eb3d896aa9c5a983f4d5391ffe207f",
+  "consumed_olean_sha256": "36dd25c17899287ff63422fb3f30d7d9436b38e1e3070a09cf2ce05530c48f7e",
+  "checks": {
+    "Controls": {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/pin-curvature-implementation/Controls.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 0,
+      "duration_seconds": 3.1327574253082275,
+      "timestamp_utc": "2026-10-26T00:32:04.963829+00:00",
+      "sha256_before": {
+        "source": "fdccc592a7551cb96c32ac683cfc0be9fa40f76f778c758d9688483826dc2a1f",
+        "olean": "36dd25c17899287ff63422fb3f30d7d9436b38e1e3070a09cf2ce05530c48f7e",
+        "control": "707c5e90ba04e5032d8f31a4a3c5bca14ac07914bb1cedb7d54aaf4a817fe6bb"
+      },
+      "sha256_after": {
+        "source": "fdccc592a7551cb96c32ac683cfc0be9fa40f76f778c758d9688483826dc2a1f",
+        "olean": "36dd25c17899287ff63422fb3f30d7d9436b38e1e3070a09cf2ce05530c48f7e",
+        "control": "707c5e90ba04e5032d8f31a4a3c5bca14ac07914bb1cedb7d54aaf4a817fe6bb"
+      },
+      "author_side_helper_lineage": "OpenAI/Codex /root/dm2_landed_composition/peano_strategy",
+      "scope": "NEW_SOURCE_PIN_CURVATURE_CONTROLS_ONLY",
+      "expected_exit": 0,
+      "raw_log": "/workspace/scratch/pin-curvature-implementation/Controls.log",
+      "raw_log_sha256": "b79c519f8bb0fca2f505b5455e3fd6a61a1e799d7efa4d6dbc8632205999cdde"
+    },
+    "FalseMissingCubicPin": {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/pin-curvature-implementation/FalseMissingCubicPin.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 1,
+      "duration_seconds": 2.8413174152374268,
+      "timestamp_utc": "2026-10-26T00:31:34.402486+00:00",
+      "sha256_before": {
+        "source": "7989e229a66b6c20033ce29559dda50ee8eb3d896aa9c5a983f4d5391ffe207f",
+        "olean": "36dd25c17899287ff63422fb3f30d7d9436b38e1e3070a09cf2ce05530c48f7e",
+        "control": "7f6df03eed4bdb15584a92ee00569debf7746ddc549307a0445771417628e4a8"
+      },
+      "sha256_after": {
+        "source": "7989e229a66b6c20033ce29559dda50ee8eb3d896aa9c5a983f4d5391ffe207f",
+        "olean": "36dd25c17899287ff63422fb3f30d7d9436b38e1e3070a09cf2ce05530c48f7e",
+        "control": "7f6df03eed4bdb15584a92ee00569debf7746ddc549307a0445771417628e4a8"
+      },
+      "author_side_helper_lineage": "OpenAI/Codex /root/dm2_landed_composition/peano_strategy",
+      "scope": "NEW_SOURCE_PIN_CURVATURE_CONTROLS_ONLY",
+      "expected_exit": 1,
+      "raw_log": "/workspace/scratch/pin-curvature-implementation/FalseMissingCubicPin.log",
+      "raw_log_sha256": "ad385efb55c5670f89c7e8878692888ab423c338e3fb55f0b2c86465e82df3fe"
+    },
+    "FalseNegativeRadius": {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/pin-curvature-implementation/FalseNegativeRadius.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 1,
+      "duration_seconds": 2.633436679840088,
+      "timestamp_utc": "2026-10-26T00:31:34.210663+00:00",
+      "sha256_before": {
+        "source": "7989e229a66b6c20033ce29559dda50ee8eb3d896aa9c5a983f4d5391ffe207f",
+        "olean": "36dd25c17899287ff63422fb3f30d7d9436b38e1e3070a09cf2ce05530c48f7e",
+        "control": "fcbaf897ea8e88c537effae717de06e6ebeff3bc2ca3e7f4968a972177970a8a"
+      },
+      "sha256_after": {
+        "source": "7989e229a66b6c20033ce29559dda50ee8eb3d896aa9c5a983f4d5391ffe207f",
+        "olean": "36dd25c17899287ff63422fb3f30d7d9436b38e1e3070a09cf2ce05530c48f7e",
+        "control": "fcbaf897ea8e88c537effae717de06e6ebeff3bc2ca3e7f4968a972177970a8a"
+      },
+      "author_side_helper_lineage": "OpenAI/Codex /root/dm2_landed_composition/peano_strategy",
+      "scope": "NEW_SOURCE_PIN_CURVATURE_CONTROLS_ONLY",
+      "expected_exit": 1,
+      "raw_log": "/workspace/scratch/pin-curvature-implementation/FalseNegativeRadius.log",
+      "raw_log_sha256": "a62bd0d69592254d2e0c9963c8e9630f8ccb3bdd4832b38a83650e677e8090c5"
+    }
+  },
+  "positive_control_initial_attempt": {
+    "raw_log": "/workspace/scratch/pin-curvature-implementation/Controls.attempt1.log",
+    "source": "/workspace/scratch/pin-curvature-implementation/Controls.attempt1.lean",
+    "metadata": "/workspace/scratch/pin-curvature-implementation/Controls.attempt1.json",
+    "failure": "Missing namespace opening I4PeanoErrorBounds for three scalar helper names; no production mathematical failure. Corrected only Controls.lean and checked its affected scope."
+  },
+  "source_identity_note": "The successful positive control observed the strictly additive a.e wrapper source revision while importing the unchanged compile06 olean. Imported artifact identity is explicit. Parent stated prior definitions/statements/proofs unchanged; final wrapper kernel/audit qualification is a distinct parent obligation. No unchanged controls are to be repeated solely for that additive integration.",
+  "positive_warning": "One unnecessarySimpa linter suggestion at Controls.lean:53; Lean exit0. No cosmetic rerun performed.",
+  "not_claimed": [
+    "scientific acceptance",
+    "noncapture inclusion",
+    "adjacency",
+    "final module wrapper qualification",
+    "overall research completion"
+  ]
+}

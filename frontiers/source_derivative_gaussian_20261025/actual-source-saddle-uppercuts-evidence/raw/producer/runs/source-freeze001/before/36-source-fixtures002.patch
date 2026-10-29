@@ -1,0 +1,116 @@
+--- fixtures001-source
++++ fixtures002-source
+@@ -586,8 +586,8 @@
+ 
+ private theorem trig_deriv (X : UniversalLaw.Spec.Lifetime.E 2) :
+     HasFDerivAt trigField (trigD X) X := by
+-  have h0 := ((coord 0).hasFDerivAt.const_mul Real.pi).cos
+-  have h1 := (((coord 1).hasFDerivAt.const_mul Real.pi).cos).const_mul 2
++  have h0 := (((coord 0).hasFDerivAt (x := X)).const_mul Real.pi).cos
++  have h1 := ((((coord 1).hasFDerivAt (x := X)).const_mul Real.pi).cos).const_mul 2
+   convert h0.add h1 using 1 <;> ext v <;>
+     simp [trigField, trigD, ContinuousLinearMap.smul_apply, smul_eq_mul] <;> ring
+ 
+@@ -596,8 +596,8 @@
+       -Real.pi^2*Real.cos (Real.pi*coord 0 X)*(coord 0 v)*(coord 0 w) -
+       2*Real.pi^2*Real.cos (Real.pi*coord 1 X)*(coord 1 v)*(coord 1 w) := by
+   have hd : fderiv ℝ trigField = trigD := funext fun Y => (trig_deriv Y).fderiv
+-  have h0 := (((coord 0).hasFDerivAt.const_mul Real.pi).sin.neg.mul_const Real.pi).smul_const (coord 0)
+-  have h1 := ((((coord 1).hasFDerivAt.const_mul Real.pi).sin.const_mul (-2)).mul_const Real.pi).smul_const (coord 1)
++  have h0 := ((((coord 0).hasFDerivAt (x := X)).const_mul Real.pi).sin.neg.mul_const Real.pi).smul_const (coord 0)
++  have h1 := (((((coord 1).hasFDerivAt (x := X)).const_mul Real.pi).sin.const_mul (-2)).mul_const Real.pi).smul_const (coord 1)
+   have hh := h0.add h1
+   change hessian 2 trigField X v w = _
+   rw [hessian, iteratedFDeriv_succ_apply_right, iteratedFDeriv_one_apply]
+@@ -624,11 +624,11 @@
+ private theorem axis0_ne : fixturePoint 1 0 ≠ 0 := by
+   intro h
+   have := congrArg (coord 0) h
+-  simpa [(point_coords 1 0).1] using this
++  simp [(point_coords 1 0).1] at this
+ private theorem axis1_ne : fixturePoint 0 1 ≠ 0 := by
+   intro h
+   have := congrArg (coord 1) h
+-  simpa [(point_coords 0 1).2] using this
++  simp [(point_coords 0 1).2] at this
+ 
+ private theorem axes_compl : IsCompl (ℝ ∙ fixturePoint 1 0) (ℝ ∙ fixturePoint 0 1) := by
+   constructor
+@@ -644,8 +644,13 @@
+     refine ⟨coord 0 v • fixturePoint 1 0, Submodule.smul_mem _ _ (Submodule.mem_span_singleton_self _),
+       coord 1 v • fixturePoint 0 1, Submodule.smul_mem _ _ (Submodule.mem_span_singleton_self _), ?_⟩
+     apply (I4LifetimeField.coordinates 2).injective
++    have h0 : I4LifetimeField.coordinates 2 (fixturePoint 1 0) = (![1,0] : Point2) :=
++      (I4LifetimeField.coordinates 2).apply_symm_apply _
++    have h1 : I4LifetimeField.coordinates 2 (fixturePoint 0 1) = (![0,1] : Point2) :=
++      (I4LifetimeField.coordinates 2).apply_symm_apply _
++    rw [map_add, map_smul, map_smul, h0, h1]
+     ext i
+-    fin_cases i <;> simp [fixturePoint, coord]
++    fin_cases i <;> simp [coord]
+ 
+ private theorem fixture_inertia_pos (x y : ℝ)
+     (hx : Real.cos (Real.pi*x) = -1) (hy : Real.cos (Real.pi*y) = 1) :
+@@ -660,14 +665,14 @@
+     rw [trig_hessian]
+     simp only [map_smul, smul_eq_mul, (point_coords 0 1).1, (point_coords 0 1).2,
+       (point_coords x y).1, (point_coords x y).2, hx, hy]
+-    nlinarith [sq_pos_of_ne_zero ha, Real.pi_pos]
++    nlinarith only [mul_pos (sq_pos_of_pos Real.pi_pos) (sq_pos_of_ne_zero ha)]
+   · intro v hv hne
+     rcases Submodule.mem_span_singleton.mp hv with ⟨a, rfl⟩
+     have ha : a ≠ 0 := fun h => hne (by simp [h])
+     rw [trig_hessian]
+     simp only [map_smul, smul_eq_mul, (point_coords 1 0).1, (point_coords 1 0).2,
+       (point_coords x y).1, (point_coords x y).2, hx, hy]
+-    nlinarith [sq_pos_of_ne_zero ha, Real.pi_pos]
++    nlinarith only [mul_pos (sq_pos_of_pos Real.pi_pos) (sq_pos_of_ne_zero ha)]
+ 
+ private theorem fixture_inertia_neg (x y : ℝ)
+     (hx : Real.cos (Real.pi*x) = 1) (hy : Real.cos (Real.pi*y) = -1) :
+@@ -682,14 +687,14 @@
+     rw [trig_hessian]
+     simp only [map_smul, smul_eq_mul, (point_coords 1 0).1, (point_coords 1 0).2,
+       (point_coords x y).1, (point_coords x y).2, hx, hy]
+-    nlinarith [sq_pos_of_ne_zero ha, Real.pi_pos]
++    nlinarith only [mul_pos (sq_pos_of_pos Real.pi_pos) (sq_pos_of_ne_zero ha)]
+   · intro v hv hne
+     rcases Submodule.mem_span_singleton.mp hv with ⟨a, rfl⟩
+     have ha : a ≠ 0 := fun h => hne (by simp [h])
+     rw [trig_hessian]
+     simp only [map_smul, smul_eq_mul, (point_coords 0 1).1, (point_coords 0 1).2,
+       (point_coords x y).1, (point_coords x y).2, hx, hy]
+-    nlinarith [sq_pos_of_ne_zero ha, Real.pi_pos]
++    nlinarith only [mul_pos (sq_pos_of_pos Real.pi_pos) (sq_pos_of_ne_zero ha)]
+ 
+ private theorem fixture_positive_critical :
+     IsCriticalPoint 2 (I4LifetimeField.actualField 2 2 fixtureSample) (fixturePoint 1 0) :=
+@@ -712,21 +717,22 @@
+ 
+ private theorem fixture_heights : fixtureField (fixtureCenter 1 0) = 1 ∧
+     fixtureField (fixtureCenter 0 1) = -1 ∧ fixtureField (fixtureCenter (-1) 0) = 1 := by
+-  simp [fixtureCenter, fixture_field]
++  norm_num [fixtureCenter, fixture_field]
+ 
+ private theorem fixture_open (x y : ℝ) : IsOpen (fixtureOpen x y) ∧
+     fixtureCenter x y ∈ fixtureOpen x y := by
+   refine ⟨?_, ?_⟩
+   · exact (SourceActualFoldTorus.torusProjection2L_open 2)
+-      _ ((I4LifetimeField.coordinates 2).isOpenMap _ isOpen_ball)
++      _ ((I4LifetimeField.coordinates 2).isOpenMap _ Metric.isOpen_ball)
+   · refine ⟨![x,y], ?_, rfl⟩
+     exact ⟨fixturePoint x y, Metric.mem_ball_self (by norm_num), by simp [fixturePoint]⟩
+ 
+ private theorem fixture_seam : fixtureCenter (-1) 0 = fixtureCenter 1 0 := by
+-  apply I4Torus.torusProjection_eq_of_sub_eq_lattice 2 2
+-  refine ⟨![-1,0], ?_⟩
+-  ext i
+-  fin_cases i <;> norm_num
++  funext i
++  fin_cases i
++  · change ((-1 : ℝ) : AddCircle (2 : ℝ)) = ((1 : ℝ) : AddCircle (2 : ℝ))
++    simpa using (AddCircle.coe_add_period (2 : ℝ) (-1 : ℝ)).symm
++  · rfl
+ 
+ private theorem fixture_consumer (x y : ℝ)
+     (hc : IsCriticalPoint 2 (I4LifetimeField.actualField 2 2 fixtureSample) (fixturePoint x y))

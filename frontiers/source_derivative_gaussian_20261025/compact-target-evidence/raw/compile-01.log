@@ -1,0 +1,85 @@
+SourceCompactTargetMoments.lean:56:47: error(lean.unknownIdentifier): Unknown identifier `coefficient_product_summable`
+SourceCompactTargetMoments.lean:139:26: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |sourceGammaRadius L ?m.388 ^ n|
+in the target expression
+  |((fun x => sourceGammaRadius L x ^ n) ∘ posteriorSample hL r p) ω| ≤ (1 + ‖p‖) ^ n * F ω
+
+L : ℝ
+hL : L ≠ 0
+a : ℝ
+w : SourceMode 2 → ℝ
+δ : ℝ
+ha : 0 ≤ a
+hw0 : ∀ (m : SourceMode 2), 0 ≤ w m
+hw : Summable w
+hδ : 0 < δ
+hδ1 : δ ≤ 1
+hdom :
+  ∀ (r : ℝ),
+    0 < r →
+      r < δ →
+        ∀ (p : Fin 6 → ℝ) (ω : SmoothSample 2 L),
+          sourceGammaRadius L (posteriorSample hL r p ω) ≤ (1 + ‖p‖) * (a + sampleMajorant w ω)
+n : ℕ
+F : SmoothSample 2 L → ℝ := fun ω => (a + sampleMajorant w ω) ^ n
+hF : Integrable F (smoothLaw 2 L)
+hF0 : ∀ (ω : SmoothSample 2 L), 0 ≤ F ω
+r : ℝ
+hr : 0 < r
+hrδ : r < δ
+p : Fin 6 → ℝ
+hp : Measurable (posteriorSample hL r p)
+hg : Measurable fun x => sourceGammaRadius L x ^ n
+hm : Integrable (fun x => (1 + ‖p‖) ^ n * F x) (smoothLaw 2 L)
+hpoint : ∀ (ω : SmoothSample 2 L), sourceGammaRadius L (posteriorSample hL r p ω) ^ n ≤ (1 + ‖p‖) ^ n * F ω
+ω : SmoothSample 2 L
+⊢ |((fun x => sourceGammaRadius L x ^ n) ∘ posteriorSample hL r p) ω| ≤ (1 + ‖p‖) ^ n * F ω
+SourceCompactTargetMoments.lean:190:23: error: unsolved goals
+case hab
+r b k K : ℝ
+hr : 0 ≤ r
+hr1 : r ≤ 1
+hK : 0 ≤ K
+hk : |k| ≤ K
+hr3 : 0 ≤ r ^ 3
+hr31 : r ^ 3 ≤ 1
+⊢ |k| * r ^ 3 ≤ K
+SourceCompactTargetMoments.lean:195:4: error: not a positivity goal
+SourceCompactTargetMoments.lean:196:4: error: not a positivity goal
+SourceCompactTargetMoments.lean:197:4: error: not a positivity goal
+SourceCompactTargetMoments.lean:198:4: error: not a positivity goal
+SourceCompactTargetMoments.lean:199:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |?a * ?b|
+in the target expression
+  |![b - k * r ^ 3 / 2, 0, 0, 0, 0, 12 * k] ⟨5, ⋯⟩| ≤ |b| + 13 * K
+
+case «5»
+r b k K : ℝ
+hr : 0 ≤ r
+hr1 : r ≤ 1
+hK : 0 ≤ K
+hk : |k| ≤ K
+hr3 : 0 ≤ r ^ 3
+hr31 : r ^ 3 ≤ 1
+⊢ |![b - k * r ^ 3 / 2, 0, 0, 0, 0, 12 * k] ⟨5, ⋯⟩| ≤ |b| + 13 * K
+SourceCompactTargetMoments.lean:186:44: error: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sourceGapPins, Matrix.cons_val_succ, Real.norm_eq_abs, abs_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceCompactTargetMoments.lean:186:66: error: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sourceGapPins, Matrix.cons_val_zero, Real.norm_eq_abs, abs_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceCompactTargetMoments.lean:187:22: error: This simp argument is unused:
+  abs_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sourceGapPins, Matrix.cons_val_zero, Matrix.cons_val_succ, Real.norm_eq_abs]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

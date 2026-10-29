@@ -1,0 +1,101 @@
+SourceActualMorseLocalModel.lean:1070:71: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+SourceActualMorseLocalModel.lean:1121:20: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+SourceActualMorseLocalModel.lean:1121:30: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+SourceActualMorseLocalModel.lean:1122:54: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+SourceActualMorseLocalModel.lean:1136:20: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+SourceActualMorseLocalModel.lean:1136:30: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+SourceActualMorseLocalModel.lean:1136:54: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+SourceActualMorseLocalModel.lean:1150:20: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+SourceActualMorseLocalModel.lean:1150:30: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+SourceActualMorseLocalModel.lean:1150:54: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+SourceActualMorseLocalModel.lean:1227:32: error: unsolved goals
+r : Fin 4
+y : Point2
+⊢ (if r = 3 then
+        { toFun := fun y => ![(y 0 + y 1) / Real.pi, (-y 0 + y 1) / Real.pi], map_add' := fixture_mixedEquiv._proof_1,
+            map_smul' := fixture_mixedEquiv._proof_2,
+            invFun := fun y => ![Real.pi * (y 0 - y 1) / 2, Real.pi * (y 0 + y 1) / 2],
+            left_inv := fixture_mixedEquiv._proof_3, right_inv := fixture_mixedEquiv._proof_4 }.toContinuousLinearEquiv
+      else
+        { toFun := fun y => fixture_scale • y, map_add' := fixture_scalarEquiv._proof_5,
+            map_smul' := fixture_scalarEquiv._proof_6, invFun := fun y => fixture_scale⁻¹ • y,
+            left_inv := fixture_scalarEquiv._proof_7,
+            right_inv := fixture_scalarEquiv._proof_8 }.toContinuousLinearEquiv)
+      y =
+    if r = 3 then ![(y 0 + y 1) / Real.pi, (-y 0 + y 1) / Real.pi] else fixture_scale • y
+SourceActualMorseLocalModel.lean:1257:6: error: Application type mismatch: The argument
+  ContinuousLinearEquiv.hasFDerivAt (fixture_P r)
+has type
+  HasFDerivAt ⇑(fixture_P r) ↑(fixture_P r) ?m.193
+but is expected to have type
+  HasFDerivAt (WithLp.toLp 2) ?m.180 0
+in the application
+  HasFDerivAt.comp 0 (DifferentiableAt.hasFDerivAt (ContDiff.differentiable hg ?m.153 0))
+    (ContinuousLinearEquiv.hasFDerivAt (fixture_P r))
+SourceActualMorseLocalModel.lean:1262:6: error: Application type mismatch: The argument
+  ContDiff.contDiffAt (ContDiff.comp hg (ContinuousLinearEquiv.contDiff (fixture_P r)))
+has type
+  ContDiffAt ℝ (↑⊤) (g ∘ ⇑(fixture_P r)) ?m.258
+but is expected to have type
+  ContDiffAt ℝ (↑2) (fun y => g ((fixture_P r) y)) 0
+in the application
+  iteratedFDeriv_sub_apply (ContDiff.contDiffAt (ContDiff.comp hg (ContinuousLinearEquiv.contDiff (fixture_P r))))
+SourceActualMorseLocalModel.lean:1288:47: error: This simp argument is unused:
+  E2
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [E]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceActualMorseLocalModel.lean:1303:39: error: This simp argument is unused:
+  E2
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [E]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceActualMorseLocalModel.lean:1323:4: error: Try `simp at h0` instead of `simpa using h0`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+SourceActualMorseLocalModel.lean:1327:4: error: Try `simp at h1` instead of `simpa using h1`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+SourceActualMorseLocalModel.lean:1317:71: error: unsolved goals
+g : E2 → ℝ
+P : Point2 ≃L[ℝ] E2
+hn : orderedNormalization g 0 1 P
+n : E2 := P (basis2 0)
+p : E2 := P (basis2 1)
+hn0 : n ≠ 0
+hp0 : p ≠ 0
+⊢ HessianHasInertia 2 g 0 1
+SourceActualMorseLocalModel.lean:1375:89: error: unsolved goals
+⊢ ((coordinates 2).symm (Pi.single 0 1)).ofLp 0 * ((coordinates 2).symm (Pi.single 0 1)).ofLp 1 +
+        ((coordinates 2).symm (Pi.single 0 1)).ofLp 1 * ((coordinates 2).symm (Pi.single 0 1)).ofLp 0 =
+      0 ∧
+    ((coordinates 2).symm (Pi.single 1 1)).ofLp 0 * ((coordinates 2).symm (Pi.single 1 1)).ofLp 1 +
+          ((coordinates 2).symm (Pi.single 1 1)).ofLp 1 * ((coordinates 2).symm (Pi.single 1 1)).ofLp 0 =
+        0 ∧
+      ((coordinates 2).symm (Pi.single 0 1)).ofLp 0 * ((coordinates 2).symm (Pi.single 1 1)).ofLp 1 +
+          ((coordinates 2).symm (Pi.single 0 1)).ofLp 1 * ((coordinates 2).symm (Pi.single 1 1)).ofLp 0 =
+        1

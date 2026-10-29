@@ -1,0 +1,38 @@
+/workspace/scratch/h0-older-clearance-construct/OlderClearanceControls.lean:55:2: error: Type mismatch
+  identity_difference_zero
+has type
+  (ordinaryH0_pointClass (↧↑(superlevel_set id 0)) (↧ℝ) pointZero -
+        ordinaryH0_pointClass (↧↑(superlevel_set id 0)) (↧ℝ) pointOne) ≫
+      (superlevel_h0Filtration id ↧ℝ).map (homOfLE ⋯) =
+    0
+but is expected to have type
+  (ordinaryH0_pointClass (↧↑(superlevel_set id (-0))) (↧ℝ) (I4SourceH0OlderClearance.birthPoint✝ id 0) -
+        ordinaryH0_pointClass (↧↑(superlevel_set id (-0))) (↧ℝ) (I4SourceH0OlderClearance.olderBirthPoint✝ id 0 1 ⋯)) ≫
+      (superlevel_h0Filtration id ↧ℝ).map (homOfLE ⋯) =
+    0
+/workspace/scratch/h0-older-clearance-construct/OlderClearanceControls.lean:54:20: error: This simp argument is unused:
+  neg_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [id_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/h0-older-clearance-construct/OlderClearanceControls.lean:91:2: error: Type mismatch
+  identity_difference_zero
+has type
+  (ordinaryH0_pointClass (↧↑(superlevel_set id 0)) (↧ℝ) pointZero -
+        ordinaryH0_pointClass (↧↑(superlevel_set id 0)) (↧ℝ) pointOne) ≫
+      (superlevel_h0Filtration id ↧ℝ).map (homOfLE ⋯) =
+    0
+but is expected to have type
+  (ordinaryH0_pointClass ↧↑(superlevel_set id (-0)) ↧ℝ ⟨0, ⋯⟩ -
+        ordinaryH0_pointClass ↧↑(superlevel_set id (-0)) ↧ℝ ⟨1, ⋯⟩) ≫
+      (superlevel_h0Filtration id ↧ℝ).map (homOfLE ⋯) =
+    0
+/workspace/scratch/h0-older-clearance-construct/OlderClearanceControls.lean:90:20: error: This simp argument is unused:
+  neg_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [id_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

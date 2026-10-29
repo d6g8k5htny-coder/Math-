@@ -1,0 +1,87 @@
+INVENTORY|theorem|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteResidual_summable
+AXIOMS|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteResidual_summable|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|definition|I4SourceRemoteJetGaussian.remoteResidualCoefficient
+AXIOMS|I4SourceRemoteJetGaussian.remoteResidualCoefficient|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteResidual_integral_zero
+AXIOMS|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteResidual_integral_zero|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteJet_series
+AXIOMS|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteJet_series|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteJet_measurable
+AXIOMS|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteJet_measurable|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|definition|I4SourceRemoteJetGaussian.remoteRegressionMatrix
+AXIOMS|I4SourceRemoteJetGaussian.remoteRegressionMatrix|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|I4SourceRemoteJetGaussian.rawPinKernel_remoteJet_eq_multivariateGaussian
+AXIOMS|I4SourceRemoteJetGaussian.rawPinKernel_remoteJet_eq_multivariateGaussian|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|I4SourceRemoteJetGaussian.remoteResidualCoefficient.eq_1
+AXIOMS|I4SourceRemoteJetGaussian.remoteResidualCoefficient.eq_1|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteJetCoefficient_summable_local
+AXIOMS|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteJetCoefficient_summable_local|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteResidual_hasGaussianLaw
+AXIOMS|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteResidual_hasGaussianLaw|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|definition|I4SourceRemoteJetGaussian.remoteCrossCovariance
+AXIOMS|I4SourceRemoteJetGaussian.remoteCrossCovariance|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remotePosterior_eq_residual_add_mean
+AXIOMS|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remotePosterior_eq_residual_add_mean|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remotePosterior_covariance
+AXIOMS|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remotePosterior_covariance|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteResidual_series
+AXIOMS|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteResidual_series|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|I4SourceRemoteJetGaussian.remotePosteriorMean.eq_1
+AXIOMS|I4SourceRemoteJetGaussian.remotePosteriorMean.eq_1|[propext, Classical.choice, Quot.sound]
+INVENTORY|definition|I4SourceRemoteJetGaussian.remoteResidualCovariance
+AXIOMS|I4SourceRemoteJetGaussian.remoteResidualCovariance|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteResidual_covariance
+AXIOMS|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteResidual_covariance|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|I4SourceRemoteJetGaussian.rawPinKernel_remoteJet_conditional_uniform
+AXIOMS|I4SourceRemoteJetGaussian.rawPinKernel_remoteJet_conditional_uniform|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remotePosterior_hasGaussianLaw
+AXIOMS|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remotePosterior_hasGaussianLaw|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|definition|I4SourceRemoteJetGaussian.remoteJet
+AXIOMS|I4SourceRemoteJetGaussian.remoteJet|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteJetCoefficient_weighted_summable_local
+AXIOMS|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteJetCoefficient_weighted_summable_local|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remotePosterior_integral
+AXIOMS|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remotePosterior_integral|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|I4SourceRemoteJetGaussian.remoteJet_rawPosteriorSample
+AXIOMS|I4SourceRemoteJetGaussian.remoteJet_rawPosteriorSample|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|I4SourceRemoteJetGaussian.remoteJet_rawPosteriorSample._abel_1_2
+AXIOMS|I4SourceRemoteJetGaussian.remoteJet_rawPosteriorSample._abel_1_2|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.rawPinCoefficient_weighted_summable_local
+AXIOMS|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.rawPinCoefficient_weighted_summable_local|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|definition|I4SourceRemoteJetGaussian.remotePosteriorMean
+AXIOMS|I4SourceRemoteJetGaussian.remotePosteriorMean|[propext, Classical.choice, Quot.sound]
+INVENTORY|definition|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteResidual
+AXIOMS|_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteResidual|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|I4SourceRemoteJetGaussian.remoteResidualCovariance_posDef
+AXIOMS|I4SourceRemoteJetGaussian.remoteResidualCovariance_posDef|[propext, Classical.choice, Quot.sound]
+COMPLETE_NEW_MODULE_INVENTORY|SourceRemoteJetGaussian|28

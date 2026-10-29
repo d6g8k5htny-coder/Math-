@@ -1,0 +1,34 @@
+/workspace/scratch/actual-source-regular-local-collar-construct/RegularLocalCollarControls.lean:159:6: error: Type mismatch: After simplification, term
+  ha
+ has type
+  @LT.lt ℝ Real.instLT |a| ρ
+but is expected to have type
+  @LT.lt ℝ Real.instLT |![a, ε] ⟨0, ⋯⟩| ρ
+/workspace/scratch/actual-source-regular-local-collar-construct/RegularLocalCollarControls.lean:160:6: error: Type mismatch: After simplification, term
+  hε
+ has type
+  @LT.lt ℝ Real.instLT |ε| ρ
+but is expected to have type
+  @LT.lt ℝ Real.instLT |![a, ε] ⟨1, ⋯⟩| ρ
+/workspace/scratch/actual-source-regular-local-collar-construct/RegularLocalCollarControls.lean:277:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |ρ / 2|
+in the target expression
+  |![0, ρ / 2] ⟨1, ⋯⟩| < ρ
+
+case «1»
+ρ : ℝ
+hρ : 0 < ρ
+φ : OpenPartialHomeomorph T2 P2
+_hsource : projection pm ∈ φ.source
+_hcenter : ↑φ (projection pm) = 0
+_hinside : φ.source ⊆ neighborhood pm
+htarget : φ.target = Metric.ball 0 ρ
+hheight : ∀ z ∈ φ.source, F z = F (projection pm) + ↑φ z 1
+⊢ |![0, ρ / 2] ⟨1, ⋯⟩| < ρ
+/workspace/scratch/actual-source-regular-local-collar-construct/RegularLocalCollarControls.lean:276:17: error: This simp argument is unused:
+  Matrix.cons_val_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Real.norm_eq_abs]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

@@ -1,0 +1,201 @@
+{
+  "source_sha256": "77e521c7fc3fc3da1c922a4ef547b065be58b232b321480948c8fe50d76c2aa5",
+  "public_declarations": 37,
+  "kind_counts": {
+    "def": 7,
+    "theorem": 29,
+    "instance": 1
+  },
+  "direct_report_count": 37,
+  "missing": [],
+  "extra": [],
+  "unexpected_axioms": {},
+  "reports": {
+    "I4SourceRawPinConditioning.rawPinCoefficient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPinCoefficient_summable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPins_series": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPins_measurable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPinCovariance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPinCovariance_coefficient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.confluentMatrix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.confluentMatrix_mulVec": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.confluentMatrix_isUnit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.pinCoefficient_eq_confluentMatrix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.sourceConfluentPinsAt_eq_matrix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPinCovariance_congruence": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPinCovariance_isUnit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPinLift": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPinLift_goodSample": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPinLift_measurable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.pinLift_confluent_eq_raw": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPosteriorSample": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPosteriorSample_val": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPosteriorSample_measurable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPosteriorSample_eq_posteriorSample": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPinKernel": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPinKernel_isMarkov": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPinKernel_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPinKernel_eq_confluent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPinKernel_eq_comap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPosteriorSample_rawPins": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPinKernel_pin_map": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPinKernel_pin_fiber": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPinKernel_hasCondDistrib": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPinKernel_map_hasCondDistrib": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPinCovariance_eventually_isUnit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPinKernel_eventually_hasCondDistrib": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPinKernel_prescribed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPrescribedWeightedMeasure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPrescribedWeightedMeasure_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceRawPinConditioning.rawPrescribedWeightedMeasure_estimates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "private_helpers": "Five private generic covariance/unit/inverse lemmas are checked by named module kernel and transitively covered by public exported proofs; not counted as public exports."
+}

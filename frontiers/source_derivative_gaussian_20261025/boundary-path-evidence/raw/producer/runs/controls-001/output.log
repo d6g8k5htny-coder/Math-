@@ -1,0 +1,13 @@
+/workspace/scratch/ridge-boundary-path-construct/Controls.lean:19:26: error(lean.invalidField): Invalid field `div_const`: The environment does not contain `HasFDerivAtFilter.div_const`, so it is not possible to project the field `div_const` from an expression
+  HasFDerivAt.pow hx 3
+of type
+  HasFDerivAtFilter (fun x => x.1 ^ 3) ((3 • p.1 ^ (3 - 1)) • ContinuousLinearMap.fst ℝ ℝ ℝ) (𝓝 p ×ˢ pure p)
+/workspace/scratch/ridge-boundary-path-construct/Controls.lean:16:72: error: unsolved goals
+b : ℝ
+p : ℝ × ℝ
+hx : HasFDerivAt (fun q => q.1) (ContinuousLinearMap.fst ℝ ℝ ℝ) p
+hy : HasFDerivAt (fun q => q.2) (ContinuousLinearMap.snd ℝ ℝ ℝ) p
+⊢ Vx (polynomial b) p = p.1 ^ 2 - 1 / 4 ∧ Vy (polynomial b) p = -2 * b * p.2
+/workspace/scratch/ridge-boundary-path-construct/Controls.lean:119:67: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`

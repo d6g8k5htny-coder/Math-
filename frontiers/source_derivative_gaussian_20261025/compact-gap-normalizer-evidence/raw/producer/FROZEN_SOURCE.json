@@ -1,0 +1,65 @@
+{
+  "frozen_utc": "2026-10-26T10:12:46.169522+00:00",
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactGapNormalizer.lean",
+    "bytes": 24753,
+    "sha256": "d0f9319ac2ca792a9733659453583f4f71acc7ccccbcaba4ba1942566516065a"
+  },
+  "source_status": "frozen final source; completed strict compile-005 reused by unchanged consumed interface",
+  "helpers_frozen": [
+    {
+      "role": "gaussian",
+      "needed_section": {
+        "path": "/workspace/scratch/compact-normalizer-gaussian/FROZEN_SECTION.lean",
+        "bytes": 3532,
+        "sha256": "2286f304a69e742b84d762f8df649d4788643237d67be90009ed2cfa76bf671f"
+      },
+      "lineage_record": {
+        "path": "/workspace/scratch/compact-normalizer-gaussian/FROZEN_HANDOFF.json",
+        "bytes": 3367,
+        "sha256": "84fd42a3029fd4a4324b09ee630979f4a3845f594ad435a6273c0056ab92aef4"
+      },
+      "body_integrated_exactly_once": true,
+      "body_sha256": "c5e199460d849b0c21179102e659f39fcff6ce9d0a48329f5abc62de8ef33316"
+    },
+    {
+      "role": "deterministic",
+      "needed_section": {
+        "path": "/workspace/scratch/compact-normalizer-deterministic/INTEGRATION_SECTION.lean",
+        "bytes": 9906,
+        "sha256": "3ac2bdd270d54608cca584be8083598d5c813e552a75dc2caaa191b9348d7f41"
+      },
+      "lineage_record": {
+        "path": "/workspace/scratch/compact-normalizer-deterministic/FROZEN_SECTION.json",
+        "bytes": 1826,
+        "sha256": "be256cd5b3a630cda618e0fc4e4c38c7a49d59056c4d5594cccd4e4e91acc644"
+      },
+      "body_integrated_exactly_once": true,
+      "body_sha256": "1e5fd5e47ac752be9f3de307f791d02c8cfb76e0e343c9109dfce25d509e63e6"
+    }
+  ],
+  "no_own_kernel_yet": false,
+  "planned_exactly_one_named_kernel": "SourceCompactGapNormalizer",
+  "new_numerator_dependency_status": "qualified final frozen artifact; producer strict006/kernel001/inventory001/controls003 passed",
+  "precode_commit": "40f22f53bc5897e45fa8679d4d90dc88e1b28ba6",
+  "numerator_source_sha256": "b2fedf3739884ff716d11c85ebcf5de328fc76bc2a5bed31e8ea72c61d2f87a3",
+  "numerator_object_sha256": "2e6708f3f238cc5a6e1756edf926dab74cab2f05333978853cb6384cb3ff4a63",
+  "dependency_join_utc": "2026-10-26T10:14:00.161405+00:00",
+  "strict_compile_reuse": {
+    "receipt": "runs/compile-005/receipt.json",
+    "consumed_numerator_declaration": "I4SourceGapWeightedNumerator.sourceGapLaw_weight_integrable",
+    "early_object_sha256": "99e2996556d42d5bbfe41d7be2d3dd7f4f3ce680f96efa608861dc58dae5d831",
+    "consumed_statement_and_proof_byte_identical": true,
+    "consumed_declaration_sha256": "662f4614ace6995188f2c03d79f7019accbb765e8c9f23133ba326f9e2527744",
+    "final_environment_import_exercised_by": "runs/controls-002/receipt.json; ran after final numerator artifact creation",
+    "reason": "Owner reuse clarification: later qualification status and unused appended declarations do not justify recompiling unchanged material."
+  },
+  "exactly_one_named_own_module_kernel": true,
+  "kernel_receipt": {
+    "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/kernel-001/receipt.json",
+    "bytes": 1788,
+    "sha256": "504c6dd7fdfb08fe89f23e840620d4268964cd33f142b4a54c3147a10f2cf8fd"
+  },
+  "source_unchanged_since_strict_compile": true,
+  "all_frozen_before_kernel_start": true
+}

@@ -1,0 +1,52 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean",
+    "bytes": 17034,
+    "sha256": "b9900b7553f7722241137f8f0cba08862b19ae415253a9a14bfd7c9b53c3e613"
+  },
+  "imports": [
+    "SourceRemoteJetGaussian",
+    "SourceEndpointHessianWitness",
+    "SourceSmoothTopology",
+    "Mathlib.Probability.Distributions.Gaussian.Multivariate",
+    "Mathlib.MeasureTheory.Constructions.Pi",
+    "Mathlib.MeasureTheory.Measure.Prod",
+    "Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace"
+  ],
+  "forbidden_matches": [],
+  "public_prop_count": 3,
+  "public_data_names": [
+    "endpointHessian",
+    "endpointHessianMean",
+    "endpointHessianCovariance"
+  ],
+  "actual_sample": "originalsignedL/SmoothSample2L/rawPinKernel/rawtargett",
+  "literal_order": "XX,XY,YY raw6..8M/9..11S; XYfactor1",
+  "law_route": "ONEfixed6to3IsGaussian.extprojection of49allradiuslaw; private deterministicPSD6Gram andBCFmeasurability only; no49privateGaussian/series/mean/covchaincopy",
+  "PD_route": "actual50any3x6 atselected49R, exactpubliccoefficient/Gram match",
+  "nullity_route": "fixed3PDGaussianAC arbitrarymean via scalarproducts/stdGaussian/invertiblesqrt/Haartranslation; fixedDclosedzero-set twoFubini sections; actualAEpullback+finiteboth-tagsconjunction",
+  "actual_hypotheses": [
+    "signedLne0",
+    "anyrealr fordefinedsamplinglaw",
+    "literalendpointquotientsep forPD/nullity",
+    "everyrawtarget"
+  ],
+  "absent_hypotheses": [
+    "pinCovarianceinverse/radiusinterval",
+    "suppliedPD/rank/densitycertificate",
+    "joint6Hessianrank",
+    "positivegap/targetbound"
+  ],
+  "no_foreign_private_names": true,
+  "foreign_namespace_generated_inventory": [
+    "I4SourceRemoteJetGaussian.remoteResidualCovariance.eq_1"
+  ],
+  "nonclaims": [
+    "allradiusRCD/fibers",
+    "newSchur/density/publicgenericlibrary",
+    "joint6endpointlaw/rank",
+    "uniformcovariancefloor",
+    "globalMorse/Sard/ties",
+    "canonicalH0/Lifetime/Rice/Parent"
+  ]
+}

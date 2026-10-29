@@ -1,0 +1,48 @@
+{
+  "label": "controls-001",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "env",
+    "LEAN_PATH=/workspace/scratch/compact-gap-normalizer-construct/build:/workspace/scratch/gap-weighted-numerator-construct/build",
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "-o",
+    "/workspace/scratch/compact-gap-normalizer-construct/build/Controls.olean",
+    "/workspace/scratch/compact-gap-normalizer-construct/Controls.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactGapNormalizer.lean",
+      "bytes": 24753,
+      "sha256": "d0f9319ac2ca792a9733659453583f4f71acc7ccccbcaba4ba1942566516065a"
+    },
+    "object": {
+      "path": "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+      "bytes": 1477944,
+      "sha256": "36548ee275e757fe1a7fc507395d5d2bd6353cc65e686eb631472dbe5e40eed3"
+    }
+  },
+  "started_utc": "2026-10-26T10:11:21.164711+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 1.0922212600708008,
+  "ended_utc": "2026-10-26T10:11:22.256958+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactGapNormalizer.lean",
+      "bytes": 24753,
+      "sha256": "d0f9319ac2ca792a9733659453583f4f71acc7ccccbcaba4ba1942566516065a"
+    },
+    "object": {
+      "path": "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+      "bytes": 1477944,
+      "sha256": "36548ee275e757fe1a7fc507395d5d2bd6353cc65e686eb631472dbe5e40eed3"
+    }
+  },
+  "log": {
+    "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/controls-001/output.log",
+    "bytes": 199,
+    "sha256": "9d9987a7238772a7f980bbb64dc3476b280fc321e5c4790fd9e9414532c0f4ed"
+  }
+}

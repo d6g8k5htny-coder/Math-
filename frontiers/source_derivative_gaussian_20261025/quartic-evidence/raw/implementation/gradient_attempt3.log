@@ -1,0 +1,26 @@
+/workspace/scratch/pin-preserving-quartic-implementation/GradientBridge.lean:92:37: error: unsolved goals
+case «0»
+f : (Fin 2 → ℝ) → ℝ
+z : EuclideanSpace ℝ (Fin 2)
+⊢ (fderiv ℝ f z.ofLp) (Pi.single 0 1) = (fderiv ℝ f z.ofLp) ![1, 0]
+
+case «1»
+f : (Fin 2 → ℝ) → ℝ
+z : EuclideanSpace ℝ (Fin 2)
+⊢ (fderiv ℝ f z.ofLp) (Pi.single 1 1) = (fderiv ℝ f z.ofLp) ![0, 1]
+/workspace/scratch/pin-preserving-quartic-implementation/GradientBridge.lean:109:4: error: Type mismatch: After simplification, term
+  HasFDerivAt.const_smul (hasFDerivAt_id z) r
+ has type
+  @HasFDerivAt ℝ DenselyNormedField.toNontriviallyNormedField (EuclideanSpace ℝ (Fin 2))
+    (PiLp.normedAddCommGroup 2 fun x => ℝ).toAddCommGroup (PiLp.normedSpace 2 ℝ fun x => ℝ).toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace (EuclideanSpace ℝ (Fin 2))
+    (PiLp.normedAddCommGroup 2 fun x => ℝ).toAddCommGroup (PiLp.normedSpace 2 ℝ fun x => ℝ).toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace (r • id)
+    (r • ContinuousLinearMap.id ℝ (EuclideanSpace ℝ (Fin 2))) z
+but is expected to have type
+  @HasFDerivAt ℝ DenselyNormedField.toNontriviallyNormedField (EuclideanSpace ℝ (Fin 2))
+    (instAddCommGroup 2 ((i : Fin 2) → (fun x => ℝ) i)) (instModule 2 ℝ ((i : Fin 2) → (fun x => ℝ) i))
+    (PiLp.topologicalSpace 2 fun x => ℝ) (EuclideanSpace ℝ (Fin 2)) (instAddCommGroup 2 ((i : Fin 2) → (fun x => ℝ) i))
+    (instModule 2 ℝ ((i : Fin 2) → (fun x => ℝ) i)) (PiLp.topologicalSpace 2 fun x => ℝ) (fun z => r • z)
+    (r • ContinuousLinearMap.id ℝ (EuclideanSpace ℝ (Fin 2))) z
+/workspace/scratch/pin-preserving-quartic-implementation/GradientBridge.lean:119:4: error: No goals to be solved

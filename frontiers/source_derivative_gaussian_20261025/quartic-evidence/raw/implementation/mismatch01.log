@@ -1,0 +1,41 @@
+/workspace/scratch/pin-preserving-quartic-implementation/NewMismatch.lean:23:2: error: 'change' tactic failed, pattern
+  ((fderiv ℝ (smoothSourceField 2 L ω) 0) directionX +
+              (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![r • p, directionX] +
+            (iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0) ![r • p, r • p, directionX] / 2 +
+          (iteratedFDeriv ℝ 4 (smoothSourceField 2 L ω) 0) ![r • p, r • p, r • p, directionX] / 6) /
+        r ^ 2 -
+      ?m.344 =
+    ?m.346
+is not definitionally equal to target
+  ((fderiv ℝ (smoothSourceField 2 L ω) 0) (coordinateDirection 0) +
+              (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![r • p, coordinateDirection 0] +
+            (iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0) ![r • p, r • p, coordinateDirection 0] / 2 +
+          (iteratedFDeriv ℝ 4 (smoothSourceField 2 L ω) 0) ![r • p, r • p, r • p, coordinateDirection 0] / 6) /
+        r ^ 2 -
+      pinPreservingQuartic r (sourceQ L ω) (sourceRawU L ω) p 0 =
+    ((fderiv ℝ (smoothSourceField 2 L ω) 0) directionX + r ^ 2 / 4) / r ^ 2 +
+          ((iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionX, directionX] + sourceRawU L ω 3 * r ^ 2 / 24) /
+              r *
+            p 0 +
+        ((iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionX, directionY] + sourceRawU L ω 4 * r ^ 2 / 24) /
+            r *
+          p 1 +
+      (sourceAxialThird L ω - 2) * p 0 ^ 2 / 2
+/workspace/scratch/pin-preserving-quartic-implementation/NewMismatch.lean:42:2: error: 'change' tactic failed, pattern
+  ((fderiv ℝ (smoothSourceField 2 L ω) 0) directionY +
+              (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![r • p, directionY] +
+            (iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0) ![r • p, r • p, directionY] / 2 +
+          (iteratedFDeriv ℝ 4 (smoothSourceField 2 L ω) 0) ![r • p, r • p, r • p, directionY] / 6) /
+        r ^ 2 -
+      ?m.257 =
+    ?m.259
+is not definitionally equal to target
+  ((fderiv ℝ (smoothSourceField 2 L ω) 0) (coordinateDirection 1) +
+              (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![r • p, coordinateDirection 1] +
+            (iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0) ![r • p, r • p, coordinateDirection 1] / 2 +
+          (iteratedFDeriv ℝ 4 (smoothSourceField 2 L ω) 0) ![r • p, r • p, r • p, coordinateDirection 1] / 6) /
+        r ^ 2 -
+      pinPreservingQuartic r (sourceQ L ω) (sourceRawU L ω) p 1 =
+    ((fderiv ℝ (smoothSourceField 2 L ω) 0) directionY + sourceRawU L ω 0 * r ^ 2 / 8) / r ^ 2 +
+      ((iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionX, directionY] + sourceRawU L ω 4 * r ^ 2 / 24) / r *
+        p 0

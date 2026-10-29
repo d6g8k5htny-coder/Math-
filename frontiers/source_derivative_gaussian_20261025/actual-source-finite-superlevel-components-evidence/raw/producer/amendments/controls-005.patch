@@ -1,0 +1,11 @@
+--- runs/controls-004/FiniteSuperlevelComponentsControls.lean
++++ FiniteSuperlevelComponentsControls.lean
+@@ -181,7 +181,7 @@
+   have haxis (i : Fin 2) : physicalAxis i ≠ 0 := by
+     intro hh
+     have he := congrArg (fun Y => coordinates 2 Y i) hh
+-    simpa [physicalAxis_value] using he
++    simp [physicalAxis_value] at he
+   have hN : Module.finrank ℝ N=1 := finrank_span_singleton (haxis 0)
+   have hP : Module.finrank ℝ P=1 := finrank_span_singleton (haxis 1)
+   have hdis : Disjoint N P := by

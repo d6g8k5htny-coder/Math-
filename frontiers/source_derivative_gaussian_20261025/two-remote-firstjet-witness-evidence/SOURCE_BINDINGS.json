@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "status": "EXACT_ROOT_SOURCECUT_BOUND_FOUR_INSTALLED_BINDINGS_SKIP",
+  "source_cut": "7e8ac1c7bd6a8d9c251cf6c99f5890379a82f0e0",
+  "root_source_cut_record": "ROOT_SOURCE_CUT.json",
+  "binding_precode": "c9eab66fc13968de4bcf391c4effd9db5321ac11",
+  "native_activation": 6422878311,
+  "native_activation_utc": "2026-10-26T17:28:55Z",
+  "source": {
+    "path": "SourceTwoRemoteFirstJetWitness.lean",
+    "bytes": 21442,
+    "sha256": "b523da924513fc312c5432c241fc031d4fbe3567fbeedbba981f36dd798574a4",
+    "root_apply_action": "SKIP_UNCHANGED_ALREADY_INSTALLED_BY_ROOT",
+    "identity_origin": "Retained frozen root/producer exact-source identity reused; no source hash replay."
+  },
+  "precode_documents": [
+    {
+      "path": "SOURCE_TWO_REMOTE_FIRSTJET_WITNESS.md",
+      "bytes": 7263,
+      "sha256": "cf7151cc61241e5fa874778cdd9a8f88272de217a4e857f641a9d21f48361475",
+      "root_apply_action": "SKIP_UNCHANGED_ALREADY_INSTALLED_BY_ROOT",
+      "expected_binding_cut": "c9eab66fc13968de4bcf391c4effd9db5321ac11",
+      "identity_origin": "One new53 binding custody hash after bounded lookup found no retained producer/helper identity; explicitly authorized by root. Existing binding snapshot reused after recovery."
+    },
+    {
+      "path": "SOURCE_TWO_REMOTE_FIRSTJET_WITNESS_PLAN.md",
+      "bytes": 2725,
+      "sha256": "836a852f97275be1d56261c154a5430b1ae616516a85a20e5aed291531ad5008",
+      "root_apply_action": "SKIP_UNCHANGED_ALREADY_INSTALLED_BY_ROOT",
+      "expected_binding_cut": "c9eab66fc13968de4bcf391c4effd9db5321ac11",
+      "identity_origin": "One new53 binding custody hash after bounded lookup found no retained producer/helper identity; explicitly authorized by root. Existing binding snapshot reused after recovery."
+    },
+    {
+      "path": "SOURCE_TWO_REMOTE_FIRSTJET_WITNESS_CONTENDERS.json",
+      "bytes": 5194,
+      "sha256": "585504c825e5db7cc07325c2a90811b1a7c5eb168315748f1b192cd74574c9a1",
+      "root_apply_action": "SKIP_UNCHANGED_ALREADY_INSTALLED_BY_ROOT",
+      "expected_binding_cut": "c9eab66fc13968de4bcf391c4effd9db5321ac11",
+      "identity_origin": "One new53 binding custody hash after bounded lookup found no retained producer/helper identity; explicitly authorized by root. Existing binding snapshot reused after recovery."
+    }
+  ],
+  "history": "Producer pending-rootcut and rootcut earlier report-pending context preserved verbatim; later explicit root FINALIZATION authorization supplies final full-read status without rewriting old records.",
+  "parallel_foreign_preservation": "SourceIntrinsicH0Interface.lean remains authorized foreign untracked source; exclude it and all SOURCE_INTRINSIC_H0_INTERFACE* docs/evidence from53. Stage only exact53 allowlist, no global-empty assumption.",
+  "old_payload_hashes_recomputed": 0,
+  "scientific_effect": "NONE"
+}

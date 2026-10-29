@@ -1,0 +1,53 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactFoldWeightedProbability.lean",
+    "bytes": 8882,
+    "sha256": "97e6c694b62d90f6b723b0e510691e019f763ff26ebba743664d596dc72223b9"
+  },
+  "olean": {
+    "path": "/workspace/scratch/compact-fold-weighted-probability-construct/build/SourceCompactFoldWeightedProbability.olean",
+    "bytes": 499208,
+    "sha256": "7f5e51ce282049a8ea7a72af338b826fe8faa16eb739a2f697b88a63270140b6"
+  },
+  "ilean": {
+    "path": "/workspace/scratch/compact-fold-weighted-probability-construct/build/SourceCompactFoldWeightedProbability.ilean",
+    "bytes": 28709,
+    "sha256": "eacf791e2d9022ca5d0eea235151a32bb31f232c389101df23f70aec2d6b9a90"
+  },
+  "strict_receipt": {
+    "path": "/workspace/scratch/compact-fold-weighted-probability-construct/runs/compile-001/receipt.json",
+    "bytes": 1906,
+    "sha256": "27979744c45eddd626d54c085601bfa93e2ad922f30bca288f6bfb84b7b04d63"
+  },
+  "kernel_receipt": {
+    "path": "/workspace/scratch/compact-fold-weighted-probability-construct/runs/kernel-001/receipt.json",
+    "bytes": 1937,
+    "sha256": "f6c5b8d1d00b2b02f6e1ec0bd6fa749713bd4353ed2058237e5bbd29e296ebd8"
+  },
+  "new_numerator_source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceGapWeightedNumerator.lean",
+    "bytes": 20999,
+    "sha256": "b2fedf3739884ff716d11c85ebcf5de328fc76bc2a5bed31e8ea72c61d2f87a3"
+  },
+  "new_numerator_object": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceGapWeightedNumerator.olean",
+    "bytes": 1730640,
+    "sha256": "2e6708f3f238cc5a6e1756edf926dab74cab2f05333978853cb6384cb3ff4a63"
+  },
+  "new_normalizer_source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactGapNormalizer.lean",
+    "bytes": 24753,
+    "sha256": "d0f9319ac2ca792a9733659453583f4f71acc7ccccbcaba4ba1942566516065a"
+  },
+  "new_normalizer_object": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceCompactGapNormalizer.olean",
+    "bytes": 1477944,
+    "sha256": "36548ee275e757fe1a7fc507395d5d2bd6353cc65e686eb631472dbe5e40eed3"
+  },
+  "qualified_existing_packet": "43 modules /1044 targets /32 inputs at6efd145; completed applicable old verification reused, no replay.",
+  "precode_commit": "b8114e28d0e440e078a831c8df7fe69411b3a6e5",
+  "production_eligible": [
+    "SourceCompactFoldWeightedProbability.olean"
+  ],
+  "ineligible": "Controls.olean and all control/mutation/helper objects. Root alone owns production cache copy."
+}

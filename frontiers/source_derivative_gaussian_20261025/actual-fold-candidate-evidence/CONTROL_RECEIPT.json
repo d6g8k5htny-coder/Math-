@@ -1,0 +1,47 @@
+{
+  "precode_contract": {
+    "path": "/workspace/scratch/actual-fold-candidate-construct/CONTROL_CONTRACT.md",
+    "bytes": 1856,
+    "sha256": "41de2c04a58737c3da400545d0b6f4528019acb3e176c090832abe473c15b5ff"
+  },
+  "contract_before_code": true,
+  "contract_heading_time_note": "10:35 UTC is nominal minute label; control tool write preceded first source write and strict001 start10:34:55 in session order. Original bytes preserved.",
+  "positive_source": {
+    "path": "/workspace/scratch/actual-fold-candidate-construct/Controls.lean",
+    "bytes": 7218,
+    "sha256": "349f88fadae8721ef4efc0d4cbad47b74a4d50d2a4916a5a957909442aafbde9"
+  },
+  "positive_receipt": {
+    "path": "/workspace/scratch/actual-fold-candidate-construct/runs/controls-004/record.json",
+    "bytes": 1898,
+    "sha256": "43746c680d1d7563138a166c34efe98cd0728f807b840c5e275ccda047956e6a"
+  },
+  "positive_count": 10,
+  "positive_scope": [
+    "actual L1,b3,k1 raw-pin criticality at r1/4",
+    "actual physical Hessian amplitude3/2 at r1/4,k1",
+    "actual retained ridge gives literal inertia2/1",
+    "literal candidate+distance1/4+gap1/64",
+    "sample-independent literal parent lattice distance",
+    "full-period wrap concrete counterexample",
+    "same-sample actual torus/Lifetime pullback",
+    "closed L1,b3,k0=k1 source-law candidate/death/clearance/H0 with radius before arbitrary K",
+    "ordinary-H0 birth included/death excluded/positive length",
+    "arbitrary given Lifetime interface value comparison without Morse"
+  ],
+  "negative_source": {
+    "path": "/workspace/scratch/actual-fold-candidate-construct/FalseDistanceMutation.lean",
+    "bytes": 542,
+    "sha256": "261ec467fa67162d8066557c870c76c7901ae62f2c7eb728b6c5a2e99a6b04a7"
+  },
+  "negative_receipt": {
+    "path": "/workspace/scratch/actual-fold-candidate-construct/runs/false-distance-001/record.json",
+    "bytes": 1951,
+    "sha256": "2fb8c103e74b993f9f3f680d1f7248df9dc94d0b10f4d22bc79304ba7f058146"
+  },
+  "distinct_mutation_count": 1,
+  "negative_mechanism": "Specialized consequence of deleting r<L/2, L1r1. Actual lattice-distance-zero theorem rewrites false distance=1; norm_num leaves sole False, with counterexample and zero-distance proofs in context.",
+  "sole_false_count": 1,
+  "unrelated_negative_diagnostics": 0,
+  "source_unchanged_for_controls": true
+}

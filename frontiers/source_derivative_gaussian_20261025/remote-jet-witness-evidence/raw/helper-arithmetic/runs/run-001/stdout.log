@@ -1,0 +1,537 @@
+/workspace/scratch/remote-jet-arithmetic/runs/run-001/Arithmetic.lean:47:48: error: `fun_prop` was unable to prove `ContDiff ℝ (↑⊤) (localGerm c x ⟨0, ⋯⟩)`
+
+Issues:
+  No theorems found for `I4SourceRemoteJetWitness.localGerm` in order to prove `ContDiff ℝ ↑⊤ fun y => localGerm c x ⟨0, ⋯⟩ y`
+/workspace/scratch/remote-jet-arithmetic/runs/run-001/Arithmetic.lean:47:48: error: `fun_prop` was unable to prove `ContDiff ℝ (↑⊤) (localGerm c x ⟨1, ⋯⟩)`
+
+Issues:
+  No theorems found for `I4SourceRemoteJetWitness.localGerm` in order to prove `ContDiff ℝ ↑⊤ fun y => localGerm c x ⟨1, ⋯⟩ y`
+/workspace/scratch/remote-jet-arithmetic/runs/run-001/Arithmetic.lean:47:48: error: `fun_prop` was unable to prove `ContDiff ℝ (↑⊤) (localGerm c x ⟨2, ⋯⟩)`
+
+Issues:
+  No theorems found for `I4SourceRemoteJetWitness.localGerm` in order to prove `ContDiff ℝ ↑⊤ fun y => localGerm c x ⟨2, ⋯⟩ y`
+/workspace/scratch/remote-jet-arithmetic/runs/run-001/Arithmetic.lean:47:48: error: `fun_prop` was unable to prove `ContDiff ℝ (↑⊤) (localGerm c x ⟨3, ⋯⟩)`
+
+Issues:
+  No theorems found for `I4SourceRemoteJetWitness.localGerm` in order to prove `ContDiff ℝ ↑⊤ fun y => localGerm c x ⟨3, ⋯⟩ y`
+/workspace/scratch/remote-jet-arithmetic/runs/run-001/Arithmetic.lean:47:48: error: `fun_prop` was unable to prove `ContDiff ℝ (↑⊤) (localGerm c x ⟨4, ⋯⟩)`
+
+Issues:
+  No theorems found for `I4SourceRemoteJetWitness.localGerm` in order to prove `ContDiff ℝ ↑⊤ fun y => localGerm c x ⟨4, ⋯⟩ y`
+/workspace/scratch/remote-jet-arithmetic/runs/run-001/Arithmetic.lean:47:48: error: `fun_prop` was unable to prove `ContDiff ℝ (↑⊤) (localGerm c x ⟨5, ⋯⟩)`
+
+Issues:
+  No theorems found for `I4SourceRemoteJetWitness.localGerm` in order to prove `ContDiff ℝ ↑⊤ fun y => localGerm c x ⟨5, ⋯⟩ y`
+/workspace/scratch/remote-jet-arithmetic/runs/run-001/Arithmetic.lean:46:29: error: This simp argument is unused:
+  localGerm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.cons_val_zero, Matrix.cons_val_succ, Matrix.head_cons]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/remote-jet-arithmetic/runs/run-001/Arithmetic.lean:46:40: error: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [localGerm, Matrix.cons_val_succ, Matrix.head_cons]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/remote-jet-arithmetic/runs/run-001/Arithmetic.lean:47:4: error: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [localGerm, Matrix.cons_val_zero, Matrix.head_cons]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/remote-jet-arithmetic/runs/run-001/Arithmetic.lean:47:26: error: This simp argument is unused:
+  Matrix.head_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [localGerm, Matrix.cons_val_zero, Matrix.cons_val_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/remote-jet-arithmetic/runs/run-001/Arithmetic.lean:80:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  fderiv ℝ (fun y => (P * fun y => (fderiv ℝ Q y) v) y + (Q * fun y => (fderiv ℝ P y) v) y) x
+in the target expression
+  (fderiv ℝ (fun y => P y * (fderiv ℝ Q y) v + Q y * (fderiv ℝ P y) v) x) u =
+    (iteratedFDeriv ℝ 2 P x) ![u, v] * Q x + (fderiv ℝ P x) u * (fderiv ℝ Q x) v + (fderiv ℝ P x) v * (fderiv ℝ Q x) u +
+      P x * (iteratedFDeriv ℝ 2 Q x) ![u, v]
+
+P Q : (Fin 2 → ℝ) → ℝ
+hP : ContDiff ℝ 2 P
+hQ : ContDiff ℝ 2 Q
+x u v : Fin 2 → ℝ
+hPdiff : Differentiable ℝ P
+hQdiff : Differentiable ℝ Q
+hDP : Differentiable ℝ fun y => (fderiv ℝ P y) v
+hDQ : Differentiable ℝ fun y => (fderiv ℝ Q y) v
+hfun : (fun y => (fderiv ℝ (fun z => P z * Q z) y) v) = fun y => P y * (fderiv ℝ Q y) v + Q y * (fderiv ℝ P y) v
+⊢ (fderiv ℝ (fun y => P y * (fderiv ℝ Q y) v + Q y * (fderiv ℝ P y) v) x) u =
+    (iteratedFDeriv ℝ 2 P x) ![u, v] * Q x + (fderiv ℝ P x) u * (fderiv ℝ Q x) v + (fderiv ℝ P x) v * (fderiv ℝ Q x) u +
+      P x * (iteratedFDeriv ℝ 2 Q x) ![u, v]
+/workspace/scratch/remote-jet-arithmetic/runs/run-001/Arithmetic.lean:96:4: error: No goals to be solved
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/scratch/remote-jet-arithmetic/runs/run-001/Arithmetic.lean:100:2: error: unsolved goals
+case «2»
+P Q : (Fin 2 → ℝ) → ℝ
+hP : ContDiff ℝ 2 P
+hQ : ContDiff ℝ 2 Q
+x : Fin 2 → ℝ
+hPdiff : Differentiable ℝ P
+hQdiff : Differentiable ℝ Q
+⊢ ![P x * Q x, (fderiv ℝ (fun y => P y * Q y) x) directionX, (fderiv ℝ (fun y => P y * Q y) x) directionY,
+        P x * (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX] +
+            Q x * (iteratedFDeriv ℝ 2 P x) ![directionX, directionX] +
+          (fderiv ℝ P x) directionX * (fderiv ℝ Q x) directionX * 2,
+        (iteratedFDeriv ℝ 2 (fun y => P y * Q y) x) ![directionX, directionY],
+        (iteratedFDeriv ℝ 2 (fun y => P y * Q y) x) ![directionY, directionY]]
+      ⟨2, ⋯⟩ =
+    ![P x * Q x,
+        P x *
+            ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX], (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+              1 +
+          Q x *
+            ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY,
+                (iteratedFDeriv ℝ 2 P x) ![directionX, directionX], (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+              1,
+        P x *
+            ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX], (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+              2 +
+          Q x *
+            ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY,
+                (iteratedFDeriv ℝ 2 P x) ![directionX, directionX], (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+              2,
+        P x *
+              ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+                3 +
+            Q x *
+              ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY,
+                  (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+                3 +
+          ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY,
+                  (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+                1 *
+              ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+                1 *
+            2,
+        P x *
+                ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                    (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX],
+                    (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                    (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+                  4 +
+              Q x *
+                ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY,
+                    (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                    (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                    (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+                  4 +
+            ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY,
+                  (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+                1 *
+              ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+                2 +
+          ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX], (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+              1 *
+            ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY,
+                (iteratedFDeriv ℝ 2 P x) ![directionX, directionX], (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+              2,
+        P x *
+              ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+                5 +
+            Q x *
+              ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY,
+                  (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+                5 +
+          ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY,
+                  (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+                2 *
+              ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+                2 *
+            2]
+      ⟨2, ⋯⟩
+/workspace/scratch/remote-jet-arithmetic/runs/run-001/Arithmetic.lean:102:2: error: unsolved goals
+case «3»
+P Q : (Fin 2 → ℝ) → ℝ
+hP : ContDiff ℝ 2 P
+hQ : ContDiff ℝ 2 Q
+x : Fin 2 → ℝ
+hPdiff : Differentiable ℝ P
+hQdiff : Differentiable ℝ Q
+⊢ ![P x * Q x, (fderiv ℝ (fun y => P y * Q y) x) directionX, (fderiv ℝ (fun y => P y * Q y) x) directionY,
+        (iteratedFDeriv ℝ 2 P x) ![directionX, directionX] * Q x +
+              (fderiv ℝ P x) directionX * (fderiv ℝ Q x) directionX +
+            (fderiv ℝ P x) directionX * (fderiv ℝ Q x) directionX +
+          P x * (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX],
+        (iteratedFDeriv ℝ 2 (fun y => P y * Q y) x) ![directionX, directionY],
+        (iteratedFDeriv ℝ 2 (fun y => P y * Q y) x) ![directionY, directionY]]
+      ⟨3, ⋯⟩ =
+    ![P x * Q x,
+        ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY, (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                (iteratedFDeriv ℝ 2 P x) ![directionX, directionY], (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+              1 *
+            Q x +
+          P x *
+            ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX], (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+              1,
+        ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY, (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                (iteratedFDeriv ℝ 2 P x) ![directionX, directionY], (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+              2 *
+            Q x +
+          P x *
+            ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX], (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+              2,
+        ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY, (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+                3 *
+              Q x +
+            2 *
+                ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY,
+                    (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                    (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                    (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+                  1 *
+              ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+                1 +
+          P x *
+            ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX], (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+              3,
+        ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY, (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                    (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                    (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+                  4 *
+                Q x +
+              ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY,
+                    (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                    (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                    (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+                  1 *
+                ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                    (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX],
+                    (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                    (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+                  2 +
+            ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY,
+                  (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+                2 *
+              ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+                1 +
+          P x *
+            ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX], (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+              4,
+        ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY, (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+                5 *
+              Q x +
+            2 *
+                ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY,
+                    (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                    (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                    (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+                  2 *
+              ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+                2 +
+          P x *
+            ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX], (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+              5]
+      ⟨3, ⋯⟩
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/scratch/remote-jet-arithmetic/runs/run-001/Arithmetic.lean:103:2: error: unsolved goals
+case «4»
+P Q : (Fin 2 → ℝ) → ℝ
+hP : ContDiff ℝ 2 P
+hQ : ContDiff ℝ 2 Q
+x : Fin 2 → ℝ
+hPdiff : Differentiable ℝ P
+hQdiff : Differentiable ℝ Q
+⊢ ![P x * Q x, (fderiv ℝ (fun y => P y * Q y) x) directionX, (fderiv ℝ (fun y => P y * Q y) x) directionY,
+        P x * (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX] +
+            Q x * (iteratedFDeriv ℝ 2 P x) ![directionX, directionX] +
+          (fderiv ℝ P x) directionX * (fderiv ℝ Q x) directionX * 2,
+        (iteratedFDeriv ℝ 2 (fun y => P y * Q y) x) ![directionX, directionY],
+        (iteratedFDeriv ℝ 2 (fun y => P y * Q y) x) ![directionY, directionY]]
+      ⟨4, ⋯⟩ =
+    ![P x * Q x,
+        P x *
+            ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX], (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+              1 +
+          Q x *
+            ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY,
+                (iteratedFDeriv ℝ 2 P x) ![directionX, directionX], (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+              1,
+        P x *
+            ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX], (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+              2 +
+          Q x *
+            ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY,
+                (iteratedFDeriv ℝ 2 P x) ![directionX, directionX], (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+              2,
+        P x *
+              ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+                3 +
+            Q x *
+              ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY,
+                  (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+                3 +
+          ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY,
+                  (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+                1 *
+              ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+                1 *
+            2,
+        P x *
+                ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                    (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX],
+                    (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                    (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+                  4 +
+              Q x *
+                ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY,
+                    (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                    (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                    (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+                  4 +
+            ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY,
+                  (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+                1 *
+              ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+                2 +
+          ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX], (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+              1 *
+            ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY,
+                (iteratedFDeriv ℝ 2 P x) ![directionX, directionX], (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+              2,
+        P x *
+              ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+                5 +
+            Q x *
+              ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY,
+                  (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+                5 +
+          ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY,
+                  (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+                2 *
+              ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+                2 *
+            2]
+      ⟨4, ⋯⟩
+/workspace/scratch/remote-jet-arithmetic/runs/run-001/Arithmetic.lean:88:65: error: unsolved goals
+case «5»
+P Q : (Fin 2 → ℝ) → ℝ
+hP : ContDiff ℝ 2 P
+hQ : ContDiff ℝ 2 Q
+x : Fin 2 → ℝ
+hPdiff : Differentiable ℝ P
+hQdiff : Differentiable ℝ Q
+⊢ ![P x * Q x, (fderiv ℝ (fun y => P y * Q y) x) directionX, (fderiv ℝ (fun y => P y * Q y) x) directionY,
+        (iteratedFDeriv ℝ 2 (fun y => P y * Q y) x) ![directionX, directionX],
+        (iteratedFDeriv ℝ 2 (fun y => P y * Q y) x) ![directionX, directionY],
+        (iteratedFDeriv ℝ 2 (fun y => P y * Q y) x) ![directionY, directionY]]
+      ⟨5, ⋯⟩ =
+    ![P x * Q x,
+        ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY, (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                (iteratedFDeriv ℝ 2 P x) ![directionX, directionY], (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+              1 *
+            Q x +
+          P x *
+            ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX], (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+              1,
+        ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY, (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                (iteratedFDeriv ℝ 2 P x) ![directionX, directionY], (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+              2 *
+            Q x +
+          P x *
+            ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX], (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+              2,
+        ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY, (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+                3 *
+              Q x +
+            2 *
+                ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY,
+                    (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                    (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                    (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+                  1 *
+              ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+                1 +
+          P x *
+            ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX], (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+              3,
+        ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY, (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                    (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                    (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+                  4 *
+                Q x +
+              ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY,
+                    (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                    (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                    (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+                  1 *
+                ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                    (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX],
+                    (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                    (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+                  2 +
+            ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY,
+                  (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+                2 *
+              ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+                1 +
+          P x *
+            ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX], (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+              4,
+        ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY, (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+                5 *
+              Q x +
+            2 *
+                ![P x, (fderiv ℝ P x) directionX, (fderiv ℝ P x) directionY,
+                    (iteratedFDeriv ℝ 2 P x) ![directionX, directionX],
+                    (iteratedFDeriv ℝ 2 P x) ![directionX, directionY],
+                    (iteratedFDeriv ℝ 2 P x) ![directionY, directionY]]
+                  2 *
+              ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                  (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+                2 +
+          P x *
+            ![Q x, (fderiv ℝ Q x) directionX, (fderiv ℝ Q x) directionY,
+                (iteratedFDeriv ℝ 2 Q x) ![directionX, directionX], (iteratedFDeriv ℝ 2 Q x) ![directionX, directionY],
+                (iteratedFDeriv ℝ 2 Q x) ![directionY, directionY]]
+              5]
+      ⟨5, ⋯⟩
+/workspace/scratch/remote-jet-arithmetic/runs/run-001/Arithmetic.lean:93:4: error: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [jet2, mulJet2, Matrix.cons_val_zero, Matrix.head_cons]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/remote-jet-arithmetic/runs/run-001/Arithmetic.lean:93:26: error: This simp argument is unused:
+  Matrix.head_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [jet2, mulJet2, Matrix.cons_val_zero, Matrix.cons_val_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

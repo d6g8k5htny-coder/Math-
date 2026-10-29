@@ -1,0 +1,14 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/scratch/fold-two-pin-bounds/runs/run-01/TwoPin.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 1,
+  "elapsed_seconds": 6.298989404000167,
+  "finished_utc": "2026-10-26T05:40:15.246291+00:00",
+  "source_sha256": "3eef32ca94b490336c15997905fe1f44f36714a44618b44edfb28babafbe71b1"
+}

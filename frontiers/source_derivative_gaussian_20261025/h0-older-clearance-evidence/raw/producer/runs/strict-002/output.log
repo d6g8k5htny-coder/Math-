@@ -1,0 +1,74 @@
+SourceH0OlderClearance.lean:29:24: error: Try `simp at h1` instead of `simpa using h1`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+SourceH0OlderClearance.lean:26:72: error: unsolved goals
+K : Type u
+inst✝ : Field K
+h : 𝟙 ↧K = 0
+h1 : (ConcreteCategory.hom (𝟙 ↧K)) 1 = (ConcreteCategory.hom 0) 1
+⊢ False
+SourceH0OlderClearance.lean:64:7: error(lean.unknownIdentifier): Unknown constant `Set.nonempty_univ`
+SourceH0OlderClearance.lean:75:4: error: Type mismatch: After simplification, term
+  hmin (mem_univ t)
+ has type
+  @LE.le ℝ instDistribLatticeOfLinearOrder.toSemilatticeInf.toLE (F (γ t₀)) (F (γ t))
+but is expected to have type
+  @LE.le ℝ Real.instLE (F (γ t₀)) (F (γ t))
+SourceH0OlderClearance.lean:119:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  h0OlderClearance K (actualTorusField hL sample) ?M ?h
+in the target expression
+  a ∈ {h | h0OlderClearance K (actualTorusField hL sample) (torusProjection 2 L (endpointM r)) h} ↔
+    a ∈ Iio (b - k * r ^ 3)
+
+L : ℝ
+hL : L ≠ 0
+δ : ℝ
+hδ : 0 < δ
+hδ1 : δ ≤ 1
+h :
+  ∀ (K : Type) [inst : Field K] (k₀ : ℝ),
+    0 < k₀ →
+      ∀ (r : ℝ),
+        0 < r →
+          r < δ →
+            ∀ (b k : ℝ),
+              k₀ ≤ k →
+                ∀ᵐ (sample : SmoothSample 2 L) ∂sourceGapLaw hL r b k,
+                  have T := sourceT k₀ sample;
+                  have κ := sourceKappa r k sample;
+                  r * T ^ 5 ≤ 1 / 100 →
+                    1024 * T ^ 5 ≤ κ →
+                      ∃ C,
+                        Nonempty
+                            (superlevel_h0Filtration (actualTorusField hL sample) ↧K ≅
+                              elderInterval K b (b - k * r ^ 3) ⊞ C) ∧
+                          strictClearanceSet (actualTorusField hL sample) (torusProjection 2 L (endpointM r)) =
+                              Iio (b - k * r ^ 3) ∧
+                            strictClearanceDeath (actualTorusField hL sample) (torusProjection 2 L (endpointM r)) =
+                              b - k * r ^ 3
+K : Type
+instK : Field K
+k₀ : ℝ
+hk₀ : 0 < k₀
+r : ℝ
+hr : 0 < r
+hrδ : r < δ
+b k : ℝ
+hk : k₀ ≤ k
+sample : SmoothSample 2 L
+hs :
+  r * sourceT k₀ sample ^ 5 ≤ 1 / 100 →
+    1024 * sourceT k₀ sample ^ 5 ≤ sourceKappa r k sample →
+      ∃ C,
+        Nonempty (superlevel_h0Filtration (actualTorusField hL sample) ↧K ≅ elderInterval K b (b - k * r ^ 3) ⊞ C) ∧
+          strictClearanceSet (actualTorusField hL sample) (torusProjection 2 L (endpointM r)) = Iio (b - k * r ^ 3) ∧
+            strictClearanceDeath (actualTorusField hL sample) (torusProjection 2 L (endpointM r)) = b - k * r ^ 3
+hrT : r * sourceT k₀ sample ^ 5 ≤ 1 / 100
+hκ : 1024 * sourceT k₀ sample ^ 5 ≤ sourceKappa r k sample
+C : ℝ ⥤ ModuleCat K
+hiso : Nonempty (superlevel_h0Filtration (actualTorusField hL sample) ↧K ≅ elderInterval K b (b - k * r ^ 3) ⊞ C)
+hclear : strictClearanceSet (actualTorusField hL sample) (torusProjection 2 L (endpointM r)) = Iio (b - k * r ^ 3)
+_hdeath : strictClearanceDeath (actualTorusField hL sample) (torusProjection 2 L (endpointM r)) = b - k * r ^ 3
+a : ℝ
+⊢ a ∈ {h | h0OlderClearance K (actualTorusField hL sample) (torusProjection 2 L (endpointM r)) h} ↔
+    a ∈ Iio (b - k * r ^ 3)

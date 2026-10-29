@@ -1,0 +1,51 @@
+{
+  "recorded_utc": "2026-10-28T20:05:30.071528+00:00",
+  "logical_id": "64B-SADDLE-GEOMETRY-ORIGINAL-COMPLETE-V1",
+  "helper": "/root/actual_canonical_partner_preflight",
+  "full002_ACK_observed_utc": "2026-10-28T19:54:53Z",
+  "authoring_start_observed_utc": "2026-10-28T19:55:25Z",
+  "003_delta_ACK_observed_utc": "2026-10-28T19:59:05Z",
+  "freeze_decision_observed_utc": "2026-10-28T20:01:56Z",
+  "integrations": 1,
+  "helper_executions": 0,
+  "helper_hashes": 0,
+  "context_payload_kind": "Newly authored frozen summary referencing known complete002/003 IDs, not an exact complete context copy. Existing complete context identities remain reused.",
+  "signature_reader": "Existing child signature-only reader disclosed in B provenance, no proof text/extra proof author/qualifying science credit",
+  "originals": [
+    {
+      "original": "/workspace/scratch/actual-source-quotient-saddle-collar-geometry-text/SaddleGeometrySection.ORIGINAL.lean.txt",
+      "immutable_retained": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/originals/B.SaddleGeometrySection.ORIGINAL.lean.txt",
+      "bytes": 9965,
+      "sha256": "b615b90178887bd862c0541c4913bb9a77bd060c7a36091417007f884cc534d0",
+      "origin": "FIRST newly authored frozen B payload identity BEFORE ONEintegration; context is new summary, NOT duplicate complete002/003 copy"
+    },
+    {
+      "original": "/workspace/scratch/actual-source-quotient-saddle-collar-geometry-text/Imports.ORIGINAL.txt",
+      "immutable_retained": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/originals/B.Imports.ORIGINAL.txt",
+      "bytes": 1230,
+      "sha256": "ba21c86a0cc58c3a9a5f2ff8ffafdbe4b0927f7202cc6922fe1566d13c036d96",
+      "origin": "FIRST newly authored frozen B payload identity BEFORE ONEintegration; context is new summary, NOT duplicate complete002/003 copy"
+    },
+    {
+      "original": "/workspace/scratch/actual-source-quotient-saddle-collar-geometry-text/Context.ORIGINAL.md",
+      "immutable_retained": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/originals/B.Context.ORIGINAL.md",
+      "bytes": 1833,
+      "sha256": "e55ecb762fdf9ea2b734917cda0ab3221e1ad6cd39393d670c90beae394c9efb",
+      "origin": "FIRST newly authored frozen B payload identity BEFORE ONEintegration; context is new summary, NOT duplicate complete002/003 copy"
+    },
+    {
+      "original": "/workspace/scratch/actual-source-quotient-saddle-collar-geometry-text/Provenance.ORIGINAL.md",
+      "immutable_retained": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/originals/B.Provenance.ORIGINAL.md",
+      "bytes": 4105,
+      "sha256": "9bd4a1ebc71fed731fdba9c5b51a5540b7d59c29f08add1d708a99a29f6b2a10",
+      "origin": "FIRST newly authored frozen B payload identity BEFORE ONEintegration; context is new summary, NOT duplicate complete002/003 copy"
+    },
+    {
+      "original": "/workspace/scratch/actual-source-quotient-saddle-collar-geometry-text/Frozen.ORIGINAL.json",
+      "immutable_retained": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/originals/B.Frozen.ORIGINAL.json",
+      "bytes": 1792,
+      "sha256": "af2a8daaa62fe0c76e63bffa92918b78042b6fcc6e9a9a197610a64d04360c24",
+      "origin": "FIRST newly authored frozen B payload identity BEFORE ONEintegration; context is new summary, NOT duplicate complete002/003 copy"
+    }
+  ]
+}
