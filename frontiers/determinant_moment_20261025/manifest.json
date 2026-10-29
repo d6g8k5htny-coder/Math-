@@ -102,7 +102,7 @@
     "COMPATIBILITY.md": "216b772d417ce273499b692481f3c4e6e1f499c67ff41cb92f008a9b9bf09513",
     "GLOSSARY.md": "3cd098f26e3020b780307617fc65c53ed040789d54ea53930c5fa21524bc7323",
     "LINEAGE_VALIDATION.md": "c110f68db14447c0a604c39f4975b6255e43a2c921badf6277fab0813480aac4",
-    "README.md": "1534a0c6846e57e2e4cee1cc2e9d660415bd784a1918c0623130536f65ef2cc8",
+    "README.md": "3deabf2792fa265f999b0729fd06699ca03ea9847f0155e665717735aaefb2d4",
     "ResearchFormalCoreR1.lean": "15e6b160ea4dcd0b95d9bf56afe318d0292e2421659637cb6754e18eee1e4364",
     "ResearchFormalCoreR1/AlgebraV2.lean": "71e4327df9f7d6979f1467f7e0d880e0ab0a70ab6d234802d8c7a1624b9ce2d9",
     "ResearchFormalCoreR1/DeterminantMoment.lean": "661b73c3f21c6d2529f5e09ce426d89c01939ab27a5cc868db3802c7e66ea82d",
@@ -130,7 +130,7 @@
     "controls/egm_false_midpoint_identification.lean.txt": "293faccdf06762221b99723c08acfb4130669b6b6600717a1f96c2c3aa9a4bc1",
     "controls/false_omit_q.lean.txt": "cbcd846199ff2f48099bc33518188ddfcd3667f9e7a9ef932a2627e69b540a46",
     "controls/false_r6.lean.txt": "c0ce4598ff5e188475e0ec9d0eeb3c3465169583a457baec90625d7b0f3a8439",
-    "controls/gaussian_parent_positive.lean.txt": "ae2c3934d498a862e829b878222385d8d8a39c9fbbb2485df65cb04c45d63ddc",
+    "controls/gaussian_parent_positive.lean.txt": "c73799328c4191422c13aefc458ffe6df200da610ec8e79f666db0fbf0817e51",
     "controls/gm8_false_centered_substitution.lean.txt": "96dcad5abc7a1fe24c42bf9c7544ecd6d6a81f71fe6245b9d4de07a5faffde91",
     "controls/gm8_false_omit_radius_one.lean.txt": "e382d597a45d667a492f10127a50b54e016f8ab808f2b872d0d00acf781a8b9d",
     "controls/gn_false_degenerate_reference_floor.lean.txt": "ef3e9a137e1cb0adb1e5608af2bba29a6b475ccb56a7206e3797e3c7bf4dcdd2",
@@ -322,22 +322,38 @@
     "evidence/history/umbrella-mathlib-oom/build.log": "5c71383534ec697ec05727cbad4752d5f523518479fd1eba1c731f3291fd5e3c",
     "evidence/history/umbrella-mathlib-oom/leanchecker.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "evidence/history/umbrella-mathlib-oom/version-preflight.log": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680",
-    "gate.py": "10493753b0f264e65427613ea8f19b99ca145fcc96468c1a22479955ef92a74a",
+    "gate.py": "065b74dade5588382c1b85c509aac379cbee40480e4c2ff00e7bcb52dccfaae8",
     "lake-manifest.json": "d63753befccc21923783a5085148e3ff028d97134ea52f5a08bd87ecf1b0b043",
     "lakefile.toml": "d629891716c169404d1f0d76492441c8dd66f1e790b1b8b0819e51c8d5059255",
     "lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
     "originals/Algebra.lean.txt": "4c196820c4db8fafc288dd35642828ba577e3544d60aba7d1d6d24f14ad1e8ae",
     "originals/ProbabilityCompanions.lean.txt": "4ace6600a476859982c8851ae9097c89b082d3c96291b3c8330bd4cc00bae65d",
     "tests/test_alignment_lineage.py": "c510c6566d7689bebde76843582e9936dfa9e62e783b816b5e4f63d83434b893",
-    "tests/test_gate.py": "4864965b5a0a2db259d0e497a1b145fa451c80de8cb91b1125522882131e941b",
+    "tests/test_gate.py": "181baa7d8399be27ecdb77c438b267c7bd8e19b8d73109149a6acb272e721f33",
     "compiled_inventory.py": "ff8a5374597772b2d37054fd722c2243c4b552a63802c69f7c605519832be6c4",
-    "tests/test_compiled_admission.py": "563cd66b8e18927e80dddf38da8f1426eecf2a1b7460768119547774773173e8",
-    "GOVERNANCE.md": "fa4df16f962814c727349bd15c59739b1dd3eeddd7b657111ef77acaac591785",
-    "TOOLING.md": "b77e02d00e80b38f971e4c800578ea5980d24afbf808cc6edecc980d7193954e",
-    "tests/test_cli_receipt_boundary.py": "8651fd301c3ceabd7edaf5ea3693b7fa678c801ccaa39b5fba91b3ad27fd6550",
-    "QUARANTINE.json": "824b34e84f032daeb397101fff88a0055cfd4cf2a75c253a4637846ec2d17702",
-    "tests/run_cbz_mutations.py": "ce6b65d035f8bebe7d4007e4d22063c8e741c85c892bfd8d62720e70df2d3e47",
-    "STATUS.md": "f569e4d0b8efe5fc2aba821f2af101878444aafa8615dd58d6260c3d86a19af1"
+    "tests/test_compiled_admission.py": "4079f5d56332fad15ac8e72e273c5a69de7a251f1ef1c9292c9b3404aaff264e",
+    "GOVERNANCE.md": "b2aa9e6ddf6d6f72d7585069af7cb804704100759a25bf38222922018ae33d84",
+    "TOOLING.md": "28851b41e71a97d03dabf40b404f3ff2ac441795ad19ab08ae75d33b2a3158c4",
+    "tests/test_cli_receipt_boundary.py": "1cef213040d1ac0eb45c2b97dabb116e52b2df4261b26bda4806f8f75445e26b",
+    "QUARANTINE.json": "2a4f38cc32096655c3e56e24b9ac4a591f9f01b7941465bbb4eab1e8d976f5ad",
+    "tests/run_cbz_mutations.py": "e73ab92a49296a08afdb4fc9e5e0c81b1a06dc4fe723cab13d6a2798613c2dff",
+    "STATUS.md": "9ca168dc12d61a5976a748f642fb323ab15d4b65760a29eb3d110ed04b474bef",
+    "determinant_inventory.py": "ba62e11205df7c580fe1b43422bbf23abb56d798baaf2f30457e9839165ebdd0",
+    "tests/test_inventory_loader.py": "c7f14b58240512d985fcd9ff4956ebabd37741d86a23663b3a5381c53ece5d4e",
+    "tests/test_determinant_binding.py": "8c62943cfede37695bd608e83ca8a8449f71f18aa4e9aa4d6b3d55abf52e86b4",
+    "tests/test_determinant_inventory.py": "2b965071be1303e0b6d48cfe316a9ead01753391e51069d45ce251c2314bc9cd",
+    "tests/test_determinant_admission_harness.py": "d19e4a8421f4ee76b015dc0e08d0091065890fe82e364ba97b940d7437e3c292",
+    "tests/fixtures/actual_inventory_4ccc.log": "333a77422bf8843a96e702db91e939d42af3a05c86c579e21340362bc71b8cb9",
+    "tests/fixtures/actual_manifest_v2_fields.json": "9ae1650d01562bc2acaafce1bf45f986301dbed015921d79d69b0f17e76610ce",
+    "tests/run_adapter_mutations.py": "7b4dc397a404c009c2a899e84e5c1df1305ae182e16da09dffcf8a290ef75b6b",
+    "tests/test_adapter_mutation_runner.py": "2bddf23e210c1af163965072ea66edbf3dd0ce4222e6f6e6d27e63e0ff07ccec",
+    "COMPILED_BINDING.md": "27f5fc6d57d0d4d1008b1979ecbfe25d6b5166e3291fdbd4048978be88aa3a4c",
+    "tests/test_determinant_execute.py": "9dae36970b24c30202dea96c0b60834d17ee898c344f22a0fbfb17c4dd5fe8ad",
+    "tests/test_workflow_receipt_transport.py": "760acdb2eef014fca0f1f6e4fba175f131d25453a39c16ee4b33a87a48bb3f8e",
+    "DECISIONS.md": "c70794c3b673faf1834abb69b4f5501adcb419c6018cb3c0ec7d3e7e640366dd",
+    "artifact_integrity.py": "77463e76d49fc68c0e8db85f6671fc7a0efaccecd93727572b3d02242b8647b1",
+    "tests/test_artifact_integrity.py": "f9aedd5efd972c89139fe876f7f4d11f0ffa2ee02bb85193408cf3b08ffd6bb4",
+    "artifact-integrity-requests.json": "1604b6c8baa77f8dbcd5c1acd10b77107cf197581650ebab43b503d694ba89c2"
   },
   "source_binding": {
     "repository": "d6g8k5htny-coder/Math-",
@@ -355,11 +371,3961 @@
     "SOURCE_PALM_REWEIGHTING.md",
     "SOURCE_REGRESSION_KERNEL.md"
   ],
-  "compiled_inventory": null,
+  "source_admission": {
+    "helper_sha256": "6fc0f5040c8e8514c072839848d3c5745624010361f3302b335ddce3fbea40b3",
+    "census": [
+      {
+        "module": "ResearchFormalCoreR1.AlgebraV2",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.foldPotential",
+        "kind": "def",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.AlgebraV2",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.ec005_fold_gap",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.AlgebraV2",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.ec008_factor_expansion",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.AlgebraV2",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.ec010_generic",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.AlgebraV2",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.ec010_transverse",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.AlgebraV2",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.ec011_scalar_cancellation",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.AlgebraV2",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.ec014_contact_power",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.ProbabilityCompanionsV2",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.p02_lm008_r2_cancel",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.ProbabilityCompanionsV2",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.p02_lm008_cross_multiplied",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.ProbabilityCompanionsV2",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.p02_lm008_quotient_bound",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.ProbabilityCompanionsV2",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.p02_lm009_bad_event_threshold",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.ProbabilityCompanionsV2",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.p02_lm009_power40_identity",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.ProbabilityCompanionsV2",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.p02_lm009_r4_le_r3",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.ProbabilityCompanionsV2",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.p02_lm009_palm_r4_to_r3",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.DeterminantMoment",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.DM2Jet",
+        "kind": "abbrev",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.DeterminantMoment",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.dm2Radius",
+        "kind": "def",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.DeterminantMoment",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.dm2HM",
+        "kind": "def",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.DeterminantMoment",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.dm2HS",
+        "kind": "def",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.DeterminantMoment",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.dm2Negative",
+        "kind": "def",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.DeterminantMoment",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.dm2Weight",
+        "kind": "def",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.DeterminantMoment",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.dm2_scale",
+        "kind": "lemma",
+        "privacy": "private"
+      },
+      {
+        "module": "ResearchFormalCoreR1.DeterminantMoment",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.dm2_factors",
+        "kind": "lemma",
+        "privacy": "private"
+      },
+      {
+        "module": "ResearchFormalCoreR1.DeterminantMoment",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.dm2_untyped",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.DeterminantMoment",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.dm2_pointwise",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.DeterminantMoment",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.dm2_negative_iff",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.DeterminantMoment",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.dm2_weight_measurable",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.DeterminantMoment",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.dm2_moment",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianScalarMoments",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gm8C8",
+        "kind": "def",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianScalarMoments",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gm8_standard_integrable",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianScalarMoments",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gm8_standard_nonneg",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianScalarMoments",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gm8_integrable",
+        "kind": "theorem",
+        "privacy": "private"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianScalarMoments",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gm8_sqrt_pow",
+        "kind": "theorem",
+        "privacy": "private"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianScalarMoments",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gm8_affine_map",
+        "kind": "theorem",
+        "privacy": "private"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianScalarMoments",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gm8_affine_bound",
+        "kind": "theorem",
+        "privacy": "private"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianScalarMoments",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gm8_scalar_integrable_bound",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianJetMoments",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gm8Radius",
+        "kind": "def",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianJetMoments",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gm8FiniteM8",
+        "kind": "def",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianJetMoments",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gm8FiniteM8_nonneg",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianJetMoments",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gm8M8",
+        "kind": "def",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianJetMoments",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gm8M8_nonneg",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianJetMoments",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gm8_finite_radius_power_bound",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianJetMoments",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gm8_finite_integrable_bound",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianJetMoments",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gm8_radius_power_bound",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianJetMoments",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gm8_jet_integrable_bound",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianJetMoments",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gm8_family_weight_moment",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianNormalizer",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gn_normalizedWeight",
+        "kind": "def",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianNormalizer",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gn_gaussian_reference_integrable_pos",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianNormalizer",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gn_open_box_floor",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianRegressionKernel",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.regression_compProd_id_const",
+        "kind": "lemma",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianRegressionKernel",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.regression_pair_hasCondDistrib",
+        "kind": "lemma",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianRegressionKernel",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.regressionReconstruction",
+        "kind": "def",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianRegressionKernel",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.regressionReconstruction_measurable",
+        "kind": "lemma",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianRegressionKernel",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.regressionKernel",
+        "kind": "def",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianRegressionKernel",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.regressionKernel_isMarkov",
+        "kind": "instance",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianRegressionKernel",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.regressionKernel_apply",
+        "kind": "lemma",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianRegressionKernel",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.independentResidual_hasCondDistrib",
+        "kind": "lemma",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianRegressionKernel",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gaussianRegression_hasCondDistrib",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianRegressionKernel",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.regressionKernel_measurable",
+        "kind": "lemma",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianRegressionKernel",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gaussianRegressionKernel_spec",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianRegressionKernel",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.regression_map_coordinate",
+        "kind": "lemma",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianRegressionKernel",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.regression_covariance_map",
+        "kind": "lemma",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianRegressionKernel",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.regression_residual_zero_covariance",
+        "kind": "lemma",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianRegressionKernel",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.regression_residual_jointGaussian",
+        "kind": "lemma",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianRegressionKernel",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gaussianRegression_observed_hasCondDistrib",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianRegressionKernel",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gaussianRegression_observed_spec",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.EndpointGaussianMoments",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.egm_HM",
+        "kind": "def",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.EndpointGaussianMoments",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.egm_HS",
+        "kind": "def",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.EndpointGaussianMoments",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.egm_weight",
+        "kind": "def",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.EndpointGaussianMoments",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.egm_weight_measurable",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.EndpointGaussianMoments",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.egm_coordinate_bound",
+        "kind": "theorem",
+        "privacy": "private"
+      },
+      {
+        "module": "ResearchFormalCoreR1.EndpointGaussianMoments",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.egm_factor_bound",
+        "kind": "theorem",
+        "privacy": "private"
+      },
+      {
+        "module": "ResearchFormalCoreR1.EndpointGaussianMoments",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.egm_untyped",
+        "kind": "theorem",
+        "privacy": "private"
+      },
+      {
+        "module": "ResearchFormalCoreR1.EndpointGaussianMoments",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.egm_pointwise",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.EndpointGaussianMoments",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.egm_gaussian_moment",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.NormalizerFloor",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.nfloor_eventually_lower_of_fatou",
+        "kind": "theorem",
+        "privacy": "private"
+      },
+      {
+        "module": "ResearchFormalCoreR1.NormalizerFloor",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.nfloor_weight_continuous",
+        "kind": "theorem",
+        "privacy": "private"
+      },
+      {
+        "module": "ResearchFormalCoreR1.NormalizerFloor",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.nfloor_contact_value",
+        "kind": "theorem",
+        "privacy": "private"
+      },
+      {
+        "module": "ResearchFormalCoreR1.NormalizerFloor",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.nfloor_weight_limit",
+        "kind": "theorem",
+        "privacy": "private"
+      },
+      {
+        "module": "ResearchFormalCoreR1.NormalizerFloor",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.nfloor_reference",
+        "kind": "theorem",
+        "privacy": "private"
+      },
+      {
+        "module": "ResearchFormalCoreR1.NormalizerFloor",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gn_normalizer_floor_of_common_coupling",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.EndpointNormalizerBridge",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.enb_permutation",
+        "kind": "def",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.EndpointNormalizerBridge",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.enb_permutation_continuous",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.EndpointNormalizerBridge",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.enb_maximum_factor",
+        "kind": "theorem",
+        "privacy": "private"
+      },
+      {
+        "module": "ResearchFormalCoreR1.EndpointNormalizerBridge",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.enb_maximum_iff",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.EndpointNormalizerBridge",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.enb_saddle_iff",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.EndpointNormalizerBridge",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.enb_weight_identity",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.EndpointNormalizerBridge",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.enb_integral_identity",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.EndpointNormalizerBridge",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.enb_integrable_iff",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.EndpointNormalizerBridge",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.enb_integrable_of_integrable_sq",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.EndpointNormalizerBridge",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.enb_normalizer_floor_of_common_coupling",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianCoupling",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gc_matrix_eval_tendsto",
+        "kind": "theorem",
+        "privacy": "private"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianCoupling",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gc_coupledVector",
+        "kind": "def",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianCoupling",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gc_coupledVector_hasLaw",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianCoupling",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gc_coupledVector_tendsto",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianNormalizerLimit",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gnl_contact_relations",
+        "kind": "theorem",
+        "privacy": "private"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianNormalizerLimit",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gnl_positivePart_memLp",
+        "kind": "lemma",
+        "privacy": "private"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianNormalizerLimit",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gnl_gaussian_weight_integrable",
+        "kind": "lemma",
+        "privacy": "private"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianNormalizerLimit",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gnl_normalizer_floor_of_parameter_limits",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.GaussianNormalizerLimit",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.gnl_physical_normalizer_floor_of_parameter_limits",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.PalmReweighting",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.prwMeasure",
+        "kind": "def",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.PalmReweighting",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.prw_integrable_of_integrable_sq",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.PalmReweighting",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.prw_measure_apply",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.PalmReweighting",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.prw_isProbabilityMeasure",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.PalmReweighting",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.prw_measure_real",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.PalmReweighting",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.prw_numerator_bound",
+        "kind": "theorem",
+        "privacy": "public"
+      },
+      {
+        "module": "ResearchFormalCoreR1.PalmReweighting",
+        "namespace": "ResearchFormalCoreR1",
+        "name": "ResearchFormalCoreR1.prw_square_root_event_bound",
+        "kind": "theorem",
+        "privacy": "public"
+      }
+    ],
+    "continuations": {
+      "ResearchFormalCoreR1.AlgebraV2": {
+        "sha256": "644c511ef07a6cd897857e375ef681a9d221b31b411e172feb2fb0a779e86e19",
+        "lines": 19
+      },
+      "ResearchFormalCoreR1.ProbabilityCompanionsV2": {
+        "sha256": "344fd2a4e86b54279f9e19d7b8a102e90f08adc497655b16865d8a293c1ef4c5",
+        "lines": 48
+      },
+      "ResearchFormalCoreR1.DeterminantMoment": {
+        "sha256": "cce6018e12bb399bba99c41e1e7d5ba2c0a22230f52b109edb6f1cc3ac8de4db",
+        "lines": 162
+      },
+      "ResearchFormalCoreR1.GaussianScalarMoments": {
+        "sha256": "1e263c056cf80a56cb58e1b424eb67b15c408fa2293fd0fe5841d2843cc7ff82",
+        "lines": 64
+      },
+      "ResearchFormalCoreR1.GaussianJetMoments": {
+        "sha256": "125ba20fbd47c59b0a182a026193e4c7ef64b84a263d17c0e50dd4dc1520b1d2",
+        "lines": 83
+      },
+      "ResearchFormalCoreR1.GaussianNormalizer": {
+        "sha256": "03297eb52b83b5aa0653cd35ef1721fcd148f5e230e698676258874dab7e93ce",
+        "lines": 73
+      },
+      "ResearchFormalCoreR1.GaussianRegressionKernel": {
+        "sha256": "1d0d20794e256c80a51334e0c5d7a3e3cdc7ae5faab2e7692081a4784d847efe",
+        "lines": 186
+      },
+      "ResearchFormalCoreR1.EndpointGaussianMoments": {
+        "sha256": "573d0c964684d83c3036ef5eea79f9712b7fd5074e3bffed3ea0fd4892626d34",
+        "lines": 100
+      },
+      "ResearchFormalCoreR1.NormalizerFloor": {
+        "sha256": "e5a07acc1e578dc25f05b4938727c9c589d30fef43f8256971a8a2fd24378244",
+        "lines": 83
+      },
+      "ResearchFormalCoreR1.EndpointNormalizerBridge": {
+        "sha256": "5866f66e9503c6cdf1d1f781a2927a56e56bbea19f0d16eff78d7535fc72880f",
+        "lines": 136
+      },
+      "ResearchFormalCoreR1.GaussianCoupling": {
+        "sha256": "50fae7c83f0b6dd59dc22c45e731cf3ac9e8b7fab2354b25c05e41cdb6284273",
+        "lines": 35
+      },
+      "ResearchFormalCoreR1.GaussianNormalizerLimit": {
+        "sha256": "26b85baf194612d3a60adf36e19787a0defaab80f71028d9e79fba71aba27827",
+        "lines": 171
+      },
+      "ResearchFormalCoreR1.PalmReweighting": {
+        "sha256": "49dd3c326e82115fd283ad89bc6e9d180796f60615b9ad4c8aa7c3bb9214da92",
+        "lines": 90
+      }
+    },
+    "declarations": {
+      "ResearchFormalCoreR1.AlgebraV2": {
+        "sha256": "b3dc36bea2fb293f6c39e46601f3549b6bc92820ec406b61d972983814cb3cd4",
+        "lines": 7
+      },
+      "ResearchFormalCoreR1.ProbabilityCompanionsV2": {
+        "sha256": "c4ede42be36c6a79c810f7631eddd5415854ec9b422dd07f8fe286d5fad70414",
+        "lines": 7
+      },
+      "ResearchFormalCoreR1.DeterminantMoment": {
+        "sha256": "f643fdb148d5b7de3b5a8d62ef9f66504b19c08937972d528eceeacc62c1e7b9",
+        "lines": 13
+      },
+      "ResearchFormalCoreR1.GaussianScalarMoments": {
+        "sha256": "ba2213dd9c986bc82a97afae4eac8674b987b24c82a9910db1380829d5bcb796",
+        "lines": 8
+      },
+      "ResearchFormalCoreR1.GaussianJetMoments": {
+        "sha256": "bcfddccbf7087d4676bb7bd6de08cef70a8c0603d4ee2e5c454208cb1f92b8d6",
+        "lines": 10
+      },
+      "ResearchFormalCoreR1.GaussianNormalizer": {
+        "sha256": "9a2d4c0fc6b0184427866b311226a75cb57a214b2e74c85a1bf9be739ccb1d84",
+        "lines": 3
+      },
+      "ResearchFormalCoreR1.GaussianRegressionKernel": {
+        "sha256": "e16b87ba06d4efd41e8e6a8d338ef9a90f851fd061b76121c17e20d1c75bfc09",
+        "lines": 17
+      },
+      "ResearchFormalCoreR1.EndpointGaussianMoments": {
+        "sha256": "ae3abf1a147744ac8a94ad8e6c18b425e0539c7e3ebb0ffc3dffc5ed4d14141b",
+        "lines": 9
+      },
+      "ResearchFormalCoreR1.NormalizerFloor": {
+        "sha256": "aa6c7cbc9fda4716ccd1f66afe605389d97c01e1cb52009c37113b04e401602c",
+        "lines": 6
+      },
+      "ResearchFormalCoreR1.EndpointNormalizerBridge": {
+        "sha256": "90eefbf73c289f5eba3ab00c73545779e9ff12e654b240edf27f13421126a64f",
+        "lines": 10
+      },
+      "ResearchFormalCoreR1.GaussianCoupling": {
+        "sha256": "67a700240acee21691f775291ea09952349a712a660e77d9622c41f2665409d6",
+        "lines": 4
+      },
+      "ResearchFormalCoreR1.GaussianNormalizerLimit": {
+        "sha256": "ccb10e6ca9a5127a2a1b97587a201c5ee6b92a5cd363bdf3e51f4cfc46170f16",
+        "lines": 5
+      },
+      "ResearchFormalCoreR1.PalmReweighting": {
+        "sha256": "853122a6af024380a0e818491187d9b6b482db0ed6dbdb1e5a4110ff2862cf55",
+        "lines": 7
+      }
+    }
+  },
+  "compiled_inventory": [
+    [
+      "def",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "DeterminantMoment"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "DM2Jet"
+        ]
+      ]
+    ],
+    [
+      "def",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "DeterminantMoment"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "dm2HM"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "DeterminantMoment"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "dm2HM"
+        ],
+        [
+          "s",
+          "_proof_1"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "DeterminantMoment"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "dm2HM"
+        ],
+        [
+          "s",
+          "_proof_2"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "DeterminantMoment"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "dm2HM"
+        ],
+        [
+          "s",
+          "_proof_3"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "DeterminantMoment"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "dm2HM"
+        ],
+        [
+          "s",
+          "_proof_4"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "DeterminantMoment"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "dm2HM"
+        ],
+        [
+          "s",
+          "eq_1"
+        ]
+      ]
+    ],
+    [
+      "def",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "DeterminantMoment"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "dm2HS"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "DeterminantMoment"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "dm2HS"
+        ],
+        [
+          "s",
+          "eq_1"
+        ]
+      ]
+    ],
+    [
+      "def",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "DeterminantMoment"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "dm2Negative"
+        ]
+      ]
+    ],
+    [
+      "def",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "DeterminantMoment"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "dm2Radius"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianJetMoments"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "dm2Radius"
+        ],
+        [
+          "s",
+          "eq_1"
+        ]
+      ]
+    ],
+    [
+      "def",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "DeterminantMoment"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "dm2Weight"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "DeterminantMoment"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "dm2_weight_measurable"
+        ],
+        [
+          "s",
+          "_simp_1_3"
+        ]
+      ]
+    ],
+    [
+      "def",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "EndpointGaussianMoments"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "egm_HM"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "EndpointGaussianMoments"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "egm_HM"
+        ],
+        [
+          "s",
+          "_proof_1"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "EndpointGaussianMoments"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "egm_HM"
+        ],
+        [
+          "s",
+          "eq_1"
+        ]
+      ]
+    ],
+    [
+      "def",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "EndpointGaussianMoments"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "egm_HS"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "EndpointGaussianMoments"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "egm_HS"
+        ],
+        [
+          "s",
+          "eq_1"
+        ]
+      ]
+    ],
+    [
+      "def",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "EndpointGaussianMoments"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "egm_weight"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "EndpointGaussianMoments"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "egm_weight_measurable"
+        ],
+        [
+          "s",
+          "_simp_1_3"
+        ]
+      ]
+    ],
+    [
+      "def",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "EndpointNormalizerBridge"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "enb_permutation"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "EndpointNormalizerBridge"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "enb_permutation"
+        ],
+        [
+          "s",
+          "_proof_1"
+        ]
+      ]
+    ],
+    [
+      "def",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "AlgebraV2"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "foldPotential"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "AlgebraV2"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "foldPotential"
+        ],
+        [
+          "s",
+          "_proof_1"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianRegressionKernel"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gaussianRegression_observed_hasCondDistrib"
+        ],
+        [
+          "s",
+          "_abel_1_1"
+        ]
+      ]
+    ],
+    [
+      "def",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianCoupling"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gc_coupledVector"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianCoupling"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gc_coupledVector"
+        ],
+        [
+          "s",
+          "_proof_1"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianCoupling"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gc_coupledVector"
+        ],
+        [
+          "s",
+          "_proof_2"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianCoupling"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gc_coupledVector"
+        ],
+        [
+          "s",
+          "_proof_3"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianCoupling"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gc_coupledVector"
+        ],
+        [
+          "s",
+          "_proof_4"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianCoupling"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gc_coupledVector"
+        ],
+        [
+          "s",
+          "_proof_5"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianCoupling"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gc_coupledVector"
+        ],
+        [
+          "s",
+          "_proof_6"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianCoupling"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gc_coupledVector"
+        ],
+        [
+          "s",
+          "_proof_7"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianCoupling"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gc_coupledVector"
+        ],
+        [
+          "s",
+          "_proof_8"
+        ]
+      ]
+    ],
+    [
+      "def",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianScalarMoments"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gm8C8"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianScalarMoments"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gm8C8"
+        ],
+        [
+          "s",
+          "eq_1"
+        ]
+      ]
+    ],
+    [
+      "def",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianJetMoments"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gm8FiniteM8"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianJetMoments"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gm8FiniteM8"
+        ],
+        [
+          "s",
+          "_proof_1"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianJetMoments"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gm8FiniteM8"
+        ],
+        [
+          "s",
+          "eq_1"
+        ]
+      ]
+    ],
+    [
+      "def",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianJetMoments"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gm8M8"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianJetMoments"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gm8M8"
+        ],
+        [
+          "s",
+          "_proof_1"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianJetMoments"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gm8M8"
+        ],
+        [
+          "s",
+          "_proof_2"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianJetMoments"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gm8M8"
+        ],
+        [
+          "s",
+          "eq_1"
+        ]
+      ]
+    ],
+    [
+      "def",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianJetMoments"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gm8Radius"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianJetMoments"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gm8Radius"
+        ],
+        [
+          "s",
+          "eq_1"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianNormalizer"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gn_gaussian_reference_integrable_pos"
+        ],
+        [
+          "s",
+          "_simp_1_1"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianNormalizer"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gn_gaussian_reference_integrable_pos"
+        ],
+        [
+          "s",
+          "_simp_1_2"
+        ]
+      ]
+    ],
+    [
+      "def",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianNormalizer"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gn_normalizedWeight"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianNormalizer"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gn_normalizedWeight"
+        ],
+        [
+          "s",
+          "_proof_1"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "NormalizerFloor"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gn_normalizedWeight"
+        ],
+        [
+          "s",
+          "eq_1"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "ProbabilityCompanionsV2"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "p02_lm008_r2_cancel"
+        ],
+        [
+          "s",
+          "_simp_1_1"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "ProbabilityCompanionsV2"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "p02_lm008_r2_cancel"
+        ],
+        [
+          "s",
+          "_simp_1_2"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "ProbabilityCompanionsV2"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "p02_lm008_r2_cancel"
+        ],
+        [
+          "s",
+          "_simp_1_3"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "ProbabilityCompanionsV2"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "p02_lm008_r2_cancel"
+        ],
+        [
+          "s",
+          "_simp_1_4"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "ProbabilityCompanionsV2"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "p02_lm008_r2_cancel"
+        ],
+        [
+          "s",
+          "_simp_1_5"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "ProbabilityCompanionsV2"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "p02_lm008_r2_cancel"
+        ],
+        [
+          "s",
+          "_simp_1_6"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "ProbabilityCompanionsV2"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "p02_lm008_r2_cancel"
+        ],
+        [
+          "s",
+          "_simp_1_7"
+        ]
+      ]
+    ],
+    [
+      "def",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "PalmReweighting"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "prwMeasure"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "PalmReweighting"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "prw_numerator_bound"
+        ],
+        [
+          "s",
+          "_simp_1_1"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "PalmReweighting"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "prw_square_root_event_bound"
+        ],
+        [
+          "s",
+          "_simp_1_1"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "PalmReweighting"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "prw_square_root_event_bound"
+        ],
+        [
+          "s",
+          "_simp_1_2"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "PalmReweighting"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "prw_square_root_event_bound"
+        ],
+        [
+          "s",
+          "_simp_1_3"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "PalmReweighting"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "prw_square_root_event_bound"
+        ],
+        [
+          "s",
+          "_simp_1_4"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "PalmReweighting"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "prw_square_root_event_bound"
+        ],
+        [
+          "s",
+          "_simp_1_5"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "PalmReweighting"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "prw_square_root_event_bound"
+        ],
+        [
+          "s",
+          "_simp_1_6"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "PalmReweighting"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "prw_square_root_event_bound"
+        ],
+        [
+          "s",
+          "_simp_1_7"
+        ]
+      ]
+    ],
+    [
+      "def",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianRegressionKernel"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "regressionKernel"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianRegressionKernel"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "regressionKernel"
+        ],
+        [
+          "s",
+          "eq_1"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianRegressionKernel"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "regressionKernel_isMarkov"
+        ]
+      ]
+    ],
+    [
+      "def",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianRegressionKernel"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "regressionReconstruction"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "aux",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianRegressionKernel"
+        ]
+      ],
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "regression_residual_jointGaussian"
+        ],
+        [
+          "s",
+          "_abel_1_1"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "DeterminantMoment"
+        ]
+      ],
+      [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "DeterminantMoment"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "dm2_factors"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "DeterminantMoment"
+        ]
+      ],
+      [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "DeterminantMoment"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "dm2_scale"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "EndpointGaussianMoments"
+        ]
+      ],
+      [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "EndpointGaussianMoments"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "egm_coordinate_bound"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "EndpointGaussianMoments"
+        ]
+      ],
+      [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "EndpointGaussianMoments"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "egm_factor_bound"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "EndpointGaussianMoments"
+        ]
+      ],
+      [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "EndpointGaussianMoments"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "egm_untyped"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "EndpointNormalizerBridge"
+        ]
+      ],
+      [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "EndpointNormalizerBridge"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "enb_maximum_factor"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianCoupling"
+        ]
+      ],
+      [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianCoupling"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gc_matrix_eval_tendsto"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianNormalizerLimit"
+        ]
+      ],
+      [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianNormalizerLimit"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gnl_contact_relations"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianNormalizerLimit"
+        ]
+      ],
+      [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianNormalizerLimit"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gnl_gaussian_weight_integrable"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianNormalizerLimit"
+        ]
+      ],
+      [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianNormalizerLimit"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gnl_positivePart_memLp"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianScalarMoments"
+        ]
+      ],
+      [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianScalarMoments"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gm8_affine_bound"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianScalarMoments"
+        ]
+      ],
+      [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianScalarMoments"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gm8_affine_map"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianScalarMoments"
+        ]
+      ],
+      [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianScalarMoments"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gm8_integrable"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianScalarMoments"
+        ]
+      ],
+      [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianScalarMoments"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "gm8_sqrt_pow"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "NormalizerFloor"
+        ]
+      ],
+      [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "NormalizerFloor"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "nfloor_contact_value"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "NormalizerFloor"
+        ]
+      ],
+      [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "NormalizerFloor"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "nfloor_eventually_lower_of_fatou"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "NormalizerFloor"
+        ]
+      ],
+      [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "NormalizerFloor"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "nfloor_reference"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "NormalizerFloor"
+        ]
+      ],
+      [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "NormalizerFloor"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "nfloor_weight_continuous"
+        ]
+      ]
+    ],
+    [
+      "theorem",
+      "user",
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "NormalizerFloor"
+        ]
+      ],
+      [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "NormalizerFloor"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "nfloor_weight_limit"
+        ]
+      ]
+    ]
+  ],
   "compiled_inventory_qualification": {
-    "status": "QUARANTINED",
-    "reason": "CBZ_COMPILED_INVENTORY_UNQUALIFIED",
-    "real_lean_execution": "NOT_RUN",
-    "binding_origin": "No compiled constants inferred or fabricated from source."
-  }
+    "status": "QUARANTINED_PENDING_REPAIRED_GATE_EXECUTION",
+    "real_lean_execution": "NOT_RUN_AT_THIS_SOURCE",
+    "binding_origin": "Authenticated actual census: native4ccc9b0b0fb6333565e15026758fa49521de7f3d/tree19b3e91bad1a4d7f5a21b1ea5e273fd300acb6f4, hosted run40923885114 attempt1 artifact12919662840; ZIP sha25651bf5a259f8ea266386fabbe6b023aa7ae10292de68f6cd45fb039e9e3b82b87. All14 Lean sources unchanged. This policy binding is not actual execution of this successor gate."
+  },
+  "compiled_inventory_version": 2,
+  "ir_extra_counts": [
+    [
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "AlgebraV2"
+        ]
+      ],
+      0
+    ],
+    [
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "ProbabilityCompanionsV2"
+        ]
+      ],
+      0
+    ],
+    [
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "DeterminantMoment"
+        ]
+      ],
+      6
+    ],
+    [
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianScalarMoments"
+        ]
+      ],
+      0
+    ],
+    [
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianJetMoments"
+        ]
+      ],
+      1
+    ],
+    [
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianNormalizer"
+        ]
+      ],
+      0
+    ],
+    [
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianRegressionKernel"
+        ]
+      ],
+      3
+    ],
+    [
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "EndpointGaussianMoments"
+        ]
+      ],
+      19
+    ],
+    [
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "NormalizerFloor"
+        ]
+      ],
+      0
+    ],
+    [
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "EndpointNormalizerBridge"
+        ]
+      ],
+      12
+    ],
+    [
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianCoupling"
+        ]
+      ],
+      0
+    ],
+    [
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "GaussianNormalizerLimit"
+        ]
+      ],
+      0
+    ],
+    [
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ],
+        [
+          "s",
+          "PalmReweighting"
+        ]
+      ],
+      0
+    ],
+    [
+      [
+        [
+          "s",
+          "ResearchFormalCoreR1"
+        ]
+      ],
+      0
+    ]
+  ],
+  "auxiliary_compatibility": [
+    {
+      "record": [
+        "theorem",
+        "aux",
+        [
+          [
+            "s",
+            "ResearchFormalCoreR1"
+          ],
+          [
+            "s",
+            "GaussianJetMoments"
+          ]
+        ],
+        [
+          [
+            "s",
+            "ResearchFormalCoreR1"
+          ],
+          [
+            "s",
+            "dm2Radius"
+          ],
+          [
+            "s",
+            "eq_1"
+          ]
+        ]
+      ],
+      "parent": [
+        "def",
+        "user",
+        [
+          [
+            "s",
+            "ResearchFormalCoreR1"
+          ],
+          [
+            "s",
+            "DeterminantMoment"
+          ]
+        ],
+        [
+          [
+            "s",
+            "ResearchFormalCoreR1"
+          ],
+          [
+            "s",
+            "dm2Radius"
+          ]
+        ]
+      ],
+      "reason": "deferred_equation"
+    },
+    {
+      "record": [
+        "theorem",
+        "aux",
+        [
+          [
+            "s",
+            "ResearchFormalCoreR1"
+          ],
+          [
+            "s",
+            "NormalizerFloor"
+          ]
+        ],
+        [
+          [
+            "s",
+            "ResearchFormalCoreR1"
+          ],
+          [
+            "s",
+            "gn_normalizedWeight"
+          ],
+          [
+            "s",
+            "eq_1"
+          ]
+        ]
+      ],
+      "parent": [
+        "def",
+        "user",
+        [
+          [
+            "s",
+            "ResearchFormalCoreR1"
+          ],
+          [
+            "s",
+            "GaussianNormalizer"
+          ]
+        ],
+        [
+          [
+            "s",
+            "ResearchFormalCoreR1"
+          ],
+          [
+            "s",
+            "gn_normalizedWeight"
+          ]
+        ]
+      ],
+      "reason": "deferred_equation"
+    },
+    {
+      "record": [
+        "theorem",
+        "aux",
+        [
+          [
+            "s",
+            "ResearchFormalCoreR1"
+          ],
+          [
+            "s",
+            "GaussianRegressionKernel"
+          ]
+        ],
+        [
+          [
+            "s",
+            "ResearchFormalCoreR1"
+          ],
+          [
+            "s",
+            "gaussianRegression_observed_hasCondDistrib"
+          ],
+          [
+            "s",
+            "_abel_1_1"
+          ]
+        ]
+      ],
+      "parent": [
+        "theorem",
+        "user",
+        [
+          [
+            "s",
+            "ResearchFormalCoreR1"
+          ],
+          [
+            "s",
+            "GaussianRegressionKernel"
+          ]
+        ],
+        [
+          [
+            "s",
+            "ResearchFormalCoreR1"
+          ],
+          [
+            "s",
+            "gaussianRegression_observed_hasCondDistrib"
+          ]
+        ]
+      ],
+      "reason": "abel_proof"
+    },
+    {
+      "record": [
+        "theorem",
+        "aux",
+        [
+          [
+            "s",
+            "ResearchFormalCoreR1"
+          ],
+          [
+            "s",
+            "GaussianRegressionKernel"
+          ]
+        ],
+        [
+          [
+            "s",
+            "ResearchFormalCoreR1"
+          ],
+          [
+            "s",
+            "regression_residual_jointGaussian"
+          ],
+          [
+            "s",
+            "_abel_1_1"
+          ]
+        ]
+      ],
+      "parent": [
+        "theorem",
+        "user",
+        [
+          [
+            "s",
+            "ResearchFormalCoreR1"
+          ],
+          [
+            "s",
+            "GaussianRegressionKernel"
+          ]
+        ],
+        [
+          [
+            "s",
+            "ResearchFormalCoreR1"
+          ],
+          [
+            "s",
+            "regression_residual_jointGaussian"
+          ]
+        ]
+      ],
+      "reason": "abel_proof"
+    }
+  ]
 }

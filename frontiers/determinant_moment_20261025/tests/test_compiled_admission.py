@@ -50,8 +50,17 @@ class CompiledAdmissionTests(unittest.TestCase):
 
     def test_current_cli_refuses_unknown_compiled_inventory(self):
         # A source-only regex pass must not return a successful gate status.
-        run = subprocess.run([sys.executable, '-B', '-S', str(ROOT / 'gate.py')],
-                             cwd=ROOT, capture_output=True, text=True)
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d) / 'repo/frontiers/component'
+            shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns('.lake', '__pycache__'))
+            helper = root.parents[1] / 'tools/lean_packet_admission.py'
+            helper.parent.mkdir(parents=True)
+            shutil.copyfile(ROOT.parents[1] / 'tools/lean_packet_admission.py', helper)
+            m = json.loads((root / 'manifest.json').read_text())
+            m['compiled_inventory'] = None  # Explicit unqualified regression fixture.
+            (root / 'manifest.json').write_text(json.dumps(m))
+            run = subprocess.run([sys.executable, '-B', '-S', str(root / 'gate.py')],
+                                 cwd=root, capture_output=True, text=True)
         self.assertNotEqual(run.returncode, 0, 'unqualified package returned green')
         self.assertIn('CBZ_COMPILED_INVENTORY_UNQUALIFIED', run.stderr)
         self.assertNotIn('SOURCE_IDENTITY_PASS', run.stdout)
@@ -89,10 +98,14 @@ class CompiledAdmissionTests(unittest.TestCase):
 
     def test_source_only_cli_never_reports_kernel_gate_success(self):
         with tempfile.TemporaryDirectory() as d:
-            root = Path(d) / 'component'
+            root = Path(d) / 'repo/frontiers/component'
             shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns('.lake', '__pycache__'))
+            helper = root.parents[1] / 'tools/lean_packet_admission.py'
+            helper.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(ROOT.parents[1] / 'tools/lean_packet_admission.py', helper)
             m = json.loads((root / 'manifest.json').read_text())
             m['compiled_inventory'] = []  # Synthetic binding, not observed Lean constants.
+            m.pop('compiled_inventory_version', None)  # Preserve the old strict small-fixture policy.
             (root / 'manifest.json').write_text(json.dumps(m))
             run = subprocess.run([sys.executable, '-B', '-S', str(root / 'gate.py')],
                                  cwd=root, capture_output=True, text=True)
