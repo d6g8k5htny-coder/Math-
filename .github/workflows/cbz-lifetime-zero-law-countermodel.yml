@@ -1,0 +1,76 @@
+name: Scoped zero-law countermodel
+'on':
+  pull_request:
+    paths:
+      - 'cbz/lifetime_zero_law/**'
+      - 'specifications/lean_statements_20261010/**'
+      - '.github/workflows/cbz-lifetime-zero-law-countermodel.yml'
+  push:
+    branches: [main, 'cbz/lifetime-zero-law-integration-20261029']
+    paths:
+      - 'cbz/lifetime_zero_law/**'
+      - 'specifications/lean_statements_20261010/**'
+      - '.github/workflows/cbz-lifetime-zero-law-countermodel.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  scoped-zero-countermodel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      LEAN_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.11.16'
+      - name: Check original statement packet inventory
+        run: python3 -B -S specifications/lean_statements_20261010/check.py
+      - uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6
+        with:
+          lake-package-directory: specifications/lean_statements_20261010
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+          use-github-cache: 'false'
+      - name: Build, check axiom report and recheck exact proof
+        shell: bash
+        run: |
+          set -euo pipefail
+          source="$GITHUB_WORKSPACE/cbz/lifetime_zero_law/CounterexampleZero.lean"
+          test "$(git hash-object "$source")" = 7f2a6e387c8fbd8efdb8c1624c62de9988549aeb
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          cd specifications/lean_statements_20261010
+          test "$(git hash-object Specifications/Lifetime.lean)" = f2508f7f2e3fd42f22f5aa52bc5ead5ff9e73b9a
+          test ! -e CounterexampleZero.lean && test ! -L CounterexampleZero.lean
+          trap 'rm -f CounterexampleZero.lean' EXIT
+          cp "$source" CounterexampleZero.lean
+          cmp "$source" CounterexampleZero.lean
+          lake build Specifications.Lifetime
+          mkdir -p .lake/build/lib/lean
+          lake env lean -o .lake/build/lib/lean/CounterexampleZero.olean CounterexampleZero.lean 2>&1 | tee "$RUNNER_TEMP/zero-law-lean.log"
+          printf '%s\n' "'CBZ.LifetimeZeroLawCountermodel.zeroLaw_refutes_upper' depends on axioms: [propext, Classical.choice, Quot.sound]" > "$RUNNER_TEMP/zero-law-expected.log"
+          cmp "$RUNNER_TEMP/zero-law-expected.log" "$RUNNER_TEMP/zero-law-lean.log"
+          lake env leanchecker CounterexampleZero 2>&1 | tee "$RUNNER_TEMP/zero-law-kernel.log"
+          test ! -s "$RUNNER_TEMP/zero-law-kernel.log"
+          cmp "$source" CounterexampleZero.lean
+          test "$(git hash-object "$source")" = 7f2a6e387c8fbd8efdb8c1624c62de9988549aeb
+          rm CounterexampleZero.lean
+          trap - EXIT
+          test -z "$(git status --porcelain --untracked-files=all)"
+          sha256sum "$source" "$RUNNER_TEMP"/zero-law-*.log
+      - name: Retain outputs even on failure
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: scoped-zero-law-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            cbz/lifetime_zero_law/CounterexampleZero.lean
+            ${{ runner.temp }}/zero-law-*.log
+          if-no-files-found: error
