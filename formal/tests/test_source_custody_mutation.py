@@ -116,6 +116,13 @@ class CustodyMutationTests(unittest.TestCase):
                                            test, nonce, 'intended bypass'))
         self.assertFalse(_accepted_failure(sample(1, good, MARKER + json.dumps(good)), test, nonce, 'intended bypass'))
         self.assertFalse(_accepted_failure(sample(1, dict(good, nonce='wrong')), test, nonce, 'intended bypass'))
+        self.assertFalse(_accepted_failure(sample(1, dict(good, ids=['wrong.Module.test_guard'])), test, nonce, 'intended bypass'))
+        self.assertFalse(_accepted_failure(sample(1, dict(good, requested='wrong.Module.test_guard')), test, nonce, 'intended bypass'))
+        self.assertFalse(_accepted_failure(sample(1, dict(good, failures=[{'id':'wrong.Module.test_guard','detail':'in test_guard intended bypass'}])), test, nonce, 'intended bypass'))
+        self.assertFalse(_accepted_failure(sample(1, dict(good, success=True)), test, nonce, 'intended bypass'))
+        self.assertFalse(_accepted_failure(sample(1, dict(good, expected_failures=[{'id':test,'detail':'expected'}])), test, nonce, 'intended bypass'))
+        self.assertFalse(_accepted_failure(sample(1, dict(good, unexpected_successes=[test])), test, nonce, 'intended bypass'))
+        self.assertFalse(_accepted_baseline(sample(0, good), test, nonce))
         self.assertFalse(_accepted_failure(subprocess.CompletedProcess([],1,'missing record'), test, nonce, 'intended bypass'))
 
     def test_grader_rejects_exit_two_even_with_plausible_failure_text(self):
@@ -127,21 +134,39 @@ class CustodyMutationTests(unittest.TestCase):
         fake = subprocess.CompletedProcess([], 2, MARKER + json.dumps(data))
         self.assertFalse(_accepted_failure(fake, test, nonce, 'intended bypass'))
 
-    def test_grader_detects_its_always_accept_source_mutant(self):
+    def test_grader_detects_its_guard_source_mutants(self):
         source = Path(__file__).read_text()
-        before = '    return all((\n'
-        self.assertEqual(source.count(before), 1)
-        with tempfile.TemporaryDirectory() as td:
-            path = Path(td) / 'test_mutant.py'
-            path.write_text(source.replace(before, '    return True or all((\n', 1))
-            args = [sys.executable, '-B', '-S'] + (['-O'] if sys.flags.optimize else [])
-            args += ['-m', 'unittest', '-v', 'test_mutant.CustodyMutationTests.test_grader_refuses_false_kills']
-            result = subprocess.run(args, cwd=td, text=True, stdout=subprocess.PIPE,
-                                    stderr=subprocess.STDOUT, timeout=60)
-            self.assertEqual(result.returncode, 1, 'grader mutant exit must equal 1')
-            self.assertIn('test_grader_refuses_false_kills', result.stdout)
-            self.assertIn('True is not false', result.stdout)
-            self.assertIn('FAILED (failures=1)', result.stdout)
+        prefix, separator, suffix = source.partition('class CustodyMutationTests')
+        self.assertTrue(separator)
+        mutations = [
+            ('always-accept', '    return all((\n', '    return True or all((\n'),
+            ('exact-exit', 'result.returncode == 1,', 'True,'),
+            ('nonce', "data['nonce'] != nonce", "False"),
+            ('requested-test', "data['requested'] != test", "False"),
+            ('executed-test', "data['ids'] != [test]", "False"),
+            ('one-test', "type(data['tests']) is not int or data['tests'] != 1", "False"),
+            ('error-or-skip', "data[key] != []", "False"),
+            ('one-record', 'len(lines) != 1', 'False'),
+            ('failing-test', "item['id'] == test,", "True,"),
+            ('reason', 'reason in detail,', 'True,'),
+            ('test-frame', "('in ' + method) in detail,", 'True,'),
+            ('failure-status', "data['success'] is False,", "True,"),
+            ('baseline-status', "return (data is not None and result.returncode == 0 and",
+             "return (True or data is not None and result.returncode == 0 and"),
+        ]
+        for label, before, after in mutations:
+            with self.subTest(mutant=label), tempfile.TemporaryDirectory() as td:
+                self.assertEqual(prefix.count(before), 1, 'grader mutation site: ' + label)
+                path = Path(td) / 'test_mutant.py'
+                path.write_text(prefix.replace(before, after, 1) + separator + suffix)
+                args = [sys.executable, '-B', '-S'] + (['-O'] if sys.flags.optimize else [])
+                args += ['-m', 'unittest', '-v', 'test_mutant.CustodyMutationTests.test_grader_refuses_false_kills']
+                result = subprocess.run(args, cwd=td, text=True, stdout=subprocess.PIPE,
+                                        stderr=subprocess.STDOUT, timeout=60)
+                self.assertEqual(result.returncode, 1, 'grader mutant exit must equal 1: ' + label)
+                self.assertIn('test_grader_refuses_false_kills', result.stdout)
+                self.assertIn('True is not false', result.stdout)
+                self.assertIn('FAILED (failures=1)', result.stdout)
 
     def test_all_declared_source_mutants_are_detected_for_their_reason(self):
         source = (HERE / 'gate.py').read_text()

@@ -1,7 +1,7 @@
 name: CBZ core source and grader controls
 on:
   push:
-    branches: [cbz/core-git-and-grader-repair-20261029]
+    branches: [cbz/core-grader-strict-20261029]
 permissions:
   contents: read
 jobs:
