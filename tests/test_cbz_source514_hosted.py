@@ -51,6 +51,58 @@ class SourceBindingTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"symlinked bound source"):
             subject.bind(self.root,self.head,["Link.lean"])
 
+class DependencyCustodyTests(SourceBindingTests):
+    def package(self):
+        temporary=tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        package=Path(temporary.name)
+        (package/".lake/packages").mkdir(parents=True)
+        (package/".lake/packages/Fixture").symlink_to(self.root,target_is_directory=True)
+        lock={"packages":[{"name":"Fixture","type":"git","rev":self.head}]}
+        return package,lock
+
+    def test_dependency_hidden_dirty_bytes_rejected(self):
+        subprocess.run(["git","-C",str(self.root),"update-index","--assume-unchanged","Proof.lean"],check=True)
+        (self.root/"Proof.lean").write_text("theorem changedFixture : True := True.intro\n")
+        with self.assertRaisesRegex(ValueError,"source bytes differ"):
+            subject.bind_dependency(self.root,self.head)
+
+    def test_dependency_changed_index_rejected_with_original_working_bytes(self):
+        original=(self.root/"Proof.lean").read_bytes()
+        (self.root/"Proof.lean").write_text("theorem changedFixture : True := True.intro\n")
+        subprocess.run(["git","-C",str(self.root),"add","Proof.lean"],check=True)
+        (self.root/"Proof.lean").write_bytes(original)
+        with self.assertRaisesRegex(ValueError,"index differs"):
+            subject.bind_dependency(self.root,self.head)
+
+    def test_dependency_ignored_lean_shadow_rejected(self):
+        (self.root/".git/info/exclude").write_text("Shadow.lean\n")
+        (self.root/"Shadow.lean").write_text("theorem shadowFixture : True := True.intro\n")
+        with self.assertRaisesRegex(ValueError,"untracked Lean shadow"):
+            subject.bind_dependency(self.root,self.head)
+
+    def test_dependency_change_during_actual_phase_rejected(self):
+        package,lock=self.package()
+        with self.assertRaisesRegex(ValueError,"source bytes differ"):
+            with subject.frozen_dependencies(package,lock):
+                subprocess.run(["git","-C",str(self.root),"update-index","--assume-unchanged","Metadata.txt"],check=True)
+                (self.root/"Metadata.txt").write_text("actual phase mutated a dependency\n")
+
+class CompiledObjectCustodyTests(unittest.TestCase):
+    def test_dependency_object_change_rejected_while_owned_object_is_stable(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            package=Path(temporary)
+            owned=package/".lake/build/lib/lean/Owned.olean"
+            dependency=package/".lake/packages/Fixture/.lake/build/lib/lean/Dependency.olean.private"
+            owned.parent.mkdir(parents=True)
+            dependency.parent.mkdir(parents=True)
+            owned.write_bytes(b"owned fixture object")
+            dependency.write_bytes(b"dependency fixture object")
+            with self.assertRaisesRegex(ValueError,"compiled objects changed"):
+                with subject.frozen_objects(package,["Fixture"]):
+                    dependency.write_bytes(b"changed dependency fixture object")
+            self.assertEqual(owned.read_bytes(),b"owned fixture object")
+
 class LoadedCodeTests(unittest.TestCase):
     def test_changed_loaded_bytes_rejected(self):
         with tempfile.TemporaryDirectory() as temporary:
