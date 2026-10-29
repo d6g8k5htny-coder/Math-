@@ -222,6 +222,19 @@ class SourceCustodyTests(unittest.TestCase):
                                  'LEAN_SYSROOT': None}])
         self.assertEqual(receipt['checked_commit'], self.git('rev-parse', 'HEAD'))
 
+    def test_foreign_index_cannot_hide_staged_source(self):
+        proof = self.root / 'proof.lean'
+        original = proof.read_bytes()
+        with tempfile.TemporaryDirectory() as temporary:
+            alternate = Path(temporary) / 'clean-index'
+            shutil.copyfile(self.repo / '.git/index', alternate)
+            proof.write_bytes(original + b'-- staged mutation\\n')
+            self.git('add', 'formal/proof.lean')
+            proof.write_bytes(original)
+            with mock.patch.dict(os.environ, {'GIT_INDEX_FILE': str(alternate)}):
+                with self.assertRaisesRegex(ValueError, 'source index'):
+                    self.checked()
+
     def test_replace_ref_cannot_redirect_committed_source(self):
         expected = self.git('rev-parse', 'HEAD')
         path = self.root / 'proof.lean'
