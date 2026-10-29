@@ -33,3 +33,14 @@ local runs; one earlier parallel normal run has8 retained temporary-path errors
 and was rerun serially.24 paired adapter mutations all killed; both production
 loader/evidence defects independently reproduced and corrected. Actual repaired
 Lean gate execution remains pending at this source-publication checkpoint.
+
+
+Transport regression: tests/test_workflow_receipt_transport.py executes the
+workflow's literal Bash pipeline against synthetic log/receipt output. Run
+`python -B -S -m unittest discover -s frontiers/determinant_moment_20261025/tests -p test_workflow_receipt_transport.py -v`
+from the repository root, and repeat with -O. It includes a historical-placement
+mutation and gate-failure propagation. It is a bounded transport test, not a
+Lean-result generator. The existing workflow runs these controls in both modes
+before the actual Lean gate and uploads the aggregate console separately from
+receipt-hashed logs. Source is manifest-bound; maintenance owner none. Current
+successor execution is pending at publication; use the actual run/artifact.

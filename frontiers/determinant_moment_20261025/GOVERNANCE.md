@@ -42,3 +42,21 @@ gate. Prior source/docs remain recoverable at f1a17bf and native74565f0. Reason:
 close the actual package-wide completeness gap without inventing execution.
 All source edits are reversible. Actual seven-control Lean execution is pending
 at this publication checkpoint.
+
+
+Decision, 2026-10-29T19:36Z, Phase2/3, LayerB/C: move the aggregate
+workflow console to RUNNER_TEMP and upload it separately. The previous hosted
+receipt hashed authoritative-gate.log before printing its own final receipt
+through tee into that same file; its preserved artifact matches21 of22 hashes.
+The kernel job succeeded, but that transport is not an integrity pass. The
+repair preserves every gate-owned log and every existing test. Four actual-shell
+transport controls execute synthetic output, replay the old failure, preserve a
+nonzero gate exit and check both artifact paths. They award no kernel result.
+Their source is tests/test_workflow_receipt_transport.py; hosted execution of
+this successor remains pending until observed. Maintenance owner none.
+
+The retained gaussian_parent_positive fixture uses Measure.map_dirac' under
+the pinned Mathlib, matching its already retained successor. Only the stale
+API spelling changes; hypotheses, goals and production Lean bytes are unchanged.
+The old compiler failure and all historical control evidence remain retained.
+The decision ledger is DECISIONS.md. Both edits are reversible.

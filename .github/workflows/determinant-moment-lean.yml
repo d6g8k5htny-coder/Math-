@@ -77,7 +77,7 @@ jobs:
       - name: Fresh build, kernel recheck, complete inventory and seven real controls
         run: |
           set -euo pipefail
-          python -B -S frontiers/determinant_moment_20261025/gate.py --execute 2>&1 | tee frontiers/determinant_moment_20261025/.lake/formal-evidence/authoritative-gate.log
+          python -B -S frontiers/determinant_moment_20261025/gate.py --execute 2>&1 | tee "$RUNNER_TEMP/determinant-authoritative-gate.log"
       - name: Tracked tree unchanged
         run: git diff --exit-code
       - name: Preserve raw observation and gate logs
@@ -87,5 +87,13 @@ jobs:
           name: determinant-moment-lean-${{ github.run_id }}-${{ github.run_attempt }}
           path: frontiers/determinant_moment_20261025/.lake/formal-evidence/
           include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 90
+      - name: Preserve aggregate console outside gate-owned log hashes
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: determinant-moment-console-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/determinant-authoritative-gate.log
           if-no-files-found: error
           retention-days: 90

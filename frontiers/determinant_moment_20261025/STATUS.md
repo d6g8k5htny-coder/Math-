@@ -54,3 +54,23 @@ Publication does not assert that the actual successor command has passed.
 records authority and evidence rules. Preserve no-placeholder/no-new-axiom,
 exact-bound/no-float-certification, no-weakened-test, vacuity-disclosure and
 truthful-verification invariants. No review-family approval is a CBZ gate.
+
+
+## Receipt transport repair checkpoint (2026-10-29)
+
+The prior hosted determinant job123657962283/run40933537063 succeeded on tested
+merge38127a2a1fc1672c13e9e150e119b8f21b8cc7a9 for source PR531/aafb9c9f.
+It reported157 declarations and58421 closure entries with the declared standard
+axioms and seven intended gate controls. The downloaded original artifact has
+one transport mismatch: authoritative-gate.log was changed by tee after its
+hash was recorded (21 of22 log hashes matched). Preserve that failure; do not
+call the old artifact integrity green.
+
+This successor moves the console outside the gate-owned directory, uploads it
+separately, adds four synthetic actual-shell controls and repairs the stale
+retained positive fixture's Measure.map_dirac' API spelling. Production Lean,
+all target statements, dependency revisions and mathematical bounds are unchanged.
+At this publication checkpoint, successor tests and fresh hosted execution are
+NOT_YET_OBSERVED. The new result must include the source-current receipt and a
+comparison of every recorded log hash with downloaded bytes. Historical kernel
+evidence does not establish the repaired transport's current execution.
