@@ -150,6 +150,9 @@ class RuntimeVersionTests(unittest.TestCase):
         self.addCleanup(lambda: setattr(gate, 'ROOT', previous))
         manifest_path = self.root / 'manifest.json'
         manifest = json.loads(manifest_path.read_text())
+        # Synthetic external-process orchestration fixture only. This is not an
+        # observed inventory of the real determinant package.
+        manifest['compiled_inventory'] = []
         manifest['files'] = {p.relative_to(self.root).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
                              for p in self.root.rglob('*') if p.is_file() and p.name != 'manifest.json'}
         manifest_path.write_text(json.dumps(manifest))
@@ -160,10 +163,40 @@ class RuntimeVersionTests(unittest.TestCase):
         self.calls = []
         self.version_index = 0
 
+    def synthetic_inventory(self, cwd, fault=None):
+        """Explicit synthetic protocol boundary, never actual Lean evidence."""
+        paths = self.manifest['source_modules']
+        module = tuple(paths[0][:-5].replace('/', '.').split('.'))
+        rows = [('theorem', 'user', module, tuple(n.split('.'))) for n in self.manifest['targets']]
+        axs = []
+        source = (cwd / paths[0]).read_text()
+        if fault == 'empty':
+            return ''
+        if fault == 'unlisted':
+            rows.append(('theorem', 'user', module, ('ResearchFormalCoreR1', 'hiddenIndented')))
+            axs = [('sorryAx',)]
+        elif 'private theorem compiledAdmission' in source:
+            rows.append(('theorem', 'user', module,
+                         ('_private',) + module + (0, 'ResearchFormalCoreR1', 'compiledAdmission')))
+            axs = [('sorryAx',)]
+        elif 'Lean.addDecl' in source:
+            rows.append(('theorem', 'aux', module, ('ResearchFormalCoreR1', 'ec005_fold_gap', '_proof_999')))
+        def enc(name):
+            return '/'.join('n' + str(c) if isinstance(c, int) else 's' + c.encode().hex() for c in name)
+        text = ['MODULE|' + enc(('ResearchFormalCoreR1',)) + '|false|0|0']
+        for path in paths:
+            m = tuple(path[:-5].replace('/', '.').split('.'))
+            text.append('MODULE|' + enc(m) + '|false|' + str(sum(r[2] == m for r in rows)) + '|0')
+        text += ['INV|' + k + '|' + o + '|' + enc(m) + '|' + enc(n) for k, o, m, n in rows]
+        return '\n'.join(text + ['AXIOMS|' + ','.join(enc(a) for a in axs),
+                                 'CLOSURE|' + str(len(rows) + 1)])
+
     def execute_synthetic(self, versions, version_exit=0, mutate_source=False, wrong_dependency=False,
-                          dirty_dependency=None, drift_dependency=False, env=None):
+                          dirty_dependency=None, drift_dependency=False, env=None, inventory_fault=None):
         def external_run(command, **kwargs):
             self.calls.append(command)
+            if command == ['lake', 'build']:
+                (Path(kwargs['cwd']) / '.lake/build').mkdir(parents=True, exist_ok=True)
             if command == ['lake', 'env', 'lean', '--version']:
                 text = versions[min(self.version_index, len(versions) - 1)] + '\n'
                 self.version_index += 1
@@ -174,6 +207,9 @@ class RuntimeVersionTests(unittest.TestCase):
             label = Path(command[-1]).stem
             if label == 'Audit':
                 text = '\n'.join("'" + n + "' does not depend on any axioms" for n in self.manifest['targets'])
+            elif label == 'Inventory':
+                cwd = Path(kwargs['cwd'])
+                text = self.synthetic_inventory(cwd, inventory_fault if cwd == self.root else None)
             elif label in ('false_fold', 'false_power'):
                 return subprocess.CompletedProcess(command, 1, 'unsolved goals\n')
             elif label in ('sorry', 'custom_imported', 'native'):
@@ -296,6 +332,7 @@ class RuntimeVersionTests(unittest.TestCase):
         self.assert_no_receipt()
 
 class RuntimeGuardTests(unittest.TestCase):
+    synthetic_inventory = RuntimeVersionTests.synthetic_inventory
     # The uniform runtime guard: the exact release, locked and clean dependencies and the bound
     # sources are observed before the first Lean execution and again after the last one, and the
     # two observations must be equal. These controls fail on a gate that checks only versions.
@@ -305,6 +342,18 @@ class RuntimeGuardTests(unittest.TestCase):
     fixture = RuntimeVersionTests.fixture
     execute_synthetic = RuntimeVersionTests.execute_synthetic
     assert_no_receipt = RuntimeVersionTests.assert_no_receipt
+
+    def test_green_public_targets_do_not_hide_bad_compiled_inventory(self):
+        self.fixture()
+        with self.assertRaisesRegex(ValueError, 'extra_theorem|forbidden_axiom'):
+            self.execute_synthetic([self.RELEASE, self.RELEASE], inventory_fault='unlisted')
+        self.assert_no_receipt()
+
+    def test_missing_compiled_output_refuses_receipt(self):
+        self.fixture()
+        with self.assertRaisesRegex(ValueError, 'empty environment inventory'):
+            self.execute_synthetic([self.RELEASE, self.RELEASE], inventory_fault='empty')
+        self.assert_no_receipt()
 
     def test_dirty_dependency_before_execution_refuses_and_preserves_build(self):
         self.fixture()
