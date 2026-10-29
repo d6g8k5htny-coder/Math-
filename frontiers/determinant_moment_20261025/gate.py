@@ -17,6 +17,7 @@ AXIOM = re.compile(r"'(" + NAME + r")' (?:depends on axioms: \[([^\]]*)\]|does n
 SHA256 = re.compile(r'[0-9a-f]{64}')
 COMMIT = re.compile(r'[0-9a-f]{40}')
 ROOT = Path(__file__).resolve().parent
+REPO = ROOT.parents[1]
 
 # Load only after CLI invalidation and bound-file checks, so a missing or invalid
 # bound helper cannot bypass active-receipt invalidation during import.
@@ -192,6 +193,23 @@ def load_json(text):
         return obj
     return json.loads(text, object_pairs_hook=unique)
 
+def load_admission(repo, metadata):
+    """Verify fixed helper bytes BEFORE executing them; never trust a manifest path."""
+    require(isinstance(metadata, dict) and set(metadata) == {'helper_sha256', 'census', 'continuations', 'declarations'},
+            'source declaration census metadata malformed')
+    digest = metadata['helper_sha256']
+    require(isinstance(digest, str) and re.fullmatch(r'[0-9a-f]{64}', digest), 'invalid admission helper hash')
+    helper = repo / 'tools' / 'lean_packet_admission.py'
+    require(all(not part.is_symlink() for part in (helper, *helper.parents)),
+            'symlink admission helper')
+    require(helper.is_file(), 'missing admission helper')
+    data = helper.read_bytes()
+    require(sha(data) == digest, 'admission helper hash mismatch')
+    # Execute exactly the verified bytes, without importlib's second read or pyc cache.
+    namespace = {'__name__': '_verified_lean_packet_admission', '__file__': str(helper)}
+    exec(compile(data, str(helper), 'exec'), namespace)
+    return namespace
+
 def source_check():
     raw = (ROOT / 'manifest.json').read_bytes()
     m = load_json(raw)
@@ -212,11 +230,23 @@ def source_check():
     require(all(COMMIT.fullmatch(v) for v in actual.values()), 'unpinned dependency')
     expected_root = ''.join('import ' + path[:-5].replace('/', '.') + '\n' for path in m['source_modules'])
     require((ROOT / 'ResearchFormalCoreR1.lean').read_text() == expected_root, 'root must only import registered modules')
-    names = []
+    admission = load_admission(REPO, m.get('source_admission'))
+    continuation_bindings = m['source_admission']['continuations']
+    require(isinstance(continuation_bindings, dict) and set(continuation_bindings) ==
+            {path[:-5].replace('/', '.') for path in m['source_modules']}, 'source continuation module inventory mismatch')
+    declaration_bindings = m['source_admission']['declarations']
+    require(isinstance(declaration_bindings, dict) and set(declaration_bindings) ==
+            {path[:-5].replace('/', '.') for path in m['source_modules']}, 'source declaration header module inventory mismatch')
+    source_census = []
     for path in m['source_modules']:
         require(path in m['files'], 'unbound source module')
         text = (ROOT / path).read_text()
-        names.extend('ResearchFormalCoreR1.' + n for n in re.findall(r'^(?:theorem|lemma)\s+(' + NAME + ')', text, re.M))
+        module = path[:-5].replace('/', '.')
+        require(continuation_bindings[module] is not None, 'unsupported missing source continuation binding')
+        require(declaration_bindings[module] is not None, 'unsupported missing source declaration header binding')
+        source_census.extend(admission['census'](text, module, continuation_bindings[module], declaration_bindings[module]))
+    admission['check_census'](source_census, m['source_admission']['census'])
+    names = [d['name'] for d in source_census if d['kind'] in {'theorem', 'lemma'} and d['privacy'] == 'public']
     require(names == m['targets'], 'target inventory differs from source declarations')
     check_blueprint((ROOT / 'blueprint/src/content.tex').read_text(), names)
     lean_files = {p.relative_to(ROOT).as_posix() for p in ROOT.rglob('*.lean') if '.lake' not in p.relative_to(ROOT).parts}

@@ -20,8 +20,11 @@ class CliReceiptBoundaryTests(unittest.TestCase):
     def fixture(self):
         tmp = tempfile.TemporaryDirectory()
         self.addCleanup(tmp.cleanup)
-        root = Path(tmp.name) / 'component'
+        root = Path(tmp.name) / 'repo/frontiers/component'
         shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns('.lake', '__pycache__'))
+        helper = root.parents[1] / 'tools/lean_packet_admission.py'
+        helper.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(ROOT.parents[1] / 'tools/lean_packet_admission.py', helper)
         active = root / '.lake/formal-evidence/receipt.json'
         active.parent.mkdir(parents=True)
         active.write_text('{"synthetic_test_fixture":"stale active receipt"}')
@@ -163,8 +166,11 @@ class QuarantineRecordTests(unittest.TestCase):
     def test_quarantine_record_cannot_be_omitted_from_control_manifest(self):
         tmp = tempfile.TemporaryDirectory()
         self.addCleanup(tmp.cleanup)
-        root = Path(tmp.name) / 'component'
+        root = Path(tmp.name) / 'repo/frontiers/component'
         shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns('.lake', '__pycache__'))
+        helper = root.parents[1] / 'tools/lean_packet_admission.py'
+        helper.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(ROOT.parents[1] / 'tools/lean_packet_admission.py', helper)
         m = json.loads((root / 'manifest.json').read_text())
         m['files'].pop('QUARANTINE.json', None)
         (root / 'manifest.json').write_text(json.dumps(m))
@@ -181,8 +187,11 @@ class PortableMutationRunnerTests(unittest.TestCase):
     def test_component_copy_runs_all_five_mutations_with_intended_failures(self):
         with tempfile.TemporaryDirectory() as d:
             base = Path(d)
-            root = base / 'cold-start-component'
+            root = base / 'repo/frontiers/cold-start-component'
             shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns('.lake', '__pycache__'))
+            helper = root.parents[1] / 'tools/lean_packet_admission.py'
+            helper.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(ROOT.parents[1] / 'tools/lean_packet_admission.py', helper)
             before = {p.relative_to(root): p.read_bytes() for p in root.rglob('*') if p.is_file()}
             output = base / 'reports'
             result = subprocess.run([sys.executable, '-B', '-S', str(root / 'tests/run_cbz_mutations.py'),
