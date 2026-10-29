@@ -103,6 +103,26 @@ class CompiledObjectCustodyTests(unittest.TestCase):
                     dependency.write_bytes(b"changed dependency fixture object")
             self.assertEqual(owned.read_bytes(),b"owned fixture object")
 
+    def test_unused_dependency_object_root_absence_is_explicit(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            package=Path(temporary)
+            owned=package/".lake/build/lib/lean/Owned.olean"
+            owned.parent.mkdir(parents=True)
+            owned.write_bytes(b"owned fixture object")
+            snapshot=subject.object_snapshot(package,["Unused"])
+            self.assertFalse(snapshot["root_presence"][".lake/packages/Unused/.lake/build"])
+            self.assertTrue(snapshot["root_presence"][".lake/build"])
+
+    def test_dependency_object_root_appearance_is_rejected(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            package=Path(temporary)
+            owned=package/".lake/build/lib/lean/Owned.olean"
+            owned.parent.mkdir(parents=True)
+            owned.write_bytes(b"owned fixture object")
+            with self.assertRaisesRegex(ValueError,"compiled objects changed"):
+                with subject.frozen_objects(package,["Unused"]):
+                    (package/".lake/packages/Unused/.lake/build").mkdir(parents=True)
+
 class LoadedCodeTests(unittest.TestCase):
     def test_changed_loaded_bytes_rejected(self):
         with tempfile.TemporaryDirectory() as temporary:
@@ -118,6 +138,37 @@ class LoadedCodeTests(unittest.TestCase):
             module=subject.load("finite_loaded",path,subject.sha(data))
             self.assertEqual(module.value,7)
             self.assertEqual(module.__source_sha256__,subject.sha(data))
+
+class ExecutionInputCustodyTests(SourceBindingTests):
+    def prepare(self):
+        tool=self.root/"tools/cbz_source514_hosted.py"
+        plan=self.root/"cbz/source514-hosted/domain.json"
+        tool.parent.mkdir()
+        plan.parent.mkdir(parents=True)
+        tool.write_bytes(b"value = 7\n")
+        plan.write_text('{"frozen": 7}\n')
+        subprocess.run(["git","-C",str(self.root),"add","tools","cbz"],check=True)
+        subprocess.run(["git","-C",str(self.root),"commit","-qm","execution input fixture"],check=True)
+        self.head=subject.git(self.root,"rev-parse","HEAD").decode().strip()
+        return tool,plan
+
+    def test_loaded_launcher_then_restored_file_is_rejected(self):
+        tool,plan=self.prepare()
+        tool.write_bytes(b"value = 8\n")
+        loaded=subject.load("changed_launcher",tool,subject.sha(tool.read_bytes()))
+        tool.write_bytes(b"value = 7\n")
+        self.assertEqual(loaded.value,8)
+        with self.assertRaisesRegex(ValueError,"loaded launcher differs"):
+            subject.execution_inputs(self.root,self.head,loaded.__source_sha256__,plan)
+
+    def test_plan_mutation_after_parse_is_rejected(self):
+        tool,plan=self.prepare()
+        loaded_sha=subject.sha(tool.read_bytes())
+        parsed,binding=subject.execution_inputs(self.root,self.head,loaded_sha,plan)
+        self.assertEqual(parsed,{"frozen":7})
+        plan.write_text('{"frozen": 8}\n')
+        with self.assertRaisesRegex(ValueError,"source bytes differ"):
+            subject.execution_inputs(self.root,self.head,loaded_sha,plan)
 
 class RegisteredDomainTests(unittest.TestCase):
     def setUp(self):

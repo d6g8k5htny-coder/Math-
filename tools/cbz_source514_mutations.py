@@ -28,7 +28,10 @@ try:
   (args.output/(mode+"-baseline.stdout")).write_bytes(result.stdout)
   (args.output/(mode+"-baseline.stderr")).write_bytes(result.stderr)
   report["executions"].append({"mode":mode,"label":"baseline","exit":result.returncode})
-  if result.returncode: raise RuntimeError("unmodified recorder suite must pass before mutation")
+  if result.returncode:
+   sys.stdout.buffer.write(result.stdout)
+   sys.stderr.buffer.write(result.stderr)
+   raise RuntimeError("unmodified recorder suite must pass before mutation")
   for label,anchor,replacement,target in mutations:
    text=source.read_text()
    if text.count(anchor)!=1: raise RuntimeError("unique mutation anchor absent: "+label)

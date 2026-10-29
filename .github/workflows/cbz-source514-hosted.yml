@@ -76,7 +76,7 @@ jobs:
           python -B -S -O replay/cbz/evidence/kernel/additional/replay-tool/run_lean_selftest.py --lean "$LEAN_BIN" --collector collector/formal/gate_helper.py --collector-sha256 ff8a5374597772b2d37054fd722c2243c4b552a63802c69f7c605519832be6c4 --output "$RUNNER_TEMP/cbz-source514-lean-selftest-optimized"
       - name: Build exact 92 modules and replay complete owned proof closure into an empty kernel
         run: |
-          python -B -S tools/cbz_source514_hosted.py --source candidate --replay replay --collector collector --plan cbz/source514-hosted/domain.json --output "$RUNNER_TEMP/cbz-source514-observation"
+          python -B -S tools/cbz_source514_hosted.py --source candidate --replay replay --collector collector --plan cbz/source514-hosted/domain.json --output "$RUNNER_TEMP/cbz-source514-observation" --carrier . --carrier-head "${{ github.sha }}"
       - name: Preserve every raw result and source, including unsuccessful attempts
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
