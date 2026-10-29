@@ -17,23 +17,45 @@ AXIOM = re.compile(r"'(" + NAME + r")' (?:depends on axioms: \[([^\]]*)\]|does n
 SHA256 = re.compile(r'[0-9a-f]{64}')
 COMMIT = re.compile(r'[0-9a-f]{40}')
 ROOT = Path(__file__).resolve().parent
+REPO = ROOT.parents[1]
 
 # Load only after CLI invalidation and bound-file checks, so a missing or invalid
 # bound helper cannot bypass active-receipt invalidation during import.
 _compiled = None
+_determinant = None
+CORE_SHA256 = 'ff8a5374597772b2d37054fd722c2243c4b552a63802c69f7c605519832be6c4'
+
+
+def verified_implementation(name, path, expected_sha256, message):
+    """Execute the single authenticated read; timestamp-valid pyc files are ignored."""
+    path = Path(path)
+    require(all(not p.is_symlink() for p in (path, *path.parents)), 'symlink inventory implementation')
+    require(path.is_file(), 'missing inventory implementation')
+    raw = path.read_bytes()
+    require(isinstance(expected_sha256, str) and SHA256.fullmatch(expected_sha256)
+            and sha(raw) == expected_sha256, message)
+    spec = importlib.util.spec_from_file_location(name, path)
+    require(spec is not None and spec.loader is not None, 'cannot load inventory implementation')
+    module = importlib.util.module_from_spec(spec)
+    exec(compile(raw, str(path), 'exec'), module.__dict__)
+    return module
 
 
 def compiled_implementation():
     global _compiled
-    if _compiled is None:
-        spec = importlib.util.spec_from_file_location(
-            'determinant_compiled_inventory', ROOT / 'compiled_inventory.py')
-        if spec is None or spec.loader is None:
-            raise ImportError('compiled inventory implementation unavailable')
-        module = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(module)
-        _compiled = module
+    _compiled = verified_implementation('determinant_compiled_inventory',
+        ROOT / 'compiled_inventory.py', CORE_SHA256, 'source-preserved core helper hash mismatch')
     return _compiled
+
+
+def determinant_implementation(m):
+    global _determinant
+    files = m.get('files')
+    require(isinstance(files, dict), 'missing bound determinant adapter identity')
+    _determinant = verified_implementation('determinant_specific_inventory',
+        ROOT / 'determinant_inventory.py', files.get('determinant_inventory.py'),
+        'determinant adapter source hash mismatch')
+    return _determinant
 
 
 def compiled_contract(m):
@@ -54,6 +76,12 @@ def compiled_contract(m):
     require(all(re.fullmatch(r'ResearchFormalCoreR1/[A-Za-z_][A-Za-z0-9_]*\.lean', p)
                 for p in paths), 'noncanonical source module path')
     modules = {p[:-5].replace('/', '.') for p in paths}
+    version = m.get('compiled_inventory_version')
+    require(version is None or type(version) is int and version == 2,
+            'unsupported compiled inventory version')
+    if version == 2:
+        policy = determinant_implementation(m)
+        return modules, policy.bound_contract(m, _compiled)
     bound = _compiled.bound_inventory(m['compiled_inventory'], targets, modules)
     return modules, bound
 
@@ -61,6 +89,8 @@ def compiled_contract(m):
 def audit_compiled(text, m, reported_axioms):
     """Validate the actual compiled package census and all-constant axiom closure."""
     modules, bound = compiled_contract(m)
+    if m.get('compiled_inventory_version') == 2:
+        return _determinant.audit_inventory(text, m, reported_axioms=reported_axioms)
     return _compiled.audit_inventory(text, m['targets'], modules,
                                      reported_axioms=reported_axioms, bound=bound)
 
@@ -192,12 +222,36 @@ def load_json(text):
         return obj
     return json.loads(text, object_pairs_hook=unique)
 
+def load_admission(repo, metadata):
+    """Verify fixed helper bytes BEFORE executing them; never trust a manifest path."""
+    require(isinstance(metadata, dict) and set(metadata) == {'helper_sha256', 'census', 'continuations', 'declarations'},
+            'source declaration census metadata malformed')
+    digest = metadata['helper_sha256']
+    require(isinstance(digest, str) and re.fullmatch(r'[0-9a-f]{64}', digest), 'invalid admission helper hash')
+    helper = repo / 'tools' / 'lean_packet_admission.py'
+    require(all(not part.is_symlink() for part in (helper, *helper.parents)),
+            'symlink admission helper')
+    require(helper.is_file(), 'missing admission helper')
+    data = helper.read_bytes()
+    require(sha(data) == digest, 'admission helper hash mismatch')
+    # Execute exactly the verified bytes, without importlib's second read or pyc cache.
+    namespace = {'__name__': '_verified_lean_packet_admission', '__file__': str(helper)}
+    exec(compile(data, str(helper), 'exec'), namespace)
+    return namespace
+
 def source_check():
     raw = (ROOT / 'manifest.json').read_bytes()
     m = load_json(raw)
     require(m.get('schema_version') == 1 and m.get('scientific_effect') == 'NONE', 'invalid evidence schema')
     require(m.get('formalization_status') == 'proved' and m.get('alignment_status') == 'PENDING_INDEPENDENT_REVIEW', 'source metadata cannot self-award execution or review')
     required = {'gate.py', 'tests/test_gate.py', 'lean-toolchain', 'lakefile.toml', 'lake-manifest.json', 'ResearchFormalCoreR1.lean', 'SCOPE.md', 'GLOSSARY.md', 'README.md', 'blueprint/src/content.tex', 'tests/test_alignment_lineage.py', 'LINEAGE_VALIDATION.md', 'compiled_inventory.py', 'tests/test_compiled_admission.py', 'tests/test_cli_receipt_boundary.py', 'tests/run_cbz_mutations.py', 'GOVERNANCE.md', 'TOOLING.md', 'QUARANTINE.json', 'STATUS.md'}
+    if m.get('compiled_inventory_version') == 2:
+        required |= {'determinant_inventory.py', 'tests/test_determinant_inventory.py',
+                     'tests/test_determinant_admission_harness.py', 'tests/run_adapter_mutations.py',
+                     'tests/test_adapter_mutation_runner.py', 'tests/test_determinant_execute.py',
+                     'tests/test_inventory_loader.py', 'tests/test_determinant_binding.py',
+                     'tests/fixtures/actual_inventory_4ccc.log',
+                     'tests/fixtures/actual_manifest_v2_fields.json'}
     require(required <= set(m['files']), 'unbound control or scope file')
     originals = {'originals/Algebra.lean.txt': '4c196820c4db8fafc288dd35642828ba577e3544d60aba7d1d6d24f14ad1e8ae', 'originals/ProbabilityCompanions.lean.txt': '4ace6600a476859982c8851ae9097c89b082d3c96291b3c8330bd4cc00bae65d'}
     require(all(m['files'].get(path) == value for path, value in originals.items()), 'original source identity changed or omitted')
@@ -212,11 +266,23 @@ def source_check():
     require(all(COMMIT.fullmatch(v) for v in actual.values()), 'unpinned dependency')
     expected_root = ''.join('import ' + path[:-5].replace('/', '.') + '\n' for path in m['source_modules'])
     require((ROOT / 'ResearchFormalCoreR1.lean').read_text() == expected_root, 'root must only import registered modules')
-    names = []
+    admission = load_admission(REPO, m.get('source_admission'))
+    continuation_bindings = m['source_admission']['continuations']
+    require(isinstance(continuation_bindings, dict) and set(continuation_bindings) ==
+            {path[:-5].replace('/', '.') for path in m['source_modules']}, 'source continuation module inventory mismatch')
+    declaration_bindings = m['source_admission']['declarations']
+    require(isinstance(declaration_bindings, dict) and set(declaration_bindings) ==
+            {path[:-5].replace('/', '.') for path in m['source_modules']}, 'source declaration header module inventory mismatch')
+    source_census = []
     for path in m['source_modules']:
         require(path in m['files'], 'unbound source module')
         text = (ROOT / path).read_text()
-        names.extend('ResearchFormalCoreR1.' + n for n in re.findall(r'^(?:theorem|lemma)\s+(' + NAME + ')', text, re.M))
+        module = path[:-5].replace('/', '.')
+        require(continuation_bindings[module] is not None, 'unsupported missing source continuation binding')
+        require(declaration_bindings[module] is not None, 'unsupported missing source declaration header binding')
+        source_census.extend(admission['census'](text, module, continuation_bindings[module], declaration_bindings[module]))
+    admission['check_census'](source_census, m['source_admission']['census'])
+    names = [d['name'] for d in source_census if d['kind'] in {'theorem', 'lemma'} and d['privacy'] == 'public']
     require(names == m['targets'], 'target inventory differs from source declarations')
     check_blueprint((ROOT / 'blueprint/src/content.tex').read_text(), names)
     lean_files = {p.relative_to(ROOT).as_posix() for p in ROOT.rglob('*.lean') if '.lake' not in p.relative_to(ROOT).parts}
@@ -254,8 +320,13 @@ def execute(m, digest):
         run(['lake', 'env', 'lean', str(inventory_source)], 'inventory', out), m, axioms)
     # Both mutations must build, pass leanchecker and the public-only axiom audit,
     # then fail this package-wide census for exactly their intended admission reason.
-    _compiled.ROOT = ROOT
-    compiled_admission = _compiled.compiled_admission(m, modules, inventory, bound, out)
+    if m.get('compiled_inventory_version') == 2:
+        # The unchanged core's injection payloads run through the same exact
+        # determinant policy as the positive inventory, with frozen bindings.
+        compiled_admission = _determinant.compiled_admission(m, inventory, out, package_root=ROOT)
+    else:
+        _compiled.ROOT = ROOT
+        compiled_admission = _compiled.compiled_admission(m, modules, inventory, bound, out)
     # Real counterexample/mutation controls, not comparisons of fixed labels.
     cases = {
         'false_fold': ('import ResearchFormalCoreR1\nexample : ResearchFormalCoreR1.foldPotential 1 1 - ResearchFormalCoreR1.foldPotential 1 (-1) = (2 : Real)^3 / 7 := by\n  norm_num [ResearchFormalCoreR1.foldPotential]\n', False, None),

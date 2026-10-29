@@ -1,28 +1,56 @@
-# Component status: determinant compiled admission
+# Determinant gate publication checkpoint
 
-This file covers only frontiers/determinant_moment_20261025/. It is not a federation CBZ status or a global proof index.
+**QUARANTINED pending actual execution of this successor.** This component
+contains66 public scalar companion targets in14 unchanged Lean files. It is
+not a proof of the surrounding continuum Gaussian/Palm/lifetime claims.
+Scientific effect: NONE; CBZ-0 is not established.
 
-Current boundary: **QUARANTINED**. Package-wide A2/A8 compiled completeness and transitive axiom-closure evidence for the exact13 source modules plus root remain unestablished. No actual forbidden axiom finding is asserted. Real repaired-gate Lean execution is **NOT_RUN**; no current CBZ CLOSED claim or active kernel receipt is supplied. See [QUARANTINE.json](QUARANTINE.json) for the exact source/module hashes, missing evidence, attempted work, resumption cost, isolation, owner:null and maintenance:zero.
+The historical actual census at native4ccc9b0b0fb6333565e15026758fa49521de7f3d
+contains157 kernel ConstantInfos and58421 transitive dependencies, with only
+propext, Classical.choice and Quot.sound. Its91 non-public records now have a
+lossless typed binding. [COMPILED_BINDING.md](COMPILED_BINDING.md) records the
+source and metadata limits; [QUARANTINE.json](QUARANTINE.json) records the
+source-current missing-evidence boundary, isolation and dormant disposition.
+A census collection is not execution of this repaired admission gate.
 
-The repaired Python gate retains all original proof bytes and prior checks, adds compiled-package admission, and invalidates the active .lake/formal-evidence/receipt.json before CLI qualification. Historical proved metadata, handoff files and immutable final receipts remain scoped historical inputs.
+## Observed engineering checks
+
+The composed component suite passed171 tests normally and171 under optimized
+Python, with no failures/errors/skips in those successful runs. An earlier
+concurrent normal run had8 real test errors from shared temporary paths; its
+logs were preserved and the suite was rerun serially.44 adapter/runner controls
+and12 adapter mutations in both modes also passed in the separate contribution;
+the native composed adapter mutation run observed24 paired positive/killed
+results. Fresh source-scoped engineering review corrected the stale-pyc and
+evidence-symlink defects. These checks do not award kernel or scientific status.
 
 ## How to verify
 
-Run these exact commands from this component directory:
+From this directory, run the modes serially (tests create scoped temp copies):
 
 ```sh
-python -B -S -m unittest discover -s tests -v
-python -B -O -S -m unittest discover -s tests -v
-python -B -S tests/run_cbz_mutations.py
-python -B -S gate.py
-python -B -S gate.py --execute
+python3 -B -S -m unittest discover -s tests -v
+python3 -O -B -S -m unittest discover -s tests -v
+python3 -B -S tests/run_cbz_mutations.py --output /tmp/determinant-outer-normal
+python3 -O -B -S tests/run_cbz_mutations.py --output /tmp/determinant-outer-optimized
+python3 -B -S tests/run_adapter_mutations.py --output .lake/formal-evidence/adapter-mutations
+python3 -B -S gate.py --execute
 ```
 
-The unit suites and portable five-case mutation gate must exit0. The mutation runner uses the current interpreter, disposable copies outside this source tree, green selected baselines and exact intended assertion failures with positive test counts; import or zero-test failures do not qualify. It verifies source preservation. Add --output with a directory outside the component to retain its reports; without it, JSON results are printed and temporary copies are removed.
+The outer mutation runner has six cases, preserving the five earlier cases
+and adding cached-bytecode substitution. It must have passing same-selection
+baselines and exact intended assertion failures, never import/setup errors.
+The adapter runner executes all12 cases in both modes itself and preserves
+a unique child containing each positive/negative process outcome and phase.
+Its external build/checker responses are explicitly synthetic.
 
-Current local engineering verification:109/109 unit tests passed in each Python mode, and all five portable mutation cases were rejected for the intended assertions. All78 original test bodies and all14 Lean source paths remain unchanged. These results do not supply the missing actual package-wide kernel/axiom evidence.
+The final command requires pinned Lean4.34.1 and all clean locked dependencies.
+It must freshly build, recheck the kernel, audit all constants and run all seven
+real controls before issuing a source-bound receipt. A source-only gate command
+returns nonzero with CBZ_KERNEL_EXECUTION_REQUIRED even with valid bindings.
+Publication does not assert that the actual successor command has passed.
 
-Both current gate CLI commands must exit1 with CBZ_COMPILED_INVENTORY_UNQUALIFIED because the actual non-target compiled inventory binding is absent. This intentional quarantine result is not a successful Lean run. A structurally supplied binding alone still cannot make a source-only invocation award execution.
-
-[TOOLING.md](TOOLING.md) explains the actual execution stages, portable commands, verification records and resumption requirements. [GOVERNANCE.md](GOVERNANCE.md) states authority and evidence limits. Qualification requires the actual pinned Lean census, bound non-target inventory, kernel replay, all-constant axiom closure and every retained/new control; approval family is not the blocking reason.
-
+[TOOLING.md](TOOLING.md) registers tools/commands and [GOVERNANCE.md](GOVERNANCE.md)
+records authority and evidence rules. Preserve no-placeholder/no-new-axiom,
+exact-bound/no-float-certification, no-weakened-test, vacuity-disclosure and
+truthful-verification invariants. No review-family approval is a CBZ gate.

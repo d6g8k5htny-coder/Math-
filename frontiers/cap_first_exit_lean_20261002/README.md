@@ -251,3 +251,77 @@ tightens `gate.py --execute`:
 
 The new tests drive `execute` with synthetic process results and do not run Lean. The paragraphs above are kept as
 written. This changes no statement, proof, import, toolchain or dependency pin, and no scientific status.
+
+## Bounded source admission (CBZ-VERIFIER-AUDIT-DB642, 29 October 2026)
+
+The source gate additionally binds all 152 supported source declarations in
+`MANIFEST.json`'s ordered `source_admission.census`, independently of its unchanged
+152 execution targets. Private additions cannot disappear from the census after a source-digest
+rebind. Execution target selection uses the verified source records. The shared helper is fixed at
+`tools/lean_packet_admission.py` in the repository; both its parent and file must
+be regular, non-symlink paths, and the gate verifies the manifest SHA-256 before
+executing those exact bytes. No manifest path can substitute another helper.
+
+The helper understands the current structure, nested namespaces, named sections,
+variables and `omit [NormedSpace ℝ E] in` wrapper. Supported declarations start at
+column zero; private declarations are inventoried, while indented, protected,
+attributed, quoted, anonymous-instance and unsupported metaprogramming forms are
+refused. Nested comments and non-interpolated string/character literals cannot
+hide or fabricate a declaration. Logical placeholders, custom axioms and
+native/trust escape tokens are refused even in unused code.
+
+Run the shared helper controls from the repository root in addition to the
+existing packet tests and source gate:
+
+```sh
+python -B -S -m unittest discover -s tests -p test_lean_packet_admission.py -v
+python -B -O -S -m unittest discover -s tests -p test_lean_packet_admission.py -v
+python -B -S -m unittest discover -s frontiers/cap_first_exit_lean_20261002 -p 'test_*.py' -v
+python -B -O -S -m unittest discover -s frontiers/cap_first_exit_lean_20261002 -p 'test_*.py' -v
+python -B -S frontiers/cap_first_exit_lean_20261002/gate.py
+```
+
+The existing Cap workflow also triggers on shared helper/control changes. Fresh
+hosted `--execute` evidence is required for the changed checker/census before any
+new kernel claim. The existing build, leanchecker, target axiom audit and negative
+controls are retained unchanged.
+
+This is a bounded source check, not a complete Lean parser. Generated structure
+constants and all compiled/imported dependencies still require a qualified
+compiled-environment census; the source-name records do not establish G2 or a
+complete lexical audit. No G0/G4, alignment, vacuity, all Layer A or scientific
+acceptance follows from these tests. All Lean proof bytes, target ABI and pins
+are preserved; scientific effect remains NONE.
+
+The review correction also binds opaque proof/header/structure continuations in
+`source_admission.continuations`. A compact per-module count and SHA-256 covers
+ordered nonempty indented code lines and their preceding column-zero code
+anchors, after lexical processing. Missing, malformed or changed bindings reject;
+indentation alone never authorizes unknown syntax. Rebinding ordinary source-file
+digests cannot authorize unknown commands inserted after a namespace, between
+declarations or inside a proof. Direct `sorryAx`, including qualified/unused
+references, is refused before that binding check.
+
+The binding is an explicit reviewed syntax boundary, not an independent proof or
+a complete Lean parser. Continuation changes and simultaneous manifest edits
+require review and actual hosted gates; automatic fingerprint regeneration does
+not establish qualification. Nonindented commands must still satisfy the command
+subset instead of being admitted as continuations.
+
+Review correction: `source_admission.declarations` separately binds every opaque
+declaration/header physical line, including complete one-line declarations. The
+whole selected line is bound, including literal/comment text, using only the
+unchanged reviewed source. Ordinary file hash rebinding cannot authorize an
+arbitrary same-line command tail; missing/malformed/stale bindings reject. The
+previous census, continuations, public ABI and private visibility remain intact.
+This is narrow reviewed syntax admission, not a full Lean parser or a claim that
+injected grammar has executed. The local Lean launcher probe failed before input
+processing. No new Lean/kernel/hosted status is awarded.
+
+The portable source runner retains all fourteen old mutants and adds header-guard
+removal: fifteen mutants in each Python mode. It records actual unittest body
+entry and failure phases; fixture/cleanup assertions, missing or malformed phase
+evidence, unsupported custom lifecycle hooks, errors, empty discovery and
+timeouts cannot qualify as kills. See `../../tools/LEAN_PACKET_ADMISSION.md` for
+repo-root commands. The full matrix remains standalone; the determinant workflow
+runs its ten focused self-tests, not the full matrix.
