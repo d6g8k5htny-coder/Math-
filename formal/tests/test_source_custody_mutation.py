@@ -1,5 +1,7 @@
 """Finite, reason-bound source mutations and false-kill controls for core custody."""
+import importlib.util
 import json
+import os
 from pathlib import Path
 import re
 import secrets
@@ -8,13 +10,15 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest import mock
 
 HERE = Path(__file__).resolve().parents[1]
 MARKER = 'CBZ_CUSTODY_TEST_RESULT '
 
 DRIVER = r'''
 import json, sys, unittest
-requested, nonce = sys.argv[1:]
+test_directory, requested, nonce = sys.argv[1:]
+sys.path.insert(0, test_directory)
 class Capture(unittest.TextTestResult):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -88,9 +92,12 @@ def _accepted_failure(result, test, nonce, reason):
 
 def _run_one(root, test):
     nonce = secrets.token_hex(16)
-    args = [sys.executable, '-B', '-S'] + (['-O'] if sys.flags.optimize else [])
-    args += ['-c', DRIVER, test, nonce]
-    result = subprocess.run(args, cwd=root / 'tests', text=True,
+    cache = root / ('fresh-pyc-' + nonce)
+    args = [sys.executable, '-I', '-B', '-S', '-X', 'pycache_prefix=' + str(cache)] + (['-O'] if sys.flags.optimize else [])
+    environment = {key: value for key, value in os.environ.items()
+                   if not key.startswith('PYTHON')}
+    args += ['-c', DRIVER, str(root / 'tests'), test, nonce]
+    result = subprocess.run(args, cwd=root / 'tests', env=environment, text=True,
                             stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=60)
     return result, nonce
 
@@ -141,6 +148,42 @@ class CustodyMutationTests(unittest.TestCase):
         fake = subprocess.CompletedProcess([], 2, MARKER + json.dumps(data))
         self.assertFalse(_accepted_failure(fake, test, nonce, 'intended bypass'))
 
+    def test_grader_ignores_poisoned_selected_test_cache(self):
+        from importlib._bootstrap_external import _code_to_timestamp_pyc
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td) / 'formal'
+            tests = root / 'tests'
+            tests.mkdir(parents=True)
+            path = tests / 'test_probe.py'
+            path.write_text('import unittest\nclass Probe(unittest.TestCase):\n'
+                            '    def test_positive(self): self.assertEqual(6 * 7, 42)\n')
+            info = path.stat()
+            poison = compile("raise RuntimeError('POISONED_TEST_CACHE')\n", str(path), 'exec')
+            cache = Path(importlib.util.cache_from_source(str(path)))
+            cache.parent.mkdir(parents=True)
+            cache.write_bytes(_code_to_timestamp_pyc(poison, int(info.st_mtime), info.st_size))
+            selected = 'test_probe.Probe.test_positive'
+            result, nonce = _run_one(root, selected)
+            self.assertTrue(_accepted_baseline(result, selected, nonce),
+                            'POISONED_TEST_CACHE_NOT_ISOLATED: ' + result.stdout)
+
+    def test_grader_ignores_pythonpath_and_pythoncacheprefix(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td) / 'formal'
+            tests = root / 'tests'
+            tests.mkdir(parents=True)
+            (tests / 'test_probe.py').write_text('import unittest\nclass Probe(unittest.TestCase):\n'
+                '    def test_positive(self): self.assertEqual(6 * 7, 42)\n')
+            poison = Path(td) / 'untrusted'
+            poison.mkdir()
+            (poison / 'unittest.py').write_text("raise RuntimeError('POISONED_UNITTEST')\n")
+            with mock.patch.dict(os.environ, {'PYTHONPATH': str(poison),
+                                              'PYTHONPYCACHEPREFIX': str(poison)}):
+                selected = 'test_probe.Probe.test_positive'
+                result, nonce = _run_one(root, selected)
+            self.assertTrue(_accepted_baseline(result, selected, nonce),
+                            'PYTHONPATH_NOT_ISOLATED: ' + result.stdout)
+
     def test_grader_detects_its_guard_source_mutants(self):
         source = Path(__file__).read_text()
         prefix, separator, suffix = source.partition('class CustodyMutationTests')
@@ -167,16 +210,46 @@ class CustodyMutationTests(unittest.TestCase):
         for label, before, after in mutations:
             with self.subTest(mutant=label), tempfile.TemporaryDirectory() as td:
                 self.assertEqual(prefix.count(before), 1, 'grader mutation site: ' + label)
-                path = Path(td) / 'test_mutant.py'
+                root = Path(td) / 'formal'
+                (root / 'tests').mkdir(parents=True)
+                path = root / 'tests' / 'test_mutant.py'
                 path.write_text(prefix.replace(before, after, 1) + separator + suffix)
-                args = [sys.executable, '-B', '-S'] + (['-O'] if sys.flags.optimize else [])
-                args += ['-m', 'unittest', '-v', 'test_mutant.CustodyMutationTests.test_grader_refuses_false_kills']
-                result = subprocess.run(args, cwd=td, text=True, stdout=subprocess.PIPE,
-                                        stderr=subprocess.STDOUT, timeout=60)
+                selected = 'test_mutant.CustodyMutationTests.test_grader_refuses_false_kills'
+                result, nonce = _run_one(root, selected)
                 self.assertEqual(result.returncode, 1, 'grader mutant exit must equal 1: ' + label)
-                self.assertIn('test_grader_refuses_false_kills', result.stdout)
-                self.assertIn('True is not false', result.stdout)
-                self.assertIn('FAILED (failures=1)', result.stdout)
+                self.assertTrue(_accepted_failure(result, selected, nonce, 'True is not false'),
+                                'wrong grader mutant failure: ' + label + '\n' + result.stdout)
+
+    def test_grader_detects_import_isolation_source_mutants(self):
+        source = Path(__file__).read_text()
+        prefix, separator, suffix = source.partition('class CustodyMutationTests')
+        self.assertTrue(separator)
+        clean_args = "args = [sys.executable, '-I', '-B', '-S', '-X', 'pycache_prefix=' + str(cache)]"
+        without_cache = "args = [sys.executable, '-I', '-B', '-S']"
+        clean_environment = ("environment = {key: value for key, value in os.environ.items()\n"
+                             "                   if not key.startswith('PYTHON')}")
+        cases = [
+            ('poisoned-selected-cache', clean_args, without_cache,
+             'test_grader_ignores_poisoned_selected_test_cache',
+             'POISONED_TEST_CACHE_NOT_ISOLATED'),
+            ('poisoned-pythonpath', clean_args + " + (['-O'] if sys.flags.optimize else [])\n    " + clean_environment,
+             "args = [sys.executable, '-B', '-S', '-X', 'pycache_prefix=' + str(cache)]"
+             " + (['-O'] if sys.flags.optimize else [])\n    environment = dict(os.environ)",
+             'test_grader_ignores_pythonpath_and_pythoncacheprefix',
+             'PYTHONPATH_NOT_ISOLATED'),
+        ]
+        for label, before, after, test, marker in cases:
+            with self.subTest(mutant=label), tempfile.TemporaryDirectory() as td:
+                self.assertEqual(prefix.count(before), 1, 'import mutation site: ' + label)
+                root = Path(td) / 'formal'
+                (root / 'tests').mkdir(parents=True)
+                path = root / 'tests' / 'test_mutant.py'
+                path.write_text(prefix.replace(before, after, 1) + separator + suffix)
+                selected = 'test_mutant.CustodyMutationTests.' + test
+                result, nonce = _run_one(root, selected)
+                self.assertEqual(result.returncode, 1, 'import mutant exit must equal 1: ' + label)
+                self.assertTrue(_accepted_failure(result, selected, nonce, marker),
+                                'wrong import mutant failure: ' + label + '\n' + result.stdout)
 
     def test_all_declared_source_mutants_are_detected_for_their_reason(self):
         source = (HERE / 'gate.py').read_text()
@@ -296,8 +369,28 @@ class CustodyMutationTests(unittest.TestCase):
              "part.is_dir()",
              'test_source_custody.SourceCustodyTests.test_dependency_refuses_symlinked_lake_ancestor',
              'ValueError not raised'),
+            ('lake-evidence-directory-symlink',
+             "require(not lake.is_symlink(), 'symlink evidence or build directory')",
+             "require(True, 'symlink evidence or build directory')",
+             'test_source_custody.SourceCustodyTests.test_execute_refuses_symlinked_lake_before_creating_evidence',
+             'ValueError not raised'),
+            ('evidence-directory-symlink',
+             "require(not out.is_symlink(), 'symlink evidence or build directory')",
+             "require(True, 'symlink evidence or build directory')",
+             'test_source_custody.SourceCustodyTests.test_execute_refuses_symlinked_evidence_directory',
+             'ValueError not raised'),
+            ('evidence-member-symlink',
+             "not member.is_symlink() and member.is_file()",
+             "member.is_file()",
+             'test_source_custody.SourceCustodyTests.test_execute_refuses_symlinked_existing_evidence_member',
+             'ValueError not raised'),
+            ('cli-evidence-path',
+             "(_safe_evidence_path(Path(ROOT)) / 'receipt.json').unlink(missing_ok=True)",
+             "(Path(ROOT) / '.lake/formal-evidence/receipt.json').unlink(missing_ok=True)",
+             'test_source_custody.SourceCustodyTests.test_cli_refuses_symlinked_evidence_before_receipt_removal',
+             'EVIDENCE_SENTINEL_REMOVED'),
         ]
-        self.assertEqual(len(cases), 23, 'declared finite mutation set changed')
+        self.assertEqual(len(cases), 27, 'declared finite mutation set changed')
         results = []
         for label, before, after, test, reason in cases:
             with self.subTest(mutant=label), tempfile.TemporaryDirectory() as td:
@@ -319,7 +412,7 @@ class CustodyMutationTests(unittest.TestCase):
                                 'intended assertion observation missing: ' + label + '\n' + result.stdout)
                 results.append({'id': label, 'test': test, 'reason': reason, 'exit': result.returncode})
         print('CUSTODY_SOURCE_MUTATIONS ' + json.dumps({
-            'threshold': '23/23 (100% finite declared set)',
+            'threshold': '27/27 (100% finite declared set)',
             'optimized_children': bool(sys.flags.optimize), 'results': results}, sort_keys=True))
 
 

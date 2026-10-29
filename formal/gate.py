@@ -313,12 +313,24 @@ def source_check():
     return m, sha(raw + b'\0RF312-OVERLAY\0' + _overlay_bytes())
 
 
+def _safe_evidence_path(root):
+    lake = Path(root) / '.lake'
+    out = lake / 'formal-evidence'
+    require(not lake.is_symlink(), 'symlink evidence or build directory')
+    require(not out.is_symlink(), 'symlink evidence or build directory')
+    require(not (lake / 'build').is_symlink(), 'symlink evidence or build directory')
+    if out.exists():
+        require(out.is_dir(), 'nonregular evidence directory')
+        for member in out.iterdir():
+            require(not member.is_symlink() and member.is_file(),
+                    'symlink or nonregular evidence member')
+    return out
+
+
 def execute(m, digest):
     root = _sync_root()
-    out = root / '.lake' / 'formal-evidence'
+    out = _safe_evidence_path(root)
     out.mkdir(parents=True, exist_ok=True)
-    require(not (root / '.lake').is_symlink() and not (root / '.lake/build').is_symlink(),
-            'symlink build directory')
     # A refused attempt must never leave a stale success-shaped receipt.
     (out / 'receipt.json').unlink(missing_ok=True)
     # Keep test monkeypatches visible to the reviewed helper execution.
@@ -368,7 +380,7 @@ def main():
     args = p.parse_args()
     try:
         if args.execute:
-            (Path(ROOT) / '.lake/formal-evidence/receipt.json').unlink(missing_ok=True)
+            (_safe_evidence_path(Path(ROOT)) / 'receipt.json').unlink(missing_ok=True)
         m, digest = source_check()
         if args.alignment:
             check_alignment(load_json(args.alignment.read_text()), digest,
