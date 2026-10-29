@@ -130,6 +130,30 @@ class CompiledObjectCustodyTests(unittest.TestCase):
             self.assertFalse(snapshot["root_presence"][".lake/packages/Unused/.lake/build"])
             self.assertTrue(snapshot["root_presence"][".lake/build"])
 
+    def test_symlinked_build_root_is_rejected(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            package=Path(temporary)/"package"
+            outside=Path(temporary)/"outside"
+            package.joinpath(".lake").mkdir(parents=True)
+            outside.mkdir()
+            (outside/"hidden.olean").write_bytes(b"object")
+            package.joinpath(".lake","build").symlink_to(outside,target_is_directory=True)
+            with self.assertRaisesRegex(ValueError,"symlink"):
+                subject.object_snapshot(package,[])
+
+    def test_symlinked_nested_directory_is_rejected(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            package=Path(temporary)/"package"
+            outside=Path(temporary)/"outside"
+            build=package/".lake/build/lib/lean"
+            build.mkdir(parents=True)
+            outside.mkdir()
+            (build/"Owned.olean").write_bytes(b"owned")
+            (outside/"hidden.olean").write_bytes(b"hidden")
+            (build/"Shadow").symlink_to(outside,target_is_directory=True)
+            with self.assertRaisesRegex(ValueError,"symlink"):
+                subject.object_snapshot(package,[])
+
     def test_dependency_object_root_appearance_is_rejected(self):
         with tempfile.TemporaryDirectory() as temporary:
             package=Path(temporary)
@@ -194,23 +218,47 @@ class RegisteredDomainTests(unittest.TestCase):
         self.root=Path(self.temporary.name)
         self.production=["Production"+str(i) for i in range(67)]
         self.support=["Support"+str(i) for i in range(25)]
-        self.plan={"production":self.production,"support":self.support,"schema":"cbz-source514-exact-domain-v1","source_commit":subject.SOURCE_COMMIT}
+        self.elder=["SuperlevelBar","ElderClearance","ReusedCompactFrontier","ClosedSuperlevel","OrdinaryH0","ElderInterval","ElderBridge"]
+        self.plan={"production":self.production,"support":self.support,"elder":self.elder,"schema":"cbz-source514-exact-domain-v1","source_commit":subject.SOURCE_COMMIT}
         (self.root/"inputs").mkdir()
         for name in self.production:
             (self.root/(name+".lean")).write_text("-- finite source fixture\n")
         for name in self.support:
             (self.root/"inputs"/(name+".lean")).write_text("-- finite input fixture\n")
+        (self.root/"inputs"/"elder").mkdir()
+        for name in self.elder:
+            (self.root/"inputs"/"elder"/(name+".lean")).write_text("-- consumed elder input fixture\n")
         for name in ["lake-manifest.json","lean-toolchain"]:
             (self.root/name).write_text("finite configuration fixture\n")
         self.write_configuration()
 
     def write_configuration(self):
-        (self.root/"lakefile.toml").write_text("defaultTargets = "+json.dumps(self.production)+"\n[[lean_lib]]\nname = \"SourceDerivativeInputs\"\nroots = "+json.dumps(self.support)+"\n")
+        (self.root/"lakefile.toml").write_text("defaultTargets = "+json.dumps(self.production)+"\n[[lean_lib]]\nname = \"SourceDerivativeInputs\"\nroots = "+json.dumps(self.support)+"\n[[lean_lib]]\nname = \"SourceElderInputs\"\nsrcDir = \"inputs/elder\"\nroots = "+json.dumps(self.elder)+"\n")
 
     def test_complete_registered_domain(self):
         modules,sources=subject.checked_domain(self.root,self.plan)
-        self.assertEqual(len(modules),92)
-        self.assertEqual(len(sources),95)
+        self.assertEqual(len(modules),99)
+        self.assertEqual(len(set(modules)),99)
+        self.assertEqual(len(sources),102)
+        for name in self.elder:
+            self.assertIn("inputs/elder/"+name+".lean",sources)
+
+    def test_omitted_registered_elder_root_rejected(self):
+        plan = dict(self.plan, elder=self.elder[:-1])
+        with self.assertRaisesRegex(ValueError, "domain differs"):
+            subject.checked_domain(self.root, plan)
+
+    def test_missing_imported_elder_source_rejected(self):
+        (self.root/(self.production[0]+".lean")).write_text("import "+self.elder[-1]+"\n")
+        (self.root/"inputs"/"elder"/(self.elder[-1]+".lean")).unlink()
+        with self.assertRaisesRegex(ValueError,"registered source is absent"):
+            subject.checked_domain(self.root,self.plan)
+
+    def test_plan_and_configuration_cannot_jointly_omit_elder_root(self):
+        self.elder.pop()
+        self.write_configuration()
+        with self.assertRaisesRegex(ValueError,"expected exactly"):
+            subject.checked_domain(self.root,self.plan)
 
     def test_reordered_domain_rejected(self):
         plan=dict(self.plan,production=self.production[::-1])
