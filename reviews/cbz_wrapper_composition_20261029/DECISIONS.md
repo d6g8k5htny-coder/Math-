@@ -19,3 +19,5 @@
 [2026-10-29 21:34:44 UTC] [phase3] [layer B] Add a poisoned PYTHONPATH unittest control and exact environment-scrub mutation; enable the same independent outer-entry workflow on its isolated integration branch. Preserve all prior controls. Execution pending. Reversible:yes. Evidence:cbz/verification/lm006_outer_cache/test_entry.py.
 
 [2026-10-29 21:35:30 UTC] [phase3] [layer B] Require the PYTHONPATH source mutant's exact exit 1 in addition to its intended exception marker; other crashes cannot score as the observed control. Reversible:yes. Evidence:cbz/verification/lm006_outer_cache/test_entry.py. Execution pending.
+
+[2026-10-29 21:36:02 UTC] [phase2] [layer B] Scope the whitespace attribute to retained raw LM006 log excerpts, preserving exact timestamped bytes while keeping source formatting checks unchanged. Reversible:yes. Evidence:cbz/evidence/lm006-bytecode-20261029/.gitattributes.
