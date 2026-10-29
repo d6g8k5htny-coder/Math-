@@ -1,0 +1,161 @@
+from __future__ import annotations
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+import tempfile
+import unittest
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
+import cbz_source514_hosted as subject
+
+class SourceBindingTests(unittest.TestCase):
+    def setUp(self):
+        self.temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temporary.cleanup)
+        self.root = Path(self.temporary.name)
+        subprocess.run(["git","init","-q",str(self.root)],check=True)
+        subprocess.run(["git","-C",str(self.root),"config","user.email","fixture@example.invalid"],check=True)
+        subprocess.run(["git","-C",str(self.root),"config","user.name","Finite fixture"],check=True)
+        (self.root/"Proof.lean").write_text("theorem exactFixture : True := True.intro\n")
+        subprocess.run(["git","-C",str(self.root),"add","Proof.lean"],check=True)
+        subprocess.run(["git","-C",str(self.root),"commit","-qm","finite fixture"],check=True)
+        self.previous_head=subject.git(self.root,"rev-parse","HEAD").decode().strip()
+        (self.root/"Metadata.txt").write_text("second commit; unchanged proof blob\n")
+        subprocess.run(["git","-C",str(self.root),"add","Metadata.txt"],check=True)
+        subprocess.run(["git","-C",str(self.root),"commit","-qm","metadata successor"],check=True)
+        self.head=subject.git(self.root,"rev-parse","HEAD").decode().strip()
+
+    def test_exact_source_is_bound(self):
+        result=subject.bind(self.root,self.head,["Proof.lean"])
+        self.assertEqual(result["commit"],self.head)
+        self.assertEqual(result["files"]["Proof.lean"]["sha256"],subject.sha((self.root/"Proof.lean").read_bytes()))
+
+    def test_wrong_head_rejected(self):
+        with self.assertRaisesRegex(ValueError,"source HEAD differs"):
+            subject.bind(self.root,self.previous_head,["Proof.lean"])
+
+    def test_dirty_bytes_rejected_even_assume_unchanged(self):
+        subprocess.run(["git","-C",str(self.root),"update-index","--assume-unchanged","Proof.lean"],check=True)
+        (self.root/"Proof.lean").write_text("theorem changedFixture : True := True.intro\n")
+        with self.assertRaisesRegex(ValueError,"source bytes differ"):
+            subject.bind(self.root,self.head,["Proof.lean"])
+
+    def test_unsafe_relative_path_rejected(self):
+        with self.assertRaisesRegex(ValueError,"unsafe bound source path"):
+            subject.bind(self.root,self.head,["../Proof.lean"])
+
+    def test_symlink_rejected(self):
+        (self.root/"Link.lean").symlink_to("Proof.lean")
+        with self.assertRaisesRegex(ValueError,"symlinked bound source"):
+            subject.bind(self.root,self.head,["Link.lean"])
+
+class LoadedCodeTests(unittest.TestCase):
+    def test_changed_loaded_bytes_rejected(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            path=Path(temporary)/"loaded.py"
+            path.write_text("value = 7\n")
+            with self.assertRaisesRegex(ValueError,"loaded code differs"):
+                subject.load("finite_loaded",path,subject.sha(b"value = 8\n"))
+    def test_immutable_loaded_bytes_are_the_recorded_identity(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            path=Path(temporary)/"loaded.py"
+            data=b"value = 7\n"
+            path.write_bytes(data)
+            module=subject.load("finite_loaded",path,subject.sha(data))
+            self.assertEqual(module.value,7)
+            self.assertEqual(module.__source_sha256__,subject.sha(data))
+
+class RegisteredDomainTests(unittest.TestCase):
+    def setUp(self):
+        self.temporary=tempfile.TemporaryDirectory()
+        self.addCleanup(self.temporary.cleanup)
+        self.root=Path(self.temporary.name)
+        self.production=["Production"+str(i) for i in range(67)]
+        self.support=["Support"+str(i) for i in range(25)]
+        self.plan={"production":self.production,"support":self.support,"schema":"cbz-source514-exact-domain-v1","source_commit":subject.SOURCE_COMMIT}
+        (self.root/"inputs").mkdir()
+        for name in self.production:
+            (self.root/(name+".lean")).write_text("-- finite source fixture\n")
+        for name in self.support:
+            (self.root/"inputs"/(name+".lean")).write_text("-- finite input fixture\n")
+        for name in ["lake-manifest.json","lean-toolchain"]:
+            (self.root/name).write_text("finite configuration fixture\n")
+        self.write_configuration()
+
+    def write_configuration(self):
+        (self.root/"lakefile.toml").write_text("defaultTargets = "+json.dumps(self.production)+"\n[[lean_lib]]\nname = \"SourceDerivativeInputs\"\nroots = "+json.dumps(self.support)+"\n")
+
+    def test_complete_registered_domain(self):
+        modules,sources=subject.checked_domain(self.root,self.plan)
+        self.assertEqual(len(modules),92)
+        self.assertEqual(len(sources),95)
+
+    def test_reordered_domain_rejected(self):
+        plan=dict(self.plan,production=self.production[::-1])
+        with self.assertRaisesRegex(ValueError,"domain differs"):
+            subject.checked_domain(self.root,plan)
+
+    def test_duplicate_modules_rejected(self):
+        self.production[-1]=self.support[0]
+        self.write_configuration()
+        with self.assertRaisesRegex(ValueError,"unique support modules"):
+            subject.checked_domain(self.root,self.plan)
+
+    def test_missing_source_rejected(self):
+        (self.root/(self.production[0]+".lean")).unlink()
+        with self.assertRaisesRegex(ValueError,"registered source is absent"):
+            subject.checked_domain(self.root,self.plan)
+
+class IndependentCensusTests(unittest.TestCase):
+    def row(self,module="Fixture",name="Fixture.witness"):
+        return dict(module=module,name=name,kind="theorem",type="True",user_written=True,user_name=name)
+    def stream(self,rows):
+        return "".join("SOURCE514_CENSUS "+json.dumps(r)+"\n" for r in rows)
+    def test_exact_census(self):
+        expected,rows=subject.parse_census(self.stream([self.row()]),["Fixture"])
+        self.assertEqual(expected,{"module_counts":{"Fixture":1},"module_declarations":{"Fixture":["Fixture.witness"]}})
+        self.assertEqual(len(rows),1)
+    def test_duplicate_names_rejected(self):
+        with self.assertRaisesRegex(ValueError,"duplicate census"):
+            subject.parse_census(self.stream([self.row(),self.row()]),["Fixture"])
+    def test_omitted_registered_module_rejected(self):
+        with self.assertRaisesRegex(ValueError,"omitted a registered"):
+            subject.parse_census(self.stream([self.row()]),["Fixture","Other"])
+    def test_unrecognized_output_rejected(self):
+        with self.assertRaisesRegex(ValueError,"unrecognized"):
+            subject.parse_census("PASS\n",["Fixture"])
+    def test_empty_literal_type_rejected(self):
+        row=self.row();row["type"]=""
+        with self.assertRaisesRegex(ValueError,"literal type"):
+            subject.parse_census(self.stream([row]),["Fixture"])
+    def test_non_boolean_origin_rejected(self):
+        row=self.row();row["user_written"]=1
+        with self.assertRaisesRegex(ValueError,"literal type/origin"):
+            subject.parse_census(self.stream([row]),["Fixture"])
+    def test_unknown_fields_rejected(self):
+        row=self.row();row["ignored"]={}
+        with self.assertRaisesRegex(ValueError,"record fields"):
+            subject.parse_census(self.stream([row]),["Fixture"])
+    def test_duplicate_json_keys_rejected(self):
+        line=self.stream([self.row()]).replace('"name": "Fixture.witness"','"name": "other", "name": "Fixture.witness"')
+        with self.assertRaisesRegex(ValueError,"duplicate census JSON"):
+            subject.parse_census(line,["Fixture"])
+    def test_unsupported_kind_rejected(self):
+        row=self.row();row["kind"]="ignored"
+        with self.assertRaisesRegex(ValueError,"unsupported census"):
+            subject.parse_census(self.stream([row]),["Fixture"])
+    def test_empty_user_name_rejected(self):
+        row=self.row();row["user_name"]=""
+        with self.assertRaisesRegex(ValueError,"user name"):
+            subject.parse_census(self.stream([row]),["Fixture"])
+    def test_generated_census_uses_exact_table_and_all_modules(self):
+        program=subject.census_program(["Fixture","Other"])
+        self.assertIn("data.constNames ++ data.extraConstNames",program)
+        self.assertIn("#["+chr(96)+"Fixture, "+chr(96)+"Other]",program)
+        self.assertIn("missing independent census module",program)
+        self.assertNotIn("MODLITERAL",program)
+
+if __name__=="__main__":
+    unittest.main()
