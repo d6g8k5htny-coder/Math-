@@ -54,3 +54,25 @@ G6/G11 evidence; none is a complete federation Layer A auditor.
 Historical owner onboarding references remain available: [15 October mandate](https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md)
 and [standing delegation](https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md).
 Providing these links does not establish another recipient's acknowledgement.
+
+
+## Preserved concurrent transport contribution44c39bd
+
+
+
+Decision, 2026-10-29T19:36Z, Phase2/3, LayerB/C: move the aggregate
+workflow console to RUNNER_TEMP and upload it separately. The previous hosted
+receipt hashed authoritative-gate.log before printing its own final receipt
+through tee into that same file; its preserved artifact matches21 of22 hashes.
+The kernel job succeeded, but that transport is not an integrity pass. The
+repair preserves every gate-owned log and every existing test. Four actual-shell
+transport controls execute synthetic output, replay the old failure, preserve a
+nonzero gate exit and check both artifact paths. They award no kernel result.
+Their source is tests/test_workflow_receipt_transport.py; hosted execution of
+this successor remains pending until observed. Maintenance owner none.
+
+The retained gaussian_parent_positive fixture uses Measure.map_dirac' under
+the pinned Mathlib, matching its already retained successor. Only the stale
+API spelling changes; hypotheses, goals and production Lean bytes are unchanged.
+The old compiler failure and all historical control evidence remain retained.
+The decision ledger is DECISIONS.md. Both edits are reversible.

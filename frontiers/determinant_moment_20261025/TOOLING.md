@@ -52,8 +52,8 @@ All new retained output uses unique run children; no earlier failure is erased.
 
 The native workflow runs shared/component controls, adapter/Git mutations, pinned
 Lean setup, then fresh build/root kernel replay/all-constant closure/seven actual
-controls and final source identity. Complete console is authoritative-gate.console.txt,
-outside receipt-owned process*.log; all remain uploaded. Actual source-current
+controls and final source identity. Complete console is retained at RUNNER_TEMP/determinant-authoritative-gate.log,
+outside receipt-owned process*.log, and uploaded as a separate artifact. Actual source-current
 outcomes and every file digest must be observed before admission. Historical
 run40933537063 succeeded mathematically within its exact formal scope but has
 the separately retained Git-label/console producer boundaries; it is not silently
@@ -62,3 +62,18 @@ promoted to corrected-source tool qualification or scientific acceptance.
 These tools provide only their stated G0/G2/G4/G6/G11 domain. The current
 quarantine is explicit in QUARANTINE.json. Canonical broad-auditor, pins and
 cold-start handoff work remains disjoint; no full federation PASS is claimed.
+
+
+## Preserved concurrent transport contribution44c39bd
+
+
+
+Transport regression: tests/test_workflow_receipt_transport.py executes the
+workflow's literal Bash pipeline against synthetic log/receipt output. Run
+`python -B -S -m unittest discover -s frontiers/determinant_moment_20261025/tests -p test_workflow_receipt_transport.py -v`
+from the repository root, and repeat with -O. It includes a historical-placement
+mutation and gate-failure propagation. It is a bounded transport test, not a
+Lean-result generator. The existing workflow runs these controls in both modes
+before the actual Lean gate and uploads the aggregate console separately from
+receipt-hashed logs. Source is manifest-bound; maintenance owner none. Current
+successor execution is pending at publication; use the actual run/artifact.

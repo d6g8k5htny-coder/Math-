@@ -52,3 +52,39 @@ federation integration record. Scientific effect NONE; no CBZ-0 declaration.
   metadata assertions to retain historical A2 evidence and current A7/A8
   pending status. No original78 test body changed. Reversible: yes. Evidence:
   outer contribution HANDOFF.json, retained survivor/lifecycle/invalid results.
+
+
+## Preserved concurrent native531 ledger at44c39bd
+
+# Determinant component decision ledger
+
+[2026-10-29T19:36Z] [Phase2/3] [Layer B/C] Move aggregate workflow console to
+RUNNER_TEMP, preserve it in a separate artifact and add actual-shell regression
+controls. Reason: actual hosted artifact12924995112 matched21/22 receipt log
+hashes; the self-hashed console changed after receipt creation. Source repair
+preserves all logs/tests and mathematical source. Reversible. Evidence: prior
+job123657962283/run40933537063 and preserved original artifact/receipt; new
+source-current hosted evidence is pending and receives no inferred green.
+
+[2026-10-29T19:36Z] [Phase2] [Layer C] Correct only Measure.map_dirac to
+Measure.map_dirac' in the retained positive fixture and update its exact hash.
+Reason: pinned Mathlib's current API; bytes then match the existing retained
+positive successor. No goals, hypotheses, bounds or production proofs changed.
+Reversible. Evidence: retained original failures and successful successor logs.
+
+[2026-10-29T19:36Z] [Phase2/3] [Layer C] Local execution tools became
+unresponsive after successful source inspection; publish a source-only atomic
+Git successor through the available GitHub connector and obtain actual checks
+from hosted execution. No pending local test/patch is credited as completed.
+This is a verification route change, not a relaxation of any mathematical gate.
+
+[2026-10-29T19:41Z] [Phase3] [Layer C] Hosted run40942140520/job123687993621
+executed175 component tests normally:174 passed and one transport assertion
+failed because the console correctly contains JSON with synthetic_transport_fixture,
+not an uppercase SYNTHETIC string. Preserve the failed public run. Correct the
+test to compare the full parsed console JSON with the receipt, a stronger exact
+transport check. No production workflow, gate, bound or proof is altered by
+this test correction. Optimized mode and actual gate were not reached in that run.
+Reversible. Fresh execution remains pending.
+
+[2026-10-29T19:52:14.376457+00:00] [Phase2/3] [Layer B/C] Fresh-head guard detected concurrent531 advancement; preserve its four transport controls, external-console artifact and exact positive-fixture Mathlib API correction in the disjoint endpoint branch. Both completed contributions and all earlier failed/surviving evidence remain recoverable. Adapt only the deterministic transport fixture/outer mutation destination to the same external-console layout; retain all fourteen production Lean files/66targets/78original bodies and ff8core. Current composed tests/native execution must be observed afresh; no acceptance or CBZ is inferred. Reversible. Evidence: native44c39bd, checkpointbbe782d9, exact peer blob readback and current command receipts.

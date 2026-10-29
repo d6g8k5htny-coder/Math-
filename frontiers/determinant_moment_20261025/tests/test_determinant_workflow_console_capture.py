@@ -15,11 +15,13 @@ OUTPUT = PACKAGE / '.lake/formal-evidence'
 START = '      - name: Fresh build, kernel recheck, complete inventory and seven real controls\n'
 END = '      - name: Tracked tree unchanged\n'
 CAPTURE = str(OUTPUT / 'authoritative-gate')
+EXTERNAL_CAPTURE = '"$RUNNER_TEMP/determinant-authoritative-gate.log"'
 
 SYNTHETIC_GATE = r'''
 """SYNTHETIC file-custody fixture: no Lean, theorem or native gate execution."""
 import hashlib
 import json
+import os
 from pathlib import Path
 import time
 
@@ -27,8 +29,9 @@ output = Path(__file__).resolve().parent / '.lake/formal-evidence'
 # tee and Python are concurrent. Wait only for tee to open its known capture
 # file, so the old .log fixture is deterministically included in glob('*.log').
 deadline = time.monotonic() + 5
-while not any((output / name).exists() for name in
-              ('authoritative-gate.log', 'authoritative-gate.console.txt')):
+while not any(path.exists() for path in
+              (output / 'authoritative-gate.log', output / 'authoritative-gate.console.txt',
+               Path(os.environ['RUNNER_TEMP']) / 'determinant-authoritative-gate.log')):
     if time.monotonic() >= deadline:
         raise SystemExit('SYNTHETIC fixture capture file was not opened')
     time.sleep(0.001)
@@ -55,7 +58,7 @@ def final_gate_block():
     prefix = 'python -B -S ' + str(PACKAGE / 'gate.py') + ' --execute 2>&1 | tee '
     if len(lines) != 2 or lines[0] != 'set -euo pipefail' or not lines[1].startswith(prefix):
         raise ValueError('unsupported determinant gate block layout')
-    if lines[1][len(prefix):] not in (CAPTURE + '.log', CAPTURE + '.console.txt'):
+    if lines[1][len(prefix):] not in (CAPTURE + '.log', CAPTURE + '.console.txt', EXTERNAL_CAPTURE):
         raise ValueError('unsupported determinant console capture path')
     return block
 
@@ -65,12 +68,13 @@ class DeterminantConsoleCaptureTests(unittest.TestCase):
         temporary = tempfile.TemporaryDirectory(prefix='determinant-console-capture-')
         self.addCleanup(temporary.cleanup)
         self.fixture = Path(temporary.name)
+        (self.fixture / 'runner-temp').mkdir()
         (self.fixture / OUTPUT).mkdir(parents=True)
         (self.fixture / PACKAGE / 'gate.py').write_text(SYNTHETIC_GATE)
 
     def run_synthetic_gate(self, block):
         result = subprocess.run(['bash', '-c', block], cwd=self.fixture,
-            env=dict(os.environ, PYTHONDONTWRITEBYTECODE='1'),
+            env=dict(os.environ, PYTHONDONTWRITEBYTECODE='1', RUNNER_TEMP=str(self.fixture / 'runner-temp')),
             capture_output=True, text=True, timeout=15)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         output = self.fixture / OUTPUT
@@ -93,10 +97,13 @@ class DeterminantConsoleCaptureTests(unittest.TestCase):
         self.assertEqual(receipt['scope'], 'SYNTHETIC_CONSOLE_CAPTURE_ONLY_NO_LEAN')
         self.assertIn('process.log', receipt['logs'])
         self.assertEqual(mismatches, {}, 'receipt hashes must match final retained files: ' + repr(mismatches))
+        external = self.fixture / 'runner-temp/determinant-authoritative-gate.log'
+        self.assertTrue(external.is_file(), 'separate current console must be retained')
+        self.assertEqual(json.loads(external.read_text()), receipt)
 
     def test_old_log_pipeline_is_detected_as_a_growing_log_hash_mismatch(self):
         block = final_gate_block()
-        old = block.replace(CAPTURE + '.console.txt', CAPTURE + '.log')
+        old = block.replace(EXTERNAL_CAPTURE, CAPTURE + '.log').replace(CAPTURE + '.console.txt', CAPTURE + '.log')
         receipt, mismatches = self.run_synthetic_gate(old)
         self.assertEqual(set(mismatches), {'authoritative-gate.log'})
         self.assertEqual(receipt['logs']['process.log'], self.observation['actual_sha256']['process.log'])

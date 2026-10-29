@@ -22,8 +22,8 @@ helper authenticates the complete committed component files map, shared source
 helper, raw Git blobs/index and owner-execute mode before mutable helper code,
 before Lean and at the final endpoint. Hidden HEAD/index sources are inventoried
 alongside live sources, including expanded sparse indexes. Receipt commit/tree
-come from the same qualified state. Console capture now uses .console.txt outside
-the receipt-owned process*.log set. These source changes need their own native
+come from the same qualified state. Console is retained from RUNNER_TEMP as a separate artifact, outside the
+receipt-owned process*.log set. These source changes need their own native
 execution; historical checked_commit values are never rebound.
 
 ## How to verify
@@ -85,3 +85,33 @@ scope; DECISIONS.md is append-only. Canonical federation integration remains
 Main#684/B-003. Keep Layer A: no placeholders/new unchecked axioms/float bounds,
 no weakened mathematical bounds or tests, mark vacuity, preserve failures, and
 claim only observed verification within each auditor's tested domain.
+
+
+## Preserved concurrent transport contribution44c39bd
+
+
+
+## Receipt transport repair checkpoint (2026-10-29)
+
+The prior hosted determinant job123657962283/run40933537063 succeeded on tested
+merge38127a2a1fc1672c13e9e150e119b8f21b8cc7a9 for source PR531/aafb9c9f.
+It reported157 declarations and58421 closure entries with the declared standard
+axioms and seven intended gate controls. The downloaded original artifact has
+one transport mismatch: authoritative-gate.log was changed by tee after its
+hash was recorded (21 of22 log hashes matched). Preserve that failure; do not
+call the old artifact integrity green.
+
+This successor moves the console outside the gate-owned directory, uploads it
+separately, adds four synthetic actual-shell controls and repairs the stale
+retained positive fixture's Measure.map_dirac' API spelling. Production Lean,
+all target statements, dependency revisions and mathematical bounds are unchanged.
+At this publication checkpoint, successor tests and fresh hosted execution are
+NOT_YET_OBSERVED. The new result must include the source-current receipt and a
+comparison of every recorded log hash with downloaded bytes. Historical kernel
+evidence does not establish the repaired transport's current execution.
+
+Observed first transport-successor run40942140520/job123687993621:175 normal
+component tests executed, with174 passes and one test-fixture assertion failure
+(uppercase marker expected from a JSON-only console). Optimized mode and Lean
+were not reached. The corrected test now compares the entire console JSON with
+the receipt. This public red run remains retained; it is not an integrity pass.

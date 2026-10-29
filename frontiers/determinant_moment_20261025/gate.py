@@ -278,6 +278,7 @@ def source_check(*, git_qualification=False, expected_manifest_sha256=None):
     required |= {'determinant_git_identity.py', 'tests/test_determinant_git_identity.py',
                  'tests/run_git_identity_mutations.py', 'tests/test_git_identity_mutation_runner.py',
                  'tests/test_gate_git_qualification.py', 'tests/test_determinant_workflow_console_capture.py',
+                 'tests/test_workflow_receipt_transport.py',
                  'tests/run_cbz_runner_mutations.py', 'tests/test_cbz_mutation_runner.py', 'DECISIONS.md'}
     require(required <= set(m['files']), 'unbound control or scope file')
     originals = {'originals/Algebra.lean.txt': '4c196820c4db8fafc288dd35642828ba577e3544d60aba7d1d6d24f14ad1e8ae', 'originals/ProbabilityCompanions.lean.txt': '4ace6600a476859982c8851ae9097c89b082d3c96291b3c8330bd4cc00bae65d'}

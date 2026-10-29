@@ -71,7 +71,8 @@ CASES = (
      "                   checked_commit=subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),  # MUTANT: unqualified late identity",
      ('test_determinant_execute.V2ExecutionTests.test_v2_execution_reaches_both_compiled_and_five_proof_controls',)),
     ('revert-console-capture-to-log', WORKFLOW,
-     'authoritative-gate.console.txt', 'authoritative-gate.log',
+     'tee "$RUNNER_TEMP/determinant-authoritative-gate.log"',
+     'tee frontiers/determinant_moment_20261025/.lake/formal-evidence/authoritative-gate.log',
      ('test_determinant_workflow_console_capture.DeterminantConsoleCaptureTests.test_actual_gate_pipeline_preserves_final_receipt_log_hashes',)),
 )
 
