@@ -4,6 +4,7 @@ import hashlib
 import importlib.util
 import io
 import json
+import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -178,6 +179,33 @@ class SourceCustodyTests(unittest.TestCase):
         self.assertEqual(self.git('status', '--porcelain'), '')
         with self.assertRaisesRegex(ValueError, 'committed source'):
             self.checked()
+
+    def test_foreign_git_environment_cannot_redirect_source_identity(self):
+        expected = self.git('rev-parse', 'HEAD')
+        with tempfile.TemporaryDirectory() as temporary:
+            foreign = Path(temporary) / 'foreign'
+            subprocess.check_call(['git', 'clone', '-q', str(self.repo), str(foreign)])
+            subprocess.check_call(['git', '-C', str(foreign), 'config', 'user.name', 'Foreign Fixture'])
+            subprocess.check_call(['git', '-C', str(foreign), 'config', 'user.email', 'foreign@example.invalid'])
+            (foreign / 'outside.txt').write_text('foreign head\\n')
+            subprocess.check_call(['git', '-C', str(foreign), 'add', 'outside.txt'])
+            subprocess.check_call(['git', '-C', str(foreign), 'commit', '-qm', 'foreign head'])
+            with mock.patch.dict(os.environ, {'GIT_DIR': str(foreign / '.git'), 'GIT_WORK_TREE': str(self.repo)}):
+                self.assertEqual(self.checked(), expected)
+
+    def test_replace_ref_cannot_redirect_committed_source(self):
+        expected = self.git('rev-parse', 'HEAD')
+        path = self.root / 'proof.lean'
+        path.write_bytes(path.read_bytes() + b'-- replacement tree\\n')
+        self.git('add', 'formal/proof.lean')
+        tree = self.git('write-tree')
+        replacement = self.git('commit-tree', tree, '-m', 'replacement commit')
+        self.git('reset', '--hard', '-q', expected)
+        self.git('replace', expected, replacement)
+        clean_env = dict(os.environ)
+        clean_env.pop('GIT_NO_REPLACE_OBJECTS', None)
+        with mock.patch.dict(os.environ, clean_env, clear=True):
+            self.assertEqual(self.checked(), expected)
 
     def test_commit_drift_is_refused(self):
         first = self.checked()
