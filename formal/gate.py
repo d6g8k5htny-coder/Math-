@@ -7,6 +7,7 @@ retains the later exact-runtime/dependency observation contract from current mai
 Scientific effect: NONE.
 """
 import argparse
+import contextlib
 import hashlib
 import importlib.util
 import json
@@ -91,8 +92,43 @@ def run(command, label, out, expect_success=True, cwd=None):
                        cwd=_sync_root() if cwd is None else cwd)
 
 
+_GIT_ENV_OVERRIDES = {
+    'GIT_CONFIG_NOSYSTEM': '1',
+    'GIT_CONFIG_GLOBAL': os.devnull,
+    'GIT_NO_REPLACE_OBJECTS': '1',
+    'GIT_TERMINAL_PROMPT': '0',
+    'GIT_OPTIONAL_LOCKS': '0',
+}
+_UNTRUSTED_LEAN_ENV = frozenset({'LEAN_PATH', 'LEAN_SRC_PATH', 'LEAN_SYSROOT'})
+
+
+def _sanitized_tool_environment():
+    environment = {key: value for key, value in os.environ.items()
+                   if not key.startswith('GIT_') and key not in _UNTRUSTED_LEAN_ENV}
+    environment.update(_GIT_ENV_OVERRIDES)
+    return environment
+
+
+@contextlib.contextmanager
+def _helper_execution_environment():
+    affected = {key for key in os.environ if key.startswith('GIT_') or key in _UNTRUSTED_LEAN_ENV}
+    affected.update(_GIT_ENV_OVERRIDES)
+    previous = {key: os.environ[key] for key in affected if key in os.environ}
+    for key in affected:
+        os.environ.pop(key, None)
+    os.environ.update(_GIT_ENV_OVERRIDES)
+    try:
+        yield
+    finally:
+        for key in list(os.environ):
+            if key.startswith('GIT_') or key in _UNTRUSTED_LEAN_ENV:
+                os.environ.pop(key, None)
+        os.environ.update(previous)
+
+
 def _git_bytes(repo, *args):
-    return subprocess.check_output(['git', '-C', str(repo), *args])
+    return subprocess.check_output(
+        ['git', '-C', str(repo), *args], env=_sanitized_tool_environment())
 
 
 def verify_committed_files(repo, head, paths=None, allow_symlinks=False):
@@ -200,10 +236,9 @@ def dependency_state(m):
     actual = {}
     for name in m['dependency_revisions']:
         repo = str(root / '.lake' / 'packages' / name)
-        actual[name] = subprocess.check_output(
-            ['git', '-C', repo, 'rev-parse', 'HEAD'], text=True).strip()
-        check_worktree_clean(name, subprocess.check_output(
-            ['git', '-C', repo, 'status', '--porcelain', '--untracked-files=normal'], text=True))
+        actual[name] = _git_bytes(repo, 'rev-parse', 'HEAD').decode('utf-8').strip()
+        check_worktree_clean(name, _git_bytes(
+            repo, 'status', '--porcelain', '--untracked-files=normal').decode('utf-8'))
     require(actual == m['dependency_revisions'], 'installed dependency HEAD differs from lock')
     for name, head in actual.items():
         repo = (root / '.lake' / 'packages' / name).resolve()
@@ -284,7 +319,8 @@ def execute(m, digest):
         ['lake', 'env', 'lean', '--version'], 'version-preflight', out))
     preflight = observation(preflight_version, dependency_state(m), digest)
     try:
-        receipt = _HELPER_EXECUTE(m, digest)
+        with _helper_execution_environment():
+            receipt = _HELPER_EXECUTE(m, digest)
         checked_source_commit(m, digest, checked_head)
         require(receipt.get('checked_commit') == checked_head, 'helper checked commit differs from execution')
         _, after = source_check()

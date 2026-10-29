@@ -1,0 +1,46 @@
+name: CBZ core isolated environment controls
+on:
+  push:
+    branches: [cbz/core-git-environment-fix-20261029]
+permissions:
+  contents: read
+jobs:
+  environment:
+    strategy:
+      matrix:
+        mode: [normal, optimized]
+      fail-fast: false
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.11.16'
+      - name: Run six real environment controls
+        shell: bash
+        working-directory: formal/tests
+        run: |
+          set +e
+          flags=()
+          if [ "${{ matrix.mode }}" = optimized ]; then flags=(-O); fi
+          python -B -S "${flags[@]}" -m unittest -v \
+            test_source_custody.SourceCustodyTests.test_foreign_git_environment_cannot_redirect_source_identity \
+            test_source_custody.SourceCustodyTests.test_execute_ignores_foreign_git_environment_in_helper \
+            test_source_custody.SourceCustodyTests.test_foreign_index_cannot_hide_staged_source \
+            test_source_custody.SourceCustodyTests.test_replace_ref_cannot_redirect_committed_source \
+            test_source_custody.SourceCustodyTests.test_dependency_ignores_foreign_git_environment \
+            test_source_custody.SourceCustodyTests.test_execute_strips_external_lean_search_paths > "$RUNNER_TEMP/environment-controls.log" 2>&1
+          result=$?
+          cat "$RUNNER_TEMP/environment-controls.log"
+          if [ "$result" -ne 0 ]; then exit "$result"; fi
+          grep -Eq '^Ran 6 tests in ' "$RUNNER_TEMP/environment-controls.log" || exit 1
+          grep -Fxq 'OK' "$RUNNER_TEMP/environment-controls.log" || exit 1
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: core-environment-controls-${{ matrix.mode }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/environment-controls.log
+          if-no-files-found: error

@@ -232,7 +232,7 @@ class CoreIdentityProtocolTests(unittest.TestCase):
         actual_tree = subprocess.check_output(
             ['git', '-C', str(self.root), 'rev-parse', 'HEAD:formal'],
             text=True).strip()
-        self.assertEqual(actual_tree, '0b49399700e6b6e2688ff3b2bb5c9652d21d5c59')
+        self.assertEqual(actual_tree, '06ec48c5964a75d89480f533e5f076ed51802d19')
         self.context = {'checked_commit': self.head}
         patch = mock.patch.dict('os.environ', {'GITHUB_ACTIONS': 'false'})
         patch.start()
@@ -249,7 +249,7 @@ class CoreIdentityProtocolTests(unittest.TestCase):
 
     def good_receipt(self):
         return {'checked_commit': self.head,
-                'manifest_sha256': '3daadd8c18b99d03c4bb54acedce66d1edf4afb987d59f1895a6c9ddc5c6e782',
+                'manifest_sha256': '298d6695d539e313083765226725370efebe0c7a916f494f5b8d47ce9482a6a2',
                 'formalization_status': 'kernel-checked'}
 
     def test_source_accepts_exact_reviewed_core_without_lean(self):

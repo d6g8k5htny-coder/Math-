@@ -1,0 +1,7 @@
+# Core environment candidate
+
+Prepared 2026-10-29 20:48:52 UTC. The source wrapper filters inherited Git redirection and replacement-object variables from Git observations and from helper execution, strips inherited Lean search paths during helper execution, and restores the caller's environment. This uses process-global environment changes and assumes no concurrent environment mutation. It retains the original ff8 helper and all mathematical sources.
+
+The focused workflow `.github/workflows/cbz-core-environment-controls.yml` runs six real fixture controls in normal and optimized Python modes, requires exactly six tests and a zero-skip OK result, and retains the original logs. Run it by pushing the candidate branch. It does not itself qualify kernel execution, whole-suite regression, the mutation grader, or immutable source throughout execution. The companion hashes are bound to the candidate's exact formal tree. The separate test-only #540 preserves the defect-stage source; its hosted result is pending. Owner: none. CBZ criteria served: 4, 6, 9, 11. Self-verification: pending actual hosted jobs.
+
+[2026-10-29 20:48:52 UTC] [phase3] [layer C] Prepare the environment-isolation candidate alongside the queued defect-stage tests to keep hosted verification moving. Retain all original tests and 13 original source mutants. The known abnormal-exit mutation-grader issue remains a separate open repair; no result is inferred. Reversible: yes.
