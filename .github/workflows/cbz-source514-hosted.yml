@@ -11,7 +11,7 @@ name: CBZ source514 frozen kernel qualification
 permissions:
   contents: read
 concurrency:
-  group: cbz-source514-${{ github.event.pull_request.number || github.run_id }}
+  group: cbz-source514-${{ github.sha }}
   cancel-in-progress: false
 jobs:
   source514-frozen-kernel:
