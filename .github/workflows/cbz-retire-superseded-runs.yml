@@ -100,3 +100,5 @@ jobs:
           name: cbz-superseded-runs-${{ github.run_id }}-${{ github.run_attempt }}
           path: cbz-superseded-run-report.json
           if-no-files-found: error
+
+# Reobserve the source-bound retirement policy after the 2026-10-29 source updates.
