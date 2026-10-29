@@ -222,16 +222,18 @@ class RuntimeVersionTests(unittest.TestCase):
 
         def external_git(command, **kwargs):
             if command == ['git', 'rev-parse', 'HEAD']:
-                return 'b' * 40 + '\n'
+                return ('b' * 40 + '\n').encode()
             name = Path(command[2]).name
             final_phase = self.version_index >= 2  # after the final version observation
             if command[3:] == ['status', '--porcelain', '--untracked-files=normal']:
                 dirty = dirty_dependency == 'preflight' and not final_phase or dirty_dependency == 'final' and final_phase
-                return ' M Mathlib/Injected.lean\n' if dirty else ''
+                return b' M Mathlib/Injected.lean\n' if dirty else b''
             revision = self.manifest['dependency_revisions'][name]
-            return ('c' * 40 if wrong_dependency or drift_dependency and final_phase else revision) + '\n'
+            return (('c' * 40 if wrong_dependency or drift_dependency and final_phase else revision) + '\n').encode()
 
-        with patch.object(gate.subprocess, 'run', side_effect=external_run), \
+        with patch.object(gate, 'source_custody', return_value='b' * 40), \
+             patch.object(gate, 'verify_committed_files', return_value=set()), \
+             patch.object(gate.subprocess, 'run', side_effect=external_run), \
              patch.object(gate.subprocess, 'check_output', side_effect=external_git), \
              patch.dict(gate.os.environ, env or {}), \
              contextlib.redirect_stdout(io.StringIO()):

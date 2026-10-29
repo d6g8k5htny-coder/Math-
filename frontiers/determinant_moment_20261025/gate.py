@@ -10,6 +10,7 @@ import re
 import shutil
 import subprocess
 import sys
+import tempfile
 
 ALLOWED = frozenset({'propext', 'Classical.choice', 'Quot.sound'})
 NAME = r'[A-Za-z_][A-Za-z0-9_.]*'
@@ -111,6 +112,9 @@ def invalidate_active_receipt():
     out = ROOT / '.lake' / 'formal-evidence'
     require(not (ROOT / '.lake').is_symlink() and not (ROOT / '.lake/build').is_symlink()
             and not out.is_symlink(), 'symlink build directory')
+    if out.exists():
+        require(all(not path.is_symlink() for path in out.iterdir()),
+                'symlink in evidence directory')
     (out / 'receipt.json').unlink(missing_ok=True)
 
 def check_lean_version(text):
@@ -419,14 +423,38 @@ def source_check():
     require(lean_files == set(m['source_modules']) | {'ResearchFormalCoreR1.lean'}, 'unregistered Lean module')
     return m, sha(raw)
 
+def write_evidence(out, name, text):
+    """Replace an evidence leaf atomically without following a leaf symlink."""
+    out = Path(out)
+    require(not out.is_symlink() and out.is_dir(), 'symlink or missing evidence directory')
+    require(isinstance(name, str) and name and Path(name).name == name,
+            'invalid evidence filename')
+    target = out / name
+    require(not target.is_symlink() and (not target.exists() or target.is_file()),
+            'symlink or non-file evidence destination: ' + name)
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(mode='w', encoding='utf-8', dir=out,
+                                         prefix='.evidence-', delete=False) as stream:
+            temporary = Path(stream.name)
+            stream.write(text)
+        os.replace(temporary, target)
+    finally:
+        if temporary is not None and temporary.exists():
+            temporary.unlink()
+
 def run(command, label, out, expect_success=True, cwd=None):
-    environment = os.environ.copy()
+    environment = {key: value for key, value in os.environ.items()
+                   if not key.startswith('GIT_')}
     for key in ('LEAN_PATH', 'LEAN_SRC_PATH'):
         environment.pop(key, None)
+    environment.update(GIT_CONFIG_NOSYSTEM='1', GIT_CONFIG_GLOBAL=os.devnull,
+                       GIT_NO_REPLACE_OBJECTS='1', GIT_NO_LAZY_FETCH='1',
+                       GIT_OPTIONAL_LOCKS='0', GIT_TERMINAL_PROMPT='0')
     result = subprocess.run(command, cwd=ROOT if cwd is None else cwd, text=True,
                             stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                             timeout=900, env=environment)
-    (out / (label + '.log')).write_text(result.stdout)
+    write_evidence(out, label + '.log', result.stdout)
     print(label + ': exit ' + str(result.returncode), flush=True)
     require((result.returncode == 0) == expect_success, 'unexpected process outcome: ' + label + '\n' + result.stdout[-6000:])
     return result.stdout
@@ -434,6 +462,8 @@ def run(command, label, out, expect_success=True, cwd=None):
 def execute(m, digest):
     invalidate_active_receipt()
     out = ROOT / '.lake' / 'formal-evidence'
+    if not isinstance(m.get('compiled_inventory'), list):
+        compiled_contract(m)  # preserve the original missing-inventory refusal before any helper is loaded
     checked_head = source_custody(m, digest)
     modules, bound = compiled_contract(m)
     out.mkdir(parents=True, exist_ok=True)
@@ -442,16 +472,21 @@ def execute(m, digest):
     if (ROOT / '.lake/build').exists():
         shutil.rmtree(ROOT / '.lake/build')  # fresh local-package build; dependency cache is untouched
     run(['lake', 'build'], 'build', out)
+    build_root = ROOT / '.lake/build'
+    require(build_root.is_dir() and not build_root.is_symlink(), 'invalid or symlink build directory')
+    for directory, folders, files in os.walk(build_root, followlinks=False):
+        for entry in folders + files:
+            require(not (Path(directory) / entry).is_symlink(), 'symlink in build directory')
     run(['lake', 'env', 'leanchecker', 'ResearchFormalCoreR1'], 'leanchecker', out)
     audit = out / 'Audit.lean'
-    audit.write_text('import ResearchFormalCoreR1\n' + '\n'.join('#print axioms ' + n for n in m['targets']) + '\n')
+    write_evidence(out, audit.name, 'import ResearchFormalCoreR1\n' + '\n'.join('#print axioms ' + n for n in m['targets']) + '\n')
     text = run(['lake', 'env', 'lean', str(audit)], 'axioms', out)
     axioms = audit_axioms(text, m['targets'])
     types = out / 'Types.lean'
-    types.write_text('import ResearchFormalCoreR1\nset_option pp.explicit true\n' + '\n'.join('#check ' + n for n in m['targets']) + '\n')
+    write_evidence(out, types.name, 'import ResearchFormalCoreR1\nset_option pp.explicit true\n' + '\n'.join('#check ' + n for n in m['targets']) + '\n')
     run(['lake', 'env', 'lean', str(types)], 'elaborated-types', out)
     inventory_source = out / 'Inventory.lean'
-    inventory_source.write_text(_compiled.inventory_source())
+    write_evidence(out, inventory_source.name, _compiled.inventory_source())
     inventory = audit_compiled(
         run(['lake', 'env', 'lean', str(inventory_source)], 'inventory', out), m, axioms)
     # Both mutations must build, pass leanchecker and the public-only axiom audit,
@@ -473,7 +508,7 @@ def execute(m, digest):
         'native': ('import ResearchFormalCoreR1\ntheorem injected : (2 : Nat) + 2 = 4 := by native_decide\n#print axioms injected\n', True, 'injected')}
     outcomes = {}
     for label, (source, succeeds, target) in cases.items():
-        path = out / (label + '.lean'); path.write_text(source)
+        path = out / (label + '.lean'); write_evidence(out, path.name, source)
         log = run(['lake', 'env', 'lean', str(path)], label, out, succeeds)
         if target:
             # Remove compiler diagnostics only by selecting the axiom line onward;
@@ -508,8 +543,11 @@ def execute(m, digest):
                    observations={'preflight': preflight, 'final': final},
                    axioms=axioms, negative_controls=outcomes,
                    inventory={**inventory, 'compiled_admission': compiled_admission})
-    receipt['logs'] = {p.name: sha(p.read_bytes()) for p in sorted(out.glob('*.log'))}
-    (out / 'receipt.json').write_text(json.dumps(receipt, indent=2, sort_keys=True) + '\n')
+    log_paths = sorted(out.glob('*.log'))
+    require(all(not path.is_symlink() and path.is_file() for path in log_paths),
+            'symlink or non-file evidence log')
+    receipt['logs'] = {path.name: sha(path.read_bytes()) for path in log_paths}
+    write_evidence(out, 'receipt.json', json.dumps(receipt, indent=2, sort_keys=True) + '\n')
     print(json.dumps(receipt, indent=2, sort_keys=True))
     return receipt
 
@@ -524,7 +562,14 @@ def main():
         args = p.parse_args()
         if args.execute:
             initial_raw = (ROOT / 'manifest.json').read_bytes()
-            source_custody(load_json(initial_raw), sha(initial_raw))
+            initial_manifest = load_json(initial_raw)
+            # Preserve source-hash and unqualified-inventory refusals on the
+            # existing synthetic boundary fixtures before attempting a kernel run.
+            check_files(ROOT, initial_manifest['files'])
+            if not isinstance(initial_manifest.get('compiled_inventory'), list):
+                source_check()
+                compiled_contract(initial_manifest)
+            source_custody(initial_manifest, sha(initial_raw))
         m, digest = source_check()
         if args.alignment:
             check_alignment(load_json(args.alignment.read_text()), digest, m['targets'], m['files']['SCOPE.md'])

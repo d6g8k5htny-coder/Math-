@@ -123,3 +123,7 @@ The proof artifact12927504778 has ZIP digeste4731beb3f6d5bc7e376afd4c7442a68a111
 Durable raw-byte Git publication is now being run because ephemeral artifact
 URLs alone are insufficient for future cold starts; read PUBLICATION.json and
 its exact tree/blob readback rather than inferring that this step succeeded.
+
+## Source-custody successor checkpoint
+
+A successor implements committed/index/working-byte observations, Git and Lean child-environment controls, nested build/evidence symlink refusals, and reason-bound mutation scoring. Initial11 real-Git controls passed in both modes at2c039fe8; the earlier inherited-Lean-path control failed in both modes at4f11c870. Corrected and expanded tests, the original component suite, all mutants and the fresh kernel execution for the successor remain PENDING. No current-source kernel or CBZ-0 success is claimed. The source stability, trusted runtime, dependency-cache and cryptographic hash assumptions are recorded in GOVERNANCE.md and TOOLING.md.

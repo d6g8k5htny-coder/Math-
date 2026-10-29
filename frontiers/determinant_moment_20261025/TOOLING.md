@@ -68,3 +68,7 @@ bytes and the new tree is read back without truncation. PUBLICATION.json names
 the resulting branch/commit/file SHA256s. Integrate that ordinary descendant
 after checks; future local verification uses those committed ZIPs and requires
 no90-day artifact URL. No mathematical status is awarded by publication.
+
+## Determinant custody and grader candidate
+
+The gate checks committed and actual source/dependency bytes and source/HEAD drift, refuses symlink evidence and build paths, and uses a sanitized subprocess environment. The mutation runner demands exact selected passing baselines and named expected failure reasons. From the repository root run `python3 -B -S -m unittest discover -s cbz/verification/determinant_custody -p 'test_*.py' -v`; repeat with `-O`. Run the retained full component suite and all original mutation commands above. Actual verification of this changed source and grader is PENDING. Maintainer: none. This bounded observation does not authenticate the Lean executable, rebuild dependency caches, or rule out transient changes restored between observations.

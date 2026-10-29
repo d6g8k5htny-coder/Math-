@@ -157,7 +157,8 @@ def execute_scenario(scenario):
             'post_source_failure':'post-execution source mismatch',
         }
         captured=io.StringIO()
-        with patch.object(gate.subprocess,'run',side_effect=fake_run), \
+        with patch.object(gate,'source_custody',return_value='a'*40), \
+             patch.object(gate.subprocess,'run',side_effect=fake_run), \
              patch.object(gate.subprocess,'check_output',return_value='a'*40+'\n'), \
              patch.object(gate,'dependency_state',return_value=m['dependency_revisions']), \
              patch.object(gate,'source_check',side_effect=post_source), \

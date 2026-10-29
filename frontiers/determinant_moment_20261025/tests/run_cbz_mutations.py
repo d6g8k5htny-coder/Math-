@@ -93,8 +93,11 @@ def execute_case(case, work, output):
     baseline = subprocess.run(args, cwd=copy, env=env, capture_output=True, text=True)
     (output / (name + '.baseline.stdout')).write_text(baseline.stdout)
     (output / (name + '.baseline.stderr')).write_text(baseline.stderr)
-    if baseline.returncode != 0 or collected(baseline.stderr) != len(expected) or 'skipped=' in baseline.stderr:
-        raise RuntimeError(name + ': unmodified selected controls are not green with the expected nonzero test count')
+    passed = re.findall(r'^(test_[A-Za-z0-9_]+) \([^\n]*\) \.\.\. ok$', baseline.stderr, re.M)
+    if (baseline.returncode != 0 or collected(baseline.stderr) != len(expected)
+            or sorted(passed) != sorted(expected) or 'skipped=' in baseline.stderr
+            or re.search(r'^OK$', baseline.stderr, re.M) is None):
+        raise RuntimeError(name + ': unmodified exact selected controls did not pass')
     path = copy / rel
     text = path.read_text()
     if text.count(old) != 1:
@@ -122,11 +125,36 @@ def execute_case(case, work, output):
     errors = any(marker in result.stderr for marker in
                  ('ERROR:', 'ImportError', 'ModuleNotFoundError', 'FAILED (errors='))
     count = collected(result.stderr)
-    intended = (result.returncode != 0 and count == len(expected) and count > 0
-                and sorted(failed) == sorted(expected) and not errors
+    reason_by_mutant = {
+        'omit-artifact-log-hash': 'IntegrityError not raised',
+        'omit-artifact-commit-binding': 'IntegrityError not raised',
+        'omit-artifact-manifest-binding': 'IntegrityError not raised',
+        'omit-artifact-duplicate-refusal': 'IntegrityError not raised',
+        'omit-artifact-path-refusal': 'IntegrityError not raised',
+        'omit-artifact-empty-inventory-refusal': 'IntegrityError not raised',
+        'omit-forbidden-closure': 'ValueError not raised',
+        'omit-extra-theorem-admission': 'ValueError not raised',
+        'omit-bound-constant-admission': 'ValueError not raised',
+        'omit-stale-receipt-removal': 'stale receipt survived a refused execution',
+        'execute-cached-inventory-bytecode': 'HOSTILE_CACHED_IMPLEMENTATION',
+        'omit-runtime-census-and-controls': 'ValueError not raised',
+    }
+    reason = reason_by_mutant.get(name)
+    headers = list(re.finditer(r'^FAIL: (test_[A-Za-z0-9_]+) [^\n]*$', result.stderr, re.M))
+    summary = re.search(r'^Ran [0-9]+ tests? in ', result.stderr, re.M)
+    reason_ok = reason is not None and summary is not None and len(headers) == len(expected)
+    if reason_ok:
+        for index, match in enumerate(headers):
+            end = headers[index + 1].start() if index + 1 < len(headers) else summary.start()
+            section = result.stderr[match.end():end]
+            if reason not in section or ('in ' + match.group(1)) not in section:
+                reason_ok = False
+                break
+    intended = (result.returncode == 1 and count == len(expected) and count > 0
+                and sorted(failed) == sorted(expected) and not errors and reason_ok
                 and re.search(r'^FAILED \(failures=' + str(len(expected)) + r'\)$',
                               result.stderr, re.M) is not None)
-    return {'name': name, 'file': rel, 'command': args, 'baseline_exit_code': baseline.returncode,
+    return {'name': name, 'file': rel, 'command': args, 'intended_failure_reason': reason, 'baseline_exit_code': baseline.returncode,
             'collected_tests': count, 'exit_code': result.returncode,
             'expected_failing_tests': expected, 'actual_failing_tests': failed,
             'import_or_test_errors': errors, 'killed_by_intended_assertions': intended,

@@ -81,3 +81,5 @@ checks every Git blob identity and reads back the complete untruncated tree.
 It creates a fresh branch parented by the checked tool commit; no shared ref is
 rewritten or deleted. This is byte preservation, not a new mathematical auditor.
 Actual publication remains pending until its readback is observed. Reversible.
+
+[2026-10-29 21:08:13 UTC] [phase3] [layer B] Add source/HEAD/index/dependency custody, sanitized child Git/Lean environment, atomic evidence leaves and nested-build symlink refusal, and reason-bound scoring for all12 existing determinant mutants. Preserve both prior real RED logs and the initial fixture error. Rebind changed source and retained synthetic fixture bytes in the manifest; preserve all test assertions and all mathematical bounds. Revised-source full tests, mutation checks and kernel execution remain pending. Reversible: yes. Evidence: cbz/verification/determinant_custody/CANDIDATE.md and historical hosted jobs.

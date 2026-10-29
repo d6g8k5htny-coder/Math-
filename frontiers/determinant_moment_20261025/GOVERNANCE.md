@@ -91,3 +91,7 @@ and retains checksum/index metadata for offline cold starts. The publication
 result is usable only after actual readback. Source4351227b's checker192 tests
 and12 mutations per mode plus actual downloaded positive/negative runs were
 observed green; publication itself is a separately observed operation.
+
+## Determinant custody and evidence-path candidate (2026-10-29)
+
+The gate observes committed/index/working bytes and exact checked HEAD before and after execution, checks dependency working bytes and sanitizes inherited Git and Lean search-path variables. It refuses symlink evidence leaves and nested build symlinks. The existing mutation runner now requires exact selected baselines, exit 1 and each mutant's named failure reason. Run the custody controls from repository root with `python3 -B -S -m unittest discover -s cbz/verification/determinant_custody -p 'test_*.py' -v`, and repeat with `-O`. Original component and mutation commands remain listed below/in TOOLING.md. Maintainer: none. Current candidate verification: PENDING; no new kernel or CBZ gate is awarded. Pre/post checks assume source stability during execution, reuse dependency build caches, and rely on trusted runtime and collision-resistant hashes.
