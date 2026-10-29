@@ -1,9 +1,22 @@
 # Determinant producer checkpoint
 
-**QUARANTINED: corrected producer execution pending.** This standalone packet
+**QUARANTINED: strict shared-grader successor execution pending.** This standalone packet
 contains66 scalar companion targets in14 unchanged Lean files. It does not prove
 the surrounding continuum Gaussian/Palm/lifetime claims. Scientific effect NONE;
 CBZ-0 is not established. Read QUARANTINE.json for the exact boundary and attempts.
+
+Actual source-qualified run40945103791 passed at native bc5c47fe55cfd46bf3830f604d9b35b069da523e,
+tested7e95ff646e5d2b75cc5d1819bad17a6d34e437ac/treec06a90d575376bbae5d924ea534883d206472c9e.
+Receipt SHA2567f335b0b8f619dddeaee2f8759f93bff61c751be33860fffa23124465b59b796
+binds actual157ConstantInfos/58421closure/three approved axioms and all seven
+intended controls. All263 source records/endpoints and21 owned-log hashes match;
+the separate full console contains the complete receipt once. Native adverse
+evidence includes24adapter,36Git-helper and22outer-auditor qualified pairs.
+This receipt remains bound to its exact source. A separate real atexit process
+exposed the shared source-mutation grader accepting exit2 after valid body
+failure metadata. Its stricter exact-integer0/1 successor has13 controls per mode,
+36 intended mutants/6 controls/42 passing baselines and84 verified raw logs;
+current-source hosted execution and deliberate disposition remain pending.
 
 Actual historical native run40933537063 checked157 kernel ConstantInfos and58421
 transitive dependencies with only propext/Classical.choice/Quot.sound, and all
@@ -17,7 +30,7 @@ Lean responses were synthetic; it supplies no kernel evidence.
 
 The successor fixes both producer boundaries. Its final Git helper has48
 local controls per mode and36 qualified mutation pairs, including explicit
-traversal-error refusal; the broader corrected native run remains pending. A fixed independently pinned Git
+traversal-error refusal; actual bc5 native execution is recorded above. A fixed independently pinned Git
 helper authenticates the complete committed component files map, shared source
 helper, raw Git blobs/index and owner-execute mode before mutable helper code,
 before Lean and at the final endpoint. Hidden HEAD/index sources are inventoried
@@ -50,15 +63,19 @@ errors, skips, absent tests, malformed results and failed baselines never count.
 Unit orchestration uses explicitly synthetic external Lean responses; real-Git
 cases and console Bash/tee fixtures actually execute their bounded operations.
 
-For the shared source checker, from repository root run both modes of:
+For the shared source checker, from repository root run both unit-test modes;
+its mutation driver runs both modes itself and requires a fresh output child:
 
 ```sh
 python3 -B -S -m unittest discover -s tests -p test_lean_packet_admission.py -v
+python3 -O -B -S -m unittest discover -s tests -p test_lean_packet_admission.py -v
 python3 -B -S -m unittest discover -s tests -p test_source_admission_mutations.py -v
-python3 -B -S tests/run_source_admission_mutations.py
+python3 -O -B -S -m unittest discover -s tests -p test_source_admission_mutations.py -v
+source_evidence_parent=$(mktemp -d)
+python3 -B -S tests/run_source_admission_mutations.py --output "$source_evidence_parent/results"
 ```
 
-The source mutation driver runs its16 cases and three unmodified controls in both
+The source mutation driver runs its18 cases and three unmodified controls in both
 modes. The fixed-LF Unicode successor is composed from committed peer5591b44,
 not a peer's dirty edits. Full current-source outcome is read from actual command
 logs and native artifacts, not inferred from a prior generation's results.

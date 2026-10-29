@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Sixteen bounded source checker mutations, same-copy controls, both Python modes.
+"""Eighteen bounded source checker mutations, same-copy controls, both Python modes.
 
 No Lean execution; this is not federation G0 or compiled-adapter qualification.
 """
@@ -61,6 +61,16 @@ MUTATIONS.append(('helper-declaration-physical-line-alignment-regression', helpe
                 "    lines = [raw + '\\n' for raw, line in zip(text.splitlines(), code.splitlines()) if DECL.match(line)]",
                 ['-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_lean_packet_admission.py',
                  '-k', 'physical_header', '-v']))
+
+runner_status = ('    valid_status = type(result.returncode) is int and '
+                 'result.returncode in (0, 1)')
+for name, replacement, selection in [
+    ('runner-exact-exit-status-removal', '    valid_status = type(result.returncode) is int', 'exit_status'),
+    ('runner-returncode-int-type-removal', '    valid_status = result.returncode in (0, 1)', 'returncode_type'),
+]:
+    MUTATIONS.append((name, 'tests/run_source_admission_mutations.py', runner_status, replacement,
+                      ['-m', 'unittest', 'discover', '-s', 'tests',
+                       '-p', 'test_source_admission_mutations.py', '-k', selection, '-v']))
 
 
 def replace_anchor(source, old, new):
@@ -160,7 +170,8 @@ def phase_evidence(text, count, failures):
 
 
 def classify(result, expected_count=None):
-    """Accept only clean nonzero unittest discovery or an actual assertion kill."""
+    """Accept only exact integer status 0 controls or status 1 assertion kills."""
+    valid_status = type(result.returncode) is int and result.returncode in (0, 1)
     text = result.stderr
     matches = re.findall(r'^Ran ([0-9]+) tests? in ', text, re.M)
     count = int(matches[0]) if len(matches) == 1 else 0
@@ -171,9 +182,9 @@ def classify(result, expected_count=None):
     failures = re.findall(r'^FAIL: test_', text, re.M)
     failed_summary = re.search(r'^FAILED \(failures=([1-9][0-9]*)\)\s*$', text, re.M)
     clean_phases, body_failures = phase_evidence(text, count, len(failures))
-    control = (clean_phases and result.returncode == 0 and discovered and not errors and not failures
+    control = (valid_status and clean_phases and result.returncode == 0 and discovered and not errors and not failures
                and re.search(r'^OK\s*$', text, re.M) is not None and 'FAILED' not in text)
-    killed = (body_failures and result.returncode != 0 and discovered and not errors and bool(failures)
+    killed = (valid_status and body_failures and result.returncode != 0 and discovered and not errors and bool(failures)
               and 'AssertionError:' in text and failed_summary is not None
               and int(failed_summary.group(1)) == len(failures))
     return dict(collected=count, control_pass=control, killed=killed)
@@ -205,6 +216,8 @@ def copy_sources(root):
     shutil.copy2(ROOT / helper, root / helper)
     (root / 'tests').mkdir()
     shutil.copy2(ROOT / 'tests/test_lean_packet_admission.py', root / 'tests/test_lean_packet_admission.py')
+    for name in ('run_source_admission_mutations.py', 'test_source_admission_mutations.py'):
+        shutil.copy2(ROOT / 'tests' / name, root / 'tests' / name)
     manifest = json.loads((ROOT / CAPP / 'MANIFEST.json').read_text())
     for pin in manifest['pins_on_main']:
         dst = root / pin['path']

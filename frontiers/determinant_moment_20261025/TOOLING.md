@@ -77,3 +77,16 @@ Lean-result generator. The existing workflow runs these controls in both modes
 before the actual Lean gate and uploads the aggregate console separately from
 receipt-hashed logs. Source is manifest-bound; maintenance owner none. Current
 successor execution is pending at publication; use the actual run/artifact.
+
+
+## Shared source grader exact-exit repair
+
+../../tests/run_source_admission_mutations.py accepts only exact integer status0
+controls/status1 assertion failures. A real atexit handler changed a complete
+body-failure child's status to2; the old grader incorrectly counted that as a
+kill. Three new permanent controls and two exact guard-removal selfmutants
+extend the preserved16-case matrix to18cases in both modes:42positive baselines,
+6controls and36intended body-assertion mutants;84raw log digests matched.
+The13focused grader tests pass per mode. Exact commands/fresh output guidance
+are in STATUS; source/helper proof scope remains unchanged. Historical matrices
+keep their original identities. Maintenance owner none; bounded G0/G6/G11 only.

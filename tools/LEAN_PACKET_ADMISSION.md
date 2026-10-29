@@ -34,38 +34,51 @@ python -B -S tests/run_source_admission_mutations.py --output /tmp/fresh-source-
 ```
 
 The runner derives the repository from its own location and requires a fresh
-output directory outside it. It carries forward all fourteen exercised round-1
-mutations plus declaration-header binding removal and physical-line alignment regression (sixteen total), both Python modes, the same packet/helper/shared-test/Cap-pin copy
-paths, and three unmodified full-suite controls per mode. Each selected mutation
-first runs an unmodified same-copy baseline. Every baseline requires positive
-unittest discovery and a clean OK; kills require positive matching discovery,
-nonzero exit and actual assertion failures in a recorded test body. The same
+output directory outside it. It carries forward all sixteen existing mutations
+and adds two runner mutations: removal of the exact exit-status restriction and
+removal of the exact integer return-code type restriction (eighteen total).
+Both Python modes retain the same packet/helper/shared-test/Cap-pin copy paths
+and three unmodified full-suite controls per mode. The runner and its self-test
+are also copied into each case; self-tests import the mutated copied runner,
+while the original launcher records their unittest phases. The complete matrix
+has 42 result records, 42 same-copy baselines and 84 raw logs. Each selected
+mutation first runs an unmodified same-copy baseline. Every baseline requires
+positive unittest discovery, a clean OK and exact integer exit status 0; kills
+require positive matching discovery, exact integer exit status 1 and actual
+assertion failures in a recorded test body. The same
 subprocess records unittest body entry and each failure phase. Setup, teardown,
 cleanup and class/module fixture failures reject; missing/duplicate/malformed
 phase evidence and unsupported custom lifecycle hooks reject. Timeouts never
-produce a classified result. Import/setup errors, skips, zero-test
+produce a classified result. An unrelated exit handler changing a body-failure
+child's status to 2 rejects even when its recorded phases are valid. Separate
+synthetic result controls refuse booleans, strings, floats, integer subclasses,
+missing statuses and integer statuses outside 0/1. Import/setup errors, skips, zero-test
 or duplicate/missing matrix entries, nonunique anchors and surviving mutants fail
 the command. The output records raw baseline/mutant logs, argv, exit status and
 log hashes. Helper SHA rebinding isolates only the intended helper removal from
 its independent integrity guard. Source-gate removals retain the original fixture
 hash rebinding behavior. No Python `assert` is used for the runner's decisions.
-The determinant workflow runs the ten focused runner self-tests, with both file
-paths as triggers. The full sixteen-mutation/two-mode command is standalone;
+The determinant workflow runs the thirteen focused runner self-tests, with both file
+paths as triggers. The full eighteen-mutation/two-mode command is standalone;
 workflow source-test success does not mean it executed. This is a scoped
 experiment, not federation G0, full G6 or a Lean execution.
+Earlier sixteen-case matrices and receipts remain historical evidence at their
+own source identities; they are not relabeled as eighteen-case runs.
 
 The determinant workflow calls `source_check()` explicitly for source-only
-identity. Its separate observation step after pinned Lean setup checks source
-and helper identity, rebuilds, replays leanchecker, and runs the unchanged bound
-compiled helper's `inventory_source()` while retaining raw output. Observation
-status for this composition is **NOT_RUN / UNQUALIFIED**. Observation output
-never populates a manifest automatically or creates an acceptance receipt.
-The authoritative subsequent `gate.py --execute` remains fail-closed with
-`CBZ_COMPILED_INVENTORY_UNQUALIFIED` until a separately qualified exact census is
-bound. The copied compiled adapter cannot currently admit the legitimate private
-non-target theorem inventory. This is a tooling qualification gap; its rules and
-proof visibility remain unchanged. A workflow failing at the authoritative gate
-is not a failed mathematical proof or a successful kernel qualification.
+identity. After pinned Lean setup, its complete `--execute` gate checks source
+and helper identity, rebuilds, replays leanchecker and audits the full bound
+compiled census. A separate determinant policy binds91 exact typed non-public
+records without changing the shared source helper or the inherited compiled
+core. Native run40945103791 at bc5c47fe/tested7e95ff64 actually reached all seven
+intended controls; its source263-record endpoints,21 owned logs and separately
+retained full console were verified. This exact historical result is not
+execution of later grader/documentation bytes. Read the component STATUS and
+QUARANTINE records for current-source qualification, provenance and limits.
+Source census output never populates a compiled manifest or awards acceptance
+automatically. The registry's UNQUALIFIED compiled-census value describes this
+source checker's own output, not the separate packet's actual compiled audit.
+No source-only observation is a mathematical proof or scientific alignment.
 
 Every opaque declaration/header physical line now has a separate per-module
 `source_admission.declarations` count/SHA binding, including complete one-line

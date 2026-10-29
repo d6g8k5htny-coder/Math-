@@ -164,14 +164,19 @@ class QuarantineRecordTests(unittest.TestCase):
         for record in records:
             self.assertEqual(record['sha256'], hashlib.sha256((ROOT / record['path']).read_bytes()).hexdigest())
         self.assertEqual(q['layer_a_status']['A2'], 'HISTORICAL_EXACT_SOURCE_APPROVED_CLOSURE_OBSERVED')
-        self.assertEqual(q['layer_a_status']['A7'], 'SOURCE_IDENTITY_AND_GROWING_CONSOLE_PRODUCER_REPAIRS_NOT_YET_NATIVE_QUALIFIED')
-        self.assertEqual(q['layer_a_status']['A8'], 'BOUNDED_AUDITOR_SUCCESSOR_REQUIRES_CURRENT_SOURCE_EXECUTION')
+        self.assertEqual(q['layer_a_status']['A7'], 'BC5_NATIVE_SOURCE_IDENTITY_AND_CUSTODY_VERIFIED_SUCCESSOR_PENDING')
+        self.assertEqual(q['layer_a_status']['A8'], 'STRICT_SHARED_SOURCE_GRADER_SUCCESSOR_PENDING_NATIVE_EXECUTION')
         self.assertEqual(q['exact_boundary']['status'], 'QUARANTINED')
         native = [entry for entry in q['attempted'] if entry['kind'] == 'actual_native_seven_control_execution']
         self.assertEqual(len(native), 1)
         self.assertIn('40933537063', native[0]['result'])
         self.assertIn('aafb9c9fa28aef592d05ce70276eb5448fd4157b', native[0]['result'])
         self.assertIn('only first526bytes', native[0]['result'])
+        qualified = [entry for entry in q['attempted'] if entry['kind'] == 'actual_source_qualified_execution']
+        self.assertEqual(len(qualified), 1)
+        self.assertIn('40945103791', qualified[0]['result'])
+        self.assertIn('7f335b0b8f619dddeaee2f8759f93bff61c751be33860fffa23124465b59b796', qualified[0]['result'])
+        self.assertIn('263source records,21owned log hashes', qualified[0]['result'])
         self.assertNotIn('manifest_sha256', q['location'])
 
     def test_quarantine_record_cannot_be_omitted_from_control_manifest(self):

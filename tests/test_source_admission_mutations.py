@@ -13,11 +13,11 @@ spec.loader.exec_module(runner)
 
 
 class RunnerControls(unittest.TestCase):
-    def run_fixture(self, directory, fixture, label):
+    def run_fixture(self, directory, fixture, label, optimized=False):
         root = Path(directory)
         (root / 'test_fixture.py').write_text('import unittest\n' + fixture)
         return runner.run_process(root, ['-m', 'unittest', 'discover', '-s', '.',
-                                        '-p', 'test_fixture.py', '-v'], root, label, False)[0]
+                                        '-p', 'test_fixture.py', '-v'], root, label, optimized)[0]
 
     def test_actual_lifecycle_failures_cannot_count_as_body_kills(self):
         fixtures = [
@@ -48,6 +48,22 @@ class RunnerControls(unittest.TestCase):
                 self.assertEqual(classification['killed'], failure, result.stderr)
                 self.assertEqual(classification['control_pass'], not failure, result.stderr)
 
+    def test_actual_atexit_failure_cannot_count_as_exit_status_one_kill(self):
+        fixture = ('import atexit, os\natexit.register(lambda: os._exit(2))\n'
+                   'class Case(unittest.TestCase):\n    def test_check(self):\n'
+                   '        print("BODY_ENTERED", flush=True)\n'
+                   '        self.fail("intended checker assertion")\n')
+        for optimized in (False, True):
+            with self.subTest(optimized=optimized), tempfile.TemporaryDirectory() as directory:
+                result = self.run_fixture(directory, fixture, 'atexit', optimized)
+                self.assertIs(type(result.returncode), int)
+                self.assertEqual(result.returncode, 2)
+                self.assertIn('BODY_ENTERED', result.stdout)
+                self.assertEqual(runner.phase_evidence(result.stderr, 1, 1), (False, True))
+                classification = runner.classify(result, expected_count=1)
+                self.assertFalse(classification['control_pass'])
+                self.assertFalse(classification['killed'])
+
     def result(self, status=0, output='Ran 2 tests in 0.1s\n\nOK\n'):
         evidence = {'tests': [{'id': 'suite.test_check', 'body_entered': True},
                               {'id': 'suite.test_second', 'body_entered': True}],
@@ -71,6 +87,26 @@ class RunnerControls(unittest.TestCase):
                     output.replace('FAILED (failures=1)', 'FAILED (failures=1, errors=1)'), ''):
             self.assertFalse(runner.classify(self.result(1, bad), expected_count=2)['killed'])
         self.assertFalse(runner.classify(self.result(0, output), expected_count=2)['killed'])
+
+    def test_exit_status_must_be_zero_or_one(self):
+        output = 'FAIL: test_check (suite.Test)\nAssertionError: missing refusal\nRan 2 tests in 0s\nFAILED (failures=1)\n'
+        for status in (2, -9, 127, 255):
+            for text in ('Ran 2 tests in 0s\nOK\n', output):
+                with self.subTest(status=status, body_failure=text == output):
+                    classification = runner.classify(self.result(status, text), expected_count=2)
+                    self.assertFalse(classification['control_pass'])
+                    self.assertFalse(classification['killed'])
+
+    def test_returncode_type_must_be_exact_int(self):
+        class IntSubclass(int):
+            pass
+        output = 'FAIL: test_check (suite.Test)\nAssertionError: missing refusal\nRan 2 tests in 0s\nFAILED (failures=1)\n'
+        for status in (True, False, '0', '1', 0.0, 1.0, None, IntSubclass(0), IntSubclass(1)):
+            for text in ('Ran 2 tests in 0s\nOK\n', output):
+                with self.subTest(status=repr(status), status_type=type(status).__name__, body_failure=text == output):
+                    classification = runner.classify(self.result(status, text), expected_count=2)
+                    self.assertFalse(classification['control_pass'])
+                    self.assertFalse(classification['killed'])
 
     def test_missing_or_wrong_lifecycle_evidence_is_refused(self):
         output = 'FAIL: test_check (suite.Test)\nAssertionError: missing refusal\nRan 2 tests in 0s\nFAILED (failures=1)\n'
@@ -98,8 +134,8 @@ class RunnerControls(unittest.TestCase):
 
     def test_all_named_cases_and_modes_required_without_duplicates(self):
         names = [case[0] for case in runner.MUTATIONS] + ['control-helper', 'control-determinant', 'control-cap']
-        self.assertEqual(len(runner.MUTATIONS), 16)
-        self.assertEqual(len(set(names)), 19)
+        self.assertEqual(len(runner.MUTATIONS), 18)
+        self.assertEqual(len(set(names)), 21)
         records = [dict(name=name, optimized=mode, passed=True) for name in names for mode in (False, True)]
         self.assertTrue(runner.complete(records))
         for bad in (records[:-1], records + records[:1], [{**records[0], 'passed': False}] + records[1:],
