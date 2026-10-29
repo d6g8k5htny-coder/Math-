@@ -45,6 +45,8 @@ class OracleOriginResult(unittest.TestResult):
         self.origins = []
         self.success_ids = []
         self.failure_ids = []
+        self.event_contexts = []
+        self.unique_events = True
         self.body_codes = {case.id(): getattr(case, case._testMethodName).__func__.__code__
                            for case in cases}
 
@@ -73,7 +75,15 @@ class OracleOriginResult(unittest.TestResult):
         self.success_ids.append(test.id())
         super().addSuccess(test)
 
+    def record_event(self, test, context):
+        # Retain references: equal labels and recycled integer IDs are not identity.
+        if any(test is prior_test and context is prior_context
+               for prior_test, prior_context in self.event_contexts):
+            self.unique_events = False
+        self.event_contexts.append((test, context))
+
     def addFailure(self, test, err):
+        self.record_event(test, test)
         # A regular failure must be the identical exception escaping the actual
         # selected method invocation, not setup/teardown/cleanup or callbacks.
         self.failure_ids.append(test.id())
@@ -81,6 +91,7 @@ class OracleOriginResult(unittest.TestResult):
         super().addFailure(test, err)
 
     def addSubTest(self, test, subtest, err):
+        self.record_event(test, subtest)
         if err is not None:
             self.failure_ids.append(test.id())
             self.origins.append(self.active == test.id() and self.origin(test, err))
@@ -93,7 +104,7 @@ class OracleOriginResult(unittest.TestResult):
                     and tuple(self.entered) == self.expected
                     and self.testsRun == len(self.expected))
         clean = not (self.errors or self.skipped or self.expectedFailures or self.unexpectedSuccesses)
-        terminal = (len(self.success_ids) == len(set(self.success_ids))
+        terminal = (self.unique_events and len(self.success_ids) == len(set(self.success_ids))
                     and not set(self.success_ids).intersection(self.failure_ids)
                     and set(self.success_ids).union(self.failure_ids) == set(self.expected))
         if killed:
@@ -393,9 +404,37 @@ class OracleOriginSelfTests(unittest.TestCase):
             def test_body(self): cloned(self, 'cloned subject code')
         self.assertFalse(run_oracle_cases(Probe, ('test_body',)).admitted(True))
 
+    def test_distinct_subtest_contexts_with_identical_labels_are_admitted(self):
+        class Probe(unittest.TestCase):
+            def test_body(self):
+                for unused in range(2):
+                    with self.subTest(value=1):
+                        self.assertTrue(False)
+        result = run_oracle_cases(Probe, ('test_body',))
+        self.assertEqual(len(result.failures), 2)
+        self.assertTrue(result.admitted(True))
+
+    def test_duplicate_subtest_event_is_refused(self):
+        class Probe(unittest.TestCase):
+            def test_body(self):
+                with self.subTest(value=1):
+                    self.assertTrue(False)
+            def run(self, result):
+                original = result.addSubTest
+                def duplicate(test, subtest, err):
+                    original(test, subtest, err)
+                    original(test, subtest, err)
+                with mock.patch.object(result, 'addSubTest', duplicate):
+                    return super().run(result)
+        result = run_oracle_cases(Probe, ('test_body',))
+        self.assertEqual(len(result.failures), 2)
+        self.assertFalse(result.admitted(True))
+
     def test_grader_source_safeguards_are_assertion_killed(self):
         source = Path(__file__).read_text()
         controls = (
+            ('event_identity', 'self.unique_events and len(self.success_ids)',
+             'True and len(self.success_ids)', 'test_duplicate_subtest_event_is_refused'),
             ('code_identity', 'any(code is allowed for allowed in _ASSERTION_CODES)',
              'code in _ASSERTION_CODES', 'test_cloned_approved_code_is_not_authorized_identity'),
             ('origin', 'all(any(code is allowed for allowed in _ASSERTION_CODES) for code in codes[positions[0] + 1:])',

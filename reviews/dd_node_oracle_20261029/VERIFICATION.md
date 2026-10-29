@@ -62,3 +62,14 @@ See `code-identity-repair/` for new source-bound evidence. Earlier22-method and
 five-effective-mutant records remain historical, not rewritten. Production
 mathematical outputs, certificates and actual historical kills are not refuted
 by this provenance-contract correction.
+
+### Subtest event/context boundary (29 October, follow-up)
+
+The exact terminal accounting claim concerns selected-method execution and
+success/failure coverage; it does **not** mean one failure per method. Multiple
+distinct authenticated subtest contexts, even with identical labels/string IDs,
+are supported. Review5706017963 demonstrated this legitimate multiplicity, not
+an invalid historical kill. A separate adverse reproduction did demonstrate
+acceptance of replaying the **same** subtest callback/context twice. The new
+retained-reference identity gate refuses that replay without reducing legitimate
+subtest multiplicity. See `event-context-repair/README.md` for RED/GREEN evidence.
