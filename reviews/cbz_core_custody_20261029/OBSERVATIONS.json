@@ -1,0 +1,101 @@
+{
+  "schema": "cbz.core-custody.evidence-observations.v1",
+  "observed_utc": "2026-10-29 21:29:45 UTC",
+  "scope": "Exact component observations only; no federation CBZ claim and no new conclusions beyond named source/test boundaries.",
+  "test_first": {
+    "pr": 540,
+    "head": "40a0196f7a812f2e70b0de7e183adc0b9e9a2369",
+    "tested_merge": "61a1cbd8d4668c1e1e8635b43a6688ce35d6fe25",
+    "tested_tree": "7a9d3ab9373430db540bf50d606ba6b3816ad80e",
+    "formal_job": 123723500168,
+    "formal_tests": 276,
+    "formal_failures": 5,
+    "formal_errors": 2,
+    "grader_false_kill": "13 of 13 fabricated exit-2 child results were reported by the prior grader as detected",
+    "custody_run": 40951928512,
+    "custody_jobs": [
+      {
+        "mode": "normal",
+        "id": 123722003134,
+        "tests": 29,
+        "failures": 4,
+        "errors": 2,
+        "artifact_id": 12932333869,
+        "hosted_zip_sha256": "63d4cf65b34d8ca3b69e88102a216db2134edbd608b7539e50c4f3981bd5fc05"
+      },
+      {
+        "mode": "optimized",
+        "id": 123722003680,
+        "tests": 29,
+        "failures": 4,
+        "errors": 2,
+        "artifact_id": 12932573379,
+        "hosted_zip_sha256": "dfb80eac9c5cbb4db736ca604766d04c1c7adf2a80c47253703380063e48bf91"
+      }
+    ],
+    "companion_scope": "All three D2 jobs refused the intentionally changed test-only formal tree; no mathematical failure is inferred."
+  },
+  "environment_candidate": {
+    "head": "27c72abbb134584b7ce232fc7db91ff63a8ec044",
+    "run": 40952363801,
+    "jobs": [
+      {
+        "mode": "normal",
+        "id": 123723506167,
+        "tests": 6,
+        "skips": 0,
+        "result": "PASS",
+        "artifact_id": 12933005368,
+        "hosted_zip_sha256": "8907e6fd950bc7fb8c5001011c87ef22a4c739e80aa026e28acea1b7e369abcf"
+      },
+      {
+        "mode": "optimized",
+        "id": 123723506503,
+        "tests": 6,
+        "skips": 0,
+        "result": "PASS",
+        "artifact_id": 12932886403,
+        "hosted_zip_sha256": "d56adabf1b401ba48e0ec1aa2cf883ed2c6cac65259a4689e3fb264c5d9bd88e"
+      }
+    ],
+    "limitation": "Simulated helper outcomes; no kernel or immutable-execution claim. Environment artifact ZIPs have not been independently downloaded here."
+  },
+  "core_predecessor": {
+    "pr": 537,
+    "head": "db46797a430495c943fc45867e77d6cffc6baee2",
+    "tested_merge": "b64ad0825c44669366ff13f5a990c80fa9510dc2",
+    "tested_tree": "6bc70fd81286cd277509145fbacc51d03817f2db",
+    "custody_run": 40951539273,
+    "source_jobs": [
+      123720651238,
+      123720651690
+    ],
+    "observed_per_mode": {
+      "real_git_custody_tests": 23,
+      "formal_tests": 269,
+      "skips": 0
+    },
+    "kernel_job": 123729508842,
+    "kernel_result": "PASS",
+    "seal_job": 123737236800,
+    "downloaded_integrity": {
+      "result": "PASS",
+      "artifact_id": 12933846961,
+      "archive_sha256": "e634aee0c54c015b526cf997125ef7e8de5eab800faf2f43d40e37094e8976ab",
+      "verified_receipt_log_hashes": 26,
+      "published_evidence_commit": "6d4001a540757196c7701eace0b51fbbdcf1f1f2"
+    },
+    "limit": "The old grader's 13-mutation results are affected by the separately demonstrated false-kill weakness. Git/Lean environment controls above were not part of this head. Equality checks observe endpoints and do not exclude transient modifications restored between observations."
+  },
+  "strict_grader_candidate": {
+    "head": "c6ccc32c6854bd7153190e32c23cd60c31530097",
+    "run": 40957999494,
+    "normal_job": 123743068473,
+    "optimized_job": 123743068065,
+    "status_at_observation": "QUEUED; NOT QUALIFIED",
+    "source_mutants": 19,
+    "grader_guard_mutants": 14,
+    "expected_formal_tests": 278,
+    "limit": "Nonce and test-site markers delimit accidental record confusion for declared finite mutants, not malicious child-code authentication; fresh normal/optimized execution and actual kernel replay are required."
+  }
+}
