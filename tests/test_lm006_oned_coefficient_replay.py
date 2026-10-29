@@ -128,6 +128,45 @@ class ReplayTests(unittest.TestCase):
             self.assertIn(b'AssertionError: RuntimeError not raised',mutant.stderr)
             self.assertNotIn(b'ERROR:',mutant.stderr)
 
+    def _packet_pyc_fixture(self, target):
+        import py_compile
+        mod=self.synthetic_project()
+        packet=self.root/mod.PACKET
+        test_file=packet/'test_oned.py'
+        oned=packet/'oned.py'
+        body=test_file.read_text().replace('import unittest\n','import unittest, oned\n',1)
+        body=body.replace('self.assertTrue(True)','self.assertEqual(oned.VALUE,1)')
+        test_file.write_text(body)
+        oned.write_text("import sys\nVALUE=1\nif __name__ == '__main__':\n    if sys.argv[1:] != ['--panels','1024']: raise SystemExit(2)\n    print('synthetic')\n")
+        subprocess.run(['git','add',str(test_file.relative_to(self.root)),str(oned.relative_to(self.root))],cwd=self.root,check=True)
+        subprocess.run(['git','-c','user.name=Fixture','-c','user.email=f@example.invalid','-c','commit.gpgsign=false','commit','-qm','cache test fixture'],cwd=self.root,check=True)
+        mod.PINS={n:mod.git_blob((self.root/n).read_bytes()) for n in mod.PINS}
+        path=test_file if target=='test' else oned
+        original=path.read_bytes()
+        before=b'self.assertEqual(oned.VALUE,1)' if target=='test' else b'VALUE=1'
+        after=b'self.assertEqual(oned.VALUE,0)' if target=='test' else b'VALUE=0'
+        self.assertEqual(original.count(before),15 if target=='test' else 1)
+        self.assertEqual(len(before),len(after))
+        path.write_bytes(original.replace(before,after,1))
+        os.utime(path,(1700000000,1700000000))
+        py_compile.compile(str(path),doraise=True,optimize=sys.flags.optimize)
+        path.write_bytes(original)
+        os.utime(path,(1700000000,1700000000))
+        out=Path(self.tmp.name)/('packet-pyc-'+target)
+        try:
+            receipt=mod.execute(self.root,out,'optimized' if sys.flags.optimize else 'normal')
+        except mod.ReplayError as exc:
+            self.assertEqual(str(exc),'unexpected_exit')
+            self.assertIn(b'FAIL:',(out/'tests.stderr').read_bytes())
+            self.fail('packet tests executed poisoned '+target+' bytecode')
+        self.assertEqual(receipt['status'],'PASS')
+
+    def test_packet_pyc_test_module_is_not_executed(self):
+        self._packet_pyc_fixture('test')
+
+    def test_packet_pyc_implementation_is_not_executed(self):
+        self._packet_pyc_fixture('implementation')
+
     def test_snapshot_and_exact_packet_membership(self):
         pins=self.fixture();ids=self.m.validate_snapshot(self.root,pins)
         self.assertEqual(set(ids),set(pins))
