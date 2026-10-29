@@ -1,0 +1,190 @@
+"""Tests for the record builders in generate.py, run against a tiny real git repository with
+pre-fetched GitHub data supplied as plain dicts (no network)."""
+import datetime as dt
+import os
+import subprocess
+import tempfile
+import unittest
+
+import generate
+
+
+def _write(path, text):
+    with open(path, 'w') as fh:
+        fh.write(text)
+
+
+class BuildRecordTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.repo = self.tmp.name
+        env = {'GIT_AUTHOR_NAME': 't', 'GIT_AUTHOR_EMAIL': 't@x', 'GIT_COMMITTER_NAME': 't',
+               'GIT_COMMITTER_EMAIL': 't@x', 'PATH': os.environ['PATH']}
+
+        def git(*a):
+            return subprocess.run(['git', '-C', self.repo, *a], check=True, capture_output=True,
+                                  text=True, env=env).stdout.strip()
+        self.git = git
+        git('init', '-q', '-b', 'main')
+        _write(os.path.join(self.repo, 'a.txt'), 'one\n')
+        git('add', 'a.txt'); git('commit', '-q', '-m', 'c1')
+        git('checkout', '-q', '-b', 'feature')
+        os.makedirs(os.path.join(self.repo, 'formal'))
+        _write(os.path.join(self.repo, 'formal', 'X.lean'), 'theorem t : True := by sorry\n')
+        git('add', 'formal'); git('commit', '-q', '-m', 'c2')
+        git('checkout', '-q', 'main')
+        # the generator reads refs as refs/remotes/origin/<name>; mirror them locally
+        git('update-ref', 'refs/remotes/origin/main', 'main')
+        git('update-ref', 'refs/remotes/origin/feature', 'feature')
+        self.head = git('rev-parse', 'feature')
+        self.main = git('rev-parse', 'main')
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def pr(self):
+        return {'number': 7, 'title': 'Feature', 'draft': True, 'updated_at': '2026-10-01T00:00:00Z',
+                'created_at': '2026-09-30T00:00:00Z', 'body': 'body text',
+                'head': {'ref': 'feature', 'sha': self.head}, 'base': {'ref': 'main', 'sha': self.main},
+                'html_url': 'https://example/pr/7'}
+
+    def test_record_carries_facts_signals_and_recommendation(self):
+        rec = generate.build_pr_record(
+            self.repo, self.pr(), main_sha=self.main,
+            comments=[{'id': 1, 'created_at': '2026-10-01T01:00:00Z', 'body': 'Read: **AMEND** x'}],
+            reviews=[{'state': 'COMMENTED', 'commit_id': self.head, 'submitted_at': '2026-10-01T02:00:00Z'}],
+            check_runs=[{'name': 'math-downstream-gates', 'status': 'completed', 'conclusion': 'failure'}],
+            now='2026-10-29T17:00:00Z', open_pr_heads={'feature'})
+        self.assertEqual(rec['number'], 7)
+        self.assertFalse(rec['head_is_ancestor_of_main'])
+        self.assertFalse(rec['all_changed_blobs_equal_on_main'])
+        self.assertTrue(rec['base_is_main'])
+        self.assertTrue(rec['merge_tree_clean_onto_main'])
+        self.assertEqual(rec['changed_paths'], ['formal/X.lean'])
+        self.assertEqual(rec['layer_a_signals']['lean_sorry_added'], 1)
+        self.assertEqual(rec['signals_total'], 1)
+        self.assertEqual(rec['latest_verdict'], 'AMEND')
+        self.assertEqual(rec['required_check_conclusion'], 'failure')
+        self.assertFalse(rec['updated_within_24h'])
+        self.assertEqual(rec['recommended_disposition'], 'QUARANTINE-ARCHIVE')
+        self.assertEqual(rec['recoverable_ref_command'], f'git push origin {self.head}:refs/heads/feature')
+
+    def test_do_not_merge_into_another_branch_is_not_a_pr_hold(self):
+        pr = self.pr(); pr['body'] = "Do not merge into or modify #362's owner branch."
+        rec = generate.build_pr_record(self.repo, pr, main_sha=self.main, comments=[], reviews=[],
+                                       check_runs=[], now='2026-10-29T17:00:00Z', open_pr_heads={'feature'})
+        self.assertFalse(rec['explicit_do_not_merge'])
+
+    def test_do_not_merge_in_title_is_a_pr_hold(self):
+        pr = self.pr(); pr['title'] = 'Draft: thing (do not merge)'
+        rec = generate.build_pr_record(self.repo, pr, main_sha=self.main, comments=[], reviews=[],
+                                       check_runs=[], now='2026-10-29T17:00:00Z', open_pr_heads={'feature'})
+        self.assertTrue(rec['explicit_do_not_merge'])
+
+    def test_changed_paths_are_capped_but_bound_by_hash(self):
+        import hashlib
+        rec = generate.build_pr_record(self.repo, self.pr(), main_sha=self.main, comments=[], reviews=[],
+                                       check_runs=[], now='2026-10-29T17:00:00Z', open_pr_heads={'feature'},
+                                       path_cap=0)
+        self.assertEqual(rec['changed_paths'], [])
+        self.assertEqual(rec['changed_path_count'], 1)
+        self.assertEqual(rec['changed_paths_sha256'], hashlib.sha256(b'formal/X.lean\n').hexdigest())
+
+    def test_updated_within_24h_uses_the_supplied_clock(self):
+        pr = self.pr(); pr['updated_at'] = '2026-10-29T10:00:00Z'
+        rec = generate.build_pr_record(self.repo, pr, main_sha=self.main, comments=[], reviews=[],
+                                       check_runs=[], now='2026-10-29T17:00:00Z', open_pr_heads={'feature'})
+        self.assertTrue(rec['updated_within_24h'])
+        self.assertEqual(rec['recommended_disposition'], 'ACTIVE-OWNER-LANE')
+
+    def test_branch_records_classify_merged_unmerged_and_pr_refs(self):
+        self.git('checkout', '-q', '-b', 'done'); self.git('checkout', '-q', 'main')
+        self.git('update-ref', 'refs/remotes/origin/done', 'done')
+        recs = generate.build_branch_records(self.repo, main_sha=self.main, refs=generate.list_refs(self.repo),
+                                             open_pr_refs={'feature'}, protected=set())
+        by = {r['branch']: r for r in recs}
+        self.assertEqual(by['done']['class'], 'MERGED_NO_PR_PRUNE_ELIGIBLE')
+        self.assertEqual(by['feature']['class'], 'OPEN_PR_REF')
+        self.assertEqual(by['main']['class'], 'PROTECTED')
+        self.assertEqual(by['done']['tip'], self.main)
+        self.assertIn('last_commit_date', by['done'])
+        self.assertEqual(by['feature']['commits_ahead_of_main'], 1)
+        self.assertEqual(by['done']['commits_ahead_of_main'], 0)
+
+
+class ObservationContextTests(BuildRecordTests):
+    def test_live_context_reads_the_clone(self):
+        ctx = generate.observation_context(self.repo, offline_dir=None, now='2026-10-29T17:00:00Z')
+        self.assertEqual(ctx['main_sha'], self.main)
+        self.assertEqual(ctx['observed_at_utc'], '2026-10-29T17:00:00Z')
+        self.assertEqual(ctx['refs']['feature'], self.head)
+
+    def test_offline_context_replays_the_recorded_cut(self):
+        d = tempfile.mkdtemp()
+        generate._dump({'observed_at_utc': '2026-10-01T00:00:00Z', 'main_sha': self.main,
+                        'refs': {'main': self.main, 'feature': self.head}}, os.path.join(d, 'CONTEXT.json'))
+        ctx = generate.observation_context(self.repo, offline_dir=d, now='2026-10-29T17:00:00Z')
+        self.assertEqual(ctx['observed_at_utc'], '2026-10-01T00:00:00Z')
+        self.assertEqual(ctx['refs'], {'main': self.main, 'feature': self.head})
+
+    def test_unicode_path_signals_are_not_lost(self):
+        self.git('checkout', '-q', 'feature')
+        _write(os.path.join(self.repo, 'formal', 'é.lean'), 'theorem u : True := by sorry\n')
+        self.git('add', 'formal'); self.git('commit', '-q', '-m', 'u')
+        self.git('checkout', '-q', 'main'); self.git('update-ref', 'refs/remotes/origin/feature', 'feature')
+        pr = self.pr(); pr['head']['sha'] = self.git('rev-parse', 'feature')
+        rec = generate.build_pr_record(self.repo, pr, main_sha=self.main, comments=[], reviews=[], check_runs=[],
+                                       now='2026-10-29T17:00:00Z', open_pr_heads={'feature'})
+        self.assertIn('formal/é.lean', rec['changed_paths'])
+        self.assertEqual(rec['layer_a_signals']['lean_sorry_added'], 2)
+
+
+class UnmergedBranchRecordTests(BuildRecordTests):
+    def test_records_for_unmerged_no_pr_branches(self):
+        # 'feature' is unmerged and PR-less here; 'rider' is an ancestor of an open PR head 'pr-head'
+        self.git('checkout', '-q', '-b', 'rider', 'main')
+        _write(os.path.join(self.repo, 'r.txt'), 'rider\n'); self.git('add', 'r.txt'); self.git('commit', '-q', '-m', 'r1')
+        self.git('checkout', '-q', '-b', 'pr-head')
+        _write(os.path.join(self.repo, 'p.txt'), 'pr\n'); self.git('add', 'p.txt'); self.git('commit', '-q', '-m', 'p1')
+        self.git('checkout', '-q', 'main')
+        for b in ('rider', 'pr-head'):
+            self.git('update-ref', f'refs/remotes/origin/{b}', b)
+        refs = generate.list_refs(self.repo)
+        recs = generate.build_unmerged_branch_records(
+            self.repo, main_sha=self.main, branches=['feature', 'rider'], refs=refs,
+            open_pr_heads={'pr-head': self.git('rev-parse', 'pr-head')},
+            now=(dt.datetime.now(dt.timezone.utc) + dt.timedelta(days=7)).isoformat().replace('+00:00', 'Z'))
+        by = {r['branch']: r for r in recs}
+        f = by['feature']
+        self.assertGreaterEqual(f['days_since_last_commit'], 6)
+        self.assertEqual(f['changed_paths'], ['formal/X.lean'])
+        self.assertEqual(f['layer_a_signals']['lean_sorry_added'], 1)
+        self.assertFalse(f['contained_in_open_pr_head'])
+        self.assertEqual(f['lane_prefix'], '(none)')
+        self.assertEqual(f['recommended_disposition'], 'ARCHIVE-BUNDLE')
+        self.assertEqual(f['recreate_command'], f"git push origin {self.head}:refs/heads/feature")
+        r = by['rider']
+        self.assertEqual(r['contained_in_open_pr_head'], 'pr-head')
+        self.assertEqual(r['recommended_disposition'], 'SUPERSEDED-BY-OPEN-PR')
+        self.assertIn('days_since_last_commit', r)
+
+
+class OrphanBranchTests(BuildRecordTests):
+    def test_unrelated_history_branch_is_recorded_not_crashed(self):
+        self.git('checkout', '-q', '--orphan', 'orphan')
+        self.git('rm', '-rfq', '.')
+        _write(os.path.join(self.repo, 'o.txt'), 'orphan\n'); self.git('add', 'o.txt'); self.git('commit', '-q', '-m', 'o1')
+        self.git('checkout', '-q', 'main')
+        self.git('update-ref', 'refs/remotes/origin/orphan', 'orphan')
+        recs = generate.build_unmerged_branch_records(
+            self.repo, main_sha=self.main, branches=['orphan'], refs=generate.list_refs(self.repo), open_pr_heads={},
+            now=(dt.datetime.now(dt.timezone.utc) + dt.timedelta(days=7)).isoformat().replace('+00:00', 'Z'))
+        r = recs[0]
+        self.assertIsNone(r['merge_base_with_main'])
+        self.assertTrue(r['unrelated_history'])
+        self.assertEqual(r['changed_paths'], ['o.txt'])
+        self.assertEqual(r['recommended_disposition'], 'ARCHIVE-BUNDLE')
+
+
+if __name__ == '__main__':
+    unittest.main()
