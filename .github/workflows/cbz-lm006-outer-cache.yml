@@ -1,7 +1,7 @@
 name: CBZ LM006 outer test cache
 on:
   push:
-    branches: [cbz/lm006-outer-test-cache-20261029]
+    branches: [cbz/lm006-outer-test-cache-20261029, cbz/lm006-outer-integrated-20261029]
   pull_request:
     paths:
       - '.github/workflows/lm006-oned-coefficient.yml'

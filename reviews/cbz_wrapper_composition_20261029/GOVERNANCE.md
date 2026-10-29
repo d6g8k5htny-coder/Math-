@@ -31,3 +31,5 @@ CBZ_MODE=optimized python -B -O -S cbz/verification/lm006_outer_cache/test_entry
 ```
 
 The earlier driver import RED and packet-cache controls are retained separately. The outer-entry pre-repair and repaired-source workflow jobs remain pending at this publication; this checkpoint is not a passing claim. This control establishes only the specified bytecode boundary, not a mathematical theorem.
+
+The outer-entry control also executes a poisoned PYTHONPATH fixture and its environment-scrub source mutation. Its two-mode result is pending; it does not replace the recorded poisoned-cache tests.

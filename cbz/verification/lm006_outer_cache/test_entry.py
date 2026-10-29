@@ -24,7 +24,7 @@ def workflow_script(text,mode):
     script='\n'.join(line[10:] for line in lines)+'\n'
     return script.replace('$'+'{{ matrix.mode }}',mode).replace('$'+'{{ github.run_attempt }}','1')
 
-def exercise(test,workflow,mode):
+def exercise(test,workflow,mode,poison_path=False):
     with tempfile.TemporaryDirectory(prefix='lm006-outer-cache-') as temporary:
         root=Path(temporary)/'repo'
         tests=root/'tests'
@@ -55,6 +55,11 @@ def exercise(test,workflow,mode):
         (tools/'lm006_oned_coefficient_replay.py').write_text("print('DRIVER_REACHED')\n")
         env=dict(os.environ,RUNNER_TEMP=str(runner),PYTHONPYCACHEPREFIX=str(cache),
                  CBZ_TEST_POISON_CACHE=str(cache))
+        if poison_path:
+            foreign=Path(temporary)/'poisoned-pythonpath'
+            foreign.mkdir()
+            (foreign/'unittest.py').write_text("raise RuntimeError('POISONED_UNITTEST_PATH')\n")
+            env['PYTHONPATH']=str(foreign)
         result=subprocess.run(['bash','-c',workflow_script(workflow,mode)],cwd=root,env=env,
                               stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,timeout=60)
         return result.returncode,result.stdout
@@ -89,6 +94,21 @@ class OuterEntryTests(unittest.TestCase):
         self.assertIn('FAILED (failures=1)',mutant)
         self.assertNotIn('DRIVER_REACHED',mutant)
         self.assertNotIn('ERROR:',mutant)
+
+    def test_pythonpath_scrubbing_blocks_poisoned_unittest(self):
+        mode=os.environ.get('CBZ_MODE','normal')
+        workflow=WORKFLOW.read_text()
+        anchor='case "$variable" in PYTHON*) unset "$variable" ;; esac'
+        replacement='case "$variable" in CBZ_UNUSED*) unset "$variable" ;; esac'
+        self.assertEqual(workflow.count(anchor),1)
+        baseline_code,baseline=exercise(self,workflow,mode,poison_path=True)
+        self.assertEqual(baseline_code,0,baseline)
+        self.assertIn('DRIVER_REACHED',baseline)
+        self.assertIn('\nOK\n',baseline)
+        mutant_code,mutant=exercise(self,workflow.replace(anchor,replacement,1),mode,poison_path=True)
+        self.assertNotEqual(mutant_code,0,mutant)
+        self.assertIn("RuntimeError: POISONED_UNITTEST_PATH",mutant)
+        self.assertNotIn('DRIVER_REACHED',mutant)
 
 if __name__=='__main__':
     unittest.main(verbosity=2)
