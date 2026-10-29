@@ -38,6 +38,12 @@ class SourceCustodyTests(unittest.TestCase):
         spec = importlib.util.spec_from_file_location('custody_fixture_gate', self.root / 'gate.py')
         self.gate = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(self.gate)
+        # Dynamic import can create a cache inside this disposable fixture when
+        # callers omit -B. Remove only that generated cache before clean-status
+        # assertions; keep the full unfiltered Git status checks below.
+        cache = self.root / '__pycache__'
+        if cache.is_dir():
+            shutil.rmtree(cache)
         self.refresh_digest()
 
     @staticmethod
