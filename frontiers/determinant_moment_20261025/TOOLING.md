@@ -1,30 +1,70 @@
-# Determinant compiled admission tooling
+# Determinant gate tools
 
-Source baseline: d6g8k5htny-coder/Math-@8151f592918a845bf19eb8eafaf8444540a32734, frontiers/determinant_moment_20261025/.
+Run commands from STATUS.md serially. No additional Python packages are required.
+The exact Lean toolchain/Mathlib/dependency revisions remain unchanged.
 
-compiled_inventory.py is a byte-identical copy of that commit's formal/gate_helper.py. Only inventory_source, bound_inventory, audit_inventory and compiled_admission are consumed by gate.py. The helper enumerates Lean module-table constants, retains private/generated names losslessly, computes transitive type/value axiom closure across every package constant, and rejects missing/extra/unbound declarations. The bound manifest does not allow user-written theorems to be hidden as non-target constants.
+| Tool | Purpose and verification boundary |
+|---|---|
+| gate.py | Authenticates source/dependencies/runtime, fresh build/checker, targets/types, complete inventory, two compiled and five proof/axiom controls, before/after identity, source/run-bound receipt. New loader tests reproduce stale pyc and changed-source attacks. |
+| compiled_inventory.py | Exact core ff8 helper; generates and strictly parses module ConstantInfo/closure protocol. Existing core auditor controls remain separately source-preserved. |
+| determinant_inventory.py | Lossless typed91-record binding,20 internal proofs, exact module IR counts and four compatibility pairs. Frozen baseline and intended-finding checks for the unchanged core injection payloads.39 policy/harness tests include actual historical census and synthetic external responses. |
+| tests/run_cbz_mutations.py | Six cases, each selected green baseline followed by exact intended assertion failures. Core-policy mutation fixtures deliberately rebind the independent source hash to measure policy deletions. No Lean execution. Optional --output outside source retains raw logs. |
+| tests/run_adapter_mutations.py |12 cases times two actual Python modes with exact selected-case/phase outcomes, positive baselines and unique retained output. Five adverse runner tests include import/runtime/setup/teardown/cleanup and invalid-status cases. No Lean execution inside these controls. |
 
-Retained stages: source and original-byte identities; exact source module root/target pre-check; dependency lock; exact Lean4.34.1 release5045d0056413266e57c625dcd7c365b10e377c52; clean pinned dependencies before/after; fresh package build; leanchecker; target axiom reports; elaborated types; five existing proof/axiom rejection controls; source/runtime recheck; exact receipt/run identity fields. Added stages: actual compiled package inventory, all-constant closure, and two compiled admission controls (hidden sorry proof and range-less compiler-shaped theorem).
+Every tool is self-contained; maintenance owner none. These bounded controls
+serve G0/G2/G4/G6/G11 only within their stated domain; none certifies every
+Layer A property in the federation. Old target-only and historical package
+receipts retain their original checked_commit and scope.
 
-Run component tests:
-```sh
-python -B -S -m unittest discover -s tests -v
-python -B -O -S -m unittest discover -s tests -v
-python -B -S tests/run_cbz_mutations.py
-```
-Protocol fixtures and mocked subprocess responses in tests are explicitly synthetic unit inputs. Their receipts remain temporary test products and are never current-package kernel evidence. Real pinned Lean status for this repair: NOT_RUN.
+[COMPILED_BINDING.md](COMPILED_BINDING.md) explains actual census provenance and
+compatibility. The41 IR extra counts are metadata; names/payloads are not
+authenticated. The module table and transitive closure concern kernel
+ConstantInfos. No broader continuum statement is claimed by that audit.
 
-The portable component-local mutation command above uses sys.executable, selected positive baselines and disposable source copies outside the component. It reuses the five existing cases, requires each mutation location exactly once, and accepts only the exact intended failing test names with positive collected counts and no import/test errors. The original source inventory must remain unchanged. Optional --output must name a directory outside the component; for example, `python -B -S tests/run_cbz_mutations.py --output /tmp/determinant-cbz-mutations`. No task-local checkout/evidence/mutations directory is assumed. STATUS.md carries these same component-only verification commands.
+The native workflow installs the unchanged pinned Lean/Mathlib setup, runs the
+component and shared source controls in both modes, retains adapter mutation
+logs, then invokes gate.py --execute. Its complete runtime path subsumes the
+previous build/checker/raw-observation steps and adds exact admission, closure,
+seven controls and final identity. Nothing is disabled to hide a failing check.
+Actual current-source gate outcome must be read from the run/artifact.
 
-Receipt invalidation occurs before all CLI argument/source/manifest/qualification checks, including source-only quarantine. The helper is loaded lazily after bound-file validation. Safe active receipt paths are cleared; directory symlinks refuse without being followed. Historical final receipts remain immutable. QUARANTINE.json binds exact Lean/module hashes instead of a manifest self-hash, with the complete mathematical evidence boundary and zero maintenance.
+Publication evidence:171 component controls pass each mode in retained successful
+local runs; one earlier parallel normal run has8 retained temporary-path errors
+and was rerun serially.24 paired adapter mutations all killed; both production
+loader/evidence defects independently reproduced and corrected. Actual repaired
+Lean gate execution remains pending at this source-publication checkpoint.
 
-Current `python -B -S gate.py` and `python -B -S gate.py --execute` both return1 with CBZ_COMPILED_INVENTORY_UNQUALIFIED, without a kernel receipt. The source_check Python API remains a diagnostic identity check, never a completeness or execution claim.
 
-Activation requires a real pinned Lean environment: preserve all source/dependency identities, execute the helper's Inventory.lean census against this package, inspect the exact non-target constant records and bind them in manifest.json.compiled_inventory, then execute gate.py --execute so the new runtime census must reproduce the binding and all existing/new controls succeed. Never seed the binding from the column-zero source regex or current core package's different inventory. Unsupported names/module-system objects, private non-target records not representable by this helper, or any mismatched census remain rejected until explicitly implemented and tested; do not suppress findings.
+Transport regression: tests/test_workflow_receipt_transport.py executes the
+workflow's literal Bash pipeline against synthetic log/receipt output. Run
+`python -B -S -m unittest discover -s frontiers/determinant_moment_20261025/tests -p test_workflow_receipt_transport.py -v`
+from the repository root, and repeat with -O. It includes a historical-placement
+mutation and gate-failure propagation. It is a bounded transport test, not a
+Lean-result generator. The existing workflow runs these controls in both modes
+before the actual Lean gate and uploads the aggregate console separately from
+receipt-hashed logs. Source is manifest-bound; maintenance owner none. Current
+successor execution is pending at publication; use the actual run/artifact.
 
-The local evidence directory outside this component records baseline78 tests, the actual regression RED run, normal/optimized successor tests, mutation runs, unchanged proof hashes, CLI quarantine, and source bytes. These are engineering results and preserve the real Lean NOT_RUN boundary.
 
-Initial local verification, 2026-10-29: predecessor78/78 tests passed in each Python mode; the first successor98/98 tests passed in each mode. All78 original test bodies remain unchanged. Five deliberate admission/runtime/receipt mutations were killed by test assertions, with no import or test errors. All14 original Lean paths remain byte-identical. The core helper copy is byte-identical (SHA256 ff8a5374597772b2d37054fd722c2243c4b552a63802c69f7c605519832be6c4). Both CLI forms returned1 with the exact quarantine reason, and no candidate kernel receipt exists. Real Lean execution: NOT_RUN.
+| artifact_integrity.py | Narrow downloaded ZIP/receipt verifier. Requires --archive, --expected-commit, --expected-manifest and --output. Authenticates all receipt.logs bytes and both independent identities; no kernel credit.17 actual ZIP/CLI fixtures and six intended policy mutants, pending hosted execution at publication. Maintenance owner none; serves G0/G6/G8/G11 within this metadata boundary. |
 
-Focused follow-up verification:109/109 tests passed in normal and optimized modes, including actual CLI source/manifest/helper failure and quarantine cleanup, symlink/historical-evidence safety, the complete quarantine record and a cold-start portable-runner copy. The ten initial CLI/quarantine regression methods were observed RED with13 assertion failures before the fix; the missing portable runner was also observed RED before implementation. The component-local five-case mutation runner then passed with green selected baselines, positive test counts and exact intended assertion failures; sources remained unchanged. No forbidden axiom finding, repaired-gate Lean run, independent auditor work or CBZ CLOSED evidence is inferred from these engineering results.
+From the repository root, run the complete component suite serially in normal
+and -O Python modes, and repeat tests/run_cbz_mutations.py with --output outside
+the package. The runner now retains all six earlier outer mutants and adds six
+artifact-policy mutants: log hash, commit, manifest, duplicate member, unsafe
+member and empty inventory. Threshold12/12 exact intended kills in each mode,
+with same-selection passing baselines and no test/import errors. The dedicated
+downloaded-artifact workflow runs those commands and preserves their raw logs.
+Its request file pins the old negative artifact12924995112 and repaired positive
+artifact12928575403 including source identities and independently observed ZIP
+digests. A positive result means byte transport integrity only.
 
+
+Durable preservation is part of that same workflow: after successful downloads
+and checks it records only the two raw ZIPs, four reports, SUMMARY.json,
+SHA256SUMS and README under evidence/cbz-determinant-transport-20261029/ on a
+fresh evidence branch. Every created Git blob is checked against its exact
+bytes and the new tree is read back without truncation. PUBLICATION.json names
+the resulting branch/commit/file SHA256s. Integrate that ordinary descendant
+after checks; future local verification uses those committed ZIPs and requires
+no90-day artifact URL. No mathematical status is awarded by publication.
