@@ -1,25 +1,147 @@
-"""Finite source mutation checks: every mutant must fail its intended real observation."""
+"""Finite, reason-bound source mutations and false-kill controls for core custody."""
 import json
 from pathlib import Path
+import re
+import secrets
 import shutil
 import subprocess
 import sys
 import tempfile
 import unittest
-from unittest import mock
 
 HERE = Path(__file__).resolve().parents[1]
+MARKER = 'CBZ_CUSTODY_TEST_RESULT '
+
+DRIVER = r'''
+import json, sys, unittest
+requested, nonce = sys.argv[1:]
+class Capture(unittest.TextTestResult):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.ids = []
+    def startTest(self, test):
+        self.ids.append(test.id())
+        super().startTest(test)
+suite = unittest.defaultTestLoader.loadTestsFromName(requested)
+result = unittest.TextTestRunner(verbosity=2, resultclass=Capture).run(suite)
+def rows(items):
+    return [{'id': test.id(), 'detail': str(detail)} for test, detail in items]
+data = dict(nonce=nonce, requested=requested, ids=result.ids, tests=result.testsRun,
+            failures=rows(result.failures), errors=rows(result.errors),
+            skipped=rows(result.skipped), expected_failures=rows(result.expectedFailures),
+            unexpected_successes=[test.id() for test in result.unexpectedSuccesses],
+            success=result.wasSuccessful())
+print('CBZ_CUSTODY_TEST_RESULT ' + json.dumps(data, sort_keys=True), flush=True)
+raise SystemExit(0 if result.wasSuccessful() else 1)
+'''
+
+
+def _record(result, test, nonce):
+    if type(result.returncode) is not int or not isinstance(result.stdout, str):
+        return None
+    lines = [line[len(MARKER):] for line in result.stdout.splitlines()
+             if line.startswith(MARKER)]
+    if len(lines) != 1:
+        return None
+    try:
+        data = json.loads(lines[0])
+    except (ValueError, TypeError):
+        return None
+    keys = {'nonce', 'requested', 'ids', 'tests', 'failures', 'errors', 'skipped',
+            'expected_failures', 'unexpected_successes', 'success'}
+    if not isinstance(data, dict) or set(data) != keys:
+        return None
+    if (data['nonce'] != nonce or data['requested'] != test or data['ids'] != [test] or
+            type(data['tests']) is not int or data['tests'] != 1):
+        return None
+    if any(data[key] != [] for key in ('errors', 'skipped', 'expected_failures',
+                                       'unexpected_successes')):
+        return None
+    return data
+
+
+def _accepted_baseline(result, test, nonce):
+    data = _record(result, test, nonce)
+    return (data is not None and result.returncode == 0 and
+            data['success'] is True and data['failures'] == [])
+
+
+def _accepted_failure(result, test, nonce, reason):
+    data = _record(result, test, nonce)
+    if data is None or not isinstance(data['failures'], list) or len(data['failures']) != 1:
+        return False
+    item = data['failures'][0]
+    if not isinstance(item, dict) or set(item) != {'id', 'detail'}:
+        return False
+    detail = item['detail']
+    method = test.rsplit('.', 1)[-1]
+    return all((
+        result.returncode == 1,
+        data['success'] is False,
+        item['id'] == test,
+        isinstance(detail, str),
+        isinstance(detail, str) and reason in detail,
+        isinstance(detail, str) and ('in ' + method) in detail,
+    ))
+
+
+def _run_one(root, test):
+    nonce = secrets.token_hex(16)
+    args = [sys.executable, '-B', '-S'] + (['-O'] if sys.flags.optimize else [])
+    args += ['-c', DRIVER, test, nonce]
+    result = subprocess.run(args, cwd=root / 'tests', text=True,
+                            stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=60)
+    return result, nonce
 
 
 class CustodyMutationTests(unittest.TestCase):
+    def test_grader_refuses_false_kills(self):
+        test = 'case.Module.test_guard'
+        nonce = 'unique-control-nonce'
+        good = dict(nonce=nonce, requested=test, ids=[test], tests=1,
+                    failures=[{'id': test, 'detail': 'in test_guard\nAssertionError: intended bypass'}],
+                    errors=[], skipped=[], expected_failures=[], unexpected_successes=[], success=False)
+        def sample(code, data, suffix=''):
+            return subprocess.CompletedProcess([], code, MARKER + json.dumps(data) + '\n' + suffix)
+        self.assertTrue(_accepted_failure(sample(1, good), test, nonce, 'intended bypass'))
+        self.assertFalse(_accepted_failure(sample(2, good), test, nonce, 'intended bypass'))
+        self.assertFalse(_accepted_failure(sample(1, dict(good, tests=0)), test, nonce, 'intended bypass'))
+        self.assertFalse(_accepted_failure(sample(1, dict(good, errors=[{'id':test,'detail':'crash'}])),
+                                           test, nonce, 'intended bypass'))
+        self.assertFalse(_accepted_failure(sample(1, dict(good, skipped=[{'id':test,'detail':'skip'}])),
+                                           test, nonce, 'intended bypass'))
+        self.assertFalse(_accepted_failure(sample(1, dict(good, failures=[{'id':test,'detail':'in test_guard wrong'}])),
+                                           test, nonce, 'intended bypass'))
+        self.assertFalse(_accepted_failure(sample(1, dict(good, failures=[{'id':test,'detail':'in tearDown intended bypass'}])),
+                                           test, nonce, 'intended bypass'))
+        self.assertFalse(_accepted_failure(sample(1, good, MARKER + json.dumps(good)), test, nonce, 'intended bypass'))
+        self.assertFalse(_accepted_failure(sample(1, dict(good, nonce='wrong')), test, nonce, 'intended bypass'))
+        self.assertFalse(_accepted_failure(subprocess.CompletedProcess([],1,'missing record'), test, nonce, 'intended bypass'))
+
     def test_grader_rejects_exit_two_even_with_plausible_failure_text(self):
-        false_evidence = subprocess.CompletedProcess(
-            args=[], returncode=2,
-            stdout='Ran 1 test\\nValueError not raised\\nTrue is not false\\n'
-                   'POISONED_CACHED_HELPER\\nAssertionError\\n')
-        with mock.patch.object(subprocess, 'run', return_value=false_evidence):
-            with self.assertRaisesRegex(AssertionError, 'exact mutation-test exit'):
-                self.test_all_declared_source_mutants_are_detected_for_their_reason()
+        test = 'case.Module.test_guard'
+        nonce = 'exit-two-control'
+        data = dict(nonce=nonce, requested=test, ids=[test], tests=1,
+                    failures=[{'id':test, 'detail':'in test_guard\nAssertionError: intended bypass'}],
+                    errors=[], skipped=[], expected_failures=[], unexpected_successes=[], success=False)
+        fake = subprocess.CompletedProcess([], 2, MARKER + json.dumps(data))
+        self.assertFalse(_accepted_failure(fake, test, nonce, 'intended bypass'))
+
+    def test_grader_detects_its_always_accept_source_mutant(self):
+        source = Path(__file__).read_text()
+        before = '    return all((\n'
+        self.assertEqual(source.count(before), 1)
+        with tempfile.TemporaryDirectory() as td:
+            path = Path(td) / 'test_mutant.py'
+            path.write_text(source.replace(before, '    return True or all((\n', 1))
+            args = [sys.executable, '-B', '-S'] + (['-O'] if sys.flags.optimize else [])
+            args += ['-m', 'unittest', '-v', 'test_mutant.CustodyMutationTests.test_grader_refuses_false_kills']
+            result = subprocess.run(args, cwd=td, text=True, stdout=subprocess.PIPE,
+                                    stderr=subprocess.STDOUT, timeout=60)
+            self.assertEqual(result.returncode, 1, 'grader mutant exit must equal 1')
+            self.assertIn('test_grader_refuses_false_kills', result.stdout)
+            self.assertIn('True is not false', result.stdout)
+            self.assertIn('FAILED (failures=1)', result.stdout)
 
     def test_all_declared_source_mutants_are_detected_for_their_reason(self):
         source = (HERE / 'gate.py').read_text()
@@ -89,28 +211,60 @@ class CustodyMutationTests(unittest.TestCase):
              "cwd=cwd)",
              'test_gate_compatibility.CompatibilityTests.test_run_uses_current_root_and_preserves_explicit_cwd_and_exit_contract',
              'AssertionError'),
+            ('git-directory-environment',
+             "not key.startswith('GIT_') and key not in _UNTRUSTED_LEAN_ENV",
+             "key not in _UNTRUSTED_LEAN_ENV",
+             'test_source_custody.SourceCustodyTests.test_foreign_git_environment_cannot_redirect_source_identity',
+             ' != '),
+            ('git-alternate-index',
+             "not key.startswith('GIT_') and key not in _UNTRUSTED_LEAN_ENV",
+             "key not in _UNTRUSTED_LEAN_ENV",
+             'test_source_custody.SourceCustodyTests.test_foreign_index_cannot_hide_staged_source',
+             'ValueError not raised'),
+            ('git-replacement-refs',
+             "'GIT_NO_REPLACE_OBJECTS': '1'",
+             "'GIT_NO_REPLACE_OBJECTS': '0'",
+             'test_source_custody.SourceCustodyTests.test_replace_ref_cannot_redirect_committed_source',
+             'REPLACEMENT_REF_REDIRECTED'),
+            ('dependency-git-environment',
+             "actual[name] = _git_bytes(repo, 'rev-parse', 'HEAD').decode('utf-8').strip()",
+             "actual[name] = subprocess.check_output(['git', '-C', repo, 'rev-parse', 'HEAD'], text=True).strip()",
+             'test_source_custody.SourceCustodyTests.test_dependency_ignores_foreign_git_environment',
+             'DEPENDENCY_GIT_REDIRECTED'),
+            ('helper-git-environment',
+             "with _helper_execution_environment():",
+             "if True:",
+             'test_source_custody.SourceCustodyTests.test_execute_ignores_foreign_git_environment_in_helper',
+             'HELPER_GIT_REDIRECTED'),
+            ('lean-search-environment',
+             "with _helper_execution_environment():",
+             "if True:",
+             'test_source_custody.SourceCustodyTests.test_execute_strips_external_lean_search_paths',
+             '/untrusted/lean'),
         ]
+        self.assertEqual(len(cases), 19, 'declared finite mutation set changed')
         results = []
         for label, before, after, test, reason in cases:
             with self.subTest(mutant=label), tempfile.TemporaryDirectory() as td:
                 self.assertEqual(source.count(before), 1, 'mutation site must exist exactly once: ' + label)
                 root = Path(td) / 'formal'
                 (root / 'tests').mkdir(parents=True)
-                (root / 'gate.py').write_text(source.replace(before, after, 1))
+                gate = root / 'gate.py'
+                gate.write_text(source)
                 shutil.copyfile(HERE / 'gate_helper.py', root / 'gate_helper.py')
                 for name in ('test_source_custody.py', 'test_gate_compatibility.py'):
                     shutil.copyfile(HERE / 'tests' / name, root / 'tests' / name)
-                args = [sys.executable, '-B', '-S'] + (['-O'] if sys.flags.optimize else [])
-                args += ['-m', 'unittest', '-v', test]
-                result = subprocess.run(args, cwd=root / 'tests', text=True,
-                                        stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=60)
-                self.assertNotEqual(result.returncode, 0, 'mutant escaped: ' + label)
-                self.assertIn(reason, result.stdout, 'mutant failed for another reason: ' + label + '\n' + result.stdout)
-                self.assertIn('Ran 1 test', result.stdout, 'child did not execute its selected control')
-                self.assertNotIn('SyntaxError', result.stdout, 'invalid source mutation')
+                baseline, nonce = _run_one(root, test)
+                self.assertTrue(_accepted_baseline(baseline, test, nonce),
+                                'selected baseline did not pass exactly once: ' + label + '\n' + baseline.stdout)
+                gate.write_text(source.replace(before, after, 1))
+                result, nonce = _run_one(root, test)
+                self.assertEqual(result.returncode, 1, 'exact mutation-test exit: ' + label)
+                self.assertTrue(_accepted_failure(result, test, nonce, reason),
+                                'intended assertion observation missing: ' + label + '\n' + result.stdout)
                 results.append({'id': label, 'test': test, 'reason': reason, 'exit': result.returncode})
         print('CUSTODY_SOURCE_MUTATIONS ' + json.dumps({
-            'threshold': '13/13 (100% finite declared set)',
+            'threshold': '19/19 (100% finite declared set)',
             'optimized_children': bool(sys.flags.optimize), 'results': results}, sort_keys=True))
 
 

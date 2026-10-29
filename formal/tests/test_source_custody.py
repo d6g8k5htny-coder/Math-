@@ -133,7 +133,12 @@ class SourceCustodyTests(unittest.TestCase):
         cache.write_bytes(_code_to_timestamp_pyc(poison, int(info.st_mtime), info.st_size))
         spec = importlib.util.spec_from_file_location('custody_poisoned_cache_gate', self.root / 'gate.py')
         module = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(module)
+        try:
+            spec.loader.exec_module(module)
+        except RuntimeError as exc:
+            if str(exc) != 'POISONED_CACHED_HELPER':
+                raise
+            self.fail('POISONED_CACHED_HELPER')
         self.assertEqual(module._HELPER_EXECUTE.__name__, 'execute')
 
     def test_clean_committed_source_is_bound_to_exact_head(self):
@@ -204,7 +209,10 @@ class SourceCustodyTests(unittest.TestCase):
             subprocess.check_call(['git', '-C', str(foreign), 'add', 'outside.txt'])
             subprocess.check_call(['git', '-C', str(foreign), 'commit', '-qm', 'foreign helper head'])
             with mock.patch.dict(os.environ, {'GIT_DIR': str(foreign / '.git'), 'GIT_WORK_TREE': str(self.repo)}):
-                receipt, calls = self.execute()
+                try:
+                    receipt, calls = self.execute()
+                except ValueError as exc:
+                    self.fail('HELPER_GIT_REDIRECTED: ' + str(exc))
             self.assertEqual(calls, ['kernel'])
             self.assertEqual(receipt['checked_commit'], expected)
 
@@ -247,7 +255,11 @@ class SourceCustodyTests(unittest.TestCase):
         clean_env = dict(os.environ)
         clean_env.pop('GIT_NO_REPLACE_OBJECTS', None)
         with mock.patch.dict(os.environ, clean_env, clear=True):
-            self.assertEqual(self.checked(), expected)
+            try:
+                observed = self.checked()
+            except ValueError as exc:
+                self.fail('REPLACEMENT_REF_REDIRECTED: ' + str(exc))
+            self.assertEqual(observed, expected)
 
     def test_commit_drift_is_refused(self):
         first = self.checked()
@@ -348,7 +360,11 @@ class SourceCustodyTests(unittest.TestCase):
             subprocess.check_call(['git', '-C', str(foreign), 'add', 'outside.txt'])
             subprocess.check_call(['git', '-C', str(foreign), 'commit', '-qm', 'foreign dependency'])
             with mock.patch.dict(os.environ, {'GIT_DIR': str(foreign / '.git'), 'GIT_WORK_TREE': str(self.dep)}):
-                self.assertEqual(self.gate.dependency_state(manifest), manifest['dependency_revisions'])
+                try:
+                    observed = self.gate.dependency_state(manifest)
+                except ValueError as exc:
+                    self.fail('DEPENDENCY_GIT_REDIRECTED: ' + str(exc))
+                self.assertEqual(observed, manifest['dependency_revisions'])
 
     def test_dependency_accepts_exact_clean_committed_tree(self):
         manifest = self.dependency_fixture()

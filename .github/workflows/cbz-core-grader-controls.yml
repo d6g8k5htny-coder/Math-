@@ -1,0 +1,39 @@
+name: CBZ core source and grader controls
+on:
+  push:
+    branches: [cbz/core-git-and-grader-repair-20261029]
+permissions:
+  contents: read
+jobs:
+  controls:
+    strategy:
+      matrix:
+        mode: [normal, optimized]
+      fail-fast: false
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.11.16'
+      - name: Run retained complete formal tests and source mutations
+        shell: bash
+        run: |
+          set +e
+          flags=()
+          if [ "${{ matrix.mode }}" = optimized ]; then flags=(-O); fi
+          python -B -S "${flags[@]}" -m unittest discover -s formal/tests -p 'test_*.py' -v > "$RUNNER_TEMP/core-grader-controls.log" 2>&1
+          result=$?
+          cat "$RUNNER_TEMP/core-grader-controls.log"
+          if [ "$result" -ne 0 ]; then exit "$result"; fi
+          grep -Eq '^Ran 278 tests in ' "$RUNNER_TEMP/core-grader-controls.log" || exit 1
+          grep -Fxq 'OK' "$RUNNER_TEMP/core-grader-controls.log" || exit 1
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: core-grader-controls-${{ matrix.mode }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/core-grader-controls.log
+          if-no-files-found: error
