@@ -331,6 +331,34 @@ class SourceCustody(unittest.TestCase):
             'GIT_DIR': None, 'GIT_WORK_TREE': None, 'GIT_CONFIG_COUNT': None})
 
 
+
+    def test_grader_source_mutation_is_detected_by_wrong_exit_control(self):
+        from unittest import mock
+        runner_path = DRIVER.parent / 'tests/run_cbz_mutations.py'
+        source = runner_path.read_text()
+        old = 'intended = (result.returncode == 1 and count'
+        self.assertEqual(source.count(old), 1)
+        mutant = source.replace(old, 'intended = (True and count', 1)
+        namespace = {'__name__': 'determinant_mutated_grader_fixture', '__file__': str(runner_path)}
+        exec(compile(mutant, str(runner_path), 'exec'), namespace)
+        case = next(row for row in namespace['CASES'] if row[0] == 'omit-artifact-log-hash')
+        work = self.repo / 'grader-mutant-work'
+        output = self.repo / 'grader-mutant-output'
+        work.mkdir()
+        output.mkdir()
+        baseline = subprocess.CompletedProcess([], 0, stdout='', stderr=(
+            'test_corrupt_payload_refused (fixture) ... ok\n\nRan 1 test in 0.001s\n\nOK\n'))
+        counterfeit = subprocess.CompletedProcess([], 2, stdout='', stderr=(
+            'FAIL: test_corrupt_payload_refused (fixture)\n'
+            'in test_corrupt_payload_refused\n'
+            'AssertionError: IntegrityError not raised\n'
+            'Ran 1 test in 0.001s\n\nFAILED (failures=1)\n'))
+        with mock.patch.object(namespace['subprocess'], 'run', side_effect=[baseline, counterfeit]):
+            observed = namespace['execute_case'](case, work, output)
+        with self.assertRaisesRegex(AssertionError, 'True is not false'):
+            self.assertFalse(observed['killed_by_intended_assertions'])
+
+
 class DependencyCustody(unittest.TestCase):
     def setUp(self):
         tmp = tempfile.TemporaryDirectory()
