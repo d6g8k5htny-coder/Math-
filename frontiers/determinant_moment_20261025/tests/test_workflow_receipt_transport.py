@@ -76,7 +76,7 @@ class WorkflowReceiptTransportTests(unittest.TestCase):
         self.assertTrue(receipt['synthetic_transport_fixture'])
         self.assertEqual(mismatches, [], 'workflow appended to a receipt-hashed gate log')
         self.assertEqual(len(consoles), 1, 'aggregate console must be retained separately')
-        self.assertIn('SYNTHETIC', consoles[0])
+        self.assertEqual(json.loads(consoles[0]), receipt)
 
     def test_original_in_gate_tee_reproduces_the_self_hash_failure(self):
         text = WORKFLOW.read_text()

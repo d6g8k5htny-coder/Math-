@@ -19,3 +19,12 @@ unresponsive after successful source inspection; publish a source-only atomic
 Git successor through the available GitHub connector and obtain actual checks
 from hosted execution. No pending local test/patch is credited as completed.
 This is a verification route change, not a relaxation of any mathematical gate.
+
+[2026-10-29T19:41Z] [Phase3] [Layer C] Hosted run40942140520/job123687993621
+executed175 component tests normally:174 passed and one transport assertion
+failed because the console correctly contains JSON with synthetic_transport_fixture,
+not an uppercase SYNTHETIC string. Preserve the failed public run. Correct the
+test to compare the full parsed console JSON with the receipt, a stronger exact
+transport check. No production workflow, gate, bound or proof is altered by
+this test correction. Optimized mode and actual gate were not reached in that run.
+Reversible. Fresh execution remains pending.

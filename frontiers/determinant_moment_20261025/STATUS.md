@@ -74,3 +74,9 @@ At this publication checkpoint, successor tests and fresh hosted execution are
 NOT_YET_OBSERVED. The new result must include the source-current receipt and a
 comparison of every recorded log hash with downloaded bytes. Historical kernel
 evidence does not establish the repaired transport's current execution.
+
+Observed first transport-successor run40942140520/job123687993621:175 normal
+component tests executed, with174 passes and one test-fixture assertion failure
+(uppercase marker expected from a JSON-only console). Optimized mode and Lean
+were not reached. The corrected test now compares the entire console JSON with
+the receipt. This public red run remains retained; it is not an integrity pass.
