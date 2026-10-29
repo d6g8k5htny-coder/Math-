@@ -452,7 +452,7 @@ class IndependentCensusTests(unittest.TestCase):
     def test_generated_census_uses_exact_table_and_all_modules(self):
         program=subject.census_program(["Fixture","Other"])
         self.assertIn("let names := data.constNames.qsort Name.lt",program)
-        self.assertIn("for extraName in data.extraConstNames",program)
+        self.assertIn("for extraName in env.header.moduleData[idx]!.extraConstNames",program)
         self.assertIn("kernel overlap has non-unique declaration provenance",program)
         self.assertIn("env.header.moduleData.size",program)
         self.assertIn("declaring_modules",program)
