@@ -4,6 +4,15 @@ from pathlib import Path
 
 DRIVER=Path(__file__).resolve().parents[1]/'tools/lm006_oned_coefficient_replay.py'
 
+def compile_timestamp_cache(test,path):
+    import py_compile, struct
+    filename=py_compile.compile(str(path),doraise=True,optimize=sys.flags.optimize,
+                                invalidation_mode=py_compile.PycInvalidationMode.TIMESTAMP)
+    header=Path(filename).read_bytes()[:16]
+    magic,flags,mtime,size=struct.unpack('<4sIII',header)
+    test.assertEqual(magic,importlib.util.MAGIC_NUMBER)
+    test.assertEqual((flags,mtime,size),(0,1700000000,path.stat().st_size))
+
 def load_driver(path):
     spec=importlib.util.spec_from_file_location('trusted_driver',path)
     module=importlib.util.module_from_spec(spec)
@@ -43,7 +52,7 @@ class ReplayTests(unittest.TestCase):
         path.write_bytes(source.replace(original,poisoned,1).replace(guard,guardless,1))
         timestamp=1700000000
         os.utime(path,(timestamp,timestamp))
-        py_compile.compile(str(path),doraise=True,optimize=sys.flags.optimize)
+        compile_timestamp_cache(self,path)
         path.write_bytes(source)
         os.utime(path,(timestamp,timestamp))
         self.assertEqual(path.stat().st_size,len(source))
@@ -92,7 +101,7 @@ class ReplayTests(unittest.TestCase):
         path=self.root/'drift_driver.py'
         path.write_bytes(source.replace(old,new,1))
         os.utime(path,(1700000000,1700000000))
-        py_compile.compile(str(path),doraise=True,optimize=sys.flags.optimize)
+        compile_timestamp_cache(self,path)
         path.write_bytes(source)
         os.utime(path,(1700000000,1700000000))
         spec=importlib.util.spec_from_file_location('drift_driver',path)
@@ -154,7 +163,7 @@ class ReplayTests(unittest.TestCase):
         previous=sys.pycache_prefix
         try:
             sys.pycache_prefix=str(cache)
-            py_compile.compile(str(path),doraise=True,optimize=sys.flags.optimize)
+            compile_timestamp_cache(self,path)
         finally:
             sys.pycache_prefix=previous
         path.write_bytes(original)
