@@ -153,6 +153,8 @@ class SourceCustody(unittest.TestCase):
         calls = []
         def fake_run(command, label, out, expect_success=True):
             calls.append(label)
+            if label not in ('version-preflight', 'build'):
+                self.fail('unsafe build directory reached ' + label)
             if label == 'build':
                 build.mkdir(parents=True)
                 (build / 'nested').symlink_to(external, target_is_directory=True)
