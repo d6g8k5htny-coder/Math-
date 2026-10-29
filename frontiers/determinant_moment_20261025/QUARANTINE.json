@@ -1,0 +1,202 @@
+{
+  "id": "CBZ-MATH-DETERMINANT-COMPILED-ADMISSION",
+  "title": "Determinant package current compiled completeness and axiom-closure quarantine",
+  "location": {
+    "repository": "d6g8k5htny-coder/Math-",
+    "path": "frontiers/determinant_moment_20261025",
+    "base_commit": "8151f592918a845bf19eb8eafaf8444540a32734",
+    "entrypoint": "gate.py",
+    "lean_identity": {
+      "toolchain": "leanprover/lean4:v4.34.1",
+      "release_commit": "5045d0056413266e57c625dcd7c365b10e377c52",
+      "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "dependency_revisions": {
+        "plausible": "118aa17ee84656b8bd727fef7c458ee8c833385c",
+        "LeanSearchClient": "ddf04cf3949fa556442341e87d47f9f6e6074707",
+        "importGraph": "e928b72544873815af278d38681b31c0293588e3",
+        "proofwidgets": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
+        "aesop": "355695d523e41d0554926416cba2a2b3544fbbc9",
+        "Qq": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+        "batteries": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+        "Cli": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204",
+        "mathlib": "d13f23b723b8a846827a245b89c10fc7d3f11612"
+      }
+    },
+    "modules": [
+      {
+        "path": "ResearchFormalCoreR1/AlgebraV2.lean",
+        "module": "ResearchFormalCoreR1.AlgebraV2",
+        "sha256": "71e4327df9f7d6979f1467f7e0d880e0ab0a70ab6d234802d8c7a1624b9ce2d9",
+        "git_blob_at_base": "768d0bab92da6df25fd85eab01e526afb57adae9",
+        "bytes": 2076
+      },
+      {
+        "path": "ResearchFormalCoreR1/ProbabilityCompanionsV2.lean",
+        "module": "ResearchFormalCoreR1.ProbabilityCompanionsV2",
+        "sha256": "dbc42b17797be688fecec790f32fcfd0004d98ac776cbbe0471c62c3f506aa41",
+        "git_blob_at_base": "e4073dc21ca6f80f8237a24fd4f8238953ecc9f6",
+        "bytes": 3670
+      },
+      {
+        "path": "ResearchFormalCoreR1/DeterminantMoment.lean",
+        "module": "ResearchFormalCoreR1.DeterminantMoment",
+        "sha256": "661b73c3f21c6d2529f5e09ce426d89c01939ab27a5cc868db3802c7e66ea82d",
+        "git_blob_at_base": "93e296ca101be5d15a5ed6bfef7c6fe768f514e6",
+        "bytes": 10099
+      },
+      {
+        "path": "ResearchFormalCoreR1/GaussianScalarMoments.lean",
+        "module": "ResearchFormalCoreR1.GaussianScalarMoments",
+        "sha256": "71ce88ad2c97891858a5196f3293907bdffdd2341dfbace24204f2318c7510df",
+        "git_blob_at_base": "ce432cb71309dcd4a0c0189114b109acc90678d3",
+        "bytes": 4398
+      },
+      {
+        "path": "ResearchFormalCoreR1/GaussianJetMoments.lean",
+        "module": "ResearchFormalCoreR1.GaussianJetMoments",
+        "sha256": "f2e785975aee6915848fe78dc3ecde02b8f13a0a1fb56ae3771e4c727c723360",
+        "git_blob_at_base": "52498daf0a72442c61f105193dd1ba2f41982410",
+        "bytes": 6276
+      },
+      {
+        "path": "ResearchFormalCoreR1/GaussianNormalizer.lean",
+        "module": "ResearchFormalCoreR1.GaussianNormalizer",
+        "sha256": "32b7202cba2a9a0e0ed603d1a6db9ba2031714375b4e955614d5a40826a14aeb",
+        "git_blob_at_base": "a9657cfb8751247b23fb0a833668357efb4879f2",
+        "bytes": 4688
+      },
+      {
+        "path": "ResearchFormalCoreR1/GaussianRegressionKernel.lean",
+        "module": "ResearchFormalCoreR1.GaussianRegressionKernel",
+        "sha256": "66d4fbee044a1a0c0b434bcd7614e220fad21d1ac275ce9b01070a66c5780460",
+        "git_blob_at_base": "face5de81244e34ea69aeb79fe31b35b99e48d87",
+        "bytes": 14982
+      },
+      {
+        "path": "ResearchFormalCoreR1/EndpointGaussianMoments.lean",
+        "module": "ResearchFormalCoreR1.EndpointGaussianMoments",
+        "sha256": "c6351881326491ce30f1a266ea60e44c5adb8b3a1e5882c90575c67e459479d1",
+        "git_blob_at_base": "7683112b1db5ea1c58f180a5d13575f689efeeb8",
+        "bytes": 6574
+      },
+      {
+        "path": "ResearchFormalCoreR1/NormalizerFloor.lean",
+        "module": "ResearchFormalCoreR1.NormalizerFloor",
+        "sha256": "428eefd71b8c64fc4bcb208d9f73658058f29765f01a01c591f20a2d2359ec3e",
+        "git_blob_at_base": "3635695ef8174f9b6b85953c82a2d620ad7189fb",
+        "bytes": 6134
+      },
+      {
+        "path": "ResearchFormalCoreR1/EndpointNormalizerBridge.lean",
+        "module": "ResearchFormalCoreR1.EndpointNormalizerBridge",
+        "sha256": "36eab3b805fcba5160cb7e286dbd7f96940b0c6a85b464aad5fdad2f624ceb7e",
+        "git_blob_at_base": "73d861b7e783afb37f3da69d7642fae04bd3900f",
+        "bytes": 9341
+      },
+      {
+        "path": "ResearchFormalCoreR1/GaussianCoupling.lean",
+        "module": "ResearchFormalCoreR1.GaussianCoupling",
+        "sha256": "426a53c139215650e961601c12f3cc1e09069520c5ebb96234a29483280551bb",
+        "git_blob_at_base": "143c6253a3ee063ec049907b91174794fc8d2380",
+        "bytes": 3413
+      },
+      {
+        "path": "ResearchFormalCoreR1/GaussianNormalizerLimit.lean",
+        "module": "ResearchFormalCoreR1.GaussianNormalizerLimit",
+        "sha256": "12c98054b5bcf47f4619c624ef5e91c37f316d7c4848f560279d1f1e96fe0049",
+        "git_blob_at_base": "be08ef92c668ae38d0ec4d3411c39209eb7d0242",
+        "bytes": 11638
+      },
+      {
+        "path": "ResearchFormalCoreR1/PalmReweighting.lean",
+        "module": "ResearchFormalCoreR1.PalmReweighting",
+        "sha256": "d34e422693f1d449bfcaf9c844c99c8fef4f19503312d3677ca525bd2d67c4d6",
+        "git_blob_at_base": "f0d6abafccefd0084643aa0fbc8099fce6162bb8",
+        "bytes": 6520
+      },
+      {
+        "path": "ResearchFormalCoreR1.lean",
+        "module": "ResearchFormalCoreR1",
+        "sha256": "15e6b160ea4dcd0b95d9bf56afe318d0292e2421659637cb6754e18eee1e4364",
+        "git_blob_at_base": "770dec72098f4b20edfa891c53f26178482ef184",
+        "bytes": 623
+      }
+    ]
+  },
+  "layer_a_status": {
+    "A2": "UNESTABLISHED_PACKAGE_WIDE_EVIDENCE",
+    "A8": "UNESTABLISHED_PACKAGE_WIDE_EVIDENCE",
+    "interpretation": "The exact current package lacks observed complete compiled declaration/kernel/axiom evidence under this successor gate. No actual forbidden axiom finding is asserted; synthetic negative controls are not production findings."
+  },
+  "exact_boundary": {
+    "status": "QUARANTINED",
+    "source_modules": [
+      "ResearchFormalCoreR1/AlgebraV2.lean",
+      "ResearchFormalCoreR1/ProbabilityCompanionsV2.lean",
+      "ResearchFormalCoreR1/DeterminantMoment.lean",
+      "ResearchFormalCoreR1/GaussianScalarMoments.lean",
+      "ResearchFormalCoreR1/GaussianJetMoments.lean",
+      "ResearchFormalCoreR1/GaussianNormalizer.lean",
+      "ResearchFormalCoreR1/GaussianRegressionKernel.lean",
+      "ResearchFormalCoreR1/EndpointGaussianMoments.lean",
+      "ResearchFormalCoreR1/NormalizerFloor.lean",
+      "ResearchFormalCoreR1/EndpointNormalizerBridge.lean",
+      "ResearchFormalCoreR1/GaussianCoupling.lean",
+      "ResearchFormalCoreR1/GaussianNormalizerLimit.lean",
+      "ResearchFormalCoreR1/PalmReweighting.lean"
+    ],
+    "root_module": "ResearchFormalCoreR1.lean",
+    "lean_path_count": 14,
+    "public_target_count": 66,
+    "proof_byte_identity": "All fourteen Lean paths are unchanged from the exact base commit; location.modules binds their individual SHA256/Git blob identities. No manifest self-hash is embedded.",
+    "missing_inventory_binding": "manifest.json compiled_inventory is null; non-target compiled constants have not been guessed from source.",
+    "legacy_status": "Legacy proved metadata, WEBSITE_HANDOFF files, and evidence/final or evidence/gaussian-final receipts are retained historical scoped inputs, not current CBZ CLOSED evidence.",
+    "closure_limit": "No parent Gaussian/Palm/lifetime/universality theorem or current whole-package kernel/axiom closure is established by local unit results."
+  },
+  "blocking_reason": "Mathematical formal completeness and package-wide transitive axiom-closure evidence are missing for the exact thirteen source modules plus root under the repaired gate. Public-target-only reports, source regexes and synthetic unit transcripts cannot establish all compiled constants or exclude hidden forbidden dependencies. This boundary does not depend on external/family approval.",
+  "attempted": [
+    {
+      "kind": "source_identity",
+      "result": "Exact base323-file snapshot verified; all14 Lean source hashes unchanged; core compiled helper byte-preserved."
+    },
+    {
+      "kind": "unit_verification",
+      "result": "Initial successor98/98 tests passed in normal and optimized modes; all78 original test bodies retained. These are engineering tests, not kernel evidence."
+    },
+    {
+      "kind": "negative_mutation_verification",
+      "result": "Five deliberate closure/admission/runtime/receipt mutations killed by actual Python test assertions."
+    },
+    {
+      "kind": "focused_cli_regression_red",
+      "result": "Ten actual subprocess CLI/quarantine regression methods produced13 intended assertions before this focused fix, covering bound-source and manifest failures, missing binding, helper import failure and missing quarantine record."
+    },
+    {
+      "kind": "real_lean_execution",
+      "result": "NOT_RUN",
+      "reason": "lean, lake and leanchecker are absent in the local environment. No current compiled inventory or repaired-gate kernel receipt was manufactured."
+    },
+    {
+      "kind": "focused_followup_verification",
+      "result": "109/109 component tests passed in normal and optimized Python modes, including real CLI stale-receipt regressions, source/manifest/helper failures, safe symlink handling, immutable final-evidence checks and the complete quarantine record. A copied cold-start component reran all five portable mutations with green selected baselines, positive counts, exact intended assertion failures and source preservation. These are actual engineering results; real Lean remains NOT_RUN.",
+      "commands": [
+        "python -B -S -m unittest discover -s tests -v",
+        "python -B -O -S -m unittest discover -s tests -v",
+        "python -B -S tests/run_cbz_mutations.py"
+      ]
+    }
+  ],
+  "resumption_cost": {
+    "work_units": "Provision the exact pinned Lean and nine dependency revisions/cache; obtain one complete package constant census for thirteen source modules plus root; inspect/bind exact non-target records; run one complete repaired --execute qualification including kernel replay, package-wide closure, both compiled admission mutations and five retained negative controls.",
+    "runtime_budget": "Unmeasured for this successor; current runner has900-second subprocess limits per stage. Resource/context failures must remain failures, not expected semantic rejection.",
+    "forbidden_shortcuts": "Do not infer inventory from source regexes, reuse the different core inventory, weaken tests/proofs, inject axioms or convert historical receipts to current closure."
+  },
+  "isolation": {
+    "active_boundary": "gate.py refuses with CBZ_COMPILED_INVENTORY_UNQUALIFIED until actual binding and full execution; source-only gate status cannot award kernel evidence.",
+    "receipt_policy": "All CLI attempts invalidate only .lake/formal-evidence/receipt.json before qualification when its parent paths are safe; unsafe directory symlinks refuse without following them. Immutable evidence/final and evidence/gaussian-final records remain untouched.",
+    "workflow_scope": "Standalone determinant packet is not automatically qualified by the separate formal core workflow. No hosted run, repository mutation or scientific register promotion was performed here.",
+    "background_activity": "No watcher, automation, maintenance loop, timer or ongoing agent claim is created."
+  },
+  "owner": null,
+  "maintenance": "zero"
+}
