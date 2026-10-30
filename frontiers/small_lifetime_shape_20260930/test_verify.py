@@ -161,10 +161,10 @@ class WrapperProtocolTests(unittest.TestCase):
             f"(choose from {choices})"
         ).encode('utf-8')
         malformed=(
-            ('wrong-usage-header',usage.replace(b'usage: shape.py',b'usage: other.py',1)+diagnostic+b'\\n'),
-            ('extra-indented-diagnostic',usage+b'                unrelated diagnostic\\n'+diagnostic+b'\\n'),
+            ('wrong-usage-header',usage.replace(b'usage: shape.py',b'usage: other.py',1)+diagnostic+b'\n'),
+            ('extra-indented-diagnostic',usage+b'                unrelated diagnostic\n'+diagnostic+b'\n'),
             ('missing-terminal-newline',usage+diagnostic),
-            ('extra-trailing-output',usage+diagnostic+b'\\nextra\\n'),
+            ('extra-trailing-output',usage+diagnostic+b'\nextra\n'),
         )
         for label,stderr in malformed:
             forged=subprocess.CompletedProcess(['synthetic-shape'],2,b'',stderr)

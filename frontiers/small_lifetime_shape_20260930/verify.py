@@ -115,7 +115,7 @@ def validate_unknown_result(run):
         "shape.py: error: argument --mutant: invalid choice: 'unknown' "
         f"(choose from {choices})"
     ).encode('utf-8')
-    expected_stderr=expected_usage+expected_diagnostic+b'\\n'
+    expected_stderr=expected_usage+expected_diagnostic+b'\n'
     if run.returncode!=2 or run.stdout!=b'' or run.stderr!=expected_stderr:
         raise ValueError('unknown mutant label did not produce the exact argparse usage and invalid-choice diagnostic')
 
