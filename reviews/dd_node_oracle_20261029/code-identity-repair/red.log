@@ -1,0 +1,14 @@
+test_cloned_approved_code_is_not_authorized_identity (tests.test_lifetime_dd_node_oracle.OracleOriginSelfTests.test_cloned_approved_code_is_not_authorized_identity) ... FAIL
+
+======================================================================
+FAIL: test_cloned_approved_code_is_not_authorized_identity (tests.test_lifetime_dd_node_oracle.OracleOriginSelfTests.test_cloned_approved_code_is_not_authorized_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/shared/cbz-recovery/oracle-audit/dd/tests/test_lifetime_dd_node_oracle.py", line 394, in test_cloned_approved_code_is_not_authorized_identity
+    self.assertFalse(run_oracle_cases(Probe, ('test_body',)).admitted(True))
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)

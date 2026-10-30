@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "<CERTIFICATE_V2>/dd_exact.py", line 95, in <module>
+    main(args[0], *args[1:], recheck='--no-recheck' not in sys.argv, sample=0 if '--no-sample' in sys.argv else 24)
+  File "<CERTIFICATE_V2>/dd_exact.py", line 37, in main
+    require(len(done) == len(cells), 'incomplete node values: %d of %d cells' % (len(done), len(cells)))
+  File "<CERTIFICATE_V2>/ddcore.py", line 23, in require
+    if not cond: raise AssertionError(msg)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: incomplete node values: 2194 of 2393 cells
