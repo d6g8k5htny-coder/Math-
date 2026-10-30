@@ -138,6 +138,51 @@ def verify_inventory(root: Path) -> int:
     return len(entries)
 
 
+EXPECTED_MUTANT_ERRORS = {
+    'drop-companion-sign': 'signed companion',
+    'point-is-cluster': 'one maximum anchor, not point counting',
+    'close-window': 'height endpoint must be open',
+    'drop-log2': 'inner integral',
+    'double-count-inner': 'inner integral',
+    'lose-height-jacobian': 'point first moment',
+    'wrong-tail-power': 'cusp exponent ledger',
+    'uniform-cluster-from-point': 'cluster law must be unbiassed',
+}
+
+
+def validate_mutant_result(name, result):
+    expected=EXPECTED_MUTANT_ERRORS.get(name)
+    if expected is None:
+        raise ValueError('unknown semantic mutant contract: '+str(name))
+    lines=result.stderr.splitlines()
+    frame_names=[]
+    for line in lines:
+        match=re.fullmatch(rb'  File ".*[\\/]extremes\\.py", line [0-9]+, in ([A-Za-z_<>][A-Za-z0-9_<>]*)',line)
+        if match:
+            frame_names.append(match.group(1))
+    expected_last=('AssertionError: '+expected).encode('utf-8')
+    if (result.returncode!=1 or result.stdout!=b'' or not lines
+            or lines[0]!=b'Traceback (most recent call last):'
+            or lines[-1]!=expected_last
+            or lines.count(b'Traceback (most recent call last):')!=1
+            or frame_names!=[b'<module>',b'main',b'results',b'finite_checks',b'_need']):
+        raise ValueError('mutant assertion contract mismatch: '+name)
+
+
+def validate_unknown_result(result):
+    choices=', '.join(repr(name) for name in MUTANTS)
+    expected=(
+        "extremes.py: error: argument --mutant: invalid choice: 'unknown' "
+        f"(choose from {choices})"
+    ).encode('utf-8')
+    lines=result.stderr.splitlines()
+    if (result.returncode!=2 or result.stdout!=b'' or len(lines)<2
+            or not lines[0].startswith(b'usage: extremes.py ')
+            or lines[-1]!=expected or lines.count(expected)!=1
+            or any(not line.startswith(b' ') for line in lines[1:-1])):
+        raise ValueError('unknown mutant label did not produce argparse invalid-choice diagnostic')
+
+
 def main() -> None:
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--local-only',action='store_true')
@@ -153,11 +198,15 @@ def main() -> None:
         result=subprocess.run(command,cwd=root,capture_output=True,check=True,timeout=60)
         if result.stdout!=expected or result.stderr:
             raise ValueError('deterministic mathematical output mismatch')
-        for name in MUTANTS+('unknown',):
+        if tuple(EXPECTED_MUTANT_ERRORS)!=MUTANTS:
+            raise ValueError('mutant reason inventory mismatch')
+        for name in MUTANTS:
             result=subprocess.run(command+['--mutant',name],cwd=root,
                                   capture_output=True,timeout=60)
-            if result.returncode!=(2 if name=='unknown' else 1):
-                raise ValueError('negative control did not reject: '+name)
+            validate_mutant_result(name,result)
+        result=subprocess.run(command+['--mutant','unknown'],cwd=root,
+                              capture_output=True,timeout=60)
+        validate_unknown_result(result)
     verify_inventory(root)
     print(json.dumps({'passed':True,'source_pins_checked':not args.local_only,
                       'source_count':n_sources,'scientific_effect':'NONE',
