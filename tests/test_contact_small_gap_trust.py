@@ -23,7 +23,7 @@ HEAD_TREE = "2" * 40
 
 
 def repo_object():
-    return {"full_name": REPO, "id": 123456789, "fork": False, "default_branch": "main"}
+    return {"full_name": REPO, "id": trust.EXPECTED_REPOSITORY_ID, "fork": False, "default_branch": "main"}
 
 
 def tree_rows(side):
@@ -82,12 +82,17 @@ class FakeAPI:
         self.head_truncated = False
         self.routes = []
         self.error_route = None
+        self.pr_reads = 0
+        self.final_pr_mutator = None
 
     def get(self, route):
         self.routes.append(route)
         if route == self.error_route:
             raise trust.VerificationError("synthetic API error")
         if route == f"/repos/{REPO}/pulls/{trust.PR_NUMBER}":
+            self.pr_reads += 1
+            if self.pr_reads == 2 and self.final_pr_mutator is not None:
+                self.final_pr_mutator(self.pr)
             return copy.deepcopy(self.pr)
         if route.startswith(f"/repos/{REPO}/pulls/{trust.PR_NUMBER}/files?"):
             if "page=1" in route:
@@ -337,6 +342,51 @@ class VerifierTests(unittest.TestCase):
         request = urllib.request.Request("https://api.github.com/repos/example/repo")
         with self.assertRaises(trust.VerificationError):
             handler.redirect_request(request, None, 302, "Found", {}, "https://example.org")
+
+    def test_wrong_repository_id_rejected_at_all_event_and_live_surfaces(self):
+        cases = {
+            "event": lambda event, api: event["repository"].update(id=123456789),
+            "event base": lambda event, api: event["pull_request"]["base"]["repo"].update(id=123456789),
+            "event head": lambda event, api: event["pull_request"]["head"]["repo"].update(id=123456789),
+            "live base": lambda event, api: api.pr["base"]["repo"].update(id=123456789),
+            "live head": lambda event, api: api.pr["head"]["repo"].update(id=123456789),
+        }
+        for label, mutate in cases.items():
+            with self.subTest(surface=label):
+                event = make_event()
+                api = FakeAPI()
+                mutate(event, api)
+                with self.assertRaises(trust.VerificationError):
+                    self.run_verify(event=event, api=api)
+
+    def assert_final_pr_mutation_rejected(self, mutate):
+        api = FakeAPI()
+        api.final_pr_mutator = mutate
+        with self.assertRaises(trust.VerificationError):
+            self.run_verify(api=api)
+        self.assertEqual(api.pr_reads, 2)
+        self.assertEqual(api.routes[-1], f"/repos/{REPO}/pulls/{trust.PR_NUMBER}")
+
+    def test_final_pr_head_change_rejected(self):
+        self.assert_final_pr_mutation_rejected(lambda pr: pr["head"].update(sha="c" * 40))
+
+    def test_final_pr_base_change_rejected(self):
+        self.assert_final_pr_mutation_rejected(lambda pr: pr["base"].update(sha="b" * 40))
+
+    def test_final_pr_state_change_rejected(self):
+        self.assert_final_pr_mutation_rejected(lambda pr: pr.update(state="closed"))
+
+    def test_final_pr_merged_change_rejected(self):
+        self.assert_final_pr_mutation_rejected(lambda pr: pr.update(merged=True))
+
+    def test_final_pr_changed_file_count_change_rejected(self):
+        self.assert_final_pr_mutation_rejected(lambda pr: pr.update(changed_files=4))
+
+    def test_final_pr_snapshot_read_is_last(self):
+        api = FakeAPI()
+        self.run_verify(api=api)
+        self.assertEqual(api.pr_reads, 2)
+        self.assertEqual(api.routes[-1], f"/repos/{REPO}/pulls/{trust.PR_NUMBER}")
 
     def test_api_requests_are_get_only(self):
         class Response:

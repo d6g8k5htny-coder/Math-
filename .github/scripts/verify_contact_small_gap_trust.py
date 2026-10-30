@@ -16,6 +16,7 @@ import urllib.error
 import urllib.request
 
 REPOSITORY = "d6g8k5htny-coder/Math-"
+EXPECTED_REPOSITORY_ID = 1385716596
 PR_NUMBER = 547
 HEAD_REF = "dcl/contact-small-gap-mutant-identity-20261030"
 EXPECTED_MERGE_BASE = "19a55750451b8016b50d1d20be6a18c021807ecb"
@@ -153,7 +154,8 @@ def repo_identity(value, label: str) -> int:
     require(isinstance(value, dict), f"{label} repository missing")
     require(value.get("full_name") == REPOSITORY, f"{label} repository mismatch")
     repo_id = value.get("id")
-    require(type(repo_id) is int and repo_id > 0, f"{label} repository ID invalid")
+    require(type(repo_id) is int and repo_id == EXPECTED_REPOSITORY_ID,
+            f"{label} canonical repository ID mismatch")
     require(value.get("fork") is False, f"{label} fork repository refused")
     return repo_id
 
@@ -226,6 +228,32 @@ def pr_snapshot(pr: dict) -> tuple:
         head.get("ref"), head_sha, head_repo_id,
         exact_int(pr.get("changed_files"), "live PR changed_files invalid"),
     )
+
+
+def require_event_pr_matches_live(event_pr: dict, pr: dict) -> None:
+    require(isinstance(event_pr, dict), "event PR snapshot missing")
+    require(event_pr.get("number") == pr.get("number") == PR_NUMBER,
+            "event/live PR number mismatch")
+    require(event_pr.get("state") == pr.get("state"), "event/live PR state mismatch")
+    require(event_pr.get("merged") == pr.get("merged"), "event/live merged state mismatch")
+    require(event_pr.get("changed_files") == pr.get("changed_files"),
+            "event/live changed-file count mismatch")
+    event_base = event_pr.get("base")
+    event_head = event_pr.get("head")
+    live_base = pr.get("base")
+    live_head = pr.get("head")
+    require(all(isinstance(x, dict) for x in (event_base, event_head, live_base, live_head)),
+            "event/live PR base/head missing")
+    require(event_base.get("ref") == live_base.get("ref"), "event/live base ref mismatch")
+    require(event_base.get("sha") == live_base.get("sha"), "event/live base SHA mismatch")
+    require(event_head.get("ref") == live_head.get("ref"), "event/live head ref mismatch")
+    require(event_head.get("sha") == live_head.get("sha"), "event/live head SHA mismatch")
+    require(repo_identity(event_base.get("repo"), "event base") ==
+            repo_identity(live_base.get("repo"), "live base"),
+            "event/live base repository mismatch")
+    require(repo_identity(event_head.get("repo"), "event head") ==
+            repo_identity(live_head.get("repo"), "live head"),
+            "event/live head repository mismatch")
 
 
 def compare_merge_base(api: GitHubAPI, base_sha: str, head_sha: str, *, require_base_ancestor=False) -> None:
@@ -324,17 +352,7 @@ def verify(event_name: str, event: dict, env: dict, api: GitHubAPI) -> dict:
             "live PR base differs from trusted workflow commit")
     if event_head_sha is not None:
         require(event_head_sha == live_head_sha, "stale event/live PR head mismatch")
-        event_pr = event["pull_request"]
-        event_base = event_pr["base"]
-        event_head = event_pr["head"]
-        require(event_base["sha"] == live_base_sha, "stale event/live PR base mismatch")
-        require(event_base["ref"] == pr["base"]["ref"], "event/live base ref mismatch")
-        require(event_head["ref"] == pr["head"]["ref"], "event/live head ref mismatch")
-        require(event_pr.get("state") == pr.get("state"), "event/live PR state mismatch")
-        require(event_pr.get("merged") == pr.get("merged"), "event/live merged state mismatch")
-        require(event_pr.get("changed_files") == pr.get("changed_files"), "event/live changed-file count mismatch")
-        require(event_base["repo"]["id"] == pr["base"]["repo"]["id"], "event/live base repository mismatch")
-        require(event_head["repo"]["id"] == pr["head"]["repo"]["id"], "event/live head repository mismatch")
+        require_event_pr_matches_live(event["pull_request"], pr)
 
     # The trusted base may advance when this verifier is integrated. It must
     # remain descended from the original merge base, and the three affected
@@ -351,14 +369,28 @@ def verify(event_name: str, event: dict, env: dict, api: GitHubAPI) -> dict:
     for path, identity in EXPECTED_FILES.items():
         verify_tree_path(base_tree, path, identity["base_blob"], identity["base_size"], "base")
         verify_tree_path(head_tree, path, identity["head_blob"], identity["head_size"], "head")
+
+    # Re-read the PR only after every compare, file-list and tree request. A
+    # mid-run change to the PR snapshot must not leave a stale PASS behind.
+    final_pr = api.get(f"/repos/{REPOSITORY}/pulls/{number}")
+    final_snapshot = pr_snapshot(final_pr)
+    require(final_snapshot == snapshot, "live PR snapshot changed during verification")
+    require(final_snapshot[5] == final_snapshot[8] == event_repo_id,
+            "final PR repository differs from event repository")
+    require(final_snapshot[4] == sha40(env.get("GITHUB_SHA"), "trusted workflow SHA missing"),
+            "final PR base differs from trusted workflow commit")
+    if event_head_sha is not None:
+        require(event_head_sha == final_snapshot[7], "final event/live PR head mismatch")
+        require_event_pr_matches_live(event["pull_request"], final_pr)
+
     return {
         "disposition": "PASS_SCOPED_SOURCE_IDENTITY",
         "repository": REPOSITORY,
         "pull_request": PR_NUMBER,
         "event": event_name,
-        "trusted_base_sha": live_base_sha,
+        "trusted_base_sha": final_snapshot[4],
         "expected_merge_base": EXPECTED_MERGE_BASE,
-        "candidate_head_sha": live_head_sha,
+        "candidate_head_sha": final_snapshot[7],
         "changed_paths": sorted(changed),
         "scope": "exact source identity only; no review, security certification, proof or scientific acceptance",
     }
