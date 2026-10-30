@@ -56,61 +56,61 @@ jobs:
               if len(data) != entry['bytes'] or hashlib.sha256(data).hexdigest() != entry['sha256'] or blob != entry['git_blob']:
                   raise ValueError('consumed source identity mismatch on this tree: ' + entry['path'])
           validator_source = r'''
-class Result:
-    def __init__(self, returncode, stdout=b"", stderr=b""):
-        self.returncode = returncode
-        self.stdout = stdout
-        self.stderr = stderr
-
-def validate_baseline(result):
-    expected = b'{"check": "ok", "mutant": null}\\n'
-    if result.returncode != 0 or result.stdout != expected or result.stderr != b"":
-        raise ValueError("baseline output contract mismatch")
-
-def validate_mutant(result, diagnostic):
-    expected = ("FAIL: " + diagnostic + "\\n").encode("utf-8")
-    if result.returncode != 1 or result.stdout != expected or result.stderr != b"":
-        raise ValueError("mutant output contract mismatch: " + diagnostic)
-
-def reject(fn, result, *args):
-    try:
-        fn(result, *args)
-    except ValueError:
-        return
-    raise AssertionError("invalid child result was accepted")
-
-def synthetic_controls():
-    baseline = b'{"check": "ok", "mutant": null}\\n'
-    validate_baseline(Result(0, baseline, b""))
-    for bad in (
-        Result(0, b"not-json\\n", b""),
-        Result(0, baseline, b"unexpected stderr\\n"),
-        Result(0, baseline + b"extra\\n", b""),
-        Result(1, baseline, b""),
-    ):
-        reject(validate_baseline, bad)
-
-    expected = {
-        "shape-integral": "I = 246528/35",
-        "gamma-power": "cusp integral replay J_cusp k=0.5",
-        "cusp-shift": "cusp integral replay J_cusp k=0.5",
-    }
-    for mutant, diagnostic in expected.items():
-        valid = ("FAIL: " + diagnostic + "\\n").encode("utf-8")
-        validate_mutant(Result(1, valid, b""), diagnostic)
-        wrong_label = b'{"check": "ok", "mutant": "wrong-mutant"}\\n'
-        for bad in (
-            Result(1, b"", b"Traceback (most recent call last): RuntimeError\\n"),
-            Result(1, b"", b""),
-            Result(1, b"FAIL: unrelated failure\\n", b""),
-            Result(1, valid, b"unexpected stderr\\n"),
-            Result(0, valid, b""),
-            Result(1, baseline, b""),
-            Result(1, wrong_label, b""),
-        ):
-            reject(validate_mutant, bad, diagnostic)
-'''
-
+          class Result:
+              def __init__(self, returncode, stdout=b"", stderr=b""):
+                  self.returncode = returncode
+                  self.stdout = stdout
+                  self.stderr = stderr
+          
+          def validate_baseline(result):
+              expected = b'{"check": "ok", "mutant": null}\\n'
+              if result.returncode != 0 or result.stdout != expected or result.stderr != b"":
+                  raise ValueError("baseline output contract mismatch")
+          
+          def validate_mutant(result, diagnostic):
+              expected = ("FAIL: " + diagnostic + "\\n").encode("utf-8")
+              if result.returncode != 1 or result.stdout != expected or result.stderr != b"":
+                  raise ValueError("mutant output contract mismatch: " + diagnostic)
+          
+          def reject(fn, result, *args):
+              try:
+                  fn(result, *args)
+              except ValueError:
+                  return
+              raise AssertionError("invalid child result was accepted")
+          
+          def synthetic_controls():
+              baseline = b'{"check": "ok", "mutant": null}\\n'
+              validate_baseline(Result(0, baseline, b""))
+              for bad in (
+                  Result(0, b"not-json\\n", b""),
+                  Result(0, baseline, b"unexpected stderr\\n"),
+                  Result(0, baseline + b"extra\\n", b""),
+                  Result(1, baseline, b""),
+              ):
+                  reject(validate_baseline, bad)
+          
+              expected = {
+                  "shape-integral": "I = 246528/35",
+                  "gamma-power": "cusp integral replay J_cusp k=0.5",
+                  "cusp-shift": "cusp integral replay J_cusp k=0.5",
+              }
+              for mutant, diagnostic in expected.items():
+                  valid = ("FAIL: " + diagnostic + "\\n").encode("utf-8")
+                  validate_mutant(Result(1, valid, b""), diagnostic)
+                  wrong_label = b'{"check": "ok", "mutant": "wrong-mutant"}\\n'
+                  for bad in (
+                      Result(1, b"", b"Traceback (most recent call last): RuntimeError\\n"),
+                      Result(1, b"", b""),
+                      Result(1, b"FAIL: unrelated failure\\n", b""),
+                      Result(1, valid, b"unexpected stderr\\n"),
+                      Result(0, valid, b""),
+                      Result(1, baseline, b""),
+                      Result(1, wrong_label, b""),
+                  ):
+                      reject(validate_mutant, bad, diagnostic)
+          '''
+          
           validator_namespace = {}
           exec(validator_source, validator_namespace)
           validate_baseline = validator_namespace['validate_baseline']
@@ -121,7 +121,7 @@ def synthetic_controls():
               if probe.returncode != 0 or probe.stderr != b'' or probe.stdout != b'synthetic process-predicate controls passed\\n':
                   raise RuntimeError('synthetic process-predicate controls failed under ' + ' '.join(flags) +
                                      ': stdout=' + repr(probe.stdout) + ' stderr=' + repr(probe.stderr))
-
+          
           script = str(root / 'tail_constants.py')
           expected_mutants = {
               'shape-integral': 'I = 246528/35',
@@ -145,6 +145,4 @@ def synthetic_controls():
                       raise RuntimeError('mutant ' + mutant + ' contract failed under ' + ' '.join(flags) +
                                          ': rc=' + str(result.returncode) + ' stdout=' + repr(result.stdout) +
                                          ' stderr=' + repr(result.stderr)) from exc
-          print(json.dumps({'scientific_effect': 'NONE', 'certified': False}))
-          PY
           git diff --exit-code
