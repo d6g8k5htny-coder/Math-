@@ -1,7 +1,10 @@
 name: Contact small-gap law and source-bound review replay
 'on':
   pull_request:
-    paths: ['reviews/contact_kernel_tail_20260925/**', '.github/workflows/contact-small-gap.yml']
+    paths:
+      - 'reviews/contact_kernel_tail_20260925/**'
+      - 'reviews/pr16_fixed_transverse_nonauthor_20260925/**'
+      - '.github/workflows/contact-small-gap.yml'
   workflow_dispatch:
 permissions:
   contents: read
