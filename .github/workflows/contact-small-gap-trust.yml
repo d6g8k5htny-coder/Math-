@@ -1,0 +1,44 @@
+name: Contact small-gap candidate trust check
+'on':
+  pull_request_target:
+    branches: [main]
+    paths:
+      - '.github/workflows/contact-small-gap.yml'
+      - 'reviews/contact_kernel_tail_20260925/SOURCE_FILES.json'
+      - 'reviews/contact_kernel_tail_20260925/run_validation.py'
+    types: [opened, reopened, synchronize, edited, ready_for_review]
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: Exact candidate PR number (only 547 is admitted)
+        required: true
+        default: 547
+        type: number
+permissions:
+  contents: read
+  pull-requests: read
+jobs:
+  contact-small-gap-trust:
+    name: contact-small-gap-trust
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: read
+    steps:
+      - name: Check out only the trusted base-branch verifier
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          # pull_request_target GITHUB_SHA is the trusted base-branch commit.
+          # Never check out or execute the submitted PR head.
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          sparse-checkout: .github/scripts/verify_contact_small_gap_trust.py
+          sparse-checkout-cone-mode: false
+      - name: Verify the exact PR and Git tree identities through read-only API calls
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number || inputs.pr_number }}
+        run: |
+          set -euo pipefail
+          python3 -B -I .github/scripts/verify_contact_small_gap_trust.py
