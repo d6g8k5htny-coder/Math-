@@ -41,3 +41,15 @@ coordinates. Its three additional tests are in `test_price_boundary.py`; run
 `python -B -S -m unittest -v test_price_boundary` and the corresponding `-O` mode.
 There are54 core tests plus3 price-boundary tests,57 distinct tests in total.
 The core mutation runner intentionally retains its original54-test scope.
+
+
+## Provenance successor (2026-10-30)
+
+`SOURCES.json` now pins the historical `rn_status` observation to Main commit
+`fbb43601369b19ecb12447d4cc02ed44340dce60`; at that commit,
+`docs/math_status/STATUS_RN_UNIF.md` has Git blob
+`ccd542fb174e5a242ee343fad213aa40b35b733d`. The path is absent from current
+Main `11e28815163e15223e8827fe6ff47a1faaf36ebd`, so this records a frozen
+historical source and does not assert current availability or change the
+observed OPEN status. `RESULTS.json` and `scientific_acceptance: false` remain
+unchanged. No proof, theorem, premise or scientific verdict is changed.
