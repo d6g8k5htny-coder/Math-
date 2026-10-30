@@ -1,0 +1,49 @@
+{
+  "kind": "build",
+  "module": "Lifetime",
+  "started_utc": "2026-10-20T08:43:13.247291+00:00",
+  "runner_sha256": "089f11f1cc677892ff9e4a4c43427d1a20d0f4186dae8ab1fe4199c295d726f9",
+  "kernel_scope": "standard named-module replay against imported dependencies; not --fresh/external verification",
+  "scientific_effect": "NONE",
+  "timeout_seconds": 600,
+  "threads": 2,
+  "status": "PREFLIGHT",
+  "inventory_sha256": "a819e8a4cf37b3b3527dd32045fc08c5dd5967022c2d70c1ee009add352a1f2d",
+  "source_before": {
+    "ClosedSuperlevel.lean": "90d1481b75d9c6d14e462c3fbf0bf7c7cdd0efb9eaad68d6732400658753b1c2",
+    "CriticalLevelAttainment.lean": "ec4b6ceb9475143434c25269bccc45cdd627d83af359609007001c9284bb9a12",
+    "CriticalLevelAxiomAudit.lean": "4b1586855ad431821b1e2a56c3a8b1d5b21850417f73a1da3e0ade8efad96358",
+    "Lifetime.lean": "90f4892608e953ecc696bb32ea159d1c178ceb8a1c6edfd11acfceb14af462c6",
+    "MorseFiniteCritical.lean": "95a660134eda49eecfe6181884bd23b4e4ca210e228d2463de29e5f821df047b",
+    "SuperlevelBar.lean": "346eea948e18d5904422904006827930e27d3141ccbc19ee8ac2c24bcf65a4a9",
+    "TorusTopology.lean": "ddb145b3f791c181d4f2a51e54e711937297bd6476ba55bcd5252b7ddb57cfe1"
+  },
+  "objects_before": {},
+  "dependency_before": {
+    "reused": 83897,
+    "rehashed": [],
+    "mode": "C291 byte hashes plus unchanged metadata reuse; changed metadata rehashed; NOT full fresh byte rehash"
+  },
+  "command": [
+    "$LEAN_RUNTIME/bin/lean",
+    "-j2",
+    "-M4096",
+    "-o",
+    "$C294_ROOT/final-build/Lifetime.olean",
+    "$C294_ROOT/final-project/Lifetime.lean"
+  ],
+  "process_path": "$LEAN_RUNTIME/bin:/usr/bin:/bin:/usr/sbin:/sbin",
+  "lean_path": [
+    "$C294_ROOT/final-build",
+    "$PINNED_PROJECT/.lake/packages/plausible/.lake/build/lib/lean",
+    "$PINNED_PROJECT/.lake/packages/LeanSearchClient/.lake/build/lib/lean",
+    "$PINNED_PROJECT/.lake/packages/importGraph/.lake/build/lib/lean",
+    "$PINNED_PROJECT/.lake/packages/proofwidgets/.lake/build/lib/lean",
+    "$PINNED_PROJECT/.lake/packages/aesop/.lake/build/lib/lean",
+    "$PINNED_PROJECT/.lake/packages/Qq/.lake/build/lib/lean",
+    "$PINNED_PROJECT/.lake/packages/batteries/.lake/build/lib/lean",
+    "$PINNED_PROJECT/.lake/packages/mathlib/.lake/build/lib/lean"
+  ],
+  "executable_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "resolved_lean_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554"
+}

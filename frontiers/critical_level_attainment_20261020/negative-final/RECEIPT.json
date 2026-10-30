@@ -1,0 +1,45 @@
+{
+  "started_utc": "2026-10-20T08:56:06.994502+00:00",
+  "source_sha256": "d685f2dff3c915cc2e3ea1db25aed672a5fc9c1886237366bf122e92c05d3f32",
+  "command": [
+    "$LEAN_RUNTIME/bin/lean",
+    "-j2",
+    "-M4096",
+    "$C294_ROOT/negative-project/WithoutClosedLPC.lean"
+  ],
+  "source_before": {
+    "ClosedSuperlevel.lean": "90d1481b75d9c6d14e462c3fbf0bf7c7cdd0efb9eaad68d6732400658753b1c2",
+    "CriticalLevelAttainment.lean": "ec4b6ceb9475143434c25269bccc45cdd627d83af359609007001c9284bb9a12",
+    "CriticalLevelAxiomAudit.lean": "4b1586855ad431821b1e2a56c3a8b1d5b21850417f73a1da3e0ade8efad96358",
+    "Lifetime.lean": "90f4892608e953ecc696bb32ea159d1c178ceb8a1c6edfd11acfceb14af462c6",
+    "MorseFiniteCritical.lean": "95a660134eda49eecfe6181884bd23b4e4ca210e228d2463de29e5f821df047b",
+    "SuperlevelBar.lean": "346eea948e18d5904422904006827930e27d3141ccbc19ee8ac2c24bcf65a4a9",
+    "TorusTopology.lean": "ddb145b3f791c181d4f2a51e54e711937297bd6476ba55bcd5252b7ddb57cfe1"
+  },
+  "objects_before": {
+    "ClosedSuperlevel.olean": "fb5b7385a442a7e0a9b9bf7911fa2fd65b95870b60a71d8e38031852bf1d9d37",
+    "CriticalLevelAttainment.olean": "ea5f6a80ee778ec7708ddc1775cfbf829372127958a0db23efc7a7e1c7d5e235",
+    "CriticalLevelAxiomAudit.olean": "7703c951a828d5deb5eb0635fefd6105eed5671bb37c605dc28f2043e7665030",
+    "Lifetime.olean": "b3e14c2951b452222ca0c7b1448458cf785225971da704e4e3e6f0cc93107da4",
+    "MorseFiniteCritical.olean": "34ff2a9ed529609dd48a22204b8eacc66eeb943805e2d6e8dee4481cde8ef4e2",
+    "SuperlevelBar.olean": "e3034e68ec9141f26498835ecb4b08b4268d1c89e56b09ec85151e555fae8086",
+    "TorusTopology.olean": "ccb13e9469d55da8b5202706a1f013fa7a2755b2184542b8a0534f722d993125"
+  },
+  "lean_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "inventory_sha256": "a819e8a4cf37b3b3527dd32045fc08c5dd5967022c2d70c1ee009add352a1f2d",
+  "runner_sha256": "ba020c1e347dbb643416d546d6274282f0d7ccede580d300dd5b99c93acc9c99",
+  "timeout_seconds": 600,
+  "meaning": "Interface rejection for the omitted actual closed-level LPC input; not a counterexample to the open Morse-to-LPC implication.",
+  "ended_utc": "2026-10-20T08:57:21.244688+00:00",
+  "seconds": 74.24818608400001,
+  "returncode": 1,
+  "timed_out": false,
+  "child_pid": 62259,
+  "diagnostic_match": true,
+  "source_unchanged": true,
+  "imported_sources_unchanged": true,
+  "imported_objects_unchanged": true,
+  "stdout_sha256": "103fca1879ac4965b80766263cab5f18f64dbe46ddbb9de70aef49976fbdafd8",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "PASS_EXPECTED_MISSING_PREMISE_REJECTION"
+}

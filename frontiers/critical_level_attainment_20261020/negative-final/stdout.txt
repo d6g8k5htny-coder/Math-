@@ -1,0 +1,17 @@
+$C294_ROOT/negative-project/WithoutClosedLPC.lean:19:2: error: Type mismatch
+  euclidean_death_attainment d L hL g hsmooth hperiodic hmorse M hnonessential
+has type
+  LocallyPathConnectedSpace { q // superlevelBar_deathHeight g M ≤ descendedHeight d L hL g hperiodic q } →
+    ∃ y,
+      IsCriticalPoint d g y ∧
+        g M < g y ∧
+          ∃ Γ,
+            (∀ (t : ↑unitInterval), superlevelBar_deathHeight g M ≤ g (Γ t)) ∧
+              ∃ t, g (Γ t) = superlevelBar_deathHeight g M
+but is expected to have type
+  ∃ y,
+    IsCriticalPoint d g y ∧
+      g M < g y ∧
+        ∃ Γ,
+          (∀ (t : ↑unitInterval), superlevelBar_deathHeight g M ≤ g (Γ t)) ∧
+            ∃ t, g (Γ t) = superlevelBar_deathHeight g M

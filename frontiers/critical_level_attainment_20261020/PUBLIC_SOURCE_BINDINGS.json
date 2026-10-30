@@ -1,0 +1,65 @@
+{
+  "schema": "c294-public-source-bindings-v1",
+  "sources": [
+    {
+      "module": "Lifetime",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "9a16ac956dc7add74a7a0a691545053b4ab3f18d",
+      "path": "specifications/lean_statements_20261010/Specifications/Lifetime.lean",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/9a16ac956dc7add74a7a0a691545053b4ab3f18d/specifications/lean_statements_20261010/Specifications/Lifetime.lean",
+      "bytes": 51383,
+      "sha256": "90f4892608e953ecc696bb32ea159d1c178ceb8a1c6edfd11acfceb14af462c6",
+      "git_blob": "f2508f7f2e3fd42f22f5aa52bc5ead5ff9e73b9a",
+      "source_method": "Exact native source SHA and Git blob verified; current Main preflight tree binding"
+    },
+    {
+      "module": "TorusTopology",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "9a16ac956dc7add74a7a0a691545053b4ab3f18d",
+      "path": "companions/torus_filtration_20261011/TorusTopology.lean",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/9a16ac956dc7add74a7a0a691545053b4ab3f18d/companions/torus_filtration_20261011/TorusTopology.lean",
+      "bytes": 12257,
+      "sha256": "ddb145b3f791c181d4f2a51e54e711937297bd6476ba55bcd5252b7ddb57cfe1",
+      "git_blob": "ed678ea322fe5315b3aaff44e4e2f06b018399d8",
+      "source_method": "Exact native source SHA and Git blob verified; current Main preflight tree binding"
+    },
+    {
+      "module": "SuperlevelBar",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "9a16ac956dc7add74a7a0a691545053b4ab3f18d",
+      "path": "companions/torus_filtration_20261011/SuperlevelBar.lean",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/9a16ac956dc7add74a7a0a691545053b4ab3f18d/companions/torus_filtration_20261011/SuperlevelBar.lean",
+      "bytes": 15309,
+      "sha256": "346eea948e18d5904422904006827930e27d3141ccbc19ee8ac2c24bcf65a4a9",
+      "git_blob": "b047384e20306ee030154885536c531633b88bd8",
+      "source_method": "Exact native source SHA and Git blob verified; current Main preflight tree binding"
+    },
+    {
+      "module": "MorseFiniteCritical",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "0ea97aff489f9420632b4cee81ad82dbec5fe88e",
+      "path": "frontiers/morse_finite_critical_20261018/final-project/MorseFiniteCritical.lean",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/0ea97aff489f9420632b4cee81ad82dbec5fe88e/frontiers/morse_finite_critical_20261018/final-project/MorseFiniteCritical.lean",
+      "bytes": 9445,
+      "sha256": "95a660134eda49eecfe6181884bd23b4e4ca210e228d2463de29e5f821df047b",
+      "git_blob": "989fabc6e8f04b0c4a36dff9b21d33b1299f7b92",
+      "source_method": "Exact immutable C293 PR482 head, raw-byte and Git-blob verified; draft unmerged dependency, not asserted on default Main"
+    },
+    {
+      "module": "ClosedSuperlevel",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "9a16ac956dc7add74a7a0a691545053b4ab3f18d",
+      "path": "companions/torus_filtration_20261011/ClosedSuperlevel.lean",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/9a16ac956dc7add74a7a0a691545053b4ab3f18d/companions/torus_filtration_20261011/ClosedSuperlevel.lean",
+      "bytes": 8088,
+      "sha256": "90d1481b75d9c6d14e462c3fbf0bf7c7cdd0efb9eaad68d6732400658753b1c2",
+      "git_blob": "a4323cb50fb2d5861c4e6240a18684bfb566fb80",
+      "source_method": "Exact native source SHA and Git blob verified; current Main preflight tree binding"
+    }
+  ],
+  "lean": "4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "preflight_utc": "2026-10-20T08:17:24Z",
+  "cut_scope": "Current Main means only this explicit preflight cut; later publication head may differ. Frozen input identities remain explicit.",
+  "execution_scope": "C294 execution status is recorded separately in final receipts; source custody alone is not a build, kernel replay or theorem acceptance."
+}

@@ -1,0 +1,72 @@
+{
+  "started_utc": "2026-10-20T08:43:13.224447+00:00",
+  "inventory_sha256": "a819e8a4cf37b3b3527dd32045fc08c5dd5967022c2d70c1ee009add352a1f2d",
+  "phases": [
+    {
+      "kind": "build",
+      "module": "Lifetime",
+      "started_utc": "2026-10-20T08:43:13.224471+00:00",
+      "ended_utc": "2026-10-20T08:44:50.326760+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "build",
+      "module": "TorusTopology",
+      "started_utc": "2026-10-20T08:44:50.326790+00:00",
+      "ended_utc": "2026-10-20T08:46:21.882911+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "build",
+      "module": "SuperlevelBar",
+      "started_utc": "2026-10-20T08:46:21.882966+00:00",
+      "ended_utc": "2026-10-20T08:47:47.813570+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "build",
+      "module": "ClosedSuperlevel",
+      "started_utc": "2026-10-20T08:47:47.813615+00:00",
+      "ended_utc": "2026-10-20T08:49:08.013194+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "build",
+      "module": "MorseFiniteCritical",
+      "started_utc": "2026-10-20T08:49:08.013234+00:00",
+      "ended_utc": "2026-10-20T08:50:31.224729+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "build",
+      "module": "CriticalLevelAttainment",
+      "started_utc": "2026-10-20T08:50:31.224771+00:00",
+      "ended_utc": "2026-10-20T08:51:55.500432+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "build",
+      "module": "CriticalLevelAxiomAudit",
+      "started_utc": "2026-10-20T08:51:55.500471+00:00",
+      "ended_utc": "2026-10-20T08:53:36.147949+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "kernel",
+      "module": "CriticalLevelAttainment",
+      "started_utc": "2026-10-20T08:53:36.147990+00:00",
+      "ended_utc": "2026-10-20T08:54:50.049220+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "kernel",
+      "module": "CriticalLevelAxiomAudit",
+      "started_utc": "2026-10-20T08:54:50.049271+00:00",
+      "ended_utc": "2026-10-20T08:56:01.524620+00:00",
+      "returncode": 0
+    }
+  ],
+  "scientific_effect": "NONE",
+  "status": "PASS_FROZEN_BUILD_AND_STANDARD_KERNEL_REPLAY",
+  "ended_utc": "2026-10-20T08:56:01.524659+00:00"
+}
