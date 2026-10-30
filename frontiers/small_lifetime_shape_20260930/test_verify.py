@@ -131,21 +131,21 @@ class WrapperProtocolTests(unittest.TestCase):
                              'passed':False},sort_keys=True)
         wrong=json.dumps({'error':'unrelated failure reason','passed':False},sort_keys=True)
         cases=(
-            ('unrelated-crash',"raise RuntimeError('unrelated child crash')\\n"),
-            ('wrong-reason',f"print({wrong!r})\\nraise SystemExit(1)\\n"),
-            ('wrong-exit',f"print({expected!r})\\nraise SystemExit(0)\\n"),
-            ('unexpected-stderr',f"print({expected!r})\\nprint('unexpected stderr',file=sys.stderr)\\nraise SystemExit(1)\\n"),
+            ('unrelated-crash',"raise RuntimeError('unrelated child crash')\n"),
+            ('wrong-reason',f"print({wrong!r})\nraise SystemExit(1)\n"),
+            ('wrong-exit',f"print({expected!r})\nraise SystemExit(0)\n"),
+            ('unexpected-stderr',f"print({expected!r})\nprint('unexpected stderr',file=sys.stderr)\nraise SystemExit(1)\n"),
         )
         with tempfile.TemporaryDirectory() as tmp:
             child=Path(tmp)/'child.py'
             for label,body in cases:
-                child.write_text('import sys\\n'+body)
+                child.write_text('import sys\n'+body)
                 run=subprocess.run([sys.executable,*self.flags(),str(child)],
                                    cwd=tmp,capture_output=True,timeout=10)
                 with self.subTest(case=label):
                     with self.assertRaises(ValueError):
                         verify.validate_mutant_result('all-doublets-finite',run)
-            child.write_text('raise SystemExit(2)\\n')
+            child.write_text('raise SystemExit(2)\n')
             run=subprocess.run([sys.executable,*self.flags(),str(child)],
                                cwd=tmp,capture_output=True,timeout=10)
             with self.assertRaises(ValueError):
