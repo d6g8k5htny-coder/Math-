@@ -187,7 +187,6 @@ class WrapperProtocolTests(unittest.TestCase):
         v.validate_unknown_result(result)
 
     def test_adverse_subprocess_results_are_rejected_in_executing_mode(self):
-        expected='AssertionError: '+v.EXPECTED_MUTANT_ERRORS['drop-companion-sign']
         cases=(
             ('runtime-error',"raise RuntimeError('unrelated child crash')\n"),
             ('silent-exit-1',"raise SystemExit(1)\n"),

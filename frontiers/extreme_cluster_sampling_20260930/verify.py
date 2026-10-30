@@ -157,7 +157,7 @@ def validate_mutant_result(name, result):
     lines=result.stderr.splitlines()
     frame_names=[]
     for line in lines:
-        match=re.fullmatch(rb'  File ".*[\\/]extremes\\.py", line [0-9]+, in ([A-Za-z_<>][A-Za-z0-9_<>]*)',line)
+        match=re.fullmatch(rb'  File ".*[\\/]extremes\.py", line [0-9]+, in ([A-Za-z_<>][A-Za-z0-9_<>]*)',line)
         if match:
             frame_names.append(match.group(1))
     expected_last=('AssertionError: '+expected).encode('utf-8')
