@@ -5,6 +5,7 @@ import json
 import os
 from pathlib import Path
 import subprocess
+import sys
 import tempfile
 import unittest
 import verify
@@ -105,5 +106,50 @@ class PacketTests(unittest.TestCase):
         for text in ('{"files":[],"files":[]}','[]'):
             (self.root/'MANIFEST.json').write_text(text)
             with self.assertRaises(ValueError):verify.inventory(self.root)
+
+class WrapperProtocolTests(unittest.TestCase):
+    def flags(self):
+        return ['-B','-O','-S'] if sys.flags.optimize else ['-B','-S']
+
+    def run_shape(self, *args):
+        shape=Path(__file__).with_name('shape.py')
+        return subprocess.run([sys.executable,*self.flags(),str(shape),*args],
+                              cwd=shape.parent,capture_output=True,timeout=45)
+
+    def test_actual_semantic_mutant_contracts_in_executing_mode(self):
+        for name in verify.EXPECTED_MUTANT_ERRORS:
+            with self.subTest(mutant=name):
+                run=self.run_shape('--mutant',name)
+                verify.validate_mutant_result(name,run)
+
+    def test_actual_unknown_label_uses_argparse_contract(self):
+        run=self.run_shape('--mutant','unknown')
+        verify.validate_unknown_result(run)
+
+    def test_adverse_child_results_are_rejected_in_executing_mode(self):
+        expected=json.dumps({'error':verify.EXPECTED_MUTANT_ERRORS['all-doublets-finite'],
+                             'passed':False},sort_keys=True)
+        wrong=json.dumps({'error':'unrelated failure reason','passed':False},sort_keys=True)
+        cases=(
+            ('unrelated-crash',"raise RuntimeError('unrelated child crash')\\n"),
+            ('wrong-reason',f"print({wrong!r})\\nraise SystemExit(1)\\n"),
+            ('wrong-exit',f"print({expected!r})\\nraise SystemExit(0)\\n"),
+            ('unexpected-stderr',f"print({expected!r})\\nprint('unexpected stderr',file=sys.stderr)\\nraise SystemExit(1)\\n"),
+        )
+        with tempfile.TemporaryDirectory() as tmp:
+            child=Path(tmp)/'child.py'
+            for label,body in cases:
+                child.write_text('import sys\\n'+body)
+                run=subprocess.run([sys.executable,*self.flags(),str(child)],
+                                   cwd=tmp,capture_output=True,timeout=10)
+                with self.subTest(case=label):
+                    with self.assertRaises(ValueError):
+                        verify.validate_mutant_result('all-doublets-finite',run)
+            child.write_text('raise SystemExit(2)\\n')
+            run=subprocess.run([sys.executable,*self.flags(),str(child)],
+                               cwd=tmp,capture_output=True,timeout=10)
+            with self.assertRaises(ValueError):
+                verify.validate_unknown_result(run)
+
 
 if __name__=='__main__':unittest.main()

@@ -86,6 +86,41 @@ def inventory(root):
     return len(entries)
 
 
+EXPECTED_MUTANT_ERRORS = {
+    'all-doublets-finite': 'finite cutoff has singleton mass',
+    'wrong-shape-normalization': 'source density normalization',
+    'retain-exponent13': 'small-lifetime ratio tail, not exponent13',
+    'lose-ratio-jacobian': 'ratio Jacobian',
+    'wrong-height-ratio': 'companion height map',
+    'lose-moment-crossover': 'singular moment coefficient',
+}
+
+
+def validate_mutant_result(name, run):
+    expected_error = EXPECTED_MUTANT_ERRORS.get(name)
+    if expected_error is None:
+        raise ValueError('unknown semantic mutant contract: ' + str(name))
+    expected_stdout = (json.dumps({'error': expected_error, 'passed': False},
+                                  sort_keys=True) + '\n').encode('utf-8')
+    if run.returncode != 1 or run.stdout != expected_stdout or run.stderr != b'':
+        raise ValueError('mutant failure contract mismatch: ' + name)
+
+
+def validate_unknown_result(run):
+    choices = ', '.join(repr(name) for name in MUTANTS)
+    expected_diagnostic = (
+        "shape.py: error: argument --mutant: invalid choice: 'unknown' "
+        f"(choose from {choices})"
+    ).encode('utf-8')
+    lines = run.stderr.splitlines()
+    if (run.returncode != 2 or run.stdout != b'' or len(lines) < 2
+            or not lines[0].startswith(b'usage: shape.py ')
+            or lines[-1] != expected_diagnostic
+            or lines.count(expected_diagnostic) != 1
+            or any(not line.startswith(b' ') for line in lines[1:-1])):
+        raise ValueError('unknown mutant label did not produce argparse invalid-choice diagnostic')
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--local-only',action='store_true');args=parser.parse_args()
@@ -97,9 +132,11 @@ def main():
         command=[sys.executable,*flags,str(root/'shape.py')]
         run=subprocess.run(command,capture_output=True,check=True,timeout=45)
         if run.stdout!=expected or run.stderr:raise ValueError('deterministic replay mismatch')
-        for name in (*MUTANTS,'unknown'):
+        for name in MUTANTS:
             run=subprocess.run(command+['--mutant',name],capture_output=True,timeout=45)
-            if run.returncode!=(2 if name=='unknown' else 1):raise ValueError('negative control not rejected: '+name)
+            validate_mutant_result(name,run)
+        run=subprocess.run(command+['--mutant','unknown'],capture_output=True,timeout=45)
+        validate_unknown_result(run)
     inventory(root)
     print(json.dumps({'passed':True,'source_pins_checked':not args.local_only,
                       'source_count':source_count,'mathematical_acceptance':False,
