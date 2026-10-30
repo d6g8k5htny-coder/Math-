@@ -265,6 +265,12 @@ class VerifierTests(unittest.TestCase):
             [],
             {"status": "ahead", "ahead_by": 1, "behind_by": 0},
             {"status": "ahead", "behind_by": 0, "merge_base_commit": {"sha": "bad"}},
+            # Keep the expected merge base so these cases isolate required-field
+            # validation rather than failing at the merge-base check first.
+            {"status": "ahead", "ahead_by": 1, "merge_base_commit": {"sha": BASE}},
+            {"status": "ahead", "ahead_by": 1, "behind_by": "0", "merge_base_commit": {"sha": BASE}},
+            {"status": "ahead", "ahead_by": 1, "behind_by": True, "merge_base_commit": {"sha": BASE}},
+            {"ahead_by": 1, "behind_by": 0, "merge_base_commit": {"sha": BASE}},
         ]
         for response in cases:
             with self.subTest(response=response):
