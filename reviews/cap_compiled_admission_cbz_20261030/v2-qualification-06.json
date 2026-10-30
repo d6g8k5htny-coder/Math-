@@ -1,0 +1,133 @@
+{
+  "schema": "cap.review-evidence-bundle.v1",
+  "group": "v2-current-qualification",
+  "records": [
+    {
+      "path": "interrupted-v1-gate/Axioms.lean",
+      "bytes": 6911,
+      "sha256": "da827251d635cf53fcae06b05ed6caecf619814f63193882f7fcd26bd98294d4",
+      "utf8": "import CapFirstExit\n#print axioms CapFirstExit.path_meets_frontier\n#print axioms CapFirstExit.preconnected_subset_of_frontier_disjoint\n#print axioms CapFirstExit.CapHyp\n#print axioms CapFirstExit.CapHyp.s_le_f_M\n#print axioms CapFirstExit.CapHyp.barrier\n#print axioms CapFirstExit.connectionLevels\n#print axioms CapFirstExit.CapHyp.maximin_isGreatest\n#print axioms CapFirstExit.CapHyp.maximin_eq\n#print axioms CapFirstExit.CapHyp.component_separated\n#print axioms CapFirstExit.component_joined\n#print axioms CapFirstExit.CapHyp.elder_merge_iff_closed\n#print axioms CapFirstExit.CapHyp.elder_merge_iff_open\n#print axioms CapFirstExit.CapHyp.joinedLevels\n#print axioms CapFirstExit.CapHyp.elder_death_level\n#print axioms CapFirstExit.CapHyp.path_through_saddle\n#print axioms CapFirstExit.CapHyp.saddle_cut\n#print axioms CapFirstExit.CapHyp.congr\n#print axioms CapFirstExit.isClosed_connectedComponentIn\n#print axioms CapFirstExit.CapHyp.older_peak\n#print axioms CapFirstExit.CapHyp.elder_alive\n#print axioms CapFirstExit.CapHyp.olderPeakLevels\n#print axioms CapFirstExit.CapHyp.elder_death_level_peak\n#print axioms CapFirstExit.frontier_image_subset\n#print axioms CapFirstExit.CapHyp.map\n#print axioms CapFirstExit.CapHyp.map_saddle\n#print axioms CapFirstExit.frontier_cylinder\n#print axioms CapFirstExit.isCompact_cylinder\n#print axioms CapFirstExit.torusCover\n#print axioms CapFirstExit.torusCover_continuous\n#print axioms CapFirstExit.torusCover_isOpenMap\n#print axioms CapFirstExit.CapHyp.toTorus\n#print axioms CapFirstExit.convex_zeros_between\n#print axioms CapFirstExit.convex_zeros_right\n#print axioms CapFirstExit.convex_zeros_left\n#print axioms CapFirstExit.ridge_profile\n#print axioms CapFirstExit.ridge_capHyp\n#print axioms CapFirstExit.ridge_saddle_strict\n#print axioms CapFirstExit.strongConcave_le_of_hasFDerivAt\n#print axioms CapFirstExit.slice_le\n#print axioms CapFirstExit.slice_ridge_bound\n#print axioms CapFirstExit.slice_curved\n#print axioms CapFirstExit.slice_hasFDerivAt\n#print axioms CapFirstExit.ridge_hasDerivAt\n#print axioms CapFirstExit.ridge_capHyp_of_slices\n#print axioms CapFirstExit.ridge_inputs_of_joint\n#print axioms CapFirstExit.sp_curved_side_constants\n#print axioms CapFirstExit.convexOn_add_node\n#print axioms CapFirstExit.two_node_bound\n#print axioms CapFirstExit.slice_gradient_bound\n#print axioms CapFirstExit.ridge_capHyp_sp\n#print axioms CapFirstExit.hermite_gap_le\n#print axioms CapFirstExit.hermite_m_ge_two\n#print axioms CapFirstExit.ridge_capHyp_normalized\n#print axioms CapFirstExit.strongConcaveOn_of_hessian\n#print axioms CapFirstExit.transverse_hessian_le\n#print axioms CapFirstExit.hessian_increment\n#print axioms CapFirstExit.slices_strongConcave\n#print axioms CapFirstExit.ridge_capHyp_H1\n#print axioms CapFirstExit.slice_critical_unique\n#print axioms CapFirstExit.slice_critical_exists\n#print axioms CapFirstExit.isInvertible_of_negDef\n#print axioms CapFirstExit.ridge_hasStrictFDerivAt\n#print axioms CapFirstExit.ridge_differentiable\n#print axioms CapFirstExit.ridge_exists\n#print axioms CapFirstExit.hessian_increment_D\n#print axioms CapFirstExit.transverse_hessian_le_D\n#print axioms CapFirstExit.slices_strongConcave_D\n#print axioms CapFirstExit.ridge_capHyp_source\n#print axioms CapFirstExit.convex_deriv_sign\n#print axioms CapFirstExit.two_node_deriv_bound\n#print axioms CapFirstExit.slice_gradient_deriv_bound\n#print axioms CapFirstExit.schur_max\n#print axioms CapFirstExit.trilinear_lower\n#print axioms CapFirstExit.l12_constants\n#print axioms CapFirstExit.transverse_hessian_eq\n#print axioms CapFirstExit.ridge_second_identity\n#print axioms CapFirstExit.ridge_hconv\n#print axioms CapFirstExit.dx_grad_increment\n#print axioms CapFirstExit.l9_arith\n#print axioms CapFirstExit.l12_lower\n#print axioms CapFirstExit.ridge_source_facts\n#print axioms CapFirstExit.ridge_capHyp_C3\n#print axioms CapFirstExit.hermite_gap_le_concave\n#print axioms CapFirstExit.third_deriv_exists_two\n#print axioms CapFirstExit.fxxx_lower\n#print axioms CapFirstExit.ridge_capHyp_C4\n#print axioms CapFirstExit.hessian_x_bound\n#print axioms CapFirstExit.hessian_r_bound\n#print axioms CapFirstExit.axis_convexConcave\n#print axioms CapFirstExit.block_nonneg\n#print axioms CapFirstExit.block_bound_collar\n#print axioms CapFirstExit.ridge_capHyp_C5\n#print axioms CapFirstExit.ridge_capHyp_D\n#print axioms CapFirstExit.block_of_norm\n#print axioms CapFirstExit.collar_subset_open\n#print axioms CapFirstExit.ridge_capHyp_E\n#print axioms CapFirstExit.toyF\n#print axioms CapFirstExit.toyRidge\n#print axioms CapFirstExit.toy_ridge_ge\n#print axioms CapFirstExit.toy_frontier\n#print axioms CapFirstExit.toy_capHyp\n#print axioms CapFirstExit.toy_saddle_strict\n#print axioms CapFirstExit.toy_saddle_cut\n#print axioms CapFirstExit.toy_death_level\n#print axioms CapFirstExit.toy_f_M\n#print axioms CapFirstExit.toy_f_S\n#print axioms CapFirstExit.toy_needs_C2\n#print axioms CapFirstExit.toy_needs_C1\n#print axioms CapFirstExit.toy_needs_C3\n#print axioms CapFirstExit.ridgeToyF\n#print axioms CapFirstExit.ridgeToy_capHyp\n#print axioms CapFirstExit.ridgeToy_saddle_strict\n#print axioms CapFirstExit.ridgeToy_joint\n#print axioms CapFirstExit.ridgeToy_slices\n#print axioms CapFirstExit.spToyF\n#print axioms CapFirstExit.spToy_capHyp\n#print axioms CapFirstExit.spToy_normalized\n#print axioms CapFirstExit.h1ToyF\n#print axioms CapFirstExit.h1Toy_capHyp\n#print axioms CapFirstExit.h1Toy_ridge_differentiable\n#print axioms CapFirstExit.h1Toy_source\n#print axioms CapFirstExit.h1Toy_C3\n#print axioms CapFirstExit.h1Toy_C4\n#print axioms CapFirstExit.h1Toy_D\n#print axioms CapFirstExit.h1Toy_E\n#print axioms CapFirstExit.quarticToyF\n#print axioms CapFirstExit.quarticToy_E\n#print axioms CapFirstExit.CapHyp.of_const_mul\n#print axioms CapFirstExit.hasFDerivAt_zero_const_mul_iff\n#print axioms CapFirstExit.iteratedFDeriv_const_mul_of_isOpen\n#print axioms CapFirstExit.ridge_capHyp_K\n#print axioms CapFirstExit.ridge_capHyp_norm_K\n#print axioms CapFirstExit.iteratedFDeriv_three_swap₁₂\n#print axioms CapFirstExit.iteratedFDeriv_three_swap₂₃\n#print axioms CapFirstExit.block_of_partial\n#print axioms CapFirstExit.ridge_capHyp_blocks\n#print axioms CapFirstExit.mixedToyF\n#print axioms CapFirstExit.mixedToy_blocks\n#print axioms CapFirstExit.addCircle_locallyConnectedSpace\n#print axioms CapFirstExit.torus_locallyConnectedSpace\n#print axioms CapFirstExit.torus_capHyp_blocks\n#print axioms CapFirstExit.torus_elder_death_level_blocks\n#print axioms CapFirstExit.circleChart\n#print axioms CapFirstExit.circleChart_continuous\n#print axioms CapFirstExit.circleChart_coe\n#print axioms CapFirstExit.mixedToy_hasFDerivAt\n#print axioms CapFirstExit.mixedToy_contDiff\n#print axioms CapFirstExit.mixedToy_iteratedFDeriv_two\n#print axioms CapFirstExit.mixedToy_iteratedFDeriv_three\n#print axioms CapFirstExit.mixedToy_iteratedFDeriv_four\n#print axioms CapFirstExit.torusToyF\n#print axioms CapFirstExit.torusToy_elder\n"
+    },
+    {
+      "path": "interrupted-v1-gate/axioms.exit",
+      "bytes": 4,
+      "sha256": "0e55cbbc9d11449b186092d82905aa6974858df7a0b7d706ae51c4716c9461ef",
+      "utf8": "-15\n"
+    },
+    {
+      "path": "interrupted-v1-gate/axioms.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utf8": ""
+    },
+    {
+      "path": "interrupted-v1-gate/axioms.process.json",
+      "bytes": 455,
+      "sha256": "59d59ba2d22c00fe18586afde9ded8e52f416fc58f67fc440566fbb92eb58c2d",
+      "utf8": "{\n  \"command\": [\n    \"lake\",\n    \"env\",\n    \"lean\",\n    \"/private/tmp/cbz-cap-candidate-20261030T000800Z/Math-/frontiers/cap_first_exit_lean_20261002/.lake/evidence/Axioms.lean\"\n  ],\n  \"cwd\": \"/private/tmp/cbz-cap-candidate-20261030T000800Z/Math-/frontiers/cap_first_exit_lean_20261002\",\n  \"exit\": -15,\n  \"timed_out\": false,\n  \"cleanup_signals\": [],\n  \"started_utc\": \"2026-10-30T00:40:56.376627+00:00\",\n  \"ended_utc\": \"2026-10-30T00:42:15.687231+00:00\"\n}\n"
+    },
+    {
+      "path": "interrupted-v1-gate/axioms.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utf8": ""
+    },
+    {
+      "path": "interrupted-v1-gate/axioms.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utf8": ""
+    },
+    {
+      "path": "interrupted-v1-gate/build.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "utf8": "0\n"
+    },
+    {
+      "path": "interrupted-v1-gate/build.log",
+      "bytes": 84,
+      "sha256": "b74ea935f25991854a92a5d1d955d43eeb133ff41ed745cf99ad5816bf15c3b2",
+      "utf8": "✔ [8924/8925] Built CapFirstExit (157s)\nBuild completed successfully (8925 jobs).\n"
+    },
+    {
+      "path": "interrupted-v1-gate/build.process.json",
+      "bytes": 316,
+      "sha256": "581e6c3aa967c62beb2c6eab6bc993a4115ba1e1aa972172c7e883ca9fd229ba",
+      "utf8": "{\n  \"command\": [\n    \"lake\",\n    \"build\"\n  ],\n  \"cwd\": \"/private/tmp/cbz-cap-candidate-20261030T000800Z/Math-/frontiers/cap_first_exit_lean_20261002\",\n  \"exit\": 0,\n  \"timed_out\": false,\n  \"cleanup_signals\": [],\n  \"started_utc\": \"2026-10-30T00:36:38.189812+00:00\",\n  \"ended_utc\": \"2026-10-30T00:39:25.596219+00:00\"\n}\n"
+    },
+    {
+      "path": "interrupted-v1-gate/build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utf8": ""
+    },
+    {
+      "path": "interrupted-v1-gate/build.stdout",
+      "bytes": 84,
+      "sha256": "b74ea935f25991854a92a5d1d955d43eeb133ff41ed745cf99ad5816bf15c3b2",
+      "utf8": "✔ [8924/8925] Built CapFirstExit (157s)\nBuild completed successfully (8925 jobs).\n"
+    },
+    {
+      "path": "interrupted-v1-gate/leanchecker.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "utf8": "0\n"
+    },
+    {
+      "path": "interrupted-v1-gate/leanchecker.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utf8": ""
+    },
+    {
+      "path": "interrupted-v1-gate/leanchecker.process.json",
+      "bytes": 353,
+      "sha256": "191d39e8bd223ec8a50526a76ceb06d75080e95775ba8cda7ec9f4a99e235d1c",
+      "utf8": "{\n  \"command\": [\n    \"lake\",\n    \"env\",\n    \"leanchecker\",\n    \"CapFirstExit\"\n  ],\n  \"cwd\": \"/private/tmp/cbz-cap-candidate-20261030T000800Z/Math-/frontiers/cap_first_exit_lean_20261002\",\n  \"exit\": 0,\n  \"timed_out\": false,\n  \"cleanup_signals\": [],\n  \"started_utc\": \"2026-10-30T00:39:25.596842+00:00\",\n  \"ended_utc\": \"2026-10-30T00:40:56.376145+00:00\"\n}\n"
+    },
+    {
+      "path": "interrupted-v1-gate/leanchecker.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utf8": ""
+    },
+    {
+      "path": "interrupted-v1-gate/leanchecker.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utf8": ""
+    },
+    {
+      "path": "interrupted-v1-gate/version.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "utf8": "0\n"
+    },
+    {
+      "path": "interrupted-v1-gate/version.log",
+      "bytes": 106,
+      "sha256": "20f42f897511ec814f7616bd9a193ae7504aa2f52fb05299eb752936eb77ca6e",
+      "utf8": "Lean (version 4.34.1, arm64-apple-darwin24.6.0, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)\n"
+    },
+    {
+      "path": "interrupted-v1-gate/version.process.json",
+      "bytes": 343,
+      "sha256": "f5869c8dffdf1bbab926d747e3ca67c4b87c97d660f7436b22be42a4612d3bed",
+      "utf8": "{\n  \"command\": [\n    \"lake\",\n    \"env\",\n    \"lean\",\n    \"--version\"\n  ],\n  \"cwd\": \"/private/tmp/cbz-cap-candidate-20261030T000800Z/Math-/frontiers/cap_first_exit_lean_20261002\",\n  \"exit\": 0,\n  \"timed_out\": false,\n  \"cleanup_signals\": [],\n  \"started_utc\": \"2026-10-30T00:36:33.152741+00:00\",\n  \"ended_utc\": \"2026-10-30T00:36:37.631498+00:00\"\n}\n"
+    },
+    {
+      "path": "interrupted-v1-gate/version.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utf8": ""
+    },
+    {
+      "path": "interrupted-v1-gate/version.stdout",
+      "bytes": 106,
+      "sha256": "20f42f897511ec814f7616bd9a193ae7504aa2f52fb05299eb752936eb77ca6e",
+      "utf8": "Lean (version 4.34.1, arm64-apple-darwin24.6.0, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)\n"
+    }
+  ],
+  "scope": "Current20-fileV2 source:95 Python tests per mode,24 named auditor mutations, Root changed-fixture checks. Also preserves explicitly interruptedV1 gate; no final package or hosted PASS."
+}

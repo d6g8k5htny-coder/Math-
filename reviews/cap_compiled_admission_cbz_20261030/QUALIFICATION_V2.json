@@ -1,0 +1,55 @@
+{
+  "artifacts": {
+    "/tmp/cbz-cap-candidate-20261030T000800Z/FINAL_SOURCE_V2.patch": {
+      "bytes": 169301,
+      "sha256": "337534bff1600fa8ae73832ed5897ab0a043cf37d3165b3ef4d3882394953a8e"
+    },
+    "/tmp/cbz-cap-candidate-20261030T000800Z/FROZEN_SOURCE_V2.json": {
+      "bytes": 6530,
+      "sha256": "0d9da71f481fb023a73cb9bd0742612215c4dc7aaae3affd7b15a8e9ef7614e3"
+    },
+    "/tmp/cbz-cap-candidate-20261030T000800Z/Math-/frontiers/cap_first_exit_lean_20261002/.lake/auditor-selftest-v2/REPORT.json": {
+      "bytes": 6552,
+      "sha256": "90921cb853f5890e8d7da996078805237e9c3075df765d9ee3a47e4aad179488"
+    },
+    "/tmp/cbz-cap-candidate-20261030T000800Z/evidence/final-v2-auditor-selftest.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/cbz-cap-candidate-20261030T000800Z/evidence/final-v2-auditor-selftest.stdout": {
+      "bytes": 64,
+      "sha256": "41287ddccbad50a1a9999b83a41f9132316b1723b82d630d782d153339586447"
+    },
+    "/tmp/cbz-cap-candidate-20261030T000800Z/evidence/final-v2-unit-normal.stderr": {
+      "bytes": 8293,
+      "sha256": "1fc8c3d6989556e611f3ff1e364494069bb3eb848855b7e429becda11d4807c7"
+    },
+    "/tmp/cbz-cap-candidate-20261030T000800Z/evidence/final-v2-unit-normal.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/cbz-cap-candidate-20261030T000800Z/evidence/final-v2-unit-optimized.stderr": {
+      "bytes": 8293,
+      "sha256": "433d5843c825fce65333e2807023b14ed6406d6c2474108fc94ed291289dc900"
+    },
+    "/tmp/cbz-cap-candidate-20261030T000800Z/evidence/final-v2-unit-optimized.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "frozen_files": 20,
+  "scope": {
+    "auditor_mutation_actual_exit": 0,
+    "final_actual_package_admission": "PENDING_HOSTED_EXECUTION; no final PASS",
+    "named_auditor_mutations_killed": 24,
+    "normal_tests": 95,
+    "optimized_tests": 95,
+    "per_mode": 12,
+    "python_runtime": "CPython3.9.6",
+    "relative_cli_output": ".lake/auditor-selftest-v2",
+    "test_actual_exits": [
+      0,
+      0
+    ]
+  }
+}

@@ -213,11 +213,46 @@ class FakeLake:
             stdout = self.versions.pop(0) if len(self.versions) > 1 else self.versions[0]
         elif command == ['lake', 'build']:
             stdout = 'Build completed successfully.\n'
+            build=pathlib.Path(cwd)/'.lake/build'
+            (build/'ir').mkdir(parents=True,exist_ok=True)
+            (build/'ir/CapFirstExit.setup.json').write_text('{"name":"CapFirstExit","options":{},"importArts":{}}\n')
+            (build/'lib/lean').mkdir(parents=True,exist_ok=True)
+            (build/'lib/lean/CapFirstExit.olean').write_bytes(b'synthetic object; not Lean evidence\n')
+            (build/'lib/lean/CapFirstExit.ilean').write_bytes(b'synthetic interface; not Lean evidence\n')
+            (build/'ir/CapFirstExit.c').write_bytes(b'synthetic generated code; not Lean evidence\n')
+        elif command[:3] == ['lake','env','lean'] and command[3].endswith('CapFirstExit.lean'):
+            stdout = ''  # explicitly synthetic process boundary; no Lean compilation occurs
         elif command[:3] == ['lake', 'env', 'leanchecker']:
             stdout = ''
         elif command[:3] == ['lake', 'env', 'lean'] and command[3].endswith('Axioms.lean'):
             stdout = ''.join("'" + n + "' depends on axioms: [" + ', '.join(self.m['expected_axioms'][n]) + ']\n'
                              for n in self.m['targets'])
+        elif command[:3] == ['lake', 'env', 'lean'] and command[3].endswith('Inventory.lean'):
+            # Synthetic process boundary only: actual package execution is a separate gate.
+            import compiled_inventory as census
+            module = census.encode(('CapFirstExit',))
+            rows = [[kind,'user',module,census.encode(tuple(name.split('.'))),'safe']
+                    for name,kind in self.m['compiled_visible_kinds'].items()]
+            rows += self.m['compiled_inventory']
+            axioms = sorted({a for values in self.m['expected_axioms'].values() for a in values})
+            source = (pathlib.Path(cwd)/'CapFirstExit.lean').read_text()
+            if 'private theorem cbzUnlistedSorry' in source:
+                name = census.encode(('_private','CapFirstExit',0,'CapFirstExit','cbzUnlistedSorry'))
+                rows.append(['theorem','user',module,name,'safe']); axioms.append('sorryAx')
+            elif 'private theorem cbzUnlisted' in source:
+                name = census.encode(('_private','CapFirstExit',0,'CapFirstExit','cbzUnlisted'))
+                rows.append(['theorem','user',module,name,'safe'])
+            elif 'noncomputable def cbzUnused' in source:
+                rows.append(['def','user',module,census.encode(('CapFirstExit','cbzUnused')),'safe']); axioms.append('sorryAx')
+            elif 'name := `CapFirstExit.path_meets_frontier._proof_999' in source:
+                rows.append(['theorem','aux',module,census.encode(('CapFirstExit','path_meets_frontier','_proof_999')),'safe'])
+            lines = ['MODULE|'+module+'|false|'+str(len(rows))+'|'+str(len(self.m['compiled_codegen_inventory']))]
+            lines += ['EXTRA|'+'|'.join(row) for row in self.m['compiled_codegen_inventory']]
+            lines += ['INV|'+'|'.join(row) for row in rows]
+            lines += ['REL|'+'|'.join(row) for row in self.m['compiled_structural_relations']]
+            lines += ['AXIOMS|'+','.join(census.encode(tuple(a.split('.'))) for a in sorted(set(axioms))),
+                      'CLOSURE|'+str(len(rows)+len(set(axioms))+100)]
+            stdout = '\n'.join(lines)+'\n'
         elif command[:3] == ['lake', 'env', 'lean'] and pathlib.Path(command[3]).name.startswith('Control_'):
             if self.during is not None:
                 during, self.during = self.during, None
@@ -248,7 +283,7 @@ class Execute(unittest.TestCase):
     def execute(self, versions=(RELEASE,), during=None):
         fake = FakeLake(self.m, versions, during)
         with mock.patch.object(gate, 'ROOT', self.packet), mock.patch.object(gate, 'REPO', self.repo), \
-                mock.patch.object(subprocess, 'run', fake.run), mock.patch.object(subprocess, 'check_output', fake.check_output):
+                mock.patch.object(gate, 'run_process', fake.run), mock.patch.object(subprocess, 'check_output', fake.check_output):
             receipt = gate.execute(self.m)
         return fake, receipt
 
@@ -274,12 +309,20 @@ class Execute(unittest.TestCase):
         _, receipt = self.execute()
         old_keys = {'scientific_effect', 'module', 'lean_version', 'toolchain', 'dependency_revisions', 'source_sha256',
                     'build', 'leanchecker', 'dependency_worktrees', 'axioms', 'negative_controls', 'alignment_review'}
-        self.assertEqual(set(receipt), old_keys | {'observations'})
+        self.assertEqual(set(receipt), old_keys | {'observations','compiled_inventory'})
         self.assertEqual(receipt['lean_version'], RELEASE)
         self.assertEqual(receipt['dependency_revisions'], self.m['dependency_revisions'])
         self.assertEqual(receipt['source_sha256'], {e['path']: e['sha256'] for e in self.m['files']})
         self.assertEqual(receipt['negative_controls'], dict.fromkeys(('sorry', 'custom_axiom', 'native_decide'), 'REJECTED'))
         self.assertEqual((receipt['scientific_effect'], receipt['alignment_review']), ('NONE', 'NOT_CLAIMED'))
+        admission=receipt['compiled_inventory']['admission_controls']
+        self.assertEqual(set(admission),{'private_theorem','private_sorry','unused_sorry_def','range_less'})
+        for control in admission.values():
+            self.assertIn('compiler_setup_sha256',control)
+            self.assertIn('output_objects',control)
+            self.assertRegex(control['compiler_setup_sha256'],r'^[0-9a-f]{64}$')
+            self.assertTrue(control['output_objects'])
+            self.assertIn('.lake/build/lib/lean/CapFirstExit.olean',control['output_objects'])
         obs = receipt['observations']
         self.assertEqual(set(obs), {'preflight', 'final'})
         digest = gate.source_identity(self.m, self.packet, self.repo)
@@ -295,7 +338,7 @@ class Execute(unittest.TestCase):
         wrong = RELEASE.replace(COMMIT, '0123456789abcdef0123456789abcdef01234567')
         fake = FakeLake(self.m, [wrong])
         with mock.patch.object(gate, 'ROOT', self.packet), mock.patch.object(gate, 'REPO', self.repo), \
-                mock.patch.object(subprocess, 'run', fake.run), mock.patch.object(subprocess, 'check_output', fake.check_output):
+                mock.patch.object(gate, 'run_process', fake.run), mock.patch.object(subprocess, 'check_output', fake.check_output):
             with self.assertRaises(ValueError) as ctx:
                 gate.execute(self.m)
         self.assertIn('running Lean is not the pinned release', str(ctx.exception))
@@ -320,7 +363,7 @@ class Execute(unittest.TestCase):
             fake = FakeLake(self.m, versions)
             stdout = io.StringIO()
             with mock.patch.object(gate, 'ROOT', self.packet), mock.patch.object(gate, 'REPO', self.repo), \
-                    mock.patch.object(subprocess, 'run', fake.run), mock.patch.object(subprocess, 'check_output', fake.check_output), \
+                    mock.patch.object(gate, 'run_process', fake.run), mock.patch.object(subprocess, 'check_output', fake.check_output), \
                     mock.patch.object(sys, 'argv', ['gate.py', '--execute']), contextlib.redirect_stdout(stdout):
                 if passed:
                     gate.main()

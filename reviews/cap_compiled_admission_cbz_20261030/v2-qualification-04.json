@@ -1,0 +1,292 @@
+{
+  "schema": "cap.review-evidence-bundle.v1",
+  "group": "v2-current-qualification",
+  "records": [
+    {
+      "path": "auditor-selftest-v2/optimized-codegen_binding.stderr",
+      "bytes": 760,
+      "sha256": "1ccb6cb402ffbf302cf9d058f8e73eb2295c306552d2e74b1da23814b0eba59b",
+      "utf8": "test_codegen_extras_are_exactly_bound_not_ignored (test_compiled_inventory.CompiledInventory) ... FAIL\n\n======================================================================\nFAIL: test_codegen_extras_are_exactly_bound_not_ignored (test_compiled_inventory.CompiledInventory)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/r5/p3c78wf50fv5j8x569vpykj80000gn/T/cap-auditor-mutants-6gruwdhn/optimized/test_compiled_inventory.py\", line 169, in test_codegen_extras_are_exactly_bound_not_ignored\n    self.codegen_call(text,[])\nAssertionError: ValueError not raised\n\n----------------------------------------------------------------------\nRan 1 test in 0.004s\n\nFAILED (failures=1)\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-codegen_binding.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utf8": ""
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-codegen_extras.exit",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "utf8": "1\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-codegen_extras.process.json",
+      "bytes": 406,
+      "sha256": "7fc1d4ac4083dfc4330e914dd53e7f2d301d855207e55c7a26956eefdbb0665d",
+      "utf8": "{\n  \"command\": [\n    \"/Library/Developer/CommandLineTools/usr/bin/python3\",\n    \"-B\",\n    \"-S\",\n    \"-O\",\n    \"-m\",\n    \"unittest\",\n    \"-v\",\n    \"test_compiled_inventory.CompiledInventory.test_module_system_and_codegen_extras_fail_closed\"\n  ],\n  \"cwd\": \"/var/folders/r5/p3c78wf50fv5j8x569vpykj80000gn/T/cap-auditor-mutants-6gruwdhn/optimized\",\n  \"exit\": 1,\n  \"timed_out\": false,\n  \"cleanup_signals\": []\n}\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-codegen_extras.stderr",
+      "bytes": 1011,
+      "sha256": "a5aa169281db4f08a5f578e22b979c9eb27b28afaa88c46029721885007c9d33",
+      "utf8": "test_module_system_and_codegen_extras_fail_closed (test_compiled_inventory.CompiledInventory) ... FAIL\n\n======================================================================\nFAIL: test_module_system_and_codegen_extras_fail_closed (test_compiled_inventory.CompiledInventory)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/r5/p3c78wf50fv5j8x569vpykj80000gn/T/cap-auditor-mutants-6gruwdhn/optimized/test_compiled_inventory.py\", line 147, in test_module_system_and_codegen_extras_fail_closed\n    self.reject(transcript(extra=1), 'codegen_extra')\n  File \"/private/var/folders/r5/p3c78wf50fv5j8x569vpykj80000gn/T/cap-auditor-mutants-6gruwdhn/optimized/test_compiled_inventory.py\", line 55, in reject\n    self.api.audit_inventory(text, VISIBLE if visible is None else visible,\nAssertionError: ValueError not raised\n\n----------------------------------------------------------------------\nRan 1 test in 0.003s\n\nFAILED (failures=1)\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-codegen_extras.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utf8": ""
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-extra_constant.exit",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "utf8": "1\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-extra_constant.process.json",
+      "bytes": 421,
+      "sha256": "d3878a6f70478196e5e009de08ef3961be7b46c75ce4fc56b4b95d64abc55e4e",
+      "utf8": "{\n  \"command\": [\n    \"/Library/Developer/CommandLineTools/usr/bin/python3\",\n    \"-B\",\n    \"-S\",\n    \"-O\",\n    \"-m\",\n    \"unittest\",\n    \"-v\",\n    \"test_compiled_inventory.CompiledInventory.test_compiler_shaped_added_theorem_is_not_automatically_admitted\"\n  ],\n  \"cwd\": \"/var/folders/r5/p3c78wf50fv5j8x569vpykj80000gn/T/cap-auditor-mutants-6gruwdhn/optimized\",\n  \"exit\": 1,\n  \"timed_out\": false,\n  \"cleanup_signals\": []\n}\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-extra_constant.stderr",
+      "bytes": 1072,
+      "sha256": "83a842d1f8f9b89d6fbda6de8ef1a87f1d2c272498c0a1479629dea8d7ac558c",
+      "utf8": "test_compiler_shaped_added_theorem_is_not_automatically_admitted (test_compiled_inventory.CompiledInventory) ... FAIL\n\n======================================================================\nFAIL: test_compiler_shaped_added_theorem_is_not_automatically_admitted (test_compiled_inventory.CompiledInventory)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/r5/p3c78wf50fv5j8x569vpykj80000gn/T/cap-auditor-mutants-6gruwdhn/optimized/test_compiled_inventory.py\", line 117, in test_compiler_shaped_added_theorem_is_not_automatically_admitted\n    self.reject(transcript(ROWS + [hidden]), 'unregistered_constant')\n  File \"/private/var/folders/r5/p3c78wf50fv5j8x569vpykj80000gn/T/cap-auditor-mutants-6gruwdhn/optimized/test_compiled_inventory.py\", line 55, in reject\n    self.api.audit_inventory(text, VISIBLE if visible is None else visible,\nAssertionError: ValueError not raised\n\n----------------------------------------------------------------------\nRan 1 test in 0.003s\n\nFAILED (failures=1)\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-extra_constant.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utf8": ""
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-hidden_user_definition.exit",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "utf8": "1\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-hidden_user_definition.process.json",
+      "bytes": 418,
+      "sha256": "ed4a0731ebbce893cacedd7bdfe7e37fd5211401de037320160d5e00947b9feb",
+      "utf8": "{\n  \"command\": [\n    \"/Library/Developer/CommandLineTools/usr/bin/python3\",\n    \"-B\",\n    \"-S\",\n    \"-O\",\n    \"-m\",\n    \"unittest\",\n    \"-v\",\n    \"test_compiled_inventory.CompiledInventory.test_user_definition_cannot_be_laundered_as_structure_support\"\n  ],\n  \"cwd\": \"/var/folders/r5/p3c78wf50fv5j8x569vpykj80000gn/T/cap-auditor-mutants-6gruwdhn/optimized\",\n  \"exit\": 1,\n  \"timed_out\": false,\n  \"cleanup_signals\": []\n}\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-hidden_user_definition.stderr",
+      "bytes": 1086,
+      "sha256": "078bcd15b37d56f7f40e5b817f79355db8ff0ccde172eb14c7c3297d5db4681c",
+      "utf8": "test_user_definition_cannot_be_laundered_as_structure_support (test_compiled_inventory.CompiledInventory) ... FAIL\n\n======================================================================\nFAIL: test_user_definition_cannot_be_laundered_as_structure_support (test_compiled_inventory.CompiledInventory)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/r5/p3c78wf50fv5j8x569vpykj80000gn/T/cap-auditor-mutants-6gruwdhn/optimized/test_compiled_inventory.py\", line 93, in test_user_definition_cannot_be_laundered_as_structure_support\n    self.reject(transcript(ROWS + [hidden]), 'extra_user_definition', BOUND + [list(hidden)])\n  File \"/private/var/folders/r5/p3c78wf50fv5j8x569vpykj80000gn/T/cap-auditor-mutants-6gruwdhn/optimized/test_compiled_inventory.py\", line 55, in reject\n    self.api.audit_inventory(text, VISIBLE if visible is None else visible,\nAssertionError: ValueError not raised\n\n----------------------------------------------------------------------\nRan 1 test in 0.003s\n\nFAILED (failures=1)\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-hidden_user_definition.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utf8": ""
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-hidden_user_theorem.exit",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "utf8": "1\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-hidden_user_theorem.process.json",
+      "bytes": 423,
+      "sha256": "bab7ad878b03e62ceab0a414ad9200066476c065a75fa0c5836a516b24ae367a",
+      "utf8": "{\n  \"command\": [\n    \"/Library/Developer/CommandLineTools/usr/bin/python3\",\n    \"-B\",\n    \"-S\",\n    \"-O\",\n    \"-m\",\n    \"unittest\",\n    \"-v\",\n    \"test_compiled_inventory.CompiledInventory.test_hidden_private_user_theorem_rejects_even_if_manifest_lists_it\"\n  ],\n  \"cwd\": \"/var/folders/r5/p3c78wf50fv5j8x569vpykj80000gn/T/cap-auditor-mutants-6gruwdhn/optimized\",\n  \"exit\": 1,\n  \"timed_out\": false,\n  \"cleanup_signals\": []\n}\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-hidden_user_theorem.stderr",
+      "bytes": 1098,
+      "sha256": "511832f38d5c4ef715942f85813bda1385f1f37cde342866c52ed7a7a8583215",
+      "utf8": "test_hidden_private_user_theorem_rejects_even_if_manifest_lists_it (test_compiled_inventory.CompiledInventory) ... FAIL\n\n======================================================================\nFAIL: test_hidden_private_user_theorem_rejects_even_if_manifest_lists_it (test_compiled_inventory.CompiledInventory)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/r5/p3c78wf50fv5j8x569vpykj80000gn/T/cap-auditor-mutants-6gruwdhn/optimized/test_compiled_inventory.py\", line 85, in test_hidden_private_user_theorem_rejects_even_if_manifest_lists_it\n    self.reject(transcript(ROWS + [hidden]), 'extra_user_theorem', BOUND + [list(hidden)])\n  File \"/private/var/folders/r5/p3c78wf50fv5j8x569vpykj80000gn/T/cap-auditor-mutants-6gruwdhn/optimized/test_compiled_inventory.py\", line 55, in reject\n    self.api.audit_inventory(text, VISIBLE if visible is None else visible,\nAssertionError: ValueError not raised\n\n----------------------------------------------------------------------\nRan 1 test in 0.003s\n\nFAILED (failures=1)\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-hidden_user_theorem.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utf8": ""
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-missing_binding.exit",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "utf8": "1\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-missing_binding.process.json",
+      "bytes": 403,
+      "sha256": "ab978174fc631ec4881f7e5248d1db818403c02e52b10d252ebc6a3735b79be8",
+      "utf8": "{\n  \"command\": [\n    \"/Library/Developer/CommandLineTools/usr/bin/python3\",\n    \"-B\",\n    \"-S\",\n    \"-O\",\n    \"-m\",\n    \"unittest\",\n    \"-v\",\n    \"test_compiled_inventory.CompiledInventory.test_missing_or_changed_support_record_refuses\"\n  ],\n  \"cwd\": \"/var/folders/r5/p3c78wf50fv5j8x569vpykj80000gn/T/cap-auditor-mutants-6gruwdhn/optimized\",\n  \"exit\": 1,\n  \"timed_out\": false,\n  \"cleanup_signals\": []\n}\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-missing_binding.stderr",
+      "bytes": 1015,
+      "sha256": "38dba1ed26d93f17b3d8563cd27870cc6eb99a4bcfefb99ced65257e55bd8510",
+      "utf8": "test_missing_or_changed_support_record_refuses (test_compiled_inventory.CompiledInventory) ... FAIL\n\n======================================================================\nFAIL: test_missing_or_changed_support_record_refuses (test_compiled_inventory.CompiledInventory)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/r5/p3c78wf50fv5j8x569vpykj80000gn/T/cap-auditor-mutants-6gruwdhn/optimized/test_compiled_inventory.py\", line 126, in test_missing_or_changed_support_record_refuses\n    self.reject(transcript(), 'missing_constant', BOUND + [extra])\n  File \"/private/var/folders/r5/p3c78wf50fv5j8x569vpykj80000gn/T/cap-auditor-mutants-6gruwdhn/optimized/test_compiled_inventory.py\", line 55, in reject\n    self.api.audit_inventory(text, VISIBLE if visible is None else visible,\nAssertionError: ValueError not raised\n\n----------------------------------------------------------------------\nRan 1 test in 0.003s\n\nFAILED (failures=1)\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-missing_binding.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utf8": ""
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-module_count.exit",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "utf8": "1\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-module_count.process.json",
+      "bytes": 402,
+      "sha256": "0887f51eec38711b7652e1bd6aa6306290c03385d2f21d4432efae4b80e55fc6",
+      "utf8": "{\n  \"command\": [\n    \"/Library/Developer/CommandLineTools/usr/bin/python3\",\n    \"-B\",\n    \"-S\",\n    \"-O\",\n    \"-m\",\n    \"unittest\",\n    \"-v\",\n    \"test_compiled_inventory.CompiledInventory.test_duplicate_names_and_module_counts_refuse\"\n  ],\n  \"cwd\": \"/var/folders/r5/p3c78wf50fv5j8x569vpykj80000gn/T/cap-auditor-mutants-6gruwdhn/optimized\",\n  \"exit\": 1,\n  \"timed_out\": false,\n  \"cleanup_signals\": []\n}\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-module_count.stderr",
+      "bytes": 1000,
+      "sha256": "e36caf4b414a963ae57094bac63ce808581d40ce1a7038bda1b9689594da1504",
+      "utf8": "test_duplicate_names_and_module_counts_refuse (test_compiled_inventory.CompiledInventory) ... FAIL\n\n======================================================================\nFAIL: test_duplicate_names_and_module_counts_refuse (test_compiled_inventory.CompiledInventory)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/r5/p3c78wf50fv5j8x569vpykj80000gn/T/cap-auditor-mutants-6gruwdhn/optimized/test_compiled_inventory.py\", line 138, in test_duplicate_names_and_module_counts_refuse\n    self.reject(transcript(count=8), 'count_mismatch')\n  File \"/private/var/folders/r5/p3c78wf50fv5j8x569vpykj80000gn/T/cap-auditor-mutants-6gruwdhn/optimized/test_compiled_inventory.py\", line 55, in reject\n    self.api.audit_inventory(text, VISIBLE if visible is None else visible,\nAssertionError: ValueError not raised\n\n----------------------------------------------------------------------\nRan 1 test in 0.003s\n\nFAILED (failures=1)\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-module_count.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utf8": ""
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-opaque-mutant/CapFirstExit.lean",
+      "bytes": 115,
+      "sha256": "ce760a0a7ed71556a624b9717735c37e4f66cd832b8b58eb345084daa83830de",
+      "utf8": "namespace CapFirstExit\nunsafe opaque opaqueHazard : Nat := 0\ntheorem visible : True := by trivial\nend CapFirstExit\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-opaque-mutant/CapFirstExit.olean",
+      "bytes": 6168,
+      "sha256": "f0ffca6116982376203302d47bfc8df44a6a43fb395c78b3794630663f1f4b2d",
+      "offset": 0,
+      "chunk_bytes": 6168,
+      "chunk_sha256": "f0ffca6116982376203302d47bfc8df44a6a43fb395c78b3794630663f1f4b2d",
+      "base64": "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"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-opaque-mutant/Inventory.lean",
+      "bytes": 3980,
+      "sha256": "d4020f5920d9916eab59e263173f1f2a86864e00f1ee77ea64698f3173c89007",
+      "utf8": "import CapFirstExit\nimport Lean\nopen Lean\n\ndef _cap.kind : ConstantInfo → String\n  | .thmInfo _ => \"theorem\" | .defnInfo _ => \"def\" | .axiomInfo _ => \"axiom\" | .opaqueInfo _ => \"opaque\"\n  | .inductInfo _ => \"inductive\" | .ctorInfo _ => \"ctor\" | .recInfo _ => \"rec\" | .quotInfo _ => \"quot\"\ndef _cap.safety (ci : ConstantInfo) : String :=\n  if false then \"unsafe\" else\n    match ci with\n    | .defnInfo v => match v.safety with\n      | .safe => \"safe\" | .unsafe => \"unsafe\" | .partial => \"partial\"\n    | _ => \"safe\"\ndef _cap.hex (s : String) : String :=\n  s.toUTF8.foldl (fun acc b => acc ++ (if b.toNat < 16 then \"0\" else \"\") ++ String.ofList (Nat.toDigits 16 b.toNat)) \"\"\ndef _cap.join (a b : String) : String := if a.isEmpty then b else a ++ \"/\" ++ b\ndef _cap.enc : Name → String\n  | .anonymous => \"\"\n  | .str p s => _cap.join (_cap.enc p) (\"s\" ++ _cap.hex s)\n  | .num p k => _cap.join (_cap.enc p) (\"n\" ++ toString k)\nstructure _cap.St where\n  visited : NameSet := {}\n  axioms : NameSet := {}\n  missing : NameSet := {}\npartial def _cap.collect (env : Environment) (c : Name) : StateM _cap.St Unit := do\n  unless (← get).visited.contains c do\n    modify fun s => { s with visited := s.visited.insert c }\n    let expr (e : Expr) : StateM _cap.St Unit := e.getUsedConstants.forM (_cap.collect env)\n    match env.find? c with\n    | some (.axiomInfo v) => modify (fun s => { s with axioms := s.axioms.insert c }) *> expr v.type\n    | some (.defnInfo v) => expr v.type *> expr v.value\n    | some (.thmInfo v) => expr v.type *> expr v.value\n    | some (.opaqueInfo v) => expr v.type *> expr v.value\n    | some (.quotInfo _) => pure ()\n    | some (.ctorInfo v) => expr v.type\n    | some (.recInfo v) => expr v.type\n    | some (.inductInfo v) => expr v.type *> v.ctors.forM (_cap.collect env)\n    | none => modify fun s => { s with missing := s.missing.insert c }\ndef _cap.main : CoreM Unit := do\n  let env ← getEnv\n  let header := env.header\n  let names := header.moduleNames\n  let mut owned : Array (Name × ConstantInfo × Name) := #[]\n  for h : idx in [0:names.size] do\n    let m := names[idx]\n    if (`CapFirstExit).isPrefixOf m then\n      let data := header.moduleData[idx]!\n      IO.println s!\"MODULE|{_cap.enc m}|{data.isModule}|{data.constNames.size}|{data.extraConstNames.size}\"\n      for c in data.extraConstNames do\n        IO.println s!\"EXTRA|{_cap.enc m}|{_cap.enc c}\"\n      for c in data.constNames do\n        match env.find? c with\n        | some ci => owned := owned.push (c, ci, m)\n        | none => throwError \"module constant missing from environment\"\n  let sorted := owned.qsort (fun a b => _cap.enc a.1 < _cap.enc b.1)\n  for (c, ci, m) in sorted do\n    let origin := if (← findDeclarationRanges? c).isSome then \"user\" else \"aux\"\n    IO.println s!\"INV|{_cap.kind ci}|{origin}|{_cap.enc m}|{_cap.enc c}|{_cap.safety ci}\"\n  let structName := `CapFirstExit.CapHyp\n  if let some info := getStructureInfo? env structName then\n    let ctor := getStructureCtor env structName\n    IO.println s!\"REL|constructor|{_cap.enc ctor.name}|{_cap.enc structName}\"\n    for field in info.fieldInfo do\n      IO.println s!\"REL|projection|{_cap.enc field.projFn}|{_cap.enc structName}\"\n    for (c, ci, _) in sorted do\n      if c.getPrefix == structName then\n        match ci with\n        | .recInfo _ => IO.println s!\"REL|recursor|{_cap.enc c}|{_cap.enc structName}\"\n        | _ =>\n          if isAuxRecursor env c then\n            IO.println s!\"REL|aux_recursor|{_cap.enc c}|{_cap.enc structName}\"\n          else if isNoConfusion env c then\n            IO.println s!\"REL|no_confusion|{_cap.enc c}|{_cap.enc structName}\"\n  let (_, state) := (sorted.forM (fun item => _cap.collect env item.1)).run {}\n  unless state.missing.isEmpty do throwError \"dependency constant missing from environment\"\n  let axioms := (state.axioms.toArray.map _cap.enc).qsort (· < ·)\n  IO.println s!\"AXIOMS|{\",\".intercalate axioms.toList}\"\n  IO.println s!\"CLOSURE|{state.visited.size}\"\n#eval _cap.main\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-opaque-mutant/RESULT.json",
+      "bytes": 2071,
+      "sha256": "35f376aaa126d5288eb70fda1d00abd233751339b8a3caea906ef05ac3545961",
+      "utf8": "{\n  \"errors\": 0,\n  \"failures\": 1,\n  \"implementation_sha256\": \"bde899df41f9676fd6ca47d9b2799f4cdc7ff4d0cd0db075ccda61f9de9d0922\",\n  \"program_sha256\": \"d4020f5920d9916eab59e263173f1f2a86864e00f1ee77ea64698f3173c89007\",\n  \"runs\": [\n    {\n      \"cleanup_signals\": [],\n      \"command\": [\n        \"/private/tmp/cbz-lean-4.34.1-smvim4pq/runtime/lean-4.34.1-darwin_aarch64/bin/lean\",\n        \"--version\"\n      ],\n      \"cwd\": \"/private/tmp/cbz-cap-candidate-20261030T000800Z/Math-/frontiers/cap_first_exit_lean_20261002/.lake/auditor-selftest-v2/optimized-opaque-mutant\",\n      \"exit\": 0,\n      \"label\": \"version\",\n      \"timed_out\": false\n    },\n    {\n      \"cleanup_signals\": [],\n      \"command\": [\n        \"/usr/bin/env\",\n        \"LEAN_PATH=/private/tmp/cbz-cap-candidate-20261030T000800Z/Math-/frontiers/cap_first_exit_lean_20261002/.lake/auditor-selftest-v2/optimized-opaque-mutant\",\n        \"LEAN_NUM_THREADS=2\",\n        \"/private/tmp/cbz-lean-4.34.1-smvim4pq/runtime/lean-4.34.1-darwin_aarch64/bin/lean\",\n        \"-j2\",\n        \"-o\",\n        \"CapFirstExit.olean\",\n        \"CapFirstExit.lean\"\n      ],\n      \"cwd\": \"/private/tmp/cbz-cap-candidate-20261030T000800Z/Math-/frontiers/cap_first_exit_lean_20261002/.lake/auditor-selftest-v2/optimized-opaque-mutant\",\n      \"exit\": 0,\n      \"label\": \"compile\",\n      \"timed_out\": false\n    },\n    {\n      \"cleanup_signals\": [],\n      \"command\": [\n        \"/usr/bin/env\",\n        \"LEAN_PATH=/private/tmp/cbz-cap-candidate-20261030T000800Z/Math-/frontiers/cap_first_exit_lean_20261002/.lake/auditor-selftest-v2/optimized-opaque-mutant\",\n        \"LEAN_NUM_THREADS=2\",\n        \"/private/tmp/cbz-lean-4.34.1-smvim4pq/runtime/lean-4.34.1-darwin_aarch64/bin/lean\",\n        \"-j2\",\n        \"Inventory.lean\"\n      ],\n      \"cwd\": \"/private/tmp/cbz-cap-candidate-20261030T000800Z/Math-/frontiers/cap_first_exit_lean_20261002/.lake/auditor-selftest-v2/optimized-opaque-mutant\",\n      \"exit\": 0,\n      \"label\": \"export\",\n      \"timed_out\": false\n    }\n  ],\n  \"schema\": \"cap.actual-opaque-export-control.v1\",\n  \"success\": false,\n  \"tests\": 1\n}\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-opaque-mutant/compile.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "utf8": "0\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-opaque-mutant/compile.process.json",
+      "bytes": 604,
+      "sha256": "7a4f2bcbf49eea48556cec0a7d708aa7842895836ee0aaeba897e11eed38379c",
+      "utf8": "{\n  \"command\": [\n    \"/usr/bin/env\",\n    \"LEAN_PATH=/private/tmp/cbz-cap-candidate-20261030T000800Z/Math-/frontiers/cap_first_exit_lean_20261002/.lake/auditor-selftest-v2/optimized-opaque-mutant\",\n    \"LEAN_NUM_THREADS=2\",\n    \"/private/tmp/cbz-lean-4.34.1-smvim4pq/runtime/lean-4.34.1-darwin_aarch64/bin/lean\",\n    \"-j2\",\n    \"-o\",\n    \"CapFirstExit.olean\",\n    \"CapFirstExit.lean\"\n  ],\n  \"cwd\": \"/private/tmp/cbz-cap-candidate-20261030T000800Z/Math-/frontiers/cap_first_exit_lean_20261002/.lake/auditor-selftest-v2/optimized-opaque-mutant\",\n  \"exit\": 0,\n  \"timed_out\": false,\n  \"cleanup_signals\": []\n}\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-opaque-mutant/compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utf8": ""
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-opaque-mutant/compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utf8": ""
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-opaque-mutant/export.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "utf8": "0\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-opaque-mutant/export.process.json",
+      "bytes": 565,
+      "sha256": "d2714e5a0a23a0e7dee3205267e706d86d4e81dc062a461ee90691fb5ed63318",
+      "utf8": "{\n  \"command\": [\n    \"/usr/bin/env\",\n    \"LEAN_PATH=/private/tmp/cbz-cap-candidate-20261030T000800Z/Math-/frontiers/cap_first_exit_lean_20261002/.lake/auditor-selftest-v2/optimized-opaque-mutant\",\n    \"LEAN_NUM_THREADS=2\",\n    \"/private/tmp/cbz-lean-4.34.1-smvim4pq/runtime/lean-4.34.1-darwin_aarch64/bin/lean\",\n    \"-j2\",\n    \"Inventory.lean\"\n  ],\n  \"cwd\": \"/private/tmp/cbz-cap-candidate-20261030T000800Z/Math-/frontiers/cap_first_exit_lean_20261002/.lake/auditor-selftest-v2/optimized-opaque-mutant\",\n  \"exit\": 0,\n  \"timed_out\": false,\n  \"cleanup_signals\": []\n}\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-opaque-mutant/export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utf8": ""
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-opaque-mutant/export.stdout",
+      "bytes": 251,
+      "sha256": "00b6e6720eaa0a0b5ca5d46ecc3a2136e8cd518c713e008f15bfa2481259dd31",
+      "utf8": "MODULE|s436170466972737445786974|false|2|0\nINV|opaque|user|s436170466972737445786974|s436170466972737445786974/s6f706171756548617a617264|safe\nINV|theorem|user|s436170466972737445786974|s436170466972737445786974/s76697369626c65|safe\nAXIOMS|\nCLOSURE|11\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-opaque-mutant/version.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "utf8": "0\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-opaque-mutant/version.process.json",
+      "bytes": 343,
+      "sha256": "2de3435bd728ca14e3ca89e377c957fd1a597d4cfa99b219aff41bcc2f7c627b",
+      "utf8": "{\n  \"command\": [\n    \"/private/tmp/cbz-lean-4.34.1-smvim4pq/runtime/lean-4.34.1-darwin_aarch64/bin/lean\",\n    \"--version\"\n  ],\n  \"cwd\": \"/private/tmp/cbz-cap-candidate-20261030T000800Z/Math-/frontiers/cap_first_exit_lean_20261002/.lake/auditor-selftest-v2/optimized-opaque-mutant\",\n  \"exit\": 0,\n  \"timed_out\": false,\n  \"cleanup_signals\": []\n}\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-opaque-mutant/version.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utf8": ""
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-opaque-mutant/version.stdout",
+      "bytes": 106,
+      "sha256": "20f42f897511ec814f7616bd9a193ae7504aa2f52fb05299eb752936eb77ca6e",
+      "utf8": "Lean (version 4.34.1, arm64-apple-darwin24.6.0, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-opaque-mutant-observer.exit",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "utf8": "1\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-opaque-mutant-observer.process.json",
+      "bytes": 570,
+      "sha256": "8e82ecb9aff180a2fe7260cc777142f87ce5d20aac8e65c64d8bac32a3de9c67",
+      "utf8": "{\n  \"command\": [\n    \"/Library/Developer/CommandLineTools/usr/bin/python3\",\n    \"-B\",\n    \"-S\",\n    \"-O\",\n    \"lean_opaque_control.py\",\n    \"--lean\",\n    \"/private/tmp/cbz-lean-4.34.1-smvim4pq/runtime/lean-4.34.1-darwin_aarch64/bin/lean\",\n    \"--output\",\n    \"/private/tmp/cbz-cap-candidate-20261030T000800Z/Math-/frontiers/cap_first_exit_lean_20261002/.lake/auditor-selftest-v2/optimized-opaque-mutant\"\n  ],\n  \"cwd\": \"/var/folders/r5/p3c78wf50fv5j8x569vpykj80000gn/T/cap-auditor-mutants-6gruwdhn/optimized\",\n  \"exit\": 1,\n  \"timed_out\": false,\n  \"cleanup_signals\": []\n}\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-opaque-mutant-observer.stderr",
+      "bytes": 736,
+      "sha256": "702c641c52e4e8fc7f7cea2f3dc04bee3da52f6bac8d86005502ca48fbee7326",
+      "utf8": "runTest (__main__.main.<locals>.ActualLeanSafety) ... FAIL\n\n======================================================================\nFAIL: runTest (__main__.main.<locals>.ActualLeanSafety)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/r5/p3c78wf50fv5j8x569vpykj80000gn/T/cap-auditor-mutants-6gruwdhn/optimized/lean_opaque_control.py\", line 54, in runTest\n    self.assertEqual(hazards[0][4],'unsafe','ACTUAL_UNSAFE_OPAQUE_EXPORT_MISMATCH')\nAssertionError: 'safe' != 'unsafe'\n- safe\n+ unsafe\n? ++\n : ACTUAL_UNSAFE_OPAQUE_EXPORT_MISMATCH\n\n----------------------------------------------------------------------\nRan 1 test in 1.362s\n\nFAILED (failures=1)\n"
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-opaque-mutant-observer.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utf8": ""
+    },
+    {
+      "path": "auditor-selftest-v2/optimized-opaque-positive/CapFirstExit.lean",
+      "bytes": 115,
+      "sha256": "ce760a0a7ed71556a624b9717735c37e4f66cd832b8b58eb345084daa83830de",
+      "utf8": "namespace CapFirstExit\nunsafe opaque opaqueHazard : Nat := 0\ntheorem visible : True := by trivial\nend CapFirstExit\n"
+    }
+  ],
+  "scope": "Current20-fileV2 source:95 Python tests per mode,24 named auditor mutations, Root changed-fixture checks. Also preserves explicitly interruptedV1 gate; no final package or hosted PASS."
+}

@@ -251,3 +251,9 @@ tightens `gate.py --execute`:
 
 The new tests drive `execute` with synthetic process results and do not run Lean. The paragraphs above are kept as
 written. This changes no statement, proof, import, toolchain or dependency pin, and no scientific status.
+
+## CBZ compiled-admission successor — 30 October2026 UTC
+
+The current owner MASTER DIRECTIVE supersedes earlier operational author-merge prohibitions, family approval requirements and procedural holds in this historical document. Historical authorship, organizational-independence credit, alignment status, mathematical premises and nonclaims remain unchanged. This authorization is not a successful test or a parent theorem proof.
+
+[Cap compiled admission](CBZ_ADMISSION.md) documents the new source/compiled audit, exact206-kernel-constant and8-IR-name discovery scope, portable commands, auditor self-verification, actual mutation controls, retained default-kernel/import trust and remaining scientific boundaries. The152 visible declarations and original proof bytes are preserved. Source-only success remains identity evidence; only an actual source-bound execute receipt qualifies its precise run. No broad Layer A or federation CBZ-0 claim follows.
