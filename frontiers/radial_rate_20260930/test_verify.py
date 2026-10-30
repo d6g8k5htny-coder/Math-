@@ -107,7 +107,8 @@ class WrapperProtocolTests(unittest.TestCase):
     def run_rate(self, *args):
         script=Path(__file__).with_name('rate.py')
         return subprocess.run([sys.executable,*self.flags(),str(script),*args],
-                              cwd=script.parent,capture_output=True,timeout=45)
+                              cwd=script.parent,capture_output=True,timeout=45,
+                              env=dict(os.environ,COLUMNS='80'))
 
     def test_actual_semantic_mutants_match_exact_reasons_in_executing_mode(self):
         for name in v.EXPECTED_MUTANT_ERRORS:
@@ -149,6 +150,25 @@ class WrapperProtocolTests(unittest.TestCase):
                                cwd=tmp,capture_output=True,timeout=10)
             with self.assertRaises(ValueError):
                 v.validate_unknown_result(run)
+
+            expected = v.expected_unknown_stderr()
+            parts = expected.splitlines()
+            usage = b'\\n'.join(parts[:-1]) + b'\\n'
+            diagnostic = parts[-1] + b'\\n'
+            cases = (
+                ('wrong-usage-header', expected.replace(
+                    b'usage: rate.py', b'usage: rate.py bogus', 1), 2, b''),
+                ('extra-indented-stderr', usage + b'    unrelated indented stderr\\n' + diagnostic, 2, b''),
+                ('missing-terminal-newline', expected[:-1], 2, b''),
+                ('extra-terminal-output', expected + b'\\n', 2, b''),
+                ('wrong-exit', expected, 1, b''),
+                ('unexpected-stdout', expected, 2, b'unexpected'),
+            )
+            for label, stderr, code, stdout in cases:
+                bad = subprocess.CompletedProcess(['rate.py'], code, stdout, stderr)
+                with self.subTest(case=label):
+                    with self.assertRaises(ValueError):
+                        v.validate_unknown_result(bad)
 
 
 if __name__=='__main__':unittest.main()

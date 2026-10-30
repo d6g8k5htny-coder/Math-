@@ -1,6 +1,8 @@
 """Exact packet replay; --local-only does not authenticate upstream Git sources."""
 import argparse
+import contextlib
 import hashlib
+import io
 import json
 import os
 from pathlib import Path, PurePosixPath
@@ -106,19 +108,27 @@ def validate_mutant_result(name, run):
         raise ValueError('mutant failure contract mismatch: ' + name)
 
 
+def expected_unknown_stderr():
+    parser = argparse.ArgumentParser(
+        prog='rate.py',
+        formatter_class=lambda prog: argparse.HelpFormatter(prog, width=80))
+    parser.add_argument('--mutant', choices=MUTANTS)
+    stream = io.StringIO()
+    try:
+        with contextlib.redirect_stderr(stream):
+            parser.parse_args(['--mutant', 'unknown'])
+    except SystemExit as exc:
+        if exc.code != 2:
+            raise ValueError('argparse unknown-label oracle did not exit 2')
+    else:
+        raise ValueError('argparse unknown-label oracle accepted an invalid label')
+    return stream.getvalue().encode('utf-8')
+
+
 def validate_unknown_result(run):
-    choices = ', '.join(repr(name) for name in MUTANTS)
-    expected_diagnostic = (
-        "rate.py: error: argument --mutant: invalid choice: 'unknown' "
-        f"(choose from {choices})"
-    ).encode('utf-8')
-    lines = run.stderr.splitlines()
-    if (run.returncode != 2 or run.stdout != b'' or len(lines) < 2
-            or not lines[0].startswith(b'usage: rate.py ')
-            or lines[-1] != expected_diagnostic
-            or lines.count(expected_diagnostic) != 1
-            or any(not line.startswith(b' ') for line in lines[1:-1])):
-        raise ValueError('unknown mutant label did not produce argparse invalid-choice diagnostic')
+    if (run.returncode != 2 or run.stdout != b''
+            or run.stderr != expected_unknown_stderr()):
+        raise ValueError('unknown mutant label did not produce exact argparse invalid-choice output')
 
 
 def main():
@@ -136,7 +146,8 @@ def main():
         for mutant in MUTANTS:
             run=subprocess.run(command+['--mutant',mutant],capture_output=True,timeout=45)
             validate_mutant_result(mutant,run)
-        run=subprocess.run(command+['--mutant','unknown'],capture_output=True,timeout=45)
+        run=subprocess.run(command+['--mutant','unknown'],capture_output=True,timeout=45,
+                            env=dict(os.environ,COLUMNS='80'))
         validate_unknown_result(run)
     inventory(root)
     print(json.dumps({'passed':True,'source_count':nsource,'source_pins_checked':not args.local_only,
