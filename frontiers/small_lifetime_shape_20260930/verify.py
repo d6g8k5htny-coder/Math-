@@ -107,18 +107,17 @@ def validate_mutant_result(name, run):
 
 
 def validate_unknown_result(run):
-    choices = ', '.join(repr(name) for name in MUTANTS)
-    expected_diagnostic = (
+    parser=argparse.ArgumentParser(prog='shape.py')
+    parser.add_argument('--mutant',choices=MUTANTS)
+    expected_usage=parser.format_usage().encode('utf-8')
+    choices=', '.join(repr(name) for name in MUTANTS)
+    expected_diagnostic=(
         "shape.py: error: argument --mutant: invalid choice: 'unknown' "
         f"(choose from {choices})"
     ).encode('utf-8')
-    lines = run.stderr.splitlines()
-    if (run.returncode != 2 or run.stdout != b'' or len(lines) < 2
-            or not lines[0].startswith(b'usage: shape.py ')
-            or lines[-1] != expected_diagnostic
-            or lines.count(expected_diagnostic) != 1
-            or any(not line.startswith(b' ') for line in lines[1:-1])):
-        raise ValueError('unknown mutant label did not produce argparse invalid-choice diagnostic')
+    expected_stderr=expected_usage+expected_diagnostic+b'\\n'
+    if run.returncode!=2 or run.stdout!=b'' or run.stderr!=expected_stderr:
+        raise ValueError('unknown mutant label did not produce the exact argparse usage and invalid-choice diagnostic')
 
 
 def main():

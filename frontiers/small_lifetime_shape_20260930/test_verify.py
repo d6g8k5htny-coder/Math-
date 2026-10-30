@@ -1,4 +1,5 @@
 """Real local Git fixtures for source and packet custody, not upstream evidence."""
+import argparse
 import copy
 import hashlib
 import json
@@ -150,6 +151,26 @@ class WrapperProtocolTests(unittest.TestCase):
                                cwd=tmp,capture_output=True,timeout=10)
             with self.assertRaises(ValueError):
                 verify.validate_unknown_result(run)
+
+        parser=argparse.ArgumentParser(prog='shape.py')
+        parser.add_argument('--mutant',choices=verify.MUTANTS)
+        usage=parser.format_usage().encode('utf-8')
+        choices=', '.join(repr(name) for name in verify.MUTANTS)
+        diagnostic=(
+            "shape.py: error: argument --mutant: invalid choice: 'unknown' "
+            f"(choose from {choices})"
+        ).encode('utf-8')
+        malformed=(
+            ('wrong-usage-header',usage.replace(b'usage: shape.py',b'usage: other.py',1)+diagnostic+b'\\n'),
+            ('extra-indented-diagnostic',usage+b'                unrelated diagnostic\\n'+diagnostic+b'\\n'),
+            ('missing-terminal-newline',usage+diagnostic),
+            ('extra-trailing-output',usage+diagnostic+b'\\nextra\\n'),
+        )
+        for label,stderr in malformed:
+            forged=subprocess.CompletedProcess(['synthetic-shape'],2,b'',stderr)
+            with self.subTest(case=label):
+                with self.assertRaises(ValueError):
+                    verify.validate_unknown_result(forged)
 
 
 if __name__=='__main__':unittest.main()
