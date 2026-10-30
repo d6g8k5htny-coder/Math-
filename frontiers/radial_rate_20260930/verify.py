@@ -1,6 +1,8 @@
 """Exact packet replay; --local-only does not authenticate upstream Git sources."""
 import argparse
+import contextlib
 import hashlib
+import io
 import json
 import os
 from pathlib import Path, PurePosixPath
@@ -84,6 +86,51 @@ def inventory(root):
     return len(es)
 
 
+EXPECTED_MUTANT_ERRORS = {
+    'omit-shift': 'second coefficient mismatch',
+    'omit-density-term': 'second coefficient mismatch',
+    'drop-a-shear': 'second coefficient mismatch',
+    'odd-term-survives': 'odd inverse powers do not cancel',
+    'unsigned-is-signed': 'signed first-order bias',
+    'wrong-b-integral': 'shape integral mismatch',
+    'wrong-density-factor': 'radial density coefficient',
+    'wrong-tv-root': 'TV crossing root',
+}
+
+
+def validate_mutant_result(name, run):
+    expected_error = EXPECTED_MUTANT_ERRORS.get(name)
+    if expected_error is None:
+        raise ValueError('unknown semantic mutant contract: ' + str(name))
+    expected_stdout = (json.dumps({'error': expected_error, 'passed': False},
+                                  sort_keys=True) + '\n').encode('utf-8')
+    if run.returncode != 1 or run.stdout != expected_stdout or run.stderr != b'':
+        raise ValueError('mutant failure contract mismatch: ' + name)
+
+
+def expected_unknown_stderr():
+    parser = argparse.ArgumentParser(
+        prog='rate.py',
+        formatter_class=lambda prog: argparse.HelpFormatter(prog, width=80))
+    parser.add_argument('--mutant', choices=MUTANTS)
+    stream = io.StringIO()
+    try:
+        with contextlib.redirect_stderr(stream):
+            parser.parse_args(['--mutant', 'unknown'])
+    except SystemExit as exc:
+        if exc.code != 2:
+            raise ValueError('argparse unknown-label oracle did not exit 2')
+    else:
+        raise ValueError('argparse unknown-label oracle accepted an invalid label')
+    return stream.getvalue().encode('utf-8')
+
+
+def validate_unknown_result(run):
+    if (run.returncode != 2 or run.stdout != b''
+            or run.stderr != expected_unknown_stderr()):
+        raise ValueError('unknown mutant label did not produce exact argparse invalid-choice output')
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--local-only',action='store_true');args=parser.parse_args()
     root=Path(__file__).absolute().parent;inventory(root)
@@ -94,9 +141,14 @@ def main():
         command=[sys.executable,*flags,str(root/'rate.py')]
         run=subprocess.run(command,capture_output=True,check=True,timeout=45)
         if run.stdout!=expected or run.stderr:raise ValueError('deterministic replay mismatch')
-        for mutant in (*MUTANTS,'unknown'):
+        if tuple(EXPECTED_MUTANT_ERRORS) != MUTANTS:
+            raise ValueError('mutant reason inventory mismatch')
+        for mutant in MUTANTS:
             run=subprocess.run(command+['--mutant',mutant],capture_output=True,timeout=45)
-            if run.returncode!=(2 if mutant=='unknown' else 1):raise ValueError('negative control not rejected: '+mutant)
+            validate_mutant_result(mutant,run)
+        run=subprocess.run(command+['--mutant','unknown'],capture_output=True,timeout=45,
+                            env=dict(os.environ,COLUMNS='80'))
+        validate_unknown_result(run)
     inventory(root)
     print(json.dumps({'passed':True,'source_count':nsource,'source_pins_checked':not args.local_only,
                       'mathematical_acceptance':False,'scientific_effect':'NONE'},sort_keys=True))
