@@ -5,6 +5,7 @@ import json
 import os
 from pathlib import Path
 import subprocess
+import sys
 import tempfile
 import unittest
 import verify as v
@@ -164,6 +165,77 @@ class InventoryTests(unittest.TestCase):
     def test_invalid_json_top_type(self):
         p=self.root/'list.json'; p.write_text('[]')
         with self.assertRaises(ValueError): v.read_json(p)
+
+
+class WrapperProtocolTests(unittest.TestCase):
+    def flags(self):
+        return ['-B','-O','-S'] if sys.flags.optimize else ['-B','-S']
+
+    def run_extremes(self, *args):
+        script=Path(__file__).with_name('extremes.py')
+        return subprocess.run([sys.executable,*self.flags(),str(script),*args],
+                              cwd=script.parent,capture_output=True,timeout=60)
+
+    def test_actual_semantic_mutants_match_exact_assertions_in_executing_mode(self):
+        for name in v.EXPECTED_MUTANT_ERRORS:
+            with self.subTest(mutant=name):
+                result=self.run_extremes('--mutant',name)
+                v.validate_mutant_result(name,result)
+
+    def test_actual_unknown_label_matches_argparse_in_executing_mode(self):
+        result=self.run_extremes('--mutant','unknown')
+        v.validate_unknown_result(result)
+
+    def test_adverse_subprocess_results_are_rejected_in_executing_mode(self):
+        cases=(
+            ('runtime-error',"raise RuntimeError('unrelated child crash')\n"),
+            ('silent-exit-1',"raise SystemExit(1)\n"),
+            ('wrong-reason',"raise AssertionError('wrong semantic reason')\n"),
+            ('malformed-output',"print('not the expected traceback')\nraise SystemExit(1)\n"),
+            ('unexpected-stderr',"import sys\nprint('unrelated stderr',file=sys.stderr)\nraise AssertionError('signed companion')\n"),
+        )
+        with tempfile.TemporaryDirectory() as tmp:
+            child=Path(tmp)/'child.py'
+            for label,body in cases:
+                child.write_text(body)
+                result=subprocess.run([sys.executable,*self.flags(),str(child)],
+                                      cwd=tmp,capture_output=True,timeout=10)
+                with self.subTest(case=label):
+                    with self.assertRaises(ValueError):
+                        v.validate_mutant_result('drop-companion-sign',result)
+            child.write_text('raise SystemExit(2)\n')
+            result=subprocess.run([sys.executable,*self.flags(),str(child)],
+                                  cwd=tmp,capture_output=True,timeout=10)
+            with self.assertRaises(ValueError):
+                v.validate_unknown_result(result)
+            child.write_text("import argparse\np=argparse.ArgumentParser(prog='extremes.py')\np.error('unrelated parser/setup failure')\n")
+            result=subprocess.run([sys.executable,*self.flags(),str(child)],
+                                  cwd=tmp,capture_output=True,timeout=10)
+            with self.assertRaises(ValueError):
+                v.validate_unknown_result(result)
+
+
+        # The acceptance chain must contain exactly the pinned child path and
+        # exactly five frames. A correct final AssertionError cannot excuse an
+        # unrelated helper frame or a shadow file with the same basename.
+        script=str(Path(v.__file__).absolute().with_name('extremes.py'))
+        names=('<module>','main','results','finite_checks','_need')
+        expected=[(script,name) for name in names]
+        cases=(
+            ('extra-external-frame',[('/tmp/helper.py','helper'),*expected]),
+            ('shadow-extremes-path',[(('/tmp/extremes.py' if i==2 else path),name)
+                                    for i,(path,name) in enumerate(expected)]),
+        )
+        for label,frames in cases:
+            lines=['Traceback (most recent call last):']
+            for filename,function in frames:
+                lines.extend((f'  File "{filename}", line 1, in {function}','    pass'))
+            lines.append('AssertionError: signed companion')
+            forged=subprocess.CompletedProcess(
+                ['synthetic-child'],1,b'',('\n'.join(lines)+'\n').encode('utf-8'))
+            with self.subTest(case=label):
+                with self.assertRaises(ValueError):
+                    v.validate_mutant_result('drop-companion-sign',forged)
 
 
 if __name__=='__main__': unittest.main()
