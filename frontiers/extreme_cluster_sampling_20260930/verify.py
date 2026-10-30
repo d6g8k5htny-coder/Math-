@@ -155,17 +155,21 @@ def validate_mutant_result(name, result):
     if expected is None:
         raise ValueError('unknown semantic mutant contract: '+str(name))
     lines=result.stderr.splitlines()
-    frame_names=[]
-    for line in lines:
-        match=re.fullmatch(rb'  File ".*[\\/]extremes\.py", line [0-9]+, in ([A-Za-z_<>][A-Za-z0-9_<>]*)',line)
-        if match:
-            frame_names.append(match.group(1))
+    frame_lines=[line for line in lines if b'File "' in line]
+    frame_pattern=re.compile(rb'  File "([^"]+)", line [0-9]+, in ([A-Za-z_<>][A-Za-z0-9_<>]*)')
+    frames=[]
+    for line in frame_lines:
+        match=frame_pattern.fullmatch(line)
+        frames.append(match.groups() if match else None)
+    expected_path=str(Path(__file__).absolute().with_name('extremes.py')).encode('utf-8')
+    expected_frames=[(expected_path,name) for name in
+                     (b'<module>',b'main',b'results',b'finite_checks',b'_need')]
     expected_last=('AssertionError: '+expected).encode('utf-8')
     if (result.returncode!=1 or result.stdout!=b'' or not lines
             or lines[0]!=b'Traceback (most recent call last):'
             or lines[-1]!=expected_last
             or lines.count(b'Traceback (most recent call last):')!=1
-            or frame_names!=[b'<module>',b'main',b'results',b'finite_checks',b'_need']):
+            or frames!=expected_frames):
         raise ValueError('mutant assertion contract mismatch: '+name)
 
 

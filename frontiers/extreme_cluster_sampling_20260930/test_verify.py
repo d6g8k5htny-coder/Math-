@@ -215,4 +215,27 @@ class WrapperProtocolTests(unittest.TestCase):
                 v.validate_unknown_result(result)
 
 
+        # The acceptance chain must contain exactly the pinned child path and
+        # exactly five frames. A correct final AssertionError cannot excuse an
+        # unrelated helper frame or a shadow file with the same basename.
+        script=str(Path(v.__file__).absolute().with_name('extremes.py'))
+        names=('<module>','main','results','finite_checks','_need')
+        expected=[(script,name) for name in names]
+        cases=(
+            ('extra-external-frame',[('/tmp/helper.py','helper'),*expected]),
+            ('shadow-extremes-path',[(('/tmp/extremes.py' if i==2 else path),name)
+                                    for i,(path,name) in enumerate(expected)]),
+        )
+        for label,frames in cases:
+            lines=['Traceback (most recent call last):']
+            for filename,function in frames:
+                lines.extend((f'  File "{filename}", line 1, in {function}','    pass'))
+            lines.append('AssertionError: signed companion')
+            forged=subprocess.CompletedProcess(
+                ['synthetic-child'],1,b'',('\n'.join(lines)+'\n').encode('utf-8'))
+            with self.subTest(case=label):
+                with self.assertRaises(ValueError):
+                    v.validate_mutant_result('drop-companion-sign',forged)
+
+
 if __name__=='__main__': unittest.main()
