@@ -144,7 +144,7 @@ EXPECTED_MUTANT_ERRORS = {
     'close-window': 'height endpoint must be open',
     'drop-log2': 'inner integral',
     'double-count-inner': 'inner integral',
-    'lose-height-jacobian': 'point first moment',
+    'lose-height-jacobian': 'point integral and height convention',
     'wrong-tail-power': 'cusp exponent ledger',
     'uniform-cluster-from-point': 'cluster law must be unbiassed',
 }
