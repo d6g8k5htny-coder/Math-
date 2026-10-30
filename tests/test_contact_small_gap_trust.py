@@ -84,6 +84,45 @@ class FakeAPI:
         self.error_route = None
         self.pr_reads = 0
         self.final_pr_mutator = None
+        # Model a small commit DAG: BASE is the common ancestor of the pinned
+        # candidate HEAD and any explicitly supplied unrelated base advance.
+        self.descendant_shas = {BASE, HEAD, base_sha}
+        self.compare_overrides = {}
+        self.compare_routes = []
+        self.compare_results = []
+
+    def compare_response(self, base_sha, head_sha, route):
+        if route in self.compare_overrides:
+            return copy.deepcopy(self.compare_overrides[route])
+        if base_sha == head_sha:
+            return {
+                "status": "identical",
+                "ahead_by": 0,
+                "behind_by": 0,
+                "merge_base_commit": {"sha": base_sha},
+            }
+        if base_sha == BASE and head_sha in self.descendant_shas:
+            return {
+                "status": "ahead",
+                "ahead_by": 1,
+                "behind_by": 0,
+                "merge_base_commit": {"sha": BASE},
+            }
+        if base_sha in self.descendant_shas and head_sha in self.descendant_shas:
+            # The live base and candidate may be sibling descendants. Their
+            # pair can be diverged while retaining the frozen common ancestor.
+            return {
+                "status": "diverged",
+                "ahead_by": 1,
+                "behind_by": 1,
+                "merge_base_commit": {"sha": BASE},
+            }
+        return {
+            "status": "diverged",
+            "ahead_by": 0,
+            "behind_by": 1,
+            "merge_base_commit": {"sha": "c" * 40},
+        }
 
     def get(self, route):
         self.routes.append(route)
@@ -107,12 +146,14 @@ class FakeAPI:
         if route == f"/repos/{REPO}/git/trees/{HEAD_TREE}?recursive=1":
             return {"sha": HEAD_TREE, "truncated": self.head_truncated, "tree": copy.deepcopy(self.head_tree)}
         if "/compare/" in route:
-            return {
-                "status": "identical" if self.pr["base"]["sha"] == BASE else "ahead",
-                "ahead_by": 0 if self.pr["base"]["sha"] == BASE else 1,
-                "behind_by": 0,
-                "merge_base_commit": {"sha": BASE},
-            }
+            pair = route.split("/compare/", 1)[1].split("?", 1)[0]
+            base_sha, separator, head_sha = pair.partition("...")
+            if not separator:
+                raise AssertionError("malformed compare route: " + route)
+            self.compare_routes.append((base_sha, head_sha))
+            response = self.compare_response(base_sha, head_sha, route)
+            self.compare_results.append((base_sha, head_sha, copy.deepcopy(response)))
+            return response
         raise AssertionError("unexpected API route: " + route)
 
 
@@ -136,6 +177,101 @@ class VerifierTests(unittest.TestCase):
             "workflow_dispatch", make_event("workflow_dispatch", advanced), make_env("workflow_dispatch", advanced), api
         )
         self.assertEqual(result["trusted_base_sha"], advanced)
+        self.assertEqual(api.compare_routes, [(BASE, advanced), (BASE, HEAD), (advanced, HEAD)])
+        self.assertEqual(
+            [row[2]["merge_base_commit"]["sha"] for row in api.compare_results],
+            [BASE, BASE, BASE],
+        )
+        self.assertEqual([row[2]["behind_by"] for row in api.compare_results[:2]], [0, 0])
+        self.assertEqual([row[2]["status"] for row in api.compare_results[:2]], ["ahead", "ahead"])
+        self.assertEqual(api.compare_results[2][2]["status"], "diverged")
+
+    def test_wrong_merge_base_on_live_pair_rejected(self):
+        advanced = "b" * 40
+        api = FakeAPI(base_sha=advanced)
+        route = f"/repos/{REPO}/compare/{advanced}...{HEAD}?per_page=1"
+        api.compare_overrides[route] = {
+            "status": "diverged",
+            "ahead_by": 1,
+            "behind_by": 1,
+            "merge_base_commit": {"sha": "d" * 40},
+        }
+        with self.assertRaises(trust.VerificationError):
+            self.run_verify(
+                "workflow_dispatch",
+                make_event("workflow_dispatch", advanced),
+                make_env("workflow_dispatch", advanced),
+                api,
+            )
+
+    def test_non_descendant_live_base_rejected(self):
+        advanced = "b" * 40
+        api = FakeAPI(base_sha=advanced)
+        route = f"/repos/{REPO}/compare/{BASE}...{advanced}?per_page=1"
+        api.compare_overrides[route] = {
+            "status": "diverged",
+            "ahead_by": 0,
+            "behind_by": 1,
+            "merge_base_commit": {"sha": "d" * 40},
+        }
+        with self.assertRaises(trust.VerificationError):
+            self.run_verify(
+                "workflow_dispatch",
+                make_event("workflow_dispatch", advanced),
+                make_env("workflow_dispatch", advanced),
+                api,
+            )
+
+    def test_non_descendant_candidate_head_rejected(self):
+        api = FakeAPI()
+        route = f"/repos/{REPO}/compare/{BASE}...{HEAD}?per_page=1"
+        api.compare_overrides[route] = {
+            "status": "diverged",
+            "ahead_by": 0,
+            "behind_by": 1,
+            "merge_base_commit": {"sha": "d" * 40},
+        }
+        with self.assertRaises(trust.VerificationError):
+            self.run_verify(api=api)
+
+    def test_positive_behind_by_rejected(self):
+        api = FakeAPI()
+        route = f"/repos/{REPO}/compare/{BASE}...{HEAD}?per_page=1"
+        api.compare_overrides[route] = {
+            "status": "ahead",
+            "ahead_by": 1,
+            "behind_by": 1,
+            "merge_base_commit": {"sha": BASE},
+        }
+        with self.assertRaises(trust.VerificationError):
+            self.run_verify(api=api)
+
+    def test_diverged_ancestry_status_rejected(self):
+        api = FakeAPI()
+        route = f"/repos/{REPO}/compare/{BASE}...{HEAD}?per_page=1"
+        api.compare_overrides[route] = {
+            "status": "diverged",
+            "ahead_by": 1,
+            "behind_by": 0,
+            "merge_base_commit": {"sha": BASE},
+        }
+        with self.assertRaises(trust.VerificationError):
+            self.run_verify(api=api)
+
+    def test_missing_or_malformed_compare_responses_rejected(self):
+        route = f"/repos/{REPO}/compare/{BASE}...{HEAD}?per_page=1"
+        cases = [
+            None,
+            [],
+            {"status": "ahead", "ahead_by": 1, "behind_by": 0},
+            {"status": "ahead", "behind_by": 0, "merge_base_commit": {"sha": "bad"}},
+        ]
+        for response in cases:
+            with self.subTest(response=response):
+                api = FakeAPI()
+                api.compare_overrides[route] = response
+                with self.assertRaises(trust.VerificationError):
+                    self.run_verify(api=api)
 
     def test_stale_event_head_rejected(self):
         event = make_event()
