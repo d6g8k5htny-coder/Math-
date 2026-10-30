@@ -145,4 +145,5 @@ jobs:
                       raise RuntimeError('mutant ' + mutant + ' contract failed under ' + ' '.join(flags) +
                                          ': rc=' + str(result.returncode) + ' stdout=' + repr(result.stdout) +
                                          ' stderr=' + repr(result.stderr)) from exc
+          PY
           git diff --exit-code
