@@ -1,0 +1,60 @@
+{
+  "checkpoint": "2026-10-20T14:43:56.884781+00:00",
+  "actual_executor": "GitHub Actions ubuntu-24.04 via OpenAI Codex root publication; delegated for Dylan Roy",
+  "source_author": "OpenAI Codex /root/adapter_feasibility_c292",
+  "head": "8336bb7c16e34db69837b10e3678fb1bc894179c",
+  "tested_merge": "55ad6bad497da1a9c7ddd6002ba0c718994c26e1",
+  "tree": "9107a867c26bc718c94a18e6e9e763a55169fb53",
+  "run": 39440510935,
+  "attempt": 1,
+  "job": 118688787481,
+  "artifact": 12274830680,
+  "artifact_bytes": 480098,
+  "artifact_sha256": "da3a551f550fb50eea816f1ad00c3f0f6532f4192ba99ac5805bd58522c72a46",
+  "candidate_bytes": 8485,
+  "candidate_sha256": "2a93240fa5034544a1dbcf5ec0a10ab11be1ca5d05f60b4df0e2663fa769f442",
+  "result": "HOLD_NOT_COMPLETED",
+  "phase_results": [
+    {
+      "name": "runtime-print-prefix",
+      "exit_code": 0,
+      "timed_out": false,
+      "status": "PASS"
+    },
+    {
+      "name": "runtime-version",
+      "exit_code": 0,
+      "timed_out": false,
+      "status": "PASS"
+    },
+    {
+      "name": "build-Lifetime",
+      "exit_code": 0,
+      "timed_out": false,
+      "status": "PASS"
+    },
+    {
+      "name": "build-TorusTopology",
+      "exit_code": 0,
+      "timed_out": false,
+      "status": "PASS"
+    },
+    {
+      "name": "build-MorseFiniteCritical",
+      "exit_code": 0,
+      "timed_out": false,
+      "status": "PASS"
+    },
+    {
+      "name": "build-CriticalRidge",
+      "exit_code": 1,
+      "timed_out": false,
+      "status": "FAIL"
+    }
+  ],
+  "actual_failure": "Candidate3 actual elaboration failures in derivative CLM chain, unused simp under warning-as-error, EventuallyEq and product-zero dependent instance normalization. Three input modules freshly compiled. Ridge object absent; no kernel/census/negative controls reached. Applicable downstream checks all succeeded but do not accept this ridge proof.",
+  "diagnostic_bytes": 3059,
+  "diagnostic_sha256": "a784390b5d21162fef912eb6fefc803a57dfd4ca887a8d2402ce453b275746d6",
+  "repair_scope": "Minimal source-author elaboration and deprecation repair, preserve exact public hypotheses and conclusions; fresh nonauthor diff review before next hosted attempt. No unchanged native retry.",
+  "scientific_effect": "NONE"
+}

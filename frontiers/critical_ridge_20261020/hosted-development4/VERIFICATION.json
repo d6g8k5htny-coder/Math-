@@ -1,0 +1,1150 @@
+{
+  "schema_version": 1,
+  "checkpoint_utc": "2026-10-20T15:21:31.008805+00:00",
+  "actual_executor": "OpenAI Codex /root/c297_hosted_verifier, delegated for Dylan Roy; native Python byte/record audit only",
+  "exposure": "C299 engineering author and prior failure evidence exposure; no source-author or independent-provider credit",
+  "human_review_credit": 0,
+  "organizational_independence_credit": 0,
+  "scientific_effect": "NONE",
+  "formal_status": "HOLD_NOT_COMPLETED",
+  "status": "VERIFIED_FAILED_EXECUTION_RECORDS",
+  "started_at": "2026-10-20T15:21:30.993807+00:00",
+  "scope": "Original hosted ZIP versus every extracted file, all six aggregate/individual receipts, twelve stream identities, retained object chain, source/support snapshots, and stored native run/artifact/merge identities. Not final formal acceptance, new Lean execution, remote refresh, tested-tree source-closure audit, or Drive custody.",
+  "archive": {
+    "path": "hosted-development4/artifact.zip",
+    "bytes": 479791,
+    "sha256": "48d0b2d8e894e64df5af2be860d82cee8965e41aef33bf7f7c405bcd69e330a0"
+  },
+  "extracted_files": 33,
+  "receipts": 6,
+  "streams": 12,
+  "checks_passed": 175,
+  "checks": [
+    {
+      "check": "exclusive new DISPOSITION.json",
+      "pass": true
+    },
+    {
+      "check": "exclusive new VERIFICATION.json",
+      "pass": true
+    },
+    {
+      "check": "unique archive names",
+      "pass": true
+    },
+    {
+      "check": "safe regular member HOSTED_SOURCE_MANIFEST.json",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact HOSTED_SOURCE_MANIFEST.json",
+      "pass": true
+    },
+    {
+      "check": "safe regular member RESULT.json",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact RESULT.json",
+      "pass": true
+    },
+    {
+      "check": "safe regular member build-CriticalRidge.receipt.json",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact build-CriticalRidge.receipt.json",
+      "pass": true
+    },
+    {
+      "check": "safe regular member build-CriticalRidge.stderr",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact build-CriticalRidge.stderr",
+      "pass": true
+    },
+    {
+      "check": "safe regular member build-CriticalRidge.stdout",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact build-CriticalRidge.stdout",
+      "pass": true
+    },
+    {
+      "check": "safe regular member build-Lifetime.receipt.json",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact build-Lifetime.receipt.json",
+      "pass": true
+    },
+    {
+      "check": "safe regular member build-Lifetime.stderr",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact build-Lifetime.stderr",
+      "pass": true
+    },
+    {
+      "check": "safe regular member build-Lifetime.stdout",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact build-Lifetime.stdout",
+      "pass": true
+    },
+    {
+      "check": "safe regular member build-MorseFiniteCritical.receipt.json",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact build-MorseFiniteCritical.receipt.json",
+      "pass": true
+    },
+    {
+      "check": "safe regular member build-MorseFiniteCritical.stderr",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact build-MorseFiniteCritical.stderr",
+      "pass": true
+    },
+    {
+      "check": "safe regular member build-MorseFiniteCritical.stdout",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact build-MorseFiniteCritical.stdout",
+      "pass": true
+    },
+    {
+      "check": "safe regular member build-TorusTopology.receipt.json",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact build-TorusTopology.receipt.json",
+      "pass": true
+    },
+    {
+      "check": "safe regular member build-TorusTopology.stderr",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact build-TorusTopology.stderr",
+      "pass": true
+    },
+    {
+      "check": "safe regular member build-TorusTopology.stdout",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact build-TorusTopology.stdout",
+      "pass": true
+    },
+    {
+      "check": "safe regular member objects/Lifetime.olean",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact objects/Lifetime.olean",
+      "pass": true
+    },
+    {
+      "check": "safe regular member objects/MorseFiniteCritical.olean",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact objects/MorseFiniteCritical.olean",
+      "pass": true
+    },
+    {
+      "check": "safe regular member objects/TorusTopology.olean",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact objects/TorusTopology.olean",
+      "pass": true
+    },
+    {
+      "check": "safe regular member runtime-print-prefix.receipt.json",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact runtime-print-prefix.receipt.json",
+      "pass": true
+    },
+    {
+      "check": "safe regular member runtime-print-prefix.stderr",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact runtime-print-prefix.stderr",
+      "pass": true
+    },
+    {
+      "check": "safe regular member runtime-version.receipt.json",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact runtime-version.receipt.json",
+      "pass": true
+    },
+    {
+      "check": "safe regular member runtime-print-prefix.stdout",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact runtime-print-prefix.stdout",
+      "pass": true
+    },
+    {
+      "check": "safe regular member runtime-version.stderr",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact runtime-version.stderr",
+      "pass": true
+    },
+    {
+      "check": "safe regular member runtime-version.stdout",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact runtime-version.stdout",
+      "pass": true
+    },
+    {
+      "check": "safe regular member source-snapshot/negative-project/WithoutCriticality.lean",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact source-snapshot/negative-project/WithoutCriticality.lean",
+      "pass": true
+    },
+    {
+      "check": "safe regular member source-snapshot/negative-project/WithoutNegativeDefiniteness.lean",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact source-snapshot/negative-project/WithoutNegativeDefiniteness.lean",
+      "pass": true
+    },
+    {
+      "check": "safe regular member source-snapshot/project/CriticalRidge.lean",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact source-snapshot/project/CriticalRidge.lean",
+      "pass": true
+    },
+    {
+      "check": "safe regular member source-snapshot/project/CriticalRidgeAxiomAudit.lean",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact source-snapshot/project/CriticalRidgeAxiomAudit.lean",
+      "pass": true
+    },
+    {
+      "check": "safe regular member source-snapshot/project/Lifetime.lean",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact source-snapshot/project/Lifetime.lean",
+      "pass": true
+    },
+    {
+      "check": "safe regular member source-snapshot/project/MorseFiniteCritical.lean",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact source-snapshot/project/MorseFiniteCritical.lean",
+      "pass": true
+    },
+    {
+      "check": "safe regular member source-snapshot/project/TorusTopology.lean",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact source-snapshot/project/TorusTopology.lean",
+      "pass": true
+    },
+    {
+      "check": "safe regular member source-snapshot/repository/.github/workflows/c299-critical-ridge.yml",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact source-snapshot/repository/.github/workflows/c299-critical-ridge.yml",
+      "pass": true
+    },
+    {
+      "check": "safe regular member source-snapshot/repository/frontiers/critical_ridge_20261020/c299_hosted_verify.py",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact source-snapshot/repository/frontiers/critical_ridge_20261020/c299_hosted_verify.py",
+      "pass": true
+    },
+    {
+      "check": "safe regular member source-snapshot/repository/frontiers/critical_ridge_20261020/test_c299_hosted_verify.py",
+      "pass": true
+    },
+    {
+      "check": "ZIP/extracted exact source-snapshot/repository/frontiers/critical_ridge_20261020/test_c299_hosted_verify.py",
+      "pass": true
+    },
+    {
+      "check": "all 33 extracted files exact",
+      "pass": true
+    },
+    {
+      "check": "exact observed six-phase prefix",
+      "pass": true
+    },
+    {
+      "check": "aggregate formal HOLD",
+      "pass": true
+    },
+    {
+      "check": "aggregate/individual receipt runtime-print-prefix",
+      "pass": true
+    },
+    {
+      "check": "stream runtime-print-prefix.stdout",
+      "pass": true
+    },
+    {
+      "check": "stream runtime-print-prefix.stderr",
+      "pass": true
+    },
+    {
+      "check": "actual phase result runtime-print-prefix",
+      "pass": true
+    },
+    {
+      "check": "environment record runtime-print-prefix",
+      "pass": true
+    },
+    {
+      "check": "runtime no object claim runtime-print-prefix",
+      "pass": true
+    },
+    {
+      "check": "aggregate/individual receipt runtime-version",
+      "pass": true
+    },
+    {
+      "check": "stream runtime-version.stdout",
+      "pass": true
+    },
+    {
+      "check": "stream runtime-version.stderr",
+      "pass": true
+    },
+    {
+      "check": "actual phase result runtime-version",
+      "pass": true
+    },
+    {
+      "check": "environment record runtime-version",
+      "pass": true
+    },
+    {
+      "check": "runtime no object claim runtime-version",
+      "pass": true
+    },
+    {
+      "check": "aggregate/individual receipt build-Lifetime",
+      "pass": true
+    },
+    {
+      "check": "stream build-Lifetime.stdout",
+      "pass": true
+    },
+    {
+      "check": "stream build-Lifetime.stderr",
+      "pass": true
+    },
+    {
+      "check": "actual phase result build-Lifetime",
+      "pass": true
+    },
+    {
+      "check": "environment record build-Lifetime",
+      "pass": true
+    },
+    {
+      "check": "object continuity build-Lifetime",
+      "pass": true
+    },
+    {
+      "check": "one fresh expected object build-Lifetime",
+      "pass": true
+    },
+    {
+      "check": "produced object record build-Lifetime",
+      "pass": true
+    },
+    {
+      "check": "aggregate/individual receipt build-TorusTopology",
+      "pass": true
+    },
+    {
+      "check": "stream build-TorusTopology.stdout",
+      "pass": true
+    },
+    {
+      "check": "stream build-TorusTopology.stderr",
+      "pass": true
+    },
+    {
+      "check": "actual phase result build-TorusTopology",
+      "pass": true
+    },
+    {
+      "check": "environment record build-TorusTopology",
+      "pass": true
+    },
+    {
+      "check": "object continuity build-TorusTopology",
+      "pass": true
+    },
+    {
+      "check": "one fresh expected object build-TorusTopology",
+      "pass": true
+    },
+    {
+      "check": "produced object record build-TorusTopology",
+      "pass": true
+    },
+    {
+      "check": "aggregate/individual receipt build-MorseFiniteCritical",
+      "pass": true
+    },
+    {
+      "check": "stream build-MorseFiniteCritical.stdout",
+      "pass": true
+    },
+    {
+      "check": "stream build-MorseFiniteCritical.stderr",
+      "pass": true
+    },
+    {
+      "check": "actual phase result build-MorseFiniteCritical",
+      "pass": true
+    },
+    {
+      "check": "environment record build-MorseFiniteCritical",
+      "pass": true
+    },
+    {
+      "check": "object continuity build-MorseFiniteCritical",
+      "pass": true
+    },
+    {
+      "check": "one fresh expected object build-MorseFiniteCritical",
+      "pass": true
+    },
+    {
+      "check": "produced object record build-MorseFiniteCritical",
+      "pass": true
+    },
+    {
+      "check": "aggregate/individual receipt build-CriticalRidge",
+      "pass": true
+    },
+    {
+      "check": "stream build-CriticalRidge.stdout",
+      "pass": true
+    },
+    {
+      "check": "stream build-CriticalRidge.stderr",
+      "pass": true
+    },
+    {
+      "check": "actual phase result build-CriticalRidge",
+      "pass": true
+    },
+    {
+      "check": "environment record build-CriticalRidge",
+      "pass": true
+    },
+    {
+      "check": "object continuity build-CriticalRidge",
+      "pass": true
+    },
+    {
+      "check": "failed ridge preserves objects",
+      "pass": true
+    },
+    {
+      "check": "exact three retained objects",
+      "pass": true
+    },
+    {
+      "check": "object bytes Lifetime.olean",
+      "pass": true
+    },
+    {
+      "check": "object bytes MorseFiniteCritical.olean",
+      "pass": true
+    },
+    {
+      "check": "object bytes TorusTopology.olean",
+      "pass": true
+    },
+    {
+      "check": "manifest record",
+      "pass": true
+    },
+    {
+      "check": "source snapshot negative-project/WithoutCriticality.lean",
+      "pass": true
+    },
+    {
+      "check": "source snapshot negative-project/WithoutNegativeDefiniteness.lean",
+      "pass": true
+    },
+    {
+      "check": "source snapshot project/CriticalRidge.lean",
+      "pass": true
+    },
+    {
+      "check": "source snapshot project/CriticalRidgeAxiomAudit.lean",
+      "pass": true
+    },
+    {
+      "check": "source snapshot project/Lifetime.lean",
+      "pass": true
+    },
+    {
+      "check": "source snapshot project/MorseFiniteCritical.lean",
+      "pass": true
+    },
+    {
+      "check": "source snapshot project/TorusTopology.lean",
+      "pass": true
+    },
+    {
+      "check": "support snapshot .github/workflows/c299-critical-ridge.yml",
+      "pass": true
+    },
+    {
+      "check": "support snapshot frontiers/critical_ridge_20261020/c299_hosted_verify.py",
+      "pass": true
+    },
+    {
+      "check": "support snapshot frontiers/critical_ridge_20261020/test_c299_hosted_verify.py",
+      "pass": true
+    },
+    {
+      "check": "run/head binding",
+      "pass": true
+    },
+    {
+      "check": "job failure bound",
+      "pass": true
+    },
+    {
+      "check": "artifact native digest and attempt",
+      "pass": true
+    },
+    {
+      "check": "actual tested merge tree/ordered parents",
+      "pass": true
+    },
+    {
+      "check": "separate recorded event base",
+      "pass": true
+    },
+    {
+      "check": "head tree distinct from tested tree",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/artifact.zip",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/HOSTED_SOURCE_MANIFEST.json",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/RESULT.json",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/build-CriticalRidge.receipt.json",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/build-CriticalRidge.stderr",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/build-CriticalRidge.stdout",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/build-Lifetime.receipt.json",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/build-Lifetime.stderr",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/build-Lifetime.stdout",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/build-MorseFiniteCritical.receipt.json",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/build-MorseFiniteCritical.stderr",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/build-MorseFiniteCritical.stdout",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/build-TorusTopology.receipt.json",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/build-TorusTopology.stderr",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/build-TorusTopology.stdout",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/objects/Lifetime.olean",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/objects/MorseFiniteCritical.olean",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/objects/TorusTopology.olean",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/runtime-print-prefix.receipt.json",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/runtime-print-prefix.stderr",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/runtime-version.receipt.json",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/runtime-print-prefix.stdout",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/runtime-version.stderr",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/runtime-version.stdout",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/source-snapshot/negative-project/WithoutCriticality.lean",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/source-snapshot/negative-project/WithoutNegativeDefiniteness.lean",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/source-snapshot/project/CriticalRidge.lean",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/source-snapshot/project/CriticalRidgeAxiomAudit.lean",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/source-snapshot/project/Lifetime.lean",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/source-snapshot/project/MorseFiniteCritical.lean",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/source-snapshot/project/TorusTopology.lean",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/source-snapshot/repository/.github/workflows/c299-critical-ridge.yml",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/source-snapshot/repository/frontiers/critical_ridge_20261020/c299_hosted_verify.py",
+      "pass": true
+    },
+    {
+      "check": "stable input hosted-development4/extracted/source-snapshot/repository/frontiers/critical_ridge_20261020/test_c299_hosted_verify.py",
+      "pass": true
+    },
+    {
+      "check": "stable input native/c299_dev_run4.json",
+      "pass": true
+    },
+    {
+      "check": "stable input native/c299_dev_jobs4_final.json",
+      "pass": true
+    },
+    {
+      "check": "stable input native/c299_dev_artifacts4.json",
+      "pass": true
+    },
+    {
+      "check": "stable input native/c299_tested_merge4.json",
+      "pass": true
+    },
+    {
+      "check": "stable input closing/TREE4_BYTE_EQUALITY.json",
+      "pass": true
+    }
+  ],
+  "inputs": [
+    {
+      "path": "closing/TREE4_BYTE_EQUALITY.json",
+      "bytes": 252,
+      "sha256": "5b8f3b748dedd6afcd8e9de298d1f74ec22c52df0335a8d61555a4f7be91b514"
+    },
+    {
+      "path": "hosted-development4/artifact.zip",
+      "bytes": 479791,
+      "sha256": "48d0b2d8e894e64df5af2be860d82cee8965e41aef33bf7f7c405bcd69e330a0"
+    },
+    {
+      "path": "hosted-development4/extracted/HOSTED_SOURCE_MANIFEST.json",
+      "bytes": 1731,
+      "sha256": "6904d83df51715bdf52cbfaa56d3f68725cfed2dcfde66a69799ac5982e55a84"
+    },
+    {
+      "path": "hosted-development4/extracted/RESULT.json",
+      "bytes": 34425,
+      "sha256": "8c5e26142ef8d5ad5e25af5bb8629e32f03c093138620109b5ee20d8154070a4"
+    },
+    {
+      "path": "hosted-development4/extracted/build-CriticalRidge.receipt.json",
+      "bytes": 4332,
+      "sha256": "b9a4454c5356a65f64d129141ddce26a6f8efd6673ef65f53f64592f23276406"
+    },
+    {
+      "path": "hosted-development4/extracted/build-CriticalRidge.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "hosted-development4/extracted/build-CriticalRidge.stdout",
+      "bytes": 1601,
+      "sha256": "1cc98e9540608d20c0f1a9b66a0fdb3fcb4b5910ec671da7b1e8624c508d4d7c"
+    },
+    {
+      "path": "hosted-development4/extracted/build-Lifetime.receipt.json",
+      "bytes": 3639,
+      "sha256": "2c929ab07246f08894b0e3f2cf061e22329e2a37c9fa15656bc7b148d174afcd"
+    },
+    {
+      "path": "hosted-development4/extracted/build-Lifetime.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "hosted-development4/extracted/build-Lifetime.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "hosted-development4/extracted/build-MorseFiniteCritical.receipt.json",
+      "bytes": 4272,
+      "sha256": "2f875235306d7a317f21042c2b14db1c3b7b8cd0b6647c8a0a6d3a1cff80a604"
+    },
+    {
+      "path": "hosted-development4/extracted/build-MorseFiniteCritical.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "hosted-development4/extracted/build-MorseFiniteCritical.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "hosted-development4/extracted/build-TorusTopology.receipt.json",
+      "bytes": 3964,
+      "sha256": "910ec7c5a332ac4d708b3b1a078fdaae1c74492fccc030a9db2832ef616190e3"
+    },
+    {
+      "path": "hosted-development4/extracted/build-TorusTopology.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "hosted-development4/extracted/build-TorusTopology.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "hosted-development4/extracted/objects/Lifetime.olean",
+      "bytes": 472528,
+      "sha256": "b3e14c2951b452222ca0c7b1448458cf785225971da704e4e3e6f0cc93107da4"
+    },
+    {
+      "path": "hosted-development4/extracted/objects/MorseFiniteCritical.olean",
+      "bytes": 493256,
+      "sha256": "34ff2a9ed529609dd48a22204b8eacc66eeb943805e2d6e8dee4481cde8ef4e2"
+    },
+    {
+      "path": "hosted-development4/extracted/objects/TorusTopology.olean",
+      "bytes": 307176,
+      "sha256": "ccb13e9469d55da8b5202706a1f013fa7a2755b2184542b8a0534f722d993125"
+    },
+    {
+      "path": "hosted-development4/extracted/runtime-print-prefix.receipt.json",
+      "bytes": 3160,
+      "sha256": "d0a4e49961d42a54043891139e0c26e210d1edc9a3836bb23896991fab681fe0"
+    },
+    {
+      "path": "hosted-development4/extracted/runtime-print-prefix.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "hosted-development4/extracted/runtime-print-prefix.stdout",
+      "bytes": 58,
+      "sha256": "e0e72101499ee5e5a1967519d9955a093a555b85d5073da4bdba8bdd4cb12617"
+    },
+    {
+      "path": "hosted-development4/extracted/runtime-version.receipt.json",
+      "bytes": 3151,
+      "sha256": "86da0fba247a0c1664b05ec5558282a26f8a41e4d1dbfd5513669798af9bd790"
+    },
+    {
+      "path": "hosted-development4/extracted/runtime-version.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "hosted-development4/extracted/runtime-version.stdout",
+      "bytes": 106,
+      "sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680"
+    },
+    {
+      "path": "hosted-development4/extracted/source-snapshot/negative-project/WithoutCriticality.lean",
+      "bytes": 944,
+      "sha256": "6ebc44de843b951c312add4848962d76c4788cc10bdacf17002eb69fd370f1d2"
+    },
+    {
+      "path": "hosted-development4/extracted/source-snapshot/negative-project/WithoutNegativeDefiniteness.lean",
+      "bytes": 872,
+      "sha256": "ad204aee211aa3074621f56eeaf8e1a3f3a522b7c7cbe2bbdd67f3759833feb9"
+    },
+    {
+      "path": "hosted-development4/extracted/source-snapshot/project/CriticalRidge.lean",
+      "bytes": 8966,
+      "sha256": "669b94138531a694f134d24ee9d34ecf6cda5ccec125e2bac279f9e49e1a4aae"
+    },
+    {
+      "path": "hosted-development4/extracted/source-snapshot/project/CriticalRidgeAxiomAudit.lean",
+      "bytes": 2728,
+      "sha256": "cff55f5b7721a621530ae1020b81e6cc89ce5c405396145e1ca5d3cfba4b2fb7"
+    },
+    {
+      "path": "hosted-development4/extracted/source-snapshot/project/Lifetime.lean",
+      "bytes": 51383,
+      "sha256": "90f4892608e953ecc696bb32ea159d1c178ceb8a1c6edfd11acfceb14af462c6"
+    },
+    {
+      "path": "hosted-development4/extracted/source-snapshot/project/MorseFiniteCritical.lean",
+      "bytes": 9445,
+      "sha256": "95a660134eda49eecfe6181884bd23b4e4ca210e228d2463de29e5f821df047b"
+    },
+    {
+      "path": "hosted-development4/extracted/source-snapshot/project/TorusTopology.lean",
+      "bytes": 12257,
+      "sha256": "ddb145b3f791c181d4f2a51e54e711937297bd6476ba55bcd5252b7ddb57cfe1"
+    },
+    {
+      "path": "hosted-development4/extracted/source-snapshot/repository/.github/workflows/c299-critical-ridge.yml",
+      "bytes": 3030,
+      "sha256": "ff3ce59c3678e6270116dd7a818a6c3e6529005ac28430af473532cf4e39f046"
+    },
+    {
+      "path": "hosted-development4/extracted/source-snapshot/repository/frontiers/critical_ridge_20261020/c299_hosted_verify.py",
+      "bytes": 32069,
+      "sha256": "e4c5b9dd02e2ba2f98da27707c42ef861d9039b52864833d2164a3114f318f49"
+    },
+    {
+      "path": "hosted-development4/extracted/source-snapshot/repository/frontiers/critical_ridge_20261020/test_c299_hosted_verify.py",
+      "bytes": 17863,
+      "sha256": "62400129fda7b863d692397deac2a9d83b7f1101d98b53ed1043f0ef8cfd604e"
+    },
+    {
+      "path": "native/c299_dev_artifacts4.json",
+      "bytes": 1041,
+      "sha256": "81e49e39ba707200f065b9097de9ecc27ad4e55b6dee962edf67dd01f8471472"
+    },
+    {
+      "path": "native/c299_dev_jobs4_final.json",
+      "bytes": 1970,
+      "sha256": "6cd5cf29498eb35f3282d4db63b98b1f1ffbf54cdb8b977a109d5180a538e1c4"
+    },
+    {
+      "path": "native/c299_dev_run4.json",
+      "bytes": 29921,
+      "sha256": "78df6115cb21d94ae3f3bae6f4c5fb73924bd3be2fe2af3f41615e4c7358bbdf"
+    },
+    {
+      "path": "native/c299_tested_merge4.json",
+      "bytes": 6444,
+      "sha256": "a1ae9eb011c88fbde181a1db1a0154084a1c39586becaff4301da586ea29df79"
+    }
+  ],
+  "members": [
+    {
+      "path": "HOSTED_SOURCE_MANIFEST.json",
+      "bytes": 1731,
+      "sha256": "6904d83df51715bdf52cbfaa56d3f68725cfed2dcfde66a69799ac5982e55a84"
+    },
+    {
+      "path": "RESULT.json",
+      "bytes": 34425,
+      "sha256": "8c5e26142ef8d5ad5e25af5bb8629e32f03c093138620109b5ee20d8154070a4"
+    },
+    {
+      "path": "build-CriticalRidge.receipt.json",
+      "bytes": 4332,
+      "sha256": "b9a4454c5356a65f64d129141ddce26a6f8efd6673ef65f53f64592f23276406"
+    },
+    {
+      "path": "build-CriticalRidge.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "build-CriticalRidge.stdout",
+      "bytes": 1601,
+      "sha256": "1cc98e9540608d20c0f1a9b66a0fdb3fcb4b5910ec671da7b1e8624c508d4d7c"
+    },
+    {
+      "path": "build-Lifetime.receipt.json",
+      "bytes": 3639,
+      "sha256": "2c929ab07246f08894b0e3f2cf061e22329e2a37c9fa15656bc7b148d174afcd"
+    },
+    {
+      "path": "build-Lifetime.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "build-Lifetime.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "build-MorseFiniteCritical.receipt.json",
+      "bytes": 4272,
+      "sha256": "2f875235306d7a317f21042c2b14db1c3b7b8cd0b6647c8a0a6d3a1cff80a604"
+    },
+    {
+      "path": "build-MorseFiniteCritical.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "build-MorseFiniteCritical.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "build-TorusTopology.receipt.json",
+      "bytes": 3964,
+      "sha256": "910ec7c5a332ac4d708b3b1a078fdaae1c74492fccc030a9db2832ef616190e3"
+    },
+    {
+      "path": "build-TorusTopology.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "build-TorusTopology.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "objects/Lifetime.olean",
+      "bytes": 472528,
+      "sha256": "b3e14c2951b452222ca0c7b1448458cf785225971da704e4e3e6f0cc93107da4"
+    },
+    {
+      "path": "objects/MorseFiniteCritical.olean",
+      "bytes": 493256,
+      "sha256": "34ff2a9ed529609dd48a22204b8eacc66eeb943805e2d6e8dee4481cde8ef4e2"
+    },
+    {
+      "path": "objects/TorusTopology.olean",
+      "bytes": 307176,
+      "sha256": "ccb13e9469d55da8b5202706a1f013fa7a2755b2184542b8a0534f722d993125"
+    },
+    {
+      "path": "runtime-print-prefix.receipt.json",
+      "bytes": 3160,
+      "sha256": "d0a4e49961d42a54043891139e0c26e210d1edc9a3836bb23896991fab681fe0"
+    },
+    {
+      "path": "runtime-print-prefix.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runtime-print-prefix.stdout",
+      "bytes": 58,
+      "sha256": "e0e72101499ee5e5a1967519d9955a093a555b85d5073da4bdba8bdd4cb12617"
+    },
+    {
+      "path": "runtime-version.receipt.json",
+      "bytes": 3151,
+      "sha256": "86da0fba247a0c1664b05ec5558282a26f8a41e4d1dbfd5513669798af9bd790"
+    },
+    {
+      "path": "runtime-version.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runtime-version.stdout",
+      "bytes": 106,
+      "sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680"
+    },
+    {
+      "path": "source-snapshot/negative-project/WithoutCriticality.lean",
+      "bytes": 944,
+      "sha256": "6ebc44de843b951c312add4848962d76c4788cc10bdacf17002eb69fd370f1d2"
+    },
+    {
+      "path": "source-snapshot/negative-project/WithoutNegativeDefiniteness.lean",
+      "bytes": 872,
+      "sha256": "ad204aee211aa3074621f56eeaf8e1a3f3a522b7c7cbe2bbdd67f3759833feb9"
+    },
+    {
+      "path": "source-snapshot/project/CriticalRidge.lean",
+      "bytes": 8966,
+      "sha256": "669b94138531a694f134d24ee9d34ecf6cda5ccec125e2bac279f9e49e1a4aae"
+    },
+    {
+      "path": "source-snapshot/project/CriticalRidgeAxiomAudit.lean",
+      "bytes": 2728,
+      "sha256": "cff55f5b7721a621530ae1020b81e6cc89ce5c405396145e1ca5d3cfba4b2fb7"
+    },
+    {
+      "path": "source-snapshot/project/Lifetime.lean",
+      "bytes": 51383,
+      "sha256": "90f4892608e953ecc696bb32ea159d1c178ceb8a1c6edfd11acfceb14af462c6"
+    },
+    {
+      "path": "source-snapshot/project/MorseFiniteCritical.lean",
+      "bytes": 9445,
+      "sha256": "95a660134eda49eecfe6181884bd23b4e4ca210e228d2463de29e5f821df047b"
+    },
+    {
+      "path": "source-snapshot/project/TorusTopology.lean",
+      "bytes": 12257,
+      "sha256": "ddb145b3f791c181d4f2a51e54e711937297bd6476ba55bcd5252b7ddb57cfe1"
+    },
+    {
+      "path": "source-snapshot/repository/.github/workflows/c299-critical-ridge.yml",
+      "bytes": 3030,
+      "sha256": "ff3ce59c3678e6270116dd7a818a6c3e6529005ac28430af473532cf4e39f046"
+    },
+    {
+      "path": "source-snapshot/repository/frontiers/critical_ridge_20261020/c299_hosted_verify.py",
+      "bytes": 32069,
+      "sha256": "e4c5b9dd02e2ba2f98da27707c42ef861d9039b52864833d2164a3114f318f49"
+    },
+    {
+      "path": "source-snapshot/repository/frontiers/critical_ridge_20261020/test_c299_hosted_verify.py",
+      "bytes": 17863,
+      "sha256": "62400129fda7b863d692397deac2a9d83b7f1101d98b53ed1043f0ef8cfd604e"
+    }
+  ],
+  "stream_identities": [
+    {
+      "path": "runtime-print-prefix.stdout",
+      "bytes": 58,
+      "sha256": "e0e72101499ee5e5a1967519d9955a093a555b85d5073da4bdba8bdd4cb12617"
+    },
+    {
+      "path": "runtime-print-prefix.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runtime-version.stdout",
+      "bytes": 106,
+      "sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680"
+    },
+    {
+      "path": "runtime-version.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "build-Lifetime.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "build-Lifetime.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "build-TorusTopology.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "build-TorusTopology.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "build-MorseFiniteCritical.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "build-MorseFiniteCritical.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "build-CriticalRidge.stdout",
+      "bytes": 1601,
+      "sha256": "1cc98e9540608d20c0f1a9b66a0fdb3fcb4b5910ec671da7b1e8624c508d4d7c"
+    },
+    {
+      "path": "build-CriticalRidge.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

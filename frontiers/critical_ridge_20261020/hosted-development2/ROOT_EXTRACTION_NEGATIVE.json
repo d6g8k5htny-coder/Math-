@@ -1,0 +1,6 @@
+{
+  "operation": "read-only receipt consistency check",
+  "error": "KeyError: phases",
+  "cause": "root assumed phases; actual RESULT key is phase_results",
+  "effect": "no disposition written; ZIP/extraction preserved; corrected schema read follows"
+}

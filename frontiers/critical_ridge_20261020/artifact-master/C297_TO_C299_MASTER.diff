@@ -1,0 +1,764 @@
+--- C297/final_master.py
++++ C299/master/final_master.py
+@@ -1,11 +1,12 @@
+ #!/usr/bin/env python3
+-"""C297 final native artifact master: no Lean, network, or archive-builder execution.
++"""C299 final native artifact master: no Lean, network, or archive-builder execution.
+ 
+ Default invocation is once-only and must be authorized by the source owner after
+-stable inputs. --self-test exercises parser/receipt guards using temporary bytes;
+-it does not create a final-master start/result or accept the actual delivery.
++stable inputs. Separate unittest controls exercise parser/receipt guards using
++temporary bytes; they do not create a final-master start/result or accept delivery.
+ See FINAL_MASTER_NOTES.md for the explicit input-envelope contract.
+ """
++import argparse
+ from datetime import datetime, timezone
+ import hashlib
+ import io
+@@ -14,32 +15,26 @@
+ import re
+ import stat
+ import sys
+-import tempfile
+ import zipfile
+ 
+ ROOT = Path(__file__).absolute().parent
+-PREFIX = 'frontiers/regular_superlevel_geometry_20261020/'
+-WORKFLOW = '.github/workflows/c297-regular-superlevel.yml'
++PREFIX = 'frontiers/critical_ridge_20261020/'
++WORKFLOW = '.github/workflows/c299-critical-ridge.yml'
+ REPOSITORY = 'd6g8k5htny-coder/Math-'
+-MANIFEST_SHA = 'c339a9d1ca5b9ef70f8d581ea0760f11922aba2cd16cbeeb7aba02092b476e94'
+-MODULES = ('Lifetime', 'RegularPointChart', 'RegularSuperlevel',
+-           'RegularSuperlevelLiteral', 'RegularSuperlevelAxiomAudit')
+-NEGATIVES = ('WithoutRegularOrInterior', 'WithoutCoordinateIdentity')
++MODULES = ('Lifetime', 'TorusTopology', 'MorseFiniteCritical',
++           'CriticalRidge', 'CriticalRidgeAxiomAudit')
++NEGATIVES = ('WithoutCriticality', 'WithoutNegativeDefiniteness')
+ SOURCE_PATHS = {f'project/{m}.lean' for m in MODULES} | {
+     f'negative-project/{m}.lean' for m in NEGATIVES}
+ AXIOMS = {'propext', 'Classical.choice', 'Quot.sound'}
+ REQUIRED = {
+-    'UniversalLaw.Spec.Lifetime.' + n for n in (
+-        'IsSmooth', 'IsCriticalPoint', 'regularPointDerivative_range_eq_top',
+-        'regularPointHasStrictFDerivAt', 'regularPointChart', 'regularPointChart_fst',
+-        'regularPointChart_self', 'mem_regularPointChart_source',
+-        'mem_regularPointChart_target')
+-} | {
+-    'TorusRegularSuperlevel.' + n for n in (
+-        'path_connected_basis_of_openEmbedding', 'path_connected_basis_of_open',
+-        'relative_chart_homeomorph', 'path_connected_basis_of_relative_chart',
+-        'closed_superlevel_basis_of_chart', 'closed_superlevel_interior_basis',
+-        'closed_superlevel_regular_basis', 'closed_superlevel_path_connected_basis')
++    'UniversalLaw.Spec.Lifetime.' + n for n in ('IsSmooth', 'IsCriticalPoint', 'hessian')
++} | {'TorusMorseFinite.literal_hessian_eq_fderiv'} | {
++    'TorusCriticalRidge.' + n for n in (
++        'restrictCovector', 'ridgeAddition', 'negativePartialGradient', 'negativeHessianBlock',
++        'negativeHessianBlock_apply', 'negativeHessianBlock_isInvertible',
++        'negativePartialGradient_contDiff', 'negativePartialGradient_hasFDerivAt',
++        'exists_negative_partial_gradient_ridge')
+ }
+ PINS = {
+     'plausible': '118aa17ee84656b8bd727fef7c458ee8c833385c',
+@@ -52,21 +47,21 @@
+     'Cli': 'e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204',
+     'mathlib': 'd13f23b723b8a846827a245b89c10fc7d3f11612',
+ }
+-REVIEW_HASHES = {
+-    'reviews/CANDIDATE3_SOURCE_REVIEW.md':
+-        'c794c85794767711c05f5580bed49d35c011d939c39d0c4a51872b7cccdebc4d',
+-    'reviews/HOSTED_ENGINEERING_SOURCE_REVIEW.md':
+-        '5cf5d69fc5be2defbeb675e1131f6497d5f72c0928b55ad06fe778826f17f569',
+-    'reviews/HOSTED_COERCION_AMENDMENT_REVIEW.md':
+-        'c95027d1fdd6c1e1fa6c0f6611d66e68bd442dea7d36a69df9664075f2488712',
++SUPPORT_PATHS = {WORKFLOW, PREFIX + 'c299_hosted_verify.py',
++                 PREFIX + 'test_c299_hosted_verify.py'}
++REVIEW_VERDICTS = {
++    'source_review': 'ACCEPT_SCOPED_SOURCE',
++    'engineering_review': 'ACCEPT_SCOPED_ENGINEERING_SOURCE',
++    'negative_qualification_review': 'ACCEPT_SCOPED_NEGATIVE_DIAGNOSTICS',
++    'hosted_artifact_review': 'ACCEPT_SCOPED_FORMAL_HOSTED',
++    'master_source_review': 'PASS_SCOPED_MASTER_SOURCE_REVIEW',
+ }
+-SUPPORT_HASHES = {
+-    WORKFLOW: '03b3d8fb4ca95316247b93ad3937ea2d56f0509040c819534873be1bb341eab3',
+-    PREFIX + 'c297_hosted_verify.py':
+-        '18985d363f3a0b0529e88c9c69dd07c626e6b5f82a251c19c7d820117b7d47c1',
+-    PREFIX + 'test_c297_hosted_verify.py':
+-        '0d1d8d18a11334364151d16f7640af2730e38f17d8240ddf0244decc2f8376cd',
+-}
++ENVIRONMENT_POLICY = (
++    'Remove inherited LEAN*, LAKE*, LD_* and DYLD_* overrides, except the '
++    'Lake-provided LEAN_PATH; prepend the fresh local object directory to that '
++    'path and set LEAN_NUM_THREADS=2. Retain declared PATH for launcher lookup. '
++    'Other inherited variables remain available but are not recorded. Record '
++    'only selected non-secret path/thread values and removed variable names.')
+ 
+ 
+ def now():
+@@ -112,9 +107,9 @@
+ def measured_audit(text, modules=MODULES[:-1], required=REQUIRED):
+     """Independent whole-record regex parser, including multiline axiom arrays."""
+     token = re.compile(
+-        r'(?m)^SUPERLEVEL_AUDIT_MODULE (?P<module>\S+) COUNT (?P<count>\d+)\s*$'
+-        r'|^SUPERLEVEL_AUDIT_DECL (?P<name>\S+) AXIOMS \[(?P<axioms>[^\[\]]{0,4096})\][ \t]*$'
+-        r'|^SUPERLEVEL_AUDIT_STANDARD_ONLY_PASS COUNT (?P<total>\d+)\s*$')
++        r'(?m)^CRITICAL_RIDGE_AUDIT_MODULE (?P<module>\S+) COUNT (?P<count>\d+)\s*$'
++        r'|^CRITICAL_RIDGE_AUDIT_DECL (?P<name>\S+) AXIOMS \[(?P<axioms>[^\[\]]{0,4096})\][ \t]*$'
++        r'|^CRITICAL_RIDGE_AUDIT_STANDARD_ONLY_PASS COUNT (?P<total>\d+)\s*$')
+     counts, names, all_names, current, total = {}, {}, set(), None, None
+     consumed = 0
+     for match in token.finditer(text):
+@@ -138,8 +133,8 @@
+             need(total is None, 'duplicate audit completion marker')
+             total = int(match['total'])
+     marker_count = len(re.findall(
+-        r'SUPERLEVEL_AUDIT_(?:MODULE|DECL|STANDARD_ONLY_PASS)\b', text))
+-    all_markers = re.findall(r'SUPERLEVEL_AUDIT_([A-Z_]+)', text)
++        r'CRITICAL_RIDGE_AUDIT_(?:MODULE|DECL|STANDARD_ONLY_PASS)\b', text))
++    all_markers = re.findall(r'CRITICAL_RIDGE_AUDIT_([^\s]+)', text)
+     need(set(all_markers) <= {'MODULE', 'DECL', 'STANDARD_ONLY_PASS', 'PROGRESS'},
+          'unknown audit marker')
+     need(consumed == marker_count, 'malformed, interrupted or truncated audit record')
+@@ -151,31 +146,114 @@
+             'allowed_axioms': sorted(AXIOMS)}
+ 
+ 
+-def missing_premise(name, code, stdout, stderr):
+-    text = (stdout + b'\n' + stderr).decode('utf8')
++def canonical_digest(value):
++    return sha(json.dumps(value, sort_keys=True, separators=(',', ':')).encode())
++
++
++def validate_expectations(expected):
++    required = {'pr', 'head', 'base', 'tree', 'tested_commit', 'tested_tree',
++                'run_id', 'run_attempt', 'source_manifest_sha256', 'support_sha256',
++                'module_counts', 'required_ci_names', 'negative_qualification'}
++    need(isinstance(expected, dict) and set(expected) == required, 'incomplete final expectations')
++    for key in ('pr', 'run_id', 'run_attempt'):
++        need(type(expected[key]) is int and expected[key] > 0, 'invalid final identity: ' + key)
++    for key in ('head', 'base', 'tree', 'tested_commit', 'tested_tree'):
++        need(isinstance(expected[key], str) and re.fullmatch('[0-9a-f]{40}', expected[key]),
++             'invalid frozen Git identity: ' + key)
++    need(re.fullmatch('[0-9a-f]{64}', expected['source_manifest_sha256']) is not None,
++         'invalid source manifest hash')
++    support = expected['support_sha256']
++    need(set(support) == SUPPORT_PATHS and all(re.fullmatch('[0-9a-f]{64}', x) for x in support.values()),
++         'incomplete final support identities')
++    counts = expected['module_counts']
++    need(set(counts) == set(MODULES[:-1]) and all(type(n) is int and n > 0 for n in counts.values()),
++         'missing actual module census')
++    roles = expected['required_ci_names']
++    need(isinstance(roles, list) and len(roles) == len(set(roles))
++         and all(isinstance(x, str) and x for x in roles)
++         and {'downstream-replay', 'formal / formal-evidence', 'math-downstream-gates'} <= set(roles),
++         'incomplete applicable CI inventory')
++    qualification = expected['negative_qualification']
++    need(set(qualification) == {'status', 'diagnostics'} and qualification['status'] == 'QUALIFIED'
++         and set(qualification['diagnostics']) == set(NEGATIVES), 'actual negative qualification pending')
++    for record in qualification['diagnostics'].values():
++        need(set(record) == {'stdout_sha256', 'stderr_sha256', 'expression', 'actual', 'expected'}
++             and all(isinstance(x, str) and x for x in record.values())
++             and all(re.fullmatch('[0-9a-f]{64}', record[k]) for k in ('stdout_sha256', 'stderr_sha256')),
++             'incomplete actual negative diagnostic record')
++
++
++def qualified_negative(name, code, stdout, stderr, qualified):
++    """Independent section parser and complete same-ridge missing-premise check.
++
++    The exact observed sections/hashes are frozen by the owner after diagnostic
++    review. They cannot replace the semantic shape checks below. Presentation
++    changes require a reviewed source change, not an envelope-only bypass.
++    """
++    need(name in NEGATIVES, 'unexpected negative control')
++    need(sha(stdout) == qualified['stdout_sha256'] and sha(stderr) == qualified['stderr_sha256'],
++         'negative streams differ from reviewed actual diagnostics')
++    text = (stdout + b'\n' + stderr).decode('utf8').strip()
+     flat = ' '.join(text.split())
+     forbidden = ('unknown identifier', 'unknown module', 'file not found', 'no such file',
+                  'memory_exception', 'out of memory', 'unexpected token', 'unsolved goals',
+                  'maximum recursion', 'maximum heartbeats', 'failed to', 'panic', 'sorry')
+-    need(code == 1 and text.count('error:') == 1 and 'error: Type mismatch' in flat
+-         and all(w not in flat.lower() for w in forbidden), 'unrelated negative-control failure')
+-    need('has type' in flat and 'but is expected to have type' in flat,
+-         'missing actual/expected type diagnostic')
+-    expression, rest = flat.split('has type', 1)
+-    actual, expected = rest.split('but is expected to have type', 1)
+-    need('HasBasis' in actual and 'HasBasis' in expected and '→' in actual,
+-         'negative is not an unapplied-premise basis mismatch')
+-    if name == 'WithoutRegularOrInterior':
+-        need('closed_superlevel_path_connected_basis hsmooth a x' in expression
+-             and re.search(r'a\s*<\s*g\s', actual) and '∨' in actual and '¬' in actual
+-             and 'IsCriticalPoint d g' in actual, 'regular/interior premise absent from actual type')
+-    elif name == 'WithoutCoordinateIdentity':
+-        need('closed_superlevel_basis_of_chart a x p hx' in expression
+-             and '∀' in actual and 'p.source' in actual
+-             and re.search(r'\(↑?p y\)\.(?:fst|1)\s*=\s*g y', actual),
+-             'coordinate identity absent from actual type')
++    need(code == 1 and text.count('error:') == 1 and all(w not in flat.lower() for w in forbidden),
++         'unrelated negative-control failure')
++    header, separator, remainder = text.partition('\n')
++    need(separator and re.fullmatch(r'[^\n]*' + re.escape(name) + r'\.lean:\d+:\d+: error: Type mismatch', header),
++         'negative diagnostic names a different source or error')
++    pieces = re.split(r'\nhas type\s*\n|\nbut is expected to have type\s*\n', remainder)
++    need(len(pieces) == 3, 'negative diagnostic must have one actual and expected type section')
++    expression, actual, expected_type = (' '.join(piece.split()) for piece in pieces)
++    need(all(value == qualified[key] for key, value in
++             (('expression', expression), ('actual', actual), ('expected', expected_type))),
++         'actual diagnostic sections differ from reviewed sections')
++    target = 'TorusCriticalRidge.exists_negative_partial_gradient_ridge'
++    if name == 'WithoutCriticality':
++        need(expression == 'fun hcritical => ' + target + ' f p V hsmooth hcritical hneg',
++             'criticality omission is not the actual theorem lambda')
++        premise = 'IsCriticalPoint d f p'
+     else:
+-        raise ValueError('unexpected negative control')
++        need(expression == target + ' f p V hsmooth hcritical',
++             'negative-definiteness omission is not the actual theorem application')
++        premise = '(∀ v ∈ V, v ≠ 0 → hessian d f p v v < 0)'
++    need(actual == premise + ' → ' + expected_type, 'wrong missing premise or actual function conclusion')
++    # Deliberately fixed source semantics; actual display variants need review.
++    conclusion = (r'∃ r, r 0 = 0 ∧ ContDiffAt ℝ 2 r 0 ∧ '
++                  r'\(∀ᶠ w in 𝓝 0, ∀ \(z : ↥V\), \(fderiv ℝ f \(p \+ w \+ ↑\(r w\)\)\) ↑z = 0\) ∧ '
++                  r'∀ \(w : E d\) \(z : ↥V\), hessian d f p \(w \+ ↑\(\(fderiv ℝ r 0\) w\)\) ↑z = 0')
++    need(re.fullmatch(conclusion, expected_type) is not None, 'wrong four-part same-ridge conclusion')
++
++
++def environment_binding(report, record, object_directory):
++    contract = report.get('environment_contract')
++    need(isinstance(contract, dict) and set(contract) == {
++        'policy', 'retained_lake_lean_path', 'removed_variable_names', 'selected_environment', 'sha256'},
++        'missing exact environment contract')
++    body = {k: val for k, val in contract.items() if k != 'sha256'}
++    need(contract['policy'] == ENVIRONMENT_POLICY and contract['sha256'] == canonical_digest(body),
++         'environment contract policy or digest mismatch')
++    selected = contract['selected_environment']
++    need(set(selected) == {'PATH', 'LEAN_PATH', 'LEAN_NUM_THREADS'}
++         and all(isinstance(x, str) and x for x in selected.values()), 'incomplete selected environment')
++    inherited = contract['retained_lake_lean_path']
++    need(isinstance(inherited, str) and PurePosixPath(object_directory).is_absolute()
++         and '..' not in PurePosixPath(object_directory).parts
++         and selected['LEAN_PATH'] == object_directory + (':' + inherited if inherited else '')
++         and selected['LEAN_NUM_THREADS'] == '2', 'fresh-object precedence or thread count mismatch')
++    removed = contract['removed_variable_names']
++    need(isinstance(removed, list) and all(isinstance(k, str) for k in removed)
++         and removed == sorted(set(removed)) and all(k.startswith(('LEAN', 'LAKE', 'LD_', 'DYLD_'))
++             and k != 'LEAN_PATH' for k in removed), 'invalid removed-variable name record')
++    measured = {'selected_environment': record.get('selected_environment'),
++                'unexpected_override_names': record.get('unexpected_override_names')}
++    need(record.get('selected_environment') == selected
++         and record.get('environment_contract_sha256') == contract['sha256']
++         and record.get('unexpected_override_names') == []
++         and record.get('environment_validation_error') is None
++         and record.get('environment_sha256') == canonical_digest(measured),
++         'phase environment differs from bound contract')
+ 
+ 
+ def runtime_binding(report, prefix_stdout):
+@@ -193,15 +271,15 @@
+ 
+ 
+ def final_review_records(acceptance):
++    reviews = acceptance['reviews']
++    need(set(reviews) == set(REVIEW_VERDICTS), 'missing role-specific final review')
+     records = []
+-    for role, verdict in (
+-            ('hosted_artifact_review', 'ACCEPT_SCOPED_FORMAL_HOSTED'),
+-            ('master_source_review', 'PASS_SCOPED_MASTER_SOURCE_REVIEW')):
+-        review = acceptance[role]
+-        need(set(review) == {'path', 'bytes', 'sha256', 'verdict'}
+-             and review['verdict'] == verdict, 'nonpassing or incomplete final review: ' + role)
++    for role, verdict in REVIEW_VERDICTS.items():
++        review = reviews[role]
++        need(set(review) == {'path', 'bytes', 'sha256', 'verdict'} and review['verdict'] == verdict,
++             'nonpassing or incomplete final review: ' + role)
+         records.append(review)
+-    need(records[0]['path'] != records[1]['path'], 'final review paths are not distinct')
++    need(len({r['path'] for r in records}) == len(records), 'final review paths are not distinct')
+     return records
+ 
+ 
+@@ -247,13 +325,14 @@
+     def verify_publication(self, envelope):
+         gh = json_bytes(self.bound(envelope['github_readback']))
+         self.check('exact public PR head and tree', gh['repository'] == REPOSITORY
+-                   and gh['pr'] == 489 and re.fullmatch('[0-9a-f]{40}', gh['head'])
++                   and gh['pr'] == envelope['expected']['pr'] and re.fullmatch('[0-9a-f]{40}', gh['head'])
+                    and re.fullmatch('[0-9a-f]{40}', gh['tree'])
+                    and gh['tree_untruncated'] is True and gh['native_remote_byte_equality'] is True
+-                   and gh['pr_body_exact_readback'] is True)
++                   and gh['pr_body_exact_readback'] is True
++                   and all(gh[k] == envelope['expected'][k] for k in ('pr', 'head', 'base', 'tree')))
+         files = gh['files']
+         self.check('complete final public byte readbacks', len(files) == gh['files_count']
+-                   and len({r['path'] for r in files}) == len(files) and len(files) >= 29)
++                   and len({r['path'] for r in files}) == len(files) and len(files) > 0)
+         published = {}
+         inputs = json_bytes(self.bound(envelope['publication_inputs']))
+         native_inputs = {r['path']: r for r in inputs}
+@@ -308,37 +387,41 @@
+                        and tree_rows[row['path']]['sha'] == row['tree_blob'])
+         self.check('native GitHub commit/ref/PR evidence',
+                    commit['sha'] == ref['object']['sha'] == pr['head']['sha'] == gh['head']
+-                   and commit['tree']['sha'] == gh['tree'] and pr['number'] == 489
++                   and commit['tree']['sha'] == gh['tree'] and pr['number'] == envelope['expected']['pr']
+                    and pr['base']['sha'] == gh['base']
+                    and pr['head']['repo']['full_name'] == REPOSITORY)
+         return gh, published, tree_rows
+ 
+     def verify_sources_reviews(self, envelope, published):
+-        raw = self.read('HOSTED_SOURCE_MANIFEST.json')
+-        self.check('frozen source manifest identity', sha(raw) == MANIFEST_SHA
++        expected = envelope['expected']
++        raw = self.bound(envelope['source_manifest'])
++        self.check('frozen source manifest identity', sha(raw) == expected['source_manifest_sha256']
+                    and raw == published[PREFIX + 'HOSTED_SOURCE_MANIFEST.json'])
+         manifest = json_bytes(raw)
+         self.check('exact five modules and two controls', manifest['schema_version'] == 1
+                    and manifest['scientific_effect'] == 'NONE' and set(manifest['files']) == SOURCE_PATHS)
+         for rel, spec in manifest['files'].items():
+-            local = self.read(rel)
+-            self.check('frozen native/published Lean bytes: ' + rel,
+-                       identity(local) == spec and local == published[PREFIX + rel])
+-        for rel, digest in SUPPORT_HASHES.items():
+-            self.check('reviewed hosted support: ' + rel, sha(published[rel]) == digest)
+-        for rel, digest in REVIEW_HASHES.items():
+-            self.check('exact native nonauthor review: ' + rel, sha(self.read(rel)) == digest)
+-        projection = json_bytes(published[PREFIX + 'reviews/PROJECTION_IDENTITIES.json'])
+-        for row in projection:
+-            original, public = self.read(row['path']), published[PREFIX + row['path']]
+-            self.check('review source/public projection identities: ' + row['path'],
+-                       identity(original) == {'bytes': row['original_bytes'], 'sha256': row['original_sha256']}
+-                       and identity(public) == {'bytes': row['public_bytes'], 'sha256': row['public_sha256']})
++            self.check('frozen published Lean identity: ' + rel, identity(published[PREFIX + rel]) == spec)
++        origins = manifest['source_origins']
++        self.check('complete input source origins', set(origins) == set(MODULES[:3]))
++        upstream = json_bytes(self.bound(envelope['upstream_readback']))
++        self.check('exact upstream byte-readback set', isinstance(upstream, list)
++                   and len(upstream) == 3 and {r['module'] for r in upstream} == set(MODULES[:3]))
++        for row in upstream:
++            origin = origins[row['module']]
++            raw_origin = self.bound(row['raw_file'])
++            self.check('source-bound remote upstream bytes: ' + row['module'],
++                       origin == {'commit': row['commit'], 'path': row['path']}
++                       and re.fullmatch('[0-9a-f]{40}', row['commit']) is not None
++                       and raw_origin == published[PREFIX + 'project/' + row['module'] + '.lean']
++                       and git_blob(raw_origin) == row['git_blob'] and row['raw_byte_match'] is True)
++            member_path(row['path'])
++        for rel, digest in expected['support_sha256'].items():
++            self.check('reviewed final hosted support: ' + rel, sha(published[rel]) == digest)
+         acceptance = json_bytes(self.bound(envelope['root_acceptance']))
+         self.check('scoped exact formal evidence acceptance',
+                    acceptance['verdict'] == 'ACCEPT_SCOPED_FORMAL_EVIDENCE'
+-                   and acceptance['source_manifest_sha256'] == MANIFEST_SHA
+-                   and acceptance['reviews'] == REVIEW_HASHES)
++                   and acceptance['expected'] == expected)
+         self.check('actual nonauthor identity and exposure',
+                    all(isinstance(acceptance.get(k), str) and acceptance[k].strip()
+                        for k in ('author', 'reviewer', 'root', 'exposure'))
+@@ -349,6 +432,13 @@
+         for review in final_review_records(acceptance):
+             self.check('nonempty bound final review: ' + review['path'],
+                        bool(self.bound({k: review[k] for k in ('path', 'bytes', 'sha256')})))
++        # Optional public-safe projections are separately bound, never mistaken for originals.
++        for projection in envelope.get('review_projections', []):
++            original = self.bound(projection['original'])
++            public = published[projection['public_path']]
++            self.check('explicit review projection identity: ' + projection['public_path'],
++                       identity(original) == {k: projection['original'][k] for k in ('bytes', 'sha256')}
++                       and identity(public) == projection['public_identity'])
+         return manifest
+ 
+     def verify_artifact(self, envelope):
+@@ -389,19 +479,23 @@
+     def verify_ci(self, envelope, gh, archive, report):
+         ci = json_bytes(self.bound(envelope['hosted_ci']))
+         context = report['context']
+-        self.check('scoped hosted final success', report['status'] == 'PASS_HOSTED_C297_EXACT_TARGETS'
++        self.check('scoped hosted final success', report['status'] == 'PASS_HOSTED_C299_EXACT_TARGETS'
+                    and report['scientific_effect'] == 'NONE' and context['human_review_credit'] == 0
+-                   and context['executor'] == 'GitHub-hosted runner executing C297 verification code')
++                   and context['executor'] == 'GitHub-hosted runner executing C299 verification code'
++                   and report.get('negative_predicates_qualified') is True
++                   and report.get('negative_classification_errors') == [])
+         self.check('native hosted run identity', ci['repository'] == gh['repository'] == context['github_repository']
+                    and ci['head'] == gh['head'] == context['pull_request']['head_sha']
+                    and ci['tested_commit'] == context['tested_commit'] == context['github_sha']
+                    and str(ci['run_id']) == str(context['github_run_id'])
+                    and str(ci['run_attempt']) == str(context['github_run_attempt'])
+-                   and context['pull_request']['number'] == 489
+-                   and context['github_event_name'] == 'pull_request')
++                   and context['pull_request']['number'] == envelope['expected']['pr']
++                   and context['github_event_name'] == 'pull_request'
++                   and all(str(ci[k]) == str(envelope['expected'][k])
++                           for k in ('run_id', 'run_attempt', 'tested_commit')))
+         merge = json_bytes(self.bound(envelope['tested_merge_commit']))
+         self.check('native tested merge commit/tree/parents', merge['sha'] == ci['tested_commit']
+-                   and merge['tree']['sha'] == context['tested_tree']
++                   and merge['tree']['sha'] == context['tested_tree'] == envelope['expected']['tested_tree']
+                    and len(merge['parents']) == 2
+                    and {p['sha'] for p in merge['parents']} == {gh['base'], gh['head']}
+                    and context['pull_request']['base_sha'] == gh['base'])
+@@ -413,10 +507,10 @@
+                    and run['status'] == 'completed' and run['conclusion'] == 'success'
+                    and run['path'] == WORKFLOW)
+         self.check('native successful scoped job', str(job['run_id']) == str(ci['run_id'])
+-                   and job['name'] == 'c297-hosted-formal' and job['status'] == 'completed'
+-                   and job['conclusion'] == 'success' and context['github_job'] == 'c297-hosted-formal')
++                   and job['name'] == 'c299-hosted-formal' and job['status'] == 'completed'
++                   and job['conclusion'] == 'success' and context['github_job'] == 'c299-hosted-formal')
+         self.check('artifact belongs to exact run and attempt', artifact['name'] ==
+-                   f"c297-hosted-{ci['run_id']}-{ci['run_attempt']}"
++                   f"c299-hosted-{ci['run_id']}-{ci['run_attempt']}"
+                    and artifact['expired'] is False and str(artifact['workflow_run']['id']) == str(ci['run_id'])
+                    and artifact['workflow_run']['head_sha'] == gh['head'])
+         download = ci['download']
+@@ -432,23 +526,32 @@
+                            and j['conclusion'] == 'success' and j.get('run_id') and j.get('run_attempt')
+                            for j in applicable)
+                    and {'downstream-replay', 'formal / formal-evidence', 'math-downstream-gates'}
+-                       <= {j['name'] for j in applicable})
++                       <= {j['name'] for j in applicable}
++                   and set(envelope['expected']['required_ci_names']) <= {j['name'] for j in applicable})
++        steps = job['steps']
++        self.check('actual scoped job steps completed successfully', isinstance(steps, list) and bool(steps)
++                   and len({step['number'] for step in steps}) == len(steps)
++                   and all(step['status'] == 'completed' and step['conclusion'] == 'success' for step in steps))
++        log = self.bound(ci['job_log'])
++        self.check('scoped complete job log contains actual checkout', ci['tested_commit'].encode() in log)
++        for spec in ci.get('additional_native_evidence', []):
++            self.bound(spec)
+         return ci
+ 
+     def verify_hosted_execution(self, envelope, members, manifest, published, tree_rows):
+         report = json_bytes(members['RESULT.json'])
+         source = report['source_identity']
+         self.check('hosted exact source identity before/after', source == report['source_identity_after']
+-                   and source['manifest'] == identity(self.read('HOSTED_SOURCE_MANIFEST.json'))
++                   and source['manifest'] == {k: envelope['source_manifest'][k] for k in ('bytes', 'sha256')}
+                    and source['files'] == manifest['files'] and source['source_origins'] == manifest['source_origins']
+                    and source['dependency_pins'] == PINS
+                    and report['packages_before'] == report['packages_after'] == PINS)
+-        self.check('source snapshot manifest', members['HOSTED_SOURCE_MANIFEST.json'] == self.read('HOSTED_SOURCE_MANIFEST.json'))
++        self.check('source snapshot manifest', members['HOSTED_SOURCE_MANIFEST.json'] == self.bound(envelope['source_manifest']))
+         for rel in SOURCE_PATHS:
+             self.check('hosted/native reviewed source snapshot: ' + rel,
+                        members['source-snapshot/' + rel] == published[PREFIX + rel])
+-        self.check('exact three hosted support inputs', set(source['support_files']) == set(SUPPORT_HASHES))
+-        for rel in SUPPORT_HASHES:
++        self.check('exact three hosted support inputs', set(source['support_files']) == SUPPORT_PATHS)
++        for rel in SUPPORT_PATHS:
+             self.check('hosted/native support snapshot: ' + rel,
+                        members['source-snapshot/repository/' + rel] == published[rel]
+                        and source['support_files'][rel] == identity(published[rel]))
+@@ -459,12 +562,18 @@
+         configs = json_bytes(self.bound(envelope['formal_config_readback']))
+         self.check('complete native formal configuration readback',
+                    len(configs) == 3 and {r['path'] for r in configs} == set(source['formal_config']))
++        config_bytes = {}
+         for row in configs:
+             raw = self.read(row['native_file'])
++            config_bytes[row['path']] = raw
+             self.check('hosted/native/current-tree formal config: ' + row['path'],
+                        identity(raw) == source['formal_config'][row['path']]
+                        == {'bytes': row['bytes'], 'sha256': row['sha256']}
+                        and git_blob(raw) == row['git_blob'] == tree_rows[row['path']]['sha'])
++        self.check('actual formal dependency lock and toolchain',
++                   config_bytes['formal/lean-toolchain'].decode().strip() == 'leanprover/lean4:v4.34.1'
++                   and {row['name']: row['rev'] for row in json_bytes(config_bytes['formal/lake-manifest.json'])['packages']} == PINS
++                   and ('rev = "' + PINS['mathlib'] + '"') in config_bytes['formal/lakefile.toml'].decode())
+         runtimes = report['runtimes']
+         self.check('measured Lean and kernel binary records', set(runtimes) == {'lean', 'leanchecker'}
+                    and all(type(v['bytes']) is int and v['bytes'] > 0
+@@ -476,10 +585,20 @@
+         phase_names += ['kernel-' + m for m in MODULES[1:]] + ['negative-' + m for m in NEGATIVES]
+         self.check('exact 13 unique phases in order', [r['name'] for r in phases] == phase_names
+                    and len({r['name'] for r in phases}) == 13)
++        first_source = PurePosixPath(phases[2]['command'][-1])
++        self.check('first fresh build source path', first_source.is_absolute()
++                   and str(first_source).endswith('/' + PREFIX + 'project/Lifetime.lean')
++                   and '..' not in first_source.parts)
++        checkout = first_source.parents[3]
++        object_dir = str(checkout / '.lake/c299-hosted-evidence/objects')
++        project_dir = str(checkout / PREFIX / 'project')
++        negative_dir = str(checkout / PREFIX / 'negative-project')
+         known, audit, generated = {}, None, set()
+         lean, kernel = runtimes['lean']['path'], runtimes['leanchecker']['path']
+         for record in phases:
+             name = record['name']
++            environment_binding(report, record, object_dir)
++            self.check(name + ': exact selected execution environment', True)
+             self.check(name + ': aggregate/per-phase receipt equality',
+                        json_bytes(members[name + '.receipt.json']) == record)
+             self.check(name + ': completed expected process', record['status'] == 'PASS'
+@@ -497,7 +616,7 @@
+             if name.startswith('runtime-'):
+                 self.check(name + ': bounded runtime probe', record['exit_code'] == 0
+                            and record['timeout_seconds'] == 30 and record['objects_before'] is None
+-                           and record['objects_after'] is None)
++                           and record['objects_after'] is None and record['cwd'] == str(checkout / 'formal'))
+                 if name == 'runtime-version':
+                     self.check(name + ': actual pinned version', args == [lean, '--version']
+                                and 'version 4.34.1' in streams['stdout'].decode()
+@@ -516,7 +635,9 @@
+                 self.check(name + ': exact build command', args[:len(want_start)] == want_start
+                            and len(args) == len(want_start) + 3 and args[len(want_start)] == '-o'
+                            and args[-1].endswith('/' + PREFIX + 'project/' + module + '.lean')
+-                           and Path(args[-2]).name == module + '.olean' and record['exit_code'] == 0)
++                           and args[-2] == object_dir + '/' + module + '.olean'
++                           and args[-1] == project_dir + '/' + module + '.lean'
++                           and record['cwd'] == project_dir and record['exit_code'] == 0)
+                 after = record['objects_after']
+                 self.check(name + ': unchanged imported objects', all(after.get(k) == v for k, v in known.items()))
+                 added = set(after) - set(known)
+@@ -526,27 +647,34 @@
+                 generated |= added
+                 known = after
+                 self.check(name + ': produced object identity', record['object'] == known[module + '.olean'])
+-                if module == 'RegularSuperlevelAxiomAudit':
++                if module == 'CriticalRidgeAxiomAudit':
+                     audit = measured_audit((streams['stdout'] + b'\n' + streams['stderr']).decode())
+                 else:
+                     self.check(name + ': clean non-audit build streams', not streams['stdout'] and not streams['stderr'])
+             elif name.startswith('kernel-'):
+                 self.check(name + ': standard named-module kernel', args == [kernel, '-v', name[7:]]
+-                           and record['exit_code'] == 0 and record['objects_after'] == known)
++                           and record['exit_code'] == 0 and record['objects_after'] == known
++                           and record['cwd'] == project_dir)
+             else:
+                 fixture = name[9:]
+                 self.check(name + ': actual negative command', args[:3] == [lean, '-j2', '-M14000']
+                            and len(args) == 4 and args[-1].endswith('/' + PREFIX + 'negative-project/' + fixture + '.lean')
+                            and record['objects_after'] == known
+-                           and record.get('intended_missing_premise_rejection') is True)
+-                missing_premise(fixture, record['exit_code'], streams['stdout'], streams['stderr'])
++                           and args[-1] == negative_dir + '/' + fixture + '.lean' and record['cwd'] == negative_dir
++                           and record.get('intended_missing_premise_rejection') is True
++                           and record.get('diagnostic_qualification_pending') is False
++                           and record.get('candidate_parser_match') is True
++                           and record.get('negative_classification_error') is None)
++                qualified_negative(fixture, record['exit_code'], streams['stdout'], streams['stderr'],
++                                   envelope['expected']['negative_qualification']['diagnostics'][fixture])
+                 self.check(name + ': independently checked intended rejection', True)
+         self.check('complete independently measured module-origin census', audit is not None
+                    and report['audit']['module_counts'] == audit['module_counts']
+                    and report['audit']['declaration_count'] == audit['declaration_count']
+                    and report['audit']['module_declarations'] == audit['module_declarations']
+                    and set(report['audit']['required_targets']) == REQUIRED
+-                   and set(report['audit']['allowed_axioms']) == AXIOMS)
++                   and set(report['audit']['allowed_axioms']) == AXIOMS
++                   and audit['module_counts'] == envelope['expected']['module_counts'])
+         self.check('stable final hosted object inventory', report['objects_after_builds'] == report['objects'] == known
+                    and {m + '.olean' for m in MODULES} <= set(known)
+                    and {n[8:] for n in members if n.startswith('objects/')} == set(known))
+@@ -554,7 +682,7 @@
+             self.check('downloaded exact object: ' + name, identity(members['objects/' + name]) == spec)
+         expected_members = {'RESULT.json', 'HOSTED_SOURCE_MANIFEST.json'}
+         expected_members |= {'source-snapshot/' + r for r in SOURCE_PATHS}
+-        expected_members |= {'source-snapshot/repository/' + r for r in SUPPORT_HASHES}
++        expected_members |= {'source-snapshot/repository/' + r for r in SUPPORT_PATHS}
+         expected_members |= {'objects/' + n for n in known}
+         expected_members |= {n + ext for n in phase_names for ext in ('.stdout', '.stderr', '.receipt.json')}
+         self.check('complete exact hosted evidence member set', set(members) == expected_members)
+@@ -563,7 +691,8 @@
+     def verify_custody(self, envelope):
+         custody = envelope['custody']
+         external = {self.root / name for name in
+-                    ('FINAL_MASTER_INPUTS.json', 'FINAL_MASTER_START.json', 'FINAL_MASTER.json')}
++                    ('FINAL_MASTER_INPUTS.json', 'FINAL_MASTER_START.json', 'FINAL_MASTER.json',
++                     'FINAL_MASTER.stdout', 'FINAL_MASTER.stderr')}
+         external |= {self.path(custody[k]['path']) for k in
+                      ('archive', 'remote_archive', 'receipt', 'canonical_verification')}
+         required = set(self.observed) - external
+@@ -625,139 +754,69 @@
+ 
+     def verify(self, envelope):
+         self.check('master input envelope schema', envelope['schema_version'] == 1)
+-        self.read('evidence/MASTER_CONTRACT.md')
+-        self.read('FINAL_MASTER_NOTES.md')
++        validate_expectations(envelope['expected'])
++        self.check('qualified final expectations admitted', True)
++        self.bound(envelope['master_contract'])
++        self.bound(envelope['master_notes'])
++        self.check('executed master equals reviewed bound source',
++                   self.bound(envelope['master_source']) == Path(__file__).read_bytes())
+         gh, published, tree_rows = self.verify_publication(envelope)
+         manifest = self.verify_sources_reviews(envelope, published)
+         archive, members = self.verify_artifact(envelope)
+         report, audit = self.verify_hosted_execution(envelope, members, manifest, published, tree_rows)
+         ci = self.verify_ci(envelope, gh, archive, report)
+-        prior_raw = self.read('C297_RUN1_39418891714.zip')
+-        self.check('retained run1 exact archive', len(prior_raw) == 323718
+-                   and sha(prior_raw) == 'edb500e87ab5c6880a32ffdf3950c186728bec24c8f758d3d9170f091fd81157')
+-        with zipfile.ZipFile(io.BytesIO(prior_raw)) as prior:
+-            failed = json_bytes(prior.read('RESULT.json'))
+-            self.check('run1 remains incomplete history', failed['status'] == 'HOLD_NOT_COMPLETED'
+-                       and 'completed_at' not in failed
+-                       and failed['phase_results'][-1]['name'] == 'negative-WithoutCoordinateIdentity'
+-                       and failed['phase_results'][-1].get('intended_missing_premise_rejection') is not True)
++        history = envelope['historical_hosted_attempts']
++        self.check('development history retained', isinstance(history, list) and bool(history))
++        seen = set()
++        for prior in history:
++            prior_raw = self.bound(prior['archive'])
++            native_report = self.bound(prior['report'])
++            self.check('bounded historical hosted ZIP', len(prior_raw) <= 128 * 1024 * 1024)
++            with zipfile.ZipFile(io.BytesIO(prior_raw)) as zipped:
++                infos = [info for info in zipped.infolist() if info.filename == 'RESULT.json']
++                self.check('unique bounded historical result member', len(infos) == 1 and infos[0].file_size <= 4 * 1024 * 1024)
++                self.check('exact retained historical report', zipped.read(infos[0]) == native_report)
++            failed = json_bytes(native_report)
++            old_context = failed['context']
++            key = (str(old_context['github_run_id']), str(old_context['github_run_attempt']))
++            self.check('distinct declared incomplete hosted history', key not in seen
++                       and key != (str(ci['run_id']), str(ci['run_attempt']))
++                       and key == (str(prior['run_id']), str(prior['run_attempt']))
++                       and failed['status'] == prior['status'] == 'HOLD_NOT_COMPLETED'
++                       and 'completed_at' not in failed and old_context['pull_request']['head_sha'] == prior['head']
++                       and old_context['github_repository'] == REPOSITORY)
++            seen.add(key)
++        self.check('retained additional failure/source evidence', isinstance(envelope['retained_inputs'], list)
++                   and bool(envelope['retained_inputs']))
++        for spec in envelope['retained_inputs']:
++            self.bound(spec)
+         custody = self.verify_custody(envelope)
+-        for p, spec in list(self.observed.items()):
+-            self.check('final stable native input: ' + str(p), p.is_file()
+-                       and all(not q.is_symlink() for q in (p, *p.parents)) and identity(p.read_bytes()) == spec)
++        for path, spec in list(self.observed.items()):
++            self.check('final stable native input: ' + str(path), path.is_file()
++                       and all(not q.is_symlink() for q in (path, *path.parents)) and identity(path.read_bytes()) == spec)
+         return {'census': audit, 'hosted_run_id': ci['run_id'], 'hosted_run_attempt': ci['run_attempt'],
+                 'hosted_tested_commit': ci['tested_commit'], 'custody': custody,
+                 'verification_limit': 'Artifact and execution-record binding; runtime hashes are executor-measured records, not independently downloaded/native binary reproduction. No Lean execution, remote fetch, human review, or scientific promotion.'}
+ 
+ 
+-def self_test():
+-    """Local engineering controls only; never accepts the actual delivery."""
+-    good = ('SUPERLEVEL_AUDIT_MODULE X COUNT 1\n'
+-            'SUPERLEVEL_AUDIT_DECL X.target AXIOMS [propext,\n Classical.choice,\n Quot.sound]\n'
+-            'SUPERLEVEL_AUDIT_STANDARD_ONLY_PASS COUNT 1\n')
+-    need(measured_audit(good, ('X',), {'X.target'})['declaration_count'] == 1, 'wrapped audit positive')
+-    rejected = 0
+-    cases = [good.replace('Quot.sound]', 'sorryAx]'), good.replace('X.target', 'X.other'),
+-             good.replace(' Quot.sound]\n', ''), good.replace('COUNT 1\n', 'COUNT 2\n', 1),
+-             good.replace('Quot.sound]', 'Quot.sound] trailing'),
+-             good + 'SUPERLEVEL_AUDIT_DECL\tBad AXIOMS [sorryAx]\n']
+-    for value in cases:
+-        try:
+-            measured_audit(value, ('X',), {'X.target'})
+-        except ValueError:
+-            rejected += 1
+-    need(rejected == len(cases), 'audit mutation escaped rejection')
+-    proper = (b'f.lean:1:1: error: Type mismatch\n'
+-              b'TorusRegularSuperlevel.closed_superlevel_path_connected_basis hsmooth a x\nhas type\n' +
+-              'a < g x.val ∨ ¬IsCriticalPoint d g x.val → (𝓝 x).HasBasis basis id\n'.encode() +
+-              b'but is expected to have type\n' + '(𝓝 x).HasBasis basis id\n'.encode())
+-    missing_premise(NEGATIVES[0], 1, proper, b'')
+-    for code, data in [(0, proper), (1, proper + b'unknown module bad'),
+-                       (1, proper.replace('∨'.encode(), b'and'))]:
+-        try:
+-            missing_premise(NEGATIVES[0], code, data, b'')
+-        except ValueError:
+-            continue
+-        raise ValueError('fake negative escaped rejection')
+-    runtime = {'runtimes': {
+-        'lean': {'path': '/p/bin/lean', 'bytes': 1, 'sha256': 'a' * 64},
+-        'leanchecker': {'path': '/p/bin/leanchecker', 'bytes': 2, 'sha256': 'b' * 64}},
+-        'lean_launcher': {'path': '/p/bin/lean', 'bytes': 1, 'sha256': 'a' * 64}}
+-    runtime_binding(runtime, b'/p\n')
+-    for candidate in ({**runtime, 'lean_launcher': {**runtime['lean_launcher'], 'sha256': 'c' * 64}},
+-                      {**runtime, 'runtimes': {**runtime['runtimes'],
+-                       'leanchecker': {**runtime['runtimes']['leanchecker'], 'path': '/wrong/bin/leanchecker'}}}):
+-        try:
+-            runtime_binding(candidate, b'/p\n')
+-        except ValueError:
+-            continue
+-        raise ValueError('incoherent runtime binding accepted')
+-    reviews = {
+-        'hosted_artifact_review': {'path': 'artifact.md', 'bytes': 1, 'sha256': 'a' * 64,
+-                                  'verdict': 'ACCEPT_SCOPED_FORMAL_HOSTED'},
+-        'master_source_review': {'path': 'master.md', 'bytes': 1, 'sha256': 'b' * 64,
+-                                 'verdict': 'PASS_SCOPED_MASTER_SOURCE_REVIEW'}}
+-    final_review_records(reviews)
+-    for candidate in (
+-            {**reviews, 'master_source_review': {**reviews['master_source_review'],
+-                                                'verdict': 'HOLD_PENDING_AMENDMENT_REVIEW'}},
+-            {**reviews, 'master_source_review': {**reviews['master_source_review'],
+-                                                'path': 'artifact.md'}}):
+-        try:
+-            final_review_records(candidate)
+-        except ValueError:
+-            continue
+-        raise ValueError('nonpassing or duplicated final review accepted')
+-    with tempfile.TemporaryDirectory() as tmp:
+-        root = Path(tmp).resolve()
+-        (root / 'x').write_bytes(b'abc')
+-        verifier = Master(root)
+-        spec = {'path': 'x', 'bytes': 3, 'sha256': 'ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad'}
+-        verifier.bound(spec)
+-        (root / 'x').write_bytes(b'abd')
+-        try:
+-            verifier.bound(spec)
+-        except ValueError:
+-            pass
+-        else:
+-            raise ValueError('changed bound bytes accepted')
+-    with tempfile.TemporaryDirectory() as tmp:
+-        root = Path(tmp).resolve()
+-        (root / 'accepted').write_bytes(b'actual accepted evidence')
+-        (root / 'unrelated').write_bytes(b'unrelated stale packet')
+-        (root / 'PACKET').mkdir()
+-        (root / 'PACKET' / 'unrelated').write_bytes(b'unrelated stale packet')
+-        verifier = Master(root)
+-        verifier.read('accepted')
+-        custody = {k: {'path': k, 'bytes': 0, 'sha256': sha(b'')}
+-                   for k in ('archive', 'remote_archive', 'receipt', 'canonical_verification')}
+-        custody['bindings'] = [{'source_path': 'unrelated', 'packet_path': 'unrelated'}]
+-        try:
+-            verifier.verify_custody({'custody': custody})
+-        except ValueError as exc:
+-            need(str(exc) == 'packet contains every actual accepted input',
+-                 'stale packet rejected for unexpected reason')
+-        else:
+-            raise ValueError('unrelated packet accepted instead of actual accepted evidence')
+-    print('PASS_ENGINEERING_SELF_TEST_ONLY: wrapped/malformed census, intended/forged negative, runtime identity, final review, changed-byte and unrelated-packet guards; no final master run.')
+-
+ 
+ def main():
+-    if sys.argv[1:] == ['--self-test']:
+-        self_test()
+-        return 0
+-    need(not sys.argv[1:], 'usage: final_master.py [--self-test]')
+-    start, output = ROOT / 'FINAL_MASTER_START.json', ROOT / 'FINAL_MASTER.json'
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument('--root', type=Path, default=ROOT)
++    args = parser.parse_args()
++    root = args.root.absolute()
++    start, output = root / 'FINAL_MASTER_START.json', root / 'FINAL_MASTER.json'
+     if start.exists() or output.exists():
+         print('REFUSED: final master already started; preserve prior evidence', file=sys.stderr)
+         return 1
+-    envelope_raw = (ROOT / 'FINAL_MASTER_INPUTS.json').read_bytes()
++    # Fixed external names prevent user-controlled output/custody cycles.
++    envelope_raw = (root / 'FINAL_MASTER_INPUTS.json').read_bytes()
+     master_raw = Path(__file__).read_bytes()
+     with start.open('x') as handle:
+         json.dump({'started_at': now(), 'master_sha256': sha(master_raw),
+                    'input_envelope_sha256': sha(envelope_raw), 'scientific_effect': 'NONE'}, handle, indent=2)
+         handle.write('\n')
+-    checker = Master()
++    checker = Master(root)
+     result = {'status': 'HOLD_ARTIFACT_VERIFICATION', 'scientific_effect': 'NONE'}
+     try:
+         checker.check('exact master invocation bytes', checker.read(Path(__file__)) == master_raw)
+@@ -767,7 +826,7 @@
+     except BaseException as exc:
+         result['error'] = repr(exc)
+     result.update(finished_at=now(), checks=checker.checks, check_count=len(checker.checks),
+-                  observed_identities={str(p): spec for p, spec in checker.observed.items()})
++                  observed_identities={str(path): spec for path, spec in checker.observed.items()})
+     with output.open('x') as handle:
+         json.dump(result, handle, indent=2, sort_keys=True)
+         handle.write('\n')

@@ -1,0 +1,54 @@
+/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/CriticalRidge.lean:129:4: error: Application type mismatch: The argument
+  ContinuousLinearMap.hasFDerivAt (restrictCovector V)
+has type
+  HasFDerivAt (⇑(restrictCovector V)) (restrictCovector V) ?m.289
+but is expected to have type
+  HasFDerivAt ?m.305 ?m.306 ((fderiv ℝ f ∘ fun q => p + (ridgeAddition V) q) 0)
+in the application
+  HasFDerivAt.comp 0 (ContinuousLinearMap.hasFDerivAt (restrictCovector V))
+/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/CriticalRidge.lean:154:8: error: failed to synthesize
+  ContinuousSMul ℝ (E d × ↥V)
+(deterministic) timeout at `typeclass`, maximum number of heartbeats (20000) has been reached
+
+Note: Use `set_option synthInstance.maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/CriticalRidge.lean:161:21: error: failed to synthesize
+  CompleteSpace (↥V →L[ℝ] ℝ)
+(deterministic) timeout at `typeclass`, maximum number of heartbeats (20000) has been reached
+
+Note: Use `set_option synthInstance.maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/CriticalRidge.lean:162:24: error: failed to synthesize
+  CompleteSpace (↥V →L[ℝ] ℝ)
+(deterministic) timeout at `typeclass`, maximum number of heartbeats (20000) has been reached
+
+Note: Use `set_option synthInstance.maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/CriticalRidge.lean:164:4: error: failed to synthesize
+  CompleteSpace (↥V →L[ℝ] ℝ)
+(deterministic) timeout at `typeclass`, maximum number of heartbeats (20000) has been reached
+
+Note: Use `set_option synthInstance.maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/CriticalRidge.lean:171:14: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/CriticalRidge.lean:132:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.

@@ -1,0 +1,27 @@
+test_environment_contract_strips_overrides_and_uses_declared_path (test_c299_hosted_verify.HostedVerifierTests)
+An inherited tool/loader override must not survive or leak its value. ... FAIL
+test_phase_environment_mutation_is_blocked_and_receipted (test_c299_hosted_verify.HostedVerifierTests)
+A changed search path or injected loader must fail before the child runs. ... FAIL
+
+======================================================================
+FAIL: test_environment_contract_strips_overrides_and_uses_declared_path (test_c299_hosted_verify.HostedVerifierTests)
+An inherited tool/loader override must not survive or leak its value.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/dylanroy/Documents/Codex/2026-09-19/connect-research-repository/work/continuation299/engineering-preflight/test_c299_hosted_verify.py", line 32, in test_environment_contract_strips_overrides_and_uses_declared_path
+    self.assertTrue(hasattr(v, 'build_environment'), 'environment contract is missing')
+AssertionError: False is not true : environment contract is missing
+
+======================================================================
+FAIL: test_phase_environment_mutation_is_blocked_and_receipted (test_c299_hosted_verify.HostedVerifierTests)
+A changed search path or injected loader must fail before the child runs.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/dylanroy/Documents/Codex/2026-09-19/connect-research-repository/work/continuation299/engineering-preflight/test_c299_hosted_verify.py", line 60, in test_phase_environment_mutation_is_blocked_and_receipted
+    self.assertTrue(hasattr(v, 'build_environment'), 'environment contract is missing')
+AssertionError: False is not true : environment contract is missing
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.008s
+
+FAILED (failures=2)

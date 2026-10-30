@@ -1,0 +1,23 @@
+{
+  "schema": "c299-candidate2-freeze-v1",
+  "created_utc": "2026-10-20T13:59:11.371819+00:00",
+  "source": "project/CriticalRidge.lean",
+  "bytes": 8149,
+  "sha256": "b3c22e590f761953ba322ad2903978e3982179204ad5c4a166dffc5fa1558322",
+  "source_snapshot": "execution/author/source-attempts/b3c22e590f761953ba322ad2903978e3982179204ad5c4a166dffc5fa1558322.lean",
+  "predecessor_sha256": "729b57030c9d595b6ee9061b7cc6c730a6de713044ab0f7509637ed029771375",
+  "predecessor_receipt": "execution/author/runs/20261020T134843Z-89c13163/RECEIPT.json",
+  "predecessor_receipt_sha256": "6db1db80b14045d5b964658b76aa620fa512a960aab1e767e853cb7a97e92c45",
+  "predecessor_result": "600.041933625 second native import timeout; no diagnostics; no object; not a proof verdict",
+  "diff": "execution/author/CANDIDATE2.diff",
+  "diff_sha256": "ae861fed21ed6ad6a8f24daf974971cbe200173663e880a1d5f8c5d13273fe40",
+  "changes": [
+    "Explicit basepoint transport p + ridgeAddition V 0 = p before derivative composition",
+    "Explicit zero-addition simplification in negative partial derivative block identity"
+  ],
+  "public_binder_changes": false,
+  "public_declaration_count": 9,
+  "lean_execution_on_candidate2": false,
+  "native_retry_performed": false,
+  "scientific_effect": "NONE"
+}
