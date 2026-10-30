@@ -158,7 +158,7 @@ class WrapperProtocolTests(unittest.TestCase):
             cases = (
                 ('wrong-usage-header', expected.replace(
                     b'usage: rate.py', b'usage: rate.py bogus', 1), 2, b''),
-                ('extra-indented-stderr', usage + b'    unrelated indented stderr\\n' + diagnostic, 2, b''),
+                ('extra-indented-stderr', usage + b'    unrelated indented stderr' + bytes((10,)) + diagnostic, 2, b''),
                 ('missing-terminal-newline', expected[:-1], 2, b''),
                 ('extra-terminal-output', expected + b'\n', 2, b''),
                 ('wrong-exit', expected, 1, b''),
