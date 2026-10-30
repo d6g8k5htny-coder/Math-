@@ -55,15 +55,95 @@ jobs:
               blob = hashlib.sha1(b'blob %d\0' % len(data) + data).hexdigest()
               if len(data) != entry['bytes'] or hashlib.sha256(data).hexdigest() != entry['sha256'] or blob != entry['git_blob']:
                   raise ValueError('consumed source identity mismatch on this tree: ' + entry['path'])
-          script = str(root / 'tail_constants.py')
+          validator_source = r'''
+          class Result:
+              def __init__(self, returncode, stdout=b"", stderr=b""):
+                  self.returncode = returncode
+                  self.stdout = stdout
+                  self.stderr = stderr
+          
+          def validate_baseline(result):
+              expected = b'{"check": "ok", "mutant": null}\n'
+              if result.returncode != 0 or result.stdout != expected or result.stderr != b"":
+                  raise ValueError("baseline output contract mismatch")
+          
+          def validate_mutant(result, diagnostic):
+              expected = ("FAIL: " + diagnostic + "\n").encode("utf-8")
+              if result.returncode != 1 or result.stdout != expected or result.stderr != b"":
+                  raise ValueError("mutant output contract mismatch: " + diagnostic)
+          
+          def reject(fn, result, *args):
+              try:
+                  fn(result, *args)
+              except ValueError:
+                  return
+              raise AssertionError("invalid child result was accepted")
+          
+          def synthetic_controls():
+              baseline = b'{"check": "ok", "mutant": null}\n'
+              validate_baseline(Result(0, baseline, b""))
+              for bad in (
+                  Result(0, b"not-json\n", b""),
+                  Result(0, baseline, b"unexpected stderr\n"),
+                  Result(0, baseline + b"extra\n", b""),
+                  Result(1, baseline, b""),
+              ):
+                  reject(validate_baseline, bad)
+          
+              expected = {
+                  "shape-integral": "I = 246528/35",
+                  "gamma-power": "cusp integral replay J_cusp k=0.5",
+                  "cusp-shift": "cusp integral replay J_cusp k=0.5",
+              }
+              for mutant, diagnostic in expected.items():
+                  valid = ("FAIL: " + diagnostic + "\n").encode("utf-8")
+                  validate_mutant(Result(1, valid, b""), diagnostic)
+                  wrong_label = b'{"check": "ok", "mutant": "wrong-mutant"}\n'
+                  for bad in (
+                      Result(1, b"", b"Traceback (most recent call last): RuntimeError\n"),
+                      Result(1, b"", b""),
+                      Result(1, b"FAIL: unrelated failure\n", b""),
+                      Result(1, valid, b"unexpected stderr\n"),
+                      Result(0, valid, b""),
+                      Result(1, baseline, b""),
+                      Result(1, wrong_label, b""),
+                  ):
+                      reject(validate_mutant, bad, diagnostic)
+          '''
+          
+          validator_namespace = {}
+          exec(validator_source, validator_namespace)
+          validate_baseline = validator_namespace['validate_baseline']
+          validate_mutant = validator_namespace['validate_mutant']
+          synthetic_code = validator_source + "\nsynthetic_controls()\nprint('synthetic process-predicate controls passed')\n"
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):
-              out = subprocess.run([sys.executable, *flags, script, '--check'], cwd=root, capture_output=True, timeout=900)
-              if out.returncode != 0:
-                  raise RuntimeError('check failed under ' + ' '.join(flags) + ': ' + out.stdout.decode()[-400:])
-              for m in ['shape-integral', 'gamma-power', 'cusp-shift']:
-                  rc = subprocess.run([sys.executable, *flags, script, '--check', '--mutant', m], cwd=root, capture_output=True, timeout=900).returncode
-                  if rc != 1:
-                      raise RuntimeError('mutant ' + m + ' not rejected')
-          print(json.dumps({'scientific_effect': 'NONE', 'certified': False}))
+              probe = subprocess.run([sys.executable, *flags, '-c', synthetic_code], capture_output=True, timeout=30)
+              if probe.returncode != 0 or probe.stderr != b'' or probe.stdout != b'synthetic process-predicate controls passed\n':
+                  raise RuntimeError('synthetic process-predicate controls failed under ' + ' '.join(flags) +
+                                     ': stdout=' + repr(probe.stdout) + ' stderr=' + repr(probe.stderr))
+          
+          script = str(root / 'tail_constants.py')
+          expected_mutants = {
+              'shape-integral': 'I = 246528/35',
+              'gamma-power': 'cusp integral replay J_cusp k=0.5',
+              'cusp-shift': 'cusp integral replay J_cusp k=0.5',
+          }
+          for flags in (['-B', '-S'], ['-B', '-O', '-S']):
+              baseline = subprocess.run([sys.executable, *flags, script, '--check'], cwd=root, capture_output=True, timeout=900)
+              try:
+                  validate_baseline(baseline)
+              except ValueError as exc:
+                  raise RuntimeError('baseline contract failed under ' + ' '.join(flags) +
+                                     ': rc=' + str(baseline.returncode) + ' stdout=' + repr(baseline.stdout) +
+                                     ' stderr=' + repr(baseline.stderr)) from exc
+              for mutant, diagnostic in expected_mutants.items():
+                  result = subprocess.run([sys.executable, *flags, script, '--check', '--mutant', mutant],
+                                          cwd=root, capture_output=True, timeout=900)
+                  try:
+                      validate_mutant(result, diagnostic)
+                  except ValueError as exc:
+                      raise RuntimeError('mutant ' + mutant + ' contract failed under ' + ' '.join(flags) +
+                                         ': rc=' + str(result.returncode) + ' stdout=' + repr(result.stdout) +
+                                         ' stderr=' + repr(result.stderr)) from exc
           PY
           git diff --exit-code
