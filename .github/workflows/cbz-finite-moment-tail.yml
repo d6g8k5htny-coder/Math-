@@ -1,0 +1,174 @@
+name: Finite MomentTail component self-test
+
+'on':
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  finite-moment-tail-self-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.11.16'
+      - name: Run all six commands and preserve actual outcomes
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python -B - <<'PY'
+          import datetime
+          import hashlib
+          import json
+          import os
+          import pathlib
+          import platform
+          import subprocess
+          import sys
+          import time
+          import traceback
+
+          root = pathlib.Path.cwd().resolve()
+          evidence = pathlib.Path(os.environ['RUNNER_TEMP']) / 'finite-moment-tail'
+          # A repeated invocation must not replace or mix earlier evidence.
+          evidence.mkdir(mode=0o700, parents=False, exist_ok=False)
+          os.environ['PYTHONDONTWRITEBYTECODE'] = '1'
+          os.environ['MOMENT_TAIL_EVIDENCE_DIR'] = str(evidence / 'mutants')
+          scoped_paths = [
+              '.github/workflows/cbz-finite-moment-tail.yml',
+              'cbz/finite_moment_tail_20261030/CONTRACT.json',
+              'cbz/finite_moment_tail_20261030/adapter.py',
+              'cbz/finite_moment_tail_20261030/test_adapter.py',
+              'formal/ResearchFormalCoreR1/MomentTail.lean',
+              'formal/tests/test_moment_tail.py',
+          ]
+          commands = [
+              ('adapter-normal', [sys.executable, '-B', 'cbz/finite_moment_tail_20261030/test_adapter.py', '-v']),
+              ('adapter-optimized', [sys.executable, '-B', '-O', 'cbz/finite_moment_tail_20261030/test_adapter.py', '-v']),
+              ('original-normal', [sys.executable, '-B', '-m', 'unittest', 'discover', '-s', 'formal/tests', '-p', 'test_moment_tail.py', '-v']),
+              ('original-optimized', [sys.executable, '-B', '-O', '-m', 'unittest', 'discover', '-s', 'formal/tests', '-p', 'test_moment_tail.py', '-v']),
+              ('campaign-normal', [sys.executable, '-B', 'cbz/finite_moment_tail_20261030/adapter.py', '--source-root', '.', 'campaign', '--seed', '20261030', '--count', '10019']),
+              ('campaign-optimized', [sys.executable, '-B', '-O', 'cbz/finite_moment_tail_20261030/adapter.py', '--source-root', '.', 'campaign', '--seed', '20261030', '--count', '10019']),
+          ]
+          receipt = {
+              'schema': 'finite-moment-tail-ci/v1',
+              'scope': 'FINITE_RATIONAL_COMPONENT_SELF_TEST_ONLY',
+              'scientific_effect': 'NONE',
+              'full_federation_admitted': False,
+              'started_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
+              'cwd': str(root),
+              'runtime': {'executable': sys.executable, 'python': sys.version,
+                          'platform': platform.platform(), 'orchestrator_optimization': sys.flags.optimize},
+              'github': {key: os.environ.get(key) for key in
+                         ('GITHUB_SHA', 'GITHUB_RUN_ID', 'GITHUB_RUN_ATTEMPT', 'GITHUB_EVENT_NAME')},
+              'environment': {'PYTHONDONTWRITEBYTECODE': os.environ['PYTHONDONTWRITEBYTECODE'],
+                              'MOMENT_TAIL_EVIDENCE_DIR': os.environ['MOMENT_TAIL_EVIDENCE_DIR']},
+              'checkout': {}, 'commands': [], 'errors': [],
+          }
+
+
+          def save(name, value):
+              (evidence / name).write_text(json.dumps(value, sort_keys=True, indent=2) + '\n')
+
+
+          def snapshot():
+              result = {}
+              for name in scoped_paths:
+                  try:
+                      data = (root / name).read_bytes()
+                      result[name] = {'sha256': hashlib.sha256(data).hexdigest(), 'bytes': len(data)}
+                  except Exception as exc:
+                      result[name] = {'error': type(exc).__name__, 'message': str(exc)}
+              return result
+
+
+          try:
+              # HEAD/tree attest the actual checkout, independently of adapter source provenance.
+              for label, args in [('sha', ['rev-parse', 'HEAD']),
+                                  ('tree', ['rev-parse', 'HEAD^{tree}']),
+                                  ('status', ['status', '--porcelain=v1', '--untracked-files=all'])]:
+                  argv = ['git', *args]
+                  result = subprocess.run(argv, cwd=root, shell=False, capture_output=True, check=False)
+                  receipt['checkout'][label] = {'argv': argv, 'returncode': result.returncode,
+                                              'stdout': result.stdout.decode('utf-8', 'replace'),
+                                              'stderr': result.stderr.decode('utf-8', 'replace')}
+                  if result.returncode:
+                      receipt['errors'].append('checkout metadata command failed: ' + label)
+              receipt['source_before'] = snapshot()
+              if any('error' in value for value in receipt['source_before'].values()):
+                  receipt['errors'].append('scoped source unreadable before execution')
+              save('receipt.json', receipt)
+              for index, (name, argv) in enumerate(commands, 1):
+                  prefix = '%02d-%s' % (index, name)
+                  entry = {'index': index, 'name': name, 'argv': argv, 'shell': False,
+                           'started_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
+                           'requested_optimization': int('-O' in argv),
+                           'runtime_executable': sys.executable,
+                           'stdout_file': prefix + '.stdout', 'stderr_file': prefix + '.stderr'}
+                  started = time.perf_counter()
+                  stdout = stderr = b''
+                  try:
+                      result = subprocess.run(argv, cwd=root, shell=False, capture_output=True,
+                                              check=False, timeout=150)
+                      stdout, stderr = result.stdout, result.stderr
+                      entry['returncode'] = result.returncode
+                  except subprocess.TimeoutExpired as exc:
+                      stdout, stderr = exc.stdout or b'', exc.stderr or b''
+                      entry.update(returncode=None, error='TimeoutExpired', timeout_seconds=150)
+                  except Exception as exc:
+                      stderr = traceback.format_exc().encode('utf-8')
+                      entry.update(returncode=None, error=type(exc).__name__, message=str(exc))
+                  entry['elapsed_seconds'] = time.perf_counter() - started
+                  entry['finished_utc'] = datetime.datetime.now(datetime.timezone.utc).isoformat()
+                  (evidence / entry['stdout_file']).write_bytes(stdout)
+                  (evidence / entry['stderr_file']).write_bytes(stderr)
+                  entry['stdout_sha256'] = hashlib.sha256(stdout).hexdigest()
+                  entry['stderr_sha256'] = hashlib.sha256(stderr).hexdigest()
+                  if name.startswith('campaign-'):
+                      try:
+                          campaign = json.loads(stdout)
+                          entry['campaign_execution'] = campaign['execution']
+                          entry['campaign_status'] = campaign['status']
+                          entry['campaign_counts'] = campaign['counts']
+                          if campaign['execution']['optimization'] != entry['requested_optimization']:
+                              raise ValueError('campaign actual optimization differs from argv')
+                      except Exception as exc:
+                          entry['report_error'] = type(exc).__name__ + ': ' + str(exc)
+                  receipt['commands'].append(entry)
+                  save(prefix + '.json', entry)
+                  save('receipt.json', receipt)
+          except Exception:
+              receipt['errors'].append(traceback.format_exc())
+          finally:
+              receipt['source_after'] = snapshot()
+              before = receipt.get('source_before', {})
+              receipt['source_changes'] = [name for name in scoped_paths
+                                           if before.get(name) != receipt['source_after'][name]]
+              if any('error' in value for value in receipt['source_after'].values()):
+                  receipt['errors'].append('scoped source unreadable after execution')
+              failed = (len(receipt['commands']) != len(commands) or receipt['errors'] or
+                        receipt['source_changes'] or
+                        any(entry.get('returncode') != 0 or 'report_error' in entry
+                            for entry in receipt['commands']))
+              receipt['status'] = 'FAIL' if failed else 'PASS'
+              receipt['finished_utc'] = datetime.datetime.now(datetime.timezone.utc).isoformat()
+              save('receipt.json', receipt)
+          print(json.dumps({'status': receipt['status'], 'commands_completed': len(receipt['commands']),
+                            'receipt': str(evidence / 'receipt.json')}))
+          sys.exit(1 if failed else 0)
+          PY
+      - name: Upload component evidence on success or failure
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: finite-moment-tail-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/finite-moment-tail
+          if-no-files-found: error

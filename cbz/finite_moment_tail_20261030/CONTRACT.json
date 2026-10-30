@@ -46,7 +46,7 @@
       "Weighted-law r4/r3 targets, uniform families, Palm normalizers, Kac-Rice or parent persistence theorems",
       "Other declarations, generic unpublished interpreter APIs, Lean kernel verification and automatic federation target inventory reduction"
     ],
-    "evidence_limit": "Finite observations may falsify an implementation or expose a finite witness. Passing samples never establish a universal theorem, scientific CLOSED status, full CBZ completion or full-federation admission. The existing theorem, hypotheses, bound, original tests, manifests and workflows are unchanged."
+    "evidence_limit": "Finite observations may falsify an implementation or expose a finite witness. Passing samples never establish a universal theorem, scientific CLOSED status, full CBZ completion or full-federation admission. The existing theorem, hypotheses, bound, original tests, manifests and pre-existing workflows are unchanged."
   },
   "case_schema": {
     "required_keys_exactly": ["target", "p", "R", "r", "epsilon", "M"],
@@ -131,5 +131,100 @@
     "optional_raw_evidence": "Set MOMENT_TAIL_EVIDENCE_DIR to a private directory when running tests to preserve each actual mutant source, source cut, source SHA256, argv, parent/child optimization, return code and stdout/stderr. No evidence files are written by default. MOMENT_TAIL_ADAPTER_FILE is a test-only alternate actual source path, not a production evaluator switch.",
     "interpretation": "Mutant assertion failures demonstrate bounded executable discrimination. Import errors, invalid mathematical inputs, source mismatches and unsupported statuses receive no mathematical counterexample credit."
   },
-  "integration_boundary": "This is a complete standalone component offered for future compatible generic-harness integration and native governance registration. It registers no global target, changes no manifest/workflow, and creates no interpreter stub. Any later admission must bind the actual integrated source and preserve the unsupported inventory and finite-specialization label."
+  "integration_boundary": "This is a complete standalone component offered for future compatible generic-harness integration and native governance registration. It registers no global target, changes no manifest or pre-existing workflow, and creates no interpreter stub. The native CI workflow below performs only this bounded component self-test; it establishes no required-status binding or global gate. Any later admission must bind the actual integrated source and preserve the unsupported inventory and finite-specialization label.",
+  "native_ci": {
+    "workflow": ".github/workflows/cbz-finite-moment-tail.yml",
+    "job_id": "finite-moment-tail-self-test",
+    "triggers": "Every pull_request, every push to main, and workflow_dispatch; no path filtering or schedule.",
+    "runtime": "ubuntu-latest; actions/setup-python pins Python 3.11.16; standard library only; no dependency installation or network calls by verification commands.",
+    "permissions": "contents: read; checkout persist-credentials: false; no secrets are requested; job timeout 20 minutes.",
+    "action_pins": {
+      "checkout": "3d3c42e5aac5ba805825da76410c181273ba90b1",
+      "setup-python": "6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+      "upload-artifact": "cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+    },
+    "commands": [
+      [
+        "{sys.executable}",
+        "-B",
+        "cbz/finite_moment_tail_20261030/test_adapter.py",
+        "-v"
+      ],
+      [
+        "{sys.executable}",
+        "-B",
+        "-O",
+        "cbz/finite_moment_tail_20261030/test_adapter.py",
+        "-v"
+      ],
+      [
+        "{sys.executable}",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "formal/tests",
+        "-p",
+        "test_moment_tail.py",
+        "-v"
+      ],
+      [
+        "{sys.executable}",
+        "-B",
+        "-O",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "formal/tests",
+        "-p",
+        "test_moment_tail.py",
+        "-v"
+      ],
+      [
+        "{sys.executable}",
+        "-B",
+        "cbz/finite_moment_tail_20261030/adapter.py",
+        "--source-root",
+        ".",
+        "campaign",
+        "--seed",
+        "20261030",
+        "--count",
+        "10019"
+      ],
+      [
+        "{sys.executable}",
+        "-B",
+        "-O",
+        "cbz/finite_moment_tail_20261030/adapter.py",
+        "--source-root",
+        ".",
+        "campaign",
+        "--seed",
+        "20261030",
+        "--count",
+        "10019"
+      ]
+    ],
+    "execution": "The inline stdlib Python orchestrator invokes every command in order with subprocess.run(shell=False), sys.executable, -B and explicit -O for optimized children. Each command has a 150 second timeout. A command failure, launch exception or timeout is retained and later commands still execute. PYTHONDONTWRITEBYTECODE=1 applies to all children; MOMENT_TAIL_EVIDENCE_DIR is RUNNER_TEMP/finite-moment-tail/mutants.",
+    "evidence_directory": "RUNNER_TEMP/finite-moment-tail must not exist initially; an existing directory is preserved and the invocation fails. Each invocation uses its fresh runner temporary directory.",
+    "receipt_schema": {
+      "schema": "finite-moment-tail-ci/v1",
+      "receipt.json": "Actual checkout git HEAD SHA, committed tree and worktree status with metadata argv/rc/stdout/stderr; GitHub SHA/run/attempt/event labels separately; actual orchestrator executable/version/platform/optimization, environment and UTC timing; six command entries; errors, before/after scoped source hashes, changed paths and PASS/FAIL component execution status. The actual checkout may be a PR merge commit; source_reference commit/tree above remain provenance only. A dirty local checkout is represented by its git status and actual scoped hashes, not rebound to the committed tree.",
+      "command_receipts": "01-adapter-normal through 06-campaign-optimized each retain .json, .stdout and .stderr. JSON records actual complete argv, shell=false, rc (null on launch error/timeout), elapsed/UTC timings, requested optimization, executable and raw output SHA256. Campaign JSON stdout supplies actual child runtime/optimization plus counts/status; its execution/counts/status are also copied into the command receipt. Mutant/CLI sources, receipts and raw outputs are retained separately beneath mutants by unchanged tests.",
+      "scoped_inputs": [
+        ".github/workflows/cbz-finite-moment-tail.yml",
+        "cbz/finite_moment_tail_20261030/CONTRACT.json",
+        "cbz/finite_moment_tail_20261030/adapter.py",
+        "cbz/finite_moment_tail_20261030/test_adapter.py",
+        "formal/ResearchFormalCoreR1/MomentTail.lean",
+        "formal/tests/test_moment_tail.py"
+      ]
+    },
+    "failure_policy": "The final orchestrator step exits nonzero if any command has a nonzero or missing exit, campaign execution metadata cannot be read or optimization mismatches, scoped source bytes change or are unreadable, checkout metadata fails, fewer than six commands complete, or an internal orchestrator error occurs. Raw failures remain evidence; the step is never continue-on-error.",
+    "artifact": "Pinned upload-artifact runs with always(), uploads the entire evidence directory as finite-moment-tail-${{ github.run_id }}-${{ github.run_attempt }}, and uses if-no-files-found: error. Upload failure fails the job. Neither a missing artifact nor a failed command qualifies as a green run.",
+    "limitations": "This bounded empirical component workflow does not attest the entire federation, run Lean, establish universal mathematics or scientific CLOSED status, reduce unsupported target inventory, create a required-status setting, or declare G0-G11/full CBZ admission. Local replay proves only the recorded local runtime; hosted Python 3.11.16 execution requires a fresh hosted run/attempt and artifact."
+  }
 }
