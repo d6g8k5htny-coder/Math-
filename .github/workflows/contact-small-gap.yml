@@ -32,9 +32,59 @@ jobs:
           PYTHONDONTWRITEBYTECODE: '1'
         run: |
           python -B -S - <<'PY'
-          import hashlib,json,os,pathlib,shutil,subprocess,sys
-          root=pathlib.Path('reviews/contact_kernel_tail_20260925').resolve()
+          import hashlib,json,os,pathlib,shutil,subprocess,sys,tempfile
+          root=pathlib.Path('reviews/contact_kernel_tail_20260925')
           out=pathlib.Path(os.environ['RUNNER_TEMP'])/'contact-small-gap'
+          # Fixed workflow-side trust pins; the candidate manifest cannot authorize its own runner.
+          EXPECTED_BLOBS={
+              'run_validation.py':'c60624104972b5f619dfcf7c63429e573297125f',
+              'SOURCE_FILES.json':'a096b6bc5643b983ade7c9f3d02b6490e932ebab',
+          }
+          EXPECTED_FILES={
+              'ANNULUS_ASYMPTOTIC_BRIDGE.md',
+              'COORDINATION.md',
+              'KERNEL_TAILS_AND_SMALL_GAP.md',
+              'README.md',
+              'RECONNAISSANCE.md',
+              'RESULTS.json',
+              'contact_tools.py',
+              'run_validation.py',
+              'test_contact_tools.py',
+          }
+          EXPECTED_ENTRIES=EXPECTED_FILES|{'SOURCE_FILES.json'}
+          def require(ok,message):
+              if not ok:raise RuntimeError(message)
+          def git_blob(path):
+              raw=path.read_bytes()
+              return hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest()
+          def verify_packet(packet):
+              require(not packet.is_symlink() and packet.is_dir(),'packet root must be a real directory')
+              entries=list(packet.iterdir())
+              require({p.name for p in entries}==EXPECTED_ENTRIES,'unexpected packet directory membership')
+              require(all(not p.is_symlink() and p.is_file() for p in entries),'packet entries must be regular files')
+              for name,expected in EXPECTED_BLOBS.items():
+                  require(git_blob(packet/name)==expected,'workflow trust-pin mismatch: '+name)
+              manifest=json.loads((packet/'SOURCE_FILES.json').read_text())
+              require(set(manifest.get('files',{}))==EXPECTED_FILES,'manifest path set mismatch')
+          verify_packet(root)
+          with tempfile.TemporaryDirectory(dir=os.environ['RUNNER_TEMP']) as temp:
+              for attack in ('manifest-removal','noop-runner','combined'):
+                  packet=pathlib.Path(temp)/attack
+                  shutil.copytree(root,packet)
+                  if attack in ('manifest-removal','combined'):
+                      manifest=json.loads((packet/'SOURCE_FILES.json').read_text())
+                      manifest['files'].pop('run_validation.py',None)
+                      (packet/'SOURCE_FILES.json').write_text(json.dumps(manifest,indent=2,sort_keys=True)+'\n')
+                  if attack in ('noop-runner','combined'):
+                      (packet/'run_validation.py').write_text(
+                          'import argparse\nfrom pathlib import Path\nparser=argparse.ArgumentParser()\nparser.add_argument("--output",type=Path,required=True)\nargs=parser.parse_args()\nargs.output.mkdir(parents=True)\n'
+                      )
+                  try:
+                      verify_packet(packet)
+                  except RuntimeError:
+                      pass
+                  else:
+                      raise RuntimeError('adverse candidate accepted: '+attack)
           subprocess.run([sys.executable,'-B','-S',str(root/'run_validation.py'),'--output',str(out)],check=True,timeout=150)
           review=pathlib.Path('reviews/pr16_fixed_transverse_nonauthor_20260925')
           script=review/'algebra_check.py'
