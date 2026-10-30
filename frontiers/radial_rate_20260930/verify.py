@@ -84,6 +84,43 @@ def inventory(root):
     return len(es)
 
 
+EXPECTED_MUTANT_ERRORS = {
+    'omit-shift': 'second coefficient mismatch',
+    'omit-density-term': 'second coefficient mismatch',
+    'drop-a-shear': 'second coefficient mismatch',
+    'odd-term-survives': 'odd inverse powers do not cancel',
+    'unsigned-is-signed': 'signed first-order bias',
+    'wrong-b-integral': 'shape integral mismatch',
+    'wrong-density-factor': 'radial density coefficient',
+    'wrong-tv-root': 'TV crossing root',
+}
+
+
+def validate_mutant_result(name, run):
+    expected_error = EXPECTED_MUTANT_ERRORS.get(name)
+    if expected_error is None:
+        raise ValueError('unknown semantic mutant contract: ' + str(name))
+    expected_stdout = (json.dumps({'error': expected_error, 'passed': False},
+                                  sort_keys=True) + '\n').encode('utf-8')
+    if run.returncode != 1 or run.stdout != expected_stdout or run.stderr != b'':
+        raise ValueError('mutant failure contract mismatch: ' + name)
+
+
+def validate_unknown_result(run):
+    choices = ', '.join(repr(name) for name in MUTANTS)
+    expected_diagnostic = (
+        "rate.py: error: argument --mutant: invalid choice: 'unknown' "
+        f"(choose from {choices})"
+    ).encode('utf-8')
+    lines = run.stderr.splitlines()
+    if (run.returncode != 2 or run.stdout != b'' or len(lines) < 2
+            or not lines[0].startswith(b'usage: rate.py ')
+            or lines[-1] != expected_diagnostic
+            or lines.count(expected_diagnostic) != 1
+            or any(not line.startswith(b' ') for line in lines[1:-1])):
+        raise ValueError('unknown mutant label did not produce argparse invalid-choice diagnostic')
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--local-only',action='store_true');args=parser.parse_args()
     root=Path(__file__).absolute().parent;inventory(root)
@@ -94,9 +131,13 @@ def main():
         command=[sys.executable,*flags,str(root/'rate.py')]
         run=subprocess.run(command,capture_output=True,check=True,timeout=45)
         if run.stdout!=expected or run.stderr:raise ValueError('deterministic replay mismatch')
-        for mutant in (*MUTANTS,'unknown'):
+        if tuple(EXPECTED_MUTANT_ERRORS) != MUTANTS:
+            raise ValueError('mutant reason inventory mismatch')
+        for mutant in MUTANTS:
             run=subprocess.run(command+['--mutant',mutant],capture_output=True,timeout=45)
-            if run.returncode!=(2 if mutant=='unknown' else 1):raise ValueError('negative control not rejected: '+mutant)
+            validate_mutant_result(mutant,run)
+        run=subprocess.run(command+['--mutant','unknown'],capture_output=True,timeout=45)
+        validate_unknown_result(run)
     inventory(root)
     print(json.dumps({'passed':True,'source_count':nsource,'source_pins_checked':not args.local_only,
                       'mathematical_acceptance':False,'scientific_effect':'NONE'},sort_keys=True))
