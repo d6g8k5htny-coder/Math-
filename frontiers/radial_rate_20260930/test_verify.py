@@ -153,14 +153,14 @@ class WrapperProtocolTests(unittest.TestCase):
 
             expected = v.expected_unknown_stderr()
             parts = expected.splitlines()
-            usage = b'\\n'.join(parts[:-1]) + b'\\n'
-            diagnostic = parts[-1] + b'\\n'
+            usage = b'\n'.join(parts[:-1]) + b'\n'
+            diagnostic = parts[-1] + b'\n'
             cases = (
                 ('wrong-usage-header', expected.replace(
                     b'usage: rate.py', b'usage: rate.py bogus', 1), 2, b''),
                 ('extra-indented-stderr', usage + b'    unrelated indented stderr\\n' + diagnostic, 2, b''),
                 ('missing-terminal-newline', expected[:-1], 2, b''),
-                ('extra-terminal-output', expected + b'\\n', 2, b''),
+                ('extra-terminal-output', expected + b'\n', 2, b''),
                 ('wrong-exit', expected, 1, b''),
                 ('unexpected-stdout', expected, 2, b'unexpected'),
             )
