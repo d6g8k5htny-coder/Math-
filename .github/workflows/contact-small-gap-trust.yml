@@ -1,0 +1,41 @@
+name: Contact small-gap base-owned source trust check
+
+'on':
+  pull_request_target:
+    branches: [main]
+    types: [opened, reopened, synchronize, edited, ready_for_review]
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: "Existing contact-small-gap candidate PR (must be 547)"
+        required: true
+        default: "547"
+        type: string
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  contact-small-gap-trust:
+    name: contact-small-gap-trust
+    if: (github.event_name == 'pull_request_target' && github.event.pull_request.number == 547) || (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: read
+    steps:
+      - name: Read only the trusted base-branch verifier
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          # Both supported events run only on the trusted base/default main ref.
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          sparse-checkout: .github/scripts/verify_contact_small_gap_trust.py
+          sparse-checkout-cone-mode: false
+      - name: Verify live PR metadata and immutable Git tree identities (GET only)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ inputs.pr_number || '547' }}
+        run: python3 -B -I .github/scripts/verify_contact_small_gap_trust.py
