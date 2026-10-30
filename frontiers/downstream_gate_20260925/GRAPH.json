@@ -704,6 +704,479 @@
       "author_provider": "nonauthor",
       "fingerprint": "43beb4ef7da5bf71e15164d5c4bc1862db387d83f906aebdf9831625b1ca6369",
       "source": "reviews/d5_offpin_second_moment_20260928/REVIEW.md"
+    },
+    "math.gad-smooth-gaussian-manifold-admission": {
+      "layer": "SOURCE_ADMISSION",
+      "kind": "candidate",
+      "classification": "AUTHOR_SIDE_CANDIDATE",
+      "controlling": false,
+      "fingerprint": "8d992e194f0a898e563c4c3d05b8079cde292f9e87d7ff51030ad12ef5faf319",
+      "source": "frontiers/gaussian_short_bar_theory_20261017/smooth_gaussian_manifold_admission/PROOF.md",
+      "source_binding": {
+        "repository": "d6g8k5htny-coder/Math-",
+        "commit": "b50417f8ab7ed391ef99ba28215459a1ecde8685",
+        "path": "frontiers/gaussian_short_bar_theory_20261017/smooth_gaussian_manifold_admission/PROOF.md",
+        "git_blob": "d61fd11a826856baecb4cf4cd8a76ad5c25350dd",
+        "sha256": "8d992e194f0a898e563c4c3d05b8079cde292f9e87d7ff51030ad12ef5faf319",
+        "bytes": 40231
+      },
+      "scope": "One fixed connected compact boundaryless smooth Riemannian manifold d>=1 and actual centered dense smooth Gaussian series with strictly positive all-norm-summable coefficients; expected finite ordinary H0 lifetime density nu(ell)~C ell^(-1/3) and integrated count~(3/2)C t^(2/3).",
+      "notes": "No uniform family constants, finite-lifetime window, same-field spatial PPP, Hk extension, sampler or numerical certificate. IG is a model/context only, not an asserted logical premise.",
+      "classification_disposition": "PROPOSED_SOURCE_ONLY_PENDING_GOVERNING_CLASSIFICATION; scoped acceptance is retained separately and does not satisfy positive premises.",
+      "critical_Lean_status": "NOT_FORMALIZED_FOR_THIS_STATEMENT",
+      "scientific_status_unchanged": true,
+      "review_source": "https://github.com/d6g8k5htny-coder/Math-/blob/b50417f8ab7ed391ef99ba28215459a1ecde8685/frontiers/gaussian_short_bar_theory_20261017/smooth_gaussian_manifold_admission/REVIEW.md",
+      "review_binding": {
+        "repository": "d6g8k5htny-coder/Math-",
+        "commit": "b50417f8ab7ed391ef99ba28215459a1ecde8685",
+        "path": "frontiers/gaussian_short_bar_theory_20261017/smooth_gaussian_manifold_admission/REVIEW.md",
+        "git_blob": "554994ce28ea6b9e63450aa12301e5f220ec2e40",
+        "sha256": "6fedc43ba34408f23f8934166b3898e2cd19175c57e61e37227c85f3ca5d4c70",
+        "bytes": 38035
+      },
+      "review_disposition": "ACCEPT_SCOPED_CONVENTIONAL_AS_RECORDED",
+      "review_exposure": "Source-exposed; actual provider/author distinctions remain as recorded in exact review, no added independence credit.",
+      "literal_hypotheses": {
+        "start_byte": 751,
+        "end_byte": 1791,
+        "sha256": "9405c3c567ad5324a55a6d0db87d07709c31f0cfe08a9e0171506eeb9759bb24",
+        "one_based_lines": [
+          13,
+          32
+        ],
+        "literal_text": "## 1. The law, theorem and distinction from the previous conditional result\n\nFix a connected compact boundaryless smooth manifold X, a smooth Riemannian\nmetric g, and a fixed dimension d >= 1. Write V = vol_g(X). Choose deterministic\nreal functions phi_j in C-infinity(X), j >= 1, such that their real linear span\nis dense in the usual C-infinity topology. Choose strictly positive a_j with\n\n    A_q = sum_j a_j ||phi_j||_Cq < infinity, for every integer q >= 0.       (1)\n\nThe norms can be the increasing norms sum_{h<=q} sup_X |nabla^h f|_g;\ncoordinate norms from a finite atlas are equivalent. Let Z_j be independent\nstandard real Gaussians and define the actual law by\n\n    F = sum_j a_j Z_j phi_j.                                             (2)\n\nNeither stationarity, constant variance, isotropy, parity, a flat metric, nor\na distinguished global frame is required. The independent Gaussian law and\nthe full dense support are substantive hypotheses. The covariance is the\nactual smooth kernel K(p,q) = sum_j a_j^2 phi_j(p) phi_j(q).\n\n"
+      },
+      "classical_imports": {
+        "start_byte": 36516,
+        "end_byte": 38087,
+        "sha256": "ea8c29bc3438527e92b2c5766c7cc09cd0eec4552ed1853cf059397e5f1da434",
+        "one_based_lines": [
+          684,
+          707
+        ],
+        "literal_text": "The result is a conventional proof under these explicit imports:\n\n* Smooth finite coordinate refinements, bump cutoffs and partitions of\n  unity on compact smooth manifolds; inverse/implicit-function theorem;\n  existence of a uniform short-geodesic scale and smooth parallel frames.\n* Equal-dimensional smooth Sard: critical values of a smooth map between\n  equal-dimensional finite-dimensional manifolds are Lebesgue-null.\n* Weighted equal-dimensional Euclidean area formula for a locally Lipschitz\n  map and every nonnegative Borel integrand, with multiplicity; applied\n  only on compact subdomains of smooth finite-dimensional incidence maps.\n* Classical Morse local form, critical-free compact level-band flow and\n  isolated handle attachment for an actual smooth Morse function. ST's\n  Borel elder construction and its vector-ridge deterministic elder lemma\n  supply the precise H0 use; no separate stochastic selection import exists.\n* Elementary finite Gaussian regression, finite joint Gaussian uniqueness,\n  Tonelli, Minkowski, dominated convergence and ordinary change of variables.\n\nThe finite-jet bump interpolation, actual finite coefficient minors,\nresidual-rank implication, fixed-target Bayes identity, infinite-field\nregression, norm bounds and all five stochastic interfaces were proved\nhere. No general infinite-dimensional transversality theorem, conditional\nMorse theorem, or all-Borel Kac-Rice theorem is imported without proof.\nThe only global H0 topology imported is the stated deterministic Morse\nlevel/handle package, as already explicit in ST.\n"
+      },
+      "unproved_application_obligations": [
+        "An intended external field/driver must be proved equal to this actual Gaussian law.",
+        "Effective lifetime window/remainder M31, sampler/arithmetic, count-transfer and confidence/power remain separate."
+      ],
+      "critical_Lean_interfaces": [
+        "C-infinity law and literal-target infinite Gaussian regression",
+        "All-Borel incidence/Rice and count measurability",
+        "Global elder selection from actual field hypotheses",
+        "All-mark envelope/far bounds and asymptotic density passage"
+      ]
+    },
+    "math.ng-independent-gaussian-smoothing-admission": {
+      "layer": "SOURCE_ADMISSION",
+      "kind": "candidate",
+      "classification": "AUTHOR_SIDE_CANDIDATE",
+      "controlling": false,
+      "fingerprint": "322195ff6693f17047d9ec60c52f8178f5f3a215c4f4cba42dd342ff59dbc116",
+      "source": "frontiers/nongaussian_smoothing_admission_20261017/PROOF.md",
+      "source_binding": {
+        "repository": "d6g8k5htny-coder/Math-",
+        "commit": "b50417f8ab7ed391ef99ba28215459a1ecde8685",
+        "path": "frontiers/nongaussian_smoothing_admission_20261017/PROOF.md",
+        "git_blob": "9df1a2c4ac9ec668b90729cc31c9195685a4b7c7",
+        "sha256": "322195ff6693f17047d9ec60c52f8178f5f3a215c4f4cba42dd342ff59dbc116",
+        "bytes": 38656
+      },
+      "scope": "Independent product F=G+W; G fixed positive dense smooth Gaussian series, W independent Borel smooth field with every positive polynomial Cq-norm moment. H0 for d>=1; degrees0..d-1 only for d>=2 oriented X. Degree-marked iid whole-copy PPP, not within-field spatial PPP.",
+      "notes": "No Gaussian parity/covariance-only replacement for the actual nonGaussian conditional law; no uniform limit as Gaussian component vanishes; no arbitrary nonGaussian admission.",
+      "classification_disposition": "PROPOSED_SOURCE_ONLY_PENDING_GOVERNING_CLASSIFICATION; scoped acceptance is retained separately and does not satisfy positive premises.",
+      "critical_Lean_status": "NOT_FORMALIZED_FOR_THIS_STATEMENT",
+      "scientific_status_unchanged": true,
+      "review_source": "https://github.com/d6g8k5htny-coder/Math-/blob/b50417f8ab7ed391ef99ba28215459a1ecde8685/frontiers/nongaussian_smoothing_admission_20261017/REVIEW.md",
+      "review_binding": {
+        "repository": "d6g8k5htny-coder/Math-",
+        "commit": "b50417f8ab7ed391ef99ba28215459a1ecde8685",
+        "path": "frontiers/nongaussian_smoothing_admission_20261017/REVIEW.md",
+        "git_blob": "4af49a9319f86cf0d24248deb0ca0fbba66be404",
+        "sha256": "2dfe06601aa07bf0fa54923461f8367ba3018d30f1d6f43ff37a64a81d3b8adb",
+        "bytes": 38360
+      },
+      "review_disposition": "ACCEPT_SCOPED_CONVENTIONAL_AS_RECORDED",
+      "review_exposure": "Source-exposed; actual provider/author distinctions remain as recorded in exact review, no added independence credit.",
+      "literal_hypotheses": {
+        "start_byte": 530,
+        "end_byte": 2202,
+        "sha256": "f88c8fd4d5d03023f37284d3ba0077766d38f8d09856bb52647d19bd772b5b90",
+        "one_based_lines": [
+          12,
+          45
+        ],
+        "literal_text": "Let X be a fixed nonempty connected compact smooth manifold without\nboundary, with fixed smooth Riemannian metric g and dimension d>=1.\nWrite V=vol_g(X). Fix an actual centered Gaussian smooth random field\n\n    G=sum_{j>=1} a_j Z_j phi_j,                                    (1)\n\nwhere Z_j are the original independent standard real Gaussians, a_j>0,\nthe real span of the deterministic phi_j is dense in C-infinity(X), and\n\n    sum_j a_j ||phi_j||_Cq < infinity  for every integer q>=0.       (2)\n\nUse increasing smooth norms from covariant derivatives or a finite\ncoordinate atlas. Fix independently a Borel C-infinity(X)-valued random\nfield W such that\n\n    E ||W||_Cq^m < infinity  for every integer q>=0 and every m>0.   (3)\n\nW need not be centered, Gaussian, stationary, bounded, or have any\nexponential moment. A deterministic smooth W is allowed. The actual\nlaw under consideration is the independent product construction\n\n    F=G+W.                                                        (4)\n\nThe nonzero Gaussian component and independence are substantive\nhypotheses. Constants are for this fixed decomposition, law, metric and\ndimension. There is no assertion uniform as the Gaussian component\nvanishes or its spectra/geometry degenerate. The theorem does not say\nevery smooth nonGaussian law has this decomposition.\n\nFor ordinary persistence over any fixed coefficient field K, exclude\nessential intervals. If d>=2 and X is orientable, let p=0,...,d-1. If\nX is not assumed orientable, the assertion here is p=0 only. In d=1\nit is also p=0 only. For each of these degrees the expected finite\nsuperlevel-Hp lifetime measure per volume has the explicitly specified\n"
+      },
+      "classical_imports": {
+        "start_byte": 36969,
+        "end_byte": 37696,
+        "sha256": "d1872bb22d86a9826ece7cd0318ef65236aed811869c6c80a8ff18bff1b2c378",
+        "one_based_lines": [
+          742,
+          752
+        ],
+        "literal_text": "Classical mathematical imports remaining are finite-dimensional\nGaussian regression/uniqueness, smooth finite-dimensional Sard and\nsmooth incidence counting via local inverses and ordinary change\nof variables, Taylor/implicit-function calculus and short-geodesic\ncoordinates, the named Morse handle/relative-incidence and finite\npersistence package in HF, Tonelli, Minkowski/Holder, dominated\nconvergence, and the elementary Laplace characterization of a Poisson\nrandom measure. GAD and HF state and derive their precise uses;\nno new infinite-dimensional transversality or Kac-Rice theorem is\nsilently imported. The full copies and read extents are recorded in\nINPUT_MANIFEST.json. No new full primary-book reading is claimed.\n"
+      },
+      "unproved_application_obligations": [
+        "Verify any proposed external law has this independent positive-Gaussian decomposition and all stated norm moments.",
+        "HF deterministic continuation/isolated-fold hypotheses must hold at each consumed contact; its SG probability sections are not transferred.",
+        "No sampler, coefficient enclosure, finite-lifetime error window, same-field factorial/PPP or broad model campaign."
+      ],
+      "critical_Lean_interfaces": [
+        "Product-space law/independence and conditional unnormalized kernels",
+        "Degree-specific same-field geometry and global pairing/once-counting",
+        "All-mark endpoint exhaustion and iid Laplace limit"
+      ]
+    },
+    "math.original-finite-l-gad-coefficient-identification": {
+      "layer": "SOURCE_ADMISSION",
+      "kind": "candidate",
+      "classification": "AUTHOR_SIDE_CANDIDATE",
+      "controlling": false,
+      "fingerprint": "ad9ab5afea28062dfc661d0d19b43f20e67cfd67cb6910d3cc6c3fb8b81398d8",
+      "source": "frontiers/original_finite_l_gaussian_binding_20261017/PROOF.md",
+      "source_binding": {
+        "repository": "d6g8k5htny-coder/Math-",
+        "commit": "b50417f8ab7ed391ef99ba28215459a1ecde8685",
+        "path": "frontiers/original_finite_l_gaussian_binding_20261017/PROOF.md",
+        "git_blob": "e8bb07fe8fab94616f02bdf792c34e3b337e1cf6",
+        "sha256": "ad9ab5afea28062dfc661d0d19b43f20e67cfd67cb6910d3cc6c3fb8b81398d8",
+        "bytes": 22163
+      },
+      "scope": "Each fixed integer d>=2 and finite real L>0 for the exact original full positive Gaussian Fourier law, constant mode retained and physical frequencies2pi*m/L: C_GAD=C_alg(d,L), specified density representative and integrated ordinary H0 asymptotics.",
+      "notes": "Alternative GAD-based ideal-law source alignment; not retrospective proof of every ORIGINAL§§7-9 argument. Numerical method acceptance is not a premise of this theorem.",
+      "classification_disposition": "PROPOSED_SOURCE_ONLY_PENDING_GOVERNING_CLASSIFICATION; scoped acceptance is retained separately and does not satisfy positive premises.",
+      "critical_Lean_status": "NOT_FORMALIZED_FOR_THIS_STATEMENT",
+      "scientific_status_unchanged": true,
+      "review_source": "https://github.com/d6g8k5htny-coder/Math-/blob/b50417f8ab7ed391ef99ba28215459a1ecde8685/frontiers/original_finite_l_gaussian_binding_20261017/REVIEW.md",
+      "review_binding": {
+        "repository": "d6g8k5htny-coder/Math-",
+        "commit": "b50417f8ab7ed391ef99ba28215459a1ecde8685",
+        "path": "frontiers/original_finite_l_gaussian_binding_20261017/REVIEW.md",
+        "git_blob": "95c0d25a1caa49f95c8bcd3a2d3f131d460da890",
+        "sha256": "ea09be7dbe4baea3b141e75ce563b5adb8752bb42ff16fc65735ed44974ce096",
+        "bytes": 23795
+      },
+      "review_disposition": "ACCEPT_SCOPED_CONVENTIONAL_AS_RECORDED",
+      "review_exposure": "Source-exposed; actual provider/author distinctions remain as recorded in exact review, no added independence credit.",
+      "literal_hypotheses": {
+        "start_byte": 707,
+        "end_byte": 2448,
+        "sha256": "34f3f9fc4092836b86ae31f68441102a65f694d3e20c6c2f3d02f12f7c16905e",
+        "one_based_lines": [
+          15,
+          47
+        ],
+        "literal_text": "Fix an integer d>=2 and a finite real L>0, and use physical coordinates\non X=R^d/(L Z^d) with its flat metric and physical volume L^d. ORIGINAL\nis the exact24027-byte/629-line independent-derivation.md, SHA256\n`f38c085ab5b15368e6989a1fd6298490f3b671f5a6c3a01bcdc81b516022bc33`,\npublic in\n[Math193/6242350213](https://github.com/d6g8k5htny-coder/Math-/issues/193#issuecomment-6242350213).\nIts expression(1), denoted C_alg(d,L), is\n\n    C_alg = Gamma(7/6)/[24^(1/3)sqrt(pi)(2pi)^d a^(d/2)]\n        integral_S^(d-1) F_L(e) V_L(e)^(2/3)\n                                  /sqrt(det B_L(e)) d omega(e).    (1)\n\nThe original moments, conditioned Hessian law and full sphere AREA measure\nin(1) are retained exactly, as defined below. This is not a fitted amplitude,\nan infinite-L limit, a truncated-spectrum law, a height-pinned covariance\nor an empirical coefficient.\n\n**Source-alignment theorem, conditional on the explicit already proved GAD\ntheorem and its stated classical imports.** The EXACT fixed finite-L\ncentered Gaussian smooth law specified in ORIGINAL satisfies GAD's actual\nseries hypotheses. Its expected finite ordinary superlevel-H0 bar measure\nper physical volume has GAD's finite Borel density representative nu_GAD\nwith\n\n    nu_GAD(ell) ~ C_alg(d,L) ell^(-1/3),\n    L^(-d) E N_bar((0,t]) ~ (3/2) C_alg(d,L) t^(2/3),\n    0<C_alg(d,L)<infinity,                         ell,t ->0+.      (2)\n\nAll essential intervals are excluded. The density statement concerns the\nspecified representative, not every modification of it on a null set.\nThe integrated assertion has no version ambiguity.\nThe mathematical identification holds for any fixed real L>0; a later\nnumerical evaluation separately needs the method's effective representation\n"
+      },
+      "law_construction_literal_slice": {
+        "start_byte": 5985,
+        "end_byte": 8762,
+        "sha256": "c39f57badddab270f85f37bfea7369083e79853b82cc6c073c9bfb3a53fef9f9",
+        "one_based_lines": [
+          107,
+          165
+        ],
+        "literal_text": "For m in Z^d put\n\n    p_m=2pi m/L,\n    Z_L=sum_m exp(-|p_m|^2/2),\n    w_m=exp(-|p_m|^2/2)/Z_L.                                     (3)\n\nAll sums are over the ENTIRE lattice. Z_L is finite and strictly\npositive and every w_m>0. Factorization of nonnegative sums gives\n\n    Z_L=z_L^d,\n    z_L=sum_{k in Z} exp(-(2pi k/L)^2/2).                          (4)\n\nThus the spectral probability vector with masses w_m has exactly\nORIGINAL's independent symmetric coordinates Q_i of Section2. The\nnotation p_m here separates wave numbers from probability masses;\nit does not change ORIGINAL's q_m=2pi m/L convention.\n\nChoose a set H containing one member of every nonzero pair {m,-m}.\nLet Z_0 and (X_m,Y_m)_{m in H} be mutually independent standard real\nGaussians. Define the ACTUAL field\n\n    F_L(x)=sqrt(w_0)Z_0\n        +sum_{m in H} sqrt(2w_m)\n              [X_m cos(p_m.x)+Y_m sin(p_m.x)].                    (5)\n\nThis retains the random spatially constant zero mode. There is no\nadditional L^(-d/2) basis normalization or samplewise mean removal.\nThe deterministic smooth functions in(5) are1 and the literal sine/\ncosine functions, with strictly positive coefficients sqrt(w_0) and\nsqrt(2w_m). Each fixed Cq norm is bounded by C_q(1+|p_m|)^q.\n\nFor every integer q>=0,\n\n    sum_{m in H} sqrt(2w_m)(1+|p_m|)^q < infinity.                 (6)\n\nFor a direct proof, sqrt(w_m) is a fixed positive multiple of\nexp(-|2pi m/L|^2/4). Group lattice points by integer shells in |m|.\nThe number in the k-th shell is at most C_d(1+k)^d. Its polynomial\nfactor times exp(-c_L k^2) is summable, since for all sufficiently\nlarge k any prescribed polynomial is at most exp(c_L k^2/2), and\nsum exp(-c_L k^2/2) is bounded by a geometric tail. The finitely\nmany smaller k do not matter. Constants depend on this fixed L,d.\n\nThe real span is dense in C-infinity(X). For a smooth periodic f,\nrepeated integration by parts makes its Fourier coefficients decay\nfaster than any polynomial in |m|. For each q choose enough integrations\nso the derivative Fourier coefficients are absolutely summable.\nFinite symmetric partial sums converge in Cq, and the same sequence\nconverges in every Cq. Their real form is a combination of the1,\nsine and cosine functions in(5). This proves the required smooth\ndensity, not merely L2 completeness.\n\nOne can see smooth convergence of(5) directly as well. For each q,\nthe expectation of the sum of Cq bounds with |X_m|,|Y_m| is finite\nby(6), hence the sum is finite almost surely. Countably intersect\nover q. The derivative series then converge absolutely and uniformly,\ngiving an actual smooth Borel field. Minkowski gives all finite\npositive moments of its smooth norms. This is the same actual series\nconstruction admitted by GAD, with no truncation used as a source law.\n"
+      },
+      "focused_review_binding": {
+        "repository": "d6g8k5htny-coder/Math-",
+        "commit": "b50417f8ab7ed391ef99ba28215459a1ecde8685",
+        "path": "frontiers/original_finite_l_gaussian_binding_20261017/focused-tensor-normalization/FOCUSED_TENSOR_NORMALIZATION_REVIEW.md",
+        "git_blob": "0d9baf6f872df93facff76ea85f86be8e89b43b4",
+        "sha256": "fe2207d69495c41f40cea47b5643f72208a0ef5f6a1fe75e4af5042e462eedfb",
+        "bytes": 12199
+      },
+      "classical_imports": [
+        "Exact GAD theorem and its explicitly stated finite differential-topology/measure/Morse imports.",
+        "Finite Gaussian regression/uniqueness, smooth-law equality, height disintegration and physical-coordinate changes as derived in the proof."
+      ],
+      "unproved_application_obligations": [
+        "A numerical driver or grid is not automatically this full-spectrum law.",
+        "No M31/effective finite-lifetime window, sampler/count/confidence certificate, enclosed digits, original113-failure explanation or all-five-project-input closure."
+      ],
+      "critical_Lean_interfaces": [
+        "Exact Fourier C-infinity law equality and physical derivative tensors",
+        "He=0 raw symmetric Schur law, odd regression and normalization alignment",
+        "Barcode observable/density representative alignment to GAD"
+      ]
+    },
+    "math.source.structural-fold-universality": {
+      "layer": "SOURCE_ADMISSION",
+      "kind": "source_component",
+      "classification": "AUTHOR_SIDE_CANDIDATE",
+      "controlling": false,
+      "fingerprint": "3d952a906553d578876456539a8f0dcd64aedd45099e8394cbe9db99866ec531",
+      "source": "https://github.com/d6g8k5htny-coder/main/blob/32d79169a7a93a8957123bf4aec19aa304ba0f02/experiments/universality/fold_structural_universality/PROOF.md",
+      "source_binding": {
+        "repository": "d6g8k5htny-coder/main",
+        "commit": "32d79169a7a93a8957123bf4aec19aa304ba0f02",
+        "path": "experiments/universality/fold_structural_universality/PROOF.md",
+        "git_blob": "483d779cfdfdcea0bd8d0ec47c9fdaeff485fd4b",
+        "sha256": "3d952a906553d578876456539a8f0dcd64aedd45099e8394cbe9db99866ec531",
+        "bytes": 43927
+      },
+      "scope": "Conditional structural fold universality and deterministic vector-ridge H0 elder lemma at the exact source hypotheses; not unconditional admission of an arbitrary law.",
+      "notes": "Required by GAD as its actual structural theorem; complete source/review bound to proposed Main442, not claimed landed.",
+      "classification_disposition": "PROPOSED_SOURCE_ONLY_PENDING_GOVERNING_CLASSIFICATION; scoped acceptance is retained separately and does not satisfy positive premises.",
+      "critical_Lean_status": "NOT_FORMALIZED_FOR_THIS_STATEMENT",
+      "scientific_status_unchanged": true,
+      "review_source": "https://github.com/d6g8k5htny-coder/main/blob/32d79169a7a93a8957123bf4aec19aa304ba0f02/experiments/universality/fold_structural_universality/REVIEW.md",
+      "review_binding": {
+        "repository": "d6g8k5htny-coder/main",
+        "commit": "32d79169a7a93a8957123bf4aec19aa304ba0f02",
+        "path": "experiments/universality/fold_structural_universality/REVIEW.md",
+        "git_blob": "e5e5596e5a64c3abef183f1b044ee85e698ade57",
+        "sha256": "81f4908c7f904079f416e7bc38f8ef936079ab6049e6b65cbbfcfc3104ae4e4b",
+        "bytes": 3701
+      },
+      "review_disposition": "ACCEPT_SCOPED_CONVENTIONAL_AS_RECORDED",
+      "review_exposure": "Source-exposed; actual provider/author distinctions remain as recorded in exact review, no added independence credit."
+    },
+    "math.source.higher-homology-unit-fold": {
+      "layer": "SOURCE_ADMISSION",
+      "kind": "source_component",
+      "classification": "AUTHOR_SIDE_CANDIDATE",
+      "controlling": false,
+      "fingerprint": "87f43e6ed94c5c63c385ecf177f68212afa5db54b24062fa008f081f47a78999",
+      "source": "https://github.com/d6g8k5htny-coder/main/blob/32d79169a7a93a8957123bf4aec19aa304ba0f02/experiments/universality/higher_homology_fold/PROOF.md",
+      "source_binding": {
+        "repository": "d6g8k5htny-coder/main",
+        "commit": "32d79169a7a93a8957123bf4aec19aa304ba0f02",
+        "path": "experiments/universality/higher_homology_fold/PROOF.md",
+        "git_blob": "8e18a7900e7d6308649239cc300a49a7c07c2f27",
+        "sha256": "87f43e6ed94c5c63c385ecf177f68212afa5db54b24062fa008f081f47a78999",
+        "bytes": 46174
+      },
+      "scope": "Only deterministic HF §§1-7: same-field global C4 continuation, one cubic contact, nonsingular transverse Hessian, exact two pins, all other critical points Morse with distinct heights away from contact, oriented closed manifold for higher degrees; exact isolated-fold unit incidence and Borel once-counting.",
+      "notes": "NG consumes this deterministic topology only. HF probabilistic §§8-11 and SG stationary-torus law are excluded from the NG premise. Main442 source is proposed/unmerged. Current review includes immutable historical94-line review plus dated documentary appends, not a new mathematical rereview of the whole source.",
+      "classification_disposition": "PROPOSED_SOURCE_ONLY_PENDING_GOVERNING_CLASSIFICATION; scoped acceptance is retained separately and does not satisfy positive premises.",
+      "critical_Lean_status": "NOT_FORMALIZED_FOR_THIS_STATEMENT",
+      "scientific_status_unchanged": true,
+      "review_source": "https://github.com/d6g8k5htny-coder/main/blob/32d79169a7a93a8957123bf4aec19aa304ba0f02/experiments/universality/higher_homology_fold/REVIEW.md",
+      "review_binding": {
+        "repository": "d6g8k5htny-coder/main",
+        "commit": "32d79169a7a93a8957123bf4aec19aa304ba0f02",
+        "path": "experiments/universality/higher_homology_fold/REVIEW.md",
+        "git_blob": "c5910fc14d601b2d332c8592c2e0cb53f5547aeb",
+        "sha256": "bc108aad13f5479a4899e6a486f425ce39674712b04640b0457b1d294e37cb6d",
+        "bytes": 8533
+      },
+      "review_disposition": "ACCEPT_SCOPED_CONVENTIONAL_AS_RECORDED",
+      "review_exposure": "Source-exposed; actual provider/author distinctions remain as recorded in exact review, no added independence credit.",
+      "excluded_source_sections": "HF §§8-11 probability and optional SG generalizations/refusals are context only.",
+      "classical_imports": [
+        "Relative Morse handle boundary formula: one transverse attaching/belt intersection has incidence +/-1 over every coefficient field.",
+        "Critical-free level flow, isolated handle attachment, local product flow and regular-level isotopy at stated smoothness."
+      ]
+    },
+    "math.source.finite-smooth-incidence": {
+      "layer": "SOURCE_ADMISSION",
+      "kind": "source_component",
+      "classification": "AUTHOR_SIDE_CANDIDATE",
+      "controlling": false,
+      "fingerprint": "b1b928ce32a6a39b464cb9f1c6dd82f61b95d2bb095459d9b02f301168bd7fb2",
+      "source": "frontiers/nongaussian_smoothing_admission_20261017/imports/FINITE_SMOOTH_INCIDENCE_RECONSTRUCTION.md",
+      "source_binding": {
+        "repository": "d6g8k5htny-coder/Math-",
+        "commit": "b50417f8ab7ed391ef99ba28215459a1ecde8685",
+        "path": "frontiers/nongaussian_smoothing_admission_20261017/imports/FINITE_SMOOTH_INCIDENCE_RECONSTRUCTION.md",
+        "git_blob": "66a784fbd6ed16411d97afb5fda5da20641b0910",
+        "sha256": "b1b928ce32a6a39b464cb9f1c6dd82f61b95d2bb095459d9b02f301168bd7fb2",
+        "bytes": 5032
+      },
+      "scope": "Finite-dimensional smooth incidence reconstruction supporting actual all-Borel count/disintegration arguments; explicit named Sard/area/change-of-variable premises remain.",
+      "notes": "Source-support component, not a new theorem acceptance. No whole primary-book proof or hermetic classical closure. Complete5032-byte appendix retained at durable Math476 import path.",
+      "classification_disposition": "PROPOSED_SOURCE_ONLY_PENDING_GOVERNING_CLASSIFICATION; scoped acceptance is retained separately and does not satisfy positive premises.",
+      "critical_Lean_status": "NOT_FORMALIZED_FOR_THIS_STATEMENT",
+      "scientific_status_unchanged": true
+    },
+    "math.source.periodized-gaussian-h0-context": {
+      "layer": "SOURCE_ADMISSION",
+      "kind": "source_component",
+      "classification": "AUTHOR_SIDE_CANDIDATE",
+      "controlling": false,
+      "fingerprint": "c8bd489ca3fbb3760f7b2d53e7385131ac5336c51ba983e00e4d540fe2f00aaa",
+      "source": "https://github.com/d6g8k5htny-coder/main/blob/32d79169a7a93a8957123bf4aec19aa304ba0f02/experiments/universality/periodized_gaussian_h0/PROOF.md",
+      "source_binding": {
+        "repository": "d6g8k5htny-coder/main",
+        "commit": "32d79169a7a93a8957123bf4aec19aa304ba0f02",
+        "path": "experiments/universality/periodized_gaussian_h0/PROOF.md",
+        "git_blob": "b27e2bc848396f3375529957fbb57e9f2b9dce52",
+        "sha256": "c8bd489ca3fbb3760f7b2d53e7385131ac5336c51ba983e00e4d540fe2f00aaa",
+        "bytes": 34629
+      },
+      "scope": "Exact previous periodized-Gaussian H0 adapter, retained as a model for finite-tail and conditional-genericity arguments.",
+      "notes": "Context only for GAD. GAD explicitly says the IG adapter is not a premise asserting general manifold admission.",
+      "classification_disposition": "PROPOSED_SOURCE_ONLY_PENDING_GOVERNING_CLASSIFICATION; scoped acceptance is retained separately and does not satisfy positive premises.",
+      "critical_Lean_status": "NOT_FORMALIZED_FOR_THIS_STATEMENT",
+      "scientific_status_unchanged": true,
+      "review_source": "https://github.com/d6g8k5htny-coder/main/blob/32d79169a7a93a8957123bf4aec19aa304ba0f02/experiments/universality/periodized_gaussian_h0/REVIEW.md",
+      "review_binding": {
+        "repository": "d6g8k5htny-coder/main",
+        "commit": "32d79169a7a93a8957123bf4aec19aa304ba0f02",
+        "path": "experiments/universality/periodized_gaussian_h0/REVIEW.md",
+        "git_blob": "1d3aad5ba9a605d146a867dc61e4cb96e5b581eb",
+        "sha256": "e3bb8751fbdaf0db075342a31dd208c1300c6e93a1c3c8a7c3b255860442551b",
+        "bytes": 3700
+      },
+      "review_disposition": "ACCEPT_SCOPED_CONVENTIONAL_AS_RECORDED",
+      "review_exposure": "Source-exposed; actual provider/author distinctions remain as recorded in exact review, no added independence credit."
+    },
+    "math.original-finite-l-enclosure-method-v2": {
+      "layer": "SOURCE_ADMISSION",
+      "kind": "candidate",
+      "classification": "AUTHOR_SIDE_CANDIDATE",
+      "controlling": false,
+      "fingerprint": "8bdea4b42e9efd2d846cd1aa73691e8194fa26cd937ac02b79991334f88204f6",
+      "source": "frontiers/full_spectrum_enclosure_method_20261018/PROOF.md",
+      "source_binding": {
+        "repository": "d6g8k5htny-coder/Math-",
+        "commit": "963d70f79a00c236c310d53ac606d52b5af23a40",
+        "path": "frontiers/full_spectrum_enclosure_method_20261018/PROOF.md",
+        "git_blob": "74746107f9ed006bbe03b0f609e23db005b260ce",
+        "sha256": "8bdea4b42e9efd2d846cd1aa73691e8194fa26cd937ac02b79991334f88204f6",
+        "bytes": 32593
+      },
+      "review_source": "https://github.com/d6g8k5htny-coder/Math-/blob/963d70f79a00c236c310d53ac606d52b5af23a40/frontiers/full_spectrum_enclosure_method_20261018/reviews/ROOT_V2_FINAL_DISPOSITION.md",
+      "review_disposition": "ACCEPT_SCOPED_ANALYTIC_METHOD_AS_ATTRIBUTED_TO_ACTUAL_V2_REPORTS",
+      "scope": "In-principle terminating faithful outward interval evaluation of C_alg at integer d>=2 and fixed computable positive L with certified interval access; full original spectrum and zero mode retained. No execution, coefficient digits, tested software or performance bound.",
+      "classification_disposition": "PROPOSED_SOURCE_ONLY_PENDING_GOVERNING_CLASSIFICATION; immutable METHOD body/review capture supplied without positive premise satisfaction.",
+      "critical_Lean_status": "NOT_FORMALIZED_FOR_THIS_STATEMENT",
+      "scientific_status_unchanged": true,
+      "literal_hypotheses": [
+        "Fix integer d>=2 and computable positive L with certified interval access.",
+        "Spectral cutoff M is a POSITIVE INTEGER, M>=1 and M>=sqrt(k/alpha); uniform alpha_lo guard is preserved.",
+        "Method chooses positive INTEGER Gaussian radius R and rational endpoint boxes/exact rational volumes.",
+        "Faithful convergent outward interval implementations of every elementary/special/algebraic operation are premises."
+      ],
+      "unproved_application_obligations": [
+        "M30 uniform pin-covariance floor and same-field covariance/cross-covariance convergence remain premises of that conditional bound.",
+        "M31 finite-lifetime/observable error is unproved here; cubature error does not control barcode asymptotic error.",
+        "No actual interval/backend certificate, timing, field sampler or scientific run is established."
+      ],
+      "retained_adverse_history": {
+        "V1_sha256": "d9476da4e8ce2411f43483545901ff2dc59941d4d175c9620030ee33e04c7cf2",
+        "V1_disposition": "AMEND_REQUIRED_FOR_ALL_REAL_SPECTRAL_CUTOFF_DOMAIN",
+        "finding_url": "https://github.com/d6g8k5htny-coder/Math-/issues/193#issuecomment-6242995585",
+        "counterexample": "k=0, alpha=1, M=9/10: omitted lattice tail at least2/e exceeds the claimed real-M bound. V2 repairs integerM; all33 displayed math blocks were unchanged.",
+        "source_history_unchanged": true
+      },
+      "literal_domain_slices": [
+        {
+          "source": "https://github.com/d6g8k5htny-coder/Math-/blob/963d70f79a00c236c310d53ac606d52b5af23a40/frontiers/full_spectrum_enclosure_method_20261018/PROOF.md",
+          "one_based_lines": [
+            20,
+            22
+          ],
+          "start_byte": 3171,
+          "end_byte": 4280,
+          "sha256": "da56d47191c234f8b5c9703bb7cfd07a3ea8f46dfc23c689edbcf49aca435347",
+          "literal_text": "Call the right side of the original equation (1) C_alg(d,L). The result of this unit is a finite, in-principle terminating interval-enclosure METHOD for C_alg at the ORIGINAL fixed finite d>=2 and L>0, once d is given and L is supplied as a computable positive real with certified interval access. It uses the full original spectrum, with analytically bounded omitted sums. It does not replace the covariance by a cutoff field, replace L by infinity, remove the zero mode, or change height conditioning.\n\nA certified interval for C_alg would be a certified value of this explicit collision expression. Identifying it with the leading coefficient of expected finite ordinary H0 bar density still requires the source's G1–G4, particularly uniform local geometry, the relevant conditioned field regularity/genericity, and marked-measure disintegration/approximation. These remain proof qualifications. All five project input gaps, all 113 retained failures, the TA/TRIG stops, and unmet broader acceptance criteria remain unchanged. This unit neither executes an enclosure nor supplies a scientific admission.\n"
+        },
+        {
+          "source": "https://github.com/d6g8k5htny-coder/Math-/blob/963d70f79a00c236c310d53ac606d52b5af23a40/frontiers/full_spectrum_enclosure_method_20261018/PROOF.md",
+          "one_based_lines": [
+            175,
+            194
+          ],
+          "start_byte": 10938,
+          "end_byte": 12490,
+          "sha256": "f093843912141fc73d2fd9c4f7978eef8b9b6358ded3803556cc666a2535a4c0",
+          "literal_text": "For k>=0 define S_k=sum_m (hm)^(2k) exp(-alpha m^2), so S_0=z and mu_(2k)=S_k/S_0. The finite sum S_k^(M) includes |m|<=M. For a POSITIVE INTEGER spectral cutoff M>=1 with M>=sqrt(k/alpha), x^(2k)exp(-alpha x^2) decreases for x>=M, so\n\n\\[\n0\\le S_k-S_k^{(M)}\n \\le 2h^{2k} I_k(M;\\alpha),\\qquad\nI_k(M;\\alpha)=\\int_M^\\infty x^{2k}e^{-\\alpha x^2}\\,dx.\\tag{M14}\n\\]\n\nIntegration by parts and a Mills bound give explicit upper bounds:\n\n\\[\nI_0\\le\\frac{e^{-\\alpha M^2}}{2\\alpha M},\\qquad\nI_k=\\frac{M^{2k-1}e^{-\\alpha M^2}}{2\\alpha}\n       +\\frac{2k-1}{2\\alpha}I_{k-1}\\quad(k\\ge1).\\tag{M15}\n\\]\n\nFor M1 only k=0,1,2,3 are needed. Finite sums are evaluated with OUTWARD elementary-function intervals, then augmented by [0,tail]. Divide S_k intervals by the strictly positive S_0 interval, retaining the same denominator for every moment. Refine as needed; the full-spectrum moment interval widths tend to zero. Spectral uncertainty is propagated through all subsequent operations and is never silently dropped.\n\nIf L is currently represented by [L_lo,L_hi] within (0,infinity), use h_hi=2pi/L_lo, alpha_lo=2pi^2/L_hi^2 in a uniform tail majorant: replace h^(2k) by h_hi^(2k), and the integrand exponent by alpha_lo. Choose a positive integer M>=max{1,sqrt(k/alpha_lo)}. Certified pi intervals can be propagated outward as well. For an exact fixed computable L, refine its interval along with these calculations. An arbitrary uncomputable real L is not an executable numerical input; its computable representation is an explicit precondition, not an assumed datum.\n\n"
+        },
+        {
+          "source": "https://github.com/d6g8k5htny-coder/Math-/blob/963d70f79a00c236c310d53ac606d52b5af23a40/frontiers/full_spectrum_enclosure_method_20261018/PROOF.md",
+          "one_based_lines": [
+            332,
+            337
+          ],
+          "start_byte": 20578,
+          "end_byte": 22588,
+          "sha256": "6bd09b221bfd571bf7d94c5faa3b34c27048f88a9c8b6cc5ccf7b4ffacae79e1",
+          "literal_text": "1. Obtain certified intervals for the ACTUAL fixed positive L, pi and the finite sums in M14 at positive integer cutoff M, with outward tails M15. Enclose a,b,c; compute strict floors from M12–M13 and the bounds in Section 3. If an interval floor remains nonpositive, refine it or use the positive witness bounds. Do not infer positivity from a floating midpoint.\n2. For a requested absolute coefficient tolerance epsilon>0, choose a POSITIVE INTEGER Gaussian radius R with the certified upper bound in M27 <=epsilon/3. This is possible because that bound tends to zero along the positive integers; no sample/model computation is needed.\n3. With the positive integer R from Step 2, partition each compact (x,z) rectangle into finitely many boxes with rational endpoints and hence exact rational volumes. On each box enclose e,U,B,Gamma,L_e,V,J and phi_N by outward interval operations. Use M21 with a rational matrix center to enclose w, then multiply the nonnegative factor intervals. Sum each interval times its exact rational box volume, and sum faces. Let the resulting truncated-integral interval be [ell_R,u_R]. All moment and elementary-function uncertainties remain inside this interval.\n4. Refine the moment/input/constant intervals and box partitions until u_R-ell_R<=2epsilon/3. Output [ell_R,u_R+E_G^upper(R)]. The true C_alg lies in this interval, whose width is <=epsilon.\n\nWhy Step 4 terminates in principle: exact moment intervals converge; all guarded finite-dimensional algebraic maps and Cholesky factors are uniformly continuous on the compact domain; M20–M21 give uniform continuity even on the cone boundary. Their convergent interval extensions therefore have uniformly vanishing widths under refinement. Elementary-function enclosures must themselves be convergent. This is an existence/termination argument for a faithful interval implementation, not a performance or tested-software claim. It may be computationally expensive as d increases or the covariance floors become small.\n"
+        }
+      ],
+      "review_binding": {
+        "repository": "d6g8k5htny-coder/Math-",
+        "commit": "963d70f79a00c236c310d53ac606d52b5af23a40",
+        "path": "frontiers/full_spectrum_enclosure_method_20261018/reviews/ROOT_V2_FINAL_DISPOSITION.md",
+        "git_blob": "d0f14cfd2962055db10444fac289f80490be2620",
+        "sha256": "c7191aa42c9dcdc7d2a1fa137335e06a939e88f16207670b4aaee775e895c4f7",
+        "bytes": 5325
+      },
+      "review_bindings": [
+        {
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "963d70f79a00c236c310d53ac606d52b5af23a40",
+          "path": "frontiers/full_spectrum_enclosure_method_20261018/reviews/REVIEW_A_V2.md",
+          "git_blob": "d3d957783fc89d2bdfb63e99b6c82e5412b6da62",
+          "sha256": "8f8870fac9937a87a9cc2748a2fd7ea76f50958d713649004bcec294b921e360",
+          "bytes": 11240
+        },
+        {
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "963d70f79a00c236c310d53ac606d52b5af23a40",
+          "path": "frontiers/full_spectrum_enclosure_method_20261018/reviews/REVIEW_B_V2.md",
+          "git_blob": "076884cff522ddb55fc3da8e83133da764619757",
+          "sha256": "23537d9edb34fb812f13eaefc01b5154c63f69a8b6bc54db15825052fd7fb973",
+          "bytes": 13247
+        },
+        {
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "963d70f79a00c236c310d53ac606d52b5af23a40",
+          "path": "frontiers/full_spectrum_enclosure_method_20261018/reviews/ROOT_V2_FINAL_DISPOSITION.md",
+          "git_blob": "d0f14cfd2962055db10444fac289f80490be2620",
+          "sha256": "c7191aa42c9dcdc7d2a1fa137335e06a939e88f16207670b4aaee775e895c4f7",
+          "bytes": 5325
+        }
+      ],
+      "retained_review_history_bindings": [
+        {
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "963d70f79a00c236c310d53ac606d52b5af23a40",
+          "path": "frontiers/full_spectrum_enclosure_method_20261018/history/ROOT_V1_ADVERSE_REVIEW.md",
+          "git_blob": "1657cb716430c7fdc33035f7ef578ac0649b3851",
+          "sha256": "810c338796076e3916ec2d8612f31f319409f8dce4a14744386a8fcdb2029ad2",
+          "bytes": 9850
+        },
+        {
+          "repository": "d6g8k5htny-coder/Math-",
+          "commit": "963d70f79a00c236c310d53ac606d52b5af23a40",
+          "path": "frontiers/full_spectrum_enclosure_method_20261018/history/V1_DOMAIN_FINDING_NATIVE.md",
+          "git_blob": "28a4d270b7c059cec92c208e2e8d5ed6baae549b",
+          "sha256": "3c7786e22260fe3acd2f30015df4d5a65dd8d6e0e87191ac7ca64d007a2b4dae",
+          "bytes": 1510
+        }
+      ],
+      "native_source_history": {
+        "status": "HISTORICAL_PRE_PUBLICATION_CAPTURE_ONLY",
+        "source": "https://github.com/d6g8k5htny-coder/Math-/issues/193#issuecomment-6243041893",
+        "source_binding": {
+          "kind": "native_github_comment_extract",
+          "repository": "d6g8k5htny-coder/Math-",
+          "url": "https://github.com/d6g8k5htny-coder/Math-/issues/193#issuecomment-6243041893",
+          "comment_id": 6243041893,
+          "created_at": "2026-10-17T23:25:10Z",
+          "updated_at": "2026-10-17T23:25:10Z",
+          "complete_body_bytes": 35124,
+          "complete_body_sha256": "1028c10a444f656072fa8fc62800a8fbf21270e1e4e6e7745fe2def7692b0879",
+          "extract_bytes": 32593,
+          "extract_sha256": "8bdea4b42e9efd2d846cd1aa73691e8194fa26cd937ac02b79991334f88204f6",
+          "immutable_git_ref": null,
+          "binding_gap": "NO_LOCATED_IMMUTABLE_COMMITTED_BODY_PATH; not a GitCapture"
+        },
+        "review_source": "https://github.com/d6g8k5htny-coder/Math-/issues/193#issuecomment-6243050857",
+        "superseded_classification_disposition": "PROPOSED_SOURCE_ONLY_PENDING_GOVERNING_CLASSIFICATION_AND_IMMUTABLE_GIT_BINDING",
+        "resolved_source_binding_obligation": "Immutable committed body/review GitCapture not supplied; exact native comment/extract custody is explicitly not that capture.",
+        "literal_domain_source_labels": [
+          "exact native V2 extract; not GitCapture",
+          "exact native V2 extract; not GitCapture",
+          "exact native V2 extract; not GitCapture"
+        ]
+      },
+      "source_capture_status": "IMMUTABLE_BODY_AND_REVIEW_GIT_CAPTURE_SUPPLIED; not integrated graph/package or scientific promotion."
     }
   },
   "edges": [
@@ -1036,6 +1509,69 @@
       "to": "math.d5-component.offpin-second-moment-review",
       "required": true,
       "relation": "requires_evidence"
+    },
+    {
+      "from": "math.gad-smooth-gaussian-manifold-admission",
+      "to": "math.source.structural-fold-universality",
+      "required": true,
+      "relation": "imports_structural_fold_and_deterministic_elder_interfaces",
+      "scope": "Exact ST hypotheses are supplied for the actual fixed GAD law; no unrelated project interface group is discharged."
+    },
+    {
+      "from": "math.ng-independent-gaussian-smoothing-admission",
+      "to": "math.gad-smooth-gaussian-manifold-admission",
+      "required": true,
+      "relation": "imports_gaussian_component_finite_rank_and_literal_kernel_construction",
+      "scope": "Applies to G, not to F=G+W as though F were Gaussian."
+    },
+    {
+      "from": "math.ng-independent-gaussian-smoothing-admission",
+      "to": "math.source.higher-homology-unit-fold",
+      "required": true,
+      "relation": "imports_deterministic_unit_fold_topology_only",
+      "scope": "Higher-degree oriented case and specified continuation hypotheses; excludes HF SG-only probability sections."
+    },
+    {
+      "from": "math.original-finite-l-gad-coefficient-identification",
+      "to": "math.gad-smooth-gaussian-manifold-admission",
+      "required": true,
+      "relation": "identifies_exact_original_gaussian_law_and_GAD_coefficient",
+      "scope": "Original full positive finiteL law, physical derivatives, He=0 raw symmetric law, full sphere and volume normalization."
+    },
+    {
+      "from": "math.gad-smooth-gaussian-manifold-admission",
+      "to": "math.source.finite-smooth-incidence",
+      "required": false,
+      "relation": "supporting_finite_incidence_reconstruction",
+      "scope": "Appendix is bounded source support for explicit classical imports, not a separately discharged analytic premise."
+    },
+    {
+      "from": "math.ng-independent-gaussian-smoothing-admission",
+      "to": "math.source.finite-smooth-incidence",
+      "required": false,
+      "relation": "supporting_finite_incidence_reconstruction",
+      "scope": "Actual product-law COUNT argument is proved in NG; named classical premises remain literal."
+    },
+    {
+      "from": "math.original-finite-l-gad-coefficient-identification",
+      "to": "math.source.finite-smooth-incidence",
+      "required": false,
+      "relation": "supporting_source_import_read",
+      "scope": "Actual binding imports GAD; this appendix supports its stated incidence interpretation."
+    },
+    {
+      "from": "math.gad-smooth-gaussian-manifold-admission",
+      "to": "math.source.periodized-gaussian-h0-context",
+      "required": false,
+      "relation": "previous_model_context_not_general_admission_premise",
+      "scope": "Literal GAD§1 excludes treating IG as the broader theorem premise."
+    },
+    {
+      "from": "math.original-finite-l-enclosure-method-v2",
+      "to": "math.original-finite-l-gad-coefficient-identification",
+      "required": false,
+      "relation": "shared_C_alg_target_separate_qualitative_identification",
+      "scope": "No edge from binding to method; method acceptance is not needed for the qualitative theorem and theorem does not execute method."
     }
   ]
 }
