@@ -1,0 +1,135 @@
+{
+  "schema": "finite-moment-tail-contract/v1",
+  "component": "cbz/finite_moment_tail_20261030",
+  "runtime": "Python 3.9 or later; standard library only; no network access at runtime",
+  "target": "ResearchFormalCoreR1.p02_lm009_moment40_tail",
+  "scope": "FINITE_RATIONAL_OBSERVATIONS_ONLY",
+  "scientific_effect": "NONE",
+  "full_federation_admitted": false,
+  "source_reference": {
+    "repository": "https://github.com/d6g8k5htny-coder/Math-",
+    "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+    "tree": "0e28d1077fffb77e66ff635a112899ccb091b3ba",
+    "declaration_lines": "61-77 in the referenced Lean file",
+    "verification": "Every public evaluate_case and run_campaign call reads and SHA256-checks both files. A campaign checks once before evaluation. The actual bytes, rather than a caller-supplied hash or commit string, determine acceptance. The reference commit/tree identify the source provenance; no assertion is made that the caller's entire checkout is at that commit or tree. No Lean execution, dependency hash check or whole-tree attestation is performed.",
+    "files": [
+      {
+        "path": "formal/ResearchFormalCoreR1/MomentTail.lean",
+        "git_blob": "c8282f297ac22c25d68e94a5e432c2633bac0bab",
+        "sha256": "87fe3ee90afc52d8c2652881f1ae195d1b0b15a2ffc18c84d6166d1a4d0de2aa",
+        "bytes": 7197
+      },
+      {
+        "path": "formal/tests/test_moment_tail.py",
+        "git_blob": "aa389def431b71b18e1bd18287599f667e52823d",
+        "sha256": "d50c46220ff6c4b95ee1cb42b037738740d314508019161ad6fb478ed3b0f7d5",
+        "bytes": 5481
+      }
+    ]
+  },
+  "mathematical_contract": {
+    "population": "Nonempty finite list of atoms, with equal-length probability vector p and signed rational vector R.",
+    "premises": [
+      "Each p_i >= 0 and sum(p) = 1 exactly.",
+      "r > 0 and epsilon > 0, with no upper bound on r.",
+      "M >= sum_i p_i R_i^40. M must be nonnegative; a nonnegative but insufficient M returns FALSE_PREMISE."
+    ],
+    "event": "For each atom i, epsilon < r * R_i^5, strictly and with signed R.",
+    "event_mass": "sum_i p_i * indicator(event_i)",
+    "bound": "(M / epsilon^8) * r^8",
+    "observation": "event_mass <= bound",
+    "arithmetic": "All mathematical decisions use fractions.Fraction and exact integers. No float is accepted as a mathematical input. CLI elapsed_seconds is timing metadata only.",
+    "finite_integrability": "Every finite rational vector has finite fortieth moment; all subsets are measurable in its finite discrete probability model.",
+    "unsupported": [
+      "General real-valued or infinite probability measures and arbitrary measurable spaces",
+      "Gaussian models, derivative suprema and existence of a model-specific fortieth-moment bound",
+      "Weighted-law r4/r3 targets, uniform families, Palm normalizers, Kac-Rice or parent persistence theorems",
+      "Other declarations, generic unpublished interpreter APIs, Lean kernel verification and automatic federation target inventory reduction"
+    ],
+    "evidence_limit": "Finite observations may falsify an implementation or expose a finite witness. Passing samples never establish a universal theorem, scientific CLOSED status, full CBZ completion or full-federation admission. The existing theorem, hypotheses, bound, original tests, manifests and workflows are unchanged."
+  },
+  "case_schema": {
+    "required_keys_exactly": ["target", "p", "R", "r", "epsilon", "M"],
+    "target": "Exact target string above; other strings are UNSUPPORTED.",
+    "p_and_R": "Nonempty list or tuple in Python; JSON arrays at the CLI. Lengths must agree.",
+    "number": "Python int excluding bool; fractions.Fraction; or an ASCII string matching -?[0-9]+(?:/[1-9][0-9]*)?. Denominators are positive. Strings are normalized to reduced rational output. Floats, bools, decimal/exponent strings, whitespace, nonfinite names and malformed or zero-denominator rationals are rejected.",
+    "unknown_fields": "INVALID, including fields for unsupported weighted/family extensions.",
+    "example": {
+      "target": "ResearchFormalCoreR1.p02_lm009_moment40_tail",
+      "p": ["1"],
+      "R": ["1"],
+      "r": "1/2",
+      "epsilon": "1/4",
+      "M": "1"
+    }
+  },
+  "python_api": {
+    "import": "Load adapter.py using importlib.util.spec_from_file_location, or import cbz.finite_moment_tail_20261030.adapter from the repository root as a namespace package.",
+    "evaluate_case": "evaluate_case(case, *, source_root=None) -> dict. Always verifies required source bytes. Default source root is the repository root inferred from adapter.py. source_root may be a str or pathlib.Path. Returns classified JSON-serializable data; does not mutate input.",
+    "verify_sources": "verify_sources(source_root=None) -> binding dict. VERIFIED means exactly the two required file hashes match. Read/missing-file errors become MISMATCH with error class. Reference labels do not attest the entire checkout.",
+    "generate_cases": "generate_cases(*, seed=20261030, count=10019) -> iterator of exactly count distinct valid canonical case dicts. seed must have exact int type, count must have exact int type and be > 0; invalid arguments raise ValueError when iterated. A deterministic pathological prefix is followed by random.Random(seed) integer/rational generation, with canonical identity deduplication.",
+    "run_campaign": "run_campaign(*, cases=None, seed=20261030, count=10019, source_root=None) -> dict. With cases=None generate count observations; otherwise cases must be list or tuple and count/seed do not affect that population. A bad seed/count in generated mode, invalid supplied population, source mismatch or empty population returns REFUSED. All cases in a supplied population are processed. One refusal prevents BOUNDED_OBSERVATIONS. No hidden external interpreter or mutable registry is imported.",
+    "argument_boundary": "Case/domain failures return classified results. Incorrect Python call signatures or non-pathlike source_root values are programmer errors, not classified mathematical cases. Resource exhaustion and underlying interpreter integer-string limits are not universal rational computation claims."
+  },
+  "case_result_schema": {
+    "statuses": {
+      "OBSERVED_BOUND": "Valid finite case whose exact event mass is <= exact bound.",
+      "COUNTEREXAMPLE": "Admitted finite case whose computed event mass exceeds the bound; warrants investigation and is never proof acceptance.",
+      "FALSE_PREMISE": "Well-shaped nonnegative M is below actual moment40; no bound result and no mathematical counterexample credit.",
+      "INVALID": "Malformed schema, numeric type, probability vector, shape, positivity or negative M.",
+      "UNSUPPORTED": "Target string is outside the single supported declaration.",
+      "SOURCE_MISMATCH": "Required source bytes missing, unreadable or different; no mathematical evaluation."
+    },
+    "all_public_results": "status and source_binding; refused results carry reason.",
+    "normalized_results": "For admitted numeric shape: case (canonical rational strings), case_id (SHA256 canonical JSON), target and moment40. FALSE_PREMISE stops here with reason.",
+    "observations": "event (boolean array), event_mass, bound and slack=bound-event_mass (reduced rational strings). COUNTEREXAMPLE includes the same exact witness fields.",
+    "case_id_encoding": "SHA256 of ASCII json.dumps(normalized_case, sort_keys=True, separators=(',', ':'), ensure_ascii=True). Atom ordering and zero-mass atoms are preserved; this identifies a canonical input observation, not a probability-law equivalence class.",
+    "source_binding": "status VERIFIED/MISMATCH, reference_commit, reference_tree, scope TWO_EXACT_SOURCE_FILES_ONLY, files mapping each relative path to expected_sha256, actual_sha256, bytes, matches and optional read error class."
+  },
+  "campaign_report_schema": {
+    "schema": "finite-moment-tail-campaign/v1",
+    "status": "BOUNDED_OBSERVATIONS only for a nonempty all-admitted population with no counterexample; COUNTEREXAMPLE if at least one admitted violation exists (even if other inputs are refused); otherwise REFUSED.",
+    "counts": {
+      "attempted": "Each processed case, including rejected cases.",
+      "valid": "Cases admitted to the inequality check, including any counterexamples and repeats.",
+      "invalid": "INVALID cases.",
+      "false_premise": "FALSE_PREMISE cases.",
+      "unsupported": "UNSUPPORTED cases.",
+      "source_mismatch": "SOURCE_MISMATCH cases. Preflight source failure prevents iteration, so attempted and all counts remain zero; binding and reason retain the actual failure.",
+      "counterexamples": "Subset of valid with event_mass > bound.",
+      "distinct_valid": "Number of unique canonical valid case_id values; repeats do not earn distinct credit."
+    },
+    "count_identity": "attempted = valid + invalid + false_premise + unsupported + source_mismatch; counterexamples <= valid; distinct_valid <= valid.",
+    "source_binding": "The exact source preflight record used for this campaign.",
+    "target": "Single supported declaration.",
+    "population": "generated or supplied.",
+    "seed": "Generated integer seed; null for supplied populations or invalid generated seed.",
+    "cases_digest": "SHA256 of each valid case_id plus an ASCII newline, in observation order. Refused cases are excluded from this digest and retained as witnesses. An empty valid sequence uses SHA256 of empty bytes.",
+    "witnesses": "Array of {index: zero-based attempted index, result: exact classified result}, for every refused case and every admitted counterexample. Successful observations are reproducible from generator seed/count or supplied original cases and the digest.",
+    "other_fields": "scope FINITE_RATIONAL_OBSERVATIONS_ONLY; scientific_effect NONE; full_federation_admitted false; reason on preflight or population refusal.",
+    "determinism": "The Python report has no clock fields and is deterministic for identical source bytes, inputs and interpreter generator behavior. CLI execution adds nondeterministic elapsed_seconds; exclude execution when comparing mathematical replay."
+  },
+  "cli": {
+    "evaluate": "python3 cbz/finite_moment_tail_20261030/adapter.py --source-root . evaluate < case.json",
+    "generated_campaign": "python3 cbz/finite_moment_tail_20261030/adapter.py --source-root . campaign --seed 20261030 --count 10019",
+    "supplied_campaign": "python3 cbz/finite_moment_tail_20261030/adapter.py --source-root . campaign --stdin-cases < cases.json",
+    "optimized_campaign": "python3 -O cbz/finite_moment_tail_20261030/adapter.py --source-root . campaign --seed 20261030 --count 10019",
+    "strict_json": "Duplicate object keys and NaN/Infinity/-Infinity are rejected at every JSON object level. Float JSON numbers are rejected as mathematical values. JSON null in --stdin-cases is INVALID, never an implicit request for a generated population. Unknown case fields cannot be silently ignored.",
+    "stdout": "One JSON result including execution: argv, python version, actual sys.flags.optimize, elapsed_seconds. stdin JSON errors are JSON INVALID results. Command syntax errors use argparse usage text on stderr.",
+    "exit_codes": {"0": "OBSERVED_BOUND or BOUNDED_OBSERVATIONS only", "1": "COUNTEREXAMPLE", "2": "Refused, invalid, unsupported, false premise, source mismatch or command syntax error"}
+  },
+  "verification_commands": [
+    "python3 cbz/finite_moment_tail_20261030/test_adapter.py -v",
+    "python3 -O cbz/finite_moment_tail_20261030/test_adapter.py -v",
+    "python3 -m unittest discover -s formal/tests -p test_moment_tail.py -v",
+    "python3 -O -m unittest discover -s formal/tests -p test_moment_tail.py -v"
+  ],
+  "test_design": {
+    "independent_oracle": "Tests decide strict signed event membership with integer numerator/denominator cross-products, independently accumulate Fraction moments/mass, and evaluate the bound as M*(r/epsilon)^8. The 10019-case test compares every generated observation with that oracle.",
+    "pathologies": "Exact equality and rational neighbors; signed and all-negative values; zero-mass huge atoms; zero moment; r>1; tiny/large rationals; moment slack; nonnormalized/negative probabilities; shape mismatch; unsupported targets; empty campaigns; numeric aliases; source tampering and missing source.",
+    "real_source_mutants": "Temporary source files omit epsilon denominator, use r^16, replace bound moment by moment20, replace admission moment40 by moment20, or weaken the strict event to <=. Each is executed by child unittest processes both normally and with -O, requiring intended assertion failure, exit 1 and zero errors. The moment20 admission regression is tested using insufficient M=2^20 at R=2; its failure is admission behavior evidence, never an admitted mathematical counterexample. A valid M=2^40 control is separate.",
+    "optional_raw_evidence": "Set MOMENT_TAIL_EVIDENCE_DIR to a private directory when running tests to preserve each actual mutant source, source cut, source SHA256, argv, parent/child optimization, return code and stdout/stderr. No evidence files are written by default. MOMENT_TAIL_ADAPTER_FILE is a test-only alternate actual source path, not a production evaluator switch.",
+    "interpretation": "Mutant assertion failures demonstrate bounded executable discrimination. Import errors, invalid mathematical inputs, source mismatches and unsupported statuses receive no mathematical counterexample credit."
+  },
+  "integration_boundary": "This is a complete standalone component offered for future compatible generic-harness integration and native governance registration. It registers no global target, changes no manifest/workflow, and creates no interpreter stub. Any later admission must bind the actual integrated source and preserve the unsupported inventory and finite-specialization label."
+}
