@@ -1,0 +1,49 @@
+{
+  "schema": "cap.review-evidence-bundle.v1",
+  "group": "frozen-python-auditor-qualification",
+  "records": [
+    {
+      "path": "auditor-selftest/optimized-unsafe_partial.process.json",
+      "bytes": 410,
+      "sha256": "2466290087bc6f0838d587e2e72442c02e199dff1760458ea8ae21dedb782ce2",
+      "utf8": "{\n  \"command\": [\n    \"/Library/Developer/CommandLineTools/usr/bin/python3\",\n    \"-B\",\n    \"-S\",\n    \"-O\",\n    \"-m\",\n    \"unittest\",\n    \"-v\",\n    \"test_compiled_inventory.CompiledInventory.test_unsafe_or_partial_constant_refuses_even_if_bound\"\n  ],\n  \"cwd\": \"/var/folders/r5/p3c78wf50fv5j8x569vpykj80000gn/T/cap-auditor-mutants-tmigu07x/optimized\",\n  \"exit\": 1,\n  \"timed_out\": false,\n  \"cleanup_signals\": []\n}\n"
+    },
+    {
+      "path": "auditor-selftest/optimized-unsafe_partial.stderr",
+      "bytes": 1049,
+      "sha256": "d9bfb175cc8c94ad4a251115d2c287a75a150c484e4756e971978d15f4cd4734",
+      "utf8": "test_unsafe_or_partial_constant_refuses_even_if_bound (test_compiled_inventory.CompiledInventory) ... FAIL\n\n======================================================================\nFAIL: test_unsafe_or_partial_constant_refuses_even_if_bound (test_compiled_inventory.CompiledInventory)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/r5/p3c78wf50fv5j8x569vpykj80000gn/T/cap-auditor-mutants-tmigu07x/optimized/test_compiled_inventory.py\", line 199, in test_unsafe_or_partial_constant_refuses_even_if_bound\n    self.reject(transcript(ROWS+[row]), 'unsafe_or_partial', BOUND+[list(row)])\n  File \"/private/var/folders/r5/p3c78wf50fv5j8x569vpykj80000gn/T/cap-auditor-mutants-tmigu07x/optimized/test_compiled_inventory.py\", line 55, in reject\n    self.api.audit_inventory(text, VISIBLE if visible is None else visible,\nAssertionError: ValueError not raised\n\n----------------------------------------------------------------------\nRan 1 test in 0.003s\n\nFAILED (failures=1)\n"
+    },
+    {
+      "path": "auditor-selftest/optimized-unsafe_partial.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utf8": ""
+    },
+    {
+      "path": "auditor-selftest/optimized-unsupported_kind.exit",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "utf8": "1\n"
+    },
+    {
+      "path": "auditor-selftest/optimized-unsupported_kind.process.json",
+      "bytes": 400,
+      "sha256": "01e99eb098dafb4fafe386227525b51178be77b9e4b8771efe37ffb9b104d928",
+      "utf8": "{\n  \"command\": [\n    \"/Library/Developer/CommandLineTools/usr/bin/python3\",\n    \"-B\",\n    \"-S\",\n    \"-O\",\n    \"-m\",\n    \"unittest\",\n    \"-v\",\n    \"test_compiled_inventory.CompiledInventory.test_owned_opaque_and_quot_never_self_admit\"\n  ],\n  \"cwd\": \"/var/folders/r5/p3c78wf50fv5j8x569vpykj80000gn/T/cap-auditor-mutants-tmigu07x/optimized\",\n  \"exit\": 1,\n  \"timed_out\": false,\n  \"cleanup_signals\": []\n}\n"
+    },
+    {
+      "path": "auditor-selftest/optimized-unsupported_kind.stderr",
+      "bytes": 1024,
+      "sha256": "b8f2d7657d9736c8fe4270d6524792e403b101e5866173322ef5aa5e81999ead",
+      "utf8": "test_owned_opaque_and_quot_never_self_admit (test_compiled_inventory.CompiledInventory) ... FAIL\n\n======================================================================\nFAIL: test_owned_opaque_and_quot_never_self_admit (test_compiled_inventory.CompiledInventory)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/r5/p3c78wf50fv5j8x569vpykj80000gn/T/cap-auditor-mutants-tmigu07x/optimized/test_compiled_inventory.py\", line 204, in test_owned_opaque_and_quot_never_self_admit\n    self.reject(transcript(ROWS+[row]), 'unsupported_owned_kind', BOUND+[list(row)])\n  File \"/private/var/folders/r5/p3c78wf50fv5j8x569vpykj80000gn/T/cap-auditor-mutants-tmigu07x/optimized/test_compiled_inventory.py\", line 55, in reject\n    self.api.audit_inventory(text, VISIBLE if visible is None else visible,\nAssertionError: ValueError not raised\n\n----------------------------------------------------------------------\nRan 1 test in 0.004s\n\nFAILED (failures=1)\n"
+    },
+    {
+      "path": "auditor-selftest/optimized-unsupported_kind.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utf8": ""
+    }
+  ],
+  "scope": "94 unit tests per Python mode and24 finite named auditor mutations on exact frozen source. Actual final package gate and hosted verification remain separate; no CBZ or scientific acceptance."
+}

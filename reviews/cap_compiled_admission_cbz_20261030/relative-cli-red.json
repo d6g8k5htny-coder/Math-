@@ -1,0 +1,61 @@
+{
+  "schema": "cap.review-evidence-bundle.v1",
+  "group": "relative-cli-red",
+  "records": [
+    {
+      "path": "OBSERVATION.json",
+      "bytes": 2334,
+      "sha256": "e9d2f18fd3188f7aa227e10123c03773db16d5a44714d3b76d1c079c5120c6ea",
+      "utf8": "{\n  \"command\": [\n    \"/Library/Developer/CommandLineTools/usr/bin/python3\",\n    \"-B\",\n    \"-S\",\n    \"/tmp/cbz-cap-independent-review-d8r4w59f/private-patch/lean_opaque_control.py\",\n    \"--lean\",\n    \"/tmp/cbz-lean-4.34.1-smvim4pq/runtime/lean-4.34.1-darwin_aarch64/bin/lean\",\n    \"--output\",\n    \"relative-output\"\n  ],\n  \"cwd\": \"/tmp/cbz-cap-relative-output-red-xmzr5loc\",\n  \"exit\": 1,\n  \"timed_out\": false,\n  \"stdout_sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n  \"stderr_sha256\": \"d5c610b8e382a5b4dbb31cd5286e58feae67ca00eab2543f8d87021da56e4f35\",\n  \"snapshot_control_sha256\": \"4d36c416265d159ad9b532e39a2d1dba733bbe6d4ff88b16659296bbf0f5a92c\",\n  \"fixture_receipt\": {\n    \"errors\": 0,\n    \"failures\": 1,\n    \"implementation_sha256\": \"e1c0eda989d43cb7c963ed2f2e2db1938ee073ce1f47a9057cf7f810352c384b\",\n    \"program_sha256\": \"a135a25a5dbf0d27f5ba15eeddc53511ee52f8b00bf901b77922385e9480eee2\",\n    \"runs\": [\n      {\n        \"cleanup_signals\": [],\n        \"command\": [\n          \"/tmp/cbz-lean-4.34.1-smvim4pq/runtime/lean-4.34.1-darwin_aarch64/bin/lean\",\n          \"--version\"\n        ],\n        \"cwd\": \"relative-output\",\n        \"exit\": 0,\n        \"label\": \"version\",\n        \"timed_out\": false\n      },\n      {\n        \"cleanup_signals\": [],\n        \"command\": [\n          \"/usr/bin/env\",\n          \"LEAN_PATH=relative-output\",\n          \"LEAN_NUM_THREADS=2\",\n          \"/tmp/cbz-lean-4.34.1-smvim4pq/runtime/lean-4.34.1-darwin_aarch64/bin/lean\",\n          \"-j2\",\n          \"-o\",\n          \"CapFirstExit.olean\",\n          \"CapFirstExit.lean\"\n        ],\n        \"cwd\": \"relative-output\",\n        \"exit\": 0,\n        \"label\": \"compile\",\n        \"timed_out\": false\n      },\n      {\n        \"cleanup_signals\": [],\n        \"command\": [\n          \"/usr/bin/env\",\n          \"LEAN_PATH=relative-output\",\n          \"LEAN_NUM_THREADS=2\",\n          \"/tmp/cbz-lean-4.34.1-smvim4pq/runtime/lean-4.34.1-darwin_aarch64/bin/lean\",\n          \"-j2\",\n          \"Inventory.lean\"\n        ],\n        \"cwd\": \"relative-output\",\n        \"exit\": 1,\n        \"label\": \"export\",\n        \"timed_out\": false\n      }\n    ],\n    \"schema\": \"cap.actual-opaque-export-control.v1\",\n    \"success\": false,\n    \"tests\": 1\n  },\n  \"source_modified\": false,\n  \"scope\": \"actual pinned Lean core fixture only; no project proof or Mathlib build\"\n}\n"
+    },
+    {
+      "path": "observer.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utf8": ""
+    },
+    {
+      "path": "observer.stderr",
+      "bytes": 718,
+      "sha256": "d5c610b8e382a5b4dbb31cd5286e58feae67ca00eab2543f8d87021da56e4f35",
+      "utf8": "runTest (__main__.main.<locals>.ActualLeanSafety) ... FAIL\n\n======================================================================\nFAIL: runTest (__main__.main.<locals>.ActualLeanSafety)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/cbz-cap-independent-review-d8r4w59f/private-patch/lean_opaque_control.py\", line 47, in runTest\n    self.assertEqual(process.returncode,0, 'actual fixture process failed before the safety assertion: '+label)\nAssertionError: 1 != 0 : actual fixture process failed before the safety assertion: export\n\n----------------------------------------------------------------------\nRan 1 test in 1.948s\n\nFAILED (failures=1)\n"
+    },
+    {
+      "path": "relative-output/RESULT.json",
+      "bytes": 1412,
+      "sha256": "a63ba054241f538e1be9f7a5af41d27f8d89851a548e3eae587c01e06bc0110f",
+      "utf8": "{\n  \"errors\": 0,\n  \"failures\": 1,\n  \"implementation_sha256\": \"e1c0eda989d43cb7c963ed2f2e2db1938ee073ce1f47a9057cf7f810352c384b\",\n  \"program_sha256\": \"a135a25a5dbf0d27f5ba15eeddc53511ee52f8b00bf901b77922385e9480eee2\",\n  \"runs\": [\n    {\n      \"cleanup_signals\": [],\n      \"command\": [\n        \"/tmp/cbz-lean-4.34.1-smvim4pq/runtime/lean-4.34.1-darwin_aarch64/bin/lean\",\n        \"--version\"\n      ],\n      \"cwd\": \"relative-output\",\n      \"exit\": 0,\n      \"label\": \"version\",\n      \"timed_out\": false\n    },\n    {\n      \"cleanup_signals\": [],\n      \"command\": [\n        \"/usr/bin/env\",\n        \"LEAN_PATH=relative-output\",\n        \"LEAN_NUM_THREADS=2\",\n        \"/tmp/cbz-lean-4.34.1-smvim4pq/runtime/lean-4.34.1-darwin_aarch64/bin/lean\",\n        \"-j2\",\n        \"-o\",\n        \"CapFirstExit.olean\",\n        \"CapFirstExit.lean\"\n      ],\n      \"cwd\": \"relative-output\",\n      \"exit\": 0,\n      \"label\": \"compile\",\n      \"timed_out\": false\n    },\n    {\n      \"cleanup_signals\": [],\n      \"command\": [\n        \"/usr/bin/env\",\n        \"LEAN_PATH=relative-output\",\n        \"LEAN_NUM_THREADS=2\",\n        \"/tmp/cbz-lean-4.34.1-smvim4pq/runtime/lean-4.34.1-darwin_aarch64/bin/lean\",\n        \"-j2\",\n        \"Inventory.lean\"\n      ],\n      \"cwd\": \"relative-output\",\n      \"exit\": 1,\n      \"label\": \"export\",\n      \"timed_out\": false\n    }\n  ],\n  \"schema\": \"cap.actual-opaque-export-control.v1\",\n  \"success\": false,\n  \"tests\": 1\n}\n"
+    },
+    {
+      "path": "relative-output/version.stdout",
+      "bytes": 106,
+      "sha256": "20f42f897511ec814f7616bd9a193ae7504aa2f52fb05299eb752936eb77ca6e",
+      "utf8": "Lean (version 4.34.1, arm64-apple-darwin24.6.0, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)\n"
+    },
+    {
+      "path": "relative-output/compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utf8": ""
+    },
+    {
+      "path": "relative-output/compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utf8": ""
+    },
+    {
+      "path": "relative-output/export.stdout",
+      "bytes": 248,
+      "sha256": "70bf999508cd5ec9d67aece3d65c62b77ed5789cf0a625c741352573a69cd18e",
+      "utf8": "Inventory.lean:1:0: error: unknown module prefix 'CapFirstExit'\n\nNo directory 'CapFirstExit' or file 'CapFirstExit.olean' in the search path entries:\nrelative-output\n/private/tmp/cbz-lean-4.34.1-smvim4pq/runtime/lean-4.34.1-darwin_aarch64/lib/lean\n"
+    },
+    {
+      "path": "relative-output/export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utf8": ""
+    }
+  ],
+  "scope": "Historical bounded review/discovery only; no final-gate or CBZ-0 completion claim."
+}

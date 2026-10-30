@@ -1,998 +1,1677 @@
 {
- "object": "CAP-FIRST-EXIT-LEAN-20261002-v1",
- "scientific_effect": "NONE",
- "mathematical_acceptance": false,
- "alignment_review": "NOT_CLAIMED",
- "module": "CapFirstExit",
- "toolchain": "leanprover/lean4:v4.34.1",
- "mathlib_rev": "d13f23b723b8a846827a245b89c10fc7d3f11612",
- "dependency_revisions": {
-  "plausible": "118aa17ee84656b8bd727fef7c458ee8c833385c",
-  "LeanSearchClient": "ddf04cf3949fa556442341e87d47f9f6e6074707",
-  "importGraph": "e928b72544873815af278d38681b31c0293588e3",
-  "proofwidgets": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
-  "aesop": "355695d523e41d0554926416cba2a2b3544fbbc9",
-  "Qq": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
-  "batteries": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
-  "Cli": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204",
-  "mathlib": "d13f23b723b8a846827a245b89c10fc7d3f11612"
- },
- "pins_on_main": [
-  {
-   "path": "reviews/d1_cap_elder_partner_second_pass_claude_20260930/REVIEW.md",
-   "git_blob": "a653dbc7bd8bd692433587f050ab8678713c297e"
+  "object": "CAP-FIRST-EXIT-LEAN-20261002-v1",
+  "scientific_effect": "NONE",
+  "mathematical_acceptance": false,
+  "alignment_review": "NOT_CLAIMED",
+  "module": "CapFirstExit",
+  "toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_rev": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "dependency_revisions": {
+    "plausible": "118aa17ee84656b8bd727fef7c458ee8c833385c",
+    "LeanSearchClient": "ddf04cf3949fa556442341e87d47f9f6e6074707",
+    "importGraph": "e928b72544873815af278d38681b31c0293588e3",
+    "proofwidgets": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
+    "aesop": "355695d523e41d0554926416cba2a2b3544fbbc9",
+    "Qq": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+    "batteries": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+    "Cli": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204",
+    "mathlib": "d13f23b723b8a846827a245b89c10fc7d3f11612"
   },
-  {
-   "path": "imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md",
-   "git_blob": "0633aca3c2a2882b0de4399da0a75d64c2e6b2e1"
+  "pins_on_main": [
+    {
+      "path": "reviews/d1_cap_elder_partner_second_pass_claude_20260930/REVIEW.md",
+      "git_blob": "a653dbc7bd8bd692433587f050ab8678713c297e"
+    },
+    {
+      "path": "imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md",
+      "git_blob": "0633aca3c2a2882b0de4399da0a75d64c2e6b2e1"
+    }
+  ],
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "targets": [
+    "CapFirstExit.path_meets_frontier",
+    "CapFirstExit.preconnected_subset_of_frontier_disjoint",
+    "CapFirstExit.CapHyp",
+    "CapFirstExit.CapHyp.s_le_f_M",
+    "CapFirstExit.CapHyp.barrier",
+    "CapFirstExit.connectionLevels",
+    "CapFirstExit.CapHyp.maximin_isGreatest",
+    "CapFirstExit.CapHyp.maximin_eq",
+    "CapFirstExit.CapHyp.component_separated",
+    "CapFirstExit.component_joined",
+    "CapFirstExit.CapHyp.elder_merge_iff_closed",
+    "CapFirstExit.CapHyp.elder_merge_iff_open",
+    "CapFirstExit.CapHyp.joinedLevels",
+    "CapFirstExit.CapHyp.elder_death_level",
+    "CapFirstExit.CapHyp.path_through_saddle",
+    "CapFirstExit.CapHyp.saddle_cut",
+    "CapFirstExit.CapHyp.congr",
+    "CapFirstExit.isClosed_connectedComponentIn",
+    "CapFirstExit.CapHyp.older_peak",
+    "CapFirstExit.CapHyp.elder_alive",
+    "CapFirstExit.CapHyp.olderPeakLevels",
+    "CapFirstExit.CapHyp.elder_death_level_peak",
+    "CapFirstExit.frontier_image_subset",
+    "CapFirstExit.CapHyp.map",
+    "CapFirstExit.CapHyp.map_saddle",
+    "CapFirstExit.frontier_cylinder",
+    "CapFirstExit.isCompact_cylinder",
+    "CapFirstExit.torusCover",
+    "CapFirstExit.torusCover_continuous",
+    "CapFirstExit.torusCover_isOpenMap",
+    "CapFirstExit.CapHyp.toTorus",
+    "CapFirstExit.convex_zeros_between",
+    "CapFirstExit.convex_zeros_right",
+    "CapFirstExit.convex_zeros_left",
+    "CapFirstExit.ridge_profile",
+    "CapFirstExit.ridge_capHyp",
+    "CapFirstExit.ridge_saddle_strict",
+    "CapFirstExit.strongConcave_le_of_hasFDerivAt",
+    "CapFirstExit.slice_le",
+    "CapFirstExit.slice_ridge_bound",
+    "CapFirstExit.slice_curved",
+    "CapFirstExit.slice_hasFDerivAt",
+    "CapFirstExit.ridge_hasDerivAt",
+    "CapFirstExit.ridge_capHyp_of_slices",
+    "CapFirstExit.ridge_inputs_of_joint",
+    "CapFirstExit.sp_curved_side_constants",
+    "CapFirstExit.convexOn_add_node",
+    "CapFirstExit.two_node_bound",
+    "CapFirstExit.slice_gradient_bound",
+    "CapFirstExit.ridge_capHyp_sp",
+    "CapFirstExit.hermite_gap_le",
+    "CapFirstExit.hermite_m_ge_two",
+    "CapFirstExit.ridge_capHyp_normalized",
+    "CapFirstExit.strongConcaveOn_of_hessian",
+    "CapFirstExit.transverse_hessian_le",
+    "CapFirstExit.hessian_increment",
+    "CapFirstExit.slices_strongConcave",
+    "CapFirstExit.ridge_capHyp_H1",
+    "CapFirstExit.slice_critical_unique",
+    "CapFirstExit.slice_critical_exists",
+    "CapFirstExit.isInvertible_of_negDef",
+    "CapFirstExit.ridge_hasStrictFDerivAt",
+    "CapFirstExit.ridge_differentiable",
+    "CapFirstExit.ridge_exists",
+    "CapFirstExit.hessian_increment_D",
+    "CapFirstExit.transverse_hessian_le_D",
+    "CapFirstExit.slices_strongConcave_D",
+    "CapFirstExit.ridge_capHyp_source",
+    "CapFirstExit.convex_deriv_sign",
+    "CapFirstExit.two_node_deriv_bound",
+    "CapFirstExit.slice_gradient_deriv_bound",
+    "CapFirstExit.schur_max",
+    "CapFirstExit.trilinear_lower",
+    "CapFirstExit.l12_constants",
+    "CapFirstExit.transverse_hessian_eq",
+    "CapFirstExit.ridge_second_identity",
+    "CapFirstExit.ridge_hconv",
+    "CapFirstExit.dx_grad_increment",
+    "CapFirstExit.l9_arith",
+    "CapFirstExit.l12_lower",
+    "CapFirstExit.ridge_source_facts",
+    "CapFirstExit.ridge_capHyp_C3",
+    "CapFirstExit.hermite_gap_le_concave",
+    "CapFirstExit.third_deriv_exists_two",
+    "CapFirstExit.fxxx_lower",
+    "CapFirstExit.ridge_capHyp_C4",
+    "CapFirstExit.hessian_x_bound",
+    "CapFirstExit.hessian_r_bound",
+    "CapFirstExit.axis_convexConcave",
+    "CapFirstExit.block_nonneg",
+    "CapFirstExit.block_bound_collar",
+    "CapFirstExit.ridge_capHyp_C5",
+    "CapFirstExit.ridge_capHyp_D",
+    "CapFirstExit.block_of_norm",
+    "CapFirstExit.collar_subset_open",
+    "CapFirstExit.ridge_capHyp_E",
+    "CapFirstExit.toyF",
+    "CapFirstExit.toyRidge",
+    "CapFirstExit.toy_ridge_ge",
+    "CapFirstExit.toy_frontier",
+    "CapFirstExit.toy_capHyp",
+    "CapFirstExit.toy_saddle_strict",
+    "CapFirstExit.toy_saddle_cut",
+    "CapFirstExit.toy_death_level",
+    "CapFirstExit.toy_f_M",
+    "CapFirstExit.toy_f_S",
+    "CapFirstExit.toy_needs_C2",
+    "CapFirstExit.toy_needs_C1",
+    "CapFirstExit.toy_needs_C3",
+    "CapFirstExit.ridgeToyF",
+    "CapFirstExit.ridgeToy_capHyp",
+    "CapFirstExit.ridgeToy_saddle_strict",
+    "CapFirstExit.ridgeToy_joint",
+    "CapFirstExit.ridgeToy_slices",
+    "CapFirstExit.spToyF",
+    "CapFirstExit.spToy_capHyp",
+    "CapFirstExit.spToy_normalized",
+    "CapFirstExit.h1ToyF",
+    "CapFirstExit.h1Toy_capHyp",
+    "CapFirstExit.h1Toy_ridge_differentiable",
+    "CapFirstExit.h1Toy_source",
+    "CapFirstExit.h1Toy_C3",
+    "CapFirstExit.h1Toy_C4",
+    "CapFirstExit.h1Toy_D",
+    "CapFirstExit.h1Toy_E",
+    "CapFirstExit.quarticToyF",
+    "CapFirstExit.quarticToy_E",
+    "CapFirstExit.CapHyp.of_const_mul",
+    "CapFirstExit.hasFDerivAt_zero_const_mul_iff",
+    "CapFirstExit.iteratedFDeriv_const_mul_of_isOpen",
+    "CapFirstExit.ridge_capHyp_K",
+    "CapFirstExit.ridge_capHyp_norm_K",
+    "CapFirstExit.iteratedFDeriv_three_swap\u2081\u2082",
+    "CapFirstExit.iteratedFDeriv_three_swap\u2082\u2083",
+    "CapFirstExit.block_of_partial",
+    "CapFirstExit.ridge_capHyp_blocks",
+    "CapFirstExit.mixedToyF",
+    "CapFirstExit.mixedToy_blocks",
+    "CapFirstExit.addCircle_locallyConnectedSpace",
+    "CapFirstExit.torus_locallyConnectedSpace",
+    "CapFirstExit.torus_capHyp_blocks",
+    "CapFirstExit.torus_elder_death_level_blocks",
+    "CapFirstExit.circleChart",
+    "CapFirstExit.circleChart_continuous",
+    "CapFirstExit.circleChart_coe",
+    "CapFirstExit.mixedToy_hasFDerivAt",
+    "CapFirstExit.mixedToy_contDiff",
+    "CapFirstExit.mixedToy_iteratedFDeriv_two",
+    "CapFirstExit.mixedToy_iteratedFDeriv_three",
+    "CapFirstExit.mixedToy_iteratedFDeriv_four",
+    "CapFirstExit.torusToyF",
+    "CapFirstExit.torusToy_elder"
+  ],
+  "expected_axioms": {
+    "CapFirstExit.path_meets_frontier": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.preconnected_subset_of_frontier_disjoint": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.CapHyp": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.CapHyp.s_le_f_M": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.CapHyp.barrier": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.connectionLevels": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.CapHyp.maximin_isGreatest": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.CapHyp.maximin_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.CapHyp.component_separated": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.component_joined": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.CapHyp.elder_merge_iff_closed": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.CapHyp.elder_merge_iff_open": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.CapHyp.joinedLevels": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.CapHyp.elder_death_level": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.CapHyp.path_through_saddle": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.CapHyp.saddle_cut": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.CapHyp.congr": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.isClosed_connectedComponentIn": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.CapHyp.older_peak": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.CapHyp.elder_alive": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.CapHyp.olderPeakLevels": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.CapHyp.elder_death_level_peak": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.frontier_image_subset": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.CapHyp.map": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.CapHyp.map_saddle": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.frontier_cylinder": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.isCompact_cylinder": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.torusCover": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.torusCover_continuous": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.torusCover_isOpenMap": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.CapHyp.toTorus": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.convex_zeros_between": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.convex_zeros_right": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.convex_zeros_left": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridge_profile": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridge_capHyp": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridge_saddle_strict": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.strongConcave_le_of_hasFDerivAt": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.slice_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.slice_ridge_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.slice_curved": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.slice_hasFDerivAt": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridge_hasDerivAt": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridge_capHyp_of_slices": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridge_inputs_of_joint": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.sp_curved_side_constants": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.convexOn_add_node": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.two_node_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.slice_gradient_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridge_capHyp_sp": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.hermite_gap_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.hermite_m_ge_two": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridge_capHyp_normalized": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.strongConcaveOn_of_hessian": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.transverse_hessian_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.hessian_increment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.slices_strongConcave": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridge_capHyp_H1": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.slice_critical_unique": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.slice_critical_exists": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.isInvertible_of_negDef": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridge_hasStrictFDerivAt": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridge_differentiable": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridge_exists": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.hessian_increment_D": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.transverse_hessian_le_D": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.slices_strongConcave_D": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridge_capHyp_source": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.convex_deriv_sign": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.two_node_deriv_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.slice_gradient_deriv_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.schur_max": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.trilinear_lower": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.l12_constants": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.transverse_hessian_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridge_second_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridge_hconv": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.dx_grad_increment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.l9_arith": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.l12_lower": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridge_source_facts": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridge_capHyp_C3": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.hermite_gap_le_concave": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.third_deriv_exists_two": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.fxxx_lower": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridge_capHyp_C4": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.hessian_x_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.hessian_r_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.axis_convexConcave": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.block_nonneg": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.block_bound_collar": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridge_capHyp_C5": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridge_capHyp_D": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.block_of_norm": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.collar_subset_open": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridge_capHyp_E": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.toyF": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.toyRidge": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.toy_ridge_ge": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.toy_frontier": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.toy_capHyp": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.toy_saddle_strict": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.toy_saddle_cut": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.toy_death_level": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.toy_f_M": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.toy_f_S": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.toy_needs_C2": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.toy_needs_C1": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.toy_needs_C3": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridgeToyF": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridgeToy_capHyp": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridgeToy_saddle_strict": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridgeToy_joint": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridgeToy_slices": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.spToyF": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.spToy_capHyp": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.spToy_normalized": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.h1ToyF": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.h1Toy_capHyp": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.h1Toy_ridge_differentiable": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.h1Toy_source": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.h1Toy_C3": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.h1Toy_C4": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.h1Toy_D": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.h1Toy_E": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.quarticToyF": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.quarticToy_E": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.CapHyp.of_const_mul": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.hasFDerivAt_zero_const_mul_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.iteratedFDeriv_const_mul_of_isOpen": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridge_capHyp_K": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridge_capHyp_norm_K": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.iteratedFDeriv_three_swap\u2081\u2082": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.iteratedFDeriv_three_swap\u2082\u2083": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.block_of_partial": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.ridge_capHyp_blocks": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.mixedToyF": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.mixedToy_blocks": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.addCircle_locallyConnectedSpace": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.torus_locallyConnectedSpace": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.torus_capHyp_blocks": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.torus_elder_death_level_blocks": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.circleChart": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.circleChart_continuous": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.circleChart_coe": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.mixedToy_hasFDerivAt": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.mixedToy_contDiff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.mixedToy_iteratedFDeriv_two": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.mixedToy_iteratedFDeriv_three": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.mixedToy_iteratedFDeriv_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.torusToyF": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CapFirstExit.torusToy_elder": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 20,
+      "sha256": "b34af236d1df9e39ed4f98fca51702530ce76bdee4e1a69512f6caed933c3374"
+    },
+    {
+      "path": "ALIGNMENT.md",
+      "bytes": 57035,
+      "sha256": "91b086c04d083d2220821c8b6900e2bd070ad11f4be03bf2255bdbd83d677f21"
+    },
+    {
+      "path": "CBZ_ADMISSION.md",
+      "bytes": 7853,
+      "sha256": "11b590a016be368977578eba86d09b02be598a5675dec15522ca84245a6f70f2"
+    },
+    {
+      "path": "CapFirstExit.lean",
+      "bytes": 326607,
+      "sha256": "040aa91fcbdf25ccdaced1c828dd779318217a7c41ac928f87e8d17a8d3c3ef0"
+    },
+    {
+      "path": "README.md",
+      "bytes": 32478,
+      "sha256": "049d7f75713bedb3a499eb16d2a4bb410e243f2e70eeb55ea1cfe4f38f13ff57"
+    },
+    {
+      "path": "compiled_inventory.py",
+      "bytes": 15043,
+      "sha256": "e1c0eda989d43cb7c963ed2f2e2db1938ee073ce1f47a9057cf7f810352c384b"
+    },
+    {
+      "path": "gate.py",
+      "bytes": 28665,
+      "sha256": "16f8ee1394dd0bcd3c74864d48bf0de17d9318efb94b846289707922de04710e"
+    },
+    {
+      "path": "lake-manifest.json",
+      "bytes": 3547,
+      "sha256": "04549ed79e36b417686b94d91994aad4dad7bb78d896bd2e74099ff95265935b"
+    },
+    {
+      "path": "lakefile.toml",
+      "bytes": 252,
+      "sha256": "3fa8afe35db80e433b9ff59fab399df0b44ade73aeda1452b884a24ed1b01a52"
+    },
+    {
+      "path": "lean-toolchain",
+      "bytes": 25,
+      "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+    },
+    {
+      "path": "lean_opaque_control.py",
+      "bytes": 3607,
+      "sha256": "41dbbf7fcd54cd34d740001c7f24b5a2550a6e83b83a9375e90bbf7aa61ec0ba"
+    },
+    {
+      "path": "run_cbz_mutations.py",
+      "bytes": 7658,
+      "sha256": "65a3d2a3a1853809db3cca522176906da0d2644ae99589a31ee3280528ccf1ed"
+    },
+    {
+      "path": "test_compiled_inventory.py",
+      "bytes": 12680,
+      "sha256": "c6889ec62dae9bd256269cc688422b1da5c3995674ad869d0225dc08f1f33810"
+    },
+    {
+      "path": "test_gate.py",
+      "bytes": 22903,
+      "sha256": "1e0a426ac65a262835ae99009429e3dfab9e538f76cd9c7c5037c68bfa2455f9"
+    },
+    {
+      "path": "test_mutation_accounting.py",
+      "bytes": 3399,
+      "sha256": "1d328de984012406aabf5266382d1e7a69d18f7d61d501fc158f81af768813ef"
+    },
+    {
+      "path": "test_process_retention.py",
+      "bytes": 7430,
+      "sha256": "6df53c86276992ea5919cb3bea69fff6525aae7aa78ea0c1c23609a7b2240217"
+    },
+    {
+      "path": "test_runtime_boundary.py",
+      "bytes": 2270,
+      "sha256": "097e837943f268b485373efcdb0d72f847aed2f2ba3e8721c3b22afc15d96aea"
+    },
+    {
+      "path": "test_source_admission.py",
+      "bytes": 2852,
+      "sha256": "514513613f4cb3a27bb389d539ddbd2f1f6e81209d2f9464aa054c0dfab691b7"
+    },
+    {
+      "path": "test_timeout_exit_zero.py",
+      "bytes": 2035,
+      "sha256": "b2d12ef9da9fa4c4cc997a3b91846d193ad4be79ff42181a34f2bd9bcc9cac0f"
+    }
+  ],
+  "compiled_inventory_schema": "cap-name-components-v1",
+  "compiled_visible_kinds": {
+    "CapFirstExit.path_meets_frontier": "theorem",
+    "CapFirstExit.preconnected_subset_of_frontier_disjoint": "theorem",
+    "CapFirstExit.CapHyp": "inductive",
+    "CapFirstExit.CapHyp.s_le_f_M": "theorem",
+    "CapFirstExit.CapHyp.barrier": "theorem",
+    "CapFirstExit.connectionLevels": "def",
+    "CapFirstExit.CapHyp.maximin_isGreatest": "theorem",
+    "CapFirstExit.CapHyp.maximin_eq": "theorem",
+    "CapFirstExit.CapHyp.component_separated": "theorem",
+    "CapFirstExit.component_joined": "theorem",
+    "CapFirstExit.CapHyp.elder_merge_iff_closed": "theorem",
+    "CapFirstExit.CapHyp.elder_merge_iff_open": "theorem",
+    "CapFirstExit.CapHyp.joinedLevels": "def",
+    "CapFirstExit.CapHyp.elder_death_level": "theorem",
+    "CapFirstExit.CapHyp.path_through_saddle": "theorem",
+    "CapFirstExit.CapHyp.saddle_cut": "theorem",
+    "CapFirstExit.CapHyp.congr": "theorem",
+    "CapFirstExit.isClosed_connectedComponentIn": "theorem",
+    "CapFirstExit.CapHyp.older_peak": "theorem",
+    "CapFirstExit.CapHyp.elder_alive": "theorem",
+    "CapFirstExit.CapHyp.olderPeakLevels": "def",
+    "CapFirstExit.CapHyp.elder_death_level_peak": "theorem",
+    "CapFirstExit.frontier_image_subset": "theorem",
+    "CapFirstExit.CapHyp.map": "theorem",
+    "CapFirstExit.CapHyp.map_saddle": "theorem",
+    "CapFirstExit.frontier_cylinder": "theorem",
+    "CapFirstExit.isCompact_cylinder": "theorem",
+    "CapFirstExit.torusCover": "def",
+    "CapFirstExit.torusCover_continuous": "theorem",
+    "CapFirstExit.torusCover_isOpenMap": "theorem",
+    "CapFirstExit.CapHyp.toTorus": "theorem",
+    "CapFirstExit.convex_zeros_between": "theorem",
+    "CapFirstExit.convex_zeros_right": "theorem",
+    "CapFirstExit.convex_zeros_left": "theorem",
+    "CapFirstExit.ridge_profile": "theorem",
+    "CapFirstExit.ridge_capHyp": "theorem",
+    "CapFirstExit.ridge_saddle_strict": "theorem",
+    "CapFirstExit.strongConcave_le_of_hasFDerivAt": "theorem",
+    "CapFirstExit.slice_le": "theorem",
+    "CapFirstExit.slice_ridge_bound": "theorem",
+    "CapFirstExit.slice_curved": "theorem",
+    "CapFirstExit.slice_hasFDerivAt": "theorem",
+    "CapFirstExit.ridge_hasDerivAt": "theorem",
+    "CapFirstExit.ridge_capHyp_of_slices": "theorem",
+    "CapFirstExit.ridge_inputs_of_joint": "theorem",
+    "CapFirstExit.sp_curved_side_constants": "theorem",
+    "CapFirstExit.convexOn_add_node": "theorem",
+    "CapFirstExit.two_node_bound": "theorem",
+    "CapFirstExit.slice_gradient_bound": "theorem",
+    "CapFirstExit.ridge_capHyp_sp": "theorem",
+    "CapFirstExit.hermite_gap_le": "theorem",
+    "CapFirstExit.hermite_m_ge_two": "theorem",
+    "CapFirstExit.ridge_capHyp_normalized": "theorem",
+    "CapFirstExit.strongConcaveOn_of_hessian": "theorem",
+    "CapFirstExit.transverse_hessian_le": "theorem",
+    "CapFirstExit.hessian_increment": "theorem",
+    "CapFirstExit.slices_strongConcave": "theorem",
+    "CapFirstExit.ridge_capHyp_H1": "theorem",
+    "CapFirstExit.slice_critical_unique": "theorem",
+    "CapFirstExit.slice_critical_exists": "theorem",
+    "CapFirstExit.isInvertible_of_negDef": "theorem",
+    "CapFirstExit.ridge_hasStrictFDerivAt": "theorem",
+    "CapFirstExit.ridge_differentiable": "theorem",
+    "CapFirstExit.ridge_exists": "theorem",
+    "CapFirstExit.hessian_increment_D": "theorem",
+    "CapFirstExit.transverse_hessian_le_D": "theorem",
+    "CapFirstExit.slices_strongConcave_D": "theorem",
+    "CapFirstExit.ridge_capHyp_source": "theorem",
+    "CapFirstExit.convex_deriv_sign": "theorem",
+    "CapFirstExit.two_node_deriv_bound": "theorem",
+    "CapFirstExit.slice_gradient_deriv_bound": "theorem",
+    "CapFirstExit.schur_max": "theorem",
+    "CapFirstExit.trilinear_lower": "theorem",
+    "CapFirstExit.l12_constants": "theorem",
+    "CapFirstExit.transverse_hessian_eq": "theorem",
+    "CapFirstExit.ridge_second_identity": "theorem",
+    "CapFirstExit.ridge_hconv": "theorem",
+    "CapFirstExit.dx_grad_increment": "theorem",
+    "CapFirstExit.l9_arith": "theorem",
+    "CapFirstExit.l12_lower": "theorem",
+    "CapFirstExit.ridge_source_facts": "theorem",
+    "CapFirstExit.ridge_capHyp_C3": "theorem",
+    "CapFirstExit.hermite_gap_le_concave": "theorem",
+    "CapFirstExit.third_deriv_exists_two": "theorem",
+    "CapFirstExit.fxxx_lower": "theorem",
+    "CapFirstExit.ridge_capHyp_C4": "theorem",
+    "CapFirstExit.hessian_x_bound": "theorem",
+    "CapFirstExit.hessian_r_bound": "theorem",
+    "CapFirstExit.axis_convexConcave": "theorem",
+    "CapFirstExit.block_nonneg": "theorem",
+    "CapFirstExit.block_bound_collar": "theorem",
+    "CapFirstExit.ridge_capHyp_C5": "theorem",
+    "CapFirstExit.ridge_capHyp_D": "theorem",
+    "CapFirstExit.block_of_norm": "theorem",
+    "CapFirstExit.collar_subset_open": "theorem",
+    "CapFirstExit.ridge_capHyp_E": "theorem",
+    "CapFirstExit.toyF": "def",
+    "CapFirstExit.toyRidge": "def",
+    "CapFirstExit.toy_ridge_ge": "theorem",
+    "CapFirstExit.toy_frontier": "theorem",
+    "CapFirstExit.toy_capHyp": "theorem",
+    "CapFirstExit.toy_saddle_strict": "theorem",
+    "CapFirstExit.toy_saddle_cut": "theorem",
+    "CapFirstExit.toy_death_level": "theorem",
+    "CapFirstExit.toy_f_M": "theorem",
+    "CapFirstExit.toy_f_S": "theorem",
+    "CapFirstExit.toy_needs_C2": "theorem",
+    "CapFirstExit.toy_needs_C1": "theorem",
+    "CapFirstExit.toy_needs_C3": "theorem",
+    "CapFirstExit.ridgeToyF": "def",
+    "CapFirstExit.ridgeToy_capHyp": "theorem",
+    "CapFirstExit.ridgeToy_saddle_strict": "theorem",
+    "CapFirstExit.ridgeToy_joint": "theorem",
+    "CapFirstExit.ridgeToy_slices": "theorem",
+    "CapFirstExit.spToyF": "def",
+    "CapFirstExit.spToy_capHyp": "theorem",
+    "CapFirstExit.spToy_normalized": "theorem",
+    "CapFirstExit.h1ToyF": "def",
+    "CapFirstExit.h1Toy_capHyp": "theorem",
+    "CapFirstExit.h1Toy_ridge_differentiable": "theorem",
+    "CapFirstExit.h1Toy_source": "theorem",
+    "CapFirstExit.h1Toy_C3": "theorem",
+    "CapFirstExit.h1Toy_C4": "theorem",
+    "CapFirstExit.h1Toy_D": "theorem",
+    "CapFirstExit.h1Toy_E": "theorem",
+    "CapFirstExit.quarticToyF": "def",
+    "CapFirstExit.quarticToy_E": "theorem",
+    "CapFirstExit.CapHyp.of_const_mul": "theorem",
+    "CapFirstExit.hasFDerivAt_zero_const_mul_iff": "theorem",
+    "CapFirstExit.iteratedFDeriv_const_mul_of_isOpen": "theorem",
+    "CapFirstExit.ridge_capHyp_K": "theorem",
+    "CapFirstExit.ridge_capHyp_norm_K": "theorem",
+    "CapFirstExit.iteratedFDeriv_three_swap\u2081\u2082": "theorem",
+    "CapFirstExit.iteratedFDeriv_three_swap\u2082\u2083": "theorem",
+    "CapFirstExit.block_of_partial": "theorem",
+    "CapFirstExit.ridge_capHyp_blocks": "theorem",
+    "CapFirstExit.mixedToyF": "def",
+    "CapFirstExit.mixedToy_blocks": "theorem",
+    "CapFirstExit.addCircle_locallyConnectedSpace": "theorem",
+    "CapFirstExit.torus_locallyConnectedSpace": "theorem",
+    "CapFirstExit.torus_capHyp_blocks": "theorem",
+    "CapFirstExit.torus_elder_death_level_blocks": "theorem",
+    "CapFirstExit.circleChart": "def",
+    "CapFirstExit.circleChart_continuous": "theorem",
+    "CapFirstExit.circleChart_coe": "theorem",
+    "CapFirstExit.mixedToy_hasFDerivAt": "theorem",
+    "CapFirstExit.mixedToy_contDiff": "theorem",
+    "CapFirstExit.mixedToy_iteratedFDeriv_two": "theorem",
+    "CapFirstExit.mixedToy_iteratedFDeriv_three": "theorem",
+    "CapFirstExit.mixedToy_iteratedFDeriv_four": "theorem",
+    "CapFirstExit.torusToyF": "def",
+    "CapFirstExit.torusToy_elder": "theorem"
+  },
+  "compiled_inventory": [
+    [
+      "def",
+      "user",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s436170487970/s63617365734f6e",
+      "safe"
+    ],
+    [
+      "theorem",
+      "user",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s436170487970/s6365696c696e67",
+      "safe"
+    ],
+    [
+      "theorem",
+      "user",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s436170487970/s66726f6e746965725f6c65",
+      "safe"
+    ],
+    [
+      "theorem",
+      "user",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s436170487970/s6d656d",
+      "safe"
+    ],
+    [
+      "ctor",
+      "user",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s436170487970/s6d6b",
+      "safe"
+    ],
+    [
+      "def",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s436170487970/s6d6b/s5f666c61745f63746f72",
+      "safe"
+    ],
+    [
+      "theorem",
+      "user",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s436170487970/s6f6c646572",
+      "safe"
+    ],
+    [
+      "rec",
+      "user",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s436170487970/s726563",
+      "safe"
+    ],
+    [
+      "def",
+      "user",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s436170487970/s7265634f6e",
+      "safe"
+    ],
+    [
+      "theorem",
+      "user",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s436170487970/s7269646765",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s667878785f6c6f776572/s5f73696d705f315f31",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s6831546f7946/s5f70726f6f665f31",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s6831546f7946/s65715f31",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s6c395f6172697468/s5f73696d705f315f31",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s6c395f6172697468/s5f73696d705f315f32",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s6c395f6172697468/s5f73696d705f315f33",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s6c395f6172697468/s5f73696d705f315f34",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s6c395f6172697468/s5f73696d705f315f35",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s6c395f6172697468/s5f73696d705f315f36",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s6c395f6172697468/s5f73696d705f315f37",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s6d69786564546f7946/s65715f31",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s71756172746963546f7946/s5f70726f6f665f31",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s71756172746963546f7946/s65715f31",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s7269646765546f7946/s5f70726f6f665f31",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s7269646765546f7946/s65715f31",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s72696467655f6361704879705f4333/s5f73696d705f315f31",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s72696467655f6361704879705f4335/s5f73696d705f315f31",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s72696467655f6361704879705f45/s5f73696d705f315f31",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s72696467655f6361704879705f4b/s5f73696d705f315f31",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s72696467655f6361704879705f4b/s5f73696d705f315f32",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s72696467655f6361704879705f4b/s5f73696d705f315f33",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s72696467655f6361704879705f4b/s5f73696d705f315f34",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s72696467655f6361704879705f4b/s5f73696d705f315f35",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s72696467655f6361704879705f4b/s5f73696d705f315f36",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s72696467655f6361704879705f4b/s5f73696d705f315f37",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s72696467655f6361704879705f4b/s5f73696d705f315f38",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s72696467655f6361704879705f6e6f726d5f4b/s5f73696d705f315f31",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s7370546f7946/s5f70726f6f665f31",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s7370546f7946/s65715f31",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s7374726f6e67436f6e636176654f6e5f6f665f6865737369616e/s5f6162656c5f315f31",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s7374726f6e67436f6e636176654f6e5f6f665f6865737369616e/s5f6162656c5f315f32",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s7374726f6e67436f6e636176655f6c655f6f665f6861734644657269764174/s5f6162656c5f315f31",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s74686972645f64657269765f6578697374735f74776f/s5f73696d705f315f31",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s74686972645f64657269765f6578697374735f74776f/s5f73696d705f315f32",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s74686972645f64657269765f6578697374735f74776f/s5f73696d705f315f33",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s746f727573436f766572/s65715f31",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s746f727573546f7946/s5f70726f6f665f31",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s746f727573546f7946/s5f70726f6f665f32",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s746f727573546f7946/s65715f31",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s746f7946/s5f70726f6f665f31",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s746f795269646765/s5f70726f6f665f31",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s746f795269646765/s5f70726f6f665f32",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s746f795269646765/s5f70726f6f665f33",
+      "safe"
+    ],
+    [
+      "theorem",
+      "aux",
+      "s436170466972737445786974",
+      "s436170466972737445786974/s746f795269646765/s5f70726f6f665f34",
+      "safe"
+    ]
+  ],
+  "compiled_codegen_inventory": [
+    [
+      "s436170466972737445786974",
+      "s436170466972737445786974/s746f795269646765/s5f636c6f7365645f31"
+    ],
+    [
+      "s436170466972737445786974",
+      "s436170466972737445786974/s746f795269646765/s5f636c6f7365645f30"
+    ],
+    [
+      "s436170466972737445786974",
+      "s436170466972737445786974/s746f795269646765/s5f6c616d5f30"
+    ],
+    [
+      "s436170466972737445786974",
+      "s436170466972737445786974/s746f727573436f766572/s5f626f786564"
+    ],
+    [
+      "s436170466972737445786974",
+      "s436170466972737445786974/s746f727573436f766572/s5f726564417267"
+    ],
+    [
+      "s436170466972737445786974",
+      "s436170466972737445786974/s746f727573436f766572/s5f726564417267/s5f636c6f7365645f30"
+    ],
+    [
+      "s436170466972737445786974",
+      "s436170466972737445786974/s746f727573436f766572/s5f726564417267/s5f6c616d5f30/s5f626f786564"
+    ],
+    [
+      "s436170466972737445786974",
+      "s436170466972737445786974/s746f727573436f766572/s5f726564417267/s5f6c616d5f30"
+    ]
+  ],
+  "compiled_structural_relations": [
+    [
+      "constructor",
+      "s436170466972737445786974/s436170487970/s6d6b",
+      "s436170466972737445786974/s436170487970"
+    ],
+    [
+      "projection",
+      "s436170466972737445786974/s436170487970/s66726f6e746965725f6c65",
+      "s436170466972737445786974/s436170487970"
+    ],
+    [
+      "projection",
+      "s436170466972737445786974/s436170487970/s6f6c646572",
+      "s436170466972737445786974/s436170487970"
+    ],
+    [
+      "projection",
+      "s436170466972737445786974/s436170487970/s6d656d",
+      "s436170466972737445786974/s436170487970"
+    ],
+    [
+      "projection",
+      "s436170466972737445786974/s436170487970/s7269646765",
+      "s436170466972737445786974/s436170487970"
+    ],
+    [
+      "projection",
+      "s436170466972737445786974/s436170487970/s6365696c696e67",
+      "s436170466972737445786974/s436170487970"
+    ],
+    [
+      "aux_recursor",
+      "s436170466972737445786974/s436170487970/s63617365734f6e",
+      "s436170466972737445786974/s436170487970"
+    ],
+    [
+      "recursor",
+      "s436170466972737445786974/s436170487970/s726563",
+      "s436170466972737445786974/s436170487970"
+    ],
+    [
+      "aux_recursor",
+      "s436170466972737445786974/s436170487970/s7265634f6e",
+      "s436170466972737445786974/s436170487970"
+    ]
+  ],
+  "compiled_inventory_observation": {
+    "source_commit": "9f8dbb4d18b9f3ebd9ffac6b0caa42df9f343966",
+    "proof_sha256": "040aa91fcbdf25ccdaced1c828dd779318217a7c41ac928f87e8d17a8d3c3ef0",
+    "owned_constants": 206,
+    "support_records": 54,
+    "ir_names": 8,
+    "dependency_closure": 47659,
+    "discovery_source_identity_sha256": "e0156e4fd169e94b5dd771e52061c5d7182b62449e264b1561bd6b3ea254dbd3",
+    "program_sha256": "a135a25a5dbf0d27f5ba15eeddc53511ee52f8b00bf901b77922385e9480eee2",
+    "transcript_sha256": "b4a9341a150e8aa60c1f746df4a20c41b6d740a83312ed7485edf504eb80ea03",
+    "kernel_scope": "default leanchecker replays owned module declarations against imported environment; no empty-kernel Mathlib claim",
+    "qualification": "actual discovery evidence; final repaired-gate execution still required"
   }
- ],
- "allowed_axioms": [
-  "Classical.choice",
-  "Quot.sound",
-  "propext"
- ],
- "targets": [
-  "CapFirstExit.path_meets_frontier",
-  "CapFirstExit.preconnected_subset_of_frontier_disjoint",
-  "CapFirstExit.CapHyp",
-  "CapFirstExit.CapHyp.s_le_f_M",
-  "CapFirstExit.CapHyp.barrier",
-  "CapFirstExit.connectionLevels",
-  "CapFirstExit.CapHyp.maximin_isGreatest",
-  "CapFirstExit.CapHyp.maximin_eq",
-  "CapFirstExit.CapHyp.component_separated",
-  "CapFirstExit.component_joined",
-  "CapFirstExit.CapHyp.elder_merge_iff_closed",
-  "CapFirstExit.CapHyp.elder_merge_iff_open",
-  "CapFirstExit.CapHyp.joinedLevels",
-  "CapFirstExit.CapHyp.elder_death_level",
-  "CapFirstExit.CapHyp.path_through_saddle",
-  "CapFirstExit.CapHyp.saddle_cut",
-  "CapFirstExit.CapHyp.congr",
-  "CapFirstExit.isClosed_connectedComponentIn",
-  "CapFirstExit.CapHyp.older_peak",
-  "CapFirstExit.CapHyp.elder_alive",
-  "CapFirstExit.CapHyp.olderPeakLevels",
-  "CapFirstExit.CapHyp.elder_death_level_peak",
-  "CapFirstExit.frontier_image_subset",
-  "CapFirstExit.CapHyp.map",
-  "CapFirstExit.CapHyp.map_saddle",
-  "CapFirstExit.frontier_cylinder",
-  "CapFirstExit.isCompact_cylinder",
-  "CapFirstExit.torusCover",
-  "CapFirstExit.torusCover_continuous",
-  "CapFirstExit.torusCover_isOpenMap",
-  "CapFirstExit.CapHyp.toTorus",
-  "CapFirstExit.convex_zeros_between",
-  "CapFirstExit.convex_zeros_right",
-  "CapFirstExit.convex_zeros_left",
-  "CapFirstExit.ridge_profile",
-  "CapFirstExit.ridge_capHyp",
-  "CapFirstExit.ridge_saddle_strict",
-  "CapFirstExit.strongConcave_le_of_hasFDerivAt",
-  "CapFirstExit.slice_le",
-  "CapFirstExit.slice_ridge_bound",
-  "CapFirstExit.slice_curved",
-  "CapFirstExit.slice_hasFDerivAt",
-  "CapFirstExit.ridge_hasDerivAt",
-  "CapFirstExit.ridge_capHyp_of_slices",
-  "CapFirstExit.ridge_inputs_of_joint",
-  "CapFirstExit.sp_curved_side_constants",
-  "CapFirstExit.convexOn_add_node",
-  "CapFirstExit.two_node_bound",
-  "CapFirstExit.slice_gradient_bound",
-  "CapFirstExit.ridge_capHyp_sp",
-  "CapFirstExit.hermite_gap_le",
-  "CapFirstExit.hermite_m_ge_two",
-  "CapFirstExit.ridge_capHyp_normalized",
-  "CapFirstExit.strongConcaveOn_of_hessian",
-  "CapFirstExit.transverse_hessian_le",
-  "CapFirstExit.hessian_increment",
-  "CapFirstExit.slices_strongConcave",
-  "CapFirstExit.ridge_capHyp_H1",
-  "CapFirstExit.slice_critical_unique",
-  "CapFirstExit.slice_critical_exists",
-  "CapFirstExit.isInvertible_of_negDef",
-  "CapFirstExit.ridge_hasStrictFDerivAt",
-  "CapFirstExit.ridge_differentiable",
-  "CapFirstExit.ridge_exists",
-  "CapFirstExit.hessian_increment_D",
-  "CapFirstExit.transverse_hessian_le_D",
-  "CapFirstExit.slices_strongConcave_D",
-  "CapFirstExit.ridge_capHyp_source",
-  "CapFirstExit.convex_deriv_sign",
-  "CapFirstExit.two_node_deriv_bound",
-  "CapFirstExit.slice_gradient_deriv_bound",
-  "CapFirstExit.schur_max",
-  "CapFirstExit.trilinear_lower",
-  "CapFirstExit.l12_constants",
-  "CapFirstExit.transverse_hessian_eq",
-  "CapFirstExit.ridge_second_identity",
-  "CapFirstExit.ridge_hconv",
-  "CapFirstExit.dx_grad_increment",
-  "CapFirstExit.l9_arith",
-  "CapFirstExit.l12_lower",
-  "CapFirstExit.ridge_source_facts",
-  "CapFirstExit.ridge_capHyp_C3",
-  "CapFirstExit.hermite_gap_le_concave",
-  "CapFirstExit.third_deriv_exists_two",
-  "CapFirstExit.fxxx_lower",
-  "CapFirstExit.ridge_capHyp_C4",
-  "CapFirstExit.hessian_x_bound",
-  "CapFirstExit.hessian_r_bound",
-  "CapFirstExit.axis_convexConcave",
-  "CapFirstExit.block_nonneg",
-  "CapFirstExit.block_bound_collar",
-  "CapFirstExit.ridge_capHyp_C5",
-  "CapFirstExit.ridge_capHyp_D",
-  "CapFirstExit.block_of_norm",
-  "CapFirstExit.collar_subset_open",
-  "CapFirstExit.ridge_capHyp_E",
-  "CapFirstExit.toyF",
-  "CapFirstExit.toyRidge",
-  "CapFirstExit.toy_ridge_ge",
-  "CapFirstExit.toy_frontier",
-  "CapFirstExit.toy_capHyp",
-  "CapFirstExit.toy_saddle_strict",
-  "CapFirstExit.toy_saddle_cut",
-  "CapFirstExit.toy_death_level",
-  "CapFirstExit.toy_f_M",
-  "CapFirstExit.toy_f_S",
-  "CapFirstExit.toy_needs_C2",
-  "CapFirstExit.toy_needs_C1",
-  "CapFirstExit.toy_needs_C3",
-  "CapFirstExit.ridgeToyF",
-  "CapFirstExit.ridgeToy_capHyp",
-  "CapFirstExit.ridgeToy_saddle_strict",
-  "CapFirstExit.ridgeToy_joint",
-  "CapFirstExit.ridgeToy_slices",
-  "CapFirstExit.spToyF",
-  "CapFirstExit.spToy_capHyp",
-  "CapFirstExit.spToy_normalized",
-  "CapFirstExit.h1ToyF",
-  "CapFirstExit.h1Toy_capHyp",
-  "CapFirstExit.h1Toy_ridge_differentiable",
-  "CapFirstExit.h1Toy_source",
-  "CapFirstExit.h1Toy_C3",
-  "CapFirstExit.h1Toy_C4",
-  "CapFirstExit.h1Toy_D",
-  "CapFirstExit.h1Toy_E",
-  "CapFirstExit.quarticToyF",
-  "CapFirstExit.quarticToy_E",
-  "CapFirstExit.CapHyp.of_const_mul",
-  "CapFirstExit.hasFDerivAt_zero_const_mul_iff",
-  "CapFirstExit.iteratedFDeriv_const_mul_of_isOpen",
-  "CapFirstExit.ridge_capHyp_K",
-  "CapFirstExit.ridge_capHyp_norm_K",
-  "CapFirstExit.iteratedFDeriv_three_swap\u2081\u2082",
-  "CapFirstExit.iteratedFDeriv_three_swap\u2082\u2083",
-  "CapFirstExit.block_of_partial",
-  "CapFirstExit.ridge_capHyp_blocks",
-  "CapFirstExit.mixedToyF",
-  "CapFirstExit.mixedToy_blocks",
-  "CapFirstExit.addCircle_locallyConnectedSpace",
-  "CapFirstExit.torus_locallyConnectedSpace",
-  "CapFirstExit.torus_capHyp_blocks",
-  "CapFirstExit.torus_elder_death_level_blocks",
-  "CapFirstExit.circleChart",
-  "CapFirstExit.circleChart_continuous",
-  "CapFirstExit.circleChart_coe",
-  "CapFirstExit.mixedToy_hasFDerivAt",
-  "CapFirstExit.mixedToy_contDiff",
-  "CapFirstExit.mixedToy_iteratedFDeriv_two",
-  "CapFirstExit.mixedToy_iteratedFDeriv_three",
-  "CapFirstExit.mixedToy_iteratedFDeriv_four",
-  "CapFirstExit.torusToyF",
-  "CapFirstExit.torusToy_elder"
- ],
- "expected_axioms": {
-  "CapFirstExit.path_meets_frontier": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.preconnected_subset_of_frontier_disjoint": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.CapHyp": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.CapHyp.s_le_f_M": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.CapHyp.barrier": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.connectionLevels": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.CapHyp.maximin_isGreatest": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.CapHyp.maximin_eq": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.CapHyp.component_separated": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.component_joined": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.CapHyp.elder_merge_iff_closed": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.CapHyp.elder_merge_iff_open": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.CapHyp.joinedLevels": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.CapHyp.elder_death_level": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.CapHyp.path_through_saddle": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.CapHyp.saddle_cut": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.CapHyp.congr": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.isClosed_connectedComponentIn": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.CapHyp.older_peak": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.CapHyp.elder_alive": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.CapHyp.olderPeakLevels": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.CapHyp.elder_death_level_peak": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.frontier_image_subset": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.CapHyp.map": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.CapHyp.map_saddle": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.frontier_cylinder": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.isCompact_cylinder": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.torusCover": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.torusCover_continuous": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.torusCover_isOpenMap": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.CapHyp.toTorus": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.convex_zeros_between": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.convex_zeros_right": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.convex_zeros_left": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridge_profile": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridge_capHyp": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridge_saddle_strict": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.strongConcave_le_of_hasFDerivAt": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.slice_le": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.slice_ridge_bound": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.slice_curved": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.slice_hasFDerivAt": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridge_hasDerivAt": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridge_capHyp_of_slices": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridge_inputs_of_joint": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.sp_curved_side_constants": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.convexOn_add_node": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.two_node_bound": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.slice_gradient_bound": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridge_capHyp_sp": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.hermite_gap_le": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.hermite_m_ge_two": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridge_capHyp_normalized": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.strongConcaveOn_of_hessian": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.transverse_hessian_le": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.hessian_increment": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.slices_strongConcave": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridge_capHyp_H1": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.slice_critical_unique": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.slice_critical_exists": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.isInvertible_of_negDef": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridge_hasStrictFDerivAt": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridge_differentiable": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridge_exists": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.hessian_increment_D": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.transverse_hessian_le_D": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.slices_strongConcave_D": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridge_capHyp_source": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.convex_deriv_sign": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.two_node_deriv_bound": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.slice_gradient_deriv_bound": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.schur_max": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.trilinear_lower": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.l12_constants": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.transverse_hessian_eq": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridge_second_identity": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridge_hconv": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.dx_grad_increment": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.l9_arith": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.l12_lower": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridge_source_facts": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridge_capHyp_C3": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.hermite_gap_le_concave": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.third_deriv_exists_two": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.fxxx_lower": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridge_capHyp_C4": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.hessian_x_bound": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.hessian_r_bound": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.axis_convexConcave": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.block_nonneg": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.block_bound_collar": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridge_capHyp_C5": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridge_capHyp_D": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.block_of_norm": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.collar_subset_open": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridge_capHyp_E": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.toyF": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.toyRidge": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.toy_ridge_ge": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.toy_frontier": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.toy_capHyp": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.toy_saddle_strict": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.toy_saddle_cut": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.toy_death_level": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.toy_f_M": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.toy_f_S": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.toy_needs_C2": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.toy_needs_C1": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.toy_needs_C3": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridgeToyF": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridgeToy_capHyp": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridgeToy_saddle_strict": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridgeToy_joint": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridgeToy_slices": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.spToyF": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.spToy_capHyp": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.spToy_normalized": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.h1ToyF": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.h1Toy_capHyp": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.h1Toy_ridge_differentiable": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.h1Toy_source": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.h1Toy_C3": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.h1Toy_C4": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.h1Toy_D": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.h1Toy_E": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.quarticToyF": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.quarticToy_E": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.CapHyp.of_const_mul": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.hasFDerivAt_zero_const_mul_iff": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.iteratedFDeriv_const_mul_of_isOpen": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridge_capHyp_K": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridge_capHyp_norm_K": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.iteratedFDeriv_three_swap\u2081\u2082": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.iteratedFDeriv_three_swap\u2082\u2083": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.block_of_partial": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.ridge_capHyp_blocks": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.mixedToyF": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.mixedToy_blocks": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.addCircle_locallyConnectedSpace": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.torus_locallyConnectedSpace": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.torus_capHyp_blocks": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.torus_elder_death_level_blocks": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.circleChart": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.circleChart_continuous": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.circleChart_coe": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.mixedToy_hasFDerivAt": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.mixedToy_contDiff": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.mixedToy_iteratedFDeriv_two": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.mixedToy_iteratedFDeriv_three": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.mixedToy_iteratedFDeriv_four": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.torusToyF": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ],
-  "CapFirstExit.torusToy_elder": [
-   "Classical.choice",
-   "Quot.sound",
-   "propext"
-  ]
- },
- "files": [
-  {
-   "path": ".gitignore",
-   "bytes": 20,
-   "sha256": "b34af236d1df9e39ed4f98fca51702530ce76bdee4e1a69512f6caed933c3374"
-  },
-  {
-   "path": "ALIGNMENT.md",
-   "bytes": 57035,
-   "sha256": "91b086c04d083d2220821c8b6900e2bd070ad11f4be03bf2255bdbd83d677f21"
-  },
-  {
-   "path": "CapFirstExit.lean",
-   "bytes": 326607,
-   "sha256": "040aa91fcbdf25ccdaced1c828dd779318217a7c41ac928f87e8d17a8d3c3ef0"
-  },
-  {
-   "path": "README.md",
-   "bytes": 31519,
-   "sha256": "7eb062ebd12cb181bab71d00fbc3f86d9b8b515222ec5cedf01d50246d0e644a"
-  },
-  {
-   "path": "gate.py",
-   "bytes": 15645,
-   "sha256": "5b94d6d0d9bccb1cef009bc17a32cfc66999f4d286c7784435d60dd429a70bb6"
-  },
-  {
-   "path": "lake-manifest.json",
-   "bytes": 3547,
-   "sha256": "04549ed79e36b417686b94d91994aad4dad7bb78d896bd2e74099ff95265935b"
-  },
-  {
-   "path": "lakefile.toml",
-   "bytes": 252,
-   "sha256": "3fa8afe35db80e433b9ff59fab399df0b44ade73aeda1452b884a24ed1b01a52"
-  },
-  {
-   "path": "lean-toolchain",
-   "bytes": 25,
-   "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
-  },
-  {
-   "path": "test_gate.py",
-   "bytes": 19385,
-   "sha256": "9914ce00b01dfd17fa3b0ad1a7e2cc02b31312b0678c63c1eb85054d0b88dda6"
-  }
- ]
 }

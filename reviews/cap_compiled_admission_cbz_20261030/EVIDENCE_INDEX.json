@@ -1,0 +1,153 @@
+{
+  "schema": "cap.review-evidence-index.v1",
+  "created_utc": "2026-10-30T00:35:30.610516+00:00",
+  "master_sha256": "83ac6552fc6406e95213a1cfd6e8636095215e11aac6e3db473cd42c22275a8b",
+  "source_base": "9f8dbb4d18b9f3ebd9ffac6b0caa42df9f343966",
+  "proof_sha256": "040aa91fcbdf25ccdaced1c828dd779318217a7c41ac928f87e8d17a8d3c3ef0",
+  "files": [
+    {
+      "path": "root-review.json",
+      "bytes": 6035,
+      "sha256": "4f6a27491432a65731102a8f39ef22b1f7bd3c6445cda465220d0d93d8747ed4",
+      "records": 2
+    },
+    {
+      "path": "independent-review.json",
+      "bytes": 29732,
+      "sha256": "bb94d4c634368c56230575ef58ce826ba98539b448b47186a2a1dcb92a99b77b",
+      "records": 7
+    },
+    {
+      "path": "relative-cli-red.json",
+      "bytes": 6996,
+      "sha256": "3c3f7d439939fe95c6f7c6f3117be233055c68377b10a83a6eba27081cc071e9",
+      "records": 9
+    },
+    {
+      "path": "workflow-review.json",
+      "bytes": 31049,
+      "sha256": "163a19190e64541c3f196d250580c0907c63724115c8e4968bd4d0ae0f7f3912",
+      "records": 9
+    },
+    {
+      "path": "actual-discovery-v2.json",
+      "bytes": 44597,
+      "sha256": "0a5db9dc1cf8193042086cfdedd50fd9358dd2995dac294d41209c19be2dbd90",
+      "records": 9
+    },
+    {
+      "path": "baseline-source-red.json",
+      "bytes": 13380,
+      "sha256": "5a18ed49653f1c775fffba15337c3389c6a1e57b599608d2806836c70ef8d837",
+      "records": 2
+    },
+    {
+      "path": "historical-attempts-01.json",
+      "bytes": 45229,
+      "sha256": "85c95f0f2d1e877f8f070167e65d0b3aebe2cfc47d539e7d381e44a5bce82189",
+      "records": 18
+    },
+    {
+      "path": "historical-attempts-02.json",
+      "bytes": 36225,
+      "sha256": "38c9fa252243c8ea4789a1ed84759d456924ef9c1be9c7cc5438345e9c79319b",
+      "records": 13
+    },
+    {
+      "path": "historical-attempts-03.json",
+      "bytes": 38413,
+      "sha256": "f09917f93afe595bba0a3a98f189554933d8b95e145eb4eb23d8c1d149d3bc50",
+      "records": 5
+    },
+    {
+      "path": "historical-attempts-04.json",
+      "bytes": 37672,
+      "sha256": "12875b3b7a2c477f3243be6a8cdc3e090dc713b3135b007d899e0e2e764b9fe8",
+      "records": 2
+    },
+    {
+      "path": "historical-attempts-05.json",
+      "bytes": 8564,
+      "sha256": "0d389b8ab32bab9fcd04f1005e78c1aeb4aa17c8e7081d1f10b6d6da2e291ce5",
+      "records": 1
+    },
+    {
+      "path": "frozen-qualification-01.json",
+      "bytes": 45569,
+      "sha256": "ac1a78ac025d491a16fed23f90592db81436aca6a0294424665d7bea46c98b74",
+      "records": 20
+    },
+    {
+      "path": "frozen-qualification-02.json",
+      "bytes": 46401,
+      "sha256": "80a5a8dc9135a045cb3ebde8d5f539a6560b88e6ae378c3a2bbf08fe1af99dc6",
+      "records": 48
+    },
+    {
+      "path": "frozen-qualification-03.json",
+      "bytes": 43489,
+      "sha256": "66ae18e1669fe8e3d175ef4ea4ded13071742ee7a86e9dd98be4d2aafe02ebcf",
+      "records": 67
+    },
+    {
+      "path": "frozen-qualification-04.json",
+      "bytes": 46646,
+      "sha256": "7386ef24049158ea71065e12807aac130a19f410e7e8aa82bdb78b5f276a3ae3",
+      "records": 44
+    },
+    {
+      "path": "frozen-qualification-05.json",
+      "bytes": 4750,
+      "sha256": "dbc68203af14fe78bed15fab69a52d2c5ffdfed9b584966a49f37137c8232e06",
+      "records": 7
+    },
+    {
+      "path": "fixture-phase-diagnosis.json",
+      "bytes": 32490,
+      "sha256": "5796b80f999a922e13c95c48dd3725f5169b6ba749459386f43115eb65b03382",
+      "records": 16
+    },
+    {
+      "path": "v2-qualification-01.json",
+      "bytes": 40697,
+      "sha256": "d93a5585b2c1c7c9e0d543ced69260261e897054968dd1692560f3045ffeb823",
+      "records": 11
+    },
+    {
+      "path": "v2-qualification-02.json",
+      "bytes": 43942,
+      "sha256": "eb96f90e84525cbc1b7deab3a13006f1243abae080dca4d9c25f0f41edb5979c",
+      "records": 40
+    },
+    {
+      "path": "v2-qualification-03.json",
+      "bytes": 46074,
+      "sha256": "d6eb2f5c63c5adfeed1cdd345b4d42908e609950a3e49243a83cb07aef1069d2",
+      "records": 59
+    },
+    {
+      "path": "v2-qualification-04.json",
+      "bytes": 38314,
+      "sha256": "928d9390bf5a985e50a278e087cfb488d488c4d09774f75d0f49509c18f728bd",
+      "records": 47
+    },
+    {
+      "path": "v2-qualification-05.json",
+      "bytes": 39469,
+      "sha256": "d50f88cd934a157fe145c22318e5d5b11c17bde4e079e9c83d50a8d94dfe491e",
+      "records": 36
+    },
+    {
+      "path": "v2-qualification-06.json",
+      "bytes": 13285,
+      "sha256": "267ccea8436b08695a633b67c4ea082f2e3f5b5f22e9ab68c1afe84b5ea9789a",
+      "records": 21
+    }
+  ],
+  "final_qualification": "V2_PYTHON95_PER_MODE_AND_AUDITOR24_ONLY; FULL_PACKAGE_PENDING_HOSTED",
+  "historical_append_utc": "2026-10-30T00:36:23.936412+00:00",
+  "frozen_qualification_appended_utc": "2026-10-30T00:39:22.493094+00:00",
+  "fixture_diagnosis_appended_utc": "2026-10-30T00:44:32.529872+00:00",
+  "current_frozen_source_sha256": "0d9da71f481fb023a73cb9bd0742612215c4dc7aaae3affd7b15a8e9ef7614e3",
+  "v2_appended_utc": "2026-10-30T00:46:28.746513+00:00"
+}

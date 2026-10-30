@@ -1,0 +1,158 @@
+{
+  "actual_final_package_gate": "NOT_RUN: preceding V1 interrupted for explicit fixture source correction; final hosted qualification pending",
+  "base_commit": "9f8dbb4d18b9f3ebd9ffac6b0caa42df9f343966",
+  "base_repository": "d6g8k5htny-coder/Math-",
+  "changes_since_v1": [
+    {
+      "new_sha256": "83e8bf5da7a0e49eb81f70096d32e94e75f34bed18564592a020b03bda7b46fb",
+      "old_sha256": "46afae6cfca5c26e9aedce56e26ecaee2fb1b85b5013320740781de1a2e3285b",
+      "path": "frontiers/cap_first_exit_lean_20261002/MANIFEST.json"
+    },
+    {
+      "new_sha256": "6df53c86276992ea5919cb3bea69fff6525aae7aa78ea0c1c23609a7b2240217",
+      "old_sha256": "d982201eba6c12816dd53f05d3c51da9f42bb31c66e0f402040305577ccb6b37",
+      "path": "frontiers/cap_first_exit_lean_20261002/test_process_retention.py"
+    }
+  ],
+  "files": [
+    {
+      "bytes": 20,
+      "git_blob": "ae73679948e8ab42b43d663e78f13a0c6640fb41",
+      "path": "frontiers/cap_first_exit_lean_20261002/.gitignore",
+      "sha256": "b34af236d1df9e39ed4f98fca51702530ce76bdee4e1a69512f6caed933c3374"
+    },
+    {
+      "bytes": 57035,
+      "git_blob": "ef05eb264ea219771fa37d7ecd10985d55846c48",
+      "path": "frontiers/cap_first_exit_lean_20261002/ALIGNMENT.md",
+      "sha256": "91b086c04d083d2220821c8b6900e2bd070ad11f4be03bf2255bdbd83d677f21"
+    },
+    {
+      "bytes": 7853,
+      "git_blob": "0aa3dd37a7d091e179259229610ea8bd779576be",
+      "path": "frontiers/cap_first_exit_lean_20261002/CBZ_ADMISSION.md",
+      "sha256": "11b590a016be368977578eba86d09b02be598a5675dec15522ca84245a6f70f2"
+    },
+    {
+      "bytes": 326607,
+      "git_blob": "01744e2cf571049d7d1557b9ed54646881d341cf",
+      "path": "frontiers/cap_first_exit_lean_20261002/CapFirstExit.lean",
+      "sha256": "040aa91fcbdf25ccdaced1c828dd779318217a7c41ac928f87e8d17a8d3c3ef0"
+    },
+    {
+      "bytes": 46533,
+      "git_blob": "ca35fdf19575c478599a7158a9604072e6d72918",
+      "path": "frontiers/cap_first_exit_lean_20261002/MANIFEST.json",
+      "sha256": "83e8bf5da7a0e49eb81f70096d32e94e75f34bed18564592a020b03bda7b46fb"
+    },
+    {
+      "bytes": 32478,
+      "git_blob": "d4adc709cbed1e5eccc7ef2f5aca57c61a21237e",
+      "path": "frontiers/cap_first_exit_lean_20261002/README.md",
+      "sha256": "049d7f75713bedb3a499eb16d2a4bb410e243f2e70eeb55ea1cfe4f38f13ff57"
+    },
+    {
+      "bytes": 15043,
+      "git_blob": "02b74f2aa579e9d672bf65b3c74d36df10d4183b",
+      "path": "frontiers/cap_first_exit_lean_20261002/compiled_inventory.py",
+      "sha256": "e1c0eda989d43cb7c963ed2f2e2db1938ee073ce1f47a9057cf7f810352c384b"
+    },
+    {
+      "bytes": 28665,
+      "git_blob": "521a70902f7d489b2903457076d96be76124b6d9",
+      "path": "frontiers/cap_first_exit_lean_20261002/gate.py",
+      "sha256": "16f8ee1394dd0bcd3c74864d48bf0de17d9318efb94b846289707922de04710e"
+    },
+    {
+      "bytes": 3547,
+      "git_blob": "292d7c1169a584ff7a6e995ec85e925ed04b6439",
+      "path": "frontiers/cap_first_exit_lean_20261002/lake-manifest.json",
+      "sha256": "04549ed79e36b417686b94d91994aad4dad7bb78d896bd2e74099ff95265935b"
+    },
+    {
+      "bytes": 252,
+      "git_blob": "8b02204e207b56b10df4baa1109637061ea41752",
+      "path": "frontiers/cap_first_exit_lean_20261002/lakefile.toml",
+      "sha256": "3fa8afe35db80e433b9ff59fab399df0b44ade73aeda1452b884a24ed1b01a52"
+    },
+    {
+      "bytes": 25,
+      "git_blob": "ba8ebf2dbaf6a668cd2a0e086186d6d569b69ff5",
+      "path": "frontiers/cap_first_exit_lean_20261002/lean-toolchain",
+      "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+    },
+    {
+      "bytes": 3607,
+      "git_blob": "8327bcd36c6662cb2b5d90f1af18036818a7ffec",
+      "path": "frontiers/cap_first_exit_lean_20261002/lean_opaque_control.py",
+      "sha256": "41dbbf7fcd54cd34d740001c7f24b5a2550a6e83b83a9375e90bbf7aa61ec0ba"
+    },
+    {
+      "bytes": 7658,
+      "git_blob": "d59653bed36b85e155a353dc2decda3331a5a751",
+      "path": "frontiers/cap_first_exit_lean_20261002/run_cbz_mutations.py",
+      "sha256": "65a3d2a3a1853809db3cca522176906da0d2644ae99589a31ee3280528ccf1ed"
+    },
+    {
+      "bytes": 12680,
+      "git_blob": "f390708b96c0a67d7303f411691e954573af7aaa",
+      "path": "frontiers/cap_first_exit_lean_20261002/test_compiled_inventory.py",
+      "sha256": "c6889ec62dae9bd256269cc688422b1da5c3995674ad869d0225dc08f1f33810"
+    },
+    {
+      "bytes": 22903,
+      "git_blob": "65ff6cf590ddeb25a06706e95094ab4f64fa4378",
+      "path": "frontiers/cap_first_exit_lean_20261002/test_gate.py",
+      "sha256": "1e0a426ac65a262835ae99009429e3dfab9e538f76cd9c7c5037c68bfa2455f9"
+    },
+    {
+      "bytes": 3399,
+      "git_blob": "db623e30f2773050a2f0fd146c8844c2f3177112",
+      "path": "frontiers/cap_first_exit_lean_20261002/test_mutation_accounting.py",
+      "sha256": "1d328de984012406aabf5266382d1e7a69d18f7d61d501fc158f81af768813ef"
+    },
+    {
+      "bytes": 7430,
+      "git_blob": "899566538c7ecd1cce76201e01a57bef837a0c03",
+      "path": "frontiers/cap_first_exit_lean_20261002/test_process_retention.py",
+      "sha256": "6df53c86276992ea5919cb3bea69fff6525aae7aa78ea0c1c23609a7b2240217"
+    },
+    {
+      "bytes": 2270,
+      "git_blob": "1a68602705304143aa585db1e8edcf9f884b9749",
+      "path": "frontiers/cap_first_exit_lean_20261002/test_runtime_boundary.py",
+      "sha256": "097e837943f268b485373efcdb0d72f847aed2f2ba3e8721c3b22afc15d96aea"
+    },
+    {
+      "bytes": 2852,
+      "git_blob": "453de756513cae5b8abad08548108c415ea4a132",
+      "path": "frontiers/cap_first_exit_lean_20261002/test_source_admission.py",
+      "sha256": "514513613f4cb3a27bb389d539ddbd2f1f6e81209d2f9464aa054c0dfab691b7"
+    },
+    {
+      "bytes": 2035,
+      "git_blob": "98443d110b81b49ac798b4e7b982b2e6de1968b3",
+      "path": "frontiers/cap_first_exit_lean_20261002/test_timeout_exit_zero.py",
+      "sha256": "b2d12ef9da9fa4c4cc997a3b91846d193ad4be79ff42181a34f2bd9bcc9cac0f"
+    }
+  ],
+  "original38_names_preserved": true,
+  "original_proof_preserved": true,
+  "patch_bytes": 169301,
+  "patch_sha256": "337534bff1600fa8ae73832ed5897ab0a043cf37d3165b3ef4d3882394953a8e",
+  "qualification": {
+    "auditor_mutation_actual_exit": 0,
+    "final_actual_package_admission": "PENDING_HOSTED_EXECUTION; no final PASS",
+    "named_auditor_mutations_killed": 24,
+    "normal_tests": 95,
+    "optimized_tests": 95,
+    "per_mode": 12,
+    "python_runtime": "CPython3.9.6",
+    "relative_cli_output": ".lake/auditor-selftest-v2",
+    "test_actual_exits": [
+      0,
+      0
+    ]
+  },
+  "schema": "cap.frozen-source.v2"
+}
