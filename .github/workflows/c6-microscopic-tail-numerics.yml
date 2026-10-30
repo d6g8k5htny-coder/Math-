@@ -63,12 +63,12 @@ jobs:
                   self.stderr = stderr
           
           def validate_baseline(result):
-              expected = b'{"check": "ok", "mutant": null}\\n'
+              expected = b'{"check": "ok", "mutant": null}\n'
               if result.returncode != 0 or result.stdout != expected or result.stderr != b"":
                   raise ValueError("baseline output contract mismatch")
           
           def validate_mutant(result, diagnostic):
-              expected = ("FAIL: " + diagnostic + "\\n").encode("utf-8")
+              expected = ("FAIL: " + diagnostic + "\n").encode("utf-8")
               if result.returncode != 1 or result.stdout != expected or result.stderr != b"":
                   raise ValueError("mutant output contract mismatch: " + diagnostic)
           
@@ -80,12 +80,12 @@ jobs:
               raise AssertionError("invalid child result was accepted")
           
           def synthetic_controls():
-              baseline = b'{"check": "ok", "mutant": null}\\n'
+              baseline = b'{"check": "ok", "mutant": null}\n'
               validate_baseline(Result(0, baseline, b""))
               for bad in (
-                  Result(0, b"not-json\\n", b""),
-                  Result(0, baseline, b"unexpected stderr\\n"),
-                  Result(0, baseline + b"extra\\n", b""),
+                  Result(0, b"not-json\n", b""),
+                  Result(0, baseline, b"unexpected stderr\n"),
+                  Result(0, baseline + b"extra\n", b""),
                   Result(1, baseline, b""),
               ):
                   reject(validate_baseline, bad)
@@ -96,14 +96,14 @@ jobs:
                   "cusp-shift": "cusp integral replay J_cusp k=0.5",
               }
               for mutant, diagnostic in expected.items():
-                  valid = ("FAIL: " + diagnostic + "\\n").encode("utf-8")
+                  valid = ("FAIL: " + diagnostic + "\n").encode("utf-8")
                   validate_mutant(Result(1, valid, b""), diagnostic)
-                  wrong_label = b'{"check": "ok", "mutant": "wrong-mutant"}\\n'
+                  wrong_label = b'{"check": "ok", "mutant": "wrong-mutant"}\n'
                   for bad in (
-                      Result(1, b"", b"Traceback (most recent call last): RuntimeError\\n"),
+                      Result(1, b"", b"Traceback (most recent call last): RuntimeError\n"),
                       Result(1, b"", b""),
-                      Result(1, b"FAIL: unrelated failure\\n", b""),
-                      Result(1, valid, b"unexpected stderr\\n"),
+                      Result(1, b"FAIL: unrelated failure\n", b""),
+                      Result(1, valid, b"unexpected stderr\n"),
                       Result(0, valid, b""),
                       Result(1, baseline, b""),
                       Result(1, wrong_label, b""),
@@ -115,10 +115,10 @@ jobs:
           exec(validator_source, validator_namespace)
           validate_baseline = validator_namespace['validate_baseline']
           validate_mutant = validator_namespace['validate_mutant']
-          synthetic_code = validator_source + "\\nsynthetic_controls()\\nprint('synthetic process-predicate controls passed')\\n"
+          synthetic_code = validator_source + "\nsynthetic_controls()\nprint('synthetic process-predicate controls passed')\n"
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):
               probe = subprocess.run([sys.executable, *flags, '-c', synthetic_code], capture_output=True, timeout=30)
-              if probe.returncode != 0 or probe.stderr != b'' or probe.stdout != b'synthetic process-predicate controls passed\\n':
+              if probe.returncode != 0 or probe.stderr != b'' or probe.stdout != b'synthetic process-predicate controls passed\n':
                   raise RuntimeError('synthetic process-predicate controls failed under ' + ' '.join(flags) +
                                      ': stdout=' + repr(probe.stdout) + ' stderr=' + repr(probe.stderr))
           
