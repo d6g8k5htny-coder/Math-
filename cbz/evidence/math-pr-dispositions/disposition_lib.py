@@ -92,8 +92,49 @@ def latest_verdict(comments) -> dict | None:
     return best
 
 
+def _verdict_in(body: str):
+    found = [name for name, pat in _VERDICT_PATTERNS if pat.search(body or '')]
+    return next((v for v in _VERDICT_PRIORITY if v in found), None)
+
+
+def bound_verdict(comments, reviews, head_sha: str) -> dict | None:
+    """The latest verdict token that is *bound to the head*: a native review submitted at exactly
+    ``head_sha`` whose body carries a token, or an issue comment whose body names the head (at least its
+    first 8 hex characters). Unbound comments are informational only (MTW finding on #529, generate.py:72)."""
+    best = None
+    short = head_sha[:8].lower()
+    for r in reviews:
+        if (r.get('commit_id') or '').lower() != head_sha.lower():
+            continue
+        v = _verdict_in(r.get('body'))
+        if v is None:
+            continue
+        key = r.get('submitted_at') or ''
+        if best is None or key > best['created_at']:
+            best = {'verdict': v, 'source': 'review', 'id': r.get('id'), 'created_at': key, 'commit': head_sha}
+    for c in comments:
+        body = c.get('body') or ''
+        if short not in body.lower():
+            continue
+        v = _verdict_in(body)
+        if v is None:
+            continue
+        key = c.get('created_at') or ''
+        if best is None or key > best['created_at']:
+            best = {'verdict': v, 'source': 'comment', 'id': c.get('id'), 'created_at': key, 'commit': head_sha}
+    return best
+
+
+def blocking_review_at_head(reviews, head_sha: str) -> bool:
+    """A native CHANGES_REQUESTED review submitted at exactly the head blocks a candidate recommendation
+    (a DISMISSED review does not)."""
+    return any((r.get('state') or '').upper() == 'CHANGES_REQUESTED' and (r.get('commit_id') or '').lower() == head_sha.lower()
+               for r in reviews)
+
+
 def recommend(f: dict) -> str:
-    """Decision table. Order matters; the first matching row wins."""
+    """Decision table. Order matters; the first matching row wins. INTEGRATE-CANDIDATE needs a PASS-class
+    verdict *bound to the head* and no blocking native review at the head."""
     if f.get('head_is_ancestor_of_main') or f.get('all_changed_blobs_equal_on_main'):
         return 'SUPERSEDED'
     if not f.get('base_is_main', True):
@@ -103,7 +144,7 @@ def recommend(f: dict) -> str:
     if f.get('explicit_do_not_merge'):
         return 'QUARANTINE-ARCHIVE'
     if (f.get('merge_tree_clean_onto_main') and f.get('required_check_conclusion') == 'success'
-            and f.get('latest_verdict') in ('PASS', 'PASS_SCOPED')):
+            and f.get('latest_verdict_bound') in ('PASS', 'PASS_SCOPED') and not f.get('blocking_review_at_head')):
         return 'INTEGRATE-CANDIDATE'
     return 'QUARANTINE-ARCHIVE'
 
@@ -187,13 +228,15 @@ def merge_tree_clean(repo: str, base: str, head: str) -> bool:
 def render_pr_table(rows) -> str:
     def esc(x):
         return str(x).replace('|', '\\|')
-    out = ['| PR | Draft | Head | Base | Updated | Latest verdict | Required check | merge-tree→main | Layer A signals | Recommended |',
-           '|---|---|---|---|---|---|---|---|---|---|']
+    out = ['| PR | Draft | Head | Base | Updated | Verdict (head-bound · latest) | Blocking review at head | Required check | merge-tree→main | Layer A signals | Recommended |',
+           '|---|---|---|---|---|---|---|---|---|---|---|']
     for r in rows:
-        out.append('| #{n} {t} | {d} | `{h}`@`{s}` | `{b}` | {u} | {v} | {c} | {m} | {g} | **{rec}** |'.format(
+        out.append('| #{n} {t} | {d} | `{h}`@`{s}` | `{b}` | {u} | {vb} · {v} | {blk} | {c} | {m} | {g} | **{rec}** |'.format(
             n=r['number'], t=esc(r['title']), d='yes' if r['draft'] else 'no', h=esc(r['head_ref']),
             s=r['head_sha'][:8], b=esc(r['base_ref']), u=r['updated_at'][:10],
-            v=esc(r.get('latest_verdict') or '—'), c=esc(r.get('required_check_conclusion') or '—'),
+            vb=esc(r.get('latest_verdict_bound') or '—'), v=esc(r.get('latest_verdict') or '—'),
+            blk='CHANGES_REQUESTED' if r.get('blocking_review_at_head') else '—',
+            c=esc(r.get('required_check_conclusion') or '—'),
             m='clean' if r.get('merge_tree_clean_onto_main') else 'CONFLICT', g=r.get('signals_total', 0),
             rec=r['recommended_disposition']))
     return '\n'.join(out) + '\n'

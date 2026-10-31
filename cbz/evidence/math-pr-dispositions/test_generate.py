@@ -112,7 +112,45 @@ class BuildRecordTests(unittest.TestCase):
         self.assertEqual(by['done']['commits_ahead_of_main'], 0)
 
 
+class RequiredCheckSelectionTests(unittest.TestCase):
+    def test_newest_run_by_start_is_selected_even_if_an_older_one_completed_later(self):
+        runs = [{'id': 1, 'name': 'math-downstream-gates', 'status': 'completed', 'conclusion': 'success',
+                 'started_at': '2026-10-30T01:00:00Z', 'completed_at': '2026-10-30T01:40:00Z'},
+                {'id': 2, 'name': 'math-downstream-gates', 'status': 'in_progress', 'conclusion': None,
+                 'started_at': '2026-10-30T01:30:00Z', 'completed_at': None}]
+        self.assertEqual(generate.latest_run_state(runs, 'math-downstream-gates'), 'in_progress')
+        self.assertEqual(generate.latest_runs_by_name(runs), {'math-downstream-gates': 'in_progress'})
+        self.assertIsNone(generate.latest_run_state(runs, 'other'))
+
+
+class PaginationTests(unittest.TestCase):
+    def test_continues_past_the_old_cap_and_stops_on_a_short_page(self):
+        pages = [[{'n': i}] * 100 for i in range(70)] + [[{'n': 70}] * 3]
+        calls = []
+
+        def fetch(endpoint, page):
+            calls.append(page)
+            return pages[page - 1]
+        items = generate.gh_json('repos/x/y/issues/1/comments', fetch=fetch)
+        self.assertEqual(len(items), 7003)
+        self.assertEqual(calls[-1], 71)
+
+    def test_fails_closed_at_the_safety_cap_with_a_full_page(self):
+        def fetch(endpoint, page):
+            return [{'n': page}] * 100
+        with self.assertRaisesRegex(RuntimeError, 'pagination cap'):
+            generate.gh_json('repos/x/y/issues/1/comments', fetch=fetch, max_pages=5)
+
+
 class ObservationContextTests(BuildRecordTests):
+    def test_offline_without_context_fails_closed(self):
+        with tempfile.TemporaryDirectory() as td:
+            with self.assertRaisesRegex(ValueError, 'CONTEXT.json'):
+                generate.observation_context(self.repo, offline_dir=td, now='2026-10-29T17:00:00Z')
+            _write(os.path.join(td, 'CONTEXT.json'), '{"observed_at_utc": "x"}')
+            with self.assertRaisesRegex(ValueError, 'CONTEXT.json'):
+                generate.observation_context(self.repo, offline_dir=td, now='2026-10-29T17:00:00Z')
+
     def test_live_context_reads_the_clone(self):
         ctx = generate.observation_context(self.repo, offline_dir=None, now='2026-10-29T17:00:00Z')
         self.assertEqual(ctx['main_sha'], self.main)

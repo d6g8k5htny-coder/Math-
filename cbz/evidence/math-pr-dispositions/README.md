@@ -32,9 +32,12 @@ and every Math- branch, the facts an integrator needs for a terminal disposition
 |---|---:|
 | `ACTIVE-OWNER-LANE` (updated within 24 h of observation; their lane's call) | 14 |
 | `STACK-DEPENDENT` (base is another branch) | 6 |
-| `QUARANTINE-ARCHIVE` (stale; latest verdict not PASS, or a hold) | 5 |
-| `INTEGRATE-CANDIDATE` (base `main`, merge-tree clean, required check green, latest verdict PASS/PASS_SCOPED) | 4 |
+| `QUARANTINE-ARCHIVE` (stale; no head-bound PASS, or a hold) | 6 |
+| `INTEGRATE-CANDIDATE` (base `main`, merge-tree clean, required check green at the head, a PASS-class verdict **bound to the head**, no blocking review at the head) | 3 |
 | **Total open PRs** | **29** |
+
+(The 23:05:51Z snapshot was replayed from its recorded cut after the 31 October tool repairs; the
+verdict binding moved #490 from INTEGRATE-CANDIDATE to QUARANTINE-ARCHIVE, nothing else changed.)
 
 | Branch class | Branches |
 |---|---:|
@@ -66,8 +69,10 @@ branches); **41 conflict** with `main` in `merge-tree`; 13 carry lexical signals
 Rows flagged `integrable_if_wanted` (clean merge-tree, zero signals, ≤ 50 paths, related history) can
 still get a PR from a lane that wants them; otherwise they are archived like the rest.
 
-Integrate candidates at observation: #372, #482, #487, #490, #492 (see `DISPOSITIONS.md` for the
-verdict comment each rests on). #482 and #487 carry lexical Layer A signals (`admit` additions in
+Integrate candidates in the committed 23:05:51Z snapshot: **#372, #482, #487** (see `DISPOSITIONS.md`
+for the head-bound verdict each rests on). #492 had merged as `9f8dbb4d` — the snapshot's own `main` —
+before the pass and is not a row; #490 drops out because its only verdict bound to its head is a
+HOLD (its earlier unbound PASS was for another cut). #482 and #487 carry lexical Layer A signals (`admit` additions in
 `.lean`; one skip; one float indicator in a check path); `READINGS.md` records the manual reading of
 every flagged line in every open PR — all are prose, version strings, a comment, an environment
 guard or a subprocess timeout, so none is a Layer A hazard.
@@ -77,8 +82,10 @@ guard or a subprocess timeout, so none is a Layer A hazard.
 - `DISPOSITIONS.md`, `dispositions.json` — one record per open PR: head/base/stack position,
   ancestor and blob-equality tests against `main`, `merge-tree` onto `main` (and onto the base for
   stacked PRs), commits ahead/behind, changed paths (first 200; the full sorted list is bound by
-  `changed_paths_sha256`), lexical Layer A signals, latest verdict token with its comment id, review
-  states, check-run conclusions, explicit do-not-merge flag, recency, recommended disposition.
+  `changed_paths_sha256`), lexical Layer A signals, the latest verdict token (informational) and the
+  latest **head-bound** verdict with its source (`bound_verdict`), whether a `CHANGES_REQUESTED`
+  review stands at the head, review states, the newest run per check name, explicit do-not-merge
+  flag, recency, recommended disposition.
 - `BRANCHES.md`, `branches.json` — one record per branch: tip, last commit date, ancestor-of-`main`,
   open-PR membership, commits ahead of `main`, class, recreate command.
 - `UNMERGED_BRANCHES.md`, `unmerged_branches.json` — for each unmerged PR-less branch: merge-base
@@ -87,7 +94,8 @@ guard or a subprocess timeout, so none is a Layer A hazard.
   cleanliness, containment in an open PR head, lane prefix, days since last commit, recommendation
   (`disposition_lib.recommend_branch`) and the `integrable_if_wanted` flag.
 - `generate.py` — the generator (stdlib + git + `gh` REST). `disposition_lib.py` — the pure
-  classification logic. `test_disposition_lib.py`, `test_generate.py` — 60 tests, run in both modes.
+  classification logic. `test_disposition_lib.py`, `test_generate.py` — 70 tests, run in both modes;
+  `.github/workflows/cbz-math-dispositions-tests.yml` runs them on every push or PR touching this directory.
 - `FETCHED_MANIFEST.json` — SHA-256/size of every raw GitHub response used (including
   `CONTEXT.json`, the recorded cut).
 - `READINGS.md` — the manual reading of each flagged line (what the lexical signal actually is).
@@ -98,7 +106,7 @@ guard or a subprocess timeout, so none is a Layer A hazard.
 cd <Math- clone>
 git fetch origin '+refs/heads/*:refs/remotes/origin/*' --prune
 cd cbz/evidence/math-pr-dispositions
-python3 -W error -m unittest test_disposition_lib test_generate   # 60 tests
+python3 -W error -m unittest test_disposition_lib test_generate   # 70 tests
 python3 -O -m unittest test_disposition_lib test_generate
 python3 generate.py --repo <Math- clone> --out .                  # live refetch (writes fetched/)
 python3 generate.py --repo <Math- clone> --out . --offline fetched # replay of the recorded cut
@@ -114,15 +122,21 @@ A live run observes the federation at a later time and will differ wherever PRs 
   added `unittest`/`pytest` skips, and float indicators added in check/certificate-named Python
   paths. A hit says "look here"; zero hits certify nothing (B-006). The mutation-tested scanner of
   Math-#527 is the G0/G1 candidate, not this.
-- **Verdict tokens are lexical.** The latest comment containing `PASS_SCOPED`/`PASS`/`AMEND`/
-  `BLOCK`/`HOLD`/`REJECTED`/"do not merge" is reported with its id; a reader confirms the context.
-  `DO_NOT_MERGE` in a PR body counts only when not aimed at another branch ("do not merge into X" is
-  a scope note).
+- **Verdict tokens are lexical, and only head-bound ones qualify.** `latest_verdict` reports the
+  latest comment containing `PASS_SCOPED`/`PASS`/`AMEND`/`BLOCK`/`HOLD`/`REJECTED`/"do not merge",
+  for information. `latest_verdict_bound` is the latest token from a native review submitted at
+  exactly the head, or from a comment that names the head (≥ 8 hex characters); only this one can
+  support INTEGRATE-CANDIDATE, and a `CHANGES_REQUESTED` review at the head blocks it (MTW finding
+  on #529). The shared GitHub principal hides authorship, so an author's own comment naming the head
+  would still bind — a reader confirms the performer line of the bound comment. `DO_NOT_MERGE` in a
+  PR body counts only when not aimed at another branch ("do not merge into X" is a scope note).
 - **The decision table is fixed and documented** (`disposition_lib.recommend`): SUPERSEDED when the
   head is an ancestor of `main` or every changed blob already equals `main`'s; else STACK-DEPENDENT
   when the base is not `main`; else ACTIVE-OWNER-LANE when updated within 24 h; else
   QUARANTINE-ARCHIVE on an explicit hold; else INTEGRATE-CANDIDATE only with a clean merge-tree, a
-  green `math-downstream-gates` at the head and a PASS-class latest verdict; else QUARANTINE-ARCHIVE.
+  green `math-downstream-gates` at the head (the newest run by start time, never an older run that
+  happened to complete later), a PASS-class head-bound verdict and no blocking review at the head;
+  else QUARANTINE-ARCHIVE.
   It encodes no judgement about the mathematics.
 - **The branch table is also fixed and documented** (`disposition_lib.recommend_branch`):
   SUPERSEDED-BY-OPEN-PR when the tip is inside an open PR head; else ARCHIVE-BUNDLE for unrelated
@@ -135,5 +149,9 @@ A live run observes the federation at a later time and will differ wherever PRs 
   and each path's `(mode, object id)` on the head must equal `main`'s, so a chmod-only change, a
   rename whose source survives on `main`, or a file `main` lacks is never "already on main" (four
   Codex findings on #529, each with a regression test).
+- **Replays are pinned and pagination fails closed.** `--offline` refuses to run without a valid
+  `fetched/CONTEXT.json` (clock, `main` sha, full ref snapshot) rather than falling back to the live
+  clone; `gh_json` reads pages until a short one and raises at a 1000-page safety cap with a full last
+  page instead of returning a truncated inventory.
 - Check-run conclusions are those recorded at the PR head at observation time, not fresh runs
   (B-005): an integrator re-runs on the current base before merging.

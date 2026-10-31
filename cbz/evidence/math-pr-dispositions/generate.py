@@ -59,6 +59,24 @@ def _explicit_do_not_merge(title: str, body: str) -> bool:
     return bool(_DNM_RE.search(title or '')) or bool(_DNM_RE.search(body or ''))
 
 
+def _run_key(c):
+    return (c.get('started_at') or '', c.get('id') or 0)
+
+
+def latest_run_state(check_runs, name):
+    """State of the newest run (by start time, then id) of the named check: its conclusion when completed,
+    else its status. Never mixes completion and start timestamps (MTW finding on #529, generate.py:76)."""
+    runs = [c for c in check_runs if c.get('name') == name]
+    if not runs:
+        return None
+    latest = max(runs, key=_run_key)
+    return latest.get('conclusion') if latest.get('status') == 'completed' else latest.get('status')
+
+
+def latest_runs_by_name(check_runs):
+    return {name: latest_run_state(check_runs, name) for name in sorted({c.get('name') for c in check_runs if c.get('name')})}
+
+
 def build_pr_record(repo, pr, *, main_sha, comments, reviews, check_runs, now, open_pr_heads, path_cap=200):
     head = pr['head']['sha']
     head_ref = pr['head']['ref']
@@ -70,11 +88,8 @@ def build_pr_record(repo, pr, *, main_sha, comments, reviews, check_runs, now, o
     diff_text = _git(repo, '-c', 'core.quotePath=false', 'diff', '--no-renames', merge_base, head, '--', *changed) if changed else ''
     signals = lib.layer_a_signals(diff_text)
     verdict = lib.latest_verdict(comments)
-    req = [c for c in check_runs if c.get('name') == REQUIRED_CHECK]
-    req_conclusion = None
-    if req:
-        latest = sorted(req, key=lambda c: c.get('completed_at') or c.get('started_at') or '')[-1]
-        req_conclusion = latest.get('conclusion') if latest.get('status') == 'completed' else latest.get('status')
+    bound = lib.bound_verdict(comments, reviews, head)
+    req_conclusion = latest_run_state(check_runs, REQUIRED_CHECK)
     explicit_dnm = _explicit_do_not_merge(pr.get('title', ''), pr.get('body') or '')
     updated_within = (_parse(now) - _parse(pr['updated_at'])) <= dt.timedelta(hours=24)
     facts = {
@@ -85,6 +100,8 @@ def build_pr_record(repo, pr, *, main_sha, comments, reviews, check_runs, now, o
         'explicit_do_not_merge': explicit_dnm,
         'merge_tree_clean_onto_main': lib.merge_tree_clean(repo, main_sha, head),
         'latest_verdict': verdict['verdict'] if verdict else None,
+        'latest_verdict_bound': bound['verdict'] if bound else None,
+        'blocking_review_at_head': lib.blocking_review_at_head(reviews, head),
         'required_check_conclusion': req_conclusion,
     }
     rec = {
@@ -102,10 +119,10 @@ def build_pr_record(repo, pr, *, main_sha, comments, reviews, check_runs, now, o
         'layer_a_signals': signals,
         'signals_total': sum(signals.values()),
         'latest_verdict_comment': verdict,
+        'bound_verdict': bound,
         'review_states': [{'state': r.get('state'), 'commit': (r.get('commit_id') or '')[:8],
                            'submitted_at': r.get('submitted_at')} for r in reviews],
-        'check_runs': {c['name']: (c.get('conclusion') if c.get('status') == 'completed' else c.get('status'))
-                       for c in check_runs},
+        'check_runs': latest_runs_by_name(check_runs),
         'recoverable_ref_command': f'git push origin {head}:refs/heads/{head_ref}',
     }
     rec.update(facts)
@@ -129,8 +146,15 @@ def observation_context(repo, *, offline_dir, now):
     the recorded CONTEXT.json, so a replay reproduces the committed observation (Codex finding on #529)."""
     if offline_dir:
         ctx_path = os.path.join(offline_dir, 'CONTEXT.json')
-        if os.path.exists(ctx_path):
-            return _load(ctx_path)
+        if not os.path.exists(ctx_path):
+            raise ValueError(f'offline replay requires {ctx_path} (the recorded cut); refusing to fall back to the live clone')
+        ctx = _load(ctx_path)
+        ok = (isinstance(ctx, dict) and isinstance(ctx.get('observed_at_utc'), str)
+              and re.fullmatch(r'[0-9a-f]{40}', str(ctx.get('main_sha', ''))) is not None
+              and isinstance(ctx.get('refs'), dict) and ctx['refs'])
+        if not ok:
+            raise ValueError(f'{ctx_path} is malformed: needs observed_at_utc, a 40-hex main_sha and a non-empty refs map')
+        return ctx
     return {'observed_at_utc': now, 'main_sha': _git(repo, 'rev-parse', 'refs/remotes/origin/main').strip(),
             'refs': list_refs(repo)}
 
@@ -215,20 +239,27 @@ def render_unmerged_table(records):
 
 # --- GitHub fetching (REST via gh) ----------------------------------------------------------
 
-def gh_json(endpoint):
+def _gh_page(endpoint, page):
+    sep = '&' if '?' in endpoint else '?'
+    r = subprocess.run(['gh', 'api', f'{endpoint}{sep}per_page=100&page={page}'], capture_output=True, text=True)
+    if r.returncode != 0:
+        raise RuntimeError(r.stderr.strip()[:400])
+    chunk = json.loads(r.stdout)
+    if isinstance(chunk, dict):
+        chunk = chunk.get('check_runs') or chunk.get('items') or []
+    return chunk
+
+
+def gh_json(endpoint, fetch=_gh_page, max_pages=1000):
+    """Every page until a short one. Reaching ``max_pages`` with a full page is an incomplete inventory and
+    fails closed (MTW finding on #529, generate.py:220) instead of returning a silently truncated list."""
     items = []
-    for page in range(1, 60):
-        sep = '&' if '?' in endpoint else '?'
-        r = subprocess.run(['gh', 'api', f'{endpoint}{sep}per_page=100&page={page}'], capture_output=True, text=True)
-        if r.returncode != 0:
-            raise RuntimeError(r.stderr.strip()[:400])
-        chunk = json.loads(r.stdout)
-        if isinstance(chunk, dict):
-            chunk = chunk.get('check_runs') or chunk.get('items') or []
+    for page in range(1, max_pages + 1):
+        chunk = fetch(endpoint, page)
         items.extend(chunk)
         if len(chunk) < 100:
-            break
-    return items
+            return items
+    raise RuntimeError(f'pagination cap of {max_pages} pages reached for {endpoint} with a full last page: inventory incomplete')
 
 
 def write_fetched_manifest(fetched_dir, out_path):

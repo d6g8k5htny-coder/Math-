@@ -114,6 +114,34 @@ class VerdictTests(unittest.TestCase):
         self.assertEqual(lib.latest_verdict(c)['comment_id'], 3)
 
 
+class BoundVerdictTests(unittest.TestCase):
+    HEAD = 'a' * 40
+
+    def test_native_review_at_head_binds_a_verdict(self):
+        reviews = [{'id': 1, 'state': 'COMMENTED', 'commit_id': self.HEAD, 'submitted_at': '2026-10-30T01:00:00Z',
+                    'body': 'Readback **PASS_SCOPED**, no findings.'}]
+        v = lib.bound_verdict([], reviews, self.HEAD)
+        self.assertEqual(v, {'verdict': 'PASS_SCOPED', 'source': 'review', 'id': 1, 'created_at': '2026-10-30T01:00:00Z',
+                             'commit': self.HEAD})
+
+    def test_comment_binds_only_when_it_names_the_head(self):
+        unbound = [{'id': 7, 'created_at': '2026-10-30T02:00:00Z', 'body': 'PASS_SCOPED for the earlier cut.'}]
+        self.assertIsNone(lib.bound_verdict(unbound, [], self.HEAD))
+        bound = [{'id': 8, 'created_at': '2026-10-30T02:00:00Z', 'body': f'PASS_SCOPED at `{self.HEAD[:8]}`.'}]
+        self.assertEqual(lib.bound_verdict(bound, [], self.HEAD)['verdict'], 'PASS_SCOPED')
+
+    def test_review_at_another_commit_does_not_bind(self):
+        reviews = [{'id': 2, 'state': 'COMMENTED', 'commit_id': 'b' * 40, 'submitted_at': 'x', 'body': 'PASS'}]
+        self.assertIsNone(lib.bound_verdict([], reviews, self.HEAD))
+
+    def test_blocking_review_state_at_head(self):
+        reviews = [{'id': 3, 'state': 'CHANGES_REQUESTED', 'commit_id': self.HEAD, 'submitted_at': 'x', 'body': ''},
+                   {'id': 4, 'state': 'CHANGES_REQUESTED', 'commit_id': 'b' * 40, 'submitted_at': 'x', 'body': ''},
+                   {'id': 5, 'state': 'DISMISSED', 'commit_id': self.HEAD, 'submitted_at': 'x', 'body': ''}]
+        self.assertTrue(lib.blocking_review_at_head(reviews, self.HEAD))
+        self.assertFalse(lib.blocking_review_at_head(reviews[1:], self.HEAD))
+
+
 def facts(**over):
     base = {
         'head_is_ancestor_of_main': False,
@@ -123,6 +151,8 @@ def facts(**over):
         'explicit_do_not_merge': False,
         'merge_tree_clean_onto_main': True,
         'latest_verdict': 'PASS_SCOPED',
+        'latest_verdict_bound': 'PASS_SCOPED',
+        'blocking_review_at_head': False,
         'required_check_conclusion': 'success',
     }
     base.update(over)
@@ -130,6 +160,12 @@ def facts(**over):
 
 
 class RecommendationTests(unittest.TestCase):
+    def test_unbound_pass_does_not_qualify(self):
+        self.assertEqual(lib.recommend(facts(latest_verdict_bound=None)), 'QUARANTINE-ARCHIVE')
+
+    def test_blocking_review_at_head_prevents_candidate(self):
+        self.assertEqual(lib.recommend(facts(blocking_review_at_head=True)), 'QUARANTINE-ARCHIVE')
+
     def test_ancestor_of_main_is_superseded(self):
         self.assertEqual(lib.recommend(facts(head_is_ancestor_of_main=True)), 'SUPERSEDED')
 
@@ -151,8 +187,8 @@ class RecommendationTests(unittest.TestCase):
     def test_conflict_or_red_or_no_pass_is_quarantine(self):
         self.assertEqual(lib.recommend(facts(merge_tree_clean_onto_main=False)), 'QUARANTINE-ARCHIVE')
         self.assertEqual(lib.recommend(facts(required_check_conclusion='failure')), 'QUARANTINE-ARCHIVE')
-        self.assertEqual(lib.recommend(facts(latest_verdict='AMEND')), 'QUARANTINE-ARCHIVE')
-        self.assertEqual(lib.recommend(facts(latest_verdict=None)), 'QUARANTINE-ARCHIVE')
+        self.assertEqual(lib.recommend(facts(latest_verdict_bound='AMEND')), 'QUARANTINE-ARCHIVE')
+        self.assertEqual(lib.recommend(facts(latest_verdict_bound=None)), 'QUARANTINE-ARCHIVE')
 
     def test_precedence_superseded_beats_everything(self):
         self.assertEqual(lib.recommend(facts(head_is_ancestor_of_main=True, base_is_main=False,
@@ -280,12 +316,14 @@ class GitHelperTests(unittest.TestCase):
 class RenderTests(unittest.TestCase):
     def test_markdown_table_has_one_row_per_pr_and_escapes_pipes(self):
         rows = [{'number': 1, 'title': 'a | b', 'draft': True, 'head_ref': 'h', 'head_sha': 'a' * 40,
-                 'base_ref': 'main', 'recommended_disposition': 'SUPERSEDED', 'latest_verdict': None,
+                 'base_ref': 'main', 'recommended_disposition': 'SUPERSEDED', 'latest_verdict': 'PASS',
+                 'latest_verdict_bound': None, 'blocking_review_at_head': True,
                  'required_check_conclusion': None, 'updated_at': '2026-10-01T00:00:00Z',
                  'signals_total': 0, 'merge_tree_clean_onto_main': True}]
         md = lib.render_pr_table(rows)
         self.assertEqual(md.count('\n| #1 '), 1)
         self.assertIn('a \\| b', md)
+        self.assertIn('| — · PASS | CHANGES_REQUESTED |', md)   # head-bound · latest ; blocking review at head
 
 
 if __name__ == '__main__':

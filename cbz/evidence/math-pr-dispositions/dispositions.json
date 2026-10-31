@@ -7,8 +7,8 @@
   "open_pr_count": 29,
   "branch_count": 153,
   "disposition_counts": {
-   "INTEGRATE-CANDIDATE": 4,
-   "QUARANTINE-ARCHIVE": 5,
+   "INTEGRATE-CANDIDATE": 3,
+   "QUARANTINE-ARCHIVE": 6,
    "STACK-DEPENDENT": 6,
    "ACTIVE-OWNER-LANE": 14
   },
@@ -71,11 +71,18 @@
     "comment_id": 6377033739,
     "created_at": "2026-10-23T23:48:20Z"
    },
+   "bound_verdict": {
+    "verdict": "PASS_SCOPED",
+    "source": "comment",
+    "id": 6377033739,
+    "created_at": "2026-10-23T23:48:20Z",
+    "commit": "497dcca37abd18464a6b33cf32ce2e3263054323"
+   },
    "review_states": [],
    "check_runs": {
-    "math-downstream-gates": "success",
+    "downstream-replay": "success",
     "formal / formal-evidence": "success",
-    "downstream-replay": "success"
+    "math-downstream-gates": "success"
    },
    "recoverable_ref_command": "git push origin 497dcca37abd18464a6b33cf32ce2e3263054323:refs/heads/chatgpt/lm006-coefficient-refine-4096-20261006-r22",
    "head_is_ancestor_of_main": false,
@@ -85,6 +92,8 @@
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": "PASS_SCOPED",
+   "latest_verdict_bound": "PASS_SCOPED",
+   "blocking_review_at_head": false,
    "required_check_conclusion": "success",
    "recommended_disposition": "INTEGRATE-CANDIDATE"
   },
@@ -131,6 +140,13 @@
     "comment_id": 6045954478,
     "created_at": "2026-10-07T20:11:19Z"
    },
+   "bound_verdict": {
+    "verdict": "AMEND",
+    "source": "comment",
+    "id": 6045954478,
+    "created_at": "2026-10-07T20:11:19Z",
+    "commit": "1038336f92a482b60c7d89fe3024c941281663d3"
+   },
    "review_states": [
     {
      "state": "COMMENTED",
@@ -139,11 +155,11 @@
     }
    ],
    "check_runs": {
-    "fold-affine-bridge": "failure",
     "copilot-pull-request-reviewer": "success",
-    "math-downstream-gates": "success",
+    "downstream-replay": "success",
+    "fold-affine-bridge": "failure",
     "formal / formal-evidence": "success",
-    "downstream-replay": "success"
+    "math-downstream-gates": "success"
    },
    "recoverable_ref_command": "git push origin 1038336f92a482b60c7d89fe3024c941281663d3:refs/heads/chatgpt/fold-affine-bridge-20261006-f81c",
    "head_is_ancestor_of_main": false,
@@ -153,6 +169,8 @@
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": "AMEND",
+   "latest_verdict_bound": "AMEND",
+   "blocking_review_at_head": false,
    "required_check_conclusion": "success",
    "recommended_disposition": "QUARANTINE-ARCHIVE"
   },
@@ -198,6 +216,13 @@
     "comment_id": 6291350164,
     "created_at": "2026-10-20T12:56:12Z"
    },
+   "bound_verdict": {
+    "verdict": "HOLD",
+    "source": "comment",
+    "id": 6289657024,
+    "created_at": "2026-10-20T11:18:11Z",
+    "commit": "8177f47bbb66b7cc0dca430941832740a5480dee"
+   },
    "review_states": [
     {
      "state": "COMMENTED",
@@ -206,13 +231,13 @@
     }
    ],
    "check_runs": {
-    "math-downstream-gates": "failure",
-    "formal / formal-evidence": "success",
-    "downstream-replay": "failure",
     "compose-and-check": "success",
+    "downstream-replay": "failure",
     "exact-and-probe": "success",
-    "verify-imports": "success",
-    "fail-closed-landing": "success"
+    "fail-closed-landing": "success",
+    "formal / formal-evidence": "success",
+    "math-downstream-gates": "failure",
+    "verify-imports": "success"
    },
    "recoverable_ref_command": "git push origin 8177f47bbb66b7cc0dca430941832740a5480dee:refs/heads/chatgpt/ac1-f1-synthetic-controls-20261007-gp",
    "head_is_ancestor_of_main": false,
@@ -222,6 +247,8 @@
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": "HOLD",
+   "latest_verdict_bound": "HOLD",
+   "blocking_review_at_head": false,
    "required_check_conclusion": "failure",
    "recommended_disposition": "QUARANTINE-ARCHIVE"
   },
@@ -262,11 +289,18 @@
     "comment_id": 6197218060,
     "created_at": "2026-10-15T16:38:38Z"
    },
+   "bound_verdict": {
+    "verdict": "HOLD",
+    "source": "comment",
+    "id": 6197218060,
+    "created_at": "2026-10-15T16:38:38Z",
+    "commit": "bee7fd0b64121c452d5cc40c75e99a71ae8e2613"
+   },
    "review_states": [],
    "check_runs": {
-    "math-downstream-gates": "success",
+    "downstream-replay": "success",
     "formal / formal-evidence": "success",
-    "downstream-replay": "success"
+    "math-downstream-gates": "success"
    },
    "recoverable_ref_command": "git push origin bee7fd0b64121c452d5cc40c75e99a71ae8e2613:refs/heads/grokbot-agent12/steward-source-refresh-01",
    "head_is_ancestor_of_main": false,
@@ -276,6 +310,8 @@
    "explicit_do_not_merge": true,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": "HOLD",
+   "latest_verdict_bound": "HOLD",
+   "blocking_review_at_head": false,
    "required_check_conclusion": "success",
    "recommended_disposition": "QUARANTINE-ARCHIVE"
   },
@@ -500,12 +536,13 @@
    },
    "signals_total": 0,
    "latest_verdict_comment": null,
+   "bound_verdict": null,
    "review_states": [],
    "check_runs": {
-    "math-downstream-gates": "success",
-    "formal / formal-evidence": "success",
     "downstream-replay": "success",
-    "first-leaf": "success"
+    "first-leaf": "success",
+    "formal / formal-evidence": "success",
+    "math-downstream-gates": "success"
    },
    "recoverable_ref_command": "git push origin 5fb3a52ebfbdb73a37f743d9ab960560979f3b20:refs/heads/codex/compact-cutoff-controls-final-repair-20261011-root01a11cbf",
    "head_is_ancestor_of_main": false,
@@ -515,6 +552,8 @@
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": null,
+   "latest_verdict_bound": null,
+   "blocking_review_at_head": false,
    "required_check_conclusion": "success",
    "recommended_disposition": "STACK-DEPENDENT"
   },
@@ -754,12 +793,19 @@
     "comment_id": 6113552974,
     "created_at": "2026-10-11T20:44:19Z"
    },
+   "bound_verdict": {
+    "verdict": "AMEND",
+    "source": "comment",
+    "id": 6113552974,
+    "created_at": "2026-10-11T20:44:19Z",
+    "commit": "1a7fc4be83043f2e313927019db85fff61eeac3f"
+   },
    "review_states": [],
    "check_runs": {
-    "math-downstream-gates": "success",
-    "formal / formal-evidence": "success",
+    "downstream-replay": "success",
     "first-leaf": "success",
-    "downstream-replay": "success"
+    "formal / formal-evidence": "success",
+    "math-downstream-gates": "success"
    },
    "recoverable_ref_command": "git push origin 1a7fc4be83043f2e313927019db85fff61eeac3f:refs/heads/codex/compact-cutoff-proper-partial-repair-20261011-root01a11cbf",
    "head_is_ancestor_of_main": false,
@@ -769,6 +815,8 @@
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": "AMEND",
+   "latest_verdict_bound": "AMEND",
+   "blocking_review_at_head": false,
    "required_check_conclusion": "success",
    "recommended_disposition": "STACK-DEPENDENT"
   },
@@ -812,6 +860,13 @@
     "comment_id": 6406773390,
     "created_at": "2026-10-26T02:19:09Z"
    },
+   "bound_verdict": {
+    "verdict": "AMEND",
+    "source": "comment",
+    "id": 6406773390,
+    "created_at": "2026-10-26T02:19:09Z",
+    "commit": "5497685a50c47b05bd3703c9dc295ded1de2f867"
+   },
    "review_states": [
     {
      "state": "COMMENTED",
@@ -825,13 +880,13 @@
     }
    ],
    "check_runs": {
-    "math-downstream-gates": "success",
-    "no-local-home-paths": "success",
+    "downstream-replay": "success",
+    "exact-controls": "success",
+    "exact-controls-and-replay": "success",
     "formal / formal-evidence": "success",
     "full-suite": "success",
-    "downstream-replay": "success",
-    "exact-controls-and-replay": "success",
-    "exact-controls": "success"
+    "math-downstream-gates": "success",
+    "no-local-home-paths": "success"
    },
    "recoverable_ref_command": "git push origin 5497685a50c47b05bd3703c9dc295ded1de2f867:refs/heads/grokbot/local-path-map-20261015",
    "head_is_ancestor_of_main": false,
@@ -841,6 +896,8 @@
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": "AMEND",
+   "latest_verdict_bound": "AMEND",
+   "blocking_review_at_head": false,
    "required_check_conclusion": "success",
    "recommended_disposition": "QUARANTINE-ARCHIVE"
   },
@@ -962,16 +1019,23 @@
     "comment_id": 6406212613,
     "created_at": "2026-10-26T01:29:15Z"
    },
+   "bound_verdict": {
+    "verdict": "PASS_SCOPED",
+    "source": "comment",
+    "id": 6406212613,
+    "created_at": "2026-10-26T01:29:15Z",
+    "commit": "35a7d76869aad52d7508d58bc589eeb0ddc18bbb"
+   },
    "review_states": [],
    "check_runs": {
-    "math-downstream-gates": "success",
-    "formal / formal-evidence": "success",
-    "exact-controls-and-replay": "success",
-    "full-suite": "success",
     "c293-hosted-formal": "success",
     "downstream-replay": "success",
     "exact-and-probe": "success",
-    "exact-controls": "success"
+    "exact-controls": "success",
+    "exact-controls-and-replay": "success",
+    "formal / formal-evidence": "success",
+    "full-suite": "success",
+    "math-downstream-gates": "success"
    },
    "recoverable_ref_command": "git push origin 35a7d76869aad52d7508d58bc589eeb0ddc18bbb:refs/heads/codex/c293-morse-finite-critical-20261018",
    "head_is_ancestor_of_main": false,
@@ -981,6 +1045,8 @@
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": "PASS_SCOPED",
+   "latest_verdict_bound": "PASS_SCOPED",
+   "blocking_review_at_head": false,
    "required_check_conclusion": "success",
    "recommended_disposition": "INTEGRATE-CANDIDATE"
   },
@@ -1127,13 +1193,20 @@
     "comment_id": 6406229306,
     "created_at": "2026-10-26T01:30:45Z"
    },
+   "bound_verdict": {
+    "verdict": "PASS_SCOPED",
+    "source": "comment",
+    "id": 6406229306,
+    "created_at": "2026-10-26T01:30:45Z",
+    "commit": "dbc3a80afd1ac82c13a0390af7913f9986858467"
+   },
    "review_states": [],
    "check_runs": {
-    "math-downstream-gates": "success",
-    "formal / formal-evidence": "success",
     "downstream-replay": "success",
-    "regular-point-chart": "success",
-    "math-hypergraph": "success"
+    "formal / formal-evidence": "success",
+    "math-downstream-gates": "success",
+    "math-hypergraph": "success",
+    "regular-point-chart": "success"
    },
    "recoverable_ref_command": "git push origin dbc3a80afd1ac82c13a0390af7913f9986858467:refs/heads/codex/c294-critical-level-attainment-20261020",
    "head_is_ancestor_of_main": false,
@@ -1143,6 +1216,8 @@
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": "PASS_SCOPED",
+   "latest_verdict_bound": "PASS_SCOPED",
+   "blocking_review_at_head": false,
    "required_check_conclusion": "success",
    "recommended_disposition": "INTEGRATE-CANDIDATE"
   },
@@ -1186,14 +1261,21 @@
     "comment_id": 6291500812,
     "created_at": "2026-10-20T13:04:06Z"
    },
+   "bound_verdict": {
+    "verdict": "HOLD",
+    "source": "comment",
+    "id": 6291453303,
+    "created_at": "2026-10-20T13:01:36Z",
+    "commit": "1016973a1f311114b814eef060707ab642bc29e8"
+   },
    "review_states": [],
    "check_runs": {
-    "math-downstream-gates": "success",
-    "formal / formal-evidence": "success",
+    "compose-and-check": "success",
     "downstream-replay": "success",
     "exact-and-probe": "success",
     "fail-closed-landing": "success",
-    "compose-and-check": "success"
+    "formal / formal-evidence": "success",
+    "math-downstream-gates": "success"
    },
    "recoverable_ref_command": "git push origin 1016973a1f311114b814eef060707ab642bc29e8:refs/heads/codex/source-admission-graph-package-20261020",
    "head_is_ancestor_of_main": false,
@@ -1203,8 +1285,10 @@
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": "PASS",
+   "latest_verdict_bound": "HOLD",
+   "blocking_review_at_head": false,
    "required_check_conclusion": "success",
-   "recommended_disposition": "INTEGRATE-CANDIDATE"
+   "recommended_disposition": "QUARANTINE-ARCHIVE"
   },
   {
    "number": 491,
@@ -1426,12 +1510,19 @@
     "comment_id": 6387744536,
     "created_at": "2026-10-24T18:09:59Z"
    },
+   "bound_verdict": {
+    "verdict": "HOLD",
+    "source": "comment",
+    "id": 6387744536,
+    "created_at": "2026-10-24T18:09:59Z",
+    "commit": "deccada38a1510fb8330bc205890ba6e98527818"
+   },
    "review_states": [],
    "check_runs": {
-    "math-downstream-gates": "success",
-    "formal / formal-evidence": "success",
+    "c299-hosted-formal": "failure",
     "downstream-replay": "success",
-    "c299-hosted-formal": "failure"
+    "formal / formal-evidence": "success",
+    "math-downstream-gates": "success"
    },
    "recoverable_ref_command": "git push origin deccada38a1510fb8330bc205890ba6e98527818:refs/heads/codex/c299-critical-ridge-20261020",
    "head_is_ancestor_of_main": false,
@@ -1441,6 +1532,8 @@
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": "HOLD",
+   "latest_verdict_bound": "HOLD",
+   "blocking_review_at_head": false,
    "required_check_conclusion": "success",
    "recommended_disposition": "QUARANTINE-ARCHIVE"
   },
@@ -1664,6 +1757,13 @@
     "comment_id": 6357430174,
     "created_at": "2026-10-23T04:31:52Z"
    },
+   "bound_verdict": {
+    "verdict": "HOLD",
+    "source": "review",
+    "id": 5623979347,
+    "created_at": "2026-10-23T04:43:18Z",
+    "commit": "91811388ef2e20cc30a1c418e866b185a253a186"
+   },
    "review_states": [
     {
      "state": "COMMENTED",
@@ -1672,10 +1772,10 @@
     }
    ],
    "check_runs": {
-    "math-downstream-gates": "success",
     "c299-hosted-formal": "failure",
+    "downstream-replay": "success",
     "formal / formal-evidence": "success",
-    "downstream-replay": "success"
+    "math-downstream-gates": "success"
    },
    "recoverable_ref_command": "git push origin 91811388ef2e20cc30a1c418e866b185a253a186:refs/heads/agent8/c299-c7-replacement-20261022",
    "head_is_ancestor_of_main": false,
@@ -1685,6 +1785,8 @@
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": "HOLD",
+   "latest_verdict_bound": "HOLD",
+   "blocking_review_at_head": false,
    "required_check_conclusion": "success",
    "recommended_disposition": "STACK-DEPENDENT"
   },
@@ -1908,6 +2010,13 @@
     "comment_id": 6376224905,
     "created_at": "2026-10-23T22:45:11Z"
    },
+   "bound_verdict": {
+    "verdict": "HOLD",
+    "source": "comment",
+    "id": 6376224905,
+    "created_at": "2026-10-23T22:45:11Z",
+    "commit": "5b3cc75d1585a00ee1420a556af5b77748c418fa"
+   },
    "review_states": [
     {
      "state": "COMMENTED",
@@ -1921,11 +2030,11 @@
     }
    ],
    "check_runs": {
+    "c299-hosted-formal": "failure",
     "copilot-pull-request-reviewer": "success",
-    "math-downstream-gates": "success",
-    "formal / formal-evidence": "success",
     "downstream-replay": "success",
-    "c299-hosted-formal": "failure"
+    "formal / formal-evidence": "success",
+    "math-downstream-gates": "success"
    },
    "recoverable_ref_command": "git push origin 5b3cc75d1585a00ee1420a556af5b77748c418fa:refs/heads/agent12/verifier-c7-01",
    "head_is_ancestor_of_main": false,
@@ -1935,6 +2044,8 @@
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": "HOLD",
+   "latest_verdict_bound": "HOLD",
+   "blocking_review_at_head": false,
    "required_check_conclusion": "success",
    "recommended_disposition": "STACK-DEPENDENT"
   },
@@ -2158,12 +2269,19 @@
     "comment_id": 6388116831,
     "created_at": "2026-10-24T18:46:19Z"
    },
+   "bound_verdict": {
+    "verdict": "HOLD",
+    "source": "comment",
+    "id": 6388116831,
+    "created_at": "2026-10-24T18:46:19Z",
+    "commit": "d65e4425e32f62678d4899a0488f137c9918d7ae"
+   },
    "review_states": [],
    "check_runs": {
     "c299-hosted-formal": "failure",
-    "math-downstream-gates": "success",
     "downstream-replay": "success",
-    "formal / formal-evidence": "success"
+    "formal / formal-evidence": "success",
+    "math-downstream-gates": "success"
    },
    "recoverable_ref_command": "git push origin d65e4425e32f62678d4899a0488f137c9918d7ae:refs/heads/codex/c299-timeout-test-adoption-20261024",
    "head_is_ancestor_of_main": false,
@@ -2173,6 +2291,8 @@
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": "HOLD",
+   "latest_verdict_bound": "HOLD",
+   "blocking_review_at_head": false,
    "required_check_conclusion": "success",
    "recommended_disposition": "STACK-DEPENDENT"
   },
@@ -2412,6 +2532,7 @@
     "comment_id": 6503772426,
     "created_at": "2026-10-29T17:30:05Z"
    },
+   "bound_verdict": null,
    "review_states": [
     {
      "state": "COMMENTED",
@@ -2450,10 +2571,10 @@
     }
    ],
    "check_runs": {
-    "math-downstream-gates": "success",
-    "math-hypergraph": "success",
+    "downstream-replay": "success",
     "formal / formal-evidence": "success",
-    "downstream-replay": "success"
+    "math-downstream-gates": "success",
+    "math-hypergraph": "success"
    },
    "recoverable_ref_command": "git push origin 86c00d4c08c6c2af0529ec1744693de3ca6ac6e4:refs/heads/codex/cubic-curvature-20261026",
    "head_is_ancestor_of_main": false,
@@ -2463,6 +2584,8 @@
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": "BLOCK",
+   "latest_verdict_bound": null,
+   "blocking_review_at_head": false,
    "required_check_conclusion": "success",
    "recommended_disposition": "ACTIVE-OWNER-LANE"
   },
@@ -2511,6 +2634,7 @@
    },
    "signals_total": 2,
    "latest_verdict_comment": null,
+   "bound_verdict": null,
    "review_states": [
     {
      "state": "COMMENTED",
@@ -2529,9 +2653,9 @@
     }
    ],
    "check_runs": {
-    "math-downstream-gates": "success",
-    "formal / formal-evidence": "success",
     "downstream-replay": "success",
+    "formal / formal-evidence": "success",
+    "math-downstream-gates": "success",
     "math-hypergraph": "success"
    },
    "recoverable_ref_command": "git push origin c6d4491754abbf4344dcf98d4fe8489dca50a582:refs/heads/cbz/math-pr-dispositions-01n-20261029",
@@ -2542,6 +2666,8 @@
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": null,
+   "latest_verdict_bound": null,
+   "blocking_review_at_head": false,
    "required_check_conclusion": "success",
    "recommended_disposition": "ACTIVE-OWNER-LANE"
   },
@@ -2611,27 +2737,34 @@
     "comment_id": 6509605390,
     "created_at": "2026-10-29T22:17:27Z"
    },
+   "bound_verdict": {
+    "verdict": "BLOCK",
+    "source": "comment",
+    "id": 6509605390,
+    "created_at": "2026-10-29T22:17:27Z",
+    "commit": "c48194fba6cc240f78759b94e6245c6ca916d087"
+   },
    "review_states": [],
    "check_runs": {
+    "Diagnostic replay (-B -O -S); A3 quarantined": "success",
+    "Diagnostic replay (-B -S); A3 quarantined": "success",
+    "certified-replay": "success",
     "certified-replay (-B -O -S)": "success",
     "certified-replay (-B -S)": "success",
-    "math-downstream-gates": "success",
-    "exact-and-probe": "success",
-    "full-regeneration": "skipped",
-    "certified-replay": "success",
-    "exact-controls": "success",
-    "rational-and-source": "success",
     "certify-and-reject-mutants": "success",
-    "Diagnostic replay (-B -S); A3 quarantined": "success",
-    "formal / formal-evidence": "success",
-    "Diagnostic replay (-B -O -S); A3 quarantined": "success",
+    "document-relative-links": "success",
     "downstream-replay": "success",
-    "quarantine-boundary": "success",
-    "native-kernel-audit": "success",
-    "math-hypergraph": "success",
+    "exact-and-probe": "success",
+    "exact-controls": "success",
     "exact-controls-and-replay": "success",
+    "formal / formal-evidence": "success",
+    "full-regeneration": "skipped",
     "full-suite": "success",
-    "document-relative-links": "success"
+    "math-downstream-gates": "success",
+    "math-hypergraph": "success",
+    "native-kernel-audit": "success",
+    "quarantine-boundary": "success",
+    "rational-and-source": "success"
    },
    "recoverable_ref_command": "git push origin c48194fba6cc240f78759b94e6245c6ca916d087:refs/heads/cbz/native-kernel-cusp-acee-20261029",
    "head_is_ancestor_of_main": false,
@@ -2641,6 +2774,8 @@
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": "BLOCK",
+   "latest_verdict_bound": "BLOCK",
+   "blocking_review_at_head": false,
    "required_check_conclusion": "success",
    "recommended_disposition": "ACTIVE-OWNER-LANE"
   },
@@ -2748,6 +2883,7 @@
    },
    "signals_total": 0,
    "latest_verdict_comment": null,
+   "bound_verdict": null,
    "review_states": [
     {
      "state": "COMMENTED",
@@ -2761,24 +2897,24 @@
     }
    ],
    "check_runs": {
-    "math-downstream-gates": "success",
-    "downstream-replay": "success",
-    "formal / formal-evidence": "success",
-    "full-suite": "success",
-    "full-regeneration": "skipped",
-    "certify-and-reject-mutants": "success",
-    "math-hypergraph": "success",
-    "exact-controls": "success",
-    "downloaded-byte-integrity": "success",
-    "kernel-evidence": "success",
     "certified-replay": "success",
-    "exact-controls-and-replay": "success",
-    "verify-imports": "success",
-    "exact-and-probe": "success",
-    "retained-components (normal)": "success",
+    "certify-and-reject-mutants": "success",
+    "custody (normal)": "success",
     "custody (optimized)": "success",
+    "downloaded-byte-integrity": "success",
+    "downstream-replay": "success",
+    "exact-and-probe": "success",
+    "exact-controls": "success",
+    "exact-controls-and-replay": "success",
+    "formal / formal-evidence": "success",
+    "full-regeneration": "skipped",
+    "full-suite": "success",
+    "kernel-evidence": "success",
+    "math-downstream-gates": "success",
+    "math-hypergraph": "success",
+    "retained-components (normal)": "success",
     "retained-components (optimized)": "success",
-    "custody (normal)": "success"
+    "verify-imports": "success"
    },
    "recoverable_ref_command": "git push origin c4a89bb99af385d0438975fae39ad3563170b874:refs/heads/codex/cbz-determinant-qualified-inventory-20261029",
    "head_is_ancestor_of_main": false,
@@ -2788,6 +2924,8 @@
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": null,
+   "latest_verdict_bound": null,
+   "blocking_review_at_head": false,
    "required_check_conclusion": "success",
    "recommended_disposition": "ACTIVE-OWNER-LANE"
   },
@@ -2859,20 +2997,21 @@
    },
    "signals_total": 0,
    "latest_verdict_comment": null,
+   "bound_verdict": null,
    "review_states": [],
    "check_runs": {
-    "math-downstream-gates": "success",
-    "full-regeneration": "skipped",
-    "formal / formal-evidence": "success",
     "certified-replay": "success",
-    "downstream-replay": "success",
     "certify-and-reject-mutants": "success",
+    "downstream-replay": "success",
+    "exact-and-probe": "success",
     "exact-controls": "success",
-    "kernel-evidence": "success",
-    "full-suite": "success",
     "exact-controls-and-replay": "success",
-    "math-hypergraph": "success",
-    "exact-and-probe": "success"
+    "formal / formal-evidence": "success",
+    "full-regeneration": "skipped",
+    "full-suite": "success",
+    "kernel-evidence": "failure",
+    "math-downstream-gates": "success",
+    "math-hypergraph": "success"
    },
    "recoverable_ref_command": "git push origin d846ecb533f6e0fe242f642cdc27dfb9d08fc435:refs/heads/codex/cbz-packet-admission-db642-20261029",
    "head_is_ancestor_of_main": false,
@@ -2882,6 +3021,8 @@
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": null,
+   "latest_verdict_bound": null,
+   "blocking_review_at_head": false,
    "required_check_conclusion": "success",
    "recommended_disposition": "ACTIVE-OWNER-LANE"
   },
@@ -2944,21 +3085,22 @@
     "comment_id": 6507590290,
     "created_at": "2026-10-29T20:28:55Z"
    },
+   "bound_verdict": null,
    "review_states": [],
    "check_runs": {
-    "math-downstream-gates": "success",
-    "full-regeneration": "skipped",
     "certified-replay": "success",
-    "formal / formal-evidence": "success",
-    "downstream-replay": "success",
-    "exact-controls-and-replay": "success",
-    "math-hypergraph": "success",
-    "exact-controls": "success",
-    "full-suite": "success",
     "certify-and-reject-mutants": "success",
+    "downstream-replay": "success",
     "exact-and-probe": "success",
+    "exact-controls": "success",
+    "exact-controls-and-replay": "success",
+    "formal / formal-evidence": "success",
+    "full-regeneration": "skipped",
+    "full-suite": "success",
     "lm006-oned-coefficient (normal)": "success",
-    "lm006-oned-coefficient (optimized)": "success"
+    "lm006-oned-coefficient (optimized)": "success",
+    "math-downstream-gates": "success",
+    "math-hypergraph": "success"
    },
    "recoverable_ref_command": "git push origin 5d2dfd44dc25ebe4d3186e08192d115eb107d0d5:refs/heads/cbz/wrapper-protocol-union-20261029",
    "head_is_ancestor_of_main": false,
@@ -2968,6 +3110,8 @@
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": "BLOCK",
+   "latest_verdict_bound": null,
+   "blocking_review_at_head": false,
    "required_check_conclusion": "success",
    "recommended_disposition": "ACTIVE-OWNER-LANE"
   },
@@ -3009,20 +3153,21 @@
    },
    "signals_total": 0,
    "latest_verdict_comment": null,
+   "bound_verdict": null,
    "review_states": [],
    "check_runs": {
-    "math-downstream-gates": "success",
-    "formal / formal-evidence": "success",
-    "downstream-replay": "success",
-    "full-suite": "success",
-    "full-regeneration": "skipped",
     "certified-replay": "success",
-    "source514-frozen-kernel": "failure",
-    "math-hypergraph": "success",
-    "exact-controls": "success",
     "certify-and-reject-mutants": "success",
+    "downstream-replay": "success",
     "exact-and-probe": "success",
-    "exact-controls-and-replay": "success"
+    "exact-controls": "success",
+    "exact-controls-and-replay": "success",
+    "formal / formal-evidence": "success",
+    "full-regeneration": "skipped",
+    "full-suite": "success",
+    "math-downstream-gates": "success",
+    "math-hypergraph": "success",
+    "source514-frozen-kernel": "failure"
    },
    "recoverable_ref_command": "git push origin fa42ed0ebe9e21f986ed610f39484eb9cbd1925f:refs/heads/cbz/source514-hosted-qualification-20261029",
    "head_is_ancestor_of_main": false,
@@ -3032,6 +3177,8 @@
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": null,
+   "latest_verdict_bound": null,
+   "blocking_review_at_head": false,
    "required_check_conclusion": "success",
    "recommended_disposition": "ACTIVE-OWNER-LANE"
   },
@@ -3076,6 +3223,7 @@
     "comment_id": 6507263168,
     "created_at": "2026-10-29T20:13:29Z"
    },
+   "bound_verdict": null,
    "review_states": [
     {
      "state": "COMMENTED",
@@ -3084,11 +3232,11 @@
     }
    ],
    "check_runs": {
-    "math-downstream-gates": "success",
+    "downstream-replay": "success",
     "formal / formal-evidence": "success",
+    "math-downstream-gates": "success",
     "math-hypergraph": "success",
-    "preserve-exact-source-history": "success",
-    "downstream-replay": "success"
+    "preserve-exact-source-history": "success"
    },
    "recoverable_ref_command": "git push origin 44b0db6e5bd1a534e2b6a79ba4bcb300f0ea7a2d:refs/heads/cbz/preserve-math-deliveries-20261029",
    "head_is_ancestor_of_main": false,
@@ -3098,6 +3246,8 @@
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": "PASS_SCOPED",
+   "latest_verdict_bound": null,
+   "blocking_review_at_head": false,
    "required_check_conclusion": "success",
    "recommended_disposition": "ACTIVE-OWNER-LANE"
   },
@@ -3333,21 +3483,22 @@
    },
    "signals_total": 1,
    "latest_verdict_comment": null,
+   "bound_verdict": null,
    "review_states": [],
    "check_runs": {
-    "math-downstream-gates": "success",
-    "formal / formal-evidence": "success",
-    "downstream-replay": "success",
-    "full-suite": "success",
-    "kernel-evidence": "failure",
-    "certify-and-reject-mutants": "success",
-    "full-regeneration": "skipped",
     "certified-replay": "success",
-    "preserved-byte-integrity": "success",
-    "exact-controls-and-replay": "success",
+    "certify-and-reject-mutants": "success",
+    "downstream-replay": "success",
     "exact-and-probe": "success",
     "exact-controls": "success",
-    "math-hypergraph": "success"
+    "exact-controls-and-replay": "success",
+    "formal / formal-evidence": "success",
+    "full-regeneration": "skipped",
+    "full-suite": "success",
+    "kernel-evidence": "success",
+    "math-downstream-gates": "success",
+    "math-hypergraph": "success",
+    "preserved-byte-integrity": "success"
    },
    "recoverable_ref_command": "git push origin 0dd9f215f158f7bffc974960471eaa6404251ab6:refs/heads/codex/cbz-determinant-git-endpoints-20261029",
    "head_is_ancestor_of_main": false,
@@ -3357,6 +3508,8 @@
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": null,
+   "latest_verdict_bound": null,
+   "blocking_review_at_head": false,
    "required_check_conclusion": "success",
    "recommended_disposition": "ACTIVE-OWNER-LANE"
   },
@@ -3423,6 +3576,7 @@
    },
    "signals_total": 0,
    "latest_verdict_comment": null,
+   "bound_verdict": null,
    "review_states": [
     {
      "state": "COMMENTED",
@@ -3431,18 +3585,18 @@
     }
    ],
    "check_runs": {
-    "seal": "cancelled",
-    "math-downstream-gates": "success",
-    "kernel": "cancelled",
-    "formal / formal-evidence": "success",
-    "downstream-replay": "success",
-    "custody (optimized)": "cancelled",
-    "custody (normal)": "cancelled",
-    "d2-square-schur": "success",
-    "d2-moment-bridge": "success",
+    "custody (normal)": "success",
+    "custody (optimized)": "success",
     "d2-atom-integral": "success",
+    "d2-moment-bridge": "success",
+    "d2-square-schur": "success",
+    "downstream-replay": "success",
+    "formal / formal-evidence": "success",
+    "kernel": "success",
+    "math-downstream-gates": "success",
     "math-hypergraph": "success",
-    "retire-superseded": "success"
+    "retire-superseded": "success",
+    "seal": "success"
    },
    "recoverable_ref_command": "git push origin db46797a430495c943fc45867e77d6cffc6baee2:refs/heads/cbz/core-custody-native-20261029",
    "head_is_ancestor_of_main": false,
@@ -3452,6 +3606,8 @@
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": null,
+   "latest_verdict_bound": null,
+   "blocking_review_at_head": false,
    "required_check_conclusion": "success",
    "recommended_disposition": "ACTIVE-OWNER-LANE"
   },
@@ -3496,20 +3652,21 @@
    },
    "signals_total": 0,
    "latest_verdict_comment": null,
+   "bound_verdict": null,
    "review_states": [],
    "check_runs": {
-    "math-downstream-gates": "success",
-    "formal / formal-evidence": "success",
-    "downstream-replay": "success",
-    "full-suite": "success",
-    "certify-and-reject-mutants": "success",
-    "full-regeneration": "skipped",
-    "exact-controls": "success",
-    "source514-frozen-kernel": "failure",
-    "exact-controls-and-replay": "success",
     "certified-replay": "success",
+    "certify-and-reject-mutants": "success",
+    "downstream-replay": "success",
+    "exact-and-probe": "success",
+    "exact-controls": "success",
+    "exact-controls-and-replay": "success",
+    "formal / formal-evidence": "success",
+    "full-regeneration": "skipped",
+    "full-suite": "success",
+    "math-downstream-gates": "success",
     "math-hypergraph": "success",
-    "exact-and-probe": "success"
+    "source514-frozen-kernel": "failure"
    },
    "recoverable_ref_command": "git push origin 785a71f0b8267d6d11b736dc5f621b1265bd7198:refs/heads/cbz/source514-99-domain-repair-20261029",
    "head_is_ancestor_of_main": false,
@@ -3519,6 +3676,8 @@
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": null,
+   "latest_verdict_bound": null,
+   "blocking_review_at_head": false,
    "required_check_conclusion": "success",
    "recommended_disposition": "STACK-DEPENDENT"
   },
@@ -3585,19 +3744,20 @@
    },
    "signals_total": 0,
    "latest_verdict_comment": null,
+   "bound_verdict": null,
    "review_states": [],
    "check_runs": {
-    "math-downstream-gates": "failure",
-    "seal": "skipped",
-    "kernel": "skipped",
-    "downstream-replay": "success",
-    "formal / formal-evidence": "failure",
     "custody (normal)": "failure",
     "custody (optimized)": "failure",
+    "d2-atom-integral": "failure",
     "d2-moment-bridge": "failure",
-    "math-hypergraph": "success",
     "d2-square-schur": "failure",
-    "d2-atom-integral": "failure"
+    "downstream-replay": "success",
+    "formal / formal-evidence": "failure",
+    "kernel": "skipped",
+    "math-downstream-gates": "failure",
+    "math-hypergraph": "success",
+    "seal": "skipped"
    },
    "recoverable_ref_command": "git push origin 213b8848d0a1fad1ddf74b4f4ea4ba3fe14d8508:refs/heads/cbz/core-git-environment-controls-20261029",
    "head_is_ancestor_of_main": false,
@@ -3607,6 +3767,8 @@
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": null,
+   "latest_verdict_bound": null,
+   "blocking_review_at_head": false,
    "required_check_conclusion": "failure",
    "recommended_disposition": "ACTIVE-OWNER-LANE"
   },
@@ -3678,6 +3840,13 @@
     "comment_id": 6510414632,
     "created_at": "2026-10-29T22:54:06Z"
    },
+   "bound_verdict": {
+    "verdict": "AMEND",
+    "source": "comment",
+    "id": 6510414632,
+    "created_at": "2026-10-29T22:54:06Z",
+    "commit": "94a78d8bd95f0cafae85bd6b202407e418fafc2b"
+   },
    "review_states": [
     {
      "state": "COMMENTED",
@@ -3696,13 +3865,13 @@
     }
    ],
    "check_runs": {
-    "math-downstream-gates": "success",
-    "formal / formal-evidence": "success",
     "downstream-replay": "success",
-    "replay (python -B -O -S)": "in_progress",
-    "replay (python -B -S)": "in_progress",
+    "formal / formal-evidence": "success",
     "full-suite": "success",
-    "math-hypergraph": "success"
+    "math-downstream-gates": "success",
+    "math-hypergraph": "success",
+    "replay (python -B -O -S)": "in_progress",
+    "replay (python -B -S)": "in_progress"
    },
    "recoverable_ref_command": "git push origin 94a78d8bd95f0cafae85bd6b202407e418fafc2b:refs/heads/cbz/dd-exact-oracles-20261029",
    "head_is_ancestor_of_main": false,
@@ -3712,6 +3881,8 @@
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": "AMEND",
+   "latest_verdict_bound": "AMEND",
+   "blocking_review_at_head": false,
    "required_check_conclusion": "success",
    "recommended_disposition": "ACTIVE-OWNER-LANE"
   },
@@ -3947,6 +4118,7 @@
    },
    "signals_total": 34,
    "latest_verdict_comment": null,
+   "bound_verdict": null,
    "review_states": [
     {
      "state": "COMMENTED",
@@ -3955,9 +4127,9 @@
     }
    ],
    "check_runs": {
-    "math-downstream-gates": "success",
-    "formal / formal-evidence": "success",
     "downstream-replay": "success",
+    "formal / formal-evidence": "success",
+    "math-downstream-gates": "success",
     "math-hypergraph": "success"
    },
    "recoverable_ref_command": "git push origin 3f27e9d30600cd2f658c731defe4f35ceb54bca4:refs/heads/cbz/math-198-20261029",
@@ -3968,6 +4140,8 @@
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": null,
+   "latest_verdict_bound": null,
+   "blocking_review_at_head": false,
    "required_check_conclusion": "success",
    "recommended_disposition": "ACTIVE-OWNER-LANE"
   },
@@ -4016,6 +4190,13 @@
     "comment_id": 6510388884,
     "created_at": "2026-10-29T22:52:31Z"
    },
+   "bound_verdict": {
+    "verdict": "AMEND",
+    "source": "comment",
+    "id": 6510388884,
+    "created_at": "2026-10-29T22:52:31Z",
+    "commit": "9e89980bfa4f281e00550f481202033775f35485"
+   },
    "review_states": [
     {
      "state": "COMMENTED",
@@ -4024,14 +4205,14 @@
     }
    ],
    "check_runs": {
-    "math-downstream-gates": "success",
-    "formal / formal-evidence": "success",
-    "downstream-replay": "success",
-    "scoped-countermodel": "success",
-    "verify-imports": "success",
     "document-relative-links": "success",
+    "downstream-replay": "success",
     "exact-and-probe": "success",
-    "math-hypergraph": "success"
+    "formal / formal-evidence": "success",
+    "math-downstream-gates": "success",
+    "math-hypergraph": "success",
+    "scoped-countermodel": "success",
+    "verify-imports": "success"
    },
    "recoverable_ref_command": "git push origin 9e89980bfa4f281e00550f481202033775f35485:refs/heads/cbz/pair-law-closed-integration-20261029",
    "head_is_ancestor_of_main": false,
@@ -4041,6 +4222,8 @@
    "explicit_do_not_merge": false,
    "merge_tree_clean_onto_main": true,
    "latest_verdict": "AMEND",
+   "latest_verdict_bound": "AMEND",
+   "blocking_review_at_head": false,
    "required_check_conclusion": "success",
    "recommended_disposition": "ACTIVE-OWNER-LANE"
   }
