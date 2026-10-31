@@ -1,0 +1,144 @@
+The project needs to make one major transition: from a system that is increasingly good at checking its own work to one that can demonstrate, independently and reproducibly, that its central mathematical claims are true.
+
+Based on the issues identified in the previous investigation, I would prioritize seven changes.
+
+1. Close the gap between the formal proof and the actual theorem
+
+Highest priority
+
+The most important weakness is the gap between abstract estimates and the actual Gaussian-field persistence problem.
+
+For example, the formal countermodel we discussed showed that an upper-selection estimate does not establish a positive lower rate for genuine elder-rule pairings.
+
+What needs to change:
+
+* Define the actual measurable event that says a candidate pair is an elder-rule pair.
+* Prove that the event satisfies the required lower and upper bounds.
+* Connect every abstract probability or counting estimate back to that event.
+* Make explicit which assumptions are needed at each step.
+
+Why: A mathematically valid estimate about a proxy event does not automatically prove a statement about the actual persistence pairing. This is the central logical gap to close.
+
+2. Resolve the extra-critical-point problem
+
+Highest priority
+
+The investigation identified a case where an additional critical point can prevent a proposed maximum-saddle pair from being the actual elder-rule pair.
+
+What needs to change:
+
+* Replace raw critical-point counting with a topological witness.
+* Establish conditions under which a candidate pair really survives the elder-selection process.
+* Bound the probability of configurations that violate those conditions.
+* Show that the good configurations contribute at the claimed leading order.
+
+Why: Counting candidate maximum-saddle pairs is not the same as counting actual persistence bars. Until this distinction is controlled, the leading asymptotic argument remains vulnerable.
+
+3. Finish the unrestricted parameter estimates
+
+The project has made progress on compact parameter ranges, but those estimates do not automatically extend to all relevant birth heights and gap parameters.
+
+What needs to change:
+
+* Complete the small-gap estimates.
+* Prove the large-birth and large-gap tail bounds.
+* Control the intermediate separation scales.
+* Handle collisions and boundaries of the rank charts.
+* State precisely which constants depend on dimension, covariance, and domain size.
+
+Why: The asymptotic coefficient requires controlling the entire parameter space, not merely the region where the local calculation is easiest.
+
+4. Separate proven results from research candidates
+
+Some developments, such as the proposed next-order expansion and rejected-density estimate, are interesting but are not yet established results.
+
+What needs to change:
+
+Give every mathematical claim an explicit status:
+
+Status	Meaning
+Proved	Complete argument with checked dependencies
+Proved under assumptions	Valid only under clearly listed hypotheses
+Conditional	Depends on an unresolved lemma or theorem
+Conjectural	Plausible, but not established
+Refuted	A counterexample or contradiction has been established
+
+Keep conjectural coefficients and numerical estimates out of the headline theorem until their derivations are complete.
+
+Why: This prevents a plausible research direction from gradually becoming treated as a proven fact through repeated documentation and review.
+
+5. Introduce genuinely independent verification
+
+The existing automated reviews and audits are useful, but repeated review by related models or the same provider does not establish independent mathematical validation.
+
+What needs to change:
+
+* Obtain a review from a specialist in Gaussian random fields.
+* Obtain a separate review from someone experienced in persistent homology and stochastic topology.
+* Give reviewers the theorem and proof without the project’s preferred interpretation.
+* Ask them to identify the weakest indispensable lemma and construct counterexamples.
+* Publish the responses and unresolved objections.
+
+Why: A system can become very good at detecting errors that its own review process knows how to look for while missing errors outside that framework.
+
+6. Make the software prove its own coverage, not just pass its tests
+
+The recent engineering work on module ownership, mutation tests, and failure-reason checks is useful progress.
+
+But passing tests does not prove that every important mathematical claim is represented or that every dependency is checked.
+
+What needs to change:
+
+* Require every theorem to have a machine-readable dependency list.
+* Link each dependency to its exact source, proof, and assumptions.
+* Check that no theorem silently relies on an unverified declaration or imported result.
+* Make incomplete proof obligations visible in the main status report.
+* Preserve failed test runs and record why they failed.
+
+Why: This makes it harder for a polished software pipeline to create a false impression of mathematical completeness.
+
+7. Make self-improvement measurable
+
+The project appears to be improving its organization and audit procedures. The next step is to measure whether those improvements actually increase mathematical reliability.
+
+Track things such as:
+
+* Number of unresolved proof obligations.
+* Number of counterexamples discovered and resolved.
+* Number of claims downgraded or withdrawn.
+* Number of independent reviews completed.
+* Number of formalized results that match the intended mathematical statement.
+* Number of failed verification attempts that led to substantive corrections.
+
+Why: More commits, more tests, more documentation, and more model-generated reviews are not necessarily more mathematical progress. The important metric is how many genuine uncertainties have been eliminated.
+
+The order I would follow
+
+Recommended priority sequence
+
+* Prove the actual elder-rule selection statement.
+    Connect candidate pairs to genuine persistence pairs.
+* Resolve the extra-critical-point obstruction.
+    Establish a valid topological witness and control its failures.
+* Complete unrestricted estimates.
+    Close all parameter tails, intermediate scales, and boundary cases.
+* Obtain independent mathematical review.
+    Test the proof outside the project’s own review ecosystem.
+* Formalize and audit the complete dependency chain.
+    Ensure the formal result really matches the stated theorem.
+* Only then promote stronger claims.
+    Revisit next-order asymptotics and rejected-density estimates.
+
+What success would look like
+
+The project should eventually be able to answer five questions with concrete evidence:
+
+* Does the claimed exponent hold for the actual persistence bars, rather than a proxy count?
+* Is the leading coefficient derived from a complete and justified limiting argument?
+* Are all parameter ranges and error terms controlled?
+* Can an independent specialist reproduce and challenge the argument?
+* Does the formal verification cover the exact theorem being advertised?
+
+My overall assessment: The project does not primarily need more automation, more agents, or more elaborate review infrastructure. It needs to close the mathematical gap between local candidate-pair calculations and actual global persistence pairings.
+
+That is the change most likely to turn an increasingly sophisticated self-auditing research system into a genuinely reliable mathematical research system.
