@@ -33,7 +33,9 @@ The chain already contains the two things the owner's items 1 and 2 ask for, and
   above `f(S)`. No critical point elsewhere can change the pairing once these hold.
 - **The probabilistic links are prose, read by two AI reviewers, one of them this session.** `Q^W(G_r^c) ≤ C r³` (A-II),
   the normalizer floor (A-I), the Kac–Rice bridge (B, C) and both lower bounds (L2, L3) are complete written proofs
-  whose nonauthor reads are by xAI/Grok and by this session only. For the lower bounds, the cap second pass and the
+  whose nonauthor reads are by xAI/Grok and by this session only. Theorem B is stated for elder-selected pairs and is
+  Proved; Theorems C and U are stated for bars and are Conditional on exactly one further input, the classical
+  identification of elder death with bar death (F5), which the project holds as an interface clause (v1.1, S1). For the lower bounds, the cap second pass and the
   reconciliation, this session is the sole nonauthor reader. There is no human review and no review outside those two
   providers anywhere in the chain.
 - **No kernel-checked statement of any probabilistic theorem about the actual event exists.** The statement register
@@ -42,7 +44,7 @@ The chain already contains the two things the owner's items 1 and 2 ask for, and
   is Refuted (F1), and the register's shapes do not pin down the theorems (F2). Closing this needs the regression law as
   a measure in Lean, which the register itself classifies as Mathlib-blocked.
 
-Status histogram over the 23 claims: Conditional 1, Conjectural 4, Proved 12, Proved under assumptions 3, Refuted 3. Open obligations listed: 35. Claims whose only nonauthor
+Status histogram over the 23 claims: Conditional 3, Conjectural 4, Proved 10, Proved under assumptions 3, Refuted 3. Open obligations listed: 37. Claims whose only nonauthor
 reader is this session: D1, L2, L2b, L3.
 
 | ID | Claim | Event | Status | Evidence | Nonauthor readers | Open |
@@ -61,9 +63,9 @@ reader is this session: D1, L2, L2b, L3.
 | LP-EQ | Identified selection-failure law r^{-3}(1 - p_r) -> alpha_1 + alpha_2 (Theorem S planar, Theorem F every d; Conjecture LP=) | elder | **Conjectural** | prose | none located | 2 |
 | W | Window critical-point counts: E_{Q^W} N_{r,j}(torus minus pins, between-pin height window) <= C r^3 | candidate-count | **Proved** | prose | Anthropic session_017, xAI/Grok | 2 |
 | F5 | Identification of the maximin level with the H0 bar death and of elder-selected pairs with finite bars | deterministic | **Proved under assumptions** | prose | Anthropic session_017, xAI/Grok | 1 |
-| B | Theorem B (P 1.2): compact-window densities and the O(ell^{2/3}) difference | bars-vs-candidates | **Proved** | prose | Anthropic session_017, xAI/Grok | 2 |
-| C | Theorem C (P 1.3): unrestricted leading density nu_cand^all ~ nu_eld^all ~ c_{d,L} ell^{-1/3} | bars-vs-candidates | **Proved** | prose | Anthropic session_017, xAI/Grok | 2 |
-| U | Theorem U: the unrestricted selection difference does not vanish | bars-vs-candidates | **Proved** | prose | OpenAI | 1 |
+| B | Theorem B (P 1.2): compact-window densities and the O(ell^{2/3}) difference | elder-vs-candidates | **Proved** | prose | Anthropic session_017, xAI/Grok | 2 |
+| C | Theorem C (P 1.3): unrestricted leading density nu_cand^all ~ nu_eld^all ~ c_{d,L} ell^{-1/3} | bars-vs-candidates | **Conditional** | prose | Anthropic session_017, xAI/Grok | 3 |
+| U | Theorem U: the unrestricted selection difference does not vanish | bars-vs-candidates | **Conditional** | prose | OpenAI | 2 |
 | C7 | Candidate C7: unrestricted difference rate 0 <= nu_cand^all - nu_eld^all <= C ell^{2/3} | bars-vs-candidates | **Refuted** | prose | OpenAI | 0 |
 | RHO | Rejected density rho_rej(ell) = nu_cand^all - nu_eld^all = O(1) (C7-total Theorem K; ledger DP-07) | bars-vs-candidates | **Conjectural** | prose | none located | 1 |
 | F1 | Interface-level implication "upper selection shape implies two-sided rate shape" for every PairLawInterface | formal-interface | **Refuted** | kernel | OpenAI | 1 |
@@ -118,7 +120,8 @@ upper nor the lower statement, so nothing formal connects the estimates to the e
 | D1 cap theorem | deterministic | the inclusion itself, kernel-checked |
 | L2, L3 lower bounds | an explicit subevent of `elder event^c` (`d_f(M) ≥ b − k r³/4 > f(S)`) | direct: `1 − p_r ≥ Q^W(subevent) ≥ c r³` |
 | W window counts | critical points in the height window | not used by Theorem A; explain the failure mechanism; not elder statements |
-| B, C densities | bars (`ν_eld`) against candidates (`ν_cand`) | `ν_eld` integrates `p_r` against the candidate intensity (E2 Kac–Rice, P sections 9–11, 13); bars = elder-selected pairs by F5 |
+| B compact-window densities | elder-selected candidate pairs (`ν_eld`, defined through E0) against candidates (`ν_cand`) | `ν_eld` integrates `p_r` against the candidate intensity (E2 Kac–Rice, P sections 9–11); no bar identification is used |
+| C unrestricted densities | finite bars (`ν_eld^all`) against candidates | the same Kac–Rice route (P section 13) plus the Morse-locus identification bars = elder-selected pairs (F5, P l.445) |
 | U, C7, RHO | the difference `ν_cand^all − ν_eld^all` | far pairs separated by a level curve are candidates and not bars |
 
 **Assumptions per step** are the `obligations` lists in `CLAIMS.json`. The two that carry the chain are: the full
@@ -172,6 +175,14 @@ Theorem F) and the rejected density RHO. The owner's item 4 names "the proposed 
 rejected-density estimate" as not established; this record agrees on the second and did not locate a next-order
 expansion of `ν_eld` in the chain (none is in the headline statements).
 
+**Status propagation (v1.1, finding S1 of the Grok Bot a4 and 01SHCrxv reads).** A Proved claim may depend only on
+Proved claims, and `check_claims.py` now enforces it. Theorem B's `ν_eld` is defined in P through the elder relation
+(E0), so B depends on A and E0 only and stays Proved. Theorems C and U are stated for finite bars; their only
+non-Proved dependency is F5, the Morse-locus identification of elder-selected pairs with bars, which this record holds
+at Proved under assumptions because the project consumes it as a classical fact and, in Lean, as an interface clause.
+So C and U are Conditional on F5 alone (v1.0 had Proved); discharging F5 as a theorem makes both Proved with no
+other change. The refutation of C7 inherits the same dependency through U and is recorded as such.
+
 Numerical coefficients: Theorem C states `c_{d,L}` as an identified Gaussian/angular integral (15.2) with no value. The
 SIDE24 numerical coefficient packets are outside this audit. No numerical value of `C`, `r_*`, `z_*`, `c_{B,K}`,
 `c_{d,L}`, `α₁ + α₂` or `c_*` is established anywhere in this chain, and none belongs in a headline statement.
@@ -181,8 +192,8 @@ SIDE24 numerical coefficient packets are outside this audit. No numerical value 
 | ID | Finding | Proposal |
 |---|---|---|
 | I-1 | main `docs/DISCOVERY_PRIORITY_LEDGER_20260925.md` DP-02 (l.18, l.157) says parent sections 2–7 are **AMEND**; main `STATUS.md` D1 (l.88) and Math- `PROOF_INDEX.md` (l.27) record ACCEPT at existential scope from the 28 September reconciliation, whose residual `R-A3-congruence` is DISCHARGED by E1 (REC `LEDGER.json`). The ledger cell was aligned with `STATUS.md` of 26 September and repeated unchanged by the 28 October refresh ([main#669 6465885945](https://github.com/d6g8k5htny-coder/main/issues/669#issuecomment-6465885945)). | Root decides which surface governs (B-003). This record reads the ledger cell as stale. |
-| I-2 | REC section 2 and PROOF_INDEX l.27: "No lower bound is asserted for d ≥ 3" (true of the reconciled D1 chain) while the every-`d` lift L3 was ACCEPTed and integrated (Math-#129); `STATUS.md` D1 notes it, PROOF_INDEX does not. | Add the pointer to the PROOF_INDEX D1 row. |
-| I-3 | Math-#543 review 5707632836 records `CounterexampleE4.lean` as 1,720 bytes; blob `3b7712e4` is 1,743 bytes (1,720 is the character count). The SHA-256 in the README is correct. | Note only. |
+| I-2 | REC section 2 and the PROOF_INDEX D1 row (l.27): "No lower bound is asserted for d ≥ 3" (true of the reconciled D1 chain) while the every-`d` lift L3 was ACCEPTed and integrated (Math-#129). PROOF_INDEX lists the lift in its PR inventory (l.107, 110, 111) and `STATUS.md` D1 notes it; the D1 row of PROOF_INDEX does not point to it. | Add the pointer to the PROOF_INDEX D1 row. |
+| I-3 | GPT-6's pickup 6513952657 and review 5724470777 (01XJMJ) on Math-#543 record `CounterexampleE4.lean` (blob `3b7712e4`) as 1,720 bytes; the blob is 1,743 bytes (1,720 is the character count). Review 5707632836 states no byte count. The SHA-256 in the README is correct. | Note only. 01XJMJ posted its own correction at [Math-#543 6548199529](https://github.com/d6g8k5htny-coder/Math-/pull/543#issuecomment-6548199529). |
 | I-4 | `frontiers/cap_first_exit_lean_20261002` has no PROOF_INDEX row and `MANIFEST.json` records `alignment_review: NOT_CLAIMED`; the only kernel-checked link of the chain is invisible to a cold-start reader of PROOF_INDEX. | Add a row: "Proved (kernel); alignment review open". |
 
 ## 5. Independence (owner item 5)
@@ -226,8 +237,8 @@ Computed from this record at the cuts above; the values are in `CLAIMS.json` und
 
 | Metric | Value at this cut |
 |---|---|
-| Claims audited | 23 (Conditional 1, Conjectural 4, Proved 12, Proved under assumptions 3, Refuted 3) |
-| Open obligations listed | 35 |
+| Claims audited | 23 (Conditional 3, Conjectural 4, Proved 10, Proved under assumptions 3, Refuted 3) |
+| Open obligations listed | 37 |
 | Counterexamples recorded | 4: `p ≡ 1` (F1) and `p ≡ 0` (F2) at the interface, open pending a successor interface; Theorem U against C7, resolved; LOCAL_PAIRING C-01, resolved by withdrawing the sketch |
 | Claims downgraded or withdrawn | 3: C7 → Refuted; the LOCAL_PAIRING v1.1 section-5 sketch withdrawn; the C7-total v1 memo retracted |
 | Independent (human or external) reviews completed | 0 |
@@ -247,7 +258,18 @@ Computed from this record at the cuts above; the values are in `CLAIMS.json` und
   statement of Theorems A, B or C about the elder event exists; `PairLawInterface.p` is primitive."
 - A PROOF_INDEX row for `frontiers/cap_first_exit_lean_20261002` (I-4).
 
-## 9. Non-claims
+## 9. Revision history
+
+- **v1.0, 2026-10-31, head `1d8267ea`.** First record. Nonauthor reads: 01XJMJ (Anthropic; sources and inconsistencies,
+  [review 5724603343](https://github.com/d6g8k5htny-coder/Math-/pull/554#pullrequestreview-5724603343), PASS_SCOPED with
+  F1, F3, F4), Grok Bot agent 4 (xAI; status propagation, [6548325142](https://github.com/d6g8k5htny-coder/Math-/pull/554#issuecomment-6548325142),
+  AMEND S1), 01SHCrxv (Anthropic; custody 44/44 and S1, [main#684 6548184976](https://github.com/d6g8k5htny-coder/main/issues/684#issuecomment-6548184976)).
+- **v1.1.** S1: C and U Conditional on F5; B's dependency on F5 removed because P states Theorem B through the elder
+  relation; a status-propagation rule added to `check_claims.py` with a test. F1: 01XJMJ's nine checker tests added.
+  F3: the I-3 attribution corrected. F4: the I-2 wording corrected. No source identity, review record, claim statement
+  or inconsistency other than I-2 and I-3 changed.
+
+## 10. Non-claims
 
 No theorem is proved, improved, weakened or withdrawn here. No review verdict is issued on any proof; the statuses
 summarize located records under a stated rule. No numerical constant is claimed. Nothing here is independent review

@@ -1,6 +1,6 @@
 {
  "schema": "elder-selection-chain-audit/v1",
- "object": "CL-ELDER-SELECTION-CHAIN-AUDIT-20261031-v1",
+ "object": "CL-ELDER-SELECTION-CHAIN-AUDIT-20261031-v1.1",
  "author": "Anthropic Claude, Claude Code session_017Mi3hxjaxV45x6zo6o1ee3, delegated AI work for Dylan Roy",
  "scientific_effect": "NONE",
  "kind": "source-bound review record; proposes PROOF_INDEX/STATUS wording for the integrator; not a register",
@@ -23,13 +23,14 @@
   "Conjectural": "no complete nonauthor-read proof: author-side complete proofs with no located nonauthor read (candidates) and open conjectures",
   "Refuted": "a counterexample or contradiction is recorded"
  },
- "assignment_rule": "Status follows the located evidence, not the author's label. A nonauthor AI read earns Proved; the evidence field says who read it. No claim in this chain has verification independent of the project's AI reviewers, and none has human review.",
+ "assignment_rule": "Status follows the located evidence, not the author's label. A nonauthor AI read earns Proved; the evidence field says who read it. A Proved claim may depend only on Proved claims; check_claims.py enforces this (v1.1). No claim in this chain has verification independent of the project's AI reviewers, and none has human review.",
  "event_vocabulary": {
   "elder": "elder event {d_f(M) = f(S)} on the Morse-distinct locus (P section 8); p_r is its Q^W-probability",
   "good-jet": "the event G_r of P (7.1)/l.216: the CAP (1) hypotheses hold on the pinned cylinder",
   "deterministic": "a statement about a fixed function, no probability",
   "candidate-count": "counts of critical points or candidate pairs, not elder-selected",
-  "bars-vs-candidates": "finite H0 bars (nu_eld) against candidate pairs (nu_cand)",
+  "elder-vs-candidates": "elder-selected candidate pairs (Theorem B's nu_eld, defined through E0) against all candidate pairs (nu_cand)",
+  "bars-vs-candidates": "finite H0 bars (nu_eld^all) against candidate pairs (nu_cand^all); the bar identification is F5",
   "normalizer": "the full normalizer Z_r",
   "formal-interface": "a statement about the Lean interface objects of specifications/lean_statements_20261010"
  },
@@ -745,7 +746,7 @@
    ],
    "obligations": [
     "Sole nonauthor reviewer is session_017.",
-    "Surface wording I-2: REC section 2 and the PROOF_INDEX D1 row say \"no lower bound is asserted for d >= 3\" (scoped to the D1 chain) while this reviewed lift exists."
+    "Surface wording I-2: REC section 2 and the PROOF_INDEX D1 row (l.27) say \"no lower bound is asserted for d >= 3\" (scoped to the D1 chain) and do not point to this reviewed lift, which PROOF_INDEX lists only in its PR inventory (l.107, 110, 111)."
    ]
   },
   {
@@ -889,11 +890,11 @@
   {
    "id": "B",
    "title": "Theorem B (P 1.2): compact-window densities and the O(ell^{2/3}) difference",
-   "event": "bars-vs-candidates",
-   "statement": "For B, K of positive length: nu_cand ~ nu_eld ~ c_{B,K} ell^{-1/3} and 0 <= nu_cand - nu_eld <= C_{B,K} ell^{2/3}, where nu_eld counts candidate pairs that are elder partners (E0, F5). Proof: Theorem A plus the marked Kac-Rice interface (E2) and the radial ledger and pushforward (P sections 9-11).",
+   "event": "elder-vs-candidates",
+   "statement": "For B, K of positive length: nu_cand ~ nu_eld ~ c_{B,K} ell^{-1/3} and 0 <= nu_cand - nu_eld <= C_{B,K} ell^{2/3}, where nu_eld counts the candidate pairs that are actual ordinary elder partners (P l.37: \"let nu_eld(ell) count only pairs which are actual ordinary elder partners\"), that is the elder event E0, not bars. Proof: Theorem A plus the marked Kac-Rice interface (E2) and the radial ledger and pushforward (P sections 9-11).",
    "status": "Proved",
    "proof_form": "prose",
-   "evidence": "REV-G1, REV-C1, REV-C2; REC section 2.",
+   "evidence": "REV-G1, REV-C1, REV-C2; REC section 2. Theorem B is stated through the elder relation (E0); the bar identification F5 enters Theorem C, not Theorem B (v1.1, after S1 of the Grok Bot a4 and 01SHCrxv reads).",
    "sources": [
     "P",
     "E2-REPAIR",
@@ -906,8 +907,7 @@
    ],
    "depends_on": [
     "A",
-    "E0",
-    "F5"
+    "E0"
    ],
    "obligations": [
     "The Kac-Rice representation and pushforward are prose only.",
@@ -918,10 +918,10 @@
    "id": "C",
    "title": "Theorem C (P 1.3): unrestricted leading density nu_cand^all ~ nu_eld^all ~ c_{d,L} ell^{-1/3}",
    "event": "bars-vs-candidates",
-   "statement": "All births, gaps and separations; essential class excluded. Near pairs: dominated convergence with the target-growth majorant (13.4) and p_r -> 1 pointwise from Theorem A on compact neighbourhoods (P l.415); far pairs: nu^far <= C (14.1); c_{d,L} is the integral (13.6)/(15.2). Leading term only: no unrestricted remainder or difference rate.",
-   "status": "Proved",
+   "statement": "All births, gaps and separations; essential class excluded; nu_eld^all counts all finite ordinary superlevel H0 bars (P l.44). Near pairs: dominated convergence with the target-growth majorant (13.4) and p_r -> 1 pointwise from Theorem A on compact neighbourhoods (P l.415); far pairs: nu^far <= C (14.1); c_{d,L} is the integral (13.6)/(15.2). The selected pair count equals the finite-bar count by the Morse-locus identification (P l.445), which is F5. Leading term only: no unrestricted remainder or difference rate.",
+   "status": "Conditional",
    "proof_form": "prose",
-   "evidence": "REV-G1, REV-C1, REV-C2 (spot re-derivations of (13.1), (13.4), (15.2)); REC section 2.",
+   "evidence": "The Gaussian analysis is complete and read: REV-G1, REV-C1, REV-C2 (spot re-derivations of (13.1), (13.4), (15.2)); REC section 2 records ACCEPT. Its only non-Proved dependency is F5, the classical bar identification, which this record holds at Proved under assumptions (asserted in P, an interface clause in Lean); under the record's rule that makes Theorem C Conditional on F5 and on nothing else (v1.1, S1 of the Grok Bot a4 and 01SHCrxv reads; v1.0 had Proved).",
    "sources": [
     "P",
     "REC"
@@ -937,6 +937,7 @@
     "F5"
    ],
    "obligations": [
+    "Discharge F5 (the bar identification) as a theorem rather than an interface clause; Theorem C then becomes Proved with no other change.",
     "No unrestricted difference rate; Theorem U shows none of order ell^{2/3} exists.",
     "c_{d,L} is an identified integral with no numerical value; numerical SIDE24 coefficient work is outside this audit and belongs outside the headline until derived (owner item 4)."
    ]
@@ -945,10 +946,10 @@
    "id": "U",
    "title": "Theorem U: the unrestricted selection difference does not vanish",
    "event": "bars-vs-candidates",
-   "statement": "nu_cand^all(ell) - nu_eld^all(ell) >= nu_cand^far - nu_eld^far >= c_* > 0 for 0 < ell <= ell_0; hence D(ell)/ell^alpha -> infinity for every alpha > 0 and c_* <= D(ell) = o(ell^{-1/3}).",
-   "status": "Proved",
+   "statement": "nu_cand^all(ell) - nu_eld^all(ell) >= nu_cand^far - nu_eld^far >= c_* > 0 for 0 < ell <= ell_0, where nu_eld^all counts finite H0 bars; hence D(ell)/ell^alpha -> infinity for every alpha > 0 and c_* <= D(ell) = o(ell^{-1/3}) (the upper half of (U2) uses Theorem C).",
+   "status": "Conditional",
    "proof_form": "prose",
-   "evidence": "REV-U ACCEPT Theorem U and (U2)-(U4) (OpenAI); author session_017.",
+   "evidence": "REV-U ACCEPT Theorem U and (U2)-(U4) (OpenAI); author session_017. (U1) reads \"cannot be persistence partners\" through the bar identification F5, and (U2) consumes Theorem C, so under the record's rule Theorem U is Conditional on F5 (and on C, itself Conditional on F5 alone) (v1.1, S1; v1.0 had Proved).",
    "sources": [
     "U",
     "REV-U-FILE"
@@ -957,10 +958,12 @@
     "REV-U"
    ],
    "depends_on": [
-    "C"
+    "C",
+    "F5"
    ],
    "obligations": [
-    "Whether D is bounded is not decided by U (U section 5); see RHO."
+    "Whether D is bounded is not decided by U (U section 5); see RHO.",
+    "Discharging F5 makes U Proved with no other change."
    ]
   },
   {
@@ -970,7 +973,7 @@
    "statement": "The compact-window rate (1.2) extended to the unrestricted densities (CANDIDATES C7).",
    "status": "Refuted",
    "proof_form": "prose",
-   "evidence": "Theorem U (U2): the difference is bounded below by c_* > 0.",
+   "evidence": "Theorem U (U2): the difference is bounded below by c_* > 0 (REV-U). The contradiction consumes the bar identification F5 exactly as U does; a refutation of C7 for elder-selected pairs in place of bars needs no F5.",
    "sources": [
     "U",
     "CANDIDATES"
@@ -1012,7 +1015,7 @@
    "status": "Refuted",
    "proof_form": "lean",
    "kernel_checked": true,
-   "evidence": "Lean-checked at Math- commit 5a470bfd (run 40957238766, job 123740377857; axioms propext, Classical.choice, Quot.sound), relocated byte-identically to cbz/lifetime_pair_law at Math-#543 head 9e89980b; REV-CE4-ENG and REV-CE4-FORMAL PASS at scope; an Anthropic different-family review (01XJMJ, Math-#543 comment 6545265266) is open at this cut. Byte count: blob 3b7712e4 is 1,743 bytes; the \"1,720\" in the formal review counts characters (I-3).",
+   "evidence": "Lean-checked at Math- commit 5a470bfd (run 40957238766, job 123740377857; axioms propext, Classical.choice, Quot.sound), relocated byte-identically to cbz/lifetime_pair_law at Math-#543 head 9e89980b; REV-CE4-ENG and REV-CE4-FORMAL PASS at scope; an Anthropic different-family review (01XJMJ, Math-#543 comment 6545265266) is open at this cut. Byte count: blob 3b7712e4 is 1,743 bytes; the \"1,720\" of GPT-6's pickup 6513952657 and of 01XJMJ's review 5724470777 counts characters (I-3).",
    "sources": [
     "CE4-LEAN",
     "CE4-README",
@@ -1113,7 +1116,7 @@
   },
   {
    "id": "I-2",
-   "finding": "REC section 2 and PROOF_INDEX l.27 say \"No lower bound is asserted for d >= 3\" (scoped to the reconciled D1 chain) although the every-d lower bound DL was ACCEPTed by REV-DL and integrated (Math-#129); STATUS.md D1 carries the note, PROOF_INDEX l.27 does not.",
+   "finding": "REC section 2 and the PROOF_INDEX D1 row (l.27) say \"No lower bound is asserted for d >= 3\" (scoped to the reconciled D1 chain) although the every-d lower bound DL was ACCEPTed by REV-DL and integrated (Math-#129). PROOF_INDEX does list the lift in its PR inventory (l.107 the #129 integration record, l.110 the #125 proof, l.111 the #127 review) and STATUS.md D1 carries a note; what is missing is a pointer in the D1 row itself. (v1.1 wording per 01XJMJ review 5724603343 F4.)",
    "proposal": "Add the DL pointer to the PROOF_INDEX D1 row (section 8).",
    "sources": [
     "REC",
@@ -1125,8 +1128,8 @@
   },
   {
    "id": "I-3",
-   "finding": "Math-#543 review 5707632836 and its pickup record CounterexampleE4.lean (blob 3b7712e4) as 1,720 bytes; the blob is 1,743 bytes (SHA-256 812ba30d... as recorded in CE4-README). 1,720 is the character count.",
-   "proposal": "Note only; the SHA-256 and blob bind the source correctly.",
+   "finding": "GPT-6's pickup 6513952657 and review 5724470777 (01XJMJ) on Math-#543 record CounterexampleE4.lean (blob 3b7712e4) as 1,720 bytes; the blob is 1,743 bytes (1,720 is the character count). Review 5707632836 states no byte count. The SHA-256 in the README is correct. (v1.1: attribution corrected per 01XJMJ review 5724603343 F3; v1.0 pinned it on review 5707632836.)",
+   "proposal": "Note only; the SHA-256 and blob bind the source correctly. 01XJMJ posted its own correction at Math-#543 comment 6548199529.",
    "sources": [
     "CE4-LEAN",
     "CE4-README"
@@ -1146,13 +1149,13 @@
  "metrics": {
   "claims": 23,
   "status_histogram": {
-   "Conditional": 1,
+   "Conditional": 3,
    "Conjectural": 4,
-   "Proved": 12,
+   "Proved": 10,
    "Proved under assumptions": 3,
    "Refuted": 3
   },
-  "open_obligations_listed": 35,
+  "open_obligations_listed": 37,
   "claims_whose_only_nonauthor_reader_is_session_017": [
    "D1",
    "L2",

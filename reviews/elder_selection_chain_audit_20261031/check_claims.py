@@ -7,6 +7,9 @@ What it checks, and nothing more:
     when the commit is available locally);
   * every claim uses a status from the owner's five-value taxonomy, cites at least one source,
     and every `depends_on`, `sources` and `reviews` reference resolves;
+  * a claim marked Proved depends only on claims marked Proved (status propagation: a Proved
+    claim resting on a Conditional, Conjectural, Refuted or Proved-under-assumptions claim is
+    Conditional by the record's own rule);
   * every review names its performer and verdict.
 Sources in another repository are checked only when that repository is given with
 `--repo NAME=DIR`; otherwise they are reported as SKIPPED and do not fail the run.
@@ -64,6 +67,7 @@ def check_structure(doc, out):
     ok = True
     sources, reviews, claims = doc['sources'], doc['reviews'], doc['claims']
     ids = [c['id'] for c in claims]
+    status_of = {c['id']: c['status'] for c in claims}
     if len(set(ids)) != len(ids):
         out.append('FAIL duplicate claim ids')
         ok = False
@@ -90,6 +94,9 @@ def check_structure(doc, out):
         for d in c.get('depends_on', ()):
             if d not in ids:
                 out.append('FAIL %s: depends_on unknown claim %s' % (c['id'], d))
+                ok = False
+            elif c['status'] == 'Proved' and status_of[d] != 'Proved':
+                out.append('FAIL %s: Proved but depends on %s, which is %s' % (c['id'], d, status_of[d]))
                 ok = False
         if c['status'] == 'Proved' and not (c.get('reviews') or c.get('kernel_checked')):
             out.append('FAIL %s: Proved without a nonauthor review or kernel check' % c['id'])
