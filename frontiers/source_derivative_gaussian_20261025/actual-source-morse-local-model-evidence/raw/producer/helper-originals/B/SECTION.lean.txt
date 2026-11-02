@@ -1,0 +1,208 @@
+/- Complete PRIVATE TEXT ONLY for one integration into
+I4SourceActualMorseLocalModel under SHARED_CONTEXT60_V1 and supplement B.
+No helper execution, hash or standalone qualification is claimed. -/
+
+private def inertia60_bilin (g : E2 → ℝ) (X : E2) :
+    E2 →ₗ[ℝ] E2 →ₗ[ℝ] ℝ :=
+  (ContinuousLinearMap.coeLM ℝ).comp
+    (fderiv ℝ (fderiv ℝ g) X).toLinearMap
+
+private theorem inertia60_bilin_apply (g : E2 → ℝ) (X u v : E2) :
+    inertia60_bilin g X u v = iteratedFDeriv ℝ 2 g X ![u,v] := by
+  rw [iteratedFDeriv_two_apply]
+  rfl
+
+/-- Complementary genuine strict-sign spaces force zero radical; no coordinate pivot. -/
+private theorem inertia60_separating
+    (C : E2 →ₗ[ℝ] E2 →ₗ[ℝ] ℝ)
+    (hs : ∀ u v, C u v = C v u) (V W : Submodule ℝ E2)
+    (hc : IsCompl V W)
+    (hn : ∀ v ∈ V, v ≠ 0 → C v v < 0)
+    (hp : ∀ w ∈ W, w ≠ 0 → 0 < C w w) : C.SeparatingLeft := by
+  intro x hx
+  have hxmem : x ∈ V ⊔ W := by rw [hc.codisjoint.eq_top]; trivial
+  obtain ⟨v, hv, w, hw, hvw⟩ := Submodule.mem_sup.mp hxmem
+  have h1 := hx v
+  have h2 := hx w
+  rw [← hvw, map_add, LinearMap.add_apply] at h1 h2
+  rw [hs w v] at h1
+  have heq : C v v = C w w := by linarith
+  have hw0 : 0 ≤ C w w := by
+    by_cases hz : w = 0
+    · simp [hz]
+    · exact (hp w hw hz).le
+  have hvzero : v = 0 := by
+    by_contra hz
+    have hneg := hn v hv hz
+    linarith
+  have hwzero : w = 0 := by
+    by_contra hz
+    have hpos := hp w hw hz
+    rw [hvzero] at heq
+    simp only [map_zero, LinearMap.zero_apply] at heq
+    linarith
+  simpa only [hvzero, hwzero, add_zero] using hvw.symm
+
+private def inertia60_swap : Point2 ≃ₗ[ℝ] Point2 where
+  toFun u := ![u 1,u 0]
+  invFun u := ![u 1,u 0]
+  left_inv u := by ext i; fin_cases i <;> rfl
+  right_inv u := by ext i; fin_cases i <;> rfl
+  map_add' u v := by ext i; fin_cases i <;> rfl
+  map_smul' c u := by ext i; fin_cases i <;> rfl
+
+/-- In dimension two the Sylvester signs are explicitly reordered, negative first. -/
+private theorem inertia60_order_weights (w : Fin 2 → ℝ)
+    (hw : ∀ i, w i = -1 ∨ w i = 1) (j : ℕ)
+    (hj : ({i : Fin 2 | w i < 0} : Set (Fin 2)).ncard = j) :
+    ∃ S : Point2 ≃ₗ[ℝ] Point2,
+      ∀ u : Point2, (∑ i : Fin 2, w i * (S u i)^2) =
+        ∑ i : Fin 2, sign2 j i * (u i)^2 := by
+  classical
+  rcases hw 0 with h0 | h0
+  · rcases hw 1 with h1 | h1
+    · have hs : {i : Fin 2 | w i < 0} = Set.univ := by
+        ext i
+        fin_cases i <;> simp [h0,h1]
+      have hj2 : j = 2 := by simpa only [hs, Set.ncard_univ, Nat.card_fin] using hj.symm
+      subst j
+      refine ⟨LinearEquiv.refl ℝ Point2, ?_⟩
+      intro u
+      simp [Fin.sum_univ_two,sign2,h0,h1]
+    · have hs : {i : Fin 2 | w i < 0} = {0} := by
+        ext i
+        fin_cases i <;> simp [h0,h1]
+      have hj1 : j = 1 := by simpa only [hs, Set.ncard_singleton] using hj.symm
+      subst j
+      refine ⟨LinearEquiv.refl ℝ Point2, ?_⟩
+      intro u
+      simp [Fin.sum_univ_two,sign2,h0,h1]
+  · rcases hw 1 with h1 | h1
+    · have hs : {i : Fin 2 | w i < 0} = {1} := by
+        ext i
+        fin_cases i <;> simp [h0,h1]
+      have hj1 : j = 1 := by simpa only [hs, Set.ncard_singleton] using hj.symm
+      subst j
+      refine ⟨inertia60_swap, ?_⟩
+      intro u
+      simp [Fin.sum_univ_two,sign2,h0,h1,inertia60_swap,add_comm]
+    · have hs : {i : Fin 2 | w i < 0} = ∅ := by
+        ext i
+        fin_cases i <;> simp [h0,h1]
+      have hj0 : j = 0 := by simpa only [hs, Set.ncard_empty] using hj.symm
+      subst j
+      refine ⟨LinearEquiv.refl ℝ Point2, ?_⟩
+      intro u
+      simp [Fin.sum_univ_two,sign2,h0,h1]
+
+private theorem actual_ordered_normalizer {L : ℝ} (hL : 0 < L)
+    (omega : SmoothSample 2 L) (X : E2) (j : ℕ)
+    (hc : IsCriticalPoint 2 (actualField 2 L omega) X)
+    (hi : HessianHasInertia 2 (actualField 2 L omega) X j) :
+    j ≤ 2 ∧ ∃ P : Point2 ≃L[ℝ] E2,
+      orderedNormalization (actualField 2 L omega) X j P := by
+  classical
+  have _literal_criticality := hc
+  let g : E2 → ℝ := actualField 2 L omega
+  let B : E2 →ₗ[ℝ] E2 →ₗ[ℝ] ℝ := inertia60_bilin g X
+  let C : E2 →ₗ[ℝ] E2 →ₗ[ℝ] ℝ := (1/2 : ℝ) • B
+  let Q : QuadraticForm ℝ E2 := C.toQuadraticMap
+  have hB (u v : E2) : B u v = hessian 2 g X u v :=
+    inertia60_bilin_apply g X u v
+  have hBs : ∀ u v : E2, B u v = B v u := by
+    intro u v
+    exact ((actualField_smooth 2 hL omega 2).contDiffAt.isSymmSndFDerivAt
+      (by simp)) u v
+  have hCs : ∀ u v : E2, C u v = C v u := by
+    intro u v
+    change (1/2 : ℝ) * B u v = (1/2 : ℝ) * B v u
+    rw [hBs]
+  obtain ⟨V,W,hcompl,hVdim,_hWdim,hVneg,hWpos⟩ := hi
+  have hj : j ≤ 2 := by
+    calc
+      j = Module.finrank ℝ V := hVdim.symm
+      _ ≤ Module.finrank ℝ E2 := V.finrank_le
+      _ = 2 := finrank_euclideanSpace_fin
+  have hdim : j + Module.finrank ℝ W = 2 := by
+    rw [← hVdim]
+    exact (Submodule.finrank_add_eq_of_isCompl hcompl).trans finrank_euclideanSpace_fin
+  have hneg (v : E2) (hv : v ∈ V) (hv0 : v ≠ 0) : C v v < 0 := by
+    have h := hVneg v hv hv0
+    change (1/2 : ℝ) * B v v < 0
+    rw [hB]
+    linarith
+  have hpos (v : E2) (hv : v ∈ W) (hv0 : v ≠ 0) : 0 < C v v := by
+    have h := hWpos v hv hv0
+    change 0 < (1/2 : ℝ) * B v v
+    rw [hB]
+    linarith
+  have hsepC : C.SeparatingLeft :=
+    inertia60_separating C hCs V W hcompl hneg hpos
+  have hassoc : QuadraticMap.associated Q = C :=
+    QuadraticMap.associated_left_inverse (S := ℝ) hCs
+  have hradical : Q.radical = ⊥ := by
+    rw [QuadraticMap.radical_eq_ker_associated, hassoc]
+    exact LinearMap.separatingLeft_iff_ker_eq_bot.mp hsepC
+  have hsepQ : (QuadraticMap.associated Q).SeparatingLeft := by
+    rw [LinearMap.separatingLeft_iff_ker_eq_bot,
+      ← QuadraticMap.radical_eq_ker_associated]
+    exact hradical
+  have hVdef : ((-Q).restrict V).PosDef := by
+    intro v hv
+    change 0 < -(C (v : E2) (v : E2))
+    exact neg_pos.mpr (hneg v v.property (by simpa using hv))
+  have hWdef : (Q.restrict W).PosDef := by
+    intro v hv
+    change 0 < C (v : E2) (v : E2)
+    exact hpos v v.property (by simpa using hv)
+  have hLower : j ≤ sigNeg Q := by
+    simpa only [hVdim] using (le_sigNeg_of_negDef hVdef)
+  have hWnonpos : ∀ v ∈ W, (-Q) v ≤ 0 := by
+    intro v hv
+    by_cases hv0 : v = 0
+    · simp [hv0]
+    · change -(C v v) ≤ 0
+      exact neg_nonpos.mpr (hpos v hv hv0).le
+  have hUpper : sigNeg Q + Module.finrank ℝ W ≤ 2 := by
+    simpa only [sigNeg, finrank_euclideanSpace_fin] using
+      (QuadraticForm.sigPos_add_finrank_le_of_nonpos (Q := -Q) hWnonpos)
+  have hIndex : sigNeg Q = j := by
+    apply le_antisymm _ hLower
+    have hadd : sigNeg Q + Module.finrank ℝ W ≤ j + Module.finrank ℝ W := by
+      rw [hdim]
+      exact hUpper
+    exact Nat.le_of_add_le_add_right hadd
+  obtain ⟨w,hw,he⟩ : ∃ w : Fin 2 → ℝ,
+      (∀ i, w i = -1 ∨ w i = 1) ∧
+        QuadraticMap.Equivalent Q (QuadraticMap.weightedSumSquares ℝ w) := by
+    simpa only [finrank_euclideanSpace_fin] using
+      (QuadraticForm.equivalent_one_neg_one_weighted_sum_squared Q hsepQ)
+  have hcount : ({i : Fin 2 | w i < 0} : Set (Fin 2)).ncard = j :=
+    (QuadraticForm.sigNeg_of_equiv_weightedSumSquares he).symm.trans hIndex
+  obtain ⟨S,hS⟩ := inertia60_order_weights w hw j hcount
+  obtain ⟨e⟩ := he
+  let P : Point2 ≃L[ℝ] E2 :=
+    (S.trans e.symm.toLinearEquiv).toContinuousLinearEquiv
+  have hnorm (u : Point2) : Q (P u) = ∑ i : Fin 2, sign2 j i * (u i)^2 := by
+    calc
+      Q (P u) = (QuadraticMap.weightedSumSquares ℝ w) (S u) :=
+        e.symm.map_app (S u)
+      _ = ∑ i : Fin 2, w i * (S u i)^2 := by
+        simp only [QuadraticMap.weightedSumSquares_apply, smul_eq_mul, pow_two]
+      _ = _ := hS u
+  refine ⟨hj,P,?_⟩
+  intro u v
+  rw [← inertia60_bilin_apply]
+  have hpolar : B (P u) (P v) = Q (P (u+v)) - Q (P u) - Q (P v) := by
+    change B (P u) (P v) =
+      (1/2 : ℝ) * B (P (u+v)) (P (u+v)) -
+        (1/2 : ℝ) * B (P u) (P u) - (1/2 : ℝ) * B (P v) (P v)
+    simp only [map_add, LinearMap.add_apply]
+    rw [hBs (P v) (P u)]
+    ring
+  calc
+    B (P u) (P v) = Q (P (u+v)) - Q (P u) - Q (P v) := hpolar
+    _ = 2 * ∑ i : Fin 2, sign2 j i * u i * v i := by
+      rw [hnorm,hnorm,hnorm]
+      simp only [Fin.sum_univ_two, Pi.add_apply]
+      ring

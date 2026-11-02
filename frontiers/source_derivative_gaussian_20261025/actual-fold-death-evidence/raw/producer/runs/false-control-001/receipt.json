@@ -1,0 +1,44 @@
+{
+  "label": "false-control-001",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/actual-fold-death-construct/build:$LEAN_PATH exec lean -DwarningAsError=true /workspace/scratch/actual-fold-death-construct/FalseMutation.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFoldDeath.lean",
+      "bytes": 8882,
+      "sha256": "ee84ce7a775ae8163ec9309a0841757ce2990576adfd7186d4ad5bc8ac4de0d0"
+    },
+    "object": {
+      "path": "/workspace/scratch/actual-fold-death-construct/build/SourceActualFoldDeath.olean",
+      "bytes": 458312,
+      "sha256": "3b545a10235a769892796a13c0b11194516bd11c1dc5b97aee8c0ef2275ac654"
+    }
+  },
+  "started_utc": "2026-10-26T06:10:46.670879+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 2.485063314437866,
+  "ended_utc": "2026-10-26T06:10:49.155964+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFoldDeath.lean",
+      "bytes": 8882,
+      "sha256": "ee84ce7a775ae8163ec9309a0841757ce2990576adfd7186d4ad5bc8ac4de0d0"
+    },
+    "object": {
+      "path": "/workspace/scratch/actual-fold-death-construct/build/SourceActualFoldDeath.olean",
+      "bytes": 458312,
+      "sha256": "3b545a10235a769892796a13c0b11194516bd11c1dc5b97aee8c0ef2275ac654"
+    }
+  },
+  "log": {
+    "path": "/workspace/scratch/actual-fold-death-construct/runs/false-control-001/output.log",
+    "bytes": 251,
+    "sha256": "fd09522e6e3fc86c0450112565738d455a0d79fc46a01bcec2c19afd82faff78"
+  }
+}

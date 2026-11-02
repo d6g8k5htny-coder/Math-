@@ -1,0 +1,54 @@
+{
+  "label": "false-second-projection-001",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/raw-pin-free-coordinate-construct/build:$LEAN_PATH exec lean -R /workspace/scratch/raw-pin-free-coordinate-construct -DwarningAsError=true /workspace/scratch/raw-pin-free-coordinate-construct/FalseSecondProjectionMutation.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRawPinFreeCoordinates.lean",
+      "bytes": 18982,
+      "sha256": "82be00780c7070e999a47d397e4fe047535bd1d5b349efe82e252ccd5cd52cd4"
+    },
+    "object": {
+      "path": "/workspace/scratch/raw-pin-free-coordinate-construct/build/SourceRawPinFreeCoordinates.olean",
+      "bytes": 543112,
+      "sha256": "e4a3b8e7a4560858f1d5eb665fdf9f9785d0e99c7b90bdee8f48cc3362539ee4"
+    },
+    "controls_object": {
+      "path": "/workspace/scratch/raw-pin-free-coordinate-construct/build/FreeCoordinateControls.olean",
+      "bytes": 1888680,
+      "sha256": "17f2ba55cc996f330999ab58506ef4353138b49fb05aa24bb1bfdc1968502fd9"
+    }
+  },
+  "started_utc": "2026-10-26T20:28:53.948031+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 3.013651132583618,
+  "ended_utc": "2026-10-26T20:28:56.961704+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRawPinFreeCoordinates.lean",
+      "bytes": 18982,
+      "sha256": "82be00780c7070e999a47d397e4fe047535bd1d5b349efe82e252ccd5cd52cd4"
+    },
+    "object": {
+      "path": "/workspace/scratch/raw-pin-free-coordinate-construct/build/SourceRawPinFreeCoordinates.olean",
+      "bytes": 543112,
+      "sha256": "e4a3b8e7a4560858f1d5eb665fdf9f9785d0e99c7b90bdee8f48cc3362539ee4"
+    },
+    "controls_object": {
+      "path": "/workspace/scratch/raw-pin-free-coordinate-construct/build/FreeCoordinateControls.olean",
+      "bytes": 1888680,
+      "sha256": "17f2ba55cc996f330999ab58506ef4353138b49fb05aa24bb1bfdc1968502fd9"
+    }
+  },
+  "log": {
+    "path": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/false-second-projection-001/output.log",
+    "bytes": 126,
+    "sha256": "1785c54ba91db3054e2e142d938d7a7cf5d368a5497ac72bc99276834aa4f58e"
+  }
+}

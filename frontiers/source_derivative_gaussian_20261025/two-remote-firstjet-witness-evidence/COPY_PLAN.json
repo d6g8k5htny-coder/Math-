@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "execution_owner": "root",
+  "executed_by_packaging_agent": false,
+  "source_cut": "7e8ac1c7bd6a8d9c251cf6c99f5890379a82f0e0",
+  "source_path": "frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetWitness.lean",
+  "source_sha256": "b523da924513fc312c5432c241fc031d4fbe3567fbeedbba981f36dd798574a4",
+  "copies": [
+    {
+      "source": "/workspace/scratch/two-remote-firstjet-witness-construct/build/SourceTwoRemoteFirstJetWitness.olean",
+      "destination": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceTwoRemoteFirstJetWitness.olean",
+      "bytes": 1445664,
+      "sha256": "5466505132cd10c5a9ca362ba6e473de52eb949260e6b8fe801a16eff1f7f90c",
+      "identity_origin": "Retained exact strict003/frozen source-object/one ownkernel evidence; no object hash replay."
+    }
+  ],
+  "no_ilean_produced": true,
+  "old_dependency_objects_to_copy": [],
+  "dependency_guidance": "Reuse completed qualified47/48 public finite-trig/source/germ/finite-kernel/Gram proofs and exact objects. No52 Gaussian/helper or independent H0 source is consumed. No old hash/rebuild.",
+  "guidance": "Root alone copies only final named SourceTwoRemoteFirstJetWitness.olean once. Every control/inventory/helper/mutation/earlier object is ineligible. Reuse exact strict003 across environmentrevision70/resume/freeze, actual71inventory/controls002/collision001/one ownkernel001. No ilean/freshness compile.",
+  "foreign_untracked_preservation": "Preserve SourceIntrinsicH0Interface.lean and tracked SOURCE_INTRINSIC_H0_INTERFACE* PRECODE; exclude them from53 scope. Root uses explicit53 tracked-path/staging allowlist, no global-empty assumption.",
+  "scientific_effect": "NONE"
+}

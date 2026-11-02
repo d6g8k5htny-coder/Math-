@@ -1,0 +1,26 @@
+{
+  "eligibleOwnObject": {
+    "path": "/workspace/scratch/framed-confluent-covariance-construct/runs/develop-013/SourceFramedConfluentCovariance.olean",
+    "bytes": 4714096,
+    "sha256": "2ce82c553ec5dc13ea75a003a9c64d76c481ce774388be720aec0b7dda43106a"
+  },
+  "eligibleOriginStrictRecord": "/workspace/scratch/framed-confluent-covariance-construct/runs/develop-013/record.json",
+  "kernelRecord": "/workspace/scratch/framed-confluent-covariance-construct/runs/kernel-001/record.json",
+  "scratchLoadCopy": "/workspace/scratch/framed-confluent-covariance-construct/build/SourceFramedConfluentCovariance.olean",
+  "copyToProductionOwner": "ROOT ONLY; at most one application of this eligible own object",
+  "producerProductionCacheCopies": 0,
+  "allActualArtifactsExcludedFromGit": true,
+  "auxiliaryControlObject": {
+    "path": "/workspace/scratch/framed-confluent-covariance-construct/runs/controls-008/Controls.olean",
+    "bytes": 1910360,
+    "sha256": "2e3a10f3156d16617afd1b8b99fc2de97c477e8d4e707505d77343a87659fcdc",
+    "eligibleForProduction": false
+  },
+  "auxiliaryInventoryObject": {
+    "path": "/workspace/scratch/framed-confluent-covariance-construct/runs/inventory-001/Inventory.olean",
+    "eligibleForProduction": false
+  },
+  "helpersHaveNoObjects": true,
+  "noIleanFreshnessCompile": true,
+  "noFullLakeBuild": true
+}

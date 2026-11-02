@@ -1,0 +1,78 @@
+{
+  "originals_preserved_immutable": true,
+  "original_old_file_hash_operations": 0,
+  "records": [
+    {
+      "helper": "global-cover",
+      "original_directory": "helper-global-cover-frozen/",
+      "original_identity_source": "HELPER_D_ORIGINAL_IDENTITIES.json",
+      "one_integration_record": "HELPER_INTEGRATION.json",
+      "integration_count": 1,
+      "helper_executions": 0,
+      "complete_actual_section_snapshot": "/workspace/scratch/gap-conditional-morse-distinct-construct/helper-amendments/global-cover-actual-section.lean.txt",
+      "full_actual_amendment_patch": "/workspace/scratch/gap-conditional-morse-distinct-construct/helper-amendments/global-cover.patch",
+      "coverage": "Final production strict/full actual module inventory/one production kernel"
+    },
+    {
+      "helper": "incidence",
+      "original_directory": "helper-incidence-frozen/",
+      "original_identity_source": "helper-incidence-frozen/FROZEN_HELPER.json",
+      "one_integration_record": "HELPER_INTEGRATION.json",
+      "integration_count": 1,
+      "helper_executions": 0,
+      "complete_actual_section_snapshot": "/workspace/scratch/gap-conditional-morse-distinct-construct/helper-amendments/incidence-actual-section.lean.txt",
+      "full_actual_amendment_patch": "/workspace/scratch/gap-conditional-morse-distinct-construct/helper-amendments/incidence.patch",
+      "coverage": "Final production strict/full actual module inventory/one production kernel"
+    },
+    {
+      "helper": "finite-frame",
+      "original_directory": "helper-finite-frame-frozen/",
+      "original_identity_source": "helper-finite-frame-frozen/FROZEN_HELPER.json",
+      "one_integration_record": "HELPER_INTEGRATION.json",
+      "integration_count": 1,
+      "helper_executions": 0,
+      "complete_actual_section_snapshot": "/workspace/scratch/gap-conditional-morse-distinct-construct/helper-amendments/finite-frame-actual-section.lean.txt",
+      "full_actual_amendment_patch": "/workspace/scratch/gap-conditional-morse-distinct-construct/helper-amendments/finite-frame.patch",
+      "coverage": "Final production strict/full actual module inventory/one production kernel"
+    },
+    {
+      "helper": "lifetime-geometry",
+      "original_directory": "helper-lifetime-geometry-frozen/",
+      "original_identity_source": "helper-lifetime-geometry-frozen/FROZEN_IDENTITIES.json",
+      "one_integration_record": "HELPER_INTEGRATION.json",
+      "integration_count": 1,
+      "helper_executions": 0,
+      "complete_actual_section_snapshot": "/workspace/scratch/gap-conditional-morse-distinct-construct/helper-amendments/lifetime-geometry-actual-section.lean.txt",
+      "full_actual_amendment_patch": "/workspace/scratch/gap-conditional-morse-distinct-construct/helper-amendments/lifetime-geometry.patch",
+      "coverage": "Final production strict/full actual module inventory/one production kernel"
+    },
+    {
+      "helper": "actual-controls",
+      "original_directory": "helper-actual-controls-frozen/",
+      "original_identity_source": "helper-actual-controls-frozen/FROZEN_HELPER.json",
+      "one_integration_record": "HELPER_INTEGRATION.json",
+      "integration_count": 1,
+      "helper_executions": 0,
+      "complete_actual_section_snapshot": "/workspace/scratch/gap-conditional-morse-distinct-construct/helper-amendments/actual-controls-actual-section.lean.txt",
+      "full_actual_amendment_patch": "/workspace/scratch/gap-conditional-morse-distinct-construct/helper-amendments/actual-controls.patch",
+      "coverage": "Positive scratch Controls qualification only; NOT production kernel"
+    }
+  ],
+  "root_original_reading_reused": "/workspace/scratch/gap-conditional-morse-distinct-publication/ROOT_ORIGINAL_HELPER_READING59.json",
+  "actual_amendments": "helper-amendments/ALL_HELPER_AMENDMENTS.patch",
+  "coverage_boundary": "Four production helper sections in one production object; fifth Controls-only helper in one separately qualified scratch object. No helper objects or independent executions. Evidence snapshots are copies for reading, not reintegrations.",
+  "final_production_qualification": "strict012/inventory001/EXACTLYONEkernel001 PASS; source99430B/object4189248B, frozen unchanged",
+  "final_controls_qualification": "positiveControls003 PASS; actualControls-onlypatch frozen, sole importedcounterexample-backedFalse001 asintended",
+  "new_helper_text_or_reintegration_after_resume": "No reintegration of anyoriginalhelper. One newlyauthorized separatepositive-onlynumericcompanionextension fromsamefifthhelper, frozenbeforeONEnewintegration.",
+  "numeric_positive_companion_extension": {
+    "originals": "helper-numeric-controls-frozen/",
+    "first_original_ids": "NUMERIC_HELPER_FIRST_IDENTITIES.json beforeoneintegration",
+    "logical_id": "59-CONTROLS-NUMERIC-SUPPLEMENT-20261028-V1-COMPLETE",
+    "helper_executions": 0,
+    "helper_hashes": 0,
+    "integration_count": 1,
+    "actual_producer_amendments": 0,
+    "coverage": "numeric-controls-001 PASS only; not productionkernel or negative replay; originalfivehelperintegrationsunchanged",
+    "scope_reason": "Root/reviewer uncovered literal remoteness/numeric ledger precision in precommitted controls; separatepositiveclosure aftersamefixedproduction/Controls qualifications."
+  }
+}

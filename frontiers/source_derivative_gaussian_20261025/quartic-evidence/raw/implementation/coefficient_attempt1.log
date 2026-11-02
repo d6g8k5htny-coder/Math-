@@ -1,0 +1,8 @@
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientErrorBounds.lean:32:21: error: Application type mismatch: The argument
+  hT
+has type
+  |T| ≤ S / 40
+but is expected to have type
+  |T| * z.ofLp 0 ^ 2 ≤ S / 40 * ‖z‖ ^ 2
+in the application
+  mul_le_mul hT

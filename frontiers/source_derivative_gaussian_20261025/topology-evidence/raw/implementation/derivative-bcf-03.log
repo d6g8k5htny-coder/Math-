@@ -1,0 +1,14 @@
+/workspace/scratch/source-smooth-topology/DerivativeBCF.lean:51:52: error: Type mismatch
+  norm_smul_le ?m.56 ?m.57
+has type
+  ‖@HSMul.hSMul ?m.50 ?m.51 ?m.51 (@instHSMul ?m.50 ?m.51 SMulZeroClass.toSMul) ?m.56 ?m.57‖ ≤ ‖?m.56‖ * ‖?m.57‖
+but is expected to have type
+  ‖@HSMul.hSMul ℝ (DerivativeBCF d k) (DerivativeBCF d k) (@instHSMul ℝ (DerivativeBCF d k) instSMul) (↑ω m)
+        (modeDerivativeBCF d hL k m)‖ ≤
+    ‖↑ω m‖ * ‖modeDerivativeBCF d hL k m‖
+/workspace/scratch/source-smooth-topology/DerivativeBCF.lean:104:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/scratch/source-smooth-topology/DerivativeBCF.lean:115:8: error: (kernel) unknown constant 'I4SourceSmoothTopology.sourceFiniteJet_stronglyMeasurable'

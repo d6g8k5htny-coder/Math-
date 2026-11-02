@@ -1,0 +1,73 @@
+{
+  "status": "PRODUCER_NEW_MODULE_COMPLETE_ALL_MATH_EVIDENCE_READY_ROOT_PROCESS_SEPARATE",
+  "completed_utc": "2026-10-26T20:32:34.162231+00:00",
+  "native_pickup": 6426116065,
+  "actual_pickup_created_at": "2026-10-26T20:06:22Z",
+  "precode": "f01e0c7e94b5e1f929bfe18fe6bb01e3c44060b1",
+  "checkpoint_utc": "2026-10-26T21:15:00Z",
+  "terminal_utc": "2026-10-26T23:30:00Z",
+  "timer_reset": false,
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRawPinFreeCoordinates.lean",
+    "bytes": 18982,
+    "sha256": "82be00780c7070e999a47d397e4fe047535bd1d5b349efe82e252ccd5cd52cd4"
+  },
+  "eligible_own_object": {
+    "path": "/workspace/scratch/raw-pin-free-coordinate-construct/build/SourceRawPinFreeCoordinates.olean",
+    "bytes": 543112,
+    "sha256": "e4a3b8e7a4560858f1d5eb665fdf9f9785d0e99c7b90bdee8f48cc3362539ee4"
+  },
+  "production_strict": "runs/gaussian-integration-002/receipt.json",
+  "all_owned_inventory": "INVENTORY.json",
+  "actual_owned_constants": 64,
+  "standard_axioms_only": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "exactly_one_kernel": "runs/kernel-001/receipt.json",
+  "positive_controls": "runs/controls-004/receipt.json",
+  "sole_negative": "runs/false-second-projection-001/receipt.json",
+  "negative_result": "Exactly one intended False after independently passed actualqvs2q mismatch;126B complete stream.",
+  "actual_invocation_count": 14,
+  "full_attempt_index": "EXECUTION_RECORD_INDEX.json",
+  "helper_originals": [
+    "helper-gaussian-frozen/",
+    "helper-controls-frozen/"
+  ],
+  "helper_lineage": [
+    "HELPER_INTEGRATION.json",
+    "HELPER_CUSTODY.json",
+    "HELPER_GAUSSIAN_LOCAL_AMENDMENTS.patch",
+    "HELPER_CONTROLS_LOCAL_AMENDMENTS.patch"
+  ],
+  "helper_executions": 0,
+  "integration_count_each": 1,
+  "controls_helper_kernel_claim": false,
+  "controls_and_mutation_sources": [
+    "FreeCoordinateControls.lean",
+    "FalseSecondProjectionMutation.lean"
+  ],
+  "dependency_reuse": "DEPENDENCY_REUSE.json; completed old evidence/routes reused, no old replay/hash; curvature original object hash honestly null.",
+  "root_sourcecut": "f8085da94d5d3b5f8ed3b14609516937e52fd9a9",
+  "root_process_supplements": "/workspace/scratch/raw-pin-free-coordinate-publication/ROOT_SOURCE_CUT.json and ROOT_OWN_OBJECT_COPY.json; original FROZEN_SOURCE pendingcut preserved unchanged.",
+  "root_own_object_copy": "Root already copied eligible own57object once; no further copy requested.",
+  "ineligible_objects": "All Controls/inventory/negative/development objects; no ilean refresh.",
+  "report": "REPORT.md",
+  "review": "Source/spec provisionalPASS already reported; final actualcontrols/custody followup to root on /root/actual_canonical_capture_application.",
+  "process_pending": [
+    "root finalreview read/record",
+    "root registration/publication/current process checks",
+    "different actual family/scientific alignment tracked separately"
+  ],
+  "no_further_Lean_planned": true,
+  "no_source_changes_after_final_strict": true,
+  "root_only": "Shared metadata/config/cache/registry/Git/external publication.",
+  "scientific_effect": "NONE",
+  "same_family_provider_distinct_credit": 0,
+  "canonical_authority": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md"
+  ],
+  "link_delivery_does_not_establish_reading": true
+}

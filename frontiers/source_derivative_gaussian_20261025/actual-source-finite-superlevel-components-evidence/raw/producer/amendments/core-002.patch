@@ -1,0 +1,31 @@
+--- runs/core-001/SourceActualFiniteSuperlevelComponents.lean
++++ SourceActualFiniteSuperlevelComponents.lean
+@@ -28,7 +28,7 @@
+     {L : ℝ} (hL : 0 < L) (omega : I4SmoothCarrier.SmoothSample 2 L) (a : ℝ) :
+     CompactSpace (TorusFiltration.superlevel_set
+       (SourceActualFoldTorus.actualTorusField hL.ne' omega) (-a)) := by
+-  letI : Fact (0 < L) := ⟨hL⟩
++  let _ : Fact (0 < L) := ⟨hL⟩
+   have hclosed : IsClosed (TorusFiltration.superlevel_set
+       (SourceActualFoldTorus.actualTorusField hL.ne' omega) (-a)) := by
+     simpa only [TorusFiltration.superlevel_set, neg_neg] using
+@@ -75,7 +75,7 @@
+   have htrace : V ∩ {z : I4Torus.SourceTorus 2 L | a ≤ F z} ⊆ S := by
+     intro z hz
+     change -(-a) ≤ F z
+-    simpa only [neg_neg] using hz.2
++    simpa only [neg_neg] using (show a ≤ F z from hz.2)
+   have hpreimage :
+       (Subtype.val : S → I4Torus.SourceTorus 2 L) ⁻¹'
+         (V ∩ {z : I4Torus.SourceTorus 2 L | a ≤ F z}) = W := by
+@@ -95,8 +95,8 @@
+       (SourceActualFoldTorus.actualTorusField hL.ne' omega) (-a))) :
+     Finite (ZerothHomotopy (TorusFiltration.superlevel_set
+       (SourceActualFoldTorus.actualTorusField hL.ne' omega) (-a))) := by
+-  letI := actualClosedSuperlevel_compact hL omega a
+-  letI := hpc
++  let _ := actualClosedSuperlevel_compact hL omega a
++  let _ := hpc
+   infer_instance
+ 
+ theorem actualSource_finite_closedSuperlevel_components

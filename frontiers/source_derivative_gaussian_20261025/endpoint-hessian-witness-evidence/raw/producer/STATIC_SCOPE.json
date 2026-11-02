@@ -1,0 +1,48 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianWitness.lean",
+    "bytes": 16783,
+    "sha256": "45f69d75cb4418b239f6402d0552da546bccc127e3102fac7da7d4c30324ae8f"
+  },
+  "imports": [
+    "SourceRemoteJetWitness",
+    "Lean.Elab.Tactic.Omega"
+  ],
+  "forbidden_matches": [],
+  "public_prop_count": 2,
+  "public_data_names": [
+    "endpointHessianCoefficient"
+  ],
+  "actual_modes": "originalSourceMode2 finiteFinsupp via explicitTrigPoly/toSource",
+  "literal_orders": "raw6 valueM,valueS,dxM,dxS,dyM,dyS; marginalHessianXX,XY,YY raw6..8M/9..11S",
+  "actual_hypotheses": [
+    "originalsignedLne0",
+    "arbitrarysignedrealr",
+    "literalendpointtorusquotientseparation",
+    "arbitraryendpointtag",
+    "arbitraryreal3x6correction"
+  ],
+  "absent_hypotheses": [
+    "rpositive/nonzero/small",
+    "pinCovarianceinverse",
+    "suppliedwitness/desiredrank/Gramcertificate",
+    "target/Gaussianlaw",
+    "multiplierpositivitypremise"
+  ],
+  "actual_assembly": "fixedxaxis otherpin squaredcosfactor, internallypositivealpha, scalaralpha^-1 times publicgerm3/4/5, explicitfiniteTrigoperations, originaltoSourcederivative pairings; two marginalfamilies",
+  "no_foreign_private_names": true,
+  "foreign_namespace_generated_inventory": [
+    "I4SourceConfluentPins.endpointM.eq_1",
+    "I4SourceConfluentPins.endpointS.eq_1",
+    "I4Torus.torusProjection.eq_1",
+    "I4SourceRemoteJetWitness.localGerm.eq_1"
+  ],
+  "nonclaims": [
+    "jointsixHessianrank/crossHessianzero",
+    "newlaw/density/Schurrewrite",
+    "determinantnullity/criticalvalueties",
+    "conditional/globalMorse",
+    "canonicalH0/Lifetime/Parent",
+    "separationnecessaryforrank/collisionnonexistence"
+  ]
+}

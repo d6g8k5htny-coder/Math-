@@ -1,0 +1,194 @@
+{
+  "attempts": [
+    {
+      "label": "strict-001",
+      "started_utc": "2026-10-26T06:05:26.350054+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 5.0490217208862305,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/actual-fold-death-construct/build/SourceActualFoldDeath.olean",
+        "-i",
+        "/workspace/scratch/actual-fold-death-construct/build/SourceActualFoldDeath.ilean",
+        "SourceActualFoldDeath.lean"
+      ]
+    },
+    {
+      "label": "strict-002",
+      "started_utc": "2026-10-26T06:06:01.271445+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 3.5619144439697266,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/actual-fold-death-construct/build/SourceActualFoldDeath.olean",
+        "-i",
+        "/workspace/scratch/actual-fold-death-construct/build/SourceActualFoldDeath.ilean",
+        "SourceActualFoldDeath.lean"
+      ]
+    },
+    {
+      "label": "strict-003",
+      "started_utc": "2026-10-26T06:06:18.794284+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 3.672499895095825,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/actual-fold-death-construct/build/SourceActualFoldDeath.olean",
+        "-i",
+        "/workspace/scratch/actual-fold-death-construct/build/SourceActualFoldDeath.ilean",
+        "SourceActualFoldDeath.lean"
+      ]
+    },
+    {
+      "label": "strict-004",
+      "started_utc": "2026-10-26T06:06:57.388402+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 4.485396862030029,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/actual-fold-death-construct/build/SourceActualFoldDeath.olean",
+        "-i",
+        "/workspace/scratch/actual-fold-death-construct/build/SourceActualFoldDeath.ilean",
+        "SourceActualFoldDeath.lean"
+      ]
+    },
+    {
+      "label": "strict-005",
+      "started_utc": "2026-10-26T06:07:15.948965+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 4.434777021408081,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/actual-fold-death-construct/build/SourceActualFoldDeath.olean",
+        "-i",
+        "/workspace/scratch/actual-fold-death-construct/build/SourceActualFoldDeath.ilean",
+        "SourceActualFoldDeath.lean"
+      ]
+    },
+    {
+      "label": "kernel-001",
+      "started_utc": "2026-10-26T06:08:01.624477+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 6.235097408294678,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-death-construct/build:$LEAN_PATH exec leanchecker SourceActualFoldDeath"
+      ]
+    },
+    {
+      "label": "inventory-001",
+      "started_utc": "2026-10-26T06:08:35.355432+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 3.541102409362793,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-death-construct/build:$LEAN_PATH exec lean -DwarningAsError=true /workspace/scratch/actual-fold-death-construct/Inventory.lean"
+      ]
+    },
+    {
+      "label": "controls-001",
+      "started_utc": "2026-10-26T06:08:41.401923+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 0.808039665222168,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-death-construct/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/actual-fold-death-construct/build/Controls.olean /workspace/scratch/actual-fold-death-construct/Controls.lean"
+      ]
+    },
+    {
+      "label": "controls-002",
+      "started_utc": "2026-10-26T06:08:52.277347+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 6.13024115562439,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-death-construct/build:$LEAN_PATH exec lean --root=/workspace/scratch/actual-fold-death-construct -DwarningAsError=true -o /workspace/scratch/actual-fold-death-construct/build/Controls.olean /workspace/scratch/actual-fold-death-construct/Controls.lean"
+      ]
+    },
+    {
+      "label": "controls-003",
+      "started_utc": "2026-10-26T06:09:24.745810+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 4.804437160491943,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-death-construct/build:$LEAN_PATH exec lean --root=/workspace/scratch/actual-fold-death-construct -DwarningAsError=true -o /workspace/scratch/actual-fold-death-construct/build/Controls.olean /workspace/scratch/actual-fold-death-construct/Controls.lean"
+      ]
+    },
+    {
+      "label": "controls-004",
+      "started_utc": "2026-10-26T06:09:59.664664+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 4.349714517593384,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-death-construct/build:$LEAN_PATH exec lean --root=/workspace/scratch/actual-fold-death-construct -DwarningAsError=true -o /workspace/scratch/actual-fold-death-construct/build/Controls.olean /workspace/scratch/actual-fold-death-construct/Controls.lean"
+      ]
+    },
+    {
+      "label": "false-control-001",
+      "started_utc": "2026-10-26T06:10:46.670879+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 2.485063314437866,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-death-construct/build:$LEAN_PATH exec lean -DwarningAsError=true /workspace/scratch/actual-fold-death-construct/FalseMutation.lean"
+      ]
+    },
+    {
+      "label": "false-control-002",
+      "started_utc": "2026-10-26T06:15:05.739349+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 2.6242480278015137,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-death-construct/build:$LEAN_PATH exec lean -DwarningAsError=true /workspace/scratch/actual-fold-death-construct/FalseMutation.lean"
+      ]
+    }
+  ],
+  "own_module_kernel_invocations": 1
+}

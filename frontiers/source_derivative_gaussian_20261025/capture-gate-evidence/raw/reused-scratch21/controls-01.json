@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/quartic-capture-algebra:\"$LEAN_PATH\" lean -DwarningAsError=true /workspace/scratch/quartic-capture-algebra/Controls.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit_code": 1,
+  "source": "/workspace/scratch/quartic-capture-algebra/Controls.lean",
+  "source_sha256_before": "298810a262862775334c297c3356113326466fc15bf8b74a80c357927587698a",
+  "source_sha256_after": "298810a262862775334c297c3356113326466fc15bf8b74a80c357927587698a",
+  "log_sha256": "442429c45b5fa8ad92c6b3da832e3bc64ba949ec12e1de16f73cefbcc7f6bb34",
+  "elapsed_seconds": 3.0200722217559814,
+  "scope": "NEW scratch Controls ONLY; GeometrySupport and quartic cached imports reused"
+}

@@ -1,0 +1,35 @@
+{
+  "scope_id": "SOURCE_PIN_PRESERVING_QUARTIC_ONLY_20261026",
+  "modules": [
+    {
+      "module": "SourcePinPreservingQuartic",
+      "source_sha256": "8e23717ef98518b6d701db921d1f17958c3dee2c893745cafa7aa6172f1621d9",
+      "olean_sha256": "d4cff4ad4c99947b084df20691dfc1228e9f46710faf52d9f28f7e3d57a97f72",
+      "public_inventory_count": 141,
+      "kind_counts": {
+        "theorem": 112,
+        "def": 28,
+        "abbrev": 1
+      },
+      "public_theorem_lemma_targets": 112,
+      "definitions_and_abbreviations": 29,
+      "direct_printed_reports": 141,
+      "private_declarations_kernel_covered_not_public": 42
+    }
+  ],
+  "new_public_declarations": 141,
+  "new_public_proof_targets": 112,
+  "new_named_instances": 0,
+  "new_definitions_abbreviations": 29,
+  "baseline_referenced_not_copied_or_rechecked": {
+    "qualified_modules": 22,
+    "proof_instance_targets": 463,
+    "exact_inputs": 23
+  },
+  "root_only_registration_proposal": {
+    "qualified_modules_after_append": 23,
+    "public_proof_instance_targets_after_append": 575
+  },
+  "excluded_active_successor": "SourceSmoothTopology",
+  "combined_build_or_baseline_gate_claimed": false
+}

@@ -1,0 +1,54 @@
+{
+  "created_utc": "2026-10-28T20:36:10.954663+00:00",
+  "status": "PASS",
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualQuotientSaddleCollar.lean",
+    "bytes": 40252,
+    "sha256": "e0e0a0f77bd75bbbd8994d620ee43b18b2edd50d7649cd8cb9837e7148762265",
+    "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+  },
+  "own_object": {
+    "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/build/SourceActualQuotientSaddleCollar.olean",
+    "bytes": 1654224,
+    "sha256": "a57489eb917c4f2fd4d314ab5f7ae9dea60619caf9160e044700114551c1e15e",
+    "identity_origin": "FIRST identity of newly created or changed owned payload"
+  },
+  "source_lines": 896,
+  "strict_receipt": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/fixtures-002/receipt.json",
+  "strict_end_utc": "2026-10-28T20:15:18.577258+00:00",
+  "strict_note": "Actual final Werror pass reused; no redundant compile-final",
+  "owned_count": 96,
+  "classifications": {
+    "authored private finite-geometry set definition": 4,
+    "private generated proof auxiliary": 8,
+    "authored private definition": 10,
+    "generated private Prop-bundle eliminator or auxiliary": 6,
+    "authored private theorem": 38,
+    "private generated defining equation": 7,
+    "generated private Prop-bundle projection": 11,
+    "generated private Prop-bundle recursor": 2,
+    "sole authored public theorem": 1,
+    "authored private type alias": 1,
+    "private generated simp theorem": 1,
+    "authored private Prop bundle": 3,
+    "foreign-namespace generated declaration": 2,
+    "generated private Prop-bundle constructor": 2
+  },
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "inventory_receipt": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/inventory-001/receipt.json",
+  "inventory_end_utc": "2026-10-28T20:17:18.941994+00:00",
+  "own_kernel_count": 1,
+  "kernel_receipt": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/kernel-001/receipt.json",
+  "kernel_end_utc": "2026-10-28T20:23:03.990459+00:00",
+  "historical_PRE_KERNEL": "Immutable earlier source freeze truthfully records kernel0; this additive final qualification records actualONE",
+  "root_source_cut": "57f73698fb84efd56166fda57639557794312754",
+  "root_parent": "f4825c3e3bd0e2d2c46157096e76b9ab17dbbb71",
+  "source_git_blob": "39bce1145fcd714b049bfd4ec941390a0b286f10",
+  "root_own_copy_count": 1,
+  "root_own_copy_utc": "2026-10-28T20:25:01.660046Z",
+  "all_further_copies": "SKIP"
+}

@@ -1,0 +1,17 @@
+/workspace/scratch/actual-fold-chart-jets/runs/003/ActualFoldChartJets.lean:32:2: error: Type mismatch: After simplification, term
+  ContDiff.div_const (ContDiff.comp hf (ContinuousLinearMap.contDiff (chartMap r))) (6 * k * r ^ 3)
+ has type
+  ContDiff ℝ ∞ fun x => f ![r * x.1, r * x.2] / (6 * k * r ^ 3)
+but is expected to have type
+  ContDiff ℝ ∞ (V f r k)
+/workspace/scratch/actual-fold-chart-jets/runs/003/ActualFoldChartJets.lean:47:34: error: `ContinuousMultilinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+/workspace/scratch/actual-fold-chart-jets/runs/003/ActualFoldChartJets.lean:47:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  (iteratedFDeriv ℝ n (fun x => a * f (r • ![x.1, x.2])) p) v =
+    a * (iteratedFDeriv ℝ n (fun x => f (r • ![x.1, x.2])) p) v
+but is expected to have type
+  (iteratedFDeriv ℝ n (fun q => a * f (r • ![q.1, q.2])) p) v =
+    a * (r ^ n * (iteratedFDeriv ℝ n f (r • ![p.1, p.2])) fun i => ![(v i).1, (v i).2])

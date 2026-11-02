@@ -1,0 +1,37 @@
+{
+  "label": "core001",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "-o",
+    "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+    "SourceActualMorseLocalModel.lean"
+  ],
+  "start_utc": "2026-10-28T14:50:12.947500+00:00",
+  "source_identity": {
+    "role": "owned_production_source",
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+    "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0001-SourceActualMorseLocalModel.lean",
+    "bytes": 3696,
+    "sha256": "d515c252ca35ca9d49c1203ee710d5eefa6b43de7fc7c70766dce37f0b4ee023",
+    "first_bound_utc": "2026-10-28T14:50:12.946899+00:00",
+    "new_sha256_operations": 1,
+    "reused_identity": false
+  },
+  "harness_identity": {
+    "role": "owned_source_execution_harness",
+    "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_source.py",
+    "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0002-run_source.py",
+    "bytes": 3023,
+    "sha256": "f0b7cd5c87e5f61e0f3e2dafac6babf5bb6e6a48464536a755a8bfae8de014d2",
+    "first_bound_utc": "2026-10-28T14:50:12.947126+00:00",
+    "new_sha256_operations": 1,
+    "reused_identity": false
+  },
+  "scope": "new owned60 source only; no helper execution or support rebuild",
+  "exit_code": 1,
+  "end_utc": "2026-10-28T14:50:16.930326+00:00"
+}

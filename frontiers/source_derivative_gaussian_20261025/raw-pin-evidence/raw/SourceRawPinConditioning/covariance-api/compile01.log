@@ -1,0 +1,12 @@
+/workspace/scratch/raw-pin-conditioning/covariance-api/CovarianceCongruence.lean:18:6: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HMul (Matrix m n ℝ) (n → n → ℝ) ?m.40
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/raw-pin-conditioning/covariance-api/CovarianceCongruence.lean:36:4: error(lean.unknownIdentifier): Unknown identifier `isUnit_mul_iff`
+/workspace/scratch/raw-pin-conditioning/covariance-api/CovarianceCongruence.lean:34:70: error: unsolved goals
+n : Type u_1
+inst✝¹ : Fintype n
+inst✝ : DecidableEq n
+T G : Matrix n n ℝ
+h : IsUnit (T.det * G.det * Tᵀ.det)
+⊢ IsUnit G

@@ -1,0 +1,364 @@
+SourceActualTorusRegularSlab.lean:52:28: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:52:28: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:52:28: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:52:30: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:52:30: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:52:30: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:111:20: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:111:22: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:135:42: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:135:44: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:143:11: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:143:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:168:17: error: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
+SourceActualTorusRegularSlab.lean:170:6: error: Type mismatch: After simplification, term
+  ContinuousLinearMap.le_opNorm (↑q) (X - Y)
+ has type
+  @LE.le ℝ Real.instLE ‖↑q (X - Y)‖ (‖↑q‖ * ‖X - Y‖)
+but is expected to have type
+  @LE.le ℝ Real.instLE ‖q (X - Y)‖ (Cq * ‖X - Y‖)
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+SourceActualTorusRegularSlab.lean:184:33: error: unsolved goals
+L : ℝ
+hL : 0 < L
+omega : SmoothSample 2 L
+q : E 2 ≃L[ℝ] Fin 2 → ℝ := coordinates 2
+S : (Fin 2 → ℝ) → ℝ := smoothSourceField 2 L omega
+Cq : ℝ := ‖↑q‖
+G1 : ℝ := I4SourceConditionalMajorant.sourceDerivativeMajorant L 1 omega
+G2 : ℝ := I4SourceConditionalMajorant.sourceDerivativeMajorant L 2 omega
+hG1 : 0 ≤ G1
+hG2 : 0 ≤ G2
+hS : ContDiff ℝ (↑2) S
+hSd : Differentiable ℝ S
+hSd' : Differentiable ℝ (fderiv ℝ S)
+hfirst : ∀ (x : Fin 2 → ℝ), ‖fderiv ℝ S x‖ ≤ G1
+hsecond : ∀ (x : Fin 2 → ℝ), ‖fderiv ℝ (fderiv ℝ S) x‖ ≤ G2
+hSLip : LipschitzWith sorry (fderiv ℝ S)
+hchain : ∀ (X : E2), fderiv ℝ (actualField 2 L omega) X = fderiv ℝ S (q X) ∘SL ↑q
+A : ℝ := 1 + Cq * G1
+Kp : sorry := sorry
+X Y : E 2
+hR :
+  ‖gradient (actualField 2 L omega) X - gradient (actualField 2 L omega) Y‖ =
+    ‖fderiv ℝ (actualField 2 L omega) X - fderiv ℝ (actualField 2 L omega) Y‖
+he : fderiv ℝ S (q X) ∘SL ↑q - fderiv ℝ S (q Y) ∘SL ↑q = (fderiv ℝ S (q X) - fderiv ℝ S (q Y)) ∘SL ↑q
+hq : dist (q X) (q Y) ≤ Cq * dist X Y
+⊢ G2 * Cq ^ 2 * dist X Y = dist X Y * sorry ()
+SourceActualTorusRegularSlab.lean:155:2: error: unsolved goals
+case refine_2.calc.step
+L : ℝ
+hL : 0 < L
+omega : SmoothSample 2 L
+q : E 2 ≃L[ℝ] Fin 2 → ℝ := coordinates 2
+S : (Fin 2 → ℝ) → ℝ := smoothSourceField 2 L omega
+Cq : ℝ := ‖↑q‖
+G1 : ℝ := I4SourceConditionalMajorant.sourceDerivativeMajorant L 1 omega
+G2 : ℝ := I4SourceConditionalMajorant.sourceDerivativeMajorant L 2 omega
+hG1 : 0 ≤ G1
+hG2 : 0 ≤ G2
+hS : ContDiff ℝ (↑2) S
+hSd : Differentiable ℝ S
+hSd' : Differentiable ℝ (fderiv ℝ S)
+hfirst : ∀ (x : Fin 2 → ℝ), ‖fderiv ℝ S x‖ ≤ G1
+hsecond : ∀ (x : Fin 2 → ℝ), ‖fderiv ℝ (fderiv ℝ S) x‖ ≤ G2
+hSLip : LipschitzWith sorry (fderiv ℝ S)
+hchain : ∀ (X : E2), fderiv ℝ (actualField 2 L omega) X = fderiv ℝ S (q X) ∘SL ↑q
+A : ℝ := 1 + Cq * G1
+Kp : sorry := sorry
+X Y : E 2
+hR :
+  ‖gradient (actualField 2 L omega) X - gradient (actualField 2 L omega) Y‖ =
+    ‖fderiv ℝ (actualField 2 L omega) X - fderiv ℝ (actualField 2 L omega) Y‖
+he : fderiv ℝ S (q X) ∘SL ↑q - fderiv ℝ S (q Y) ∘SL ↑q = (fderiv ℝ S (q X) - fderiv ℝ S (q Y)) ∘SL ↑q
+hq : dist (q X) (q Y) ≤ Cq * dist X Y
+⊢ sorry * dist X Y ≤ ↑sorry * dist X Y
+SourceActualTorusRegularSlab.lean:197:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?f (?x + ?y)
+in the target expression
+  X.ofLp i + (latticeVec 2 L fun i => -⌊X.ofLp i / L⌋).ofLp i = L * Int.fract (X.ofLp i / L)
+
+L : ℝ
+hL : 0 < L
+X : E2
+n : Fin 2 → ℤ := fun i => -⌊(coordinates 2) X i / L⌋
+Y : E2 := X + latticeVec 2 L n
+i : Fin 2
+a✝ : i ∈ univ
+⊢ X.ofLp i + (latticeVec 2 L fun i => -⌊X.ofLp i / L⌋).ofLp i = L * Int.fract (X.ofLp i / L)
+SourceActualTorusRegularSlab.lean:236:29: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  p X
+in the target expression
+  (InnerProductSpace.toDual ℝ (E 2)) (gradient (actualField 2 L omega) X) = 0
+
+L : ℝ
+hL : 0 < L
+omega : SmoothSample 2 L
+a b : ℝ
+hreg : ∀ (X : E2), a ≤ actualField 2 L omega X → actualField 2 L omega X ≤ b → fderiv ℝ (actualField 2 L omega) X ≠ 0
+hne : ∃ X, a ≤ actualField 2 L omega X ∧ actualField 2 L omega X ≤ b
+hpcont : Continuous (gradient (actualField 2 L omega))
+g : E 2 → ℝ := actualField 2 L omega
+p : E 2 → E 2 := gradient g
+cell : Set E2 := ⇑(coordinates 2).symm '' univ.pi fun x => Icc 0 L
+band : Set E2 := cell ∩ g ⁻¹' Icc a b
+hcell : IsCompact cell
+hgcont : Continuous g
+hband : IsCompact band
+hbandne : band.Nonempty
+X : E2
+hX : X ∈ band
+hz : p X = 0
+⊢ (InnerProductSpace.toDual ℝ (E 2)) (gradient (actualField 2 L omega) X) = 0
+SourceActualTorusRegularSlab.lean:256:20: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:259:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:259:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:256:22: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:259:14: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:259:14: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:265:35: error: failed to prove positivity/nonnegativity/nonzeroness
+SourceActualTorusRegularSlab.lean:271:38: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:271:40: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:271:72: error: unsolved goals
+case calc.step
+L : ℝ
+omega : SmoothSample 2 L
+c A : ℝ
+Kp : sorry
+hc : 0 < c
+hA : 0 ≤ A
+hbound : ∀ (X : E2), ‖gradient (actualField 2 L omega) X‖ ≤ A
+hplip : LipschitzWith sorry (gradient (actualField 2 L omega))
+p : E 2 → E 2 := gradient (actualField 2 L omega)
+d : E2 → ℝ := fun X => max c (‖p X‖ ^ 2)
+D : ℝ := 2 * A * sorry
+hD : 0 ≤ D
+hdlower : ∀ (X : E2), c ≤ d X
+hdpos : ∀ (X : E2), 0 < d X
+hdinv : ∀ (X : E2), |(d X)⁻¹| ≤ 1 / c
+X Y : E2
+hdiff : |‖p X‖ - ‖p Y‖| ≤ sorry * dist X Y
+hsum : ‖p X‖ + ‖p Y‖ ≤ 2 * A
+⊢ D * dist X Y ≤ ↑sorry * dist X Y
+SourceActualTorusRegularSlab.lean:287:40: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:287:42: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:302:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:302:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:303:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:303:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+SourceActualTorusRegularSlab.lean:335:30: error: unsolved goals
+L : ℝ
+omega : SmoothSample 2 L
+c A : ℝ
+Kp : sorry
+hc : 0 < c
+hA : 0 ≤ A
+hbound : ∀ (X : E2), ‖gradient (actualField 2 L omega) X‖ ≤ A
+hplip : LipschitzWith sorry (gradient (actualField 2 L omega))
+p : E 2 → E 2 := gradient (actualField 2 L omega)
+d : E2 → ℝ := fun X => max c (‖p X‖ ^ 2)
+D : ℝ := 2 * A * sorry
+hD : 0 ≤ D
+hdlower : ∀ (X : E2), c ≤ d X
+hdpos : ∀ (X : E2), 0 < d X
+hdinv : ∀ (X : E2), |(d X)⁻¹| ≤ 1 / c
+hsq : LipschitzWith sorry fun X => ‖p X‖ ^ 2
+hdlip : LipschitzWith sorry d
+hrecip : ∀ (X Y : E2), |(d X)⁻¹ - (d Y)⁻¹| ≤ D / (c * c) * dist X Y
+M : sorry := sorry
+K : sorry := sorry
+X Y : E2
+hv :
+  normalizedVelocity (actualField 2 L omega) c X - normalizedVelocity (actualField 2 L omega) c Y =
+    (d X)⁻¹ • (p X - p Y) + ((d X)⁻¹ - (d Y)⁻¹) • p Y
+⊢ c⁻¹ * sorry () * dist X Y + c⁻¹ ^ 2 * dist X Y * D * A = sorry () * dist X Y
+SourceActualTorusRegularSlab.lean:312:2: error: unsolved goals
+case refine_2.calc.step
+L : ℝ
+omega : SmoothSample 2 L
+c A : ℝ
+Kp : sorry
+hc : 0 < c
+hA : 0 ≤ A
+hbound : ∀ (X : E2), ‖gradient (actualField 2 L omega) X‖ ≤ A
+hplip : LipschitzWith sorry (gradient (actualField 2 L omega))
+p : E 2 → E 2 := gradient (actualField 2 L omega)
+d : E2 → ℝ := fun X => max c (‖p X‖ ^ 2)
+D : ℝ := 2 * A * sorry
+hD : 0 ≤ D
+hdlower : ∀ (X : E2), c ≤ d X
+hdpos : ∀ (X : E2), 0 < d X
+hdinv : ∀ (X : E2), |(d X)⁻¹| ≤ 1 / c
+hsq : LipschitzWith sorry fun X => ‖p X‖ ^ 2
+hdlip : LipschitzWith sorry d
+hrecip : ∀ (X Y : E2), |(d X)⁻¹ - (d Y)⁻¹| ≤ D / (c * c) * dist X Y
+M : sorry := sorry
+K : sorry := sorry
+X Y : E2
+hv :
+  normalizedVelocity (actualField 2 L omega) c X - normalizedVelocity (actualField 2 L omega) c Y =
+    (d X)⁻¹ • (p X - p Y) + ((d X)⁻¹ - (d Y)⁻¹) • p Y
+⊢ sorry * dist X Y ≤ ↑sorry * dist X Y
+SourceActualTorusRegularSlab.lean:342:26: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:342:26: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:342:26: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:342:28: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:342:28: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceActualTorusRegularSlab.lean:342:28: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.

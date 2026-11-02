@@ -1,0 +1,48 @@
+--- history/helper-fix001/SourceActualRegularLocalCollar.lean.ORIGINAL
++++ SourceActualRegularLocalCollar.lean
+@@ -62,14 +62,16 @@
+     ext i
+     fin_cases i
+     · change ((a * v 0 + b * v 1) - b * v 1) / a = v 0
+-      field_simp [ha] <;> ring
++      field_simp [ha]
++      ring
+     · rfl
+   right_inv w := by
+     ext i
+     fin_cases i
+     · rfl
+     · change a * ((w 1 - b * w 0) / a) + b * w 0 = w 1
+-      field_simp [ha] <;> ring
++      field_simp [ha]
++      ring
+   map_add' v w := by
+     ext i
+     fin_cases i
+@@ -96,13 +98,15 @@
+     fin_cases i
+     · rfl
+     · change ((a * v 0 + b * v 1) - a * v 0) / b = v 1
+-      field_simp [hb] <;> ring
++      field_simp [hb]
++      ring
+   right_inv w := by
+     ext i
+     fin_cases i
+     · rfl
+     · change a * w 0 + b * ((w 1 - a * w 0) / b) = w 1
+-      field_simp [hb] <;> ring
++      field_simp [hb]
++      ring
+   map_add' v w := by
+     ext i
+     fin_cases i
+@@ -193,7 +197,7 @@
+     intro i
+     fin_cases i
+     · change ContDiff ℝ 1 (fun y : Point2 => y j - x j)
+-      exact (contDiff_apply j).sub contDiff_const
++      exact (contDiff_apply ℝ ℝ j).sub contDiff_const
+     · change ContDiff ℝ 1 (fun y : Point2 => f y - f x)
+       exact hf.sub contDiff_const
+   have hD0 :

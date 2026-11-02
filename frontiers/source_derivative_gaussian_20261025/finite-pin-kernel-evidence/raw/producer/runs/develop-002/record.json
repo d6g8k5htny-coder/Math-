@@ -1,0 +1,19 @@
+{
+  "kind": "develop",
+  "run": "develop-002",
+  "start": "2026-10-26T11:10:02.665153+00:00",
+  "end": "2026-10-26T11:10:06.317501+00:00",
+  "seconds": 3.6524822740029776,
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFinitePinKernel.lean",
+    "-o",
+    "/workspace/scratch/finite-pin-kernel-construct/runs/develop-002/SourceFinitePinKernel.olean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 0,
+  "source_sha256": "d45fbf6ca2d7a2c3e54a8edcd5d5c482497751ec1c3d820a1a198a204c8ce5d1"
+}

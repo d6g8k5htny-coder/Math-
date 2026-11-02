@@ -1,0 +1,348 @@
+{
+  "reader": "/root/regular_collar_technical_review/documentary_custody_reader/helper_families",
+  "report_date": "2026-10-28",
+  "role": "read-only NONAUTHOR documentary custody subreviewer",
+  "scope_kind": "new finite documentary-original obligation, ordinary inventory initial and first classification only",
+  "original_receipt_count": 6,
+  "original_receipt_bytes_from_assignment_sizes": 84503,
+  "original_split_stream_count": 12,
+  "original_split_stream_bytes": 1568,
+  "personally_read_mode": "FULL",
+  "output_truncation": false,
+  "previous_completed_artifacts_modified": false,
+  "families": [
+    {
+      "label": "ordinary-inventory-initial001",
+      "worker": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-inventory-initial001/receipt.json",
+        "mode": "FULL",
+        "command_argv": [
+          "python3",
+          "-c",
+          "import datetime,hashlib,json,pathlib,shutil\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text())\nC=B/'RegularLocalCollarControls.lean';dest=B/'frozen/FINAL_CONTROLS.lean';shutil.copyfile(C,dest);st=dest.stat();cache[str(dest)]={**cache[str(C)],'path':str(dest),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact final ordinary source copy ID REUSED; no hash','copied_from':str(C)}\np=B/'ControlsInventory.lean';assert not p.exists();p.write_text((B/'Inventory.lean').read_text().replace('SourceActualRegularLocalCollar','RegularLocalCollarControls'));st=p.stat();row={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST actual NEW ordinary exhaustive inventory collector before first execution'};cache[str(p)]=row\noriginal=B/'frozen/INITIAL_ControlsInventory.lean';shutil.copyfile(p,original);so=original.stat();cache[str(original)]={**row,'path':str(original),'marker':[so.st_size,so.st_mtime_ns],'origin':'Known exact ordinary collector original identity REUSED; no hash','copied_from':str(p)}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nr={'status':'SEPARATE_ORDINARY_ALL_OWNED_COLLECTOR_FROZEN_AFTER_ORDINARY_STRICT_PASS','observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'collector':row,'immutable_original':str(original),'final_ordinary_source_ID_reused':cache[str(dest)],'ordinary_strict_receipt':str(B/'runs/controls004/receipt.json'),'ordinary_named_kernel':'NONE','negative_harness_created':False}\n(B/'ORDINARY_INVENTORY_INITIAL_CUSTODY.json').write_text(json.dumps(r,indent=2)+'\\n');print(json.dumps({'status':r['status'],'collector':row}))\n"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "start_utc": "2026-10-28T23:41:47.683247+00:00",
+        "end_utc": "2026-10-28T23:41:47.720876+00:00",
+        "elapsed_seconds": 0.03762849900522269,
+        "exit_code": 0,
+        "exception": null,
+        "before_identity_entries": 25,
+        "after_identity_entries": 25,
+        "before_snapshot_map_entries": 22,
+        "all_other_fields_personally_read_full": true
+      },
+      "outer": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/ordinary-inventory-initial001/RECEIPT.json",
+        "mode": "FULL",
+        "script_argv": [
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/outer/ordinary-inventory-initial001",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "outer",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "ordinary-inventory-initial001",
+          "documentary",
+          "--",
+          "python3",
+          "-c",
+          "import datetime,hashlib,json,pathlib,shutil\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text())\nC=B/'RegularLocalCollarControls.lean';dest=B/'frozen/FINAL_CONTROLS.lean';shutil.copyfile(C,dest);st=dest.stat();cache[str(dest)]={**cache[str(C)],'path':str(dest),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact final ordinary source copy ID REUSED; no hash','copied_from':str(C)}\np=B/'ControlsInventory.lean';assert not p.exists();p.write_text((B/'Inventory.lean').read_text().replace('SourceActualRegularLocalCollar','RegularLocalCollarControls'));st=p.stat();row={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST actual NEW ordinary exhaustive inventory collector before first execution'};cache[str(p)]=row\noriginal=B/'frozen/INITIAL_ControlsInventory.lean';shutil.copyfile(p,original);so=original.stat();cache[str(original)]={**row,'path':str(original),'marker':[so.st_size,so.st_mtime_ns],'origin':'Known exact ordinary collector original identity REUSED; no hash','copied_from':str(p)}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nr={'status':'SEPARATE_ORDINARY_ALL_OWNED_COLLECTOR_FROZEN_AFTER_ORDINARY_STRICT_PASS','observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'collector':row,'immutable_original':str(original),'final_ordinary_source_ID_reused':cache[str(dest)],'ordinary_strict_receipt':str(B/'runs/controls004/receipt.json'),'ordinary_named_kernel':'NONE','negative_harness_created':False}\n(B/'ORDINARY_INVENTORY_INITIAL_CUSTODY.json').write_text(json.dumps(r,indent=2)+'\\n');print(json.dumps({'status':r['status'],'collector':row}))\n"
+        ],
+        "command_argv": [
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "ordinary-inventory-initial001",
+          "documentary",
+          "--",
+          "python3",
+          "-c",
+          "import datetime,hashlib,json,pathlib,shutil\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text())\nC=B/'RegularLocalCollarControls.lean';dest=B/'frozen/FINAL_CONTROLS.lean';shutil.copyfile(C,dest);st=dest.stat();cache[str(dest)]={**cache[str(C)],'path':str(dest),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact final ordinary source copy ID REUSED; no hash','copied_from':str(C)}\np=B/'ControlsInventory.lean';assert not p.exists();p.write_text((B/'Inventory.lean').read_text().replace('SourceActualRegularLocalCollar','RegularLocalCollarControls'));st=p.stat();row={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST actual NEW ordinary exhaustive inventory collector before first execution'};cache[str(p)]=row\noriginal=B/'frozen/INITIAL_ControlsInventory.lean';shutil.copyfile(p,original);so=original.stat();cache[str(original)]={**row,'path':str(original),'marker':[so.st_size,so.st_mtime_ns],'origin':'Known exact ordinary collector original identity REUSED; no hash','copied_from':str(p)}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nr={'status':'SEPARATE_ORDINARY_ALL_OWNED_COLLECTOR_FROZEN_AFTER_ORDINARY_STRICT_PASS','observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'collector':row,'immutable_original':str(original),'final_ordinary_source_ID_reused':cache[str(dest)],'ordinary_strict_receipt':str(B/'runs/controls004/receipt.json'),'ordinary_named_kernel':'NONE','negative_harness_created':False}\n(B/'ORDINARY_INVENTORY_INITIAL_CUSTODY.json').write_text(json.dumps(r,indent=2)+'\\n');print(json.dumps({'status':r['status'],'collector':row}))\n"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "start_utc": "2026-10-28T23:41:47.640952+00:00",
+        "end_utc": "2026-10-28T23:41:47.734023+00:00",
+        "elapsed_seconds": 0.09307428899774095,
+        "child_exit_code": 0,
+        "exception": null,
+        "status": "PASS_ACTUAL_CHILD_EXIT_ZERO",
+        "all_other_fields_personally_read_full": true
+      },
+      "entry": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/ordinary-inventory-initial001/RECEIPT.json",
+        "mode": "FULL",
+        "script_argv": [
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/entry/ordinary-inventory-initial001",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "entry",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/outer/ordinary-inventory-initial001",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "outer",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "ordinary-inventory-initial001",
+          "documentary",
+          "--",
+          "python3",
+          "-c",
+          "import datetime,hashlib,json,pathlib,shutil\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text())\nC=B/'RegularLocalCollarControls.lean';dest=B/'frozen/FINAL_CONTROLS.lean';shutil.copyfile(C,dest);st=dest.stat();cache[str(dest)]={**cache[str(C)],'path':str(dest),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact final ordinary source copy ID REUSED; no hash','copied_from':str(C)}\np=B/'ControlsInventory.lean';assert not p.exists();p.write_text((B/'Inventory.lean').read_text().replace('SourceActualRegularLocalCollar','RegularLocalCollarControls'));st=p.stat();row={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST actual NEW ordinary exhaustive inventory collector before first execution'};cache[str(p)]=row\noriginal=B/'frozen/INITIAL_ControlsInventory.lean';shutil.copyfile(p,original);so=original.stat();cache[str(original)]={**row,'path':str(original),'marker':[so.st_size,so.st_mtime_ns],'origin':'Known exact ordinary collector original identity REUSED; no hash','copied_from':str(p)}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nr={'status':'SEPARATE_ORDINARY_ALL_OWNED_COLLECTOR_FROZEN_AFTER_ORDINARY_STRICT_PASS','observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'collector':row,'immutable_original':str(original),'final_ordinary_source_ID_reused':cache[str(dest)],'ordinary_strict_receipt':str(B/'runs/controls004/receipt.json'),'ordinary_named_kernel':'NONE','negative_harness_created':False}\n(B/'ORDINARY_INVENTORY_INITIAL_CUSTODY.json').write_text(json.dumps(r,indent=2)+'\\n');print(json.dumps({'status':r['status'],'collector':row}))\n"
+        ],
+        "command_argv": [
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/outer/ordinary-inventory-initial001",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "outer",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "ordinary-inventory-initial001",
+          "documentary",
+          "--",
+          "python3",
+          "-c",
+          "import datetime,hashlib,json,pathlib,shutil\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text())\nC=B/'RegularLocalCollarControls.lean';dest=B/'frozen/FINAL_CONTROLS.lean';shutil.copyfile(C,dest);st=dest.stat();cache[str(dest)]={**cache[str(C)],'path':str(dest),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact final ordinary source copy ID REUSED; no hash','copied_from':str(C)}\np=B/'ControlsInventory.lean';assert not p.exists();p.write_text((B/'Inventory.lean').read_text().replace('SourceActualRegularLocalCollar','RegularLocalCollarControls'));st=p.stat();row={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST actual NEW ordinary exhaustive inventory collector before first execution'};cache[str(p)]=row\noriginal=B/'frozen/INITIAL_ControlsInventory.lean';shutil.copyfile(p,original);so=original.stat();cache[str(original)]={**row,'path':str(original),'marker':[so.st_size,so.st_mtime_ns],'origin':'Known exact ordinary collector original identity REUSED; no hash','copied_from':str(p)}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nr={'status':'SEPARATE_ORDINARY_ALL_OWNED_COLLECTOR_FROZEN_AFTER_ORDINARY_STRICT_PASS','observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'collector':row,'immutable_original':str(original),'final_ordinary_source_ID_reused':cache[str(dest)],'ordinary_strict_receipt':str(B/'runs/controls004/receipt.json'),'ordinary_named_kernel':'NONE','negative_harness_created':False}\n(B/'ORDINARY_INVENTORY_INITIAL_CUSTODY.json').write_text(json.dumps(r,indent=2)+'\\n');print(json.dumps({'status':r['status'],'collector':row}))\n"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "start_utc": "2026-10-28T23:41:47.608159+00:00",
+        "end_utc": "2026-10-28T23:41:47.741226+00:00",
+        "elapsed_seconds": 0.1330680629980634,
+        "child_exit_code": 0,
+        "exception": null,
+        "status": "PASS_ACTUAL_CHILD_EXIT_ZERO",
+        "all_other_fields_personally_read_full": true
+      },
+      "streams": [
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-inventory-initial001/stdout.log",
+          "mode": "FULL",
+          "bytes": 482
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-inventory-initial001/stderr.log",
+          "mode": "FULL",
+          "bytes": 0
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/ordinary-inventory-initial001/stdout.log",
+          "mode": "FULL",
+          "bytes": 204
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/ordinary-inventory-initial001/stderr.log",
+          "mode": "FULL",
+          "bytes": 0
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/ordinary-inventory-initial001/stdout.log",
+          "mode": "FULL",
+          "bytes": 209
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/ordinary-inventory-initial001/stderr.log",
+          "mode": "FULL",
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "label": "ordinary-inventory-classify001",
+      "worker": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-inventory-classify001/receipt.json",
+        "mode": "FULL",
+        "command_argv": [
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/classify_inventory.py",
+          "ordinary"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "start_utc": "2026-10-28T23:41:51.143542+00:00",
+        "end_utc": "2026-10-28T23:41:51.171582+00:00",
+        "elapsed_seconds": 0.028039880002324935,
+        "exit_code": 0,
+        "exception": null,
+        "before_identity_entries": 25,
+        "after_identity_entries": 25,
+        "before_snapshot_map_entries": 22,
+        "all_other_fields_personally_read_full": true
+      },
+      "outer": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/ordinary-inventory-classify001/RECEIPT.json",
+        "mode": "FULL",
+        "script_argv": [
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/outer/ordinary-inventory-classify001",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "outer",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "ordinary-inventory-classify001",
+          "documentary",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/classify_inventory.py",
+          "ordinary"
+        ],
+        "command_argv": [
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "ordinary-inventory-classify001",
+          "documentary",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/classify_inventory.py",
+          "ordinary"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "start_utc": "2026-10-28T23:41:51.100143+00:00",
+        "end_utc": "2026-10-28T23:41:51.186504+00:00",
+        "elapsed_seconds": 0.08636270400165813,
+        "child_exit_code": 0,
+        "exception": null,
+        "status": "PASS_ACTUAL_CHILD_EXIT_ZERO",
+        "all_other_fields_personally_read_full": true
+      },
+      "entry": {
+        "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/ordinary-inventory-classify001/RECEIPT.json",
+        "mode": "FULL",
+        "script_argv": [
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/entry/ordinary-inventory-classify001",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "entry",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/outer/ordinary-inventory-classify001",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "outer",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "ordinary-inventory-classify001",
+          "documentary",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/classify_inventory.py",
+          "ordinary"
+        ],
+        "command_argv": [
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+          "--run-dir",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/outer/ordinary-inventory-classify001",
+          "--cwd",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "--scope",
+          "outer",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+          "ordinary-inventory-classify001",
+          "documentary",
+          "--",
+          "python3",
+          "/workspace/scratch/actual-source-regular-local-collar-construct/runner/classify_inventory.py",
+          "ordinary"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "start_utc": "2026-10-28T23:41:51.070001+00:00",
+        "end_utc": "2026-10-28T23:41:51.193200+00:00",
+        "elapsed_seconds": 0.12320161800016649,
+        "child_exit_code": 0,
+        "exception": null,
+        "status": "PASS_ACTUAL_CHILD_EXIT_ZERO",
+        "all_other_fields_personally_read_full": true
+      },
+      "streams": [
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-inventory-classify001/stdout.log",
+          "mode": "FULL",
+          "bytes": 257
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-inventory-classify001/stderr.log",
+          "mode": "FULL",
+          "bytes": 0
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/ordinary-inventory-classify001/stdout.log",
+          "mode": "FULL",
+          "bytes": 206
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/ordinary-inventory-classify001/stderr.log",
+          "mode": "FULL",
+          "bytes": 0
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/ordinary-inventory-classify001/stdout.log",
+          "mode": "FULL",
+          "bytes": 210
+        },
+        {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/ordinary-inventory-classify001/stderr.log",
+          "mode": "FULL",
+          "bytes": 0
+        }
+      ]
+    }
+  ],
+  "original_classify001_stdout": {
+    "scope": "ordinary",
+    "owned_constants": 55,
+    "counts": {
+      "private_generated": 53,
+      "public_prop_theorem": 1,
+      "public_prop_definition": 1
+    },
+    "classification": "/workspace/scratch/actual-source-regular-local-collar-construct/CONTROLS_INVENTORY_CLASSIFIED.json"
+  },
+  "known_historical_defect_carried_from_parent": {
+    "defect": "When module equals namespace, split-at-FIRST extraction classifies a public row as private_generated",
+    "initial_bad_classification_preserved": true,
+    "raw55_and_source_unchanged_by_later_metadata_correction": "carried parent qualification, not newly verified here",
+    "later_fix001_and_classify002": "parent separately owns reading; excluded from this scope"
+  },
+  "additional_concrete_capture_inconsistency_found": false,
+  "limits": [
+    "Referenced snapshot contents, source, binary objects, caches and frozen-copy contents were not reread",
+    "Classifier source path is present in command; code was not embedded and its prior reading is reused",
+    "Successful documentary captures do not certify initial visibility classification labels",
+    "No scientific independence, provider-distinct review or mathematical helper credit"
+  ],
+  "reusable_evidence": [
+    "Owner instruction: applicable completed verification reusable across agents, sessions and handoffs; no repetition on unchanged material",
+    "Prior eleven documentary families remain completed; previous reports and scopes untouched",
+    "ALL80/ALL55/std3/strict/soleFalse/ONE production kernel already qualified by root; process requirements remain separate from mathematical evidence"
+  ],
+  "prohibited_actions_performed": []
+}

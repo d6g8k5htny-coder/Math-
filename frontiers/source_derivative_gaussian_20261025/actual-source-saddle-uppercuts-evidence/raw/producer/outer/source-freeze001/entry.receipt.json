@@ -1,0 +1,20 @@
+{
+  "label": "source-freeze001",
+  "command_argv": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/outer_capture.py",
+    "source-freeze001",
+    "documentary",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/freeze_production.py"
+  ],
+  "cwd": "/workspace/scratch/actual-source-saddle-uppercuts-construct",
+  "start_utc": "2026-10-28T21:34:43.400392+00:00",
+  "end_utc": "2026-10-28T21:34:43.520601+00:00",
+  "elapsed_seconds": 0.12020824299906963,
+  "exit_code": 0,
+  "stdout": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/source-freeze001/entry.stdout.log",
+  "stderr": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/source-freeze001/entry.stderr.log",
+  "invocation_scope": "entry process begins here; caller tool stdout is only this closed receipt summary"
+}

@@ -1,0 +1,38 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:28:64: error: unexpected token ']]'; expected ']'
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:37:32: error: unexpected token ']]'; expected ']'
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:116:4: error: Function expected at
+  Finset.prod_le_one fun j x => ?m.51
+but this term has type
+  ∏ i ∈ ?m.44, ?m.43 i ≤ 1
+
+Note: Expected a function because this term is being applied to the argument
+  (fun j _ => hu j)
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:116:35: error: Type mismatch
+  norm_nonneg ?m.50
+has type
+  0 ≤ ‖?m.50‖
+but is expected to have type
+  ?m.43 j ≤ 1
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:134:19: error: Type mismatch: After simplification, term
+  hg t
+ has type
+  |g t| ≤ B
+but is expected to have type
+  ‖?m.59 t‖ ≤ B
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:131:43: error: unsolved goals
+g : ℝ → ℝ
+B : ℝ
+hg : ∀ (t : ℝ), |g t| ≤ B
+⊢ |∫ (t : ℝ) in -1 / 2..1 / 2, g t| ≤ B
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:137:59: error: Variable name `hB` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hB
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:162:4: error: Type mismatch
+  Finset.single_le_sum (fun j x => orderModeBound_nonneg j 2 L m) ?m.128
+has type
+  orderModeBound ?m.125 2 L m ≤ ∑ x ∈ ?m.119, orderModeBound x 2 L m
+but is expected to have type
+  orderModeBound (↑j) 2 L m ≤ ∑ j, orderModeBound (↑j) 2 L m

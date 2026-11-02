@@ -1,0 +1,11 @@
+--- history/ordinary-classification-fix001/classify_inventory.py.ORIGINAL
++++ runner/classify_inventory.py
+@@ -13,7 +13,7 @@
+ for line in raw.splitlines():
+  if not line.startswith('INVENTORY|'):continue
+  _,kind,name=line.split('|',2)
+- short=name.split(namespace+'.',1)[1] if namespace+'.' in name else None
++ short=name.rsplit(namespace+'.',1)[1] if namespace+'.' in name else None
+  if short is None:category='foreign_generated'
+  elif short in authored:
+   private,decl=authored[short]

@@ -1,0 +1,40 @@
+{
+  "operation": "stage66-outer-capture",
+  "scope": "outer",
+  "script_argv": [
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+    "--run-dir",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/outer/negative-freeze001",
+    "--cwd",
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "--scope",
+    "outer",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+    "negative-freeze001",
+    "documentary",
+    "--",
+    "python3",
+    "-c",
+    "import datetime,hashlib,json,pathlib,shutil\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nstrict=json.loads((B/'runs/controls004/receipt.json').read_text());inv=json.loads((B/'runs/ordinary-inventory001/receipt.json').read_text());classified=json.loads((B/'CONTROLS_INVENTORY_CLASSIFIED.json').read_text())\nassert strict['exit_code']==0 and inv['exit_code']==0 and classified['owned_constants']==55\nassert classified['classification_counts']['public_prop_definition']==1 and classified['classification_counts']['public_prop_theorem']==1\nS=B/'FalseControl.lean';assert not S.exists();assert not (B/'runs/false-control001').exists()\nS.write_text(\"import RegularLocalCollarControls\\n\\nexample : RegularLocalCollarControls.omittedNonzeroDerivativeMutation := by\\n  rw [show RegularLocalCollarControls.omittedNonzeroDerivativeMutation = False from\\n    propext (iff_false_intro\\n      RegularLocalCollarControls.not_omittedNonzeroDerivativeMutation)]\\n\")\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());st=S.stat();row={'path':str(S),'bytes':st.st_size,'sha256':hashlib.sha256(S.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST actual CLOSED negative harness identity BEFORE its sole invocation'};cache[str(S)]=row\norig=B/'frozen/FalseControl.ORIGINAL.lean';shutil.copyfile(S,orig);so=orig.stat();cache[str(orig)]={**row,'path':str(orig),'marker':[so.st_size,so.st_mtime_ns],'origin':'Known exact initial negative original snapshot ID REUSED; no hash','copied_from':str(S)}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nr={'status':'CLOSED_SINGLE_OMITTED_DERIVATIVE_NEGATIVE_FROZEN_BEFORE_ONE_INVOCATION','observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'harness':row,'complete_initial_snapshot':str(orig),'ordinary_strict_pass':str(B/'runs/controls004/receipt.json'),'ordinary_ALL55_std3_pass':str(B/'runs/ordinary-inventory001/receipt.json'),'ordinary_classification_corrected_from_stored_raw':str(B/'CONTROLS_INVENTORY_CLASSIFIED.json'),'already_passed_ordinary_object_identity_REUSED':cache[str(B/'build/RegularLocalCollarControls.olean')],'mutation':'ONLY actual input fderiv!=0 omitted at SAMEoriginalsample actualmax/fixedO; every chart/height/samechart-all-epsilon cut-slice output retained','harness_imports':['RegularLocalCollarControls'],'assumed_mutation_hypothesis_axiom_parameter':False,'counterproof_replayed':False,'ordinary_named_kernel':'NONE','sole_intended_negative_invocations_before_this_freeze':0,'expected_rejection':'Exactly one unsolved False goal, no setup/API/type/source errors'}\n(B/'NEGATIVE_INITIAL_CUSTODY.json').write_text(json.dumps(r,indent=2)+'\\n')\nprint(json.dumps({'status':r['status'],'observed_utc':r['observed_utc'],'harness':row,'prior_ordinary_strict_and_ALL55_std3':True}))\n"
+  ],
+  "command_argv": [
+    "python3",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+    "negative-freeze001",
+    "documentary",
+    "--",
+    "python3",
+    "-c",
+    "import datetime,hashlib,json,pathlib,shutil\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nstrict=json.loads((B/'runs/controls004/receipt.json').read_text());inv=json.loads((B/'runs/ordinary-inventory001/receipt.json').read_text());classified=json.loads((B/'CONTROLS_INVENTORY_CLASSIFIED.json').read_text())\nassert strict['exit_code']==0 and inv['exit_code']==0 and classified['owned_constants']==55\nassert classified['classification_counts']['public_prop_definition']==1 and classified['classification_counts']['public_prop_theorem']==1\nS=B/'FalseControl.lean';assert not S.exists();assert not (B/'runs/false-control001').exists()\nS.write_text(\"import RegularLocalCollarControls\\n\\nexample : RegularLocalCollarControls.omittedNonzeroDerivativeMutation := by\\n  rw [show RegularLocalCollarControls.omittedNonzeroDerivativeMutation = False from\\n    propext (iff_false_intro\\n      RegularLocalCollarControls.not_omittedNonzeroDerivativeMutation)]\\n\")\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());st=S.stat();row={'path':str(S),'bytes':st.st_size,'sha256':hashlib.sha256(S.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST actual CLOSED negative harness identity BEFORE its sole invocation'};cache[str(S)]=row\norig=B/'frozen/FalseControl.ORIGINAL.lean';shutil.copyfile(S,orig);so=orig.stat();cache[str(orig)]={**row,'path':str(orig),'marker':[so.st_size,so.st_mtime_ns],'origin':'Known exact initial negative original snapshot ID REUSED; no hash','copied_from':str(S)}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nr={'status':'CLOSED_SINGLE_OMITTED_DERIVATIVE_NEGATIVE_FROZEN_BEFORE_ONE_INVOCATION','observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'harness':row,'complete_initial_snapshot':str(orig),'ordinary_strict_pass':str(B/'runs/controls004/receipt.json'),'ordinary_ALL55_std3_pass':str(B/'runs/ordinary-inventory001/receipt.json'),'ordinary_classification_corrected_from_stored_raw':str(B/'CONTROLS_INVENTORY_CLASSIFIED.json'),'already_passed_ordinary_object_identity_REUSED':cache[str(B/'build/RegularLocalCollarControls.olean')],'mutation':'ONLY actual input fderiv!=0 omitted at SAMEoriginalsample actualmax/fixedO; every chart/height/samechart-all-epsilon cut-slice output retained','harness_imports':['RegularLocalCollarControls'],'assumed_mutation_hypothesis_axiom_parameter':False,'counterproof_replayed':False,'ordinary_named_kernel':'NONE','sole_intended_negative_invocations_before_this_freeze':0,'expected_rejection':'Exactly one unsolved False goal, no setup/API/type/source errors'}\n(B/'NEGATIVE_INITIAL_CUSTODY.json').write_text(json.dumps(r,indent=2)+'\\n')\nprint(json.dumps({'status':r['status'],'observed_utc':r['observed_utc'],'harness':row,'prior_ordinary_strict_and_ALL55_std3':True}))\n"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "started_utc": "2026-10-28T23:43:37.825910+00:00",
+  "original_split_streams": true,
+  "environment_recorded": {
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "credential_environment_logged": false,
+  "automatic_retry": false
+}

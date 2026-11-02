@@ -1,0 +1,8 @@
+--- frozen-original/C
++++ actual-source/C
+@@ -403,4 +403,4 @@
+     exact jMatrix_mem_jBranchDomain _
+   · intro y hy
+     exact jBranch_congruence _ _ hy
+-      (actual_taylorMatrix_symm (by norm_num : (0:ℝ)<2) (fixture_sample r) 0 (fixture_P r) y)
++      (actual_taylorMatrix_symm (by norm_num : (0:ℝ)<2) (fixture_sample r) 0 (fixture_P r) y)

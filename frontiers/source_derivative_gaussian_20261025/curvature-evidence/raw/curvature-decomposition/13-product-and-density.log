@@ -1,0 +1,14 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:995:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:999:8: error: (kernel) unknown constant 'I4SourceCurvatureDecomposition.curvatureReconstruct_swap_measurable'
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:1027:46: error: Application type mismatch: The argument
+  gt_mem_nhds (sourceContactSchur_pos hL)
+has type
+  ∀ᶠ (x : ℝ) in 𝓝 0, x < sourceContactSchur L
+but is expected to have type
+  ∀ᶠ (y : ℝ) in 𝓝 (sourceContactSchur L), 0 < y
+in the application
+  Tendsto.eventually (curvatureVariance_tendsto hL) (gt_mem_nhds (sourceContactSchur_pos hL))

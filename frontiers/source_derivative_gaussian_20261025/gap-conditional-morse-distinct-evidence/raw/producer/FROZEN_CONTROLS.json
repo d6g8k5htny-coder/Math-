@@ -1,0 +1,22 @@
+{
+  "frozen_utc": "2026-10-28T14:58:07.917191+00:00",
+  "status": "POSITIVE_CONTROLS_PASS_BEFORE_SOLE_NEGATIVE",
+  "source": {
+    "path": "/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean",
+    "bytes": 24267,
+    "sha256": "5029e709d71e7d1b89aa3ad72345dfe3f9bcfdac00f3b32ce325b79d0fad68c4"
+  },
+  "object": {
+    "path": "/workspace/scratch/gap-conditional-morse-distinct-construct/build/GapMorseDistinctControls.olean",
+    "bytes": 1479440,
+    "sha256": "90e8eac00890fc1240be834cf7802eae9c64dcee456c259782259bd2c057e305"
+  },
+  "strict_receipt": "runs/controls-003/receipt.json",
+  "source_unchanged_after_pass": true,
+  "independent_concrete_counterexample": "GapMorseDistinctControls.dropped_DBtheta_actual_counterexample",
+  "concrete_equality_iff_false": "GapMorseDistinctControls.dropped_DBtheta_eq_iff_false",
+  "positive_source_values": "Actual L2 r0 target0, omega0=finiteShiftSample chi0 zero; xStar=(1/2,1/2), tangent eX. Dtheta=0, Dg=(-4*pi^2*a0,0), DB*theta=(4*pi^2*a0,0), a0>0; full equation and actual shifted-zero field/Hessian pass. No Gaussian mass claim.",
+  "coverage": "Complete fifth Controls-only helper plus all actual producer amendments qualified by positiveControls003. Productionkernel001 does NOT cover Controls.",
+  "negative_count_before_freeze": 0,
+  "negative_plan": "Exactly one importing ordinary Controls-object concrete dropped-DBtheta equality; rw ordinary equality-iff-False, leaving exactly one intended False."
+}

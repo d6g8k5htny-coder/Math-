@@ -1,0 +1,25 @@
+private theorem remoteJetCoefficient_summable {L : ℝ} (hL : L ≠ 0)
+    (x : Fin 2 → ℝ) (j : Fin 6) : Summable (remoteJetCoefficient L x j) := by
+  fin_cases j
+  · change Summable (fun m => modeCoefficient 2 L m x)
+    simpa only [derivativeCoefficient,iteratedFDeriv_zero_apply] using
+      derivativeCoefficient_summable 2 hL 0 x (fun i => Fin.elim0 i)
+  · exact derivativeCoefficient_summable 2 hL 1 x (fun _ => directionX)
+  · exact derivativeCoefficient_summable 2 hL 1 x (fun _ => directionY)
+  · exact derivativeCoefficient_summable 2 hL 2 x ![directionX,directionX]
+  · exact derivativeCoefficient_summable 2 hL 2 x ![directionX,directionY]
+  · exact derivativeCoefficient_summable 2 hL 2 x ![directionY,directionY]
+
+private def rawFunctionPins (r : ℝ) (f : (Fin 2 → ℝ) → ℝ) : Fin 6 → ℝ :=
+  ![f (endpointM r),f (endpointS r),
+    fderiv ℝ f (endpointM r) directionX,fderiv ℝ f (endpointS r) directionX,
+    fderiv ℝ f (endpointM r) directionY,fderiv ℝ f (endpointS r) directionY]
+
+private theorem rawPin_pairing {L : ℝ} (hL : L ≠ 0) (r : ℝ) (p : TrigPoly) (i : Fin 6) :
+    finitePairing (rawPinCoefficient L r i) (toSource L p) = rawFunctionPins r (eval L p) i := by
+  change finitePairing (derivativeCoefficient 2 L (rawDerivativeOrder (Fin.castAdd 6 i))
+    (rawDerivativePoint r (Fin.castAdd 6 i)) (rawDerivativeDirections (Fin.castAdd 6 i)))
+      (toSource L p) = _
+  rw [toSource_derivative hL]
+  fin_cases i <;> simp [rawFunctionPins,rawDerivativeOrder,rawDerivativePoint,
+    rawDerivativeDirections,iteratedFDeriv_zero_apply,iteratedFDeriv_one_apply]

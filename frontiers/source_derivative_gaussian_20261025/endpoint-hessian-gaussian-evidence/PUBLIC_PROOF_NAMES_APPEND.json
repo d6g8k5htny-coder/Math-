@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "module": "SourceEndpointHessianGaussian",
+  "source_cut": "08e8ecd854fa66e145f022ef465c0392873ce231",
+  "source_sha256": "b9900b7553f7722241137f8f0cba08862b19ae415253a9a14bfd7c9b53c3e613",
+  "targets": [
+    "I4SourceEndpointHessianGaussian.rawPinKernel_endpointHessian_eq_multivariateGaussian",
+    "I4SourceEndpointHessianGaussian.endpointHessianCovariance_posDef",
+    "I4SourceEndpointHessianGaussian.rawPinKernel_ae_endpointHessian_det_ne_zero"
+  ],
+  "public_written_Prop_targets": 3,
+  "public_data_definitions_inventory_only": [
+    "I4SourceEndpointHessianGaussian.endpointHessian",
+    "I4SourceEndpointHessianGaussian.endpointHessianMean",
+    "I4SourceEndpointHessianGaussian.endpointHessianCovariance"
+  ],
+  "data_instance_registry_append": 0,
+  "baseline_targets": 1110,
+  "resulting_targets": 1113
+}

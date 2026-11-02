@@ -1,0 +1,106 @@
+{
+  "status": "PASS_SCOPED_FINAL",
+  "reviewer": "/root/remote_jet_gaussian_source_review",
+  "review_date_UTC": "2026-10-28, after producer custody15:14:49.362349",
+  "source": {
+    "module": "SourceGapConditionalMorseDistinct",
+    "bytes": 99430,
+    "sha256_reused": "8baf597fa98ce8f79489e82227951e0f4fd1a960e65589278be8a82f35ce5213",
+    "personally_full_source_read": true,
+    "public_data": 0,
+    "public_propositions": ["I4SourceGapConditionalMorseDistinct.sourceGapLaw_ae_isMorseDistinct"]
+  },
+  "eligible_own_object": {
+    "bytes": 4189248,
+    "sha256_reused": "d73ade27921b1593c99175780e2738a80d3acb158e3c25810ef03b66b5678cb8",
+    "strict": "runs/final-adapter-controls-012/receipt.json",
+    "one_kernel": "runs/kernel-001/receipt.json"
+  },
+  "ownership": {
+    "selector": "actual Lean module index",
+    "total": 167,
+    "authored_public_Prop": 1,
+    "authored_private_Prop": 115,
+    "authored_private_data_definitions": 18,
+    "private_generated_Prop": 31,
+    "foreign_generated_Prop": 2,
+    "all_owned_axioms_standard_three_or_subset": true,
+    "foreign_generated": [
+      "I4SourceRemoteJetWitness.remoteJetCoefficient.eq_1",
+      "I4SourceTwoRemoteFirstJetWitness.twoRemoteFirstJetCoefficient.eq_1"
+    ]
+  },
+  "immutable_Controls003": {
+    "source_bytes": 24267,
+    "source_sha256_reused": "5029e709d71e7d1b89aa3ad72345dfe3f9bcfdac00f3b32ce325b79d0fad68c4",
+    "object_sha256_reused": "90e8eac00890fc1240be834cf7802eae9c64dcee456c259782259bd2c057e305",
+    "positive_pass": "2026-10-28T14:57:02.396662+00:00",
+    "sole_negative": "runs/false-drop-DBtheta-001/receipt.json",
+    "negative_stdout_bytes": 120,
+    "negative_exact_one_False_only": true,
+    "negative_replays": 0,
+    "k0_true_positive_limit": true
+  },
+  "closed_control_finding": {
+    "finding": "Literal fixed-point remoteness/remote-rank neighborhood and numeric9/25 precommitted positive coverage was initially absent as an explicit control",
+    "production_theorem_defect": false,
+    "closure": "NEW positive-only ordinary GapMorseDistinctNumericControls",
+    "source_bytes": 6469,
+    "source_sha256_reused": "6a442f03fce8f0b31a5fc05525e106a5eece5575cf312c00dfe047af37aa39f7",
+    "object_bytes": 605632,
+    "object_sha256_reused": "b99656065196ff0b82946295ac1d3f4f45e28a8ab092330e4bc0e65d6f25931c",
+    "receipt": "runs/numeric-controls-001/receipt.json",
+    "pass": "2026-10-28T15:10:28.931535+00:00",
+    "attempt_count": 1,
+    "complete_original_split_streams_empty": true,
+    "five_quotient_inequalities": true,
+    "remote_open_intersect_rank_neighborhood": true,
+    "actual48_all9_rawzero": true,
+    "actual53_all25_rawzero_final_value_difference": true,
+    "universal_production_GS_frame_dummy_evidence_reused": true,
+    "private_calls_claimed": false,
+    "helper_original_once_integration_zero_execution": true,
+    "producer_patch_empty": true,
+    "additional_production_kernel_or_negative_replays": 0,
+    "remaining_open_findings": []
+  },
+  "personal_evidence_reading": {
+    "all_actual_qualification_receipts": 19,
+    "all_complete_original_split_streams": 38,
+    "failed_attempts_included": true,
+    "full_inventory_stdout_bytes": 46167,
+    "complete_inventory_and_classification_read": true,
+    "all_original_helper_sections_imports_provenance_read": true,
+    "four_production_plus_initial_Controls_and_numeric_extension": true,
+    "all_full_actual_helper_amendment_patches_read": true,
+    "full_final_source_Controls_numeric_and_negative_harness_read": true,
+    "execution_and_source_harness_snapshot_index_read": true,
+    "every_historical_source_snapshot_body_read_claim": false,
+    "final_producer_REPORT_HANDOFF_control_source_object_dependency_environment_records_read": true,
+    "custody_entries_read": 252,
+    "custody_freeze": "2026-10-28T15:14:49.362349+00:00",
+    "raw_display_truncations_recovered_by_complete_smaller_reads": true
+  },
+  "root_process_context_read_only": {
+    "source_cut": "3515bc2144c5d47a197238c1a46bbdd3a50e146b",
+    "source_gitblob_supplied": "f7c534d99094b9934788a8447de4cf8df1a309f6",
+    "root_only_eligible_own_object_copy_once": true,
+    "historical_pending_cut_records_preserved": true,
+    "reviewer_git_or_hash_operations": 0,
+    "publication_or_registration_claim": false
+  },
+  "reviewer_executions": {
+    "Lean_probe_build_test_inventory_audit_kernel_control_hash_Git_cache_external": 0,
+    "source_or_helper_authorship59": 0,
+    "source60_or_helpers_inspected": false
+  },
+  "scientific_effect": "NONE",
+  "same_family_provider_distinct_credit": 0,
+  "different_family_scientific_acceptance": false,
+  "owner_reuse": "/workspace/AGENTS.md completed applicable verification remains reusable; pending process separate; agent/session/handoff/head/lease alone does not justify replay",
+  "canonical_authority_links_carried_not_new_external_reading": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/main/governance/OWNER_DECISION_20261025_REVIEW_FAMILIES.md"
+  ]
+}

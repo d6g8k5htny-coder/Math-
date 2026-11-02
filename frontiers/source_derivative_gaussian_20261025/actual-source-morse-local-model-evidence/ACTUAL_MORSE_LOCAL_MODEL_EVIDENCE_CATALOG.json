@@ -1,0 +1,316 @@
+{
+  "module": "SourceActualMorseLocalModel",
+  "namespace": "I4SourceActualMorseLocalModel",
+  "public_Prop_targets": [
+    "I4SourceActualMorseLocalModel.actualSource_c1_quadratic_localModel"
+  ],
+  "public_data": 0,
+  "scope": "Actual source C1 ordered quadratic coordinates from literal criticality and genuine Hessian inertia: derive j<=2, one centered OpenPartialHomeomorph with C1 inverse and exact signed quadratic identity throughout source, plus arbitrarily small critical-superlevel path-connected neighborhoods using that SAME chart. Actual min/max/diagonal/zero-diagonal saddle fixtures; explicit P. No Cinf chart, probability/globalMorse/quotient regular-slab/elder/counting/Rice/Parent claim.",
+  "source_cut": "c43a952b3fd71f7239fe31be51cba074cd5bd82b",
+  "source_bytes": 65754,
+  "source_sha256": "d6776bd34a2ae1371c2af8fbfcc54d2a536e7c96b2e4db517a5f4a81b4128cd5",
+  "eligible_object_bytes": 3409752,
+  "eligible_object_sha256": "7bc2d9fc1edcbd936dc04b583fa2b4642fc6fd968c594350df8eec28093d7ad3",
+  "object_action": "SKIP_ROOT_COPIED_ONCE",
+  "actual_owned_constants": 173,
+  "classification_counts": {
+    "authored_private_data": 37,
+    "owned_private_generated": 64,
+    "authored_private_Prop": 68,
+    "authored_public_Prop": 1,
+    "owned_foreign_generated": 3
+  },
+  "foreign_generated_names": [
+    "LinearEquiv.toContinuousLinearEquiv.congr_simp",
+    "I4Weights.sourceC.eq_1",
+    "sigNeg.eq_1"
+  ],
+  "standard_three_guard": "PASS all173",
+  "qualification_records": {
+    "strict": "runs/core019/RECORD.json",
+    "inventory": "runs/inventory-001/RECORD.json",
+    "kernel": "runs/kernel-001/RECORD.json",
+    "positive_controls": "runs/controls-003/RECORD.json",
+    "negative": "runs/omitted-weight-false-001/RECORD.json"
+  },
+  "sole_negative": {
+    "imports": "Only already-qualified ordinary MorseLocalModelControls object",
+    "actual_mutation": "Omit only(1-t) for SAME actual finite-source minimum/P/h/point/entry/interval/measure; correct1/unweighted2",
+    "controls_object": {
+      "bytes": 823096,
+      "sha256": "99cea3a0b8be53bf53980263c97768ecf13c0222f8c2c063ae3ab7c1e4f8a4dc"
+    },
+    "sole_negative_full_stream_bytes": 138,
+    "production_kernel_does_not_cover_ordinary_controls": true,
+    "negative_harness_source_bytes": 175,
+    "negative_source_sha256": "0ac7b1f17de8d94bcf96004c2dbd5a778292b7b190606984954feb0d9849c405",
+    "stderr_bytes": 0,
+    "exactly_one_intendedFalse": true,
+    "process_size_precision_correction": "ROOT_PROCESS_SIZE_CORRECTION.json; originalrootrecords preserved; no mathreplay"
+  },
+  "production_helper_integrations": {
+    "integrations": [
+      {
+        "label": "A",
+        "utc": "2026-10-28T14:56:44.437878+00:00",
+        "integration_count": 1,
+        "helper_executions": 0,
+        "original_identities": [
+          {
+            "role": "helper_A_original_section",
+            "path": "/workspace/scratch/morse-local-model-finite2-branch-text/SECTION.lean.txt",
+            "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/A/SECTION.lean.txt",
+            "bytes": 7783,
+            "sha256": "fb8affe1ac43c2899d56401cf8f5c3942ba4981a6dc6a263a90fb2edbd587359",
+            "first_bound_utc": "2026-10-28T14:56:44.437095+00:00",
+            "new_sha256_operations": 1
+          },
+          {
+            "role": "helper_A_original_imports",
+            "path": "/workspace/scratch/morse-local-model-finite2-branch-text/IMPORTS.txt",
+            "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/A/IMPORTS.txt",
+            "bytes": 88,
+            "sha256": "d93204eceb8c3573f803bc1a35ccecdb759c3c52b20220bd8e24db231385ebb1",
+            "first_bound_utc": "2026-10-28T14:56:44.437190+00:00",
+            "new_sha256_operations": 1
+          },
+          {
+            "role": "helper_A_original_provenance",
+            "path": "/workspace/scratch/morse-local-model-finite2-branch-text/PROVENANCE.md",
+            "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/A/PROVENANCE.md",
+            "bytes": 6119,
+            "sha256": "dbefe94953686809ffff8e81867c065108ae77c031b1ab822d232737128da41b",
+            "first_bound_utc": "2026-10-28T14:56:44.437251+00:00",
+            "new_sha256_operations": 1
+          },
+          {
+            "role": "helper_A_original_freeze",
+            "path": "/workspace/scratch/morse-local-model-finite2-branch-text/FROZEN_LOGICAL_IDS.json",
+            "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/A/FROZEN_LOGICAL_IDS.json",
+            "bytes": 1012,
+            "sha256": "210c457a41ba420ea4443c7dcd9cdc934ba695ca1347beb1e02431ef9caa8fdf",
+            "first_bound_utc": "2026-10-28T14:56:44.437298+00:00",
+            "new_sha256_operations": 1
+          }
+        ],
+        "begin_marker": "/- BEGIN COMPLETE ORIGINAL HELPER A -/",
+        "end_marker": "/- END COMPLETE ORIGINAL HELPER A -/",
+        "original_section_snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/A/SECTION.lean.txt"
+      },
+      {
+        "label": "B",
+        "utc": "2026-10-28T15:00:14.134561+00:00",
+        "integration_count": 1,
+        "helper_executions": 0,
+        "original_identities": [
+          {
+            "role": "helper_B_original_section",
+            "path": "/workspace/scratch/morse-local-model-inertia-normalizer-text/SECTION.lean.txt",
+            "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/B/SECTION.lean.txt",
+            "bytes": 8385,
+            "sha256": "33a8c82a2750af89dd449f58617e0f30dda9e834a409e14774f2b1831377b983",
+            "first_bound_utc": "2026-10-28T15:00:14.133221+00:00",
+            "new_sha256_operations": 1
+          },
+          {
+            "role": "helper_B_original_imports",
+            "path": "/workspace/scratch/morse-local-model-inertia-normalizer-text/IMPORTS.txt",
+            "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/B/IMPORTS.txt",
+            "bytes": 408,
+            "sha256": "f622ed9ce4c60ee252236cfe15e8375da5c61a3fc69244dbf3f298bae9541a5b",
+            "first_bound_utc": "2026-10-28T15:00:14.133336+00:00",
+            "new_sha256_operations": 1
+          },
+          {
+            "role": "helper_B_original_provenance",
+            "path": "/workspace/scratch/morse-local-model-inertia-normalizer-text/PROVENANCE.md",
+            "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/B/PROVENANCE.md",
+            "bytes": 8549,
+            "sha256": "f52a4685e858716da4df3f2dd31eb5f113097b9cd8733423434c0a12e87b52f1",
+            "first_bound_utc": "2026-10-28T15:00:14.133449+00:00",
+            "new_sha256_operations": 1
+          },
+          {
+            "role": "helper_B_original_freeze",
+            "path": "/workspace/scratch/morse-local-model-inertia-normalizer-text/FROZEN_ORIGINALS.json",
+            "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/B/FROZEN_ORIGINALS.json",
+            "bytes": 1963,
+            "sha256": "906055ab3b2d72eefa52109f8894217ed1f335b947f1c697ea5f29f3fe3165c1",
+            "first_bound_utc": "2026-10-28T15:00:14.133528+00:00",
+            "new_sha256_operations": 1
+          }
+        ],
+        "begin_marker": "/- BEGIN COMPLETE ORIGINAL HELPER B -/",
+        "end_marker": "/- END COMPLETE ORIGINAL HELPER B -/",
+        "original_section_snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/B/SECTION.lean.txt"
+      },
+      {
+        "label": "C",
+        "utc": "2026-10-28T15:25:07.182547+00:00",
+        "integration_count": 1,
+        "helper_executions": 0,
+        "original_identities": [
+          {
+            "role": "helper_C_original_section",
+            "path": "/workspace/scratch/morse-local-model-actual-fixtures-text/PRODUCTION_SECTION.lean.txt",
+            "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/C/PRODUCTION_SECTION.lean.txt",
+            "bytes": 19250,
+            "sha256": "e4ac1545ea4fd5a30549e48e55b4f8d89d03f8719c582cfb6cfd8e5740289fac",
+            "first_bound_utc": "2026-10-28T15:25:07.179951+00:00",
+            "new_sha256_operations": 1
+          },
+          {
+            "role": "helper_C_original_imports",
+            "path": "/workspace/scratch/morse-local-model-actual-fixtures-text/PRODUCTION_IMPORTS.txt",
+            "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/C/PRODUCTION_IMPORTS.txt",
+            "bytes": 265,
+            "sha256": "cccf726a6a6e1b0f6c5c7a6e0f2b03b5e52c90dec9bab48c2f9a8903329fd7b4",
+            "first_bound_utc": "2026-10-28T15:25:07.180222+00:00",
+            "new_sha256_operations": 1
+          },
+          {
+            "role": "helper_C_original_provenance",
+            "path": "/workspace/scratch/morse-local-model-actual-fixtures-text/PRODUCTION_PROVENANCE.md",
+            "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/C/PRODUCTION_PROVENANCE.md",
+            "bytes": 4061,
+            "sha256": "a8f7e610110c273d2a8ab0c4660b0c077974208f53a39f81e9f56455c4e678c1",
+            "first_bound_utc": "2026-10-28T15:25:07.180458+00:00",
+            "new_sha256_operations": 1
+          },
+          {
+            "role": "helper_C_original_freeze",
+            "path": "/workspace/scratch/morse-local-model-actual-fixtures-text/PRODUCTION_FROZEN.json",
+            "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/C/PRODUCTION_FROZEN.json",
+            "bytes": 577,
+            "sha256": "33859dbafd010cf17536b417beb627939ae0f27355cf9be4ff17bfdf92e76714",
+            "first_bound_utc": "2026-10-28T15:25:07.180704+00:00",
+            "new_sha256_operations": 1
+          }
+        ],
+        "begin_marker": "/- BEGIN COMPLETE ORIGINAL HELPER C -/",
+        "end_marker": "/- END COMPLETE ORIGINAL HELPER C -/",
+        "original_section_snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/C/PRODUCTION_SECTION.lean.txt"
+      }
+    ]
+  },
+  "ordinary_controls_integration": {
+    "utc": "2026-10-28T15:29:56.082919+00:00",
+    "integration_count": 1,
+    "helper_executions": 0,
+    "source": "/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean",
+    "original_identities": [
+      {
+        "role": "helper_Controls_original_section",
+        "path": "/workspace/scratch/morse-local-model-actual-fixtures-text/CONTROLS_SECTION.lean.txt",
+        "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0037-CONTROLS_SECTION.lean.txt",
+        "bytes": 9829,
+        "sha256": "036dc6e3053438f524557a4a9a4dc28906a7784dbea65773640e946fe95e22c2",
+        "first_bound_utc": "2026-10-28T15:29:56.079990+00:00",
+        "new_sha256_operations": 1,
+        "reused_identity": false
+      },
+      {
+        "role": "helper_Controls_original_imports",
+        "path": "/workspace/scratch/morse-local-model-actual-fixtures-text/CONTROLS_IMPORTS.txt",
+        "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0038-CONTROLS_IMPORTS.txt",
+        "bytes": 242,
+        "sha256": "4b5364860602cca16c8d046ae9c215f51ba54fa929bed0e2637b84239e0efdf3",
+        "first_bound_utc": "2026-10-28T15:29:56.080802+00:00",
+        "new_sha256_operations": 1,
+        "reused_identity": false
+      },
+      {
+        "role": "helper_Controls_original_provenance",
+        "path": "/workspace/scratch/morse-local-model-actual-fixtures-text/CONTROLS_PROVENANCE.md",
+        "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0039-CONTROLS_PROVENANCE.md",
+        "bytes": 3731,
+        "sha256": "d0893ae69daabbbfe36d98abeb2ab4a6bc917be720e711d2ae730956df1f761e",
+        "first_bound_utc": "2026-10-28T15:29:56.081450+00:00",
+        "new_sha256_operations": 1,
+        "reused_identity": false
+      },
+      {
+        "role": "helper_Controls_original_freeze",
+        "path": "/workspace/scratch/morse-local-model-actual-fixtures-text/CONTROLS_FROZEN.json",
+        "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0040-CONTROLS_FROZEN.json",
+        "bytes": 771,
+        "sha256": "1ce2aea1ada8071dee81f00bfa1794ea1d98c12835a1d4051ca837e1f0b93272",
+        "first_bound_utc": "2026-10-28T15:29:56.082271+00:00",
+        "new_sha256_operations": 1,
+        "reused_identity": false
+      }
+    ],
+    "coverage": "ordinary Controls compilation only, not production kernel"
+  },
+  "kernel_coverage": "Owned production and source-local PRIVATE direct actual four-fixture positives only. Separate ordinary Controls/counterproof/negative retain their own qualified object binding; no helper or Controls kernel credit.",
+  "actual_run_count": 25,
+  "actual_split_stream_files": 50,
+  "actual_split_stream_bytes": 108939,
+  "record_schema": "RECORD.json/start_utc/end_utc/source_identity + stdout.txt/stderr.txt; original streams never reconstructed or interleaved.",
+  "all_attempts_preserved": true,
+  "raw_catalog": "RAW_EVIDENCE_CATALOG.json",
+  "publication": {
+    "status": "QUALIFIED60_SCRATCH_PROPOSAL_ROOT_APPLY_ONLY",
+    "source_cut": "c43a952b3fd71f7239fe31be51cba074cd5bd82b",
+    "source_cut_parent": "29e76f91af5f88606ca3f4f8e39ee88c1022fd73",
+    "qualified_baseline59": "29e76f91af5f88606ca3f4f8e39ee88c1022fd73",
+    "root_reading_verbatim": {
+      "status": "ROOT_FINAL_EVIDENCE_READING_COMPLETE_WITH_BOUNDED_PRODUCTION_SOURCE_SCOPE",
+      "completed_utc": "2026-10-28T15:57:02.554896+00:00",
+      "source_ID_REUSED": {
+        "module": "SourceActualMorseLocalModel",
+        "bytes": 65754,
+        "sha256_reused": "d6776bd34a2ae1371c2af8fbfcc54d2a536e7c96b2e4db517a5f4a81b4128cd5",
+        "public_Prop": "I4SourceActualMorseLocalModel.actualSource_c1_quadratic_localModel",
+        "authored_public_Props": 1,
+        "public_data": 0,
+        "personally_complete_source_read": true
+      },
+      "source_cut": "c43a952b3fd71f7239fe31be51cba074cd5bd82b",
+      "root_summary": "Personally bounded production-source reading:1-145,541-654,820-886,990-1028,1340-end and declaration map. Full ordinary10149BControls, sole175Bharness/full138Bstdout+RECORD, final11965BproducerREPORT/HANDOFF/CONTROL_RECEIPT/finalidentitymanifest, fullfinalindependentREPORTandscope. Root NOTfullassembledsource/all173rows/all25streams/allhelperpatches. Independentnonauthorreviewer supplies fullsource/helpers/patches/all25streams/173classification reading; no root-all-raw claim.",
+      "independent_reviewer_summary": "PersonallyFULL65754Bsource/SPEC/PLAN/CONTROLS/context/supplements, all25actualrecords/50completeoriginalsplitstreams, all173classification/41844Baxiomstream, allthreeproduction+separateControlsoriginals/imports/provenance/freezes, fullA/B/C/Controls/shared-headeramendments, fullControls/negative/finalproducerdocs/index/all61artifactentries/finaldocumentclosure. Not everyhistoricalsnapshotbodyread; design-onlyPREFLIGHTexposure/no60proofauthorship/noexecution/hash; samefamily0/scienceNONE, notdifferentfamilyscientificacceptance.",
+      "personally_full_read": [
+        "OrdinaryControls10149B",
+        "Sole175Bharness+138Bactualstdout/RECORD",
+        "FinalproducerREPORT11965B/HANDOFF/CONTROL_RECEIPT/finaldocidentityclosure",
+        "IndependentfinalREPORT.md12895Bandscope.json"
+      ],
+      "personally_bounded_source_intervals": [
+        "1-145",
+        "541-654",
+        "820-886",
+        "990-1028",
+        "1340-end"
+      ],
+      "honest_limits": [
+        "Rootnotfullassembledsource/all173rows/all25streams/allactualpatches; independentreaderfullscopeisitsown",
+        "OrdinaryControlsseparatefromproductionkernel; negativeusesqualifiedordinaryobject",
+        "Rootprocess175B-stdoutmislabelcorrectedto138Bstdout/175Bharness; originalrecordsretained, no check/copy replay",
+        "No provider-distinctscientificacceptance/Ready/merge/61codeauthority"
+      ],
+      "same_family_credit": 0,
+      "scientific_effect": "NONE",
+      "completed_qualification_reused": "core019/173std3/ONEkernel/Controls003/sole138BFalseallPASSatunchangedsource; no rehash/mathcheckforcut/metadata",
+      "own_object_action": "SKIP_ALREADY_ROOT_COPIED_ONCE_ALL_FURTHER_SKIP"
+    },
+    "root_reading_summary": "Personally bounded production-source reading:1-145,541-654,820-886,990-1028,1340-end and declaration map. Full ordinary10149BControls, sole175Bharness/full138Bstdout+RECORD, final11965BproducerREPORT/HANDOFF/CONTROL_RECEIPT/finalidentitymanifest, fullfinalindependentREPORTandscope. Root NOTfullassembledsource/all173rows/all25streams/allhelperpatches. Independentnonauthorreviewer supplies fullsource/helpers/patches/all25streams/173classification reading; no root-all-raw claim.",
+    "reviewer_reading_summary": "PersonallyFULL65754Bsource/SPEC/PLAN/CONTROLS/context/supplements, all25actualrecords/50completeoriginalsplitstreams, all173classification/41844Baxiomstream, allthreeproduction+separateControlsoriginals/imports/provenance/freezes, fullA/B/C/Controls/shared-headeramendments, fullControls/negative/finalproducerdocs/index/all61artifactentries/finaldocumentclosure. Not everyhistoricalsnapshotbodyread; design-onlyPREFLIGHTexposure/no60proofauthorship/noexecution/hash; samefamily0/scienceNONE, notdifferentfamilyscientificacceptance.",
+    "packager_is_branch_A_proof_author": true,
+    "packager_independent_review_credit": 0,
+    "no_inherited59_review_credit": true,
+    "historical_pending_records_preserved": true,
+    "remote60publication_claimed": false,
+    "hosted60CI_claimed": false,
+    "scientific_effect": "NONE",
+    "same_family_credit": 0
+  },
+  "verification_reuse": "All applicable completed source/math/identity/strict/inventory/ONEkernel/positiveControls/soleFalse evidence reused unchanged; only new metadata associations checked.",
+  "canonical_authority": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/main/governance/OWNER_DECISION_20261025_REVIEW_FAMILIES.md"
+  ],
+  "link_delivery_not_reading": true,
+  "scientific_effect": "NONE",
+  "same_family_credit": 0
+}

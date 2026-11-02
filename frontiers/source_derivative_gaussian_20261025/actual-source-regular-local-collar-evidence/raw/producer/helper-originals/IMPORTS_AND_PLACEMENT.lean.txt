@@ -1,0 +1,36 @@
+/- Literal accepted module header. The adapter section is inserted after
+the accepted private common definitions in this namespace, not as a module
+with a second namespace/header. This header has not been executed here. -/
+import SourceActualFoldTorus
+import SourceFiniteTrig
+import SourceSmoothConditionalKernel
+import Mathlib.Analysis.Calculus.InverseFunctionTheorem.ContDiff
+import Mathlib.Topology.OpenPartialHomeomorph.Constructions
+import Mathlib.Topology.OpenPartialHomeomorph.IsImage
+import Mathlib.Topology.Instances.AddCircle.Defs
+import Mathlib.Analysis.Convex.Topology
+import Mathlib.Analysis.Calculus.FDeriv.Pi
+import Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv
+
+noncomputable section
+set_option autoImplicit false
+open Set Filter
+open scoped BigOperators
+open UniversalLaw.Spec.Lifetime I4SmoothCarrier I4LifetimeField
+
+namespace I4SourceActualRegularLocalCollar
+
+/- Required common names are EXACTLY ACCEPTED_CONTEXT.md section2:
+private abbrev Point2 := Fin 2 → ℝ
+private abbrev E2 := UniversalLaw.Spec.Lifetime.E 2
+private def Q : E2 ≃L[ℝ] Point2 := I4LifetimeField.coordinates 2
+private def actualG (L : ℝ) (ω : I4SmoothCarrier.SmoothSample 2 L) : E2 → ℝ :=
+  I4LifetimeField.actualField 2 L ω
+private def coordField (L : ℝ) (ω : I4SmoothCarrier.SmoothSample 2 L)
+    (y : Point2) : ℝ := actualG L ω (Q.symm y)
+
+The producer supplies the accepted common definitions once. Do not paste
+these placement comments as duplicate definitions. PHYSICAL_ADAPTER_ORIGINAL
+contains the entire helper-owned PRIVATE proof section and no fixture,
+ordinary, quotient, geometry or public theorem.
+-/

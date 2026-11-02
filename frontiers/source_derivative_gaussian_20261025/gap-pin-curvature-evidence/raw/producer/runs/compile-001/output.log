@@ -1,0 +1,74 @@
+SourceGapPinCurvature.lean:53:4: error: Type mismatch: After simplification, term
+  hfM
+ has type
+  |∫ (t : ℝ) in -1 / 2..1 / 2, I4SourceConfluentLimits.peanoLeft t * iteratedDeriv 3 (sourceF L sample) (r * t)| ≤
+    sourceDerivativeMajorant L 3 sample / 2
+but is expected to have type
+  |![-∫ (u : ℝ) in -1 / 2..1 / 2, I4SourceConfluentLimits.peanoLeft u * iteratedDeriv 3 (sourceF L sample) (r * u),
+          ∫ (u : ℝ) in -1 / 2..1 / 2, I4SourceConfluentLimits.peanoRight u * iteratedDeriv 3 (sourceF L sample) (r * u),
+          -∫ (u : ℝ) in -1 / 2..1 / 2, I4SourceConfluentLimits.peanoLeft u * iteratedDeriv 2 (sourceH L sample) (r * u),
+          ∫ (u : ℝ) in -1 / 2..1 / 2, I4SourceConfluentLimits.peanoRight u * iteratedDeriv 2 (sourceH L sample) (r * u),
+          sourceQCurve L sample (-r / 2), sourceQCurve L sample (r / 2)]
+        ⟨0, ⋯⟩.castSucc.castSucc| ≤
+    sourceDerivativeMajorant L 3 sample / 2
+SourceGapPinCurvature.lean:55:4: error: Type mismatch: After simplification, term
+  hfS
+ has type
+  @LE.le ℝ Real.instLE
+    |∫ (t : ℝ) in -1 / 2..1 / 2, I4SourceConfluentLimits.peanoRight t * iteratedDeriv 3 (sourceF L sample) (r * t)|
+    (sourceDerivativeMajorant L 3 sample / 2)
+but is expected to have type
+  @LE.le ℝ Real.instLE
+    |![-∫ (u : ℝ) in -1 / 2..1 / 2, I4SourceConfluentLimits.peanoLeft u * iteratedDeriv 3 (sourceF L sample) (r * u),
+          ∫ (u : ℝ) in -1 / 2..1 / 2, I4SourceConfluentLimits.peanoRight u * iteratedDeriv 3 (sourceF L sample) (r * u),
+          -∫ (u : ℝ) in -1 / 2..1 / 2, I4SourceConfluentLimits.peanoLeft u * iteratedDeriv 2 (sourceH L sample) (r * u),
+          ∫ (u : ℝ) in -1 / 2..1 / 2, I4SourceConfluentLimits.peanoRight u * iteratedDeriv 2 (sourceH L sample) (r * u),
+          sourceQCurve L sample (-r / 2), sourceQCurve L sample (r / 2)]
+        ⟨1, ⋯⟩.castSucc.castSucc|
+    (sourceDerivativeMajorant L 3 sample / 2)
+SourceGapPinCurvature.lean:57:4: error: Type mismatch: After simplification, term
+  hhM
+ has type
+  |∫ (t : ℝ) in -1 / 2..1 / 2, I4SourceConfluentLimits.peanoLeft t * iteratedDeriv 2 (sourceH L sample) (r * t)| ≤
+    sourceDerivativeMajorant L 3 sample / 2
+but is expected to have type
+  |![-∫ (u : ℝ) in -1 / 2..1 / 2, I4SourceConfluentLimits.peanoLeft u * iteratedDeriv 3 (sourceF L sample) (r * u),
+          ∫ (u : ℝ) in -1 / 2..1 / 2, I4SourceConfluentLimits.peanoRight u * iteratedDeriv 3 (sourceF L sample) (r * u),
+          -∫ (u : ℝ) in -1 / 2..1 / 2, I4SourceConfluentLimits.peanoLeft u * iteratedDeriv 2 (sourceH L sample) (r * u),
+          ∫ (u : ℝ) in -1 / 2..1 / 2, I4SourceConfluentLimits.peanoRight u * iteratedDeriv 2 (sourceH L sample) (r * u),
+          sourceQCurve L sample (-r / 2), sourceQCurve L sample (r / 2)]
+        (Fin.castSucc 2).castSucc| ≤
+    sourceDerivativeMajorant L 3 sample / 2
+SourceGapPinCurvature.lean:59:4: error: Type mismatch: After simplification, term
+  hhS
+ has type
+  @LE.le ℝ Real.instLE
+    |∫ (t : ℝ) in -1 / 2..1 / 2, I4SourceConfluentLimits.peanoRight t * iteratedDeriv 2 (sourceH L sample) (r * t)|
+    (sourceDerivativeMajorant L 3 sample / 2)
+but is expected to have type
+  @LE.le ℝ Real.instLE
+    |![-∫ (u : ℝ) in -1 / 2..1 / 2, I4SourceConfluentLimits.peanoLeft u * iteratedDeriv 3 (sourceF L sample) (r * u),
+          ∫ (u : ℝ) in -1 / 2..1 / 2, I4SourceConfluentLimits.peanoRight u * iteratedDeriv 3 (sourceF L sample) (r * u),
+          -∫ (u : ℝ) in -1 / 2..1 / 2, I4SourceConfluentLimits.peanoLeft u * iteratedDeriv 2 (sourceH L sample) (r * u),
+          ∫ (u : ℝ) in -1 / 2..1 / 2, I4SourceConfluentLimits.peanoRight u * iteratedDeriv 2 (sourceH L sample) (r * u),
+          sourceQCurve L sample (-r / 2), sourceQCurve L sample (r / 2)]
+        (Fin.castSucc 3).castSucc|
+    (sourceDerivativeMajorant L 3 sample / 2)
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+SourceGapPinCurvature.lean:92:22: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+SourceGapPinCurvature.lean:95:22: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`

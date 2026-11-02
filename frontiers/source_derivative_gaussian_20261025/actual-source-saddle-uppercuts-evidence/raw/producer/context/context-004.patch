@@ -1,0 +1,20 @@
+--- CONTEXT.003.md
++++ CONTEXT.004.md
+@@ -303,3 +303,17 @@
+ ## Amendment003: literal physical small neighborhood
+ 
+ The fixtureOpen definition now retains ROOT_GO's exact projected PHYSICAL E2 ball of radius1/8, first mapped by the actual coordinates map and then the torus projection. The earlier Pi-ball shape is historical001/002 only. This corrects the concrete reviewer GO/context alignment finding. No isometry, norm equality, public/math/geometry interface, control mutation or helper scope changes. Full earlier context reading plus entire003delta is the effective preTEXT context.
++
++## Amendment004: sole closed assertion harness, no assumed mutation
++
++The sole importing-only negative is a CLOSED assertion of the ordinary PUBLIC nonnegativeUpperMutation with NO mutation hypothesis, axiom, parameter, local assumed proof or supplied certificate. The independently passed negation rewrites the asserted proposition to the intended ONE unsolved False. Its COMPLETE planned literal text is:
++
++```lean
++import SaddleUppercutsControls
++
++example : ActualSaddleUppercutsControls.nonnegativeUpperMutation := by
++  rw [show ActualSaddleUppercutsControls.nonnegativeUpperMutation ↔ False from
++    ⟨ActualSaddleUppercutsControls.nonnegativeUpperMutation_false, fun h => h.elim⟩]
++```
++
++The actual complete harness, FIRST identity and pre-run immutable snapshot are frozen BEFORE its exactly ONE invocation, AFTER ordinary strict PASS and its separate ALL-owned-ID/std3 inventory PASS. Expected exit1, ONE unsolved False, empty stderr. Earlier001 prose about applying negation to a false mutation premise is superseded by this exact no-premise assertion; all historical bytes remain immutable. No B geometry/header/interface, production theorem, mutation, positive/counterproof or verification-count change. No further speculative context changes.

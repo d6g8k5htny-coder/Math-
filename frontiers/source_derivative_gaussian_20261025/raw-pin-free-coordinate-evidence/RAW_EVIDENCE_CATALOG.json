@@ -1,0 +1,992 @@
+{
+  "status": "COMPLETE_NEW57_RAW_ARCHIVE_FINAL_RECORDS_APPENDED",
+  "members": [
+    {
+      "path": "raw/producer/FROZEN_SOURCE.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/FROZEN_SOURCE.json",
+      "bytes": 1206,
+      "sha256": "b578ace0cabc14d7023df9004d11f42dcbb5c6ceb0f138cc6252acb5d3ca9e49",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/FROZEN_SourceRawPinFreeCoordinates.lean.txt",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/FROZEN_SourceRawPinFreeCoordinates.lean.txt",
+      "bytes": 18982,
+      "sha256": "82be00780c7070e999a47d397e4fe047535bd1d5b349efe82e252ccd5cd52cd4",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/INTEGRATED_GAUSSIAN_SECTION.lean.txt",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/INTEGRATED_GAUSSIAN_SECTION.lean.txt",
+      "bytes": 10708,
+      "sha256": "88f6c460ace1457d01219f917e6b6d845ce4142dbad7f05f24c39a54f27f0ed0",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/HELPER_GAUSSIAN_LOCAL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/HELPER_GAUSSIAN_LOCAL_AMENDMENTS.patch",
+      "bytes": 1556,
+      "sha256": "00c25e513ef1b2420a9f0f99b88e1fe2236e87d89e61db6a0bf4b03fe9e3ae6f",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/ROOT_GO.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/ROOT_GO.json",
+      "bytes": 1926,
+      "sha256": "96ec6824b1c9bb09362adf91bc0c71416f05af24364521946adb70befb9e1dd6",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/ROOT_CONTROL_ROUTE.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/ROOT_CONTROL_ROUTE.json",
+      "bytes": 1567,
+      "sha256": "799f5e6ace513c3888c77b97db4be1c8f0c1592f570f8fdfe80263c1eb3ec7ff",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/CONTROL_CONTRACT.md",
+      "bytes": 8245,
+      "sha256": "704776dd8872501b382504b84626344eef8bb67a2729fec4ee6762296a1e9084",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/CONTROL_CONTRACT_ORIGINAL_DRAFT.md",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/CONTROL_CONTRACT_ORIGINAL_DRAFT.md",
+      "bytes": 8099,
+      "sha256": "6ccf4d1c590995ad79d58d637f61a1c75339ee12c33a3ed954bdff18ffb7521c",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/CONTROL_ROUTE.md",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/CONTROL_ROUTE.md",
+      "bytes": 1376,
+      "sha256": "cb90d6d3e6b749be773b92b3aeef36fc6cf95aa00e7ea702967b6472c2d08f5a",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/DEPENDENCY_REUSE.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/DEPENDENCY_REUSE.json",
+      "bytes": 3706,
+      "sha256": "0840dccdb148239243e1204adfde0c51a3c7ae6cc1a935139af63a4daddcffbe",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/EXECUTION_ENVIRONMENT.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/EXECUTION_ENVIRONMENT.json",
+      "bytes": 443,
+      "sha256": "100c2f5e6469e70600bbd30f17450a3f994c2bcef27a353382d75d607f55a64d",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/Inventory.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/Inventory.lean",
+      "bytes": 1083,
+      "sha256": "914cbd947a70572cdf62e3939c028e03dc4eb1adcc931d5813fc296408bb8f86",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/INVENTORY.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/INVENTORY.json",
+      "bytes": 18725,
+      "sha256": "7575840d8c861e0939c3d43552d62f50727b3c5403aff6c559da8abc1b08af88",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/STATIC_SCOPE.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/STATIC_SCOPE.json",
+      "bytes": 2807,
+      "sha256": "3ffb2576adf8732e33a284a2c6f0e7025a687cd39945346ad11cdaed5770f1f7",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/FROZEN_CONTROLS.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/FROZEN_CONTROLS.json",
+      "bytes": 1252,
+      "sha256": "fd36ccb9377f409c57b96adf4db76d59ad6388ef17c3bf50a3fb4bbe4dc33a96",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/FreeCoordinateControls.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean",
+      "bytes": 27218,
+      "sha256": "801100e37373045ed1d77962839a9bdc574322fae8c4091202c80fc6238891a4",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/HELPER_CONTROLS_LOCAL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/HELPER_CONTROLS_LOCAL_AMENDMENTS.patch",
+      "bytes": 8919,
+      "sha256": "cbba401ae3cd22439577947dffb3a0f5cabbc950bbcec29d896da94e72880d04",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/FalseSecondProjectionMutation.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/FalseSecondProjectionMutation.lean",
+      "bytes": 297,
+      "sha256": "afa33b0421110d0ebdfa43a2ac0ae8bb3b162932da7682f981588f67b13b4876",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/helper-gaussian-frozen/FROZEN_PROVENANCE.md",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/helper-gaussian-frozen/FROZEN_PROVENANCE.md",
+      "bytes": 9301,
+      "sha256": "c4715388159dd21c8385e59a1ab66f96c9d3123cf8b1d4861269d9a6cb9db98b",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/helper-gaussian-frozen/IMPORTS.txt",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/helper-gaussian-frozen/IMPORTS.txt",
+      "bytes": 336,
+      "sha256": "595565681481158d59f1bae08d37925303a2b865d81210b20e72fad2b2a41fc2",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/helper-gaussian-frozen/SECTION.lean.txt",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/helper-gaussian-frozen/SECTION.lean.txt",
+      "bytes": 10711,
+      "sha256": "11122b77173768f1a791ab6e4856a43dc6950159c1052a30696990f5fd9cc8aa",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/helper-controls-frozen/FROZEN_PROVENANCE.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/helper-controls-frozen/FROZEN_PROVENANCE.json",
+      "bytes": 5931,
+      "sha256": "d4c5877f245f393e7feea08cca3ad2a9a4dc2ba7fb75582a44958a5396e699c9",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/helper-controls-frozen/IMPORTS.txt",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/helper-controls-frozen/IMPORTS.txt",
+      "bytes": 456,
+      "sha256": "7e15b07748a4df367090120ed73d8449607bffcc37aacd39e94e2cdba652ce19",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/helper-controls-frozen/ORIGINAL_UNFROZEN_DRAFT.lean.txt",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/helper-controls-frozen/ORIGINAL_UNFROZEN_DRAFT.lean.txt",
+      "bytes": 23869,
+      "sha256": "487c96e1bac0dafeed1f491e994b0578c3913c870084dc30c21e35f2d1995c9a",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/helper-controls-frozen/SECTION.lean.txt",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/helper-controls-frozen/SECTION.lean.txt",
+      "bytes": 25392,
+      "sha256": "7f6e7400976aa89d848dc0ca7839c3d8dea11b98df92f11220778ea16226eb8f",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/helper-controls-frozen/WRAPPER_GUIDANCE.md",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/helper-controls-frozen/WRAPPER_GUIDANCE.md",
+      "bytes": 2099,
+      "sha256": "3027def7873881c68b84bc5655cf66b3ac3aa977ae4b3c0cb994f5d75036e6d2",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core-001/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-001/CONTROL_CONTRACT.md",
+      "bytes": 8245,
+      "sha256": "704776dd8872501b382504b84626344eef8bb67a2729fec4ee6762296a1e9084",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core-001/SourceRawPinFreeCoordinates.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-001/SourceRawPinFreeCoordinates.lean",
+      "bytes": 6461,
+      "sha256": "e3eb5944d59d55957e501cf78320f51ca271507ce483c13fe0170637d310bd86",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core-001/output.log",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-001/output.log",
+      "bytes": 2377,
+      "sha256": "21f8a73100000f6fd9b9a1d73f57db0f492997395d4e66d144e789d580465aba",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core-001/receipt.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-001/receipt.json",
+      "bytes": 1337,
+      "sha256": "d076894d49a644f229e875912c2fd85db80e64d4a3c7b192fb4ade50574d2c0a",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/runs/core-001/run_stage.py",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-001/run_stage.py",
+      "bytes": 1477,
+      "sha256": "ce186c7b0b6617362c0d545b7decc2b8b87dd392d51e43caea481cfd686592f3",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/runs/core-002/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-002/CONTROL_CONTRACT.md",
+      "bytes": 8245,
+      "sha256": "704776dd8872501b382504b84626344eef8bb67a2729fec4ee6762296a1e9084",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core-002/SourceRawPinFreeCoordinates.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-002/SourceRawPinFreeCoordinates.lean",
+      "bytes": 6458,
+      "sha256": "efc1083d698bb28beea52824af4dba5d2873b69a92334e50e70c0fb11ed26c2f",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core-002/output.log",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-002/output.log",
+      "bytes": 305,
+      "sha256": "5e91ee2796c205030716e2c9da608fcbf6c016cc730de84c60472dce38e7f2f2",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core-002/receipt.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-002/receipt.json",
+      "bytes": 1336,
+      "sha256": "b715c8cc2ff16e057e743257c183e2fdf3f858a25dfa0d6c3ab22bd0a3151d7b",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/runs/core-002/run_stage.py",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-002/run_stage.py",
+      "bytes": 1477,
+      "sha256": "ce186c7b0b6617362c0d545b7decc2b8b87dd392d51e43caea481cfd686592f3",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core-003/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-003/CONTROL_CONTRACT.md",
+      "bytes": 8245,
+      "sha256": "704776dd8872501b382504b84626344eef8bb67a2729fec4ee6762296a1e9084",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core-003/SourceRawPinFreeCoordinates.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-003/SourceRawPinFreeCoordinates.lean",
+      "bytes": 6494,
+      "sha256": "f05eff0b9a6eed52307174f0386c1b0c9ba2b28d9bfd2ba486dea7cf371d49e7",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core-003/output.log",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-003/output.log",
+      "bytes": 95,
+      "sha256": "2ff0bb1be209fc2d7dfdc1a26c5603ba40f22f44c2e20d67de0843181ae6187b",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core-003/receipt.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-003/receipt.json",
+      "bytes": 1334,
+      "sha256": "dd7728d55cfbe17faff86cb5cbe4e6162e40fc952c56da85aea519efe598b570",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/runs/core-003/run_stage.py",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-003/run_stage.py",
+      "bytes": 1477,
+      "sha256": "ce186c7b0b6617362c0d545b7decc2b8b87dd392d51e43caea481cfd686592f3",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core-004/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-004/CONTROL_CONTRACT.md",
+      "bytes": 8245,
+      "sha256": "704776dd8872501b382504b84626344eef8bb67a2729fec4ee6762296a1e9084",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core-004/SourceRawPinFreeCoordinates.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-004/SourceRawPinFreeCoordinates.lean",
+      "bytes": 6494,
+      "sha256": "c2e64b2c43bce4e69e2fcd9152ca2b0fb693f5944ce6dcfbc811bafdd1f7de23",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core-004/output.log",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-004/output.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core-004/receipt.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-004/receipt.json",
+      "bytes": 1552,
+      "sha256": "82372e6b7bf9600f48bb51844f7a6fec7c05b9809820aa192496f2a6414b8ba8",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/runs/core-004/run_stage.py",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-004/run_stage.py",
+      "bytes": 1477,
+      "sha256": "ce186c7b0b6617362c0d545b7decc2b8b87dd392d51e43caea481cfd686592f3",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core-005/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-005/CONTROL_CONTRACT.md",
+      "bytes": 8245,
+      "sha256": "704776dd8872501b382504b84626344eef8bb67a2729fec4ee6762296a1e9084",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core-005/SourceRawPinFreeCoordinates.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-005/SourceRawPinFreeCoordinates.lean",
+      "bytes": 8002,
+      "sha256": "b17431001d528eb426a2cba52770ae89786bbf953a8c3de8ccf6673aed3807f6",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core-005/output.log",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-005/output.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core-005/receipt.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-005/receipt.json",
+      "bytes": 1772,
+      "sha256": "5e5bb53cac1a35477301f0d27f0697b71420fb6e3f170e85408dc52c94a86f95",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/runs/core-005/run_stage.py",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-005/run_stage.py",
+      "bytes": 1477,
+      "sha256": "ce186c7b0b6617362c0d545b7decc2b8b87dd392d51e43caea481cfd686592f3",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/gaussian-integration-001/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/gaussian-integration-001/CONTROL_CONTRACT.md",
+      "bytes": 8245,
+      "sha256": "704776dd8872501b382504b84626344eef8bb67a2729fec4ee6762296a1e9084",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/gaussian-integration-001/Inventory.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/gaussian-integration-001/Inventory.lean",
+      "bytes": 1083,
+      "sha256": "914cbd947a70572cdf62e3939c028e03dc4eb1adcc931d5813fc296408bb8f86",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/gaussian-integration-001/SourceRawPinFreeCoordinates.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/gaussian-integration-001/SourceRawPinFreeCoordinates.lean",
+      "bytes": 18985,
+      "sha256": "d0f69068e2756622282e4bd76dccb587cb152dd8f2ac803d6636117455406cfb",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/gaussian-integration-001/output.log",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/gaussian-integration-001/output.log",
+      "bytes": 1056,
+      "sha256": "ca869679b24ed69bd70e3fedda310a542d3c41702a4573519bf840fc7fd55212",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/gaussian-integration-001/receipt.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/gaussian-integration-001/receipt.json",
+      "bytes": 1808,
+      "sha256": "2c5117bf58b65885c4a9a9c39bff449cacf5b473fc36358f633bc0ef7adf1fc1",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/runs/gaussian-integration-001/run_stage.py",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/gaussian-integration-001/run_stage.py",
+      "bytes": 1477,
+      "sha256": "ce186c7b0b6617362c0d545b7decc2b8b87dd392d51e43caea481cfd686592f3",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/gaussian-integration-002/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/gaussian-integration-002/CONTROL_CONTRACT.md",
+      "bytes": 8245,
+      "sha256": "704776dd8872501b382504b84626344eef8bb67a2729fec4ee6762296a1e9084",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/gaussian-integration-002/Inventory.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/gaussian-integration-002/Inventory.lean",
+      "bytes": 1083,
+      "sha256": "914cbd947a70572cdf62e3939c028e03dc4eb1adcc931d5813fc296408bb8f86",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/gaussian-integration-002/SourceRawPinFreeCoordinates.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/gaussian-integration-002/SourceRawPinFreeCoordinates.lean",
+      "bytes": 18982,
+      "sha256": "82be00780c7070e999a47d397e4fe047535bd1d5b349efe82e252ccd5cd52cd4",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/gaussian-integration-002/output.log",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/gaussian-integration-002/output.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/gaussian-integration-002/receipt.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/gaussian-integration-002/receipt.json",
+      "bytes": 1806,
+      "sha256": "aa00063e98f56f0c579d0b300a6f01ae7b7e5fd2dd0437f4322e266bbd23f866",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/runs/gaussian-integration-002/run_stage.py",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/gaussian-integration-002/run_stage.py",
+      "bytes": 1477,
+      "sha256": "ce186c7b0b6617362c0d545b7decc2b8b87dd392d51e43caea481cfd686592f3",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/inventory-001/CONTROL_CONTRACT.md",
+      "bytes": 8245,
+      "sha256": "704776dd8872501b382504b84626344eef8bb67a2729fec4ee6762296a1e9084",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/Inventory.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/inventory-001/Inventory.lean",
+      "bytes": 1083,
+      "sha256": "914cbd947a70572cdf62e3939c028e03dc4eb1adcc931d5813fc296408bb8f86",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/SourceRawPinFreeCoordinates.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/inventory-001/SourceRawPinFreeCoordinates.lean",
+      "bytes": 18982,
+      "sha256": "82be00780c7070e999a47d397e4fe047535bd1d5b349efe82e252ccd5cd52cd4",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/output.log",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/inventory-001/output.log",
+      "bytes": 14367,
+      "sha256": "03e4bc9b86cbf2665e1ed3505e5c35a3aed077557161cd07abff950d073dba4e",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/receipt.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/inventory-001/receipt.json",
+      "bytes": 1804,
+      "sha256": "40d4d52b5fdfa61bae87538463dfa18025b481486991d88992118872a30a19ca",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/run_stage.py",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/inventory-001/run_stage.py",
+      "bytes": 1477,
+      "sha256": "ce186c7b0b6617362c0d545b7decc2b8b87dd392d51e43caea481cfd686592f3",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/kernel-001/CONTROL_CONTRACT.md",
+      "bytes": 8245,
+      "sha256": "704776dd8872501b382504b84626344eef8bb67a2729fec4ee6762296a1e9084",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/Inventory.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/kernel-001/Inventory.lean",
+      "bytes": 1083,
+      "sha256": "914cbd947a70572cdf62e3939c028e03dc4eb1adcc931d5813fc296408bb8f86",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/SourceRawPinFreeCoordinates.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/kernel-001/SourceRawPinFreeCoordinates.lean",
+      "bytes": 18982,
+      "sha256": "82be00780c7070e999a47d397e4fe047535bd1d5b349efe82e252ccd5cd52cd4",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/output.log",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/kernel-001/output.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/receipt.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/kernel-001/receipt.json",
+      "bytes": 1737,
+      "sha256": "36140c4977ff156d5a9a34f6ada314a68ded82fe3f732178a1d59879e4b3279e",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/run_stage.py",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/kernel-001/run_stage.py",
+      "bytes": 1477,
+      "sha256": "ce186c7b0b6617362c0d545b7decc2b8b87dd392d51e43caea481cfd686592f3",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-001/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-001/CONTROL_CONTRACT.md",
+      "bytes": 8245,
+      "sha256": "704776dd8872501b382504b84626344eef8bb67a2729fec4ee6762296a1e9084",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-001/FreeCoordinateControls.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-001/FreeCoordinateControls.lean",
+      "bytes": 25849,
+      "sha256": "5fb57afc7771db857ad8a2636c9e70f80938f50751a7b9a311e87f3bcdac3a10",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/runs/controls-001/Inventory.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-001/Inventory.lean",
+      "bytes": 1083,
+      "sha256": "914cbd947a70572cdf62e3939c028e03dc4eb1adcc931d5813fc296408bb8f86",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-001/SourceRawPinFreeCoordinates.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-001/SourceRawPinFreeCoordinates.lean",
+      "bytes": 18982,
+      "sha256": "82be00780c7070e999a47d397e4fe047535bd1d5b349efe82e252ccd5cd52cd4",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-001/output.log",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-001/output.log",
+      "bytes": 214,
+      "sha256": "0027382486f9471c8e119803f209dc9d3d53fedc9963cbef524eaf2db2415ee6",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-001/receipt.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-001/receipt.json",
+      "bytes": 1962,
+      "sha256": "d7059cb62591bb61afc4a85297c88ae4d01fb8af2be317eb7103958dab0c34a8",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/runs/controls-001/run_stage.py",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-001/run_stage.py",
+      "bytes": 1608,
+      "sha256": "d2ae484f5196a5c8cef11075ff355df4a0595cd5a2b8eb0ef0a57790cbb29c22",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/runs/controls-002/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-002/CONTROL_CONTRACT.md",
+      "bytes": 8245,
+      "sha256": "704776dd8872501b382504b84626344eef8bb67a2729fec4ee6762296a1e9084",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-002/FreeCoordinateControls.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-002/FreeCoordinateControls.lean",
+      "bytes": 25849,
+      "sha256": "5fb57afc7771db857ad8a2636c9e70f80938f50751a7b9a311e87f3bcdac3a10",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-002/Inventory.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-002/Inventory.lean",
+      "bytes": 1083,
+      "sha256": "914cbd947a70572cdf62e3939c028e03dc4eb1adcc931d5813fc296408bb8f86",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-002/SourceRawPinFreeCoordinates.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-002/SourceRawPinFreeCoordinates.lean",
+      "bytes": 18982,
+      "sha256": "82be00780c7070e999a47d397e4fe047535bd1d5b349efe82e252ccd5cd52cd4",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-002/output.log",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-002/output.log",
+      "bytes": 14811,
+      "sha256": "f774460cef90ccbee1e75b55f37bb57aeab24c9de5152351e6bfc5d28aae03d3",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-002/receipt.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-002/receipt.json",
+      "bytes": 2019,
+      "sha256": "1dad72c15ac08dfee914a69e67dc88a2c276a7c5615bbc460b4c8edb4ff4ba9b",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/runs/controls-002/run_stage.py",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-002/run_stage.py",
+      "bytes": 1608,
+      "sha256": "d2ae484f5196a5c8cef11075ff355df4a0595cd5a2b8eb0ef0a57790cbb29c22",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-003/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-003/CONTROL_CONTRACT.md",
+      "bytes": 8245,
+      "sha256": "704776dd8872501b382504b84626344eef8bb67a2729fec4ee6762296a1e9084",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-003/FreeCoordinateControls.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-003/FreeCoordinateControls.lean",
+      "bytes": 26509,
+      "sha256": "7af928413cd37379b1beacc88c0000d564c713c2ee5fd65be3ebeee7e822af69",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/runs/controls-003/Inventory.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-003/Inventory.lean",
+      "bytes": 1083,
+      "sha256": "914cbd947a70572cdf62e3939c028e03dc4eb1adcc931d5813fc296408bb8f86",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-003/SourceRawPinFreeCoordinates.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-003/SourceRawPinFreeCoordinates.lean",
+      "bytes": 18982,
+      "sha256": "82be00780c7070e999a47d397e4fe047535bd1d5b349efe82e252ccd5cd52cd4",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-003/output.log",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-003/output.log",
+      "bytes": 6116,
+      "sha256": "913ba750085c07c6cde38f0cea1902625c18b7cd045626d170b6b83e6c8c4e9c",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-003/receipt.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-003/receipt.json",
+      "bytes": 2018,
+      "sha256": "ab7afe1945f93b584cc531b45783a581abd2478996ab0ae20d92854b9e760538",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/runs/controls-003/run_stage.py",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-003/run_stage.py",
+      "bytes": 1608,
+      "sha256": "d2ae484f5196a5c8cef11075ff355df4a0595cd5a2b8eb0ef0a57790cbb29c22",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-004/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-004/CONTROL_CONTRACT.md",
+      "bytes": 8245,
+      "sha256": "704776dd8872501b382504b84626344eef8bb67a2729fec4ee6762296a1e9084",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-004/FreeCoordinateControls.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-004/FreeCoordinateControls.lean",
+      "bytes": 27218,
+      "sha256": "801100e37373045ed1d77962839a9bdc574322fae8c4091202c80fc6238891a4",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-004/Inventory.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-004/Inventory.lean",
+      "bytes": 1083,
+      "sha256": "914cbd947a70572cdf62e3939c028e03dc4eb1adcc931d5813fc296408bb8f86",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-004/SourceRawPinFreeCoordinates.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-004/SourceRawPinFreeCoordinates.lean",
+      "bytes": 18982,
+      "sha256": "82be00780c7070e999a47d397e4fe047535bd1d5b349efe82e252ccd5cd52cd4",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-004/output.log",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-004/output.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-004/receipt.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-004/receipt.json",
+      "bytes": 2230,
+      "sha256": "3e5588dd1aabd403b5ec7f019267b6554285759dd432ed52565b8e1b0a734b69",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/runs/controls-004/run_stage.py",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-004/run_stage.py",
+      "bytes": 1608,
+      "sha256": "d2ae484f5196a5c8cef11075ff355df4a0595cd5a2b8eb0ef0a57790cbb29c22",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/false-second-projection-001/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/false-second-projection-001/CONTROL_CONTRACT.md",
+      "bytes": 8245,
+      "sha256": "704776dd8872501b382504b84626344eef8bb67a2729fec4ee6762296a1e9084",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/false-second-projection-001/FalseSecondProjectionMutation.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/false-second-projection-001/FalseSecondProjectionMutation.lean",
+      "bytes": 297,
+      "sha256": "afa33b0421110d0ebdfa43a2ac0ae8bb3b162932da7682f981588f67b13b4876",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/false-second-projection-001/FreeCoordinateControls.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/false-second-projection-001/FreeCoordinateControls.lean",
+      "bytes": 27218,
+      "sha256": "801100e37373045ed1d77962839a9bdc574322fae8c4091202c80fc6238891a4",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/false-second-projection-001/Inventory.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/false-second-projection-001/Inventory.lean",
+      "bytes": 1083,
+      "sha256": "914cbd947a70572cdf62e3939c028e03dc4eb1adcc931d5813fc296408bb8f86",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/false-second-projection-001/SourceRawPinFreeCoordinates.lean",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/false-second-projection-001/SourceRawPinFreeCoordinates.lean",
+      "bytes": 18982,
+      "sha256": "82be00780c7070e999a47d397e4fe047535bd1d5b349efe82e252ccd5cd52cd4",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/false-second-projection-001/output.log",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/false-second-projection-001/output.log",
+      "bytes": 126,
+      "sha256": "1785c54ba91db3054e2e142d938d7a7cf5d368a5497ac72bc99276834aa4f58e",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/false-second-projection-001/receipt.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/false-second-projection-001/receipt.json",
+      "bytes": 2393,
+      "sha256": "1708d2068083588f6f37d25712ae4d346560c5cf71637fe87b0f78bd7050ce56",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/runs/false-second-projection-001/run_stage.py",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/false-second-projection-001/run_stage.py",
+      "bytes": 1608,
+      "sha256": "d2ae484f5196a5c8cef11075ff355df4a0595cd5a2b8eb0ef0a57790cbb29c22",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/root-process/ROOT_SOURCE_CUT.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-publication/ROOT_SOURCE_CUT.json",
+      "bytes": 1384,
+      "sha256": "ec2e50e413a2ac461f400f2b45558c8d948e724ed24dadb2a26ac654ef58058d",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/root-process/ROOT_OWN_OBJECT_COPY.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-publication/ROOT_OWN_OBJECT_COPY.json",
+      "bytes": 727,
+      "sha256": "2f02cf5243a10486e4c7a0e5946c17507c8070646653b69d2deabb37bea3fbb8",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/root-process/ROOT_FROZEN_SOURCE_READING.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-publication/ROOT_FROZEN_SOURCE_READING.json",
+      "bytes": 561,
+      "sha256": "6005bbaa42bba4ec88abef60c96201a94424ac9b6e2ab40eac1e22f1eca29bc9",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/review-provisional/SOURCE_READ_PROVISIONAL.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-source-review/SOURCE_READ_PROVISIONAL.json",
+      "bytes": 10167,
+      "sha256": "eb0ed059bfdee3311974a1bffc5e750e36362a133072f917fdc04b1d3bc0ffa9",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/review-provisional/PREFLIGHT.md",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-source-review/PREFLIGHT.md",
+      "bytes": 15963,
+      "sha256": "6da540a6c2ff0de5a1e2ee0efaa142a3d65b9378a31a294f02d2723ce1147e05",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/review-provisional/PREFLIGHT_CUSTODY.md",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-source-review/PREFLIGHT_CUSTODY.md",
+      "bytes": 558,
+      "sha256": "b13f163fb2f4a1114f50ee50e436aefaff1659324f6b235b8a357f8077c68b6d",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/REPORT.md",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/REPORT.md",
+      "bytes": 15775,
+      "sha256": "b7c64b2322a46b25bbd9ee4ec86f8952c239d0e9c8f1871876189c58664e5825",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/HANDOFF.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/HANDOFF.json",
+      "bytes": 3570,
+      "sha256": "13553ebfc406e90b3716bf78bafd9a8689eec3b7921bfbce124219ea29c6f709",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/SOURCE_OBJECT_IDENTITIES.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/SOURCE_OBJECT_IDENTITIES.json",
+      "bytes": 1592,
+      "sha256": "d712972b147a98fbd127a55dba376e5c2429ba72785a1c94735b34d0089b0947",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/HELPER_CUSTODY.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/HELPER_CUSTODY.json",
+      "bytes": 3209,
+      "sha256": "9a549fcb9731a031b0ff9858b1fa72c616caa0231641c662ea322ac700dd7213",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/HELPER_INTEGRATION.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/HELPER_INTEGRATION.json",
+      "bytes": 1247,
+      "sha256": "627b31b406adc2f97caaa863a6b368a801d01d09f6abba07e6395a3ebb3c32bd",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/CONTROL_RECEIPT.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/CONTROL_RECEIPT.json",
+      "bytes": 3403,
+      "sha256": "c542337ed56e45ebe7d8a3f13f01dc8889356b8ec01eba823ce02193a0239b40",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/EXECUTION_RECORD_INDEX.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/EXECUTION_RECORD_INDEX.json",
+      "bytes": 11489,
+      "sha256": "07d74b5cfd4f8c1f784f48d6141fa58be2d7954a8926cf3b2b49957bcdd888b8",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/TARGET_CLASSIFICATION.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/TARGET_CLASSIFICATION.json",
+      "bytes": 1395,
+      "sha256": "0f6fc79977251062c0f3c2461dbce114f7d7f215ee311c904269c7e14382a074",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/PRODUCER_FINAL_READY.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/PRODUCER_FINAL_READY.json",
+      "bytes": 898,
+      "sha256": "e0c56c8630460acf5afe0993729c52a2ef6530cb2664c3fef9c701e92829bca9",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/finalize.py",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/finalize.py",
+      "bytes": 28166,
+      "sha256": "3c3dc12a67a7ddc4860aba07c63eabe842d6ec9eb1c04bcee5484790a76e7fd0",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/run_stage.py",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/run_stage.py",
+      "bytes": 1608,
+      "sha256": "d2ae484f5196a5c8cef11075ff355df4a0595cd5a2b8eb0ef0a57790cbb29c22",
+      "identity_origin": "Recorded identity reused for exact immutable new57 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/PLAN.md",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/PLAN.md",
+      "bytes": 5657,
+      "sha256": "7f7824717d0f8231d8e049c3bf984cb8f8299e0621cf616e9f43c43cc39c4f99",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/READINESS.md",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/READINESS.md",
+      "bytes": 12613,
+      "sha256": "1276bc78e95f5ec4fe7dd50de12289e48bc1e1b04fbc95fc06f1a60a37697305",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/producer/SOURCE_RAW_PIN_FREE_COORDINATES.md",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-construct/SOURCE_RAW_PIN_FREE_COORDINATES.md",
+      "bytes": 16929,
+      "sha256": "db823cc33034a8860a71783ea72645e5952da5d404e8382defd51e025ccc83b0",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/review/REPORT.md",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-source-review/REPORT.md",
+      "bytes": 15190,
+      "sha256": "3bb1dd243066a186e53714571202b90c6508b34c6a08960d2d563ab47385a6c6",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/root-process/ROOT_FINALIZATION_GO.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-publication/ROOT_FINALIZATION_GO.json",
+      "bytes": 2288,
+      "sha256": "18664ba760eec1b7ac5d5eae8467d83c5518371d90feb780f1c1f2361130edb6",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    },
+    {
+      "path": "raw/root-process/ROOT_FINAL_EVIDENCE_READING.json",
+      "source": "/workspace/scratch/raw-pin-free-coordinate-publication/ROOT_FINAL_EVIDENCE_READING.json",
+      "bytes": 2619,
+      "sha256": "5f995eb24a3d2c34ee685c2b77f47bfb5615630742eb55b52aaaf9b9fef49e1e",
+      "identity_origin": "First custody identity of unrecorded immutable NEW57 payload"
+    }
+  ],
+  "raw_file_count": 134,
+  "completed_invocations_archived": [
+    "core-001",
+    "core-002",
+    "core-003",
+    "core-004",
+    "core-005",
+    "gaussian-integration-001",
+    "gaussian-integration-002",
+    "inventory-001",
+    "kernel-001",
+    "controls-001",
+    "controls-002",
+    "controls-003",
+    "controls-004",
+    "false-second-projection-001"
+  ],
+  "merged_stream_files": 14,
+  "merged_stream_bytes": 39467,
+  "capture": "Actual complete original merged stdout/stderr in output.log; no separate-stream invention.",
+  "pending": [],
+  "source_cut": "f8085da94d5d3b5f8ed3b14609516937e52fd9a9",
+  "actual_published56_baseline": "0d1d4601fbda409eb26869f57f11bc072e713769",
+  "production_kernel_does_not_cover_Controls_helper": true,
+  "positiveControls004_completed_utc": "2026-10-26T20:28:25.481807+00:00",
+  "soleFalse_completed_utc": "2026-10-26T20:28:56Z",
+  "soleFalse_actual_log_bytes": 126,
+  "owned_foreign_generated_declaration": "unitDirection.eq_1",
+  "actual_owned_inventory": 64,
+  "old_proof_or_hash_replays": 0,
+  "artifact_exclusions": [
+    {
+      "path": "build/SourceRawPinFreeCoordinates.olean",
+      "bytes": 543112,
+      "sha256_reused": "e4a3b8e7a4560858f1d5eb665fdf9f9785d0e99c7b90bdee8f48cc3362539ee4",
+      "action": "EXCLUDE_ARCHIVE_ROOT_ALREADY_COPIED_ONCE_SKIP_FURTHER_COPY"
+    },
+    {
+      "path": "build/FreeCoordinateControls.olean",
+      "bytes": 1888680,
+      "sha256_reused": "17f2ba55cc996f330999ab58506ef4353138b49fb05aa24bb1bfdc1968502fd9",
+      "action": "EXCLUDE_ARCHIVE_AND_PRODUCTION_CACHE_CONTROL_ONLY_OBJECT"
+    }
+  ],
+  "historical_pending_records_preserved": true,
+  "final_root_reading": "raw/root-process/ROOT_FINAL_EVIDENCE_READING.json",
+  "prepared_raw_files_reused": 117,
+  "old_hashes_or_proof_replays": 0,
+  "preliminary_planning_records": "Producer PLAN/READINESS/workingSPEC preserved as historical author drafts; canonical five installed bindings remain separate."
+}

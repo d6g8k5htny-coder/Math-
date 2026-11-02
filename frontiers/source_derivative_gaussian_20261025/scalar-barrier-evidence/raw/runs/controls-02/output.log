@@ -1,0 +1,18 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/scratch/adaptive-fold-scalar-barrier/Controls.lean:16:76: error: unsolved goals
+case e'_9
+x : ℝ
+⊢ canonicalA₁ x = x * 2
+/workspace/scratch/adaptive-fold-scalar-barrier/Controls.lean:20:52: error: Tactic `rfl` failed: The left-hand side
+  canonicalA₂ x
+is not definitionally equal to the right-hand side
+  2 * 1
+
+case e'_9
+x : ℝ
+⊢ canonicalA₂ x = 2 * 1

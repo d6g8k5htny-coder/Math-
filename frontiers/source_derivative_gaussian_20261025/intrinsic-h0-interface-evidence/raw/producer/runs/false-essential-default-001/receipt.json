@@ -1,0 +1,44 @@
+{
+  "label": "false-essential-default-001",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -R /workspace/scratch/intrinsic-h0-interface-construct /workspace/scratch/intrinsic-h0-interface-construct/FalseEssentialDefaultMutation.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0Interface.lean",
+      "bytes": 8366,
+      "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef"
+    },
+    "object": {
+      "path": "/workspace/scratch/intrinsic-h0-interface-construct/build/SourceIntrinsicH0Interface.olean",
+      "bytes": 975440,
+      "sha256": "ff59fe74b6d755b1173b2300559c7fd896e3ec567b43df447a9b3ad2ab5a5fec"
+    }
+  },
+  "started_utc": "2026-10-26T17:42:22.632658+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 4.7396485805511475,
+  "ended_utc": "2026-10-26T17:42:27.372368+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0Interface.lean",
+      "bytes": 8366,
+      "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef"
+    },
+    "object": {
+      "path": "/workspace/scratch/intrinsic-h0-interface-construct/build/SourceIntrinsicH0Interface.olean",
+      "bytes": 975440,
+      "sha256": "ff59fe74b6d755b1173b2300559c7fd896e3ec567b43df447a9b3ad2ab5a5fec"
+    }
+  },
+  "log": {
+    "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/false-essential-default-001/output.log",
+    "bytes": 126,
+    "sha256": "ec9ba15087385d5de0926dd17216d969cd7cfc920b803f4dd4b61f5c91e4f8b2"
+  }
+}

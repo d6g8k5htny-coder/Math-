@@ -1,0 +1,3 @@
+# Report packaging attempts
+
+Attempt 001 exited 1: its exact-string diagnostic assertion expected two final newlines, while the preserved Lean log has one. Inspection of `repr(output.log)` established the formatting defect. The original packaging script and traceback are retained here. No Lean command ran and no source/object changed. The corrected assertion expects the actual single terminal newline. Attempt 002 is the final `recover_evidence.py` execution, with output retained in `attempt-002.log`. The correction also replaces an inadvertently permissive count assertion with the exact required category counts.

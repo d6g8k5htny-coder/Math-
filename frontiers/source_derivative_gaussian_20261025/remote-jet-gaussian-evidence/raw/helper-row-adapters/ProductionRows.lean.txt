@@ -1,0 +1,65 @@
+/- Required context: inside namespace I4SourceRemoteJetGaussian, after remoteJet;
+   open I4Source I4SmoothCarrier I4SourceGaussian I4SourceDerivativeGaussian
+     I4SourceConfluentPins. This is text for one integration, not a helper module. -/
+
+private theorem remoteJet_series {L : ℝ} (hL : L ≠ 0)
+    (x : Fin 2 → ℝ) (ω : SmoothSample 2 L) :
+    remoteJet L x ω = fun j =>
+      scalarSeries (I4SourceRemoteJetWitness.remoteJetCoefficient L x j)
+        (sampleInclusion 2 L ω) := by
+  funext j
+  fin_cases j
+  · change smoothSourceField 2 L ω x =
+      scalarSeries (fun m => modeCoefficient 2 L m x) (sampleInclusion 2 L ω)
+    simpa only [derivativeCoefficient, iteratedFDeriv_zero_apply] using
+      (smoothSourceField_derivative_series 2 hL ω 0 x (fun i => Fin.elim0 i))
+  · change fderiv ℝ (smoothSourceField 2 L ω) x directionX =
+      scalarSeries (derivativeCoefficient 2 L 1 x (fun _ => directionX))
+        (sampleInclusion 2 L ω)
+    simpa only [iteratedFDeriv_one_apply] using
+      (smoothSourceField_derivative_series 2 hL ω 1 x (fun _ => directionX))
+  · change fderiv ℝ (smoothSourceField 2 L ω) x directionY =
+      scalarSeries (derivativeCoefficient 2 L 1 x (fun _ => directionY))
+        (sampleInclusion 2 L ω)
+    simpa only [iteratedFDeriv_one_apply] using
+      (smoothSourceField_derivative_series 2 hL ω 1 x (fun _ => directionY))
+  · exact smoothSourceField_derivative_series 2 hL ω 2 x ![directionX,directionX]
+  · exact smoothSourceField_derivative_series 2 hL ω 2 x ![directionX,directionY]
+  · exact smoothSourceField_derivative_series 2 hL ω 2 x ![directionY,directionY]
+
+private theorem remoteJetCoefficient_summable_local {L : ℝ} (hL : L ≠ 0)
+    (x : Fin 2 → ℝ) (j : Fin 6) :
+    Summable (I4SourceRemoteJetWitness.remoteJetCoefficient L x j) := by
+  fin_cases j
+  · change Summable (fun m => modeCoefficient 2 L m x)
+    have he : derivativeCoefficient 2 L 0 x (fun i => Fin.elim0 i) =
+        fun m => modeCoefficient 2 L m x := by
+      funext m
+      exact iteratedFDeriv_zero_apply _
+    rw [← he]
+    exact derivativeCoefficient_summable 2 hL 0 x (fun i => Fin.elim0 i)
+  · exact derivativeCoefficient_summable 2 hL 1 x (fun _ => directionX)
+  · exact derivativeCoefficient_summable 2 hL 1 x (fun _ => directionY)
+  · exact derivativeCoefficient_summable 2 hL 2 x ![directionX,directionX]
+  · exact derivativeCoefficient_summable 2 hL 2 x ![directionX,directionY]
+  · exact derivativeCoefficient_summable 2 hL 2 x ![directionY,directionY]
+
+private theorem remoteJetCoefficient_weighted_summable_local {L : ℝ} (hL : L ≠ 0)
+    (x : Fin 2 → ℝ) (ω : SmoothSample 2 L) (j : Fin 6) :
+    Summable (fun m => I4SourceRemoteJetWitness.remoteJetCoefficient L x j m *
+      sampleInclusion 2 L ω m) := by
+  fin_cases j
+  · change Summable (fun m => modeCoefficient 2 L m x * sampleInclusion 2 L ω m)
+    simpa only [derivativeCoefficient, iteratedFDeriv_zero_apply] using
+      (I4SourceSmoothConditional.derivativeCoefficient_weighted_summable hL ω 0 x
+        (fun i => Fin.elim0 i))
+  · exact I4SourceSmoothConditional.derivativeCoefficient_weighted_summable hL ω 1 x
+      (fun _ => directionX)
+  · exact I4SourceSmoothConditional.derivativeCoefficient_weighted_summable hL ω 1 x
+      (fun _ => directionY)
+  · exact I4SourceSmoothConditional.derivativeCoefficient_weighted_summable hL ω 2 x
+      ![directionX,directionX]
+  · exact I4SourceSmoothConditional.derivativeCoefficient_weighted_summable hL ω 2 x
+      ![directionX,directionY]
+  · exact I4SourceSmoothConditional.derivativeCoefficient_weighted_summable hL ω 2 x
+      ![directionY,directionY]

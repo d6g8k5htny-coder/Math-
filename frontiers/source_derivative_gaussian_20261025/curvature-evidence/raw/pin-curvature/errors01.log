@@ -1,0 +1,123 @@
+/workspace/scratch/pin-curvature-implementation/EndpointErrors.lean:14:2: error: Type mismatch
+  sourceQCurve_abs_le hL ω 0
+has type
+  |sourceQCurve L ω 0| ≤ sourceDerivativeMajorant L 2 ω
+but is expected to have type
+  |sourceQ L ω| ≤ sourceDerivativeMajorant L 2 ω
+/workspace/scratch/pin-curvature-implementation/EndpointErrors.lean:60:4: error: 'change' tactic failed, pattern
+  |sourceQCurve L ω (r * t) - sourceQ L ω| ≤ ?m.478
+is not definitionally equal to target
+  |sourceQCurve L ω (r * t) - sourceQCurve L ω 0| ≤ r * sourceDerivativeMajorant L 3 ω / 2
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/scratch/pin-curvature-implementation/EndpointErrors.lean:79:28: error: linarith failed to find a contradiction
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+hr : 0 < r
+ω : SmoothSample 2 L
+h3 : sourceConfluentPinsAt L r ω 3 = 0
+h4 : sourceConfluentPinsAt L r ω 4 = 0
+h5 : sourceConfluentPinsAt L r ω 5 = 2
+hΓ4 : 0 ≤ sourceDerivativeMajorant L 4 ω
+hΓ3 : 0 ≤ sourceDerivativeMajorant L 3 ω
+hpin : 2 = 6 * ∫ (u : ℝ) in -1 / 2..1 / 2, (1 / 4 - u ^ 2) * iteratedDeriv 3 (sourceF L ω) (r * u)
+hp : 6 * ∫ (t : ℝ) in -1 / 2..1 / 2, peanoCubic t * iteratedDeriv 3 (sourceF L ω) (r * t) = 2
+hf : ∀ u ∈ Icc (-1 / 2) (1 / 2), |iteratedDeriv 3 (sourceF L ω) (r * u) - 2| ≤ r * sourceDerivativeMajorant L 4 ω
+hFleft :
+  |(∫ (t : ℝ) in -1 / 2..1 / 2, peanoLeft t * iteratedDeriv 3 (sourceF L ω) (r * t)) - 2 / 2| ≤
+    r * sourceDerivativeMajorant L 4 ω / 2
+hFright :
+  |(∫ (t : ℝ) in -1 / 2..1 / 2, peanoRight t * iteratedDeriv 3 (sourceF L ω) (r * t)) - 2 / 2| ≤
+    r * sourceDerivativeMajorant L 4 ω / 2
+hh :
+  ∀ t ∈ Icc (-1 / 2) (1 / 2), |iteratedDeriv 2 (sourceH L ω) (r * t) - sourceA L ω| ≤ r * sourceDerivativeMajorant L 4 ω
+hHleft :
+  |(∫ (t : ℝ) in -1 / 2..1 / 2, peanoLeft t * iteratedDeriv 2 (sourceH L ω) (r * t)) - sourceA L ω / 2| ≤
+    r * sourceDerivativeMajorant L 4 ω / 2
+hHright :
+  |(∫ (t : ℝ) in -1 / 2..1 / 2, peanoRight t * iteratedDeriv 2 (sourceH L ω) (r * t)) - sourceA L ω / 2| ≤
+    r * sourceDerivativeMajorant L 4 ω / 2
+hq : ∀ t ∈ Icc (-1 / 2) (1 / 2), |sourceQCurve L ω (r * t) - sourceQ L ω| ≤ r * sourceDerivativeMajorant L 3 ω
+hQM : |sourceQCurve L ω (-r / 2) - sourceQ L ω| ≤ r * sourceDerivativeMajorant L 3 ω
+hQS : |sourceQCurve L ω (r / 2) - sourceQ L ω| ≤ r * sourceDerivativeMajorant L 3 ω
+a✝ : ?m.909 < r * sourceDerivativeMajorant L 4 ω / 2
+⊢ False
+failed
+Error in Linarith.normalizeDenominatorsLHS: Expr.rewrite may not produce subgoals.
+/workspace/scratch/pin-curvature-implementation/EndpointErrors.lean:70:26: error: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_two, Matrix.cons_val_three,
+    Matrix.head_cons, Matrix.tail_cons]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/pin-curvature-implementation/EndpointErrors.lean:121:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  sourceNormalizedEndpoints L r ω 0 + 1 + -1
+in the target expression
+  |sourceNormalizedEndpoints L r ω 0| ≤ |sourceNormalizedEndpoints L r ω 0 + 1| + 1
+
+case «0»
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+hr : 0 < r
+hr1 : r ≤ 1
+ω : SmoothSample 2 L
+h3 : sourceConfluentPinsAt L r ω 3 = 0
+h4 : sourceConfluentPinsAt L r ω 4 = 0
+h5 : sourceConfluentPinsAt L r ω 5 = 2
+h0 : |sourceNormalizedEndpoints L r ω 0 + 1| ≤ r * sourceDerivativeMajorant L 4 ω
+h1 : |sourceNormalizedEndpoints L r ω 1 - 1| ≤ r * sourceDerivativeMajorant L 4 ω
+h2 : |sourceNormalizedEndpoints L r ω 2 + sourceA L ω / 2| ≤ r * sourceDerivativeMajorant L 4 ω
+h3' : |sourceNormalizedEndpoints L r ω 3 - sourceA L ω / 2| ≤ r * sourceDerivativeMajorant L 4 ω
+left✝ : |sourceNormalizedEndpoints L r ω 4 - sourceQ L ω| ≤ r * sourceDerivativeMajorant L 3 ω
+right✝ : |sourceNormalizedEndpoints L r ω 5 - sourceQ L ω| ≤ r * sourceDerivativeMajorant L 3 ω
+hΓ4 : 0 ≤ sourceDerivativeMajorant L 4 ω
+hΓ3 : 0 ≤ sourceDerivativeMajorant L 3 ω
+hA : |sourceA L ω| ≤ sourceDerivativeMajorant L 3 ω
+hR : 1 + sourceDerivativeMajorant L 3 ω + sourceDerivativeMajorant L 4 ω ≤ sourceGammaRadius L ω
+he : r * sourceDerivativeMajorant L 4 ω ≤ sourceDerivativeMajorant L 4 ω
+hh : |sourceNormalizedEndpoints L r ω 0| ≤ |sourceNormalizedEndpoints L r ω 0 + 1| + 1
+heq : sourceNormalizedEndpoints L r ω 0 + 1 + -1 = sourceNormalizedEndpoints L r ω 0
+⊢ |sourceNormalizedEndpoints L r ω ((fun i => i) ⟨0, ⋯⟩).castSucc.castSucc| ≤ sourceGammaRadius L ω
+/workspace/scratch/pin-curvature-implementation/EndpointErrors.lean:126:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  sourceNormalizedEndpoints L r ω 1 - 1 + 1
+in the target expression
+  |sourceNormalizedEndpoints L r ω 1| ≤ |sourceNormalizedEndpoints L r ω 1 - 1| + 1
+
+case «1»
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+hr : 0 < r
+hr1 : r ≤ 1
+ω : SmoothSample 2 L
+h3 : sourceConfluentPinsAt L r ω 3 = 0
+h4 : sourceConfluentPinsAt L r ω 4 = 0
+h5 : sourceConfluentPinsAt L r ω 5 = 2
+h0 : |sourceNormalizedEndpoints L r ω 0 + 1| ≤ r * sourceDerivativeMajorant L 4 ω
+h1 : |sourceNormalizedEndpoints L r ω 1 - 1| ≤ r * sourceDerivativeMajorant L 4 ω
+h2 : |sourceNormalizedEndpoints L r ω 2 + sourceA L ω / 2| ≤ r * sourceDerivativeMajorant L 4 ω
+h3' : |sourceNormalizedEndpoints L r ω 3 - sourceA L ω / 2| ≤ r * sourceDerivativeMajorant L 4 ω
+left✝ : |sourceNormalizedEndpoints L r ω 4 - sourceQ L ω| ≤ r * sourceDerivativeMajorant L 3 ω
+right✝ : |sourceNormalizedEndpoints L r ω 5 - sourceQ L ω| ≤ r * sourceDerivativeMajorant L 3 ω
+hΓ4 : 0 ≤ sourceDerivativeMajorant L 4 ω
+hΓ3 : 0 ≤ sourceDerivativeMajorant L 3 ω
+hA : |sourceA L ω| ≤ sourceDerivativeMajorant L 3 ω
+hR : 1 + sourceDerivativeMajorant L 3 ω + sourceDerivativeMajorant L 4 ω ≤ sourceGammaRadius L ω
+he : r * sourceDerivativeMajorant L 4 ω ≤ sourceDerivativeMajorant L 4 ω
+hh : |sourceNormalizedEndpoints L r ω 1| ≤ |sourceNormalizedEndpoints L r ω 1 - 1| + 1
+heq : sourceNormalizedEndpoints L r ω 1 - 1 + 1 = sourceNormalizedEndpoints L r ω 1
+⊢ |sourceNormalizedEndpoints L r ω ((fun i => i) ⟨1, ⋯⟩).castSucc.castSucc| ≤ sourceGammaRadius L ω

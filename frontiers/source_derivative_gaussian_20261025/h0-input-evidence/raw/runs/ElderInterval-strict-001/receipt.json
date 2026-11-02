@@ -1,0 +1,63 @@
+{
+  "label": "ElderInterval-strict-001",
+  "module": "ElderInterval",
+  "reason": "New narrow-import successor composition; no old proof/kernel/control/audit replay.",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
+    "-DwarningAsError=true",
+    "-o",
+    "/workspace/scratch/actual-h0-support-inputs/build/ElderInterval.olean",
+    "-i",
+    "/workspace/scratch/actual-h0-support-inputs/build/ElderInterval.ilean",
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/elder/ElderInterval.lean"
+  ],
+  "environment": {
+    "LEAN_PATH": "/workspace/scratch/actual-h0-support-inputs/build:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Cli/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/batteries/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Qq/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/aesop/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/plausible/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean:/home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean"
+  },
+  "environment_record": "/workspace/scratch/actual-h0-support-inputs/environment.json",
+  "source_before": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/elder/ElderInterval.lean",
+    "bytes": 16140,
+    "sha256": "69daa2e2a6afbdedde20d0c3b1ecdb52e2626da8ad49138b9db388b41ee71491"
+  },
+  "source_snapshot": {
+    "path": "/workspace/scratch/actual-h0-support-inputs/runs/ElderInterval-strict-001/ElderInterval.lean",
+    "bytes": 16140,
+    "sha256": "69daa2e2a6afbdedde20d0c3b1ecdb52e2626da8ad49138b9db388b41ee71491"
+  },
+  "runner": {
+    "path": "/workspace/scratch/actual-h0-support-inputs/compile.py",
+    "bytes": 2669,
+    "sha256": "8c25cbf6987b1c0a96ca5ab033a81c79a5de64ac3e0fb12baa27f56e926ffa0a"
+  },
+  "started_utc": "2026-10-26T09:29:50.935177+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 4.042470357002458,
+  "ended_utc": "2026-10-26T09:29:54.977666+00:00",
+  "source_after": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/elder/ElderInterval.lean",
+    "bytes": 16140,
+    "sha256": "69daa2e2a6afbdedde20d0c3b1ecdb52e2626da8ad49138b9db388b41ee71491"
+  },
+  "stdout": {
+    "path": "/workspace/scratch/actual-h0-support-inputs/runs/ElderInterval-strict-001/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr": {
+    "path": "/workspace/scratch/actual-h0-support-inputs/runs/ElderInterval-strict-001/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "olean": {
+    "path": "/workspace/scratch/actual-h0-support-inputs/build/ElderInterval.olean",
+    "bytes": 834784,
+    "sha256": "ecc7adf81aa5dbe4ef4ad7175c1806a630c3a5be64bc5f74bb8895908bc7004e"
+  },
+  "ilean": {
+    "path": "/workspace/scratch/actual-h0-support-inputs/build/ElderInterval.ilean",
+    "bytes": 46366,
+    "sha256": "7fa60c28e882b299b30194e54c051ec089c7678df8d9dff6ec63bdd085cd7815"
+  }
+}

@@ -1,0 +1,42 @@
+SourceAdaptiveFoldEstimates.lean:693:14: error: don't know how to synthesize implicit argument `C`
+  @Convex.image_sub_le_mul_sub_of_deriv_le (Icc (-R) R) (convex_Icc (-R) R) (fun y => G (x, y))
+    (Continuous.continuousOn (ContDiff.continuous (hslice x)))
+    (Differentiable.differentiableOn
+      (ContDiff.differentiable (hslice x)
+        (of_eq_true
+          (Eq.trans (congrArg Not (Eq.trans WithTop.coe_eq_zero._simp_1 ENat.top_ne_zero._simp_1)) not_false_eq_true))))
+    ?m.232
+context:
+G : ℝ × ℝ → ℝ
+hG : ContDiff ℝ ∞ G
+R c T : ℝ
+hR : 0 < R
+hcenter : ∀ x ∈ J, |G (x, 0)| ≤ T
+hneg : ∀ x ∈ J, ∀ y ∈ Icc (-R) R, partialY G (x, y) ≤ -c
+hmargin : T < c * R
+hslice : ∀ (x : ℝ), ContDiff ℝ ∞ fun y => G (x, y)
+hder : ∀ (x y : ℝ), deriv (fun t => G (x, t)) y = partialY G (x, y)
+x : ℝ
+hx : x ∈ J
+⊢ ℝ
+SourceAdaptiveFoldEstimates.lean:693:9: error: failed to infer `have` declaration type
+SourceAdaptiveFoldEstimates.lean:756:6: error: Type mismatch
+  hN.right.right.right.left
+has type
+  Vy (actualFoldPotential r k sample) (-1 / 2, 0) = 0
+but is expected to have type
+  Vy V (-(1 / 2), 0) = 0
+SourceAdaptiveFoldEstimates.lean:810:25: error: Application type mismatch: The argument
+  hN.right.left
+has type
+  Vx (actualFoldPotential r k sample) (-1 / 2, 0) = 0
+but is expected to have type
+  Vx V (-(1 / 2), 0) = 0
+in the application
+  And.intro hN.right.left
+SourceAdaptiveFoldEstimates.lean:812:29: error: Type mismatch
+  hN.right.right.right.right.right.left
+has type
+  actualFoldPotential r k sample (-1 / 2, 0) - actualFoldPotential r k sample (1 / 2, 0) = 1 / 6
+but is expected to have type
+  V (-(1 / 2), 0) - V (1 / 2, 0) = 1 / 6

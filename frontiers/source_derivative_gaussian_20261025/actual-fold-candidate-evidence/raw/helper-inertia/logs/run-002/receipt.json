@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/scratch/actual-fold-candidate-inertia/logs/run-002/Inertia.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "utc_start": "2026-10-26T10:35:30.639578+00:00",
+  "utc_end": "2026-10-26T10:35:34.275893+00:00",
+  "elapsed_seconds": 3.6362827500051935,
+  "exit_code": 1,
+  "source_sha256": "12a285458a12331580f4290f476bce2656246145109f1af0ba9f6449243d53e4",
+  "runner_sha256": "08068e142137a2db0225598bb30f03dc69ccd55a0e5534fd7491c15d05146fe2"
+}

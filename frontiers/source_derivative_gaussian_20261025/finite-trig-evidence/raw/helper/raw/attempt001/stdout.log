@@ -1,0 +1,44 @@
+/workspace/scratch/finite-trig-source-conversion/raw/attempt001/AtomConversion.lean:49:6: error: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/scratch/finite-trig-source-conversion/raw/attempt001/AtomConversion.lean:80:27: error: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+/workspace/scratch/finite-trig-source-conversion/raw/attempt001/AtomConversion.lean:81:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  finitePairing ?a (Finsupp.single ?m ?c)
+in the target expression
+  finitePairing (fun m => modeCoefficient 2 L m x)
+      (if h : True then Finsupp.single none (Real.cos θ / sourceModeAmplitude L none)
+      else
+        if h : 0 ∈ halfLattice 2 then
+          Finsupp.single (some (⟨0, ⋯⟩, false)) (Real.cos θ / sourceModeAmplitude L (some (⟨0, ⋯⟩, false))) +
+            Finsupp.single (some (⟨0, ⋯⟩, true)) (-Real.sin θ / sourceModeAmplitude L (some (⟨0, ⋯⟩, false)))
+        else
+          Finsupp.single (some (⟨-0, ⋯⟩, false)) (Real.cos θ / sourceModeAmplitude L (some (⟨-0, ⋯⟩, false))) +
+            Finsupp.single (some (⟨-0, ⋯⟩, true)) (Real.sin θ / sourceModeAmplitude L (some (⟨-0, ⋯⟩, false)))) =
+    Real.cos (phase 2 L 0 x + θ)
+
+case pos
+L : ℝ
+hL : L ≠ 0
+θ : ℝ
+x : Fin 2 → ℝ
+⊢ finitePairing (fun m => modeCoefficient 2 L m x)
+      (if h : True then Finsupp.single none (Real.cos θ / sourceModeAmplitude L none)
+      else
+        if h : 0 ∈ halfLattice 2 then
+          Finsupp.single (some (⟨0, ⋯⟩, false)) (Real.cos θ / sourceModeAmplitude L (some (⟨0, ⋯⟩, false))) +
+            Finsupp.single (some (⟨0, ⋯⟩, true)) (-Real.sin θ / sourceModeAmplitude L (some (⟨0, ⋯⟩, false)))
+        else
+          Finsupp.single (some (⟨-0, ⋯⟩, false)) (Real.cos θ / sourceModeAmplitude L (some (⟨-0, ⋯⟩, false))) +
+            Finsupp.single (some (⟨-0, ⋯⟩, true)) (Real.sin θ / sourceModeAmplitude L (some (⟨-0, ⋯⟩, false)))) =
+    Real.cos (phase 2 L 0 x + θ)
+/workspace/scratch/finite-trig-source-conversion/raw/attempt001/AtomConversion.lean:88:29: error: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+/workspace/scratch/finite-trig-source-conversion/raw/attempt001/AtomConversion.lean:88:42: error: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+/workspace/scratch/finite-trig-source-conversion/raw/attempt001/AtomConversion.lean:92:29: error: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+/workspace/scratch/finite-trig-source-conversion/raw/attempt001/AtomConversion.lean:92:42: error: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+/workspace/scratch/finite-trig-source-conversion/raw/attempt001/AtomConversion.lean:80:27: error: This simp argument is unused:
+  dif_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [atomSource]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

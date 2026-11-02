@@ -1,0 +1,50 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:55:50: error: Application type mismatch: The argument
+  i
+has type
+  Fin 12
+but is expected to have type
+  Fin (?m.19 + ?m.20)
+in the application
+  Fin.addCases (fun a => ?m.26) (fun a => ?m.29) i
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:67:50: error: Application type mismatch: The argument
+  i
+has type
+  Fin 12
+but is expected to have type
+  Fin (?m.17 + ?m.18)
+in the application
+  Fin.addCases (fun a => ?m.24) (fun a => ?m.27) i
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:108:2: error: Tactic `rfl` failed: The left-hand side
+  -∑ x, R i x * z (Fin.castAdd 6 x) + ∑ x, if i = x then z (Fin.natAdd 6 x) else 0
+is not definitionally equal to the right-hand side
+  ((fun i => z (Fin.natAdd 6 i)) - R *ᵥ fun i => z (Fin.castAdd 6 i)) i
+
+R : Matrix (Fin 6) (Fin 6) ℝ
+z : Fin 12 → ℝ
+i : Fin 6
+⊢ (-∑ x, R i x * z (Fin.castAdd 6 x) + ∑ x, if i = x then z (Fin.natAdd 6 x) else 0) =
+    ((fun i => z (Fin.natAdd 6 i)) - R *ᵥ fun i => z (Fin.castAdd 6 i)) i
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:107:29: error: This simp argument is unused:
+  Finset.sum_ite_eq'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.append_left, Fin.append_right, neg_mul, Finset.sum_neg_distrib, ite_mul, one_mul, zero_mul,
+    Finset.mem_univ, ite_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:107:48: error: This simp argument is unused:
+  Finset.mem_univ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.append_left, Fin.append_right, neg_mul, Finset.sum_neg_distrib, ite_mul, one_mul, zero_mul,
+    Finset.sum_ite_eq', ite_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:107:64: error: This simp argument is unused:
+  ite_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.append_left, Fin.append_right, neg_mul, Finset.sum_neg_distrib, ite_mul, one_mul, zero_mul,
+    Finset.sum_ite_eq', Finset.mem_univ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

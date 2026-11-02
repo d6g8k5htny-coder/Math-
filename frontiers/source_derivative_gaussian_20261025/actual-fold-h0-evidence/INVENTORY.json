@@ -1,0 +1,203 @@
+{
+  "module": "SourceActualFoldH0",
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFoldH0.lean",
+    "bytes": 7131,
+    "sha256": "7d54c2cc08751365cc71949016fcbdd64872e5fbc4f67baea1fdd526a4e86cfd"
+  },
+  "object": {
+    "path": "/workspace/scratch/actual-fold-h0-construct/build/SourceActualFoldH0.olean",
+    "bytes": 734776,
+    "sha256": "79718f2001a30ab73ad891eeff66aababf27da2a7433058ab40bc1eeb827989c"
+  },
+  "coverage": "All constants whose actual environment module index is SourceActualFoldH0; no name-prefix substitute. collectAxioms on every constant.",
+  "receipt": {
+    "path": "/workspace/scratch/actual-fold-h0-construct/runs/inventory-001/receipt.json",
+    "bytes": 1770,
+    "sha256": "214d4890720304bbee2627ba4ee74e6806d3e0da87758e604b55aceebc16b321"
+  },
+  "complete_constant_count": 12,
+  "all_standard3": true,
+  "rows": [
+    {
+      "name": "SourceActualFoldH0.fold_interval_endpoints",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldH0.h0Complement",
+      "kind": "definition",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": false,
+      "prop_bundle": false,
+      "classification": "named-public-definition",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldH0.h0Complement._proof_1",
+      "kind": "theorem",
+      "generated": true,
+      "private": false,
+      "handwritten": false,
+      "public_research_theorem": false,
+      "prop_bundle": false,
+      "classification": "generated-proof",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldH0.h0Complement._proof_2",
+      "kind": "theorem",
+      "generated": true,
+      "private": false,
+      "handwritten": false,
+      "public_research_theorem": false,
+      "prop_bundle": false,
+      "classification": "generated-proof",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldH0.h0Complement._proof_3",
+      "kind": "theorem",
+      "generated": true,
+      "private": false,
+      "handwritten": false,
+      "public_research_theorem": false,
+      "prop_bundle": false,
+      "classification": "generated-proof",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldH0.h0DirectSummand",
+      "kind": "definition",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": false,
+      "prop_bundle": false,
+      "classification": "named-public-definition",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldH0.h0Retraction",
+      "kind": "definition",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": false,
+      "prop_bundle": false,
+      "classification": "named-public-definition",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldH0.h0Section",
+      "kind": "definition",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": false,
+      "prop_bundle": false,
+      "classification": "named-public-definition",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldH0.h0Section_retraction",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldH0.sourceGapLaw_actual_torus_h0",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldH0.sourceGapLaw_actual_torus_trap_h0",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldH0.toElderTrap",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ]
+}

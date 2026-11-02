@@ -1,0 +1,73 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1274:12: error: don't know how to synthesize implicit argument `m`
+  @ContDiff.continuous_iteratedFDeriv ℝ DenselyNormedField.toNontriviallyNormedField (Fin 2 → ℝ) Pi.normedAddCommGroup
+    Pi.normedSpace ℝ Real.normedAddCommGroup RCLike.toInnerProductSpaceReal.toNormedSpace (modeCoefficient 2 L m) ↑⊤
+    ?m.37
+    (of_eq_true
+      (Eq.trans WithTop.le_coe_top._simp_1
+        (Eq.trans (congrArg Not (WithTop.natCast_ne_top._simp_1 ?m.37)) not_false_eq_true)))
+    (compact_mode_smooth L m)
+context:
+L : ℝ
+m : SourceMode 2
+k : ℕ
+⊢ ℕ
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1274:7: error: failed to infer `have` declaration type
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1273:61: error: unsolved goals
+L : ℝ
+m : SourceMode 2
+k : ℕ
+⊢ Continuous fun p => (iteratedFDeriv ℝ k (modeCoefficient 2 L m) p.1) p.2
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1319:15: error: typeclass instance problem is stuck
+  IsLocallyFiniteMeasure ?m.1435
+
+Note: Lean will not try to resolve this typeclass instance problem because the fourth type argument to `IsLocallyFiniteMeasure` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1341:36: error: `Set.setOf_forall` has been deprecated: Use `Set.ofPred_forall` instead
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1401:8: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1445:61: error: Application type mismatch: The argument
+  hu
+has type
+  @UniformContinuousOn ((E 2 × CompactFrame) × ℝ) (Matrix (Fin 7) (Fin 7) ℝ) instUniformSpaceProd
+    (Matrix.instUniformSpace (Fin 7) (Fin 7) ℝ) (compact_gram L) (compact_parameters L)
+but is expected to have type
+  @UniformContinuousOn ?m.25 ?m.26 PseudoMetricSpace.toUniformSpace PseudoMetricSpace.toUniformSpace ?m.29 ?m.30
+in the application
+  Metric.uniformContinuousOn_iff.mp hu
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1560:39: error: typeclass instance problem is stuck
+  TopologicalSpace ?m.79
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `TopologicalSpace` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1592:53: error: This simp argument is unused:
+  ← Finset.sum_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [← Finset.sum_div, ← Finset.mul_sum, compact_square]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1630:4: error: Type mismatch: After simplification, term
+  hi
+ has type
+  ∑ x_1, G i.castSucc x_1.castSucc * x x_1 + G i.castSucc 6 = 0
+but is expected to have type
+  ∑ x_1, G i.castSucc x_1.castSucc * x x_1 + G i.castSucc ⟨6, ⋯⟩ * Fin.snoc x 1 ⟨6, ⋯⟩ = 0
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1741:10: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1673:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1762:8: error: (kernel) unknown constant '_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_contact_bounds'
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1783:8: error: (kernel) unknown constant '_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_contact_bounds'

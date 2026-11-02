@@ -1,0 +1,47 @@
+{
+  "operation": "stage66-outer-capture",
+  "scope": "outer",
+  "script_argv": [
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+    "--run-dir",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/outer/inventory-classify001",
+    "--cwd",
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "--scope",
+    "outer",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+    "inventory-classify001",
+    "documentary",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/classify_inventory.py",
+    "production"
+  ],
+  "command_argv": [
+    "python3",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+    "inventory-classify001",
+    "documentary",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/classify_inventory.py",
+    "production"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "started_utc": "2026-10-28T23:37:03.998514+00:00",
+  "original_split_streams": true,
+  "environment_recorded": {
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "credential_environment_logged": false,
+  "automatic_retry": false,
+  "ended_utc": "2026-10-28T23:37:04.079298+00:00",
+  "elapsed_seconds": 0.08078504700097255,
+  "child_exit_code": 0,
+  "spawn_or_wrapper_exception": null,
+  "stdout": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/inventory-classify001/stdout.log",
+  "stderr": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/inventory-classify001/stderr.log",
+  "status": "PASS_ACTUAL_CHILD_EXIT_ZERO"
+}

@@ -1,0 +1,127 @@
+/-
+Stage62 Helper B. Complete original private finite-horizon construction.
+Exact lexical input: CONTEXT.ORIGINAL.md, shared context001.
+Unelaborated TEXT only; helper executes no Lean/probe/build/check/hash.
+-/
+
+private theorem finiteHorizon_curve_unique
+    (V : E2 → E2) (K : ℝ≥0) (hlip : LipschitzWith K V)
+    (D : ℝ) (hD : 0 < D) (f g : ℝ → E2)
+    (hf : ∀ t ∈ Set.Icc (-D) D,
+      HasDerivWithinAt f (V (f t)) (Set.Icc (-D) D) t)
+    (hg : ∀ t ∈ Set.Icc (-D) D,
+      HasDerivWithinAt g (V (g t)) (Set.Icc (-D) D) t)
+    (heq : f 0 = g 0) : Set.EqOn f g (Set.Icc (-D) D) := by
+  have hfc : ContinuousOn f (Set.Icc (-D) D) :=
+    fun t ht => (hf t ht).continuousWithinAt
+  have hgc : ContinuousOn g (Set.Icc (-D) D) :=
+    fun t ht => (hg t ht).continuousWithinAt
+  exact ODE_solution_unique_of_mem_Icc
+    (v := fun _ => V) (s := fun _ => Set.univ) (K := K)
+    (a := -D) (b := D) (t₀ := (0 : ℝ))
+    (fun _ _ => hlip.lipschitzOnWith)
+    ⟨by linarith, hD⟩
+    hfc
+    (fun t ht => (hf t (Set.Ioo_subset_Icc_self ht)).hasDerivAt
+      (Icc_mem_nhds ht.1 ht.2))
+    (fun _ _ => Set.mem_univ _)
+    hgc
+    (fun t ht => (hg t (Set.Ioo_subset_Icc_self ht)).hasDerivAt
+      (Icc_mem_nhds ht.1 ht.2))
+    (fun _ _ => Set.mem_univ _)
+    heq
+
+private theorem boundedFiniteHorizonFamily {L : ℝ} (V : E2 → E2) (M K : ℝ≥0)
+    (hbound : ∀ X : E2, ‖V X‖ ≤ (M : ℝ)) (hlip : LipschitzWith K V)
+    (hper : ∀ (X : E2) (n : Fin 2 → ℤ), V (X + latticeVec 2 L n) = V X)
+    (T : ℝ) (hT : 0 ≤ T) :
+    ∃ H : ℝ → E2 → E2, FiniteHorizonFacts L V T H := by
+  classical
+  let D : ℝ := T + 1
+  have hD : 0 < D := by
+    dsimp [D]
+    linarith
+  let zeroTime : Set.Icc (-D) D := ⟨0, by constructor <;> linarith⟩
+  let outer : ℝ≥0 := 1 + M * ⟨D, le_of_lt hD⟩
+  have hlocal (Z : E2) :
+      ∃ alpha : E2 × ℝ → E2,
+        (∀ X ∈ Metric.closedBall Z (1 : ℝ), alpha (X, 0) = X ∧
+          ∀ t ∈ Set.Icc (-D) D,
+            HasDerivWithinAt (fun u => alpha (X, u))
+              (V (alpha (X, t))) (Set.Icc (-D) D) t) ∧
+        ContinuousOn alpha (Metric.closedBall Z (1 : ℝ) ×ˢ Set.Icc (-D) D) := by
+    have hpic : IsPicardLindelof (fun _ => V) zeroTime Z outer 1 M K := by
+      apply IsPicardLindelof.of_time_independent
+      · intro X _hX
+        exact hbound X
+      · exact hlip.lipschitzOnWith
+      · change (M : ℝ) * max (D - 0) (0 - -D) ≤ (outer : ℝ) - 1
+        simp [outer]
+    exact hpic.exists_forall_mem_closedBall_eq_hasDerivWithinAt_continuousOn
+  let alpha : E2 → E2 × ℝ → E2 := fun Z => Classical.choose (hlocal Z)
+  have halpha (Z : E2) :
+      ∀ X ∈ Metric.closedBall Z (1 : ℝ), alpha Z (X, 0) = X ∧
+        ∀ t ∈ Set.Icc (-D) D,
+          HasDerivWithinAt (fun u => alpha Z (X, u))
+            (V (alpha Z (X, t))) (Set.Icc (-D) D) t :=
+    (Classical.choose_spec (hlocal Z)).1
+  have halphaContinuous (Z : E2) :
+      ContinuousOn (alpha Z) (Metric.closedBall Z (1 : ℝ) ×ˢ Set.Icc (-D) D) :=
+    (Classical.choose_spec (hlocal Z)).2
+  let H : ℝ → E2 → E2 := fun t X => alpha X (X, t)
+  have hHinitial (X : E2) : H 0 X = X :=
+    (halpha X X (Metric.mem_closedBall_self (by norm_num))).1
+  have hHwithin (X : E2) (t : ℝ) (ht : t ∈ Set.Icc (-D) D) :
+      HasDerivWithinAt (fun u => H u X) (V (H t X)) (Set.Icc (-D) D) t :=
+    (halpha X X (Metric.mem_closedBall_self (by norm_num))).2 t ht
+  have hcompare (Z Y : E2) (hY : Y ∈ Metric.closedBall Z (1 : ℝ)) :
+      Set.EqOn (fun t => H t Y) (fun t => alpha Z (Y, t)) (Set.Icc (-D) D) := by
+    apply finiteHorizon_curve_unique V K hlip D hD
+      (fun t => H t Y) (fun t => alpha Z (Y, t))
+    · exact hHwithin Y
+    · exact (halpha Z Y hY).2
+    · exact (hHinitial Y).trans (halpha Z Y hY).1.symm
+  have htimeInterior (t : ℝ) (ht : t ∈ Set.Icc (0 : ℝ) T) :
+      t ∈ Set.Ioo (-D) D := by
+    constructor <;> dsimp [D] <;> linarith [ht.1, ht.2]
+  have hHjoint : ContinuousOn (fun z : E2 × ℝ => H z.2 z.1)
+      (Set.univ ×ˢ Set.Icc (0 : ℝ) T) := by
+    intro z hz
+    have hti := htimeInterior z.2 hz.2
+    have hneigh :
+        Metric.closedBall z.1 (1 : ℝ) ×ˢ Set.Icc (-D) D ∈ 𝓝 z :=
+      prod_mem_nhds (Metric.closedBall_mem_nhds z.1 (by norm_num))
+        (Icc_mem_nhds hti.1 hti.2)
+    have hzin : z ∈ Metric.closedBall z.1 (1 : ℝ) ×ˢ Set.Icc (-D) D :=
+      ⟨Metric.mem_closedBall_self (by norm_num), Set.Ioo_subset_Icc_self hti⟩
+    have halphaAt : ContinuousAt (alpha z.1) z :=
+      ((halphaContinuous z.1).continuousWithinAt hzin).continuousAt hneigh
+    have hevent : (fun w : E2 × ℝ => H w.2 w.1) =ᶠ[𝓝 z] alpha z.1 := by
+      exact Filter.Eventually.mono hneigh fun w hw =>
+        (hcompare z.1 w.1 hw.1) hw.2
+    exact (halphaAt.congr_of_eventuallyEq hevent).continuousWithinAt
+  have hHfull (X : E2) (t : ℝ) (ht : t ∈ Set.Icc (0 : ℝ) T) :
+      HasDerivAt (fun u => H u X) (V (H t X)) t := by
+    have hti := htimeInterior t ht
+    exact (hHwithin X t (Set.Ioo_subset_Icc_self hti)).hasDerivAt
+      (Icc_mem_nhds hti.1 hti.2)
+  have hHequiv (t : ℝ) (ht : t ∈ Set.Icc (0 : ℝ) T)
+      (X : E2) (n : Fin 2 → ℤ) :
+      H t (X + latticeVec 2 L n) = H t X + latticeVec 2 L n := by
+    let lambda : E2 := latticeVec 2 L n
+    have htranslate (u : ℝ) (hu : u ∈ Set.Icc (-D) D) :
+        HasDerivWithinAt (fun v => H v X + lambda)
+          (V (H u X + lambda)) (Set.Icc (-D) D) u := by
+      change HasDerivWithinAt (fun v => H v X + lambda)
+        (V (H u X + latticeVec 2 L n)) (Set.Icc (-D) D) u
+      rw [hper (H u X) n]
+      exact (hHwithin X u hu).add_const lambda
+    have heq : Set.EqOn (fun u => H u (X + lambda))
+        (fun u => H u X + lambda) (Set.Icc (-D) D) := by
+      apply finiteHorizon_curve_unique V K hlip D hD
+        (fun u => H u (X + lambda)) (fun u => H u X + lambda)
+      · exact hHwithin (X + lambda)
+      · exact htranslate
+      · rw [hHinitial, hHinitial]
+    exact heq (Set.Ioo_subset_Icc_self (htimeInterior t ht))
+  exact ⟨H, hHinitial, hHjoint, hHfull, hHequiv⟩

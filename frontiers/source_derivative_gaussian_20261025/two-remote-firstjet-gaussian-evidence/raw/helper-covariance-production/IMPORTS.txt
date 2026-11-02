@@ -1,0 +1,8 @@
+import SourceRemoteJetGaussian
+
+-- No added producer import is needed: SourceRemoteJetGaussian already
+-- supplies ContactJetCovariance and the public covariance/summability APIs.
+-- Producer context: noncomputable section; set_option autoImplicit false
+-- open MeasureTheory ProbabilityTheory
+-- open scoped BigOperators Matrix Topology
+-- namespace I4SourceTwoRemoteFirstJetGaussian

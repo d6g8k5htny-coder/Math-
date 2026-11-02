@@ -1,0 +1,8 @@
+/workspace/scratch/remote-jet-witness-construct/FalseCollisionMutation.lean:16:102: error: unsolved goals
+_hL : 2 ≠ 0
+_hxS hretained_separation : I4Torus.torusProjection 2 2 (endpointM 1) ≠ I4Torus.torusProjection 2 2 (endpointS 1)
+hcounterexample :
+  ¬∃ v,
+      (∀ (i s : Fin 6), finitePairing (rawPinCoefficient 2 1 i) (v s) = 0) ∧
+        ∀ (j s : Fin 6), finitePairing (remoteJetCoefficient 2 (endpointM 1) j) (v s) = if j = s then 1 else 0
+⊢ False

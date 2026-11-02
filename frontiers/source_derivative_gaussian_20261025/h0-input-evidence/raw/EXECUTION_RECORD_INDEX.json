@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "assembled_utc": "2026-10-26T09:31:38.634171+00:00",
+  "frozen_utc": "2026-10-26T09:30:05.895524+00:00",
+  "new_lean_launch_count": 4,
+  "strict_success_count": 4,
+  "strict_failure_count": 0,
+  "compile_receipts": [
+    "/workspace/scratch/actual-h0-support-inputs/runs/ClosedSuperlevel-strict-001/receipt.json",
+    "/workspace/scratch/actual-h0-support-inputs/runs/OrdinaryH0-strict-001/receipt.json",
+    "/workspace/scratch/actual-h0-support-inputs/runs/ElderInterval-strict-001/receipt.json",
+    "/workspace/scratch/actual-h0-support-inputs/runs/ElderBridge-strict-001/receipt.json"
+  ],
+  "all_compile_sources_join_literal_body_bindings": true,
+  "BINDINGS": {
+    "path": "/workspace/scratch/actual-h0-support-inputs/BINDINGS.json",
+    "bytes": 6296,
+    "sha256": "6d13b3a1d1c15cc534322f6ff2acc7d1123ce14838c6b71088b0663f1774aae9"
+  },
+  "ARTIFACTS": {
+    "path": "/workspace/scratch/actual-h0-support-inputs/ARTIFACTS.json",
+    "bytes": 4265,
+    "sha256": "72b5392c8c069e432403e6158c5474eb16af9da2369c0a90a1b209b7e9db4c38"
+  },
+  "REPORT": {
+    "path": "/workspace/scratch/actual-h0-support-inputs/REPORT.md",
+    "bytes": 11394,
+    "sha256": "2de952297959ef6889bab23bd26c5220403a58d55412ff8f542f28952a1fee3d"
+  },
+  "environment": {
+    "path": "/workspace/scratch/actual-h0-support-inputs/environment.json",
+    "bytes": 2077,
+    "sha256": "b84e5e9b369c78c9e9f335b70449d0fccf8ecf7860fc34258f1e2d2d05a37ef0"
+  },
+  "prepare_runner": {
+    "path": "/workspace/scratch/actual-h0-support-inputs/prepare.py",
+    "bytes": 6651,
+    "sha256": "c141f5d1bddf45cb378fcc51158cc4309df6454150a9bf99c73513cca3bf8b3d"
+  },
+  "compile_runner": {
+    "path": "/workspace/scratch/actual-h0-support-inputs/compile.py",
+    "bytes": 2669,
+    "sha256": "8c25cbf6987b1c0a96ca5ab033a81c79a5de64ac3e0fb12baa27f56e926ffa0a"
+  },
+  "historical_and_spec_snapshots": [
+    {
+      "path": "/workspace/scratch/actual-h0-support-inputs/evidence/LOCAL_FORMAL_EXECUTION_REPORT.md",
+      "bytes": 4766,
+      "sha256": "e20efb5dc96454882d64f4e96138e6acfbcf4d7baab96734bfafa7c7cacc9031"
+    },
+    {
+      "path": "/workspace/scratch/actual-h0-support-inputs/evidence/LOCAL_FORMAL_EXECUTION_RESULT.json",
+      "bytes": 26734,
+      "sha256": "41f64cd793ef7b72256755b22286ec90ea7fd27ec0e5879096ad768a405976e7"
+    },
+    {
+      "path": "/workspace/scratch/actual-h0-support-inputs/evidence/NONAUTHOR_ELDER_BRIDGE_REVIEW.json",
+      "bytes": 10371,
+      "sha256": "12663581d5cbaa5d06b63674961cfc13cee389c5dd7bbf514f98d401b8546b32"
+    },
+    {
+      "path": "/workspace/scratch/actual-h0-support-inputs/evidence/SOURCE_ACTUAL_FOLD_H0.md",
+      "bytes": 5074,
+      "sha256": "6208e87f2096687bfed828c5f49b51767ffcaba4b34cd84a94d996a3ace63ff6"
+    },
+    {
+      "path": "/workspace/scratch/actual-h0-support-inputs/evidence/SOURCE_ACTUAL_FOLD_H0_PLAN.md",
+      "bytes": 1516,
+      "sha256": "7b7fc49fd43d5e196ba5878366e5cb37e099a83af48b9b6d9d99e282987a7e00"
+    }
+  ],
+  "no_further_lean_launch_planned": true
+}
