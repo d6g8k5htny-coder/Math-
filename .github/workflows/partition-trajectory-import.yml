@@ -1,0 +1,107 @@
+name: Partition-trajectory candidate import
+
+'on':
+  pull_request:
+    paths:
+      - 'imports/partition_trajectory_20261101/**'
+      - '.github/workflows/partition-trajectory-import.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'imports/partition_trajectory_20261101/**'
+      - '.github/workflows/partition-trajectory-import.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  candidate-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.11.16'
+      - name: Replay owner manifest, tests, and finite checkpoints
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          set -euo pipefail
+          packet=imports/partition_trajectory_20261101
+          python -B -S - <<'PY'
+          import hashlib, pathlib, sys
+          root = pathlib.Path("imports/partition_trajectory_20261101")
+          lines = [line.strip() for line in (root / "MANIFEST.sha256").read_text().splitlines() if line.strip()]
+          if len(lines) != 22:
+              sys.exit(f"expected 22 manifest rows, found {len(lines)}")
+          for line in lines:
+              digest, rel = line.split(None, 1)
+              rel = rel[2:] if rel.startswith("./") else rel
+              got = hashlib.sha256((root / rel).read_bytes()).hexdigest()
+              if got != digest:
+                  sys.exit(f"manifest mismatch: {rel}")
+          print("manifest_rows 22 mismatches 0 scientific_effect NONE")
+          PY
+          (
+            cd "$packet"
+            python -B -S -m unittest discover -s tests -v
+            python -B -O -S -m unittest discover -s tests -v
+            python -B -S -m partition_trajectory > /tmp/partition-trajectory.json
+            python -B -O -S -m partition_trajectory > /tmp/partition-trajectory-opt.json
+            cmp /tmp/partition-trajectory.json /tmp/partition-trajectory-opt.json
+          )
+          python -B -S - <<'PY'
+          import json, math, pathlib, sys
+          data = json.loads(pathlib.Path("/tmp/partition-trajectory.json").read_text())
+
+          def close(name, got, expected):
+              if not math.isclose(got, expected, rel_tol=0.0, abs_tol=1e-9):
+                  sys.exit(f"{name}: {got} != {expected}")
+
+          if data["parity_reuse"]["solution_count"] != 4:
+              sys.exit("parity")
+          xz = data["x_then_z"]
+          if xz["solution_count"] != 0 or xz["obstruction_stage"] != 1:
+              sys.exit("x-then-z")
+          if xz["obstruction_cell"] != [[0, 0], [0, 1]]:
+              sys.exit("x-then-z cell")
+          greedy = data["greedy_retention"]
+          if greedy["solution_count"] != 36:
+              sys.exit("greedy count")
+          if greedy["first_final_partition"] != [[[0, 0]], [[0, 1]], [[1, 0], [1, 1]]]:
+              sys.exit("greedy partition")
+          flex = data["flexibility_frontier"]
+          if (flex["empty"], flex["O0_only"], flex["O1_only"], flex["joint"]) != (108, 36, 36, 0):
+              sys.exit("flexibility")
+          div = data["single_task_divergence"]
+          close("floor", div["fully_informed_floor"], 0.12)
+          frontier = div["pareto_frontier"]
+          if len(frontier) != 2:
+              sys.exit("pareto length")
+          close("pareto0 risk", frontier[0][0], 0.12)
+          close("pareto0 mi", frontier[0][1], 0.28191725917176846)
+          close("pareto1 risk", frontier[1][0], 0.25)
+          close("pareto1 mi", frontier[1][1], 0.31127812445913283)
+          three = data["temporal_option_game_3"]
+          four = data["temporal_option_game_4"]
+          if three["frontier"] != [[0.0, 0.0, 0.25], [0.0, 0.25, 0.0], [0.25, 0.0, 0.0]] or three["all_zero"]:
+              sys.exit("temporal 3")
+          if not four["all_zero"]:
+              sys.exit("temporal 4")
+          mini = data["randomized_minimax"]
+          close("minimax dist", mini["distribution_level_minimax"], 0.125)
+          close("minimax real", mini["realization_level_risk"], 0.25)
+          asym = data["asymmetric_visibility"]
+          close("gap", asym["premia"]["gap"], 0.0225)
+          close("robust", asym["expected_loss"]["robust"], 0.475)
+          close("mixture", asym["expected_loss"]["specialized_mixture"], 0.5375)
+          rows = data["correlated_boundary"]["rows"]
+          for key, expected in (("0.0", 0.0), ("0.06", 0.03), ("0.1", 0.05), ("0.2", 0.05)):
+              close("kappa " + key, rows[key]["gap"], expected)
+          print("checkpoints matched docs/verification.md; credit 0; OBL OPEN; scientific_effect NONE")
+          PY
+          git diff --exit-code

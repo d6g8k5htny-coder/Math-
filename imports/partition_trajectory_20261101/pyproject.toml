@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "partition-trajectory"
+version = "1.0.0"
+description = "Executable finite models of causal information trajectories and actionable possibility"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.setuptools]
+packages = ["partition_trajectory"]
