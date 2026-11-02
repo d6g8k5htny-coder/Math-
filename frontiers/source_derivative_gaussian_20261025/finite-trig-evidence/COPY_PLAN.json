@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "execution_owner": "root",
+  "executed_by_packaging_agent": false,
+  "source_cut": "32732ff7c343b6ee0fd5b66cbdf72cda3cf48f2c",
+  "source_path": "frontiers/source_derivative_gaussian_20261025/SourceFiniteTrig.lean",
+  "source_sha256": "d0f0dea0b2f8296d129a3759271076848e35dd5a4b1ab2f5f0cee58837c72b14",
+  "copies": [
+    {
+      "source": "/workspace/scratch/finite-trig-construct/build/SourceFiniteTrig.olean",
+      "destination": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceFiniteTrig.olean",
+      "bytes": 508920,
+      "sha256": "5b96c7d331cd73697379c52a59a5b93749c134d89971b6926a79def657949c4c"
+    }
+  ],
+  "no_ilean_produced": true,
+  "guidance": "Root creates the destination parent and copies only this named final source-bound olean. Reuse strict/helper/kernel evidence; no freshness/ilean compile and no helper/control/inventory/mutation/earlier-attempt object copy.",
+  "scientific_effect": "NONE"
+}

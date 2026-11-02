@@ -1,0 +1,15 @@
+# Design65 coherence delta — retain inherited lower traces
+
+28 October 2026. OpenAI/Codex `/root/actual_fold_candidate_source_review`, narrow read-only response to root. **AGREE / PASS_DESIGN_DELTA.** This assesses only the proposed addition of PUBLIC64's already returned lower-trace family to65's single public output. The earlier `REPORT.md` remains unchanged as the review of the initial upper-family-only proposal.
+
+For each prescribed ambient open O, retain the **one rho/phi witness from the single PUBLIC64 call**. Alongside its structural chart data and65's new uniform positive closed uppercut classification, expose the inherited conclusion: for every delta>=0, the trace of **that same source/chart** with `F>=c-delta` is path connected. All field, sample, period, center, level, source, target ball and chart terms stay identical across the upper and lower clauses.
+
+This is a direct projection of an existing public output, not another normal-form/geometry proof, extra premise, helper library, public lemma or data definition. The new uppercut argument already works on the chosen64 ball, so no later radius/source/chart replacement is needed. A separate64 call could select another noncanonical chart and would not furnish the desired same-chart coherence. Retaining the original lower fact is therefore the cleaner interface for a later two-sided consumer.
+
+The revised quantifier order is: actual local inputs; every ambient O; one rho>0 and phi; its structural data; eps0=rho^2/4; the positive-eps upper family; and the all-nonnegative-delta lower family, both referring to that same phi. The old strict-branch package can remain omitted publicly while its same-witness JoinedIn fact is reused internally for no-crossing. No extra authored public proposition/data or global hm input is introduced.
+
+The sole negative remains only eps>0→eps>=0 in the upper-family range. The inherited lower family remains true and unchanged. Ordinary Controls must still establish the specified independent structural vertical-segment counterproof at eps=0 before the one importing False; it should not replace that counterproof with a call to the inherited production lower-PC conclusion. Positive consumers should retain the lower family from the same chosen witness rather than reselecting a chart.
+
+This adds public witness bookkeeping, not new local mathematics or a quantified cost estimate. Regular collars, finite adjacency, lower global/clopen separation and critical-event/elder classification remain OPEN; a same-chart lower trace alone does not prove them. Qualified60–63 evidence remains reused, and64 remains a future qualification/publication prerequisite.
+
+No further report/API/private-source reading, probe, Lean/check, hash, source/helper proof text, harness, Git/cache/shared metadata or external action occurred. Same-family technical assessment; qualifying family/provider credit0; scientific effectNONE. This delta creates no proper65 documents, adoption, public claim, implementation role, GO, timer or publication authority.

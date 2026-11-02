@@ -1,0 +1,33 @@
+{
+  "recorded_utc": "2026-10-26T09:29:30.967922+00:00",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+  "python": "3.12.14",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "lake": {
+    "path": "/home/agent/.elan/bin/lake",
+    "bytes": 13452832,
+    "sha256": "e0f4b30b29c565625189744847dfef5f132b6322c5e452dbebfeae780c9749e5"
+  },
+  "lean_version_command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "--version"
+  ],
+  "lean_version": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "mathlib_head_command": [
+    "git",
+    "-C",
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/packages/mathlib",
+    "rev-parse",
+    "HEAD"
+  ],
+  "mathlib_head": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "lean_path_command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "printenv",
+    "LEAN_PATH"
+  ],
+  "base_lean_path": "/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Cli/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/batteries/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Qq/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/aesop/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/plausible/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean:/home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean"
+}

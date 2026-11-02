@@ -1,0 +1,87 @@
+⚠ [2556/2560] Built ResearchFormalCoreR1.AlgebraV2 (4.4s)
+warning: ResearchFormalCoreR1/AlgebraV2.lean:1:0: 'Mathlib.Data.Real.Basic' has been deprecated: please replace this import by
+
+import Mathlib.Basic.Real.Basic
+⚠ [2557/2560] Built ResearchFormalCoreR1.ProbabilityCompanionsV2 (4.3s)
+warning: ResearchFormalCoreR1/ProbabilityCompanionsV2.lean:1:0: 'Mathlib.Data.Real.Sqrt' has been deprecated: please replace this import by
+
+import Mathlib.Analysis.Real.Sqrt
+warning: ResearchFormalCoreR1/ProbabilityCompanionsV2.lean:27:18: Variable name `hcW` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcW
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ResearchFormalCoreR1/ProbabilityCompanionsV2.lean:27:48: Variable name `hq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✖ [2558/2560] Building ResearchFormalCoreR1.DeterminantMoment (10s)
+trace: .> LEAN_PATH=/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Cli/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/batteries/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Qq/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/aesop/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/plausible/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/build/lib/lean /home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean /workspace/Math-/frontiers/determinant_moment_20261025/ResearchFormalCoreR1/DeterminantMoment.lean -o /workspace/Math-/frontiers/determinant_moment_20261025/.lake/build/lib/lean/ResearchFormalCoreR1/DeterminantMoment.olean -i /workspace/Math-/frontiers/determinant_moment_20261025/.lake/build/lib/lean/ResearchFormalCoreR1/DeterminantMoment.ilean -c /workspace/Math-/frontiers/determinant_moment_20261025/.lake/build/ir/ResearchFormalCoreR1/DeterminantMoment.c --setup /workspace/Math-/frontiers/determinant_moment_20261025/.lake/build/ir/ResearchFormalCoreR1/DeterminantMoment.setup.json --json
+error: ResearchFormalCoreR1/DeterminantMoment.lean:174:4: `fun_prop` was unable to prove `Continuous fun j =>
+  !![-r + r ^ 2 * j 4 / 12, -j 1 * r / 2 + r ^ 2 * j 5 / 12;
+          -j 1 * r / 2 + r ^ 2 * j 5 / 12, j 0 - r * j 2 / 2 + r ^ 2 * j 6 / 8]
+        0 0 *
+      !![-r + r ^ 2 * j 4 / 12, -j 1 * r / 2 + r ^ 2 * j 5 / 12;
+          -j 1 * r / 2 + r ^ 2 * j 5 / 12, j 0 - r * j 2 / 2 + r ^ 2 * j 6 / 8]
+        1 1 -
+    !![-r + r ^ 2 * j 4 / 12, -j 1 * r / 2 + r ^ 2 * j 5 / 12;
+          -j 1 * r / 2 + r ^ 2 * j 5 / 12, j 0 - r * j 2 / 2 + r ^ 2 * j 6 / 8]
+        0 1 *
+      !![-r + r ^ 2 * j 4 / 12, -j 1 * r / 2 + r ^ 2 * j 5 / 12;
+          -j 1 * r / 2 + r ^ 2 * j 5 / 12, j 0 - r * j 2 / 2 + r ^ 2 * j 6 / 8]
+        1 0`
+
+Issues:
+  No theorems found for `Matrix.of` in order to prove `Continuous fun x3 => Matrix.of x3 0 0`
+  No theorems found for `Matrix.of` in order to prove `Continuous fun x3 => Matrix.of x3 0`
+  No theorems found for `Matrix.of` in order to prove `Continuous fun x3 => Matrix.of x3`
+  No theorems found for `Matrix.of` in order to prove `Continuous fun x =>
+  !![-r + r ^ 2 * x 4 / 12, -x 1 * r / 2 + r ^ 2 * x 5 / 12;
+    -x 1 * r / 2 + r ^ 2 * x 5 / 12, x 0 - r * x 2 / 2 + r ^ 2 * x 6 / 8]`
+  No theorems found for `Matrix.of` in order to prove `Continuous fun x =>
+  !![-r + r ^ 2 * x 4 / 12, -x 1 * r / 2 + r ^ 2 * x 5 / 12;
+      -x 1 * r / 2 + r ^ 2 * x 5 / 12, x 0 - r * x 2 / 2 + r ^ 2 * x 6 / 8]
+    0`
+  No theorems found for `Matrix.of` in order to prove `Continuous fun x =>
+  !![-r + r ^ 2 * x 4 / 12, -x 1 * r / 2 + r ^ 2 * x 5 / 12;
+      -x 1 * r / 2 + r ^ 2 * x 5 / 12, x 0 - r * x 2 / 2 + r ^ 2 * x 6 / 8]
+    0 0`
+error: ResearchFormalCoreR1/DeterminantMoment.lean:177:4: `fun_prop` was unable to prove `Continuous fun j =>
+  !![r + r ^ 2 * j 4 / 12, j 1 * r / 2 + r ^ 2 * j 5 / 12;
+          j 1 * r / 2 + r ^ 2 * j 5 / 12, j 0 + r * j 2 / 2 + r ^ 2 * j 6 / 8]
+        0 0 *
+      !![r + r ^ 2 * j 4 / 12, j 1 * r / 2 + r ^ 2 * j 5 / 12;
+          j 1 * r / 2 + r ^ 2 * j 5 / 12, j 0 + r * j 2 / 2 + r ^ 2 * j 6 / 8]
+        1 1 -
+    !![r + r ^ 2 * j 4 / 12, j 1 * r / 2 + r ^ 2 * j 5 / 12;
+          j 1 * r / 2 + r ^ 2 * j 5 / 12, j 0 + r * j 2 / 2 + r ^ 2 * j 6 / 8]
+        0 1 *
+      !![r + r ^ 2 * j 4 / 12, j 1 * r / 2 + r ^ 2 * j 5 / 12;
+          j 1 * r / 2 + r ^ 2 * j 5 / 12, j 0 + r * j 2 / 2 + r ^ 2 * j 6 / 8]
+        1 0`
+
+Issues:
+  No theorems found for `Matrix.of` in order to prove `Continuous fun x3 => Matrix.of x3 0 0`
+  No theorems found for `Matrix.of` in order to prove `Continuous fun x3 => Matrix.of x3 0`
+  No theorems found for `Matrix.of` in order to prove `Continuous fun x3 => Matrix.of x3`
+  No theorems found for `Matrix.of` in order to prove `Continuous fun x =>
+  !![r + r ^ 2 * x 4 / 12, x 1 * r / 2 + r ^ 2 * x 5 / 12;
+    x 1 * r / 2 + r ^ 2 * x 5 / 12, x 0 + r * x 2 / 2 + r ^ 2 * x 6 / 8]`
+  No theorems found for `Matrix.of` in order to prove `Continuous fun x =>
+  !![r + r ^ 2 * x 4 / 12, x 1 * r / 2 + r ^ 2 * x 5 / 12;
+      x 1 * r / 2 + r ^ 2 * x 5 / 12, x 0 + r * x 2 / 2 + r ^ 2 * x 6 / 8]
+    0`
+  No theorems found for `Matrix.of` in order to prove `Continuous fun x =>
+  !![r + r ^ 2 * x 4 / 12, x 1 * r / 2 + r ^ 2 * x 5 / 12;
+      x 1 * r / 2 + r ^ 2 * x 5 / 12, x 0 + r * x 2 / 2 + r ^ 2 * x 6 / 8]
+    0 0`
+error: ResearchFormalCoreR1/DeterminantMoment.lean:188:63: Invalid field `abs`: The environment does not contain `Function.abs`, so it is not possible to project the field `abs` from an expression
+  Measurable.mul (Continuous.measurable hm) (Continuous.measurable hs)
+of type
+  ∀ ⦃t : Set ℝ⦄, MeasurableSet t → MeasurableSet (((fun j => (dm2HM r j).det) * fun j => (dm2HS r j).det) ⁻¹' t)
+Some required targets logged failures:
+- ResearchFormalCoreR1.DeterminantMoment
+error: build failed

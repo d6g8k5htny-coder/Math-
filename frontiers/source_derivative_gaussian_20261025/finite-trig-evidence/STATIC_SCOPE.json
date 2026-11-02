@@ -1,0 +1,28 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFiniteTrig.lean",
+    "bytes": 12393,
+    "sha256": "d0f0dea0b2f8296d129a3759271076848e35dd5a4b1ab2f5f0cee58837c72b14"
+  },
+  "imports": [
+    "SourceFinitePinKernel",
+    "SourceContactCovariance",
+    "Mathlib.LinearAlgebra.Finsupp.LinearCombination"
+  ],
+  "forbidden_matches": [],
+  "public_written_prop_count": 7,
+  "public_written_data": "7definitions+1TrigPolyabbrev+1TrigTermstructure",
+  "private_written": "16proofs+3definitions, including7private helper declarations integratedonce",
+  "all_real_period_algebra": true,
+  "source_conversion_assumption": "OnlyhL:L\u22600 for sourcecorrectness; totaltoSource independent ofhL. Actual none/nonzerohalfLattice representatives/amplitudes and offset/sign conventions preserved.",
+  "derivative_adapter": "Literal smoothSourceField_derivative_series on finiteShiftSample(toSourceLp)(zeroSample2L), alln/u/x includingn0. No new infinite-series differentiation proof.",
+  "nonclaims": [
+    "actualremotejet rank/witness",
+    "torus-coordinate separation/pinannihilation/local2jet inverse",
+    "residual covariance/Gaussian law",
+    "conditional globalMorse/distinct on prescribedpositivegapfibers",
+    "jointvalueincidence/selection",
+    "canonicalLifetime/H0labels",
+    "generalframes/Rice/ParentLean"
+  ]
+}

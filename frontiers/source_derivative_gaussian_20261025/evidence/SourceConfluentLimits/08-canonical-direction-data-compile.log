@@ -1,0 +1,392 @@
+SourceConfluentLimits.lean:318:14: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+SourceConfluentLimits.lean:322:14: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+SourceConfluentLimits.lean:326:14: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+SourceConfluentLimits.lean:330:14: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+SourceConfluentLimits.lean:365:12: error: Tactic `rfl` failed: The left-hand side
+  derivativeCoefficient 2 L (![0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2] ⟨2, ⋯⟩)
+    (![endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointM r,
+        endpointM r, endpointS r, endpointS r, endpointS r]
+      ⟨2, ⋯⟩)
+    (rawDerivativeDirections ⟨2, ⋯⟩) m
+is not definitionally equal to the right-hand side
+  ![modeF L m (-r / 2), modeF L m (r / 2), derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionX] m,
+      derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionX] m, modeH L m (-r / 2), modeH L m (r / 2),
+      derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionX] m,
+      derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionY] m, modeYY L m (-r / 2),
+      derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionX] m,
+      derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionY] m, modeYY L m (r / 2)]
+    ⟨2, ⋯⟩
+
+case «2»
+L r : ℝ
+m : SourceMode 2
+⊢ derivativeCoefficient 2 L (![0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2] ⟨2, ⋯⟩)
+      (![endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointM r,
+          endpointM r, endpointS r, endpointS r, endpointS r]
+        ⟨2, ⋯⟩)
+      (rawDerivativeDirections ⟨2, ⋯⟩) m =
+    ![modeF L m (-r / 2), modeF L m (r / 2), derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionX] m,
+        derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionX] m, modeH L m (-r / 2), modeH L m (r / 2),
+        derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionX] m,
+        derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionY] m, modeYY L m (-r / 2),
+        derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionX] m,
+        derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionY] m, modeYY L m (r / 2)]
+      ⟨2, ⋯⟩
+SourceConfluentLimits.lean:365:12: error: Tactic `rfl` failed: The left-hand side
+  derivativeCoefficient 2 L (![0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2] ⟨3, ⋯⟩)
+    (![endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointM r,
+        endpointM r, endpointS r, endpointS r, endpointS r]
+      ⟨3, ⋯⟩)
+    (rawDerivativeDirections ⟨3, ⋯⟩) m
+is not definitionally equal to the right-hand side
+  ![modeF L m (-r / 2), modeF L m (r / 2), derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionX] m,
+      derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionX] m, modeH L m (-r / 2), modeH L m (r / 2),
+      derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionX] m,
+      derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionY] m, modeYY L m (-r / 2),
+      derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionX] m,
+      derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionY] m, modeYY L m (r / 2)]
+    ⟨3, ⋯⟩
+
+case «3»
+L r : ℝ
+m : SourceMode 2
+⊢ derivativeCoefficient 2 L (![0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2] ⟨3, ⋯⟩)
+      (![endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointM r,
+          endpointM r, endpointS r, endpointS r, endpointS r]
+        ⟨3, ⋯⟩)
+      (rawDerivativeDirections ⟨3, ⋯⟩) m =
+    ![modeF L m (-r / 2), modeF L m (r / 2), derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionX] m,
+        derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionX] m, modeH L m (-r / 2), modeH L m (r / 2),
+        derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionX] m,
+        derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionY] m, modeYY L m (-r / 2),
+        derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionX] m,
+        derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionY] m, modeYY L m (r / 2)]
+      ⟨3, ⋯⟩
+SourceConfluentLimits.lean:365:12: error: Tactic `rfl` failed: The left-hand side
+  derivativeCoefficient 2 L (![0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2] ⟨4, ⋯⟩)
+    (![endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointM r,
+        endpointM r, endpointS r, endpointS r, endpointS r]
+      ⟨4, ⋯⟩)
+    (rawDerivativeDirections ⟨4, ⋯⟩) m
+is not definitionally equal to the right-hand side
+  ![modeF L m (-r / 2), modeF L m (r / 2), derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionX] m,
+      derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionX] m, modeH L m (-r / 2), modeH L m (r / 2),
+      derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionX] m,
+      derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionY] m, modeYY L m (-r / 2),
+      derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionX] m,
+      derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionY] m, modeYY L m (r / 2)]
+    ⟨4, ⋯⟩
+
+case «4»
+L r : ℝ
+m : SourceMode 2
+⊢ derivativeCoefficient 2 L (![0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2] ⟨4, ⋯⟩)
+      (![endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointM r,
+          endpointM r, endpointS r, endpointS r, endpointS r]
+        ⟨4, ⋯⟩)
+      (rawDerivativeDirections ⟨4, ⋯⟩) m =
+    ![modeF L m (-r / 2), modeF L m (r / 2), derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionX] m,
+        derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionX] m, modeH L m (-r / 2), modeH L m (r / 2),
+        derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionX] m,
+        derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionY] m, modeYY L m (-r / 2),
+        derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionX] m,
+        derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionY] m, modeYY L m (r / 2)]
+      ⟨4, ⋯⟩
+SourceConfluentLimits.lean:365:12: error: Tactic `rfl` failed: The left-hand side
+  derivativeCoefficient 2 L (![0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2] ⟨5, ⋯⟩)
+    (![endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointM r,
+        endpointM r, endpointS r, endpointS r, endpointS r]
+      ⟨5, ⋯⟩)
+    (rawDerivativeDirections ⟨5, ⋯⟩) m
+is not definitionally equal to the right-hand side
+  ![modeF L m (-r / 2), modeF L m (r / 2), derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionX] m,
+      derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionX] m, modeH L m (-r / 2), modeH L m (r / 2),
+      derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionX] m,
+      derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionY] m, modeYY L m (-r / 2),
+      derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionX] m,
+      derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionY] m, modeYY L m (r / 2)]
+    ⟨5, ⋯⟩
+
+case «5»
+L r : ℝ
+m : SourceMode 2
+⊢ derivativeCoefficient 2 L (![0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2] ⟨5, ⋯⟩)
+      (![endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointM r,
+          endpointM r, endpointS r, endpointS r, endpointS r]
+        ⟨5, ⋯⟩)
+      (rawDerivativeDirections ⟨5, ⋯⟩) m =
+    ![modeF L m (-r / 2), modeF L m (r / 2), derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionX] m,
+        derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionX] m, modeH L m (-r / 2), modeH L m (r / 2),
+        derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionX] m,
+        derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionY] m, modeYY L m (-r / 2),
+        derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionX] m,
+        derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionY] m, modeYY L m (r / 2)]
+      ⟨5, ⋯⟩
+SourceConfluentLimits.lean:365:12: error: Tactic `rfl` failed: The left-hand side
+  derivativeCoefficient 2 L (![0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2] ⟨6, ⋯⟩)
+    (![endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointM r,
+        endpointM r, endpointS r, endpointS r, endpointS r]
+      ⟨6, ⋯⟩)
+    (rawDerivativeDirections ⟨6, ⋯⟩) m
+is not definitionally equal to the right-hand side
+  ![modeF L m (-r / 2), modeF L m (r / 2), derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionX] m,
+      derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionX] m, modeH L m (-r / 2), modeH L m (r / 2),
+      derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionX] m,
+      derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionY] m, modeYY L m (-r / 2),
+      derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionX] m,
+      derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionY] m, modeYY L m (r / 2)]
+    ⟨6, ⋯⟩
+
+case «6»
+L r : ℝ
+m : SourceMode 2
+⊢ derivativeCoefficient 2 L (![0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2] ⟨6, ⋯⟩)
+      (![endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointM r,
+          endpointM r, endpointS r, endpointS r, endpointS r]
+        ⟨6, ⋯⟩)
+      (rawDerivativeDirections ⟨6, ⋯⟩) m =
+    ![modeF L m (-r / 2), modeF L m (r / 2), derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionX] m,
+        derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionX] m, modeH L m (-r / 2), modeH L m (r / 2),
+        derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionX] m,
+        derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionY] m, modeYY L m (-r / 2),
+        derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionX] m,
+        derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionY] m, modeYY L m (r / 2)]
+      ⟨6, ⋯⟩
+SourceConfluentLimits.lean:365:12: error: Tactic `rfl` failed: The left-hand side
+  derivativeCoefficient 2 L (![0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2] ⟨7, ⋯⟩)
+    (![endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointM r,
+        endpointM r, endpointS r, endpointS r, endpointS r]
+      ⟨7, ⋯⟩)
+    (rawDerivativeDirections ⟨7, ⋯⟩) m
+is not definitionally equal to the right-hand side
+  ![modeF L m (-r / 2), modeF L m (r / 2), derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionX] m,
+      derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionX] m, modeH L m (-r / 2), modeH L m (r / 2),
+      derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionX] m,
+      derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionY] m, modeYY L m (-r / 2),
+      derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionX] m,
+      derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionY] m, modeYY L m (r / 2)]
+    ⟨7, ⋯⟩
+
+case «7»
+L r : ℝ
+m : SourceMode 2
+⊢ derivativeCoefficient 2 L (![0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2] ⟨7, ⋯⟩)
+      (![endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointM r,
+          endpointM r, endpointS r, endpointS r, endpointS r]
+        ⟨7, ⋯⟩)
+      (rawDerivativeDirections ⟨7, ⋯⟩) m =
+    ![modeF L m (-r / 2), modeF L m (r / 2), derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionX] m,
+        derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionX] m, modeH L m (-r / 2), modeH L m (r / 2),
+        derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionX] m,
+        derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionY] m, modeYY L m (-r / 2),
+        derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionX] m,
+        derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionY] m, modeYY L m (r / 2)]
+      ⟨7, ⋯⟩
+SourceConfluentLimits.lean:365:12: error: Tactic `rfl` failed: The left-hand side
+  derivativeCoefficient 2 L (![0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2] ⟨8, ⋯⟩)
+    (![endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointM r,
+        endpointM r, endpointS r, endpointS r, endpointS r]
+      ⟨8, ⋯⟩)
+    (rawDerivativeDirections ⟨8, ⋯⟩) m
+is not definitionally equal to the right-hand side
+  ![modeF L m (-r / 2), modeF L m (r / 2), derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionX] m,
+      derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionX] m, modeH L m (-r / 2), modeH L m (r / 2),
+      derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionX] m,
+      derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionY] m, modeYY L m (-r / 2),
+      derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionX] m,
+      derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionY] m, modeYY L m (r / 2)]
+    ⟨8, ⋯⟩
+
+case «8»
+L r : ℝ
+m : SourceMode 2
+⊢ derivativeCoefficient 2 L (![0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2] ⟨8, ⋯⟩)
+      (![endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointM r,
+          endpointM r, endpointS r, endpointS r, endpointS r]
+        ⟨8, ⋯⟩)
+      (rawDerivativeDirections ⟨8, ⋯⟩) m =
+    ![modeF L m (-r / 2), modeF L m (r / 2), derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionX] m,
+        derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionX] m, modeH L m (-r / 2), modeH L m (r / 2),
+        derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionX] m,
+        derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionY] m, modeYY L m (-r / 2),
+        derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionX] m,
+        derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionY] m, modeYY L m (r / 2)]
+      ⟨8, ⋯⟩
+SourceConfluentLimits.lean:365:12: error: Tactic `rfl` failed: The left-hand side
+  derivativeCoefficient 2 L (![0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2] ⟨9, ⋯⟩)
+    (![endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointM r,
+        endpointM r, endpointS r, endpointS r, endpointS r]
+      ⟨9, ⋯⟩)
+    (rawDerivativeDirections ⟨9, ⋯⟩) m
+is not definitionally equal to the right-hand side
+  ![modeF L m (-r / 2), modeF L m (r / 2), derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionX] m,
+      derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionX] m, modeH L m (-r / 2), modeH L m (r / 2),
+      derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionX] m,
+      derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionY] m, modeYY L m (-r / 2),
+      derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionX] m,
+      derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionY] m, modeYY L m (r / 2)]
+    ⟨9, ⋯⟩
+
+case «9»
+L r : ℝ
+m : SourceMode 2
+⊢ derivativeCoefficient 2 L (![0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2] ⟨9, ⋯⟩)
+      (![endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointM r,
+          endpointM r, endpointS r, endpointS r, endpointS r]
+        ⟨9, ⋯⟩)
+      (rawDerivativeDirections ⟨9, ⋯⟩) m =
+    ![modeF L m (-r / 2), modeF L m (r / 2), derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionX] m,
+        derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionX] m, modeH L m (-r / 2), modeH L m (r / 2),
+        derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionX] m,
+        derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionY] m, modeYY L m (-r / 2),
+        derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionX] m,
+        derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionY] m, modeYY L m (r / 2)]
+      ⟨9, ⋯⟩
+SourceConfluentLimits.lean:365:12: error: Tactic `rfl` failed: The left-hand side
+  derivativeCoefficient 2 L (![0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2] ⟨10, ⋯⟩)
+    (![endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointM r,
+        endpointM r, endpointS r, endpointS r, endpointS r]
+      ⟨10, ⋯⟩)
+    (rawDerivativeDirections ⟨10, ⋯⟩) m
+is not definitionally equal to the right-hand side
+  ![modeF L m (-r / 2), modeF L m (r / 2), derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionX] m,
+      derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionX] m, modeH L m (-r / 2), modeH L m (r / 2),
+      derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionX] m,
+      derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionY] m, modeYY L m (-r / 2),
+      derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionX] m,
+      derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionY] m, modeYY L m (r / 2)]
+    ⟨10, ⋯⟩
+
+case «10»
+L r : ℝ
+m : SourceMode 2
+⊢ derivativeCoefficient 2 L (![0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2] ⟨10, ⋯⟩)
+      (![endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointM r,
+          endpointM r, endpointS r, endpointS r, endpointS r]
+        ⟨10, ⋯⟩)
+      (rawDerivativeDirections ⟨10, ⋯⟩) m =
+    ![modeF L m (-r / 2), modeF L m (r / 2), derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionX] m,
+        derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionX] m, modeH L m (-r / 2), modeH L m (r / 2),
+        derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionX] m,
+        derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionY] m, modeYY L m (-r / 2),
+        derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionX] m,
+        derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionY] m, modeYY L m (r / 2)]
+      ⟨10, ⋯⟩
+SourceConfluentLimits.lean:365:12: error: Tactic `rfl` failed: The left-hand side
+  derivativeCoefficient 2 L (![0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2] ⟨11, ⋯⟩)
+    (![endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointM r,
+        endpointM r, endpointS r, endpointS r, endpointS r]
+      ⟨11, ⋯⟩)
+    (rawDerivativeDirections ⟨11, ⋯⟩) m
+is not definitionally equal to the right-hand side
+  ![modeF L m (-r / 2), modeF L m (r / 2), derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionX] m,
+      derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionX] m, modeH L m (-r / 2), modeH L m (r / 2),
+      derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionX] m,
+      derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionY] m, modeYY L m (-r / 2),
+      derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionX] m,
+      derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionY] m, modeYY L m (r / 2)]
+    ⟨11, ⋯⟩
+
+case «11»
+L r : ℝ
+m : SourceMode 2
+⊢ derivativeCoefficient 2 L (![0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2] ⟨11, ⋯⟩)
+      (![endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointM r,
+          endpointM r, endpointS r, endpointS r, endpointS r]
+        ⟨11, ⋯⟩)
+      (rawDerivativeDirections ⟨11, ⋯⟩) m =
+    ![modeF L m (-r / 2), modeF L m (r / 2), derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionX] m,
+        derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionX] m, modeH L m (-r / 2), modeH L m (r / 2),
+        derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionX] m,
+        derivativeCoefficient 2 L 2 ![-r / 2, 0] ![directionX, directionY] m, modeYY L m (-r / 2),
+        derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionX] m,
+        derivativeCoefficient 2 L 2 ![r / 2, 0] ![directionX, directionY] m, modeYY L m (r / 2)]
+      ⟨11, ⋯⟩
+SourceConfluentLimits.lean:362:23: error: This simp argument is unused:
+  rawDirections2
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [rawDirections3, rawDirections4, rawDirections5, rawDirections6, rawDirections7, rawDirections8,
+    rawDirections9, rawDirections10, rawDirections11]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceConfluentLimits.lean:362:39: error: This simp argument is unused:
+  rawDirections3
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [rawDirections2, rawDirections4, rawDirections5, rawDirections6, rawDirections7, rawDirections8,
+    rawDirections9, rawDirections10, rawDirections11]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceConfluentLimits.lean:362:55: error: This simp argument is unused:
+  rawDirections4
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [rawDirections2, rawDirections3, rawDirections5, rawDirections6, rawDirections7, rawDirections8,
+    rawDirections9, rawDirections10, rawDirections11]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceConfluentLimits.lean:362:71: error: This simp argument is unused:
+  rawDirections5
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [rawDirections2, rawDirections3, rawDirections4, rawDirections6, rawDirections7, rawDirections8,
+    rawDirections9, rawDirections10, rawDirections11]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceConfluentLimits.lean:362:87: error: This simp argument is unused:
+  rawDirections6
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [rawDirections2, rawDirections3, rawDirections4, rawDirections5, rawDirections7, rawDirections8,
+    rawDirections9, rawDirections10, rawDirections11]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceConfluentLimits.lean:362:103: error: This simp argument is unused:
+  rawDirections7
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [rawDirections2, rawDirections3, rawDirections4, rawDirections5, rawDirections6, rawDirections8,
+    rawDirections9, rawDirections10, rawDirections11]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceConfluentLimits.lean:362:119: error: This simp argument is unused:
+  rawDirections8
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [rawDirections2, rawDirections3, rawDirections4, rawDirections5, rawDirections6, rawDirections7,
+    rawDirections9, rawDirections10, rawDirections11]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceConfluentLimits.lean:362:135: error: This simp argument is unused:
+  rawDirections9
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [rawDirections2, rawDirections3, rawDirections4, rawDirections5, rawDirections6, rawDirections7,
+    rawDirections8, rawDirections10, rawDirections11]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceConfluentLimits.lean:362:151: error: This simp argument is unused:
+  rawDirections10
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [rawDirections2, rawDirections3, rawDirections4, rawDirections5, rawDirections6, rawDirections7,
+    rawDirections8, rawDirections9, rawDirections11]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceConfluentLimits.lean:362:168: error: This simp argument is unused:
+  rawDirections11
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [rawDirections2, rawDirections3, rawDirections4, rawDirections5, rawDirections6, rawDirections7,
+    rawDirections8, rawDirections9, rawDirections10]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

@@ -1,0 +1,120 @@
+{
+  "repository": "d6g8k5htny-coder/Math-",
+  "commit": "e75cb81e8961d178f43aa9967dddd11cd579dc8a",
+  "files": {
+    "inputs/GaussianSeriesFoundation.lean": {
+      "origin_path": "frontiers/source_smooth_realization_20261011/GaussianSeriesFoundation.lean",
+      "sha256": "feea566d5aeba58459bd4a1f20f070bdcd80ee30712817324cdd594e3e232c95"
+    },
+    "inputs/SpectralWeights.lean": {
+      "origin_path": "frontiers/source_smooth_realization_20261011/SpectralWeights.lean",
+      "sha256": "92af14a2d83304de3f8576ee10b3d376587e93c4464f8c715b8d2e32360f44b0"
+    },
+    "inputs/SourceFourierSeries.lean": {
+      "origin_path": "frontiers/source_smooth_realization_20261011/SourceFourierSeries.lean",
+      "sha256": "5f145e8e8693bfe4d1554092c8258dbda4f17f8e078c503029e4e8ff2c018014"
+    },
+    "inputs/SourceC4.lean": {
+      "origin_path": "frontiers/source_smooth_realization_20261011/SourceC4.lean",
+      "sha256": "b15e53b825c2e2d6af2af18182da227d8794dddcc3e1b29611a913f89a889397"
+    },
+    "inputs/SourceGaussianLaw.lean": {
+      "origin_path": "frontiers/source_smooth_realization_20261011/SourceGaussianLaw.lean",
+      "sha256": "a60ab6099d3cef0eeecaefa9e35d95ec14ec54ffd6c89e42dfcf6170907166e8"
+    },
+    "inputs/SourceLattice.lean": {
+      "origin_path": "frontiers/source_smooth_realization_20261011/SourceLattice.lean",
+      "sha256": "c644305a426bc876f609c055ce999b8008f028c67a1091639d919f4122981b7b"
+    },
+    "inputs/SourceKernel.lean": {
+      "origin_path": "frontiers/source_smooth_realization_20261011/SourceKernel.lean",
+      "sha256": "5fa3abc8fb0db0c14c67b4ee840e659cdf80f7d22c9fd4cb5e6c1c7b204fbd21"
+    },
+    "inputs/SourceCovariance.lean": {
+      "origin_path": "frontiers/source_smooth_realization_20261011/SourceCovariance.lean",
+      "sha256": "30560009582659a100637b5510c657cf1fa762f68a37bae8fab42c1eeee6aee5"
+    },
+    "inputs/SourceTorus.lean": {
+      "origin_path": "frontiers/source_smooth_realization_20261011/SourceTorus.lean",
+      "sha256": "02857b44552ab0e51a756b3b095c4ba43f8168ac332b069acb5bc8146d337eef"
+    },
+    "inputs/SourceTorusC4.lean": {
+      "origin_path": "frontiers/source_smooth_realization_20261011/SourceTorusC4.lean",
+      "sha256": "b67b13030389dea4521e8e2afcac30ea44f84abd65c374bf208067b288fc64a1"
+    },
+    "inputs/SourceSmooth.lean": {
+      "origin_path": "frontiers/source_smooth_realization_20261011/SourceSmooth.lean",
+      "sha256": "12ad7263267a970bd5d5c95d7c7aa62d9c971f7beebf28f1aa7ed16d3a112f1b"
+    },
+    "inputs/SourceSmoothCarrier.lean": {
+      "origin_path": "frontiers/source_smooth_realization_20261011/SourceSmoothCarrier.lean",
+      "sha256": "5defdf223e85e7ccd23b5a903a1a306fe7f723727eb6aabf62eef523ef8639ed"
+    },
+    "inputs/ResearchFormalCoreR1/GaussianRegressionKernel.lean": {
+      "origin_path": "frontiers/determinant_moment_20261025/ResearchFormalCoreR1/GaussianRegressionKernel.lean",
+      "commit": "16f81b973a02783f8be83081aa7f198724cf5767",
+      "sha256": "66d4fbee044a1a0c0b434bcd7614e220fad21d1ac275ce9b01070a66c5780460",
+      "verification_receipt_sha256": "95e502472e3d748c8b5dca3328a8644a9cb7cfc8fe40d5f9cce95a32814e5ec6"
+    },
+    "inputs/ResearchFormalCoreR1/DeterminantMoment.lean": {
+      "origin_path": "frontiers/determinant_moment_20261025/ResearchFormalCoreR1/DeterminantMoment.lean",
+      "commit": "16f81b973a02783f8be83081aa7f198724cf5767",
+      "sha256": "661b73c3f21c6d2529f5e09ce426d89c01939ab27a5cc868db3802c7e66ea82d",
+      "verification_receipt_sha256": "95e502472e3d748c8b5dca3328a8644a9cb7cfc8fe40d5f9cce95a32814e5ec6"
+    },
+    "inputs/ResearchFormalCoreR1/GaussianScalarMoments.lean": {
+      "origin_path": "frontiers/determinant_moment_20261025/ResearchFormalCoreR1/GaussianScalarMoments.lean",
+      "commit": "16f81b973a02783f8be83081aa7f198724cf5767",
+      "sha256": "71ce88ad2c97891858a5196f3293907bdffdd2341dfbace24204f2318c7510df",
+      "verification_receipt_sha256": "95e502472e3d748c8b5dca3328a8644a9cb7cfc8fe40d5f9cce95a32814e5ec6"
+    },
+    "inputs/ResearchFormalCoreR1/GaussianJetMoments.lean": {
+      "origin_path": "frontiers/determinant_moment_20261025/ResearchFormalCoreR1/GaussianJetMoments.lean",
+      "commit": "16f81b973a02783f8be83081aa7f198724cf5767",
+      "sha256": "f2e785975aee6915848fe78dc3ecde02b8f13a0a1fb56ae3771e4c727c723360",
+      "verification_receipt_sha256": "95e502472e3d748c8b5dca3328a8644a9cb7cfc8fe40d5f9cce95a32814e5ec6"
+    },
+    "inputs/ResearchFormalCoreR1/GaussianNormalizer.lean": {
+      "origin_path": "frontiers/determinant_moment_20261025/ResearchFormalCoreR1/GaussianNormalizer.lean",
+      "commit": "16f81b973a02783f8be83081aa7f198724cf5767",
+      "sha256": "32b7202cba2a9a0e0ed603d1a6db9ba2031714375b4e955614d5a40826a14aeb",
+      "verification_receipt_sha256": "95e502472e3d748c8b5dca3328a8644a9cb7cfc8fe40d5f9cce95a32814e5ec6"
+    },
+    "inputs/ResearchFormalCoreR1/EndpointGaussianMoments.lean": {
+      "origin_path": "frontiers/determinant_moment_20261025/ResearchFormalCoreR1/EndpointGaussianMoments.lean",
+      "commit": "16f81b973a02783f8be83081aa7f198724cf5767",
+      "sha256": "c6351881326491ce30f1a266ea60e44c5adb8b3a1e5882c90575c67e459479d1",
+      "verification_receipt_sha256": "95e502472e3d748c8b5dca3328a8644a9cb7cfc8fe40d5f9cce95a32814e5ec6"
+    },
+    "inputs/ResearchFormalCoreR1/NormalizerFloor.lean": {
+      "origin_path": "frontiers/determinant_moment_20261025/ResearchFormalCoreR1/NormalizerFloor.lean",
+      "commit": "16f81b973a02783f8be83081aa7f198724cf5767",
+      "sha256": "428eefd71b8c64fc4bcb208d9f73658058f29765f01a01c591f20a2d2359ec3e",
+      "verification_receipt_sha256": "95e502472e3d748c8b5dca3328a8644a9cb7cfc8fe40d5f9cce95a32814e5ec6"
+    },
+    "inputs/ResearchFormalCoreR1/EndpointNormalizerBridge.lean": {
+      "origin_path": "frontiers/determinant_moment_20261025/ResearchFormalCoreR1/EndpointNormalizerBridge.lean",
+      "commit": "16f81b973a02783f8be83081aa7f198724cf5767",
+      "sha256": "36eab3b805fcba5160cb7e286dbd7f96940b0c6a85b464aad5fdad2f624ceb7e",
+      "verification_receipt_sha256": "95e502472e3d748c8b5dca3328a8644a9cb7cfc8fe40d5f9cce95a32814e5ec6"
+    },
+    "inputs/ResearchFormalCoreR1/GaussianCoupling.lean": {
+      "origin_path": "frontiers/determinant_moment_20261025/ResearchFormalCoreR1/GaussianCoupling.lean",
+      "commit": "16f81b973a02783f8be83081aa7f198724cf5767",
+      "sha256": "426a53c139215650e961601c12f3cc1e09069520c5ebb96234a29483280551bb",
+      "verification_receipt_sha256": "95e502472e3d748c8b5dca3328a8644a9cb7cfc8fe40d5f9cce95a32814e5ec6"
+    },
+    "inputs/ResearchFormalCoreR1/GaussianNormalizerLimit.lean": {
+      "origin_path": "frontiers/determinant_moment_20261025/ResearchFormalCoreR1/GaussianNormalizerLimit.lean",
+      "commit": "16f81b973a02783f8be83081aa7f198724cf5767",
+      "sha256": "12c98054b5bcf47f4619c624ef5e91c37f316d7c4848f560279d1f1e96fe0049",
+      "verification_receipt_sha256": "95e502472e3d748c8b5dca3328a8644a9cb7cfc8fe40d5f9cce95a32814e5ec6"
+    },
+    "inputs/ResearchFormalCoreR1/PalmReweighting.lean": {
+      "origin_path": "frontiers/determinant_moment_20261025/ResearchFormalCoreR1/PalmReweighting.lean",
+      "commit": "16f81b973a02783f8be83081aa7f198724cf5767",
+      "sha256": "d34e422693f1d449bfcaf9c844c99c8fef4f19503312d3677ca525bd2d67c4d6",
+      "verification_receipt_sha256": "95e502472e3d748c8b5dca3328a8644a9cb7cfc8fe40d5f9cce95a32814e5ec6"
+    }
+  }
+}

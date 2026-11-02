@@ -1,0 +1,6 @@
+ResearchFormalCoreR1/NormalizerFloor.lean:118:2: error: Type mismatch
+  mul_le_mul_of_nonneg_left hbound (sq_nonneg r)
+has type
+  r ^ 2 * ((∫ (ω : Ω), g ω ∂P) / 2) ≤ r ^ 2 * ∫ (ω : Ω), gn_normalizedWeight r (X r ω) ∂P
+but is expected to have type
+  (∫ (ω : Ω), g ω ∂P) / 2 * r ^ 2 ≤ r ^ 2 * ∫ (a : Ω), gn_normalizedWeight r (X r a) ∂P

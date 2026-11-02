@@ -1,0 +1,219 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/scratch/quartic-capture-algebra/CaptureAlgebra.lean:79:37: error: unsolved goals
+r : ℝ
+hr : 0 ≤ r
+U : Fin 8 → ℝ
+X : ℝ
+hX : |X| ≤ 1 / 2
+hb :
+  |X ^ 2 - 1 / 4| ≤ 1 / 4 ∧
+    |X * (X ^ 2 - 1 / 4)| ≤ 1 / 8 ∧ |3 * X ^ 2 - 1 / 4| ≤ 1 / 2 ∧ |X ^ 2| ≤ 1 / 4 ∧ |0 ^ 2| ≤ 0 / 16 ∧ |0 ^ 3| ≤ 0 / 256
+h0 : |U 0 / 2 * (X ^ 2 - 1 / 4)| ≤ |U 0| / 8
+⊢ True ∨ X = 0 ∨ -1 / 4 + X ^ 2 = 0
+/workspace/scratch/quartic-capture-algebra/CaptureAlgebra.lean:106:4: error: linarith failed to find a contradiction
+r R W X Y : ℝ
+U : Fin 8 → ℝ
+hr : 0 ≤ r
+hr1 : r ≤ 1
+hR : 0 ≤ R
+hW0 : 0 ≤ W
+hW : W ≤ 1 / 16
+hU : ∀ (i : Fin 8), |U i| ≤ R
+hX : |X| ≤ 1 / 2
+hY : |Y| ≤ W
+hb :
+  |X ^ 2 - 1 / 4| ≤ 1 / 4 ∧
+    |X * (X ^ 2 - 1 / 4)| ≤ 1 / 8 ∧ |3 * X ^ 2 - 1 / 4| ≤ 1 / 2 ∧ |X ^ 2| ≤ 1 / 4 ∧ |Y ^ 2| ≤ W / 16 ∧ |Y ^ 3| ≤ W / 256
+hrabs : |r| ≤ 1
+t1 : |U 1 * X * Y| ≤ R * W / 2
+h : |U 2 * Y ^ 2| ≤ R * (W / 16)
+a✝ : R * W / 32 < |U 2| * Y ^ 2 / 2
+⊢ False
+failed
+/workspace/scratch/quartic-capture-algebra/CaptureAlgebra.lean:111:4: error: linarith failed to find a contradiction
+r R W X Y : ℝ
+U : Fin 8 → ℝ
+hr : 0 ≤ r
+hr1 : r ≤ 1
+hR : 0 ≤ R
+hW0 : 0 ≤ W
+hW : W ≤ 1 / 16
+hU : ∀ (i : Fin 8), |U i| ≤ R
+hX : |X| ≤ 1 / 2
+hY : |Y| ≤ W
+hb :
+  |X ^ 2 - 1 / 4| ≤ 1 / 4 ∧
+    |X * (X ^ 2 - 1 / 4)| ≤ 1 / 8 ∧ |3 * X ^ 2 - 1 / 4| ≤ 1 / 2 ∧ |X ^ 2| ≤ 1 / 4 ∧ |Y ^ 2| ≤ W / 16 ∧ |Y ^ 3| ≤ W / 256
+hrabs : |r| ≤ 1
+t1 : |U 1 * X * Y| ≤ R * W / 2
+t2 : |U 2 / 2 * Y ^ 2| ≤ R * W / 32
+h : |r * U 5 * X ^ 2 * Y| ≤ 1 * R * (1 / 4) * W
+a✝ : R * W / 8 < |r| * |U 5| * X ^ 2 * |Y| / 2
+⊢ False
+failed
+/workspace/scratch/quartic-capture-algebra/CaptureAlgebra.lean:116:4: error: linarith failed to find a contradiction
+r R W X Y : ℝ
+U : Fin 8 → ℝ
+hr : 0 ≤ r
+hr1 : r ≤ 1
+hR : 0 ≤ R
+hW0 : 0 ≤ W
+hW : W ≤ 1 / 16
+hU : ∀ (i : Fin 8), |U i| ≤ R
+hX : |X| ≤ 1 / 2
+hY : |Y| ≤ W
+hb :
+  |X ^ 2 - 1 / 4| ≤ 1 / 4 ∧
+    |X * (X ^ 2 - 1 / 4)| ≤ 1 / 8 ∧ |3 * X ^ 2 - 1 / 4| ≤ 1 / 2 ∧ |X ^ 2| ≤ 1 / 4 ∧ |Y ^ 2| ≤ W / 16 ∧ |Y ^ 3| ≤ W / 256
+hrabs : |r| ≤ 1
+t1 : |U 1 * X * Y| ≤ R * W / 2
+t2 : |U 2 / 2 * Y ^ 2| ≤ R * W / 32
+t3 : |r * (U 5 / 2) * X ^ 2 * Y| ≤ R * W / 8
+h : |r * U 6 * X * Y ^ 2| ≤ 1 * R * (1 / 2) * (W / 16)
+a✝ : R * W / 64 < |r| * |U 6| * |X| * Y ^ 2 / 2
+⊢ False
+failed
+/workspace/scratch/quartic-capture-algebra/CaptureAlgebra.lean:121:4: error: linarith failed to find a contradiction
+r R W X Y : ℝ
+U : Fin 8 → ℝ
+hr : 0 ≤ r
+hr1 : r ≤ 1
+hR : 0 ≤ R
+hW0 : 0 ≤ W
+hW : W ≤ 1 / 16
+hU : ∀ (i : Fin 8), |U i| ≤ R
+hX : |X| ≤ 1 / 2
+hY : |Y| ≤ W
+hb :
+  |X ^ 2 - 1 / 4| ≤ 1 / 4 ∧
+    |X * (X ^ 2 - 1 / 4)| ≤ 1 / 8 ∧ |3 * X ^ 2 - 1 / 4| ≤ 1 / 2 ∧ |X ^ 2| ≤ 1 / 4 ∧ |Y ^ 2| ≤ W / 16 ∧ |Y ^ 3| ≤ W / 256
+hrabs : |r| ≤ 1
+t1 : |U 1 * X * Y| ≤ R * W / 2
+t2 : |U 2 / 2 * Y ^ 2| ≤ R * W / 32
+t3 : |r * (U 5 / 2) * X ^ 2 * Y| ≤ R * W / 8
+t4 : |r * (U 6 / 2) * X * Y ^ 2| ≤ R * W / 64
+h : |r * U 7 * Y ^ 3| ≤ 1 * R * (W / 256)
+a✝ : R * W / 1536 < |r| * |U 7| * |Y| ^ 3 / 6
+⊢ False
+failed
+/workspace/scratch/quartic-capture-algebra/CaptureAlgebra.lean:146:4: error: linarith failed to find a contradiction
+r R W X Y : ℝ
+U : Fin 8 → ℝ
+hr : 0 ≤ r
+hr1 : r ≤ 1
+hR : 0 ≤ R
+hW0 : 0 ≤ W
+hW : W ≤ 1 / 16
+hrW : r ≤ W / 1024
+hU : ∀ (i : Fin 8), |U i| ≤ R
+hX : |X| ≤ 1 / 2
+hY : |Y| ≤ W
+hb :
+  |X ^ 2 - 1 / 4| ≤ 1 / 4 ∧
+    |X * (X ^ 2 - 1 / 4)| ≤ 1 / 8 ∧ |3 * X ^ 2 - 1 / 4| ≤ 1 / 2 ∧ |X ^ 2| ≤ 1 / 4 ∧ |Y ^ 2| ≤ W / 16 ∧ |Y ^ 3| ≤ W / 256
+hrabs : |r| ≤ 1
+t1 : |U 0 * X * Y| ≤ R * W / 2
+h : |U 1 * Y ^ 2| ≤ R * (W / 16)
+a✝ : R * W / 32 < |U 1| * Y ^ 2 / 2
+⊢ False
+failed
+/workspace/scratch/quartic-capture-algebra/CaptureAlgebra.lean:152:4: error: linarith failed to find a contradiction
+r R W X Y : ℝ
+U : Fin 8 → ℝ
+hr : 0 ≤ r
+hr1 : r ≤ 1
+hR : 0 ≤ R
+hW0 : 0 ≤ W
+hW : W ≤ 1 / 16
+hrW : r ≤ W / 1024
+hU : ∀ (i : Fin 8), |U i| ≤ R
+hX : |X| ≤ 1 / 2
+hY : |Y| ≤ W
+hb :
+  |X ^ 2 - 1 / 4| ≤ 1 / 4 ∧
+    |X * (X ^ 2 - 1 / 4)| ≤ 1 / 8 ∧ |3 * X ^ 2 - 1 / 4| ≤ 1 / 2 ∧ |X ^ 2| ≤ 1 / 4 ∧ |Y ^ 2| ≤ W / 16 ∧ |Y ^ 3| ≤ W / 256
+hrabs : |r| ≤ 1
+t1 : |U 0 * X * Y| ≤ R * W / 2
+t2 : |U 1 / 2 * Y ^ 2| ≤ R * W / 32
+hrabsW : |r| ≤ W / 1024
+h : |r * U 3 * (X * (X ^ 2 - 1 / 4))| ≤ W / 1024 * R * (1 / 8)
+a✝ : R * W / 49152 < |r| * |U 3| * (|X| * |X ^ 2 - 1 / 4|) / 6
+⊢ False
+failed
+/workspace/scratch/quartic-capture-algebra/CaptureAlgebra.lean:157:4: error: linarith failed to find a contradiction
+r R W X Y : ℝ
+U : Fin 8 → ℝ
+hr : 0 ≤ r
+hr1 : r ≤ 1
+hR : 0 ≤ R
+hW0 : 0 ≤ W
+hW : W ≤ 1 / 16
+hrW : r ≤ W / 1024
+hU : ∀ (i : Fin 8), |U i| ≤ R
+hX : |X| ≤ 1 / 2
+hY : |Y| ≤ W
+hb :
+  |X ^ 2 - 1 / 4| ≤ 1 / 4 ∧
+    |X * (X ^ 2 - 1 / 4)| ≤ 1 / 8 ∧ |3 * X ^ 2 - 1 / 4| ≤ 1 / 2 ∧ |X ^ 2| ≤ 1 / 4 ∧ |Y ^ 2| ≤ W / 16 ∧ |Y ^ 3| ≤ W / 256
+hrabs : |r| ≤ 1
+t1 : |U 0 * X * Y| ≤ R * W / 2
+t2 : |U 1 / 2 * Y ^ 2| ≤ R * W / 32
+t3 : |r * (U 3 / 6) * X * (X ^ 2 - 1 / 4)| ≤ R * W / 49152
+h : |r * U 4 * (3 * X ^ 2 - 1 / 4) * Y| ≤ 1 * R * (1 / 2) * W
+a✝ : R * W / 12 < |r| * |U 4| * |3 * X ^ 2 - 1 / 4| * |Y| / 6
+⊢ False
+failed
+/workspace/scratch/quartic-capture-algebra/CaptureAlgebra.lean:162:4: error: linarith failed to find a contradiction
+r R W X Y : ℝ
+U : Fin 8 → ℝ
+hr : 0 ≤ r
+hr1 : r ≤ 1
+hR : 0 ≤ R
+hW0 : 0 ≤ W
+hW : W ≤ 1 / 16
+hrW : r ≤ W / 1024
+hU : ∀ (i : Fin 8), |U i| ≤ R
+hX : |X| ≤ 1 / 2
+hY : |Y| ≤ W
+hb :
+  |X ^ 2 - 1 / 4| ≤ 1 / 4 ∧
+    |X * (X ^ 2 - 1 / 4)| ≤ 1 / 8 ∧ |3 * X ^ 2 - 1 / 4| ≤ 1 / 2 ∧ |X ^ 2| ≤ 1 / 4 ∧ |Y ^ 2| ≤ W / 16 ∧ |Y ^ 3| ≤ W / 256
+hrabs : |r| ≤ 1
+t1 : |U 0 * X * Y| ≤ R * W / 2
+t2 : |U 1 / 2 * Y ^ 2| ≤ R * W / 32
+t3 : |r * (U 3 / 6) * X * (X ^ 2 - 1 / 4)| ≤ R * W / 49152
+t4 : |r * (U 4 / 6) * (3 * X ^ 2 - 1 / 4) * Y| ≤ R * W / 12
+h : |r * U 5 * X * Y ^ 2| ≤ 1 * R * (1 / 2) * (W / 16)
+a✝ : R * W / 64 < |r| * |U 5| * |X| * Y ^ 2 / 2
+⊢ False
+failed
+/workspace/scratch/quartic-capture-algebra/CaptureAlgebra.lean:167:4: error: linarith failed to find a contradiction
+r R W X Y : ℝ
+U : Fin 8 → ℝ
+hr : 0 ≤ r
+hr1 : r ≤ 1
+hR : 0 ≤ R
+hW0 : 0 ≤ W
+hW : W ≤ 1 / 16
+hrW : r ≤ W / 1024
+hU : ∀ (i : Fin 8), |U i| ≤ R
+hX : |X| ≤ 1 / 2
+hY : |Y| ≤ W
+hb :
+  |X ^ 2 - 1 / 4| ≤ 1 / 4 ∧
+    |X * (X ^ 2 - 1 / 4)| ≤ 1 / 8 ∧ |3 * X ^ 2 - 1 / 4| ≤ 1 / 2 ∧ |X ^ 2| ≤ 1 / 4 ∧ |Y ^ 2| ≤ W / 16 ∧ |Y ^ 3| ≤ W / 256
+hrabs : |r| ≤ 1
+t1 : |U 0 * X * Y| ≤ R * W / 2
+t2 : |U 1 / 2 * Y ^ 2| ≤ R * W / 32
+t3 : |r * (U 3 / 6) * X * (X ^ 2 - 1 / 4)| ≤ R * W / 49152
+t4 : |r * (U 4 / 6) * (3 * X ^ 2 - 1 / 4) * Y| ≤ R * W / 12
+t5 : |r * (U 5 / 2) * X * Y ^ 2| ≤ R * W / 64
+h : |r * U 6 * Y ^ 3| ≤ 1 * R * (W / 256)
+a✝ : R * W / 1536 < |r| * |U 6| * |Y| ^ 3 / 6
+⊢ False
+failed

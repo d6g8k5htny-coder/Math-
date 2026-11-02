@@ -1,0 +1,33 @@
+/workspace/scratch/morse-incidence-production/Controls.lean:40:51: warning: This simp argument is unused:
+  iteratedFDeriv_succ_const
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sourceMorseDiscriminant, zeroSample_field]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/morse-incidence-production/Controls.lean:69:14: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  fderiv ?m.70 (Function.const ?m.72 ?c)
+in the target expression
+  ¬Function.Injective ⇑(fderiv ℝ (fun x => 0) 0)
+
+case mpr.refine_2
+c : ℝ
+a : (Fin 2 → ℝ) × (Fin 2 → ℝ)
+a✝ : a ∈ Set.univ
+hf :
+  (fun y => twoChannelGradientFamily (fun x => 0) (cosineGradientChannel 0 c) (sineGradientChannel 0 c) y a) = fun x =>
+    0
+⊢ ¬Function.Injective ⇑(fderiv ℝ (fun x => 0) 0)
+/workspace/scratch/morse-incidence-production/Controls.lean:96:14: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  fderiv ?m.72 (Function.const ?m.74 ?c)
+in the target expression
+  ¬Function.Injective ⇑(fderiv ℝ (fun x => 0) 0)
+
+case mpr.refine_2
+A : Fin 2 → ℝ
+a : (Fin 2 → ℝ) × (Fin 2 → ℝ)
+a✝ : a ∈ Set.univ
+hf :
+  (fun y => twoChannelGradientFamily (fun x => 0) (cosineGradientChannel A 0) (sineGradientChannel A 0) y a) = fun x =>
+    0
+⊢ ¬Function.Injective ⇑(fderiv ℝ (fun x => 0) 0)

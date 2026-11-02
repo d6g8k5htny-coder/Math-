@@ -1,0 +1,25 @@
+/workspace/scratch/regression-kernel/KernelProbe.lean:17:4: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (Measure.prod ?m.90 ?m.91) ((fun a => (a.1, id a)) ⁻¹' s)
+in the target expression
+  ∫⁻ (a : α), ((Kernel.id ×ₖ Kernel.const α ν) a) (Prod.mk a ⁻¹' s) ∂μ = (μ.prod ν) ((fun p => (p.1, p)) ⁻¹' s)
+
+α : Type u_1
+β : Type u_2
+inst✝³ : MeasurableSpace α
+inst✝² : MeasurableSpace β
+μ : Measure α
+ν : Measure β
+inst✝¹ : SFinite μ
+inst✝ : SFinite ν
+s : Set (α × α × β)
+hs : MeasurableSet s
+⊢ ∫⁻ (a : α), ((Kernel.id ×ₖ Kernel.const α ν) a) (Prod.mk a ⁻¹' s) ∂μ = (μ.prod ν) ((fun p => (p.1, p)) ⁻¹' s)
+/workspace/scratch/regression-kernel/KernelProbe.lean:29:43: error(lean.unknownIdentifier): Unknown identifier `isProbabilityMeasure_map`
+/workspace/scratch/regression-kernel/KernelProbe.lean:29:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`

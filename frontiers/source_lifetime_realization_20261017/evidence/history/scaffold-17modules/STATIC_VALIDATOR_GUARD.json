@@ -1,0 +1,22 @@
+{
+  "status": "PASS_EXPECTED_REJECTION",
+  "scope": "Python validator only; no Lean/Lake process, cache mutation, or network",
+  "checks": [
+    {
+      "case": "explicit_python_optimization",
+      "returncode": 1,
+      "expected_failure_observed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "6f592cec28e1529e65df72ea5d8c4bf34c771d0c73597d4517ad8c5012c9ff16",
+      "diagnostic": "Static validation requires assertions; disable Python optimization."
+    },
+    {
+      "case": "environment_python_optimization",
+      "returncode": 1,
+      "expected_failure_observed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "6f592cec28e1529e65df72ea5d8c4bf34c771d0c73597d4517ad8c5012c9ff16",
+      "diagnostic": "Static validation requires assertions; disable Python optimization."
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+/workspace/scratch/regression-kernel/ResidualCovarianceProbe.lean:18:4: error: `simp` made no progress
+/workspace/scratch/regression-kernel/ResidualCovarianceProbe.lean:29:11: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+/workspace/scratch/regression-kernel/ResidualCovarianceProbe.lean:51:13: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+/workspace/scratch/regression-kernel/ResidualCovarianceProbe.lean:55:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  cov[fun ω => X ω i, fun ω => ((fun ω => Y ω j) - fun x => ?m.207) ω - B (X ω - mX) j; P]
+in the target expression
+  cov[fun ω => X ω i, fun ω => Y ω j - mY j - B (X ω - mX) j; P] = 0
+
+Ω : Type u_1
+inst✝ : MeasurableSpace Ω
+P : Measure Ω
+n k : ℕ
+X : Ω → Fin n → ℝ
+Y : Ω → Fin k → ℝ
+hXY : HasGaussianLaw (fun ω => (X ω, Y ω)) P
+B : (Fin n → ℝ) →L[ℝ] Fin k → ℝ
+mX : Fin n → ℝ
+mY : Fin k → ℝ
+hnormal :
+  ∀ (i : Fin n) (j : Fin k),
+    cov[fun ω => X ω i, fun ω => Y ω j; P] = ∑ l, B (Pi.single l 1) j * cov[fun ω => X ω i, fun ω => X ω l; P]
+this : IsProbabilityMeasure P
+i : Fin n
+j : Fin k
+hXi : MemLp (fun ω => X ω i) 2 P
+hYj : MemLp (fun ω => Y ω j) 2 P
+hBj : MemLp (fun ω => B (X ω - mX) j) 2 P
+⊢ cov[fun ω => X ω i, fun ω => Y ω j - mY j - B (X ω - mX) j; P] = 0

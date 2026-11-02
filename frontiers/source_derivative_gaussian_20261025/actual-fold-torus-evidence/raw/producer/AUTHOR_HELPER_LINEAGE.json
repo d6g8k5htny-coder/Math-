@@ -1,0 +1,71 @@
+{
+  "binding_precode": "5f49444d13b9c322f5214e11bc3936b2271b615f",
+  "producer": {
+    "lane": "/root/actual_fold_torus_construct",
+    "provider_family": "OpenAI",
+    "model": "Exact original producer model not authenticated in this recovery; no new identity claim.",
+    "ownership": "SourceActualFoldTorus.lean plus its scratch construction directory"
+  },
+  "descent_helper": {
+    "report": "/workspace/scratch/actual-torus-descent/REPORT.md",
+    "frozen_helper_source_sha256": "924a21801e7fcd9da5b09a15532ecd1ef130d3185fa2821f5fe4a3d5def8d0ef",
+    "actual_model": "gpt-6-sol",
+    "actual_reasoning_effort": "high",
+    "provider_family": "OpenAI",
+    "pickup_basis": "Parent recovery handoff explicitly records actual gpt-6-sol/high following a gpt-6.1-sol capacity failure.",
+    "prior_requested_model": "gpt-6.1-sol",
+    "prior_pickup_result": "capacity failure; not an active or completed helper",
+    "producer_frozen_section": {
+      "path": "/workspace/scratch/actual-fold-torus-construct/FROZEN_DESCENT_SECTION.lean.txt",
+      "bytes": 4573,
+      "sha256": "4aab485703cb679309e183c6afbb8a2c051c0506a0a6555718be4a748edfa174"
+    },
+    "frozen_section_occurs_literally_in_production": true,
+    "verification_reuse": "helper strict-004 successful source elaboration is existing evidence; integrated new-module strict/kernel/inventory already cover its declarations, without another helper kernel/audit/control campaign.",
+    "new_research_target_credit": 0
+  },
+  "compact_frontier_helper": {
+    "report": "/workspace/scratch/reused-compact-frontier/REPORT.md",
+    "declaration": "CapFirstExit.frontier_image_subset",
+    "origin_commit": "5f49444d13b9c322f5214e11bc3936b2271b615f",
+    "origin_path": "frontiers/cap_first_exit_lean_20261002/CapFirstExit.lean",
+    "origin_git_blob_sha1": "01744e2cf571049d7d1557b9ed54646881d341cf",
+    "accepted_statement_proof_sha256": "0a9af73f1cefe45a94ea1a99b18a2a336b150a5d6ca5f9dcca65f7996b03fdf0",
+    "successor_source_sha256": "29d77453ef7c3cd216521a8ac84639aa30daf5a1d4061785a826b2c2d42d23db",
+    "qualified_olean_sha256": "e9e4a4051fbaae8f62b27dc5d83f343d58aa4d45b5e683c61bdbe899be2e666b",
+    "qualified_ilean_sha256": "da1c18e2413cda4aefd042ba62e6402692d67f918bf7f2a4eab774c59d74bd81",
+    "identity_basis": "Copied exact custody from completed helper report; old Cap mathematical/hash verification not replayed.",
+    "verification_reuse": "sole necessary narrow-import successor compile; no old Cap campaign repeated",
+    "new_research_target_credit": 0
+  },
+  "reused_actual_death": {
+    "report": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/actual-fold-death-evidence/raw/producer/REPORT.md",
+    "source_sha256": "ee84ce7a775ae8163ec9309a0841757ce2990576adfd7186d4ad5bc8ac4de0d0",
+    "qualified_olean_sha256": "3b545a10235a769892796a13c0b11194516bd11c1dc5b97aee8c0ef2275ac654",
+    "qualified_controls_olean_sha256": "2a8e216590ec2a06b11a73c2bcbb286f2f46eddb83418b4dddb6134710d342d4",
+    "basis": "Copied completed death source-object identities and report; old physical polynomial proof/control/kernel campaigns reused."
+  },
+  "recovery": {
+    "lane": "/root/torus_evidence_recovery",
+    "provider_family": "OpenAI",
+    "scope": "Report/custody/classification plus sole previously unexecuted scratch negative control.",
+    "fresh_model_review_or_provider_distinct_credit": false,
+    "subagents_dispatched": 0,
+    "production_source_edits": false,
+    "process_registration_or_publication": false
+  },
+  "provider_distinct_review": {
+    "credited": false,
+    "status": "Separate root-owned process obligation; same OpenAI family does not qualify."
+  },
+  "standing_owner_links": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md"
+  ],
+  "root_handoff_update": {
+    "unchanged_source_commit": "33a305a35312eca7fbfd04a4ed4f5269db69b97c",
+    "published_support_interface_clarification_short_commit": "ce4b43c",
+    "technical_source_spec_review": "Root reports PASS, no source findings; separate same-family technical review, no provider-distinct credit.",
+    "evidence_basis": "Root message, 26 October 2026; no extra check requested or run."
+  }
+}

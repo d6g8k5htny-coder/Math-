@@ -1,0 +1,67 @@
+INVENTORY|theorem|AdaptiveFoldScalar.ScalarBarrier.middle_neg
+AXIOMS|AdaptiveFoldScalar.ScalarBarrier.middle_neg|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|AdaptiveFoldScalar.q._proof_1
+AXIOMS|AdaptiveFoldScalar.q._proof_1|[propext]
+INVENTORY|theorem|AdaptiveFoldScalar.J._proof_2
+AXIOMS|AdaptiveFoldScalar.J._proof_2|[propext]
+INVENTORY|recursor|AdaptiveFoldScalar.ScalarBarrier.rec
+AXIOMS|AdaptiveFoldScalar.ScalarBarrier.rec|[propext, Classical.choice, Quot.sound]
+INVENTORY|constructor|AdaptiveFoldScalar.ScalarBarrier.mk
+AXIOMS|AdaptiveFoldScalar.ScalarBarrier.mk|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|AdaptiveFoldScalar.primitive_hasDerivAt
+AXIOMS|AdaptiveFoldScalar.primitive_hasDerivAt|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|AdaptiveFoldScalar.q.eq_1
+AXIOMS|AdaptiveFoldScalar.q.eq_1|[propext, Classical.choice, Quot.sound]
+INVENTORY|definition|AdaptiveFoldScalar.q
+AXIOMS|AdaptiveFoldScalar.q|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|AdaptiveFoldScalar.ScalarBarrier.left_gain
+AXIOMS|AdaptiveFoldScalar.ScalarBarrier.left_gain|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|AdaptiveFoldScalar.ScalarBarrier.left_comparison
+AXIOMS|AdaptiveFoldScalar.ScalarBarrier.left_comparison|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|AdaptiveFoldScalar.J._proof_1
+AXIOMS|AdaptiveFoldScalar.J._proof_1|[propext]
+INVENTORY|definition|AdaptiveFoldScalar.J
+AXIOMS|AdaptiveFoldScalar.J|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|AdaptiveFoldScalar.ScalarBarrier.left_deriv
+AXIOMS|AdaptiveFoldScalar.ScalarBarrier.left_deriv|[propext, Classical.choice, Quot.sound]
+INVENTORY|inductive|AdaptiveFoldScalar.ScalarBarrier
+AXIOMS|AdaptiveFoldScalar.ScalarBarrier|[propext, Classical.choice, Quot.sound]
+INVENTORY|definition|AdaptiveFoldScalar.ScalarBarrier.casesOn
+AXIOMS|AdaptiveFoldScalar.ScalarBarrier.casesOn|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|AdaptiveFoldScalar.ScalarBarrier.right_pos
+AXIOMS|AdaptiveFoldScalar.ScalarBarrier.right_pos|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|AdaptiveFoldScalar.ScalarBarrier.right_deriv
+AXIOMS|AdaptiveFoldScalar.ScalarBarrier.right_deriv|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|AdaptiveFoldScalar.ScalarBarrier.middle_comparison
+AXIOMS|AdaptiveFoldScalar.ScalarBarrier.middle_comparison|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|AdaptiveFoldScalar.scalarBarrier_of_secondDerivative
+AXIOMS|AdaptiveFoldScalar.scalarBarrier_of_secondDerivative|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|AdaptiveFoldScalar.ScalarBarrier.ceiling
+AXIOMS|AdaptiveFoldScalar.ScalarBarrier.ceiling|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|AdaptiveFoldScalar.J.eq_1
+AXIOMS|AdaptiveFoldScalar.J.eq_1|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|AdaptiveFoldScalar.ScalarBarrier.left_barrier
+AXIOMS|AdaptiveFoldScalar.ScalarBarrier.left_barrier|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|AdaptiveFoldScalar.q_hasDerivAt
+AXIOMS|AdaptiveFoldScalar.q_hasDerivAt|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|AdaptiveFoldScalar.scalarBarrier_of_convex
+AXIOMS|AdaptiveFoldScalar.scalarBarrier_of_convex|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|AdaptiveFoldScalar.ScalarBarrier.left_pos
+AXIOMS|AdaptiveFoldScalar.ScalarBarrier.left_pos|[propext, Classical.choice, Quot.sound]
+INVENTORY|definition|AdaptiveFoldScalar.ScalarBarrier.recOn
+AXIOMS|AdaptiveFoldScalar.ScalarBarrier.recOn|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|AdaptiveFoldScalar.integral_q_left
+AXIOMS|AdaptiveFoldScalar.integral_q_left|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|AdaptiveFoldScalar.ScalarBarrier.right_gain
+AXIOMS|AdaptiveFoldScalar.ScalarBarrier.right_gain|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|AdaptiveFoldScalar.ScalarBarrier.right_older
+AXIOMS|AdaptiveFoldScalar.ScalarBarrier.right_older|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|AdaptiveFoldScalar.ScalarBarrier.right_comparison
+AXIOMS|AdaptiveFoldScalar.ScalarBarrier.right_comparison|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|AdaptiveFoldScalar.ScalarBarrier.floor
+AXIOMS|AdaptiveFoldScalar.ScalarBarrier.floor|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|AdaptiveFoldScalar.integral_q_right
+AXIOMS|AdaptiveFoldScalar.integral_q_right|[propext, Classical.choice, Quot.sound]
+INVENTORY|definition|AdaptiveFoldScalar.ScalarBarrier.mk._flat_ctor
+AXIOMS|AdaptiveFoldScalar.ScalarBarrier.mk._flat_ctor|[propext, Classical.choice, Quot.sound]
+COMPLETE_NEW_MODULE_INVENTORY|AdaptiveFoldScalarBarrier|33

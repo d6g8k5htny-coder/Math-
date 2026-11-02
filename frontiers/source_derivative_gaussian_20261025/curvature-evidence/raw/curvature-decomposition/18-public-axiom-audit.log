@@ -1,0 +1,240 @@
+'I4SourceCurvatureDecomposition.curvatureCoefficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureCross' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureBeta' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureMean' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureVariance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureSigma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureResidualCoefficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureDirection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureZ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureCoefficient_summable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.sourceContactQ_series' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureCoefficient_weighted_summable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureCross_coefficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureVariance_prior_coefficient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureResidualCoefficient_summable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureDirection_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureBeta_normal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureResidual_pin_orthogonal' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureResidual_q_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureResidual_normSquared' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureDirection_pin_orthogonal' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureSigma_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureSigma_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureDirection_normSquared' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureDirection_q_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureResidualCoefficient_weighted_summable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureDirection_weighted_summable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureZ_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.unitDirection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.unitDirectionCoefficientResidual' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.unitDirection_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.unitDirection_hasLaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.unitDirection_coefficient_covariance' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.unitDirectionCoefficientResidual_zero_covariance' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.unitDirection_finiteCoefficients_hasGaussianLaw' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.finiteDirectionLift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.finiteDirectionLift_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.unitDirection_finiteResidual_hasGaussianLaw' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.unitDirection_scalar_finiteResidual_hasGaussianLaw' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.unitDirectionCoefficientResidual_finite_indepFun' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.unitDirectionCoefficientResidual_indepFun' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.regularizedCurvatureCross' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.regularizedCurvatureCross_continuous' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.regularizedCurvatureCross_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureCross_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvaturePinInverse_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureBeta_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureVariance_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureMean_prescribed_tendsto' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvature_uniform_parameter_bounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureZ_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.sourceContactQ_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureZ_hasLaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureDirection_goodSample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureShift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureShift_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureShift_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureResidualSample' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureResidualLaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureResidualSample_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureResidualLaw_isProbabilityMeasure' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.sourceConfluentPinsAt_curvatureShift' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.sourceContactQ_curvatureShift' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureZ_curvatureShift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureResidualSample_pins' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureResidualSample_Z' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureResidualSample_inclusion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureResidualSample_indepFun' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureResidualSample_joint_map' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.sourceContactQ_posteriorSample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.sourceContactQ_posteriorSample_Z' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.sourceContactQ_posteriorResidual' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvaturePosterior_reconstruction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureReconstruct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureReconstruct_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureReconstruct_pins' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureReconstruct_Q' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureReconstruct_residual_image' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureDirectionEnvelope' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureDirectionEnvelope_nonneg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureDirectionEnvelope_summable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureDirectionEnvelope_weighted_summable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureDirection_envelope_at' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureDirection_uniform_envelope' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureAffine_gaussian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureResidual_curvature_joint_map' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.sourceSmoothKernel_eq_curvatureProduct' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.sourceSmoothKernel_eq_curvatureProduct_swap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4GaussianVarianceFloor.gaussianPDFReal_le_of_variance_floor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4GaussianVarianceFloor.gaussianReal_interval_mass_le_of_variance_floor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureScalarLaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureScalarLaw_isProbabilityMeasure' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureReconstruct_swap_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureReconstruct_hasLaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureScalarLaw_interval_mass_uniform' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.sourceSmoothKernel_eventually_curvatureProduct' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureResidualRadius' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureResidualRadius_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.one_le_curvatureResidualRadius' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.sourceContactQ_posterior_abs_le_radius' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureEnvelopeTotal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureEnvelopeTotal_nonneg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.sourceDerivativeMajorant_curvatureShift' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.sourceGammaRadius_curvatureShift' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.sourceDerivativeMajorant_curvatureReconstruct' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.sourceGammaRadius_curvatureReconstruct' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvaturePosterior_residual_eq_shift' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureResidualRadius_image_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureResidualRadius_moment_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureResidualRadius_uniform_bounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvatureReconstruct_joint_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceCurvatureDecomposition.curvaturePin_finiteCoefficients_hasGaussianLaw' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,16 @@
+/workspace/scratch/actual-fold-chart-construct/Controls.lean:39:49: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/actual-fold-chart-construct/Controls.lean:52:4: error: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/workspace/scratch/actual-fold-chart-construct/Controls.lean:70:29: error(lean.invalidField): Invalid field `div_const`: The environment does not contain `HasFDerivAtFilter.div_const`, so it is not possible to project the field `div_const` from an expression
+  HasFDerivAt.pow hx 3
+of type
+  HasFDerivAtFilter (fun x => x.1 ^ 3) ((3 • p.1 ^ (3 - 1)) • ContinuousLinearMap.fst ℝ ℝ ℝ) (nhds p ×ˢ pure p)
+/workspace/scratch/actual-fold-chart-construct/Controls.lean:122:2: error: Type mismatch: After simplification, term
+  polynomial_axial 6 (5 / 2) u
+ has type
+  ((fderiv ℝ (fderiv ℝ (Vx (polynomial 6 (5 / 2)))) (u, 0)) ex) ex = 2 * 6
+but is expected to have type
+  ((fderiv ℝ (fderiv ℝ (Vx (polynomial 6 (5 / 2)))) (u, 0)) ex) ex = 12

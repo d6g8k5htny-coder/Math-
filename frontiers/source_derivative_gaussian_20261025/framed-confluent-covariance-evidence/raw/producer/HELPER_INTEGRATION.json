@@ -1,0 +1,43 @@
+{
+  "contact": {
+    "integrated_utc": "2026-10-26T20:33:37.160692+00:00",
+    "original_section": "/workspace/scratch/framed-confluent-covariance-contact-text/SECTION.lean.txt",
+    "integration_count": 1,
+    "destination": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean",
+    "helper_executions": 0,
+    "originals_preserved": [
+      "SECTION.lean.txt",
+      "IMPORTS.txt",
+      "PROVENANCE.md",
+      "FROZEN_HELPER.json"
+    ],
+    "producer_local_amendments": [
+      "Replace unexported modeCoefficient_smooth call with producer fixed2 mode_smooth derived from public SourceSmoothTopology.modeCoefficient_contDiff."
+    ]
+  },
+  "peano": {
+    "integrated_utc": "2026-10-26T20:33:37.161220+00:00",
+    "original_section": "/workspace/scratch/framed-confluent-covariance-peano-text/SECTION.lean.txt",
+    "integration_count": 1,
+    "destination": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean",
+    "helper_executions": 0,
+    "originals_preserved": [
+      "SECTION.lean.txt",
+      "IMPORTS.txt",
+      "FROZEN_PROVENANCE.md"
+    ],
+    "producer_local_amendments": []
+  },
+  "compact": {
+    "integrated_utc": "2026-10-26T20:43:04.001394+00:00",
+    "original_section": "/workspace/scratch/framed-confluent-covariance-compact-text/SECTION.lean.txt",
+    "original_section_bytes": 21383,
+    "original_section_sha256": "732ac0358131a9b3c422f5a46dc12934e68b43131b8ba0a52a2848d2e1234b86",
+    "integration_count": 1,
+    "destination": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean",
+    "helper_executions": 0,
+    "producer_local_amendments": [
+      "Reuse producer mode_smooth(public finite-order API) instead of duplicating the old mode smoothness proof."
+    ]
+  }
+}

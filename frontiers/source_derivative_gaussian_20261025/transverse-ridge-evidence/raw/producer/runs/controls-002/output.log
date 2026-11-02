@@ -1,0 +1,6 @@
+/workspace/scratch/transverse-ridge-construct/Controls.lean:63:42: error: Type mismatch: After simplification, term
+  hx
+ has type
+  x ∈ Icc (-(1 / 2)) (1 / 2)
+but is expected to have type
+  -(1 / 2) ≤ x ∧ x ≤ 1 / 2

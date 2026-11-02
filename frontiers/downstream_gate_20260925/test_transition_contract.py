@@ -137,7 +137,7 @@ class TransitionContract(unittest.TestCase):
             repo = Path(tmp)
             def run(*args):
                 return subprocess.run(['git', '-C', tmp, *args], check=True, capture_output=True).stdout.decode().strip()
-            run('init', '-q'); run('config', 'user.name', 'local test'); run('config', 'user.email', 'test@example.invalid')
+            run('init', '-q'); run('config', 'user.name', 'local test'); run('config', 'user.email', 'test@example.invalid'); run('config', 'maintenance.auto', 'false')
             (repo/'GRAPH.json').write_text(json.dumps(graph())); (repo/'lemma.md').write_text('first statement')
             run('add', '.'); run('commit', '-qm', 'baseline'); old = run('rev-parse', 'HEAD')
             (repo/'lemma.md').write_text('changed statement')
@@ -155,7 +155,7 @@ class TransitionContract(unittest.TestCase):
         repo = Path(tmp)
         def run(*args):
             return subprocess.run(['git', '-C', tmp, *args], check=True, capture_output=True).stdout.decode().strip()
-        run('init', '-q'); run('config', 'user.name', 'local test'); run('config', 'user.email', 'test@example.invalid')
+        run('init', '-q'); run('config', 'user.name', 'local test'); run('config', 'user.email', 'test@example.invalid'); run('config', 'maintenance.auto', 'false')
         (repo/GRAPH_REL).parent.mkdir(parents=True, exist_ok=True)
         (repo/GRAPH_REL).write_text(json.dumps(graph_obj))
         paths = list(D1_COMPONENT_FILES) + ['UNRELATED.md']

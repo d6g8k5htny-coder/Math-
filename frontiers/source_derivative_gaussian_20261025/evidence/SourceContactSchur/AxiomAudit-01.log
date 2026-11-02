@@ -1,0 +1,13 @@
+'I4SourceContact.sourceContactBlockEquiv_inl' depends on axioms: [propext, Quot.sound]
+'I4SourceContact.sourceContactBlockEquiv_inr' depends on axioms: [propext, Quot.sound]
+'I4SourceContact.sourceContactCovariance_block_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceContact.sourcePinCovariance_posDef' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceContact.sourcePinCovariance_isUnit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceContact.sourcePinCovarianceInvertible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceContact.sourceContactQVariance_eq_variance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceContact.sourceContactSchur_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceContact.contact_residual_variance_of_isUnit_covariance' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceContact.sourceContactResidual_variance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceContact.sourceContactResidual_variance_pos' depends on axioms: [propext, Classical.choice, Quot.sound]

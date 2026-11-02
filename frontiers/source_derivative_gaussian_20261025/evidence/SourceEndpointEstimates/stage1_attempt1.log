@@ -1,0 +1,45 @@
+SourceEndpointEstimates.lean:72:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+SourceEndpointEstimates.lean:73:8: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsProbabilityMeasure (sourceEndpointLaw L r b)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceEndpointEstimates.lean:110:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq ℝ
+    (∫ (x : Fin 6 → ℝ),
+      ((fun x => egm_weight r ![x.ofLp 0, x.ofLp 2, x.ofLp 4, x.ofLp 1, x.ofLp 3, x.ofLp 5]) ∘ toLp 2)
+        x ∂sourceEndpointLaw L r b)
+    (∫ (x : WithLp 2 (Fin 6 → ℝ)),
+      egm_weight r
+        ![x.ofLp 0, x.ofLp 2, x.ofLp 4, x.ofLp 1, x.ofLp 3,
+          x.ofLp 5] ∂multivariateGaussian (toLp 2 (sourceEndpointMean L r b)) (sourceEndpointSchurAt L r))
+but is expected to have type
+  @Eq ℝ (∫ (v : Fin 6 → ℝ), egm_weight r ![v 0, v 2, v 4, v 1, v 3, v 5] ∂sourceEndpointLaw L r b)
+    (∫ (x : EuclideanSpace ℝ (Fin 6)),
+      egm_weight r
+        ![x.ofLp 0, x.ofLp 2, x.ofLp 4, x.ofLp 1, x.ofLp 3,
+          x.ofLp 5] ∂multivariateGaussian (toLp 2 (sourceEndpointMean L r b)) (sourceEndpointSchurAt L r))
+SourceEndpointEstimates.lean:122:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+SourceEndpointEstimates.lean:150:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`

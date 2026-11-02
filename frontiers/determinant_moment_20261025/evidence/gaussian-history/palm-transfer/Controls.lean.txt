@@ -1,0 +1,43 @@
+import ResearchFormalCoreR1.PalmReweighting
+
+open MeasureTheory
+open scoped ENNReal
+
+namespace PalmControls
+
+example {Ω : Type*} [MeasurableSpace Ω] (μ : Measure Ω) [IsProbabilityMeasure μ] :
+    IsProbabilityMeasure (ResearchFormalCoreR1.prwMeasure μ (fun _ => (2 : ℝ))) := by
+  apply ResearchFormalCoreR1.prw_isProbabilityMeasure
+  · exact integrable_const _
+  · intro ω; norm_num
+  · simp
+
+example {Ω : Type*} [MeasurableSpace Ω] (μ : Measure Ω) [IsProbabilityMeasure μ] :
+    (ResearchFormalCoreR1.prwMeasure μ (fun _ => (2 : ℝ))).real Set.univ = 1 := by
+  rw [ResearchFormalCoreR1.prw_measure_real μ (fun _ => (2 : ℝ)) (integrable_const _)
+    (fun _ => by norm_num) (by simp) Set.univ MeasurableSet.univ]
+  simp
+
+example {Ω : Type*} [MeasurableSpace Ω] (μ : Measure Ω) [IsProbabilityMeasure μ]
+    (E : Set Ω) (hE : MeasurableSet E) :
+    IsProbabilityMeasure (ResearchFormalCoreR1.prwMeasure μ (fun _ => (2 : ℝ))) ∧
+      (ResearchFormalCoreR1.prwMeasure μ (fun _ => (2 : ℝ))).real E ≤
+        (Real.sqrt 64 / 8) * Real.sqrt (μ.real E) := by
+  apply ResearchFormalCoreR1.prw_square_root_event_bound μ (fun _ => (2 : ℝ))
+    measurable_const (fun _ => by norm_num) (by simp) 64 8 (1/2)
+    (by norm_num) (by norm_num) (by norm_num) (by norm_num) (by norm_num) E hE
+
+example {Ω : Type*} [MeasurableSpace Ω] (μ : Measure Ω) :
+    ¬ IsProbabilityMeasure (ResearchFormalCoreR1.prwMeasure μ (fun _ => (0 : ℝ))) := by
+  intro h
+  have hmass := h.measure_univ
+  simp [ResearchFormalCoreR1.prwMeasure] at hmass
+
+#print axioms ResearchFormalCoreR1.prw_integrable_of_integrable_sq
+#print axioms ResearchFormalCoreR1.prw_measure_apply
+#print axioms ResearchFormalCoreR1.prw_isProbabilityMeasure
+#print axioms ResearchFormalCoreR1.prw_measure_real
+#print axioms ResearchFormalCoreR1.prw_numerator_bound
+#print axioms ResearchFormalCoreR1.prw_square_root_event_bound
+
+end PalmControls

@@ -1,0 +1,98 @@
+{
+  "role": "Actual OpenAI/Codex author-side production/helper lineage, copied from completed qualification receipt. No different-family review credit.",
+  "lineage": [
+    {
+      "agent": "/root/dm2_landed_composition",
+      "provider_family": "OpenAI/Codex",
+      "contribution": "Sole production owner: actual modewise derivative permutation, arbitrary-line gradient/Hessian Taylor chains, actual Euclidean remainder bounds, raw radius, potential-gradient identity, uniform MAX-C1 comparison, certificate size/ball bounds, base and weighted a.e. applications, new-module qualification."
+    },
+    {
+      "agent": "/root/normalizer_palm_research",
+      "provider_family": "OpenAI/Codex",
+      "contribution": "Generic genuine sharp Taylor/Lagrange remainder, symmetric Peano moment and cancellation, endpoint algebra, actual axial and low-pin coefficient bounds.",
+      "sources": [
+        {
+          "path": "/workspace/scratch/actual-quartic-transfer/lean/SymmetricPeano.lean",
+          "sha256": "e155326a61a86aa14696a0aec797e2f7e8c13a368b15af269fa4cd0a979e3eab"
+        },
+        {
+          "path": "/workspace/scratch/actual-quartic-transfer/lean/EndpointCoefficients.lean",
+          "sha256": "90d018783844623c9fae4b1a309d2ae5de8c022ccc08bd5192f843cc685febde"
+        },
+        {
+          "path": "/workspace/scratch/actual-quartic-transfer/lean/ScalarTaylorRemainder.lean",
+          "sha256": "4753458af4bdcce2e9d34872d28db9e57ea07ca8fff6b85d4e1eec197fd50059"
+        },
+        {
+          "path": "/workspace/scratch/actual-quartic-transfer/lean/ActualCurveBounds.lean",
+          "sha256": "0cc08b5f5585bdb5a295f41cf75b0c1064a4803091d899575687d16e9337fb6f"
+        },
+        {
+          "path": "/workspace/scratch/actual-quartic-transfer/lean/ActualAxialCoefficients.lean",
+          "sha256": "023cc6344d0182d75abd073cca9e352b57cc4adccf90e6c4c87920adfa39729e"
+        }
+      ],
+      "actual_records": [
+        "/workspace/scratch/actual-quartic-transfer/lean/symmetric-peano-02.json",
+        "/workspace/scratch/actual-quartic-transfer/lean/endpoint-coefficients-02.json",
+        "/workspace/scratch/actual-quartic-transfer/lean/scalar-taylor-03.json",
+        "/workspace/scratch/actual-quartic-transfer/lean/actual-curve-01.json",
+        "/workspace/scratch/actual-quartic-transfer/lean/actual-axial-02.json"
+      ]
+    },
+    {
+      "agent": "/root/dm2_landed_composition/peano_strategy",
+      "provider_family": "OpenAI/Codex",
+      "contribution": "Pi-to-Euclidean and operator norm bridges, actual gradient/Hessian derivative bridge, exact cutoff arithmetic, literal quartic Jacobian, coefficient-error norm bounds, final controls.",
+      "sources": [
+        {
+          "path": "/workspace/scratch/pin-preserving-quartic-implementation/EuclideanBridge.lean",
+          "sha256": "a72c18ff9ed263078a30d8edf30bed0281477bfe41fc0afcb0fc994f1ee782c3"
+        },
+        {
+          "path": "/workspace/scratch/pin-preserving-quartic-implementation/GradientBridge.lean",
+          "sha256": "cec84c5924609622996ea9e183c4973d862a15c6ef55ae86e58607b02a643d82"
+        },
+        {
+          "path": "/workspace/scratch/pin-preserving-quartic-implementation/CutoffTolerance.lean",
+          "sha256": "661419194a84ecca3976ed417f88e77efe3ab1f095731516dc73f124371f149d"
+        },
+        {
+          "path": "/workspace/scratch/pin-preserving-quartic-implementation/QuarticJacobian.lean",
+          "sha256": "b6f873930c73c0a6150e6f0fb0daa3eed7aa29ad2ceefab6763ff2aed00c1793"
+        },
+        {
+          "path": "/workspace/scratch/pin-preserving-quartic-implementation/CoefficientErrorBounds.lean",
+          "sha256": "1c4e67d4980a7595c10f4843b5967b0fa6d6f76bb39853b077cd92105442c27f"
+        }
+      ],
+      "actual_records": [
+        "/workspace/scratch/pin-preserving-quartic-implementation/euclidean_norm_final.json",
+        "/workspace/scratch/pin-preserving-quartic-implementation/gradient_final.json",
+        "/workspace/scratch/pin-preserving-quartic-implementation/cutoff_final.json",
+        "/workspace/scratch/pin-preserving-quartic-implementation/jacobian_final.json",
+        "/workspace/scratch/pin-preserving-quartic-implementation/coefficient_final.json",
+        "/workspace/scratch/pin-preserving-quartic-implementation/quartic_control_receipt.json"
+      ]
+    },
+    {
+      "agent": "/root/regression_kernel",
+      "provider_family": "OpenAI/Codex",
+      "contribution": "Actual finite multilinear coefficient tables and exact ordinary-Taylor versus LM001 polynomial/Jacobian differences.",
+      "sources": [
+        {
+          "path": "/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean",
+          "sha256": "2b325b397e8757f52a6f85507842d921fa1d555ca3689f411f45ab2a248100cd"
+        },
+        {
+          "path": "/workspace/scratch/pin-preserving-quartic-implementation/NewMismatch.lean",
+          "sha256": "ccd87db756855dec6df784099e5973d5a97bdb7ae738467fddd8bc4d7ec08f47"
+        }
+      ],
+      "actual_records": [
+        "/workspace/scratch/pin-preserving-quartic-implementation/coefficient_handoff.json"
+      ]
+    }
+  ],
+  "scientific_review_credit": 0
+}

@@ -1,0 +1,5 @@
+import SourceSmoothPalm
+open MeasureTheory ResearchFormalCoreR1
+example : IsProbabilityMeasure (prwMeasure (Measure.dirac ()) (fun _ : Unit => (0 : ℝ))) := by
+  constructor
+  norm_num [prwMeasure]

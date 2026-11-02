@@ -1,0 +1,33 @@
+/workspace/scratch/gaussian-majorants/mgf/MGF.lean:106:6: error: Tactic `apply` failed: could not unify the conclusion of `@add_le_add_left`
+  ?b + ?a ≤ ?c + ?a
+with the goal
+  1 - a + ∑ i ∈ s, w i / W * ∫ (ω : Ω), Real.exp (t * W * |U i ω|) ∂P ≤ 1 - a + ∑ i ∈ s, w i / W * K
+
+Note: The full type of `@add_le_add_left` is
+  ∀ {α : Type ?u.387} {b c : α} [inst : Add α] [inst_1 : LE α] [i : AddRightMono α], b ≤ c → ∀ (a : α), b + a ≤ c + a
+
+I : Type u_1
+Ω : Type u_2
+inst✝¹ : MeasurableSpace Ω
+P : Measure Ω
+inst✝ : IsProbabilityMeasure P
+s : Finset I
+w : I → ℝ
+U : I → Ω → ℝ
+hmeas : ∀ (i : I), Measurable (U i)
+W t K : ℝ
+hW : 0 < W
+hw : ∀ (i : I), 0 ≤ w i
+hsum : ∑ i ∈ s, w i ≤ W
+hK : 1 ≤ K
+hUi : ∀ (i : I), Integrable (fun ω => Real.exp (t * W * |U i ω|)) P
+hUb : ∀ (i : I), ∫ (ω : Ω), Real.exp (t * W * |U i ω|) ∂P ≤ K
+a : ℝ := ∑ i ∈ s, w i / W
+ha0 : 0 ≤ a
+ha1 : a ≤ 1
+hsumint : Integrable (fun ω => ∑ i ∈ s, w i / W * Real.exp (t * W * |U i ω|)) P
+hrhs : Integrable (fun ω => 1 - a + ∑ i ∈ s, w i / W * Real.exp (t * W * |U i ω|)) P
+hmeasf : AEStronglyMeasurable (fun ω => Real.exp (t * ∑ i ∈ s, w i * |U i ω|)) P
+hint : Integrable (fun ω => Real.exp (t * ∑ i ∈ s, w i * |U i ω|)) P
+⊢ 1 - a + ∑ i ∈ s, w i / W * ∫ (ω : Ω), Real.exp (t * W * |U i ω|) ∂P ≤ 1 - a + ∑ i ∈ s, w i / W * K
+lean_exit=1

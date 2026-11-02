@@ -1,0 +1,140 @@
+SourceGapWeightedNumerator.lean:88:35: error: could not synthesize default value for parameter 'h₂' using tactics
+SourceGapWeightedNumerator.lean:88:35: error: Tactic `aesop` failed, failed to prove the goal. Some goals were not explored because the maximum rule application depth (30) was reached. Set option 'maxRuleApplicationDepth' to increase the limit.
+Initial goal:
+  L : ℝ
+  hL : L ≠ 0
+  r b k eps M : ℝ
+  hr : 0 < r
+  heps : 0 < eps
+  hR : Integrable (fun ω => sourceGammaRadius L ω ^ 30) (sourceGapLaw hL r b k)
+  hbound : ∫ (ω : SmoothSample 2 L), sourceGammaRadius L ω ^ 30 ∂sourceGapLaw hL r b k ≤ M
+  Q : Measure (SmoothSample 2 L) := sourceGapLaw hL r b k
+  hint : Integrable (fun ω => (r * sourceGammaRadius L ω ^ 5) ^ 6) Q
+  hnon : 0 ≤ᵐ[Q] fun ω => (r * sourceGammaRadius L ω ^ 5) ^ 6
+  hMarkov :
+    eps ^ 6 * Q.real {x | eps ^ 6 ≤ (r * sourceGammaRadius L x ^ 5) ^ 6} ≤
+      ∫ (x : SmoothSample 2 L), (r * sourceGammaRadius L x ^ 5) ^ 6 ∂Q
+  hsub : sourceRegularityBad L r eps ⊆ {ω | eps ^ 6 ≤ (r * sourceGammaRadius L ω ^ 5) ^ 6}
+  ⊢ Q {ω | eps ^ 6 ≤ (r * sourceGammaRadius L ω ^ 5) ^ 6} ≠ ⊤
+Remaining goals after safe rules:
+  L : ℝ
+  hL : L ≠ 0
+  r b k eps M : ℝ
+  hr : 0 < r
+  heps : 0 < eps
+  hR : Integrable (fun ω => sourceGammaRadius L ω ^ 30) (sourceGapLaw hL r b k)
+  hbound : ∫ (ω : SmoothSample 2 L), sourceGammaRadius L ω ^ 30 ∂sourceGapLaw hL r b k ≤ M
+  Q : Measure (SmoothSample 2 L) := sourceGapLaw hL r b k
+  hint : Integrable (fun ω => (r * sourceGammaRadius L ω ^ 5) ^ 6) Q
+  hnon : 0 ≤ᵐ[Q] fun ω => (r * sourceGammaRadius L ω ^ 5) ^ 6
+  hMarkov :
+    eps ^ 6 * Q.real {x | eps ^ 6 ≤ (r * sourceGammaRadius L x ^ 5) ^ 6} ≤
+      ∫ (x : SmoothSample 2 L), (r * sourceGammaRadius L x ^ 5) ^ 6 ∂Q
+  hsub : sourceRegularityBad L r eps ⊆ {ω | eps ^ 6 ≤ (r * sourceGammaRadius L ω ^ 5) ^ 6}
+  ⊢ Q {ω | eps ^ 6 ≤ (r * sourceGammaRadius L ω ^ 5) ^ 6} ≠ ⊤
+SourceGapWeightedNumerator.lean:132:47: error: Application type mismatch: The argument
+  sq_nonneg ?m.749
+has type
+  @OfNat.ofNat ?m.743 0 (@Zero.toOfNat0 ?m.743 instMulZeroClassOfSemiring.toZero) ≤ ?m.749 ^ 2
+but is expected to have type
+  @OfNat.ofNat ?m.738 0 (@Zero.toOfNat0 ?m.738 SubtractionMonoid.toSubNegZeroMonoid.toNegZeroClass.toZero) ≤ ?m.741
+in the application
+  abs_of_nonneg (sq_nonneg ?m.749)
+SourceGapWeightedNumerator.lean:132:4: error: Type mismatch: After simplification, term
+  hω
+ has type
+  sourceSmoothWeight L r ω ^ 2 ≤ 100 * r ^ 4 * sourceGammaRadius L ω ^ 8
+but is expected to have type
+  |sourceSmoothWeight L r ω ^ 2| ≤ 100 * r ^ 4 * sourceGammaRadius L ω ^ 8
+SourceGapWeightedNumerator.lean:149:17: error(lean.unknownIdentifier): Unknown identifier `p02_lm008_event_numerator`
+SourceGapWeightedNumerator.lean:106:45: error: unsolved goals
+L : ℝ
+hL : L ≠ 0
+B K eps : ℝ
+hB : 0 ≤ B
+hK : 0 ≤ K
+heps : 0 < eps
+δR : ℝ
+hδR : 0 < δR
+hδR1 : δR ≤ 1
+hmom :
+  ∀ (n : ℕ),
+    ∃ C,
+      0 ≤ C ∧
+        ∀ (r : ℝ),
+          0 < r →
+            r < δR →
+              ∀ (b k : ℝ),
+                |b| ≤ B →
+                  |k| ≤ K →
+                    Integrable (fun ω => sourceGammaRadius L ω ^ n) (sourceGapLaw hL r b k) ∧
+                      ∫ (ω : SmoothSample 2 L), sourceGammaRadius L ω ^ n ∂sourceGapLaw hL r b k ≤ C
+M8 : ℝ
+hM8 : 0 ≤ M8
+h8 :
+  ∀ (r : ℝ),
+    0 < r →
+      r < δR →
+        ∀ (b k : ℝ),
+          |b| ≤ B →
+            |k| ≤ K →
+              Integrable (fun ω => sourceGammaRadius L ω ^ 8) (sourceGapLaw hL r b k) ∧
+                ∫ (ω : SmoothSample 2 L), sourceGammaRadius L ω ^ 8 ∂sourceGapLaw hL r b k ≤ M8
+M30 : ℝ
+hM30 : 0 ≤ M30
+h30 :
+  ∀ (r : ℝ),
+    0 < r →
+      r < δR →
+        ∀ (b k : ℝ),
+          |b| ≤ B →
+            |k| ≤ K →
+              Integrable (fun ω => sourceGammaRadius L ω ^ 30) (sourceGapLaw hL r b k) ∧
+                ∫ (ω : SmoothSample 2 L), sourceGammaRadius L ω ^ 30 ∂sourceGapLaw hL r b k ≤ M30
+δW : ℝ
+hδW : 0 < δW
+_hδW1 : δW ≤ 1
+hW :
+  ∀ (r : ℝ),
+    0 < r →
+      r < δW →
+        ∀ (b k : ℝ),
+          ∀ᵐ (sample : SmoothSample 2 L) ∂sourceGapLaw hL r b k,
+            sourceConfluentPinsAt L r sample = sourceGapPins r b k ∧
+              sourceSmoothWeight L r sample ≤
+                  2 * r ^ 2 * sourceGammaRadius L sample ^ 2 * sourceQ L sample ^ 2 +
+                    8 * r ^ 4 * sourceGammaRadius L sample ^ 4 ∧
+                sourceSmoothWeight L r sample ≤ 10 * r ^ 2 * sourceGammaRadius L sample ^ 4 ∧
+                  (0 < sourceSmoothWeight L r sample → sourceQ L sample < r * sourceDerivativeMajorant L 3 sample) ∧
+                    ∀ (A : ℝ),
+                      0 < sourceSmoothWeight L r sample →
+                        -A * r * sourceGammaRadius L sample ^ 5 ≤ sourceQ L sample →
+                          |sourceQ L sample| ≤ max A 1 * r * sourceGammaRadius L sample ^ 5
+C : ℝ := 100 * M8
+T : ℝ := M30 / eps ^ 6
+hC : 0 ≤ C
+hT : 0 ≤ T
+r : ℝ
+hr : 0 < r
+hrδ : r < min δR δW
+b k : ℝ
+hb : |b| ≤ B
+hk : |k| ≤ K
+hrR : r < δR
+hrW : r < δW
+h8int : Integrable (fun ω => sourceGammaRadius L ω ^ 8) (sourceGapLaw hL r b k)
+h8bound : ∫ (ω : SmoothSample 2 L), sourceGammaRadius L ω ^ 8 ∂sourceGapLaw hL r b k ≤ M8
+h30int : Integrable (fun ω => sourceGammaRadius L ω ^ 30) (sourceGapLaw hL r b k)
+h30bound : ∫ (ω : SmoothSample 2 L), sourceGammaRadius L ω ^ 30 ∂sourceGapLaw hL r b k ≤ M30
+hsq :
+  ∀ᵐ (ω : SmoothSample 2 L) ∂sourceGapLaw hL r b k,
+    sourceSmoothWeight L r ω ^ 2 ≤ 100 * r ^ 4 * sourceGammaRadius L ω ^ 8
+hmajor : Integrable (fun ω => 100 * r ^ 4 * sourceGammaRadius L ω ^ 8) (sourceGapLaw hL r b k)
+hsqint : Integrable (fun ω => sourceSmoothWeight L r ω ^ 2) (sourceGapLaw hL r b k)
+hsqbound : ∫ (ω : SmoothSample 2 L), sourceSmoothWeight L r ω ^ 2 ∂sourceGapLaw hL r b k ≤ C * r ^ 4
+hbase : (sourceGapLaw hL r b k).real (sourceRegularityBad L r eps) ≤ M30 / eps ^ 6 * r ^ 6
+hsqrt : √((sourceGapLaw hL r b k).real (sourceRegularityBad L r eps)) ≤ √T * r ^ 3
+hLp : MemLp (sourceSmoothWeight L r) 2 (sourceGapLaw hL r b k)
+⊢ Integrable (fun ω => sourceSmoothWeight L r ω ^ 2) (sourceGapLaw hL r b k) ∧
+    ∫ (ω : SmoothSample 2 L) in sourceRegularityBad L r eps, sourceSmoothWeight L r ω ∂sourceGapLaw hL r b k ≤
+      √C * √T * r ^ 5

@@ -1,0 +1,87 @@
+'I4SourceConfluentLimits.rawPinsWithHessians_series' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceConfluentLimits.pinCoefficient_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceConfluentLimits.adjustedCoefficient_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceConfluentLimits.sourceConfluentPinsAt_series' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceConfluentLimits.sourceAdjustedEndpoints_series' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceConfluentLimits.sourcePinCovarianceAt_coefficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceConfluentLimits.sourceCrossCovarianceAt_coefficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceConfluentLimits.sourceEndpointCovarianceAt_coefficient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4ModeCurveChains.mode_smooth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ModeCurveChains.axis_iteratedDeriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ModeCurveChains.axis_transverse_smooth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ModeCurveChains.axis_transverse_iteratedDeriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ModeCurveChains.modeH_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ModeCurveChains.modeF_C3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ModeCurveChains.modeH_C2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ModeCurveChains.modeF_deriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ModeCurveChains.modeF_second' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ModeCurveChains.modeF_third' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ModeCurveChains.modeH_deriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ModeCurveChains.modeH_second' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceConfluentLimits.rawDerivativeCoefficient_explicit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceConfluentLimits.pinCoefficient_explicit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceConfluentLimits.adjustedCoefficient_explicit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4WeightedModeIntegrals.weighted_integrand_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4WeightedModeIntegrals.weightedDerivativeIntegral_continuous' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4WeightedModeIntegrals.weightedDerivativeIntegral_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4WeightedModeIntegrals.weightedDerivativeIntegral_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceConfluentLimits.peano_kernel_masses' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceConfluentLimits.pinCoefficient_eq_regularized' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceConfluentLimits.adjustedCoefficient_eq_regularized' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ContactCoefficientLimits.contactPinCoefficient_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ContactCoefficientLimits.contactAdjustedCoefficient_summable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4ContactCoefficientLimits.sourcePinVector_eq_contactSeries' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ContactCoefficientLimits.sourceContactEndpointVector_eq_contactSeries' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4ContactCoefficientLimits.sourcePinCovariance_eq_contactCoefficientGram' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4ContactCoefficientLimits.sourceContactEndpointCrossCovariance_eq_contactCoefficientGram' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4ContactCoefficientLimits.sourceContactEndpointCovariance_eq_contactCoefficientGram' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceConfluentLimits.confluentModeMajorant_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceConfluentLimits.confluentModeMajorant_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceConfluentLimits.regularizedPinCoefficient_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceConfluentLimits.regularizedAdjustedCoefficient_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceConfluentLimits.regularizedPinCoefficient_continuous' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceConfluentLimits.regularizedAdjustedCoefficient_continuous' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceConfluentLimits.regularizedPinCoefficient_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceConfluentLimits.regularizedAdjustedCoefficient_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceConfluentLimits.regularizedPinCovariance_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceConfluentLimits.regularizedCrossCovariance_continuous' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceConfluentLimits.regularizedEndpointCovariance_continuous' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceConfluentLimits.sourcePinCovarianceAt_eq_regularized' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceConfluentLimits.sourceCrossCovarianceAt_eq_regularized' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceConfluentLimits.sourceEndpointCovarianceAt_eq_regularized' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceConfluentLimits.regularizedPinCovariance_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceConfluentLimits.regularizedCrossCovariance_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceConfluentLimits.regularizedEndpointCovariance_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceConfluentLimits.sourcePinCovarianceAt_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceConfluentLimits.sourceCrossCovarianceAt_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceConfluentLimits.sourceEndpointCovarianceAt_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]

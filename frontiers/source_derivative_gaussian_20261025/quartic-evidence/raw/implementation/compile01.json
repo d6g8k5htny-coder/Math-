@@ -1,0 +1,17 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "-o",
+    ".lake/build/lib/lean/SourcePinPreservingQuartic.olean",
+    "SourcePinPreservingQuartic.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 1,
+  "sourceSHA_before": "ecac55d76147b39edcd9d31c2dcc637a8752dfefbe0c4f20ed5ec42f4541531d",
+  "sourceSHA_after": "ecac55d76147b39edcd9d31c2dcc637a8752dfefbe0c4f20ed5ec42f4541531d",
+  "startedUTC": "2026-10-26T00:42:23.471723+00:00",
+  "elapsed": 5.308287858963013
+}

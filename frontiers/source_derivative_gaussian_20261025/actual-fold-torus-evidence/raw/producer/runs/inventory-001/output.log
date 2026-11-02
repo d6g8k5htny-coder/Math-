@@ -1,0 +1,103 @@
+INVENTORY|definition|SourceActualFoldTorus.actualTorusField
+AXIOMS|SourceActualFoldTorus.actualTorusField|[propext, Classical.choice, Quot.sound]
+INVENTORY|recursor|SourceActualFoldTorus.TorusTrapData.rec
+AXIOMS|SourceActualFoldTorus.TorusTrapData.rec|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.TorusTrapData.height_ceiling
+AXIOMS|SourceActualFoldTorus.TorusTrapData.height_ceiling|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.TorusTrapData.strict_trace
+AXIOMS|SourceActualFoldTorus.TorusTrapData.strict_trace|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.actual_rectangle_torus
+AXIOMS|SourceActualFoldTorus.actual_rectangle_torus|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.torusPhysicalMap_field_eq._simp_1_4
+AXIOMS|SourceActualFoldTorus.torusPhysicalMap_field_eq._simp_1_4|[propext]
+INVENTORY|definition|SourceActualFoldTorus.TorusTrapData.mk._flat_ctor
+AXIOMS|SourceActualFoldTorus.TorusTrapData.mk._flat_ctor|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.actualTorusField_physical_pullback
+AXIOMS|SourceActualFoldTorus.actualTorusField_physical_pullback|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.sourceGapLaw_actual_torus_trap_clearance
+AXIOMS|SourceActualFoldTorus.sourceGapLaw_actual_torus_trap_clearance|[propext, Classical.choice, Quot.sound]
+INVENTORY|definition|SourceActualFoldTorus.TorusTrapData.casesOn
+AXIOMS|SourceActualFoldTorus.TorusTrapData.casesOn|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.torusPhysicalMap_field_eq._simp_1_7
+AXIOMS|SourceActualFoldTorus.torusPhysicalMap_field_eq._simp_1_7|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.TorusTrapData.closed_path
+AXIOMS|SourceActualFoldTorus.TorusTrapData.closed_path|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.torusPhysicalMap_M
+AXIOMS|SourceActualFoldTorus.torusPhysicalMap_M|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.torusPhysicalMap_field_eq._simp_1_8
+AXIOMS|SourceActualFoldTorus.torusPhysicalMap_field_eq._simp_1_8|[propext]
+INVENTORY|constructor|SourceActualFoldTorus.TorusTrapData.mk
+AXIOMS|SourceActualFoldTorus.TorusTrapData.mk|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.TorusTrapData.strictClearanceDeath_eq
+AXIOMS|SourceActualFoldTorus.TorusTrapData.strictClearanceDeath_eq|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.TorusTrapData.frontier_bound
+AXIOMS|SourceActualFoldTorus.TorusTrapData.frontier_bound|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.torusProjection2L_open
+AXIOMS|SourceActualFoldTorus.torusProjection2L_open|[propext, Classical.choice, Quot.sound]
+INVENTORY|definition|SourceActualFoldTorus.torusPhysicalMap
+AXIOMS|SourceActualFoldTorus.torusPhysicalMap|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.sourceTorus2L_t2
+AXIOMS|SourceActualFoldTorus.sourceTorus2L_t2|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.torusProjection2L_surjective
+AXIOMS|SourceActualFoldTorus.torusProjection2L_surjective|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.actualTorusField.congr_simp
+AXIOMS|SourceActualFoldTorus.actualTorusField.congr_simp|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|_private.SourceActualFoldTorus.0.SourceActualFoldTorus.physicalPi_eq_chart
+AXIOMS|_private.SourceActualFoldTorus.0.SourceActualFoldTorus.physicalPi_eq_chart|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|definition|SourceActualFoldTorus.strictClearanceDeath
+AXIOMS|SourceActualFoldTorus.strictClearanceDeath|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.TorusTrapData.older_height
+AXIOMS|SourceActualFoldTorus.TorusTrapData.older_height|[propext, Classical.choice, Quot.sound]
+INVENTORY|definition|SourceActualFoldTorus.strictClearanceSet
+AXIOMS|SourceActualFoldTorus.strictClearanceSet|[propext, Classical.choice, Quot.sound]
+INVENTORY|definition|SourceActualFoldTorus.TorusTrapData.recOn
+AXIOMS|SourceActualFoldTorus.TorusTrapData.recOn|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.TorusTrapData.older_outside
+AXIOMS|SourceActualFoldTorus.TorusTrapData.older_outside|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.torusProjection2L_continuous
+AXIOMS|SourceActualFoldTorus.torusProjection2L_continuous|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.strictClearanceDeath.eq_1
+AXIOMS|SourceActualFoldTorus.strictClearanceDeath.eq_1|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.TorusTrapData.domain_closed
+AXIOMS|SourceActualFoldTorus.TorusTrapData.domain_closed|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.torusPhysicalMap_field_eq._simp_1_3
+AXIOMS|SourceActualFoldTorus.torusPhysicalMap_field_eq._simp_1_3|[propext]
+INVENTORY|theorem|SourceActualFoldTorus.scaled_rectangle_trap
+AXIOMS|SourceActualFoldTorus.scaled_rectangle_trap|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.torusPhysicalMap.eq_1
+AXIOMS|SourceActualFoldTorus.torusPhysicalMap.eq_1|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.actualTorusField_pullback
+AXIOMS|SourceActualFoldTorus.actualTorusField_pullback|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.actualTorusField_continuous
+AXIOMS|SourceActualFoldTorus.actualTorusField_continuous|[propext, Classical.choice, Quot.sound]
+INVENTORY|inductive|SourceActualFoldTorus.TorusTrapData
+AXIOMS|SourceActualFoldTorus.TorusTrapData|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.TorusTrapData.strictClearanceSet_eq_Iio
+AXIOMS|SourceActualFoldTorus.TorusTrapData.strictClearanceSet_eq_Iio|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.torusPhysicalMap_field_eq._simp_1_6
+AXIOMS|SourceActualFoldTorus.torusPhysicalMap_field_eq._simp_1_6|[propext]
+INVENTORY|theorem|SourceActualFoldTorus.TorusTrapData.maximum_inside
+AXIOMS|SourceActualFoldTorus.TorusTrapData.maximum_inside|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.torusPhysicalMap_field_eq._simp_1_5
+AXIOMS|SourceActualFoldTorus.torusPhysicalMap_field_eq._simp_1_5|[propext]
+INVENTORY|theorem|SourceActualFoldTorus.torusPhysicalMap_field_eq
+AXIOMS|SourceActualFoldTorus.torusPhysicalMap_field_eq|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.sourceGapLaw_actual_torus_clearance
+AXIOMS|SourceActualFoldTorus.sourceGapLaw_actual_torus_clearance|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.TorusTrapData.maximum_height
+AXIOMS|SourceActualFoldTorus.TorusTrapData.maximum_height|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.TorusTrapData.death_lt_birth
+AXIOMS|SourceActualFoldTorus.TorusTrapData.death_lt_birth|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.torusPhysicalMap_open
+AXIOMS|SourceActualFoldTorus.torusPhysicalMap_open|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.torusPhysicalMap_S
+AXIOMS|SourceActualFoldTorus.torusPhysicalMap_S|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.torusPhysicalMap_continuous
+AXIOMS|SourceActualFoldTorus.torusPhysicalMap_continuous|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.strictClearanceSet_eq_C263
+AXIOMS|SourceActualFoldTorus.strictClearanceSet_eq_C263|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|SourceActualFoldTorus.torusPhysicalMap_field_eq._simp_1_2
+AXIOMS|SourceActualFoldTorus.torusPhysicalMap_field_eq._simp_1_2|[propext]
+COMPLETE_NEW_MODULE_INVENTORY|SourceActualFoldTorus|50

@@ -1,0 +1,40 @@
+import SourceSmoothPalm
+open I4SmoothCarrier I4SourceConfluentPins I4SourceConfluentLimits I4SourceEndpointRegression
+open I4SourceEndpointEstimates I4SourceSmoothConditional I4SourceSmoothPalm I4Foundation
+open MeasureTheory ProbabilityTheory ResearchFormalCoreR1
+
+example (r b : ℝ) (hr : r ≠ 0) (hG : IsUnit (sourcePinCovarianceAt 1 r)) :
+    (sourceSmoothWeightedLaw (by norm_num : (1 : ℝ) ≠ 0) r b).map (sourceNormalizedEndpoints 1 r) =
+      sourcePhysicalEndpointWeightedProbability 1 r b :=
+  sourceSmoothWeightedLaw_endpoint_map (by norm_num) r b hr hG
+
+example (ω : SmoothSample 2 1) :
+    sourceSmoothWeight 1 (-1) ω = sourceEndpointWeight (-1) (sourceNormalizedEndpoints 1 (-1) ω) :=
+  sourceSmoothWeight_eq 1 (-1) (by norm_num) ω
+
+example : sourceSmoothWeight 1 1 (zeroSample 2 1) = 0 := by
+  have hraw : rawPinsWithHessians 1 1 (zeroSample 2 1) = 0 := by
+    rw [rawPinsWithHessians_series (by norm_num)]
+    ext i
+    simp [scalarSeries, sampleInclusion, zeroSample]
+  simp [sourceSmoothWeight, sourceSmoothTyped, sourceRawHM, sourceRawHS, hraw,
+    dm2_negative_iff]
+
+example {L : ℝ} (hL : L ≠ 0) (r b : ℝ) (hr : r ≠ 0)
+    (hG : IsUnit (sourcePinCovarianceAt L r))
+    [IsProbabilityMeasure (sourceSmoothWeightedLaw hL r b)]
+    (hZ : 0 < ∫ ω, sourceSmoothWeight L r ω ∂sourceSmoothLaw hL r b) :
+    sourceSmoothWeightedLaw hL r b
+      {ω | rawPins L r ω = ![b,b-r^3/6,0,0,0,0] ∧ sourceSmoothTyped L r ω} = 1 := by
+  apply (mem_ae_iff_prob_eq_one
+    ((measurableSet_eq_fun (sourceRawPins_measurable hL r hr) measurable_const).inter
+      (sourceSmoothTyped_measurableSet hL r hr))).1
+  have hraw : ∀ᵐ ω ∂sourceSmoothWeightedLaw hL r b,
+      rawPins L r ω = ![b,b-r^3/6,0,0,0,0] := by
+    apply (mem_ae_iff_prob_eq_one
+      (measurableSet_eq_fun (sourceRawPins_measurable hL r hr) measurable_const)).2
+    exact sourceSmoothWeightedLaw_raw_pins hL r b hr hG
+  have htype : ∀ᵐ ω ∂sourceSmoothWeightedLaw hL r b, sourceSmoothTyped L r ω := by
+    apply (mem_ae_iff_prob_eq_one (sourceSmoothTyped_measurableSet hL r hr)).2
+    exact sourceSmoothWeightedLaw_typed hL r b hr hZ
+  exact hraw.and htype

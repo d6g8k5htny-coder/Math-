@@ -1,0 +1,25 @@
+import SourceConfluentPins
+open I4SourceConfluentPins
+
+-- The prescribed arbitrary height and nonunit radius give a nontrivial target.
+example : confluentTransform 2 ![7, 17/3, 0, 0, 0, 0] =
+    ![19/3, 0, 0, 0, 0, 2] := by
+  have h := prescribed_target (2 : ℝ) 7 (by norm_num)
+  norm_num [confluentEquiv_apply] at h
+  exact h
+
+-- Nonzero signed separation is allowed, and the cubic height correction changes sign.
+example : confluentTransform (-2) ![7, 25/3, 0, 0, 0, 0] =
+    ![23/3, 0, 0, 0, 0, 2] := by
+  have h := prescribed_target (-2 : ℝ) 7 (by norm_num)
+  norm_num [confluentEquiv_apply] at h
+  exact h
+
+-- Zero radius collapses two unequal value pins to their common average.
+example : rawTransform 0 (confluentTransform 0 ![0, 2, 0, 0, 0, 0]) =
+    ![1, 1, 0, 0, 0, 0] := by
+  norm_num [rawTransform, confluentTransform]
+
+-- Zero radius cannot produce the required nonzero cubic confluent pin.
+example : confluentTransform 0 ![7, 7, 0, 0, 0, 0] 5 = 0 := by
+  norm_num [confluentTransform]

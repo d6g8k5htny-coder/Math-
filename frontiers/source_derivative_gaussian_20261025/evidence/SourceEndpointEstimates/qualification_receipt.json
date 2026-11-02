@@ -1,0 +1,325 @@
+{
+  "scope": "NEW_ACTUAL_PHYSICAL_ENDPOINT_ESTIMATES_ONLY",
+  "scientific_effect": "NONE",
+  "source_path": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025/SourceEndpointEstimates.lean",
+  "source_sha256": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+  "frozen_contracts": [
+    {
+      "commit": "dffeea6",
+      "path": "frontiers/source_derivative_gaussian_20261025/SOURCE_ENDPOINT_ESTIMATES.md"
+    },
+    {
+      "commit": "1819e38",
+      "path": "frontiers/source_derivative_gaussian_20261025/SOURCE_PHYSICAL_ENDPOINT_KERNEL.md",
+      "role": "actual canonical physical law join consumed"
+    }
+  ],
+  "author_side_lineage": [
+    "OpenAI/Codex /root/dm2_landed_composition: sole production implementer",
+    "OpenAI/Codex /root/dm2_landed_composition/peano_strategy: actual normalizer-floor assembly draft helper"
+  ],
+  "final_theorem": "I4SourceEndpointEstimates.sourcePhysicalEndpoint_estimates_and_weighted_events",
+  "final_research_inputs": [
+    "L != 0",
+    "fixed arbitrary real height b"
+  ],
+  "derived_conclusions": [
+    "current pin covariance invertibility for every sufficiently small positive radius",
+    "actual regression means and Schur covariance limits and uniform parameter bounds",
+    "literal physical weight square integrability and integral <= C*r^4",
+    "positive normalizer integral >= c*r^2",
+    "explicit weighted actual physical endpoint probability",
+    "all measurable endpoint events satisfy sqrt(C)/c * sqrt(base endpoint event probability) bound"
+  ],
+  "actual_source_proof_dependencies": [
+    "SourceConfluentLimits: three actual covariance block limits",
+    "SourceContactEndpointParameters: derived contact means/zero variances/PSD/positive reference variance",
+    "SourceEndpointParameters: actual canonical every-pin Gaussian law",
+    "SourcePhysicalEndpointKernel: same-residual canonical physical kernel and literal prescribed-pin equality",
+    "GaussianRegressionLimits: derived inverse/mean/covariance limits and uniform bounds"
+  ],
+  "verified_input_reuse": "23 byte-bound inputs, including 11 ResearchFormalCoreR1 modules from the completed 66-target packet at 16f81b973a02783f8be83081aa7f198724cf5767, reused without rebuild or re-audit",
+  "compile": {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-o",
+      ".lake/build/lib/lean/SourceEndpointEstimates.olean",
+      "SourceEndpointEstimates.lean"
+    ],
+    "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+    "exit_code": 0,
+    "source_sha256": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+    "scope": "NEW_SOURCE_ENDPOINT_ESTIMATES_ACTUAL_PHYSICAL_KERNEL_COMPOSITION",
+    "author_side_lineage": "OpenAI/Codex /root/dm2_landed_composition; normalizer draft helper /root/dm2_landed_composition/peano_strategy",
+    "raw_log": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/physical_assembly_attempt1.log",
+    "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "public_targets": [
+    "I4SourceEndpointEstimates.sourcePhysicalCoordinates_apply",
+    "I4SourceEndpointEstimates.sourcePhysicalCoordinates_continuous",
+    "I4SourceEndpointEstimates.sourcePhysicalCoordinates_inverse",
+    "I4SourceEndpointEstimates.sourceEndpointWeight_measurable",
+    "I4SourceEndpointEstimates.sourceEndpointWeight_nonneg",
+    "I4SourceEndpointEstimates.sourceEndpointWeight_eq_continuous",
+    "I4SourceEndpointEstimates.sourceEndpointLaw_isProbabilityMeasure",
+    "I4SourceEndpointEstimates.sourceEndpointLaw_euclidean_hasLaw",
+    "I4SourceEndpointEstimates.sourceEndpointLaw_physical_marginal",
+    "I4SourceEndpointEstimates.sourceEndpointLaw_weight_integral",
+    "I4SourceEndpointEstimates.sourceEndpointLaw_second_moment_of_parameter_bounds",
+    "I4SourceEndpointEstimates.sourceEndpointLaw_weight_square_integrable",
+    "I4SourceEndpointEstimates.sourceEndpointLaw_weight_integrable",
+    "I4SourceEndpointEstimates.sourcePrescribedPins_tendsto",
+    "I4SourceEndpointEstimates.sourceEndpoint_weighted_event_bound_of_estimates",
+    "I4SourceEndpointEstimates.sourceEndpoint_parameter_limits",
+    "I4SourceEndpointEstimates.sourceEndpoint_uniform_parameter_bounds",
+    "I4SourceEndpointEstimates.sourceEndpoint_normalizer_floor",
+    "I4SourceEndpointEstimates.sourceEndpoint_estimates",
+    "I4SourceEndpointEstimates.sourceEndpoint_estimates_and_weighted_events",
+    "I4SourceEndpointEstimates.sourcePhysicalEndpointLaw_eq",
+    "I4SourceEndpointEstimates.sourcePhysicalEndpointLaw_isProbabilityMeasure",
+    "I4SourceEndpointEstimates.sourcePhysicalEndpointKernel_eventually_hasCondDistrib",
+    "I4SourceEndpointEstimates.sourcePhysicalEndpointWeightedProbability_eq",
+    "I4SourceEndpointEstimates.sourcePhysicalEndpoint_estimates_and_weighted_events"
+  ],
+  "axioms": {
+    "I4SourceEndpointEstimates.sourcePhysicalCoordinates_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceEndpointEstimates.sourcePhysicalCoordinates_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceEndpointEstimates.sourcePhysicalCoordinates_inverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceEndpointEstimates.sourceEndpointWeight_measurable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceEndpointEstimates.sourceEndpointWeight_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceEndpointEstimates.sourceEndpointWeight_eq_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceEndpointEstimates.sourceEndpointLaw_isProbabilityMeasure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceEndpointEstimates.sourceEndpointLaw_euclidean_hasLaw": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceEndpointEstimates.sourceEndpointLaw_physical_marginal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceEndpointEstimates.sourceEndpointLaw_weight_integral": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceEndpointEstimates.sourceEndpointLaw_second_moment_of_parameter_bounds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceEndpointEstimates.sourceEndpointLaw_weight_square_integrable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceEndpointEstimates.sourceEndpointLaw_weight_integrable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceEndpointEstimates.sourcePrescribedPins_tendsto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceEndpointEstimates.sourceEndpoint_weighted_event_bound_of_estimates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceEndpointEstimates.sourceEndpoint_parameter_limits": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceEndpointEstimates.sourceEndpoint_uniform_parameter_bounds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceEndpointEstimates.sourceEndpoint_normalizer_floor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceEndpointEstimates.sourceEndpoint_estimates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceEndpointEstimates.sourceEndpoint_estimates_and_weighted_events": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceEndpointEstimates.sourcePhysicalEndpointLaw_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceEndpointEstimates.sourcePhysicalEndpointLaw_isProbabilityMeasure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceEndpointEstimates.sourcePhysicalEndpointKernel_eventually_hasCondDistrib": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceEndpointEstimates.sourcePhysicalEndpointWeightedProbability_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceEndpointEstimates.sourcePhysicalEndpoint_estimates_and_weighted_events": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "checks": {
+    "kernel": {
+      "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "lake",
+        "env",
+        "leanchecker",
+        "SourceEndpointEstimates"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 8.686837196350098,
+      "source_sha256_before": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+      "source_sha256_after": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+      "expected_exit_code": 0,
+      "raw_log": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/kernel.log",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "axioms": {
+      "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/dm2_landed_composition/endpoint_estimates/AxiomAudit.lean"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 4.68341064453125,
+      "source_sha256_before": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+      "source_sha256_after": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+      "expected_exit_code": 0,
+      "raw_log": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+      "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+    },
+    "types": {
+      "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/dm2_landed_composition/endpoint_estimates/Types.lean"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 4.792372465133667,
+      "source_sha256_before": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+      "source_sha256_after": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+      "expected_exit_code": 0,
+      "raw_log": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/types.log",
+      "raw_log_sha256": "a0aabbe4809916815304e74fc2cb96ab47d193d6874509e6bdf97d86e62a3f1b"
+    },
+    "positive": {
+      "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/dm2_landed_composition/endpoint_estimates/PositiveControls.lean"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 6.003469705581665,
+      "source_sha256_before": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+      "source_sha256_after": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+      "expected_exit_code": 0,
+      "raw_log": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/positive.log",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "false-permutation": {
+      "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/dm2_landed_composition/endpoint_estimates/FalseOmitPermutation.lean"
+      ],
+      "exit_code": 1,
+      "duration_seconds": 4.770277976989746,
+      "source_sha256_before": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+      "source_sha256_after": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+      "expected_exit_code": 1,
+      "raw_log": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/false-permutation.log",
+      "raw_log_sha256": "f262c0491c0806778fbd7fc56a2fe3668366dac8a386f9c658b323ee3bdd1955"
+    },
+    "false-radius": {
+      "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/dm2_landed_composition/endpoint_estimates/FalseRadiusPower.lean"
+      ],
+      "exit_code": 1,
+      "duration_seconds": 4.121073007583618,
+      "source_sha256_before": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+      "source_sha256_after": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+      "expected_exit_code": 1,
+      "raw_log": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/false-radius.log",
+      "raw_log_sha256": "1d211ab1466ecfd781950cf38588cdf7c42f009185c70ad467dcd76037271e47"
+    }
+  },
+  "control_source_sha256": {
+    "AxiomAudit.lean": "f6d9f1bf0523abe2bc34e77d0b587e981a82a7c0000589ca9508b25cd6ab0572",
+    "Types.lean": "c6537a1488393fa76ffbe14c673d9315484d441b87aaf89ee45d77dc43b3d514",
+    "PositiveControls.lean": "4a3f87cd8e34c7d43d34660fcfcb9531c686aa02e88664a7ad6b660fc48e1209",
+    "FalseOmitPermutation.lean": "258067b5e2594810e3359a7e8c068a616516472735e6030b3a5519b1d537389e",
+    "FalseRadiusPower.lean": "030c275aa43471ebce6110688f54d39ca76a57610a2c0e3de56223f5df19a73e"
+  },
+  "not_established": [
+    "uniformity over unbounded b",
+    "whole-field geometric Kac-Rice/Palm identification",
+    "arbitrary field-dependent event transfer",
+    "GT5 or further parent theorems",
+    "independent scientific review or organizational independence credit"
+  ]
+}

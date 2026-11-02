@@ -1,0 +1,29 @@
+/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean:214:6: error(lean.unknownIdentifier): Unknown identifier `scalarSeries_add_finiteShift`
+/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean:206:75: error: unsolved goals
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+y : Fin 6 → ℝ
+ω : SmoothSample 2 L
+i : Fin 6
+⊢ (scalarSeries (pinCoefficient L r i) fun m =>
+      sampleInclusion 2 L ω m + ∑ j, pinCoefficient L r j m * ((sourcePinCovarianceAt L r)⁻¹ *ᵥ y) j) =
+    scalarSeries (pinCoefficient L r i) (sampleInclusion 2 L ω) +
+      (sourcePinCovarianceAt L r *ᵥ (sourcePinCovarianceAt L r)⁻¹ *ᵥ y) i
+/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean:230:6: error(lean.unknownIdentifier): Unknown identifier `scalarSeries_add_finiteShift`
+/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean:222:37: error: unsolved goals
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+y : Fin 6 → ℝ
+ω : SmoothSample 2 L
+i : Fin 6
+⊢ (scalarSeries (adjustedCoefficient L r i) fun m =>
+      sampleInclusion 2 L ω m + ∑ j, pinCoefficient L r j m * ((sourcePinCovarianceAt L r)⁻¹ *ᵥ y) j) =
+    scalarSeries (adjustedCoefficient L r i) (sampleInclusion 2 L ω) + (sourceRegressionMapAt L r) y i
+/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean:244:8: error: typeclass instance problem is stuck
+  AddCommGroup ?m.57
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `AddCommGroup` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.

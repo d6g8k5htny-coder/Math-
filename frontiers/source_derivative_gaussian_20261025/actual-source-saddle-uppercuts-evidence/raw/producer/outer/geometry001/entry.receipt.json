@@ -1,0 +1,25 @@
+{
+  "label": "geometry001",
+  "command_argv": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/outer_capture.py",
+    "geometry001",
+    "math",
+    "--",
+    "lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "-o",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/build/SourceActualSaddleUppercuts.olean",
+    "SourceActualSaddleUppercuts.lean"
+  ],
+  "cwd": "/workspace/scratch/actual-source-saddle-uppercuts-construct",
+  "start_utc": "2026-10-28T21:29:07.844638+00:00",
+  "end_utc": "2026-10-28T21:29:12.032102+00:00",
+  "elapsed_seconds": 4.1874684659997,
+  "exit_code": 1,
+  "stdout": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/geometry001/entry.stdout.log",
+  "stderr": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/geometry001/entry.stderr.log",
+  "invocation_scope": "entry process begins here; caller tool stdout is only this closed receipt summary"
+}

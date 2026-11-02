@@ -1,0 +1,39 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceGapConditionalMorseDistinct.lean",
+    "bytes": 99430,
+    "sha256": "8baf597fa98ce8f79489e82227951e0f4fd1a960e65589278be8a82f35ce5213"
+  },
+  "object": {
+    "path": "/workspace/scratch/gap-conditional-morse-distinct-construct/build/SourceGapConditionalMorseDistinct.olean",
+    "bytes": 4189248,
+    "sha256": "d73ade27921b1593c99175780e2738a80d3acb158e3c25810ef03b66b5678cb8"
+  },
+  "strict_receipt": "runs/final-adapter-controls-012/receipt.json",
+  "inventory_receipt": "runs/inventory-001/receipt.json",
+  "exactly_one_kernel_receipt": "runs/kernel-001/receipt.json",
+  "positive_controls_receipt": "runs/controls-003/receipt.json",
+  "sole_negative_receipt": "runs/false-drop-DBtheta-001/receipt.json",
+  "controls_source": {
+    "path": "/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean",
+    "bytes": 24267,
+    "sha256": "5029e709d71e7d1b89aa3ad72345dfe3f9bcfdac00f3b32ce325b79d0fad68c4"
+  },
+  "controls_object": {
+    "path": "/workspace/scratch/gap-conditional-morse-distinct-construct/build/GapMorseDistinctControls.olean",
+    "bytes": 1479440,
+    "sha256": "90e8eac00890fc1240be834cf7802eae9c64dcee456c259782259bd2c057e305"
+  },
+  "eligible_production_objects": [
+    "SourceGapConditionalMorseDistinct.olean"
+  ],
+  "ineligible": "GapMorseDistinctControls.olean and all harness/inventory/mutation/development objects. No helper objects. No ilean/freshness compile.",
+  "root_source_cut": "PENDING_ROOT_ONLY at producer final freeze. Later root process record binds cut without rewriting frozen producer artifacts or replaying strict/kernel.",
+  "root_cache_rule": "Only root may copy exact eligible ownobject once. Producer has performed no packet cache/config/Git/sharedmetadata/external mutation.",
+  "identities": "Frozen finalsource/object IDs reused from strict012. Controls source/object IDs reused frompositive003. OlddependencyIDs transcribedfromretainedmanifests.",
+  "qualified_baseline": "f89543e2a81f56418a083c62a49e9689a189a139",
+  "published_precode59": "a88e4c65fe2b02de9638c4482e4d50f767359205",
+  "fresh_resume_pickup6471999400": "https://github.com/d6g8k5htny-coder/Math-/pull/514#issuecomment-6471999400",
+  "same_family_credit": 0,
+  "scientific_effect": "NONE"
+}

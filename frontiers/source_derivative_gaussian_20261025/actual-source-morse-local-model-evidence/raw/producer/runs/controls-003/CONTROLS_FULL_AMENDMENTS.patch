@@ -1,0 +1,90 @@
+--- frozen-ordinary-original
++++ actual-ordinary-controls
+@@ -39,8 +39,9 @@
+     simpa [minimumSample,smoothSourceField,sourceField,scalarSeries,sampleInclusion,
+       finiteShiftSample_val,zeroSample] using hs.tsum_eq
+   rw [he,toSource_eval (by norm_num : (2:ℝ) ≠ 0)]
+-  simp [minimumPoly,eval_scale,eval_append,eval,termEval,phase,
+-    I4Weights.sourceC,Fin.sum_univ_two,cosineMinimum] <;> ring
++  unfold minimumPoly
++  rw [eval_scale, eval_append]
++  simp [eval,termEval,phase,I4Weights.sourceC,Fin.sum_univ_two,cosineMinimum]
+ 
+ def controlProj (i : Fin 2) : ControlPoint →L[ℝ] ℝ := ContinuousLinearMap.proj i
+ 
+@@ -56,7 +57,10 @@
+     (controlProj 1).hasFDerivAt.const_mul q
+   have hh := (hx.cos.add hy.cos).neg
+   unfold cosineMinimum
+-  convert hh using 1 <;> ext v <;> simp [cosineMinimumDerivative,controlProj] <;> ring
++  convert hh using 1
++  ext v
++  simp [cosineMinimumDerivative,controlProj]
++  ring
+ 
+ theorem cosineMinimumDerivative_hasFDerivAt_zero (q : ℝ) :
+     HasFDerivAt (cosineMinimumDerivative q)
+@@ -69,7 +73,10 @@
+   have hh := ((hx.sin.const_mul q).smul_const (controlProj 0)).add
+     ((hy.sin.const_mul q).smul_const (controlProj 1))
+   unfold cosineMinimumDerivative
+-  convert hh using 1 <;> ext v w <;> simp [controlProj] <;> ring
++  convert hh using 1
++  ext v w
++  simp [controlProj]
++  ring
+ 
+ theorem cosineMinimum_second_zero (q : ℝ) (u v : ControlPoint) :
+     iteratedFDeriv ℝ 2 (cosineMinimum q) 0 ![u,v] =
+@@ -78,7 +85,8 @@
+   have he : fderiv ℝ (cosineMinimum q) = cosineMinimumDerivative q :=
+     funext fun x => (cosineMinimum_hasFDerivAt q x).fderiv
+   rw [he,(cosineMinimumDerivative_hasFDerivAt_zero q).fderiv]
+-  simp [controlProj] <;> ring
++  simp [controlProj]
++  ring
+ 
+ theorem minimum_critical : IsCriticalPoint 2 minimumField 0 := by
+   have hz : fderiv ℝ (smoothSourceField 2 2 minimumSample)
+@@ -96,7 +104,7 @@
+   exact cosineMinimum_second_zero _ _ _
+ 
+ theorem minimum_inertia : HessianHasInertia 2 minimumField 0 0 := by
+-  refine ⟨⊥,⊤,isCompl_bot_top,by simp,by simp [ControlPhysical,E],?_,?_⟩
++  refine ⟨⊥,⊤,isCompl_bot_top,by simp,by simp [E],?_,?_⟩
+   · intro v hv hv0
+     exact (hv0 ((Submodule.mem_bot ℝ).mp hv)).elim
+   · intro v _ hv
+@@ -161,7 +169,8 @@
+     iteratedFDeriv ℝ 2 normalizedMinimum 0 ![u,v] = 2*(u 0*v 0+u 1*v 1) := by
+   rw [iteratedFDeriv_two_apply,normalizedMinimum_fderiv,
+     (cosineMinimumDerivative_hasFDerivAt_zero (Real.sqrt 2)).fderiv]
+-  simp [controlProj,Real.sq_sqrt (by norm_num : (0:ℝ) ≤ 2)] <;> ring
++  simp [controlProj,Real.sq_sqrt (by norm_num : (0:ℝ) ≤ 2)]
++  ring
+ 
+ def e0 : ControlPoint := Pi.single 0 1
+ 
+@@ -183,9 +192,11 @@
+   simp_rw [actual_normalized_entry_two]
+   have he : (fun t : ℝ => (1-t)*2) = fun t => 2-2*t := by
+     funext t; ring
+-  rw [he,intervalIntegral.integral_sub
+-    (intervalIntegrable_const : IntervalIntegrable (fun _ : ℝ => (2:ℝ)) volume 0 1)
+-    (intervalIntegrable_id.const_mul 2),intervalIntegral.integral_const_mul]
++  rw [he]
++  have hsub := intervalIntegral.integral_sub (μ := volume) (a := (0 : ℝ)) (b := 1)
++    (f := fun _ : ℝ => (2 : ℝ)) (g := fun t : ℝ => 2*t)
++    intervalIntegrable_const ((continuous_id.intervalIntegrable (0 : ℝ) 1).const_mul 2)
++  rw [hsub,intervalIntegral.integral_const_mul]
+   norm_num [integral_id]
+ 
+ theorem omittedTaylorEntry_eq_two : omittedTaylorEntry = 2 := by
+@@ -211,6 +222,6 @@
+       (by norm_num : (0:ℝ)<2) minimumSample (0:ControlPhysical) 0
+       minimum_critical minimum_inertia
+   refine ⟨phi,?_⟩
+-  simpa only [Nat.not_lt_zero,if_false,one_mul] using hphi
++  simpa only [minimumField,Nat.not_lt_zero,ite_false,one_mul] using hphi
+ 
+ end I4MorseLocalModelControls

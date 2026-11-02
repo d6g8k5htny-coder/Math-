@@ -1,0 +1,4 @@
+/workspace/scratch/regression-kernel/endpoint-parameters/RejectedNegativeCovariance.lean:8:60: error: unsolved goals
+case «0».«0»
+hZ : HasGaussianLaw (fun x => 0) (Measure.dirac ())
+⊢ False

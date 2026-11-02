@@ -1,0 +1,22 @@
+/workspace/scratch/gaussian-normalizer-limit/integrability-probe.lean:22:41: error: unsolved goals
+case ha
+r : ℝ
+m : EuclideanSpace ℝ (Fin 6)
+S : Matrix (Fin 6) (Fin 6) ℝ
+hS : S.PosSemidef
+⊢ 2 ≠ 0 ∨ 2 ≠ ∞
+
+case hb
+r : ℝ
+m : EuclideanSpace ℝ (Fin 6)
+S : Matrix (Fin 6) (Fin 6) ℝ
+hS : S.PosSemidef
+⊢ 2 ≠ ∞ ∨ 2 ≠ 0
+/workspace/scratch/gaussian-normalizer-limit/integrability-probe.lean:22:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`

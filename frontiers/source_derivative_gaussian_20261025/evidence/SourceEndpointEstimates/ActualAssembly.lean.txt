@@ -1,0 +1,104 @@
+/- DRAFT ONLY: not compiled and not a completed mathematical claim.
+The three actual SourceConfluentLimits exports referenced below are still
+owned by /root/uniform_jet_moment_sources. No desired conclusion is assumed.
+Move into production only when those actual proofs/oleans are ready. -/
+
+namespace I4SourceEndpointEstimates
+
+open I4SourceContact I4SourceConfluentLimits I4GaussianRegressionLimits
+
+theorem sourceEndpoint_parameter_limits {L : ℝ} (hL : L ≠ 0) (b : ℝ) :
+    (∀ᶠ r in 𝓝[>] (0 : ℝ), IsUnit (sourcePinCovarianceAt L r)) ∧
+      Tendsto (fun r => toLp 2 (sourceEndpointMean L r b)) (𝓝[>] (0 : ℝ))
+        (𝓝 (toLp 2 (sourceContactEndpointMean L b))) ∧
+      Tendsto (sourceEndpointSchurAt L) (𝓝[>] (0 : ℝ))
+        (𝓝 (sourceContactEndpointSchur L)) := by
+  have hd : Tendsto (fun r => sourcePrescribedPins r b) (𝓝[>] (0 : ℝ))
+      (𝓝 (sourceContactPinValue b)) := by
+    simpa only [sourceContactPinValue] using sourcePrescribedPins_tendsto b
+  have hp := regression_parameter_limits (𝓝[>] (0 : ℝ))
+    (sourcePinCovarianceAt L) (sourceCrossCovarianceAt L) (sourceEndpointCovarianceAt L)
+    (fun r => sourcePrescribedPins r b)
+    (sourcePinCovariance L) (sourceContactEndpointCrossCovariance L)
+    (sourceContactEndpointCovariance L) (sourceContactPinValue b)
+    (sourcePinCovarianceAt_tendsto hL) (sourceCrossCovarianceAt_tendsto hL)
+    (sourceEndpointCovarianceAt_tendsto hL) hd (sourcePinCovariance_isUnit hL)
+  refine ⟨hp.1, ?_, ?_⟩
+  · have hm : Tendsto (fun r => sourceEndpointMean L r b) (𝓝[>] (0 : ℝ))
+        (𝓝 (sourceContactEndpointMean L b)) := by
+      simpa only [regressionMean, sourceEndpointMean, sourceRegressionMapAt_apply,
+        sourceRegressionMatrixAt, sourceContactEndpointMean, sourceContactEndpointRegression]
+        using hp.2.2.1
+    exact ((PiLp.continuous_toLp 2 (fun _ : Fin 6 => ℝ)).tendsto _).comp hm
+  · simpa only [regressionCovariance, sourceEndpointSchurAt, sourceContactEndpointSchur]
+      using hp.2.2.2
+
+theorem sourceEndpoint_uniform_parameter_bounds {L : ℝ} (hL : L ≠ 0) (b : ℝ) :
+    ∃ M V δ : ℝ, 0 ≤ M ∧ 0 ≤ V ∧ 0 < δ ∧
+      ∀ r : ℝ, 0 < r → r < δ → IsUnit (sourcePinCovarianceAt L r) ∧
+        (∀ i, |sourceEndpointMean L r b i| ≤ M) ∧
+        (∀ i, |sourceEndpointSchurAt L r i i| ≤ V) := by
+  have hd : Tendsto (fun r => sourcePrescribedPins r b) (𝓝[>] (0 : ℝ))
+      (𝓝 (sourceContactPinValue b)) := by
+    simpa only [sourceContactPinValue] using sourcePrescribedPins_tendsto b
+  obtain ⟨M,V,δ,hM,hV,hδ,hbounds⟩ := regression_uniform_bounds
+    (sourcePinCovarianceAt L) (sourceCrossCovarianceAt L) (sourceEndpointCovarianceAt L)
+    (fun r => sourcePrescribedPins r b)
+    (sourcePinCovariance L) (sourceContactEndpointCrossCovariance L)
+    (sourceContactEndpointCovariance L) (sourceContactPinValue b)
+    (sourcePinCovarianceAt_tendsto hL) (sourceCrossCovarianceAt_tendsto hL)
+    (sourceEndpointCovarianceAt_tendsto hL) hd (sourcePinCovariance_isUnit hL)
+  refine ⟨M,V,δ,hM,hV,hδ,?_⟩
+  intro r hr hrδ
+  obtain ⟨hunit,hm,hcov⟩ := hbounds r hr hrδ
+  refine ⟨hunit,?_,?_⟩
+  · simpa only [regressionMean, sourceEndpointMean, sourceRegressionMapAt_apply,
+      sourceRegressionMatrixAt] using hm
+  · simpa only [regressionCovariance, sourceEndpointSchurAt] using hcov
+
+/- Insert sourceEndpoint_normalizer_floor only after its actual-limit proof
+is completed. The following final composition consumes that proved result. -/
+
+theorem sourceEndpoint_estimates {L : ℝ} (hL : L ≠ 0) (b : ℝ) :
+    ∃ C c δ : ℝ, 0 ≤ C ∧ 0 < c ∧ 0 < δ ∧ δ ≤ 1 ∧
+      ∀ r : ℝ, 0 < r → r < δ →
+        Integrable (fun v => sourceEndpointWeight r v ^ 2) (sourceEndpointLaw L r b) ∧
+        (∫ v, sourceEndpointWeight r v ^ 2 ∂sourceEndpointLaw L r b) ≤ C*r^4 ∧
+        c*r^2 ≤ ∫ v, sourceEndpointWeight r v ∂sourceEndpointLaw L r b := by
+  obtain ⟨M,V,δM,hM,hV,hδM,hbounds⟩ := sourceEndpoint_uniform_parameter_bounds hL b
+  obtain ⟨c,hc,δF,hδF,hfloor⟩ := sourceEndpoint_normalizer_floor hL b
+  refine ⟨16 * gm8FiniteM8 6 M V,c,min δM (min δF 1),
+    mul_nonneg (by norm_num) (gm8FiniteM8_nonneg 6 M V),hc,
+    lt_min hδM (lt_min hδF (by norm_num)),
+    (min_le_right _ _).trans (min_le_right _ _),?_⟩
+  intro r hr hrδ
+  have hrM : r < δM := lt_of_lt_of_le hrδ (min_le_left _ _)
+  have hrF : r < δF := lt_of_lt_of_le hrδ ((min_le_right _ _).trans (min_le_left _ _))
+  have hr1 : r ≤ 1 := (le_of_lt hrδ).trans ((min_le_right _ _).trans (min_le_right _ _))
+  obtain ⟨hunit,hm,hv⟩ := hbounds r hr hrM
+  obtain ⟨hsq,hbound⟩ := sourceEndpointLaw_second_moment_of_parameter_bounds hL r b M V
+    hunit hM hV hr hr1 hm hv
+  exact ⟨hsq,hbound,hfloor r hr hrF⟩
+
+theorem sourceEndpoint_estimates_and_weighted_events {L : ℝ} (hL : L ≠ 0) (b : ℝ) :
+    ∃ C c δ : ℝ, 0 ≤ C ∧ 0 < c ∧ 0 < δ ∧ δ ≤ 1 ∧
+      ∀ r : ℝ, 0 < r → r < δ →
+        Integrable (fun v => sourceEndpointWeight r v ^ 2) (sourceEndpointLaw L r b) ∧
+        (∫ v, sourceEndpointWeight r v ^ 2 ∂sourceEndpointLaw L r b) ≤ C*r^4 ∧
+        c*r^2 ≤ (∫ v, sourceEndpointWeight r v ∂sourceEndpointLaw L r b) ∧
+        IsProbabilityMeasure (sourceEndpointWeightedProbability L r b) ∧
+        ∀ E : Set (Fin 6 → ℝ), MeasurableSet E →
+          (sourceEndpointWeightedProbability L r b).real E ≤
+            (Real.sqrt C/c) * Real.sqrt ((sourceEndpointLaw L r b).real E) := by
+  obtain ⟨C,c,δ,hC,hc,hδ,hδ1,he⟩ := sourceEndpoint_estimates hL b
+  refine ⟨C,c,δ,hC,hc,hδ,hδ1,?_⟩
+  intro r hr hrδ
+  obtain ⟨hsq,hm,hf⟩ := he r hr hrδ
+  have hp := sourceEndpoint_weighted_event_bound_of_estimates hL r b C c hC hc hr
+    hsq hm hf Set.univ MeasurableSet.univ
+  refine ⟨hsq,hm,hf,hp.1,?_⟩
+  intro E hE
+  exact (sourceEndpoint_weighted_event_bound_of_estimates hL r b C c hC hc hr
+    hsq hm hf E hE).2
+
+end I4SourceEndpointEstimates

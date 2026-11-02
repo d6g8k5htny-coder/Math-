@@ -1,0 +1,40 @@
+import SourceDerivativeContinuity
+
+open I4SmoothCarrier I4SourceDerivativeContinuity MeasureTheory ProbabilityTheory
+
+example (d : ℕ) {L : ℝ} (hL : L ≠ 0) :
+    Continuous (fun xy : (Fin d → ℝ) × (Fin d → ℝ) =>
+      cov[fun ω => smoothSourceField d L ω xy.1,
+        fun ω => smoothSourceField d L ω xy.2; smoothLaw d L]) := by
+  simpa only [iteratedFDeriv_zero_apply] using
+    smoothSourceField_derivative_covariance_continuous d hL 0 0
+      (fun i => Fin.elim0 i) (fun i => Fin.elim0 i)
+
+example (d : ℕ) {L : ℝ} (hL : L ≠ 0) (k : ℕ)
+    (u : Fin k → (Fin d → ℝ)) :
+    Continuous (fun x : Fin d → ℝ =>
+      cov[fun ω => iteratedFDeriv ℝ k (smoothSourceField d L ω) x u,
+        fun ω => iteratedFDeriv ℝ k (smoothSourceField d L ω) x u; smoothLaw d L]) :=
+  (smoothSourceField_derivative_covariance_continuous d hL k k u u).comp
+    (continuous_id.prodMk continuous_id)
+
+example {L : ℝ} (hL : L ≠ 0) (k l : ℕ)
+    (u : Fin k → (Fin 0 → ℝ)) (v : Fin l → (Fin 0 → ℝ)) :
+    Continuous (fun xy : (Fin 0 → ℝ) × (Fin 0 → ℝ) =>
+      cov[fun ω => iteratedFDeriv ℝ k (smoothSourceField 0 L ω) xy.1 u,
+        fun ω => iteratedFDeriv ℝ l (smoothSourceField 0 L ω) xy.2 v; smoothLaw 0 L]) :=
+  smoothSourceField_derivative_covariance_continuous 0 hL k l u v
+
+example (d : ℕ) {L : ℝ} (hL : L ≠ 0) (x : Fin d → ℝ) :
+    (∫ ω, smoothSourceField d L ω x ∂smoothLaw d L) = 0 := by
+  simpa only [iteratedFDeriv_zero_apply] using
+    smoothSourceField_derivative_integral_zero d hL 0 x (fun i => Fin.elim0 i)
+
+example (d : ℕ) {L : ℝ} (hL : L ≠ 0) (k l : ℕ)
+    (u : Fin k → (Fin d → ℝ)) (v : Fin l → (Fin d → ℝ))
+    (a b : Fin d → ℝ) :
+    Continuous (fun r : ℝ =>
+      cov[fun ω => iteratedFDeriv ℝ k (smoothSourceField d L ω) (r • a) u,
+        fun ω => iteratedFDeriv ℝ l (smoothSourceField d L ω) (r • b) v; smoothLaw d L]) :=
+  (smoothSourceField_derivative_covariance_continuous d hL k l u v).comp
+    (show Continuous (fun r : ℝ => (r • a, r • b)) from by fun_prop)

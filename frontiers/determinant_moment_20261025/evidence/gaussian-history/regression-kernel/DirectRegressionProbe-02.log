@@ -1,0 +1,22 @@
+/workspace/scratch/regression-kernel/DirectRegressionProbe.lean:86:4: error: Tactic `rfl` failed: The left-hand side
+  (L (X ω, Y ω) + c).1
+is not definitionally equal to the right-hand side
+  (X ω, Y ω - mY - B (X ω - mX)).1
+
+case fst
+Ω : Type u_1
+inst✝ : MeasurableSpace Ω
+P : Measure Ω
+n k : ℕ
+X : Ω → Fin n → ℝ
+Y : Ω → Fin k → ℝ
+hXY : HasGaussianLaw (fun ω => (X ω, Y ω)) P
+B : (Fin n → ℝ) →L[ℝ] Fin k → ℝ
+mX : Fin n → ℝ
+mY : Fin k → ℝ
+L : (Fin n → ℝ) × (Fin k → ℝ) →L[ℝ] (Fin n → ℝ) × (Fin k → ℝ) := ⋯
+c : (Fin n → ℝ) × (Fin k → ℝ) := ⋯
+hL : HasGaussianLaw (fun ω => L (X ω, Y ω)) P
+hshift : HasGaussianLaw (fun ω => L (X ω, Y ω) + c) P
+ω : Ω
+⊢ (L (X ω, Y ω) + c).1 = (X ω, Y ω - mY - B (X ω - mX)).1

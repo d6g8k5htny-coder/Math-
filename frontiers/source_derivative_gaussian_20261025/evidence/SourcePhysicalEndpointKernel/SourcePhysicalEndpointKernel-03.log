@@ -1,0 +1,16 @@
+SourcePhysicalEndpointKernel.lean:112:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (a : SmoothSample 2 L), (sourceEndpointResidual L r + fun x => ?m.163) a + ?m.170 ∂smoothLaw 2 L
+in the target expression
+  ∫ (x_1 : SmoothSample 2 L),
+      sourceEndpointResidual L r x_1 + (sourceRegressionMapAt L r) x + (sourcePhysicalCorrection r) x ∂smoothLaw 2 L =
+    (sourceRegressionMapAt L r) x + (sourcePhysicalCorrection r) x
+
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+x : Fin 6 → ℝ
+this : IsProbabilityMeasure (smoothLaw 2 L)
+hR : HasGaussianLaw (sourceEndpointResidual L r) (smoothLaw 2 L)
+⊢ ∫ (x_1 : SmoothSample 2 L),
+      sourceEndpointResidual L r x_1 + (sourceRegressionMapAt L r) x + (sourcePhysicalCorrection r) x ∂smoothLaw 2 L =
+    (sourceRegressionMapAt L r) x + (sourcePhysicalCorrection r) x

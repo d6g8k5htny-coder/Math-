@@ -1,0 +1,74 @@
+SourceConditionalMajorant.lean:334:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |sampleMajorant (orderModeBound k 2 L) ?m.339 ^ n|
+in the target expression
+  |sourceDerivativeMajorant L k (posteriorSample hL r (sourcePrescribedPins r b) ω) ^ n| ≤ F ω
+
+L : ℝ
+hL : L ≠ 0
+b : ℝ
+k : ℕ
+a : ℝ
+w : SourceMode 2 → ℝ
+δ : ℝ
+ha : 0 ≤ a
+hw0 : ∀ (m : SourceMode 2), 0 ≤ w m
+hw : Summable w
+_hW : 0 < ∑' (m : SourceMode 2), w m
+hδ : 0 < δ
+hδ1 : δ ≤ 1
+hdom :
+  ∀ (r : ℝ),
+    0 < r →
+      r < δ →
+        ∀ (ω : SmoothSample 2 L),
+          sourceDerivativeMajorant L k (posteriorSample hL r (sourcePrescribedPins r b) ω) ≤ a + sampleMajorant w ω
+n : ℕ
+F : SmoothSample 2 L → ℝ := fun ω => (a + sampleMajorant w ω) ^ n
+hF : Integrable F (smoothLaw 2 L)
+r : ℝ
+hr : 0 < r
+hrδ : r < δ
+hp : Measurable (posteriorSample hL r (sourcePrescribedPins r b))
+hg : Measurable fun x => sourceDerivativeMajorant L k x ^ n
+hpoint :
+  ∀ (ω : SmoothSample 2 L), sourceDerivativeMajorant L k (posteriorSample hL r (sourcePrescribedPins r b) ω) ^ n ≤ F ω
+ω : SmoothSample 2 L
+⊢ |sourceDerivativeMajorant L k (posteriorSample hL r (sourcePrescribedPins r b) ω) ^ n| ≤ F ω
+SourceConditionalMajorant.lean:404:6: error: linarith failed to find a contradiction
+case h
+L : ℝ
+hL : L ≠ 0
+b : ℝ
+k : ℕ
+a : ℝ
+w : SourceMode 2 → ℝ
+δ : ℝ
+ha : 0 ≤ a
+hw0 : ∀ (m : SourceMode 2), 0 ≤ w m
+hw : Summable w
+hW : 0 < ∑' (m : SourceMode 2), w m
+hδ : 0 < δ
+hδ1 : δ ≤ 1
+hdom :
+  ∀ (r : ℝ),
+    0 < r →
+      r < δ →
+        ∀ (ω : SmoothSample 2 L),
+          sourceDerivativeMajorant L k (posteriorSample hL r (sourcePrescribedPins r b) ω) ≤ a + sampleMajorant w ω
+r : ℝ
+hr : 0 < r
+hrδ : r < δ
+R : ℝ
+hR : 0 ≤ R
+this : IsProbabilityMeasure (smoothLaw 2 L)
+hp : Measurable (posteriorSample hL r (sourcePrescribedPins r b))
+hE : MeasurableSet {ω | a + R ≤ sourceDerivativeMajorant L k ω}
+htail :
+  (smoothLaw 2 L).real {ω | R ≤ weightedAbsSeries w (fun m ω => ↑ω m) ω} ≤
+    2 * Real.exp (-R ^ 2 / (2 * (∑' (i : SourceMode 2), w i) ^ 2))
+ω : SmoothSample 2 L
+hω : ω ∈ {ω | a + R ≤ sourceDerivativeMajorant L k (posteriorSample hL r (sourcePrescribedPins r b) ω)}
+hd : sourceDerivativeMajorant L k (posteriorSample hL r (sourcePrescribedPins r b) ω) ≤ a + sampleMajorant w ω
+a✝ : sampleMajorant w ω < R
+⊢ False
+failed

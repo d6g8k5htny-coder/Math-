@@ -1,0 +1,5 @@
+import SourceConfluentPins
+open I4SourceConfluentPins
+-- Dropping r != 0 would incorrectly retain the prescribed cubic pin two.
+example : confluentTransform 0 ![7, 7, 0, 0, 0, 0] 5 = 2 := by
+  norm_num [confluentTransform]

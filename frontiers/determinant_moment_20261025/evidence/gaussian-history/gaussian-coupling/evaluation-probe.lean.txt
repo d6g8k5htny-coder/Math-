@@ -1,0 +1,25 @@
+import Mathlib.Probability.Distributions.Gaussian.Multivariate
+
+open Filter Matrix WithLp
+open scoped Topology
+set_option autoImplicit false
+
+namespace ResearchFormalCoreR1
+
+theorem eval_matrix_tendsto {ι R : Type*} [Fintype ι] [DecidableEq ι]
+    {u : Filter R} {S : R → Matrix ι ι ℝ} {S0 : Matrix ι ι ℝ}
+    (hS : Tendsto S u (𝓝 S0)) (z : EuclideanSpace ℝ ι) :
+    Tendsto (fun r => Matrix.toEuclideanCLM (𝕜 := ℝ) (S r) z) u
+      (𝓝 (Matrix.toEuclideanCLM (𝕜 := ℝ) S0 z)) := by
+  have hcoord (i j : ι) : Tendsto (fun r => S r i j) u (𝓝 (S0 i j)) :=
+    ((continuous_apply j).tendsto (S0 i)).comp
+      (((continuous_apply i).tendsto S0).comp hS)
+  have hvec : Tendsto (fun r => (S r) *ᵥ ofLp z) u (𝓝 (S0 *ᵥ ofLp z)) := by
+    apply tendsto_pi_nhds.mpr
+    intro i
+    exact tendsto_finsetSum Finset.univ (fun j _ =>
+      (hcoord i j).mul tendsto_const_nhds)
+  change Tendsto (fun r => toLp 2 ((S r) *ᵥ ofLp z)) u
+    (𝓝 (toLp 2 (S0 *ᵥ ofLp z)))
+  exact ((PiLp.continuous_toLp 2 (fun _ : ι => ℝ)).tendsto _).comp hvec
+end ResearchFormalCoreR1

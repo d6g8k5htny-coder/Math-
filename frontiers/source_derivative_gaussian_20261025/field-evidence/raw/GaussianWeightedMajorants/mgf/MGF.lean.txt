@@ -1,0 +1,201 @@
+import GaussianWeightedMajorants
+import Mathlib.Probability.Distributions.Gaussian.Real
+import Mathlib.Probability.HasLaw
+import Mathlib.MeasureTheory.Order.Group.Lattice
+import Mathlib.Analysis.Convex.Jensen
+import Mathlib.Analysis.Convex.SpecificFunctions.Basic
+import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+import Mathlib.MeasureTheory.Constructions.BorelSpace.Order
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Positivity
+
+noncomputable section
+open MeasureTheory ProbabilityTheory Filter
+open scoped BigOperators ENNReal Topology
+set_option autoImplicit false
+namespace I4GaussianMajorant
+
+lemma exp_mul_abs_le (s x : ℝ) :
+    Real.exp (s * |x|) ≤ Real.exp (s*x) + Real.exp ((-s)*x) := by
+  rcases le_total 0 x with hx | hx
+  · rw [abs_of_nonneg hx]
+    linarith [Real.exp_pos ((-s)*x)]
+  · rw [abs_of_nonpos hx]
+    have h : s * (-x) = (-s)*x := by ring
+    rw [h]
+    linarith [Real.exp_pos (s*x)]
+
+theorem foldedGaussian_exp (s : ℝ) :
+    Integrable (fun z : ℝ => Real.exp (s * |z|)) (gaussianReal 0 1) ∧
+      (∫ z : ℝ, Real.exp (s * |z|) ∂gaussianReal 0 1) ≤ 2*Real.exp (s^2/2) := by
+  have hp := integrable_exp_mul_gaussianReal (μ := 0) (v := 1) s
+  have hn := integrable_exp_mul_gaussianReal (μ := 0) (v := 1) (-s)
+  have hi : Integrable (fun z : ℝ => Real.exp (s * |z|)) (gaussianReal 0 1) := by
+    apply (hp.add hn).mono' (by fun_prop)
+    filter_upwards [] with z
+    rw [Real.norm_eq_abs, abs_of_pos (Real.exp_pos _)]
+    exact exp_mul_abs_le s z
+  refine ⟨hi, ?_⟩
+  calc
+    _ ≤ ∫ z : ℝ, (Real.exp (s*z) + Real.exp ((-s)*z)) ∂gaussianReal 0 1 :=
+      integral_mono hi (hp.add hn) (fun z => exp_mul_abs_le s z)
+    _ = 2*Real.exp (s^2/2) := by
+      rw [integral_add hp hn]
+      have hplus := congrFun (mgf_fun_id_gaussianReal (μ := 0) (v := 1)) s
+      have hminus := congrFun (mgf_fun_id_gaussianReal (μ := 0) (v := 1)) (-s)
+      simp only [mgf, zero_mul, zero_add, NNReal.coe_one, one_mul, neg_sq] at hplus hminus
+      rw [hplus, hminus]
+      ring
+
+lemma finite_exp_jensen {I : Type*} (s : Finset I) (w x : I → ℝ)
+    (W t : ℝ) (hW : 0 < W) (hw : ∀ i, 0 ≤ w i)
+    (hsum : ∑ i ∈ s, w i ≤ W) :
+    Real.exp (t * ∑ i ∈ s, w i * |x i|) ≤
+      (1-∑ i ∈ s, w i/W) + ∑ i ∈ s, (w i/W)*Real.exp (t*W*|x i|) := by
+  have hmass : ∑ i ∈ s, w i/W ≤ 1 := by
+    rw [← Finset.sum_div]
+    exact (div_le_one hW).mpr hsum
+  have hj := convexOn_exp.map_add_sum_le
+    (t := s) (w := fun i => w i/W) (p := fun i => t*W*|x i|)
+    (v := 1-∑ i ∈ s, w i/W) (q := 0)
+    (fun i _ => div_nonneg (hw i) hW.le) (by ring)
+    (fun _ _ => Set.mem_univ _) (by linarith) (Set.mem_univ _)
+  simp only [smul_eq_mul, mul_zero, zero_add, Real.exp_zero, mul_one] at hj
+  have heq : (∑ i ∈ s, (w i/W)*(t*W*|x i|)) = t * ∑ i ∈ s, w i*|x i| := by
+    rw [Finset.mul_sum]
+    apply Finset.sum_congr rfl
+    intro i _
+    field_simp
+  simpa only [heq] using hj
+
+lemma finite_exp_integrable_bound {I Ω : Type*} [MeasurableSpace Ω]
+    (P : Measure Ω) [IsProbabilityMeasure P] (s : Finset I) (w : I → ℝ)
+    (U : I → Ω → ℝ) (hmeas : ∀ i, Measurable (U i))
+    (W t K : ℝ) (hW : 0 < W) (hw : ∀ i, 0 ≤ w i)
+    (hsum : ∑ i ∈ s, w i ≤ W) (hK : 1 ≤ K)
+    (hUi : ∀ i, Integrable (fun ω => Real.exp (t*W*|U i ω|)) P)
+    (hUb : ∀ i, (∫ ω, Real.exp (t*W*|U i ω|) ∂P) ≤ K) :
+    Integrable (fun ω => Real.exp (t*∑ i ∈ s, w i*|U i ω|)) P ∧
+      (∫ ω, Real.exp (t*∑ i ∈ s, w i*|U i ω|) ∂P) ≤ K := by
+  let a := ∑ i ∈ s, w i/W
+  have ha0 : 0 ≤ a := Finset.sum_nonneg (fun i _ => div_nonneg (hw i) hW.le)
+  have ha1 : a ≤ 1 := by
+    dsimp [a]
+    rw [← Finset.sum_div]
+    exact (div_le_one hW).mpr hsum
+  have hsumint : Integrable (fun ω => ∑ i ∈ s, (w i/W)*Real.exp (t*W*|U i ω|)) P :=
+    integrable_finsetSum _ (fun i _ => (hUi i).const_mul _)
+  have hrhs : Integrable (fun ω => (1-a)+∑ i ∈ s, (w i/W)*Real.exp (t*W*|U i ω|)) P :=
+    (integrable_const _).add hsumint
+  have hmeasf : AEStronglyMeasurable (fun ω => Real.exp (t*∑ i ∈ s, w i*|U i ω|)) P := by
+    fun_prop
+  have hint : Integrable (fun ω => Real.exp (t*∑ i ∈ s, w i*|U i ω|)) P := by
+    apply hrhs.mono' hmeasf
+    filter_upwards [] with ω
+    rw [Real.norm_eq_abs, abs_of_pos (Real.exp_pos _)]
+    exact finite_exp_jensen s w (fun i => U i ω) W t hW hw hsum
+  refine ⟨hint, ?_⟩
+  calc
+    _ ≤ ∫ ω, ((1-a)+∑ i ∈ s, (w i/W)*Real.exp (t*W*|U i ω|)) ∂P :=
+      integral_mono hint hrhs (fun ω => finite_exp_jensen s w (fun i => U i ω) W t hW hw hsum)
+    _ = (1-a)+∑ i ∈ s, (w i/W)*(∫ ω, Real.exp (t*W*|U i ω|) ∂P) := by
+      rw [integral_add (integrable_const _) hsumint, integral_finsetSum _
+        (fun i _ => (hUi i).const_mul _)]
+      simp only [integral_const_mul, integral_const, probReal_univ, smul_eq_mul, one_mul]
+    _ ≤ (1-a)+∑ i ∈ s, (w i/W)*K := by
+      exact add_le_add le_rfl (Finset.sum_le_sum (fun i _ => mul_le_mul_of_nonneg_left (hUb i)
+        (div_nonneg (hw i) hW.le)))
+    _ = (1-a)+a*K := by rw [← Finset.sum_mul]
+    _ ≤ K := by nlinarith
+
+
+theorem weightedAbsSeries_exp_posWeight {I Ω : Type*} [Countable I] [MeasurableSpace Ω]
+    (P : Measure Ω) [IsProbabilityMeasure P] (w : I → ℝ) (U : I → Ω → ℝ)
+    (hmeas : ∀ i, Measurable (U i)) (hw : ∀ i, 0 ≤ w i) (hws : Summable w)
+    (hlaw : ∀ i, HasLaw (U i) (gaussianReal 0 1) P)
+    (haesum : ∀ᵐ ω ∂P, Summable (fun i => w i*|U i ω|))
+    (hW : 0 < ∑' i, w i) (t : ℝ) :
+    Integrable (fun ω => Real.exp (t*weightedAbsSeries w U ω)) P ∧
+      (∫ ω, Real.exp (t*weightedAbsSeries w U ω) ∂P) ≤
+        2*Real.exp (t^2*(∑' i, w i)^2/2) := by
+  let W := ∑' i, w i
+  let K := 2*Real.exp ((t*W)^2/2)
+  have hK : 1 ≤ K := by
+    have hexp : 1 ≤ Real.exp ((t*W)^2/2) := Real.one_le_exp_iff.mpr (by positivity)
+    dsimp [K]
+    linarith
+  have hUi (i : I) : Integrable (fun ω => Real.exp (t*W*|U i ω|)) P :=
+    (hlaw i).integrable_comp (foldedGaussian_exp (t*W)).1
+  have hUb (i : I) : (∫ ω, Real.exp (t*W*|U i ω|) ∂P) ≤ K := by
+    have heq := (hlaw i).integral_comp
+      (show AEStronglyMeasurable (fun z : ℝ => Real.exp (t*W*|z|)) (gaussianReal 0 1) by fun_prop)
+    exact heq.trans_le (foldedGaussian_exp (t*W)).2
+  have hfinite (s : Finset I) :
+      Integrable (fun ω => Real.exp (t*∑ i ∈ s, w i*|U i ω|)) P ∧
+        (∫ ω, Real.exp (t*∑ i ∈ s, w i*|U i ω|) ∂P) ≤ K :=
+    finite_exp_integrable_bound P s w U hmeas W t K hW hw
+      (hws.sum_le_tsum s (fun i _ => hw i)) hK hUi hUb
+  have hlim : (fun ω => liminf (fun s : Finset I =>
+      ENNReal.ofReal (Real.exp (t*∑ i ∈ s, w i*|U i ω|))) atTop) =ᵐ[P]
+      (fun ω => ENNReal.ofReal (Real.exp (t*weightedAbsSeries w U ω))) := by
+    filter_upwards [haesum] with ω hω
+    have hc : Tendsto (fun s : Finset I => Real.exp (t*∑ i ∈ s, w i*|U i ω|)) atTop
+        (𝓝 (Real.exp (t*weightedAbsSeries w U ω))) :=
+      (Real.continuous_exp.tendsto _).comp (tendsto_const_nhds.mul hω.hasSum)
+    exact ((ENNReal.continuous_ofReal.tendsto _).comp hc).liminf_eq
+  have hfinbound (s : Finset I) :
+      (∫⁻ ω, ENNReal.ofReal (Real.exp (t*∑ i ∈ s, w i*|U i ω|)) ∂P) ≤ ENNReal.ofReal K := by
+    rw [← ofReal_integral_eq_lintegral_ofReal (hfinite s).1
+      (Eventually.of_forall (fun ω => (Real.exp_pos _).le))]
+    exact ENNReal.ofReal_le_ofReal (hfinite s).2
+  have hlin : (∫⁻ ω, ENNReal.ofReal (Real.exp (t*weightedAbsSeries w U ω)) ∂P) ≤
+      ENNReal.ofReal K := by
+    rw [← lintegral_congr_ae hlim]
+    calc
+      _ ≤ liminf (fun s : Finset I => ∫⁻ ω,
+        ENNReal.ofReal (Real.exp (t*∑ i ∈ s, w i*|U i ω|)) ∂P) atTop :=
+        lintegral_liminf_le (fun s => by fun_prop)
+      _ ≤ liminf (fun _s : Finset I => ENNReal.ofReal K) atTop :=
+        liminf_le_liminf (Eventually.of_forall hfinbound)
+      _ = ENNReal.ofReal K := liminf_const _
+  have hmeasGamma : Measurable (weightedAbsSeries w U) := by
+    apply Measurable.tsum
+    intro i
+    exact measurable_const.mul (hmeas i).abs
+  have hint : Integrable (fun ω => Real.exp (t*weightedAbsSeries w U ω)) P := by
+    refine ⟨by fun_prop, ?_⟩
+    apply (hasFiniteIntegral_iff_ofReal (Eventually.of_forall (fun ω => (Real.exp_pos _).le))).mpr
+    exact hlin.trans_lt ENNReal.ofReal_lt_top
+  refine ⟨hint, ?_⟩
+  have hb : (∫ ω, Real.exp (t*weightedAbsSeries w U ω) ∂P) ≤ K := by
+    rw [← ofReal_integral_eq_lintegral_ofReal hint
+      (Eventually.of_forall (fun ω => (Real.exp_pos _).le))] at hlin
+    exact (ENNReal.ofReal_le_ofReal_iff (by linarith : 0 ≤ K)).mp hlin
+  convert hb using 1; simp only [K, mul_pow, W]
+
+
+theorem weightedAbsSeries_exp {I Ω : Type*} [Countable I] [MeasurableSpace Ω]
+    (P : Measure Ω) [IsProbabilityMeasure P] (w : I → ℝ) (U : I → Ω → ℝ)
+    (hmeas : ∀ i, Measurable (U i)) (hw : ∀ i, 0 ≤ w i) (hws : Summable w)
+    (hlaw : ∀ i, HasLaw (U i) (gaussianReal 0 1) P)
+    (t : ℝ) :
+    Integrable (fun ω => Real.exp (t*weightedAbsSeries w U ω)) P ∧
+      (∫ ω, Real.exp (t*weightedAbsSeries w U ω) ∂P) ≤
+        2*Real.exp (t^2*(∑' i, w i)^2/2) := by
+  have haesum := weightedAbsSeries_ae_summable P w U hmeas hw hws hlaw
+  classical
+  by_cases hzero : (∑' i, w i) = 0
+  · have hwi (i : I) : w i = 0 := by
+      have hi : w i ≤ ∑' i, w i := by
+        simpa only [Finset.sum_singleton] using
+          hws.sum_le_tsum ({i} : Finset I) (fun j _ => hw j)
+      exact le_antisymm (hzero ▸ hi) (hw i)
+    constructor
+    · simp [weightedAbsSeries, hwi]
+    · simp [weightedAbsSeries, hwi]
+  · exact weightedAbsSeries_exp_posWeight P w U hmeas hw hws hlaw haesum
+      (lt_of_le_of_ne (tsum_nonneg hw) (Ne.symm hzero)) t
+
+end I4GaussianMajorant

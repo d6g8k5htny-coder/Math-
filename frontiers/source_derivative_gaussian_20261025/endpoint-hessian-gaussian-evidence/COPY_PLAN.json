@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "execution_owner": "root",
+  "executed_by_packaging_agent": false,
+  "source_cut": "08e8ecd854fa66e145f022ef465c0392873ce231",
+  "source_path": "frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean",
+  "source_sha256": "b9900b7553f7722241137f8f0cba08862b19ae415253a9a14bfd7c9b53c3e613",
+  "copies": [
+    {
+      "source": "/workspace/scratch/endpoint-hessian-gaussian-construct/build/SourceEndpointHessianGaussian.olean",
+      "destination": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceEndpointHessianGaussian.olean",
+      "bytes": 863104,
+      "sha256": "ce422b22d3f90dbcbaf6520d389dad7bd9fb9afacf4cbf97d14042d9d88a5c1a",
+      "identity_origin": "Retained strict003/frozen source-object/one ownkernel evidence; no object hash replay."
+    }
+  ],
+  "no_ilean_produced": true,
+  "old_dependency_objects_to_copy": [],
+  "dependency_guidance": "New52 consumes qualified49/50 public APIs/objects. Independent51H0 and its old scratch dependency route are not52 requirements. Reuse applicable exact qualified dependencies without old hashes/rebuilds.",
+  "guidance": "Root alone creates destination parent and copies only final qualified SourceEndpointHessianGaussian.olean once. All controls/inventory/helper/mutation/earlier objects ineligible. Reuse exact strict003/actual35 inventory/controls002/pd-omission001/one ownkernel001. No ilean/freshness compile.",
+  "scientific_effect": "NONE"
+}

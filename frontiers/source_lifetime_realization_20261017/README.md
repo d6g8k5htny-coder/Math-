@@ -1,0 +1,95 @@
+# Source lifetime realization
+
+This standalone package provides `I4LifetimeField.actualGaussianFieldInterface (d : ℕ) (L : ℝ) (hL : 0 < L) : UniversalLaw.Spec.Lifetime.GaussianFieldInterface d L`, using the actual smooth-source probability law. The target definition and all original source assumptions are unchanged. The constructor has no extra convergence, covariance, Gaussianity, smoothness, or existence premise.
+
+The final local sequence completed on 2026-10-18 with 24 successful phases: all 19 included Lean modules were compiled from an initially empty project output directory, then the five new modules passed standard `leanchecker -v` checks. The builds used the pinned toolchain and pre-existing pinned dependency objects. The kernel checks did not use `--fresh` or an external theorem prover. The final audit inspected 409 declarations across 18 imported source, target, and control modules, including 40 private declarations; every reported transitive axiom was in `{propext, Classical.choice, Quot.sound}`. A subsequent full rehash matched the exact paths and bytes of all 83,897 inventoried dependency artifacts, totaling 8,418,477,755 bytes, with no mismatches. The dependencies themselves were not rebuilt from source.
+
+The evidence retains 26 actual final-run receipts, including two failed attempts. The first final audit hit its 420-second timeout with empty stdout and stderr. A retry of only that unresolved audit, with unchanged proof sources and a 900-second limit, succeeded in 458.501998958 seconds and reported the complete census. The first kernel invocation then failed in 3.943259375 seconds because `leanchecker` could not discover its `lean` child on `PATH`; all 19 compiled objects remained unchanged. Recovery supplied a deterministic `PATH` containing the pinned toolchain directory and four operating-system directories, checked the child executable hash, and completed the five unresolved kernel checks under 420-second limits. No successful source compilation was repeated. Both earlier sequence results and the failed attempts' START records, terminal receipts, stdout, and stderr are preserved alongside `FINAL_SEQUENCE_TERMINAL_RESULT.json`.
+
+Seven source mutations were rejected in their intended diagnostic ranges: a zero field, a shifted field, a zero measure, a hidden positive-dimension premise, doubled raw covariance, the wrong covariance argument, and a negated covariance quadratic form. A separate fixture containing a private unused custom axiom compiled successfully, and the whole-module audit rejected that axiom. The positive baseline compiled successfully; its original wrapper failure caused by proof-print elision remains preserved. A separate probe printed the 21 required local helper references from the original compiled baseline objects, supporting the recorded two-part acceptance. The nonauthor reviewer's read-only terminal-execution verifier passed 579 checks, and the actual mutation-evidence verifier passed 265 checks.
+
+Earlier development evidence remains historical evidence. All five new modules have successful development compile receipts bound to the included source bytes. The development axiom audit completed with exit 0 in 351.246865417 seconds on 2026-10-17 and reported the same 409-declaration, 18-module census. Those development runs used inherited project objects; the subsequent 19-module source rebuild and five kernel checks are recorded separately.
+
+The constructor supplies all eleven fields of the original interface:
+
+| Original field | Supplied realization |
+| --- | --- |
+| `Ω` | The existing `SmoothSample d L` carrier. |
+| `mΩ` | Its existing measurable space. |
+| `P` | The literal existing `smoothLaw d L`. |
+| `isProb` | The source law is a probability measure. |
+| `F` | `smoothSourceField d L` transported through the canonical Euclidean coordinates. |
+| `smooth` | Every sample is `ContDiff ℝ n` for every finite order `n`. |
+| `periodic` | Every sample is invariant under every integer-lattice translation of side length `L`. |
+| `summable` | The exact shifted image-space theta family is summable at every point. |
+| `quad_nonneg` | The exact covariance quadratic form is nonnegative for every finite evaluation family and real coefficient family. |
+| `gaussian` | Every finite real linear combination has exactly the centered Gaussian law with that quadratic-form variance. |
+| `covariance` | The raw product integral equals the original normalized periodic covariance. |
+
+The theta bridge proves the full multidimensional normalization, including the factor `(sqrt (2*pi)/L)^d` and the full zero-lag lattice sum. It uses absolutely convergent complex products before taking real parts. Dimensions `d = 0`, empty evaluation families, repeated points, and cancelling coefficients are retained; no strict positive-variance assumption or division by variance is introduced. The raw covariance identity uses the established zero means.
+
+The 13 source modules and `Lifetime.lean` are byte-identical snapshots in `inputs/`. The five new files are `SourceThetaBridge.lean`, `SourceLifetimeGeometry.lean`, `SourceLifetimeField.lean`, `SourceLifetimeControls.lean`, and `SourceLifetimeAxiomAudit.lean`. `inputs/provenance/FILE_IDENTITIES.json` binds all 19 Lean files and the three preserved original build files by SHA-256 and Git blob identity. The active dependency manifest adapts only the top-level package name; all nine dependency records remain unchanged. Lean is pinned to `leanprover/lean4:v4.34.1`, and Mathlib to `d13f23b723b8a846827a245b89c10fc7d3f11612`.
+
+`C291Inputs` uses `srcDir = "inputs"` with explicit original module roots. The default Lake targets are `C291Inputs`, `SourceLifetimeControls`, and `SourceLifetimeAxiomAudit`. The intended ordinary build command is `lake build` from this directory with the pinned toolchain and dependencies available. That command has not been executed; the local source-build and kernel-replay evidence comes from the recorded direct invocations. A lockfile alone does not make Lake offline: absent checkouts or pinned revisions can cause dependency materialization. The hosted gate status for this new standalone package is `NOT_REGISTERED_NOT_CLAIMED`. Existing repository gates do not automatically build it, and this package adds no workflow.
+
+Run `python3 -B validate_static.py` for source identities, mappings, dependency-lock consistency, direct import classification, receipt bindings, and consistency of the recorded development audit output. Optional `--mathlib-source PATH` and `--lean-source PATH` arguments check direct imported source files in pre-existing pinned source trees. The checker uses a restricted parser for the generated TOML subset; it does not execute the Lake loader or Lean. Run `python3 -B test_static_validator.py` for read-only controls that require corrupted proof bytes, changed dependency pins, missing audit targets/identities, and inconsistent or forbidden-axiom audit output to be rejected. Python optimization is rejected explicitly so assertions cannot silently disappear.
+
+Evidence lives in `evidence/`; exact earlier scaffold reports are preserved under `evidence/history/scaffold-17modules/`, and the later development-checkpoint static reports under `evidence/history/pre-final-export-19modules/`. These historical reports are not current package verification. The final export is in `evidence/final/`, including `FINAL_SEQUENCE_TERMINAL_RESULT.json`, complete run records, dependency-rehash results, negative fixtures and receipts, and the full nonauthor review. `EVIDENCE_EXPORT.md` describes the projection of actual records without machine-specific paths, preserving both original and exported file hashes. The audit's narrower imports are recorded in its exact source identity; the completed runs do not establish that an import change was the sole cause of the earlier timing behavior.
+
+This constructor does not construct critical-point or persistence-bar measures, prove Morse genericity, identify elder pairing with branch adjacency, convert contact integrals into once-counted bars, prove an all-small-bars converse, or close a regional shrinking multiple-witness collision bound. Global factorial estimates do not discharge that regional obligation. The lifetime-density exponent, cumulative short-bar law, and full universality conclusions do not follow from this package alone. No scientific register is promoted by this checkpoint.
+
+The completed nonauthor review accepts the exact literal constructor and observed local formal evidence with verdict `ACCEPT_SCOPED_FORMAL_CONSTRUCTOR`. Its author, OpenAI Codex `/root/c291_nonauthor_review`, read the implementation and actual results without authoring or editing the production Lean sources. This is source-exposed review by the same provider and session lineage: organizational-independence credit is `0`, and scientific effect is `NONE`. The full report is [NONAUTHOR_REVIEW.md](evidence/final/NONAUTHOR_REVIEW.md). Its acceptance excludes publication, hosted CI, private custody, and the final delivery-master gate, which remain separate delivery observations.
+
+The original smooth-source integration remains separately owned and identified by its commit and path; including unchanged snapshots does not change its merge status. The intended package destination is `frontiers/source_lifetime_realization_20261017/`, without modifying existing source paths or workflows. This is delegated AI implementation and packaging work for Dylan Roy, performed by OpenAI Codex agents; no human or provider-distinct review, merge, or scientific acceptance is claimed.
+
+## Built-workspace validation correction — 24 October 2026
+
+The statements above describe the original 18 October delivery. The later
+[Claude S reproduction](https://github.com/d6g8k5htny-coder/Math-/pull/477#issuecomment-6245744181)
+reports a successful ordinary `lake build` from independently built pinned
+dependencies and identifies O2: the original static validator also scanned the
+dependency sources and compiled artifacts Lake creates under `.lake/`.
+This engineering correction addresses O2 without changing any Lean source,
+dependency pin, recorded execution receipt, or mathematical claim.
+
+For a clean public export, retain the default commands:
+
+```sh
+python3 -B validate_static.py
+python3 -B test_static_validator.py
+```
+
+Default validation remains strict: cache directories, compiled files, symlinks,
+private filesystem paths, unexpected Lean sources, and inconsistent source or
+recorded-audit identities are refused. `PASS_STATIC_ONLY` is a source/evidence
+consistency result; it does not execute Lean or certify the theorem.
+
+After an ordinary build has populated the workspace, use the explicit mode:
+
+```sh
+python3 -B validate_static.py --allow-lake-build
+python3 -B test_static_validator.py --allow-lake-build
+```
+
+This mode excludes only the real top-level `.lake/` directory from the package
+inventory, module census and hygiene scan, before that scan enters it. It rejects a top-level `.lake` file or symlink and
+does not exclude nested `.lake` directories, `__pycache__`, compiled artifacts
+elsewhere, or unexpected sources. All included source, dependency-lock,
+module-mapping, receipt and recorded-axiom checks still apply. Its distinct
+`PASS_SOURCE_STATIC_ONLY` result and explicit exclusion fields do **not** certify
+cache contents, cache immutability, dependency objects, or clean-export hygiene.
+Separately requested `--mathlib-source PATH` and `--lean-source PATH` checks
+retain their existing behavior: they read and hash the direct imported source
+files at those paths, including when explicitly directed inside the excluded
+cache. Those optional reads appear in the external-source result fields and
+do not validate the whole cache or its compiled objects.
+The controls use inert temporary fixtures and leave the inspected package
+unchanged outside that exclusion; they never invoke Lean or Lake. Both modes
+continue to refuse Python optimization.
+
+Use the strict default mode on the actual clean publication tree before
+publishing. A workspace-mode pass must not be substituted for that check.
+This repair's fixtures do not constitute a new `lake build` reproduction or
+hosted Lean run. Claude S's separate O1 Linux memory-cap observation and O3
+module-root/object-identity observation remain attributed to that report;
+historical commands and resource limits are unchanged.

@@ -1,0 +1,7 @@
+import SourceEndpointEstimates
+open I4SourceEndpointEstimates ResearchFormalCoreR1
+-- Treating the LM006 vector itself as physical order gives a different weight.
+example : sourceEndpointWeight 2 ![-1,1,0,0,-1,-1] =
+    egm_weight 2 ![-1,1,0,0,-1,-1] := by
+  norm_num [sourceEndpointWeight, sourcePhysicalCoordinates, egm_weight, egm_HM,
+    egm_HS, dm2_negative_iff, Matrix.det_fin_two]

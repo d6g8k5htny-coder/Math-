@@ -1,0 +1,16 @@
+/workspace/scratch/source-smooth-conditional/ShiftAlgebra.lean:17:59: error: unsolved goals
+case e'_3
+ι : Type u_1
+n : ℕ
+a : ι → ℝ
+b : Fin n → ι → ℝ
+ω : ι → ℝ
+c : Fin n → ℝ
+ha : Summable a
+hb : ∀ (j : Fin n), Summable (b j)
+hω : Summable fun m => a m * ω m
+hs : HasSum (fun m => ∑ j, a m * b j m * c j) (∑ j, (∑' (m : ι), a m * b j m) * c j)
+ht :
+  HasSum (fun b_1 => a b_1 * ω b_1 + ∑ j, a b_1 * b j b_1 * c j)
+    (∑' (b : ι), a b * ω b + ∑ j, (∑' (m : ι), a m * b j m) * c j)
+⊢ scalarSeries a ω + ∑ j, (∑' (m : ι), a m * b j m) * c j = ∑' (b : ι), a b * ω b + ∑ j, (∑' (m : ι), a m * b j m) * c j

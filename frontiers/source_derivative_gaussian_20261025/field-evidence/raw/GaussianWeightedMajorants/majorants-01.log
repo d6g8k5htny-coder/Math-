@@ -1,0 +1,68 @@
+GaussianWeightedMajorants.lean:25:50: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+GaussianWeightedMajorants.lean:25:52: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+GaussianWeightedMajorants.lean:34:56: error(lean.invalidField): Invalid field `abs`: The environment does not contain `Function.abs`, so it is not possible to project the field `abs` from an expression
+  hU i
+of type
+  ∀ ⦃t : Set ℝ⦄, MeasurableSet t → MeasurableSet (U i ⁻¹' t)
+GaussianWeightedMajorants.lean:38:60: error: expected token
+GaussianWeightedMajorants.lean:64:16: error: expected token
+GaussianWeightedMajorants.lean:56:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+GaussianWeightedMajorants.lean:56:11: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+GaussianWeightedMajorants.lean:64:7: error: Missing cases:
+GaussianWeightedMajorants.lean:59:72: error: unsolved goals
+I : Type u_1
+Ω : Type u_2
+inst✝² : Countable I
+inst✝¹ : MeasurableSpace Ω
+P : Measure Ω
+inst✝ : IsProbabilityMeasure P
+w : I → ℝ
+U : I → Ω → ℝ
+hU : ∀ (i : I), Measurable (U i)
+hw0 : ∀ (i : I), 0 ≤ w i
+hw : Summable w
+hlaw : ∀ (i : I), HasLaw (U i) (gaussianReal 0 1) P
+p : sorry
+hp : sorry
+F : I → Ω → ℝ := fun i ω => w i * |U i ω|
+C : ENNReal := ENNReal.ofReal (∑' (i : I), w i) * eLpNorm id sorry (gaussianReal 0 1)
+hG : MemLp id (↑sorry) (gaussianReal 0 1)
+hC : C ≠ sorry
+⊢ MemLp (weightedAbsSeries w U) sorry P ∧
+    eLpNorm (weightedAbsSeries w U) sorry P ≤ ENNReal.ofReal (∑' (i : I), w i) * eLpNorm id sorry (gaussianReal 0 1)
+GaussianWeightedMajorants.lean:94:59: error: expected token
+GaussianWeightedMajorants.lean:94:7: error: Missing cases:
+GaussianWeightedMajorants.lean:92:50: error: unsolved goals
+I : Type u_1
+Ω : Type u_2
+inst✝² : Countable I
+inst✝¹ : MeasurableSpace Ω
+P : Measure Ω
+inst✝ : IsProbabilityMeasure P
+w : I → ℝ
+U : I → Ω → ℝ
+_hU : ∀ (i : I), Measurable (U i)
+hw0 : ∀ (i : I), 0 ≤ w i
+hw : Summable w
+hlaw : ∀ (i : I), HasLaw (U i) (gaussianReal 0 1) P
+hG : MemLp id (↑1) (gaussianReal 0 1)
+hs : ∑' (i : I), eLpNorm (fun ω => w i * |U i ω|) 1 P ≠ sorry
+⊢ ∀ᵐ (ω : Ω) ∂P, Summable fun i => w i * |U i ω|

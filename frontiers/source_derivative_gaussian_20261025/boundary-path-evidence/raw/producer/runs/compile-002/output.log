@@ -1,0 +1,54 @@
+AdaptiveFoldBoundaryPath.lean:194:2: error: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+AdaptiveFoldBoundaryPath.lean:216:27: error(lean.unknownIdentifier): Unknown identifier `R`
+AdaptiveFoldBoundaryPath.lean:217:6: error: linarith failed to find a contradiction
+case inr
+c q z y : ℝ
+hc : 0 < c
+hz : |z| ≤ q
+hq : q ≤ y
+hdrop : 1 ≤ c / 2 * (y - q) ^ 2
+hgap : 0 ≤ y - q
+this✝ : z ≤ q
+this : sorry - z ≤ |sorry - z|
+a✝ : |y - z| < y - q
+⊢ False
+failed
+AdaptiveFoldBoundaryPath.lean:229:18: error: linarith failed to find a contradiction
+case left
+t : ↑unitInterval
+ht : ↑t ∈ unitInterval
+a✝ : -(1 / 2) + 2 * ↑t < -(1 / 2)
+⊢ False
+failed
+AdaptiveFoldBoundaryPath.lean:229:18: error: linarith failed to find a contradiction
+case right
+t : ↑unitInterval
+ht : ↑t ∈ unitInterval
+a✝ : 3 / 2 < -(1 / 2) + 2 * ↑t
+⊢ False
+failed
+AdaptiveFoldBoundaryPath.lean:242:13: error: unsolved goals
+z : ℝ → ℝ
+U : Set ℝ
+hU : IsOpen U
+hJU : J ⊆ U
+hz : ContDiffOn ℝ 2 z U
+hL : z (-(1 / 2)) = 0
+⊢ z (-2⁻¹) = 0
+AdaptiveFoldBoundaryPath.lean:242:32: error: This simp argument is unused:
+  hL
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pathX, M]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+AdaptiveFoldBoundaryPath.lean:258:45: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HDiv ℕ ℕ ↑unitInterval
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.

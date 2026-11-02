@@ -1,0 +1,30 @@
+import Mathlib.LinearAlgebra.Matrix.PosDef
+
+open Matrix
+open scoped Matrix
+set_option autoImplicit false
+
+namespace ContactSchurProbe
+
+theorem block_posDef_schur_pos (A : Matrix (Fin 6) (Fin 6) ℝ)
+    (B : Matrix (Fin 6) Unit ℝ) (D : Matrix Unit Unit ℝ)
+    (hG : (Matrix.fromBlocks A B Bᴴ D).PosDef) :
+    A.PosDef ∧ 0 < (D - Bᴴ * A⁻¹ * B) () () := by
+  have hA : A.PosDef := by
+    simpa [Matrix.submatrix] using hG.submatrix (e := Sum.inl) Sum.inl_injective
+  letI : Invertible A := hA.isUnit.invertible
+  let y : Unit → ℝ := fun _ => 1
+  let x : Fin 6 → ℝ := -((A⁻¹ * B) *ᵥ y)
+  have hxy : Sum.elim x y ≠ 0 := by
+    intro h
+    have hh := congrFun h (Sum.inr ())
+    simpa [y] using hh
+  have hp := hG.dotProduct_mulVec_pos hxy
+  rw [Matrix.dotProduct_mulVec,
+    Matrix.schur_complement_eq₁₁ B D x y hA.isHermitian] at hp
+  dsimp [x] at hp
+  rw [neg_add_cancel, dotProduct_zero, zero_add] at hp
+  refine ⟨hA, ?_⟩
+  simpa [y, Matrix.vecMul, dotProduct] using hp
+
+end ContactSchurProbe

@@ -1,0 +1,6 @@
+/workspace/scratch/remote-jet-witness-construct/Controls.lean:61:48: error: typeclass instance problem is stuck, it is often due to metavariables
+  (i : ℕ) → Module ?m.53 (?m.56 i)
+/workspace/scratch/remote-jet-witness-construct/Controls.lean:189:11: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NormedAddCommGroup (SourceMode 2)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.

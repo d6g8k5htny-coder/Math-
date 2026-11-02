@@ -1,0 +1,37 @@
+--- publication66.py.ORIGINAL
++++ publication66.py
+@@ -150,6 +150,8 @@
+ def prepare_metadata(args, run):
+     plan = read(PACK / 'APPLY_PLAN.json'); result = read(PACK / 'ASSEMBLY_RESULT.json')
+     cut = read(args.input); parent = sha(cut['source_cut'])
++    require(cut['status'] == 'EXACT_NATIVE66_COMMIT_IMPORTED_LOCAL_ONLY' and cut['phase'] == 'source_cut'
++            and cut['parent_sha'] == BASE, 'Actual genuine root66 sourcecut record')
+     require(plan['status'] == 'ROOT_ONLY_EXACT66_APPLY_AFTER_METADATA_PASS', 'Final66 apply status')
+     require(result['status'] == 'NEW66_METADATA_ASSEMBLY_AND_BOUNDED_ASSOCIATIONS_PASS', 'Metadata PASS')
+     require(parent == plan['expected_HEAD'] == result['source_cut'] and plan['qualified_baseline'] == BASE, 'Actual final66 sourcecut binding')
+@@ -158,6 +160,7 @@
+     journal = [json.loads(x) for x in (PACK / 'VALIDATION_PROGRESS.jsonl').read_text().splitlines()]
+     require(len({x['name'] for x in journal if x['event'] == 'check_passed'}) == 7, 'Seven completed metadata associations reused')
+     paths = [safe(x['path']) for x in plan['apply']]; skips = [safe(x['path']) for x in plan['skip']]
++    require(len(paths) == len(set(paths)) and len(skips) == len(set(skips)), 'Unique apply and SKIP rows before mutation')
+     require(not set(paths) & set(skips), 'Binding SKIPs disjoint')
+     docs = read('/workspace/scratch/actual-source-lower-separation-publication/PRECODE67_IDENTITIES.json')['documents']
+     extras = [safe(str(Path(x['path']).relative_to(REPO))) for x in docs]
+@@ -178,6 +181,7 @@
+     require(previous['status'] == TRANSPORT_STATUS and previous['stage66_phase'] == 'metadata', 'Actual first66 metadata tree')
+     rows = frozen['files']; prefix = REL + 'actual-source-regular-local-collar-publication-tail/'
+     require(all(x['path'].startswith(prefix) for x in rows), 'Only final66 publication evidence extras')
++    require(len({x['path'] for x in rows}) == len(rows), 'Unique frozen tail rows before mutation')
+     require(not {x['path'] for x in rows} & set(previous['explicit_stage_paths']), 'No reapply or restage of prior metadata/docs')
+     for scope in ['entry', 'outer']:
+         receipt = read(PACK / (scope + '-captures') / 'metadata-attempt-001' / 'RECEIPT.json')
+@@ -214,7 +218,8 @@
+     binding = run.path / 'ONLY_OWNED_INDEX_BINDINGS.nul.txt'; binding.write_bytes(payload)
+     run.command('sync-ONLY-owned-index-bindings', ['git', 'update-index', '-z', '--index-info'], REPO,
+                 stdin_bytes=payload, stdin_binding=str(binding))
+-    value = {'status': 'EXACT_NATIVE66_COMMIT_IMPORTED_LOCAL_ONLY', 'source_cut': commit, 'tree_sha': plan['tree_sha'],
++    value = {'status': 'EXACT_NATIVE66_COMMIT_IMPORTED_LOCAL_ONLY', 'commit_sha': commit,
++        'source_cut': commit if plan['stage66_phase'] == 'source_cut' else parent, 'tree_sha': plan['tree_sha'],
+         'parent_sha': parent, 'phase': plan['stage66_phase'], 'owned_index_rows_synchronized': len(rows),
+         'remote_ref_updated': False, 'commit_JSON_reconstruction': False, 'all_object_actions': 'SKIP'}
+     if plan['stage66_phase'] == 'source_cut': put_new(PUB / 'ROOT_SOURCE_CUT.json', value)

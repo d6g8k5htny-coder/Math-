@@ -1,0 +1,68 @@
+{
+  "module": "SourcePinCurvatureBounds",
+  "production_path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourcePinCurvatureBounds.lean",
+  "frozen_contract_commit": "8236e1d",
+  "completed_utc": "2026-10-26T00:37:02.519494+00:00",
+  "source_sha256": "b19a673aa594d1d5ef929cc598f0a142efb56c10b78c4634c92a8a749d1f1d51",
+  "olean_sha256": "44f65e77425fec3b6de34f5e0caf4e2e9657af62e141ef65f4dbfa04bc54f2fc",
+  "compile": "/workspace/scratch/pin-curvature-implementation/compile10.json",
+  "compile_raw_log": "/workspace/scratch/pin-curvature-implementation/compile10.log",
+  "kernel": "/workspace/scratch/pin-curvature-implementation/kernel.json",
+  "kernel_raw_log": "/workspace/scratch/pin-curvature-implementation/kernel.log",
+  "kernel_replay_count": 1,
+  "public_inventory": "/workspace/scratch/pin-curvature-implementation/public_targets.json",
+  "public_targets": 71,
+  "theorem_lemma_targets": 63,
+  "axiom_audit": "/workspace/scratch/pin-curvature-implementation/axioms.json",
+  "axiom_raw_log": "/workspace/scratch/pin-curvature-implementation/axioms.log",
+  "axiom_summary": "/workspace/scratch/pin-curvature-implementation/axiom_summary.json",
+  "observed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "controls_reuse": {
+    "consumed_source_sha256": "7989e229a66b6c20033ce29559dda50ee8eb3d896aa9c5a983f4d5391ffe207f",
+    "controls": "/workspace/scratch/pin-curvature-implementation/control_receipt.json",
+    "final_core_scope": "Every declaration present in compile06 is byte-for-byte unchanged in final source; final edits only append centers/error-order and six-error a.e. convenience exports.",
+    "reconstructed_consumed_source": "/workspace/scratch/pin-curvature-implementation/compile06-consumed-source.reconstructed.lean",
+    "reconstruction_label": "Reconstructed from the final unchanged prefix; SHA matches actual recorded compile06 execution. This is not a redirected raw source snapshot."
+  },
+  "author_side_helper_lineage": [
+    {
+      "agent": "/root/dm2_landed_composition",
+      "contribution": "Production actual Peano joins, six endpoint errors, R-coordinate bounds, actual physical typed weight and slab, prescribed-law a.e. joins."
+    },
+    {
+      "agent": "/root/dm2_landed_composition/peano_strategy",
+      "contribution": "Scalar weighted Peano error lemmas, actual C-infinity directional Lipschitz helpers, meaningful positive and intended-False controls.",
+      "sources": [
+        "/workspace/scratch/pin-curvature-implementation/PeanoErrorBounds.lean",
+        "/workspace/scratch/pin-curvature-implementation/ActualCurveBounds.lean"
+      ],
+      "records": [
+        "/workspace/scratch/pin-curvature-implementation/peano_error_final.json",
+        "/workspace/scratch/pin-curvature-implementation/actual_curve_final.json",
+        "/workspace/scratch/pin-curvature-implementation/control_receipt.json"
+      ]
+    },
+    {
+      "agent": "/root/regression_kernel",
+      "contribution": "Root-approved radius majorant monotonicity and uniform all-natural conditional R moments, copied from its compiled scratch body.",
+      "source": "/workspace/scratch/weighted-curvature-implementation/radius/RadiusMoments.lean",
+      "raw_log": "/workspace/scratch/weighted-curvature-implementation/radius/RadiusMoments-02.log"
+    }
+  ],
+  "reused_baseline": "18 qualified modules and 23 exact inputs via cached artifacts; no unchanged baseline checks or edits.",
+  "intermediate_attempts": "All compilation logs retained. compile08 and compile09 were terminated (actual exit143) during resource-expanding optional convenience additions; those additions are absent from final. compile10 is the final clean result.",
+  "not_claimed": [
+    "different-family scientific review",
+    "noncapture inclusion",
+    "adjacency",
+    "overall parent research completion"
+  ],
+  "production_edits": [
+    "SourcePinCurvatureBounds.lean"
+  ],
+  "root_owned_files_edited": false
+}

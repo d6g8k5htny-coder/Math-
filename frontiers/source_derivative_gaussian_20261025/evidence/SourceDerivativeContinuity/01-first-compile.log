@@ -1,0 +1,14 @@
+SourceDerivativeContinuity.lean:52:9: error(lean.unknownIdentifier): Unknown constant `ContinuousMultilinearMap.continuous_eval_const`
+SourceDerivativeContinuity.lean:93:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  sourceLaw d
+in the target expression
+  ∫ (ω : SourceMode d → ℝ), scalarSeries (derivativeCoefficient d L k x u) ω ∂coefficientLaw (SourceMode d) = 0
+
+d : ℕ
+L : ℝ
+hL : L ≠ 0
+k : ℕ
+x : Fin d → ℝ
+u : Fin k → Fin d → ℝ
+h : ∫ (ω : SourceMode d → ℝ), scalarSeries (derivativeCoefficient d L k x u) ω ∂coefficientLaw (SourceMode d) = 0
+⊢ ∫ (ω : SmoothSample d L), scalarSeries (derivativeCoefficient d L k x u) (sampleInclusion d L ω) ∂smoothLaw d L = 0

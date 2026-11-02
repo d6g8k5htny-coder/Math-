@@ -1,0 +1,508 @@
+{
+  "schema_version": 1,
+  "members": [
+    {
+      "path": "raw/producer/AUTHOR_HELPER_LINEAGE.json",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/AUTHOR_HELPER_LINEAGE.json",
+      "bytes": 1645,
+      "sha256": "9dee8995bb2bc395fa0dfb7b694939d1e6018f455cdd9f896f133a3ec148ea87",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/CONTROL_CONTRACT.md",
+      "bytes": 4322,
+      "sha256": "6c5663ca61b43e9cb7293e2519a3a0f2c2b6381b900895afb0be37efc73c364b",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/CONTROL_RECEIPT.json",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/CONTROL_RECEIPT.json",
+      "bytes": 3144,
+      "sha256": "f81f0fc15278554a844f58324a2040527635ec35c8d802b61e99cbfa7a293a92",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/DEPENDENCY_REUSE.json",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/DEPENDENCY_REUSE.json",
+      "bytes": 10329,
+      "sha256": "0b6f0ad6a7ac991a164e489bc93d451cf7f1326a74ea3628fa4607d0770e27a5",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/EXECUTION_ENVIRONMENT.json",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/EXECUTION_ENVIRONMENT.json",
+      "bytes": 753,
+      "sha256": "1ec635f278dd225e16ede49fddbfd844a571490a0524d00b12ffdd0bd74f88e0",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/EXECUTION_RECORD_INDEX.json",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/EXECUTION_RECORD_INDEX.json",
+      "bytes": 25206,
+      "sha256": "66af4d8624658dabbbda46651f7653e121ea22fc1f990ac8534d1bbd145c2b61",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/FROZEN_CONTROLS.json",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/FROZEN_CONTROLS.json",
+      "bytes": 1159,
+      "sha256": "9e6dc843c3ca9f69a2de674c53070137115f1e4265e850b349b84390f2d91d0d",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/FROZEN_SOURCE.json",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/FROZEN_SOURCE.json",
+      "bytes": 787,
+      "sha256": "8b4565645b72161c2fe7d988ebb634c3ff07ab7ee59523d572a8737dd60f1c45",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/FalseEssentialDefaultMutation.lean",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/FalseEssentialDefaultMutation.lean",
+      "bytes": 510,
+      "sha256": "cee97613a7920950b780bcfca6536e947e258353dc5a067db5f5430a8d828d26",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/HANDOFF.json",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/HANDOFF.json",
+      "bytes": 5156,
+      "sha256": "51a89fb0d56164ea518f563fd97066ea159ad83daff3f5a00aa34bd60dbd423d",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/INVENTORY.json",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/INVENTORY.json",
+      "bytes": 4903,
+      "sha256": "feb2ff28d36b6531c1a1075d8b3ba77ae2c4436262b9ba8c6a16719901270750",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/IntrinsicH0Controls.lean",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/IntrinsicH0Controls.lean",
+      "bytes": 8291,
+      "sha256": "e374fae511349c45c5e3ed181ad47739c558761ccf9258bc05fa73c9370c3e25",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/Inventory.lean",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/Inventory.lean",
+      "bytes": 1081,
+      "sha256": "6114b623420620e873efc4046a2633dc358ae65d7aa87b6b02515a355433ae44",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/REPORT.md",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/REPORT.md",
+      "bytes": 14730,
+      "sha256": "4552120f08825974b2976d647174ec4b61c2f32624773dd04fc0301111940718",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/SOURCE_OBJECT_IDENTITIES.json",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/SOURCE_OBJECT_IDENTITIES.json",
+      "bytes": 1758,
+      "sha256": "495d88e01d3ad34b985aca01c83e8c5178822838140e6a02bc8056e44ad76501",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/STATIC_SCOPE.json",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/STATIC_SCOPE.json",
+      "bytes": 686,
+      "sha256": "b1606ba5d0d0af2a36f1fe8d6a1351766ec0474cf31e9a420771734672ae83bc",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/TARGET_CLASSIFICATION.json",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/TARGET_CLASSIFICATION.json",
+      "bytes": 1295,
+      "sha256": "fc28355eeeb358168e82ed77ea1a2fd3bd12979b5e1ca8791db3ac59dadbce6d",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/finalize.py",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/finalize.py",
+      "bytes": 12871,
+      "sha256": "8cb21ca91c2dbe902ba20316299f7094e611c256502a91e0b1a6f4179f9240d4",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/run_stage.py",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/run_stage.py",
+      "bytes": 1474,
+      "sha256": "f48cb6ad509ff16cfd7e9f395958bf454d83eb28dddf95e47241d31098728b2c",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-001/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-001/CONTROL_CONTRACT.md",
+      "bytes": 4322,
+      "sha256": "6c5663ca61b43e9cb7293e2519a3a0f2c2b6381b900895afb0be37efc73c364b",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-001/IntrinsicH0Controls.lean",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-001/IntrinsicH0Controls.lean",
+      "bytes": 8291,
+      "sha256": "e374fae511349c45c5e3ed181ad47739c558761ccf9258bc05fa73c9370c3e25",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-001/Inventory.lean",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-001/Inventory.lean",
+      "bytes": 1081,
+      "sha256": "6114b623420620e873efc4046a2633dc358ae65d7aa87b6b02515a355433ae44",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-001/SourceIntrinsicH0Interface.lean",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-001/SourceIntrinsicH0Interface.lean",
+      "bytes": 8366,
+      "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-001/output.log",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-001/output.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-001/receipt.json",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-001/receipt.json",
+      "bytes": 2149,
+      "sha256": "e2d1442c88c6a7594aea2447c9ab03b4af6fd60ef6802df1f2ceeb59d732dc12",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-001/run_stage.py",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-001/run_stage.py",
+      "bytes": 1474,
+      "sha256": "f48cb6ad509ff16cfd7e9f395958bf454d83eb28dddf95e47241d31098728b2c",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-partial-001/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-partial-001/CONTROL_CONTRACT.md",
+      "bytes": 4322,
+      "sha256": "6c5663ca61b43e9cb7293e2519a3a0f2c2b6381b900895afb0be37efc73c364b",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-partial-001/IntrinsicH0Controls.lean",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-partial-001/IntrinsicH0Controls.lean",
+      "bytes": 5257,
+      "sha256": "3e2862c9f0a5c07db2fced6a75a4a3d0f28cd8b793a0d881e3494586505b92f7",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-partial-001/SourceIntrinsicH0Interface.lean",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-partial-001/SourceIntrinsicH0Interface.lean",
+      "bytes": 8366,
+      "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-partial-001/output.log",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-partial-001/output.log",
+      "bytes": 680,
+      "sha256": "034b773a91a0e6b24246cc77cac11dd90a70a4d9c72a46213ef20fb777eba121",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-partial-001/receipt.json",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-partial-001/receipt.json",
+      "bytes": 2168,
+      "sha256": "c354f96e4e09ff03ab0963168952871daf4d06ff00ed17c6f03b1b8524f48c69",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-partial-001/run_stage.py",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-partial-001/run_stage.py",
+      "bytes": 1474,
+      "sha256": "f48cb6ad509ff16cfd7e9f395958bf454d83eb28dddf95e47241d31098728b2c",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/false-essential-default-001/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/false-essential-default-001/CONTROL_CONTRACT.md",
+      "bytes": 4322,
+      "sha256": "6c5663ca61b43e9cb7293e2519a3a0f2c2b6381b900895afb0be37efc73c364b",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/false-essential-default-001/FalseEssentialDefaultMutation.lean",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/false-essential-default-001/FalseEssentialDefaultMutation.lean",
+      "bytes": 510,
+      "sha256": "cee97613a7920950b780bcfca6536e947e258353dc5a067db5f5430a8d828d26",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/false-essential-default-001/IntrinsicH0Controls.lean",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/false-essential-default-001/IntrinsicH0Controls.lean",
+      "bytes": 8291,
+      "sha256": "e374fae511349c45c5e3ed181ad47739c558761ccf9258bc05fa73c9370c3e25",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/false-essential-default-001/Inventory.lean",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/false-essential-default-001/Inventory.lean",
+      "bytes": 1081,
+      "sha256": "6114b623420620e873efc4046a2633dc358ae65d7aa87b6b02515a355433ae44",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/false-essential-default-001/SourceIntrinsicH0Interface.lean",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/false-essential-default-001/SourceIntrinsicH0Interface.lean",
+      "bytes": 8366,
+      "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/false-essential-default-001/output.log",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/false-essential-default-001/output.log",
+      "bytes": 126,
+      "sha256": "ec9ba15087385d5de0926dd17216d969cd7cfc920b803f4dd4b61f5c91e4f8b2",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/false-essential-default-001/receipt.json",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/false-essential-default-001/receipt.json",
+      "bytes": 2105,
+      "sha256": "69e690a5ef50e8279b200175633a72ef0d58bdd66df06e73c95f11b487543c43",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/false-essential-default-001/run_stage.py",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/false-essential-default-001/run_stage.py",
+      "bytes": 1474,
+      "sha256": "f48cb6ad509ff16cfd7e9f395958bf454d83eb28dddf95e47241d31098728b2c",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/inventory-001/CONTROL_CONTRACT.md",
+      "bytes": 4322,
+      "sha256": "6c5663ca61b43e9cb7293e2519a3a0f2c2b6381b900895afb0be37efc73c364b",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/IntrinsicH0Controls.lean",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/inventory-001/IntrinsicH0Controls.lean",
+      "bytes": 5331,
+      "sha256": "c534bafdc4ec97858167955043443098168f5e8e5e0ec20bca9cbf4285c3c194",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/Inventory.lean",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/inventory-001/Inventory.lean",
+      "bytes": 1081,
+      "sha256": "6114b623420620e873efc4046a2633dc358ae65d7aa87b6b02515a355433ae44",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/SourceIntrinsicH0Interface.lean",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/inventory-001/SourceIntrinsicH0Interface.lean",
+      "bytes": 8366,
+      "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/output.log",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/inventory-001/output.log",
+      "bytes": 3027,
+      "sha256": "0fcba3ed20b156c924cc88126df1b12474d317f1a450d3dddc1adbe7126db4ed",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/receipt.json",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/inventory-001/receipt.json",
+      "bytes": 2057,
+      "sha256": "52c9d48c2902679ae8b581ad1e6e474f609ac0762626ac2bc3e3d831a3eb742c",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/run_stage.py",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/inventory-001/run_stage.py",
+      "bytes": 1474,
+      "sha256": "f48cb6ad509ff16cfd7e9f395958bf454d83eb28dddf95e47241d31098728b2c",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/kernel-001/CONTROL_CONTRACT.md",
+      "bytes": 4322,
+      "sha256": "6c5663ca61b43e9cb7293e2519a3a0f2c2b6381b900895afb0be37efc73c364b",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/IntrinsicH0Controls.lean",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/kernel-001/IntrinsicH0Controls.lean",
+      "bytes": 5331,
+      "sha256": "c534bafdc4ec97858167955043443098168f5e8e5e0ec20bca9cbf4285c3c194",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/Inventory.lean",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/kernel-001/Inventory.lean",
+      "bytes": 1081,
+      "sha256": "6114b623420620e873efc4046a2633dc358ae65d7aa87b6b02515a355433ae44",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/SourceIntrinsicH0Interface.lean",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/kernel-001/SourceIntrinsicH0Interface.lean",
+      "bytes": 8366,
+      "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/output.log",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/kernel-001/output.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/receipt.json",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/kernel-001/receipt.json",
+      "bytes": 1938,
+      "sha256": "246aa85a373d276b983adff00414ccdf0308d30cc46472f7cd0294a76f6aa484",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/run_stage.py",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/kernel-001/run_stage.py",
+      "bytes": 1474,
+      "sha256": "f48cb6ad509ff16cfd7e9f395958bf454d83eb28dddf95e47241d31098728b2c",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/strict-001/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/strict-001/CONTROL_CONTRACT.md",
+      "bytes": 4322,
+      "sha256": "6c5663ca61b43e9cb7293e2519a3a0f2c2b6381b900895afb0be37efc73c364b",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/strict-001/SourceIntrinsicH0Interface.lean",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/strict-001/SourceIntrinsicH0Interface.lean",
+      "bytes": 8361,
+      "sha256": "91b0b35171bc3e13731f6aa62000fa7accd8420727ac945167e04327e30b53bd",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/strict-001/output.log",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/strict-001/output.log",
+      "bytes": 102,
+      "sha256": "1302a07638a86a89d8de1db538e9ff05b72740cebe935e7eb1be9f89d674d640",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/strict-001/receipt.json",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/strict-001/receipt.json",
+      "bytes": 1562,
+      "sha256": "e83a08ffe251dd9eedef22e7393aba9042a4eecd8f1b018288e1e10f461bbbeb",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/strict-001/run_stage.py",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/strict-001/run_stage.py",
+      "bytes": 1474,
+      "sha256": "f48cb6ad509ff16cfd7e9f395958bf454d83eb28dddf95e47241d31098728b2c",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/strict-002/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/strict-002/CONTROL_CONTRACT.md",
+      "bytes": 4322,
+      "sha256": "6c5663ca61b43e9cb7293e2519a3a0f2c2b6381b900895afb0be37efc73c364b",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/strict-002/SourceIntrinsicH0Interface.lean",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/strict-002/SourceIntrinsicH0Interface.lean",
+      "bytes": 8366,
+      "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/strict-002/output.log",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/strict-002/output.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/strict-002/receipt.json",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/strict-002/receipt.json",
+      "bytes": 1777,
+      "sha256": "e89ac25fefebfa7afa51ea747bca32087923d6dc2d090b5c2a96fefdc6225a96",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/strict-002/run_stage.py",
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/runs/strict-002/run_stage.py",
+      "bytes": 1474,
+      "sha256": "f48cb6ad509ff16cfd7e9f395958bf454d83eb28dddf95e47241d31098728b2c",
+      "identity_origin": "Retained frozen producer/root/new-binding identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/review/CONTROL_REVIEW.md",
+      "source": "/workspace/scratch/intrinsic-h0-interface-source-review/CONTROL_REVIEW.md",
+      "bytes": 3080,
+      "sha256": "d6b8e55017631a50b3725b7b924b9244d8b94aa624c1db1e48586e68045f955d",
+      "identity_origin": "Genuinely new unrecorded final packaging payload hashed once after final write."
+    },
+    {
+      "path": "raw/review/FINAL_TECHNICAL_REVIEW.md",
+      "source": "/workspace/scratch/intrinsic-h0-interface-source-review/FINAL_TECHNICAL_REVIEW.md",
+      "bytes": 10074,
+      "sha256": "dd30c1c229594d41755f86a77509c24a228e5529e873bfdff6e40290d9f45476",
+      "identity_origin": "Genuinely new unrecorded final packaging payload hashed once after final write."
+    },
+    {
+      "path": "raw/review/PREFLIGHT.md",
+      "source": "/workspace/scratch/intrinsic-h0-interface-source-review/PREFLIGHT.md",
+      "bytes": 14475,
+      "sha256": "e2909214ec37a81f6fb4d3e7c43b16b23c3685f6466e582e6288cff5fe05f70d",
+      "identity_origin": "Genuinely new unrecorded final packaging payload hashed once after final write."
+    },
+    {
+      "path": "raw/helper-coordinate/REPORT.txt",
+      "source": "/workspace/scratch/intrinsic-h0-coordinate-api/REPORT.txt",
+      "bytes": 3756,
+      "sha256": "063a8e817998c624889b8d020ea41769fc8d96077d92461721b93529b30d2abb",
+      "identity_origin": "Genuinely new unrecorded final packaging payload hashed once after final write."
+    },
+    {
+      "path": "raw/root-source-cut/ROOT_SOURCE_CUT.json",
+      "source": "/workspace/scratch/intrinsic-h0-interface-publication/ROOT_SOURCE_CUT.json",
+      "bytes": 1319,
+      "sha256": "f8505f6d1e5bfa0fb291645f7003618af468f6d2340e3ecf22a2c0492768d10f",
+      "identity_origin": "Genuinely new unrecorded final packaging payload hashed once after final write."
+    }
+  ],
+  "raw_files": 69,
+  "raw_stream_files": 7,
+  "raw_stream_bytes": 3935,
+  "capture_mode": "Full original stdout/stderr honestly merged in output.log for each actual invocation; no separate-stream invention.",
+  "excluded_actual_artifacts": [
+    {
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/build/IntrinsicH0Controls.olean",
+      "bytes": 274352,
+      "reason": "Actual generated artifact excluded from overlay/archive/Git; only named final new own object separately rootcopyeligible."
+    },
+    {
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/build/SourceIntrinsicH0Interface.olean",
+      "bytes": 975440,
+      "reason": "Actual generated artifact excluded from overlay/archive/Git; only named final new own object separately rootcopyeligible."
+    }
+  ],
+  "all_attempts_failures_full_streams_preserved": true,
+  "formatting": "Raw payloads and retained top copies must not be reformatted.",
+  "old_payload_hashes_recomputed": 0,
+  "mathematical_verification_replays": 0
+}

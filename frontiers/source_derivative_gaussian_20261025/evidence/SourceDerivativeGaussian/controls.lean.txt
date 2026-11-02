@@ -1,0 +1,41 @@
+import SourceDerivativeGaussian
+
+open MeasureTheory ProbabilityTheory I4SmoothCarrier I4SourceDerivativeGaussian
+open I4Foundation
+open scoped NNReal
+
+#check derivativeCoefficient
+#check derivativeCoefficient_summable
+#check smoothSourceField_derivative_series
+#check scalarSeries_finiteVector_hasGaussianLaw
+#check smoothSourceField_derivativeVector_hasGaussianLaw
+#check smoothSourceField_derivative_covariance
+
+example (d : ℕ) {L : ℝ} (hL : L ≠ 0) (ω : SmoothSample d L) (x : Fin d → ℝ) :
+    scalarSeries (derivativeCoefficient d L 0 x (fun i => Fin.elim0 i))
+      (sampleInclusion d L ω) = smoothSourceField d L ω x := by
+  simpa only [iteratedFDeriv_zero_apply] using
+    (smoothSourceField_derivative_series d hL ω 0 x (fun i => Fin.elim0 i)).symm
+
+example (d : ℕ) {L : ℝ} (hL : L ≠ 0) :
+    HasGaussianLaw (fun ω (_j : Fin 0) => smoothSourceField d L ω 0) (smoothLaw d L) := by
+  simpa only [iteratedFDeriv_zero_apply] using
+    smoothSourceField_derivativeVector_hasGaussianLaw d hL 0
+      (fun _ => 0) (fun _ => 0) (fun _ _ => 0)
+
+example {L : ℝ} (hL : L ≠ 0) (n : ℕ) (k : Fin n → ℕ)
+    (u : ∀ j, Fin (k j) → (Fin 0 → ℝ)) :
+    HasGaussianLaw (fun ω j =>
+      iteratedFDeriv ℝ (k j) (smoothSourceField 0 L ω) 0 (u j)) (smoothLaw 0 L) :=
+  smoothSourceField_derivativeVector_hasGaussianLaw 0 hL n k (fun _ => 0) u
+
+example (d : ℕ) {L : ℝ} (hL : L ≠ 0) (x : Fin d → ℝ)
+    (u : Fin 2 → (Fin d → ℝ)) :
+    cov[fun ω => iteratedFDeriv ℝ 2 (smoothSourceField d L ω) x u,
+      fun ω => iteratedFDeriv ℝ 2 (smoothSourceField d L ω) x u; smoothLaw d L] =
+      ∑' m, derivativeCoefficient d L 2 x u m ^ 2 := by
+  simpa only [pow_two] using smoothSourceField_derivative_covariance d hL 2 2 x x u u
+
+example (d : ℕ) (L : ℝ) (ω : SmoothSample d L) (x : Fin d → ℝ) :
+    iteratedFDeriv ℝ 2 (smoothSourceField d L ω) x ![0,0] = 0 := by
+  simp [iteratedFDeriv_two_apply]

@@ -1,0 +1,10 @@
+--- af17e8d1aaf3a3f47d9763485337a6c0c57b9b99/frontiers/asymmetric_elder_bridge_20261017/ElderInterval.lean
++++ /workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/elder/ElderInterval.lean
+@@ -1,4 +1,7 @@
+ import OrdinaryH0
++import Mathlib.Algebra.Category.ModuleCat.Biproducts
++import Mathlib.CategoryTheory.Abelian.FunctorCategory
++import Mathlib.Tactic.Abel
+ 
+ /-!+# One actual ordinary-H0 interval summand from an asymmetric trap
+ 

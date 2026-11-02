@@ -1,0 +1,10 @@
+--- baseRunner
++++ currentRunner
+@@ -1,6 +1,7 @@
+ import datetime,hashlib,json,pathlib,subprocess,sys,time
+ base=pathlib.Path('/workspace/scratch/framed-confluent-covariance-construct');repo=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025')
+ kind=sys.argv[1];runs=base/'runs';runs.mkdir(exist_ok=True);i=1
++if kind=='factor-six':assert not list(runs.glob('factor-six-*')),'Exactly one sole factor-six mutation permitted'
+ while (runs/f'{kind}-{i:03}').exists():i+=1
+ out=runs/f'{kind}-{i:03}';out.mkdir();src=repo/'SourceFramedConfluentCovariance.lean'
+ for p in [src,*base.glob('*.lean')]:

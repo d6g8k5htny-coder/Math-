@@ -1,0 +1,6 @@
+/workspace/scratch/regression-kernel/smooth-palm/PositiveControls.lean:34:44: error: No goals to be solved
+/workspace/scratch/regression-kernel/smooth-palm/PositiveControls.lean:37:41: error: No goals to be solved
+/workspace/scratch/regression-kernel/smooth-palm/PositiveControls.lean:38:13: error(lean.invalidField): Invalid field `and`: The environment does not contain `Eq.and`, so it is not possible to project the field `and` from an expression
+  hraw
+of type
+  (sourceSmoothWeightedLaw ⋯ r b) {x | rawPins 1 r x = ![b, b - r ^ 3 / 6, 0, 0, 0, 0]}ᶜ = 0

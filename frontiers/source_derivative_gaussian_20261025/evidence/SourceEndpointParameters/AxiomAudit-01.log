@@ -1,0 +1,45 @@
+'I4SourceEndpointParameters.smoothSourceField_derivative_integral_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceEndpointParameters.rawPinsWithHessians_integral_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceEndpointParameters.rawPinsWithHessians_integral_vector_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceEndpointParameters.sourcePins_adjusted_integral_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceEndpointParameters.sourceConfluentPinsAt_integral_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceEndpointParameters.sourceAdjustedEndpoints_integral_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceEndpointParameters.sourceEndpointResidual_integral_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceEndpointParameters.sourceEndpointResidual_covariance' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceEndpointParameters.finiteGaussian_law_parameters' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceEndpointParameters.sourceEndpointResidual_hasGaussianLaw' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceEndpointParameters.sourceEndpointPosterior_hasGaussianLaw' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceEndpointParameters.sourceEndpointPosterior_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceEndpointParameters.sourceEndpointPosterior_covariance' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceEndpointParameters.sourceEndpointKernel_eq_map_posterior' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceEndpointParameters.sourceEndpointKernel_isGaussian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceEndpointParameters.sourceEndpointSchurAt_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceEndpointParameters.sourceEndpointKernel_eq_multivariateGaussian' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceEndpointParameters.sourceEndpointKernel_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceEndpointParameters.sourceEndpointKernel_covariance' depends on axioms: [propext, Classical.choice, Quot.sound]

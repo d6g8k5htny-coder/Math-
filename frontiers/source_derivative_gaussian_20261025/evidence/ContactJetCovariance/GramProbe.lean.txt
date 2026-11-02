@@ -1,0 +1,54 @@
+import Mathlib.LinearAlgebra.Matrix.PosDef
+import Mathlib.Analysis.Normed.Ring.InfiniteSum
+import Mathlib.Analysis.Normed.Module.FiniteDimension
+
+open Matrix
+open scoped BigOperators Matrix
+set_option autoImplicit false
+namespace I4ContactGram
+
+noncomputable def coefficientGram {ι : Type*} {n : ℕ} (coeff : Fin n → ι → ℝ) :
+    Matrix (Fin n) (Fin n) ℝ := fun i j => ∑' m, coeff i m * coeff j m
+
+lemma coefficient_product_summable {ι : Type*} {a b : ι → ℝ}
+    (ha : Summable a) (hb : Summable b) : Summable (fun m => a m * b m) := by
+  have hp := summable_mul_of_summable_norm ha.norm hb.norm
+  simpa only [Function.comp_def] using hp.comp_injective
+    (show Function.Injective (fun m : ι => (m,m)) from
+      fun i j h => congrArg Prod.fst h)
+
+lemma coefficientGram_quadratic_hasSum {ι : Type*} {n : ℕ} (coeff : Fin n → ι → ℝ)
+    (hc : ∀ i, Summable (coeff i)) (z : Fin n → ℝ) :
+    HasSum (fun m => (∑ i, z i * coeff i m)^2)
+      (star z ⬝ᵥ (coefficientGram coeff *ᵥ z)) := by
+  have hs : HasSum (fun m => ∑ i, ∑ j, z i * (coeff i m * coeff j m) * z j)
+      (∑ i, ∑ j, z i * coefficientGram coeff i j * z j) :=
+    hasSum_sum (fun i _ => hasSum_sum (fun j _ =>
+      (((coefficient_product_summable (hc i) (hc j)).hasSum).mul_left (z i)).mul_right (z j)))
+  convert hs using 1
+  · funext m
+    rw [pow_two, Finset.sum_mul_sum]
+    apply Finset.sum_congr rfl
+    intro i _
+    apply Finset.sum_congr rfl
+    intro j _
+    ring
+  · simp [Matrix.mulVec, dotProduct, Finset.mul_sum, mul_assoc]
+
+lemma coefficientGram_posDef_of_separating {ι : Type*} {n : ℕ}
+    (coeff : Fin n → ι → ℝ) (hc : ∀ i, Summable (coeff i))
+    (hsep : ∀ z : Fin n → ℝ, z ≠ 0 → ∃ m, (∑ i, z i * coeff i m) ≠ 0) :
+    (coefficientGram coeff).PosDef := by
+  apply Matrix.PosDef.of_dotProduct_mulVec_pos
+  · ext i j
+    simp only [coefficientGram, Matrix.conjTranspose_apply, star_trivial]
+    apply tsum_congr
+    intro m
+    ring
+  · intro z hz
+    have hs := coefficientGram_quadratic_hasSum coeff hc z
+    rw [← hs.tsum_eq]
+    obtain ⟨m, hm⟩ := hsep z hz
+    exact hs.summable.tsum_pos (fun m => sq_nonneg _) m (sq_pos_of_ne_zero hm)
+
+end I4ContactGram

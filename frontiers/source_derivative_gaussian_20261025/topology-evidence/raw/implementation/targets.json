@@ -1,0 +1,247 @@
+[
+  {
+    "kind": "abbrev",
+    "name": "I4SourceSmoothTopology.DerivativeOperator",
+    "line": 26
+  },
+  {
+    "kind": "abbrev",
+    "name": "I4SourceSmoothTopology.DerivativeBCF",
+    "line": 29
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.modeCoefficient_contDiff",
+    "line": 31
+  },
+  {
+    "kind": "def",
+    "name": "I4SourceSmoothTopology.modeDerivativeBCF",
+    "line": 44
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.modeDerivativeBCF_norm_le",
+    "line": 50
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.sourceDerivativeBCF_summable",
+    "line": 55
+  },
+  {
+    "kind": "def",
+    "name": "I4SourceSmoothTopology.sourceDerivativeBCF",
+    "line": 69
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.sourceDerivativeBCF_apply",
+    "line": 72
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.stronglyMeasurable_of_countable_hasSum",
+    "line": 88
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.sourceDerivativeBCF_stronglyMeasurable",
+    "line": 98
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.sourceDerivativeBCF_borel",
+    "line": 109
+  },
+  {
+    "kind": "def",
+    "name": "I4SourceSmoothTopology.sourceFiniteJet",
+    "line": 114
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.sourceFiniteJet_stronglyMeasurable",
+    "line": 117
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.sourceFiniteJet_borel",
+    "line": 132
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.modeDerivativeBCF_apply",
+    "line": 142
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.sourceDerivativeBCF_tendstoUniformly",
+    "line": 148
+  },
+  {
+    "kind": "def",
+    "name": "I4SourceSmoothTopology.jetRestriction",
+    "line": 164
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.jetRestriction_continuous",
+    "line": 168
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.jetRestriction_norm_le",
+    "line": 174
+  },
+  {
+    "kind": "def",
+    "name": "I4SourceSmoothTopology.sourceRestrictedJet",
+    "line": 181
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.sourceRestrictedJet_apply",
+    "line": 185
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.sourceRestrictedJet_stronglyMeasurable",
+    "line": 191
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.sourceRestrictedJet_borel",
+    "line": 196
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.sourceFiniteJet_dist_le_iff",
+    "line": 204
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.sourceFiniteJet_eq_iff_field_eq",
+    "line": 218
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.smoothSourceField_lattice_periodic",
+    "line": 237
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.sourceDerivativeBCF_lattice_periodic",
+    "line": 242
+  },
+  {
+    "kind": "def",
+    "name": "I4SourceSmoothTopology.compatiblePeriodicJets",
+    "line": 252
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.sourceFiniteJet_mem_compatible",
+    "line": 258
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.compatiblePeriodicJets_witness_unique",
+    "line": 267
+  },
+  {
+    "kind": "instance",
+    "name": "I4SourceSmoothTopology.derivativeMeasurableSpace",
+    "line": 291
+  },
+  {
+    "kind": "instance",
+    "name": "I4SourceSmoothTopology.derivativeBorelSpace",
+    "line": 292
+  },
+  {
+    "kind": "instance",
+    "name": "I4SourceSmoothTopology.finiteJetMeasurableSpace",
+    "line": 294
+  },
+  {
+    "kind": "instance",
+    "name": "I4SourceSmoothTopology.finiteJetBorelSpace",
+    "line": 296
+  },
+  {
+    "kind": "def",
+    "name": "I4SourceSmoothTopology.sourceCompatibleJet",
+    "line": 299
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.sourceCompatibleJet_measurable",
+    "line": 303
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.sourceCompatibleJet_borel",
+    "line": 307
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.sourceDerivativeBCF_hasCondDistrib",
+    "line": 314
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.sourceFiniteJet_hasCondDistrib",
+    "line": 321
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.sourceCompatibleJet_hasCondDistrib",
+    "line": 327
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.sourceFiniteJet_functional_hasCondDistrib",
+    "line": 333
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.sourceDerivativeBCF_functional_hasCondDistrib",
+    "line": 340
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.sourceCompatibleJet_functional_hasCondDistrib",
+    "line": 347
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.sourceDerivativeBCF_eventually_hasCondDistrib",
+    "line": 354
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.sourceFiniteJet_eventually_hasCondDistrib",
+    "line": 360
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.sourceCompatibleJet_eventually_hasCondDistrib",
+    "line": 366
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.sourceFiniteJet_functional_eventually_hasCondDistrib",
+    "line": 372
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.sourceDerivativeBCF_functional_eventually_hasCondDistrib",
+    "line": 380
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothTopology.sourceCompatibleJet_functional_eventually_hasCondDistrib",
+    "line": 387
+  }
+]

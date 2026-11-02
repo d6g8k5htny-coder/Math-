@@ -1,0 +1,6 @@
+import ConditionalMajorantControlSupport
+open I4SourceConditionalMajorant I4ConditionalMajorantControls
+-- Dropping the absolute value changes a negative coefficient's majorant.
+example : sampleMajorant dcWeight (dcSample (-3)) = -6 := by
+  rw [gamma_control]
+  norm_num

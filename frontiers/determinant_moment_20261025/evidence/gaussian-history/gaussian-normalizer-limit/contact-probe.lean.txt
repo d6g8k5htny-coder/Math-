@@ -1,0 +1,51 @@
+import ResearchFormalCoreR1.GaussianCoupling
+import Mathlib.Probability.Moments.Variance
+
+open MeasureTheory ProbabilityTheory Matrix WithLp
+open scoped ENNReal NNReal MatrixOrder Matrix.Norms.L2Operator
+set_option autoImplicit false
+namespace ResearchFormalCoreR1
+
+theorem contact_relations (m : EuclideanSpace ℝ (Fin 6)) (S : Matrix (Fin 6) (Fin 6) ℝ)
+    (hS : S.PosSemidef)
+    (hm0 : m 0 = -1) (hm1 : m 1 = 1)
+    (hm23 : m 2 + m 3 = 0) (hm45 : m 4 - m 5 = 0)
+    (hS0 : S 0 0 = 0) (hS1 : S 1 1 = 0)
+    (hS23 : S 2 2 + 2*S 2 3 + S 3 3 = 0)
+    (hS45 : S 4 4 - 2*S 4 5 + S 5 5 = 0) :
+    ∀ᵐ x ∂multivariateGaussian m S,
+      x 0 = -1 ∧ x 1 = 1 ∧ x 2 + x 3 = 0 ∧ x 4 - x 5 = 0 := by
+  let P := multivariateGaussian m S
+  have hLp (i : Fin 6) : MemLp (fun x : EuclideanSpace ℝ (Fin 6) => x i) 2 P := by
+    exact (IsGaussian.memLp_two_id (μ := P)).continuousLinearMap_comp (EuclideanSpace.proj (𝕜 := ℝ) i)
+  have hi (i : Fin 6) : ∫ x : EuclideanSpace ℝ (Fin 6), x i ∂P = m i := by
+    change ∫ x, (EuclideanSpace.proj (𝕜 := ℝ) i) x ∂P = m i
+    rw [ContinuousLinearMap.integral_comp_id_comm]
+    · simp [P]
+    · exact IsGaussian.integrable_id
+  have hvar0 : Var[fun x : EuclideanSpace ℝ (Fin 6) => x 0; P] = 0 := by
+    exact (variance_eval_multivariateGaussian hS 0).trans hS0
+  have hvar1 : Var[fun x : EuclideanSpace ℝ (Fin 6) => x 1; P] = 0 := by
+    exact (variance_eval_multivariateGaussian hS 1).trans hS1
+  have hvar23 : Var[fun x : EuclideanSpace ℝ (Fin 6) => x 2 + x 3; P] = 0 := by
+    rw [variance_fun_add (hLp 2) (hLp 3)]
+    simpa [P, variance_eval_multivariateGaussian hS,
+      covariance_eval_multivariateGaussian hS] using hS23
+  have hvar45 : Var[fun x : EuclideanSpace ℝ (Fin 6) => x 4 - x 5; P] = 0 := by
+    rw [variance_fun_sub (hLp 4) (hLp 5)]
+    simpa [P, variance_eval_multivariateGaussian hS,
+      covariance_eval_multivariateGaussian hS] using hS45
+  have hi23 : ∫ x : EuclideanSpace ℝ (Fin 6), (x 2 + x 3) ∂P = 0 := by
+    rw [integral_add ((hLp 2).integrable (by norm_num)) ((hLp 3).integrable (by norm_num)), hi, hi]
+    exact hm23
+  have hi45 : ∫ x : EuclideanSpace ℝ (Fin 6), (x 4 - x 5) ∂P = 0 := by
+    rw [integral_sub ((hLp 4).integrable (by norm_num)) ((hLp 5).integrable (by norm_num)), hi, hi]
+    exact hm45
+  filter_upwards [ae_eq_integral_of_variance_eq_zero (hLp 0) hvar0,
+    ae_eq_integral_of_variance_eq_zero (hLp 1) hvar1,
+    ae_eq_integral_of_variance_eq_zero ((hLp 2).add (hLp 3)) hvar23,
+    ae_eq_integral_of_variance_eq_zero ((hLp 4).sub (hLp 5)) hvar45]
+    with x hx0 hx1 hx23 hx45
+  exact ⟨hx0.trans ((hi 0).trans hm0), hx1.trans ((hi 1).trans hm1),
+    hx23.trans hi23, hx45.trans hi45⟩
+end ResearchFormalCoreR1

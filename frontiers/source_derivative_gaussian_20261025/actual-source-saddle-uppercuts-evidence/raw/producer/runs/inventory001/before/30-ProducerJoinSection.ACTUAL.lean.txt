@@ -1,0 +1,166 @@
+private theorem actualInheritedCollar {L : ℝ} (hL : 0 < L)
+    (omega : I4SmoothCarrier.SmoothSample 2 L) (X : UniversalLaw.Spec.Lifetime.E 2)
+    (hcrit : UniversalLaw.Spec.Lifetime.IsCriticalPoint 2 (I4LifetimeField.actualField 2 L omega) X)
+    (hI : UniversalLaw.Spec.Lifetime.HessianHasInertia 2 (I4LifetimeField.actualField 2 L omega) X 1)
+    (O : Set (I4Torus.SourceTorus 2 L)) (hO : IsOpen O)
+    (hqO : I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X) ∈ O) :
+    ∃ rho : ℝ, 0 < rho ∧ ∃ phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) Point2,
+      InheritedCollar (SourceActualFoldTorus.actualTorusField hL.ne' omega)
+        (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) O rho phi := by
+  rcases I4SourceActualQuotientSaddleCollar.actualSource_quotient_saddle_local_collar
+    hL omega X hcrit hI O hO hqO with
+    ⟨rho, hrho, phi, hq, hzero, hsub, htarget, hfield, _, _, _, _, htest, hlower⟩
+  exact ⟨rho, hrho, phi, ⟨hq, hzero, hsub, htarget, hfield, hlower, htest⟩⟩
+
+private theorem transportedUpperSign {L : ℝ} (F : I4Torus.SourceTorus 2 L → ℝ)
+    (q : I4Torus.SourceTorus 2 L) (O : Set (I4Torus.SourceTorus 2 L))
+    (rho : ℝ) (phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) Point2)
+    (h : InheritedCollar F q O rho phi) (eps : ℝ) (sign : ℝ → Prop) :
+    phi.symm '' (targetUpper rho eps ∩ {u | sign (u 1)}) =
+      upperTrace F q phi eps ∩ {z | sign (phi z 1)} := by
+  ext z
+  constructor
+  · rintro ⟨u, ⟨⟨hub, huq⟩, hus⟩, rfl⟩
+    have hut : u ∈ phi.target := by rwa [h.target_eq]
+    have hzs := phi.map_target hut
+    have hinv := phi.right_inv hut
+    refine ⟨⟨hzs, ?_⟩, ?_⟩
+    · have hf := h.field_eq _ hzs
+      rw [hinv] at hf
+      dsimp [saddleValue] at huq
+      change F q + eps ≤ F (phi.symm u)
+      linarith
+    · simpa only [hinv] using hus
+  · rintro ⟨⟨hzs, hzq⟩, hzs'⟩
+    refine ⟨phi z, ⟨⟨?_, ?_⟩, hzs'⟩, phi.left_inv hzs⟩
+    · rw [← h.target_eq]
+      exact phi.map_source hzs
+    · have hf := h.field_eq z hzs
+      change eps ≤ -(phi z 0)^2 + (phi z 1)^2
+      change F q + eps ≤ F z at hzq
+      linarith
+
+private theorem transportClosedUpper {L : ℝ} (F : I4Torus.SourceTorus 2 L → ℝ)
+    (q : I4Torus.SourceTorus 2 L) (O : Set (I4Torus.SourceTorus 2 L))
+    (rho : ℝ) (phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) Point2)
+    (h : InheritedCollar F q O rho phi) (eps : ℝ) (heps : 0 < eps)
+    (hg : ClosedBranchFacts rho eps) : UpperClause F q phi eps := by
+  have hpimage := transportedUpperSign F q O rho phi h eps (fun t => 0 < t)
+  have hmimage := transportedUpperSign F q O rho phi h eps (fun t => t < 0)
+  have hpcont : ContinuousOn phi.symm (targetUpperPos rho eps) :=
+    phi.symm.continuousOn.mono fun u hu => by
+      rw [h.target_eq]
+      exact hu.1.1
+  have hmcont : ContinuousOn phi.symm (targetUpperNeg rho eps) :=
+    phi.symm.continuousOn.mono fun u hu => by
+      rw [h.target_eq]
+      exact hu.1.1
+  have hppc : IsPathConnected (upperTrace F q phi eps ∩ {z | 0 < phi z 1}) := by
+    rw [← hpimage]
+    exact hg.plus_pc.image' hpcont
+  have hmpc : IsPathConnected (upperTrace F q phi eps ∩ {z | phi z 1 < 0}) := by
+    rw [← hmimage]
+    exact hg.minus_pc.image' hmcont
+  have hstrict : upperTrace F q phi eps ⊆ phi.source ∩ {z | F q < F z} := by
+    intro z hz
+    exact ⟨hz.1, lt_of_lt_of_le (lt_add_of_pos_right _ heps) hz.2⟩
+  refine ⟨hppc, hmpc, ?_, ?_, ?_⟩
+  · exact Set.disjoint_left.mpr fun z hz hp => (not_lt_of_gt hz.2) hp.2
+  · ext z
+    constructor
+    · intro hz
+      have hf := h.field_eq z hz.1
+      have hnonzero : phi z 1 ≠ 0 := by
+        intro hzero
+        rw [hzero] at hf
+        have hsq := sq_nonneg (phi z 0)
+        have hh := hz.2
+        change F q + eps ≤ F z at hh
+        nlinarith
+      rcases lt_or_gt_of_ne hnonzero with hm | hp
+      · exact Or.inr ⟨hz, hm⟩
+      · exact Or.inl ⟨hz, hp⟩
+    · rintro (hz | hz) <;> exact hz.1
+  · intro p hp r hr
+    constructor
+    · intro hjoin
+      exact (h.strict_test p (hstrict hp) r (hstrict hr)).mp (hjoin.mono hstrict)
+    · intro hprod
+      rcases mul_pos_iff.mp hprod with hpos | hneg
+      · exact (hppc.joinedIn p ⟨hp, hpos.1⟩ r ⟨hr, hpos.2⟩).mono fun _ hz => hz.1
+      · exact (hmpc.joinedIn p ⟨hp, hneg.1⟩ r ⟨hr, hneg.2⟩).mono fun _ hz => hz.1
+
+private theorem actualUniformSaddleCuts {L : ℝ} (hL : 0 < L)
+    (omega : I4SmoothCarrier.SmoothSample 2 L) (X : UniversalLaw.Spec.Lifetime.E 2)
+    (hcrit : UniversalLaw.Spec.Lifetime.IsCriticalPoint 2 (I4LifetimeField.actualField 2 L omega) X)
+    (hI : UniversalLaw.Spec.Lifetime.HessianHasInertia 2 (I4LifetimeField.actualField 2 L omega) X 1)
+    (O : Set (I4Torus.SourceTorus 2 L)) (hO : IsOpen O)
+    (hqO : I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X) ∈ O) :
+    ∃ rho : ℝ, 0 < rho ∧ ∃ phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) Point2,
+      UniformCutResult (SourceActualFoldTorus.actualTorusField hL.ne' omega)
+        (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) O rho phi := by
+  obtain ⟨rho, hrho, phi, h⟩ := actualInheritedCollar hL omega X hcrit hI O hO hqO
+  refine ⟨rho, hrho, phi, h.center_mem, h.center_eq, h.source_sub, h.target_eq,
+    h.field_eq, h.lower_pc, div_pos (sq_pos_of_pos hrho) (by norm_num), ?_⟩
+  intro eps heps hbound
+  exact transportClosedUpper _ _ O rho phi h eps heps
+    (closedSaddleBranchGeometry rho hrho eps heps hbound)
+
+private theorem cutoffEquality {L : ℝ} (F : I4Torus.SourceTorus 2 L → ℝ)
+    (q : I4Torus.SourceTorus 2 L) (O : Set (I4Torus.SourceTorus 2 L))
+    (rho : ℝ) (hrho : 0 < rho)
+    (phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) Point2)
+    (h : UniformCutResult F q O rho phi) : CutoffEquality F q rho phi := by
+  have ht := h.2.2.2.1
+  have hf := h.2.2.2.2.1
+  have hball (s : ℝ) (hs : |s| < rho) : (![0,s] : Point2) ∈ phi.target := by
+    rw [ht, Metric.mem_ball, dist_zero_right]
+    apply (pi_norm_lt_iff hrho).2
+    intro i
+    fin_cases i
+    · simpa using hrho
+    · simpa using hs
+  have hp : (![0,rho/4] : Point2) ∈ phi.target := hball _ (by rw [abs_of_pos (by positivity)]; linarith)
+  have hm : (![0,-rho/4] : Point2) ∈ phi.target := hball _ (by rw [abs_neg, abs_of_pos (by positivity)]; linarith)
+  have hps := phi.map_target hp
+  have hms := phi.map_target hm
+  have hpi := phi.right_inv hp
+  have hmi := phi.right_inv hm
+  have hpf := hf _ hps
+  have hmf := hf _ hms
+  rw [hpi] at hpf
+  rw [hmi] at hmf
+  norm_num only [Fin.isValue, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons, zero_pow] at hpf hmf
+  have hpfe : F (phi.symm (![0,rho/4] : Point2)) = F q + rho^2/16 := by nlinarith [hpf]
+  have hmfe : F (phi.symm (![0,-rho/4] : Point2)) = F q + rho^2/16 := by nlinarith [hmf]
+  refine ⟨by positivity, by nlinarith [sq_pos_of_pos hrho], ⟨hps, hpfe.ge⟩,
+    ⟨hms, hmfe.ge⟩, hpfe, hmfe, ?_, ?_⟩
+  · rw [hpi]
+    simpa using (show 0 < rho/4 by positivity)
+  · rw [hmi]
+    simpa using (show -rho/4 < 0 by linarith)
+
+theorem actualSource_quotient_saddle_uniform_closed_uppercuts {L : ℝ} (hL : 0 < L)
+    (omega : I4SmoothCarrier.SmoothSample 2 L) (X : UniversalLaw.Spec.Lifetime.E 2)
+    (hcrit : UniversalLaw.Spec.Lifetime.IsCriticalPoint 2 (I4LifetimeField.actualField 2 L omega) X)
+    (hI : UniversalLaw.Spec.Lifetime.HessianHasInertia 2 (I4LifetimeField.actualField 2 L omega) X 1) :
+    let F := SourceActualFoldTorus.actualTorusField hL.ne' omega
+    let q := I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)
+    let c := F q
+    ∀ O : Set (I4Torus.SourceTorus 2 L), IsOpen O → q ∈ O →
+      ∃ rho : ℝ, 0 < rho ∧
+        ∃ phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) (Fin 2 → ℝ),
+          q ∈ phi.source ∧ phi q = 0 ∧ phi.source ⊆ O ∧
+          phi.target = Metric.ball (0 : Fin 2 → ℝ) rho ∧
+          (∀ z ∈ phi.source, F z = c-(phi z 0)^2+(phi z 1)^2) ∧
+          (∀ delta : ℝ, 0 ≤ delta → IsPathConnected (phi.source ∩ {z | c-delta ≤ F z})) ∧
+          0 < rho^2/4 ∧
+          (∀ eps : ℝ, 0 < eps → eps < rho^2/4 →
+            let U := phi.source ∩ {z | c+eps ≤ F z}
+            let Bplus := U ∩ {z | 0 < phi z 1}
+            let Bminus := U ∩ {z | phi z 1 < 0}
+            IsPathConnected Bplus ∧ IsPathConnected Bminus ∧ Disjoint Bplus Bminus ∧
+              U = Bplus ∪ Bminus ∧
+              (∀ p ∈ U, ∀ r ∈ U, JoinedIn U p r ↔ 0 < (phi p 1)*(phi r 1))) := by
+  intro O hO hqO
+  exact actualUniformSaddleCuts hL omega X hcrit hI O hO hqO

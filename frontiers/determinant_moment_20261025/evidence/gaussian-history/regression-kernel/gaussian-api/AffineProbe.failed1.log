@@ -1,0 +1,20 @@
+/workspace/scratch/regression-kernel/gaussian-api/AffineProbe.lean:19:60: error: unexpected token 'where'; expected ':=' or '|'
+/workspace/scratch/regression-kernel/gaussian-api/AffineProbe.lean:19:7: error: Missing cases:
+/workspace/scratch/regression-kernel/gaussian-api/AffineProbe.lean:11:66: error: unsolved goals
+Ω : Type u_1
+inst✝ : MeasurableSpace Ω
+P : Measure Ω
+n k : ℕ
+X : Ω → Fin n → ℝ
+Y : Ω → Fin k → ℝ
+hXY : HasGaussianLaw (fun ω => (X ω, Y ω)) P
+B : (Fin n → ℝ) →L[ℝ] Fin k → ℝ
+mX : Fin n → ℝ
+mY : Fin k → ℝ
+L : (Fin n → ℝ) × (Fin k → ℝ) →L[ℝ] (Fin n → ℝ) × (Fin k → ℝ) :=
+  (ContinuousLinearMap.fst ℝ (Fin n → ℝ) (Fin k → ℝ)).prod
+    (ContinuousLinearMap.snd ℝ (Fin n → ℝ) (Fin k → ℝ) - B ∘SL ContinuousLinearMap.fst ℝ (Fin n → ℝ) (Fin k → ℝ))
+c : (Fin n → ℝ) × (Fin k → ℝ) := (0, B mX - mY)
+hL : HasGaussianLaw (fun ω => L (X ω, Y ω)) P
+hshift : HasGaussianLaw (fun ω => L (X ω, Y ω) + c) P
+⊢ HasGaussianLaw (fun ω => (X ω, Y ω - mY - B (X ω - mX))) P

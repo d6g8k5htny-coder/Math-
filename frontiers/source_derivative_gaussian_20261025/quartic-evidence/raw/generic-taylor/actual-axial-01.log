@@ -1,0 +1,30 @@
+/workspace/scratch/actual-quartic-transfer/lean/ActualAxialCoefficients.lean:17:2: error: Type mismatch: After simplification, term
+  axis_iteratedDeriv (smoothSourceField 2 L ω) (smoothSourceField_smooth 2 hL ω) 3 0
+ has type
+  @Eq ℝ (iteratedDeriv 3 (fun s => smoothSourceField 2 L ω ![s, 0]) 0)
+    ((iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0) ![directionX, directionX, directionX])
+but is expected to have type
+  @Eq ℝ (iteratedDeriv 3 (sourceF L ω) 0)
+    ((iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0) ![directionX, directionX, directionX])
+/workspace/scratch/actual-quartic-transfer/lean/ActualAxialCoefficients.lean:25:2: error: Type mismatch: After simplification, term
+  axis_iteratedDeriv (smoothSourceField 2 L ω) (smoothSourceField_smooth 2 hL ω) 4 0
+ has type
+  @Eq ℝ (iteratedDeriv 4 (fun s => smoothSourceField 2 L ω ![s, 0]) 0)
+    ((iteratedFDeriv ℝ 4 (smoothSourceField 2 L ω) 0) ![directionX, directionX, directionX, directionX])
+but is expected to have type
+  @Eq ℝ (iteratedDeriv 4 (sourceF L ω) 0)
+    ((iteratedFDeriv ℝ 4 (smoothSourceField 2 L ω) 0) ![directionX, directionX, directionX, directionX])
+/workspace/scratch/actual-quartic-transfer/lean/ActualAxialCoefficients.lean:33:2: error: Type mismatch: After simplification, term
+  axis_transverse_iteratedDeriv (smoothSourceField 2 L ω) (smoothSourceField_smooth 2 hL ω) 3 0
+ has type
+  @Eq ℝ (iteratedDeriv 3 (fun s => (fderiv ℝ (smoothSourceField 2 L ω) ![s, 0]) directionY) 0)
+    ((iteratedFDeriv ℝ (3 + 1) (smoothSourceField 2 L ω) 0) ![directionX, directionX, directionX, directionY])
+but is expected to have type
+  @Eq ℝ (iteratedDeriv 3 (sourceH L ω) 0)
+    ((iteratedFDeriv ℝ 4 (smoothSourceField 2 L ω) 0) ![directionX, directionX, directionX, directionY])
+/workspace/scratch/actual-quartic-transfer/lean/ActualAxialCoefficients.lean:59:4: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/actual-quartic-transfer/lean/ActualAxialCoefficients.lean:80:25: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`

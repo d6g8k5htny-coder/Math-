@@ -1,0 +1,18 @@
+{
+  "checked_source_commit": "16f81b973a02783f8be83081aa7f198724cf5767",
+  "manifest_sha256": "0008bee4d620206e78ad72ca3d4f39006a8c495f185f556d3b2ffa60e248ccbd",
+  "scope_sha256": "1105cc13a0ccfe382e9582dccd4cc1d07c215733f565dcf2f75801ab7b090ee4",
+  "receipt_sha256": "95e502472e3d748c8b5dca3328a8644a9cb7cfc8fe40d5f9cce95a32814e5ec6",
+  "target_count": 66,
+  "kernel_gate_exit": 0,
+  "scientific_effect": "NONE",
+  "alignment": "PENDING_INDEPENDENT_REVIEW",
+  "evidence_reuse": "Original applicable mathematical and78Python gate-test checks reused; changed13module root checked once. Separate new actual-source modules have their own scoped receipts.",
+  "negative_controls": {
+    "custom_imported": "REJECTED_BY_AXIOM_GATE",
+    "false_fold": "REJECTED_BY_LEAN",
+    "false_power": "REJECTED_BY_LEAN",
+    "native": "REJECTED_BY_AXIOM_GATE",
+    "sorry": "REJECTED_BY_AXIOM_GATE"
+  }
+}

@@ -1,0 +1,14 @@
+/workspace/scratch/actual-fold-chart-construct/Controls.lean:76:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  fun q => a * (q.1 ^ 3 * (1 / 3) - q.1 * (1 / 4)) + c
+in the target expression
+  HasFDerivAt (fun x => a * ((fun y => y.1 ^ 3 * (1 / 3)) - fun y => y.1 * (1 / 4)) x + c)
+    (a • ((1 / 3) • (3 • p.1 ^ (3 - 1)) • ContinuousLinearMap.fst ℝ ℝ ℝ - (1 / 4) • ContinuousLinearMap.fst ℝ ℝ ℝ)) p
+
+a c : ℝ
+p : ℝ × ℝ
+hx : HasFDerivAt (fun q => q.1) (ContinuousLinearMap.fst ℝ ℝ ℝ) p
+h :
+  HasFDerivAt (fun x => a * ((fun y => y.1 ^ 3 * (1 / 3)) - fun y => y.1 * (1 / 4)) x + c)
+    (a • ((1 / 3) • (3 • p.1 ^ (3 - 1)) • ContinuousLinearMap.fst ℝ ℝ ℝ - (1 / 4) • ContinuousLinearMap.fst ℝ ℝ ℝ)) p
+he : polynomial a c = fun q => a * (q.1 ^ 3 * (1 / 3) - q.1 * (1 / 4)) + c
+⊢ Vy (polynomial a c) p = 0

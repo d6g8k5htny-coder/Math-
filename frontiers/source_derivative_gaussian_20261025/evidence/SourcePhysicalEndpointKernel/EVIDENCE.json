@@ -1,0 +1,124 @@
+{
+  "source": "SourcePhysicalEndpointKernel.lean",
+  "source_sha256": "689ced2a760b38333b0224f19af52812d0057527d5a790ba50116cb5f07b7e3a",
+  "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+  "source_contract_commit": "1819e38",
+  "author": "OpenAI/Codex /root/regression_kernel",
+  "scientific_effect": "NONE; author-side verification only; whole-field Palm and event joins remain open; different-family review separate",
+  "build": {
+    "command": "/home/agent/.elan/bin/lake env lean -o .lake/build/lib/lean/SourcePhysicalEndpointKernel.olean SourcePhysicalEndpointKernel.lean",
+    "exit": 0,
+    "log": "SourcePhysicalEndpointKernel-04.log"
+  },
+  "kernel": {
+    "command": "/home/agent/.elan/bin/lake env leanchecker SourcePhysicalEndpointKernel",
+    "exit": 0,
+    "log": "KernelReplay-01.log"
+  },
+  "axioms": {
+    "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/physical-endpoint/AxiomAudit.lean",
+    "exit": 0,
+    "targets": {
+      "I4SourcePhysicalEndpointKernel.sourceNormalizedEndpoints_eq_adjusted": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_markov": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_measurable": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_apply": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_hasCondDistrib": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourcePhysicalEndpointKernel.sourcePhysicalCorrection_prescribed": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_at_prescribed": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_integral": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_spec": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "log": "AxiomAudit-01.log"
+  },
+  "controls": [
+    {
+      "file": "PositiveControls.lean",
+      "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/physical-endpoint/PositiveControls.lean",
+      "capture_command": "set -o pipefail\n/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/physical-endpoint/PositiveControls.lean 2>&1 | tee /workspace/scratch/regression-kernel/physical-endpoint/PositiveControls-01.log",
+      "exit": 0,
+      "log": "PositiveControls-01.log",
+      "reason": "arbitrary-height prescribed literal measure equality; actual physical HasCondDistrib at negative period; nonprescribed D nonzero; actual physical kernel differs from adjusted kernel at e3 by unequal means"
+    },
+    {
+      "file": "RejectedAllPinCorrectionZero.lean",
+      "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/physical-endpoint/RejectedAllPinCorrectionZero.lean",
+      "capture_command": "set -o pipefail\n/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/physical-endpoint/RejectedAllPinCorrectionZero.lean 2>&1 | tee /workspace/scratch/regression-kernel/physical-endpoint/RejectedAllPinCorrectionZero-01.log",
+      "exit": 1,
+      "log": "RejectedAllPinCorrectionZero-01.log",
+      "reason": "D_1(e3) has first2 coordinates1, not0"
+    },
+    {
+      "file": "RejectedOmitPhysicalMeanCorrection.lean",
+      "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/physical-endpoint/RejectedOmitPhysicalMeanCorrection.lean",
+      "capture_command": "set -o pipefail\n/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/physical-endpoint/RejectedOmitPhysicalMeanCorrection.lean 2>&1 | tee /workspace/scratch/regression-kernel/physical-endpoint/RejectedOmitPhysicalMeanCorrection-01.log",
+      "exit": 1,
+      "log": "RejectedOmitPhysicalMeanCorrection-01.log",
+      "reason": "physical kernel mean at e3 differs by the nonzero D correction"
+    }
+  ],
+  "control_warnings": "PositiveControls and RejectedOmitPhysicalMeanCorrection report one harmless unused Pi.single_apply simp-argument warning; mathematical outcomes recorded exactly, no repeat for warning alone.",
+  "logs": {
+    "SourcePhysicalEndpointKernel-04.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "PositiveControls-01.log": {
+      "bytes": 314,
+      "sha256": "58d90f2859b3d419465abcb614b267185bc5955917255feac90433312a6da1e6"
+    },
+    "RejectedAllPinCorrectionZero-01.log": {
+      "bytes": 160,
+      "sha256": "bc3eeb3a71cb384d141f3be4ea9fc977d6915ffaa14c5713ea4f0528de941719"
+    },
+    "RejectedOmitPhysicalMeanCorrection-01.log": {
+      "bytes": 491,
+      "sha256": "0f1c3137368ade94ad6d986fa47a713648174a6ec80f81deeb9f2072215d8f89"
+    },
+    "AxiomAudit-01.log": {
+      "bytes": 1190,
+      "sha256": "af2209a06a8b3b470bbf89b2ac97462f02da639ba573905fa1f627c361f6be17"
+    },
+    "KernelReplay-01.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "reuse": "Completed Gaussian/kernel/parameter source artifacts reused unchanged; only this new physical kernel module and its new controls checked."
+}

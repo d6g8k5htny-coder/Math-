@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/scratch/remote-jet-arithmetic/runs/run-007/Arithmetic.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "utc_start": "2026-10-26T12:07:58.553991+00:00",
+  "utc_end": "2026-10-26T12:08:05.707424+00:00",
+  "elapsed_seconds": 7.153106958998251,
+  "exit_code": 1,
+  "source_sha256": "94cfa082841767067b4584d525ffcd71b3f618dffd492d1c05e581b7938d9b69",
+  "source_after_sha256": "94cfa082841767067b4584d525ffcd71b3f618dffd492d1c05e581b7938d9b69",
+  "runner_sha256": "cc2d062cd86fec248d878c41f6b91cbb66deafff187efb4bbe22dc7fe66cc84e"
+}

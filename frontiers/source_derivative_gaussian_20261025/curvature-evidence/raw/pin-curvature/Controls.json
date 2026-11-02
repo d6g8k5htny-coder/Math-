@@ -1,0 +1,24 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "/workspace/scratch/pin-curvature-implementation/Controls.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit_code": 0,
+  "duration_seconds": 3.1327574253082275,
+  "timestamp_utc": "2026-10-26T00:32:04.963829+00:00",
+  "sha256_before": {
+    "source": "fdccc592a7551cb96c32ac683cfc0be9fa40f76f778c758d9688483826dc2a1f",
+    "olean": "36dd25c17899287ff63422fb3f30d7d9436b38e1e3070a09cf2ce05530c48f7e",
+    "control": "707c5e90ba04e5032d8f31a4a3c5bca14ac07914bb1cedb7d54aaf4a817fe6bb"
+  },
+  "sha256_after": {
+    "source": "fdccc592a7551cb96c32ac683cfc0be9fa40f76f778c758d9688483826dc2a1f",
+    "olean": "36dd25c17899287ff63422fb3f30d7d9436b38e1e3070a09cf2ce05530c48f7e",
+    "control": "707c5e90ba04e5032d8f31a4a3c5bca14ac07914bb1cedb7d54aaf4a817fe6bb"
+  },
+  "author_side_helper_lineage": "OpenAI/Codex /root/dm2_landed_composition/peano_strategy",
+  "scope": "NEW_SOURCE_PIN_CURVATURE_CONTROLS_ONLY"
+}

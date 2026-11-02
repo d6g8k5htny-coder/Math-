@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "generation": "0b581f8569781d82",
+  "positive_baseline_receipt": "negative-runs/20261017T231301Z-NegativeFixtureBaseline-482f2ff2/RECEIPT.json",
+  "positive_baseline_receipt_sha256": "1d278de59b1c3d56da4d40f12d12dc77f43c96108a684ec6446644027d1c7272",
+  "binding_probe_receipt": "negative-runs/20261017T232142Z-NegativeFixtureBindingProbe-b26210bd/RECEIPT.json",
+  "binding_probe_receipt_sha256": "6eb94d244bfaa3005821d020f4b591fad865b393d4199a7f679fd6fe6282f437",
+  "baseline_source_sha256": "a18de8fb87069c26adac05b37bf065cc4c58b910d72a5b3209b826bb1424ae91",
+  "baseline_objects": {
+    "NegativeFixtureBaseline.olean": "a787f761de0e4d595d27c4c567f8dc2aac1e935b5251eaa14c22373a56152dc3"
+  },
+  "baseline_manifest_sha256": "f511a499d1804a3033728cc576e9c6bba0f8954039f811b9ec1fe71cc73df279",
+  "bindings_verified": 21,
+  "original_baseline_control_pass": false,
+  "original_baseline_actual_lean_exit": 0,
+  "binding_probe_actual_lean_exit": 0,
+  "meaning": "Two-part positive acceptance; original wrapper print-elision failure is preserved. Exact successful cloned-proof compilation plus separately compiled proof-reference inspection.",
+  "scientific_effect": "NONE"
+}

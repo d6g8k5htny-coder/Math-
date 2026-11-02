@@ -1,0 +1,131 @@
+{
+  "purpose": "SOURCE_PINNED_WEBSITE_HANDOFF_NOT_A_GRAPH_BINDING",
+  "schema_version": 1,
+  "node_join": "UNBOUND_ARTIFACT_NO_NODE_ID_INVENTED",
+  "existing_model_reference": {
+    "repository": "d6g8k5htny-coder/main",
+    "commit": "3be7a859d4ff05ceaf8b2c8ec748cfd2658c67f5",
+    "path": "docs/plans/2026-10-08-artifact-index-contract.md"
+  },
+  "proof_checked_commit": "dcfc89366f590342b4cd30b141a22c9ae2a562bb",
+  "public_delivery_commit": "144f371fd5a7990f4d53db01ad8f76dbeba45b4a",
+  "scientific_effect": "NONE",
+  "source_alignment": "SAME_PROVIDER_NONAUTHOR_TECHNICAL_REVIEW_ONLY",
+  "machine_alignment": "PENDING_INDEPENDENT_REVIEW",
+  "organizational_independence_credit": 0,
+  "execution": "LOCAL_KERNEL_RECHECK_AXIOM_AUDIT_AND_NEGATIVE_CONTROLS_PASS_NOT_HOSTED",
+  "coverage": [
+    "Exact normalized nine-jet endpoint-Hessian pointwise W^2 <= 16 r^4 R^8, 0 < r <= 1",
+    "Measurable-jet eighth-moment premise gives squared-weight integrability and integral <=16 M8 r^4",
+    "Auxiliary untyped determinant bound, negative-definiteness criterion and weight measurability"
+  ],
+  "not_established": [
+    "concrete Gaussian eighth-moment bound",
+    "actual field/jet convention identification",
+    "positive normalizer lower bound",
+    "actual Palm-law identification",
+    "full event tail and good-event coverage",
+    "GT5, P0.2, lifetime and persistence parents"
+  ],
+  "artifacts": [
+    {
+      "kind": "file",
+      "repository": "d6g8k5htny-coder/Math-",
+      "artifact_path": "imports/hardening_ebedb780/P02-LM-002/proof.md.export.txt",
+      "commit": "c4eabc1a917ba2c1b96fe4af425cf2a484877c03",
+      "blob_sha": "d1fd7eccd5947cb6c5bf8724a77b7ec1c380a29b",
+      "sha256": "0f8f80922feb603e5b6e530eb885a7819b3a98d90d3c42d60a68259af766f7de",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "kind": "file",
+      "repository": "d6g8k5htny-coder/Math-",
+      "artifact_path": "frontiers/determinant_moment_20261025/SOURCE_MAP.md",
+      "commit": "dcfc89366f590342b4cd30b141a22c9ae2a562bb",
+      "blob_sha": "bf8e1746ec5026a57e755c0bb5b74968189aa1a4",
+      "sha256": "32b5e48e9d8150927542718e719a71f6d59ef7593b78dd827dd52c18c47681f6",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "kind": "file",
+      "repository": "d6g8k5htny-coder/Math-",
+      "artifact_path": "frontiers/determinant_moment_20261025/SCOPE.md",
+      "commit": "dcfc89366f590342b4cd30b141a22c9ae2a562bb",
+      "blob_sha": "0a3e15e045618369730e8aa9c3f967ef2929e59b",
+      "sha256": "c3cb56539a6b1dcb41c6ac378c1797e95ef878ba03276456276e0bb3abfa3ddd",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "kind": "file",
+      "repository": "d6g8k5htny-coder/Math-",
+      "artifact_path": "frontiers/determinant_moment_20261025/ResearchFormalCoreR1/DeterminantMoment.lean",
+      "commit": "dcfc89366f590342b4cd30b141a22c9ae2a562bb",
+      "blob_sha": "93e296ca101be5d15a5ed6bfef7c6fe768f514e6",
+      "sha256": "661b73c3f21c6d2529f5e09ce426d89c01939ab27a5cc868db3802c7e66ea82d",
+      "roles": [
+        "kernel"
+      ]
+    },
+    {
+      "kind": "file",
+      "repository": "d6g8k5htny-coder/Math-",
+      "artifact_path": "frontiers/determinant_moment_20261025/manifest.json",
+      "commit": "dcfc89366f590342b4cd30b141a22c9ae2a562bb",
+      "blob_sha": "71a692415138cbd1950a793402fa30d3bf166ef8",
+      "sha256": "cb2b4870debf98cdf3663663797ccfc524e23d5f41f89e1c9ecdba5b6e680811",
+      "roles": [
+        "kernel"
+      ]
+    },
+    {
+      "kind": "file",
+      "repository": "d6g8k5htny-coder/Math-",
+      "artifact_path": "frontiers/determinant_moment_20261025/evidence/final/receipt.json",
+      "commit": "144f371fd5a7990f4d53db01ad8f76dbeba45b4a",
+      "blob_sha": "a2d175bbdc62940e9c1fe522808444e3f57661d7",
+      "sha256": "8fe7ab0f131a8a5c3e459d3bbbd10b4ab2b135438793851c11b25f7bb69f9eeb",
+      "roles": [
+        "kernel"
+      ]
+    },
+    {
+      "kind": "file",
+      "repository": "d6g8k5htny-coder/Math-",
+      "artifact_path": "frontiers/determinant_moment_20261025/evidence/final/EXPORT_IDENTITIES.json",
+      "commit": "144f371fd5a7990f4d53db01ad8f76dbeba45b4a",
+      "blob_sha": "d4499c4303a1e540756a939cb7bb9596ab8afb86",
+      "sha256": "b6e06898b34d526848c4b1ab480a5effced42ea0c1bca761eb2ee5e20a2b5577",
+      "roles": [
+        "kernel"
+      ]
+    },
+    {
+      "kind": "file",
+      "repository": "d6g8k5htny-coder/Math-",
+      "artifact_path": "frontiers/determinant_moment_20261025/evidence/DM2_IMPORT_SUCCESSOR_REVIEW.md",
+      "commit": "144f371fd5a7990f4d53db01ad8f76dbeba45b4a",
+      "blob_sha": "ef8d1426522175b4888823c1d8eca69fd6c7f955",
+      "sha256": "061dd239951933729266c5ee7e71bfd5e216a898191b789159fac22b0cdb5543",
+      "roles": [
+        "review"
+      ]
+    },
+    {
+      "kind": "file",
+      "repository": "d6g8k5htny-coder/Math-",
+      "artifact_path": "frontiers/determinant_moment_20261025/evidence/DELIVERY.md",
+      "commit": "144f371fd5a7990f4d53db01ad8f76dbeba45b4a",
+      "blob_sha": "f6d07999fedd34f9d47d88811f8046e9e797b7c4",
+      "sha256": "5f20ab6ce305fcd444ac04241516ac2537bfc26212dea4f341665db11bfb0182",
+      "roles": [
+        "source"
+      ]
+    }
+  ]
+}

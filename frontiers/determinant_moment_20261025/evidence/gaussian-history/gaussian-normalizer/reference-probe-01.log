@@ -1,0 +1,4 @@
+/workspace/scratch/gaussian-normalizer/reference-probe.lean:25:6: error: not a positivity goal
+/workspace/scratch/gaussian-normalizer/reference-probe.lean:44:4: warning: Try `simp at hvol` instead of `simpa using hvol`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`

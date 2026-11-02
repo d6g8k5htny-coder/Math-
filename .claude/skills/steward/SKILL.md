@@ -20,7 +20,7 @@ It was written against these exact source identities (repository, commit, path, 
 
 **Check the live versions too.** They are [Math- `AGENTS.md`](../../../AGENTS.md), [`docs/FORMAL_REQUIRED_CHECKS.md`](../../../docs/FORMAL_REQUIRED_CHECKS.md) and `main`'s [`governance/`](https://github.com/d6g8k5htny-coder/main/tree/main/governance). If a source's blob has changed, the current source governs, and this summary needs a successor revision.
 
-Cross-lane coordination (claims, ledgers, routing, releases) happens in [main#229](https://github.com/d6g8k5htny-coder/main/issues/229).
+Cross-lane coordination (claims, ledgers, routing, releases) happens in [main#619](https://github.com/d6g8k5htny-coder/main/issues/619) (historical practice and cited comments: [main#229](https://github.com/d6g8k5htny-coder/main/issues/229)).
 
 ## 1. Identity, roles and credit
 

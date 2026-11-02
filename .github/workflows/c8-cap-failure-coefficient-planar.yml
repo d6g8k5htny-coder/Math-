@@ -5,6 +5,10 @@ name: C8 planar cap-failure coefficient (certified replay)
     paths:
       - 'frontiers/c8_cap_failure_coefficient_planar_20260930/**'
       - '.github/workflows/c8-cap-failure-coefficient-planar.yml'
+      - 'tools/**'
+      - 'tools.py'
+      - 'tests/test_check_mode_workflows.py'
+      - 'tests/test_legacy_workflow_triggers.py'
       - 'imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md'
       - 'imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md'
       - 'frontiers/c6_cluster_coefficients_numerics_20260930/RESULTS.json'
@@ -22,9 +26,16 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
-      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.11.16'
+      - name: Check trigger coverage and the complete shell rejection contract in both modes
+        env:
+          CHECK_MODE_TEST_FAMILY: 'c8-cap-failure-coefficient-planar'
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python -B -S tests/test_check_mode_workflows.py
+          python -B -O -S tests/test_check_mode_workflows.py
       - name: Verify manifest and main-resident pins, recompute every certified enclosure in both interpreter modes, reject mutants
         env:
           PYTHONDONTWRITEBYTECODE: '1'
@@ -52,21 +63,8 @@ jobs:
               blob = hashlib.sha1(b'blob %d\0' % len(data) + data).hexdigest()
               if len(data) != entry['bytes'] or hashlib.sha256(data).hexdigest() != entry['sha256'] or blob != entry['git_blob']:
                   raise ValueError('consumed source identity mismatch on this tree: ' + entry['path'])
-          script = str(root / 'cap_coefficient.py')
-          for flags in (['-B', '-S'], ['-B', '-O', '-S']):
-              out = subprocess.run([sys.executable, *flags, script, '--check', '--procs', '2'], cwd=root, capture_output=True, timeout=2400)
-              if out.returncode != 0:
-                  raise RuntimeError('check failed under ' + ' '.join(flags) + ': ' + out.stdout.decode()[-400:] + out.stderr.decode()[-400:])
-              print(flags, out.stdout.decode().strip()[-300:])
-          # each mutant fails on the first k value (about four minutes); run them two at a time
-          def mutant(args):
-              flags, m = args
-              return m, flags, subprocess.run([sys.executable, *flags, script, '--check', '--procs', '1', '--mutant', m], cwd=root, capture_output=True, timeout=2400).returncode
-          jobs = [(flags, m) for flags in (['-B', '-S'], ['-B', '-O', '-S']) for m in ['no-third-jet', 'sign-lo', 'variance-yyy']]
-          with concurrent.futures.ThreadPoolExecutor(max_workers=2) as ex:
-              for m, flags, rc in ex.map(mutant, jobs):
-                  if rc != 1:
-                      raise RuntimeError('mutant ' + m + ' not rejected under ' + ' '.join(flags))
+          from tools.check_mode_replay import replay
+          replay('c8-cap-failure-coefficient-planar', root, timeout=2400)
           print(json.dumps({'scientific_effect': 'NONE', 'certified_enclosures_replayed': True, 'mutants_rejected': 6}))
           PY
           git diff --exit-code

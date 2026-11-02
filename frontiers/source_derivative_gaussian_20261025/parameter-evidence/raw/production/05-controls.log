@@ -1,0 +1,31 @@
+/workspace/scratch/smooth-parameter-production/Controls.lean:41:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑(lp.single 1 m ?m.60) n
+in the target expression
+  ↑(lp.single 1 m (parameterWeight L m)) n / parameterWeight L n * modeCoefficient 2 L n x = 0
+
+L : ℝ
+hL : L ≠ 0
+m : SourceMode 2
+x : Fin 2 → ℝ
+n : SourceMode 2
+hn : n ≠ m
+⊢ ↑(lp.single 1 m (parameterWeight L m)) n / parameterWeight L n * modeCoefficient 2 L n x = 0
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    fun x => x ∈ lp (fun x => ℝ) 1
+  has type
+    (PreLp fun x => ℝ) → Prop
+  but is expected to have type
+    ((i : SourceMode 2) → (fun x => ℝ) i) → Prop
+  in the application
+    @Subtype.val ((i : SourceMode 2) → (fun x => ℝ) i) fun x => x ∈ lp (fun x => ℝ) 1
+/workspace/scratch/smooth-parameter-production/Controls.lean:41:31: error: Application type mismatch: The argument
+  parameterWeight L m
+has type
+  ℝ
+but is expected to have type
+  ?m.55 m
+in the application
+  @lp.single_apply_ne (SourceMode 2) ?m.55 ?m.56 (fun a b => Option.instDecidableEq a b) 1 m (parameterWeight L m)

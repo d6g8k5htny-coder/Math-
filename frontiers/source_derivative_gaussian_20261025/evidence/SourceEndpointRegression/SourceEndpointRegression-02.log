@@ -1,0 +1,16 @@
+SourceEndpointRegression.lean:169:2: error: Type mismatch: After simplification, term
+  hcond
+ has type
+  @HasCondDistrib (SmoothSample 2 L) (Fin 6 → ℝ) (Fin 6 → ℝ) Subtype.instMeasurableSpace MeasurableSpace.pi
+    MeasurableSpace.pi (sourceAdjustedEndpoints L r) (sourceConfluentPinsAt L r)
+    (regressionKernel
+      (Measure.map
+        (fun ω => sourceAdjustedEndpoints L r ω - sourceRegressionMatrixAt L r *ᵥ sourceConfluentPinsAt L r ω)
+        (smoothLaw 2 L))
+      (sourceRegressionMapAt L r) 0 0)
+    (smoothLaw 2 L)
+but is expected to have type
+  @HasCondDistrib (SmoothSample 2 L) (Fin 6 → ℝ) (Fin 6 → ℝ) Subtype.instMeasurableSpace MeasurableSpace.pi
+    MeasurableSpace.pi (sourceAdjustedEndpoints L r) (sourceConfluentPinsAt L r)
+    (regressionKernel (Measure.map (sourceEndpointResidual L r) (smoothLaw 2 L)) (sourceRegressionMapAt L r) 0 0)
+    (smoothLaw 2 L)

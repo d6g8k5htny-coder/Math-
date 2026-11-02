@@ -1,0 +1,28 @@
+SourceContactEndpointParameters.lean:74:39: error(lean.invalidField): Invalid field `div_const`: The environment does not contain `WithTop.LT.div_const`, so it is not possible to project the field `div_const` from an expression
+  MemLp.neg (sourcePin_memLp hL 5)
+of type
+  WithTop.LT (eLpNorm (-fun ω => sourcePinVector L ω 5) 2 (smoothLaw 2 L)) ⊤
+SourceContactEndpointParameters.lean:75:33: error(lean.invalidField): Invalid field `div_const`: The environment does not contain `WithTop.LT.div_const`, so it is not possible to project the field `div_const` from an expression
+  sourcePin_memLp hL 5
+of type
+  WithTop.LT (eLpNorm (fun ω => sourcePinVector L ω 5) 2 (smoothLaw 2 L)) ⊤
+SourceContactEndpointParameters.lean:76:40: error(lean.invalidField): Invalid field `div_const`: The environment does not contain `WithTop.LT.div_const`, so it is not possible to project the field `div_const` from an expression
+  MemLp.neg (sourceContactA_memLp hL)
+of type
+  WithTop.LT (eLpNorm (-sourceContactA L) 2 (smoothLaw 2 L)) ⊤
+SourceContactEndpointParameters.lean:77:36: error(lean.invalidField): Invalid field `div_const`: The environment does not contain `WithTop.LT.div_const`, so it is not possible to project the field `div_const` from an expression
+  sourceContactA_memLp hL
+of type
+  WithTop.LT (eLpNorm (sourceContactA L) 2 (smoothLaw 2 L)) ⊤
+SourceContactEndpointParameters.lean:116:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (?M * ?N) *ᵥ ?v
+in the target expression
+  (sourceContactEndpointRegression L *ᵥ x) 0 = -x 5 / 2 ∧ (sourceContactEndpointRegression L *ᵥ x) 1 = x 5 / 2
+
+L : ℝ
+hL : L ≠ 0
+x : Fin 6 → ℝ
+x✝ : Invertible (sourcePinCovariance L) := ⋯.invertible
+hcancel : sourcePinCovariance L *ᵥ (sourcePinCovariance L)⁻¹ *ᵥ x = x
+hc : (sourcePinCovariance L *ᵥ (sourcePinCovariance L)⁻¹ *ᵥ x) 5 = x 5
+⊢ (sourceContactEndpointRegression L *ᵥ x) 0 = -x 5 / 2 ∧ (sourceContactEndpointRegression L *ᵥ x) 1 = x 5 / 2

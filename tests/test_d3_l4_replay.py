@@ -232,4 +232,221 @@ class ReplayTests(unittest.TestCase):
         self.assertNotIn('pull_request_target:', text)
 
 
+class TimeoutEvidenceTests(unittest.TestCase):
+    """Timeout telemetry only; mocked source gates below are orchestration fixtures."""
+    def setUp(self):
+        from unittest import mock
+        self.mock = mock
+        spec = importlib.util.spec_from_file_location('timeout_subject', DRIVER)
+        self.m = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(self.m)
+
+    def invoke_timeout(self, logs, *, out=b'partial\xff\x00', err=b'error\xfe', cwd='relative-cwd'):
+        m = self.m
+        argv = [sys.executable, '-B', '-O', '-S', 'synthetic-child.py']
+        expiry = subprocess.TimeoutExpired(argv, 7, output=out, stderr=err)
+        with self.mock.patch.object(m.subprocess, 'run', side_effect=expiry):
+            with self.assertRaisesRegex(m.ReplayError, '^probe: timeout$') as caught:
+                m.run_step(argv, cwd, logs, 'probe', b'', 'exact', timeout=7)
+        self.assertIs(caught.exception.__cause__, expiry)
+        return caught.exception, argv
+
+    def read_record(self, logs):
+        path = logs / 'probe.process.json'
+        self.assertTrue(path.is_file(), 'timeout must retain per-step process metadata')
+        return json.loads(path.read_text())
+
+    def test_real_child_timeout_has_partial_bytes_and_process_record(self):
+        m = self.m
+        with tempfile.TemporaryDirectory() as t:
+            logs = Path(t)
+            argv = [sys.executable, '-B', '-S', '-c',
+                    'import os,time; os.write(1,b"out\\xff\\x00"); '
+                    'os.write(2,b"err\\xfe"); time.sleep(5)']
+            with self.assertRaisesRegex(m.ReplayError, '^probe: timeout$') as caught:
+                m.run_step(argv, logs, logs, 'probe', b'', 'exact', timeout=1)
+            self.assertIsInstance(caught.exception.__cause__, subprocess.TimeoutExpired)
+            record = self.read_record(logs)
+            self.assertEqual((logs/'probe.stdout').read_bytes(), b'out\xff\x00')
+            self.assertEqual((logs/'probe.stderr').read_bytes(), b'err\xfe')
+            self.assertEqual(record['command'], argv)
+            self.assertEqual(record['cwd'], str(logs))
+            self.assertEqual(record['timeout_seconds'], 1)
+            self.assertEqual(record['status'], 'TIMEOUT')
+            self.assertIsNone(record['returncode'])
+            self.assertGreaterEqual(record['elapsed_seconds'], 0)
+            self.assertEqual(record['evidence_errors'], {})
+
+    def test_partial_binary_hashes_and_exact_relative_cwd(self):
+        with tempfile.TemporaryDirectory() as t:
+            logs = Path(t); failure, argv = self.invoke_timeout(logs)
+            record = self.read_record(logs)
+            self.assertEqual(record['command'], argv)
+            self.assertEqual(record['cwd'], 'relative-cwd')
+            self.assertEqual(record['name'], 'probe')
+            self.assertEqual(record['stdout_sha256'], hashlib.sha256(b'partial\xff\x00').hexdigest())
+            self.assertEqual(record['stderr_sha256'], hashlib.sha256(b'error\xfe').hexdigest())
+            self.assertIs(record['stdout_available'], True)
+            self.assertIs(record['stdout_saved'], True)
+            self.assertEqual(failure.timeout_record, record)
+
+    def test_unavailable_and_empty_streams_are_distinct(self):
+        for out, err in ((None, b''), (b'', None), (None, None)):
+            with self.subTest(out=out, err=err), tempfile.TemporaryDirectory() as t:
+                logs = Path(t); self.invoke_timeout(logs, out=out, err=err)
+                record = self.read_record(logs)
+                for key, value in (('stdout', out), ('stderr', err)):
+                    self.assertEqual((logs/('probe.'+key)).read_bytes(), b'')
+                    self.assertIs(record[key+'_available'], value is not None)
+                    self.assertEqual(record[key+'_sha256'], None if value is None
+                                     else hashlib.sha256(value).hexdigest())
+                    self.assertEqual(record[key+'_bytes'], None if value is None else len(value))
+
+    def test_each_stream_write_failure_keeps_other_stream_and_timeout(self):
+        original = Path.write_bytes
+        for stream in ('stdout', 'stderr'):
+            with self.subTest(stream=stream), tempfile.TemporaryDirectory() as t:
+                logs = Path(t)
+                def writer(path, data):
+                    if path.name == 'probe.'+stream: raise OSError('synthetic stream failure')
+                    return original(path, data)
+                with self.mock.patch.object(Path, 'write_bytes', writer):
+                    self.invoke_timeout(logs)
+                record = self.read_record(logs)
+                self.assertIs(record[stream+'_saved'], False)
+                self.assertIn(stream, record['evidence_errors'])
+                other = 'stderr' if stream == 'stdout' else 'stdout'
+                self.assertTrue((logs/('probe.'+other)).is_file())
+                self.assertIs(record[other+'_saved'], True)
+
+    def test_process_record_write_failure_does_not_mask_timeout(self):
+        original = Path.write_text
+        with tempfile.TemporaryDirectory() as t:
+            logs = Path(t)
+            def writer(path, data, *args, **kwargs):
+                if path.name == 'probe.process.json': raise OSError('synthetic metadata failure')
+                return original(path, data, *args, **kwargs)
+            with self.mock.patch.object(Path, 'write_text', writer):
+                failure, _ = self.invoke_timeout(logs)
+            self.assertIn('process_metadata', failure.timeout_record['evidence_errors'])
+            self.assertFalse((logs/'probe.process.json').exists())
+            self.assertTrue((logs/'probe.stdout').exists())
+            self.assertTrue((logs/'probe.stderr').exists())
+
+    def test_all_evidence_writes_failing_still_preserves_timeout(self):
+        with tempfile.TemporaryDirectory() as t:
+            with self.mock.patch.object(Path, 'write_bytes', side_effect=OSError('disk')), \
+                 self.mock.patch.object(Path, 'write_text', side_effect=OSError('disk')):
+                failure, _ = self.invoke_timeout(Path(t))
+            self.assertEqual(set(failure.timeout_record['evidence_errors']),
+                             {'stdout', 'stderr', 'process_metadata'})
+
+    def test_timeout_elapsed_clock_failure_is_secondary(self):
+        for finish in (RuntimeError('clock'), float('nan'), float('inf'), 5.0):
+            with self.subTest(finish=finish), tempfile.TemporaryDirectory() as t:
+                logs = Path(t)
+                with self.mock.patch.object(self.m.time, 'monotonic', side_effect=[10.0, finish]):
+                    self.invoke_timeout(logs)
+                record = self.read_record(logs)
+                self.assertIsNone(record['elapsed_seconds'])
+                self.assertIn('elapsed_seconds', record['evidence_errors'])
+
+    def test_completed_success_record_shape_is_unchanged(self):
+        with tempfile.TemporaryDirectory() as t:
+            logs = Path(t); argv = [sys.executable, '-B', '-S', '-c', 'print("ok")']
+            record = self.m.run_step(argv, logs, logs, 'complete', b'ok\n', 'exact')
+            self.assertEqual(set(record), {'command', 'returncode', 'elapsed_seconds',
+                                          'stdout_sha256', 'stderr_sha256'})
+            self.assertEqual(record['returncode'], 0)
+            self.assertEqual(record, json.loads((logs/'complete.process.json').read_text()))
+
+    def test_completed_failure_is_not_timeout(self):
+        for script, code in (('raise SystemExit(1)', 'unexpected_exit'),
+                             ('print("wrong")', 'stdout_mismatch')):
+            with self.subTest(code=code), tempfile.TemporaryDirectory() as t:
+                logs = Path(t)
+                with self.assertRaisesRegex(self.m.ReplayError, code) as caught:
+                    self.m.run_step([sys.executable, '-B', '-S', '-c', script],
+                                    logs, logs, 'complete', b'ok\n', 'exact')
+                self.assertFalse(hasattr(caught.exception, 'timeout_record'))
+                self.assertNotIn('status', json.loads((logs/'complete.process.json').read_text()))
+
+    def test_non_timeout_oserror_propagates_without_timeout_artifact(self):
+        failure = FileNotFoundError('synthetic missing executable')
+        with tempfile.TemporaryDirectory() as t:
+            logs = Path(t)
+            with self.mock.patch.object(self.m.subprocess, 'run', side_effect=failure):
+                with self.assertRaises(FileNotFoundError) as caught:
+                    self.m.run_step(['missing'], logs, logs, 'probe', b'', 'exact')
+            self.assertIs(caught.exception, failure)
+            self.assertFalse((logs/'probe.process.json').exists())
+
+    def drive_main(self, root, *, fail_receipt=False, fail_step_metadata=False, timeout=True):
+        """Synthetic source/HEAD setup isolates orchestration, not scientific validation."""
+        from contextlib import ExitStack
+        m = self.m; logs = root/'evidence'; packet = root/m.PACKET
+        packet.mkdir(parents=True)
+        for name in ('RESULTS.json', 'REFERENCE.json', 'CROSSCHECKS.json'):
+            (packet/name).write_bytes(b'{}')
+        events = []
+        def process(argv, **kwargs):
+            events.append(argv)
+            if argv == ['git', 'rev-parse', 'HEAD']:
+                return subprocess.CompletedProcess(argv, 0, 'a'*40+'\n', '')
+            raise subprocess.TimeoutExpired(argv, 900, output=b'partial', stderr=b'')
+        original = Path.write_text
+        def writer(path, data, *args, **kwargs):
+            if fail_receipt and path.name == 'receipt.json': raise OSError('receipt unavailable')
+            if fail_step_metadata and path.name.endswith('.process.json'): raise OSError('step unavailable')
+            return original(path, data, *args, **kwargs)
+        with ExitStack() as stack:
+            stack.enter_context(self.mock.patch.object(m.sys, 'argv', ['replay', '--mode', 'normal',
+                         '--root', str(root), '--output', str(logs)]))
+            stack.enter_context(self.mock.patch.object(m, '__file__', str(root/'tools/d3_l4_replay.py')))
+            stack.enter_context(self.mock.patch.object(m, 'validate_snapshot', return_value={}))
+            stack.enter_context(self.mock.patch.object(m, 'execution_identities', return_value={}))
+            stack.enter_context(self.mock.patch.dict(m.os.environ, {'GITHUB_ACTIONS': 'false'}))
+            stack.enter_context(self.mock.patch.object(m.subprocess, 'run', side_effect=process))
+            stack.enter_context(self.mock.patch.object(Path, 'write_text', writer))
+            if not timeout: stack.enter_context(self.mock.patch.object(m, 'run_step', return_value={}))
+            if timeout:
+                with self.assertRaisesRegex(m.ReplayError, '^tests: timeout$') as caught:
+                    m.main()
+                self.assertIsInstance(caught.exception.__cause__, subprocess.TimeoutExpired)
+                return logs, events, caught.exception
+            with self.assertRaisesRegex(OSError, 'receipt unavailable'):
+                m.main()
+            return logs, events, None
+
+    def test_main_timeout_receipt_and_no_later_step(self):
+        with tempfile.TemporaryDirectory() as t:
+            logs, events, failure = self.drive_main(Path(t))
+            receipt = json.loads((logs/'receipt.json').read_text())
+            self.assertEqual(receipt['status'], 'FAIL')
+            self.assertEqual(receipt['steps'], {})
+            self.assertEqual(receipt['failed_step'], failure.timeout_record)
+            self.assertIs(receipt['scientific_acceptance'], False)
+            self.assertEqual(len(events), 2)
+            self.assertIn('unittest', events[1])
+
+    def test_main_receipt_retains_timeout_when_process_record_missing(self):
+        with tempfile.TemporaryDirectory() as t:
+            logs, _, failure = self.drive_main(Path(t), fail_step_metadata=True)
+            receipt = json.loads((logs/'receipt.json').read_text())
+            self.assertEqual(receipt['failed_step'], failure.timeout_record)
+            self.assertIn('process_metadata', receipt['failed_step']['evidence_errors'])
+            self.assertFalse((logs/'tests.process.json').exists())
+
+    def test_main_receipt_write_failure_is_secondary_to_timeout(self):
+        with tempfile.TemporaryDirectory() as t:
+            logs, _, failure = self.drive_main(Path(t), fail_receipt=True)
+            self.assertFalse((logs/'receipt.json').exists())
+            self.assertTrue((logs/'tests.process.json').exists())
+            self.assertTrue(any('receipt' in note for note in failure.__notes__))
+
+    def test_success_without_receipt_is_still_failure(self):
+        with tempfile.TemporaryDirectory() as t:
+            self.drive_main(Path(t), fail_receipt=True, timeout=False)
+
+
 if __name__ == '__main__': unittest.main()

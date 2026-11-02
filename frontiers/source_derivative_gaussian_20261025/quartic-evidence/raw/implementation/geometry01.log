@@ -1,0 +1,15 @@
+/workspace/scratch/pin-preserving-quartic-implementation/CertificateGeometry.lean:51:15: error: Function expected at
+  certificate_width_geometry (sourceRawRadius L ω) ?m.52 (sourceRawRadius_one_le L ω) ?m.57
+but this term has type
+  ?m.52 ≤ 1 / 2048 ∧ 8 * sourceRawRadius L ω * ?m.52 ≤ 1 / 256
+
+Note: Expected a function because this term is being applied to the argument
+  (sourceQuartic_width_size L r hr1 ω)
+/workspace/scratch/pin-preserving-quartic-implementation/CertificateGeometry.lean:52:4: error: Application type mismatch: The argument
+  LT.lt.le hpos
+has type
+  0 ≤ quarticWidth r (sourceRawU L ω) (sourceRawRadius L ω)
+but is expected to have type
+  sourceRawRadius L ω * ?m.52 ≤ 1 / 2048
+in the application
+  certificate_width_geometry (sourceRawRadius L ω) ?m.52 (sourceRawRadius_one_le L ω) (LT.lt.le hpos)

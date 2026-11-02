@@ -1,0 +1,157 @@
+{
+  "scope": "NEW_SOURCE_CONFLUENT_PINS_ONLY_LOCAL_QUALIFICATION",
+  "scientific_effect": "NONE",
+  "author_side_agent": "OpenAI/Codex /root/dm2_landed_composition",
+  "source_path": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025/SourceConfluentPins.lean",
+  "source_sha256": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+  "compile_evidence_reused": {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-o",
+      ".lake/build/lib/lean/SourceConfluentPins.olean",
+      "SourceConfluentPins.lean"
+    ],
+    "exit_code": 0,
+    "raw_log": "/workspace/scratch/dm2_landed_composition/source_confluent_final.log",
+    "metadata": "/workspace/scratch/dm2_landed_composition/source_confluent_final.meta"
+  },
+  "axiom_audit": {
+    "I4SourceConfluentPins.rawTransform_confluentTransform": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceConfluentPins.confluentTransform_rawTransform": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceConfluentPins.confluentEquiv_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceConfluentPins.confluentEquiv_symm_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceConfluentPins.prescribed_target": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceConfluentPins.rawPins_hasGaussianLaw": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceConfluentPins.confluentPins_hasGaussianLaw": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceConfluentPins.rawPinsWithHessians_hasGaussianLaw": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "checks": {
+    "kernel": {
+      "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "lake",
+        "env",
+        "leanchecker",
+        "SourceConfluentPins"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 11.284632682800293,
+      "source_sha256_before": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+      "source_sha256_after": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+      "raw_log": "/workspace/scratch/dm2_landed_composition/confluent_qualification/kernel.log",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_exit_code": 0
+    },
+    "axioms": {
+      "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/dm2_landed_composition/confluent_qualification/AxiomAudit.lean"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 5.699351787567139,
+      "source_sha256_before": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+      "source_sha256_after": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+      "raw_log": "/workspace/scratch/dm2_landed_composition/confluent_qualification/axioms.log",
+      "raw_log_sha256": "88fab8464a91fa4d5c239f06458cff95566fdb5e64228ebada870581771a3a20",
+      "expected_exit_code": 0
+    },
+    "positive": {
+      "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/dm2_landed_composition/confluent_qualification/PositiveControls.lean"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 7.29991602897644,
+      "source_sha256_before": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+      "source_sha256_after": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+      "raw_log": "/workspace/scratch/dm2_landed_composition/confluent_qualification/positive.log",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_exit_code": 0
+    },
+    "false-zero-inverse": {
+      "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/dm2_landed_composition/confluent_qualification/FalseZeroInverse.lean"
+      ],
+      "exit_code": 1,
+      "duration_seconds": 7.989002466201782,
+      "source_sha256_before": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+      "source_sha256_after": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+      "raw_log": "/workspace/scratch/dm2_landed_composition/confluent_qualification/false-zero-inverse.log",
+      "raw_log_sha256": "abe6a0ad3e7510758b2ce683a3fd3fac8bea7fa5f10a876456d085c0253e7434",
+      "expected_exit_code": 1
+    },
+    "false-zero-cubic": {
+      "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/dm2_landed_composition/confluent_qualification/FalseZeroCubicPin.lean"
+      ],
+      "exit_code": 1,
+      "duration_seconds": 7.52158784866333,
+      "source_sha256_before": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+      "source_sha256_after": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+      "raw_log": "/workspace/scratch/dm2_landed_composition/confluent_qualification/false-zero-cubic.log",
+      "raw_log_sha256": "57fa6b8b5bdd65fdd1bd7b77e555773d00a054e1a137f9f368038559afe662e7",
+      "expected_exit_code": 1
+    }
+  },
+  "control_sources": {
+    "AxiomAudit.lean": "1f14cbf5cbc43c71e5f05ed837fcde4b80f82a27d02cfa6885d77b3cbd2f41c0",
+    "PositiveControls.lean": "c8954c8a2a67c38b855c3665f8b0738f1ed9488af589ef73ecd95ef2a8fd1d39",
+    "FalseZeroInverse.lean": "5105e7581dfd422360e48f7399130d830cfaaa27ca9d9f5a9bf1fdf530276799",
+    "FalseZeroCubicPin.lean": "7d7ada04833212dd49ab73ca02f9af6cbc93a8d18e6efe741dd6eb0ace394c2e"
+  },
+  "not_established": [
+    "covariance limits or invertibility",
+    "actual conditional regression blocks",
+    "Palm event identification",
+    "independent scientific review",
+    "overall campaign completion"
+  ]
+}

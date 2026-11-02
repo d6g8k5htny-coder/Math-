@@ -1,0 +1,253 @@
+I4SourceEndpointEstimates.sourceEndpoint_parameter_limits {L : Real}
+  (hL : @Ne Real L (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))) (b : Real) :
+  And
+    (@Filter.Eventually Real
+      (fun r =>
+        @IsUnit
+          (Matrix (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))))
+            (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6)))) Real)
+          (@Semiring.toMonoid
+            (Matrix (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))))
+              (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6)))) Real)
+            (@Matrix.semiring (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6)))) Real Real.semiring
+              (Fin.fintype (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))))
+              (instDecidableEqFin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))))))
+          (I4SourceEndpointRegression.sourcePinCovarianceAt L r))
+      (@nhdsWithin Real
+        (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+        (@Set.Ioi Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)))))
+    (And
+      (@Filter.Tendsto Real
+        (WithLp
+          (@OfNat.ofNat ENNReal (nat_lit 2)
+            (@instOfNatAtLeastTwo ENNReal (nat_lit 2)
+              (@AddMonoidWithOne.toNatCast ENNReal
+                (@AddCommMonoidWithOne.toAddMonoidWithOne ENNReal ENNReal.instAddCommMonoidWithOne))
+              ⋯))
+          (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))) → Real))
+        (fun r =>
+          @WithLp.toLp
+            (@OfNat.ofNat ENNReal (nat_lit 2)
+              (@instOfNatAtLeastTwo ENNReal (nat_lit 2)
+                (@AddMonoidWithOne.toNatCast ENNReal
+                  (@AddCommMonoidWithOne.toAddMonoidWithOne ENNReal ENNReal.instAddCommMonoidWithOne))
+                ⋯))
+            (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))) → Real)
+            (I4SourceEndpointEstimates.sourceEndpointMean L r b))
+        (@nhdsWithin Real
+          (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+          (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+          (@Set.Ioi Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))))
+        (@nhds
+          (WithLp
+            (@OfNat.ofNat ENNReal (nat_lit 2)
+              (@instOfNatAtLeastTwo ENNReal (nat_lit 2)
+                (@AddMonoidWithOne.toNatCast ENNReal
+                  (@AddCommMonoidWithOne.toAddMonoidWithOne ENNReal ENNReal.instAddCommMonoidWithOne))
+                ⋯))
+            (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))) → Real))
+          (@PiLp.topologicalSpace
+            (@OfNat.ofNat ENNReal (nat_lit 2)
+              (@instOfNatAtLeastTwo ENNReal (nat_lit 2)
+                (@AddMonoidWithOne.toNatCast ENNReal
+                  (@AddCommMonoidWithOne.toAddMonoidWithOne ENNReal ENNReal.instAddCommMonoidWithOne))
+                ⋯))
+            (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6)))) (fun a => Real) fun i =>
+            @UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+          (@WithLp.toLp
+            (@OfNat.ofNat ENNReal (nat_lit 2)
+              (@instOfNatAtLeastTwo ENNReal (nat_lit 2)
+                (@AddMonoidWithOne.toNatCast ENNReal
+                  (@AddCommMonoidWithOne.toAddMonoidWithOne ENNReal ENNReal.instAddCommMonoidWithOne))
+                ⋯))
+            (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))) → Real)
+            (I4SourceContact.sourceContactEndpointMean L b))))
+      (@Filter.Tendsto Real
+        (Matrix (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))))
+          (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6)))) Real)
+        (I4SourceEndpointParameters.sourceEndpointSchurAt L)
+        (@nhdsWithin Real
+          (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+          (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+          (@Set.Ioi Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))))
+        (@nhds
+          (Matrix (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))))
+            (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6)))) Real)
+          (@instTopologicalSpaceMatrix (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))))
+            (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6)))) Real
+            (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+          (I4SourceContact.sourceContactEndpointSchur L))))
+I4SourceEndpointEstimates.sourceEndpoint_uniform_parameter_bounds {L : Real}
+  (hL : @Ne Real L (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))) (b : Real) :
+  ∃ M V δ,
+    And (@LE.le Real Real.instLE (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) M)
+      (And (@LE.le Real Real.instLE (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) V)
+        (And (@LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) δ)
+          (∀ (r : Real),
+            @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) r →
+              @LT.lt Real Real.instLT r δ →
+                And
+                  (@IsUnit
+                    (Matrix (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))))
+                      (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6)))) Real)
+                    (@Semiring.toMonoid
+                      (Matrix (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))))
+                        (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6)))) Real)
+                      (@Matrix.semiring (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6)))) Real
+                        Real.semiring (Fin.fintype (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))))
+                        (instDecidableEqFin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))))))
+                    (I4SourceEndpointRegression.sourcePinCovarianceAt L r))
+                  (And
+                    (∀ (i : Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6)))),
+                      @LE.le Real Real.instLE
+                        (@abs Real Real.lattice Real.instAddGroup
+                          (I4SourceEndpointEstimates.sourceEndpointMean L r b i))
+                        M)
+                    (∀ (i : Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6)))),
+                      @LE.le Real Real.instLE
+                        (@abs Real Real.lattice Real.instAddGroup
+                          (I4SourceEndpointParameters.sourceEndpointSchurAt L r i i))
+                        V)))))
+I4SourceEndpointEstimates.sourceEndpoint_normalizer_floor {L : Real}
+  (hL : @Ne Real L (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))) (b : Real) :
+  ∃ c,
+    And (@LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) c)
+      (∃ δ,
+        And (@LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) δ)
+          (∀ (r : Real),
+            @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) r →
+              @LT.lt Real Real.instLT r δ →
+                @LE.le Real Real.instLE
+                  (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) c
+                    (@HPow.hPow Real Nat Real
+                      (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) r
+                      (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+                  (@MeasureTheory.integral (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))) → Real) Real
+                    Real.normedAddCommGroup
+                    (@InnerProductSpace.toNormedSpace Real Real Real.instRCLike
+                      (@NormedAddCommGroup.toSeminormedAddCommGroup Real Real.normedAddCommGroup)
+                      (@RCLike.toInnerProductSpaceReal Real Real.instRCLike))
+                    (@MeasurableSpace.pi (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6)))) (fun a => Real)
+                      fun a => Real.measurableSpace)
+                    (I4SourceEndpointEstimates.sourceEndpointLaw L r b) fun v =>
+                    I4SourceEndpointEstimates.sourceEndpointWeight r v)))
+I4SourceEndpointEstimates.sourcePhysicalEndpointKernel_eventually_hasCondDistrib {L : Real}
+  (hL : @Ne Real L (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))) :
+  @Filter.Eventually Real
+    (fun r =>
+      @ProbabilityTheory.HasCondDistrib
+        (I4SmoothCarrier.SmoothSample (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) L)
+        (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))) → Real)
+        (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))) → Real)
+        (@Subtype.instMeasurableSpace
+          (I4Source.SourceMode (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) → Real)
+          (fun x =>
+            @Membership.mem (I4Source.SourceMode (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) → Real)
+              (Set (I4Source.SourceMode (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) → Real))
+              (@Set.instMembership
+                (I4Source.SourceMode (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) → Real))
+              (I4SmoothCarrier.goodSet (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) L) x)
+          (@MeasurableSpace.pi (I4Source.SourceMode (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (fun a => Real) fun a => Real.measurableSpace))
+        (@MeasurableSpace.pi (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6)))) (fun a => Real) fun a =>
+          Real.measurableSpace)
+        (@MeasurableSpace.pi (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6)))) (fun a => Real) fun a =>
+          Real.measurableSpace)
+        (I4SourceEndpointRegression.sourceNormalizedEndpoints L r)
+        (I4SourceEndpointRegression.sourceConfluentPinsAt L r)
+        (I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel L r)
+        (I4SmoothCarrier.smoothLaw (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) L))
+    (@nhdsWithin Real
+      (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+      (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+      (@Set.Ioi Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))))
+I4SourceEndpointEstimates.sourcePhysicalEndpoint_estimates_and_weighted_events {L : Real}
+  (hL : @Ne Real L (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))) (b : Real) :
+  ∃ C c δ,
+    And (@LE.le Real Real.instLE (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) C)
+      (And (@LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) c)
+        (And (@LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) δ)
+          (And (@LE.le Real Real.instLE δ (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+            (∀ (r : Real),
+              @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) r →
+                @LT.lt Real Real.instLT r δ →
+                  And
+                    (@MeasureTheory.Integrable Real
+                      (@UniformSpace.toTopologicalSpace Real
+                        (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+                      (@SeminormedAddGroup.toContinuousENorm Real
+                        (@SeminormedAddCommGroup.toSeminormedAddGroup Real
+                          (@NonUnitalSeminormedRing.toSeminormedAddCommGroup Real
+                            (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing Real
+                              (@SeminormedCommRing.toNonUnitalSeminormedCommRing Real
+                                (@NormedCommRing.toSeminormedCommRing Real Real.normedCommRing))))))
+                      (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))) → Real)
+                      (@MeasurableSpace.pi (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))))
+                        (fun a => Real) fun a => Real.measurableSpace)
+                      (fun v =>
+                        @HPow.hPow Real Nat Real
+                          (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+                          (I4SourceEndpointEstimates.sourceEndpointWeight r v)
+                          (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      (I4SourceEndpointEstimates.sourcePhysicalEndpointLaw L r b))
+                    (And
+                      (@LE.le Real Real.instLE
+                        (@MeasureTheory.integral (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))) → Real)
+                          Real Real.normedAddCommGroup
+                          (@InnerProductSpace.toNormedSpace Real Real Real.instRCLike
+                            (@NormedAddCommGroup.toSeminormedAddCommGroup Real Real.normedAddCommGroup)
+                            (@RCLike.toInnerProductSpaceReal Real Real.instRCLike))
+                          (@MeasurableSpace.pi (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))))
+                            (fun a => Real) fun a => Real.measurableSpace)
+                          (I4SourceEndpointEstimates.sourcePhysicalEndpointLaw L r b) fun v =>
+                          @HPow.hPow Real Nat Real
+                            (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+                            (I4SourceEndpointEstimates.sourceEndpointWeight r v)
+                            (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) C
+                          (@HPow.hPow Real Nat Real
+                            (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) r
+                            (@OfNat.ofNat Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))))
+                      (And
+                        (@LE.le Real Real.instLE
+                          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) c
+                            (@HPow.hPow Real Nat Real
+                              (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) r
+                              (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+                          (@MeasureTheory.integral
+                            (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))) → Real) Real
+                            Real.normedAddCommGroup
+                            (@InnerProductSpace.toNormedSpace Real Real Real.instRCLike
+                              (@NormedAddCommGroup.toSeminormedAddCommGroup Real Real.normedAddCommGroup)
+                              (@RCLike.toInnerProductSpaceReal Real Real.instRCLike))
+                            (@MeasurableSpace.pi (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))))
+                              (fun a => Real) fun a => Real.measurableSpace)
+                            (I4SourceEndpointEstimates.sourcePhysicalEndpointLaw L r b) fun v =>
+                            I4SourceEndpointEstimates.sourceEndpointWeight r v))
+                        (And
+                          (@MeasureTheory.IsProbabilityMeasure
+                            (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))) → Real)
+                            (@MeasurableSpace.pi (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))))
+                              (fun a => Real) fun a => Real.measurableSpace)
+                            (I4SourceEndpointEstimates.sourcePhysicalEndpointWeightedProbability L r b))
+                          (∀ (E : Set (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))) → Real)),
+                            @MeasurableSet (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))) → Real)
+                                (@MeasurableSpace.pi (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))))
+                                  (fun a => Real) fun a => Real.measurableSpace)
+                                E →
+                              @LE.le Real Real.instLE
+                                (@MeasureTheory.Measure.real
+                                  (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))) → Real)
+                                  (@MeasurableSpace.pi (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))))
+                                    (fun a => Real) fun a => Real.measurableSpace)
+                                  (I4SourceEndpointEstimates.sourcePhysicalEndpointWeightedProbability L r b) E)
+                                (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                                  (@HDiv.hDiv Real Real Real
+                                    (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid)) C.sqrt c)
+                                  (@MeasureTheory.Measure.real
+                                      (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6))) → Real)
+                                      (@MeasurableSpace.pi
+                                        (Fin (@OfNat.ofNat Nat (nat_lit 6) (instOfNatNat (nat_lit 6)))) (fun a => Real)
+                                        fun a => Real.measurableSpace)
+                                      (I4SourceEndpointEstimates.sourcePhysicalEndpointLaw L r b) E).sqrt)))))))))

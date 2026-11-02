@@ -1,0 +1,6 @@
+/workspace/scratch/dm2_landed_composition/WeightedModeIntegrals.lean:55:2: error: Type mismatch
+  h
+has type
+  |∫ (x : ℝ) in -(1 / 2)..1 / 2, w x * derivativeCoefficient 2 L k ![r * x, 0] u m| ≤ K * derivativeMajorant 2 L k u m
+but is expected to have type
+  ‖weightedDerivativeIntegral L k u m w r‖ ≤ K * derivativeMajorant 2 L k u m

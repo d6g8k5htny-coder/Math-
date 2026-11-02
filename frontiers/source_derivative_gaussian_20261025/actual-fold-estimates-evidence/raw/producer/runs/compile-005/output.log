@@ -1,0 +1,13 @@
+SourceAdaptiveFoldEstimates.lean:597:33: error: unsolved goals
+L r k₀ k : ℝ
+hL : L ≠ 0
+sample : SmoothSample 2 L
+hr : 0 < r
+hk₀ : 0 < k₀
+hk : k₀ ≤ k
+x y u : ℝ
+hx : ‖ex‖ ≤ 1
+hy : ‖ey‖ ≤ 1
+hT : 0 ≤ sourceT k₀ sample
+⊢ (iteratedFDeriv ℝ 2 (smoothSourceField 2 L sample) 0) ![directionY, directionY] / (6 * k * r) =
+    -(-(iteratedFDeriv ℝ 2 (smoothSourceField 2 L sample) 0) ![directionY, directionY] / (6 * k * r))

@@ -1,0 +1,44 @@
+import SourceConfluentLimits
+
+noncomputable section
+open I4Foundation I4Source I4SourceCovariance I4SmoothCarrier I4SourceConfluentLimits
+open I4SourceEndpointRegression
+open MeasureTheory ProbabilityTheory
+open scoped BigOperators
+set_option autoImplicit false
+
+namespace I4SourceSmoothConditional
+
+lemma scalarSeries_single {ι : Type*} [DecidableEq ι] (m : ι) (ω : ι → ℝ) :
+    scalarSeries (Pi.single m 1) ω = ω m := by
+  classical
+  simp [scalarSeries, Pi.single_apply, ite_mul]
+
+lemma scalarSeries_coordinate_covariance {ι : Type*} [Countable ι]
+    (a : ι → ℝ) (ha : Summable a) (m : ι) :
+    covariance (scalarSeries a) (fun ω : ι → ℝ => ω m) (coefficientLaw ι) = a m := by
+  classical
+  have hd : Summable (Pi.single m (1 : ℝ)) := by
+    apply summable_of_ne_finset_zero (s := {m})
+    intro n hn
+    simp only [Finset.mem_singleton] at hn
+    simp [hn]
+  have heq : (fun ω : ι → ℝ => ω m) = scalarSeries (Pi.single m 1) := by
+    funext ω
+    exact (scalarSeries_single m ω).symm
+  rw [heq, scalarSeries_covariance _ _ ha hd]
+  simp [Pi.single_apply, mul_ite]
+
+theorem pin_coefficient_covariance {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (i : Fin 6) (m : SourceMode 2) :
+    covariance (fun ω => sourceConfluentPinsAt L r ω i)
+      (fun ω : SmoothSample 2 L => ω.val m) (smoothLaw 2 L) = pinCoefficient L r i m := by
+  simp_rw [sourceConfluentPinsAt_series hL]
+  change covariance
+    (fun ω => scalarSeries (pinCoefficient L r i) (sampleInclusion 2 L ω))
+    (fun ω => (sampleInclusion 2 L ω) m) (smoothLaw 2 L) = _
+  rw [covariance_comp_inclusion 2 hL _ _ (scalarSeries_measurable _)
+    (measurable_pi_apply m)]
+  exact scalarSeries_coordinate_covariance _ (pinCoefficient_summable hL r i) m
+
+end I4SourceSmoothConditional

@@ -1,0 +1,40 @@
+SourceConditionalMajorant.lean:88:27: error(lean.invalidField): Invalid field `trans`: The environment does not contain `Function.trans`, so it is not possible to project the field `trans` from an expression
+  abs_sub_le ?m.106 ?m.107
+of type
+  ∀ (c : ?m.102), |?m.106 - c| ≤ |?m.106 - ?m.107| + |?m.107 - c|
+SourceConditionalMajorant.lean:129:10: error: Application type mismatch: The argument
+  add_le_add_left (pinLift_abs_le hL r hr K D hK hD hInv x hx ω m) ?m.314
+has type
+  |pinLift L r (x - sourceConfluentPinsAt L r ω) m| + ?m.314 ≤
+    36 * K * confluentModeMajorant L m * (D + sampleMajorant (confluentModeMajorant L) ω) + ?m.314
+but is expected to have type
+  |↑ω m| + |pinLift L r (x - sourceConfluentPinsAt L r ω) m| ≤ |↑ω m| + 36 * K * confluentModeMajorant L m * T
+in the application
+  mul_le_mul_of_nonneg_left (add_le_add_left (pinLift_abs_le hL r hr K D hK hD hInv x hx ω m) ?m.314)
+SourceConditionalMajorant.lean:136:6: error(lean.unknownIdentifier): Unknown identifier `tsum_le_tsum`
+SourceConditionalMajorant.lean:138:10: error(lean.unknownIdentifier): Unknown identifier `tsum_add`
+SourceConditionalMajorant.lean:137:72: error: unsolved goals
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+hr : r ≠ 0
+w : SourceMode 2 → ℝ
+hw0 : ∀ (m : SourceMode 2), 0 ≤ w m
+hwA : Summable fun m => w m * confluentModeMajorant L m
+K D : ℝ
+hK : 0 ≤ K
+hD : 0 ≤ D
+hInv : ∀ (i j : Fin 6), |(sourcePinCovarianceAt L r)⁻¹ i j| ≤ K
+x : Fin 6 → ℝ
+hx : ∀ (i : Fin 6), |x i| ≤ D
+ω : SmoothSample 2 L
+hwω : Summable fun m => w m * |↑ω m|
+T : ℝ := D + sampleMajorant (confluentModeMajorant L) ω
+C : ℝ := 36 * K * T
+hC : 0 ≤ C
+hmajor : Summable fun b => w b * |↑ω b| + C * (w b * confluentModeMajorant L b)
+hpoint :
+  ∀ (m : SourceMode 2), w m * |↑(posteriorSample hL r x ω) m| ≤ w m * |↑ω m| + C * (w m * confluentModeMajorant L m)
+hpost : Summable fun m => w m * |↑(posteriorSample hL r x ω) m|
+⊢ ∑' (m : SourceMode 2), (w m * |↑ω m| + C * (w m * confluentModeMajorant L m)) =
+    sampleMajorant w ω + C * ∑' (m : SourceMode 2), w m * confluentModeMajorant L m

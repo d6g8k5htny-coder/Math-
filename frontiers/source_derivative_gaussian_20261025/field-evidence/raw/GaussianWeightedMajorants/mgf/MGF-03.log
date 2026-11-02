@@ -1,0 +1,9 @@
+/workspace/scratch/gaussian-majorants/mgf/MGF.lean:87:4: warning: `MeasureTheory.integrable_finset_sum` has been deprecated: Use `MeasureTheory.integrable_finsetSum` instead
+/workspace/scratch/gaussian-majorants/mgf/MGF.lean:107:6: error: Type mismatch
+  hUb i
+has type
+  ∫ (ω : Ω), Real.exp (t * W * |U i ω|) ∂P ≤ K
+but is expected to have type
+  0 ≤ w i / W
+/workspace/scratch/gaussian-majorants/mgf/MGF.lean:108:47: error: No goals to be solved
+lean_exit=1

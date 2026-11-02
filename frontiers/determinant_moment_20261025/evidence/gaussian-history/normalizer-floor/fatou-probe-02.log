@@ -1,0 +1,7 @@
+/workspace/scratch/normalizer-floor/fatou-probe.lean:40:9: error: Function expected at
+  ENNReal.ofReal_lt_ofReal_iff'
+but this term has type
+  ENNReal.ofReal ?m.300 < ENNReal.ofReal ?m.301 ↔ ?m.300 < ?m.301 ∧ 0 < ?m.301
+
+Note: Expected a function because this term is being applied to the argument
+  .mp

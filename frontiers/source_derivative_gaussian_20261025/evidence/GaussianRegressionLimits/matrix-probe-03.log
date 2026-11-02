@@ -1,0 +1,16 @@
+/workspace/scratch/regression-limits/matrix-probe.lean:25:50: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  ContinuousMul ℝ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/regression-limits/matrix-probe.lean:25:8: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  ContinuousAdd ℝ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/regression-limits/matrix-probe.lean:39:50: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  ContinuousMul ℝ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/regression-limits/matrix-probe.lean:39:8: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  ContinuousAdd ℝ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.

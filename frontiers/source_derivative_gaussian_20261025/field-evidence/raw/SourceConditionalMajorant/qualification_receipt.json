@@ -1,0 +1,295 @@
+{
+  "scope": "NEW_ACTUAL_CONDITIONAL_FOURIER_MAJORANT_ONLY",
+  "scientific_effect": "NONE",
+  "source_path": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025/SourceConditionalMajorant.lean",
+  "source_sha256": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691",
+  "frozen_contract": {
+    "commit": "9c7984e",
+    "path": "frontiers/source_derivative_gaussian_20261025/SOURCE_CONDITIONAL_MAJORANT.md"
+  },
+  "author_side_lineage": [
+    "OpenAI/Codex /root/dm2_landed_composition: sole production implementer",
+    "OpenAI/Codex /root/dm2_landed_composition/peano_strategy: earlier read-only generic Lp API research for the proposal; no implementation helper was created for this module because the later task dispatch hit the thread limit"
+  ],
+  "final_inputs": [
+    "fixed L != 0",
+    "arbitrary fixed real height b",
+    "natural derivative order k",
+    "natural requested polynomial/moment order n where applicable"
+  ],
+  "results": [
+    "every-sample weighted confluent majorant summability and actual pin/lift bounds",
+    "literal posterior36K bound with explicit general-weight sample/product summability",
+    "actual inverse and prescribed-pin uniform bounds, with interval intersected with actual current invertibility",
+    "global pointwise operatornorm D^k field bound by measurable Gamma_k",
+    "fixed positive summable dominating weight plus retained posterior drift",
+    "all natural conditional Gamma_k moments, on one radius interval uniform in moment order",
+    "every natural polynomial cutoff order under actual canonical whole-carrier law",
+    "Gaussian upper tail with retained drift derived from independently proved folded Gaussian exponential/Jensen/Fatou result",
+    "every natural polynomial cutoff order under actual endpoint-weighted whole-carrier probability, preserving square-root loss"
+  ],
+  "proof_dependencies_reused": [
+    "completed 14 baseline modules and 23 bound inputs",
+    "qualified 54-target SourceSmoothConditionalKernel actual posterior and all-pin law",
+    "qualified GaussianWeightedMajorants moment and separate exponential/tail theorems",
+    "qualified SourceSmoothPalm actual weighted carrier estimates"
+  ],
+  "compile": {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-DwarningAsError=true",
+      "-o",
+      ".lake/build/lib/lean/SourceConditionalMajorant.olean",
+      "SourceConditionalMajorant.lean"
+    ],
+    "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+    "exit_code": 0,
+    "source_sha256": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691",
+    "scope": "NEW_ACTUAL_CONDITIONAL_MAJORANT_ALL_RESULTS_CURRENT_UNIT_INTERVAL",
+    "author_side_lineage": "OpenAI/Codex /root/dm2_landed_composition",
+    "raw_log": "/workspace/scratch/dm2_landed_composition/conditional_majorant/final_compile.log",
+    "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "public_targets": [
+    "I4SourceConditionalMajorant.sampleMajorant_nonneg",
+    "I4SourceConditionalMajorant.derivativeMajorant_weighted_summable",
+    "I4SourceConditionalMajorant.confluentMajorant_weighted_summable",
+    "I4SourceConditionalMajorant.pinCoefficient_abs_le",
+    "I4SourceConditionalMajorant.sourceConfluentPins_abs_le",
+    "I4SourceConditionalMajorant.pinLift_abs_le",
+    "I4SourceConditionalMajorant.posterior_sampleMajorant_le",
+    "I4SourceConditionalMajorant.sourceInverse_prescribed_uniform_bounds",
+    "I4SourceConditionalMajorant.smoothSourceField_global_derivative_bound",
+    "I4SourceConditionalMajorant.sampleMajorant_measurable",
+    "I4SourceConditionalMajorant.sourceDerivativeMajorant_measurable",
+    "I4SourceConditionalMajorant.sampleMajorant_add",
+    "I4SourceConditionalMajorant.sampleMajorant_const_mul",
+    "I4SourceConditionalMajorant.sourceDerivativeMajorant_uniform_domination",
+    "I4SourceConditionalMajorant.source_coordinate_hasLaw",
+    "I4SourceConditionalMajorant.sampleMajorant_prior_moment",
+    "I4SourceConditionalMajorant.sourceConditionalDerivative_moments",
+    "I4SourceConditionalMajorant.sourceConditionalDerivative_cutoff_tail",
+    "I4SourceConditionalMajorant.sourceConditionalDerivative_gaussian_upper_tail",
+    "I4SourceConditionalMajorant.sourceWeightedDerivative_cutoff_tail"
+  ],
+  "axioms": {
+    "I4SourceConditionalMajorant.sampleMajorant_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceConditionalMajorant.derivativeMajorant_weighted_summable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceConditionalMajorant.confluentMajorant_weighted_summable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceConditionalMajorant.pinCoefficient_abs_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceConditionalMajorant.sourceConfluentPins_abs_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceConditionalMajorant.pinLift_abs_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceConditionalMajorant.posterior_sampleMajorant_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceConditionalMajorant.sourceInverse_prescribed_uniform_bounds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceConditionalMajorant.smoothSourceField_global_derivative_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceConditionalMajorant.sampleMajorant_measurable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceConditionalMajorant.sourceDerivativeMajorant_measurable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceConditionalMajorant.sampleMajorant_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceConditionalMajorant.sampleMajorant_const_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceConditionalMajorant.sourceDerivativeMajorant_uniform_domination": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceConditionalMajorant.source_coordinate_hasLaw": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceConditionalMajorant.sampleMajorant_prior_moment": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceConditionalMajorant.sourceConditionalDerivative_moments": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceConditionalMajorant.sourceConditionalDerivative_cutoff_tail": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceConditionalMajorant.sourceConditionalDerivative_gaussian_upper_tail": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4SourceConditionalMajorant.sourceWeightedDerivative_cutoff_tail": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "checks": {
+    "kernel": {
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "lake",
+        "env",
+        "leanchecker",
+        "SourceConditionalMajorant"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 6.656095266342163,
+      "source_sha256_before": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691",
+      "source_sha256_after": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691",
+      "expected_exit_code": 0,
+      "raw_log": "/workspace/scratch/dm2_landed_composition/conditional_majorant/kernel.log",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "axioms": {
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/dm2_landed_composition/conditional_majorant/AxiomAudit.lean"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 6.040863752365112,
+      "source_sha256_before": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691",
+      "source_sha256_after": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691",
+      "expected_exit_code": 0,
+      "raw_log": "/workspace/scratch/dm2_landed_composition/conditional_majorant/axioms.log",
+      "raw_log_sha256": "5944e89e4f036cc9f2422b3257b9423c7a06452609db98512aba9b9ac30eda8d"
+    },
+    "types": {
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/dm2_landed_composition/conditional_majorant/Types.lean"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 5.668934106826782,
+      "source_sha256_before": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691",
+      "source_sha256_after": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691",
+      "expected_exit_code": 0,
+      "raw_log": "/workspace/scratch/dm2_landed_composition/conditional_majorant/types.log",
+      "raw_log_sha256": "f728fb06d105d3ca0ba0f3571879de3fcfec49284d44cfc319f83df05076ee91"
+    },
+    "positive": {
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "--root=/workspace/scratch/dm2_landed_composition/conditional_majorant",
+        "-o",
+        ".lake/build/lib/lean/ConditionalMajorantControlSupport.olean",
+        "/workspace/scratch/dm2_landed_composition/conditional_majorant/ConditionalMajorantControlSupport.lean"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 4.821498870849609,
+      "source_sha256_before": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691",
+      "source_sha256_after": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691",
+      "expected_exit_code": 0,
+      "raw_log": "/workspace/scratch/dm2_landed_composition/conditional_majorant/positive.log",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "false-absolute": {
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/dm2_landed_composition/conditional_majorant/FalseOmitAbsolute.lean"
+      ],
+      "exit_code": 1,
+      "duration_seconds": 3.305817127227783,
+      "source_sha256_before": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691",
+      "source_sha256_after": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691",
+      "expected_exit_code": 1,
+      "raw_log": "/workspace/scratch/dm2_landed_composition/conditional_majorant/false-absolute.log",
+      "raw_log_sha256": "25de550dcf0084cff2ec350f13f43fbf8e5bf07f96e6e245d207b3a744ccacd0"
+    },
+    "false-weight": {
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/dm2_landed_composition/conditional_majorant/FalseWeightScaling.lean"
+      ],
+      "exit_code": 1,
+      "duration_seconds": 3.3473472595214844,
+      "source_sha256_before": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691",
+      "source_sha256_after": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691",
+      "expected_exit_code": 1,
+      "raw_log": "/workspace/scratch/dm2_landed_composition/conditional_majorant/false-weight.log",
+      "raw_log_sha256": "b3b874909e173442283b48f1359d58ae2283bbeaa701ce4ed645713ceb6d83ef"
+    }
+  },
+  "control_source_sha256": {
+    "AxiomAudit.lean": "129cb0d1635b0a8b0e7a9036f2eff5d4d7186b5a1f6f741831a472f8a50b3637",
+    "Types.lean": "2fbbc707b47d37a2242c93e5e08f319016808bb253223b23b411936b9f19b597",
+    "ConditionalMajorantControlSupport.lean": "716fc6a7ffccd9b964d5717913de6ba85dc99927b18686327a0ea0ceb2d00b14",
+    "FalseOmitAbsolute.lean": "122457e886dbcbb94e0e983c1ce2a5dd9ded8e64c20663a12ee815b33f8a0f27",
+    "FalseWeightScaling.lean": "ed006cd4abc6886f0aa9449034503c5619653ca89babd6ec89f344de7e366867"
+  },
+  "remaining_original_goal_joins": [
+    "exact historical midpoint nine-jet coordinate normalization and its event conventions",
+    "measurability/identification of any explicitly requested uncountable chart supremum rather than the stronger measurable Gamma certificate",
+    "geometric Kac-Rice/Palm identification of the explicit weighted carrier probability",
+    "later geometric/dynamic/prize parent joins",
+    "different-family scientific review; historical LM007/LM009 reviews not transferred"
+  ]
+}

@@ -1,0 +1,25 @@
+import SourcePhysicalEndpointKernel
+open I4SourceEndpointRegression I4SourceEndpointParameters I4SourcePhysicalEndpointKernel I4SmoothCarrier
+open MeasureTheory ProbabilityTheory Matrix
+
+example (r b : ℝ) : sourcePhysicalEndpointKernel 1 r (sourcePrescribedPins r b) =
+    sourceEndpointKernel 1 r (sourcePrescribedPins r b) :=
+  sourcePhysicalEndpointKernel_at_prescribed (by norm_num) r b
+
+example (r : ℝ) (hG : IsUnit (sourcePinCovarianceAt (-1) r)) :
+    HasCondDistrib (sourceNormalizedEndpoints (-1) r) (sourceConfluentPinsAt (-1) r)
+      (sourcePhysicalEndpointKernel (-1) r) (smoothLaw 2 (-1)) :=
+  sourcePhysicalEndpointKernel_hasCondDistrib (by norm_num) r hG
+
+example : sourcePhysicalCorrection 1 (Pi.single (3 : Fin 6) (1 : ℝ)) ≠ 0 := by
+  intro h
+  have hh := congrFun h (0 : Fin 6)
+  norm_num [sourcePhysicalCorrection, Pi.single_apply] at hh
+
+example : sourcePhysicalEndpointKernel 1 1 (Pi.single (3 : Fin 6) (1 : ℝ)) ≠
+    sourceEndpointKernel 1 1 (Pi.single (3 : Fin 6) (1 : ℝ)) := by
+  intro h
+  have hm := congrArg (fun μ : Measure (Fin 6 → ℝ) => ∫ v, v ∂μ) h
+  rw [sourcePhysicalEndpointKernel_integral (by norm_num), sourceEndpointKernel_integral (by norm_num)] at hm
+  have hh := congrFun hm (0 : Fin 6)
+  simp [sourcePhysicalCorrection, Pi.single_apply] at hh

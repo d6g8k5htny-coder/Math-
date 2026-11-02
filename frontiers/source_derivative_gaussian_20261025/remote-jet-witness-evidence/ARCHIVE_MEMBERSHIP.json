@@ -1,0 +1,1186 @@
+{
+  "schema_version": 1,
+  "role": "Exact new producer/two-helper/read-only review archive membership; no old archive check.",
+  "raw_member_count": 172,
+  "members": [
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/AUTHOR_HELPER_LINEAGE.json",
+      "archive": "remote-jet-witness-evidence/raw/producer/AUTHOR_HELPER_LINEAGE.json",
+      "bytes": 3119
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/CONTROL_CONTRACT.md",
+      "archive": "remote-jet-witness-evidence/raw/producer/CONTROL_CONTRACT.md",
+      "bytes": 2297
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/CONTROL_RECEIPT.json",
+      "archive": "remote-jet-witness-evidence/raw/producer/CONTROL_RECEIPT.json",
+      "bytes": 3054
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/Controls.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/Controls.lean",
+      "bytes": 9630
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/EXECUTION_RECORD_INDEX.json",
+      "archive": "remote-jet-witness-evidence/raw/producer/EXECUTION_RECORD_INDEX.json",
+      "bytes": 37025
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/FROZEN_SOURCE.json",
+      "archive": "remote-jet-witness-evidence/raw/producer/FROZEN_SOURCE.json",
+      "bytes": 839
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/FalseCollisionMutation.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/FalseCollisionMutation.lean",
+      "bytes": 961
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/HANDOFF.json",
+      "archive": "remote-jet-witness-evidence/raw/producer/HANDOFF.json",
+      "bytes": 3476
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/HELPER_INTEGRATION.json",
+      "archive": "remote-jet-witness-evidence/raw/producer/HELPER_INTEGRATION.json",
+      "bytes": 682
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/INVENTORY.json",
+      "archive": "remote-jet-witness-evidence/raw/producer/INVENTORY.json",
+      "bytes": 31235
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/Inventory.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/Inventory.lean",
+      "bytes": 1072
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/PRODUCER_TAIL.lean.txt",
+      "archive": "remote-jet-witness-evidence/raw/producer/PRODUCER_TAIL.lean.txt",
+      "bytes": 7147
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/RAW_LEDGER.jsonl",
+      "archive": "remote-jet-witness-evidence/raw/producer/RAW_LEDGER.jsonl",
+      "bytes": 19868
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/REPORT.md",
+      "archive": "remote-jet-witness-evidence/raw/producer/REPORT.md",
+      "bytes": 7851
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/ROW_SECTION.lean.txt",
+      "archive": "remote-jet-witness-evidence/raw/producer/ROW_SECTION.lean.txt",
+      "bytes": 1611
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/SOURCE_OBJECT_IDENTITIES.json",
+      "archive": "remote-jet-witness-evidence/raw/producer/SOURCE_OBJECT_IDENTITIES.json",
+      "bytes": 2210
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/STATIC_SCOPE.json",
+      "archive": "remote-jet-witness-evidence/raw/producer/STATIC_SCOPE.json",
+      "bytes": 1857
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/TARGET_CLASSIFICATION.json",
+      "archive": "remote-jet-witness-evidence/raw/producer/TARGET_CLASSIFICATION.json",
+      "bytes": 5445
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/finalize.py",
+      "archive": "remote-jet-witness-evidence/raw/producer/finalize.py",
+      "bytes": 10027
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/run.py",
+      "archive": "remote-jet-witness-evidence/raw/producer/run.py",
+      "bytes": 1293
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-001/Controls.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-001/Controls.lean",
+      "bytes": 8888
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-001/Inventory.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-001/Inventory.lean",
+      "bytes": 1072
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-001/SourceRemoteJetWitness.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-001/SourceRemoteJetWitness.lean",
+      "bytes": 29687
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-001/record.json",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-001/record.json",
+      "bytes": 2078
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-001/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-001/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-001/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-001/stdout.log",
+      "bytes": 493
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-002/Controls.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-002/Controls.lean",
+      "bytes": 9086
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-002/Inventory.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-002/Inventory.lean",
+      "bytes": 1072
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-002/SourceRemoteJetWitness.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-002/SourceRemoteJetWitness.lean",
+      "bytes": 29687
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-002/record.json",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-002/record.json",
+      "bytes": 2078
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-002/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-002/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-002/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-002/stdout.log",
+      "bytes": 185
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-003/Controls.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-003/Controls.lean",
+      "bytes": 9142
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-003/Inventory.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-003/Inventory.lean",
+      "bytes": 1072
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-003/SourceRemoteJetWitness.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-003/SourceRemoteJetWitness.lean",
+      "bytes": 29687
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-003/record.json",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-003/record.json",
+      "bytes": 2080
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-003/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-003/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-003/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-003/stdout.log",
+      "bytes": 1040
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-004/Controls.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-004/Controls.lean",
+      "bytes": 9642
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-004/Inventory.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-004/Inventory.lean",
+      "bytes": 1072
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-004/SourceRemoteJetWitness.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-004/SourceRemoteJetWitness.lean",
+      "bytes": 29687
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-004/record.json",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-004/record.json",
+      "bytes": 2080
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-004/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-004/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-004/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-004/stdout.log",
+      "bytes": 1040
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-005/Controls.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-005/Controls.lean",
+      "bytes": 9630
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-005/Inventory.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-005/Inventory.lean",
+      "bytes": 1072
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-005/SourceRemoteJetWitness.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-005/SourceRemoteJetWitness.lean",
+      "bytes": 29687
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-005/record.json",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-005/record.json",
+      "bytes": 2076
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-005/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-005/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-005/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-005/stdout.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-001/SourceRemoteJetWitness.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-001/SourceRemoteJetWitness.lean",
+      "bytes": 4564
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-001/record.json",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-001/record.json",
+      "bytes": 675
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-001/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-001/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-001/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-001/stdout.log",
+      "bytes": 1646
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-002/SourceRemoteJetWitness.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-002/SourceRemoteJetWitness.lean",
+      "bytes": 4962
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-002/record.json",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-002/record.json",
+      "bytes": 676
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-002/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-002/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-002/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-002/stdout.log",
+      "bytes": 1722
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-003/SourceRemoteJetWitness.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-003/SourceRemoteJetWitness.lean",
+      "bytes": 4770
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-003/record.json",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-003/record.json",
+      "bytes": 676
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-003/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-003/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-003/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-003/stdout.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-004/SourceRemoteJetWitness.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-004/SourceRemoteJetWitness.lean",
+      "bytes": 6382
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-004/record.json",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-004/record.json",
+      "bytes": 675
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-004/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-004/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-004/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-004/stdout.log",
+      "bytes": 3177
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-005/SourceRemoteJetWitness.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-005/SourceRemoteJetWitness.lean",
+      "bytes": 6442
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-005/record.json",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-005/record.json",
+      "bytes": 675
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-005/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-005/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-005/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-005/stdout.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-006/SourceRemoteJetWitness.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-006/SourceRemoteJetWitness.lean",
+      "bytes": 29429
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-006/record.json",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-006/record.json",
+      "bytes": 675
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-006/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-006/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-006/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-006/stdout.log",
+      "bytes": 10195
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-007/SourceRemoteJetWitness.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-007/SourceRemoteJetWitness.lean",
+      "bytes": 29664
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-007/record.json",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-007/record.json",
+      "bytes": 675
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-007/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-007/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-007/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-007/stdout.log",
+      "bytes": 2348
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-008/SourceRemoteJetWitness.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-008/SourceRemoteJetWitness.lean",
+      "bytes": 29687
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-008/record.json",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-008/record.json",
+      "bytes": 675
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-008/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-008/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-008/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-008/stdout.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/false-collision-001/Controls.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/false-collision-001/Controls.lean",
+      "bytes": 9630
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/false-collision-001/FalseCollisionMutation.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/false-collision-001/FalseCollisionMutation.lean",
+      "bytes": 961
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/false-collision-001/Inventory.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/false-collision-001/Inventory.lean",
+      "bytes": 1072
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/false-collision-001/SourceRemoteJetWitness.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/false-collision-001/SourceRemoteJetWitness.lean",
+      "bytes": 29687
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/false-collision-001/record.json",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/false-collision-001/record.json",
+      "bytes": 2142
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/false-collision-001/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/false-collision-001/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/false-collision-001/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/false-collision-001/stdout.log",
+      "bytes": 469
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/inventory-001/Inventory.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/inventory-001/Inventory.lean",
+      "bytes": 1072
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/inventory-001/SourceRemoteJetWitness.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/inventory-001/SourceRemoteJetWitness.lean",
+      "bytes": 29687
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/inventory-001/record.json",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/inventory-001/record.json",
+      "bytes": 2088
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/inventory-001/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/inventory-001/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/inventory-001/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/inventory-001/stdout.log",
+      "bytes": 19653
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/kernel-001/Controls.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/kernel-001/Controls.lean",
+      "bytes": 9630
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/kernel-001/FalseCollisionMutation.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/kernel-001/FalseCollisionMutation.lean",
+      "bytes": 961
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/kernel-001/Inventory.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/kernel-001/Inventory.lean",
+      "bytes": 1072
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/kernel-001/SourceRemoteJetWitness.lean",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/kernel-001/SourceRemoteJetWitness.lean",
+      "bytes": 29687
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/kernel-001/record.json",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/kernel-001/record.json",
+      "bytes": 1876
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/kernel-001/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/kernel-001/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/kernel-001/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/kernel-001/stdout.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/stage.py",
+      "archive": "remote-jet-witness-evidence/raw/producer/stage.py",
+      "bytes": 2014
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/Arithmetic.lean",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/Arithmetic.lean",
+      "bytes": 13498
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/EXECUTION_RECORD_INDEX.json",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/EXECUTION_RECORD_INDEX.json",
+      "bytes": 6816
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/FREEZE.json",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/FREEZE.json",
+      "bytes": 545
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/NEEDED_SECTION.lean.txt",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/NEEDED_SECTION.lean.txt",
+      "bytes": 13163
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/REPORT.md",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/REPORT.md",
+      "bytes": 9955
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/compile.py",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/compile.py",
+      "bytes": 1324
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-001/Arithmetic.lean",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-001/Arithmetic.lean",
+      "bytes": 4597
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-001/compile.py",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-001/compile.py",
+      "bytes": 1324
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-001/receipt.json",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-001/receipt.json",
+      "bytes": 699
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-001/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-001/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-001/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-001/stdout.log",
+      "bytes": 31624
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-002/Arithmetic.lean",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-002/Arithmetic.lean",
+      "bytes": 4710
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-002/compile.py",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-002/compile.py",
+      "bytes": 1324
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-002/receipt.json",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-002/receipt.json",
+      "bytes": 701
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-002/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-002/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-002/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-002/stdout.log",
+      "bytes": 1806
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-003/Arithmetic.lean",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-003/Arithmetic.lean",
+      "bytes": 7943
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-003/compile.py",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-003/compile.py",
+      "bytes": 1324
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-003/receipt.json",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-003/receipt.json",
+      "bytes": 700
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-003/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-003/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-003/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-003/stdout.log",
+      "bytes": 4631
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-004/Arithmetic.lean",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-004/Arithmetic.lean",
+      "bytes": 7989
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-004/compile.py",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-004/compile.py",
+      "bytes": 1324
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-004/receipt.json",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-004/receipt.json",
+      "bytes": 700
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-004/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-004/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-004/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-004/stdout.log",
+      "bytes": 5632
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-005/Arithmetic.lean",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-005/Arithmetic.lean",
+      "bytes": 8116
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-005/compile.py",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-005/compile.py",
+      "bytes": 1324
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-005/receipt.json",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-005/receipt.json",
+      "bytes": 700
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-005/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-005/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-005/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-005/stdout.log",
+      "bytes": 1009
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-006/Arithmetic.lean",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-006/Arithmetic.lean",
+      "bytes": 10113
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-006/compile.py",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-006/compile.py",
+      "bytes": 1324
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-006/receipt.json",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-006/receipt.json",
+      "bytes": 700
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-006/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-006/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-006/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-006/stdout.log",
+      "bytes": 1206
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-007/Arithmetic.lean",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-007/Arithmetic.lean",
+      "bytes": 13461
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-007/compile.py",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-007/compile.py",
+      "bytes": 1324
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-007/receipt.json",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-007/receipt.json",
+      "bytes": 700
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-007/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-007/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-007/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-007/stdout.log",
+      "bytes": 1090
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-008/Arithmetic.lean",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-008/Arithmetic.lean",
+      "bytes": 13507
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-008/compile.py",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-008/compile.py",
+      "bytes": 1324
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-008/receipt.json",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-008/receipt.json",
+      "bytes": 700
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-008/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-008/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-008/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-008/stdout.log",
+      "bytes": 206
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-009/Arithmetic.lean",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-009/Arithmetic.lean",
+      "bytes": 13498
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-009/compile.py",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-009/compile.py",
+      "bytes": 1324
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-009/receipt.json",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-009/receipt.json",
+      "bytes": 700
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-009/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-009/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-009/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-009/stdout.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-torus-separation/FROZEN_SECTION.json",
+      "archive": "remote-jet-witness-evidence/raw/helper-torus/FROZEN_SECTION.json",
+      "bytes": 1527
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-torus-separation/NEEDED_SECTION.lean.txt",
+      "archive": "remote-jet-witness-evidence/raw/helper-torus/NEEDED_SECTION.lean.txt",
+      "bytes": 2201
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-torus-separation/RAW_LEDGER.jsonl",
+      "archive": "remote-jet-witness-evidence/raw/helper-torus/RAW_LEDGER.jsonl",
+      "bytes": 2212
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-torus-separation/REPORT.md",
+      "archive": "remote-jet-witness-evidence/raw/helper-torus/REPORT.md",
+      "bytes": 3328
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-torus-separation/TorusSeparation.lean",
+      "archive": "remote-jet-witness-evidence/raw/helper-torus/TorusSeparation.lean",
+      "bytes": 2416
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-torus-separation/run.py",
+      "archive": "remote-jet-witness-evidence/raw/helper-torus/run.py",
+      "bytes": 1729
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-torus-separation/runs/strict-001/TorusSeparation.lean",
+      "archive": "remote-jet-witness-evidence/raw/helper-torus/runs/strict-001/TorusSeparation.lean",
+      "bytes": 2416
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-torus-separation/runs/strict-001/record.json",
+      "archive": "remote-jet-witness-evidence/raw/helper-torus/runs/strict-001/record.json",
+      "bytes": 756
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-torus-separation/runs/strict-001/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-torus/runs/strict-001/stderr.log",
+      "bytes": 201
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-torus-separation/runs/strict-001/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-torus/runs/strict-001/stdout.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-torus-separation/runs/strict-002/TorusSeparation.lean",
+      "archive": "remote-jet-witness-evidence/raw/helper-torus/runs/strict-002/TorusSeparation.lean",
+      "bytes": 2416
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-torus-separation/runs/strict-002/record.json",
+      "archive": "remote-jet-witness-evidence/raw/helper-torus/runs/strict-002/record.json",
+      "bytes": 816
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-torus-separation/runs/strict-002/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-torus/runs/strict-002/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-torus-separation/runs/strict-002/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-torus/runs/strict-002/stdout.log",
+      "bytes": 378
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-torus-separation/runs/strict-003/TorusSeparation.lean",
+      "archive": "remote-jet-witness-evidence/raw/helper-torus/runs/strict-003/TorusSeparation.lean",
+      "bytes": 2416
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-torus-separation/runs/strict-003/record.json",
+      "archive": "remote-jet-witness-evidence/raw/helper-torus/runs/strict-003/record.json",
+      "bytes": 816
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-torus-separation/runs/strict-003/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-torus/runs/strict-003/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-torus-separation/runs/strict-003/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-torus/runs/strict-003/stdout.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-source-review/REPORT.md",
+      "archive": "remote-jet-witness-evidence/raw/review/REPORT.md",
+      "bytes": 18251
+    }
+  ],
+  "raw_streams": [
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-001/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-001/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-001/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-001/stdout.log",
+      "bytes": 493
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-002/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-002/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-002/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-002/stdout.log",
+      "bytes": 185
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-003/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-003/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-003/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-003/stdout.log",
+      "bytes": 1040
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-004/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-004/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-004/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-004/stdout.log",
+      "bytes": 1040
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-005/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-005/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-005/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/controls-005/stdout.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-001/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-001/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-001/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-001/stdout.log",
+      "bytes": 1646
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-002/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-002/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-002/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-002/stdout.log",
+      "bytes": 1722
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-003/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-003/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-003/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-003/stdout.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-004/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-004/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-004/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-004/stdout.log",
+      "bytes": 3177
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-005/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-005/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-005/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-005/stdout.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-006/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-006/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-006/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-006/stdout.log",
+      "bytes": 10195
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-007/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-007/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-007/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-007/stdout.log",
+      "bytes": 2348
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-008/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-008/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-008/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/develop-008/stdout.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/false-collision-001/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/false-collision-001/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/false-collision-001/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/false-collision-001/stdout.log",
+      "bytes": 469
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/inventory-001/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/inventory-001/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/inventory-001/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/inventory-001/stdout.log",
+      "bytes": 19653
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/kernel-001/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/kernel-001/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/kernel-001/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/producer/runs/kernel-001/stdout.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-001/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-001/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-001/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-001/stdout.log",
+      "bytes": 31624
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-002/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-002/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-002/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-002/stdout.log",
+      "bytes": 1806
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-003/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-003/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-003/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-003/stdout.log",
+      "bytes": 4631
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-004/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-004/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-004/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-004/stdout.log",
+      "bytes": 5632
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-005/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-005/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-005/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-005/stdout.log",
+      "bytes": 1009
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-006/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-006/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-006/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-006/stdout.log",
+      "bytes": 1206
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-007/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-007/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-007/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-007/stdout.log",
+      "bytes": 1090
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-008/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-008/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-008/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-008/stdout.log",
+      "bytes": 206
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-009/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-009/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-arithmetic/runs/run-009/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-arithmetic/runs/run-009/stdout.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-torus-separation/runs/strict-001/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-torus/runs/strict-001/stderr.log",
+      "bytes": 201
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-torus-separation/runs/strict-001/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-torus/runs/strict-001/stdout.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-torus-separation/runs/strict-002/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-torus/runs/strict-002/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-torus-separation/runs/strict-002/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-torus/runs/strict-002/stdout.log",
+      "bytes": 378
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-torus-separation/runs/strict-003/stderr.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-torus/runs/strict-003/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-torus-separation/runs/strict-003/stdout.log",
+      "archive": "remote-jet-witness-evidence/raw/helper-torus/runs/strict-003/stdout.log",
+      "bytes": 0
+    }
+  ],
+  "excluded_compiled_artifacts": [
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/build/Controls.olean",
+      "reason": "Compiled artifact excluded from archive/overlay; only final named producer own olean is eligible for root production-cache copy."
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/build/SourceRemoteJetWitness.olean",
+      "reason": "Compiled artifact excluded from archive/overlay; only final named producer own olean is eligible for root production-cache copy."
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/controls-005/Controls.olean",
+      "reason": "Compiled artifact excluded from archive/overlay; only final named producer own olean is eligible for root production-cache copy."
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-003/SourceRemoteJetWitness.olean",
+      "reason": "Compiled artifact excluded from archive/overlay; only final named producer own olean is eligible for root production-cache copy."
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-005/SourceRemoteJetWitness.olean",
+      "reason": "Compiled artifact excluded from archive/overlay; only final named producer own olean is eligible for root production-cache copy."
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/develop-008/SourceRemoteJetWitness.olean",
+      "reason": "Compiled artifact excluded from archive/overlay; only final named producer own olean is eligible for root production-cache copy."
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-witness-construct/runs/inventory-001/Inventory.olean",
+      "reason": "Compiled artifact excluded from archive/overlay; only final named producer own olean is eligible for root production-cache copy."
+    },
+    {
+      "source": "/workspace/scratch/remote-jet-torus-separation/runs/strict-003/TorusSeparation.olean",
+      "reason": "Compiled artifact excluded from archive/overlay; only final named producer own olean is eligible for root production-cache copy."
+    }
+  ],
+  "preservation": "All retained files, full streams, failures, snapshots, scripts, reports and lineage copied byte-for-byte without whitespace changes. Arithmetic helper emitted no object; torus/control/helper objects excluded.",
+  "old_archive_checks": 0,
+  "mathematical_verification_replays": 0
+}

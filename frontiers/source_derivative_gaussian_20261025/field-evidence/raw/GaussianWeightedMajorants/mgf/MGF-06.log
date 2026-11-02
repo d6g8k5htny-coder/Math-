@@ -1,0 +1,12 @@
+/workspace/scratch/gaussian-majorants/mgf/MGF.lean:140:7: error(lean.unknownIdentifier): Unknown identifier `sum_le_tsum`
+/workspace/scratch/gaussian-majorants/mgf/MGF.lean:163:30: error: Type mismatch
+  liminf_const
+has type
+  ∀ (b : ?m.712), liminf (fun x => b) ?m.715 = b
+but is expected to have type
+  liminf (fun _s => ENNReal.ofReal K) atTop = ENNReal.ofReal K
+/workspace/scratch/gaussian-majorants/mgf/MGF.lean:167:41: error(lean.invalidField): Invalid field `abs`: The environment does not contain `Function.abs`, so it is not possible to project the field `abs` from an expression
+  hmeas i
+of type
+  ∀ ⦃t : Set ℝ⦄, MeasurableSet t → MeasurableSet (U i ⁻¹' t)
+lean_exit=1

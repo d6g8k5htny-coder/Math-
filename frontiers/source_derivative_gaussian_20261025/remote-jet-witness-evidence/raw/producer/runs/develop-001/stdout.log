@@ -1,0 +1,36 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean:55:55: error: unsolved goals
+L : ℝ
+p : Fin 2 → ℝ
+j : Fin 2
+y : Fin 2 → ℝ
+⊢ 1 + -Real.cos (sourceC L * (y j - p j)) = 1 - Real.cos (sourceC L * (y j - p j))
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean:72:64: error: Application type mismatch: The argument
+  j
+has type
+  Fin 2
+of sort `Type` but is expected to have type
+  Type ?u.28
+of sort `Type (?u.28 + 1)` in the application
+  @contDiff_apply j
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean:92:4: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq ((Fin 2 → ℝ) →L[ℝ] ℝ)
+    (fderiv ℝ
+      ((fun x => (1 - Real.cos (sourceC L * (x jM - endpointM r jM))) ^ 2) * fun x =>
+        (1 - Real.cos (sourceC L * (x jS - endpointS r jS))) ^ 2)
+      (endpointM r))
+    0
+but is expected to have type
+  @Eq ((Fin 2 → ℝ) →L[ℝ] ℝ) (fderiv ℝ (annihilator L r jM jS) (endpointM r)) 0
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean:95:4: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq ((Fin 2 → ℝ) →L[ℝ] ℝ)
+    (fderiv ℝ
+      ((fun x => (1 - Real.cos (sourceC L * (x jM - endpointM r jM))) ^ 2) * fun x =>
+        (1 - Real.cos (sourceC L * (x jS - endpointS r jS))) ^ 2)
+      (endpointS r))
+    0
+but is expected to have type
+  @Eq ((Fin 2 → ℝ) →L[ℝ] ℝ) (fderiv ℝ (annihilator L r jM jS) (endpointS r)) 0

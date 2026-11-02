@@ -1,0 +1,13 @@
+/workspace/scratch/finite-pin-kernel-construct/Controls.lean:36:37: error(lean.unknownIdentifier): Unknown identifier `summable_fintype`
+/workspace/scratch/finite-pin-kernel-construct/Controls.lean:36:67: error(lean.unknownIdentifier): Unknown identifier `summable_fintype`
+/workspace/scratch/finite-pin-kernel-construct/Controls.lean:50:8: error: This simp argument is unused:
+  Fin.sum_univ_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [nontrivial_kernel_witness.1, nontrivial_kernel_witness.2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/finite-pin-kernel-construct/Controls.lean:55:47: error(lean.unknownIdentifier): Unknown identifier `summable_fintype`
+/workspace/scratch/finite-pin-kernel-construct/Controls.lean:56:14: error(lean.unknownIdentifier): Unknown identifier `summable_fintype`
+/workspace/scratch/finite-pin-kernel-construct/Controls.lean:65:37: error(lean.unknownIdentifier): Unknown identifier `summable_fintype`
+/workspace/scratch/finite-pin-kernel-construct/Controls.lean:81:14: error(lean.unknownIdentifier): Unknown identifier `summable_fintype`

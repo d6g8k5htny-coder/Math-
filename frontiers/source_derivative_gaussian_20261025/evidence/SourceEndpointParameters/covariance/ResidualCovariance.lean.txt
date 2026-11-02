@@ -1,0 +1,68 @@
+import SourceEndpointRegression
+
+noncomputable section
+open I4SmoothCarrier I4SourceEndpointRegression ResearchFormalCoreR1
+open MeasureTheory ProbabilityTheory Matrix
+open scoped BigOperators Matrix
+set_option autoImplicit false
+
+namespace EndpointParametersCovarianceProbe
+
+theorem sourceEndpointResidual_covariance {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (hG : IsUnit (sourcePinCovarianceAt L r)) (i j : Fin 6) :
+    covariance (fun ω => sourceEndpointResidual L r ω i)
+      (fun ω => sourceEndpointResidual L r ω j) (smoothLaw 2 L) =
+      sourceEndpointCovarianceAt L r i j -
+        (sourceCrossCovarianceAt L r * (sourcePinCovarianceAt L r)⁻¹ *
+          (sourceCrossCovarianceAt L r)ᵀ) i j := by
+  let X := sourceConfluentPinsAt L r
+  let V := sourceAdjustedEndpoints L r
+  let B := sourceRegressionMapAt L r
+  let R := sourceEndpointResidual L r
+  let P := smoothLaw 2 L
+  have hXV := sourcePins_adjusted_hasGaussianLaw hL r
+  have : IsProbabilityMeasure P := hXV.isProbabilityMeasure
+  have hXi (l : Fin 6) : MemLp (fun ω => X ω l) 2 P := (hXV.fst.eval l).memLp_two
+  have hVi (l : Fin 6) : MemLp (fun ω => V ω l) 2 P := (hXV.snd.eval l).memLp_two
+  have hBi (l : Fin 6) : MemLp (fun ω => B (X ω) l) 2 P :=
+    ((hXV.fst.map_fun B).eval l).memLp_two
+  have hRi (l : Fin 6) : MemLp (fun ω => R ω l) 2 P := by
+    exact (hVi l).sub (hBi l)
+  have hXR (l t : Fin 6) :
+      covariance (fun ω => X ω l) (fun ω => R ω t) P = 0 := by
+    simpa only [sub_zero, X, R, P, sourceEndpointResidual] using
+      regression_residual_zero_covariance hXV B 0 0
+        (sourceRegression_normal_equations L r hG) l t
+  have hBR (l t : Fin 6) :
+      covariance (fun ω => B (X ω) l) (fun ω => R ω t) P = 0 := by
+    have heq : (fun ω => B (X ω) l) =
+        (fun ω => ∑ a, B (Pi.single a 1) l * X ω a) := by
+      funext ω
+      exact regression_map_coordinate B (X ω) l
+    rw [heq, covariance_fun_sum_left (fun a => (hXi a).const_mul _) (hRi t)]
+    simp_rw [covariance_const_mul_left, hXR, mul_zero]
+    exact Finset.sum_const_zero
+  have hBV (l t : Fin 6) :
+      covariance (fun ω => B (X ω) l) (fun ω => V ω t) P =
+        (sourceRegressionMatrixAt L r * (sourceCrossCovarianceAt L r)ᵀ) l t := by
+    have heq : (fun ω => B (X ω) l) =
+        (fun ω => ∑ a, B (Pi.single a 1) l * X ω a) := by
+      funext ω
+      exact regression_map_coordinate B (X ω) l
+    rw [heq, covariance_fun_sum_left (fun a => (hXi a).const_mul _) (hVi t)]
+    simp_rw [covariance_const_mul_left]
+    change (∑ a, sourceRegressionMapAt L r (Pi.single a 1) l *
+      covariance (fun ω => X ω a) (fun ω => V ω t) P) = _
+    simp only [sourceRegressionMapAt_single, Matrix.mul_apply, Matrix.transpose_apply]
+    apply Finset.sum_congr rfl
+    intro a _
+    congr 1
+    exact covariance_comm _ _
+  change covariance (fun ω => R ω i) (fun ω => V ω j - B (X ω) j) P = _
+  rw [covariance_fun_sub_right (hRi i) (hVi j) (hBi j),
+    covariance_comm (fun ω => R ω i) (fun ω => B (X ω) j), hBR j i, sub_zero]
+  change covariance (fun ω => V ω i - B (X ω) i) (fun ω => V ω j) P = _
+  rw [covariance_fun_sub_left (hVi i) (hBi i) (hVi j), hBV i j]
+  rfl
+
+end EndpointParametersCovarianceProbe

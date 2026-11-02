@@ -1,0 +1,20 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFoldH0.lean",
+    "bytes": 7131,
+    "sha256": "7d54c2cc08751365cc71949016fcbdd64872e5fbc4f67baea1fdd526a4e86cfd"
+  },
+  "imports": [
+    "SourceActualFoldTorus",
+    "ElderBridge"
+  ],
+  "forbidden_token_matches": {
+    "\\bsorry\\b": false,
+    "^\\s*axiom\\b": false,
+    "\\bnative_decide\\b": false,
+    "\\bimplemented_by\\b": false,
+    "^import Mathlib\\s*$": false
+  },
+  "scope": "One actual ordinary singular-H0 interval summand and kernel complement; no canonical pair/conditional Morse/weighted probability/density/Parent closure.",
+  "euclidean_C263_torus_instantiation": false
+}

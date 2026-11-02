@@ -1,0 +1,14 @@
+import SourceContactSchur
+open I4SourceContact I4SmoothCarrier ProbabilityTheory
+
+example : (sourcePinCovariance 1).PosDef := sourcePinCovariance_posDef (by norm_num)
+example : IsUnit (sourcePinCovariance (-1)) := sourcePinCovariance_isUnit (by norm_num)
+example : 0 < sourceContactSchur 1 := sourceContactSchur_pos (by norm_num)
+example : 0 < sourceContactSchur (-1) := sourceContactSchur_pos (by norm_num)
+example : 0 < Var[sourceContactResidual 1; smoothLaw 2 1] :=
+  sourceContactResidual_variance_pos (by norm_num)
+example (i : Fin 6) : sourceContactBlockEquiv (Sum.inl i) = i.castSucc := by simp
+example : sourceContactBlockEquiv (Sum.inr ()) = (6 : Fin 7) := by simp
+example : sourceContactBlockEquiv.symm (6 : Fin 7) = Sum.inr () := by
+  apply sourceContactBlockEquiv.injective
+  simp

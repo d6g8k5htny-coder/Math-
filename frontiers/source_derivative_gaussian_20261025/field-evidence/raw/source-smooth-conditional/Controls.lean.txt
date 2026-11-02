@@ -1,0 +1,54 @@
+import SourceSmoothConditionalKernel
+
+noncomputable section
+open I4Source I4SmoothCarrier I4SourceConfluentPins I4SourceEndpointRegression
+open I4SourceSmoothConditional MeasureTheory ProbabilityTheory Filter
+open scoped Topology
+
+set_option autoImplicit false
+
+namespace I4SmoothConditionalControls
+
+/-- A posterior at the sample's own pins retains every coefficient, with no
+invertibility premise. -/
+example {L : ℝ} (hL : L ≠ 0) (r : ℝ) (ω : SmoothSample 2 L) :
+    posteriorSample hL r (sourceConfluentPinsAt L r ω) ω = ω := by
+  apply Subtype.ext
+  funext m
+  simp [posteriorSample_val, pinLift_zero]
+
+/-- The all-finite argument includes an empty residual restriction. -/
+example {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (hG : IsUnit (sourcePinCovarianceAt L r)) :
+    IndepFun (sourceConfluentPinsAt L r)
+      (fun (ω : SmoothSample 2 L) (m : (∅ : Finset (SourceMode 2))) =>
+        residualCoefficient L r ω m.val) (smoothLaw 2 L) :=
+  residualCoefficient_finite_indepFun hL r hG ∅
+
+/-- At the degenerate separation, a nonzero divided-difference pin cannot
+be forced. The fixed-radius invertibility premise has real content. -/
+theorem zero_radius_rejects_unrestricted_reconstruction {L : ℝ} (hL : L ≠ 0) :
+    sourceConfluentPinsAt L 0
+      (posteriorSample hL 0 (Pi.single (3 : Fin 6) 1) (zeroSample 2 L)) ≠
+        Pi.single (3 : Fin 6) 1 := by
+  intro h
+  have h3 := congrFun h (3 : Fin 6)
+  simp [sourceConfluentPinsAt, confluentTransform] at h3
+
+/-- Arbitrary measurable carrier events, beyond any finite endpoint vector,
+are covered by the full conditional law. -/
+example {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (hG : IsUnit (sourcePinCovarianceAt L r))
+    (A : Set (SmoothSample 2 L)) (hA : MeasurableSet A) :
+    HasCondDistrib (A.indicator (fun _ => (1 : ℝ))) (sourceConfluentPinsAt L r)
+      ((sourceSmoothKernel hL r).map (A.indicator (fun _ => (1 : ℝ)))) (smoothLaw 2 L) :=
+  sourceSmoothKernel_map_hasCondDistrib hL r hG _ (measurable_const.indicator hA)
+
+/-- The final genuine-source result assumes only nonzero torus scale. -/
+example {L : ℝ} (hL : L ≠ 0) :
+    ∀ᶠ r in 𝓝[>] (0 : ℝ),
+      HasCondDistrib (id : SmoothSample 2 L → SmoothSample 2 L)
+        (sourceConfluentPinsAt L r) (sourceSmoothKernel hL r) (smoothLaw 2 L) :=
+  sourceSmoothKernel_eventually_hasCondDistrib hL
+
+end I4SmoothConditionalControls

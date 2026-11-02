@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "status": "EXACT_FROZEN_SOURCE_AND_PRECODE_ALREADY_ROOT_INSTALLED_SKIP_ALL_FOUR",
+  "source_cut": "009ff87f13cc4ef022fc8900aba5595f27a51436",
+  "binding_precode": "8815c6b39a816fa0261d8265fe53a7189197cf39",
+  "native_activation": 6420874848,
+  "source": {
+    "path": "SourceEndpointHessianWitness.lean",
+    "bytes": 16783,
+    "sha256": "45f69d75cb4418b239f6402d0552da546bccc127e3102fac7da7d4c30324ae8f",
+    "root_apply_action": "SKIP_UNCHANGED_ALREADY_INSTALLED_BY_ROOT",
+    "identity_origin": "Root retained final frozen source/strict002 identity; no packaging hash replay."
+  },
+  "precode_documents": [
+    {
+      "path": "SOURCE_ENDPOINT_HESSIAN_WITNESS.md",
+      "bytes": 13882,
+      "sha256": "58e90e9799e746c4f4e153e7d380cc42455ef5718c163d923287fa4b6c627c07",
+      "root_apply_action": "SKIP_UNCHANGED_ALREADY_INSTALLED_BY_ROOT",
+      "expected_binding_cut": "8815c6b39a816fa0261d8265fe53a7189197cf39",
+      "identity_origin": "Retained exact frozenpacket SHA from helper FROZEN_HANDOFF.md relayed by root; size from stat only, no hash replay."
+    },
+    {
+      "path": "SOURCE_ENDPOINT_HESSIAN_WITNESS_PLAN.md",
+      "bytes": 4190,
+      "sha256": "2abd3cb6b14e9a563f0f06ebd6a5b089a6cd6812aa4eab90d3e0eb47ad5f2a22",
+      "root_apply_action": "SKIP_UNCHANGED_ALREADY_INSTALLED_BY_ROOT",
+      "expected_binding_cut": "8815c6b39a816fa0261d8265fe53a7189197cf39",
+      "identity_origin": "One new50 binding custody hash explicitly authorized by root; not old49/H0 payload."
+    },
+    {
+      "path": "SOURCE_ENDPOINT_HESSIAN_WITNESS_CONTENDERS.json",
+      "bytes": 4073,
+      "sha256": "6324927a4e2eae0f977ba351b2f368b67511335c812a75537790110675050732",
+      "root_apply_action": "SKIP_UNCHANGED_ALREADY_INSTALLED_BY_ROOT",
+      "expected_binding_cut": "8815c6b39a816fa0261d8265fe53a7189197cf39",
+      "identity_origin": "One new50 binding custody hash explicitly authorized by root; not old49/H0 payload."
+    }
+  ],
+  "source_and_precode_custody_snapshots": "bindings/",
+  "baseline49_shared_metadata_unchanged": "Root explicit61d26da correction affected ONLY disjoint H0 precode; retain current49 snapshots/digests, no refresh/reverification.",
+  "H0_scope": "Excluded entirely from50 overlay/registry/copy/hash/stage.",
+  "old_payload_hashes_recomputed": 0,
+  "scientific_effect": "NONE"
+}

@@ -1,0 +1,33 @@
+{
+  "command_argv": [
+    "python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/native-runtime/capture.py",
+    "--run-dir",
+    "/workspace/scratch/actual-source-saddle-uppercuts-packaging/input-generation001/outer",
+    "--cwd",
+    "/workspace",
+    "--scope",
+    "outer",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/native-runtime/capture.py",
+    "--run-dir",
+    "/workspace/scratch/actual-source-saddle-uppercuts-packaging/input-generation001/worker",
+    "--cwd",
+    "/workspace",
+    "--scope",
+    "worker",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-packaging/prepare_final_inputs.py",
+    "--root-list",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/ROOT_FROZEN_FILES.json",
+    "--review-list",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/ROOT_FROZEN_REVIEW_FILES.json"
+  ],
+  "cwd": "/workspace",
+  "started_utc": "2026-10-28T22:34:44.626509+00:00",
+  "explicit_environment_overrides": {},
+  "stdin_binding": null,
+  "original_separate_capture": true
+}

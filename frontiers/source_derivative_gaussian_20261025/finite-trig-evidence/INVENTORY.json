@@ -1,0 +1,838 @@
+{
+  "module": "SourceFiniteTrig",
+  "actual_module_index_coverage": true,
+  "constant_count": 79,
+  "counts": {
+    "written_public_structure": 1,
+    "generated_theorem": 27,
+    "structure_projection": 3,
+    "written_public_theorem": 7,
+    "generated_structure_definition": 9,
+    "written_private_theorem": 16,
+    "generated_structure_theorem": 3,
+    "written_private_def": 3,
+    "written_public_def": 7,
+    "written_public_abbrev": 1,
+    "generated_structure_constructor": 1,
+    "generated_structure_recursor": 1
+  },
+  "public_written_propositions": [
+    "I4SourceFiniteTrig.eval_translate",
+    "I4SourceFiniteTrig.eval_append",
+    "I4SourceFiniteTrig.eval_constant",
+    "I4SourceFiniteTrig.toSource_eval",
+    "I4SourceFiniteTrig.eval_mul",
+    "I4SourceFiniteTrig.toSource_derivative",
+    "I4SourceFiniteTrig.eval_scale"
+  ],
+  "public_written_data": [
+    "I4SourceFiniteTrig.TrigTerm",
+    "I4SourceFiniteTrig.scale",
+    "I4SourceFiniteTrig.constant",
+    "I4SourceFiniteTrig.termEval",
+    "I4SourceFiniteTrig.toSource",
+    "I4SourceFiniteTrig.translate",
+    "I4SourceFiniteTrig.TrigPoly",
+    "I4SourceFiniteTrig.mul",
+    "I4SourceFiniteTrig.eval"
+  ],
+  "private_written_proofs": [
+    "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atom_pairing_add",
+    "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.phase_frequency_sub",
+    "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atomSource_pairing",
+    "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.eval_cons",
+    "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.representedSample_field",
+    "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.scalarSeries_finitePairing",
+    "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atom_pairing_pair",
+    "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.representedSample_val",
+    "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atom_phase_neg",
+    "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atom_pairing_single",
+    "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.pairing_eq_linearCombination",
+    "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atom_amplitude_pos",
+    "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.phase_spatial_sub",
+    "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.eval_termProduct",
+    "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.eval_termProducts",
+    "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.phase_frequency_add"
+  ],
+  "private_written_definitions": [
+    "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.representedSample",
+    "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.termProduct",
+    "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atomSource"
+  ],
+  "foreign_namespace_generated": [
+    "I4SourceSmoothConditional.zeroSample.eq_1"
+  ],
+  "prop_bundles": [],
+  "rows": [
+    {
+      "name": "I4SourceFiniteTrig.TrigTerm",
+      "kernel_kind": "inductive",
+      "classification": "written_public_structure",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atom_pairing_pair._simp_1_3",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.TrigTerm.coeff",
+      "kernel_kind": "definition",
+      "classification": "structure_projection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.eval_translate",
+      "kernel_kind": "theorem",
+      "classification": "written_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.TrigTerm.mk.noConfusion",
+      "kernel_kind": "definition",
+      "classification": "generated_structure_definition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atomSource._proof_1",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atom_pairing_pair._simp_1_1",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.eval_append",
+      "kernel_kind": "theorem",
+      "classification": "written_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atom_pairing_add",
+      "kernel_kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.eval_constant",
+      "kernel_kind": "theorem",
+      "classification": "written_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atomSource_pairing._simp_1_4",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atom_pairing_pair._simp_1_6",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.phase_frequency_sub",
+      "kernel_kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atomSource_pairing",
+      "kernel_kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.eval_cons",
+      "kernel_kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.representedSample_field",
+      "kernel_kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.TrigTerm.mk.injEq",
+      "kernel_kind": "theorem",
+      "classification": "generated_structure_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.termProduct._proof_1",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.TrigTerm.recOn",
+      "kernel_kind": "definition",
+      "classification": "generated_structure_definition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.scalarSeries_finitePairing",
+      "kernel_kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.TrigTerm.mk.inj",
+      "kernel_kind": "theorem",
+      "classification": "generated_structure_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atom_pairing_pair",
+      "kernel_kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atomSource_pairing._simp_1_5",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.representedSample_val",
+      "kernel_kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.TrigTerm._sizeOf_inst",
+      "kernel_kind": "definition",
+      "classification": "generated_structure_definition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.representedSample",
+      "kernel_kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.scale",
+      "kernel_kind": "definition",
+      "classification": "written_public_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.toSource_eval",
+      "kernel_kind": "theorem",
+      "classification": "written_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atom_phase_neg",
+      "kernel_kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atomSource_pairing._simp_1_8",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.eval.eq_1",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atom_pairing_single",
+      "kernel_kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atomSource_pairing._simp_1_3",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atomSource.eq_1",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.pairing_eq_linearCombination",
+      "kernel_kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atom_amplitude_pos",
+      "kernel_kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.constant",
+      "kernel_kind": "definition",
+      "classification": "written_public_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.termEval",
+      "kernel_kind": "definition",
+      "classification": "written_public_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atom_pairing_pair._simp_1_5",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4SourceSmoothConditional.zeroSample.eq_1",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.toSource",
+      "kernel_kind": "definition",
+      "classification": "written_public_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.translate",
+      "kernel_kind": "definition",
+      "classification": "written_public_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.mul.eq_1",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.TrigTerm.frequency",
+      "kernel_kind": "definition",
+      "classification": "structure_projection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.TrigTerm.mk.sizeOf_spec",
+      "kernel_kind": "theorem",
+      "classification": "generated_structure_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.eval_mul",
+      "kernel_kind": "theorem",
+      "classification": "written_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.representedSample.eq_1",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.TrigTerm.ctorIdx",
+      "kernel_kind": "definition",
+      "classification": "generated_structure_definition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.toSource.eq_1",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.phase_spatial_sub",
+      "kernel_kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atom_pairing_pair._simp_1_2",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.TrigTerm.noConfusionType",
+      "kernel_kind": "definition",
+      "classification": "generated_structure_definition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.TrigPoly",
+      "kernel_kind": "definition",
+      "classification": "written_public_abbrev",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.eval_termProduct",
+      "kernel_kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atomSource_pairing._simp_1_2",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.TrigTerm.casesOn",
+      "kernel_kind": "definition",
+      "classification": "generated_structure_definition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.toSource_derivative",
+      "kernel_kind": "theorem",
+      "classification": "written_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.eval_termProducts",
+      "kernel_kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atom_pairing_pair._simp_1_4",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.scale.eq_1",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.termEval.eq_1",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.mul",
+      "kernel_kind": "definition",
+      "classification": "written_public_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.TrigTerm._sizeOf_1",
+      "kernel_kind": "definition",
+      "classification": "generated_structure_definition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.TrigTerm.mk",
+      "kernel_kind": "constructor",
+      "classification": "generated_structure_constructor",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.TrigTerm.noConfusion",
+      "kernel_kind": "definition",
+      "classification": "generated_structure_definition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.phase_frequency_add",
+      "kernel_kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.TrigTerm.offset",
+      "kernel_kind": "definition",
+      "classification": "structure_projection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.TrigTerm.rec",
+      "kernel_kind": "recursor",
+      "classification": "generated_structure_recursor",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atom_pairing_pair._simp_1_7",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atomSource_pairing._simp_1_6",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.termProduct.eq_1",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.translate.eq_1",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.constant.eq_1",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.TrigTerm.mk._flat_ctor",
+      "kernel_kind": "definition",
+      "classification": "generated_structure_definition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.eval",
+      "kernel_kind": "definition",
+      "classification": "written_public_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atomSource_pairing._simp_1_7",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.termProduct",
+      "kernel_kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFiniteTrig.0.I4SourceFiniteTrig.atomSource",
+      "kernel_kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFiniteTrig.eval_scale",
+      "kernel_kind": "theorem",
+      "classification": "written_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "note": "Only seven intended public written propositions count as research targets. All data,structure projections/constructors/recursors,equations,private/generated constants inventoried separately. Foreign-namespace I4SourceSmoothConditional.zeroSample.eq_1 included by actual module ownership."
+}

@@ -1,0 +1,48 @@
+import Mathlib.Probability.Distributions.Gaussian.Real
+import Mathlib.MeasureTheory.Integral.Bochner.Basic
+import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+import Mathlib.Tactic.FunProp
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Positivity
+
+namespace ResearchFormalCoreR1
+open MeasureTheory ProbabilityTheory
+open scoped ENNReal NNReal
+set_option autoImplicit false
+
+theorem reference_integrable_pos (m : ℝ) (v : ℝ≥0) (hv : v ≠ 0) :
+    Integrable (fun q : ℝ => (max (-q) 0)^2) (gaussianReal m v) ∧
+      0 < ∫ q : ℝ, (max (-q) 0)^2 ∂gaussianReal m v := by
+  have hsq : Integrable (fun q : ℝ => q^2) (gaussianReal m v) := by
+    simpa using (memLp_id_gaussianReal (μ := m) (v := v) 2).integrable_sq
+  have hint : Integrable (fun q : ℝ => (max (-q) 0)^2) (gaussianReal m v) := by
+    apply hsq.mono' (by fun_prop)
+    filter_upwards [] with q
+    rw [Real.norm_eq_abs, abs_of_nonneg (sq_nonneg _)]
+    rcases le_total 0 q with hq | hq
+    · rw [max_eq_right (neg_nonpos.mpr hq)]
+      simpa using sq_nonneg q
+    · rw [max_eq_left (neg_nonneg.mpr hq)]
+      nlinarith
+  have hsupp : Function.support (fun q : ℝ => (max (-q) 0)^2) = Set.Iio 0 := by
+    ext q
+    simp only [Function.mem_support, Set.mem_Iio]
+    constructor
+    · intro h
+      by_contra hn
+      have hq : 0 ≤ q := le_of_not_gt hn
+      apply h
+      simp [max_eq_right (neg_nonpos.mpr hq)]
+    · intro hq
+      have hp : 0 < (max (-q) 0)^2 := sq_pos_of_pos (lt_max_of_lt_left (neg_pos.mpr hq))
+      exact hp.ne'
+  have hmass : 0 < gaussianReal m v (Set.Iio 0) := by
+    apply pos_iff_ne_zero.mpr
+    intro hzero
+    have hvol := (gaussianReal_absolutelyContinuous' m hv) hzero
+    simp at hvol
+  refine ⟨hint, ?_⟩
+  apply (integral_pos_iff_support_of_nonneg (fun q => sq_nonneg _) hint).mpr
+  simpa only [hsupp] using hmass
+end ResearchFormalCoreR1

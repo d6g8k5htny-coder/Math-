@@ -1,0 +1,31 @@
+{
+  "kind": "pd-omission",
+  "run": "pd-omission-001",
+  "start": "2026-10-26T17:06:09.426071+00:00",
+  "end": "2026-10-26T17:06:12.092341+00:00",
+  "seconds": 2.6662810029956745,
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/endpoint-hessian-gaussian-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/endpoint-hessian-gaussian-construct /workspace/scratch/endpoint-hessian-gaussian-construct/PosDefOmissionMutation.lean -o /workspace/scratch/endpoint-hessian-gaussian-construct/runs/pd-omission-001/PosDefOmissionMutation.olean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 1,
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean",
+    "bytes": 17034,
+    "sha256": "b9900b7553f7722241137f8f0cba08862b19ae415253a9a14bfd7c9b53c3e613"
+  },
+  "stdout": {
+    "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/pd-omission-001/stdout.log",
+    "bytes": 121,
+    "sha256": "49252d6ee75b4ac42d962109e02d2054d7903e12deac65402e8ad3b95f5a392b"
+  },
+  "stderr": {
+    "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/pd-omission-001/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

@@ -1,0 +1,74 @@
+import SourceSmoothConditionalKernel
+
+noncomputable section
+open I4SmoothCarrier I4SourceConfluentPins I4SourceEndpointRegression I4SourceSmoothConditional
+open MeasureTheory ProbabilityTheory ResearchFormalCoreR1
+open scoped ENNReal
+set_option autoImplicit false
+
+namespace I4SourceSmoothPalm
+
+def sourceSmoothLaw {L : ℝ} (hL : L ≠ 0) (r b : ℝ) : Measure (SmoothSample 2 L) :=
+  sourceSmoothKernel hL r (sourcePrescribedPins r b)
+
+instance sourceSmoothLaw_isProbabilityMeasure {L : ℝ} (hL : L ≠ 0) (r b : ℝ) :
+    IsProbabilityMeasure (sourceSmoothLaw hL r b) := by
+  unfold sourceSmoothLaw
+  infer_instance
+
+lemma rawPins_prescribed_iff {L : ℝ} (r b : ℝ) (hr : r ≠ 0) (ω : SmoothSample 2 L) :
+    rawPins L r ω = ![b,b-r^3/6,0,0,0,0] ↔
+      sourceConfluentPinsAt L r ω = sourcePrescribedPins r b := by
+  change _ ↔ confluentEquiv r hr (rawPins L r ω) = _
+  rw [← show confluentEquiv r hr ![b,b-r^3/6,0,0,0,0] = sourcePrescribedPins r b from
+    prescribed_target r b hr]
+  exact (confluentEquiv r hr).injective.eq_iff.symm
+
+theorem sourceSmoothLaw_raw_pin_fiber {L : ℝ} (hL : L ≠ 0) (r b : ℝ)
+    (hr : r ≠ 0) (hG : IsUnit (sourcePinCovarianceAt L r)) :
+    sourceSmoothLaw hL r b {ω | rawPins L r ω = ![b,b-r^3/6,0,0,0,0]} = 1 := by
+  have hset : {ω : SmoothSample 2 L | rawPins L r ω = ![b,b-r^3/6,0,0,0,0]} =
+      {ω | sourceConfluentPinsAt L r ω = sourcePrescribedPins r b} := by
+    ext ω
+    exact rawPins_prescribed_iff r b hr ω
+  rw [hset]
+  exact sourceSmoothKernel_pin_fiber hL r hG (sourcePrescribedPins r b)
+
+lemma sourceRawPins_measurable {L : ℝ} (hL : L ≠ 0) (r : ℝ) (hr : r ≠ 0) :
+    Measurable (rawPins L r) := by
+  have heq : rawPins L r = fun ω => rawTransform r (sourceConfluentPinsAt L r ω) := by
+    funext ω
+    exact (rawTransform_confluentTransform r hr (rawPins L r ω)).symm
+  rw [heq]
+  have hc : Continuous (rawTransform r) := by
+    unfold rawTransform
+    fun_prop
+  exact hc.measurable.comp (sourceConfluentPinsAt_measurable hL r)
+
+theorem sourceSmoothLaw_raw_pin_fiber_ae {L : ℝ} (hL : L ≠ 0) (r b : ℝ)
+    (hr : r ≠ 0) (hG : IsUnit (sourcePinCovarianceAt L r)) :
+    ∀ᵐ ω ∂sourceSmoothLaw hL r b, rawPins L r ω = ![b,b-r^3/6,0,0,0,0] := by
+  apply (mem_ae_iff_prob_eq_one
+    (measurableSet_eq_fun (sourceRawPins_measurable hL r hr) measurable_const)).2
+  exact sourceSmoothLaw_raw_pin_fiber hL r b hr hG
+
+/-- Every probability measure absolutely continuous with respect to the actual conditioned
+carrier law retains its exact prescribed raw values and zero gradients. -/
+theorem raw_pin_fiber_of_absolutelyContinuous {L : ℝ} (hL : L ≠ 0) (r b : ℝ)
+    (hr : r ≠ 0) (hG : IsUnit (sourcePinCovarianceAt L r))
+    (ν : Measure (SmoothSample 2 L)) [IsProbabilityMeasure ν]
+    (hν : ν ≪ sourceSmoothLaw hL r b) :
+    ν {ω | rawPins L r ω = ![b,b-r^3/6,0,0,0,0]} = 1 := by
+  apply (mem_ae_iff_prob_eq_one
+    (measurableSet_eq_fun (sourceRawPins_measurable hL r hr) measurable_const)).1
+  exact hν.ae_le (sourceSmoothLaw_raw_pin_fiber_ae hL r b hr hG)
+
+theorem prwMeasure_raw_pin_fiber {L : ℝ} (hL : L ≠ 0) (r b : ℝ)
+    (hr : r ≠ 0) (hG : IsUnit (sourcePinCovarianceAt L r)) (W : SmoothSample 2 L → ℝ)
+    [IsProbabilityMeasure (prwMeasure (sourceSmoothLaw hL r b) W)] :
+    prwMeasure (sourceSmoothLaw hL r b) W
+      {ω | rawPins L r ω = ![b,b-r^3/6,0,0,0,0]} = 1 := by
+  apply raw_pin_fiber_of_absolutelyContinuous hL r b hr hG
+  exact withDensity_absolutelyContinuous _ _
+
+end I4SourceSmoothPalm

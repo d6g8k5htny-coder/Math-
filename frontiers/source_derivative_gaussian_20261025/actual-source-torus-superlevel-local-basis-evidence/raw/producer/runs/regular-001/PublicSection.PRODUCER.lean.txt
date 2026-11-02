@@ -1,0 +1,45 @@
+/-- Every closed-superlevel member has arbitrarily small path-connected traces
+in ambient-open neighborhoods of the same actual product AddCircle torus. -/
+theorem actualSource_torus_closedSuperlevel_localPathConnectedBasis
+    {L : ℝ} (hL : 0 < L) (omega : SmoothSample 2 L)
+    (hm : IsMorseDistinct 2 L (actualField 2 L omega)) :
+    ∀ (a : ℝ) (q : I4Torus.SourceTorus 2 L),
+      a ≤ SourceActualFoldTorus.actualTorusField hL.ne' omega q →
+      ∀ O : Set (I4Torus.SourceTorus 2 L), IsOpen O → q ∈ O →
+        ∃ V : Set (I4Torus.SourceTorus 2 L), IsOpen V ∧ q ∈ V ∧ V ⊆ O ∧
+          IsPathConnected (V ∩
+            {z | a ≤ SourceActualFoldTorus.actualTorusField hL.ne' omega z}) := by
+  intro a q haq O hO hq
+  obtain ⟨x, hx⟩ := SourceActualFoldTorus.torusProjection2L_surjective L q
+  let X : UniversalLaw.Spec.Lifetime.E 2 := (coordinates 2).symm x
+  have hqX : coverProjection L X = q := by
+    simpa only [coverProjection, X, ContinuousLinearEquiv.apply_symm_apply] using hx
+  have hcont : Continuous (coverProjection L) :=
+    (SourceActualFoldTorus.torusProjection2L_continuous L).comp (coordinates 2).continuous
+  let U : Set (UniversalLaw.Spec.Lifetime.E 2) := coverProjection L ⁻¹' O
+  have hU : IsOpen U := hO.preimage hcont
+  have hXU : X ∈ U := by simpa only [U, mem_preimage, hqX] using hq
+  have hpull : SourceActualFoldTorus.actualTorusField hL.ne' omega (coverProjection L X) =
+      actualField 2 L omega X :=
+    SourceActualFoldTorus.actualTorusField_pullback hL.ne' omega (coordinates 2 X)
+  have haX : a ≤ actualField 2 L omega X := by
+    rw [← hqX, hpull] at haq
+    exact haq
+  have hlocal : ∃ W : Set (UniversalLaw.Spec.Lifetime.E 2),
+      IsOpen W ∧ X ∈ W ∧ W ⊆ U ∧
+        IsPathConnected (W ∩ {Y | a ≤ actualField 2 L omega Y}) := by
+    rcases lt_or_eq_of_le haX with ha | ha
+    · exact interiorCoverBasis hL omega a X U hU hXU ha
+    · by_cases hc : fderiv ℝ (actualField 2 L omega) X = 0
+      · obtain ⟨j, hj⟩ := hm.1 X hc
+        obtain ⟨W, hW, hXW, hWU, hpc⟩ :=
+          criticalCoverLevelBasis hL omega X j hc hj U hU hXU
+        exact ⟨W, hW, hXW, hWU, by simpa only [ha] using hpc⟩
+      · obtain ⟨W, hW, hXW, hWU, hpc⟩ :=
+          regularCoverLevelBasis hL omega X U hU hXU hc
+        exact ⟨W, hW, hXW, hWU, by simpa only [ha] using hpc⟩
+  obtain ⟨W, hW, hXW, hWU, hpc⟩ := hlocal
+  obtain ⟨hV, _heq, hVpc⟩ := projectCoverTrace hL omega a W hW hpc
+  refine ⟨coverProjection L '' W, hV, ⟨X, hXW, hqX⟩, ?_, hVpc⟩
+  rintro z ⟨Y, hY, rfl⟩
+  exact hWU hY

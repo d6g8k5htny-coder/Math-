@@ -1,0 +1,173 @@
+{
+  "source": "SourceEndpointParameters.lean",
+  "source_sha256": "efc88ac59217ab1960d5518abcd9f16a71b42080a2810f1e337eeb2f686c1e3a",
+  "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+  "source_contract_commit": "20e4634",
+  "author": "OpenAI/Codex /root/regression_kernel with OpenAI/Codex /root/regression_kernel/gaussian_api residual covariance support and OpenAI/Codex /root/regression_kernel/endpoint_means actual zero-mean proofs",
+  "scientific_effect": "NONE; author-side evidence; source current G invertibility remains explicit pending limits; different-family review separate",
+  "build": {
+    "command": "/home/agent/.elan/bin/lake env lean -o .lake/build/lib/lean/SourceEndpointParameters.olean SourceEndpointParameters.lean",
+    "exit": 0,
+    "log": "SourceEndpointParameters-02.log"
+  },
+  "kernel": {
+    "command": "/home/agent/.elan/bin/lake env leanchecker SourceEndpointParameters",
+    "exit": 0,
+    "log": "KernelReplay-01.log"
+  },
+  "axioms": {
+    "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/endpoint-parameters/AxiomAudit.lean",
+    "exit": 0,
+    "targets": {
+      "I4SourceEndpointParameters.smoothSourceField_derivative_integral_zero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointParameters.rawPinsWithHessians_integral_zero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointParameters.rawPinsWithHessians_integral_vector_zero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointParameters.sourcePins_adjusted_integral_zero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointParameters.sourceConfluentPinsAt_integral_zero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointParameters.sourceAdjustedEndpoints_integral_zero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointParameters.sourceEndpointResidual_integral_zero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointParameters.sourceEndpointResidual_covariance": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointParameters.finiteGaussian_law_parameters": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointParameters.sourceEndpointResidual_hasGaussianLaw": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointParameters.sourceEndpointPosterior_hasGaussianLaw": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointParameters.sourceEndpointPosterior_integral": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointParameters.sourceEndpointPosterior_covariance": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointParameters.sourceEndpointKernel_eq_map_posterior": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointParameters.sourceEndpointKernel_isGaussian": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointParameters.sourceEndpointSchurAt_posSemidef": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointParameters.sourceEndpointKernel_eq_multivariateGaussian": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointParameters.sourceEndpointKernel_integral": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceEndpointParameters.sourceEndpointKernel_covariance": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "log": "AxiomAudit-01.log"
+  },
+  "controls": [
+    {
+      "file": "PositiveControls.lean",
+      "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/endpoint-parameters/PositiveControls.lean",
+      "capture_command": "set -o pipefail\n/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/endpoint-parameters/PositiveControls.lean 2>&1 | tee /workspace/scratch/regression-kernel/endpoint-parameters/PositiveControls-01.log",
+      "exit": 0,
+      "log": "PositiveControls-01.log",
+      "reason": "actual prescribed-pin Gaussian identity; derived PSD at negative period; singular noncentered Gaussian and empty dimension literal identities"
+    },
+    {
+      "file": "RejectedCenteredPosterior.lean",
+      "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/endpoint-parameters/RejectedCenteredPosterior.lean",
+      "capture_command": "set -o pipefail\n/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/endpoint-parameters/RejectedCenteredPosterior.lean 2>&1 | tee /workspace/scratch/regression-kernel/endpoint-parameters/RejectedCenteredPosterior-01.log",
+      "exit": 1,
+      "log": "RejectedCenteredPosterior-01.log",
+      "reason": "noncentered singular Gaussian has mean3 not0"
+    },
+    {
+      "file": "RejectedNegativeCovariance.lean",
+      "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/endpoint-parameters/RejectedNegativeCovariance.lean",
+      "capture_command": "set -o pipefail\n/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/endpoint-parameters/RejectedNegativeCovariance.lean 2>&1 | tee /workspace/scratch/regression-kernel/endpoint-parameters/RejectedNegativeCovariance-01.log",
+      "exit": 1,
+      "log": "RejectedNegativeCovariance-01.log",
+      "reason": "constant actual Gaussian cannot satisfy negative covariance assumption needed to derive PSD"
+    }
+  ],
+  "logs": {
+    "SourceEndpointParameters-02.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "PositiveControls-01.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "RejectedCenteredPosterior-01.log": {
+      "bytes": 126,
+      "sha256": "fe4eff4da5aab333d2725cc877ee3807f516211d6619001baf2a54125fa824af"
+    },
+    "RejectedNegativeCovariance-01.log": {
+      "bytes": 196,
+      "sha256": "79e558f68db2219a662cc7e395064d9b7757b4d20e21e94dc46a9175ba2cb569"
+    },
+    "AxiomAudit-01.log": {
+      "bytes": 2380,
+      "sha256": "2316c6b6d0d8ca6ca724a78137145a4aa57ce9d8b8498fcd7a5f86f73da25a49"
+    },
+    "KernelReplay-01.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "reuse": "All completed source/kernel/regression checks reused; only this new parameter module and new controls checked."
+}

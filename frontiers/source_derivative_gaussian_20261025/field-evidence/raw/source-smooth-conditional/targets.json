@@ -1,0 +1,272 @@
+[
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.exists_measurable_sampleProjection",
+    "line": 36
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.goodSample_add",
+    "line": 42
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.goodSample_neg",
+    "line": 54
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.derivativeCoefficient_weighted_summable",
+    "line": 60
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.finiteCoefficient_weighted_summable",
+    "line": 73
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.pinCoefficient_weighted_summable",
+    "line": 90
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.adjustedCoefficient_weighted_summable",
+    "line": 98
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.sourceConfluentPinsAt_measurable",
+    "line": 106
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.sourceAdjustedEndpoints_measurable",
+    "line": 116
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.pinLift_zero",
+    "line": 129
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.pinLift_add",
+    "line": 133
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.pinLift_neg",
+    "line": 138
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.pinLift_goodSample",
+    "line": 143
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.pinLift_measurable",
+    "line": 163
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.addLift_val",
+    "line": 174
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.addLift_measurable",
+    "line": 178
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.posteriorSample_val",
+    "line": 189
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.posteriorSample_measurable",
+    "line": 194
+  },
+  {
+    "kind": "lemma",
+    "name": "I4SourceSmoothConditional.scalarSeries_add_finiteShift",
+    "line": 204
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.sourceConfluentPinsAt_addLift",
+    "line": 230
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.sourceAdjustedEndpoints_addLift",
+    "line": 246
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.sourceConfluentPinsAt_posteriorSample",
+    "line": 264
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.sourceAdjustedEndpoints_posteriorSample",
+    "line": 273
+  },
+  {
+    "kind": "instance",
+    "name": "I4SourceSmoothConditional.sourceSmoothKernel_isMarkov",
+    "line": 294
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.sourceSmoothKernel_measurable",
+    "line": 299
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.sourceSmoothKernel_apply",
+    "line": 303
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.sourceSmoothKernel_pin_map",
+    "line": 311
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.sourceSmoothKernel_pin_fiber",
+    "line": 325
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.sourceSmoothKernel_endpoint_map",
+    "line": 337
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.scalarSeries_finite_hasGaussianLaw",
+    "line": 363
+  },
+  {
+    "kind": "lemma",
+    "name": "I4SourceSmoothConditional.scalarSeries_single",
+    "line": 377
+  },
+  {
+    "kind": "lemma",
+    "name": "I4SourceSmoothConditional.scalarSeries_coordinate_covariance",
+    "line": 381
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.pin_coefficient_covariance",
+    "line": 396
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.pin_finite_coefficients_hasGaussianLaw",
+    "line": 409
+  },
+  {
+    "kind": "lemma",
+    "name": "I4SourceSmoothConditional.finiteLift_apply",
+    "line": 450
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.pin_residual_finite_hasGaussianLaw",
+    "line": 457
+  },
+  {
+    "kind": "lemma",
+    "name": "I4SourceSmoothConditional.coefficient_hasGaussianLaw",
+    "line": 475
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.residualCoefficient_zero_covariance",
+    "line": 482
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.residualCoefficient_finite_indepFun",
+    "line": 524
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.residualCoefficient_indepFun",
+    "line": 531
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.sourceNormalizedEndpoints_measurable",
+    "line": 552
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.sourceSmoothKernel_physical_endpoint_map",
+    "line": 564
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.sourceSmoothKernel_physical_prescribed_map",
+    "line": 590
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.posteriorSample_self",
+    "line": 604
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.posteriorSample_eq_addLift_residual",
+    "line": 611
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.addLift_observation_residual",
+    "line": 620
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.posteriorSample_zero_inclusion",
+    "line": 625
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.posteriorSample_zero_indepFun",
+    "line": 633
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.sourceSmoothKernel_hasCondDistrib",
+    "line": 643
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.sourceSmoothKernel_map_hasCondDistrib",
+    "line": 680
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.smoothSourceField_measurable",
+    "line": 691
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.sourceSmoothKernel_field_hasCondDistrib",
+    "line": 697
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.sourceSmoothKernel_eventually_hasCondDistrib",
+    "line": 705
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceSmoothConditional.sourceSmoothKernel_eventually_map_hasCondDistrib",
+    "line": 712
+  }
+]

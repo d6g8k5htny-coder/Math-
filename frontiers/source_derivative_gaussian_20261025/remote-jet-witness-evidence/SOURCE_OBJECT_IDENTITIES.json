@@ -1,0 +1,39 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+    "bytes": 29687,
+    "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+  },
+  "object": {
+    "path": "/workspace/scratch/remote-jet-witness-construct/build/SourceRemoteJetWitness.olean",
+    "bytes": 2856432,
+    "sha256": "ab78dc5c42be8bc32d211507a85d0d59ef36ab9acf933605d3da41fa8d8eac87"
+  },
+  "compiled_object": {
+    "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-008/SourceRemoteJetWitness.olean",
+    "bytes": 2856432,
+    "sha256": "ab78dc5c42be8bc32d211507a85d0d59ef36ab9acf933605d3da41fa8d8eac87"
+  },
+  "strict_Werror_receipt": {
+    "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-008/record.json",
+    "bytes": 675,
+    "sha256": "85ad179d25b5e4b72d49e49960cfddbe58049e565abbff470e45245837139045"
+  },
+  "kernel_receipt": {
+    "path": "/workspace/scratch/remote-jet-witness-construct/runs/kernel-001/record.json",
+    "bytes": 1876,
+    "sha256": "af368151322db8fedc9554a5e1a21e7b620acf0d8ba50ecabab398a03c0a98ca"
+  },
+  "freeze": {
+    "path": "/workspace/scratch/remote-jet-witness-construct/FROZEN_SOURCE.json",
+    "bytes": 839,
+    "sha256": "0da067de432e32434a7d4ce5144d338fd02d1cf3e3e54ee1aaa1a64f3acffb12"
+  },
+  "eligible_production_objects": [
+    "SourceRemoteJetWitness.olean"
+  ],
+  "ineligible_objects": "All helper/control/inventory/mutation and earlier-attempt objects. Scratchbuild/Controls.olean is only the passed control object reused by negative harness; never production-eligible. No ilean/freshness compile. Root alone owns productioncache.",
+  "reused_baseline": "47modules/1096targets/32inputs atc0398e27fe8da6363a9a1f6d50c206918778491e; qualifiedSourceFiniteTrig5b96... and all oldobjects reused without compile. No old build/kernel/audit/control/hash campaign.",
+  "root_owned_local_sourcecut": "689b8eef7dd2107e51d46007c1be3dfd4a909b81",
+  "publication": "Root reports authenticatedGitHubwrite401; publishedheadPRECODEb43c1c0 pending reconnect. No push/current-source hostedCI claim. This process issue does not invalidate completed proof evidence."
+}

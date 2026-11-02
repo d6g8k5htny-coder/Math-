@@ -1,0 +1,54 @@
+# Read-only seven-module evidence projection
+
+The catalog inventories **51 public theorem/lemma targets** in seven completed
+modules. Saved transitive axiom reports cover every such target. The
+`SourceContactSchur` audit also includes the actual inverse definition, giving
+52 distinct reported public declarations. Only `propext`, `Classical.choice`
+and `Quot.sound` appear in these reports. Named module kernel replay and final
+module compilation records each report exit 0. No checks were run during this
+projection; completed applicable evidence is reused.
+
+| Module | Public theorem/lemma targets | Principal saved evidence |
+|---|---:|---|
+| SourceDerivativeGaussian | 5 | `05-covariance-compile`, `06-controls`, `07-axiom-audit`, `08-kernel-replay` |
+| ContactJetCovariance | 8 | `EVIDENCE.json`, final `ContactJetCovariance-02`, positive controls, zero-frequency/zero-amplitude rejections |
+| SourceContactCovariance | 7 | `05-column-identities-compile`, `06-controls`, `07-axiom-audit`, `08-kernel-replay` |
+| SourceConfluentPins | 8 | `qualification_receipt.json`, earlier final compile, signed-radius/target controls and zero-radius rejections |
+| SourceContactSchur | 10 | `EVIDENCE.json`, final `SourceContactSchur-04`, positive controls and zero-period/wrong-Q-index rejections |
+| SourceDerivativeContinuity | 6 | `02-evaluation-and-law-compile`, corrected `05-controls-explicit-path`, `04-axiom-audit`, `06-kernel-replay` |
+| ConfluentIntegralIdentities | 7 | `qualification_receipt.json`, final compile, positive controls and cubic/transverse false controls |
+
+`EVIDENCE_CATALOG.json` retains exact source SHA256 values, public declarations
+with source lines, recorded commands/exits, receipt contents, raw-log hashes and
+an index of **191 original evidence/helper files** copied beneath `evidence/`.
+Earlier failures remain included. In particular, the integral module's final
+compilation has one harmless `unnecessarySeqFocus` warning; it is not represented
+as a warning-free run. Projection filenames for Lean controls/helpers end in
+`.lean.txt`; original paths and bytes remain bound in the catalog.
+
+The actual `gaussian_api` optional Schur/residual proof helper and
+`peano_strategy` Peano proof helper are included in the author lineage and raw
+helper evidence. README/SCOPE drafting assistance from `density_api` is also
+identified as OpenAI author-side work. No organizational or scientific
+independence is inferred from those helpers.
+
+`AUTHOR_HISTORY_SUPPLEMENT.json` discloses two metadata limits: the three
+`uniform_jet_moment_sources` groups have command/exit/raw-log triples but no
+historical JSON source-hash receipt; their unchanged final source association
+was confirmed by the author. The two `regression_kernel` groups' precise control
+capture commands come from the author's actual tool history, alongside the
+existing raw logs and exit-bearing receipts. Those reports are not relabeled as
+machine-generated receipts. No referenced evidence files or saved public target
+axiom reports were missing in the seven-module inventory.
+
+`INPUT_BINDING.json` describes thirteen reused inputs: twelve unchanged source
+files and the separately verified Gaussian regression module. The catalog binds
+that file without changing or re-executing the inputs. Historical origin
+manifests/reviews remain provenance and retain their own scope.
+
+The original research goal remains active. Different-family scientific alignment
+review is pending. This projection does not award parent acceptance, a hosted
+execution result or a scientific-status change. `GaussianRegressionLimits`,
+`SourceEndpointRegression` and `SourceConfluentLimits` are deliberately excluded
+from this seven-module completed inventory; root may append their actual
+qualification when available.

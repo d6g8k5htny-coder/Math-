@@ -1,0 +1,8 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothParameterSpace.lean:350:68: error: unexpected token '('; expected ')', ',' or ':'
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothParameterSpace.lean:350:8: error: Type mismatch: After simplification, term
+  ContinuousLinearMap.le_of_opNorm_le (parameterDerivativeCLM hL k hk)
+ has type
+  ‖parameterDerivativeCLM hL k hk‖ ≤ ?m.53 →
+    ∀ (a : PreLp fun x => ℝ) (b : a ∈ lp (fun x => ℝ) 1), ‖(parameterDerivativeCLM hL k hk) ⟨a, b⟩‖ ≤ ?m.53 * ‖⟨a, b⟩‖
+but is expected to have type
+  ‖(parameterDerivativeCLM hL k hk) a‖ ≤ ‖a‖

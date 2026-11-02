@@ -1,0 +1,41 @@
+import ContactJetCovariance
+
+open Matrix I4ContactGram
+open scoped BigOperators Matrix
+
+example : (coefficientGram (contactWitness 1)).PosDef := by
+  apply contact_coefficientGram_posDef (c := 1) (contactWitness 1)
+    (fun i => (hasSum_fintype _).summable) (by norm_num) id (fun _ => 1)
+    (fun _ => one_ne_zero)
+  intro i s
+  simp
+
+example : (coefficientGram (fun i s => 2 * contactWitness (-1) i s)).PosDef := by
+  apply contact_coefficientGram_posDef (c := -1) (fun i s => 2 * contactWitness (-1) i s)
+    (fun i => (hasSum_fintype _).summable) (by norm_num) id (fun _ => 2) (by norm_num)
+  intro i s
+  rfl
+
+example : ¬ Function.Injective ((contactWitness 0)ᵀ).mulVec := by
+  intro h
+  have hz : (contactWitness 0)ᵀ *ᵥ (Pi.single (1 : Fin 7) (1 : ℝ)) =
+      (contactWitness 0)ᵀ *ᵥ 0 := by
+    ext s
+    fin_cases s <;> norm_num [Matrix.mulVec, dotProduct, contactWitness, Fin.sum_univ_succ,
+      Pi.single_apply]
+  have heq := congrFun (h hz) (1 : Fin 7)
+  norm_num at heq
+
+example : ¬ Function.Injective ((contactWitness 1 * diagonal (fun _ => (0 : ℝ)))ᵀ).mulVec := by
+  intro h
+  have hz : (contactWitness 1 * diagonal (fun _ => (0 : ℝ)))ᵀ *ᵥ
+      (Pi.single (1 : Fin 7) (1 : ℝ)) =
+      (contactWitness 1 * diagonal (fun _ => (0 : ℝ)))ᵀ *ᵥ 0 := by
+    have hmat : contactWitness 1 * diagonal (fun _ => (0 : ℝ)) = 0 := by
+      ext i j
+      rw [Matrix.mul_diagonal]
+      simp
+    rw [hmat]
+    simp only [Matrix.transpose_zero, Matrix.zero_mulVec]
+  have heq := congrFun (h hz) (1 : Fin 7)
+  norm_num at heq

@@ -1,0 +1,91 @@
+{
+  "count": 7,
+  "entries": [
+    {
+      "kind": "instance",
+      "name": "I4SourceSmoothParameterSpace.coherentBCFSemi",
+      "line": 219,
+      "local_attribute": true,
+      "classification": "structural_data_instance",
+      "registration_append": true,
+      "proposition_valued": false,
+      "public_named_declaration": true,
+      "result_type": "Inherited SeminormedAddCommGroup/AddCommMonoid/Module structure : Type",
+      "note": "The local typeclass attribute is local; the named declaration is public and directly audited."
+    },
+    {
+      "kind": "instance",
+      "name": "I4SourceSmoothParameterSpace.coherentBCFAdd",
+      "line": 221,
+      "local_attribute": true,
+      "classification": "structural_data_instance",
+      "registration_append": true,
+      "proposition_valued": false,
+      "public_named_declaration": true,
+      "result_type": "Inherited SeminormedAddCommGroup/AddCommMonoid/Module structure : Type",
+      "note": "The local typeclass attribute is local; the named declaration is public and directly audited."
+    },
+    {
+      "kind": "instance",
+      "name": "I4SourceSmoothParameterSpace.coherentBCFModule",
+      "line": 223,
+      "local_attribute": true,
+      "classification": "structural_data_instance",
+      "registration_append": true,
+      "proposition_valued": false,
+      "public_named_declaration": true,
+      "result_type": "Inherited SeminormedAddCommGroup/AddCommMonoid/Module structure : Type",
+      "note": "The local typeclass attribute is local; the named declaration is public and directly audited."
+    },
+    {
+      "kind": "instance",
+      "name": "I4SourceSmoothParameterSpace.coherentJetSemi",
+      "line": 226,
+      "local_attribute": true,
+      "classification": "structural_data_instance",
+      "registration_append": true,
+      "proposition_valued": false,
+      "public_named_declaration": true,
+      "result_type": "Inherited SeminormedAddCommGroup/AddCommMonoid/Module structure : Type",
+      "note": "The local typeclass attribute is local; the named declaration is public and directly audited."
+    },
+    {
+      "kind": "instance",
+      "name": "I4SourceSmoothParameterSpace.coherentJetAdd",
+      "line": 229,
+      "local_attribute": true,
+      "classification": "structural_data_instance",
+      "registration_append": true,
+      "proposition_valued": false,
+      "public_named_declaration": true,
+      "result_type": "Inherited SeminormedAddCommGroup/AddCommMonoid/Module structure : Type",
+      "note": "The local typeclass attribute is local; the named declaration is public and directly audited."
+    },
+    {
+      "kind": "instance",
+      "name": "I4SourceSmoothParameterSpace.coherentJetModule",
+      "line": 231,
+      "local_attribute": true,
+      "classification": "structural_data_instance",
+      "registration_append": true,
+      "proposition_valued": false,
+      "public_named_declaration": true,
+      "result_type": "Inherited SeminormedAddCommGroup/AddCommMonoid/Module structure : Type",
+      "note": "The local typeclass attribute is local; the named declaration is public and directly audited."
+    },
+    {
+      "kind": "instance",
+      "name": "I4SourceSmoothParameterSpace.parameterMeasurableSpace",
+      "line": 354,
+      "local_attribute": true,
+      "classification": "structural_data_instance",
+      "registration_append": true,
+      "proposition_valued": false,
+      "public_named_declaration": true,
+      "result_type": "MeasurableSpace SmoothParameter : Type",
+      "note": "The local typeclass attribute is local; the named declaration is public and directly audited."
+    }
+  ],
+  "coherent_structure_fix": "Six explicit local inherited BCF/finite-jet SeminormedAddCommGroup, AddCommMonoid and Module structures pin the same normed structure path for the continuous linear operator norms. They add no assumptions or axioms. The seventh data instance chooses the norm Borel MeasurableSpace on SmoothParameter.",
+  "not_mathematical_theorem_count": true
+}

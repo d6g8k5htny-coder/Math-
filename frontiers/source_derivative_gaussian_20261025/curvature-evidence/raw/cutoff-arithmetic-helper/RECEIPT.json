@@ -1,0 +1,17 @@
+{
+  "source_sha256": "1ff01e809c1ad4509ff5b90e6cc6bd52c9dcb2bfe8c376457f0d72deb53b217f",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/scratch/curvature-cutoff-arithmetic/CurvatureCutoff.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "compile02_exit_code": 0,
+  "compile02_output_empty": true,
+  "compile01_exit_code": 1,
+  "compile01_retained": "compile-01.log",
+  "scope": "New scratch arithmetic only; final module audit will cover transplanted proof. Baseline evidence reused.",
+  "coauthor": "OpenAI/Codex root"
+}

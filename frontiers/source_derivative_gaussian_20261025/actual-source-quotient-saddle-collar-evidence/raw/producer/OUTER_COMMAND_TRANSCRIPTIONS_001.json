@@ -1,0 +1,102 @@
+{
+  "scope": "Transcribed actual enclosing argv/tool references, NOT original outer stdout/stderr",
+  "rows": [
+    {
+      "label": "documentary-integrate-B-001",
+      "tool_chunk": "c64f89",
+      "enclosing_argv": [
+        "python3",
+        "/workspace/scratch/actual-source-quotient-saddle-collar-construct/record_run.py",
+        "documentary-integrate-B-001",
+        "python3",
+        "-c",
+        "from pathlib import Path\nimport datetime,hashlib,json,difflib\nb=Path(\"/workspace/scratch/actual-source-quotient-saddle-collar-construct\")\nh=Path(\"/workspace/scratch/actual-source-quotient-saddle-collar-geometry-text\")\nsource=Path(\"/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualQuotientSaddleCollar.lean\")\nreceipt=json.loads((b/\"runs/chart-001/receipt.json\").read_text())\nsid=receipt[\"after\"][str(source)]\nsnap=b/\"CHART.CHECKED.lean.txt\"\nsnap.write_bytes(source.read_bytes())\ncache=json.loads((b/\"OWN_ID_CACHE.json\").read_text())\ncache[str(snap)]={\"stamp\":[snap.stat().st_size,snap.stat().st_mtime_ns],\"identity\":dict(sid,path=str(snap),identity_origin=\"Existing chart001 source FIRST identity reused for exact retained copy\")}\n(b/\"OWN_ID_CACHE.json\").write_text(json.dumps(cache,indent=2)+\"\\n\")\n(b/\"CHART_MILESTONE.json\").write_text(json.dumps({\"status\":\"COMPLETE_ACTUAL_QUOTIENT_CHART_STRICT_FIRST_ATTEMPT_PASS\",\"source\":sid,\"object\":receipt[\"after\"][str(b/\"build/SourceActualQuotientSaddleCollar.olean\")],\"receipt\":str(b/\"runs/chart-001/receipt.json\"),\"completed_utc\":receipt[\"ended_utc\"],\"kernel_count\":0,\"partial_kernel\":\"FORBIDDEN/notexecuted\",\"copy_identity\":\"Known exact source snapshot ID reused, no hash\"},indent=2)+\"\\n\")\nrows=[]\nfor name in [\"SaddleGeometrySection.ORIGINAL.lean.txt\",\"Imports.ORIGINAL.txt\",\"Context.ORIGINAL.md\",\"Provenance.ORIGINAL.md\",\"Frozen.ORIGINAL.json\"]:\n    p=h/name;t=b/\"originals\"/(\"B.\"+name);assert not t.exists()\n    data=p.read_bytes();t.write_bytes(data)\n    rows.append({\"original\":str(p),\"immutable_retained\":str(t),\"bytes\":len(data),\"sha256\":hashlib.sha256(data).hexdigest(),\"origin\":\"FIRST newly authored frozen B payload identity BEFORE ONEintegration; context is new summary, NOT duplicate complete002/003 copy\"})\n(b/\"originals/B_CUSTODY.json\").write_text(json.dumps({\"recorded_utc\":datetime.datetime.now(datetime.timezone.utc).isoformat(),\"logical_id\":\"64B-SADDLE-GEOMETRY-ORIGINAL-COMPLETE-V1\",\"helper\":\"/root/actual_canonical_partner_preflight\",\"full002_ACK_observed_utc\":\"2026-10-28T19:54:53Z\",\"authoring_start_observed_utc\":\"2026-10-28T19:55:25Z\",\"003_delta_ACK_observed_utc\":\"2026-10-28T19:59:05Z\",\"freeze_decision_observed_utc\":\"2026-10-28T20:01:56Z\",\"integrations\":1,\"helper_executions\":0,\"helper_hashes\":0,\"context_payload_kind\":\"Newly authored frozen summary referencing known complete002/003 IDs, not an exact complete context copy. Existing complete context identities remain reused.\",\"signature_reader\":\"Existing child signature-only reader disclosed in B provenance, no proof text/extra proof author/qualifying science credit\",\"originals\":rows},indent=2)+\"\\n\")\nold=source.read_text();end=\"\\nend I4SourceActualQuotientSaddleCollar\\n\";assert old.endswith(end)\nnew=old[:-len(end)]+\"\\n\"+(b/\"originals/B.SaddleGeometrySection.ORIGINAL.lean.txt\").read_text()+end\n(b/\"amendments/geometry-001.patch\").write_text(\"\".join(difflib.unified_diff(old.splitlines(True),new.splitlines(True),fromfile=\"CHART.CHECKED.lean.txt\",tofile=\"SourceActualQuotientSaddleCollar.lean\")))\nsource.write_text(new)\nprint(\"B FIRST IDs retained before ONEintegration; chart known-copy identity reused; whole geometry source now ready.\")\n"
+      ],
+      "external_outer_started_utc": null,
+      "external_outer_ended_utc": null,
+      "original_separate_outer_streams": null,
+      "actual_worker_receipt": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-integrate-B-001/receipt.json"
+    },
+    {
+      "label": "documentary-transport-assembly-001",
+      "tool_chunk": "1f18d6",
+      "enclosing_argv": [
+        "python3",
+        "/workspace/scratch/actual-source-quotient-saddle-collar-construct/record_run.py",
+        "documentary-transport-assembly-001",
+        "python3",
+        "-c",
+        "from pathlib import Path\nimport json,difflib\nb=Path(\"/workspace/scratch/actual-source-quotient-saddle-collar-construct\")\np=Path(\"/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualQuotientSaddleCollar.lean\")\nr=json.loads((b/\"runs/geometry-002/receipt.json\").read_text())\nsid=r[\"after\"][str(p)]\nsnap=b/\"GEOMETRY.CHECKED.lean.txt\";snap.write_bytes(p.read_bytes())\ncache=json.loads((b/\"OWN_ID_CACHE.json\").read_text())\ncache[str(snap)]={\"stamp\":[snap.stat().st_size,snap.stat().st_mtime_ns],\"identity\":dict(sid,path=str(snap),identity_origin=\"Existing geometry002 source FIRST identity reused for exact snapshot\")}\n(b/\"OWN_ID_CACHE.json\").write_text(json.dumps(cache,indent=2)+\"\\n\")\n(b/\"GEOMETRY_MILESTONE.json\").write_text(json.dumps({\"status\":\"COMPLETE_FINITE_GEOMETRY_STRICT_PASS\",\"receipt\":str(b/\"runs/geometry-002/receipt.json\"),\"source\":sid,\"object\":r[\"after\"][str(b/\"build/SourceActualQuotientSaddleCollar.olean\")],\"completed_utc\":r[\"ended_utc\"],\"kernel_count\":0,\"copy_id_reused\":True},indent=2)+\"\\n\")\ninitial=(b/\"ProducerTransport.INITIAL.lean.txt\").read_text()\nbody=initial.replace(\"phi.map_target (hs hu)\",\"phi.symm.mapsTo (hs hu)\").replace(\"phi.map_source hz\",\"phi.mapsTo hz\").replace(\"rw [hW, hplus, hminus]\",\"rw [hplus, hminus, hW]\")\n(b/\"ProducerTransport.002.lean.txt\").write_text(body)\n(b/\"amendments/producer-transport-draft-002.patch\").write_text(\"\".join(difflib.unified_diff(initial.splitlines(True),body.splitlines(True),fromfile=\"ProducerTransport.INITIAL.lean.txt\",tofile=\"ProducerTransport.002.lean.txt\")))\nold=p.read_text();end=\"\\nend I4SourceActualQuotientSaddleCollar\\n\";assert old.endswith(end)\nnew=old[:-len(end)]+\"\\n\"+body+end\n(b/\"amendments/transport-001.patch\").write_text(\"\".join(difflib.unified_diff(old.splitlines(True),new.splitlines(True),fromfile=\"GEOMETRY.CHECKED.lean.txt\",tofile=\"SourceActualQuotientSaddleCollar.lean\")))\np.write_text(new)\nprint(\"Actual transport and expanded sole public theorem assembled; prior geometry snapshot ID reused.\")\n"
+      ],
+      "external_outer_started_utc": null,
+      "external_outer_ended_utc": null,
+      "original_separate_outer_streams": null,
+      "actual_worker_receipt": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-transport-assembly-001/receipt.json"
+    },
+    {
+      "label": "documentary-fixtures-assembly-001",
+      "tool_chunk": "f3f85e",
+      "enclosing_argv": [
+        "python3",
+        "/workspace/scratch/actual-source-quotient-saddle-collar-construct/record_run.py",
+        "documentary-fixtures-assembly-001",
+        "python3",
+        "-c",
+        "from pathlib import Path\nimport json,difflib\nb=Path(\"/workspace/scratch/actual-source-quotient-saddle-collar-construct\")\np=Path(\"/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualQuotientSaddleCollar.lean\")\nr=json.loads((b/\"runs/transport-003/receipt.json\").read_text());sid=r[\"after\"][str(p)]\ns=b/\"CORE.CHECKED.lean.txt\";s.write_bytes(p.read_bytes())\ncache=json.loads((b/\"OWN_ID_CACHE.json\").read_text())\ncache[str(s)]={\"stamp\":[s.stat().st_size,s.stat().st_mtime_ns],\"identity\":dict(sid,path=str(s),identity_origin=\"Existing transport003 source FIRST identity reused for exact core snapshot\")}\n(b/\"OWN_ID_CACHE.json\").write_text(json.dumps(cache,indent=2)+\"\\n\")\n(b/\"CORE_MILESTONE.json\").write_text(json.dumps({\"status\":\"GENERIC_ACTUAL_COLLAR_CORE_STRICT_PASS\",\"source\":sid,\"object\":r[\"after\"][str(b/\"build/SourceActualQuotientSaddleCollar.olean\")],\"receipt\":str(b/\"runs/transport-003/receipt.json\"),\"completed_utc\":r[\"ended_utc\"],\"kernel_count\":0,\"fixture_scope\":\"Newactualfixtures notcoveredbythiscoremilestone\"},indent=2)+\"\\n\")\nold=p.read_text();end=\"\\nend I4SourceActualQuotientSaddleCollar\\n\";assert old.endswith(end)\nnew=old[:-len(end)]+\"\\n\"+(b/\"ProducerFixtureCore.INITIAL.lean.txt\").read_text()+end\n(b/\"amendments/fixtures-001.patch\").write_text(\"\".join(difflib.unified_diff(old.splitlines(True),new.splitlines(True),fromfile=\"CORE.CHECKED.lean.txt\",tofile=\"SourceActualQuotientSaddleCollar.lean\")))\np.write_text(new);print(\"Full actual finite-source both-saddle/small-O/seam fixture tail appended; generic core snapshot ID reused.\")\n"
+      ],
+      "external_outer_started_utc": null,
+      "external_outer_ended_utc": null,
+      "original_separate_outer_streams": null,
+      "actual_worker_receipt": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-fixtures-assembly-001/receipt.json"
+    },
+    {
+      "label": "documentary-source-freeze-001",
+      "tool_chunk": "727429",
+      "enclosing_argv": [
+        "python3",
+        "/workspace/scratch/actual-source-quotient-saddle-collar-construct/record_run.py",
+        "documentary-source-freeze-001",
+        "python3",
+        "-c",
+        "from pathlib import Path\nimport json,datetime\nb=Path(\"/workspace/scratch/actual-source-quotient-saddle-collar-construct\")\np=Path(\"/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualQuotientSaddleCollar.lean\")\nr=json.loads((b/\"runs/fixtures-002/receipt.json\").read_text())\nd={\"status\":\"FINAL_PRODUCTION_SOURCE_FROZEN_LAST_ACTUAL_STRICT_PASS_REUSED_AWAIT_INVENTORY_REVIEW_ONE_KERNEL\",\"recorded_utc\":datetime.datetime.now(datetime.timezone.utc).isoformat(),\"receipt\":str(b/\"runs/fixtures-002/receipt.json\"),\"source\":r[\"after\"][str(p)],\"object\":r[\"after\"][str(b/\"build/SourceActualQuotientSaddleCollar.olean\")],\"lines\":len(p.read_text().splitlines()),\"strict_completed_utc\":r[\"ended_utc\"],\"kernel_count_at_this_source_freeze\":0,\"ordinary_controls_scope\":\"Separate producer-owned ordinary notyetqualified; productionkernel excludes it\",\"strict_label\":\"fixtures002 is actualfinal Werror; no redundantcompile-final\"}\n(b/\"FINAL_SOURCE_OBJECT_IDS.PRE_KERNEL.json\").write_text(json.dumps(d,indent=2)+\"\\n\")\nprint(json.dumps(d,indent=2))\n"
+      ],
+      "external_outer_started_utc": null,
+      "external_outer_ended_utc": null,
+      "original_separate_outer_streams": null,
+      "actual_worker_receipt": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-source-freeze-001/receipt.json"
+    },
+    {
+      "label": "documentary-inventory-classification-001",
+      "tool_chunk": "715d9f",
+      "enclosing_argv": [
+        "python3",
+        "/workspace/scratch/actual-source-quotient-saddle-collar-construct/record_run.py",
+        "documentary-inventory-classification-001",
+        "python3",
+        "-c",
+        "from pathlib import Path\nimport re,json,collections\nb=Path(\"/workspace/scratch/actual-source-quotient-saddle-collar-construct\")\nraw=(b/\"runs/inventory-001/stdout.log\").read_text();rows=[]\nprivate=\"_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.\"\npublic=\"I4SourceActualQuotientSaddleCollar.\"\nfor m in re.finditer(r\"INVENTORY\\|([^|\\n]+)\\|([^\\n]+)\\nAXIOMS\\|[^|\\n]+\\|\\[([^\\]]*)\\]\",raw,re.S):\n    kind,name,axs=m.groups();short=name.removeprefix(private).removeprefix(public)\n    if not name.startswith(private) and not name.startswith(public): c=\"foreign-namespace generated declaration\"\n    elif short in [\"ChartFacts\",\"SaddleGeometry\",\"CollarFacts\"]:c=\"authored private Prop bundle\"\n    elif short==\"Point2\":c=\"authored private type alias\"\n    elif short.startswith(\"ChartFacts.\") or short.startswith(\"SaddleGeometry.\"):\n        if kind==\"constructor\":c=\"generated private Prop-bundle constructor\"\n        elif kind==\"recursor\":c=\"generated private Prop-bundle recursor\"\n        elif kind==\"theorem\":c=\"generated private Prop-bundle projection\"\n        else:c=\"generated private Prop-bundle eliminator or auxiliary\"\n    elif \"._proof_\" in short:c=\"private generated proof auxiliary\"\n    elif \"._simp_\" in short:c=\"private generated simp theorem\"\n    elif \".eq_\" in short or short.endswith(\".eq_def\"):c=\"private generated defining equation\"\n    elif short==\"actualSource_quotient_saddle_local_collar\":c=\"sole authored public theorem\"\n    elif short in [\"targetStrict\",\"targetPlus\",\"targetMinus\",\"targetLower\"]:c=\"authored private finite-geometry set definition\"\n    elif kind==\"definition\":c=\"authored private definition\"\n    elif kind==\"theorem\":c=\"authored private theorem\"\n    else:c=\"other owned generated declaration\"\n    rows.append({\"kind\":kind,\"name\":name,\"axioms\":[a.strip() for a in axs.split(\",\") if a.strip()],\"classification\":c})\nexpected=int(re.search(r\"COMPLETE_NEW_MODULE_INVENTORY\\|SourceActualQuotientSaddleCollar\\|(\\d+)\",raw).group(1))\nassert len(rows)==expected\ncounts=dict(collections.Counter(r[\"classification\"] for r in rows))\nd={\"module\":\"SourceActualQuotientSaddleCollar\",\"total\":expected,\"counts\":counts,\"allowed_axioms\":[\"propext\",\"Classical.choice\",\"Quot.sound\"],\"declarations\":rows,\"coverage\":\"ALL exact own-module-index constants, NO namespace prefilter. Authored/private/data/Prop bundles/generated constructors/projections/recursors/auxiliaries/foreign namespace explicitly classified.\",\"zero_count_categories\":[c for c in [\"foreign-namespace generated declaration\",\"other owned generated declaration\"] if c not in counts],\"receipt\":str(b/\"runs/inventory-001/receipt.json\"),\"harness_provenance\":\"Generic accepted module-index infrastructure, only NEW module imported; no old module execution or private proof dependency.\"}\n(b/\"INVENTORY.json\").write_text(json.dumps(d,indent=2)+\"\\n\")\nfor r in rows:print(r[\"kind\"],\"|\",r[\"classification\"],\"|\",r[\"name\"].removeprefix(private).removeprefix(public),\"|\",\",\".join(r[\"axioms\"]))\nprint(json.dumps({\"total\":expected,\"counts\":counts,\"zero_categories\":d[\"zero_count_categories\"]},indent=2))\n"
+      ],
+      "external_outer_started_utc": null,
+      "external_outer_ended_utc": null,
+      "original_separate_outer_streams": null,
+      "actual_worker_receipt": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-inventory-classification-001/receipt.json"
+    },
+    {
+      "label": "documentary-ordinary-assembly-001",
+      "tool_chunk": "dd409d",
+      "enclosing_argv": [
+        "python3",
+        "/workspace/scratch/actual-source-quotient-saddle-collar-construct/record_run.py",
+        "documentary-ordinary-assembly-001",
+        "python3",
+        "-c",
+        "from pathlib import Path\nimport re,json,hashlib,datetime\nb=Path(\"/workspace/scratch/actual-source-quotient-saddle-collar-construct\")\nsource=Path(\"/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualQuotientSaddleCollar.lean\").read_text()\nfacts=source[source.index(\"private def fixturePolynomial\"):source.index(\"private theorem fixture_saddlePositive\")]\nfor name in [\"fixturePolynomial\",\"fixtureSample\",\"fixtureTorusField\",\"fixturePoint\",\"fixtureSmallOpen\"]:\n    facts=facts.replace(\"private def \"+name,\"def \"+name,1)\nfacts=facts.replace(\"private theorem fixture_actualField\",\"theorem fixture_actualField\",1)\nfacts=facts.replace(\"private theorem fixture_saddleInputs\",\"theorem saddleInputs\",1)\nfacts=facts.replace(\"private theorem fixture_seamInputs\",\"theorem seamInputs\",1)\nfacts=facts.replace(\"private theorem fixture_smallOpen\",\"theorem smallOpen\",1)\nheader=(b/\"HEADER.002.lean.txt\").read_text().replace(\"namespace I4SourceActualQuotientSaddleCollar\",\"namespace QuotientSaddleCollarControls\")\nprojection=\"def physicalProjection (L : \u211d) (X : UniversalLaw.Spec.Lifetime.E 2) :\\n    I4Torus.SourceTorus 2 L :=\\n  I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)\\n\\n\"\nblocks=re.findall(r\"\\x60\\x60\\x60lean\\n(.*?)\\n\\x60\\x60\\x60\",(b/\"CONTEXT.md\").read_text(),re.S)\npredicate=next(x for x in blocks if x.startswith(\"def OrdinaryCollar\")).split(\"\\ntheorem positiveSaddle\")[0]+\"\\n\\n\"\ntext=\"import SourceActualQuotientSaddleCollar\\n\"+header+projection+facts+predicate+(b/\"OrdinaryTail.PRODUCER.INITIAL.lean.txt\").read_text()+\"\\nend QuotientSaddleCollarControls\\n\"\np=b/\"QuotientSaddleCollarControls.lean\";assert not p.exists();p.write_text(text)\ndata=p.read_bytes();ident={\"path\":str(p),\"bytes\":len(data),\"sha256\":hashlib.sha256(data).hexdigest(),\"identity_origin\":\"FIRST new producer ordinary whole harness payload, cached BEFORE first compile\"}\ncache=json.loads((b/\"OWN_ID_CACHE.json\").read_text());cache[str(p)]={\"stamp\":[p.stat().st_size,p.stat().st_mtime_ns],\"identity\":ident};(b/\"OWN_ID_CACHE.json\").write_text(json.dumps(cache,indent=2)+\"\\n\")\n(b/\"ORDINARY_INITIAL_BINDING.json\").write_text(json.dumps({\"recorded_utc\":datetime.datetime.now(datetime.timezone.utc).isoformat(),\"source\":ident,\"author\":\"/root/actual_fold_chart_construct\",\"helper_ordinary_authors\":0,\"initial_scope\":\"WHOLE producer ordinary actual point inputs/three public positives/one chosen actual collar/independent structure-only inverse-points+coordinate IVT counterproof; no importingFalse yet\",\"privacy_reconstruction\":\"Same-unit fresh producer fixture fact text is reconstructed under new ordinary constants through public source APIs. No production-private constants are called, no old60/61/62/63 fixture or Controls body is copied/imported, no entire production source is concatenated. Generic source collar/branch proofs are NOT copied.\",\"qualified\":False},indent=2)+\"\\n\")\nprint(json.dumps({\"initial_whole_ordinary_source\":ident,\"lines\":len(text.splitlines()),\"qualified\":False},indent=2))\n"
+      ],
+      "external_outer_started_utc": null,
+      "external_outer_ended_utc": null,
+      "original_separate_outer_streams": null,
+      "actual_worker_receipt": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-ordinary-assembly-001/receipt.json"
+    }
+  ],
+  "no_reconstructed_outputs": "Actual combined exec-tool messages remain in conversation; original target worker streams remain in files. No absent outer time/file is manufactured."
+}

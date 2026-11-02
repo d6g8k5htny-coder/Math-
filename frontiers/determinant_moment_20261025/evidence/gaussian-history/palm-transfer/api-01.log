@@ -1,0 +1,39 @@
+Real.holderConjugate_iff {p q : ℝ} : p.HolderConjugate q ↔ 1 < p ∧ p⁻¹ + q⁻¹ = 1
+Real.HolderConjugate.two_two : Real.HolderConjugate 2 2
+/workspace/scratch/palm-transfer/Api.lean:7:7: error(lean.unknownIdentifier): Unknown constant `Real.holderConjugate_two_two`
+Real.rpow_two (x : ℝ) : x ^ 2 = x ^ 2
+Real.sqrt_eq_rpow (x : ℝ) : √x = x ^ (1 / 2)
+Real.sqrt_mul {x : ℝ} (hx : 0 ≤ x) (y : ℝ) : √(x * y) = √x * √y
+Real.sqrt_sq {x : ℝ} (h : 0 ≤ x) : √(x ^ 2) = x
+Real.sqrt_sq_eq_abs (x : ℝ) : √(x ^ 2) = |x|
+MeasureTheory.integral_indicator.{u_1, u_3} {X : Type u_1} {E : Type u_3} {mX : MeasurableSpace X}
+  [NormedAddCommGroup E] [NormedSpace ℝ E] {f : X → E} {s : Set X} {μ : Measure X} (hs : MeasurableSet s) :
+  ∫ (x : X), s.indicator f x ∂μ = ∫ (x : X) in s, f x ∂μ
+MeasureTheory.integral_indicator_one.{u_1} {X : Type u_1} {mX : MeasurableSpace X} {μ : Measure X} ⦃s : Set X⦄
+  (hs : MeasurableSet s) : ∫ (x : X), s.indicator 1 x ∂μ = μ.real s
+MeasureTheory.integral_const.{u_1, u_2} {α : Type u_1} {E : Type u_2} [NormedAddCommGroup E] [NormedSpace ℝ E]
+  {m : MeasurableSpace α} {μ : Measure α} [hE : CompleteSpace E] (c : E) : ∫ (x : α), c ∂μ = μ.real Set.univ • c
+MeasureTheory.memLp_const.{u_1, u_5} {α : Type u_1} {E : Type u_5} {m0 : MeasurableSpace α} {p : ENNReal}
+  {μ : Measure α} [NormedAddCommGroup E] (c : E) [IsFiniteMeasure μ] : MemLp (fun x => c) p μ
+MeasureTheory.MemLp.indicator.{u_1, u_6} {α : Type u_1} {m0 : MeasurableSpace α} {p : ENNReal} {μ : Measure α}
+  {ε : Type u_6} [TopologicalSpace ε] [ESeminormedAddMonoid ε] {s : Set α} {f : α → ε} (hs : MeasurableSet s)
+  (hf : MemLp f p μ) : MemLp (s.indicator f) p μ
+/workspace/scratch/palm-transfer/Api.lean:18:7: error(lean.unknownIdentifier): Unknown constant `Set.mul_indicator`
+Set.indicator_mul.{u_1, u_4} {ι : Type u_1} {M₀ : Type u_4} [MulZeroClass M₀] (s : Set ι) (f g : ι → M₀) :
+  (s.indicator fun i => f i * g i) = fun i => s.indicator f i * s.indicator g i
+MeasureTheory.integral_const_mul.{u_1, u_6} {α : Type u_1} {m : MeasurableSpace α} {μ : Measure α} {L : Type u_6}
+  [RCLike L] (r : L) (f : α → L) : ∫ (a : α), r * f a ∂μ = r * ∫ (a : α), f a ∂μ
+MeasureTheory.integral_div.{u_1, u_6} {α : Type u_1} {m : MeasurableSpace α} {μ : Measure α} {L : Type u_6} [RCLike L]
+  (r : L) (f : α → L) : ∫ (a : α), f a / r ∂μ = (∫ (a : α), f a ∂μ) / r
+MeasureTheory.integral_mul_le_Lp_mul_Lq_of_nonneg.{u_1} {α : Type u_1} {m : MeasurableSpace α} {μ : Measure α} {p q : ℝ}
+  (hpq : p.HolderConjugate q) {f g : α → ℝ} (hf_nonneg : 0 ≤ᵐ[μ] f) (hg_nonneg : 0 ≤ᵐ[μ] g)
+  (hf : MemLp f (ENNReal.ofReal p) μ) (hg : MemLp g (ENNReal.ofReal q) μ) :
+  ∫ (a : α), f a * g a ∂μ ≤ (∫ (a : α), f a ^ p ∂μ) ^ (1 / p) * (∫ (a : α), g a ^ q ∂μ) ^ (1 / q)
+MeasureTheory.memLp_two_iff_integrable_sq.{u_1} {α : Type u_1} {m : MeasurableSpace α} {μ : Measure α} {f : α → ℝ}
+  (hf : AEStronglyMeasurable f μ) : MemLp f 2 μ ↔ Integrable (fun x => f x ^ 2) μ
+div_le_div_of_nonneg_left.{u_3} {G₀ : Type u_3} [GroupWithZero G₀] [PartialOrder G₀] [PosMulReflectLT G₀]
+  [MulPosReflectLT G₀] {a b c : G₀} (ha : 0 ≤ a) (hc : 0 < c) (h : c ≤ b) : a / b ≤ a / c
+div_le_iff₀.{u_3} {G₀ : Type u_3} [GroupWithZero G₀] [PartialOrder G₀] [MulPosReflectLT G₀] {a b c : G₀} (hc : 0 < c) :
+  b / c ≤ a ↔ b ≤ a * c
+div_le_div₀.{u_3} {G₀ : Type u_3} [GroupWithZero G₀] [PartialOrder G₀] [PosMulReflectLT G₀] [MulPosReflectLT G₀]
+  {a b c d : G₀} (hc : 0 ≤ c) (hac : a ≤ c) (hd : 0 < d) (hdb : d ≤ b) : a / b ≤ c / d

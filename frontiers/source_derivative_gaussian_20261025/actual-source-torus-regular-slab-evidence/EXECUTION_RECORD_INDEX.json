@@ -1,0 +1,3844 @@
+{
+  "created_utc": "2026-10-28T18:27:04.135360+00:00",
+  "format": "Lossless full actual receipts; replace each singleton $identity object by identity_dictionary[index]. Original authoritative receipt.json and full separate streams remain retained.",
+  "identity_dictionary": [
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 18394,
+      "sha256": "6864e4fea57c216a354efd320c09e5cfadeed7b9c779978144fabc6c01f1bda3",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py",
+      "bytes": 3167,
+      "sha256": "0a48e451489df6849684a78b60f30ea9d51507a48b2d4392c7f347fd7be41e6c",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md",
+      "bytes": 20420,
+      "sha256": "1b48695dd6b45576121181fd538ad2a47cc8cb8063e714346f4591ee068a4e0a",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt",
+      "bytes": 5766,
+      "sha256": "a89022d368a863ed8e95462573fb0d0b98a2b0c0743bb296df8c18c566cff87c",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt",
+      "bytes": 3997,
+      "sha256": "d5a513d3ea7f24e95bc0ab82bebb23365e4033405b4f200515cfdf9330f1d7e0",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 18394,
+      "sha256": "6864e4fea57c216a354efd320c09e5cfadeed7b9c779978144fabc6c01f1bda3",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py",
+      "bytes": 3167,
+      "sha256": "0a48e451489df6849684a78b60f30ea9d51507a48b2d4392c7f347fd7be41e6c",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md",
+      "bytes": 20420,
+      "sha256": "1b48695dd6b45576121181fd538ad2a47cc8cb8063e714346f4591ee068a4e0a",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt",
+      "bytes": 5766,
+      "sha256": "a89022d368a863ed8e95462573fb0d0b98a2b0c0743bb296df8c18c566cff87c",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt",
+      "bytes": 3997,
+      "sha256": "d5a513d3ea7f24e95bc0ab82bebb23365e4033405b4f200515cfdf9330f1d7e0",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-001/stdout.log",
+      "bytes": 18522,
+      "sha256": "d483a8401a2435d42dc98fcb5e93a4be3ddcfc8be33322884592af3689ca5dbe",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 18651,
+      "sha256": "4bf5593cbc37af2a1cffc950cb9d9d481a01b17430311e54cddfcac4a349a64e",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md",
+      "bytes": 21036,
+      "sha256": "85b93f97305bb51cf28a706705d6c5162de97b1290c149873fd3502ec5110923",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt",
+      "bytes": 4004,
+      "sha256": "3234c7922c0e158bdc3d06e2eb62004ea0cd88bbfa71ce24d103599f81bb1761",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 18651,
+      "sha256": "4bf5593cbc37af2a1cffc950cb9d9d481a01b17430311e54cddfcac4a349a64e",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md",
+      "bytes": 21036,
+      "sha256": "85b93f97305bb51cf28a706705d6c5162de97b1290c149873fd3502ec5110923",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt",
+      "bytes": 4004,
+      "sha256": "3234c7922c0e158bdc3d06e2eb62004ea0cd88bbfa71ce24d103599f81bb1761",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-002/stdout.log",
+      "bytes": 3529,
+      "sha256": "ac663db37a9c442f5fa3c945243862d16d96b141fe9cc88423820c098cbbd0c1",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-002/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 18737,
+      "sha256": "efae89a6957a28458d91f11f7b8d0dfb417c8a2e6cd1dadd6886f4fe6a553d8e",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 18737,
+      "sha256": "efae89a6957a28458d91f11f7b8d0dfb417c8a2e6cd1dadd6886f4fe6a553d8e",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-003/stdout.log",
+      "bytes": 191,
+      "sha256": "5929b587661439cd80a2abfbd8d0d08c5dad8ee052c8ce54788cf5213b33f527",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-003/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 18734,
+      "sha256": "c432fca4df42cc957a850b096ab31744e9889556a12ccd0cdc4b0ae3f80eda4d",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 18734,
+      "sha256": "c432fca4df42cc957a850b096ab31744e9889556a12ccd0cdc4b0ae3f80eda4d",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-004/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-004/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 24825,
+      "sha256": "6223784a9c9061de6cb41266aad2a4f9eba3b03de0e23e9e55839b415211ada4",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt",
+      "bytes": 18734,
+      "sha256": "c432fca4df42cc957a850b096ab31744e9889556a12ccd0cdc4b0ae3f80eda4d",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 24825,
+      "sha256": "6223784a9c9061de6cb41266aad2a4f9eba3b03de0e23e9e55839b415211ada4",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt",
+      "bytes": 18734,
+      "sha256": "c432fca4df42cc957a850b096ab31744e9889556a12ccd0cdc4b0ae3f80eda4d",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/finite-horizon-001/stdout.log",
+      "bytes": 424,
+      "sha256": "a899ea09b69075cf8557efc3dc443468a64b2461990ee0f7916dc66474ace02a",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/finite-horizon-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 24830,
+      "sha256": "8ca3478bdc906c49fea98e03c2134e8cbd9e180428a7dcd093d5d7d32a77a47f",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 24830,
+      "sha256": "8ca3478bdc906c49fea98e03c2134e8cbd9e180428a7dcd093d5d7d32a77a47f",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/finite-horizon-002/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/finite-horizon-002/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 32063,
+      "sha256": "ce1c844e13fbe2b62bf8f85533e2aa6a6a7805d8098a15fce1eebab9bca85461",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt",
+      "bytes": 24830,
+      "sha256": "8ca3478bdc906c49fea98e03c2134e8cbd9e180428a7dcd093d5d7d32a77a47f",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 32063,
+      "sha256": "ce1c844e13fbe2b62bf8f85533e2aa6a6a7805d8098a15fce1eebab9bca85461",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt",
+      "bytes": 24830,
+      "sha256": "8ca3478bdc906c49fea98e03c2134e8cbd9e180428a7dcd093d5d7d32a77a47f",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/height-hitting-001/stdout.log",
+      "bytes": 540,
+      "sha256": "18fd410669d0c70382c0e11531acadadd66672a1171511a697d1c8b974fcdfd3",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/height-hitting-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 32029,
+      "sha256": "2ea9f439fab4cf5038d44c8afd10810abcd277bce53c1bc17fbdc6c8cfda4fd5",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 32029,
+      "sha256": "2ea9f439fab4cf5038d44c8afd10810abcd277bce53c1bc17fbdc6c8cfda4fd5",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/height-hitting-002/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/height-hitting-002/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 37797,
+      "sha256": "dd7aa2f18e8e3574925ac5d5af7cabb8118f7816387041c5e11f4ed7ffef8910",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt",
+      "bytes": 32029,
+      "sha256": "2ea9f439fab4cf5038d44c8afd10810abcd277bce53c1bc17fbdc6c8cfda4fd5",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 37797,
+      "sha256": "dd7aa2f18e8e3574925ac5d5af7cabb8118f7816387041c5e11f4ed7ffef8910",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt",
+      "bytes": 32029,
+      "sha256": "2ea9f439fab4cf5038d44c8afd10810abcd277bce53c1bc17fbdc6c8cfda4fd5",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-001/stdout.log",
+      "bytes": 212,
+      "sha256": "68da832f866cdcb51a376f433a068bab0d52c63bfa030043619ac66d334e1319",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 47205,
+      "sha256": "8ef9b14a96cd84e59fe1cc4fa917a8fcf04f76a1ea650bc24a0221a66a0d9c78",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt",
+      "bytes": 9322,
+      "sha256": "4f6e545e2da091a96f460ac4eab8ddcf8b3e588ad5a0a9bf3d673654fae71a26",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 47205,
+      "sha256": "8ef9b14a96cd84e59fe1cc4fa917a8fcf04f76a1ea650bc24a0221a66a0d9c78",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt",
+      "bytes": 9322,
+      "sha256": "4f6e545e2da091a96f460ac4eab8ddcf8b3e588ad5a0a9bf3d673654fae71a26",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-002/stdout.log",
+      "bytes": 1345,
+      "sha256": "0f0f375a5f1b99ef6c5a4060c84c1eceeafa899de4e79e32fbcfad13b7900362",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-002/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 47326,
+      "sha256": "8b482a3d9cef0553b53e291ffc616cf6df87b7b5e8c35776a50a6ca851052995",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 47326,
+      "sha256": "8b482a3d9cef0553b53e291ffc616cf6df87b7b5e8c35776a50a6ca851052995",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-003/stdout.log",
+      "bytes": 536,
+      "sha256": "0927746e49606ecd2cf8c5bc25020f81675d7bf255cfc953909d5a4abbfe85a5",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-003/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 47364,
+      "sha256": "e139bc8366d835393fe47224a3364618cacc0c1e4364a643851182cb0da6915a",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 47364,
+      "sha256": "e139bc8366d835393fe47224a3364618cacc0c1e4364a643851182cb0da6915a",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-004/stdout.log",
+      "bytes": 570,
+      "sha256": "0cb1a15c8ed25eaf8d7c70eebb24ccd5db47d2f86bb7178c152d90449d0dad47",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-004/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 57457,
+      "sha256": "2bd7f65c02bc7e10a29bee35d25c40d6609bd500833a6f72259e18a19aa26ff0",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/FixtureSection.PRODUCER.INITIAL.lean.txt",
+      "bytes": 10117,
+      "sha256": "547841d24a0c37e5a83cb29f8cb4ed536545477c7e62280ec06b7e3216f5b846",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 57457,
+      "sha256": "2bd7f65c02bc7e10a29bee35d25c40d6609bd500833a6f72259e18a19aa26ff0",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/FixtureSection.PRODUCER.INITIAL.lean.txt",
+      "bytes": 10117,
+      "sha256": "547841d24a0c37e5a83cb29f8cb4ed536545477c7e62280ec06b7e3216f5b846",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/stdout.log",
+      "bytes": 1671,
+      "sha256": "14a2b6863c6b3538f18b1de84c7501f116288ce8d1756d8317b3b2c70d58536a",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 57395,
+      "sha256": "f5bf0b0a90185f2ec287510149c8837f117f4071d881e5a229160e3f8e1fa94e",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 57395,
+      "sha256": "f5bf0b0a90185f2ec287510149c8837f117f4071d881e5a229160e3f8e1fa94e",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-006/stdout.log",
+      "bytes": 567,
+      "sha256": "84518867321472436c0cb395b6655e7e34ec405274cdbb311b5e54a88d7ca36a",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-006/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 57451,
+      "sha256": "c72aef8cd5d96b6ebe765f674f2e16403667b7b6331750e1196dd016a77445b6",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 57451,
+      "sha256": "c72aef8cd5d96b6ebe765f674f2e16403667b7b6331750e1196dd016a77445b6",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-007/stdout.log",
+      "bytes": 630,
+      "sha256": "7d27cdfc06782f0560a43374bc8dde95812e6a6e45d905a363721456d541f658",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-007/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 57423,
+      "sha256": "14c900c4e81be9b9ffc85e56fe9c3f191ae8405670d15d0e151a766751b6a23b",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 57423,
+      "sha256": "14c900c4e81be9b9ffc85e56fe9c3f191ae8405670d15d0e151a766751b6a23b",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean",
+      "bytes": 1880192,
+      "sha256": "73dcf886a5f3d2614b93b941d15008b9828ee86d93ff15692823e79f3b03afe8",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/compile-final/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/compile-final/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean",
+      "bytes": 1880192,
+      "sha256": "73dcf886a5f3d2614b93b941d15008b9828ee86d93ff15692823e79f3b03afe8",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/Inventory.lean",
+      "bytes": 1081,
+      "sha256": "9d2f820ec92a6fe3dec50cf2e7f9cb3b2bcb89dc6a4541ed3db64abb2d10ad36",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/TorusRegularSlabControls.lean",
+      "bytes": 8991,
+      "sha256": "0ffe49ecf0c1bcab1d4e86729ee1cf6a3f064a15ace7304aba13e36eaeb0f671",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/Inventory.lean",
+      "bytes": 1081,
+      "sha256": "9d2f820ec92a6fe3dec50cf2e7f9cb3b2bcb89dc6a4541ed3db64abb2d10ad36",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/TorusRegularSlabControls.lean",
+      "bytes": 8991,
+      "sha256": "0ffe49ecf0c1bcab1d4e86729ee1cf6a3f064a15ace7304aba13e36eaeb0f671",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/inventory-001/stdout.log",
+      "bytes": 18511,
+      "sha256": "e20246774a2288c6af8ea37c1caf760ab7cd19ecea98b0128af019cdcf5c967c",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/inventory-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/kernel-001/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/kernel-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/TorusRegularSlabControls.lean",
+      "bytes": 15613,
+      "sha256": "822cd28dab6d63133a1c817783474f8d824858183164a1da3960b902197e4001",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/TorusRegularSlabControls.lean",
+      "bytes": 15613,
+      "sha256": "822cd28dab6d63133a1c817783474f8d824858183164a1da3960b902197e4001",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-001/stdout.log",
+      "bytes": 1129,
+      "sha256": "b460dd24ab74deaa76caba4ceb406768fa206ecbfa0f2142b79cea6c55a68dc6",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/TorusRegularSlabControls.lean",
+      "bytes": 15686,
+      "sha256": "cd19b811cefd5c0c66d0a8af4bba4ed4f8246e4b91794e3bcb0ce77af19f43ff",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean",
+      "bytes": 838856,
+      "sha256": "920f8685fa6821922c2525c0b3f6b538696aaf5706f45883e0bffc48641ed24a",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/TorusRegularSlabControls.lean",
+      "bytes": 15686,
+      "sha256": "cd19b811cefd5c0c66d0a8af4bba4ed4f8246e4b91794e3bcb0ce77af19f43ff",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-002/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-002/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean",
+      "bytes": 838856,
+      "sha256": "920f8685fa6821922c2525c0b3f6b538696aaf5706f45883e0bffc48641ed24a",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/FalseMutation.lean",
+      "bytes": 148,
+      "sha256": "1221ad2b09c34e0650903160c26a0631f63e94004ba52860589aa1a547059af0",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/FalseMutation.lean",
+      "bytes": 148,
+      "sha256": "1221ad2b09c34e0650903160c26a0631f63e94004ba52860589aa1a547059af0",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/false-control-001/stdout.log",
+      "bytes": 119,
+      "sha256": "abb5288367560bbfbff9e4ff171159a9389ff30965449abcbf480d3e36288155",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/false-control-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    }
+  ],
+  "receipts": [
+    {
+      "label": "normalized-001",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "SourceActualTorusRegularSlab.lean"
+      ],
+      "runner_version": "001",
+      "runner_history": "/workspace/scratch/actual-source-torus-regular-slab-construct/history/runner.001.py",
+      "before": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 0
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 1
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 2
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 3
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 4
+        }
+      },
+      "snapshots": [
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-001/SourceActualTorusRegularSlab.lean",
+          "existing_identity": {
+            "$identity": 0
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-001/record_run.py",
+          "existing_identity": {
+            "$identity": 1
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-001/CONTEXT.md",
+          "existing_identity": {
+            "$identity": 2
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-001/ProducerBranches.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 3
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-001/PREFIX.001.lean.txt",
+          "existing_identity": {
+            "$identity": 4
+          }
+        }
+      ],
+      "started_utc": "2026-10-28T17:35:43.931818+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 5.4357443310000235,
+      "ended_utc": "2026-10-28T17:35:49.367709+00:00",
+      "after": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 5
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 7
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "stdout": {
+        "$identity": 10
+      },
+      "stderr": {
+        "$identity": 11
+      }
+    },
+    {
+      "label": "normalized-002",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "SourceActualTorusRegularSlab.lean"
+      ],
+      "runner_version": "001",
+      "runner_history": "/workspace/scratch/actual-source-torus-regular-slab-construct/history/runner.001.py",
+      "before": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 12
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 13
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 14
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "snapshots": [
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-002/SourceActualTorusRegularSlab.lean",
+          "existing_identity": {
+            "$identity": 12
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-002/record_run.py",
+          "existing_identity": {
+            "$identity": 6
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-002/CONTEXT.md",
+          "existing_identity": {
+            "$identity": 13
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-002/PREFIX.002.lean.txt",
+          "existing_identity": {
+            "$identity": 14
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-002/ProducerBranches.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 8
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-002/PREFIX.001.lean.txt",
+          "existing_identity": {
+            "$identity": 9
+          }
+        }
+      ],
+      "started_utc": "2026-10-28T17:38:11.157689+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 4.602555800000118,
+      "ended_utc": "2026-10-28T17:38:15.760452+00:00",
+      "after": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 15
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "stdout": {
+        "$identity": 18
+      },
+      "stderr": {
+        "$identity": 19
+      }
+    },
+    {
+      "label": "normalized-003",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "SourceActualTorusRegularSlab.lean"
+      ],
+      "runner_version": "001",
+      "runner_history": "/workspace/scratch/actual-source-torus-regular-slab-construct/history/runner.001.py",
+      "before": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 20
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "snapshots": [
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-003/SourceActualTorusRegularSlab.lean",
+          "existing_identity": {
+            "$identity": 20
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-003/record_run.py",
+          "existing_identity": {
+            "$identity": 6
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-003/CONTEXT.md",
+          "existing_identity": {
+            "$identity": 16
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-003/PREFIX.002.lean.txt",
+          "existing_identity": {
+            "$identity": 17
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-003/ProducerBranches.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 8
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-003/PREFIX.001.lean.txt",
+          "existing_identity": {
+            "$identity": 9
+          }
+        }
+      ],
+      "started_utc": "2026-10-28T17:40:41.534425+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 4.57960526900024,
+      "ended_utc": "2026-10-28T17:40:46.114312+00:00",
+      "after": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 21
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "stdout": {
+        "$identity": 22
+      },
+      "stderr": {
+        "$identity": 23
+      }
+    },
+    {
+      "label": "normalized-004",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "SourceActualTorusRegularSlab.lean"
+      ],
+      "runner_version": "001",
+      "runner_history": "/workspace/scratch/actual-source-torus-regular-slab-construct/history/runner.001.py",
+      "before": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 24
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "snapshots": [
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-004/SourceActualTorusRegularSlab.lean",
+          "existing_identity": {
+            "$identity": 24
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-004/record_run.py",
+          "existing_identity": {
+            "$identity": 6
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-004/CONTEXT.md",
+          "existing_identity": {
+            "$identity": 16
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-004/PREFIX.002.lean.txt",
+          "existing_identity": {
+            "$identity": 17
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-004/ProducerBranches.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 8
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-004/PREFIX.001.lean.txt",
+          "existing_identity": {
+            "$identity": 9
+          }
+        }
+      ],
+      "started_utc": "2026-10-28T17:41:13.026501+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 4.432395719999477,
+      "ended_utc": "2026-10-28T17:41:17.459166+00:00",
+      "after": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 25
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "stdout": {
+        "$identity": 26
+      },
+      "stderr": {
+        "$identity": 27
+      }
+    },
+    {
+      "label": "finite-horizon-001",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "SourceActualTorusRegularSlab.lean"
+      ],
+      "runner_version": "001",
+      "runner_history": "/workspace/scratch/actual-source-torus-regular-slab-construct/history/runner.001.py",
+      "before": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 28
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 29
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "snapshots": [
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/finite-horizon-001/SourceActualTorusRegularSlab.lean",
+          "existing_identity": {
+            "$identity": 28
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/finite-horizon-001/record_run.py",
+          "existing_identity": {
+            "$identity": 6
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/finite-horizon-001/CONTEXT.md",
+          "existing_identity": {
+            "$identity": 16
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/finite-horizon-001/PREFIX.002.lean.txt",
+          "existing_identity": {
+            "$identity": 17
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/finite-horizon-001/ProducerBranches.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 8
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/finite-horizon-001/NORMALIZED.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 29
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/finite-horizon-001/PREFIX.001.lean.txt",
+          "existing_identity": {
+            "$identity": 9
+          }
+        }
+      ],
+      "started_utc": "2026-10-28T17:41:58.154265+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 4.405926595998608,
+      "ended_utc": "2026-10-28T17:42:02.560424+00:00",
+      "after": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 30
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "stdout": {
+        "$identity": 32
+      },
+      "stderr": {
+        "$identity": 33
+      }
+    },
+    {
+      "label": "finite-horizon-002",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "SourceActualTorusRegularSlab.lean"
+      ],
+      "runner_version": "001",
+      "runner_history": "/workspace/scratch/actual-source-torus-regular-slab-construct/history/runner.001.py",
+      "before": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 34
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "snapshots": [
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/finite-horizon-002/SourceActualTorusRegularSlab.lean",
+          "existing_identity": {
+            "$identity": 34
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/finite-horizon-002/record_run.py",
+          "existing_identity": {
+            "$identity": 6
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/finite-horizon-002/CONTEXT.md",
+          "existing_identity": {
+            "$identity": 16
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/finite-horizon-002/PREFIX.002.lean.txt",
+          "existing_identity": {
+            "$identity": 17
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/finite-horizon-002/ProducerBranches.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 8
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/finite-horizon-002/NORMALIZED.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 31
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/finite-horizon-002/PREFIX.001.lean.txt",
+          "existing_identity": {
+            "$identity": 9
+          }
+        }
+      ],
+      "started_utc": "2026-10-28T17:42:45.522233+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 5.6404112210002495,
+      "ended_utc": "2026-10-28T17:42:51.162967+00:00",
+      "after": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 35
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "stdout": {
+        "$identity": 36
+      },
+      "stderr": {
+        "$identity": 37
+      }
+    },
+    {
+      "label": "height-hitting-001",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "SourceActualTorusRegularSlab.lean"
+      ],
+      "runner_version": "001",
+      "runner_history": "/workspace/scratch/actual-source-torus-regular-slab-construct/history/runner.001.py",
+      "before": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 38
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 39
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "snapshots": [
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/height-hitting-001/SourceActualTorusRegularSlab.lean",
+          "existing_identity": {
+            "$identity": 38
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/height-hitting-001/record_run.py",
+          "existing_identity": {
+            "$identity": 6
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/height-hitting-001/CONTEXT.md",
+          "existing_identity": {
+            "$identity": 16
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/height-hitting-001/PREFIX.002.lean.txt",
+          "existing_identity": {
+            "$identity": 17
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/height-hitting-001/FINITE_HORIZON.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 39
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/height-hitting-001/ProducerBranches.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 8
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/height-hitting-001/NORMALIZED.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 31
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/height-hitting-001/PREFIX.001.lean.txt",
+          "existing_identity": {
+            "$identity": 9
+          }
+        }
+      ],
+      "started_utc": "2026-10-28T17:43:43.202175+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 5.9870308299996395,
+      "ended_utc": "2026-10-28T17:43:49.189561+00:00",
+      "after": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 40
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "stdout": {
+        "$identity": 42
+      },
+      "stderr": {
+        "$identity": 43
+      }
+    },
+    {
+      "label": "height-hitting-002",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "SourceActualTorusRegularSlab.lean"
+      ],
+      "runner_version": "001",
+      "runner_history": "/workspace/scratch/actual-source-torus-regular-slab-construct/history/runner.001.py",
+      "before": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 44
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "snapshots": [
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/height-hitting-002/SourceActualTorusRegularSlab.lean",
+          "existing_identity": {
+            "$identity": 44
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/height-hitting-002/record_run.py",
+          "existing_identity": {
+            "$identity": 6
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/height-hitting-002/CONTEXT.md",
+          "existing_identity": {
+            "$identity": 16
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/height-hitting-002/PREFIX.002.lean.txt",
+          "existing_identity": {
+            "$identity": 17
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/height-hitting-002/FINITE_HORIZON.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 41
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/height-hitting-002/ProducerBranches.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 8
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/height-hitting-002/NORMALIZED.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 31
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/height-hitting-002/PREFIX.001.lean.txt",
+          "existing_identity": {
+            "$identity": 9
+          }
+        }
+      ],
+      "started_utc": "2026-10-28T17:45:17.123508+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 4.728980469999442,
+      "ended_utc": "2026-10-28T17:45:21.852786+00:00",
+      "after": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 45
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "stdout": {
+        "$identity": 46
+      },
+      "stderr": {
+        "$identity": 47
+      }
+    },
+    {
+      "label": "producer-joins-001",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "SourceActualTorusRegularSlab.lean"
+      ],
+      "runner_version": "001",
+      "runner_history": "/workspace/scratch/actual-source-torus-regular-slab-construct/history/runner.001.py",
+      "before": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 48
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt": {
+          "$identity": 49
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "snapshots": [
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-001/SourceActualTorusRegularSlab.lean",
+          "existing_identity": {
+            "$identity": 48
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-001/record_run.py",
+          "existing_identity": {
+            "$identity": 6
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-001/CONTEXT.md",
+          "existing_identity": {
+            "$identity": 16
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-001/PREFIX.002.lean.txt",
+          "existing_identity": {
+            "$identity": 17
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-001/FINITE_HORIZON.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 41
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-001/ProducerBranches.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 8
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-001/NORMALIZED.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 31
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-001/HEIGHT_HITTING.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 49
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-001/PREFIX.001.lean.txt",
+          "existing_identity": {
+            "$identity": 9
+          }
+        }
+      ],
+      "started_utc": "2026-10-28T17:46:57.161232+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 4.999822767000296,
+      "ended_utc": "2026-10-28T17:47:02.161356+00:00",
+      "after": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 50
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt": {
+          "$identity": 51
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "stdout": {
+        "$identity": 52
+      },
+      "stderr": {
+        "$identity": 53
+      }
+    },
+    {
+      "label": "producer-joins-002",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "SourceActualTorusRegularSlab.lean"
+      ],
+      "runner_version": "001",
+      "runner_history": "/workspace/scratch/actual-source-torus-regular-slab-construct/history/runner.001.py",
+      "before": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 54
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt": {
+          "$identity": 55
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt": {
+          "$identity": 51
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "snapshots": [
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-002/SourceActualTorusRegularSlab.lean",
+          "existing_identity": {
+            "$identity": 54
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-002/record_run.py",
+          "existing_identity": {
+            "$identity": 6
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-002/CONTEXT.md",
+          "existing_identity": {
+            "$identity": 16
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-002/PREFIX.002.lean.txt",
+          "existing_identity": {
+            "$identity": 17
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-002/FINITE_HORIZON.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 41
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-002/ProducerBranches.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 8
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-002/NORMALIZED.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 31
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-002/ProducerDescent.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 55
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-002/HEIGHT_HITTING.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 51
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-002/PREFIX.001.lean.txt",
+          "existing_identity": {
+            "$identity": 9
+          }
+        }
+      ],
+      "started_utc": "2026-10-28T17:49:43.943169+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 5.363693246999901,
+      "ended_utc": "2026-10-28T17:49:49.307344+00:00",
+      "after": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 56
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt": {
+          "$identity": 57
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt": {
+          "$identity": 51
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "stdout": {
+        "$identity": 58
+      },
+      "stderr": {
+        "$identity": 59
+      }
+    },
+    {
+      "label": "producer-joins-003",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "SourceActualTorusRegularSlab.lean"
+      ],
+      "runner_version": "001",
+      "runner_history": "/workspace/scratch/actual-source-torus-regular-slab-construct/history/runner.001.py",
+      "before": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 60
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt": {
+          "$identity": 57
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt": {
+          "$identity": 51
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "snapshots": [
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-003/SourceActualTorusRegularSlab.lean",
+          "existing_identity": {
+            "$identity": 60
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-003/record_run.py",
+          "existing_identity": {
+            "$identity": 6
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-003/CONTEXT.md",
+          "existing_identity": {
+            "$identity": 16
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-003/PREFIX.002.lean.txt",
+          "existing_identity": {
+            "$identity": 17
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-003/FINITE_HORIZON.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 41
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-003/ProducerBranches.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 8
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-003/NORMALIZED.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 31
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-003/ProducerDescent.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 57
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-003/HEIGHT_HITTING.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 51
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-003/PREFIX.001.lean.txt",
+          "existing_identity": {
+            "$identity": 9
+          }
+        }
+      ],
+      "started_utc": "2026-10-28T17:53:34.424400+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 6.639114752000751,
+      "ended_utc": "2026-10-28T17:53:41.063966+00:00",
+      "after": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 61
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt": {
+          "$identity": 57
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt": {
+          "$identity": 51
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "stdout": {
+        "$identity": 62
+      },
+      "stderr": {
+        "$identity": 63
+      }
+    },
+    {
+      "label": "producer-joins-004",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "SourceActualTorusRegularSlab.lean"
+      ],
+      "runner_version": "001",
+      "runner_history": "/workspace/scratch/actual-source-torus-regular-slab-construct/history/runner.001.py",
+      "before": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 64
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt": {
+          "$identity": 57
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt": {
+          "$identity": 51
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "snapshots": [
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-004/SourceActualTorusRegularSlab.lean",
+          "existing_identity": {
+            "$identity": 64
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-004/record_run.py",
+          "existing_identity": {
+            "$identity": 6
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-004/CONTEXT.md",
+          "existing_identity": {
+            "$identity": 16
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-004/PREFIX.002.lean.txt",
+          "existing_identity": {
+            "$identity": 17
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-004/FINITE_HORIZON.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 41
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-004/ProducerBranches.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 8
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-004/NORMALIZED.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 31
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-004/ProducerDescent.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 57
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-004/HEIGHT_HITTING.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 51
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-004/PREFIX.001.lean.txt",
+          "existing_identity": {
+            "$identity": 9
+          }
+        }
+      ],
+      "started_utc": "2026-10-28T17:56:26.251017+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 5.011342662999596,
+      "ended_utc": "2026-10-28T17:56:31.262700+00:00",
+      "after": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 65
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt": {
+          "$identity": 57
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt": {
+          "$identity": 51
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "stdout": {
+        "$identity": 66
+      },
+      "stderr": {
+        "$identity": 67
+      }
+    },
+    {
+      "label": "producer-joins-005",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "SourceActualTorusRegularSlab.lean"
+      ],
+      "runner_version": "001",
+      "runner_history": "/workspace/scratch/actual-source-torus-regular-slab-construct/history/runner.001.py",
+      "before": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 68
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FixtureSection.PRODUCER.INITIAL.lean.txt": {
+          "$identity": 69
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt": {
+          "$identity": 57
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt": {
+          "$identity": 51
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "snapshots": [
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/SourceActualTorusRegularSlab.lean",
+          "existing_identity": {
+            "$identity": 68
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/record_run.py",
+          "existing_identity": {
+            "$identity": 6
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/CONTEXT.md",
+          "existing_identity": {
+            "$identity": 16
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/PREFIX.002.lean.txt",
+          "existing_identity": {
+            "$identity": 17
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/FixtureSection.PRODUCER.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 69
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/FINITE_HORIZON.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 41
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/ProducerBranches.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 8
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/NORMALIZED.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 31
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/ProducerDescent.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 57
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/HEIGHT_HITTING.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 51
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/PREFIX.001.lean.txt",
+          "existing_identity": {
+            "$identity": 9
+          }
+        }
+      ],
+      "started_utc": "2026-10-28T17:58:58.936364+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 7.876841725999839,
+      "ended_utc": "2026-10-28T17:59:06.813610+00:00",
+      "after": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 70
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FixtureSection.PRODUCER.INITIAL.lean.txt": {
+          "$identity": 71
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt": {
+          "$identity": 57
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt": {
+          "$identity": 51
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "stdout": {
+        "$identity": 72
+      },
+      "stderr": {
+        "$identity": 73
+      }
+    },
+    {
+      "label": "producer-joins-006",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "SourceActualTorusRegularSlab.lean"
+      ],
+      "runner_version": "001",
+      "runner_history": "/workspace/scratch/actual-source-torus-regular-slab-construct/history/runner.001.py",
+      "before": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 74
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FixtureSection.PRODUCER.INITIAL.lean.txt": {
+          "$identity": 71
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt": {
+          "$identity": 57
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt": {
+          "$identity": 51
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "snapshots": [
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-006/SourceActualTorusRegularSlab.lean",
+          "existing_identity": {
+            "$identity": 74
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-006/record_run.py",
+          "existing_identity": {
+            "$identity": 6
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-006/CONTEXT.md",
+          "existing_identity": {
+            "$identity": 16
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-006/PREFIX.002.lean.txt",
+          "existing_identity": {
+            "$identity": 17
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-006/FixtureSection.PRODUCER.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 71
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-006/FINITE_HORIZON.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 41
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-006/ProducerBranches.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 8
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-006/NORMALIZED.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 31
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-006/ProducerDescent.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 57
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-006/HEIGHT_HITTING.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 51
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-006/PREFIX.001.lean.txt",
+          "existing_identity": {
+            "$identity": 9
+          }
+        }
+      ],
+      "started_utc": "2026-10-28T18:02:15.071607+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 6.436160152999946,
+      "ended_utc": "2026-10-28T18:02:21.508382+00:00",
+      "after": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 75
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FixtureSection.PRODUCER.INITIAL.lean.txt": {
+          "$identity": 71
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt": {
+          "$identity": 57
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt": {
+          "$identity": 51
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "stdout": {
+        "$identity": 76
+      },
+      "stderr": {
+        "$identity": 77
+      }
+    },
+    {
+      "label": "producer-joins-007",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "SourceActualTorusRegularSlab.lean"
+      ],
+      "runner_version": "001",
+      "runner_history": "/workspace/scratch/actual-source-torus-regular-slab-construct/history/runner.001.py",
+      "before": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 78
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FixtureSection.PRODUCER.INITIAL.lean.txt": {
+          "$identity": 71
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt": {
+          "$identity": 57
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt": {
+          "$identity": 51
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "snapshots": [
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-007/SourceActualTorusRegularSlab.lean",
+          "existing_identity": {
+            "$identity": 78
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-007/record_run.py",
+          "existing_identity": {
+            "$identity": 6
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-007/CONTEXT.md",
+          "existing_identity": {
+            "$identity": 16
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-007/PREFIX.002.lean.txt",
+          "existing_identity": {
+            "$identity": 17
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-007/FixtureSection.PRODUCER.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 71
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-007/FINITE_HORIZON.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 41
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-007/ProducerBranches.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 8
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-007/NORMALIZED.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 31
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-007/ProducerDescent.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 57
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-007/HEIGHT_HITTING.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 51
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-007/PREFIX.001.lean.txt",
+          "existing_identity": {
+            "$identity": 9
+          }
+        }
+      ],
+      "started_utc": "2026-10-28T18:06:05.306039+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 5.9074459559997194,
+      "ended_utc": "2026-10-28T18:06:11.213889+00:00",
+      "after": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 79
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FixtureSection.PRODUCER.INITIAL.lean.txt": {
+          "$identity": 71
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt": {
+          "$identity": 57
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt": {
+          "$identity": 51
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "stdout": {
+        "$identity": 80
+      },
+      "stderr": {
+        "$identity": 81
+      }
+    },
+    {
+      "label": "compile-final",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean",
+        "SourceActualTorusRegularSlab.lean"
+      ],
+      "runner_version": "001",
+      "runner_history": "/workspace/scratch/actual-source-torus-regular-slab-construct/history/runner.001.py",
+      "before": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 82
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FixtureSection.PRODUCER.INITIAL.lean.txt": {
+          "$identity": 71
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt": {
+          "$identity": 57
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt": {
+          "$identity": 51
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "snapshots": [
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/compile-final/SourceActualTorusRegularSlab.lean",
+          "existing_identity": {
+            "$identity": 82
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/compile-final/record_run.py",
+          "existing_identity": {
+            "$identity": 6
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/compile-final/CONTEXT.md",
+          "existing_identity": {
+            "$identity": 16
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/compile-final/PREFIX.002.lean.txt",
+          "existing_identity": {
+            "$identity": 17
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/compile-final/FixtureSection.PRODUCER.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 71
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/compile-final/FINITE_HORIZON.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 41
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/compile-final/ProducerBranches.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 8
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/compile-final/NORMALIZED.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 31
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/compile-final/ProducerDescent.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 57
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/compile-final/HEIGHT_HITTING.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 51
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/compile-final/PREFIX.001.lean.txt",
+          "existing_identity": {
+            "$identity": 9
+          }
+        }
+      ],
+      "started_utc": "2026-10-28T18:06:57.970734+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 5.791136857998936,
+      "ended_utc": "2026-10-28T18:07:03.762278+00:00",
+      "after": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 83
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": {
+          "$identity": 84
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FixtureSection.PRODUCER.INITIAL.lean.txt": {
+          "$identity": 71
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt": {
+          "$identity": 57
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt": {
+          "$identity": 51
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "stdout": {
+        "$identity": 85
+      },
+      "stderr": {
+        "$identity": 86
+      }
+    },
+    {
+      "label": "inventory-001",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-source-torus-regular-slab-construct/build:$LEAN_PATH exec lean -DwarningAsError=true /workspace/scratch/actual-source-torus-regular-slab-construct/Inventory.lean"
+      ],
+      "runner_version": "001",
+      "runner_history": "/workspace/scratch/actual-source-torus-regular-slab-construct/history/runner.001.py",
+      "before": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 83
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": {
+          "$identity": 87
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/Inventory.lean": {
+          "$identity": 88
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/TorusRegularSlabControls.lean": {
+          "$identity": 89
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FixtureSection.PRODUCER.INITIAL.lean.txt": {
+          "$identity": 71
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt": {
+          "$identity": 57
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt": {
+          "$identity": 51
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "snapshots": [
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/inventory-001/SourceActualTorusRegularSlab.lean",
+          "existing_identity": {
+            "$identity": 83
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/inventory-001/record_run.py",
+          "existing_identity": {
+            "$identity": 6
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/inventory-001/CONTEXT.md",
+          "existing_identity": {
+            "$identity": 16
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/inventory-001/Inventory.lean",
+          "existing_identity": {
+            "$identity": 88
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/inventory-001/TorusRegularSlabControls.lean",
+          "existing_identity": {
+            "$identity": 89
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/inventory-001/PREFIX.002.lean.txt",
+          "existing_identity": {
+            "$identity": 17
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/inventory-001/FixtureSection.PRODUCER.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 71
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/inventory-001/FINITE_HORIZON.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 41
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/inventory-001/ProducerBranches.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 8
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/inventory-001/NORMALIZED.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 31
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/inventory-001/ProducerDescent.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 57
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/inventory-001/HEIGHT_HITTING.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 51
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/inventory-001/PREFIX.001.lean.txt",
+          "existing_identity": {
+            "$identity": 9
+          }
+        }
+      ],
+      "started_utc": "2026-10-28T18:08:26.336810+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 3.175133303000621,
+      "ended_utc": "2026-10-28T18:08:29.512395+00:00",
+      "after": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 83
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": {
+          "$identity": 87
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/Inventory.lean": {
+          "$identity": 90
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/TorusRegularSlabControls.lean": {
+          "$identity": 91
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FixtureSection.PRODUCER.INITIAL.lean.txt": {
+          "$identity": 71
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt": {
+          "$identity": 57
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt": {
+          "$identity": 51
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "stdout": {
+        "$identity": 92
+      },
+      "stderr": {
+        "$identity": 93
+      }
+    },
+    {
+      "label": "kernel-001",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-source-torus-regular-slab-construct/build:$LEAN_PATH exec leanchecker SourceActualTorusRegularSlab"
+      ],
+      "runner_version": "001",
+      "runner_history": "/workspace/scratch/actual-source-torus-regular-slab-construct/history/runner.001.py",
+      "before": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 83
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": {
+          "$identity": 87
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/Inventory.lean": {
+          "$identity": 90
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/TorusRegularSlabControls.lean": {
+          "$identity": 91
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FixtureSection.PRODUCER.INITIAL.lean.txt": {
+          "$identity": 71
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt": {
+          "$identity": 57
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt": {
+          "$identity": 51
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "snapshots": [
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/kernel-001/SourceActualTorusRegularSlab.lean",
+          "existing_identity": {
+            "$identity": 83
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/kernel-001/record_run.py",
+          "existing_identity": {
+            "$identity": 6
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/kernel-001/CONTEXT.md",
+          "existing_identity": {
+            "$identity": 16
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/kernel-001/Inventory.lean",
+          "existing_identity": {
+            "$identity": 90
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/kernel-001/TorusRegularSlabControls.lean",
+          "existing_identity": {
+            "$identity": 91
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/kernel-001/PREFIX.002.lean.txt",
+          "existing_identity": {
+            "$identity": 17
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/kernel-001/FixtureSection.PRODUCER.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 71
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/kernel-001/FINITE_HORIZON.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 41
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/kernel-001/ProducerBranches.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 8
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/kernel-001/NORMALIZED.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 31
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/kernel-001/ProducerDescent.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 57
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/kernel-001/HEIGHT_HITTING.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 51
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/kernel-001/PREFIX.001.lean.txt",
+          "existing_identity": {
+            "$identity": 9
+          }
+        }
+      ],
+      "started_utc": "2026-10-28T18:11:10.197145+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 5.174549492001461,
+      "ended_utc": "2026-10-28T18:11:15.372164+00:00",
+      "after": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 83
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": {
+          "$identity": 87
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/Inventory.lean": {
+          "$identity": 90
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/TorusRegularSlabControls.lean": {
+          "$identity": 91
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FixtureSection.PRODUCER.INITIAL.lean.txt": {
+          "$identity": 71
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt": {
+          "$identity": 57
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt": {
+          "$identity": 51
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "stdout": {
+        "$identity": 94
+      },
+      "stderr": {
+        "$identity": 95
+      }
+    },
+    {
+      "label": "controls-001",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-source-torus-regular-slab-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/actual-source-torus-regular-slab-construct -o /workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean /workspace/scratch/actual-source-torus-regular-slab-construct/TorusRegularSlabControls.lean"
+      ],
+      "runner_version": "001",
+      "runner_history": "/workspace/scratch/actual-source-torus-regular-slab-construct/history/runner.001.py",
+      "before": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 83
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": {
+          "$identity": 87
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/Inventory.lean": {
+          "$identity": 90
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/TorusRegularSlabControls.lean": {
+          "$identity": 96
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FixtureSection.PRODUCER.INITIAL.lean.txt": {
+          "$identity": 71
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt": {
+          "$identity": 57
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt": {
+          "$identity": 51
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "snapshots": [
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-001/SourceActualTorusRegularSlab.lean",
+          "existing_identity": {
+            "$identity": 83
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-001/record_run.py",
+          "existing_identity": {
+            "$identity": 6
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-001/CONTEXT.md",
+          "existing_identity": {
+            "$identity": 16
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-001/Inventory.lean",
+          "existing_identity": {
+            "$identity": 90
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-001/TorusRegularSlabControls.lean",
+          "existing_identity": {
+            "$identity": 96
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-001/PREFIX.002.lean.txt",
+          "existing_identity": {
+            "$identity": 17
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-001/FixtureSection.PRODUCER.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 71
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-001/FINITE_HORIZON.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 41
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-001/ProducerBranches.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 8
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-001/NORMALIZED.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 31
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-001/ProducerDescent.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 57
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-001/HEIGHT_HITTING.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 51
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-001/PREFIX.001.lean.txt",
+          "existing_identity": {
+            "$identity": 9
+          }
+        }
+      ],
+      "started_utc": "2026-10-28T18:13:41.337780+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 5.024589984001068,
+      "ended_utc": "2026-10-28T18:13:46.362907+00:00",
+      "after": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 83
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": {
+          "$identity": 87
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/Inventory.lean": {
+          "$identity": 90
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/TorusRegularSlabControls.lean": {
+          "$identity": 97
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FixtureSection.PRODUCER.INITIAL.lean.txt": {
+          "$identity": 71
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt": {
+          "$identity": 57
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt": {
+          "$identity": 51
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "stdout": {
+        "$identity": 98
+      },
+      "stderr": {
+        "$identity": 99
+      }
+    },
+    {
+      "label": "controls-002",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-source-torus-regular-slab-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/actual-source-torus-regular-slab-construct -o /workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean /workspace/scratch/actual-source-torus-regular-slab-construct/TorusRegularSlabControls.lean"
+      ],
+      "runner_version": "001",
+      "runner_history": "/workspace/scratch/actual-source-torus-regular-slab-construct/history/runner.001.py",
+      "before": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 83
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": {
+          "$identity": 87
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/Inventory.lean": {
+          "$identity": 90
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/TorusRegularSlabControls.lean": {
+          "$identity": 100
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FixtureSection.PRODUCER.INITIAL.lean.txt": {
+          "$identity": 71
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt": {
+          "$identity": 57
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt": {
+          "$identity": 51
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "snapshots": [
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-002/SourceActualTorusRegularSlab.lean",
+          "existing_identity": {
+            "$identity": 83
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-002/record_run.py",
+          "existing_identity": {
+            "$identity": 6
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-002/CONTEXT.md",
+          "existing_identity": {
+            "$identity": 16
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-002/Inventory.lean",
+          "existing_identity": {
+            "$identity": 90
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-002/TorusRegularSlabControls.lean",
+          "existing_identity": {
+            "$identity": 100
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-002/PREFIX.002.lean.txt",
+          "existing_identity": {
+            "$identity": 17
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-002/FixtureSection.PRODUCER.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 71
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-002/FINITE_HORIZON.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 41
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-002/ProducerBranches.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 8
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-002/NORMALIZED.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 31
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-002/ProducerDescent.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 57
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-002/HEIGHT_HITTING.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 51
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-002/PREFIX.001.lean.txt",
+          "existing_identity": {
+            "$identity": 9
+          }
+        }
+      ],
+      "started_utc": "2026-10-28T18:16:31.341311+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 4.82865674399909,
+      "ended_utc": "2026-10-28T18:16:36.170883+00:00",
+      "after": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 83
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": {
+          "$identity": 87
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": {
+          "$identity": 101
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/Inventory.lean": {
+          "$identity": 90
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/TorusRegularSlabControls.lean": {
+          "$identity": 102
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FixtureSection.PRODUCER.INITIAL.lean.txt": {
+          "$identity": 71
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt": {
+          "$identity": 57
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt": {
+          "$identity": 51
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "stdout": {
+        "$identity": 103
+      },
+      "stderr": {
+        "$identity": 104
+      }
+    },
+    {
+      "label": "false-control-001",
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-source-torus-regular-slab-construct/build:$LEAN_PATH exec lean -DwarningAsError=true /workspace/scratch/actual-source-torus-regular-slab-construct/FalseMutation.lean"
+      ],
+      "runner_version": "001",
+      "runner_history": "/workspace/scratch/actual-source-torus-regular-slab-construct/history/runner.001.py",
+      "before": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 83
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": {
+          "$identity": 87
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": {
+          "$identity": 105
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/Inventory.lean": {
+          "$identity": 90
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FalseMutation.lean": {
+          "$identity": 106
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/TorusRegularSlabControls.lean": {
+          "$identity": 102
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FixtureSection.PRODUCER.INITIAL.lean.txt": {
+          "$identity": 71
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt": {
+          "$identity": 57
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt": {
+          "$identity": 51
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "snapshots": [
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/false-control-001/SourceActualTorusRegularSlab.lean",
+          "existing_identity": {
+            "$identity": 83
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/false-control-001/record_run.py",
+          "existing_identity": {
+            "$identity": 6
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/false-control-001/CONTEXT.md",
+          "existing_identity": {
+            "$identity": 16
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/false-control-001/Inventory.lean",
+          "existing_identity": {
+            "$identity": 90
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/false-control-001/FalseMutation.lean",
+          "existing_identity": {
+            "$identity": 106
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/false-control-001/TorusRegularSlabControls.lean",
+          "existing_identity": {
+            "$identity": 102
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/false-control-001/PREFIX.002.lean.txt",
+          "existing_identity": {
+            "$identity": 17
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/false-control-001/FixtureSection.PRODUCER.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 71
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/false-control-001/FINITE_HORIZON.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 41
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/false-control-001/ProducerBranches.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 8
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/false-control-001/NORMALIZED.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 31
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/false-control-001/ProducerDescent.INITIAL.lean.txt",
+          "existing_identity": {
+            "$identity": 57
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/false-control-001/HEIGHT_HITTING.CHECKED.lean.txt",
+          "existing_identity": {
+            "$identity": 51
+          }
+        },
+        {
+          "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/false-control-001/PREFIX.001.lean.txt",
+          "existing_identity": {
+            "$identity": 9
+          }
+        }
+      ],
+      "started_utc": "2026-10-28T18:24:28.969347+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 2.7244351629997254,
+      "ended_utc": "2026-10-28T18:24:31.694288+00:00",
+      "after": {
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+          "$identity": 83
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": {
+          "$identity": 87
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": {
+          "$identity": 105
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+          "$identity": 6
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+          "$identity": 16
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/Inventory.lean": {
+          "$identity": 90
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FalseMutation.lean": {
+          "$identity": 107
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/TorusRegularSlabControls.lean": {
+          "$identity": 102
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+          "$identity": 17
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FixtureSection.PRODUCER.INITIAL.lean.txt": {
+          "$identity": 71
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+          "$identity": 41
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+          "$identity": 8
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+          "$identity": 31
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt": {
+          "$identity": 57
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt": {
+          "$identity": 51
+        },
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+          "$identity": 9
+        }
+      },
+      "stdout": {
+        "$identity": 108
+      },
+      "stderr": {
+        "$identity": 109
+      }
+    }
+  ],
+  "receipt_paths": [
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-001/receipt.json",
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-002/receipt.json",
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-003/receipt.json",
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/normalized-004/receipt.json",
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/finite-horizon-001/receipt.json",
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/finite-horizon-002/receipt.json",
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/height-hitting-001/receipt.json",
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/height-hitting-002/receipt.json",
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-001/receipt.json",
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-002/receipt.json",
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-003/receipt.json",
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-004/receipt.json",
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/receipt.json",
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-006/receipt.json",
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-007/receipt.json",
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/compile-final/receipt.json",
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/inventory-001/receipt.json",
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/kernel-001/receipt.json",
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-001/receipt.json",
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-002/receipt.json",
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/false-control-001/receipt.json"
+  ],
+  "run_count": 21,
+  "split_stream_count": 42,
+  "runner_versions": [
+    "001"
+  ],
+  "checks_replayed": 0
+}

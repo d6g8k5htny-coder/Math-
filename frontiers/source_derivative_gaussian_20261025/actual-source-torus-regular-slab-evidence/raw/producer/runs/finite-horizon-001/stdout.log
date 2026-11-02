@@ -1,0 +1,16 @@
+SourceActualTorusRegularSlab.lean:434:6: error: unsolved goals
+case hm
+L : ℝ
+V : E2 → E2
+M K : ℝ≥0
+hbound : ∀ (X : E2), ‖V X‖ ≤ ↑M
+hlip : LipschitzWith K V
+hper : ∀ (X : E2) (n : Fin 2 → ℤ), V (X + latticeVec 2 L n) = V X
+T : ℝ
+hT : 0 ≤ T
+D : ℝ := T + 1
+hD : 0 < D
+zeroTime : ↑(Icc (-D) D) := ⟨0, ⋯⟩
+outer : ℝ≥0 := 1 + M * ⟨D, ⋯⟩
+Z : E2
+⊢ ↑M * D ≤ ↑(M * ⟨D, ⋯⟩)
