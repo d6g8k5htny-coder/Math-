@@ -1,3 +1,5 @@
+> **CBZ gate successor: QUARANTINED.** The compiled-package admission repair in [GOVERNANCE.md](GOVERNANCE.md) and [TOOLING.md](TOOLING.md) supersedes the historical gate-contract description below. The current package has no observed bound compiled inventory; both gate commands fail closed with CBZ_COMPILED_INVENTORY_UNQUALIFIED. Actual repaired-gate Lean execution is NOT_RUN. Mathematical proof bytes are preserved.
+
 # Gaussian endpoint moments, canonical conditioning and normalizer research
 
 This successor develops Gaussian eighth moments, literal six-endpoint determinant

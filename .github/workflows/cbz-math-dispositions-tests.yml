@@ -1,0 +1,28 @@
+name: CBZ Math- disposition evidence tests (no scientific promotion)
+on:
+  pull_request:
+    paths:
+      - 'cbz/evidence/math-pr-dispositions/**'
+      - '.github/workflows/cbz-math-dispositions-tests.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'cbz/evidence/math-pr-dispositions/**'
+      - '.github/workflows/cbz-math-dispositions-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  disposition-tool-tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Unit tests, normal and optimized, warnings as errors
+        working-directory: cbz/evidence/math-pr-dispositions
+        run: |
+          python3 --version
+          python3 -W error -m unittest test_disposition_lib test_generate -v
+          python3 -O -W error -m unittest test_disposition_lib test_generate -v

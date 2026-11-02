@@ -102,7 +102,7 @@
     "COMPATIBILITY.md": "216b772d417ce273499b692481f3c4e6e1f499c67ff41cb92f008a9b9bf09513",
     "GLOSSARY.md": "3cd098f26e3020b780307617fc65c53ed040789d54ea53930c5fa21524bc7323",
     "LINEAGE_VALIDATION.md": "c110f68db14447c0a604c39f4975b6255e43a2c921badf6277fab0813480aac4",
-    "README.md": "3167cdc2b3e4ea64803cede46feec926af23fcf6c957a51faa83901a223c678b",
+    "README.md": "1534a0c6846e57e2e4cee1cc2e9d660415bd784a1918c0623130536f65ef2cc8",
     "ResearchFormalCoreR1.lean": "15e6b160ea4dcd0b95d9bf56afe318d0292e2421659637cb6754e18eee1e4364",
     "ResearchFormalCoreR1/AlgebraV2.lean": "71e4327df9f7d6979f1467f7e0d880e0ab0a70ab6d234802d8c7a1624b9ce2d9",
     "ResearchFormalCoreR1/DeterminantMoment.lean": "661b73c3f21c6d2529f5e09ce426d89c01939ab27a5cc868db3802c7e66ea82d",
@@ -322,14 +322,22 @@
     "evidence/history/umbrella-mathlib-oom/build.log": "5c71383534ec697ec05727cbad4752d5f523518479fd1eba1c731f3291fd5e3c",
     "evidence/history/umbrella-mathlib-oom/leanchecker.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "evidence/history/umbrella-mathlib-oom/version-preflight.log": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680",
-    "gate.py": "25e08d9054b929dd657668e4ee4a3524688dc476e5af958f950de3b919f04e9a",
+    "gate.py": "10493753b0f264e65427613ea8f19b99ca145fcc96468c1a22479955ef92a74a",
     "lake-manifest.json": "d63753befccc21923783a5085148e3ff028d97134ea52f5a08bd87ecf1b0b043",
     "lakefile.toml": "d629891716c169404d1f0d76492441c8dd66f1e790b1b8b0819e51c8d5059255",
     "lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
     "originals/Algebra.lean.txt": "4c196820c4db8fafc288dd35642828ba577e3544d60aba7d1d6d24f14ad1e8ae",
     "originals/ProbabilityCompanions.lean.txt": "4ace6600a476859982c8851ae9097c89b082d3c96291b3c8330bd4cc00bae65d",
     "tests/test_alignment_lineage.py": "c510c6566d7689bebde76843582e9936dfa9e62e783b816b5e4f63d83434b893",
-    "tests/test_gate.py": "b5fc1b723d5137d0a41ebb67b29e25da727edfad391d62afa6d44c32b5e114c6"
+    "tests/test_gate.py": "4864965b5a0a2db259d0e497a1b145fa451c80de8cb91b1125522882131e941b",
+    "compiled_inventory.py": "ff8a5374597772b2d37054fd722c2243c4b552a63802c69f7c605519832be6c4",
+    "tests/test_compiled_admission.py": "563cd66b8e18927e80dddf38da8f1426eecf2a1b7460768119547774773173e8",
+    "GOVERNANCE.md": "fa4df16f962814c727349bd15c59739b1dd3eeddd7b657111ef77acaac591785",
+    "TOOLING.md": "b77e02d00e80b38f971e4c800578ea5980d24afbf808cc6edecc980d7193954e",
+    "tests/test_cli_receipt_boundary.py": "8651fd301c3ceabd7edaf5ea3693b7fa678c801ccaa39b5fba91b3ad27fd6550",
+    "QUARANTINE.json": "824b34e84f032daeb397101fff88a0055cfd4cf2a75c253a4637846ec2d17702",
+    "tests/run_cbz_mutations.py": "ce6b65d035f8bebe7d4007e4d22063c8e741c85c892bfd8d62720e70df2d3e47",
+    "STATUS.md": "f569e4d0b8efe5fc2aba821f2af101878444aafa8615dd58d6260c3d86a19af1"
   },
   "source_binding": {
     "repository": "d6g8k5htny-coder/Math-",
@@ -346,5 +354,12 @@
     "SOURCE_MAP.md",
     "SOURCE_PALM_REWEIGHTING.md",
     "SOURCE_REGRESSION_KERNEL.md"
-  ]
+  ],
+  "compiled_inventory": null,
+  "compiled_inventory_qualification": {
+    "status": "QUARANTINED",
+    "reason": "CBZ_COMPILED_INVENTORY_UNQUALIFIED",
+    "real_lean_execution": "NOT_RUN",
+    "binding_origin": "No compiled constants inferred or fabricated from source."
+  }
 }

@@ -255,12 +255,12 @@ def reconstruct_original_central(text):
     """Historical central workflow at 49fb197c / blob ea291276, authenticated.
 
     Remove only the approved concurrency insertion, restore the historical
-    20-minute budget from the current 30-minute budget, restore the historical
+    20-minute budget from the current 45-minute budget, restore the historical
     setup-python pin, then revert only the suite body. The result must hash to
     the unchanged historical digest.
     """
     text = strip_concurrency_insertion(text)
-    text = mutate(text, '\n    timeout-minutes: 30\n', '\n    timeout-minutes: 20\n')
+    text = mutate(text, '\n    timeout-minutes: 45\n', '\n    timeout-minutes: 20\n')
     text = mutate(text, CURRENT_SETUP_PYTHON, HISTORICAL_SETUP_PYTHON)
     block = named(parse(text)[1], REGRESSION)['run']
     rendered = lambda body: ''.join('          ' + line + '\n'
@@ -623,7 +623,7 @@ def violations(workflow, text):
     if bind != central_bind:
         problems.append('tested-commit binding step differs from the central workflow')
     if workflow == CENTRAL:
-        if job['id'] != 'full-suite' or job.get('timeout-minutes') != '30':
+        if job['id'] != 'full-suite' or job.get('timeout-minutes') != '45':
             problems.append('central job id/budget changed')
         if names != [BIND, REGRESSION, CONFIRM]:
             problems.append('central step order changed: ' + repr(names))
@@ -786,7 +786,7 @@ class FullSuiteRoutingTests(unittest.TestCase):
         central = source(CENTRAL)
         self.assertEqual(reconstruct_original_central(central), self.original_central())
         for old, new in (('# This check is not required', '# This check is now required'),
-                         ('    timeout-minutes: 30\n', '    timeout-minutes: 31\n'),
+                         ('    timeout-minutes: 45\n', '    timeout-minutes: 46\n'),
                          ('permissions:\n  contents: read\n\nconcurrency:',
                           'permissions:\n  contents: read\n\n\nconcurrency:'),
                          (CONCURRENCY_INSERTION + 'jobs:\n', CONCURRENCY_INSERTION + '\njobs:\n'),
@@ -798,20 +798,20 @@ class FullSuiteRoutingTests(unittest.TestCase):
 
     def test_current_and_historical_budgets_have_separate_exact_contracts(self):
         central = source(CENTRAL)
-        self.assertEqual(parse(central)[1]['timeout-minutes'], '30')
+        self.assertEqual(parse(central)[1]['timeout-minutes'], '45')
         original = self.original_central()
         self.assertEqual(parse(original)[1]['timeout-minutes'], '20')
-        for budget in ('0', '20', '29', '31', '360', "'30'"):
+        for budget in ('0', '20', '30', '44', '46', '360', "'45'"):
             with self.subTest(budget=budget):
-                changed = mutate(central, '    timeout-minutes: 30\n',
+                changed = mutate(central, '    timeout-minutes: 45\n',
                                  '    timeout-minutes: ' + budget + '\n')
                 self.assertIn('central job id/budget changed', violations(CENTRAL, changed))
                 with self.assertRaises((ValueError, AssertionError)):
                     reconstruct_original_central(changed)
-        relocated = mutate(central, '\n    timeout-minutes: 30\n',
+        relocated = mutate(central, '\n    timeout-minutes: 45\n',
                            '\n    timeout-minutes: 20\n')
         relocated = mutate(relocated, '          log_dir="$(mktemp -d)"\n',
-                           '          #    timeout-minutes: 30\n'
+                           '          #    timeout-minutes: 45\n'
                            '          log_dir="$(mktemp -d)"\n')
         self.assertEqual(parse(relocated)[1]['timeout-minutes'], '20')
         self.assertIn('central job id/budget changed', violations(CENTRAL, relocated))
@@ -1220,7 +1220,7 @@ class FullSuiteRoutingTests(unittest.TestCase):
             'central gains a condition': (CENTRAL, central, '      - name: Full repository regression suite in both Python modes\n',
                                           '      - name: Full repository regression suite in both Python modes\n'
                                           "        if: github.event_name == 'workflow_dispatch'\n"),
-            'central continue-on-error': (CENTRAL, central, '    timeout-minutes: 30\n', '    timeout-minutes: 30\n    continue-on-error: true\n'),
+            'central continue-on-error': (CENTRAL, central, '    timeout-minutes: 45\n', '    timeout-minutes: 45\n    continue-on-error: true\n'),
             'central unbinds commit': (CENTRAL, central, '          if [ "$checked_out" != "$TESTED_SHA" ]; then\n',
                                        '          if false; then\n'),
         }

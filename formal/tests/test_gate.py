@@ -17,6 +17,57 @@ gate = importlib.util.module_from_spec(spec) if spec else None
 if spec and spec.loader and (ROOT / 'gate.py').exists():
     spec.loader.exec_module(gate)
 
+STD_AXIOMS = ('Classical.choice', 'Quot.sound', 'propext')
+
+
+def neutral_overlay(root):
+    """Write an empty RF312 manifest overlay into a copied formal tree.
+
+    The production overlay rebinds the compatibility files; these fixtures recompute every
+    binding from the copied bytes instead, so the effective manifest is exactly the one the
+    test edits. Call before hashing the tree, so the overlay file's own hash is bound too.
+    """
+    (root / 'manifest.overlay.json').write_text(json.dumps({'files': {}, 'schema_version': 1}))
+
+
+def encode_name(value):
+    return gate.encode(tuple(value) if isinstance(value, tuple) else tuple(value.split('.')))
+
+
+def inventory_transcript(root, manifest, injected=()):
+    """A clean compiled-environment inventory for the copied package, as the generated Lean
+    program would print it (RF-GATE-01 protocol), with optional injected constants.
+
+    User theorems are placed in the module whose source declares them, exactly as the
+    source pre-check does; every other constant comes from the manifest's bound
+    `compiled_inventory`. `injected` entries are (kind, origin, module, name, extra_axioms)
+    with module/name as component tuples; a registered module's count grows with them.
+    """
+    package = gate.PACKAGE
+    modules = [package + '.' + path[len(package) + 1:-5] for path in manifest['source_modules']]
+    constants, counts, definitions = [], {m: 0 for m in modules}, []
+    for path, module in zip(manifest['source_modules'], modules):
+        for theorem in gate.grammar_check((root / path).read_text(), path, definitions):
+            constants.append(('theorem', 'user', encode_name(module), encode_name(package + '.' + theorem)))
+            counts[module] += 1
+    for kind, origin, module, name in manifest['compiled_inventory']:
+        constants.append((kind, origin, encode_name(module), encode_name(name)))
+        counts[module] += 1
+    axioms = set(STD_AXIOMS)
+    for kind, origin, module, name, extra in injected:
+        constants.append((kind, origin, gate.encode(module), gate.encode(name)))
+        rendered = '.'.join(str(c) for c in module)
+        if rendered in counts:
+            counts[rendered] += 1
+        axioms.update(extra)
+    lines = ['MODULE|' + encode_name(m) + '|false|' + str(counts[m]) + '|0' for m in modules]
+    lines.append('MODULE|' + encode_name(package) + '|false|0|0')
+    lines.extend('INV|' + '|'.join(c) for c in constants)
+    lines.append('AXIOMS|' + ','.join(sorted(encode_name(a) for a in axioms)))
+    lines.append('CLOSURE|' + str(len(constants) + 1000))
+    return '\n'.join(lines) + '\n'
+
+
 class GateTests(unittest.TestCase):
     def setUp(self):
         self.assertTrue(hasattr(gate, 'audit_axioms'), 'formal evidence gate not implemented')
@@ -109,6 +160,7 @@ class SourceContractTests(unittest.TestCase):
         self.addCleanup(self.tmp.cleanup)
         p = Path(self.tmp.name) / 'formal'
         shutil.copytree(ROOT, p, ignore=shutil.ignore_patterns('.lake', '__pycache__'))
+        neutral_overlay(p)
         self.previous = gate.ROOT; gate.ROOT = p
         self.addCleanup(lambda: setattr(gate, 'ROOT', self.previous))
         self.m = json.loads((p/'manifest.json').read_text())
@@ -130,6 +182,34 @@ class SourceContractTests(unittest.TestCase):
         root.write_text(root.read_text()+'theorem hidden : False := by sorry\n')
         self.m['files']['ResearchFormalCoreR1.lean']=hashlib.sha256(root.read_bytes()).hexdigest(); self.save()
         with self.assertRaises(ValueError): gate.source_check()
+    def test_rebound_root_redirects_source_overlay_and_evidence_reads(self):
+        # RF312 regression: rebinding `gate.ROOT` must redirect every read of the layered gate --
+        # the helper's manifest and source checks, the overlay, and the execution evidence
+        # directory -- not only this wrapper's own reads (dot's failure map, Math-#312).
+        p = self.fixture(); self.save()
+
+        def overlay(files):
+            path = p / 'manifest.overlay.json'
+            path.write_text(json.dumps({'schema_version': 1, 'files': files}))
+            self.m['files']['manifest.overlay.json'] = hashlib.sha256(path.read_bytes()).hexdigest()
+            self.save()
+
+        _, digest = gate.source_check()
+        self.assertEqual(Path(gate._core.ROOT), p, 'helper still reads the original tree')
+        self.assertEqual(Path(gate.OVERLAY), p / 'manifest.overlay.json')
+        # A wrong binding written only into the copy's overlay is seen, so the overlay read moved.
+        overlay({'README.md': '0' * 64})
+        with self.assertRaisesRegex(ValueError, 'source hash mismatch: README.md'):
+            gate.source_check()
+        # The digest binds the overlay bytes that were actually read.
+        overlay({'README.md': hashlib.sha256((p / 'README.md').read_bytes()).hexdigest()})
+        _, other = gate.source_check()
+        self.assertNotEqual(digest, other)
+        # A source edit made only in the copy is seen by the helper's own file check.
+        (p / 'README.md').write_bytes((p / 'README.md').read_bytes() + b'\n')
+        with self.assertRaisesRegex(ValueError, 'source hash mismatch: README.md'):
+            gate.source_check()
+
     def test_duplicate_json_rejected(self):
         with self.assertRaises(ValueError): gate.load_json('{"a":1,"a":2}')
     def test_json_object(self):
@@ -145,6 +225,7 @@ class RuntimeVersionTests(unittest.TestCase):
         self.addCleanup(tmp.cleanup)
         self.root = Path(tmp.name) / 'formal'
         shutil.copytree(ROOT, self.root, ignore=shutil.ignore_patterns('.lake', '__pycache__'))
+        neutral_overlay(self.root)
         previous = gate.ROOT
         gate.ROOT = self.root
         self.addCleanup(lambda: setattr(gate, 'ROOT', previous))
@@ -162,15 +243,51 @@ class RuntimeVersionTests(unittest.TestCase):
 
     def execute_synthetic(self, versions, version_exit=0, mutate_source=False, wrong_dependency=False,
                           dirty_dependency=None, drift_dependency=False, env=None):
+        # The layered gate observes the running Lean three times: the wrapper's preflight, the
+        # reviewed helper's own check after its controls, and the wrapper's final observation.
+        # `versions` keeps its two-entry meaning: [preflight, final]; the helper's read sees the
+        # preflight release (nothing changes it during the helper's own execution).
+        schedule = [versions[0], versions[0], versions[-1]]
+        package = gate.PACKAGE
+        first_module = self.manifest['source_modules'][0]
+        local = gate.LOCAL_MODULE
+        admissions = {
+            'hidden_sorry': [('theorem', 'user', local, ('_private', 'fixture', 0, package, 'hiddenAdmission'), ('sorryAx',))],
+            'hidden_theorem': [('theorem', 'user', local, (package, 'indentedAdmission'), ())],
+            'hidden_def': [('def', 'user', local, (package, 'unusedAdmission'), ('sorryAx',))],
+            'outside_namespace': [('theorem', 'user', local, ('outsideNamespaceAdmission',), ())],
+        }
+
+        def effective_root(kwargs):
+            cwd = kwargs.get('cwd')
+            if cwd is not None and Path(cwd).resolve().is_relative_to(self.root.resolve()):
+                return Path(cwd)
+            return self.root
+
+        def compiled_injections(package_root):
+            # The compiled-admission copy carries the injected declaration in its first module.
+            text = (package_root / first_module).read_text()
+            module = tuple((package + '.' + first_module[len(package) + 1:-5]).split('.'))
+            found = []
+            for label, declaration, (kind, origin, name, private), expected in gate.COMPILED_INJECTIONS:
+                if declaration in text:
+                    full = ('_private', 'fixture', 0) + name if private else name
+                    extra = ('sorryAx',) if 'sorry' in declaration else ()
+                    found.append((kind, origin, module, full, extra))
+            return found
+
         def external_run(command, **kwargs):
             self.calls.append(command)
             if command == ['lake', 'env', 'lean', '--version']:
-                text = versions[min(self.version_index, len(versions) - 1)] + '\n'
+                text = schedule[min(self.version_index, len(schedule) - 1)] + '\n'
                 self.version_index += 1
                 return subprocess.CompletedProcess(command, version_exit, text)
-            if command == ['lake', 'build'] and mutate_source:
-                path = self.root / 'lake-manifest.json'
-                path.write_bytes(path.read_bytes() + b'\n')
+            if command == ['lake', 'build']:
+                # A synthetic build leaves a build directory, as the real one does.
+                (effective_root(kwargs) / '.lake' / 'build').mkdir(parents=True, exist_ok=True)
+                if mutate_source:
+                    path = self.root / 'lake-manifest.json'
+                    path.write_bytes(path.read_bytes() + b'\n')
             label = Path(command[-1]).stem
             if label == 'Audit':
                 text = '\n'.join("'" + n + "' does not depend on any axioms" for n in self.manifest['targets'])
@@ -179,6 +296,12 @@ class RuntimeVersionTests(unittest.TestCase):
             elif label in ('sorry', 'custom_imported', 'native'):
                 forbidden = {'sorry': 'sorryAx', 'custom_imported': 'hiddenPremise', 'native': 'injected._nativeDecide_1'}[label]
                 text = "'injected' depends on axioms: [" + forbidden + ']'
+            elif label == 'Inventory':
+                # User theorems come from the fixture's own (uninjected) sources; the compiled-
+                # admission copy differs only by the declaration it injected, read from `cwd`.
+                text = inventory_transcript(self.root, self.manifest, compiled_injections(effective_root(kwargs)))
+            elif label in admissions:
+                text = inventory_transcript(self.root, self.manifest, admissions[label])
             else:
                 text = ''
             return subprocess.CompletedProcess(command, 0, text)
@@ -239,7 +362,7 @@ class RuntimeVersionTests(unittest.TestCase):
         wrong = 'Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit ' + 'f' * 40 + ', Release)'
         with self.assertRaisesRegex(ValueError, 'unexpected running Lean version'):
             self.execute_synthetic([self.RELEASE, wrong])
-        self.assertEqual(self.version_index, 2)
+        self.assertEqual(self.version_index, 3)  # preflight, the helper's own check, final
         self.assertFalse(self.sentinel.exists())
         self.assert_no_receipt()
 
@@ -265,7 +388,7 @@ class RuntimeVersionTests(unittest.TestCase):
         self.assertEqual(self.calls[0], ['lake', 'env', 'lean', '--version'])
         self.assertEqual(self.calls[1], ['lake', 'build'])
         self.assertEqual(self.calls[-1], ['lake', 'env', 'lean', '--version'])
-        self.assertEqual(self.version_index, 2)
+        self.assertEqual(self.version_index, 3)  # preflight, the helper's own check, final
         self.assertFalse(self.sentinel.exists())
         self.assertEqual(receipt['lean_version'], self.RELEASE)
         self.assertEqual(receipt['manifest_sha256'], self.digest)
@@ -280,7 +403,7 @@ class RuntimeVersionTests(unittest.TestCase):
         self.fixture()
         with self.assertRaisesRegex(ValueError, 'unexpected running Lean version'):
             self.execute_synthetic([self.RELEASE, self.RELEASE.replace('4.34.1', '4.34.10')])
-        self.assertEqual(self.version_index, 2)
+        self.assertEqual(self.version_index, 3)  # preflight, the helper's own check, final
         self.assert_no_receipt()
 
     def test_source_change_during_build_still_refuses_receipt(self):
@@ -326,7 +449,7 @@ class RuntimeGuardTests(unittest.TestCase):
         self.fixture()
         with self.assertRaisesRegex(ValueError, 'dependency worktree is not clean'):
             self.execute_synthetic([self.RELEASE, self.RELEASE], dirty_dependency='final')
-        self.assertEqual(self.version_index, 2)
+        self.assertEqual(self.version_index, 3)  # the wrapper's final observation sees the dirty tree
         self.assert_no_receipt()
 
     def test_dependency_moved_during_execution_refuses_receipt(self):

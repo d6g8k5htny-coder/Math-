@@ -19,6 +19,7 @@ FAMILIES = {
     'local-pairing.yml': 'frontiers/local_pairing_20260930',
     'far-elder-rate.yml': 'frontiers/far_elder_rate_20260930',
     'c6-cluster-law.yml': 'frontiers/c6_cluster_law_20260929',
+    'elder-third-order.yml': 'frontiers/elder_third_order_20261001',
 }
 STEP = (
     '      - name: Check legacy import-resolution trigger coverage\n'

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Authenticate the three fixed legacy checkers' success and rejection reports.
+"""Authenticate the four fixed legacy checkers' success and rejection reports.
 
 Called AFTER each workflow's unchanged scientific source/manifest guards. The
 reference file holds measured, source-bound reports, never outputs learned from
@@ -27,6 +27,7 @@ INVENTORIES = {
     'c6-cluster': ('pins-not-critical', 'wrong-pin-hessian', 'drop-sigma-jacobian',
                    'three-extra-points', 'shear-drop-cubic', 's-bound-constant',
                    'cross-term-not-small', 'window-closed', 'index-sign'),
+    'elder-third-order': ('M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8'),
 }
 # The CLI's argparse choice order is distinct from the workflow execution order.
 C6_CHOICES = ('pins-not-critical', 'wrong-pin-hessian', 'drop-sigma-jacobian',
@@ -117,19 +118,21 @@ def _unknown_stderr(family: str, script_name: str) -> bytes:
     if columns <= 0:
         columns = 80
     # CPython 3.11--3.13 HelpFormatter subtracts two from the terminal columns.
-    parser = argparse.ArgumentParser(
-        prog=script_name,
-        formatter_class=lambda prog: argparse.HelpFormatter(prog, width=columns - 2))
-    parser.add_argument('--mutant', choices=C6_CHOICES)
     stream = io.StringIO()
-    try:
-        with contextlib.redirect_stderr(stream):
+    # Construct and format under the child's captured stdout context as well:
+    # newer argparse can select colors from stdout. Keep color environment intact.
+    with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(stream):
+        parser = argparse.ArgumentParser(
+            prog=script_name,
+            formatter_class=lambda prog: argparse.HelpFormatter(prog, width=columns - 2))
+        parser.add_argument('--mutant', choices=C6_CHOICES)
+        try:
             parser.parse_args(['--mutant', 'unknown'])
-    except SystemExit as exc:
-        if exc.code != 2:
-            raise ProtocolError('reference argument grammar did not reject') from exc
-    else:
-        raise ProtocolError('reference argument grammar unexpectedly accepted')
+        except SystemExit as exc:
+            if exc.code != 2:
+                raise ProtocolError('reference argument grammar did not reject') from exc
+        else:
+            raise ProtocolError('reference argument grammar unexpectedly accepted')
     return stream.getvalue().encode('utf-8')
 
 

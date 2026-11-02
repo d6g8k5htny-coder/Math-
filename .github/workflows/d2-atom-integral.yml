@@ -21,7 +21,7 @@ permissions:
 jobs:
   d2-atom-integral:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     env:
       LEAN_NUM_THREADS: 2
     steps:

@@ -2,6 +2,7 @@
 """Source-bound Lean evidence, not a scientific acceptance engine (stdlib only)."""
 import argparse
 import hashlib
+import importlib.util
 import json
 import os
 from pathlib import Path, PurePosixPath
@@ -17,12 +18,66 @@ SHA256 = re.compile(r'[0-9a-f]{64}')
 COMMIT = re.compile(r'[0-9a-f]{40}')
 ROOT = Path(__file__).resolve().parent
 
+# Load only after CLI invalidation and bound-file checks, so a missing or invalid
+# bound helper cannot bypass active-receipt invalidation during import.
+_compiled = None
+
+
+def compiled_implementation():
+    global _compiled
+    if _compiled is None:
+        spec = importlib.util.spec_from_file_location(
+            'determinant_compiled_inventory', ROOT / 'compiled_inventory.py')
+        if spec is None or spec.loader is None:
+            raise ImportError('compiled inventory implementation unavailable')
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        _compiled = module
+    return _compiled
+
+
+def compiled_contract(m):
+    """Require a bound non-target inventory; never infer one from source regexes."""
+    require(isinstance(m.get('compiled_inventory'), list),
+            'CBZ_COMPILED_INVENTORY_UNQUALIFIED: exact non-target compiled constants '
+            'have not been inventoried for this determinant package; pinned Lean '
+            'census, binding and full execution are required')
+    compiled_implementation()
+    require(_compiled.ALLOWED == ALLOWED, 'compiled inventory axiom policy mismatch')
+    targets = m.get('targets')
+    require(isinstance(targets, list) and targets and
+            all(isinstance(t, str) for t in targets) and len(set(targets)) == len(targets),
+            'empty or duplicate target list')
+    paths = m.get('source_modules')
+    require(isinstance(paths, list) and paths and all(isinstance(p, str) for p in paths)
+            and len(set(paths)) == len(paths), 'invalid source module registry')
+    require(all(re.fullmatch(r'ResearchFormalCoreR1/[A-Za-z_][A-Za-z0-9_]*\.lean', p)
+                for p in paths), 'noncanonical source module path')
+    modules = {p[:-5].replace('/', '.') for p in paths}
+    bound = _compiled.bound_inventory(m['compiled_inventory'], targets, modules)
+    return modules, bound
+
+
+def audit_compiled(text, m, reported_axioms):
+    """Validate the actual compiled package census and all-constant axiom closure."""
+    modules, bound = compiled_contract(m)
+    return _compiled.audit_inventory(text, m['targets'], modules,
+                                     reported_axioms=reported_axioms, bound=bound)
+
 def sha(data):
     return hashlib.sha256(data).hexdigest()
 
 def require(condition, message):
     if not condition:
         raise ValueError(message)
+
+
+def invalidate_active_receipt():
+    """Invalidate only the active receipt; historical evidence remains immutable."""
+    out = ROOT / '.lake' / 'formal-evidence'
+    require(not (ROOT / '.lake').is_symlink() and not (ROOT / '.lake/build').is_symlink()
+            and not out.is_symlink(), 'symlink build directory')
+    (out / 'receipt.json').unlink(missing_ok=True)
 
 def check_lean_version(text):
     version = text.strip()
@@ -142,7 +197,7 @@ def source_check():
     m = load_json(raw)
     require(m.get('schema_version') == 1 and m.get('scientific_effect') == 'NONE', 'invalid evidence schema')
     require(m.get('formalization_status') == 'proved' and m.get('alignment_status') == 'PENDING_INDEPENDENT_REVIEW', 'source metadata cannot self-award execution or review')
-    required = {'gate.py', 'tests/test_gate.py', 'lean-toolchain', 'lakefile.toml', 'lake-manifest.json', 'ResearchFormalCoreR1.lean', 'SCOPE.md', 'GLOSSARY.md', 'README.md', 'blueprint/src/content.tex', 'tests/test_alignment_lineage.py', 'LINEAGE_VALIDATION.md'}
+    required = {'gate.py', 'tests/test_gate.py', 'lean-toolchain', 'lakefile.toml', 'lake-manifest.json', 'ResearchFormalCoreR1.lean', 'SCOPE.md', 'GLOSSARY.md', 'README.md', 'blueprint/src/content.tex', 'tests/test_alignment_lineage.py', 'LINEAGE_VALIDATION.md', 'compiled_inventory.py', 'tests/test_compiled_admission.py', 'tests/test_cli_receipt_boundary.py', 'tests/run_cbz_mutations.py', 'GOVERNANCE.md', 'TOOLING.md', 'QUARANTINE.json', 'STATUS.md'}
     require(required <= set(m['files']), 'unbound control or scope file')
     originals = {'originals/Algebra.lean.txt': '4c196820c4db8fafc288dd35642828ba577e3544d60aba7d1d6d24f14ad1e8ae', 'originals/ProbabilityCompanions.lean.txt': '4ace6600a476859982c8851ae9097c89b082d3c96291b3c8330bd4cc00bae65d'}
     require(all(m['files'].get(path) == value for path, value in originals.items()), 'original source identity changed or omitted')
@@ -176,9 +231,10 @@ def run(command, label, out, expect_success=True):
     return result.stdout
 
 def execute(m, digest):
+    invalidate_active_receipt()
     out = ROOT / '.lake' / 'formal-evidence'
+    modules, bound = compiled_contract(m)
     out.mkdir(parents=True, exist_ok=True)
-    require(not (ROOT / '.lake').is_symlink() and not (ROOT / '.lake/build').is_symlink(), 'symlink build directory')
     preflight_version = check_lean_version(run(['lake', 'env', 'lean', '--version'], 'version-preflight', out))
     preflight = observation(preflight_version, dependency_state(m), digest)
     if (ROOT / '.lake/build').exists():
@@ -192,6 +248,14 @@ def execute(m, digest):
     types = out / 'Types.lean'
     types.write_text('import ResearchFormalCoreR1\nset_option pp.explicit true\n' + '\n'.join('#check ' + n for n in m['targets']) + '\n')
     run(['lake', 'env', 'lean', str(types)], 'elaborated-types', out)
+    inventory_source = out / 'Inventory.lean'
+    inventory_source.write_text(_compiled.inventory_source())
+    inventory = audit_compiled(
+        run(['lake', 'env', 'lean', str(inventory_source)], 'inventory', out), m, axioms)
+    # Both mutations must build, pass leanchecker and the public-only axiom audit,
+    # then fail this package-wide census for exactly their intended admission reason.
+    _compiled.ROOT = ROOT
+    compiled_admission = _compiled.compiled_admission(m, modules, inventory, bound, out)
     # Real counterexample/mutation controls, not comparisons of fixed labels.
     cases = {
         'false_fold': ('import ResearchFormalCoreR1\nexample : ResearchFormalCoreR1.foldPotential 1 1 - ResearchFormalCoreR1.foldPotential 1 (-1) = (2 : Real)^3 / 7 := by\n  norm_num [ResearchFormalCoreR1.foldPotential]\n', False, None),
@@ -234,25 +298,31 @@ def execute(m, digest):
                    workflow_run_attempt=os.environ.get('GITHUB_RUN_ATTEMPT'), lean_version=version,
                    dependency_revisions=m['dependency_revisions'], dependency_worktrees='CLEAN',
                    observations={'preflight': preflight, 'final': final},
-                   axioms=axioms, negative_controls=outcomes)
+                   axioms=axioms, negative_controls=outcomes,
+                   inventory={**inventory, 'compiled_admission': compiled_admission})
     receipt['logs'] = {p.name: sha(p.read_bytes()) for p in sorted(out.glob('*.log'))}
     (out / 'receipt.json').write_text(json.dumps(receipt, indent=2, sort_keys=True) + '\n')
     print(json.dumps(receipt, indent=2, sort_keys=True))
     return receipt
 
 def main():
-    p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--execute', action='store_true', help='run build, transitive axiom audit and negative controls')
-    p.add_argument('--alignment', type=Path, help='validate a separately authenticated alignment record; never promotes science')
-    args = p.parse_args()
     try:
+        # Every CLI attempt invalidates prior active evidence before argument,
+        # source, manifest, helper or qualification failures can short-circuit.
+        invalidate_active_receipt()
+        p = argparse.ArgumentParser(description=__doc__)
+        p.add_argument('--execute', action='store_true', help='run build, transitive axiom audit and negative controls')
+        p.add_argument('--alignment', type=Path, help='validate a separately authenticated alignment record; never promotes science')
+        args = p.parse_args()
         m, digest = source_check()
         if args.alignment:
             check_alignment(load_json(args.alignment.read_text()), digest, m['targets'], m['files']['SCOPE.md'])
         if args.execute:
             execute(m, digest)
         else:
-            print('SOURCE_IDENTITY_PASS (not a Lean build or scientific acceptance): ' + digest)
+            compiled_contract(m)
+            raise ValueError('CBZ_KERNEL_EXECUTION_REQUIRED: source identity and compiled '
+                             'bindings alone do not establish kernel evidence; run --execute')
     except (ValueError, KeyError, TypeError, OSError, subprocess.SubprocessError) as e:
         print('FORMAL_GATE_FAIL: ' + str(e), file=sys.stderr)
         return 1

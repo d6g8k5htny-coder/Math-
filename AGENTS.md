@@ -1,48 +1,77 @@
 # Agent entry — `Math-`
 
-> **OWNER STOP of 2026-09-27: historical, lifted.** The record is kept unchanged in [OWNER_STOP.md](OWNER_STOP.md). From 2026-10-03, by Dylan's instruction, xAI/Grok (including Cursor) agents work here **only as support** for the non-Grok lanes. They act at those lanes' request, and may also enter to see how they can assist. No self-assigned repository changes, no takeover of another lane, and no restarted timers or loops. Active coordination: [main#619](https://github.com/d6g8k5htny-coder/main/issues/619) (continued from [main#539](https://github.com/d6g8k5htny-coder/main/issues/539), [main#475](https://github.com/d6g8k5htny-coder/main/issues/475), itself continued from the full [main#419](https://github.com/d6g8k5htny-coder/main/issues/419)). Former boards [main#539](https://github.com/d6g8k5htny-coder/main/issues/539), [main#475](https://github.com/d6g8k5htny-coder/main/issues/475), [main#419](https://github.com/d6g8k5htny-coder/main/issues/419), [main#307](https://github.com/d6g8k5htny-coder/main/issues/307) and [main#229](https://github.com/d6g8k5htny-coder/main/issues/229) retain historical records, including the [working guidance](https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6038554880); no earlier claim is transferred or released by this routing change.
+**Current federation authority (2026-10-29):
+[Main CBZ-0 governance](https://github.com/d6g8k5htny-coder/main/blob/main/GOVERNANCE.md).**
+The owner's MASTER DIRECTIVE authorizes the whole federation's CBZ-0 work.
+Earlier model-family support-only limits, no-self-assignment rules,
+procedural review quorums and approval/custody holds do not restrict this
+mission. Preserve Layer A, observed source/build/review outcomes and actual
+platform permissions and denials. No repeated owner approval is needed.
 
-Mathematical candidates, proofs, programs, and reproducible calculations. Not a status register.
+Coordinate active CBZ-0 work through
+[Main #684](https://github.com/d6g8k5htny-coder/main/issues/684).
+The canonical foundation handoff is
+[Main #695](https://github.com/d6g8k5htny-coder/main/pull/695); its
+[STATUS checkpoint at `3faed4436f0e927d01d8fe255ddf1886252c41bd`](https://github.com/d6g8k5htny-coder/main/blob/3faed4436f0e927d01d8fe255ddf1886252c41bd/STATUS.md)
+is a Partial Baseline delivery, unmerged at this entry's base commit.
+[Main's root STATUS](https://github.com/d6g8k5htny-coder/main/blob/main/STATUS.md)
+remains the legacy scientific snapshot until foundation integration updates
+it. Read these source-bound records for observed baseline state and unmet
+gates. This repository holds mathematical candidates, proofs, programs and
+reproducible calculations; it does not create a separate baseline or
+scientific-status register. This entry declares no CBZ-0 completion or
+scientific promotion.
 
-Current and future agents: read the [15 October 2026 standing owner mandate](https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md)
-and the [standing owner delegation](https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md)
-alongside the current workflow and these Math- instructions. Carry both
-canonical links in future onboarding and handoffs; providing the links does
-not establish that a recipient has read them. The mandate and delegation do
-not waive actual platform permissions, explicit stops, scientific evidence
-requirements, or the Grok-support-only boundary stated above.
+## Evidence and handoff
 
-## Always
-
-- Coordinate via [`main`](https://github.com/d6g8k5htny-coder/main) campaign work and the [`governance-`](https://github.com/d6g8k5htny-coder/governance-) working contract.
-- Prefer exact source identities (commit/path/hash) over mutable labels.
-- Scientific effect: **NONE**. Never flip `lemma_closed` / prizes / premises.
-- [`d6g8k5htny-coder/trial`](https://github.com/d6g8k5htny-coder/trial) retains historical cross-repo eng tests and Path C material (observed archived on 15 October 2026); route current work through [main's current workflow](https://github.com/d6g8k5htny-coder/main/blob/main/governance/OP-WORKFLOW-20260930.md) (live operational guidance) and the active coordination board above.
-  For reproducibility, [the workflow reviewed with this change](https://github.com/d6g8k5htny-coder/main/blob/4f600d9dc0441113568483fb3c34533b4be7440e/governance/OP-WORKFLOW-20260930.md) is a pinned 15 October 2026 as-of reference, **not** a substitute for the live current instructions.
-- Calculations here use the Python standard library only (no extra pip env required in this repo).
-
-## Never
-
-- Duplicate scientific-status registers here.
-- Publish private `sandbox` material.
-- Ask Dylan for re-approval of autonomy already granted.
+- Prefer exact source identities (repository, commit, path and hash) over
+  mutable labels. Preserve original proof bytes, authorship, hypotheses,
+  failures and existing verdicts; document successor changes.
+- This guidance has no scientific effect: it does not flip `lemma_closed`,
+  prizes or premises. A build, Blueprint link, solver output, hash, merge or
+  green engineering check is not scientific acceptance.
+- Reuse completed, applicable verification on unchanged material under the
+  same relevant assumptions and dependencies. Before further checking,
+  identify the specific change, defect or uncovered obligation and limit
+  checking to that scope. A new agent, session or handoff alone is no reason
+  to repeat checks.
+- Track provider-distinct review and other process requirements separately
+  from mathematical verification. A pending process requirement does not
+  erase completed mathematical evidence. Carry this rule and the applicable
+  evidence into onboarding and handoffs; record actual reviewer lineage and
+  exposure rather than presumed activity.
+- Calculations outside the isolated formal package use the Python standard
+  library only; no extra pip environment is required here.
+- Apply current owner authorization when older operational text conflicts.
+  Source readability does not itself authorize a platform permission or
+  visibility/sharing change.
 
 ## Start here
 
-1. This repository’s [README](README.md)
-2. [`governance-` working contract](https://github.com/d6g8k5htny-coder/governance-)
-3. [`trial` multi-agent access](https://github.com/d6g8k5htny-coder/trial/blob/main/docs/MULTI_AGENT_ACCESS.md) is historical launch-environment documentation; the archived `.cursor/environment.json` is not current runtime or access authority.
+1. This repository's [README](README.md).
+2. [Main CBZ-0 governance](https://github.com/d6g8k5htny-coder/main/blob/main/GOVERNANCE.md)
+   and the source-bound foundation/status records above.
+3. For formal work, the exact package and check boundaries below.
 
-## Additive formal lane — owner directive 2026-09-27
+## Formal package and required checks
 
-Read [formal/README.md](formal/README.md), [the exact scope](formal/SCOPE.md), and [main #95](https://github.com/d6g8k5htny-coder/main/issues/95) before claiming formal verification. The isolated `formal/` package uses explicitly pinned Lean/mathlib; this owner-authorized toolchain addition does not change the standard-library Python rule elsewhere. A build alone, Blueprint link, solver output, hash or merge is not scientific acceptance. The exact source/axiom/negative-control gate and a separately authenticated, independent alignment review are distinct requirements. Preserve recovered original proof bytes and existing verdicts; document successor changes. Record actual agent pickup and actual review evidence, not presumed activity. Do not duplicate the controlling scientific-status register or broaden these scalar companions into parent theorems.
+Read [formal/README.md](formal/README.md), [the exact scope](formal/SCOPE.md)
+and [Main #95](https://github.com/d6g8k5htny-coder/main/issues/95) before claiming
+formal verification. The isolated `formal/` package uses explicitly pinned
+Lean/mathlib; this does not change the standard-library Python boundary
+elsewhere. Kernel verification establishes only its exact statement and
+declared axiom dependencies. Preserve exact source/axiom/negative-control
+evidence and the separate factual boundary between kernel execution,
+statement alignment and scientific acceptance. Do not broaden scalar
+companions into parent theorems.
 
-## Required formal checks and delegated enforcement
+Read [the required-check contract](docs/FORMAL_REQUIRED_CHECKS.md) when
+changing formal execution or enforcement. Required checks retain their exact
+source/current-commit contract; skipped jobs, a different source or another
+repository's result cannot substitute for that obligation. Settings changes
+require actual platform authority and authenticated readback. Preserve failed
+aggregates and their findings; repair or isolate failures under Layer A.
 
-Read [the required-check contract](docs/FORMAL_REQUIRED_CHECKS.md). Dylan has
-authorized direct agent coordination and GitHub enforcement. Required check
-success now requires current-commit formal execution plus the existing checks;
-never substitute skipped jobs, old receipts or a different repository's result.
-Review and settings changes require actual authenticated evidence and readback.
-Do not bypass a failed aggregate, race another agent's claimed workflow repair,
-or describe this engineering interlock as independent mathematical acceptance.
+The [previous agent entry](https://github.com/d6g8k5htny-coder/Math-/blob/e877242cf68fb24c605066f16dd07f513ee75a1d/AGENTS.md)
+preserves the old family limits, mandates, workflow and board references as
+history. They are not additional CBZ-0 approval gates or current routing.

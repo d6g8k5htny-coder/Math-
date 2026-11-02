@@ -49,7 +49,7 @@ class BridgeTests(unittest.TestCase):
         self.assertEqual(meta['theorems'],THEOREMS)
         self.assertEqual(meta['definitions'],DEFINITIONS)
         self.assertEqual(meta['scientific_effect'],'NONE')
-        self.assertEqual(meta['core_tree'],'fc0b11706d064b9de42331ee0a2464865107b87b')
+        self.assertEqual(meta['core_tree'],'8922fd8c833df0c52d4a8c7b5c3ad802b93098d4')
 
     def test_residual_identity_and_exact_equality_class(self):
         count=0
@@ -197,6 +197,207 @@ class FinalRuntimeTests(unittest.TestCase):
         self.assertGreater(inner.index('packages-final.log'),inner.rindex('lean -DwarningAsError=true'))
         source=(SIDE/'check.py').read_text();body=source[source.index('def finish(out):'):source.index('def main(')]
         self.assertIn('final_runtime(out,',body)
+
+def copy_formal_fixture(source, destination):
+    """Copy formal inputs for the actual protocol fixture; never execute Lean."""
+    import shutil
+    return shutil.copytree(source, destination,
+                           ignore=shutil.ignore_patterns('.lake', '__pycache__'))
+
+
+class SourceFixtureIsolationTests(unittest.TestCase):
+    """Ignored runtime state must not enter a source-only protocol fixture."""
+    def test_ignored_runtime_and_python_cache_are_not_copied(self):
+        import subprocess
+        with tempfile.TemporaryDirectory() as td:
+            base = Path(td)
+            source = base / 'input' / 'formal'
+            source.mkdir(parents=True)
+            (source / '.gitignore').write_text('.lake/\n__pycache__/\n')
+            tracked = source / 'tracked-source.txt'
+            tracked.write_bytes(b'exact tracked source\n')
+            tracked.chmod(0o755)
+            ignored = ('.lake/packages/runtime-cache', '__pycache__/runtime.pyc')
+            for relative in ignored:
+                path = source / relative
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(b'ignored runtime sentinel\n')
+            subprocess.run(['git', '-C', str(source.parent), 'init', '-q'],
+                           check=True, capture_output=True)
+            subprocess.run(['git', '-C', str(source.parent), 'add', 'formal'],
+                           check=True, capture_output=True)
+            for relative in ignored:
+                subprocess.run(['git', '-C', str(source.parent), 'check-ignore',
+                                'formal/' + relative], check=True, capture_output=True)
+            copied = base / 'copied-formal'
+            copy_formal_fixture(source, copied)
+            for relative in ignored:
+                with self.subTest(relative=relative):
+                    self.assertFalse((copied / relative).exists(),
+                                     'ignored runtime cache entered the source fixture')
+            self.assertEqual((copied / tracked.name).read_bytes(), tracked.read_bytes())
+            self.assertEqual((copied / tracked.name).stat().st_mode & 0o777,
+                             tracked.stat().st_mode & 0o777)
+
+    def test_actual_tracked_formal_tree_bytes_and_modes_preserved(self):
+        import subprocess
+        original = SIDE.parents[1]
+        def git(root, *args):
+            return subprocess.check_output(['git', '-C', str(root), *args], text=True).strip()
+        with tempfile.TemporaryDirectory() as td:
+            base = Path(td)
+            copied = base / 'formal'
+            copy_formal_fixture(original / 'formal', copied)
+            git(base, 'init', '-q')
+            git(base, 'add', 'formal')
+            tree = git(base, 'write-tree')
+            self.assertEqual(git(base, 'rev-parse', tree + ':formal'),
+                             git(original, 'rev-parse', 'HEAD:formal'))
+            for relative in git(original, 'ls-files', '--', 'formal').splitlines():
+                source = original / relative
+                target = base / relative
+                with self.subTest(path=relative):
+                    self.assertEqual(target.read_bytes(), source.read_bytes())
+                    self.assertEqual(target.stat().st_mode & 0o777,
+                                     source.stat().st_mode & 0o777)
+
+
+class CoreIdentityProtocolTests(unittest.TestCase):
+    """Source/receipt protocol fixtures only; no Lean or finite-law execution."""
+    def setUp(self):
+        import shutil
+        import subprocess
+        from unittest import mock
+        self._subprocess = subprocess
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.root = Path(self.tmp.name).resolve()
+        original = SIDE.parents[1]
+        copy_formal_fixture(original / 'formal', self.root / 'formal')
+        for package in ('d2_moment_bridge', 'd2_square_schur', 'd2_atom_integral'):
+            relative = Path('companions') / (package + '_20261006')
+            shutil.copytree(original / relative, self.root / relative)
+            workflow = Path('.github/workflows') / (package.replace('_', '-') + '.yml')
+            (self.root / workflow).parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(original / workflow, self.root / workflow)
+        (self.root / 'tools').mkdir()
+        shutil.copy2(original / 'tools/required_formal_check.py',
+                     self.root / 'tools/required_formal_check.py')
+        for args in (('init', '-q'), ('add', '.'),
+                     ('-c', 'user.name=protocol-fixture',
+                      '-c', 'user.email=protocol@example.invalid',
+                      'commit', '-qm', 'copied exact source protocol fixture')):
+            subprocess.run(['git', '-C', str(self.root), *args],
+                           check=True, capture_output=True)
+        self.head = subprocess.check_output(
+            ['git', '-C', str(self.root), 'rev-parse', 'HEAD'], text=True).strip()
+        actual_tree = subprocess.check_output(
+            ['git', '-C', str(self.root), 'rev-parse', 'HEAD:formal'],
+            text=True).strip()
+        self.assertEqual(actual_tree, '8922fd8c833df0c52d4a8c7b5c3ad802b93098d4')
+        self.context = {'checked_commit': self.head}
+        patch = mock.patch.dict('os.environ', {'GITHUB_ACTIONS': 'false'})
+        patch.start()
+        self.addCleanup(patch.stop)
+        copied = self.root / 'companions' / SIDE.name / 'check.py'
+        spec = importlib.util.spec_from_file_location('copied_d2_protocol', copied)
+        self.c = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(self.c)
+
+    def validator(self):
+        function = getattr(self.c, 'validate_core_receipt', None)
+        self.assertTrue(callable(function), 'production core receipt validator missing')
+        return function
+
+    def good_receipt(self):
+        return {'checked_commit': self.head,
+                'manifest_sha256': '481653d73d00f64bf06fefbf24be994f60ebe5c54f826abf899461f6e6937066',
+                'formalization_status': 'kernel-checked'}
+
+    def test_source_accepts_exact_reviewed_core_without_lean(self):
+        try:
+            current = self.c.source()
+        except (ValueError, self._subprocess.CalledProcessError) as error:
+            self.fail('reviewed frozen source cut must bind: ' + str(error))
+        self.assertEqual(current['checked_commit'], self.head)
+        self.assertIn('tools/required_formal_check.py', current['sources'])
+
+    def test_actual_producer_to_receipt_validator(self):
+        producer_path = self.root / 'formal/gate.py'
+        spec = importlib.util.spec_from_file_location('copied_rf312_producer', producer_path)
+        producer = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(producer)
+        _, digest = producer.source_check()
+        self.assertEqual(digest, self.good_receipt()['manifest_sha256'])
+        self.validator()(
+            {'checked_commit': self.head, 'manifest_sha256': digest,
+             'formalization_status': 'kernel-checked'}, self.context)
+
+    def test_raw_digest_wrong_commit_and_non_kernel_receipts_refuse(self):
+        validate = self.validator()
+        raw = self.c.sha((self.root / 'formal/manifest.json').read_bytes())
+        for key, value in (('manifest_sha256', raw),
+                           ('checked_commit', '0' * 40),
+                           ('formalization_status', 'source')):
+            with self.subTest(key=key):
+                bad = dict(self.good_receipt(), **{key: value})
+                with self.assertRaises(ValueError):
+                    validate(bad, self.context)
+
+    def test_helper_drift_refuses_before_evaluating_changed_code(self):
+        helper = self.root / 'tools/required_formal_check.py'
+        helper.write_bytes(helper.read_bytes() +
+                           b"\nraise RuntimeError('untrusted helper evaluated')\n")
+        with self.assertRaisesRegex(ValueError, 'identity validator'):
+            self.c.source()
+
+    def test_helper_symlink_and_absence_refuse(self):
+        helper = self.root / 'tools/required_formal_check.py'
+        raw = helper.read_bytes()
+        helper.unlink()
+        with self.assertRaisesRegex(ValueError, 'identity validator'):
+            self.c.source()
+        outside = self.root / 'outside-validator.py'
+        outside.write_bytes(raw)
+        helper.symlink_to(outside)
+        with self.assertRaisesRegex(ValueError, 'identity validator'):
+            self.c.source()
+
+    def test_manifest_overlay_and_core_file_drift_refuse(self):
+        changes = (('formal/manifest.json', b'\n'),
+                   ('formal/manifest.overlay.json', b'\n'),
+                   ('formal/ResearchFormalCoreR1/AlgebraV2.lean', b'\n'))
+        for relative, suffix in changes:
+            with self.subTest(path=relative):
+                path = self.root / relative
+                raw = path.read_bytes()
+                path.write_bytes(raw + suffix)
+                try:
+                    with self.assertRaises((ValueError, self._subprocess.CalledProcessError)):
+                        self.c.source()
+                finally:
+                    path.write_bytes(raw)
+
+    def test_missing_or_unknown_overlay_regime_never_downgrades(self):
+        validate = self.validator()
+        overlay = self.root / 'formal/manifest.overlay.json'
+        original = overlay.read_bytes()
+        overlay.unlink()
+        with self.assertRaises(ValueError):
+            validate(self.good_receipt(), self.context)
+        overlay.write_bytes(b'{"schema_version":2,"files":{}}')
+        with self.assertRaises(ValueError):
+            validate(self.good_receipt(), self.context)
+        overlay.write_bytes(original)
+        manifest = self.root / 'formal/manifest.json'
+        raw = manifest.read_bytes()
+        document = self.c.strict(raw)
+        document.pop('source_identity')
+        manifest.write_text(__import__('json').dumps(document))
+        with self.assertRaises(ValueError):
+            validate(self.good_receipt(), self.context)
+
+
 
 if __name__=='__main__':
     unittest.main(verbosity=2)

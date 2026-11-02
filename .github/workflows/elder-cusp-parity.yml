@@ -5,6 +5,7 @@ name: Elder cusp kernel parity exact controls
     paths:
       - 'frontiers/elder_cusp_parity_20261002/**'
       - '.github/workflows/elder-cusp-parity.yml'
+      - 'tests/test_elder_cusp_parity_workflow.py'
       # bound merged sources (consumed and cited in SOURCES.json); the cited unmerged sources are bound through the API
       - 'frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md'
       - 'imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md'
@@ -143,17 +144,44 @@ jobs:
                                     'via': where, 'current_ref_checked': now}))
           script = str(root / 'ecp_check.py')
           expected = (root / 'RESULTS.json').read_bytes()
+          manifest_mutants = {'M1': 'X3', 'M2': 'X4', 'M3': 'X5', 'M4': 'X2',
+                              'M5': 'X1', 'M6': 'X3', 'M7': 'X6'}
+          if manifest['mutants'] != manifest_mutants:
+              raise ValueError('mutant inventory differs from the source-bound protocol')
+          failed_controls = {
+              'M1': 'X3_pinned_fields_and_Omega_a',
+              'M2': 'X4_Q1_identities_and_parity',
+              'M3': 'X5_first_order_bookkeeping',
+              'M4': 'X2_model_ridge_and_edges',
+              'M5': 'X1_lemma_Q_prime_and_CE',
+              'M6': 'X3_pinned_fields_and_Omega_a',
+              'M7': 'X6_corollary_and_ledgers',
+          }
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):
-              out = subprocess.run([sys.executable, *flags, script], check=True, capture_output=True, timeout=600).stdout
-              if out != expected:
+              out = subprocess.run([sys.executable, *flags, script], capture_output=True, timeout=600)
+              if out.returncode != 0:
+                  raise RuntimeError('baseline exit differs from 0 under ' + ' '.join(flags))
+              if out.stdout != expected:
                   raise RuntimeError('output differs from RESULTS.json under ' + ' '.join(flags))
-              for m in manifest['mutants']:
-                  rc = subprocess.run([sys.executable, *flags, script, '--mutant', m], capture_output=True, timeout=600).returncode
-                  if rc != 1:
-                      raise RuntimeError('mutant ' + m + ' not rejected')
-              rc = subprocess.run([sys.executable, *flags, script, '--mutant', 'M99'], capture_output=True, timeout=600).returncode
-              if rc != 2:
-                  raise RuntimeError('unknown mutant label not rejected with exit 2')
+              if out.stderr:
+                  raise RuntimeError('baseline stderr under ' + ' '.join(flags))
+              for m in manifest_mutants:
+                  out = subprocess.run([sys.executable, *flags, script, '--mutant', m],
+                                       capture_output=True, timeout=600)
+                  report = (json.dumps({'failed_controls': [failed_controls[m]], 'mutant': m,
+                                        'scientific_effect': 'NONE'},
+                                       sort_keys=True, separators=(',', ':')) + '\n').encode()
+                  if out.returncode != 1 or out.stdout != report or out.stderr:
+                      raise RuntimeError('mutant ' + m + ' not rejected with exact control report')
+              out = subprocess.run([sys.executable, *flags, script, '--mutant', 'M99'],
+                                   capture_output=True, timeout=600)
+              if out.returncode != 2 or out.stdout or out.stderr != b'unknown mutant label\n':
+                  raise RuntimeError('unknown mutant label not rejected with exact protocol')
           print(json.dumps({'scientific_effect': 'NONE', 'mathematical_acceptance': False}))
           PY
           git diff --exit-code
+      - name: Full-shell protocol regression tests in both modes
+        run: |
+          set -euo pipefail
+          python -B -S -m unittest discover -s tests -p 'test_elder_cusp_parity_workflow.py' -v
+          python -B -O -S -m unittest discover -s tests -p 'test_elder_cusp_parity_workflow.py' -v
