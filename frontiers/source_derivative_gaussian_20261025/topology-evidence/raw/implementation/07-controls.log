@@ -1,0 +1,8 @@
+/workspace/scratch/source-smooth-topology/Controls.lean:31:50: error: Application type mismatch: The argument
+  (j : Fin (K + 1)) → DerivativeBCF 2 ↑j
+has type
+  Type
+of sort `Type 1` but is expected to have type
+  MeasurableSpace (Fin 6 → ℝ)
+of sort `Type` in the application
+  @Kernel.map (Fin 6 → ℝ) (SmoothSample 2 L) ((j : Fin (K + 1)) → DerivativeBCF 2 ↑j)

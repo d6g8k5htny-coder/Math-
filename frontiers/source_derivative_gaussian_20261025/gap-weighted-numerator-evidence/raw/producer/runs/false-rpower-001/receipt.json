@@ -1,0 +1,44 @@
+{
+  "label": "false-rpower-001",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/gap-weighted-numerator-construct/build:$LEAN_PATH exec lean -DwarningAsError=true -R /workspace/scratch/gap-weighted-numerator-construct -o /workspace/scratch/gap-weighted-numerator-construct/build/FalseRPowerMutation.olean /workspace/scratch/gap-weighted-numerator-construct/FalseRPowerMutation.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceGapWeightedNumerator.lean",
+      "bytes": 20999,
+      "sha256": "b2fedf3739884ff716d11c85ebcf5de328fc76bc2a5bed31e8ea72c61d2f87a3"
+    },
+    "object": {
+      "path": "/workspace/scratch/gap-weighted-numerator-construct/build/SourceGapWeightedNumerator.olean",
+      "bytes": 1730640,
+      "sha256": "2e6708f3f238cc5a6e1756edf926dab74cab2f05333978853cb6384cb3ff4a63"
+    }
+  },
+  "started_utc": "2026-10-26T10:12:48.708332+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 2.994623899459839,
+  "ended_utc": "2026-10-26T10:12:51.702992+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceGapWeightedNumerator.lean",
+      "bytes": 20999,
+      "sha256": "b2fedf3739884ff716d11c85ebcf5de328fc76bc2a5bed31e8ea72c61d2f87a3"
+    },
+    "object": {
+      "path": "/workspace/scratch/gap-weighted-numerator-construct/build/SourceGapWeightedNumerator.olean",
+      "bytes": 1730640,
+      "sha256": "2e6708f3f238cc5a6e1756edf926dab74cab2f05333978853cb6384cb3ff4a63"
+    }
+  },
+  "log": {
+    "path": "/workspace/scratch/gap-weighted-numerator-construct/runs/false-rpower-001/output.log",
+    "bytes": 115,
+    "sha256": "c3b88eb81917f621434be935e336e5f36e4c279710370d8ae7cbdd48112ec815"
+  }
+}

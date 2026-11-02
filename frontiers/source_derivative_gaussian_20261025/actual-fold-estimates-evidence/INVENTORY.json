@@ -1,0 +1,682 @@
+{
+  "module": "SourceAdaptiveFoldEstimates",
+  "source_sha256": "980d8f238a085c6fc56bfffd0af278bcc248fb2f523c15662b603957b36c8a20",
+  "collector_receipt": "runs/inventory-001/receipt.json",
+  "scope": "Every declaration assigned to the exact imported module index; no namespace filter, so module-owned lazy imported-namespace equations are included if present. Zero such declarations occur in this module.",
+  "count": 67,
+  "classification_counts": {
+    "explicit_public_theorem": 36,
+    "generated_Prop_bundle_projection": 13,
+    "generated_simp_theorem": 7,
+    "generated_proof_auxiliary": 2,
+    "generated_bundle_definition": 3,
+    "explicit_non_Prop_definition": 2,
+    "generated_recursor": 1,
+    "explicit_private_theorem": 1,
+    "explicit_Prop_bundle": 1,
+    "generated_constructor": 1
+  },
+  "kernel_kind_counts": {
+    "theorem": 59,
+    "definition": 5,
+    "recursor": 1,
+    "inductive": 1,
+    "constructor": 1
+  },
+  "declarations": [
+    {
+      "name": "I4ActualFoldNumeric.NumericalBudget",
+      "kernel_kind": "inductive",
+      "classification": "explicit_Prop_bundle",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldNumeric.NumericalBudget.c_pos",
+      "kernel_kind": "theorem",
+      "classification": "generated_Prop_bundle_projection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldNumeric.NumericalBudget.capture",
+      "kernel_kind": "theorem",
+      "classification": "generated_Prop_bundle_projection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldNumeric.NumericalBudget.casesOn",
+      "kernel_kind": "definition",
+      "classification": "generated_bundle_definition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldNumeric.NumericalBudget.curvature",
+      "kernel_kind": "theorem",
+      "classification": "generated_Prop_bundle_projection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldNumeric.NumericalBudget.drop",
+      "kernel_kind": "theorem",
+      "classification": "generated_Prop_bundle_projection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldNumeric.NumericalBudget.error_le",
+      "kernel_kind": "theorem",
+      "classification": "generated_Prop_bundle_projection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldNumeric.NumericalBudget.kappa_pos",
+      "kernel_kind": "theorem",
+      "classification": "generated_Prop_bundle_projection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldNumeric.NumericalBudget.mk",
+      "kernel_kind": "constructor",
+      "classification": "generated_constructor",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldNumeric.NumericalBudget.mk._flat_ctor",
+      "kernel_kind": "definition",
+      "classification": "generated_bundle_definition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldNumeric.NumericalBudget.rT_le",
+      "kernel_kind": "theorem",
+      "classification": "generated_Prop_bundle_projection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldNumeric.NumericalBudget.radius_curvature_eq",
+      "kernel_kind": "theorem",
+      "classification": "generated_Prop_bundle_projection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldNumeric.NumericalBudget.radius_le",
+      "kernel_kind": "theorem",
+      "classification": "generated_Prop_bundle_projection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldNumeric.NumericalBudget.radius_pos",
+      "kernel_kind": "theorem",
+      "classification": "generated_Prop_bundle_projection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldNumeric.NumericalBudget.rec",
+      "kernel_kind": "recursor",
+      "classification": "generated_recursor",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldNumeric.NumericalBudget.recOn",
+      "kernel_kind": "definition",
+      "classification": "generated_bundle_definition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldNumeric.NumericalBudget.slope_le",
+      "kernel_kind": "theorem",
+      "classification": "generated_Prop_bundle_projection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldNumeric.NumericalBudget.strict_center",
+      "kernel_kind": "theorem",
+      "classification": "generated_Prop_bundle_projection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldNumeric.NumericalBudget.twice_T_le",
+      "kernel_kind": "theorem",
+      "classification": "generated_Prop_bundle_projection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldNumeric.numerical_budget",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldTwoPin.two_pin_abs_le_on_J",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldTwoPin.two_pin_bounds_on_J",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.actual_Hy_eq_Gx",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.actual_Vx_second",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.actual_Vy_second",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.actual_axial_pointwise_error",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.actual_component_second",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.actual_component_second._simp_1_1",
+      "kernel_kind": "theorem",
+      "classification": "generated_simp_theorem",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.actual_component_second._simp_1_2",
+      "kernel_kind": "theorem",
+      "classification": "generated_simp_theorem",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.actual_component_second._simp_1_3",
+      "kernel_kind": "theorem",
+      "classification": "generated_simp_theorem",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.actual_component_second._simp_1_4",
+      "kernel_kind": "theorem",
+      "classification": "generated_simp_theorem",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.actual_component_second._simp_1_5",
+      "kernel_kind": "theorem",
+      "classification": "generated_simp_theorem",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.actual_component_second._simp_1_6",
+      "kernel_kind": "theorem",
+      "classification": "generated_simp_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.actual_component_second._simp_1_7",
+      "kernel_kind": "theorem",
+      "classification": "generated_simp_theorem",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.actual_coordinate_oscillation",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.actual_fourth_coordinate_bound",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.actual_fourth_norm_bound",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.actual_jet_norm_bound",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.actual_second_lipschitz",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.actual_second_swap",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.actual_structural_rectangle",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.actual_third_lipschitz",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.actual_third_norm_bound",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.axes_norm",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.component_first",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.component_first_as_second",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.component_jet",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.component_second",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.component_smooth",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.coord_norm_le",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.hasDerivAt_xslice",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.hasDerivAt_xslice_component",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.jet_lipschitz",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.normalized_peano_mass",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.point_norm_sub_le",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.second_component_bound",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.second_component_smooth",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.sourceGapLaw_actual_rectangle_boundary_path",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.sourceGapLaw_structural_rectangle",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.sourceKappa",
+      "kernel_kind": "definition",
+      "classification": "explicit_non_Prop_definition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.sourceT",
+      "kernel_kind": "definition",
+      "classification": "explicit_non_Prop_definition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.sourceT._proof_1",
+      "kernel_kind": "theorem",
+      "classification": "generated_proof_auxiliary",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.sourceT._proof_2",
+      "kernel_kind": "theorem",
+      "classification": "generated_proof_auxiliary",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.sourceT_one_le",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.source_scale_le",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldEstimates.vertical_boundary_signs",
+      "kernel_kind": "theorem",
+      "classification": "explicit_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceAdaptiveFoldEstimates.0.I4ActualFoldTwoPin.convex_zero_pin_sign",
+      "kernel_kind": "theorem",
+      "classification": "explicit_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ]
+}

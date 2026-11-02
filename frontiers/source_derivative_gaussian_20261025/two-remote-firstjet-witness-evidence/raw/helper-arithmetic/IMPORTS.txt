@@ -1,0 +1,7 @@
+import SourceRemoteJetWitness
+
+-- Expected producer context:
+-- noncomputable section; set_option autoImplicit false
+-- open scoped BigOperators Matrix Topology
+-- open I4Source I4SourceConfluentPins I4SourceRemoteJetWitness
+-- namespace I4SourceTwoRemoteFirstJetWitness

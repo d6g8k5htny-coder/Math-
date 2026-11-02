@@ -1,0 +1,33 @@
+{
+  "integrated_utc": "2026-10-26T11:33:48.013790+00:00",
+  "integration_count": 1,
+  "helper": "/root/conditional_remote_jet_preflight",
+  "section_path": "/workspace/scratch/finite-trig-source-conversion/NEEDED_SECTION.lean.txt",
+  "section_bytes": 3652,
+  "section_sha256": "bb748238147162c2e68e6134361c9c4ad17610a2f2adb78d2510a08c786ddff3",
+  "helper_identity": {
+    "frozen_utc": "2026-10-26T11:33:22.934215+00:00",
+    "full_source": "/workspace/scratch/finite-trig-source-conversion/raw/attempt003/AtomConversion.lean",
+    "full_source_sha256": "9754087702b4b416bad0bedcbc7e303e90fce88ab036f6d2e8a82c61aa2da8fd",
+    "full_source_bytes": 3845,
+    "needed_section": "/workspace/scratch/finite-trig-source-conversion/NEEDED_SECTION.lean.txt",
+    "needed_section_sha256": "bb748238147162c2e68e6134361c9c4ad17610a2f2adb78d2510a08c786ddff3",
+    "needed_section_bytes": 3652,
+    "full_source_first_line": 10,
+    "full_source_last_line": 96,
+    "integration": "Copy needed section exactly once inside existing namespace I4SourceFiniteTrig, after imports/noncomputable section and before toSource; do not import or copy helper object.",
+    "scratch_object": "/workspace/scratch/finite-trig-source-conversion/raw/attempt003/AtomConversion.olean",
+    "scratch_object_bytes": 222248,
+    "strict_result": "/workspace/scratch/finite-trig-source-conversion/raw/attempt003/result.json",
+    "private_declarations": [
+      "atom_amplitude_pos",
+      "atom_pairing_single",
+      "atom_pairing_add",
+      "atom_pairing_pair",
+      "atom_phase_neg",
+      "atomSource",
+      "atomSource_pairing"
+    ]
+  },
+  "helper_object_imported": false
+}

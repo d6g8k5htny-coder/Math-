@@ -1,0 +1,20 @@
+/workspace/scratch/actual-fold-death-construct/Controls.lean:24:17: error(lean.unknownIdentifier): Unknown identifier `sourceGapLaw`
+
+Note: It is not possible to treat `sourceGapLaw` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/workspace/scratch/actual-fold-death-construct/Controls.lean:101:2: error: unsolved goals
+case hpull
+p : ℝ × ℝ
+⊢ V (((coordinates 2).symm ![p.1, p.2]).ofLp 0, ((coordinates 2).symm ![p.1, p.2]).ofLp 1) = V p
+/workspace/scratch/actual-fold-death-construct/Controls.lean:103:2: error: unsolved goals
+case hm
+⊢ 6 *
+      (((coordinates 2).symm ![-(1 / 2), 0]).ofLp 0 ^ 3 / 3 - ((coordinates 2).symm ![-(1 / 2), 0]).ofLp 0 / 4 +
+          5 / 12 -
+        ((coordinates 2).symm ![-(1 / 2), 0]).ofLp 1 ^ 2) =
+    3
+/workspace/scratch/actual-fold-death-construct/Controls.lean:104:2: error: unsolved goals
+case hs
+⊢ 6 *
+      (((coordinates 2).symm ![1 / 2, 0]).ofLp 0 ^ 3 / 3 - ((coordinates 2).symm ![1 / 2, 0]).ofLp 0 / 4 + 5 / 12 -
+        ((coordinates 2).symm ![1 / 2, 0]).ofLp 1 ^ 2) =
+    2

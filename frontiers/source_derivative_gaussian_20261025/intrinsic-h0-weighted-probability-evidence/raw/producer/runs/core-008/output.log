@@ -1,0 +1,88 @@
+SourceIntrinsicH0WeightedProbability.lean:154:2: error: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+SourceIntrinsicH0WeightedProbability.lean:162:65: error: Function expected at
+  hnot
+but this term has type
+  (fun x => x ∈ ?m.473) ω
+
+Note: Expected a function because this term is being applied to the argument
+  (hω hgood)
+SourceIntrinsicH0WeightedProbability.lean:141:51: error: unsolved goals
+case refine_3
+L : ℝ
+hL : 0 < L
+hE : ∀ (r : ℝ), MeasurableSet (sourceIntrinsicFiniteBarEvent L r)
+B k₀ k₁ : ℝ
+hB : 0 ≤ B
+hk₀ : 0 < k₀
+hk₀₁ : k₀ ≤ k₁
+C δP : ℝ
+hC : 0 ≤ C
+hδP : 0 < δP
+hδP1 : δP ≤ 1
+hP :
+  ∀ (r : ℝ),
+    0 < r →
+      r < δP →
+        ∀ (b k : ℝ),
+          |b| ≤ B →
+            k₀ ≤ k →
+              k ≤ k₁ →
+                IsProbabilityMeasure (sourceCompactFoldWeightedLaw ⋯ r b k) ∧
+                  (sourceCompactFoldWeightedLaw ⋯ r b k).real (sourceCompactFoldGood L k₀ r k)ᶜ ≤ C * r ^ 3
+δH : ℝ
+hδH : 0 < δH
+_hδH1 : δH ≤ 1
+hδHL : δH ≤ L / 2
+hH :
+  ∀ (K : Type) [inst : Field K] (k₀ : ℝ),
+    0 < k₀ →
+      ∀ (r : ℝ),
+        0 < r →
+          r < δH →
+            ∀ (b k : ℝ),
+              k₀ ≤ k →
+                ∀ᵐ (sample : SmoothSample 2 L) ∂sourceGapLaw ⋯ r b k,
+                  have T := sourceT k₀ sample;
+                  have κ := sourceKappa r k sample;
+                  have g := actualField 2 L sample;
+                  have M := endpointLiftM r;
+                  have S := endpointLiftS r;
+                  have F := SourceActualFoldTorus.actualTorusField ⋯ sample;
+                  have Mbar := I4Torus.torusProjection 2 L (endpointM r);
+                  r * T ^ 5 ≤ 1 / 100 →
+                    1024 * T ^ 5 ≤ κ →
+                      IsFiniteBar 2 L (h0Interface 2 L) g M S ∧
+                        g M = b ∧
+                          g S = b - k * r ^ 3 ∧
+                            (h0Interface 2 L).deathHeight g M = b - k * r ^ 3 ∧
+                              {h | h0OlderClearance ℝ g M h} = Iio (b - k * r ^ 3) ∧
+                                {h | h0OlderClearance K F Mbar h} = Iio (b - k * r ^ 3) ∧
+                                  ∃ C, Nonempty (superlevel_h0Filtration F ↧K ≅ elderInterval K b (b - k * r ^ 3) ⊞ C)
+hmin : 0 < min δP δH
+hhalf : min δP δH / 2 < min δP δH
+r : ℝ
+hr : 0 < r
+hrStar : r ≤ min δP δH / 2
+b k : ℝ
+hb : |b| ≤ B
+hk : k₀ ≤ k
+hk' : k ≤ k₁
+hrP : r < δP
+hrH : r < δH
+hp : IsProbabilityMeasure (sourceCompactFoldWeightedLaw ⋯ r b k)
+hbad : (sourceCompactFoldWeightedLaw ⋯ r b k).real (sourceCompactFoldGood L k₀ r k)ᶜ ≤ C * r ^ 3
+this : IsProbabilityMeasure (sourceCompactFoldWeightedLaw ⋯ r b k) := hp
+hs :
+  ∀ᵐ (ω : SmoothSample 2 L) ∂sourceCompactFoldWeightedLaw ⋯ r b k,
+    ω ∈ sourceCompactFoldGood L k₀ r k → ω ∈ sourceIntrinsicFiniteBarEvent L r
+⊢ let QW := sourceCompactFoldWeightedLaw ⋯ r b k;
+  let E := sourceIntrinsicFiniteBarEvent L r;
+  let p := sourceIntrinsicFiniteBarProbability hL r b k;
+  IsProbabilityMeasure QW ∧ QW.real Eᶜ = 1 - p ∧ 0 ≤ p ∧ p ≤ 1 ∧ 0 ≤ 1 - p ∧ 1 - p ≤ C * r ^ 3

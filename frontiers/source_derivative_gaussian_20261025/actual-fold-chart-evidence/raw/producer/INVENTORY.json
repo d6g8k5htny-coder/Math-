@@ -1,0 +1,794 @@
+{
+  "module": "SourceAdaptiveFoldChart",
+  "total": 72,
+  "classification_counts": {
+    "public definition": 4,
+    "generated simp theorem": 28,
+    "public theorem": 25,
+    "generated defining equation": 3,
+    "generated imported-namespace defining equation": 2,
+    "generated proof auxiliary": 9,
+    "Prop bundle": 1
+  },
+  "namespace_counts": {
+    "I4ActualFoldChartJets": 46,
+    "I4SourceAdaptiveFoldChart": 24,
+    "AdaptiveFoldTransverseRidge": 2
+  },
+  "public_source_declarations": {
+    "I4ActualFoldChartJets.coordMap": "def",
+    "I4ActualFoldChartJets.coordMap_apply": "theorem",
+    "I4ActualFoldChartJets.chartMap": "def",
+    "I4ActualFoldChartJets.chartMap_apply": "theorem",
+    "I4ActualFoldChartJets.V": "def",
+    "I4ActualFoldChartJets.V_contDiff": "theorem",
+    "I4ActualFoldChartJets.pullback_jet": "theorem",
+    "I4ActualFoldChartJets.Vx_eq": "theorem",
+    "I4ActualFoldChartJets.Vy_eq": "theorem",
+    "I4ActualFoldChartJets.axial_third_eq": "theorem",
+    "I4ActualFoldChartJets.transverse_center_eq": "theorem",
+    "I4ActualFoldChartJets.curve_deriv": "theorem",
+    "I4ActualFoldChartJets.curve_iteratedDeriv_three": "theorem",
+    "I4SourceAdaptiveFoldChart.actualFoldPotential": "def",
+    "I4SourceAdaptiveFoldChart.NormalizedFoldData": "def",
+    "I4SourceAdaptiveFoldChart.chart_endpointM": "theorem",
+    "I4SourceAdaptiveFoldChart.chart_endpointS": "theorem",
+    "I4SourceAdaptiveFoldChart.actualFoldPotential_gap": "theorem",
+    "I4SourceAdaptiveFoldChart.normalized_axial_peano": "theorem",
+    "I4SourceAdaptiveFoldChart.actualFoldPotential_smooth": "theorem",
+    "I4SourceAdaptiveFoldChart.actualFoldPotential_C4": "theorem",
+    "I4SourceAdaptiveFoldChart.actualFoldPotential_Vx": "theorem",
+    "I4SourceAdaptiveFoldChart.actualFoldPotential_Vy": "theorem",
+    "I4SourceAdaptiveFoldChart.actualFoldPotential_axial_third": "theorem",
+    "I4SourceAdaptiveFoldChart.actualFoldPotential_transverse_center": "theorem",
+    "I4SourceAdaptiveFoldChart.actualFoldPotential_gradient_pins": "theorem",
+    "I4SourceAdaptiveFoldChart.actualFoldPotential_normalized_data_of_rawPins": "theorem",
+    "I4SourceAdaptiveFoldChart.sourceGapLaw_and_posterior_normalized_fold_data": "theorem",
+    "I4SourceAdaptiveFoldChart.sourceGapLaw_normalized_fold_data": "theorem",
+    "I4SourceAdaptiveFoldChart.rawPosteriorSample_normalized_fold_data": "theorem"
+  },
+  "declarations": [
+    {
+      "name": "AdaptiveFoldTransverseRidge.Vx.eq_1",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "generated imported-namespace defining equation",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.partialX.eq_1",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "generated imported-namespace defining equation",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.V",
+      "kind": "definition",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public definition",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.V._proof_1",
+      "kind": "theorem",
+      "axioms": "[propext]",
+      "classification": "generated proof auxiliary",
+      "axiom_names": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.V.eq_1",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "generated defining equation",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.V_contDiff",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.Vx_eq",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.Vx_eq._simp_1_2",
+      "kind": "theorem",
+      "axioms": "[propext]",
+      "classification": "generated simp theorem",
+      "axiom_names": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.Vx_eq._simp_1_3",
+      "kind": "theorem",
+      "axioms": "[propext]",
+      "classification": "generated simp theorem",
+      "axiom_names": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.Vx_eq._simp_1_4",
+      "kind": "theorem",
+      "axioms": "[propext]",
+      "classification": "generated simp theorem",
+      "axiom_names": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.Vx_eq._simp_1_5",
+      "kind": "theorem",
+      "axioms": "[propext]",
+      "classification": "generated simp theorem",
+      "axiom_names": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.Vx_eq._simp_1_6",
+      "kind": "theorem",
+      "axioms": "[propext]",
+      "classification": "generated simp theorem",
+      "axiom_names": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.Vx_eq._simp_1_7",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "generated simp theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.Vx_eq._simp_1_8",
+      "kind": "theorem",
+      "axioms": "[propext]",
+      "classification": "generated simp theorem",
+      "axiom_names": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.Vy_eq",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.Vy_eq._simp_1_2",
+      "kind": "theorem",
+      "axioms": "[propext]",
+      "classification": "generated simp theorem",
+      "axiom_names": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.Vy_eq._simp_1_3",
+      "kind": "theorem",
+      "axioms": "[propext]",
+      "classification": "generated simp theorem",
+      "axiom_names": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.Vy_eq._simp_1_4",
+      "kind": "theorem",
+      "axioms": "[propext]",
+      "classification": "generated simp theorem",
+      "axiom_names": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.Vy_eq._simp_1_5",
+      "kind": "theorem",
+      "axioms": "[propext]",
+      "classification": "generated simp theorem",
+      "axiom_names": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.Vy_eq._simp_1_6",
+      "kind": "theorem",
+      "axioms": "[propext]",
+      "classification": "generated simp theorem",
+      "axiom_names": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.Vy_eq._simp_1_7",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "generated simp theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.Vy_eq._simp_1_8",
+      "kind": "theorem",
+      "axioms": "[propext]",
+      "classification": "generated simp theorem",
+      "axiom_names": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.axial_third_eq",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.axial_third_eq._simp_1_1",
+      "kind": "theorem",
+      "axioms": "[propext]",
+      "classification": "generated simp theorem",
+      "axiom_names": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.axial_third_eq._simp_1_2",
+      "kind": "theorem",
+      "axioms": "[propext]",
+      "classification": "generated simp theorem",
+      "axiom_names": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.axial_third_eq._simp_1_3",
+      "kind": "theorem",
+      "axioms": "[propext]",
+      "classification": "generated simp theorem",
+      "axiom_names": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.axial_third_eq._simp_1_4",
+      "kind": "theorem",
+      "axioms": "[propext]",
+      "classification": "generated simp theorem",
+      "axiom_names": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.axial_third_eq._simp_1_5",
+      "kind": "theorem",
+      "axioms": "[propext]",
+      "classification": "generated simp theorem",
+      "axiom_names": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.axial_third_eq._simp_1_6",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "generated simp theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.axial_third_eq._simp_1_7",
+      "kind": "theorem",
+      "axioms": "[propext]",
+      "classification": "generated simp theorem",
+      "axiom_names": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.chartMap",
+      "kind": "definition",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public definition",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.chartMap._proof_1",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "generated proof auxiliary",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.chartMap._proof_2",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "generated proof auxiliary",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.chartMap.eq_1",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "generated defining equation",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.chartMap_apply",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.coordMap",
+      "kind": "definition",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public definition",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.coordMap_apply",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.curve_deriv",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.curve_iteratedDeriv_three",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.pullback_jet",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.transverse_center_eq",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.transverse_center_eq._simp_1_1",
+      "kind": "theorem",
+      "axioms": "[propext]",
+      "classification": "generated simp theorem",
+      "axiom_names": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.transverse_center_eq._simp_1_2",
+      "kind": "theorem",
+      "axioms": "[propext]",
+      "classification": "generated simp theorem",
+      "axiom_names": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.transverse_center_eq._simp_1_3",
+      "kind": "theorem",
+      "axioms": "[propext]",
+      "classification": "generated simp theorem",
+      "axiom_names": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.transverse_center_eq._simp_1_4",
+      "kind": "theorem",
+      "axioms": "[propext]",
+      "classification": "generated simp theorem",
+      "axiom_names": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.transverse_center_eq._simp_1_5",
+      "kind": "theorem",
+      "axioms": "[propext]",
+      "classification": "generated simp theorem",
+      "axiom_names": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.transverse_center_eq._simp_1_6",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "generated simp theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4ActualFoldChartJets.transverse_center_eq._simp_1_7",
+      "kind": "theorem",
+      "axioms": "[propext]",
+      "classification": "generated simp theorem",
+      "axiom_names": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldChart.NormalizedFoldData",
+      "kind": "definition",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "Prop bundle",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldChart.NormalizedFoldData._proof_1",
+      "kind": "theorem",
+      "axioms": "[propext]",
+      "classification": "generated proof auxiliary",
+      "axiom_names": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldChart.NormalizedFoldData._proof_2",
+      "kind": "theorem",
+      "axioms": "[propext]",
+      "classification": "generated proof auxiliary",
+      "axiom_names": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldChart.NormalizedFoldData._proof_3",
+      "kind": "theorem",
+      "axioms": "[propext]",
+      "classification": "generated proof auxiliary",
+      "axiom_names": [
+        "propext"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldChart.NormalizedFoldData._proof_4",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "generated proof auxiliary",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldChart.NormalizedFoldData._proof_5",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "generated proof auxiliary",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldChart.NormalizedFoldData._proof_6",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "generated proof auxiliary",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldChart.actualFoldPotential",
+      "kind": "definition",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public definition",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldChart.actualFoldPotential.eq_1",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "generated defining equation",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldChart.actualFoldPotential_C4",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldChart.actualFoldPotential_Vx",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldChart.actualFoldPotential_Vy",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldChart.actualFoldPotential_axial_third",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldChart.actualFoldPotential_gap",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldChart.actualFoldPotential_gradient_pins",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldChart.actualFoldPotential_normalized_data_of_rawPins",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldChart.actualFoldPotential_smooth",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldChart.actualFoldPotential_transverse_center",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldChart.chart_endpointM",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldChart.chart_endpointS",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldChart.normalized_axial_peano",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldChart.rawPosteriorSample_normalized_fold_data",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldChart.sourceGapLaw_and_posterior_normalized_fold_data",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAdaptiveFoldChart.sourceGapLaw_normalized_fold_data",
+      "kind": "theorem",
+      "axioms": "[propext, Classical.choice, Quot.sound]",
+      "classification": "public theorem",
+      "axiom_names": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "axiom_coverage": "All72 module declarations exhaustively collected once; complete ownnamespace coverage70 plus2 lazy importednamespace generated equations. No redundant direct re-audit of the same declarations."
+}

@@ -1,0 +1,176 @@
+private theorem collar_chart_image_preimage {L : ℝ}
+    (phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) Point2)
+    (s : Set Point2) (hs : s ⊆ phi.target) :
+    phi.symm '' s = phi.source ∩ phi ⁻¹' s := by
+  ext z
+  constructor
+  · rintro ⟨u, hu, rfl⟩
+    refine ⟨phi.map_target (hs hu), ?_⟩
+    change phi (phi.symm u) ∈ s
+    simpa only [phi.right_inv (hs hu)] using hu
+  · rintro ⟨hz, hzs⟩
+    exact ⟨phi z, hzs, phi.left_inv hz⟩
+
+private theorem collar_pc_preimage {L : ℝ}
+    (phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) Point2)
+    (s : Set Point2) (hs : s ⊆ phi.target) (hpc : IsPathConnected s) :
+    IsPathConnected (phi.source ∩ phi ⁻¹' s) := by
+  have h := hpc.image' (phi.continuousOn_symm.mono hs)
+  rw [collar_chart_image_preimage phi s hs] at h
+  exact h
+
+private theorem collar_joined_preimage {L : ℝ}
+    (phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) Point2)
+    (s : Set Point2) (hs : s ⊆ phi.target)
+    {p r : I4Torus.SourceTorus 2 L}
+    (hp : p ∈ phi.source ∩ phi ⁻¹' s) (hr : r ∈ phi.source ∩ phi ⁻¹' s) :
+    JoinedIn (phi.source ∩ phi ⁻¹' s) p r ↔ JoinedIn s (phi p) (phi r) := by
+  constructor
+  · intro h
+    exact (h.map (phi.continuousOn.mono inter_subset_left)).mono (by
+      rintro _ ⟨z, hz, rfl⟩
+      exact hz.2)
+  · intro h
+    have hi := h.map (phi.continuousOn_symm.mono hs)
+    rw [collar_chart_image_preimage phi s hs] at hi
+    simpa only [phi.left_inv hp.1, phi.left_inv hr.1] using hi
+
+private theorem transportSaddleCollar {L : ℝ} (F : I4Torus.SourceTorus 2 L → ℝ)
+    (q : I4Torus.SourceTorus 2 L) (O : Set (I4Torus.SourceTorus 2 L))
+    (rho : ℝ) (phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) Point2)
+    (hrho : 0 < rho) (hchart : ChartFacts F q O rho phi)
+    (hgeometry : SaddleGeometry rho) : CollarFacts F q O rho phi := by
+  let W : Set (I4Torus.SourceTorus 2 L) := phi.source ∩ {z | F q < F z}
+  have hball {z : I4Torus.SourceTorus 2 L} (hz : z ∈ phi.source) :
+      phi z ∈ Metric.ball (0 : Point2) rho := by
+    rw [← hchart.target_eq]
+    exact phi.map_source hz
+  have hW : W = phi.source ∩ phi ⁻¹' targetStrict rho := by
+    ext z
+    constructor
+    · rintro ⟨hz, hv⟩
+      refine ⟨hz, hball hz, ?_⟩
+      have hid := hchart.identity z hz
+      dsimp [saddleQ]
+      linarith
+    · rintro ⟨hz, _, hv⟩
+      refine ⟨hz, ?_⟩
+      have hid := hchart.identity z hz
+      dsimp [saddleQ] at hv
+      linarith
+  have hplus : W ∩ {z | 0 < phi z 1} = phi.source ∩ phi ⁻¹' targetPlus rho := by
+    rw [hW]
+    ext z
+    change ((z ∈ phi.source ∧ phi z ∈ targetStrict rho) ∧ 0 < phi z 1) ↔
+      (z ∈ phi.source ∧ phi z ∈ targetStrict rho ∧ 0 < phi z 1)
+    exact and_assoc
+  have hminus : W ∩ {z | phi z 1 < 0} = phi.source ∩ phi ⁻¹' targetMinus rho := by
+    rw [hW]
+    ext z
+    change ((z ∈ phi.source ∧ phi z ∈ targetStrict rho) ∧ phi z 1 < 0) ↔
+      (z ∈ phi.source ∧ phi z ∈ targetStrict rho ∧ phi z 1 < 0)
+    exact and_assoc
+  have hstrictT : targetStrict rho ⊆ phi.target := by
+    intro u hu
+    rw [hchart.target_eq]
+    exact hu.1
+  have hplusT : targetPlus rho ⊆ phi.target := by
+    intro u hu
+    exact hstrictT hu.1
+  have hminusT : targetMinus rho ⊆ phi.target := by
+    intro u hu
+    exact hstrictT hu.1
+  refine ⟨hchart, ?_⟩
+  change IsPathConnected (W ∩ {z | 0 < phi z 1}) ∧
+    IsPathConnected (W ∩ {z | phi z 1 < 0}) ∧
+    Disjoint (W ∩ {z | 0 < phi z 1}) (W ∩ {z | phi z 1 < 0}) ∧
+    W = (W ∩ {z | 0 < phi z 1}) ∪ (W ∩ {z | phi z 1 < 0}) ∧
+    (∀ p ∈ W, ∀ r ∈ W, JoinedIn W p r ↔ 0 < (phi p 1) * (phi r 1)) ∧
+    (∀ delta : ℝ, 0 ≤ delta → IsPathConnected (phi.source ∩ {z | F q-delta ≤ F z}))
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · rw [hplus]
+    exact collar_pc_preimage phi (targetPlus rho) hplusT hgeometry.plus_pc
+  · rw [hminus]
+    exact collar_pc_preimage phi (targetMinus rho) hminusT hgeometry.minus_pc
+  · rw [hplus, hminus, Set.disjoint_left]
+    intro z hzP hzM
+    exact Set.disjoint_left.mp hgeometry.disjoint hzP.2 hzM.2
+  · rw [hW, hplus, hminus]
+    ext z
+    constructor
+    · rintro ⟨hz, hu⟩
+      rw [hgeometry.partition] at hu
+      rcases hu with hp | hm
+      · exact Or.inl ⟨hz, hp⟩
+      · exact Or.inr ⟨hz, hm⟩
+    · rintro (⟨hz, hp⟩ | ⟨hz, hm⟩)
+      · refine ⟨hz, ?_⟩
+        rw [hgeometry.partition]
+        exact Or.inl hp
+      · refine ⟨hz, ?_⟩
+        rw [hgeometry.partition]
+        exact Or.inr hm
+  · intro p hp r hr
+    rw [hW] at hp hr ⊢
+    exact (collar_joined_preimage phi (targetStrict rho) hstrictT hp hr).trans
+      (hgeometry.joined_iff (phi p) hp.2 (phi r) hr.2)
+  · intro delta hdelta
+    have hsT : targetLower rho delta ⊆ phi.target := by
+      intro u hu
+      rw [hchart.target_eq]
+      exact hu.1
+    have hlower : phi.source ∩ {z | F q-delta ≤ F z} =
+        phi.source ∩ phi ⁻¹' targetLower rho delta := by
+      ext z
+      constructor
+      · rintro ⟨hz, hv⟩
+        refine ⟨hz, hball hz, ?_⟩
+        have hid := hchart.identity z hz
+        dsimp [saddleQ]
+        linarith
+      · rintro ⟨hz, _, hv⟩
+        refine ⟨hz, ?_⟩
+        have hid := hchart.identity z hz
+        dsimp [saddleQ] at hv
+        linarith
+    rw [hlower]
+    exact collar_pc_preimage phi (targetLower rho delta) hsT (hgeometry.lower_pc delta hdelta)
+
+private theorem actualSaddleCollar {L : ℝ} (hL : 0 < L)
+    (omega : I4SmoothCarrier.SmoothSample 2 L) (X : UniversalLaw.Spec.Lifetime.E 2)
+    (hcrit : UniversalLaw.Spec.Lifetime.IsCriticalPoint 2 (I4LifetimeField.actualField 2 L omega) X)
+    (hI : UniversalLaw.Spec.Lifetime.HessianHasInertia 2 (I4LifetimeField.actualField 2 L omega) X 1)
+    (O : Set (I4Torus.SourceTorus 2 L)) (hO : IsOpen O) (hXO : physicalProjection L X ∈ O) :
+    ∃ rho : ℝ, 0 < rho ∧
+      ∃ phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) Point2,
+        CollarFacts (SourceActualFoldTorus.actualTorusField hL.ne' omega)
+          (physicalProjection L X) O rho phi := by
+  obtain ⟨rho, hrho, phi, hchart⟩ := quotientSaddleChart hL omega X hcrit hI O hO hXO
+  exact ⟨rho, hrho, phi, transportSaddleCollar _ _ O rho phi hrho hchart
+    (saddleConeGeometry rho hrho)⟩
+
+theorem actualSource_quotient_saddle_local_collar {L : ℝ} (hL : 0 < L)
+    (omega : I4SmoothCarrier.SmoothSample 2 L) (X : UniversalLaw.Spec.Lifetime.E 2)
+    (hcrit : UniversalLaw.Spec.Lifetime.IsCriticalPoint 2 (I4LifetimeField.actualField 2 L omega) X)
+    (hI : UniversalLaw.Spec.Lifetime.HessianHasInertia 2 (I4LifetimeField.actualField 2 L omega) X 1) :
+    let F := SourceActualFoldTorus.actualTorusField hL.ne' omega
+    let q := I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)
+    let c := F q
+    ∀ O : Set (I4Torus.SourceTorus 2 L), IsOpen O → q ∈ O →
+      ∃ rho : ℝ, 0 < rho ∧
+        ∃ phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) (Fin 2 → ℝ),
+          q ∈ phi.source ∧ phi q = 0 ∧ phi.source ⊆ O ∧
+          phi.target = Metric.ball (0 : Fin 2 → ℝ) rho ∧
+          (∀ z ∈ phi.source, F z = c-(phi z 0)^2+(phi z 1)^2) ∧
+          let W := phi.source ∩ {z | c < F z}
+          let Bplus := W ∩ {z | 0 < phi z 1}
+          let Bminus := W ∩ {z | phi z 1 < 0}
+          IsPathConnected Bplus ∧ IsPathConnected Bminus ∧ Disjoint Bplus Bminus ∧
+            W = Bplus ∪ Bminus ∧
+            (∀ p ∈ W, ∀ r ∈ W, JoinedIn W p r ↔ 0 < (phi p 1)*(phi r 1)) ∧
+            (∀ delta : ℝ, 0 ≤ delta → IsPathConnected (phi.source ∩ {z | c-delta ≤ F z})) := by
+  dsimp only
+  intro O hO hXO
+  obtain ⟨rho, hrho, phi, hchart, hbranches⟩ := actualSaddleCollar hL omega X hcrit hI O hO hXO
+  exact ⟨rho, hrho, phi, hchart.center_mem, hchart.center_zero, hchart.source_subset,
+    hchart.target_eq, hchart.identity, hbranches⟩

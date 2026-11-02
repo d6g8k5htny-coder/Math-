@@ -1,0 +1,16 @@
+{
+  "quadratic_loss_of_second_derivative": {
+    "sha256": "8345c83c86a13943b092b622bbbd02634a604f0610388dab7c5f5a6acfad1d78",
+    "first_line": 15,
+    "last_line": 68,
+    "signature": "theorem quadratic_loss_of_second_derivative\n    {f f₁ f₂ : ℝ → ℝ} {a b c z y : ℝ}\n    (hf : ∀ t ∈ Icc a b, HasDerivAt f (f₁ t) t)\n    (hf₁ : ∀ t ∈ Icc a b, HasDerivAt f₁ (f₂ t) t)\n    (hneg : ∀ t ∈ Icc a b, f₂ t ≤ -c)\n    (hz : z ∈ Icc a b) (hroot : f₁ z = 0) (hy : y ∈ Icc a b) :\n    f y ≤ f z - (c / 2) * (y - z) ^ 2",
+    "byte_count": 2238
+  },
+  "vertical_quadratic_loss": {
+    "sha256": "e6dce24c11a073a774426a9e192f2d21aeae7a8d87b270efcabbe372251e9f75",
+    "first_line": 71,
+    "last_line": 89,
+    "signature": "theorem vertical_quadratic_loss\n    {V : ℝ × ℝ → ℝ} {O : Set (ℝ × ℝ)} {R c x z y : ℝ}\n    (hO : IsOpen O) (hV : ContDiffOn ℝ 4 V O)\n    (hstrip : ∀ t ∈ Icc (-R) R, (x, t) ∈ O)\n    (hneg : ∀ t ∈ Icc (-R) R, partialY (Vy V) (x, t) ≤ -c)\n    (hz : z ∈ Icc (-R) R) (hroot : Vy V (x, z) = 0)\n    (hy : y ∈ Icc (-R) R) :\n    V (x, y) ≤ V (x, z) - (c / 2) * (y - z) ^ 2",
+    "byte_count": 910
+  }
+}

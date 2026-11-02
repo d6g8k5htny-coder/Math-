@@ -1,0 +1,309 @@
+{
+  "recorded_utc": "2026-10-26T10:16:59.194405+00:00",
+  "all_verification_invocations": [
+    {
+      "label": "compile-001",
+      "receipt": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/compile-001/receipt.json",
+        "bytes": 1531,
+        "sha256": "b879ad4c5e5e0f089649d2d66f3d1f4f5c4fba12d0133c3165208c3ae47227ed"
+      },
+      "exit_code": 1,
+      "started_utc": "2026-10-26T10:07:14.202360+00:00",
+      "ended_utc": "2026-10-26T10:07:17.581469+00:00",
+      "elapsed_seconds": 3.3790838718414307,
+      "command": [
+        "env",
+        "LEAN_PATH=/workspace/scratch/gap-weighted-numerator-construct/build",
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+        "-i",
+        "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.ilean",
+        "SourceCompactGapNormalizer.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/compile-001/output.log",
+        "bytes": 2138,
+        "sha256": "a41fc98be39bd91819f9ee848db64f67bacfe268513e69e3157581facd462c0a"
+      },
+      "credit": "retained development failure"
+    },
+    {
+      "label": "compile-002",
+      "receipt": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/compile-002/receipt.json",
+        "bytes": 1532,
+        "sha256": "3ca459ff5359a5217e9970c5289b4abe9141ceb63a06643dcfe20389ddae3ef5"
+      },
+      "exit_code": 1,
+      "started_utc": "2026-10-26T10:07:55.984700+00:00",
+      "ended_utc": "2026-10-26T10:07:59.589444+00:00",
+      "elapsed_seconds": 3.604705333709717,
+      "command": [
+        "env",
+        "LEAN_PATH=/workspace/scratch/gap-weighted-numerator-construct/build",
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+        "-i",
+        "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.ilean",
+        "SourceCompactGapNormalizer.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/compile-002/output.log",
+        "bytes": 3134,
+        "sha256": "d1da965c87aa7790c146947070ebc0f714fd4d43fd2bed81f97d9bfd2b30cdd2"
+      },
+      "credit": "retained development failure"
+    },
+    {
+      "label": "compile-003",
+      "receipt": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/compile-003/receipt.json",
+        "bytes": 1746,
+        "sha256": "8d361d16b5eb8d7cb91fbc08ec603b533b4db286c19a2243916666b1fce56eb1"
+      },
+      "exit_code": 0,
+      "started_utc": "2026-10-26T10:08:36.369246+00:00",
+      "ended_utc": "2026-10-26T10:08:40.727619+00:00",
+      "elapsed_seconds": 4.358340501785278,
+      "command": [
+        "env",
+        "LEAN_PATH=/workspace/scratch/gap-weighted-numerator-construct/build",
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+        "-i",
+        "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.ilean",
+        "SourceCompactGapNormalizer.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/compile-003/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "credit": "successful"
+    },
+    {
+      "label": "compile-004",
+      "receipt": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/compile-004/receipt.json",
+        "bytes": 1965,
+        "sha256": "9e89ae61c290130de0b855a35107076d69f178d7d3c62d1d8cfe479ae710491a"
+      },
+      "exit_code": 1,
+      "started_utc": "2026-10-26T10:09:50.469168+00:00",
+      "ended_utc": "2026-10-26T10:09:59.447309+00:00",
+      "elapsed_seconds": 8.978084802627563,
+      "command": [
+        "env",
+        "LEAN_PATH=/workspace/scratch/gap-weighted-numerator-construct/build",
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+        "-i",
+        "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.ilean",
+        "SourceCompactGapNormalizer.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/compile-004/output.log",
+        "bytes": 362,
+        "sha256": "13c59728ab6eae87c39407330db308e08a5d11073bec2891a175f175b6c79866"
+      },
+      "credit": "retained development failure"
+    },
+    {
+      "label": "compile-005",
+      "receipt": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/compile-005/receipt.json",
+        "bytes": 1964,
+        "sha256": "c63e7c898b3651d509a7bbc98304246a73717591e221c592e49a8f5e2a0107b7"
+      },
+      "exit_code": 0,
+      "started_utc": "2026-10-26T10:10:06.652296+00:00",
+      "ended_utc": "2026-10-26T10:10:16.873680+00:00",
+      "elapsed_seconds": 10.22118353843689,
+      "command": [
+        "env",
+        "LEAN_PATH=/workspace/scratch/gap-weighted-numerator-construct/build",
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.olean",
+        "-i",
+        "/workspace/scratch/compact-gap-normalizer-construct/build/SourceCompactGapNormalizer.ilean",
+        "SourceCompactGapNormalizer.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/compile-005/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "credit": "successful"
+    },
+    {
+      "label": "controls-001",
+      "receipt": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/controls-001/receipt.json",
+        "bytes": 1936,
+        "sha256": "06657678f28b792dee88ccf6f2cfdbd3ede1accbd52a1652ad6e595564d573a6"
+      },
+      "exit_code": 1,
+      "started_utc": "2026-10-26T10:11:21.164711+00:00",
+      "ended_utc": "2026-10-26T10:11:22.256958+00:00",
+      "elapsed_seconds": 1.0922212600708008,
+      "command": [
+        "env",
+        "LEAN_PATH=/workspace/scratch/compact-gap-normalizer-construct/build:/workspace/scratch/gap-weighted-numerator-construct/build",
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/compact-gap-normalizer-construct/build/Controls.olean",
+        "/workspace/scratch/compact-gap-normalizer-construct/Controls.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/controls-001/output.log",
+        "bytes": 199,
+        "sha256": "9d9987a7238772a7f980bbb64dc3476b280fc321e5c4790fd9e9414532c0f4ed"
+      },
+      "credit": "retained development failure"
+    },
+    {
+      "label": "controls-002",
+      "receipt": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/controls-002/receipt.json",
+        "bytes": 2003,
+        "sha256": "24eb5b08f0e5cc5c0e390a79d26a14b886c3dfcd9765fe053d3f29ee7614d78c"
+      },
+      "exit_code": 0,
+      "started_utc": "2026-10-26T10:11:39.267052+00:00",
+      "ended_utc": "2026-10-26T10:11:43.057381+00:00",
+      "elapsed_seconds": 3.7902793884277344,
+      "command": [
+        "env",
+        "LEAN_PATH=/workspace/scratch/compact-gap-normalizer-construct/build:/workspace/scratch/gap-weighted-numerator-construct/build",
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-R",
+        "/workspace/scratch/compact-gap-normalizer-construct",
+        "-o",
+        "/workspace/scratch/compact-gap-normalizer-construct/build/Controls.olean",
+        "/workspace/scratch/compact-gap-normalizer-construct/Controls.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/controls-002/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "credit": "successful"
+    },
+    {
+      "label": "false-omitted-radius-001",
+      "receipt": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/false-omitted-radius-001/receipt.json",
+        "bytes": 1955,
+        "sha256": "919ac6aecea705134d145297a54e506f0e27c9ea1fd1967ee4c602fde81f4b9e"
+      },
+      "exit_code": 1,
+      "started_utc": "2026-10-26T10:12:14.666127+00:00",
+      "ended_utc": "2026-10-26T10:12:17.595245+00:00",
+      "elapsed_seconds": 2.9290809631347656,
+      "command": [
+        "env",
+        "LEAN_PATH=/workspace/scratch/compact-gap-normalizer-construct/build:/workspace/scratch/gap-weighted-numerator-construct/build",
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-R",
+        "/workspace/scratch/compact-gap-normalizer-construct",
+        "/workspace/scratch/compact-gap-normalizer-construct/FalseOmittedRadiusSquare.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/false-omitted-radius-001/output.log",
+        "bytes": 197,
+        "sha256": "749a563dac377a3eab70774119449373366d3ef4d4303b162b564b0b77711ecb"
+      },
+      "credit": "expected sole rejection"
+    },
+    {
+      "label": "inventory-001",
+      "receipt": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/inventory-001/receipt.json",
+        "bytes": 1919,
+        "sha256": "844e2cb38cb2de0555d3da24044733a46c74ce31be3f6c818a65c6bf19977b05"
+      },
+      "exit_code": 0,
+      "started_utc": "2026-10-26T10:14:17.201583+00:00",
+      "ended_utc": "2026-10-26T10:14:20.489073+00:00",
+      "elapsed_seconds": 3.2874653339385986,
+      "command": [
+        "env",
+        "LEAN_PATH=/workspace/scratch/compact-gap-normalizer-construct/build:/workspace/scratch/gap-weighted-numerator-construct/build",
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-R",
+        "/workspace/scratch/compact-gap-normalizer-construct",
+        "/workspace/scratch/compact-gap-normalizer-construct/Inventory.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/inventory-001/output.log",
+        "bytes": 3385,
+        "sha256": "df8898f135417b3681e0a9f9abe90e46a2e9a087e7d59953b54a87ffbcdfd522"
+      },
+      "credit": "successful"
+    },
+    {
+      "label": "kernel-001",
+      "receipt": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/kernel-001/receipt.json",
+        "bytes": 1788,
+        "sha256": "504c6dd7fdfb08fe89f23e840620d4268964cd33f142b4a54c3147a10f2cf8fd"
+      },
+      "exit_code": 0,
+      "started_utc": "2026-10-26T10:14:10.086951+00:00",
+      "ended_utc": "2026-10-26T10:14:15.960582+00:00",
+      "elapsed_seconds": 5.87357234954834,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/compact-gap-normalizer-construct/build:/workspace/scratch/gap-weighted-numerator-construct/build:$LEAN_PATH exec leanchecker SourceCompactGapNormalizer"
+      ],
+      "log": {
+        "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/kernel-001/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "credit": "successful"
+    }
+  ],
+  "exactly_one_own_module_kernel": true,
+  "old_math_replay_count": 0,
+  "all_failures_retained": true,
+  "native_checkpoint_utc": "2026-10-26T10:45:00Z",
+  "terminal_utc": "2026-10-26T11:45:00Z",
+  "timers_reset": false
+}

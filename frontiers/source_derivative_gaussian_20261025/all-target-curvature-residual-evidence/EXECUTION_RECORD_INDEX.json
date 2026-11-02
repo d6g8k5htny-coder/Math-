@@ -1,0 +1,394 @@
+{
+  "created_utc": "2026-10-26T09:53:01.148049+00:00",
+  "scope": "new leaf and its scratch controls only; old completed applicable verification reused",
+  "runs": [
+    {
+      "label": "controls-001",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/all-target-curvature-residual-construct/build:$LEAN_PATH exec lean -DwarningAsError=true -R /workspace/scratch/all-target-curvature-residual-construct -o /workspace/scratch/all-target-curvature-residual-construct/build/AllTargetResidualControls.olean /workspace/scratch/all-target-curvature-residual-construct/AllTargetResidualControls.lean"
+      ],
+      "exit_code": 1,
+      "started_utc": "2026-10-26T09:50:42.909163+00:00",
+      "ended_utc": "2026-10-26T09:50:45.816714+00:00",
+      "elapsed_seconds": 2.907526731491089,
+      "receipt": {
+        "path": "/workspace/scratch/all-target-curvature-residual-construct/runs/controls-001/receipt.json",
+        "bytes": 2028,
+        "sha256": "164093fe6b0e9a64bf2d0c0efb6420aa51b56b73d224f0243a20042038dec9bd"
+      },
+      "raw_log": {
+        "path": "/workspace/scratch/all-target-curvature-residual-construct/runs/controls-001/output.log",
+        "bytes": 1640,
+        "sha256": "bcbe46c97dee3956077765db03786df9d93089af0e4c62d3cf395f515bad6632"
+      },
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAllTargetCurvatureResidual.lean",
+          "bytes": 16631,
+          "sha256": "4ae29bc3f2f206cca558df3f78853061cf4892499ac918e40253edd68d44371f"
+        },
+        "object": {
+          "path": "/workspace/scratch/all-target-curvature-residual-construct/build/SourceAllTargetCurvatureResidual.olean",
+          "bytes": 599296,
+          "sha256": "0a193cd6fc68ac0507169dc0a601d8f804dd51fc382d6ea86c2997715d2d245e"
+        }
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAllTargetCurvatureResidual.lean",
+          "bytes": 16631,
+          "sha256": "4ae29bc3f2f206cca558df3f78853061cf4892499ac918e40253edd68d44371f"
+        },
+        "object": {
+          "path": "/workspace/scratch/all-target-curvature-residual-construct/build/SourceAllTargetCurvatureResidual.olean",
+          "bytes": 599296,
+          "sha256": "0a193cd6fc68ac0507169dc0a601d8f804dd51fc382d6ea86c2997715d2d245e"
+        }
+      }
+    },
+    {
+      "label": "controls-002",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/all-target-curvature-residual-construct/build:$LEAN_PATH exec lean -DwarningAsError=true -R /workspace/scratch/all-target-curvature-residual-construct -o /workspace/scratch/all-target-curvature-residual-construct/build/AllTargetResidualControls.olean /workspace/scratch/all-target-curvature-residual-construct/AllTargetResidualControls.lean"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-26T09:51:13.163895+00:00",
+      "ended_utc": "2026-10-26T09:51:16.395178+00:00",
+      "elapsed_seconds": 3.231260061264038,
+      "receipt": {
+        "path": "/workspace/scratch/all-target-curvature-residual-construct/runs/controls-002/receipt.json",
+        "bytes": 2025,
+        "sha256": "5c4865ac9be489c9e2961d2956c29aebabb832bbfbbb8d86413b1bf08ea1f1e0"
+      },
+      "raw_log": {
+        "path": "/workspace/scratch/all-target-curvature-residual-construct/runs/controls-002/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAllTargetCurvatureResidual.lean",
+          "bytes": 16631,
+          "sha256": "4ae29bc3f2f206cca558df3f78853061cf4892499ac918e40253edd68d44371f"
+        },
+        "object": {
+          "path": "/workspace/scratch/all-target-curvature-residual-construct/build/SourceAllTargetCurvatureResidual.olean",
+          "bytes": 599296,
+          "sha256": "0a193cd6fc68ac0507169dc0a601d8f804dd51fc382d6ea86c2997715d2d245e"
+        }
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAllTargetCurvatureResidual.lean",
+          "bytes": 16631,
+          "sha256": "4ae29bc3f2f206cca558df3f78853061cf4892499ac918e40253edd68d44371f"
+        },
+        "object": {
+          "path": "/workspace/scratch/all-target-curvature-residual-construct/build/SourceAllTargetCurvatureResidual.olean",
+          "bytes": 599296,
+          "sha256": "0a193cd6fc68ac0507169dc0a601d8f804dd51fc382d6ea86c2997715d2d245e"
+        }
+      }
+    },
+    {
+      "label": "false-growth-001",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/all-target-curvature-residual-construct/build:$LEAN_PATH exec lean -DwarningAsError=true -R /workspace/scratch/all-target-curvature-residual-construct /workspace/scratch/all-target-curvature-residual-construct/FalseGrowthErasureMutation.lean"
+      ],
+      "exit_code": 1,
+      "started_utc": "2026-10-26T09:51:31.997077+00:00",
+      "ended_utc": "2026-10-26T09:51:34.493995+00:00",
+      "elapsed_seconds": 2.4968950748443604,
+      "receipt": {
+        "path": "/workspace/scratch/all-target-curvature-residual-construct/runs/false-growth-001/receipt.json",
+        "bytes": 1937,
+        "sha256": "9f17e2f2c9033b76e3a59575cfee279e5dae6e6b55f02f5ea5b838fb3b825a07"
+      },
+      "raw_log": {
+        "path": "/workspace/scratch/all-target-curvature-residual-construct/runs/false-growth-001/output.log",
+        "bytes": 182,
+        "sha256": "b47a7cccd9a330822dfb86667ba6d8816da01870659499a387696c0a75c61d2c"
+      },
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAllTargetCurvatureResidual.lean",
+          "bytes": 16631,
+          "sha256": "4ae29bc3f2f206cca558df3f78853061cf4892499ac918e40253edd68d44371f"
+        },
+        "object": {
+          "path": "/workspace/scratch/all-target-curvature-residual-construct/build/SourceAllTargetCurvatureResidual.olean",
+          "bytes": 599296,
+          "sha256": "0a193cd6fc68ac0507169dc0a601d8f804dd51fc382d6ea86c2997715d2d245e"
+        }
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAllTargetCurvatureResidual.lean",
+          "bytes": 16631,
+          "sha256": "4ae29bc3f2f206cca558df3f78853061cf4892499ac918e40253edd68d44371f"
+        },
+        "object": {
+          "path": "/workspace/scratch/all-target-curvature-residual-construct/build/SourceAllTargetCurvatureResidual.olean",
+          "bytes": 599296,
+          "sha256": "0a193cd6fc68ac0507169dc0a601d8f804dd51fc382d6ea86c2997715d2d245e"
+        }
+      }
+    },
+    {
+      "label": "inventory-001",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/all-target-curvature-residual-construct/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/all-target-curvature-residual-construct/build/Inventory.olean /workspace/scratch/all-target-curvature-residual-construct/Inventory.lean"
+      ],
+      "exit_code": 1,
+      "started_utc": "2026-10-26T09:49:23.501822+00:00",
+      "ended_utc": "2026-10-26T09:49:24.043996+00:00",
+      "elapsed_seconds": 0.5421521663665771,
+      "receipt": {
+        "path": "/workspace/scratch/all-target-curvature-residual-construct/runs/inventory-001/receipt.json",
+        "bytes": 1936,
+        "sha256": "d5843f56119fbbd7a168a5adcb59480ae0aaaf6e0219820051990565cac51af8"
+      },
+      "raw_log": {
+        "path": "/workspace/scratch/all-target-curvature-residual-construct/runs/inventory-001/output.log",
+        "bytes": 207,
+        "sha256": "8a0b85c13903274840aa073bf30d0928dfb536ac5db81277b610751cb04f5967"
+      },
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAllTargetCurvatureResidual.lean",
+          "bytes": 16631,
+          "sha256": "4ae29bc3f2f206cca558df3f78853061cf4892499ac918e40253edd68d44371f"
+        },
+        "object": {
+          "path": "/workspace/scratch/all-target-curvature-residual-construct/build/SourceAllTargetCurvatureResidual.olean",
+          "bytes": 599296,
+          "sha256": "0a193cd6fc68ac0507169dc0a601d8f804dd51fc382d6ea86c2997715d2d245e"
+        }
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAllTargetCurvatureResidual.lean",
+          "bytes": 16631,
+          "sha256": "4ae29bc3f2f206cca558df3f78853061cf4892499ac918e40253edd68d44371f"
+        },
+        "object": {
+          "path": "/workspace/scratch/all-target-curvature-residual-construct/build/SourceAllTargetCurvatureResidual.olean",
+          "bytes": 599296,
+          "sha256": "0a193cd6fc68ac0507169dc0a601d8f804dd51fc382d6ea86c2997715d2d245e"
+        }
+      }
+    },
+    {
+      "label": "inventory-002",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/all-target-curvature-residual-construct/build:$LEAN_PATH exec lean -DwarningAsError=true -R /workspace/scratch/all-target-curvature-residual-construct -o /workspace/scratch/all-target-curvature-residual-construct/build/Inventory.olean /workspace/scratch/all-target-curvature-residual-construct/Inventory.lean"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-26T09:49:41.273588+00:00",
+      "ended_utc": "2026-10-26T09:49:44.558255+00:00",
+      "elapsed_seconds": 3.284644603729248,
+      "receipt": {
+        "path": "/workspace/scratch/all-target-curvature-residual-construct/runs/inventory-002/receipt.json",
+        "bytes": 1998,
+        "sha256": "60ae58645961e6f2f8a68b1d5b21ad421a69817cd7e673391b3d95be30fe556c"
+      },
+      "raw_log": {
+        "path": "/workspace/scratch/all-target-curvature-residual-construct/runs/inventory-002/output.log",
+        "bytes": 2809,
+        "sha256": "fa326019cd1e0eec480924dddccd493486f65454c9339edaeffe75b558bc5655"
+      },
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAllTargetCurvatureResidual.lean",
+          "bytes": 16631,
+          "sha256": "4ae29bc3f2f206cca558df3f78853061cf4892499ac918e40253edd68d44371f"
+        },
+        "object": {
+          "path": "/workspace/scratch/all-target-curvature-residual-construct/build/SourceAllTargetCurvatureResidual.olean",
+          "bytes": 599296,
+          "sha256": "0a193cd6fc68ac0507169dc0a601d8f804dd51fc382d6ea86c2997715d2d245e"
+        }
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAllTargetCurvatureResidual.lean",
+          "bytes": 16631,
+          "sha256": "4ae29bc3f2f206cca558df3f78853061cf4892499ac918e40253edd68d44371f"
+        },
+        "object": {
+          "path": "/workspace/scratch/all-target-curvature-residual-construct/build/SourceAllTargetCurvatureResidual.olean",
+          "bytes": 599296,
+          "sha256": "0a193cd6fc68ac0507169dc0a601d8f804dd51fc382d6ea86c2997715d2d245e"
+        }
+      }
+    },
+    {
+      "label": "kernel-001",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/all-target-curvature-residual-construct/build:$LEAN_PATH exec leanchecker SourceAllTargetCurvatureResidual"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-26T09:49:01.517873+00:00",
+      "ended_utc": "2026-10-26T09:49:06.925521+00:00",
+      "elapsed_seconds": 5.407623529434204,
+      "receipt": {
+        "path": "/workspace/scratch/all-target-curvature-residual-construct/runs/kernel-001/receipt.json",
+        "bytes": 1787,
+        "sha256": "e9d0b2c6bd6f3647a204b101aaee0e488b7ce9892150030a30fa930f77c87570"
+      },
+      "raw_log": {
+        "path": "/workspace/scratch/all-target-curvature-residual-construct/runs/kernel-001/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAllTargetCurvatureResidual.lean",
+          "bytes": 16631,
+          "sha256": "4ae29bc3f2f206cca558df3f78853061cf4892499ac918e40253edd68d44371f"
+        },
+        "object": {
+          "path": "/workspace/scratch/all-target-curvature-residual-construct/build/SourceAllTargetCurvatureResidual.olean",
+          "bytes": 599296,
+          "sha256": "0a193cd6fc68ac0507169dc0a601d8f804dd51fc382d6ea86c2997715d2d245e"
+        }
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAllTargetCurvatureResidual.lean",
+          "bytes": 16631,
+          "sha256": "4ae29bc3f2f206cca558df3f78853061cf4892499ac918e40253edd68d44371f"
+        },
+        "object": {
+          "path": "/workspace/scratch/all-target-curvature-residual-construct/build/SourceAllTargetCurvatureResidual.olean",
+          "bytes": 599296,
+          "sha256": "0a193cd6fc68ac0507169dc0a601d8f804dd51fc382d6ea86c2997715d2d245e"
+        }
+      }
+    },
+    {
+      "label": "strict-001",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/all-target-curvature-residual-construct/build/SourceAllTargetCurvatureResidual.olean",
+        "-i",
+        "/workspace/scratch/all-target-curvature-residual-construct/build/SourceAllTargetCurvatureResidual.ilean",
+        "SourceAllTargetCurvatureResidual.lean"
+      ],
+      "exit_code": 1,
+      "started_utc": "2026-10-26T09:48:12.385702+00:00",
+      "ended_utc": "2026-10-26T09:48:16.769010+00:00",
+      "elapsed_seconds": 4.383271217346191,
+      "receipt": {
+        "path": "/workspace/scratch/all-target-curvature-residual-construct/runs/strict-001/receipt.json",
+        "bytes": 1494,
+        "sha256": "c5f4a90a6b93cf5f3212d8df7af850694f77578817ea37851ce8f98d01011ad5"
+      },
+      "raw_log": {
+        "path": "/workspace/scratch/all-target-curvature-residual-construct/runs/strict-001/output.log",
+        "bytes": 598,
+        "sha256": "2f9dff8da6b13cf6678cdbf03e572d754b26d14b12ecb82b38955db9026b032c"
+      },
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAllTargetCurvatureResidual.lean",
+          "bytes": 16615,
+          "sha256": "f51081585f823d5fe207f0d82eb48f7e12691620d001041e603f8de809daaa61"
+        },
+        "object": null
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAllTargetCurvatureResidual.lean",
+          "bytes": 16615,
+          "sha256": "f51081585f823d5fe207f0d82eb48f7e12691620d001041e603f8de809daaa61"
+        },
+        "object": null
+      }
+    },
+    {
+      "label": "strict-002",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/all-target-curvature-residual-construct/build/SourceAllTargetCurvatureResidual.olean",
+        "-i",
+        "/workspace/scratch/all-target-curvature-residual-construct/build/SourceAllTargetCurvatureResidual.ilean",
+        "SourceAllTargetCurvatureResidual.lean"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-26T09:48:25.265325+00:00",
+      "ended_utc": "2026-10-26T09:48:29.996205+00:00",
+      "elapsed_seconds": 4.730830192565918,
+      "receipt": {
+        "path": "/workspace/scratch/all-target-curvature-residual-construct/runs/strict-002/receipt.json",
+        "bytes": 1722,
+        "sha256": "90838b6a54272c0bc78f28fb0768724fc0bafcc319d8dddc23d757686a43e7ca"
+      },
+      "raw_log": {
+        "path": "/workspace/scratch/all-target-curvature-residual-construct/runs/strict-002/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAllTargetCurvatureResidual.lean",
+          "bytes": 16631,
+          "sha256": "4ae29bc3f2f206cca558df3f78853061cf4892499ac918e40253edd68d44371f"
+        },
+        "object": null
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAllTargetCurvatureResidual.lean",
+          "bytes": 16631,
+          "sha256": "4ae29bc3f2f206cca558df3f78853061cf4892499ac918e40253edd68d44371f"
+        },
+        "object": {
+          "path": "/workspace/scratch/all-target-curvature-residual-construct/build/SourceAllTargetCurvatureResidual.olean",
+          "bytes": 599296,
+          "sha256": "0a193cd6fc68ac0507169dc0a601d8f804dd51fc382d6ea86c2997715d2d245e"
+        }
+      }
+    }
+  ],
+  "exactly_one_own_module_kernel": 1,
+  "old_checks_or_reviews_replayed": false,
+  "failures_preserved": [
+    "strict-001: missing I4SourceContact namespace open; corrected only new source before freeze",
+    "inventory-001: helper output compilation lacked -R scratch root; fixed invocation only",
+    "controls-001: two strict lint failures and (1+3)^n vs 4^n normalization; corrected only scratch control source"
+  ],
+  "intended_negative": "false-growth-001: arithmetic target-growth-factor erasure rejected with sole False"
+}

@@ -1,0 +1,44 @@
+{
+  "label": "bcf-pullback-001",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean SourceIntrinsicH0WeightedProbability.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+      "bytes": 17082,
+      "sha256": "029e4ef9c398359e20e1757d777b8b3f35253acb351f54858ea17496146d60f0"
+    },
+    "object": {
+      "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+      "bytes": 733576,
+      "sha256": "3ec2a7c6185198960b7730b31ad3ff56b659745e5d4328ec77c17d3c33889d3b"
+    }
+  },
+  "started_utc": "2026-10-26T18:41:25.777239+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 5.14806604385376,
+  "ended_utc": "2026-10-26T18:41:30.925341+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+      "bytes": 17082,
+      "sha256": "029e4ef9c398359e20e1757d777b8b3f35253acb351f54858ea17496146d60f0"
+    },
+    "object": {
+      "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+      "bytes": 746416,
+      "sha256": "c60a31130c226f78050c19ac1942cd9b7d7535f6a2717cc3e0421c2580f57c8c"
+    }
+  },
+  "log": {
+    "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/bcf-pullback-001/output.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

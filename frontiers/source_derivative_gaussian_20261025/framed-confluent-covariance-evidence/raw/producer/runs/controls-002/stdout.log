@@ -1,0 +1,257 @@
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:31:109: error: This simp argument is unused:
+  directionY
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [std, EuclideanSpace.basisFun_apply, EuclideanSpace.single, coordinates_apply, directionX]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:34:98: error: This simp argument is unused:
+  directionX
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [std, EuclideanSpace.basisFun_apply, EuclideanSpace.single, coordinates_apply, directionY]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:66:67: error: unsolved goals
+case «0»
+L r : ℝ
+m : SourceMode 2
+hm : 0 - (r / 2) • directionX = ![-r / 2, 0]
+hp : 0 + (r / 2) • directionX = ![r / 2, 0]
+ht : ∀ (t : ℝ), 0 + (r * t) • directionX = ![r * t, 0]
+⊢ ![(modeCoefficient 2 L m ![-r / 2, 0] + modeCoefficient 2 L m ![r / 2, 0]) / 2,
+        ((fderiv ℝ (modeCoefficient 2 L m) ![-r / 2, 0]) directionX +
+            (fderiv ℝ (modeCoefficient 2 L m) ![r / 2, 0]) directionX) /
+          2,
+        ((fderiv ℝ (modeCoefficient 2 L m) ![-r / 2, 0]) directionY +
+            (fderiv ℝ (modeCoefficient 2 L m) ![r / 2, 0]) directionY) /
+          2,
+        ∫ (t : ℝ) in -1 / 2..1 / 2, (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ![r * t, 0]) ![directionX, directionX],
+        ∫ (t : ℝ) in -1 / 2..1 / 2, (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ![r * t, 0]) ![directionX, directionY],
+        6 *
+          ∫ (t : ℝ) in -1 / 2..1 / 2,
+            (1 / 4 - t ^ 2) *
+              (iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) ![r * t, 0]) ![directionX, directionX, directionX],
+        (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) 0) ![directionY, directionY] ]
+      (Fin.castLE ⋯ ⟨0, ⋯⟩) =
+    ![(modeCoefficient 2 L m ![-r / 2, 0] + modeCoefficient 2 L m ![r / 2, 0]) / 2,
+        (derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionX] m +
+            derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionX] m) /
+          2,
+        (derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionY] m +
+            derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionY] m) /
+          2,
+        ∫ (t : ℝ) in -1 / 2..1 / 2, derivativeCoefficient 2 L 2 ![r * t, 0] ![directionX, directionX] m,
+        ∫ (t : ℝ) in -1 / 2..1 / 2, derivativeCoefficient 2 L 2 ![r * t, 0] ![directionX, directionY] m,
+        6 *
+          ∫ (t : ℝ) in -1 / 2..1 / 2,
+            (1 / 4 - t ^ 2) * derivativeCoefficient 2 L 3 ![r * t, 0] ![directionX, directionX, directionX] m]
+      ⟨0, ⋯⟩
+
+case «1»
+L r : ℝ
+m : SourceMode 2
+hm : 0 - (r / 2) • directionX = ![-r / 2, 0]
+hp : 0 + (r / 2) • directionX = ![r / 2, 0]
+ht : ∀ (t : ℝ), 0 + (r * t) • directionX = ![r * t, 0]
+⊢ ![(modeCoefficient 2 L m ![-r / 2, 0] + modeCoefficient 2 L m ![r / 2, 0]) / 2,
+        ((fderiv ℝ (modeCoefficient 2 L m) ![-r / 2, 0]) directionX +
+            (fderiv ℝ (modeCoefficient 2 L m) ![r / 2, 0]) directionX) /
+          2,
+        ((fderiv ℝ (modeCoefficient 2 L m) ![-r / 2, 0]) directionY +
+            (fderiv ℝ (modeCoefficient 2 L m) ![r / 2, 0]) directionY) /
+          2,
+        ∫ (t : ℝ) in -1 / 2..1 / 2, (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ![r * t, 0]) ![directionX, directionX],
+        ∫ (t : ℝ) in -1 / 2..1 / 2, (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ![r * t, 0]) ![directionX, directionY],
+        6 *
+          ∫ (t : ℝ) in -1 / 2..1 / 2,
+            (1 / 4 - t ^ 2) *
+              (iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) ![r * t, 0]) ![directionX, directionX, directionX],
+        (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) 0) ![directionY, directionY] ]
+      (Fin.castLE ⋯ ⟨1, ⋯⟩) =
+    ![(modeCoefficient 2 L m ![-r / 2, 0] + modeCoefficient 2 L m ![r / 2, 0]) / 2,
+        (derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionX] m +
+            derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionX] m) /
+          2,
+        (derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionY] m +
+            derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionY] m) /
+          2,
+        ∫ (t : ℝ) in -1 / 2..1 / 2, derivativeCoefficient 2 L 2 ![r * t, 0] ![directionX, directionX] m,
+        ∫ (t : ℝ) in -1 / 2..1 / 2, derivativeCoefficient 2 L 2 ![r * t, 0] ![directionX, directionY] m,
+        6 *
+          ∫ (t : ℝ) in -1 / 2..1 / 2,
+            (1 / 4 - t ^ 2) * derivativeCoefficient 2 L 3 ![r * t, 0] ![directionX, directionX, directionX] m]
+      ⟨1, ⋯⟩
+
+case «2»
+L r : ℝ
+m : SourceMode 2
+hm : 0 - (r / 2) • directionX = ![-r / 2, 0]
+hp : 0 + (r / 2) • directionX = ![r / 2, 0]
+ht : ∀ (t : ℝ), 0 + (r * t) • directionX = ![r * t, 0]
+⊢ ![(modeCoefficient 2 L m ![-r / 2, 0] + modeCoefficient 2 L m ![r / 2, 0]) / 2,
+        ((fderiv ℝ (modeCoefficient 2 L m) ![-r / 2, 0]) directionX +
+            (fderiv ℝ (modeCoefficient 2 L m) ![r / 2, 0]) directionX) /
+          2,
+        ((fderiv ℝ (modeCoefficient 2 L m) ![-r / 2, 0]) directionY +
+            (fderiv ℝ (modeCoefficient 2 L m) ![r / 2, 0]) directionY) /
+          2,
+        ∫ (t : ℝ) in -1 / 2..1 / 2, (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ![r * t, 0]) ![directionX, directionX],
+        ∫ (t : ℝ) in -1 / 2..1 / 2, (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ![r * t, 0]) ![directionX, directionY],
+        6 *
+          ∫ (t : ℝ) in -1 / 2..1 / 2,
+            (1 / 4 - t ^ 2) *
+              (iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) ![r * t, 0]) ![directionX, directionX, directionX],
+        (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) 0) ![directionY, directionY] ]
+      (Fin.castLE ⋯ ⟨2, ⋯⟩) =
+    ![(modeCoefficient 2 L m ![-r / 2, 0] + modeCoefficient 2 L m ![r / 2, 0]) / 2,
+        (derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionX] m +
+            derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionX] m) /
+          2,
+        (derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionY] m +
+            derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionY] m) /
+          2,
+        ∫ (t : ℝ) in -1 / 2..1 / 2, derivativeCoefficient 2 L 2 ![r * t, 0] ![directionX, directionX] m,
+        ∫ (t : ℝ) in -1 / 2..1 / 2, derivativeCoefficient 2 L 2 ![r * t, 0] ![directionX, directionY] m,
+        6 *
+          ∫ (t : ℝ) in -1 / 2..1 / 2,
+            (1 / 4 - t ^ 2) * derivativeCoefficient 2 L 3 ![r * t, 0] ![directionX, directionX, directionX] m]
+      ⟨2, ⋯⟩
+
+case «3»
+L r : ℝ
+m : SourceMode 2
+hm : 0 - (r / 2) • directionX = ![-r / 2, 0]
+hp : 0 + (r / 2) • directionX = ![r / 2, 0]
+ht : ∀ (t : ℝ), 0 + (r * t) • directionX = ![r * t, 0]
+⊢ ![(modeCoefficient 2 L m ![-r / 2, 0] + modeCoefficient 2 L m ![r / 2, 0]) / 2,
+        ((fderiv ℝ (modeCoefficient 2 L m) ![-r / 2, 0]) directionX +
+            (fderiv ℝ (modeCoefficient 2 L m) ![r / 2, 0]) directionX) /
+          2,
+        ((fderiv ℝ (modeCoefficient 2 L m) ![-r / 2, 0]) directionY +
+            (fderiv ℝ (modeCoefficient 2 L m) ![r / 2, 0]) directionY) /
+          2,
+        ∫ (t : ℝ) in -1 / 2..1 / 2, (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ![r * t, 0]) ![directionX, directionX],
+        ∫ (t : ℝ) in -1 / 2..1 / 2, (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ![r * t, 0]) ![directionX, directionY],
+        6 *
+          ∫ (t : ℝ) in -1 / 2..1 / 2,
+            (1 / 4 - t ^ 2) *
+              (iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) ![r * t, 0]) ![directionX, directionX, directionX],
+        (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) 0) ![directionY, directionY] ]
+      (Fin.castLE ⋯ ⟨3, ⋯⟩) =
+    ![(modeCoefficient 2 L m ![-r / 2, 0] + modeCoefficient 2 L m ![r / 2, 0]) / 2,
+        (derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionX] m +
+            derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionX] m) /
+          2,
+        (derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionY] m +
+            derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionY] m) /
+          2,
+        ∫ (t : ℝ) in -1 / 2..1 / 2, derivativeCoefficient 2 L 2 ![r * t, 0] ![directionX, directionX] m,
+        ∫ (t : ℝ) in -1 / 2..1 / 2, derivativeCoefficient 2 L 2 ![r * t, 0] ![directionX, directionY] m,
+        6 *
+          ∫ (t : ℝ) in -1 / 2..1 / 2,
+            (1 / 4 - t ^ 2) * derivativeCoefficient 2 L 3 ![r * t, 0] ![directionX, directionX, directionX] m]
+      ⟨3, ⋯⟩
+
+case «4»
+L r : ℝ
+m : SourceMode 2
+hm : 0 - (r / 2) • directionX = ![-r / 2, 0]
+hp : 0 + (r / 2) • directionX = ![r / 2, 0]
+ht : ∀ (t : ℝ), 0 + (r * t) • directionX = ![r * t, 0]
+⊢ ![(modeCoefficient 2 L m ![-r / 2, 0] + modeCoefficient 2 L m ![r / 2, 0]) / 2,
+        ((fderiv ℝ (modeCoefficient 2 L m) ![-r / 2, 0]) directionX +
+            (fderiv ℝ (modeCoefficient 2 L m) ![r / 2, 0]) directionX) /
+          2,
+        ((fderiv ℝ (modeCoefficient 2 L m) ![-r / 2, 0]) directionY +
+            (fderiv ℝ (modeCoefficient 2 L m) ![r / 2, 0]) directionY) /
+          2,
+        ∫ (t : ℝ) in -1 / 2..1 / 2, (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ![r * t, 0]) ![directionX, directionX],
+        ∫ (t : ℝ) in -1 / 2..1 / 2, (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ![r * t, 0]) ![directionX, directionY],
+        6 *
+          ∫ (t : ℝ) in -1 / 2..1 / 2,
+            (1 / 4 - t ^ 2) *
+              (iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) ![r * t, 0]) ![directionX, directionX, directionX],
+        (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) 0) ![directionY, directionY] ]
+      (Fin.castLE ⋯ ⟨4, ⋯⟩) =
+    ![(modeCoefficient 2 L m ![-r / 2, 0] + modeCoefficient 2 L m ![r / 2, 0]) / 2,
+        (derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionX] m +
+            derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionX] m) /
+          2,
+        (derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionY] m +
+            derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionY] m) /
+          2,
+        ∫ (t : ℝ) in -1 / 2..1 / 2, derivativeCoefficient 2 L 2 ![r * t, 0] ![directionX, directionX] m,
+        ∫ (t : ℝ) in -1 / 2..1 / 2, derivativeCoefficient 2 L 2 ![r * t, 0] ![directionX, directionY] m,
+        6 *
+          ∫ (t : ℝ) in -1 / 2..1 / 2,
+            (1 / 4 - t ^ 2) * derivativeCoefficient 2 L 3 ![r * t, 0] ![directionX, directionX, directionX] m]
+      ⟨4, ⋯⟩
+
+case «5»
+L r : ℝ
+m : SourceMode 2
+hm : 0 - (r / 2) • directionX = ![-r / 2, 0]
+hp : 0 + (r / 2) • directionX = ![r / 2, 0]
+ht : ∀ (t : ℝ), 0 + (r * t) • directionX = ![r * t, 0]
+⊢ ![(modeCoefficient 2 L m ![-r / 2, 0] + modeCoefficient 2 L m ![r / 2, 0]) / 2,
+        ((fderiv ℝ (modeCoefficient 2 L m) ![-r / 2, 0]) directionX +
+            (fderiv ℝ (modeCoefficient 2 L m) ![r / 2, 0]) directionX) /
+          2,
+        ((fderiv ℝ (modeCoefficient 2 L m) ![-r / 2, 0]) directionY +
+            (fderiv ℝ (modeCoefficient 2 L m) ![r / 2, 0]) directionY) /
+          2,
+        ∫ (t : ℝ) in -1 / 2..1 / 2, (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ![r * t, 0]) ![directionX, directionX],
+        ∫ (t : ℝ) in -1 / 2..1 / 2, (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ![r * t, 0]) ![directionX, directionY],
+        6 *
+          ∫ (t : ℝ) in -1 / 2..1 / 2,
+            (1 / 4 - t ^ 2) *
+              (iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) ![r * t, 0]) ![directionX, directionX, directionX],
+        (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) 0) ![directionY, directionY] ]
+      (Fin.castLE ⋯ ⟨5, ⋯⟩) =
+    ![(modeCoefficient 2 L m ![-r / 2, 0] + modeCoefficient 2 L m ![r / 2, 0]) / 2,
+        (derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionX] m +
+            derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionX] m) /
+          2,
+        (derivativeCoefficient 2 L 1 ![-r / 2, 0] ![directionY] m +
+            derivativeCoefficient 2 L 1 ![r / 2, 0] ![directionY] m) /
+          2,
+        ∫ (t : ℝ) in -1 / 2..1 / 2, derivativeCoefficient 2 L 2 ![r * t, 0] ![directionX, directionX] m,
+        ∫ (t : ℝ) in -1 / 2..1 / 2, derivativeCoefficient 2 L 2 ![r * t, 0] ![directionX, directionY] m,
+        6 *
+          ∫ (t : ℝ) in -1 / 2..1 / 2,
+            (1 / 4 - t ^ 2) * derivativeCoefficient 2 L 3 ![r * t, 0] ![directionX, directionX, directionX] m]
+      ⟨5, ⋯⟩
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:89:47: error: unexpected token ']]'; expected ']'
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:90:61: error: unsolved goals
+case «0».«0»
+⊢ ‖!₂[3 / 5, 4 / 5]‖ = 1 ∨ ‖!₂[3 / 5, 4 / 5]‖ = -1
+
+case «1».«1»
+⊢ ‖!₂[-(4 / 5), 3 / 5]‖ = 1 ∨ ‖!₂[-(4 / 5), 3 / 5]‖ = -1
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:233:2: error: 'change' tactic failed, pattern
+  Real.pi⁻¹ * Real.cos (phase 2 2 ![1, 0] y - Real.pi / 2) = Real.sin (Real.pi * (y 0 - 0)) / Real.pi
+is not definitionally equal to target
+  Real.pi⁻¹ * eval 2 [{ coeff := 1, frequency := ![1, 0], offset := -(Real.pi / 2) }] y = localGerm Real.pi 0 1 y
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:327:4: error: Type mismatch: After simplification, term
+  toSource_derivative
+    (Mathlib.Meta.NormNum.isNat_eq_false (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2))
+      (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero) (Eq.refl false))
+    sineCube 1 0 fun x => directionX
+ has type
+  @Eq ℝ (finitePairing (derivativeCoefficient 2 2 1 0 fun x => directionX) (toSource 2 sineCube))
+    ((fderiv ℝ (eval 2 sineCube) 0) directionX)
+but is expected to have type
+  @Eq ℝ (finitePairing (derivativeCoefficient 2 2 1 0 fun x => directionX) finiteDirection)
+    ((fderiv ℝ (eval 2 sineCube) 0) directionX)
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:334:4: error: Type mismatch: After simplification, term
+  toSource_derivative
+    (Mathlib.Meta.NormNum.isNat_eq_false (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2))
+      (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero) (Eq.refl false))
+    sineCube 1 0 fun x => directionY
+ has type
+  @Eq ℝ (finitePairing (derivativeCoefficient 2 2 1 0 fun x => directionY) (toSource 2 sineCube))
+    ((fderiv ℝ (eval 2 sineCube) 0) directionY)
+but is expected to have type
+  @Eq ℝ (finitePairing (derivativeCoefficient 2 2 1 0 fun x => directionY) finiteDirection)
+    ((fderiv ℝ (eval 2 sineCube) 0) directionY)

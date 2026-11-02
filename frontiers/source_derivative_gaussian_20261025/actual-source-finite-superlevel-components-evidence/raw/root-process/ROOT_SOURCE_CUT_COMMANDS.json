@@ -1,0 +1,118 @@
+[
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T19:03:11.553481+00:00",
+    "ended_utc": "2026-10-28T19:03:11.556234+00:00",
+    "elapsed_seconds": 0.002758045000518905,
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_01.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_01.stderr.txt"
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--cached",
+      "--name-only"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T19:03:11.557846+00:00",
+    "ended_utc": "2026-10-28T19:03:11.563893+00:00",
+    "elapsed_seconds": 0.006047525001122267,
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_02.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_02.stderr.txt"
+  },
+  {
+    "command": [
+      "git",
+      "status",
+      "--short"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T19:03:11.564640+00:00",
+    "ended_utc": "2026-10-28T19:03:11.614400+00:00",
+    "elapsed_seconds": 0.049765544001274975,
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_03.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_03.stderr.txt"
+  },
+  {
+    "command": [
+      "git",
+      "add",
+      "--",
+      "frontiers/source_derivative_gaussian_20261025/SourceActualFiniteSuperlevelComponents.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T19:03:11.615486+00:00",
+    "ended_utc": "2026-10-28T19:03:11.628484+00:00",
+    "elapsed_seconds": 0.01300242899924342,
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_04.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_04.stderr.txt"
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--cached",
+      "--name-only"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T19:03:11.629232+00:00",
+    "ended_utc": "2026-10-28T19:03:11.633308+00:00",
+    "elapsed_seconds": 0.004079692998857354,
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_04B.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_04B.stderr.txt"
+  },
+  {
+    "command": [
+      "git",
+      "commit",
+      "-m",
+      "Prove finiteness of every actual torus closed-superlevel component set"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T19:03:11.634006+00:00",
+    "ended_utc": "2026-10-28T19:03:11.657457+00:00",
+    "elapsed_seconds": 0.023454721000234713,
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_05.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_05.stderr.txt"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T19:03:11.658413+00:00",
+    "ended_utc": "2026-10-28T19:03:11.660391+00:00",
+    "elapsed_seconds": 0.0019800050013145665,
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_06.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_06.stderr.txt"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD:frontiers/source_derivative_gaussian_20261025/SourceActualFiniteSuperlevelComponents.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T19:03:11.661161+00:00",
+    "ended_utc": "2026-10-28T19:03:11.663342+00:00",
+    "elapsed_seconds": 0.0021816469998157118,
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_07.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_07.stderr.txt"
+  }
+]

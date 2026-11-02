@@ -1,0 +1,44 @@
+{
+  "label": "inventory-001",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/gap-pin-curvature-construct/build:$LEAN_PATH exec lean -DwarningAsError=true /workspace/scratch/gap-pin-curvature-construct/Inventory.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceGapPinCurvature.lean",
+      "bytes": 13281,
+      "sha256": "67f6c671e4ed8a7cb8557fc6027403f4fd1e94cba984e672eaa3ceb94ab8847e"
+    },
+    "object": {
+      "path": "/workspace/scratch/gap-pin-curvature-construct/build/SourceGapPinCurvature.olean",
+      "bytes": 467776,
+      "sha256": "00378503fe93cca757712046d9c6818296880b5524d7c0096f87794c2657eb2c"
+    }
+  },
+  "started_utc": "2026-10-26T09:49:08.790396+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 3.393740653991699,
+  "ended_utc": "2026-10-26T09:49:12.184162+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceGapPinCurvature.lean",
+      "bytes": 13281,
+      "sha256": "67f6c671e4ed8a7cb8557fc6027403f4fd1e94cba984e672eaa3ceb94ab8847e"
+    },
+    "object": {
+      "path": "/workspace/scratch/gap-pin-curvature-construct/build/SourceGapPinCurvature.olean",
+      "bytes": 467776,
+      "sha256": "00378503fe93cca757712046d9c6818296880b5524d7c0096f87794c2657eb2c"
+    }
+  },
+  "log": {
+    "path": "/workspace/scratch/gap-pin-curvature-construct/runs/inventory-001/output.log",
+    "bytes": 1885,
+    "sha256": "ab249363bf2651e5568744289d6d7bc75c4fea9ee10f56143f253701c74383e5"
+  }
+}

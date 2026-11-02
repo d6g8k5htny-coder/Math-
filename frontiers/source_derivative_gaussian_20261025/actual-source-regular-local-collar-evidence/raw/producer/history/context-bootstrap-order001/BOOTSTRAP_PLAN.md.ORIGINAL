@@ -1,0 +1,25 @@
+# Initial66 literal context and documentary bootstrap
+
+Root authority: ROOT_GO66_INITIAL_CONTEXT_ONLY.json, creator6482857252;
+published proper contracts263b9d4329043e6debd299a8c27327ee515670d7.
+This plan implements only the already adopted SPEC/PLAN's context/custody
+step. It does not activate proof text or mathematical execution.
+
+1. Write dedicated66 capture/worker/bootstrap scripts, initial source header
+   and complete FROZEN_CONTEXT.md before the first documentary worker.
+2. Invoke the dedicated entry capture, dedicated outer capture, then actual
+   documentary record_run worker, then bootstrap_context.py. Preserve each
+   command/cwd/time/status and separate original stdout/stderr.
+3. Worker FIRST-hashes only necessary new versions once, seeds the copied
+   controls with root's known ID, and makes exact text snapshots with reused
+   IDs before launching the child. It never snapshots or copies objects.
+4. Bootstrap binds those cached IDs in INITIAL_CONTEXT_FREEZE.json; it
+   performs no Lean/API probe, proof edit, fixture/harness body or old hash.
+5. Deliver the complete literal context and closed actual capture paths to
+   root for FULL reading/acceptance. Await separate applicable TEXT release.
+
+No tests of unchanged mathematics or runner replay are planned. The actual
+documentary bootstrap is the necessary first exercise of this new runner;
+any concrete defect will be preserved and corrected narrowly with full
+actual patch/history before another authorized invocation. A failed inner
+worker and failed outer/entry return remain distinct observed records.

@@ -1,0 +1,44 @@
+{
+  "label": "core-005",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean SourceIntrinsicH0WeightedProbability.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+      "bytes": 6799,
+      "sha256": "b1e2870394ef90c53990982b7fde4f33d139612b4faf265811d3b7fdf6695022"
+    },
+    "object": {
+      "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+      "bytes": 200440,
+      "sha256": "ca72da54786cf8fb8cb94082faa4b1c74e243470a2558ebc9a5635d46e4144b3"
+    }
+  },
+  "started_utc": "2026-10-26T18:36:06.290010+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 3.623997449874878,
+  "ended_utc": "2026-10-26T18:36:09.914029+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+      "bytes": 6799,
+      "sha256": "b1e2870394ef90c53990982b7fde4f33d139612b4faf265811d3b7fdf6695022"
+    },
+    "object": {
+      "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+      "bytes": 200440,
+      "sha256": "ca72da54786cf8fb8cb94082faa4b1c74e243470a2558ebc9a5635d46e4144b3"
+    }
+  },
+  "log": {
+    "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-005/output.log",
+    "bytes": 80,
+    "sha256": "8234650ea42ff95840c0de2e5516b51a5c8108ee81bd3e2f815bc9bb6d144d78"
+  }
+}

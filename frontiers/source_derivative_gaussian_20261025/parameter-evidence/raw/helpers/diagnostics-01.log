@@ -1,0 +1,25 @@
+lp.instNormedSpace
+lp.normedAddCommGroup
+lp.instModuleSubtypePreLpMemAddSubgroup
+BoundedContinuousFunction.instNormedSpace
+BoundedContinuousFunction.instNormedAddCommGroup
+BoundedContinuousFunction.instModule
+/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean:15:0: error: failed to synthesize
+  Norm (SmoothParameter →L[ℝ] DerivativeBCF 2 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean:16:0: error: failed to synthesize
+  Norm (DerivativeBCF 2 0 →L[ℝ] SmoothParameter)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+Pi.normedSpace
+/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean:18:0: error: failed to synthesize
+  Norm (SmoothParameter →L[ℝ] (k : Fin 4) → DerivativeBCF 2 ↑k)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+BoundedContinuousFunction.instNormedSpace
+BoundedContinuousFunction.instNormedAddCommGroup
+/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean:23:0: error: failed to synthesize
+  Norm (SmoothParameter →L[ℝ] DerivativeBCF 2 k)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.

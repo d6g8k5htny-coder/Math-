@@ -1,0 +1,15 @@
+SourceActualTorusRegularSlab.lean:521:14: error: Type mismatch
+  convex_Icc
+has type
+  ∀ (r s : ?m.148), Convex ?m.147 (Icc r s)
+but is expected to have type
+  Convex ℝ (Icc 0 t)
+SourceActualTorusRegularSlab.lean:514:45: error: unsolved goals
+f v : ℝ → ℝ
+t lower upper : ℝ
+ht : 0 ≤ t
+hd : ∀ u ∈ Icc 0 t, HasDerivAt f (v u) u
+hv : ∀ u ∈ Icc 0 t, lower ≤ v u ∧ v u ≤ upper
+hcont : ContinuousOn f (Icc 0 t)
+hdiff : DifferentiableOn ℝ f (interior (Icc 0 t))
+⊢ lower * t ≤ f t - f 0 ∧ f t - f 0 ≤ upper * t

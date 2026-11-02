@@ -1,0 +1,37 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFoldCandidate.lean",
+    "bytes": 34367,
+    "sha256": "a03d6cc83ec35971d8e67a0ccb3032681eed76ca056a075bbd3bbddff7727e0e"
+  },
+  "object": {
+    "path": "/workspace/scratch/actual-fold-candidate-construct/build/SourceActualFoldCandidate.olean",
+    "bytes": 2037352,
+    "sha256": "a545f758072accbe4a97cb48a8ce30b542215bc8218c408b28fccd6d30f85f99"
+  },
+  "compiled_object": {
+    "path": "/workspace/scratch/actual-fold-candidate-construct/runs/strict-007/SourceActualFoldCandidate.olean",
+    "bytes": 2037352,
+    "sha256": "a545f758072accbe4a97cb48a8ce30b542215bc8218c408b28fccd6d30f85f99"
+  },
+  "strict_receipt": {
+    "path": "/workspace/scratch/actual-fold-candidate-construct/runs/strict-007/record.json",
+    "bytes": 681,
+    "sha256": "3ef324ad725d1d16ec612c610057c4cd6a2c320595be366cab5629c7e44c09b7"
+  },
+  "kernel_receipt": {
+    "path": "/workspace/scratch/actual-fold-candidate-construct/runs/kernel-001/record.json",
+    "bytes": 1693,
+    "sha256": "066a3be7184ef792e155755b052ff6fd7643e7f239cd57e8601219387c3da45a"
+  },
+  "freeze": {
+    "path": "/workspace/scratch/actual-fold-candidate-construct/FROZEN_SOURCE.json",
+    "bytes": 790,
+    "sha256": "e5ad4567b38ec415a448e4c6d2f1ae66aae053824c6d85955d530c9d16107ab7"
+  },
+  "eligible_production_objects": [
+    "SourceActualFoldCandidate.olean"
+  ],
+  "excluded_from_production_cache": "All helper, control, inventory, mutation and prior-attempt objects; no ilean generated in this bounded compile. Root alone owns production cache copy.",
+  "completed_baseline": "43 individually qualified modules/1044 public written targets/32 support inputs; unchanged source objects and accepted mathematics reused. Active compact probability leaf independent and not imported."
+}

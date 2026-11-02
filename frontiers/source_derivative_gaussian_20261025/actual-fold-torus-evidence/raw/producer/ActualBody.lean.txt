@@ -1,0 +1,135 @@
+open I4SmoothCarrier I4SourceConfluentPins I4SourceRawPinConditioning
+open I4SourceCompactTargetMoments I4SourceAdaptiveFoldChart
+open I4SourceAdaptiveFoldEstimates I4Torus
+
+/-- The literal physical map lands at the original raw maximum pin. -/
+@[simp] theorem torusPhysicalMap_M (L r : ℝ) :
+    torusPhysicalMap L r M = torusProjection 2 L (endpointM r) := by
+  unfold torusPhysicalMap
+  simp only [M]
+  rw [show -(1/2 : ℝ) = -1/2 by ring, chart_endpointM]
+
+/-- The literal physical map lands at the original raw saddle pin. -/
+@[simp] theorem torusPhysicalMap_S (L r : ℝ) :
+    torusPhysicalMap L r S = torusProjection 2 L (endpointS r) := by
+  change torusProjection 2 L (r • ![1/2,0]) = _
+  rw [chart_endpointS]
+
+/-- The physical field has its positive amplitude and its absolute offset. -/
+theorem torusPhysicalMap_field_eq {L r k : ℝ} (hL : L ≠ 0)
+    (sample : SmoothSample 2 L) (hr : r ≠ 0) (hk : k ≠ 0) (p : ℝ × ℝ) :
+    actualTorusField hL sample (torusPhysicalMap L r p) =
+      (6*k*r^3) * actualFoldPotential r k sample p := by
+  rw [torusPhysicalMap, actualTorusField_pullback]
+  simp only [actualFoldPotential]
+  field_simp
+
+/-- Absolute raw pins and the same retained rectangle/path yield a torus trap,
+physical older gain, saddle midpoint, explicit strict clearance and its sSup. -/
+theorem actual_rectangle_torus {L r k b R c : ℝ} (hL : L ≠ 0)
+    (sample : SmoothSample 2 L) (z : ℝ → ℝ) (hr : 0 < r) (hk : 0 < k)
+    (hp : rawPins L r sample = ![b,b-k*r^3,0,0,0,0])
+    (h : RectangleBoundaryPathData (actualFoldPotential r k sample) R c z) :
+    TorusTrapData (actualTorusField hL sample)
+        (torusProjection 2 L (endpointM r)) (torusPhysicalMap L r (olderPoint z))
+        b (b-k*r^3) (torusPhysicalMap L r '' leftBox R) ∧
+      b + (3/2)*k*r^3 ≤ actualTorusField hL sample (torusPhysicalMap L r (olderPoint z)) ∧
+      (∃ η : Path (torusProjection 2 L (endpointM r)) (torusPhysicalMap L r (olderPoint z)),
+        (∀ t : unitInterval, b-k*r^3 ≤ actualTorusField hL sample (η t)) ∧
+          η pathMidpoint = torusProjection 2 L (endpointS r)) ∧
+      strictClearanceSet (actualTorusField hL sample) (torusProjection 2 L (endpointM r))
+        = Iio (b-k*r^3) ∧
+      strictClearanceDeath (actualTorusField hL sample) (torusProjection 2 L (endpointM r))
+        = b-k*r^3 := by
+  have hm := congrFun hp (0 : Fin 6)
+  have hs := congrFun hp (1 : Fin 6)
+  simp only [rawPins, Matrix.cons_val_zero, Matrix.cons_val_one] at hm hs
+  have hM : actualTorusField hL sample (torusPhysicalMap L r M) = b := by
+    rw [torusPhysicalMap_M, actualTorusField_pullback]
+    exact hm
+  have hS : actualTorusField hL sample (torusPhysicalMap L r S) = b-k*r^3 := by
+    rw [torusPhysicalMap_S, actualTorusField_pullback]
+    exact hs
+  obtain ⟨htrap,hgain,η,hfloor,hmid⟩ := scaled_rectangle_trap
+    (torusPhysicalMap L r) (torusPhysicalMap_continuous L r) (torusPhysicalMap_open L r hr)
+    (actualTorusField hL sample) (actualFoldPotential r k sample)
+    (6*k*r^3) b (b-k*r^3) R c z (by positivity)
+    (torusPhysicalMap_field_eq hL sample hr.ne' hk.ne') hM hS h
+  have hgain' : b + (3/2)*k*r^3 ≤
+      actualTorusField hL sample (torusPhysicalMap L r (olderPoint z)) := by
+    convert hgain using 1 <;> ring
+  have hresult := And.intro htrap (And.intro hgain'
+    (And.intro (show ∃ η : Path (torusPhysicalMap L r M) (torusPhysicalMap L r (olderPoint z)),
+      (∀ t : unitInterval, b-k*r^3 ≤ actualTorusField hL sample (η t)) ∧
+        η pathMidpoint = torusPhysicalMap L r S from ⟨η,hfloor,hmid⟩)
+      (And.intro htrap.strictClearanceSet_eq_Iio htrap.strictClearanceDeath_eq)))
+  simpa only [torusPhysicalMap_M, torusPhysicalMap_S] using hresult
+
+/-- One positive radius from the original nonzero period alone precedes all
+scales and targets. The literal actual law derives pins and retained geometry
+internally; its only sample hypotheses are the qualified numeric cutoffs. -/
+theorem sourceGapLaw_actual_torus_trap_clearance {L : ℝ} (hL : L ≠ 0) :
+    ∃ δ : ℝ, 0 < δ ∧ δ ≤ 1 ∧
+      ∀ k₀ : ℝ, 0 < k₀ → ∀ r : ℝ, 0 < r → r < δ →
+        ∀ b k : ℝ, k₀ ≤ k → ∀ᵐ sample ∂sourceGapLaw hL r b k,
+          let T := sourceT k₀ sample
+          let κ := sourceKappa r k sample
+          let R := 4/Real.sqrt κ
+          r*T^5 ≤ 1/100 → 1024*T^5 ≤ κ →
+            ∃ (U : Set ℝ) (z : ℝ → ℝ),
+              RidgeScalarData (actualFoldPotential r k sample)
+                univ R (κ/2) T (3*T) T U z ∧
+              TorusTrapData (actualTorusField hL sample)
+                (torusProjection 2 L (endpointM r)) (torusPhysicalMap L r (olderPoint z))
+                b (b-k*r^3) (torusPhysicalMap L r '' leftBox R) ∧
+              b + (3/2)*k*r^3 ≤ actualTorusField hL sample (torusPhysicalMap L r (olderPoint z)) ∧
+              (∃ η : Path (torusProjection 2 L (endpointM r))
+                  (torusPhysicalMap L r (olderPoint z)),
+                (∀ t : unitInterval, b-k*r^3 ≤ actualTorusField hL sample (η t)) ∧
+                  η pathMidpoint = torusProjection 2 L (endpointS r)) ∧
+              strictClearanceSet (actualTorusField hL sample) (torusProjection 2 L (endpointM r))
+                = Iio (b-k*r^3) ∧
+              strictClearanceDeath (actualTorusField hL sample) (torusProjection 2 L (endpointM r))
+                = b-k*r^3 := by
+  obtain ⟨δ₁,hδ₁,hδ₁1,hwide⟩ := sourceGapLaw_actual_rectangle_boundary_path hL
+  obtain ⟨_K,δ₂,_hK,hδ₂,_hδ₂1,hbounds⟩ := sourceInverse_target_uniform_bounds hL
+  refine ⟨min δ₁ δ₂, lt_min hδ₁ hδ₂, (min_le_left _ _).trans hδ₁1, ?_⟩
+  intro k₀ hk₀ r hr hrδ b k hk
+  have hr₁ : r < δ₁ := hrδ.trans_le (min_le_left _ _)
+  have hr₂ : r < δ₂ := hrδ.trans_le (min_le_right _ _)
+  have hG := (hbounds r hr hr₂).1
+  have hpins : ∀ᵐ sample ∂sourceGapLaw hL r b k,
+      rawPins L r sample = ![b,b-k*r^3,0,0,0,0] := by
+    rw [sourceGapLaw_eq_rawPinKernel hL r b k hr.ne']
+    have hm : MeasurableSet {sample : SmoothSample 2 L |
+        rawPins L r sample = ![b,b-k*r^3,0,0,0,0]} :=
+      measurableSet_eq_fun (rawPins_measurable hL r) measurable_const
+    apply (ae_iff_measure_eq hm.nullMeasurableSet).mpr
+    simpa using rawPinKernel_pin_fiber hL r hr.ne' hG ![b,b-k*r^3,0,0,0,0]
+  filter_upwards [hwide k₀ hk₀ r hr hr₁ b k hk, hpins] with sample hw hp
+  dsimp only at hw ⊢
+  intro hrT hκ
+  obtain ⟨U,z,hz,hbox⟩ := hw hrT hκ
+  exact ⟨U,z,hz,actual_rectangle_torus hL sample z hr (hk₀.trans_le hk) hp hbox⟩
+
+/-- The closed actual-law strict-clearance and death endpoint on the literal
+original-period torus, without a desired geometric certificate premise. -/
+theorem sourceGapLaw_actual_torus_clearance {L : ℝ} (hL : L ≠ 0) :
+    ∃ δ : ℝ, 0 < δ ∧ δ ≤ 1 ∧
+      ∀ k₀ : ℝ, 0 < k₀ → ∀ r : ℝ, 0 < r → r < δ →
+        ∀ b k : ℝ, k₀ ≤ k → ∀ᵐ sample ∂sourceGapLaw hL r b k,
+          let T := sourceT k₀ sample
+          let κ := sourceKappa r k sample
+          r*T^5 ≤ 1/100 → 1024*T^5 ≤ κ →
+            strictClearanceSet (actualTorusField hL sample) (torusProjection 2 L (endpointM r))
+              = Iio (b-k*r^3) ∧
+            strictClearanceDeath (actualTorusField hL sample) (torusProjection 2 L (endpointM r))
+              = b-k*r^3 := by
+  obtain ⟨δ,hδ,hδ1,h⟩ := sourceGapLaw_actual_torus_trap_clearance hL
+  refine ⟨δ,hδ,hδ1,?_⟩
+  intro k₀ hk₀ r hr hrδ b k hk
+  filter_upwards [h k₀ hk₀ r hr hrδ b k hk] with sample hs
+  dsimp only at hs ⊢
+  intro hrT hκ
+  obtain ⟨U,z,_hz,_htrap,_hgain,_hpath,hclear,hdeath⟩ := hs hrT hκ
+  exact ⟨hclear,hdeath⟩

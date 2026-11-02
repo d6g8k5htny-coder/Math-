@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "module": "SourceEndpointHessianWitness",
+  "source_cut": "009ff87f13cc4ef022fc8900aba5595f27a51436",
+  "source_sha256": "45f69d75cb4418b239f6402d0552da546bccc127e3102fac7da7d4c30324ae8f",
+  "targets": [
+    "I4SourceEndpointHessianWitness.actual_finite_endpointHessian_witnesses",
+    "I4SourceEndpointHessianWitness.actual_endpointHessian_residual_coefficientGram_posDef"
+  ],
+  "public_written_Prop_targets": 2,
+  "public_coefficient_definition_inventory_only": "I4SourceEndpointHessianWitness.endpointHessianCoefficient",
+  "data_instance_registry_append": 0,
+  "baseline_targets": 1105,
+  "resulting_targets": 1107
+}

@@ -1,0 +1,13 @@
+import SourceAdaptiveFoldChart
+import AdaptiveFoldBoundaryPath
+open I4ConfluentIntegralIdentities
+#check peano_kernel_masses
+#check ContDiff.differentiable_iteratedFDeriv
+#check ContinuousMultilinearMap.continuous_eval_const
+#check ContDiff.continuous_iteratedFDeriv
+#check Continuous.continuousMultilinear_apply_const
+#check ContDiff.contDiff_fderiv
+#check ContDiff.fderiv_right
+#check Continuous.clm_apply
+#check ContDiff.clm_apply
+#check ContinuousMultilinearMap.continuous

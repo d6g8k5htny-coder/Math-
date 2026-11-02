@@ -1,0 +1,30 @@
+SourceAdaptiveFoldEstimates.lean:661:47: error: Application type mismatch: The argument
+  hu
+has type
+  u ∈ Icc (-1 / 2) (1 / 2)
+but is expected to have type
+  -(1 / 2) ≤ u ∧ u ≤ 1 / 2
+in the application
+  abs_le.mpr hu
+SourceAdaptiveFoldEstimates.lean:695:6: error: Application type mismatch: The argument
+  ContDiff.differentiable (hslice x)
+has type
+  ∞ ≠ 0 → Differentiable ℝ fun y => G (x, y)
+but is expected to have type
+  DifferentiableOn ℝ (fun y => G (x, y)) (interior (Icc (-R) R))
+in the application
+  @Convex.image_sub_le_mul_sub_of_deriv_le (Icc (-R) R) (convex_Icc (-R) R) (fun y => G (x, y))
+    (Continuous.continuousOn (ContDiff.continuous (hslice x))) (ContDiff.differentiable (hslice x))
+SourceAdaptiveFoldEstimates.lean:695:33: error: unsolved goals
+G : ℝ × ℝ → ℝ
+hG : ContDiff ℝ ∞ G
+R c T : ℝ
+hR : 0 < R
+hcenter : ∀ x ∈ J, |G (x, 0)| ≤ T
+hneg : ∀ x ∈ J, ∀ y ∈ Icc (-R) R, partialY G (x, y) ≤ -c
+hmargin : T < c * R
+hslice : ∀ (x : ℝ), ContDiff ℝ ∞ fun y => G (x, y)
+hder : ∀ (x y : ℝ), deriv (fun t => G (x, t)) y = partialY G (x, y)
+x : ℝ
+hx : x ∈ J
+⊢ ∀ (x_1 : ℝ), -R < x_1 → x_1 < R → deriv (fun y => G (x, y)) x_1 ≤ ?m.219

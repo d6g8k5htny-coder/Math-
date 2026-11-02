@@ -1,0 +1,15 @@
+{
+  "observed_after_failure_utc": "2026-10-28T19:11:16.882268+00:00",
+  "actual_command": "python3 /workspace/scratch/actual-source-finite-superlevel-components-construct/freeze_documents.py",
+  "exit_code": 1,
+  "started_utc": null,
+  "ended_utc": null,
+  "exact_execution_UTC": "Not instrumented; observation only, no backdating",
+  "wall_time_reported_by_exec_seconds": 4.0038e-05,
+  "tool_output_transcription": "  File \"/workspace/scratch/actual-source-finite-superlevel-components-construct/freeze_documents.py\", line 37\n    known[str(B/'CONTROL_CONTRACT.md')]) if False else None\n                                       ^\nSyntaxError: unmatched ')'\n",
+  "custody": "Actual exec tool returned combined output. This JSON is an explicitly labeled transcription, NOT fabricated original stdout/stderr. All14mathematical calls have actual original split streams.",
+  "writer_effect": "Python parsing failed before ANY writer code/hash/document creation",
+  "original_script": "history/freeze_documents.001.py",
+  "actual_full_patch": "amendments/documentary-freeze-002.patch",
+  "next_scope": "Execute only corrected documentary writer; no mathematical or old payload check/hash replay."
+}

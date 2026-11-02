@@ -1,0 +1,550 @@
+{
+  "created_utc": "2026-10-26T17:08:37.559000+00:00",
+  "records": [
+    {
+      "kind": "develop",
+      "run": "develop-001",
+      "start": "2026-10-26T17:03:12.062906+00:00",
+      "end": "2026-10-26T17:03:19.949391+00:00",
+      "seconds": 7.886510444994201,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean",
+        "-o",
+        "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-001/SourceEndpointHessianGaussian.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 1,
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean",
+        "bytes": 16292,
+        "sha256": "d72f9d85306c7967f22ef176b9868d8b2b6bfa9b37358dbf8da6252b81ec386b"
+      },
+      "stdout": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-001/stdout.log",
+        "bytes": 6778,
+        "sha256": "22bf134d90c89014f150bd4720b5545aa22d531a3aae4bbcba3955fb5fff025f"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "all_source_snapshots": [
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-001/Controls.lean",
+          "bytes": 5610,
+          "sha256": "bde6310592ca0e9034ac725259a9f446038b7de1960719e4aae6b7dc32de511b"
+        },
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-001/Inventory.lean",
+          "bytes": 1086,
+          "sha256": "6a111e603067fd3e1ecbbd742a4bfc4be5ffb62a6311ef13f481a43e3e41f40f"
+        },
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-001/PosDefOmissionMutation.lean",
+          "bytes": 439,
+          "sha256": "b07aa16c85e6d3f6d99744343b6ffc69f0bcf319dc456f8063855037ed26e286"
+        },
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-001/SourceEndpointHessianGaussian.lean",
+          "bytes": 16292,
+          "sha256": "d72f9d85306c7967f22ef176b9868d8b2b6bfa9b37358dbf8da6252b81ec386b"
+        }
+      ],
+      "stdout_identity": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-001/stdout.log",
+        "bytes": 6778,
+        "sha256": "22bf134d90c89014f150bd4720b5545aa22d531a3aae4bbcba3955fb5fff025f"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "objects": []
+    },
+    {
+      "kind": "develop",
+      "run": "develop-002",
+      "start": "2026-10-26T17:03:54.037333+00:00",
+      "end": "2026-10-26T17:03:59.277613+00:00",
+      "seconds": 5.240293176000705,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean",
+        "-o",
+        "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-002/SourceEndpointHessianGaussian.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 1,
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean",
+        "bytes": 17026,
+        "sha256": "0e8edfb0a1966239bb037b00d422c44048587087a84fbd85de67a1ac1bc73d8b"
+      },
+      "stdout": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-002/stdout.log",
+        "bytes": 1278,
+        "sha256": "a3e7c5a44649ed62eca50e1777304a459e9d7e4b2a0bece0ba682d76923e729a"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-002/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "all_source_snapshots": [
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-002/Controls.lean",
+          "bytes": 5610,
+          "sha256": "bde6310592ca0e9034ac725259a9f446038b7de1960719e4aae6b7dc32de511b"
+        },
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-002/Inventory.lean",
+          "bytes": 1086,
+          "sha256": "6a111e603067fd3e1ecbbd742a4bfc4be5ffb62a6311ef13f481a43e3e41f40f"
+        },
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-002/PosDefOmissionMutation.lean",
+          "bytes": 439,
+          "sha256": "b07aa16c85e6d3f6d99744343b6ffc69f0bcf319dc456f8063855037ed26e286"
+        },
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-002/SourceEndpointHessianGaussian.lean",
+          "bytes": 17026,
+          "sha256": "0e8edfb0a1966239bb037b00d422c44048587087a84fbd85de67a1ac1bc73d8b"
+        }
+      ],
+      "stdout_identity": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-002/stdout.log",
+        "bytes": 1278,
+        "sha256": "a3e7c5a44649ed62eca50e1777304a459e9d7e4b2a0bece0ba682d76923e729a"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-002/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "objects": []
+    },
+    {
+      "kind": "develop",
+      "run": "develop-003",
+      "start": "2026-10-26T17:04:29.085479+00:00",
+      "end": "2026-10-26T17:04:35.121527+00:00",
+      "seconds": 6.036060234007891,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean",
+        "-o",
+        "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-003/SourceEndpointHessianGaussian.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 0,
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean",
+        "bytes": 17034,
+        "sha256": "b9900b7553f7722241137f8f0cba08862b19ae415253a9a14bfd7c9b53c3e613"
+      },
+      "stdout": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-003/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-003/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "all_source_snapshots": [
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-003/Controls.lean",
+          "bytes": 5610,
+          "sha256": "bde6310592ca0e9034ac725259a9f446038b7de1960719e4aae6b7dc32de511b"
+        },
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-003/Inventory.lean",
+          "bytes": 1086,
+          "sha256": "6a111e603067fd3e1ecbbd742a4bfc4be5ffb62a6311ef13f481a43e3e41f40f"
+        },
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-003/PosDefOmissionMutation.lean",
+          "bytes": 439,
+          "sha256": "b07aa16c85e6d3f6d99744343b6ffc69f0bcf319dc456f8063855037ed26e286"
+        },
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-003/SourceEndpointHessianGaussian.lean",
+          "bytes": 17034,
+          "sha256": "b9900b7553f7722241137f8f0cba08862b19ae415253a9a14bfd7c9b53c3e613"
+        }
+      ],
+      "stdout_identity": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-003/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-003/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "objects": [
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-003/SourceEndpointHessianGaussian.olean",
+          "bytes": 863104,
+          "sha256": "ce422b22d3f90dbcbaf6520d389dad7bd9fb9afacf4cbf97d14042d9d88a5c1a"
+        }
+      ]
+    },
+    {
+      "kind": "controls",
+      "run": "controls-001",
+      "start": "2026-10-26T17:04:49.154711+00:00",
+      "end": "2026-10-26T17:04:55.338064+00:00",
+      "seconds": 6.183398402004968,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/endpoint-hessian-gaussian-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/endpoint-hessian-gaussian-construct /workspace/scratch/endpoint-hessian-gaussian-construct/Controls.lean -o /workspace/scratch/endpoint-hessian-gaussian-construct/runs/controls-001/Controls.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 1,
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean",
+        "bytes": 17034,
+        "sha256": "b9900b7553f7722241137f8f0cba08862b19ae415253a9a14bfd7c9b53c3e613"
+      },
+      "stdout": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/controls-001/stdout.log",
+        "bytes": 1065,
+        "sha256": "cfbd7dc45ff479aa572af3e1d87255b24aadf4b4048f81874f0ffb17c527af00"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/controls-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "all_source_snapshots": [
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/controls-001/Controls.lean",
+          "bytes": 5610,
+          "sha256": "bde6310592ca0e9034ac725259a9f446038b7de1960719e4aae6b7dc32de511b"
+        },
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/controls-001/Inventory.lean",
+          "bytes": 1086,
+          "sha256": "6a111e603067fd3e1ecbbd742a4bfc4be5ffb62a6311ef13f481a43e3e41f40f"
+        },
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/controls-001/PosDefOmissionMutation.lean",
+          "bytes": 439,
+          "sha256": "b07aa16c85e6d3f6d99744343b6ffc69f0bcf319dc456f8063855037ed26e286"
+        },
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/controls-001/SourceEndpointHessianGaussian.lean",
+          "bytes": 17034,
+          "sha256": "b9900b7553f7722241137f8f0cba08862b19ae415253a9a14bfd7c9b53c3e613"
+        }
+      ],
+      "stdout_identity": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/controls-001/stdout.log",
+        "bytes": 1065,
+        "sha256": "cfbd7dc45ff479aa572af3e1d87255b24aadf4b4048f81874f0ffb17c527af00"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/controls-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "objects": []
+    },
+    {
+      "kind": "inventory",
+      "run": "inventory-001",
+      "start": "2026-10-26T17:05:11.130742+00:00",
+      "end": "2026-10-26T17:05:14.930169+00:00",
+      "seconds": 3.7994387130020186,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/endpoint-hessian-gaussian-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/endpoint-hessian-gaussian-construct /workspace/scratch/endpoint-hessian-gaussian-construct/Inventory.lean -o /workspace/scratch/endpoint-hessian-gaussian-construct/runs/inventory-001/Inventory.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 0,
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean",
+        "bytes": 17034,
+        "sha256": "b9900b7553f7722241137f8f0cba08862b19ae415253a9a14bfd7c9b53c3e613"
+      },
+      "stdout": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/inventory-001/stdout.log",
+        "bytes": 8456,
+        "sha256": "f938bcbca9f4d45e31490f12371fa0382218311eb984f0428936422daa2f642a"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/inventory-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "all_source_snapshots": [
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/inventory-001/Controls.lean",
+          "bytes": 5610,
+          "sha256": "bde6310592ca0e9034ac725259a9f446038b7de1960719e4aae6b7dc32de511b"
+        },
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/inventory-001/Inventory.lean",
+          "bytes": 1086,
+          "sha256": "6a111e603067fd3e1ecbbd742a4bfc4be5ffb62a6311ef13f481a43e3e41f40f"
+        },
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/inventory-001/PosDefOmissionMutation.lean",
+          "bytes": 439,
+          "sha256": "b07aa16c85e6d3f6d99744343b6ffc69f0bcf319dc456f8063855037ed26e286"
+        },
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/inventory-001/SourceEndpointHessianGaussian.lean",
+          "bytes": 17034,
+          "sha256": "b9900b7553f7722241137f8f0cba08862b19ae415253a9a14bfd7c9b53c3e613"
+        }
+      ],
+      "stdout_identity": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/inventory-001/stdout.log",
+        "bytes": 8456,
+        "sha256": "f938bcbca9f4d45e31490f12371fa0382218311eb984f0428936422daa2f642a"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/inventory-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "objects": [
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/inventory-001/Inventory.olean",
+          "bytes": 2712,
+          "sha256": "81f298ff6a463bb15052411d6f59ce4d45c5491e1040c09f44a2ca618119d37a"
+        }
+      ]
+    },
+    {
+      "kind": "controls",
+      "run": "controls-002",
+      "start": "2026-10-26T17:05:42.963196+00:00",
+      "end": "2026-10-26T17:05:49.170731+00:00",
+      "seconds": 6.207581507987925,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/endpoint-hessian-gaussian-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/endpoint-hessian-gaussian-construct /workspace/scratch/endpoint-hessian-gaussian-construct/Controls.lean -o /workspace/scratch/endpoint-hessian-gaussian-construct/runs/controls-002/Controls.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 0,
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean",
+        "bytes": 17034,
+        "sha256": "b9900b7553f7722241137f8f0cba08862b19ae415253a9a14bfd7c9b53c3e613"
+      },
+      "stdout": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/controls-002/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/controls-002/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "all_source_snapshots": [
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/controls-002/Controls.lean",
+          "bytes": 5606,
+          "sha256": "d5c7be16340dda4ad2d4087bb69c043e4660b06df6a02b86769645bfa19d2c2b"
+        },
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/controls-002/Inventory.lean",
+          "bytes": 1086,
+          "sha256": "6a111e603067fd3e1ecbbd742a4bfc4be5ffb62a6311ef13f481a43e3e41f40f"
+        },
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/controls-002/PosDefOmissionMutation.lean",
+          "bytes": 439,
+          "sha256": "b07aa16c85e6d3f6d99744343b6ffc69f0bcf319dc456f8063855037ed26e286"
+        },
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/controls-002/SourceEndpointHessianGaussian.lean",
+          "bytes": 17034,
+          "sha256": "b9900b7553f7722241137f8f0cba08862b19ae415253a9a14bfd7c9b53c3e613"
+        }
+      ],
+      "stdout_identity": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/controls-002/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/controls-002/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "objects": [
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/controls-002/Controls.olean",
+          "bytes": 349800,
+          "sha256": "60864229204c4053cb4de3ac734b1b423be71c956afc020c75bf966885a91e95"
+        }
+      ]
+    },
+    {
+      "kind": "pd-omission",
+      "run": "pd-omission-001",
+      "start": "2026-10-26T17:06:09.426071+00:00",
+      "end": "2026-10-26T17:06:12.092341+00:00",
+      "seconds": 2.6662810029956745,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/endpoint-hessian-gaussian-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/endpoint-hessian-gaussian-construct /workspace/scratch/endpoint-hessian-gaussian-construct/PosDefOmissionMutation.lean -o /workspace/scratch/endpoint-hessian-gaussian-construct/runs/pd-omission-001/PosDefOmissionMutation.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 1,
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean",
+        "bytes": 17034,
+        "sha256": "b9900b7553f7722241137f8f0cba08862b19ae415253a9a14bfd7c9b53c3e613"
+      },
+      "stdout": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/pd-omission-001/stdout.log",
+        "bytes": 121,
+        "sha256": "49252d6ee75b4ac42d962109e02d2054d7903e12deac65402e8ad3b95f5a392b"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/pd-omission-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "all_source_snapshots": [
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/pd-omission-001/Controls.lean",
+          "bytes": 5606,
+          "sha256": "d5c7be16340dda4ad2d4087bb69c043e4660b06df6a02b86769645bfa19d2c2b"
+        },
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/pd-omission-001/Inventory.lean",
+          "bytes": 1086,
+          "sha256": "6a111e603067fd3e1ecbbd742a4bfc4be5ffb62a6311ef13f481a43e3e41f40f"
+        },
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/pd-omission-001/PosDefOmissionMutation.lean",
+          "bytes": 439,
+          "sha256": "b07aa16c85e6d3f6d99744343b6ffc69f0bcf319dc456f8063855037ed26e286"
+        },
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/pd-omission-001/SourceEndpointHessianGaussian.lean",
+          "bytes": 17034,
+          "sha256": "b9900b7553f7722241137f8f0cba08862b19ae415253a9a14bfd7c9b53c3e613"
+        }
+      ],
+      "stdout_identity": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/pd-omission-001/stdout.log",
+        "bytes": 121,
+        "sha256": "49252d6ee75b4ac42d962109e02d2054d7903e12deac65402e8ad3b95f5a392b"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/pd-omission-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "objects": []
+    },
+    {
+      "kind": "kernel",
+      "run": "kernel-001",
+      "start": "2026-10-26T17:06:36.311803+00:00",
+      "end": "2026-10-26T17:06:43.927258+00:00",
+      "seconds": 7.615463569003623,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/endpoint-hessian-gaussian-construct/build:$LEAN_PATH exec leanchecker SourceEndpointHessianGaussian"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 0,
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean",
+        "bytes": 17034,
+        "sha256": "b9900b7553f7722241137f8f0cba08862b19ae415253a9a14bfd7c9b53c3e613"
+      },
+      "stdout": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/kernel-001/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/kernel-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "all_source_snapshots": [
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/kernel-001/Controls.lean",
+          "bytes": 5606,
+          "sha256": "d5c7be16340dda4ad2d4087bb69c043e4660b06df6a02b86769645bfa19d2c2b"
+        },
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/kernel-001/Inventory.lean",
+          "bytes": 1086,
+          "sha256": "6a111e603067fd3e1ecbbd742a4bfc4be5ffb62a6311ef13f481a43e3e41f40f"
+        },
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/kernel-001/PosDefOmissionMutation.lean",
+          "bytes": 439,
+          "sha256": "b07aa16c85e6d3f6d99744343b6ffc69f0bcf319dc456f8063855037ed26e286"
+        },
+        {
+          "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/kernel-001/SourceEndpointHessianGaussian.lean",
+          "bytes": 17034,
+          "sha256": "b9900b7553f7722241137f8f0cba08862b19ae415253a9a14bfd7c9b53c3e613"
+        }
+      ],
+      "stdout_identity": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/kernel-001/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/kernel-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "objects": []
+    }
+  ],
+  "all_failures_retained": true,
+  "exactly_one_named_own_module_kernel": true,
+  "old_verification_replays": 0,
+  "native_pickup": "6421975582",
+  "native_pickup_utc": "2026-10-26T16:53:34Z",
+  "checkpoint_utc": "2026-10-26T17:45:00Z",
+  "terminal_utc": "2026-10-26T19:00:00Z",
+  "prior50_51_timers_unchanged": true,
+  "timer_reset": false
+}

@@ -1,0 +1,8 @@
+/workspace/scratch/lifetime-pair-finiteness/RejectedWithoutCriticality.lean:12:28: error: Application type mismatch: The argument
+  rfl
+has type
+  ?m.46 = ?m.46
+but is expected to have type
+  IsCriticalPoint 2 (actualField 2 L ω) x✝²
+in the application
+  And.intro rfl

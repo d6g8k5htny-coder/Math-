@@ -1,0 +1,13 @@
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:2:0: warning: 
+'Mathlib.Data.Real.Basic' has been deprecated: please replace this import by
+
+import Mathlib.Basic.Real.Basic
+/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean:24:2: error: Type mismatch: After simplification, term
+  congrArg (fun A => A *ᵥ y) (inverse_congruence T G hT)
+ has type
+  (Tᵀ * (T * G * Tᵀ)⁻¹ * T) *ᵥ y = G⁻¹ *ᵥ y
+but is expected to have type
+  (Tᵀ * ((T * G * Tᵀ)⁻¹ * T)) *ᵥ y = G⁻¹ *ᵥ y
+'ActualGeometricPalmJoin.inverse_congruence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ActualGeometricPalmJoin.inverse_congruence_mulVec' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ActualGeometricPalmJoin.coefficient_lift_congr' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,8 @@
+SourceWeightedCurvatureBound.lean:379:19: error: Application type mismatch: The argument
+  hω
+has type
+  ω ∈ sourceCurvatureSlab L r K
+but is expected to have type
+  |?m.173| ≤ ?m.174
+in the application
+  abs_le.mp hω

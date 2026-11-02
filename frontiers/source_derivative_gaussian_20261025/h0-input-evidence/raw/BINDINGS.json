@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "origin_repository": "/workspace/Math-curvature-20261026",
+  "origin_published_commit": "af17e8d1aaf3a3f47d9763485337a6c0c57b9b99",
+  "precode_commit": "143f845b33cbdb407accc78405f124671ed051c5",
+  "observed_head_at_preparation": "143f845b33cbdb407accc78405f124671ed051c5",
+  "prepared_utc": "2026-10-26T09:29:30.874864+00:00",
+  "body_boundary_policy": "Every byte after the leading contiguous import lines is preserved, including blank lines and comments.",
+  "new_research_target_credit": 0,
+  "modules": [
+    {
+      "module": "ClosedSuperlevel",
+      "origin_path": "companions/torus_filtration_20261011/ClosedSuperlevel.lean",
+      "origin_git_blob": "a4323cb50fb2d5861c4e6240a18684bfb566fb80",
+      "last_change_commit": "c4eabc1a917ba2c1b96fe4af425cf2a484877c03",
+      "last_change_blob_matches_published": true,
+      "origin": {
+        "path": "/workspace/scratch/actual-h0-support-inputs/origins/ClosedSuperlevel.lean",
+        "bytes": 8088,
+        "sha256": "90d1481b75d9c6d14e462c3fbf0bf7c7cdd0efb9eaad68d6732400658753b1c2"
+      },
+      "successor": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/elder/ClosedSuperlevel.lean",
+        "bytes": 8243,
+        "sha256": "51cb46da0f1aae823fd91ec5e93c6edcd694d72f0a40d7a83686fee66c8ffffa"
+      },
+      "origin_header": "import Mathlib\n",
+      "successor_header": "import Mathlib.AlgebraicTopology.SingularHomology.HomologyZero\nimport Mathlib.Topology.Instances.Real.Lemmas\nimport Mathlib.Tactic.Linarith\nimport Mathlib.Tactic.NormNum\n",
+      "origin_body_byte_offset": 15,
+      "successor_body_byte_offset": 170,
+      "origin_body_first_line": 2,
+      "successor_body_first_line": 5,
+      "body_bytes": 8073,
+      "body_sha256": "cdf6fcd219f27dbf30ead2a9950c9bb958f63822720d4578f31db3c08b09885e",
+      "literal_body_equal": true,
+      "whole_file_equal": false,
+      "import_only_diff": "/workspace/scratch/actual-h0-support-inputs/ClosedSuperlevel.diff"
+    },
+    {
+      "module": "OrdinaryH0",
+      "origin_path": "companions/torus_filtration_20261011/OrdinaryH0.lean",
+      "origin_git_blob": "7bc5f80028271e0e33d857e60496ca4cadaa9364",
+      "last_change_commit": "c4eabc1a917ba2c1b96fe4af425cf2a484877c03",
+      "last_change_blob_matches_published": true,
+      "origin": {
+        "path": "/workspace/scratch/actual-h0-support-inputs/origins/OrdinaryH0.lean",
+        "bytes": 19803,
+        "sha256": "3d6b0d6b53413c484b1d010bccf0d53ae7f75becb2d747868f22dbd673fe0a88"
+      },
+      "successor": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/elder/OrdinaryH0.lean",
+        "bytes": 19851,
+        "sha256": "3e91484d8b8499bee94c652a13dbab957712a180d4644e5ea5915082a79836f5"
+      },
+      "origin_header": "import Mathlib\nimport ClosedSuperlevel\n",
+      "successor_header": "import Mathlib.AlgebraicTopology.SingularHomology.HomologyZero\nimport ClosedSuperlevel\n",
+      "origin_body_byte_offset": 39,
+      "successor_body_byte_offset": 87,
+      "origin_body_first_line": 3,
+      "successor_body_first_line": 3,
+      "body_bytes": 19764,
+      "body_sha256": "d3d1cce69be0b9d30e230fb8355886e0921acaa04cb2e14bcafeda9b2c9c208f",
+      "literal_body_equal": true,
+      "whole_file_equal": false,
+      "import_only_diff": "/workspace/scratch/actual-h0-support-inputs/OrdinaryH0.diff"
+    },
+    {
+      "module": "ElderInterval",
+      "origin_path": "frontiers/asymmetric_elder_bridge_20261017/ElderInterval.lean",
+      "origin_git_blob": "108f880b314bf9d5f21e8d30513f14a229808198",
+      "last_change_commit": "c4eabc1a917ba2c1b96fe4af425cf2a484877c03",
+      "last_change_blob_matches_published": true,
+      "origin": {
+        "path": "/workspace/scratch/actual-h0-support-inputs/origins/ElderInterval.lean",
+        "bytes": 16006,
+        "sha256": "3dab19342c307f6b70f4fa05ac913b4ead083742a56408db71b45276c0acb9ab"
+      },
+      "successor": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/elder/ElderInterval.lean",
+        "bytes": 16140,
+        "sha256": "69daa2e2a6afbdedde20d0c3b1ecdb52e2626da8ad49138b9db388b41ee71491"
+      },
+      "origin_header": "import OrdinaryH0\n",
+      "successor_header": "import OrdinaryH0\nimport Mathlib.Algebra.Category.ModuleCat.Biproducts\nimport Mathlib.CategoryTheory.Abelian.FunctorCategory\nimport Mathlib.Tactic.Abel\n",
+      "origin_body_byte_offset": 18,
+      "successor_body_byte_offset": 152,
+      "origin_body_first_line": 2,
+      "successor_body_first_line": 5,
+      "body_bytes": 15988,
+      "body_sha256": "e7547bdf5c3166b0d6f0da2a62291c90883e472b7224b5a70cdc1c32c42f1a99",
+      "literal_body_equal": true,
+      "whole_file_equal": false,
+      "import_only_diff": "/workspace/scratch/actual-h0-support-inputs/ElderInterval.diff"
+    },
+    {
+      "module": "ElderBridge",
+      "origin_path": "frontiers/asymmetric_elder_bridge_20261017/ElderBridge.lean",
+      "origin_git_blob": "a59ee9daab7b67eafd7e4f806b27244bcc5caed1",
+      "last_change_commit": "c4eabc1a917ba2c1b96fe4af425cf2a484877c03",
+      "last_change_blob_matches_published": true,
+      "origin": {
+        "path": "/workspace/scratch/actual-h0-support-inputs/origins/ElderBridge.lean",
+        "bytes": 3683,
+        "sha256": "6b0be1116f6b357b0ffbda202c572c27c2788b98bee639e228375a5ebeea1fa9"
+      },
+      "successor": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/elder/ElderBridge.lean",
+        "bytes": 3683,
+        "sha256": "6b0be1116f6b357b0ffbda202c572c27c2788b98bee639e228375a5ebeea1fa9"
+      },
+      "origin_header": "import ElderClearance\nimport ElderInterval\n",
+      "successor_header": "import ElderClearance\nimport ElderInterval\n",
+      "origin_body_byte_offset": 43,
+      "successor_body_byte_offset": 43,
+      "origin_body_first_line": 3,
+      "successor_body_first_line": 3,
+      "body_bytes": 3640,
+      "body_sha256": "4ea5039bc161f8559391f2a5cc8a4a64bb886a759bbbe0c29544e0e3ac77a80d",
+      "literal_body_equal": true,
+      "whole_file_equal": true,
+      "import_only_diff": "/workspace/scratch/actual-h0-support-inputs/ElderBridge.diff"
+    }
+  ]
+}

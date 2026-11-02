@@ -1,0 +1,74 @@
+{
+  "source_frozen_identity_from": "FROZEN_SOURCE.json",
+  "imports": [
+    "Mathlib.Probability.Distributions.Gaussian.HasGaussianLaw.Basic",
+    "Mathlib.Probability.Distributions.Gaussian.HasGaussianLaw.Independence",
+    "Mathlib.Probability.Independence.Process.Basic",
+    "Mathlib.MeasureTheory.Function.LpSeminorm.TriangleInequality",
+    "SourceFinitePinKernel",
+    "SourceCurvatureDecomposition",
+    "Mathlib.LinearAlgebra.Finsupp.LinearCombination"
+  ],
+  "authored_public_structures": [
+    "RawPinFreeFrame"
+  ],
+  "authored_public_maps": [
+    "freeCoordinate",
+    "freeShiftSample",
+    "freeResidualSample"
+  ],
+  "authored_public_props": [
+    "freeMaps_measurable",
+    "rawPosteriorSample_free_reconstruction",
+    "freeResidual_freeCoordinate_joint_map"
+  ],
+  "private_data": [
+    "freeLift",
+    "freeGaussian_projection"
+  ],
+  "private_props": [
+    "freeLift_apply",
+    "freeShiftSample_val",
+    "freeResidualSample_val",
+    "finitePairing_eq_tsum",
+    "chi_summable",
+    "chi_normSquared",
+    "freeCoordinate_eq_unitDirection",
+    "finitePairing_eq_linearCombination",
+    "freeLift_raw_kernel",
+    "finitePairing_add_observation",
+    "finitePairing_sum_observation",
+    "freeCoordinate_shift",
+    "freeCoordinate_residual",
+    "free_reconstruction",
+    "freeGaussian_scalar_hasLaw",
+    "freeGaussian_finiteCoefficients_hasGaussianLaw",
+    "freeGaussian_vector_hasGaussianLaw",
+    "freeGaussian_covariance_gram",
+    "freeGaussian_coefficient_covariance",
+    "freeGaussian_iIndepFun",
+    "freeGaussian_pi_map",
+    "freeGaussian_projection_apply",
+    "freeGaussian_finiteResidual_hasGaussianLaw",
+    "freeGaussian_residual_zero_covariance",
+    "freeGaussian_finiteResidual_indepFun",
+    "freeGaussian_process_indepFun",
+    "freeGaussian_sample_indepFun"
+  ],
+  "forbidden_tokens_found": [],
+  "module_scope": "Exactly deterministic finite raw-pin-free original coefficient frame, fullvector/wholeliteralresidual law, and arbitrarytarget/radius pointwise rawposterior reconstruction.",
+  "excluded": [
+    "uniform frame existence",
+    "random sample l2",
+    "rank/covariance inverse premise",
+    "assumed Gaussian law or independence",
+    "new scalar mean/variance Gaussian chain",
+    "raw singular pin RCD/fiber claim",
+    "global canonical labels/once counting/Parent",
+    "spatial O2 law invariance",
+    "parallel58 source/helper"
+  ],
+  "standard_axiom_coverage": "Complete actual64moduleconstants in inventory001; exactly-one ownkernel001 PASS; completed old mathematics reused",
+  "fourmode_helper_route": "ScratchControls only, no production control API.",
+  "generated_foreign_disposition": "unitDirection.eq_1 is an owned compiler-generated equation for unfolded public foreign def; not named by source; standard3 and kernel covered."
+}

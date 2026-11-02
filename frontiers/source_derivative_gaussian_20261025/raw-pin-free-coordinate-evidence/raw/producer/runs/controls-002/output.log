@@ -1,0 +1,262 @@
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:76:6: error(lean.unknownIdentifier): Unknown identifier `I4Lattice.sourceWeight_eq_physical`
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:68:75: error: unsolved goals
+s : Fin 4
+he : control57_amplitude s = √(2 * sourceWeight 2 2 (control57_frequency s) / sourceZ 2 2)
+⊢ 0 < sourceWeight 2 2 (control57_frequency s)
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:101:4: error: Type mismatch: After simplification, term
+  ContinuousLinearMap.hasFDerivAt (I4C4.phaseCLM 2 2 ↑k)
+ has type
+  @HasFDerivAt ℝ DenselyNormedField.toNontriviallyNormedField (Fin 2 → ℝ) Pi.addCommGroup
+    (Pi.Function.module (Fin 2) ℝ ℝ) Pi.topologicalSpace ℝ Real.instAddCommGroup Semiring.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace (⇑(I4C4.phaseCLM 2 2 ↑k)) (I4C4.phaseCLM 2 2 ↑k) 0
+but is expected to have type
+  @HasFDerivAt ℝ DenselyNormedField.toNontriviallyNormedField (Fin 2 → ℝ) Pi.addCommGroup
+    (Pi.Function.module (Fin 2) ℝ ℝ) Pi.topologicalSpace ℝ Real.instAddCommGroup Semiring.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace (fun x => phase 2 2 (↑k) x) (I4C4.phaseCLM 2 2 ↑k) 0
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:104:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  fderiv ℝ
+      (fun y =>
+        √(2 * sourceWeight 2 2 ↑k / sourceZ 2 2) * Real.cos (sourceC 2 * ↑(↑k 0) * y 0 + sourceC 2 * ↑(↑k 1) * y 1))
+      0 =
+    0
+but is expected to have type
+  fderiv ℝ (modeCoefficient 2 2 (some (k, false))) 0 = 0
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:108:68: error: unsolved goals
+case «0»
+s : Fin 4
+hd : fderiv ℝ (modeCoefficient 2 2 (some (⟨control57_frequency s, ⋯⟩, false))) 0 = 0
+⊢ (iteratedFDeriv ℝ 0 (modeCoefficient 2 2 (some (⟨control57_frequency s, ⋯⟩, false))) ![0, 0])
+      (rawDerivativeDirections 0) =
+    modeCoefficient 2 2 (some (⟨control57_frequency s, ⋯⟩, false)) 0
+
+case «1»
+s : Fin 4
+hd : fderiv ℝ (modeCoefficient 2 2 (some (⟨control57_frequency s, ⋯⟩, false))) 0 = 0
+⊢ (iteratedFDeriv ℝ 0 (modeCoefficient 2 2 (some (⟨control57_frequency s, ⋯⟩, false))) ![0, 0])
+      (rawDerivativeDirections 1) =
+    modeCoefficient 2 2 (some (⟨control57_frequency s, ⋯⟩, false)) 0
+
+case «2»
+s : Fin 4
+hd : fderiv ℝ (modeCoefficient 2 2 (some (⟨control57_frequency s, ⋯⟩, false))) 0 = 0
+⊢ (iteratedFDeriv ℝ 1 (modeCoefficient 2 2 (some (⟨control57_frequency s, ⋯⟩, false))) ![0, 0])
+      (rawDerivativeDirections 2) =
+    0
+
+case «3»
+s : Fin 4
+hd : fderiv ℝ (modeCoefficient 2 2 (some (⟨control57_frequency s, ⋯⟩, false))) 0 = 0
+⊢ (iteratedFDeriv ℝ 1 (modeCoefficient 2 2 (some (⟨control57_frequency s, ⋯⟩, false))) ![0, 0])
+      (rawDerivativeDirections 3) =
+    0
+
+case «4»
+s : Fin 4
+hd : fderiv ℝ (modeCoefficient 2 2 (some (⟨control57_frequency s, ⋯⟩, false))) 0 = 0
+⊢ (iteratedFDeriv ℝ 1 (modeCoefficient 2 2 (some (⟨control57_frequency s, ⋯⟩, false))) ![0, 0])
+      (rawDerivativeDirections 4) =
+    0
+
+case «5»
+s : Fin 4
+hd : fderiv ℝ (modeCoefficient 2 2 (some (⟨control57_frequency s, ⋯⟩, false))) 0 = 0
+⊢ (iteratedFDeriv ℝ 1 (modeCoefficient 2 2 (some (⟨control57_frequency s, ⋯⟩, false))) ![0, 0])
+      (rawDerivativeDirections 5) =
+    0
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:113:26: error: This simp argument is unused:
+  rawDerivativeDirections
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [rawPinCoefficient, rawDerivativeCoefficient, rawDerivativeOrder, rawDerivativePoint,
+    derivativeCoefficient, endpointM, endpointS, iteratedFDeriv_zero_apply, iteratedFDeriv_one_apply, control57_mode,
+    control57_amplitude, hd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:114:28: error: This simp argument is unused:
+  iteratedFDeriv_zero_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [rawPinCoefficient, rawDerivativeCoefficient, rawDerivativeOrder, rawDerivativePoint,
+    rawDerivativeDirections, derivativeCoefficient, endpointM, endpointS, iteratedFDeriv_one_apply, control57_mode,
+    control57_amplitude, hd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:114:55: error: This simp argument is unused:
+  iteratedFDeriv_one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [rawPinCoefficient, rawDerivativeCoefficient, rawDerivativeOrder, rawDerivativePoint,
+    rawDerivativeDirections, derivativeCoefficient, endpointM, endpointS, iteratedFDeriv_zero_apply, control57_mode,
+    control57_amplitude, hd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:115:43: error: This simp argument is unused:
+  hd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [rawPinCoefficient, rawDerivativeCoefficient, rawDerivativeOrder, rawDerivativePoint,
+    rawDerivativeDirections, derivativeCoefficient, endpointM, endpointS, iteratedFDeriv_zero_apply,
+    iteratedFDeriv_one_apply, control57_mode, control57_amplitude]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:183:18: error: This simp argument is unused:
+  Ne.symm hA
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [control57_chi, control57_chi0, control57_chi1, hA, hB, hC, hD, Ne.symm hB, Ne.symm hC, Ne.symm hD]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:183:29: error: This simp argument is unused:
+  Ne.symm hB
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [control57_chi, control57_chi0, control57_chi1, hA, hB, hC, hD, Ne.symm hA, Ne.symm hC, Ne.symm hD]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:183:40: error: This simp argument is unused:
+  Ne.symm hC
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [control57_chi, control57_chi0, control57_chi1, hA, hB, hC, hD, Ne.symm hA, Ne.symm hB, Ne.symm hD]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:183:51: error: This simp argument is unused:
+  Ne.symm hD
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [control57_chi, control57_chi0, control57_chi1, hA, hB, hC, hD, Ne.symm hA, Ne.symm hB, Ne.symm hC]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:221:2: error: `simp` made no progress
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:240:16: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:255:61: error: unsolved goals
+ω : SmoothSample 2 2
+m : SourceMode 2
+⊢ freeCoordinate
+        { chi := fun x => control57_chi0, gram := control57_singleFrame._proof_1,
+          raw_kernel := control57_singleFrame._proof_2 }
+        ω 0 =
+      unitDirection (⇑control57_chi0) ω ∨
+    control57_chi0 m = 0
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:259:30: error: This simp argument is unused:
+  Fin.sum_univ_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [control57_singleFrame, control57_one_coordinate, unitDirectionCoefficientResidual]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:259:48: error: This simp argument is unused:
+  control57_one_coordinate
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [control57_singleFrame, Fin.sum_univ_succ, unitDirectionCoefficientResidual]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:337:30: error: unsolved goals
+case «0».«1»
+h00 : finitePairing (fun m => control57_chi0 m) control57_chi0 = 1
+h01 : finitePairing (fun m => control57_chi0 m) control57_chi1 = 0
+h10 : finitePairing (fun m => control57_chi1 m) control57_chi0 = 0
+h11 : finitePairing (fun m => control57_chi1 m) control57_chi1 = 1
+⊢ 3 / 5 * finitePairing (⇑control57_chi0) (-((4 / 5) • control57_chi0)) +
+        4 / 5 * finitePairing (⇑control57_chi1) (-((4 / 5) • control57_chi0)) +
+      12 / 25 =
+    0
+
+case «1».«0»
+h00 : finitePairing (fun m => control57_chi0 m) control57_chi0 = 1
+h01 : finitePairing (fun m => control57_chi0 m) control57_chi1 = 0
+h10 : finitePairing (fun m => control57_chi1 m) control57_chi0 = 0
+h11 : finitePairing (fun m => control57_chi1 m) control57_chi1 = 1
+⊢ 3 / 5 * finitePairing (fun m => -(4 / 5 * control57_chi0 m)) control57_chi0 +
+      4 / 5 * (finitePairing (fun m => -(4 / 5 * control57_chi0 m)) control57_chi1 + 3 / 5) =
+    0
+
+case «1».«1»
+h00 : finitePairing (fun m => control57_chi0 m) control57_chi0 = 1
+h01 : finitePairing (fun m => control57_chi0 m) control57_chi1 = 0
+h10 : finitePairing (fun m => control57_chi1 m) control57_chi0 = 0
+h11 : finitePairing (fun m => control57_chi1 m) control57_chi1 = 1
+⊢ finitePairing (fun m => -(4 / 5 * control57_chi0 m)) (-((4 / 5) • control57_chi0)) +
+        3 / 5 * finitePairing (⇑control57_chi1) (-((4 / 5) • control57_chi0)) +
+      3 / 5 * (finitePairing (fun m => -(4 / 5 * control57_chi0 m)) control57_chi1 + 3 / 5) =
+    1
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:377:63: error: not a positivity goal
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:377:63: error: not a positivity goal
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:377:63: error: not a positivity goal
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:377:63: error: not a positivity goal
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:377:63: error: not a positivity goal
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:377:63: error: not a positivity goal
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:377:63: error: not a positivity goal
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:377:63: error: not a positivity goal
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:397:18: error: This simp argument is unused:
+  Ne.symm hA
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Finsupp.mem_support_iff, control57_psi, control57_chi0, control57_chi1, hA, hB, hC, hD, Ne.symm hB,
+    Ne.symm hC, Ne.symm hD]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:397:29: error: This simp argument is unused:
+  Ne.symm hB
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Finsupp.mem_support_iff, control57_psi, control57_chi0, control57_chi1, hA, hB, hC, hD, Ne.symm hA,
+    Ne.symm hC, Ne.symm hD]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:397:40: error: This simp argument is unused:
+  Ne.symm hC
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Finsupp.mem_support_iff, control57_psi, control57_chi0, control57_chi1, hA, hB, hC, hD, Ne.symm hA,
+    Ne.symm hB, Ne.symm hD]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:397:51: error: This simp argument is unused:
+  Ne.symm hD
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Finsupp.mem_support_iff, control57_psi, control57_chi0, control57_chi1, hA, hB, hC, hD, Ne.symm hA,
+    Ne.symm hB, Ne.symm hC]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:413:72: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:541:4: error: This simp argument is unused:
+  control57_mA
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [control57_omega1, finiteShiftSample_val, zeroSample, control57_chi1, control57_q, control57_mB,
+    control57_mC, control57_mD]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:541:17: error: This simp argument is unused:
+  control57_mB
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [control57_omega1, finiteShiftSample_val, zeroSample, control57_chi1, control57_q, control57_mA,
+    control57_mC, control57_mD]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:550:4: error: This simp argument is unused:
+  control57_mA
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [control57_omega1, finiteShiftSample_val, zeroSample, control57_frame, control57_chi, control57_chi1,
+    control57_q, Fin.sum_univ_succ, control57_mB, control57_mC, control57_mD]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:550:17: error: This simp argument is unused:
+  control57_mB
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [control57_omega1, finiteShiftSample_val, zeroSample, control57_frame, control57_chi, control57_chi1,
+    control57_q, Fin.sum_univ_succ, control57_mA, control57_mC, control57_mD]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

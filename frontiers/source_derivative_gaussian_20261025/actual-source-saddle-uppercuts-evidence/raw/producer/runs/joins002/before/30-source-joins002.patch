@@ -1,0 +1,52 @@
+--- joins001-source
++++ joins002-source
+@@ -387,7 +387,9 @@
+       dsimp [saddleValue] at huq
+       change F q + eps ≤ F (phi.symm u)
+       linarith
+-    · simpa only [hinv] using hus
++    · change sign (phi (phi.symm u) 1)
++      rw [hinv]
++      exact hus
+   · rintro ⟨⟨hzs, hzq⟩, hzs'⟩
+     refine ⟨phi z, ⟨⟨?_, ?_⟩, hzs'⟩, phi.left_inv hzs⟩
+     · rw [← h.target_eq]
+@@ -406,10 +408,12 @@
+   have hmimage := transportedUpperSign F q O rho phi h eps (fun t => t < 0)
+   have hpcont : ContinuousOn phi.symm (targetUpperPos rho eps) :=
+     phi.symm.continuousOn.mono fun u hu => by
++      change u ∈ phi.target
+       rw [h.target_eq]
+       exact hu.1.1
+   have hmcont : ContinuousOn phi.symm (targetUpperNeg rho eps) :=
+     phi.symm.continuousOn.mono fun u hu => by
++      change u ∈ phi.target
+       rw [h.target_eq]
+       exact hu.1.1
+   have hppc : IsPathConnected (upperTrace F q phi eps ∩ {z | 0 < phi z 1}) := by
+@@ -422,7 +426,7 @@
+     intro z hz
+     exact ⟨hz.1, lt_of_lt_of_le (lt_add_of_pos_right _ heps) hz.2⟩
+   refine ⟨hppc, hmpc, ?_, ?_, ?_⟩
+-  · exact Set.disjoint_left.mpr fun z hz hp => (not_lt_of_gt hz.2) hp.2
++  · exact Set.disjoint_left.mpr fun z hz hp => lt_asymm (show 0 < phi z 1 from hz.2) (show phi z 1 < 0 from hp.2)
+   · ext z
+     constructor
+     · intro hz
+@@ -478,7 +482,7 @@
+     · simpa using hrho
+     · simpa using hs
+   have hp : (![0,rho/4] : Point2) ∈ phi.target := hball _ (by rw [abs_of_pos (by positivity)]; linarith)
+-  have hm : (![0,-rho/4] : Point2) ∈ phi.target := hball _ (by rw [abs_neg, abs_of_pos (by positivity)]; linarith)
++  have hm : (![0,-rho/4] : Point2) ∈ phi.target := hball _ (by rw [abs_of_neg (show -rho/4 < 0 by linarith)]; linarith)
+   have hps := phi.map_target hp
+   have hms := phi.map_target hm
+   have hpi := phi.right_inv hp
+@@ -519,6 +523,7 @@
+             IsPathConnected Bplus ∧ IsPathConnected Bminus ∧ Disjoint Bplus Bminus ∧
+               U = Bplus ∪ Bminus ∧
+               (∀ p ∈ U, ∀ r ∈ U, JoinedIn U p r ↔ 0 < (phi p 1)*(phi r 1))) := by
++  dsimp only
+   intro O hO hqO
+   exact actualUniformSaddleCuts hL omega X hcrit hI O hO hqO
+ 

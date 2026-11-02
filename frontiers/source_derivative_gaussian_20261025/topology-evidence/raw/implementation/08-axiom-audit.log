@@ -1,0 +1,75 @@
+'I4SourceSmoothTopology.DerivativeOperator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.DerivativeBCF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.modeCoefficient_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.modeDerivativeBCF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.modeDerivativeBCF_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.sourceDerivativeBCF_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.sourceDerivativeBCF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.sourceDerivativeBCF_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.stronglyMeasurable_of_countable_hasSum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothTopology.sourceDerivativeBCF_stronglyMeasurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothTopology.sourceDerivativeBCF_borel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.sourceFiniteJet' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.sourceFiniteJet_stronglyMeasurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.sourceFiniteJet_borel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.modeDerivativeBCF_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.sourceDerivativeBCF_tendstoUniformly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.jetRestriction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.jetRestriction_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.jetRestriction_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.sourceRestrictedJet' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.sourceRestrictedJet_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.sourceRestrictedJet_stronglyMeasurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothTopology.sourceRestrictedJet_borel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.sourceFiniteJet_dist_le_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.sourceFiniteJet_eq_iff_field_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.smoothSourceField_lattice_periodic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.sourceDerivativeBCF_lattice_periodic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.compatiblePeriodicJets' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.sourceFiniteJet_mem_compatible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.compatiblePeriodicJets_witness_unique' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothTopology.derivativeMeasurableSpace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.derivativeBorelSpace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.finiteJetMeasurableSpace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.finiteJetBorelSpace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.sourceCompatibleJet' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.sourceCompatibleJet_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.sourceCompatibleJet_borel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.sourceDerivativeBCF_hasCondDistrib' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.sourceFiniteJet_hasCondDistrib' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.sourceCompatibleJet_hasCondDistrib' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothTopology.sourceFiniteJet_functional_hasCondDistrib' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothTopology.sourceDerivativeBCF_functional_hasCondDistrib' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothTopology.sourceCompatibleJet_functional_hasCondDistrib' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothTopology.sourceDerivativeBCF_eventually_hasCondDistrib' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothTopology.sourceFiniteJet_eventually_hasCondDistrib' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothTopology.sourceCompatibleJet_eventually_hasCondDistrib' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothTopology.sourceFiniteJet_functional_eventually_hasCondDistrib' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothTopology.sourceDerivativeBCF_functional_eventually_hasCondDistrib' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothTopology.sourceCompatibleJet_functional_eventually_hasCondDistrib' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

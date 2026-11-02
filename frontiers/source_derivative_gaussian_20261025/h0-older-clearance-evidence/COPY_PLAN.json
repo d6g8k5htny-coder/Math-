@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "execution_owner": "root",
+  "executed_by_packaging_agent": false,
+  "source_cut": "30bc49c8939abe5fe8d1f511d556151552161871",
+  "source_path": "frontiers/source_derivative_gaussian_20261025/SourceH0OlderClearance.lean",
+  "source_sha256": "6e42bb33d81e0a76fc0abb409b4f4811b7e91fe07d1398300e2e9792f29e794a",
+  "copies": [
+    {
+      "source": "/workspace/scratch/h0-older-clearance-construct/build/SourceH0OlderClearance.olean",
+      "destination": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceH0OlderClearance.olean",
+      "bytes": 328568,
+      "sha256": "b6c0b7cf8ede4445e9a6a3304bd67187558fc296f474180d2d82972f229e1ec6",
+      "identity_origin": "Retainedstrict003/finalsourceobject/oneownkernel evidence, noobjecthashreplay."
+    }
+  ],
+  "new_ilean_generated": false,
+  "old_dependency_objects_to_copy": [],
+  "dependency_reuse_record": "DEPENDENCY_REUSE.json",
+  "retained_successful_import_route": "LEAN_PATH=/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH (lake env baseline supplies packet/mathlib caches)",
+  "dependency_guidance": "Retain exactqualifiedoldH0/supportscratchroute. Merepacketcacheexistenceisnotidentity/freshness. CopyONLYnewownobject once; do not copy/rehash/rebuild oldobjects.",
+  "guidance": "RootalonecreatestheparentandcopiesonlyqualifiednamedSourceH0OlderClearance.oleanonce. Allcontrols/inventory/helper/mutation/earlierartifacts ineligible. Reuse strict003/actual12inventory/controls005/concretefalse-strict-margin001/oneownkernel001; noileanfreshnesscompile.",
+  "scientific_effect": "NONE"
+}

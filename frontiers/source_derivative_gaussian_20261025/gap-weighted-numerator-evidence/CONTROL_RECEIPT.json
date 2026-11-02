@@ -1,0 +1,83 @@
+{
+  "contract": {
+    "path": "/workspace/scratch/gap-weighted-numerator-construct/CONTROL_CONTRACT.md",
+    "bytes": 3439,
+    "sha256": "f0c7a0774bb493ae00310d3414bfaa992f6c4788b7b29d217866ddda6af3fb92"
+  },
+  "contract_freeze": {
+    "path": "/workspace/scratch/gap-weighted-numerator-construct/CONTROL_FREEZE.json",
+    "bytes": 340,
+    "sha256": "6376019759fdca3f4776ff203cdf7ab18e11722cc76f536bf6f86412837fd647"
+  },
+  "source_freeze": {
+    "path": "/workspace/scratch/gap-weighted-numerator-construct/FROZEN_SOURCE.json",
+    "bytes": 836,
+    "sha256": "f4b224c4bfd9a68b13e04fe2d5c13420c4c0355ada40d5dc4c9d30fd30fe2a57"
+  },
+  "positive_source": {
+    "path": "/workspace/scratch/gap-weighted-numerator-construct/GapWeightedNumeratorControls.lean",
+    "bytes": 6225,
+    "sha256": "13b2124ef4b2de537998d4d17db75e16ca816fd8d269659f9dc12575a1dff560"
+  },
+  "positive_object": {
+    "path": "/workspace/scratch/gap-weighted-numerator-construct/build/GapWeightedNumeratorControls.olean",
+    "bytes": 275352,
+    "sha256": "b5e974bdc03b7a93aac57ef3837e99a4c5ad4b085e1b86da3c25323e3e0fceb3"
+  },
+  "positive_receipt": {
+    "path": "/workspace/scratch/gap-weighted-numerator-construct/runs/controls-003/receipt.json",
+    "bytes": 1960,
+    "sha256": "099e9eaefb2fad6ecec17e303192c5df098389f19a3b6069206b8e7528c11253"
+  },
+  "positive_theorems": [
+    "hL_only_integrability",
+    "generic_compact_endpoint",
+    "negative_period_height3_gap2",
+    "nondefault_literal_target",
+    "exact_actual_bad_union",
+    "actual_bad_union_measurable",
+    "actual_gamma30_sixth_power",
+    "compact_moment_order",
+    "tail_square_and_fifth_power",
+    "regular_fifth_power",
+    "physical_square_gamma8",
+    "holder_markov_rate",
+    "wrong_power_counterexample"
+  ],
+  "positive_theorem_count": 13,
+  "literal_nondefault_case": {
+    "L": -1,
+    "b": 3,
+    "k": 2,
+    "B": 3,
+    "K": 2,
+    "A": 4,
+    "eps": 1,
+    "sixth_pin": 24
+  },
+  "actual_bad_union": "sourceRegularityBad L r eps union sourceCurvatureOneSided L r A; exact definitional event and measurability controlled",
+  "integrability": "hL-only interval before every real b,k; main includes W integrable on actual Q and W integrable on actual bad union",
+  "powers": "Gamma30 => r6 Markov; W2 <=100r4Gamma8; sqrt(Cr4)*sqrt(Tr6) = sqrtC sqrtT r5; generic moments n retain one common interval",
+  "negative_source": {
+    "path": "/workspace/scratch/gap-weighted-numerator-construct/FalseRPowerMutation.lean",
+    "bytes": 289,
+    "sha256": "f9a5070d65e799865f57e67d721153ed8cbdb0eb76d750f0ca5712c27a84bd07"
+  },
+  "negative_receipt": {
+    "path": "/workspace/scratch/gap-weighted-numerator-construct/runs/false-rpower-001/receipt.json",
+    "bytes": 1952,
+    "sha256": "e6bd22bdfcfa9f46691061a56540c195101a32031fa3fb9c564269faab4e0dd6"
+  },
+  "negative_log": {
+    "path": "/workspace/scratch/gap-weighted-numerator-construct/runs/false-rpower-001/output.log",
+    "bytes": 115,
+    "sha256": "c3b88eb81917f621434be935e336e5f36e4c279710370d8ae7cbdd48112ec815"
+  },
+  "distinct_intended_negative_mutations": 1,
+  "intended_exit_code": 1,
+  "residual_false_count": 1,
+  "unrelated_diagnostic_count": 0,
+  "negative_scope": "Only arithmetic claim r4<=r5 for 0<r<=1 is refuted at r=1/2. This is not a counterexample to every possible asymptotic numerator bound.",
+  "source_object_unchanged_for_controls": true,
+  "all_historical_attempts_preserved": true
+}

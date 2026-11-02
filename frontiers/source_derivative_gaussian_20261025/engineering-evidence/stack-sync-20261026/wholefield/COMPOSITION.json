@@ -1,0 +1,37 @@
+{
+  "commit": "c0c92e7241f6ed41770b0fb6896b483d1c2ed2b0",
+  "tree": "cf3e699e9deb25a7ce1b12b92b1c2f50dd3ba82f",
+  "ordered_parents": [
+    "37f8f01db8b7e30190f09bf784d1b4e3419da540",
+    "1cba5115253d43e1e46caa7e0381fcb3f6108cbd"
+  ],
+  "packet_tree": "aa776f39937e40b7aff96471aa097e7a566d8a9a",
+  "inputs_tree": "74938621d9444d2ce046f615b46c5bbdfa8c9c60",
+  "first_parent_changed_paths": [
+    ".claude/skills/babysit/SKILL.md",
+    ".claude/skills/steward/SKILL.md",
+    ".github/workflows/cap-first-exit-lean.yml",
+    ".github/workflows/lean-specification-proofs.yml",
+    ".github/workflows/lean-specifications.yml",
+    ".github/workflows/lm006-sign-coefficient.yml",
+    "AGENTS.md",
+    "README.md",
+    "docs/integration/2026-10-23-postcut-proof-sources.md",
+    "tests/test_d3_l4_replay.py",
+    "tests/test_lm006_sign_coefficient_replay.py",
+    "tools/d3_l4_replay.py",
+    "tools/lm006_sign_coefficient_replay.py"
+  ],
+  "authored_changed_path_count": 166,
+  "conflicts": [],
+  "manual_resolutions": [],
+  "temp_worktree_clean": true,
+  "author_head_is_ancestor": true,
+  "actual_main_is_ancestor": true,
+  "execution_reused": "18 modules / 292 declarations; no Lean/kernel/audit/control/baseline rerun",
+  "pickup": "https://github.com/d6g8k5htny-coder/Math-/pull/513#issuecomment-6408058542",
+  "unrelated_curvature_head_observed": "458058b9a004482de4e80ddae6d1a34ba31287eb",
+  "unrelated_curvature_writes_by_helper": false,
+  "unrelated_curvature_head_attribution": "Root confirmed its concurrent frozen SOURCE_COMPACT_TARGET_MOMENTS.md contract commit; one documentation addition, not a successor merge.",
+  "unrelated_stability_assertion": "Overbroad active-curvature-head stability assertion failed after candidate composition checks had passed; reported, no resets, no repeated applicable checks."
+}

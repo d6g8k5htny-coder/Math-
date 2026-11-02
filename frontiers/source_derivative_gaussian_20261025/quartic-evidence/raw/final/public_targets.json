@@ -1,0 +1,923 @@
+{
+  "source_sha256": "8e23717ef98518b6d701db921d1f17958c3dee2c893745cafa7aa6172f1621d9",
+  "count": 141,
+  "targets": [
+    {
+      "name": "I4ActualQuarticTransfer.peanoCubic_first_moment",
+      "kind": "theorem",
+      "line": 25
+    },
+    {
+      "name": "I4ActualQuarticTransfer.peanoCubic_normalized_second_moment",
+      "kind": "theorem",
+      "line": 39
+    },
+    {
+      "name": "I4ActualQuarticTransfer.symmetric_cubic_pin_second_order",
+      "kind": "theorem",
+      "line": 54
+    },
+    {
+      "name": "I4ActualQuarticTransfer.endpoint_taylor_low_coefficients",
+      "kind": "theorem",
+      "line": 122
+    },
+    {
+      "name": "I4ActualQuarticTransfer.corrected_axial_constant",
+      "kind": "theorem",
+      "line": 145
+    },
+    {
+      "name": "I4ActualQuarticTransfer.scalarTaylor",
+      "kind": "def",
+      "line": 163
+    },
+    {
+      "name": "I4ActualQuarticTransfer.scalar_taylor_remainder",
+      "kind": "theorem",
+      "line": 178
+    },
+    {
+      "name": "I4ActualQuarticTransfer.scalarTaylor_one",
+      "kind": "theorem",
+      "line": 196
+    },
+    {
+      "name": "I4ActualQuarticTransfer.scalarTaylor_three",
+      "kind": "theorem",
+      "line": 201
+    },
+    {
+      "name": "I4ActualQuarticTransfer.scalarTaylor_two",
+      "kind": "theorem",
+      "line": 208
+    },
+    {
+      "name": "I4ActualQuarticTransfer.scalar_taylor_one_bound",
+      "kind": "theorem",
+      "line": 214
+    },
+    {
+      "name": "I4ActualQuarticTransfer.scalar_taylor_three_bound",
+      "kind": "theorem",
+      "line": 226
+    },
+    {
+      "name": "I4ActualQuarticTransfer.scalar_taylor_two_bound",
+      "kind": "theorem",
+      "line": 238
+    },
+    {
+      "name": "I4ActualQuarticTransfer.smooth_iteratedDeriv",
+      "kind": "theorem",
+      "line": 252
+    },
+    {
+      "name": "I4ActualQuarticTransfer.iteratedDeriv_iteratedDeriv",
+      "kind": "theorem",
+      "line": 261
+    },
+    {
+      "name": "I4ActualQuarticTransfer.sourceF_smooth",
+      "kind": "theorem",
+      "line": 265
+    },
+    {
+      "name": "I4ActualQuarticTransfer.sourceH_smooth",
+      "kind": "theorem",
+      "line": 269
+    },
+    {
+      "name": "I4ActualQuarticTransfer.sourceF_iteratedDeriv_abs_le",
+      "kind": "theorem",
+      "line": 273
+    },
+    {
+      "name": "I4ActualQuarticTransfer.sourceH_iteratedDeriv_abs_le",
+      "kind": "theorem",
+      "line": 281
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.SourcePlane",
+      "kind": "abbrev",
+      "line": 298
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceAxialThird",
+      "kind": "def",
+      "line": 300
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceRawU",
+      "kind": "def",
+      "line": 304
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceRawRadius",
+      "kind": "def",
+      "line": 314
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourcePhysicalPins",
+      "kind": "def",
+      "line": 318
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.pinPreservingQuartic",
+      "kind": "def",
+      "line": 324
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic",
+      "kind": "def",
+      "line": 334
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceScaledGradientRaw",
+      "kind": "def",
+      "line": 337
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceScaledGradient",
+      "kind": "def",
+      "line": 342
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.pi_norm_le_euclidean_norm",
+      "kind": "theorem",
+      "line": 348
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.euclidean_two_norm_sq",
+      "kind": "theorem",
+      "line": 354
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.euclidean_two_norm_le_abs_sum",
+      "kind": "theorem",
+      "line": 358
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.euclidean_two_norm_le_two_mul",
+      "kind": "theorem",
+      "line": 365
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.matrixLinearEuclidean",
+      "kind": "def",
+      "line": 370
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.matrixLinearEuclidean_apply",
+      "kind": "theorem",
+      "line": 374
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.matrixLinearEuclidean_norm_le_of_sqsum",
+      "kind": "theorem",
+      "line": 379
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.matrixLinearEuclidean_norm_le_two_mul",
+      "kind": "theorem",
+      "line": 403
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.matrixLinearEuclidean_offdiag_norm_le",
+      "kind": "theorem",
+      "line": 411
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.matrixLinearEuclidean_symmetric_norm_le_abs_sum",
+      "kind": "theorem",
+      "line": 426
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.matrixLinearEuclidean_symmetric_norm_le_three_mul",
+      "kind": "theorem",
+      "line": 450
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.lineMap",
+      "kind": "def",
+      "line": 458
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.line_iteratedDeriv",
+      "kind": "theorem",
+      "line": 461
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.derivativeComponent_smooth",
+      "kind": "theorem",
+      "line": 470
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.derivativeComponent_iteratedFDeriv",
+      "kind": "theorem",
+      "line": 475
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.line_gradient_iteratedDeriv",
+      "kind": "theorem",
+      "line": 486
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_derivative_abs_le",
+      "kind": "theorem",
+      "line": 493
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_line_gradient_taylor",
+      "kind": "theorem",
+      "line": 501
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.modeCoefficient_analytic_order",
+      "kind": "theorem",
+      "line": 536
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_derivative_comp_perm",
+      "kind": "theorem",
+      "line": 550
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_axial_third_error",
+      "kind": "theorem",
+      "line": 607
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_low_pin_coefficients",
+      "kind": "theorem",
+      "line": 660
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.coordinateDirection",
+      "kind": "def",
+      "line": 707
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.coordinateDirection_zero",
+      "kind": "theorem",
+      "line": 709
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.coordinateDirection_one",
+      "kind": "theorem",
+      "line": 713
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.euclideanToPi",
+      "kind": "def",
+      "line": 717
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.piToEuclidean",
+      "kind": "def",
+      "line": 720
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.gradientPi",
+      "kind": "def",
+      "line": 723
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.gradientEuclidean",
+      "kind": "def",
+      "line": 726
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.hessianMatrix",
+      "kind": "def",
+      "line": 730
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.hessianMatrix_apply",
+      "kind": "theorem",
+      "line": 734
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.coordinate_decomposition",
+      "kind": "theorem",
+      "line": 748
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.hasFDerivAt_gradientEuclidean",
+      "kind": "theorem",
+      "line": 755
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.gradientEuclidean_eq_components",
+      "kind": "theorem",
+      "line": 782
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.scaledGradientEuclidean",
+      "kind": "def",
+      "line": 789
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.hasFDerivAt_scaledGradientEuclidean",
+      "kind": "theorem",
+      "line": 795
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.scaledGradientEuclidean_eq_components",
+      "kind": "theorem",
+      "line": 815
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.hessianEntry_eq_derivativeComponent",
+      "kind": "theorem",
+      "line": 827
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.hessianEntry_smooth",
+      "kind": "theorem",
+      "line": 836
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.line_hessian_iteratedDeriv",
+      "kind": "theorem",
+      "line": 845
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_line_hessian_taylor",
+      "kind": "theorem",
+      "line": 856
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.quarticK0",
+      "kind": "def",
+      "line": 898
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.quarticEpsilonStar",
+      "kind": "def",
+      "line": 899
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.quarticKcap",
+      "kind": "def",
+      "line": 900
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.quarticFstar",
+      "kind": "def",
+      "line": 902
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.quarticWidth",
+      "kind": "def",
+      "line": 905
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.one_le_quarticFstar",
+      "kind": "theorem",
+      "line": 908
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.quarticWidth_pos",
+      "kind": "theorem",
+      "line": 915
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.cutoff_raw_regularity",
+      "kind": "theorem",
+      "line": 922
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.cutoff_scaled_error_budget",
+      "kind": "theorem",
+      "line": 934
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.cutoff_adaptive_tolerance",
+      "kind": "theorem",
+      "line": 954
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.cutoff_quarticWidth_tolerance",
+      "kind": "theorem",
+      "line": 973
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.cutoff_curvature_threshold",
+      "kind": "theorem",
+      "line": 982
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.certificate_width_geometry",
+      "kind": "theorem",
+      "line": 1011
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_origin_derivative_abs_le",
+      "kind": "theorem",
+      "line": 1024
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceRawU_abs_le",
+      "kind": "theorem",
+      "line": 1031
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceRawRadius_one_le",
+      "kind": "theorem",
+      "line": 1041
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceRawRadius_le_majorants",
+      "kind": "theorem",
+      "line": 1045
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceRawRadius_le_global",
+      "kind": "theorem",
+      "line": 1055
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourcePhysicalPins_ae",
+      "kind": "theorem",
+      "line": 1062
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourcePhysicalPins_eventually",
+      "kind": "theorem",
+      "line": 1071
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceGradientTaylorRaw",
+      "kind": "def",
+      "line": 1082
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceGradientTaylor",
+      "kind": "def",
+      "line": 1089
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceHessianTaylor",
+      "kind": "def",
+      "line": 1092
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceScaledGradient_eq",
+      "kind": "theorem",
+      "line": 1101
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceScaledGradient_hasFDerivAt",
+      "kind": "theorem",
+      "line": 1107
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_third_ppx_expansion",
+      "kind": "theorem",
+      "line": 1341
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_third_ppy_expansion",
+      "kind": "theorem",
+      "line": 1350
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_fourth_pppx_expansion",
+      "kind": "theorem",
+      "line": 1359
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_fourth_pppy_expansion",
+      "kind": "theorem",
+      "line": 1368
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_second_p_basis",
+      "kind": "theorem",
+      "line": 1377
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_third_p_basis_basis",
+      "kind": "theorem",
+      "line": 1390
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_fourth_pp_basis_basis",
+      "kind": "theorem",
+      "line": 1406
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.pinPreservingJacobian",
+      "kind": "def",
+      "line": 1423
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.hasFDerivAt_pinPreservingQuartic",
+      "kind": "theorem",
+      "line": 1436
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.fderiv_pinPreservingQuartic",
+      "kind": "theorem",
+      "line": 1489
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceGradientTaylorRaw_sub_quartic_zero",
+      "kind": "theorem",
+      "line": 1498
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceGradientTaylorRaw_sub_quartic_one",
+      "kind": "theorem",
+      "line": 1521
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceHessianTaylor_sub_quarticJacobian",
+      "kind": "theorem",
+      "line": 1553
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.matrixLinearEuclidean_sub",
+      "kind": "theorem",
+      "line": 1574
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.coordinateDirection_norm_le_one",
+      "kind": "theorem",
+      "line": 1581
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceScaledGradientRaw_apply",
+      "kind": "theorem",
+      "line": 1586
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_scaled_gradient_taylor_coordinate_error",
+      "kind": "theorem",
+      "line": 1600
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_scaled_gradient_taylor_error",
+      "kind": "theorem",
+      "line": 1628
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_scaled_hessian_taylor_coordinate_error",
+      "kind": "theorem",
+      "line": 1643
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_scaled_hessian_taylor_error",
+      "kind": "theorem",
+      "line": 1674
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.coefficient_vector_error_le",
+      "kind": "theorem",
+      "line": 1698
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.coefficient_matrix_error_le",
+      "kind": "theorem",
+      "line": 1734
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceGradientTaylor_quartic_error_le",
+      "kind": "theorem",
+      "line": 1788
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceHessianTaylor_quartic_error_le",
+      "kind": "theorem",
+      "line": 1814
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceScaledPotential",
+      "kind": "def",
+      "line": 1841
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceScaledPotential_hasGradientAt",
+      "kind": "theorem",
+      "line": 1844
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceScaledGradient_eq_gradient",
+      "kind": "theorem",
+      "line": 1868
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceScaledGradient_smooth",
+      "kind": "theorem",
+      "line": 1873
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.pinPreservingQuartic_pins",
+      "kind": "theorem",
+      "line": 1886
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceScaledGradient_pins",
+      "kind": "theorem",
+      "line": 1891
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_value_comparison",
+      "kind": "theorem",
+      "line": 1920
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_operator_comparison",
+      "kind": "theorem",
+      "line": 1933
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_C1_comparison",
+      "kind": "theorem",
+      "line": 1950
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_cutoff_tolerance",
+      "kind": "theorem",
+      "line": 1976
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_curvature_threshold",
+      "kind": "theorem",
+      "line": 1996
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_C1_comparison_ae",
+      "kind": "theorem",
+      "line": 2003
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_C1_estimates",
+      "kind": "theorem",
+      "line": 2012
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceRawU_abs_le_radius",
+      "kind": "theorem",
+      "line": 2027
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_Fstar_le_radius",
+      "kind": "theorem",
+      "line": 2033
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_width_size",
+      "kind": "theorem",
+      "line": 2043
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_width_geometry",
+      "kind": "theorem",
+      "line": 2062
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.quartic_strip_in_ball_two",
+      "kind": "theorem",
+      "line": 2072
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.quartic_endpoint_ball_in_ball_two",
+      "kind": "theorem",
+      "line": 2076
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.quartic_axis_endpoint_norm",
+      "kind": "theorem",
+      "line": 2083
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_cutoff_estimates",
+      "kind": "theorem",
+      "line": 2091
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_weighted_C1_estimates",
+      "kind": "theorem",
+      "line": 2113
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_weighted_cutoff_estimates",
+      "kind": "theorem",
+      "line": 2127
+    }
+  ],
+  "private_declarations_replayed_by_kernel": [
+    {
+      "name": "scalarTaylor_eq_interval",
+      "kind": "theorem",
+      "line": 166
+    },
+    {
+      "name": "sourceF_third_zero",
+      "kind": "theorem",
+      "line": 564
+    },
+    {
+      "name": "sourceF_fourth_zero",
+      "kind": "theorem",
+      "line": 574
+    },
+    {
+      "name": "sourceH_third_zero",
+      "kind": "theorem",
+      "line": 584
+    },
+    {
+      "name": "sourceF_deriv_pins",
+      "kind": "theorem",
+      "line": 594
+    },
+    {
+      "name": "sourceH_pins",
+      "kind": "theorem",
+      "line": 603
+    },
+    {
+      "name": "endpoint_derivative_low",
+      "kind": "theorem",
+      "line": 642
+    },
+    {
+      "name": "plane_decompose",
+      "kind": "theorem",
+      "line": 1118
+    },
+    {
+      "name": "cml_head",
+      "kind": "theorem",
+      "line": 1123
+    },
+    {
+      "name": "cml_pp",
+      "kind": "theorem",
+      "line": 1131
+    },
+    {
+      "name": "cml_ppp",
+      "kind": "theorem",
+      "line": 1146
+    },
+    {
+      "name": "source_word_2_xx",
+      "kind": "theorem",
+      "line": 1165
+    },
+    {
+      "name": "source_word_2_xy",
+      "kind": "theorem",
+      "line": 1169
+    },
+    {
+      "name": "source_word_2_yx",
+      "kind": "theorem",
+      "line": 1173
+    },
+    {
+      "name": "source_word_2_yy",
+      "kind": "theorem",
+      "line": 1180
+    },
+    {
+      "name": "source_word_3_xxx",
+      "kind": "theorem",
+      "line": 1184
+    },
+    {
+      "name": "source_word_3_xxy",
+      "kind": "theorem",
+      "line": 1188
+    },
+    {
+      "name": "source_word_3_xyx",
+      "kind": "theorem",
+      "line": 1192
+    },
+    {
+      "name": "source_word_3_xyy",
+      "kind": "theorem",
+      "line": 1200
+    },
+    {
+      "name": "source_word_3_yxx",
+      "kind": "theorem",
+      "line": 1204
+    },
+    {
+      "name": "source_word_3_yxy",
+      "kind": "theorem",
+      "line": 1212
+    },
+    {
+      "name": "source_word_3_yyx",
+      "kind": "theorem",
+      "line": 1220
+    },
+    {
+      "name": "source_word_3_yyy",
+      "kind": "theorem",
+      "line": 1228
+    },
+    {
+      "name": "source_word_4_xxxx",
+      "kind": "theorem",
+      "line": 1232
+    },
+    {
+      "name": "source_word_4_xxxy",
+      "kind": "theorem",
+      "line": 1236
+    },
+    {
+      "name": "source_word_4_xxyx",
+      "kind": "theorem",
+      "line": 1240
+    },
+    {
+      "name": "source_word_4_xxyy",
+      "kind": "theorem",
+      "line": 1248
+    },
+    {
+      "name": "source_word_4_xyxx",
+      "kind": "theorem",
+      "line": 1252
+    },
+    {
+      "name": "source_word_4_xyxy",
+      "kind": "theorem",
+      "line": 1260
+    },
+    {
+      "name": "source_word_4_xyyx",
+      "kind": "theorem",
+      "line": 1268
+    },
+    {
+      "name": "source_word_4_xyyy",
+      "kind": "theorem",
+      "line": 1276
+    },
+    {
+      "name": "source_word_4_yxxx",
+      "kind": "theorem",
+      "line": 1280
+    },
+    {
+      "name": "source_word_4_yxxy",
+      "kind": "theorem",
+      "line": 1288
+    },
+    {
+      "name": "source_word_4_yxyx",
+      "kind": "theorem",
+      "line": 1296
+    },
+    {
+      "name": "source_word_4_yxyy",
+      "kind": "theorem",
+      "line": 1304
+    },
+    {
+      "name": "source_word_4_yyxx",
+      "kind": "theorem",
+      "line": 1312
+    },
+    {
+      "name": "source_word_4_yyxy",
+      "kind": "theorem",
+      "line": 1320
+    },
+    {
+      "name": "source_word_4_yyyx",
+      "kind": "theorem",
+      "line": 1328
+    },
+    {
+      "name": "source_word_4_yyyy",
+      "kind": "theorem",
+      "line": 1336
+    },
+    {
+      "name": "source_second_transpose",
+      "kind": "theorem",
+      "line": 1541
+    },
+    {
+      "name": "coordinateDirection_eq_array",
+      "kind": "theorem",
+      "line": 1549
+    },
+    {
+      "name": "actual_normalized_coefficient_errors",
+      "kind": "theorem",
+      "line": 1747
+    }
+  ]
+}

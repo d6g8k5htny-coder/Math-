@@ -1,0 +1,17 @@
+{
+  "scope": "Existing SIX documentary workers and their enclosing invocations, from actual code/history only; no rerun/hash/audit",
+  "worker_capture": "All six target workers have original separate stdout.log/stderr.log, full command/cwd/start/end/exit and source/object/snapshot bindings in their record_run receipts.",
+  "outer_capture_limit": "Their enclosing record_run.py/tool invocations were not separately redirected to original outer stdout/stderr files. Only combined exec-tool results were returned. Exact external outer UTC was not instrumented; worker UTC is not relabelled outer UTC.",
+  "actual_tool_chunk_references": {
+    "documentary-integrate-B-001": "c64f89",
+    "documentary-transport-assembly-001": "1f18d6",
+    "documentary-fixtures-assembly-001": "f3f85e",
+    "documentary-source-freeze-001": "727429",
+    "documentary-inventory-classification-001": "715d9f",
+    "documentary-ordinary-assembly-001": "dd409d"
+  },
+  "command_transcription_rule": "For each named actual invocation, enclosing argv is python3, this scratch/record_run.py, the recorded label, followed by that existing receipt.command argv. These are actual-command transcriptions from invocation code, not invented original stream files. Full inline-worker code remains in receipt.command.",
+  "tool_output_custody": "Actual combined tool outputs remain in the tool conversation under those chunks. No reconstruction is presented as original outer stdout/stderr, and no absent timestamps/files are fabricated.",
+  "prospective_final_generator": "Not yet executed when this record was written. Final generator uses worker split capture plus an outer driver with original separate outer streams and direct driver-entry redirection, then an actual post-run closure addendum. No unchanged generation/hash/math replay.",
+  "mathematical_effect": "None. All13 mathematical verification calls have their original26 target streams, source/object/cmd/timing/exit evidence. ExactlyONE kernel and sole intended False are complete. Root eligible own copy already ONCE; further SKIP."
+}

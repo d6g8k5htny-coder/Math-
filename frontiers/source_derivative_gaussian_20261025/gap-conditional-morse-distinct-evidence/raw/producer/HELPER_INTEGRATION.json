@@ -1,0 +1,54 @@
+{
+  "global_cover": {
+    "integrated_utc": "2026-10-26T21:48:22.490122+00:00",
+    "original_ids": "HELPER_D_ORIGINAL_IDENTITIES.json",
+    "originals": "helper-global-cover-frozen/",
+    "integration_count": 1,
+    "helper_executions": 0,
+    "coverage": "Finalproductionstrict/inventory/onekernel includingactuallocalamendments"
+  },
+  "incidence": {
+    "integrated_utc": "2026-10-26T21:52:26.335278+00:00",
+    "original_ids": "helper-incidence-frozen/FROZEN_HELPER.json",
+    "originals": "helper-incidence-frozen/",
+    "integration_count": 1,
+    "helper_executions": 0,
+    "coverage": "Finalproductionincludingactuallocalamendments"
+  },
+  "finite_frame": {
+    "integrated_utc": "2026-10-26T21:54:37.336044+00:00",
+    "original_ids": "helper-finite-frame-frozen/FROZEN_HELPER.json",
+    "originals": "helper-finite-frame-frozen/",
+    "integration_count": 1,
+    "helper_executions": 0,
+    "preintegration_producer_amendment": "Correct implicit\ud835\udd5cargument for span_gramSchmidtNormed_range per helper static source followup; original unchanged",
+    "coverage": "Finalwholeproductionactualamendments"
+  },
+  "lifetime_geometry": {
+    "integrated_utc": "2026-10-26T22:00:07.513911+00:00",
+    "original_ids": "helper-lifetime-geometry-frozen/FROZEN_IDENTITIES.json",
+    "originals": "helper-lifetime-geometry-frozen/",
+    "integration_count": 1,
+    "helper_executions": 0,
+    "coverage": "Finalwholeproductionactualamendments"
+  },
+  "actual_controls_only": {
+    "integrated_utc": "2026-10-26T22:12:00.373322+00:00",
+    "original_ids": "helper-actual-controls-frozen/FROZEN_HELPER.json",
+    "originals": "helper-actual-controls-frozen/",
+    "integration_count": 1,
+    "helper_executions": 0,
+    "target": "scratch GapMorseDistinctControls.lean only",
+    "coverage": "ActualpositiveControlsstrictcoversalltext/amendments; productionkerneldoesNOTcoverControls"
+  },
+  "numeric_positive_companion_extension": {
+    "integrated_utc": "2026-10-28T15:06:37.365315+00:00",
+    "original_ids": "NUMERIC_HELPER_FIRST_IDENTITIES.json",
+    "originals": "helper-numeric-controls-frozen/",
+    "integration_count": 1,
+    "helper_executions": 0,
+    "target": "scratch GapMorseDistinctNumericControls.lean only",
+    "scope": "NEW positive-only literal numeric/remoteness ledger closure afterroot/reviewer finding; samefifthhelper boundedextension. Original production4+Controls fifthintegrations unchanged.",
+    "coverage": "New positivecompanion qualification ONLY; no productionkernel/negative replay or privatecall claim"
+  }
+}

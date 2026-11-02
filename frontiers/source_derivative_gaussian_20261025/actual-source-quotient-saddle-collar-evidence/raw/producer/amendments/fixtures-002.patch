@@ -1,0 +1,80 @@
+--- runs/fixtures-001/SourceActualQuotientSaddleCollar.lean
++++ SourceActualQuotientSaddleCollar.lean
+@@ -688,8 +688,10 @@
+ 
+ private theorem fixture_hasFDerivAt (Y : UniversalLaw.Spec.Lifetime.E 2) :
+     HasFDerivAt (actualField 2 2 fixtureSample) (fixtureDerivative Y) Y := by
+-  have a0 := (fixtureCoordinate 0).hasFDerivAt.const_mul Real.pi
+-  have a1 := (fixtureCoordinate 1).hasFDerivAt.const_mul Real.pi
++  have a0 : HasFDerivAt (fun Z : UniversalLaw.Spec.Lifetime.E 2 => Real.pi * coordinates 2 Z 0)
++      (Real.pi • fixtureCoordinate 0) Y := (fixtureCoordinate 0).hasFDerivAt.const_mul Real.pi
++  have a1 : HasFDerivAt (fun Z : UniversalLaw.Spec.Lifetime.E 2 => Real.pi * coordinates 2 Z 1)
++      (Real.pi • fixtureCoordinate 1) Y := (fixtureCoordinate 1).hasFDerivAt.const_mul Real.pi
+   have d := a0.cos.add (a1.cos.const_mul 2)
+   rw [show actualField 2 2 fixtureSample = fun Z : UniversalLaw.Spec.Lifetime.E 2 =>
+       Real.cos (Real.pi * coordinates 2 Z 0) + 2 * Real.cos (Real.pi * coordinates 2 Z 1)
+@@ -706,8 +708,10 @@
+   rw [hessian, iteratedFDeriv_two_apply]
+   rw [show fderiv ℝ (actualField 2 2 fixtureSample) = fixtureDerivative
+     from funext fun Z => (fixture_hasFDerivAt Z).fderiv]
+-  have a0 := (fixtureCoordinate 0).hasFDerivAt.const_mul Real.pi
+-  have a1 := (fixtureCoordinate 1).hasFDerivAt.const_mul Real.pi
++  have a0 : HasFDerivAt (fun Z : UniversalLaw.Spec.Lifetime.E 2 => Real.pi * coordinates 2 Z 0)
++      (Real.pi • fixtureCoordinate 0) Y := (fixtureCoordinate 0).hasFDerivAt.const_mul Real.pi
++  have a1 : HasFDerivAt (fun Z : UniversalLaw.Spec.Lifetime.E 2 => Real.pi * coordinates 2 Z 1)
++      (Real.pi • fixtureCoordinate 1) Y := (fixtureCoordinate 1).hasFDerivAt.const_mul Real.pi
+   have d := ((a0.sin.const_mul (-Real.pi)).smul_const (fixtureCoordinate 0)).add
+     ((a1.sin.const_mul (-2 * Real.pi)).smul_const (fixtureCoordinate 1))
+   rw [show fderiv ℝ fixtureDerivative Y = _ from d.fderiv]
+@@ -791,7 +795,8 @@
+       actualField 2 2 fixtureSample (fixturePoint 1 0) = 1 := by
+   refine ⟨fixture_pointCritical 1 0 (by norm_num) (by norm_num), ?_, ?_⟩
+   · apply I4SourceActualFoldCandidate.hessianHasInertia_one_of_diag _ _ 1
+-      (Real.pi^2) (-2*Real.pi^2) (by norm_num) (by positivity) (by positivity) 0
++      (Real.pi^2) (-2*Real.pi^2) (by norm_num) (by positivity)
++      (by nlinarith [sq_pos_of_ne_zero Real.pi_ne_zero]) 0
+     intro v
+     rw [fixture_hessian]
+     simp only [fixturePoint, ContinuousLinearEquiv.apply_symm_apply,
+@@ -807,7 +812,8 @@
+       HessianHasInertia 2 (actualField 2 2 fixtureSample) (fixturePoint 0 1) 1 ∧
+       actualField 2 2 fixtureSample (fixturePoint 0 1) = -1 := by
+   refine ⟨fixture_pointCritical 0 1 (by norm_num) (by norm_num), ?_, ?_⟩
+-  · apply fixture_negativeFirst_inertia _ (-Real.pi^2) (2*Real.pi^2) (by positivity) (by positivity)
++  · apply fixture_negativeFirst_inertia _ (-Real.pi^2) (2*Real.pi^2)
++      (by nlinarith [sq_pos_of_ne_zero Real.pi_ne_zero]) (by positivity)
+     intro v
+     rw [fixture_hessian]
+     simp only [fixturePoint, ContinuousLinearEquiv.apply_symm_apply,
+@@ -818,7 +824,14 @@
+       Matrix.cons_val_zero, Matrix.cons_val_one]
+     norm_num
+ 
+-private theorem fixture_saddleInputs := And.intro fixture_positiveInput fixture_negativeInput
++private theorem fixture_saddleInputs :
++    (IsCriticalPoint 2 (actualField 2 2 fixtureSample) (fixturePoint 1 0) ∧
++      HessianHasInertia 2 (actualField 2 2 fixtureSample) (fixturePoint 1 0) 1 ∧
++      actualField 2 2 fixtureSample (fixturePoint 1 0) = 1) ∧
++    (IsCriticalPoint 2 (actualField 2 2 fixtureSample) (fixturePoint 0 1) ∧
++      HessianHasInertia 2 (actualField 2 2 fixtureSample) (fixturePoint 0 1) 1 ∧
++      actualField 2 2 fixtureSample (fixturePoint 0 1) = -1) :=
++  ⟨fixture_positiveInput, fixture_negativeInput⟩
+ 
+ private theorem fixture_seamInputs :
+     IsCriticalPoint 2 (actualField 2 2 fixtureSample) (fixturePoint (-1) 0) ∧
+@@ -827,11 +840,13 @@
+       physicalProjection 2 (fixturePoint (-1) 0) = physicalProjection 2 (fixturePoint 1 0) := by
+   refine ⟨fixture_pointCritical (-1) 0 (by norm_num) (by norm_num), ?_, ?_, ?_⟩
+   · apply I4SourceActualFoldCandidate.hessianHasInertia_one_of_diag _ _ 1
+-      (Real.pi^2) (-2*Real.pi^2) (by norm_num) (by positivity) (by positivity) 0
++      (Real.pi^2) (-2*Real.pi^2) (by norm_num) (by positivity)
++      (by nlinarith [sq_pos_of_ne_zero Real.pi_ne_zero]) 0
+     intro v
+     rw [fixture_hessian]
+     simp only [fixturePoint, ContinuousLinearEquiv.apply_symm_apply,
+-      Matrix.cons_val_zero, Matrix.cons_val_one, mul_one, mul_zero, Real.cos_neg, Real.cos_pi, Real.cos_zero]
++      Matrix.cons_val_zero, Matrix.cons_val_one, mul_one, mul_zero, mul_neg_one,
++      Real.cos_neg, Real.cos_pi, Real.cos_zero]
+     ring
+   · rw [fixture_actualField]
+     simp only [fixturePoint, ContinuousLinearEquiv.apply_symm_apply,

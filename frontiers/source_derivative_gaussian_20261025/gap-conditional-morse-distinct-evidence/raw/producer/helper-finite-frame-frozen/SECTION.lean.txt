@@ -1,0 +1,284 @@
+/- TEXT ONLY: insert once inside I4SourceGapConditionalMorseDistinct after
+   SHARED_CONTEXT59_V1's private aliases/rows/rowResponse. All declarations here
+   are PRIVATE. The only Euclidean space is the finite union of source supports;
+   no random coefficient sequence is viewed as an l2 vector. -/
+
+private theorem finiteFrame_pair_lc (a : SourceMode 2 → ℝ)
+    (v : SourceMode 2 →₀ ℝ) :
+    finitePairing a v = Finsupp.linearCombination ℝ a v := by
+  classical
+  simp only [finitePairing,Finsupp.linearCombination_apply,Finsupp.sum]
+  apply Finset.sum_congr rfl
+  intro m hm
+  simp only [smul_eq_mul]
+  ring
+
+private theorem finiteFrame_pair_sum {ι : Type*} [Fintype ι] (a : SourceMode 2 → ℝ)
+    (c : ι → ℝ) (v : ι → SourceMode 2 →₀ ℝ) :
+    finitePairing a (∑ j, c j • v j) = ∑ j, c j * finitePairing a (v j) := by
+  simp only [finiteFrame_pair_lc,map_sum,map_smul,smul_eq_mul]
+
+private theorem finiteFrame_pair_single (a : SourceMode 2 → ℝ) (m : SourceMode 2) :
+    finitePairing a (Finsupp.single m 1) = a m := by
+  classical
+  simp [finitePairing]
+
+private theorem finiteFrame_pair_sub_left (a b : SourceMode 2 → ℝ)
+    (v : SourceMode 2 →₀ ℝ) :
+    finitePairing (fun m => a m-b m) v = finitePairing a v-finitePairing b v := by
+  classical
+  simp only [finitePairing,Finsupp.sum,sub_mul,Finset.sum_sub_distrib]
+
+private theorem finiteFrame_response_apply {L r : ℝ} {n : ℕ}
+    (a : Fin n → SourceMode 2 → ℝ) (F : RawPinFreeFrame L r n)
+    (c : Fin n → ℝ) (i : Fin n) :
+    rowResponse a F c i = ∑ j, c j * finitePairing (a i) (F.chi j) := by
+  classical
+  simp [rowResponse,mul_comm]
+
+private theorem finiteFrame_independent_of_rightInverse {n : ℕ}
+    (a : Fin n → SourceMode 2 → ℝ) (v : Fin n → SourceMode 2 →₀ ℝ)
+    (hright : ∀ i j, finitePairing (a i) (v j)=if i=j then 1 else 0) :
+    LinearIndependent ℝ v := by
+  classical
+  apply Fintype.linearIndependent_iff.mpr
+  intro c hc i
+  have h := congrArg (Finsupp.linearCombination ℝ (a i)) hc
+  have hi : finitePairing (a i) (∑ j, c j • v j)=0 := by
+    simpa only [finiteFrame_pair_lc,map_zero] using h
+  rw [finiteFrame_pair_sum] at hi
+  simpa only [hright,mul_ite,mul_one,mul_zero,Finset.sum_ite_eq,Finset.mem_univ,
+    if_true] using hi
+
+private def finiteFrame_extend (S : Finset (SourceMode 2)) :
+    EuclideanSpace ℝ S →ₗ[ℝ] (SourceMode 2 →₀ ℝ) where
+  toFun u := ∑ m : S, u m • Finsupp.single m.val 1
+  map_add' u v := by
+    change (∑ m : S, (u m+v m) • Finsupp.single m.val 1) =
+      (∑ m : S, u m • Finsupp.single m.val 1)+(∑ m : S, v m • Finsupp.single m.val 1)
+    simp only [add_smul,Finset.sum_add_distrib]
+  map_smul' c u := by
+    change (∑ m : S, (c*u m) • Finsupp.single m.val 1) =
+      c • ∑ m : S, u m • Finsupp.single m.val 1
+    simp only [Finset.smul_sum,smul_smul]
+
+private theorem finiteFrame_extend_on (S : Finset (SourceMode 2))
+    (u : EuclideanSpace ℝ S) (m : S) : finiteFrame_extend S u m.val=u m := by
+  classical
+  change (∑ k : S, u k • Finsupp.single k.val 1) m.val=u m
+  simp [Finsupp.finsetSum_apply,Finsupp.single_apply,Subtype.coe_inj]
+
+private theorem finiteFrame_extend_off (S : Finset (SourceMode 2))
+    (u : EuclideanSpace ℝ S) (m : SourceMode 2) (hm : m ∉ S) :
+    finiteFrame_extend S u m=0 := by
+  classical
+  change (∑ k : S, u k • Finsupp.single k.val 1) m=0
+  rw [Finsupp.finsetSum_apply]
+  apply Finset.sum_eq_zero
+  intro k hk
+  have hkm : k.val ≠ m := by intro h; exact hm (h ▸ k.property)
+  simp [Finsupp.single_apply,hkm]
+
+private theorem finiteFrame_extend_injective (S : Finset (SourceMode 2)) :
+    Function.Injective (finiteFrame_extend S) := by
+  intro u v h
+  ext m
+  have hm := congrArg (fun w : SourceMode 2 →₀ ℝ => w m.val) h
+  simpa only [finiteFrame_extend_on] using hm
+
+private theorem finiteFrame_extend_gram (S : Finset (SourceMode 2))
+    (u v : EuclideanSpace ℝ S) :
+    finitePairing (fun m => finiteFrame_extend S u m) (finiteFrame_extend S v) =
+      inner ℝ u v := by
+  classical
+  change finitePairing (fun m => finiteFrame_extend S u m)
+    (∑ k : S, v k • Finsupp.single k.val 1)=_
+  rw [finiteFrame_pair_sum]
+  simp only [finiteFrame_pair_single,finiteFrame_extend_on,
+    EuclideanSpace.inner_eq_star_dotProduct,star_trivial,dotProduct]
+
+/- This intermediate also handles overlapping nonorthogonal source directions.
+   The caller must derive LI from actual source data; there is no rank premise
+   on the public global theorem. -/
+private theorem finiteFrame_of_linearIndependent {L r : ℝ} {n : ℕ}
+    (v : Fin n → SourceMode 2 →₀ ℝ) (hv : LinearIndependent ℝ v)
+    (hraw : ∀ (i : Fin 6) (j : Fin n),
+      finitePairing (rawPinCoefficient L r i) (v j)=0) :
+    ∃ F : RawPinFreeFrame L r n,
+      Submodule.span ℝ (Set.range F.chi)=Submodule.span ℝ (Set.range v) := by
+  classical
+  let S : Finset (SourceMode 2) := Finset.univ.biUnion (fun j : Fin n => (v j).support)
+  let f : Fin n → EuclideanSpace ℝ S := fun j => WithLp.toLp 2 (fun m : S => v j m.val)
+  let E := finiteFrame_extend S
+  have hsupport (j : Fin n) : (v j).support ⊆ S := by
+    intro m hm
+    exact Finset.mem_biUnion.mpr ⟨j,Finset.mem_univ _,hm⟩
+  have hEf (j : Fin n) : E (f j)=v j := by
+    ext m
+    by_cases hm : m ∈ S
+    · exact finiteFrame_extend_on S (f j) ⟨m,hm⟩
+    · rw [finiteFrame_extend_off S (f j) m hm]
+      exact (Finsupp.notMem_support_iff.mp (fun h => hm (hsupport j h))).symm
+  have hfi : LinearIndependent ℝ f := by
+    apply LinearIndependent.of_comp E
+    have he : E ∘ f=v := funext hEf
+    rw [he]
+    exact hv
+  let w : Fin n → EuclideanSpace ℝ S := InnerProductSpace.gramSchmidtNormed ℝ f
+  have hw : Orthonormal ℝ w := InnerProductSpace.gramSchmidtNormed_orthonormal hfi
+  have hwli : LinearIndependent ℝ w := InnerProductSpace.gramSchmidtNormed_linearIndependent hfi
+  let chi : Fin n → (SourceMode 2 →₀ ℝ) := fun j => E (w j)
+  have hspan : Submodule.span ℝ (Set.range chi)=Submodule.span ℝ (Set.range v) := by
+    have hs : Submodule.span ℝ (Set.range w)=Submodule.span ℝ (Set.range f) :=
+      (InnerProductSpace.span_gramSchmidtNormed_range ℝ f).trans (InnerProductSpace.span_gramSchmidt ℝ f)
+    have hh := congrArg (fun P : Submodule ℝ (EuclideanSpace ℝ S) => P.map E) hs
+    simp only [Submodule.map_span,Set.image_range,Function.comp_def] at hh
+    have he : (fun j => E (f j))=v := funext hEf
+    rw [he] at hh
+    exact hh
+  have hchiGram (j k : Fin n) :
+      finitePairing (fun m => chi j m) (chi k)=if j=k then 1 else 0 := by
+    rw [show chi j=finiteFrame_extend S (w j) from rfl,
+      show chi k=finiteFrame_extend S (w k) from rfl,finiteFrame_extend_gram]
+    exact orthonormal_iff_ite.mp hw j k
+  have hchiRaw (i : Fin 6) (j : Fin n) :
+      finitePairing (rawPinCoefficient L r i) (chi j)=0 := by
+    have hker : Submodule.span ℝ (Set.range v) ≤
+        LinearMap.ker (Finsupp.linearCombination ℝ (rawPinCoefficient L r i)) := by
+      apply Submodule.span_le.mpr
+      rintro u ⟨k,rfl⟩
+      change Finsupp.linearCombination ℝ (rawPinCoefficient L r i) (v k)=0
+      rw [← finiteFrame_pair_lc]
+      exact hraw i k
+    have hj : chi j ∈ Submodule.span ℝ (Set.range v) := by
+      rw [← hspan]
+      exact Submodule.subset_span ⟨j,rfl⟩
+    rw [finiteFrame_pair_lc]
+    exact hker hj
+  exact ⟨⟨chi,hchiGram,hchiRaw⟩,hspan⟩
+
+/- A response/change-of-basis companion is kept separate so an overlapping
+   nonorthogonal control can use its normalized span without pretending its
+   output response is still the input identity. -/
+private theorem finiteFrame_response_bijective_of_same_span {L r : ℝ} {n : ℕ}
+    (a : Fin n → SourceMode 2 → ℝ) (v : Fin n → SourceMode 2 →₀ ℝ)
+    (hright : ∀ i j, finitePairing (a i) (v j)=if i=j then 1 else 0)
+    (F : RawPinFreeFrame L r n)
+    (hspan : Submodule.span ℝ (Set.range F.chi)=Submodule.span ℝ (Set.range v)) :
+    Function.Bijective (rowResponse a F) := by
+  classical
+  have hFli : LinearIndependent ℝ F.chi := by
+    apply Fintype.linearIndependent_iff.mpr
+    intro c hc i
+    have hp := congrArg (Finsupp.linearCombination ℝ (fun m => F.chi i m)) hc
+    have hz : finitePairing (fun m => F.chi i m) (∑ j,c j • F.chi j)=0 := by
+      simpa only [finiteFrame_pair_lc,map_zero] using hp
+    rw [finiteFrame_pair_sum] at hz
+    simpa only [F.gram,mul_ite,mul_one,mul_zero,Finset.sum_ite_eq,Finset.mem_univ,
+      if_true] using hz
+  have hinj : Function.Injective (rowResponse a F) := by
+    intro c d hcd
+    let t : Fin n → ℝ := c-d
+    let u : SourceMode 2 →₀ ℝ := ∑ j,t j • F.chi j
+    have huSpan : u ∈ Submodule.span ℝ (Set.range v) := by
+      rw [← hspan]
+      exact Submodule.sum_mem _ (fun j hj => Submodule.smul_mem _ _ (Submodule.subset_span ⟨j,rfl⟩))
+    obtain ⟨e,he⟩ := (Submodule.mem_span_range_iff_exists_fun ℝ).mp huSpan
+    have he0 (i : Fin n) : e i=0 := by
+      have hr : finitePairing (a i) u=0 := by
+        dsimp [u]
+        rw [finiteFrame_pair_sum]
+        have hi := congrFun hcd i
+        simp only [finiteFrame_response_apply] at hi
+        simpa only [t,Pi.sub_apply,sub_mul,Finset.sum_sub_distrib,sub_eq_zero] using hi
+      rw [← he,finiteFrame_pair_sum] at hr
+      simpa only [hright,mul_ite,mul_one,mul_zero,Finset.sum_ite_eq,Finset.mem_univ,
+        if_true] using hr
+    have hu0 : u=0 := by
+      rw [← he]
+      simp only [he0,zero_smul,Finset.sum_const_zero]
+    have ht0 := Fintype.linearIndependent_iff.mp hFli t hu0
+    funext i
+    exact sub_eq_zero.mp (ht0 i)
+  exact ⟨hinj,LinearMap.surjective_of_injective
+    (f := (rowResponse a F).toLinearMap) hinj⟩
+
+/- Identity is consumed BEFORE normalization; afterwards only bijectivity of
+   the actual response is concluded. -/
+private theorem finiteFrame_of_rightInverse {L r : ℝ} {n : ℕ}
+    (a : Fin n → SourceMode 2 → ℝ) (v : Fin n → SourceMode 2 →₀ ℝ)
+    (hraw : ∀ (i : Fin 6) (j : Fin n), finitePairing (rawPinCoefficient L r i) (v j)=0)
+    (hright : ∀ i j, finitePairing (a i) (v j)=if i=j then 1 else 0) :
+    ∃ F : RawPinFreeFrame L r n,
+      Submodule.span ℝ (Set.range F.chi)=Submodule.span ℝ (Set.range v) ∧
+      Function.Bijective (rowResponse a F) := by
+  have hv := finiteFrame_independent_of_rightInverse a v hright
+  obtain ⟨F,hspan⟩ := finiteFrame_of_linearIndependent v hv hraw
+  exact ⟨F,hspan,finiteFrame_response_bijective_of_same_span a v hright F hspan⟩
+
+private theorem gradient_frame {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (x : Point2) (hx : Remote L r x) :
+    ∃ F : RawPinFreeFrame L r 2, Function.Bijective (rowResponse (gradientRows L x) F) := by
+  classical
+  obtain ⟨v,hraw,hright⟩ := actual_finite_remoteJet_witnesses hL r x hx.1 hx.2
+  let sel : Fin 2 → Fin 6 := ![1,2]
+  have hsel : Function.Injective sel := by
+    intro i j h
+    fin_cases i <;> fin_cases j <;> simp_all [sel]
+  have hrows (i : Fin 2) : gradientRows L x i=remoteJetCoefficient L x (sel i) := by
+    fin_cases i <;> rfl
+  have hright2 (i j : Fin 2) :
+      finitePairing (gradientRows L x i) (v (sel j))=if i=j then 1 else 0 := by
+    rw [hrows]
+    simpa only [hsel.eq_iff] using hright (sel i) (sel j)
+  obtain ⟨F,hspan,hF⟩ := finiteFrame_of_rightInverse (gradientRows L x) (fun j => v (sel j))
+    (fun i j => hraw i (sel j)) hright2
+  exact ⟨F,hF⟩
+
+private theorem level_frame {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (x : Point2) (hx : Remote L r x) :
+    ∃ F : RawPinFreeFrame L r 3, Function.Bijective (rowResponse (levelRows L x) F) := by
+  classical
+  obtain ⟨v,hraw,hright⟩ := actual_finite_remoteJet_witnesses hL r x hx.1 hx.2
+  let sel : Fin 3 → Fin 6 := ![0,1,2]
+  have hsel : Function.Injective sel := by
+    intro i j h
+    fin_cases i <;> fin_cases j <;> simp_all [sel]
+  have hrows (i : Fin 3) : levelRows L x i=remoteJetCoefficient L x (sel i) := by
+    fin_cases i <;> rfl
+  have hright3 (i j : Fin 3) :
+      finitePairing (levelRows L x i) (v (sel j))=if i=j then 1 else 0 := by
+    rw [hrows]
+    simpa only [hsel.eq_iff] using hright (sel i) (sel j)
+  obtain ⟨F,hspan,hF⟩ := finiteFrame_of_rightInverse (levelRows L x) (fun j => v (sel j))
+    (fun i j => hraw i (sel j)) hright3
+  exact ⟨F,hF⟩
+
+private theorem tie_frame {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (p : Point4) (hp : RemotePair L r p) :
+    ∃ F : RawPinFreeFrame L r 5, Function.Bijective (rowResponse (tieRows L p) F) := by
+  classical
+  obtain ⟨v,hraw,hright⟩ := actual_finite_twoRemoteFirstJet_witnesses hL r p.1 p.2
+    hp.1.1 hp.1.2 hp.2.1.1 hp.2.1.2 hp.2.2
+  let sel : Fin 5 → Fin 6 := ![1,2,4,5,0]
+  have hsel : Function.Injective sel := by
+    intro i j h
+    fin_cases i <;> fin_cases j <;> simp_all [sel]
+  have hrows (i : Fin 5) : tieRows L p i=
+      if i=(4 : Fin 5) then
+        (fun m => twoRemoteFirstJetCoefficient L p.1 p.2 0 m-
+          twoRemoteFirstJetCoefficient L p.1 p.2 3 m)
+      else twoRemoteFirstJetCoefficient L p.1 p.2 (sel i) := by
+    fin_cases i <;> rfl
+  have hright5 (i j : Fin 5) :
+      finitePairing (tieRows L p i) (v (sel j))=if i=j then 1 else 0 := by
+    rw [hrows]
+    by_cases hi : i=(4 : Fin 5)
+    · subst i
+      rw [if_pos rfl,finiteFrame_pair_sub_left,hright,hright]
+      fin_cases j <;> norm_num [sel]
+    · rw [if_neg hi,hright]
+      simp only [hsel.eq_iff]
+  obtain ⟨F,hspan,hF⟩ := finiteFrame_of_rightInverse (tieRows L p) (fun j => v (sel j))
+    (fun i j => hraw i (sel j)) hright5
+  exact ⟨F,hF⟩

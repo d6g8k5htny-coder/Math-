@@ -1,0 +1,201 @@
+{
+  "review": "final61_author_side_technical_source_spec_and_evidence",
+  "finalized_date_utc": "2026-10-28",
+  "reviewer": "/root/actual_fold_chart_source_review",
+  "provider_family": "OpenAI",
+  "verdicts": {
+    "specification_compliance": "PASS",
+    "mathematical_task_quality": "PASS",
+    "public_surface": "PASS",
+    "qualification_evidence": "PASS",
+    "custody": "PASS"
+  },
+  "findings": {
+    "Critical": [],
+    "Important": [],
+    "Minor": []
+  },
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusSuperlevelLocalBasis.lean",
+    "lines": 629,
+    "bytes": 29527,
+    "sha256": "f52c247c1fb8956eebb166badf62de550566a0c2e4f56f5bda30bf5a5531d04c",
+    "own_object_bytes": 1508072,
+    "own_object_sha256": "dbe211717c515a2a47353197b78185028551b782c78b14e3e67a9b921609bf2c",
+    "source_cut": "917271a33398d58ab3471da2bb3a452849950660",
+    "parent": "526d696ce49a574610f614cfd93ba6db76225066",
+    "git_blob": "8ad923c4981bd099d4fa989302977ef002f62f9b",
+    "identity_basis": "Existing producer/root first identities and before/after receipt bindings; no reviewer hash or Git check."
+  },
+  "public_surface": {
+    "authored_public_theorems": 1,
+    "authored_public_data": 0,
+    "sole_theorem": "I4SourceActualTorusSuperlevelLocalBasis.actualSource_torus_closedSuperlevel_localPathConnectedBasis"
+  },
+  "personal_reading": {
+    "final_production_source_full": true,
+    "source_lines": "1-629",
+    "whole_final_source_read_count": 1,
+    "unchanged_whole_source_rereads": 0,
+    "proper_spec_plan_controls": true,
+    "root_method_amendment001_and_id": true,
+    "method_native": 6474887692,
+    "contexts": "Full context001 plus actual002-004 import/method/custody amendments and personal ACK records; unchanged context text reused.",
+    "helper_production_originals_full": 2,
+    "ordinary_controls_original_full": true,
+    "ordinary_controls_original_lines": 528,
+    "helper_provenance_and_custody": true,
+    "all_actual_producer_patches_full": true,
+    "final_ordinary_controls_review": "Full frozen528-line original plus complete controls-002 actual patch; unchanged content reused, no whole final-file reread.",
+    "negative_harness_full": true,
+    "classified_inventory_all65": true,
+    "full_standard_axiom_stdout_bytes": 18361,
+    "actual_run_receipts_full": 11,
+    "full_original_split_streams": 22,
+    "final_custody": "REPORT/HANDOFF/READY/PACKAGING_ALLOWLIST/FINAL_DOCUMENT_IDS/RUNNER_HISTORY/CONTROL_RECEIPT/FINAL_SOURCE_OBJECT_IDS/STREAM_COUNTS; aggregate manifest schema, all164 artifact identity rows and68 historical snapshot bindings rendered and read; execution index metadata reviewed, unchanged full receipts reused.",
+    "literal_aggregate_manifest_reread_claim": false,
+    "source_snapshot_contents_re_read": false,
+    "final_root_source_cut_copy_and_routine_correction_records": true
+  },
+  "root_reading_attribution_as_received": {
+    "independent_of_reviewer_flags": true,
+    "production_full": false,
+    "production_scope": "Header1-52, declaration map, tail525-629; full initial Main/Public text before final small corrections.",
+    "contexts": "Full initial context and changed custody/header/seven-consumer/mutation sections;002-004 deltas through actual notices. No claim of all full snapshot files.",
+    "proper_precode": "Previously full-read, reused.",
+    "root_method001": "Root authored/full-read amendment and ID/native full body match.",
+    "inventory_full65": false,
+    "full18361_byte_axiom_stream": false,
+    "all_raw_receipts_and_streams": false,
+    "receipt_scope": "Selected full command/cwd/times/exits/stream IDs/source-object bindings and inventory classifications/selected rows.",
+    "final_controls_full": true,
+    "final_controls_scope": "Entire25582-byte final ordinary Controls; actual finite formula/global Morse once/all7 positives/closed membership/every-V sine/IVT/single-lift counterproof.",
+    "negative_harness_and_actual129_byte_stdout_and_empty_stderr_full": true,
+    "control_ids_and_selected_negative_metadata": true,
+    "final_producer_docs": "Root final personal-reading record17:03:31.761591UTC reports full REPORT/HANDOFF/final-document IDs/allowlist/READY/control-stream-runner-current-source-object summaries; aggregate manifest and execution index remain structured/partial. No full production/65rows/rawruns/helper/patch reading inferred.",
+    "root_final_reading_record_personally_read_by_reviewer": "/workspace/scratch/actual-source-torus-superlevel-local-basis-publication/ROOT_FINAL_EVIDENCE_READING.json",
+    "root_final_record_created_utc": "2026-10-28T17:03:31.761591+00:00"
+  },
+  "qualification": {
+    "evidence_reused_not_executed_by_reviewer": true,
+    "actual_runs": 11,
+    "successes": 5,
+    "retained_unintended_failed_attempts": 5,
+    "sole_intended_false_rejection": 1,
+    "original_streams": 22,
+    "run_labels": [
+      "regular-001",
+      "regular-002",
+      "regular-003",
+      "full-001",
+      "full-002",
+      "compile-final",
+      "inventory-001",
+      "kernel-001",
+      "controls-001",
+      "controls-002",
+      "false-control-001"
+    ],
+    "compile_final": {
+      "exit": 0,
+      "start": "2026-10-28T16:42:25.280409+00:00",
+      "end": "2026-10-28T16:42:30.983466+00:00",
+      "seconds": 5.703025472000263
+    },
+    "inventory": {
+      "total": 65,
+      "authored_public_theorem": 1,
+      "authored_private_theorem": 25,
+      "authored_private_definition": 9,
+      "private_generated_proof_auxiliary": 18,
+      "private_generated_defining_equation": 6,
+      "private_generated_simp": 1,
+      "public_generated_simp": 1,
+      "foreign_namespace_generated_equation": 4,
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "kernel": {
+      "count": 1,
+      "exit": 0,
+      "start": "2026-10-28T16:44:58.740147+00:00",
+      "end": "2026-10-28T16:45:03.880958+00:00",
+      "seconds": 5.1407791530000395,
+      "scope": "Own production module only; not ordinary Controls."
+    },
+    "controls": {
+      "source_bytes": 25582,
+      "source_sha256": "5e50adc0cf844933382d817d7e45a25e8b51f8c35d9c7ae4cd8588384f141bfa",
+      "object_bytes": 1551368,
+      "object_sha256": "38924be546a79c2190e98cfc6ccba0cfcee34d1a7789a34b61a4d8cf2c47b71c",
+      "exit": 0,
+      "start": "2026-10-28T16:47:52.439669+00:00",
+      "end": "2026-10-28T16:48:01.557000+00:00",
+      "seconds": 9.117300478999823
+    },
+    "negative": {
+      "count": 1,
+      "imports_only": "Controls",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "start": "2026-10-28T16:49:18.321085+00:00",
+      "end": "2026-10-28T16:49:21.078559+00:00",
+      "stdout_bytes": 129,
+      "stderr_bytes": 0,
+      "only_residual_goal": "False",
+      "counterproof_passed_before_negative": true
+    }
+  },
+  "custody": {
+    "producer_report": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/REPORT.md",
+    "producer_handoff": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/HANDOFF.md",
+    "artifact_manifest": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/ARTIFACT_IDENTITIES.json",
+    "final_document_ids": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/FINAL_DOCUMENT_IDS.json",
+    "execution_index": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/EXECUTION_RECORD_INDEX.json",
+    "aggregate_manifest_bytes": 107828,
+    "aggregate_manifest_existing_first_sha256": "1e2855c29efe60f136a6feea99e09c5942bf9c48c919d3e03bf7a77e7215837d",
+    "report_existing_first_sha256": "4a6fefef2db1fdf2d085048ffa92162bfc722db4eb87f5dd776e3d97a1665b9b",
+    "helper_original_integrations": {
+      "regular": 1,
+      "production_fixture": 1,
+      "ordinary_controls": 1
+    },
+    "helper_executions": 0,
+    "root_own_object_copy_count": 1,
+    "root_copy_completed_utc": "2026-10-28T16:47:45.324589+00:00",
+    "further_copies": "SKIP",
+    "limitations_honestly_preserved": [
+      "Initial pre-correction context draft and historical runner revisions were not separately frozen; native/tool history retained, no backdated reconstruction.",
+      "Helper ACK emission UTC was not instrumented; personal before-dependent-text ordering retained.",
+      "Root precut metadata routine error has original merged tool transcript and an explicit quoted correction record, not a separately captured original stderr. It preceded Git/copy and changed no mathematical evidence."
+    ]
+  },
+  "provisional_history": [
+    "Before kernel: full final source1-629 once; provisional source/surface PASS sent to root and producer, no edit requested.",
+    "Then: helper originals/actual patches, inventory65/full std3/kernel evidence PASS.",
+    "Then: full Controls original and complete actual delta, ordinary PASS and sole counterproof-backed False PASS.",
+    "Resume/interruption: all completed readings reused; only new final custody documents/index bindings read.",
+    "Final: specification/mathematics/surface/evidence/custody PASS; no material findings."
+  ],
+  "provenance": {
+    "proof_authorship": false,
+    "production_or_helper_edits": false,
+    "prior61_implementation_inspection_before_final_authorization": false,
+    "prior_roles": [
+      "61 design/spec review only",
+      "61 root-proposed sine control-method amendment design review only",
+      "Successor regular-slab/62 design-risk review only"
+    ],
+    "reviewer_new_lean_checks": 0,
+    "reviewer_hashes": 0,
+    "reviewer_git_cache_object_or_external_actions": 0,
+    "same_family_review_credit": 0,
+    "different_family_scientific_review": false,
+    "scientific_effect": "NONE",
+    "owner_reuse": "Completed applicable mathematics/checks/readings reused. Session, handoff, interruption, head, sourcecut and provider process are not replay reasons."
+  },
+  "limits": "Author-side nonauthor technical review only. Root owns final reading/GO/packaging/registration/external publication. No Ready/merge/scientific promotion or downstream slab/elder/counting/Rice/Parent conclusion."
+}

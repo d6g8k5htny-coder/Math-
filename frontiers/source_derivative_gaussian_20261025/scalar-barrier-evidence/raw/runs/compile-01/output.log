@@ -1,0 +1,113 @@
+AdaptiveFoldScalarBarrier.lean:49:5: error: `dsimp` made no progress
+AdaptiveFoldScalarBarrier.lean:49:26: error: No goals to be solved
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+AdaptiveFoldScalarBarrier.lean:53:59: error: unsolved goals
+case e'_8
+x : ℝ
+⊢ (fun t => t * (-1 / 8) + t ^ 3 * (1 / 6)) = (fun x => x ^ 3 * (1 / 6)) - fun x => x * (1 / 8)
+AdaptiveFoldScalarBarrier.lean:60:28: error: Type mismatch
+  fun x => HasDerivAt.continuousAt (q_hasDerivAt x)
+has type
+  ∀ (x : ℝ), ContinuousAt q x
+but is expected to have type
+  Continuous q
+AdaptiveFoldScalarBarrier.lean:70:28: error: Type mismatch
+  fun x => HasDerivAt.continuousAt (q_hasDerivAt x)
+has type
+  ∀ (x : ℝ), ContinuousAt q x
+but is expected to have type
+  Continuous q
+AdaptiveFoldScalarBarrier.lean:169:63: error: unexpected identifier; expected ')', ',' or ':'
+AdaptiveFoldScalarBarrier.lean:156:29: error: Type mismatch
+  fun x => HasDerivAt.continuousAt (q_hasDerivAt x)
+has type
+  ∀ (x : ℝ), ContinuousAt q x
+but is expected to have type
+  Continuous q
+AdaptiveFoldScalarBarrier.lean:169:25: error: unsolved goals
+a a₁ φ : ℝ → ℝ
+hconv : ConvexOn ℝ J fun x => a x - q x
+ha : ∀ x ∈ J, HasDerivAt a (a₁ x) x
+hφ : ∀ x ∈ J, HasDerivAt φ (a x) x
+hleft : a (-(1 / 2)) = 0
+hright : a (1 / 2) = 0
+hgap : φ (-(1 / 2)) - φ (1 / 2) = 1 / 6
+hlJ : -(1 / 2) ∈ J
+hrJ : 1 / 2 ∈ J
+hlq : a (-(1 / 2)) - q (-(1 / 2)) = 0
+hrq : a (1 / 2) - q (1 / 2) = 0
+hmid : ∀ x ∈ Icc (-(1 / 2)) (1 / 2), a x ≤ q x
+hL : ∀ x ∈ Icc (-(3 / 2)) (-(1 / 2)), q x ≤ a x
+hR : ∀ x ∈ Icc (1 / 2) (3 / 2), q x ≤ a x
+hmn : ∀ x ∈ Ioo (-(1 / 2)) (1 / 2), a x < 0
+hLp : ∀ x ∈ Ico (-(3 / 2)) (-(1 / 2)), 0 < a x
+hRp : ∀ x ∈ Ioc (1 / 2) (3 / 2), 0 < a x
+hld : a₁ (-(1 / 2)) ≤ -(1 / 2)
+hrd : 1 / 2 ≤ a₁ (1 / 2)
+hcq : Continuous q
+hca : ContinuousOn a J
+hLa : IntervalIntegrable a volume (-(3 / 2)) (-(1 / 2))
+hRa : IntervalIntegrable a volume (1 / 2) (3 / 2)
+hbound : ∫ (u : ℝ) in -(3 / 2)..-(1 / 2), q u ≤ ∫ (u : ℝ) in -(3 / 2)..-(1 / 2), a u
+x : ℝ
+hx : x ∈ Icc (-(3 / 2)) (-(1 / 2))
+⊢ x ∈ J
+AdaptiveFoldScalarBarrier.lean:164:61: error: unsolved goals
+a a₁ φ : ℝ → ℝ
+hconv : ConvexOn ℝ J fun x => a x - q x
+ha : ∀ x ∈ J, HasDerivAt a (a₁ x) x
+hφ : ∀ x ∈ J, HasDerivAt φ (a x) x
+hleft : a (-(1 / 2)) = 0
+hright : a (1 / 2) = 0
+hgap : φ (-(1 / 2)) - φ (1 / 2) = 1 / 6
+hlJ : -(1 / 2) ∈ J
+hrJ : 1 / 2 ∈ J
+hlq : a (-(1 / 2)) - q (-(1 / 2)) = 0
+hrq : a (1 / 2) - q (1 / 2) = 0
+hmid : ∀ x ∈ Icc (-(1 / 2)) (1 / 2), a x ≤ q x
+hL : ∀ x ∈ Icc (-(3 / 2)) (-(1 / 2)), q x ≤ a x
+hR : ∀ x ∈ Icc (1 / 2) (3 / 2), q x ≤ a x
+hmn : ∀ x ∈ Ioo (-(1 / 2)) (1 / 2), a x < 0
+hLp : ∀ x ∈ Ico (-(3 / 2)) (-(1 / 2)), 0 < a x
+hRp : ∀ x ∈ Ioc (1 / 2) (3 / 2), 0 < a x
+hld : a₁ (-(1 / 2)) ≤ -(1 / 2)
+hrd : 1 / 2 ≤ a₁ (1 / 2)
+hcq : Continuous q
+hca : ContinuousOn a J
+hLa : IntervalIntegrable a volume (-(3 / 2)) (-(1 / 2))
+hRa : IntervalIntegrable a volume (1 / 2) (3 / 2)
+hbound : ∫ (u : ℝ) in -(3 / 2)..-(1 / 2), q u ≤ ∫ (u : ℝ) in -(3 / 2)..-(1 / 2), a u
+hftc :
+  IntervalIntegrable a volume (-(3 / 2)) (-(1 / 2)) → ∫ (y : ℝ) in -(3 / 2)..-(1 / 2), a y = φ (-(1 / 2)) - φ (-(3 / 2))
+⊢ φ (-(3 / 2)) ≤ φ (-(1 / 2)) - 5 / 12
+AdaptiveFoldScalarBarrier.lean:86:28: error: unsolved goals
+a a₁ φ : ℝ → ℝ
+hconv : ConvexOn ℝ J fun x => a x - q x
+ha : ∀ x ∈ J, HasDerivAt a (a₁ x) x
+hφ : ∀ x ∈ J, HasDerivAt φ (a x) x
+hleft : a (-(1 / 2)) = 0
+hright : a (1 / 2) = 0
+hgap : φ (-(1 / 2)) - φ (1 / 2) = 1 / 6
+hlJ : -(1 / 2) ∈ J
+hrJ : 1 / 2 ∈ J
+hlq : a (-(1 / 2)) - q (-(1 / 2)) = 0
+hrq : a (1 / 2) - q (1 / 2) = 0
+hmid : ∀ x ∈ Icc (-(1 / 2)) (1 / 2), a x ≤ q x
+hL : ∀ x ∈ Icc (-(3 / 2)) (-(1 / 2)), q x ≤ a x
+hR : ∀ x ∈ Icc (1 / 2) (3 / 2), q x ≤ a x
+hmn : ∀ x ∈ Ioo (-(1 / 2)) (1 / 2), a x < 0
+hLp : ∀ x ∈ Ico (-(3 / 2)) (-(1 / 2)), 0 < a x
+hRp : ∀ x ∈ Ioc (1 / 2) (3 / 2), 0 < a x
+hld : a₁ (-(1 / 2)) ≤ -(1 / 2)
+hrd : 1 / 2 ≤ a₁ (1 / 2)
+hcq : Continuous q
+hca : ContinuousOn a J
+hLa : IntervalIntegrable a volume (-(3 / 2)) (-(1 / 2))
+hRa : IntervalIntegrable a volume (1 / 2) (3 / 2)
+hlg : φ (-(3 / 2)) ≤ φ (-(1 / 2)) - 5 / 12
+⊢ ScalarBarrier a a₁ φ

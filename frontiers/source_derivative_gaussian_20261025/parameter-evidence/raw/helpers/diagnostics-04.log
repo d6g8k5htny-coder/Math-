@@ -1,0 +1,17 @@
+/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean:12:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Module ℝ (DerivativeBCF 2 0)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean:13:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Module ℝ (DerivativeBCF 2 0)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean:14:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Module ℝ ((k : Fin 4) → DerivativeBCF 2 ↑k)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean:15:36: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Module ℝ (DerivativeBCF 2 0)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+sorry.opNorm : ℝ

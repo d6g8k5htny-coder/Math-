@@ -1,0 +1,36 @@
+{
+  "label": "strict-002",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/reused-compact-frontier/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/actual-fold-torus-construct/build/SourceActualFoldTorus.olean -i /workspace/scratch/actual-fold-torus-construct/build/SourceActualFoldTorus.ilean SourceActualFoldTorus.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFoldTorus.lean",
+      "bytes": 17843,
+      "sha256": "27056e40797aa639bd469b175d90f89daf4043d504c1f1e50bbf35a244c21336"
+    },
+    "object": null
+  },
+  "started_utc": "2026-10-26T06:39:40.731262+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 3.2261064052581787,
+  "ended_utc": "2026-10-26T06:39:43.957399+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFoldTorus.lean",
+      "bytes": 17843,
+      "sha256": "27056e40797aa639bd469b175d90f89daf4043d504c1f1e50bbf35a244c21336"
+    },
+    "object": null
+  },
+  "log": {
+    "path": "/workspace/scratch/actual-fold-torus-construct/runs/strict-002/output.log",
+    "bytes": 184,
+    "sha256": "3c3b7002dc744afc3f4fcd5cc0fb033f7617687321b0129d53ed4a8263dc3aad"
+  }
+}

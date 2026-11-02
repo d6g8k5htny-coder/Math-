@@ -1,0 +1,22 @@
+{
+  "gaussian": {
+    "integrated_utc": "2026-10-26T20:16:53.173994+00:00",
+    "original_section": "/workspace/scratch/raw-pin-free-coordinate-gaussian-text/SECTION.lean.txt",
+    "original_section_sha256_from_frozen_helper": "11122b77173768f1a791ab6e4856a43dc6950159c1052a30696990f5fd9cc8aa",
+    "owned_frozen_copy": "helper-gaussian-frozen",
+    "integration_count": 1,
+    "standalone_helper_executions": 0,
+    "target": "production SourceRawPinFreeCoordinates.lean",
+    "qualification": "Final whole-module strict/inventory/one kernel will cover integrated section and actual local amendments"
+  },
+  "four_mode": {
+    "integrated_utc": "2026-10-26T20:24:14.053806+00:00",
+    "original_section": "/workspace/scratch/raw-pin-free-coordinate-four-mode-text/SECTION.lean.txt",
+    "original_section_sha256_from_frozen_helper": "7f6e7400976aa89d848dc0ca7839c3d8dea11b98df92f11220778ea16226eb8f",
+    "owned_frozen_copy": "helper-controls-frozen",
+    "integration_count": 1,
+    "standalone_helper_executions": 0,
+    "target": "scratch FreeCoordinateControls.lean only",
+    "qualification": "PositiveControls strict covers complete integrated text and recorded actual local amendments. Production ownkernel does not cover Controls."
+  }
+}

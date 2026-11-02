@@ -1,0 +1,34 @@
+{
+  "status": "HISTORICAL_PENDING_PROCESS_FIELDS_SUPERSEDED_BY_ACTUAL_ROOT_CUT_AND_ONLY_OWN_COPY",
+  "observed_utc": "2026-10-28T23:58:24.562897+00:00",
+  "source_cut": {
+    "status": "EXACT_NATIVE66_COMMIT_IMPORTED_LOCAL_ONLY",
+    "commit_sha": "42da22188b49c5624ec30c4d0f3ef7169a850dff",
+    "source_cut": "42da22188b49c5624ec30c4d0f3ef7169a850dff",
+    "tree_sha": "f230ebabb7c9e07c27e51d92bf54030d31cd58e0",
+    "parent_sha": "263b9d4329043e6debd299a8c27327ee515670d7",
+    "phase": "source_cut",
+    "owned_index_rows_synchronized": 1,
+    "remote_ref_updated": false,
+    "commit_JSON_reconstruction": false,
+    "all_object_actions": "SKIP"
+  },
+  "only_own_object_copy": {
+    "status": "ELIGIBLE66_OWN_OBJECT_COPIED_ONCE_ALL_FURTHER_SKIP",
+    "source_cut": "42da22188b49c5624ec30c4d0f3ef7169a850dff",
+    "source": "/workspace/scratch/actual-source-regular-local-collar-construct/build/SourceActualRegularLocalCollar.olean",
+    "destination": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceActualRegularLocalCollar.olean",
+    "known_identity_reused": {
+      "bytes": 1341664,
+      "sha256": "9050a31e570e121e268239f3374e9129037a78084bca7fc64f63ac0404bddad0"
+    },
+    "copies": 1,
+    "further_copy_actions": [],
+    "old_helper_ordinary_objects": "SKIP",
+    "SHA256_recomputations": 0
+  },
+  "all_future_object_actions": "SKIP; no repeat hash, copy or mathematical verification",
+  "producer_records_immutable": true,
+  "remote_branch_at_source_import": "263b9d4329043e6debd299a8c27327ee515670d7",
+  "source_commit_local_only_until_final_metadata_publication": true
+}

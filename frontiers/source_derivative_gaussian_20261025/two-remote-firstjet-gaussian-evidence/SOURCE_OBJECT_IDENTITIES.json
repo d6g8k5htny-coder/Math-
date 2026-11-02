@@ -1,0 +1,42 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean",
+    "bytes": 21774,
+    "sha256": "4677ada085e7c53b4e9b4fd2160bcffc326e6a73b20cbb6cb7540ee3aece2a91"
+  },
+  "object": {
+    "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/build/SourceTwoRemoteFirstJetGaussian.olean",
+    "bytes": 753408,
+    "sha256": "2eb9c10def60add68448a5465947491679e7961332e57eab242aa7331751c7f1"
+  },
+  "compiled_object": {
+    "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/runs/develop-006/SourceTwoRemoteFirstJetGaussian.olean",
+    "bytes": 753408,
+    "sha256": "2eb9c10def60add68448a5465947491679e7961332e57eab242aa7331751c7f1"
+  },
+  "strict_receipt": {
+    "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/runs/develop-006/record.json",
+    "bytes": 1325,
+    "sha256": "2cb63f1fd87256c71f2412d4a71e16173e6e40e040586a95e3c03f2b6a1a3063"
+  },
+  "kernel_receipt": {
+    "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/runs/kernel-001/record.json",
+    "bytes": 1186,
+    "sha256": "44080df06f8fa26fdcd8a90e307bcbebedbe59b824964dbedccc792a5d72c751"
+  },
+  "freeze": {
+    "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/FROZEN_SOURCE.json",
+    "bytes": 937,
+    "sha256": "f14097f3493a3d813c998f70ba0112773f34bfa9bff82ea0f17283a30a2f5b17"
+  },
+  "eligible_production_objects": [
+    "SourceTwoRemoteFirstJetGaussian.olean"
+  ],
+  "ineligible_objects": "All helper/control/inventory/mutation and earlier attempt objects. Scratch Controls.olean only reuses passed actual-source counterexample for sole mutation; no production eligibility. No .ilean freshness compile. Root sole production cache.",
+  "baseline_reused": "qualified49/53 public source/actual posterior pointwise/marginal law/finite original Gram and all applicable earlier derivative Gaussian/parameters/topology/kernel/ContactGram proofs and objects. No52/H0/parallel56 dependency.",
+  "root_sourcecut": {
+    "status": "root owns source-only Git/cut; not supplied at producer evidencefreeze. Root can separately bind actual processcut without rewriting/replaying this frozen qualification."
+  },
+  "published_precode": "98ec56b05b8b729c5f1638227280711f2f3b1718",
+  "no_current_source_hosted_CI_claim": true
+}

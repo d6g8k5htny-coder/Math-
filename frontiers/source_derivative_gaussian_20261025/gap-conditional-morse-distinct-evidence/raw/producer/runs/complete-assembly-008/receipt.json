@@ -1,0 +1,44 @@
+{
+  "label": "complete-assembly-008",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/gap-conditional-morse-distinct-construct/build/SourceGapConditionalMorseDistinct.olean SourceGapConditionalMorseDistinct.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceGapConditionalMorseDistinct.lean",
+      "bytes": 93711,
+      "sha256": "38e7698c6283cb0a3480740af4e57b3d3cb6cc2c763bdba28076bb117953cd4b"
+    },
+    "object": null,
+    "controls_object": null
+  },
+  "started_utc": "2026-10-26T22:15:11.755217+00:00",
+  "capture": "Original stdout and stderr captured separately without reconstruction/interleaving claims",
+  "exit_code": 1,
+  "elapsed_seconds": 206.0496687889099,
+  "ended_utc": "2026-10-26T22:18:37.805163+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceGapConditionalMorseDistinct.lean",
+      "bytes": 93711,
+      "sha256": "38e7698c6283cb0a3480740af4e57b3d3cb6cc2c763bdba28076bb117953cd4b"
+    },
+    "object": null,
+    "controls_object": null
+  },
+  "stdout": {
+    "path": "/workspace/scratch/gap-conditional-morse-distinct-construct/runs/complete-assembly-008/stdout.log",
+    "bytes": 785,
+    "sha256": "50f6d111b6be862db54545a2ca8d67b918ee9bcae334570cb5e9e758720c4b0d"
+  },
+  "stderr": {
+    "path": "/workspace/scratch/gap-conditional-morse-distinct-construct/runs/complete-assembly-008/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

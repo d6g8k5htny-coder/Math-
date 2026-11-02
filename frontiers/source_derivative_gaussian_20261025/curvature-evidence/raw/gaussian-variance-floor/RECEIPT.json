@@ -1,0 +1,17 @@
+{
+  "author": "OpenAI/Codex root",
+  "source_sha256_observed_after_execution": "f58e2530c01823c06214eb71dbde98bdce311a1eb5b8eb8996c4761bfb663eca",
+  "source_unchanged_since_write": true,
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/scratch/gaussian-variance-floor/GaussianVarianceFloor.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit_code": 0,
+  "output": "compile-01.log",
+  "output_empty": true,
+  "scope": "Only new scratch scalar PDF/floor integration proof. No baseline rerun; production transplantation requires final-source axiom/kernel evidence."
+}
