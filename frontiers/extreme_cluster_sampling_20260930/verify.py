@@ -6,7 +6,9 @@ still run. No mode confers mathematical acceptance.
 """
 from __future__ import annotations
 import argparse
+import contextlib
 import hashlib
+import io
 import json
 import os
 from pathlib import Path, PurePosixPath
@@ -173,18 +175,42 @@ def validate_mutant_result(name, result):
         raise ValueError('mutant assertion contract mismatch: '+name)
 
 
+UNKNOWN_LABEL_COLUMNS=80
+
+
+def unknown_label_env():
+    """Child environment for the unknown-label run: a fixed terminal width."""
+    return dict(os.environ,COLUMNS=str(UNKNOWN_LABEL_COLUMNS))
+
+
+def expected_unknown_stderr():
+    """Exact stderr bytes of extremes.py --mutant unknown under unknown_label_env().
+
+    The child's streams are captured, so its HelpFormatter takes the width from
+    COLUMNS. CPython 3.11--3.13 subtracts two from that (as in
+    tools/legacy_json_replay.py), so the oracle formats at the same width.
+    """
+    stream=io.StringIO()
+    with contextlib.redirect_stdout(io.StringIO()),contextlib.redirect_stderr(stream):
+        parser=argparse.ArgumentParser(
+            prog='extremes.py',
+            formatter_class=lambda prog: argparse.HelpFormatter(
+                prog,width=UNKNOWN_LABEL_COLUMNS-2))
+        parser.add_argument('--mutant',choices=MUTANTS)
+        try:
+            parser.parse_args(['--mutant','unknown'])
+        except SystemExit as exc:
+            if exc.code!=2:
+                raise ValueError('argparse unknown-label oracle did not exit 2') from exc
+        else:
+            raise ValueError('argparse unknown-label oracle accepted an invalid label')
+    return stream.getvalue().encode('utf-8')
+
+
 def validate_unknown_result(result):
-    choices=', '.join(repr(name) for name in MUTANTS)
-    expected=(
-        "extremes.py: error: argument --mutant: invalid choice: 'unknown' "
-        f"(choose from {choices})"
-    ).encode('utf-8')
-    lines=result.stderr.splitlines()
-    if (result.returncode!=2 or result.stdout!=b'' or len(lines)<2
-            or not lines[0].startswith(b'usage: extremes.py ')
-            or lines[-1]!=expected or lines.count(expected)!=1
-            or any(not line.startswith(b' ') for line in lines[1:-1])):
-        raise ValueError('unknown mutant label did not produce argparse invalid-choice diagnostic')
+    if (result.returncode!=2 or result.stdout!=b''
+            or result.stderr!=expected_unknown_stderr()):
+        raise ValueError('unknown mutant label did not produce exact argparse invalid-choice output')
 
 
 def main() -> None:
@@ -209,7 +235,7 @@ def main() -> None:
                                   capture_output=True,timeout=60)
             validate_mutant_result(name,result)
         result=subprocess.run(command+['--mutant','unknown'],cwd=root,
-                              capture_output=True,timeout=60)
+                              capture_output=True,timeout=60,env=unknown_label_env())
         validate_unknown_result(result)
     verify_inventory(root)
     print(json.dumps({'passed':True,'source_pins_checked':not args.local_only,

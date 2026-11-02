@@ -174,7 +174,8 @@ class WrapperProtocolTests(unittest.TestCase):
     def run_extremes(self, *args):
         script=Path(__file__).with_name('extremes.py')
         return subprocess.run([sys.executable,*self.flags(),str(script),*args],
-                              cwd=script.parent,capture_output=True,timeout=60)
+                              cwd=script.parent,capture_output=True,timeout=60,
+                              env=v.unknown_label_env())
 
     def test_actual_semantic_mutants_match_exact_assertions_in_executing_mode(self):
         for name in v.EXPECTED_MUTANT_ERRORS:
@@ -185,6 +186,45 @@ class WrapperProtocolTests(unittest.TestCase):
     def test_actual_unknown_label_matches_argparse_in_executing_mode(self):
         result=self.run_extremes('--mutant','unknown')
         v.validate_unknown_result(result)
+
+    def test_unknown_label_output_is_bound_exactly(self):
+        expected=v.expected_unknown_stderr()
+        self.assertTrue(expected.startswith(b'usage: extremes.py '))
+        self.assertTrue(expected.endswith(b'\n'))
+        parts=expected.split(b'\n')[:-1]
+        usage=b''.join(line+b'\n' for line in parts[:-1])
+        diagnostic=parts[-1]+b'\n'
+        self.assertEqual(usage+diagnostic,expected)
+        cases=(
+            ('usage-header-suffix',expected.replace(
+                b'usage: extremes.py',b'usage: extremes.py bogus usage',1),2,b''),
+            ('wrong-program-name',expected.replace(
+                b'usage: extremes.py',b'usage: other.py',1),2,b''),
+            ('extra-indented-stderr',
+             usage+b'    unrelated indented runtime failure\n'+diagnostic,2,b''),
+            ('missing-terminal-newline',expected[:-1],2,b''),
+            ('extra-terminal-newline',expected+b'\n',2,b''),
+            ('crlf-line-endings',expected.replace(b'\n',b'\r\n'),2,b''),
+            ('diagnostic-only',diagnostic,2,b''),
+            ('wrong-exit',expected,1,b''),
+            ('unexpected-stdout',expected,2,b'unexpected'),
+            ('expected-bytes-on-stdout',b'',2,expected),
+        )
+        for label,stderr,code,stdout in cases:
+            bad=subprocess.CompletedProcess(['extremes.py'],code,stdout,stderr)
+            with self.subTest(case=label):
+                with self.assertRaises(ValueError):
+                    v.validate_unknown_result(bad)
+        # A real child at another terminal width wraps the usage block
+        # differently, so only the pinned width reproduces the oracle.
+        script=Path(__file__).with_name('extremes.py')
+        wide=subprocess.run([sys.executable,*self.flags(),str(script),'--mutant','unknown'],
+                            cwd=script.parent,capture_output=True,timeout=60,
+                            env=dict(os.environ,COLUMNS='200'))
+        self.assertEqual(wide.returncode,2)
+        self.assertNotEqual(wide.stderr,expected)
+        with self.assertRaises(ValueError):
+            v.validate_unknown_result(wide)
 
     def test_adverse_subprocess_results_are_rejected_in_executing_mode(self):
         cases=(
