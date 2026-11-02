@@ -1,0 +1,60 @@
+{
+  "contract": {
+    "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/CONTROL_CONTRACT.md",
+    "bytes": 4418,
+    "sha256": "aef7c3bc42c9aca2f08233e013140e6787519472e5f08136b962ffebf8d0d868"
+  },
+  "resolved_route": {
+    "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/CONTROL_ROUTE.md",
+    "bytes": 1697,
+    "sha256": "0f4933f633dc5ac749568b993b151bf6b3d67604a8241732c8f6f84be66b47af"
+  },
+  "original_contract_before_source_or_helper_text": true,
+  "final_private_route_before_complete_strict": true,
+  "positive_harness": {
+    "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/IntrinsicProbabilityControls.lean",
+    "bytes": 4499,
+    "sha256": "d93bc3dfa9a00264472bdd3f0ea866f51406ea133fd7f9513caacc9ecbbfe6f3"
+  },
+  "positive_object": {
+    "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/IntrinsicProbabilityControls.olean",
+    "bytes": 224384,
+    "sha256": "ede4dce1ab52c6e206206ef99ba0014cf919c4827db43a0b181b351494ab4d02"
+  },
+  "positive_receipt": {
+    "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/controls-001/receipt.json",
+    "bytes": 2416,
+    "sha256": "155e47e0bf54abc54088465ac38474edd0396af455a3f5b4e45ef65aa23e3836"
+  },
+  "positive_exit": 0,
+  "controls": [
+    "zero norm-BCF guarded upper preimages at-1 and1, empty cut/default0, no thresholdpair",
+    "three private exact-quadratic conditional genuine Lifetime inertia controls, including zeroa saddle",
+    "ordinary finite matrices/determinants and explicit strict negative/positive directions, ordinary XY",
+    "actual r0 event empty without normalized-law claim",
+    "actual L2,B3,k0=1,k1=2 literal event/QW mass/complement identity/uniformCr3 instance"
+  ],
+  "negative_source": {
+    "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/FalseEmptyCutPreimageMutation.lean",
+    "bytes": 630,
+    "sha256": "14072f458a16e05946a305e29cc9b0f494b61fce8eeb282002bd6ba4d69b2c4a"
+  },
+  "negative_receipt": {
+    "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/false-empty-branch-001/receipt.json",
+    "bytes": 2331,
+    "sha256": "a47df907319e116b59c7d11b444be09c1ef52f3e871228c9c22a93328293289a"
+  },
+  "negative_full_log": {
+    "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/false-empty-branch-001/output.log",
+    "bytes": 137,
+    "sha256": "4b561f907f0ef315c1c203ac73cf5bc44a09ccdf07ccd4a7a0b07f3722cd3149"
+  },
+  "negative_exit": 1,
+  "distinct_mutations": 1,
+  "negative_attempts": 1,
+  "intended_false_goals": 1,
+  "unrelated_negative_diagnostics": 0,
+  "mechanism": "Concrete zero norm-BCF at h=-1: independently passed witness proves guarded upper membership and no strict clearance; deleted-branch equivalence simplifies to exactly False. Not a Gaussian sample or old homology campaign.",
+  "source_unchanged_for_all_postfreeze_controls": true,
+  "old_controls_replayed": false
+}

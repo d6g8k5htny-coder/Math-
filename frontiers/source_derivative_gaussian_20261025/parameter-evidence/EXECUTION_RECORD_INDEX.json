@@ -1,0 +1,855 @@
+{
+  "count": 35,
+  "new_verification_executions_during_packaging": 0,
+  "entries": [
+    {
+      "original_metadata": "/workspace/scratch/smooth-parameter-production/01-merged-core.json",
+      "packaged_metadata": "raw/production/01-merged-core.json",
+      "raw_output": "raw/production/01-merged-core.log",
+      "execution_role": "original_author_implementation_or_helper_execution",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceSmoothParameterSpace.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothParameterSpace.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothParameterSpace.lean",
+        "source_sha256_before": "6b2770279126cead233102e30cf13eccecfb751b2b0287b3a32682ff4ba0ed84",
+        "source_sha256_after": "6b2770279126cead233102e30cf13eccecfb751b2b0287b3a32682ff4ba0ed84",
+        "production_source_sha256_before": "6b2770279126cead233102e30cf13eccecfb751b2b0287b3a32682ff4ba0ed84",
+        "production_source_sha256_after": "6b2770279126cead233102e30cf13eccecfb751b2b0287b3a32682ff4ba0ed84",
+        "olean_sha256_before": null,
+        "olean_sha256_after": "ded9fecd1c8a553166026e0dccc6d3273875f99a89ee80c3a656416bf3c38e50",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 8.384441137313843,
+        "scope": "ONLY new SourceSmoothParameterSpace module; completed dependencies reused without rechecks"
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/smooth-parameter-production/02-gradient-family.json",
+      "packaged_metadata": "raw/production/02-gradient-family.json",
+      "raw_output": "raw/production/02-gradient-family.log",
+      "execution_role": "original_author_implementation_or_helper_execution",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceSmoothParameterSpace.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothParameterSpace.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothParameterSpace.lean",
+        "source_sha256_before": "cf2cf7e52cc327b7b70551b08252a9786c23c84d6df1ba97a491ab7cf9a750a6",
+        "source_sha256_after": "cf2cf7e52cc327b7b70551b08252a9786c23c84d6df1ba97a491ab7cf9a750a6",
+        "production_source_sha256_before": "cf2cf7e52cc327b7b70551b08252a9786c23c84d6df1ba97a491ab7cf9a750a6",
+        "production_source_sha256_after": "cf2cf7e52cc327b7b70551b08252a9786c23c84d6df1ba97a491ab7cf9a750a6",
+        "olean_sha256_before": "ded9fecd1c8a553166026e0dccc6d3273875f99a89ee80c3a656416bf3c38e50",
+        "olean_sha256_after": "ded9fecd1c8a553166026e0dccc6d3273875f99a89ee80c3a656416bf3c38e50",
+        "log_sha256": "44e6189c3a7d9c395fee3887369413e21bffcd6b06e3c65f42d9a6768a9267a1",
+        "elapsed_seconds": 10.255136966705322,
+        "scope": "ONLY new SourceSmoothParameterSpace module; completed dependencies reused without rechecks"
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/smooth-parameter-production/03-gradient-family.json",
+      "packaged_metadata": "raw/production/03-gradient-family.json",
+      "raw_output": "raw/production/03-gradient-family.log",
+      "execution_role": "original_author_implementation_or_helper_execution",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceSmoothParameterSpace.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothParameterSpace.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothParameterSpace.lean",
+        "source_sha256_before": "484758216ed22dd92d81db0f580f12c7cabd16469602fa1e43d4872648c93b3d",
+        "source_sha256_after": "484758216ed22dd92d81db0f580f12c7cabd16469602fa1e43d4872648c93b3d",
+        "production_source_sha256_before": "484758216ed22dd92d81db0f580f12c7cabd16469602fa1e43d4872648c93b3d",
+        "production_source_sha256_after": "484758216ed22dd92d81db0f580f12c7cabd16469602fa1e43d4872648c93b3d",
+        "olean_sha256_before": "ded9fecd1c8a553166026e0dccc6d3273875f99a89ee80c3a656416bf3c38e50",
+        "olean_sha256_after": "02767ad7a71485f5bad02a3537f4d99c7de15726cb223c8060828d669ffe4733",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 10.988375902175903,
+        "scope": "ONLY new SourceSmoothParameterSpace module; completed dependencies reused without rechecks"
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/smooth-parameter-production/04-complete-parameter-family.json",
+      "packaged_metadata": "raw/production/04-complete-parameter-family.json",
+      "raw_output": "raw/production/04-complete-parameter-family.log",
+      "execution_role": "production_final_qualification",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceSmoothParameterSpace.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothParameterSpace.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothParameterSpace.lean",
+        "source_sha256_before": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+        "source_sha256_after": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+        "production_source_sha256_before": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+        "production_source_sha256_after": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+        "olean_sha256_before": "02767ad7a71485f5bad02a3537f4d99c7de15726cb223c8060828d669ffe4733",
+        "olean_sha256_after": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 24.88279700279236,
+        "scope": "ONLY new SourceSmoothParameterSpace module; completed dependencies reused without rechecks"
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/smooth-parameter-production/05-controls.json",
+      "packaged_metadata": "raw/production/05-controls.json",
+      "raw_output": "raw/production/05-controls.log",
+      "execution_role": "original_author_implementation_or_helper_execution",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/smooth-parameter-production/Controls.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/smooth-parameter-production/Controls.lean",
+        "source_sha256_before": "42931fbb35489612dd1d55eddd042e8b53b52a78d390fc997ea5b87e5b9dd7e9",
+        "source_sha256_after": "42931fbb35489612dd1d55eddd042e8b53b52a78d390fc997ea5b87e5b9dd7e9",
+        "production_source_sha256_before": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+        "production_source_sha256_after": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+        "olean_sha256_before": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+        "olean_sha256_after": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+        "log_sha256": "43e6384850a9a396af383545bf388e7cdc01bab529b967dbb0d3f0f683751a03",
+        "elapsed_seconds": 8.869140148162842,
+        "scope": "ONLY new SourceSmoothParameterSpace module; completed dependencies reused without rechecks"
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/smooth-parameter-production/06-public-axioms.json",
+      "packaged_metadata": "raw/production/06-public-axioms.json",
+      "raw_output": "raw/production/06-public-axioms.log",
+      "execution_role": "production_final_qualification",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/smooth-parameter-production/AxiomAudit.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/scratch/smooth-parameter-production/AxiomAudit.lean",
+        "source_sha256_before": "2598597037aa2a1d70a473cf2e971e3f6dc9259897de129c82e1a3ab9c96a74d",
+        "source_sha256_after": "2598597037aa2a1d70a473cf2e971e3f6dc9259897de129c82e1a3ab9c96a74d",
+        "production_source_sha256_before": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+        "production_source_sha256_after": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+        "olean_sha256_before": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+        "olean_sha256_after": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+        "log_sha256": "73ce86a847d8711d40529aa406ff91a49945d5814a62b3f8b26024a3a6d3afca",
+        "elapsed_seconds": 6.460231304168701,
+        "scope": "ONLY new SourceSmoothParameterSpace module; completed dependencies reused without rechecks"
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/smooth-parameter-production/07-kernel-replay.json",
+      "packaged_metadata": "raw/production/07-kernel-replay.json",
+      "raw_output": "raw/production/07-kernel-replay.log",
+      "execution_role": "production_final_qualification",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "leanchecker",
+          "SourceSmoothParameterSpace"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "production_source_sha256_before": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+        "production_source_sha256_after": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+        "olean_sha256_before": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+        "olean_sha256_after": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 12.21668529510498,
+        "scope": "ONLY new SourceSmoothParameterSpace; dependencies reused without rechecks"
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/smooth-parameter-production/08-controls-fixed.json",
+      "packaged_metadata": "raw/production/08-controls-fixed.json",
+      "raw_output": "raw/production/08-controls-fixed.log",
+      "execution_role": "production_final_qualification",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/smooth-parameter-production/Controls.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/scratch/smooth-parameter-production/Controls.lean",
+        "source_sha256_before": "a1024cddaedeebac6fcba692daa3103b77b7e8a1f82fcbcbf8ce015f5e4dfa13",
+        "source_sha256_after": "a1024cddaedeebac6fcba692daa3103b77b7e8a1f82fcbcbf8ce015f5e4dfa13",
+        "production_source_sha256_before": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+        "production_source_sha256_after": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+        "olean_sha256_before": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+        "olean_sha256_after": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 3.5946128368377686,
+        "scope": "ONLY new SourceSmoothParameterSpace module; completed dependencies reused without rechecks"
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/smooth-parameter-production/euclidean-derivative-01.json",
+      "packaged_metadata": "raw/production/euclidean-derivative-01.json",
+      "raw_output": "raw/production/euclidean-derivative-01.log",
+      "execution_role": "original_author_implementation_or_helper_execution",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/smooth-parameter-production/EuclideanDerivative.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/scratch/smooth-parameter-production/EuclideanDerivative.lean",
+        "source_sha256_before": "fd4fc0bf109fa4405c27db2131ae4474c913944eda99f0211da76811477625bb",
+        "source_sha256_after": "fd4fc0bf109fa4405c27db2131ae4474c913944eda99f0211da76811477625bb",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 5.319325923919678,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/smooth-parameter-production/gradient-01.json",
+      "packaged_metadata": "raw/production/gradient-01.json",
+      "raw_output": "raw/production/gradient-01.log",
+      "execution_role": "original_author_implementation_or_helper_execution",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/smooth-parameter-production/GradientFamily.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/smooth-parameter-production/GradientFamily.lean",
+        "source_sha256_before": "6f6c3b63f72ad5852616d42bca3a904c0b24bf40c2b645893953675882b10619",
+        "source_sha256_after": "6f6c3b63f72ad5852616d42bca3a904c0b24bf40c2b645893953675882b10619",
+        "log_sha256": "e8b6a6a5afca208f2c14422d17e3361f82c6d9ca7c89225e445f1714f2c556d9",
+        "elapsed_seconds": 5.464632987976074,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/smooth-parameter-production/gradient-02.json",
+      "packaged_metadata": "raw/production/gradient-02.json",
+      "raw_output": "raw/production/gradient-02.log",
+      "execution_role": "original_author_implementation_or_helper_execution",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/smooth-parameter-production/GradientFamily.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/smooth-parameter-production/GradientFamily.lean",
+        "source_sha256_before": "ff456533649e5bf29777d373f9582aefe2aec66c61275f8df470b5320c30e4d2",
+        "source_sha256_after": "ff456533649e5bf29777d373f9582aefe2aec66c61275f8df470b5320c30e4d2",
+        "log_sha256": "c7ee5a34a73be2d1cff18c6b2f8f63ec13c352cfa38c5b09b85abd0459e26087",
+        "elapsed_seconds": 5.303555727005005,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/smooth-parameter-production/gradient-03.json",
+      "packaged_metadata": "raw/production/gradient-03.json",
+      "raw_output": "raw/production/gradient-03.log",
+      "execution_role": "original_author_implementation_or_helper_execution",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/smooth-parameter-production/GradientFamily.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/scratch/smooth-parameter-production/GradientFamily.lean",
+        "source_sha256_before": "c2242e5099f5ca9af86e5e1f3d7ce5db1f6fdc30763ccf88c752d6d2a279e4dc",
+        "source_sha256_after": "c2242e5099f5ca9af86e5e1f3d7ce5db1f6fdc30763ccf88c752d6d2a279e4dc",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 5.653564453125,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/smooth-parameter-production/gradient-04.json",
+      "packaged_metadata": "raw/production/gradient-04.json",
+      "raw_output": "raw/production/gradient-04.log",
+      "execution_role": "original_author_implementation_or_helper_execution",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/smooth-parameter-production/GradientFamily.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/scratch/smooth-parameter-production/GradientFamily.lean",
+        "source_sha256_before": "7135caaf30b14066bc1fad91a61af38e0ae05aed57ab002b0d752d1dad7809f7",
+        "source_sha256_after": "7135caaf30b14066bc1fad91a61af38e0ae05aed57ab002b0d752d1dad7809f7",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 6.689929008483887,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/source-smooth-parameter-space/diagnostics-01.json",
+      "packaged_metadata": "raw/helpers/diagnostics-01.json",
+      "raw_output": "raw/helpers/diagnostics-01.log",
+      "execution_role": "API_diagnostic_not_mathematical_proof",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean",
+        "source_sha256_before": "a1bb13658042045749120e0301b3b795f85992090cee1a80168d1630e65ca451",
+        "source_sha256_after": "a1bb13658042045749120e0301b3b795f85992090cee1a80168d1630e65ca451",
+        "log_sha256": "bc971b34fc0efc9c3e19a91fc3627b52e01651966d010e996c16de59205246b3",
+        "elapsed_seconds": 5.333460330963135,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/source-smooth-parameter-space/diagnostics-02.json",
+      "packaged_metadata": "raw/helpers/diagnostics-02.json",
+      "raw_output": "raw/helpers/diagnostics-02.log",
+      "execution_role": "API_diagnostic_not_mathematical_proof",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean",
+        "source_sha256_before": "907b5103c0ad7ee83d2b673022947df25e782cddbe9935c85d5e4269c5956d09",
+        "source_sha256_after": "907b5103c0ad7ee83d2b673022947df25e782cddbe9935c85d5e4269c5956d09",
+        "log_sha256": "c4c83829cf673b5dfaafecf989be5b39556993cda2d7c196edf6e8b1ba1b1d4f",
+        "elapsed_seconds": 5.882020473480225,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/source-smooth-parameter-space/diagnostics-03.json",
+      "packaged_metadata": "raw/helpers/diagnostics-03.json",
+      "raw_output": "raw/helpers/diagnostics-03.log",
+      "execution_role": "API_diagnostic_not_mathematical_proof",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean",
+        "source_sha256_before": "933b197231152907713f683fc2c4df5d00fb0d826275e9fd7cc1f5e6e705d1e9",
+        "source_sha256_after": "933b197231152907713f683fc2c4df5d00fb0d826275e9fd7cc1f5e6e705d1e9",
+        "log_sha256": "9c543296136a4b182af88955dbe23068b6ca3318ae3f704a543ee9dbf8a58bf0",
+        "elapsed_seconds": 5.8445658683776855,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/source-smooth-parameter-space/diagnostics-04.json",
+      "packaged_metadata": "raw/helpers/diagnostics-04.json",
+      "raw_output": "raw/helpers/diagnostics-04.log",
+      "execution_role": "API_diagnostic_not_mathematical_proof",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean",
+        "source_sha256_before": "90571dfee75c5e07071c58951a6a9eea73f1ffbc53d6fe18251b9b98ecbbcf9e",
+        "source_sha256_after": "90571dfee75c5e07071c58951a6a9eea73f1ffbc53d6fe18251b9b98ecbbcf9e",
+        "log_sha256": "7b1958cba466d1ecc54b2440ded577225536efd440ad6d5d0d0170133b7f4f0f",
+        "elapsed_seconds": 5.008360147476196,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/source-smooth-parameter-space/diagnostics-05.json",
+      "packaged_metadata": "raw/helpers/diagnostics-05.json",
+      "raw_output": "raw/helpers/diagnostics-05.log",
+      "execution_role": "API_diagnostic_not_mathematical_proof",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean",
+        "source_sha256_before": "97b8389b628777f87cefd96ebea419bb418162858d3fd4a64b6fc3b775c5dbae",
+        "source_sha256_after": "97b8389b628777f87cefd96ebea419bb418162858d3fd4a64b6fc3b775c5dbae",
+        "log_sha256": "1c0ef19c4c69b447314d8ab7c6ee81e609fd81b41cfc04fa0565d9df970210fd",
+        "elapsed_seconds": 5.136993169784546,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/source-smooth-parameter-space/diagnostics-06.json",
+      "packaged_metadata": "raw/helpers/diagnostics-06.json",
+      "raw_output": "raw/helpers/diagnostics-06.log",
+      "execution_role": "API_diagnostic_not_mathematical_proof",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean",
+        "source_sha256_before": "feeacb43980327c2f6d240533a42d694393824d7653094d477d87c6d11845431",
+        "source_sha256_after": "feeacb43980327c2f6d240533a42d694393824d7653094d477d87c6d11845431",
+        "log_sha256": "c8422d282e5c6fd3b80755569dce565b62c07b94a9399750471c68d19dc46c5c",
+        "elapsed_seconds": 3.4947991371154785,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/source-smooth-parameter-space/parameter-kernel-01.json",
+      "packaged_metadata": "raw/helpers/parameter-kernel-01.json",
+      "raw_output": "raw/helpers/parameter-kernel-01.log",
+      "execution_role": "original_author_implementation_or_helper_execution",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/source-smooth-parameter-space/ParameterKernel.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/scratch/source-smooth-parameter-space/ParameterKernel.lean",
+        "source_sha256_before": "65b59f4496cc7b27191310263cec35e60eaadb51fa8b2047ecdc48aeee2968e0",
+        "source_sha256_after": "65b59f4496cc7b27191310263cec35e60eaadb51fa8b2047ecdc48aeee2968e0",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 3.0062413215637207,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/source-smooth-parameter-space/synthesis-01.json",
+      "packaged_metadata": "raw/helpers/synthesis-01.json",
+      "raw_output": "raw/helpers/synthesis-01.log",
+      "execution_role": "original_author_implementation_or_helper_execution",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean",
+        "source_sha256_before": "3bc408d177ca62db236f3c18359cf62553f3e608071a137e4d0c039ab73b170e",
+        "source_sha256_after": "3bc408d177ca62db236f3c18359cf62553f3e608071a137e4d0c039ab73b170e",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 3.2493019104003906,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/source-smooth-parameter-space/synthesis-02.json",
+      "packaged_metadata": "raw/helpers/synthesis-02.json",
+      "raw_output": "raw/helpers/synthesis-02.log",
+      "execution_role": "original_author_implementation_or_helper_execution",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean",
+        "source_sha256_before": "a4c5abba423f17c3e31d0499f98447ece4b54ed11b9ed887d908c9d67dcd5741",
+        "source_sha256_after": "a4c5abba423f17c3e31d0499f98447ece4b54ed11b9ed887d908c9d67dcd5741",
+        "log_sha256": "efedcfbcbd53e20dd05740ac5058ae2b0d4c61101fc724ef4c1c461dde61d5d9",
+        "elapsed_seconds": 6.618409633636475,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/source-smooth-parameter-space/synthesis-03.json",
+      "packaged_metadata": "raw/helpers/synthesis-03.json",
+      "raw_output": "raw/helpers/synthesis-03.log",
+      "execution_role": "original_author_implementation_or_helper_execution",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean",
+        "source_sha256_before": "570897bdbe89801ce7a88f6b7765d90172d7bdc1b76614c32a586545963805a7",
+        "source_sha256_after": "570897bdbe89801ce7a88f6b7765d90172d7bdc1b76614c32a586545963805a7",
+        "log_sha256": "36cf5201e215a6fea08d77571a0b3e50ad91b07ae03cea30ac4718e8aac6d9e6",
+        "elapsed_seconds": 6.846882343292236,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/source-smooth-parameter-space/synthesis-04.json",
+      "packaged_metadata": "raw/helpers/synthesis-04.json",
+      "raw_output": "raw/helpers/synthesis-04.log",
+      "execution_role": "original_author_implementation_or_helper_execution",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean",
+        "source_sha256_before": "8cf1a0b49f2ad492aa8684f6b5e6f8c1f5667cf9d5821ad19fac27f9848af5ef",
+        "source_sha256_after": "8cf1a0b49f2ad492aa8684f6b5e6f8c1f5667cf9d5821ad19fac27f9848af5ef",
+        "log_sha256": "a6da36c7338f006cc89778627e7bffa3863461b7dfc08c38c2973c614652e748",
+        "elapsed_seconds": 6.790465593338013,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/source-smooth-parameter-space/synthesis-05.json",
+      "packaged_metadata": "raw/helpers/synthesis-05.json",
+      "raw_output": "raw/helpers/synthesis-05.log",
+      "execution_role": "original_author_implementation_or_helper_execution",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean",
+        "source_sha256_before": "415b863bf9c4be24170cd1b34004edfc58f4ad754465f8363f5243877f45ff9e",
+        "source_sha256_after": "415b863bf9c4be24170cd1b34004edfc58f4ad754465f8363f5243877f45ff9e",
+        "log_sha256": "157ddd0ab4332449f095015055e0b503dc9a32175f40b1449cfcd94522e65c1b",
+        "elapsed_seconds": 6.036281585693359,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/source-smooth-parameter-space/synthesis-06.json",
+      "packaged_metadata": "raw/helpers/synthesis-06.json",
+      "raw_output": "raw/helpers/synthesis-06.log",
+      "execution_role": "original_author_implementation_or_helper_execution",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true --root=/workspace/scratch/source-smooth-parameter-space -o /workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.olean /workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean",
+        "source_sha256_before": "5af860d2e62b5fc9f0faf5dcc045c4a5ca3a04e7ab5dd6516ac0bb083daca888",
+        "source_sha256_after": "5af860d2e62b5fc9f0faf5dcc045c4a5ca3a04e7ab5dd6516ac0bb083daca888",
+        "log_sha256": "5ae9a6240fe8afc63680c4d888da9e702c0b58debbc150dab87f83f398542e97",
+        "elapsed_seconds": 6.358189821243286,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/source-smooth-parameter-space/synthesis-07.json",
+      "packaged_metadata": "raw/helpers/synthesis-07.json",
+      "raw_output": "raw/helpers/synthesis-07.log",
+      "execution_role": "original_author_implementation_or_helper_execution",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true --root=/workspace/scratch/source-smooth-parameter-space -o /workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.olean /workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean",
+        "source_sha256_before": "974b76e4706ca3afc1a56f9e836150ae2af8d42a62f9606dc0d79bc3bf50f0d3",
+        "source_sha256_after": "974b76e4706ca3afc1a56f9e836150ae2af8d42a62f9606dc0d79bc3bf50f0d3",
+        "log_sha256": "bb80280eb012dd6a62add2d29145da251f091fb062cb3cf07f7030125f963e6a",
+        "elapsed_seconds": 7.816508769989014,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/source-smooth-parameter-space/synthesis-08.json",
+      "packaged_metadata": "raw/helpers/synthesis-08.json",
+      "raw_output": "raw/helpers/synthesis-08.log",
+      "execution_role": "original_author_implementation_or_helper_execution",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true --root=/workspace/scratch/source-smooth-parameter-space -o /workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.olean /workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean",
+        "source_sha256_before": "da9d13be1551492fda66a6cc8325dfa1b5da0e5d6122c626dc7194fe2b276452",
+        "source_sha256_after": "da9d13be1551492fda66a6cc8325dfa1b5da0e5d6122c626dc7194fe2b276452",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 8.63174819946289,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-01.json",
+      "packaged_metadata": "raw/helpers/weighted-carrier-01.json",
+      "raw_output": "raw/helpers/weighted-carrier-01.log",
+      "execution_role": "original_author_implementation_or_helper_execution",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.olean",
+          "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source_sha256_before": "c98abf1267c6f5b91cfc47815090660608f79a117a0ea9c87ef1ee1c994644c1",
+        "source_sha256_after": "c98abf1267c6f5b91cfc47815090660608f79a117a0ea9c87ef1ee1c994644c1",
+        "log_sha256": "0388cb9463ee2e5535ed9577113e67d98a8027eedf14f857600f383c4887d070",
+        "elapsed_seconds": 0.5910172462463379
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-02.json",
+      "packaged_metadata": "raw/helpers/weighted-carrier-02.json",
+      "raw_output": "raw/helpers/weighted-carrier-02.log",
+      "execution_role": "original_author_implementation_or_helper_execution",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "--root=/workspace/scratch/source-smooth-parameter-space",
+          "-o",
+          "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.olean",
+          "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source_sha256_before": "c98abf1267c6f5b91cfc47815090660608f79a117a0ea9c87ef1ee1c994644c1",
+        "source_sha256_after": "c98abf1267c6f5b91cfc47815090660608f79a117a0ea9c87ef1ee1c994644c1",
+        "log_sha256": "f21fc9c4d590c5cb659cedfa99a02b56666cb4f597f7dfd42d10cd656bc4090a",
+        "elapsed_seconds": 4.003496408462524
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-03.json",
+      "packaged_metadata": "raw/helpers/weighted-carrier-03.json",
+      "raw_output": "raw/helpers/weighted-carrier-03.log",
+      "execution_role": "original_author_implementation_or_helper_execution",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "--root=/workspace/scratch/source-smooth-parameter-space",
+          "-o",
+          "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.olean",
+          "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source_sha256_before": "ae876299f50a6aaa8b621c042665e97b453a1b4ae6dbab7be57fe755b4c62d0d",
+        "source_sha256_after": "ae876299f50a6aaa8b621c042665e97b453a1b4ae6dbab7be57fe755b4c62d0d",
+        "log_sha256": "48ffc5168e06a9111a8e945ea41a847560c0bdfc8439efc836488ae51847e4a4",
+        "elapsed_seconds": 3.6555190086364746
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-04.json",
+      "packaged_metadata": "raw/helpers/weighted-carrier-04.json",
+      "raw_output": "raw/helpers/weighted-carrier-04.log",
+      "execution_role": "original_author_implementation_or_helper_execution",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "--root=/workspace/scratch/source-smooth-parameter-space",
+          "-o",
+          "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.olean",
+          "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source_sha256_before": "8c969fffbe78ef96462fb6735162b3b1555be43cc2c370a208b2fa03ee8d57c8",
+        "source_sha256_after": "8c969fffbe78ef96462fb6735162b3b1555be43cc2c370a208b2fa03ee8d57c8",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 3.242201328277588
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-05.json",
+      "packaged_metadata": "raw/helpers/weighted-carrier-05.json",
+      "raw_output": "raw/helpers/weighted-carrier-05.log",
+      "execution_role": "original_author_implementation_or_helper_execution",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "--root=/workspace/scratch/source-smooth-parameter-space",
+          "-o",
+          "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.olean",
+          "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source_sha256_before": "df9e581bc48e08353c910b6dd585b5e41eee18ecd68858413dce6c2ee3195533",
+        "source_sha256_after": "df9e581bc48e08353c910b6dd585b5e41eee18ecd68858413dce6c2ee3195533",
+        "log_sha256": "9b9886a00f20ba41689e010d14bd4fd86110c2d03c2a39784c922eed31b77e1a",
+        "elapsed_seconds": 3.314924716949463
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-06.json",
+      "packaged_metadata": "raw/helpers/weighted-carrier-06.json",
+      "raw_output": "raw/helpers/weighted-carrier-06.log",
+      "execution_role": "original_author_implementation_or_helper_execution",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "--root=/workspace/scratch/source-smooth-parameter-space",
+          "-o",
+          "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.olean",
+          "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source_sha256_before": "53a846efb814fa2a71c782732c5bb3b2c8d7ff76dc3f1b00df8fd75ae32b7b5e",
+        "source_sha256_after": "53a846efb814fa2a71c782732c5bb3b2c8d7ff76dc3f1b00df8fd75ae32b7b5e",
+        "log_sha256": "b7769c9adcbc1120b0455b147ff28cc8825d9d7395c20d7b14e5ad372abe468c",
+        "elapsed_seconds": 3.5938568115234375
+      }
+    },
+    {
+      "original_metadata": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-07.json",
+      "packaged_metadata": "raw/helpers/weighted-carrier-07.json",
+      "raw_output": "raw/helpers/weighted-carrier-07.log",
+      "execution_role": "original_author_implementation_or_helper_execution",
+      "actual_record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "--root=/workspace/scratch/source-smooth-parameter-space",
+          "-o",
+          "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.olean",
+          "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source_sha256_before": "b27ea234a57a84d296e965860d35bb5f9e805178d8b3e6027d29c4aa1ac62e6b",
+        "source_sha256_after": "b27ea234a57a84d296e965860d35bb5f9e805178d8b3e6027d29c4aa1ac62e6b",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 3.67079758644104
+      }
+    }
+  ],
+  "original_metadata_note": "raw/helpers/PARAMETER_KERNEL_METADATA_NOTE.json corrects copied runner descriptive scope label; original executed command/source/hash record remains unchanged",
+  "aliases_not_extra_executions": true
+}

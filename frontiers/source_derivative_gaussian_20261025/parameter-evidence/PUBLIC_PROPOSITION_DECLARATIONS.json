@@ -1,0 +1,568 @@
+{
+  "count": 62,
+  "theorems": 61,
+  "proposition_instances": 1,
+  "entries": [
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterWeight_nonneg",
+      "line": 34,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterWeight_mul_abs_summable",
+      "line": 37,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.weightedCarrier_mem\u2113p",
+      "line": 42,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.weightedCarrier_apply",
+      "line": 51,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.weightedCarrier_norm",
+      "line": 54,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.weightedCarrier_norm_eq_radius_sub_one",
+      "line": 62,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.weightedCarrier_stronglyMeasurable",
+      "line": 67,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.weightedCarrier_borel",
+      "line": 76,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.smoothParameter_complete",
+      "line": 81,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.smoothParameter_separable",
+      "line": 84,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.smoothParameter_polish",
+      "line": 101,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterWeight_pos",
+      "line": 107,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterWeight_dominates",
+      "line": 121,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameter_abs_summable",
+      "line": 127,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.weighted_mode_derivative_bound",
+      "line": 133,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.weightedFourierField_contDiff",
+      "line": 152,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.weightedFourierField_derivative",
+      "line": 165,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.l1Synthesis_norm_le",
+      "line": 196,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.l1Synthesis_apply",
+      "line": 204,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.l1Synthesis_summable",
+      "line": 208,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.normalizedModeDerivative_norm_le",
+      "line": 237,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterDerivativeCLM_norm_le",
+      "line": 254,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterJetCLM_norm_le",
+      "line": 261,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterJet_continuous",
+      "line": 270,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterDerivativeCLM_apply",
+      "line": 274,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.actual_parameter_field_eq",
+      "line": 290,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.actual_parameter_jet_eq",
+      "line": 300,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.weightedFourierField_periodic",
+      "line": 308,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterField_contDiff",
+      "line": 323,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterField_derivative",
+      "line": 327,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterField_actual",
+      "line": 332,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterField_periodic",
+      "line": 336,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterJet_norm_le",
+      "line": 341,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterField_derivative_norm_le",
+      "line": 345,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "instance",
+      "name": "I4SourceSmoothParameterSpace.parameterBorelSpace",
+      "line": 355,
+      "local_attribute": true,
+      "classification": "proposition_instance",
+      "registration_append": true,
+      "proposition_valued": true,
+      "public_named_declaration": true,
+      "result_type": "BorelSpace SmoothParameter : Prop",
+      "note": "The local typeclass attribute is local; the named declaration is public and directly audited."
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.weightedCarrier_hasCondDistrib",
+      "line": 357,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.weightedCarrier_functional_hasCondDistrib",
+      "line": 363,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.weightedCarrier_eventually_hasCondDistrib",
+      "line": 370,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.weightedCarrier_functional_eventually_hasCondDistrib",
+      "line": 376,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.coordinateGradientCLM_apply",
+      "line": 389,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.gradientTensorContraction_apply",
+      "line": 400,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterGradientTensorBCF_continuous",
+      "line": 410,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.gradientPi_iteratedFDeriv",
+      "line": 415,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterGradientTensorBCF_apply",
+      "line": 427,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterGradientBCF_continuous",
+      "line": 443,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterGradientBCF_apply",
+      "line": 449,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterGradientDerivativeBCF_continuous",
+      "line": 459,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterGradientDerivativeBCF_apply",
+      "line": 464,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterGradient_spatial_C2",
+      "line": 473,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterGradientEuclideanBCF_continuous",
+      "line": 486,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterGradientEuclideanBCF_apply",
+      "line": 493,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterGradientEuclidean_spatial_C2",
+      "line": 501,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterGradientJet_continuous",
+      "line": 512,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterGradientJet_apply",
+      "line": 518,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterGradient_actual",
+      "line": 523,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterGradientDerivative_actual",
+      "line": 528,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterGradientEuclidean_actual",
+      "line": 534,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.euclideanDerivativeContraction_apply",
+      "line": 550,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterGradientEuclideanDerivativeBCF_continuous",
+      "line": 558,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterGradientEuclideanDerivativeBCF_apply",
+      "line": 565,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterGradientEuclideanDerivative_actual",
+      "line": 578,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceSmoothParameterSpace.parameterEuclideanC1Family_continuous",
+      "line": 589,
+      "local_attribute": false,
+      "classification": "proposition_theorem",
+      "registration_append": true,
+      "proposition_valued": true
+    }
+  ]
+}

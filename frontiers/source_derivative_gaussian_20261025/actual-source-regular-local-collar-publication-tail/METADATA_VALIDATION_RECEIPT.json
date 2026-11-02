@@ -1,0 +1,103 @@
+{
+  "attempt": 1,
+  "command_argv": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "/workspace/scratch/actual-source-regular-local-collar-packaging/finalize_metadata.py"
+  ],
+  "cwd": "/workspace",
+  "start_utc": "2026-10-29T00:04:30.609163+00:00",
+  "end_utc": "2026-10-29T00:04:42.963312+00:00",
+  "elapsed_seconds": 12.354176815002575,
+  "exit_code": 0,
+  "spawn_or_worker_exception": null,
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "full_actual_capture": true,
+  "old_payload_hashes": 0,
+  "proof_replays": 0,
+  "status": "PASS",
+  "checks_passed": 7,
+  "completed_checks": [
+    {
+      "recorded_utc": "2026-10-29T00:04:42.805553+00:00",
+      "event": "check_passed",
+      "name": "exact66_registration",
+      "detail": "1127Prop+9data/32; sole public Prop/no data"
+    },
+    {
+      "recorded_utc": "2026-10-29T00:04:42.816208+00:00",
+      "event": "check_passed",
+      "name": "separate_manifest_key_and_checksum_row_prefixes",
+      "detail": "Separate inherited9685 KEY and independent ROW prefixes; no old hashes"
+    },
+    {
+      "recorded_utc": "2026-10-29T00:04:42.818823+00:00",
+      "event": "check_passed",
+      "name": "Lake66_append_only",
+      "detail": "One library/default target; no build"
+    },
+    {
+      "recorded_utc": "2026-10-29T00:04:42.820379+00:00",
+      "event": "check_passed",
+      "name": "retained66_evidence_and_helper_scope",
+      "detail": "Stored actual66 strict/inventory/ONEkernel/ordinary/soleFalse/helper associations; no mathematics replay"
+    },
+    {
+      "recorded_utc": "2026-10-29T00:04:42.910099+00:00",
+      "event": "check_passed",
+      "name": "exact_overlay_ALL_objects_SKIP",
+      "detail": {
+        "overlay_files": 1893,
+        "apply_files": 1888,
+        "binding_SKIP": 5
+      }
+    },
+    {
+      "recorded_utc": "2026-10-29T00:04:42.911689+00:00",
+      "event": "check_passed",
+      "name": "honest_author_review_and_process_scopes",
+      "detail": "Actual separate FULL/structured/bounded reading; current packager no proof/review credit; historical script provenance separate"
+    },
+    {
+      "recorded_utc": "2026-10-29T00:04:42.933662+00:00",
+      "event": "check_passed",
+      "name": "new_metadata_JSON_parse",
+      "detail": {
+        "new_metadata_JSONs": 7,
+        "old_raw_JSON_rechecks": 0
+      }
+    }
+  ],
+  "capture_identities": {
+    "STARTED.json": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-packaging/metadata-attempts/attempt-001/STARTED.json",
+      "bytes": 431,
+      "sha256": "18ff335e6e87043160b187d3a290a4a239e7e1bfddcef25d40478e63ed947cb2",
+      "hash_computed_here": true,
+      "origin": "FIRST necessary NEW66 immutable metadata identity, once"
+    },
+    "stdout.log": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-packaging/metadata-attempts/attempt-001/stdout.log",
+      "bytes": 2419,
+      "sha256": "1f10e32a1e8c25e849e48228ae3aaed9d0ac9eb7c6b73fbe2e707534c00688e3",
+      "hash_computed_here": true,
+      "origin": "FIRST necessary NEW66 immutable metadata identity, once"
+    },
+    "stderr.log": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-packaging/metadata-attempts/attempt-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_computed_here": false,
+      "origin": "Existing exact-byte identity reused",
+      "identity_source": "/workspace/scratch/actual-source-regular-local-collar-publication/root-producer-closure-adoption001/worker/01-worker/stderr.log"
+    },
+    "execution_receipt.json": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-packaging/metadata-attempts/attempt-001/execution_receipt.json",
+      "bytes": 567,
+      "sha256": "e9248797a5afe5df4f9d26bc3836d4e657b98497c280c5b46613a1174779d8f4",
+      "hash_computed_here": true,
+      "origin": "FIRST necessary NEW66 immutable metadata identity, once"
+    }
+  },
+  "scope": "NEW66 metadata associations only; no Lean/proof/kernel/control/old-hash replay"
+}

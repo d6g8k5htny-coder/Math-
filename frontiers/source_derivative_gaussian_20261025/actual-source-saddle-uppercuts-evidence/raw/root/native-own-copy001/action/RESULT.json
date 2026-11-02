@@ -1,0 +1,28 @@
+{
+  "operation": "root-only-new-source65-eligible-own-copy",
+  "started_utc": "2026-10-28T22:00:35.429960+00:00",
+  "ended_utc": "2026-10-28T22:00:35.443635+00:00",
+  "elapsed_seconds": 0.0136733399995137,
+  "status": "PASS_ROOT_ONLY_ELIGIBLE_OWN_COPY_ONCE",
+  "source_cut": "b2d4c91162d98a1daefb5377bf3e65ef8615dd57",
+  "source": "/workspace/scratch/actual-source-saddle-uppercuts-construct/build/SourceActualSaddleUppercuts.olean",
+  "destination": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceActualSaddleUppercuts.olean",
+  "own_object_identity": {
+    "bytes": 1852408,
+    "sha256": "5fbf02004a484d7447147d09b0cd8d19bc84b0ef5c96e97aa6655fc54f88a319"
+  },
+  "qualified_source_identity": {
+    "bytes": 36869,
+    "sha256": "d292c767e789b98a6fbb56e5c21ec8867979faa832a97c1e79c79c899b777129"
+  },
+  "kernel_receipt": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/kernel001/receipt.json",
+  "source_cut_record": "/workspace/scratch/actual-source-saddle-uppercuts-publication/ROOT_SOURCE_CUT.json",
+  "identity_effect": "Known completed qualification identity REUSED; SHA256 NOT computed.",
+  "all_other_objects": "SKIP Controls/helper/old/ilean/intermediate objects",
+  "copy_count": 1,
+  "further_copy_actions": "ALL_SKIP",
+  "new_copy_byte_transport_equal": true,
+  "sha256_computations": 0,
+  "copy_record": "/workspace/scratch/actual-source-saddle-uppercuts-publication/ROOT_OWN_OBJECT_COPY.json",
+  "new_copies_this_invocation": 1
+}

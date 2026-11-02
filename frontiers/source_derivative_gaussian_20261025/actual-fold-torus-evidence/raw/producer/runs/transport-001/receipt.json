@@ -1,0 +1,28 @@
+{
+  "label": "transport-001",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/reused-compact-frontier/build:$LEAN_PATH exec lean -DwarningAsError=true /workspace/scratch/actual-fold-torus-construct/Transport.lean"
+  ],
+  "before": {
+    "source": null,
+    "object": null
+  },
+  "started_utc": "2026-10-26T06:36:30.567254+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 3.034421682357788,
+  "ended_utc": "2026-10-26T06:36:33.601720+00:00",
+  "after": {
+    "source": null,
+    "object": null
+  },
+  "log": {
+    "path": "/workspace/scratch/actual-fold-torus-construct/runs/transport-001/output.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

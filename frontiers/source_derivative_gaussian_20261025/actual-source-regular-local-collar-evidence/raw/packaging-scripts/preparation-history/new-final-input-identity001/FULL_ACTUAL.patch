@@ -1,0 +1,65 @@
+--- ACTUAL_BEFORE/archive_prepare.py
++++ ACTUAL_AFTER/archive_prepare.py
+@@ -18,6 +18,10 @@
+     f.require(c['metadata_script_identities'],'External FIRST script identities must precede their first execution')
+     required={str(R/name) for name in ['custody.py','archive_prepare.py','finalize_metadata.py','capture_boundary.py','run_finalization.py','launch_finalization.py','entry_finalization.py']}
+     f.require(required<={row['source'] for row in c['metadata_script_identities']},'External FIRST identities must bind every executed metadata script')
++    new=c['new_packaging_payloads']
++    f.require(isinstance(new,list) and all(isinstance(name,str) for name in new),'Explicit new-packaging metadata filename list required')
++    f.require(len(new)==len(set(new)) and set(new)<={'FINAL_INPUTS.json'},'FIRST identity authority is limited to NEW immutable FINAL_INPUTS.json')
++    f.require(set(new)<=set(c['packaging_scripts']),'New metadata identity authority must name an explicit packaging member')
+ def record_path(value):
+     path=Path(value);return path if path.is_absolute() else P/path
+ def prepare(c):
+@@ -53,7 +57,8 @@
+         row=f.copied(source,A/E/relative,first_new=first_new)
+         members.append({'path':str(relative),'source':str(source),'bytes':row['bytes'],'sha256':row['sha256'],'identity_origin':row['origin']})
+     for row in c['immutable_files']:add(row['source'],row['archive_path'],row.get('identity_status')=='NEW_UNRECORDED')
+-    for name in c['packaging_scripts']:add(R/name,'raw/packaging-scripts/'+name)
++    for name in c['packaging_scripts']:
++        add(R/name,'raw/packaging-scripts/'+name,first_new=name in c['new_packaging_payloads'])
+     bindings=[]
+     for name in [f.SOURCE,*[Path(row['path']).name for row in pre]]:
+         row=f.copied(B/name,A/'bindings'/name)
+--- ACTUAL_BEFORE/FINAL_INPUTS.schema.json
++++ ACTUAL_AFTER/FINAL_INPUTS.schema.json
+@@ -101,7 +101,9 @@
+   "packager_is_66_proof_author": false,
+   "packager_role": "Current66 metadata preparation only; historical65 baseline script authorship/role is historical provenance, not current mathematical authorship or review credit",
+   "independent_review_credit": 0,
+-  "packaging_scripts": ["custody.py", "archive_prepare.py", "finalize_metadata.py", "capture_boundary.py", "run_finalization.py", "launch_finalization.py", "entry_finalization.py", "PLAN.md", "READINESS.md", "STATIC_REVIEW.md", "FINAL_INPUTS.schema.json", "FINAL_INPUTS.json"],
++  "new_packaging_payloads": ["FINAL_INPUTS.json"],
++  "new_packaging_payload_identity_rule": "Root-approved constrained filename authority ONLY for genuinely NEW immutable FINAL_INPUTS.json created after external script/docs FIRST freeze. Its archive copy may receive FIRST identity ONCE after finalGO, without a recursive self-ID. Known scripts/docs/history remain seeded existing IDs; no unknown old/proof payload is authorized. This implementation uses the explicit filename whitelist; it does not load an external final-input identity sidecar.",
++  "packaging_scripts": ["custody.py", "archive_prepare.py", "finalize_metadata.py", "capture_boundary.py", "run_finalization.py", "launch_finalization.py", "entry_finalization.py", "PLAN.md", "READINESS.md", "STATIC_REVIEW.md", "FINAL_INPUTS.schema.json", "FINAL_INPUTS.json", "preparation-history/new-final-input-identity001/archive_prepare.py.ORIGINAL", "preparation-history/new-final-input-identity001/FINAL_INPUTS.schema.json.ORIGINAL", "preparation-history/new-final-input-identity001/READINESS.md.ORIGINAL", "preparation-history/new-final-input-identity001/STATIC_REVIEW.md.ORIGINAL", "preparation-history/new-final-input-identity001/FULL_ACTUAL.patch", "preparation-history/new-final-input-identity001/AMENDMENT.md"],
+   "future67_exclusion": "FOUR proper future67 LOCAL root EXTRA docs are excluded66archive/manifest/registry; no math-doc inspection/hash by packager, no future seat/claim/GO/timer.",
+   "process": "Creator6482857252; current checkpoint23:45UTC28Oct2026; hard03:30UTC29Oct2026/invocationend, no automatic extension; root alone shared/Git/external/caches/oneeligibleNEWobjectcopy. OpenDraft/noReady/noMerge/scienceNONE/samefamily0; provider-distinct process separate from completed mathematics; original broader research goal ACTIVE_UNMET."
+ }
+--- ACTUAL_BEFORE/READINESS.md
++++ ACTUAL_AFTER/READINESS.md
+@@ -3,6 +3,8 @@
+ Prepared custody.py, archive_prepare.py, finalize_metadata.py, capture_boundary.py, run_finalization.py, launch_finalization.py, entry_finalization.py, FINAL_INPUTS.schema.json and PLAN.md. These files have NOT been executed, imported, compiled, parsed as a test, or validated by running code. No actual FINAL_INPUTS.json, archive/overlay, identity/copy/check journal, metadata attempt, seal, source/proof inspection, mathematical check, hash, object copy, Git/shared/cache/external or credential action was performed for this preparation.
+ 
+ Independent STATIC metadata review is recorded in STATIC_REVIEW.md. Two pre-execution findings were corrected: reload parent journal caches after the separate child finishes, and preserve historical exception receipts while requiring selected qualification receipts to have expected exits/no exception. Affected-block follow-up closed both findings without repeating prior scope reading or executing code. This does not claim runtime validation or mathematical review.
++
++Root identified one further pre-execution identity gap: actual FINAL_INPUTS.json is created after external script/docs FIRST freeze and cannot embed its own ID. The explicit new_packaging_payloads whitelist defaults ONLY to FINAL_INPUTS.json; the gate rejects every other filename and the archive grants FIRST identity only to that genuinely NEW immutable metadata copy after finalGO. Known scripts/docs/history still require seeded IDs. Actual before versions/full patch are retained under preparation-history/new-final-input-identity001; affected-block static follow-up is separate from the earlier completed review. No prepared script executed or digest computed for this amendment.
+ 
+ Personally read the changed66 metadata runner and capture utility, selected bootstrap/first development receipt header fields and actual initial freeze/forward-amendment/precode metadata records. No production/helper/ordinary/counterproof/harness proof-body review or mathematical verification is claimed. Initial failed rg paths guessed65 wrapper filenames; actual66 wrappers are capture66.py, separate entry/outer directories, child_exit_code/ended_utc, while dedicated receipt.json keeps scope_kind math/documentary/command_argv/start_utc/end_utc/before/after/before_snapshots dictionary/streams dictionary. The actual earlier external freeze has original root65-labelled wrappers and is separately catalogued. PRECODE66_IDENTITIES uses documents[]/mirror, rather than65 proper_documents/citation-amendment schema.
+ 
+--- ACTUAL_BEFORE/STATIC_REVIEW.md
++++ ACTUAL_AFTER/STATIC_REVIEW.md
+@@ -8,3 +8,5 @@
+ - Archiving initially rejected historical spawn-exception receipts. Archive association now preserves completed actual historical attempts and their exception fields; selected qualification receipts require the expected exit and no spawn exception.
+ 
+ The gate also explicitly requires external FIRST identities for all seven scripts that execute in the metadata entry chain. The reviewer read only these changed blocks for the follow-up, reused completed scope reading, and reported both findings closed with no additional affected-scope finding. This is static review, not an executed correctness claim or independent mathematical/provider acceptance.
++
++Root later identified the final-input self-ID gap. The new packaging-payload whitelist permits FIRST identity authority ONLY for the explicit genuinely NEW immutable FINAL_INPUTS.json copy after finalGO. A second affected-block static review passed the constrained duplicate-free string-list gate and actual member-loop authority, with known script/doc/history identities still required. The reviewer also caught an optional sidecar alternative described without a loader; that unsupported documentation claim was removed. No script execution, imports, tests, hashes, mathematics or old-reading replay occurred.
+--- /dev/null
++++ ACTUAL_AFTER/preparation-history/new-final-input-identity001/AMENDMENT.md
+@@ -0,0 +1,7 @@
++# Explicit final-input FIRST identity authority
++
++Root identified a concrete pre-execution gap: FINAL_INPUTS.json is written after external script/docs identity freeze and cannot recursively contain its own identity. The archive previously granted no FIRST identity authority to packaging members, so an unseeded final-input copy would fail closed.
++
++Actual new_packaging_payloads defaults to ONLY FINAL_INPUTS.json. The gate requires a duplicate-free list of explicit packaging members and constrains its names to that one immutable NEW metadata filename. The packaging-member loop passes first_new only when the actual name is in that root-approved list. Every known script/doc/history path still needs a reused identity; proof/source/old material receives no new authority. This is the filename-whitelist implementation; it does not load an external final-input identity sidecar.
++
++Before versions of archive_prepare.py, FINAL_INPUTS.schema.json, READINESS.md and STATIC_REVIEW.md are retained verbatim. FULL_ACTUAL.patch records the actual final delta. No prepared script was executed, imported, compiled, tested or hashed; no mathematical verification or old identity check occurred.

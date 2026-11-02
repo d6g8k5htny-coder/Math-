@@ -1,0 +1,593 @@
+{
+  "source_sha256": "77e521c7fc3fc3da1c922a4ef547b065be58b232b321480948c8fe50d76c2aa5",
+  "count": 37,
+  "kind_counts": {
+    "def": 7,
+    "theorem": 29,
+    "instance": 1
+  },
+  "public_targets": [
+    {
+      "kind": "def",
+      "name": "I4SourceRawPinConditioning.rawPinCoefficient",
+      "line": 31,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinCoefficient_summable",
+      "line": 34,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPins_series",
+      "line": 39,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPins_measurable",
+      "line": 48,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceRawPinConditioning.rawPinCovariance",
+      "line": 58,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinCovariance_coefficient",
+      "line": 62,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceRawPinConditioning.confluentMatrix",
+      "line": 73,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.confluentMatrix_mulVec",
+      "line": 76,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.confluentMatrix_isUnit",
+      "line": 80,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.pinCoefficient_eq_confluentMatrix",
+      "line": 84,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.sourceConfluentPinsAt_eq_matrix",
+      "line": 90,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinCovariance_congruence",
+      "line": 122,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinCovariance_isUnit",
+      "line": 133,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceRawPinConditioning.rawPinLift",
+      "line": 160,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinLift_goodSample",
+      "line": 163,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinLift_measurable",
+      "line": 183,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.pinLift_confluent_eq_raw",
+      "line": 191,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceRawPinConditioning.rawPosteriorSample",
+      "line": 202,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPosteriorSample_val",
+      "line": 207,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPosteriorSample_measurable",
+      "line": 212,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPosteriorSample_eq_posteriorSample",
+      "line": 221,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceRawPinConditioning.rawPinKernel",
+      "line": 235,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "instance",
+      "name": "I4SourceRawPinConditioning.rawPinKernel_isMarkov",
+      "line": 241,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinKernel_apply",
+      "line": 246,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinKernel_eq_confluent",
+      "line": 255,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinKernel_eq_comap",
+      "line": 263,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPosteriorSample_rawPins",
+      "line": 270,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinKernel_pin_map",
+      "line": 281,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinKernel_pin_fiber",
+      "line": 293,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinKernel_hasCondDistrib",
+      "line": 311,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinKernel_map_hasCondDistrib",
+      "line": 327,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinCovariance_eventually_isUnit",
+      "line": 335,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinKernel_eventually_hasCondDistrib",
+      "line": 340,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinKernel_prescribed",
+      "line": 348,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceRawPinConditioning.rawPrescribedWeightedMeasure",
+      "line": 356,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPrescribedWeightedMeasure_eq",
+      "line": 360,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPrescribedWeightedMeasure_estimates",
+      "line": 367,
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/SourceRawPinConditioning/axioms-01.json",
+        "log": "raw/SourceRawPinConditioning/axioms-01.log"
+      }
+    }
+  ],
+  "private_helpers": [
+    {
+      "name": "covariance_matrix_congruence",
+      "line": 96,
+      "coverage": "Final named module kernel; transitive dependencies of directly printed public source exports. No production-private direct print claimed."
+    },
+    {
+      "name": "isUnit_middle_of_congruence",
+      "line": 115,
+      "coverage": "Final named module kernel; transitive dependencies of directly printed public source exports. No production-private direct print claimed."
+    },
+    {
+      "name": "inverse_congruence",
+      "line": 139,
+      "coverage": "Final named module kernel; transitive dependencies of directly printed public source exports. No production-private direct print claimed."
+    },
+    {
+      "name": "inverse_congruence_mulVec",
+      "line": 147,
+      "coverage": "Final named module kernel; transitive dependencies of directly printed public source exports. No production-private direct print claimed."
+    },
+    {
+      "name": "coefficient_lift_congr",
+      "line": 153,
+      "coverage": "Final named module kernel; transitive dependencies of directly printed public source exports. No production-private direct print claimed."
+    }
+  ]
+}

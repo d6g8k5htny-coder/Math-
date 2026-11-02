@@ -1,0 +1,83 @@
+--- normalized002/source
++++ normalized003/source
+@@ -132,7 +132,7 @@
+   have hsecond (x : Fin 2 → ℝ) : ‖fderiv ℝ (fderiv ℝ S) x‖ ≤ G2 := by
+     rw [← norm_iteratedFDeriv_one (fderiv ℝ S), norm_iteratedFDeriv_fderiv]
+     exact I4SourceConditionalMajorant.smoothSourceField_global_derivative_bound hL.ne' 2 omega x
+-  have hSLip : LipschitzWith (⟨G2, hG2⟩ : ℝ≥0) (fderiv ℝ S) := by
++  have hSLip : LipschitzWith (NNReal.mk G2 hG2) (fderiv ℝ S) := by
+     apply lipschitzWith_of_nnnorm_fderiv_le hSd'
+     intro x
+     exact_mod_cast hsecond x
+@@ -140,7 +140,7 @@
+       (fderiv ℝ S (q X)).comp q.toContinuousLinearMap := by
+     exact ((hSd (q X)).hasFDerivAt.comp X q.hasFDerivAt).fderiv
+   let A : ℝ := 1 + Cq * G1
+-  let Kp : ℝ≥0 := ⟨Cq ^ 2 * G2, mul_nonneg (sq_nonneg _) hG2⟩
++  let Kp : ℝ≥0 := NNReal.mk (Cq ^ 2 * G2) (mul_nonneg (sq_nonneg _) hG2)
+   refine ⟨A, Kp, by dsimp [A, Cq]; positivity, ?_, ?_⟩
+   · intro X
+     calc
+@@ -181,10 +181,10 @@
+       _ ≤ ‖fderiv ℝ S (q X) - fderiv ℝ S (q Y)‖ * Cq :=
+         (fderiv ℝ S (q X) - fderiv ℝ S (q Y)).opNorm_comp_le q.toContinuousLinearMap
+       _ ≤ (G2 * dist (q X) (q Y)) * Cq :=
+-        mul_le_mul_of_nonneg_right (by simpa only [dist_eq_norm] using hSLip.dist_le_mul (q X) (q Y)) (norm_nonneg _)
++        mul_le_mul_of_nonneg_right (by simpa only [dist_eq_norm, NNReal.coe_mk] using hSLip.dist_le_mul (q X) (q Y)) (norm_nonneg _)
+       _ ≤ (G2 * (Cq * dist X Y)) * Cq :=
+         mul_le_mul_of_nonneg_right (mul_le_mul_of_nonneg_left hq hG2) (norm_nonneg _)
+-      _ = (Kp : ℝ) * dist X Y := by dsimp [Kp]; ring
++      _ = (Kp : ℝ) * dist X Y := by simp only [Kp, NNReal.coe_mk]; ring
+ 
+ /-- Pointwise reduction into the CLOSED physical cell. No continuous representative is chosen. -/
+ private theorem physical_closedCell_representative {L : ℝ} (hL : 0 < L) (X : E2) :
+@@ -199,7 +199,7 @@
+     change coordinates 2 (X + latticeVec 2 L n) i = L * Int.fract (coordinates 2 X i / L)
+     rw [map_add, coordinates_latticeVec]
+     simp only [Pi.add_apply, n, Int.cast_neg, Int.fract]
+-    field_simp [hL.ne'] <;> ring
++    field_simp [hL.ne']; ring
+   rw [he]
+   constructor
+   · exact mul_nonneg hL.le (Int.fract_nonneg _)
+@@ -273,7 +273,7 @@
+   have hdinv (X : E2) : |(d X)⁻¹| ≤ 1/c := by
+     rw [abs_of_pos (inv_pos.mpr (hdpos X))]
+     simpa only [one_div] using one_div_le_one_div_of_le hc (hdlower X)
+-  have hsq : LipschitzWith (⟨D, hD⟩ : ℝ≥0) (fun X : E2 => ‖p X‖ ^ 2) := by
++  have hsq : LipschitzWith (NNReal.mk D hD) (fun X : E2 => ‖p X‖ ^ 2) := by
+     apply LipschitzWith.of_dist_le_mul
+     intro X Y
+     have hdiff : |‖p X‖ - ‖p Y‖| ≤ (Kp : ℝ) * dist X Y :=
+@@ -289,7 +289,7 @@
+         mul_le_mul hdiff hsum (add_nonneg (norm_nonneg _) (norm_nonneg _))
+           (mul_nonneg Kp.2 dist_nonneg)
+       _ = D * dist X Y := by dsimp [D]; ring
+-  have hdlip : LipschitzWith (⟨D, hD⟩ : ℝ≥0) d := hsq.const_max c
++  have hdlip : LipschitzWith (NNReal.mk D hD) d := hsq.const_max c
+   have hrecip (X Y : E2) : |(d X)⁻¹ - (d Y)⁻¹| ≤
+       (D/(c*c)) * dist X Y := by
+     have hprod : c*c ≤ d X*d Y :=
+@@ -302,10 +302,10 @@
+       _ ≤ dist (d X) (d Y) / (c*c) :=
+         div_le_div_of_nonneg_left dist_nonneg (mul_pos hc hc) hprod
+       _ ≤ (D * dist X Y) / (c*c) :=
+-        div_le_div_of_nonneg_right (hdlip.dist_le_mul X Y) (mul_nonneg hc.le hc.le)
++        div_le_div_of_nonneg_right (by simpa only [NNReal.coe_mk] using hdlip.dist_le_mul X Y) (mul_nonneg hc.le hc.le)
+       _ = (D/(c*c)) * dist X Y := by ring
+-  let M : ℝ≥0 := ⟨A/c, div_nonneg hA hc.le⟩
+-  let K : ℝ≥0 := ⟨(Kp : ℝ)/c + (D/(c*c))*A, by positivity⟩
++  let M : ℝ≥0 := NNReal.mk (A/c) (div_nonneg hA hc.le)
++  let K : ℝ≥0 := NNReal.mk ((Kp : ℝ)/c + (D/(c*c))*A) (by positivity)
+   refine ⟨M, K, ?_, ?_⟩
+   · intro X
+     change ‖(d X)⁻¹ • p X‖ ≤ A/c
+@@ -337,7 +337,7 @@
+             (by simpa only [dist_eq_norm] using hplip.dist_le_mul X Y)
+             (norm_nonneg _) (by positivity))
+           (mul_le_mul (hrecip X Y) (hbound Y) (norm_nonneg _) (by positivity))
+-      _ = (K : ℝ)*dist X Y := by dsimp [K]; ring
++      _ = (K : ℝ)*dist X Y := by simp only [K, NNReal.coe_mk]; ring
+ 
+ private theorem normalizedFieldData {L : ℝ} (hL : 0 < L)
+     (omega : SmoothSample 2 L) (a b : ℝ) (hab : a ≤ b)

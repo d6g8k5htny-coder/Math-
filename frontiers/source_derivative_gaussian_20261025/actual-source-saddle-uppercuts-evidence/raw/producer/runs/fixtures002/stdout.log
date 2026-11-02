@@ -1,0 +1,21 @@
+SourceActualSaddleUppercuts.lean:592:28: error: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+SourceActualSaddleUppercuts.lean:592:28: error: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+SourceActualSaddleUppercuts.lean:592:28: error: This simp argument is unused:
+  ContinuousLinearMap.smul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [trigField, trigD, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceActualSaddleUppercuts.lean:604:26: error(lean.unknownIdentifier): Unknown constant `Fin.init_cons`
+SourceActualSaddleUppercuts.lean:604:2: error: `simp` made no progress
+SourceActualSaddleUppercuts.lean:734:4: error: Type mismatch: After simplification, term
+  Eq.symm (AddCircle.coe_add_period 2 (-1))
+ has type
+  True
+but is expected to have type
+  -↑1 = ↑1

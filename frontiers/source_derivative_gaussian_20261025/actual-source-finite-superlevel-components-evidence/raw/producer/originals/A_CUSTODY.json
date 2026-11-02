@@ -1,0 +1,50 @@
+{
+  "recorded_utc": "2026-10-28T18:54:51.146366+00:00",
+  "logical_id": "STAGE63-ACTUAL-SUBTYPE-LP-ORIGINAL-V1-COMPLETE",
+  "helper": "/root/actual_canonical_capture_application",
+  "full_ACK_actual_observed_UTC": "2026-10-28T18:49:45Z",
+  "final003_ACK_actual_observed_UTC": "2026-10-28T18:51:18Z",
+  "authoring_start_observed_UTC": "2026-10-28T18:53:00Z",
+  "complete_original_frozen_UTC": "2026-10-28T18:54:10Z",
+  "integrations": 1,
+  "helper_executions": 0,
+  "helper_hashes": 0,
+  "status": "Original unelaborated TEXT, no helper PASSclaim",
+  "originals": [
+    {
+      "original": "/workspace/scratch/actual-source-finite-superlevel-components-lp-text/LocalPathConnectedSection.ORIGINAL.lean.txt",
+      "immutable_retained": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/A.LocalPathConnectedSection.ORIGINAL.lean.txt",
+      "bytes": 2180,
+      "sha256": "aeb1c81e577f6f0d93e9272c00a1d75225d48e1877ec4c8bf78e60b7ae0f7dbf",
+      "origin": "Producer FIRST newly frozen complete helper original identity BEFORE ONE integration; ZEROhelperhash"
+    },
+    {
+      "original": "/workspace/scratch/actual-source-finite-superlevel-components-lp-text/CONTEXT.ORIGINAL.md",
+      "immutable_retained": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/A.CONTEXT.ORIGINAL.md",
+      "bytes": 19790,
+      "sha256": "c71f098f981c2d745b9cbc735165d27389b6e4e30044ae3283040dccba1ab899",
+      "origin": "Producer FIRST newly frozen complete helper original identity BEFORE ONE integration; ZEROhelperhash"
+    },
+    {
+      "original": "/workspace/scratch/actual-source-finite-superlevel-components-lp-text/IMPORTS.ORIGINAL.txt",
+      "immutable_retained": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/A.IMPORTS.ORIGINAL.txt",
+      "bytes": 881,
+      "sha256": "fbd75096e41d06d5fe83d927021c8fff623f9909e2e9546be2e8c0b07647f082",
+      "origin": "Producer FIRST newly frozen complete helper original identity BEFORE ONE integration; ZEROhelperhash"
+    },
+    {
+      "original": "/workspace/scratch/actual-source-finite-superlevel-components-lp-text/PROVENANCE.md",
+      "immutable_retained": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/A.PROVENANCE.md",
+      "bytes": 4250,
+      "sha256": "30d1e8203793885166f52967d16a87a61c98904db67da3141c5ff26a6bb55c30",
+      "origin": "Producer FIRST newly frozen complete helper original identity BEFORE ONE integration; ZEROhelperhash"
+    },
+    {
+      "original": "/workspace/scratch/actual-source-finite-superlevel-components-lp-text/FROZEN.json",
+      "immutable_retained": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/A.FROZEN.json",
+      "bytes": 980,
+      "sha256": "b0b278a15632ce2d7585f5f257ebd96ee555e6ab0f5afd1210600734802caa35",
+      "origin": "Producer FIRST newly frozen complete helper original identity BEFORE ONE integration; ZEROhelperhash"
+    }
+  ]
+}

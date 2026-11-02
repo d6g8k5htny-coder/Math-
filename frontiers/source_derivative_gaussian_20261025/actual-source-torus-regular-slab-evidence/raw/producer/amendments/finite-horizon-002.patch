@@ -1,0 +1,11 @@
+--- finite-horizon001/source
++++ finite-horizon002/source
+@@ -418,7 +418,7 @@
+     dsimp [D]
+     linarith
+   let zeroTime : Set.Icc (-D) D := ⟨0, by constructor <;> linarith⟩
+-  let outer : ℝ≥0 := 1 + M * ⟨D, le_of_lt hD⟩
++  let outer : ℝ≥0 := 1 + M * NNReal.mk D (le_of_lt hD)
+   have hlocal (Z : E2) :
+       ∃ alpha : E2 × ℝ → E2,
+         (∀ X ∈ Metric.closedBall Z (1 : ℝ), alpha (X, 0) = X ∧

@@ -1,0 +1,58 @@
+{
+  "contract": {
+    "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/CONTROL_CONTRACT.md",
+    "bytes": 4297,
+    "sha256": "f60c43dcfb093f9b28b511482a9b0153c5e0da4f94f958c599f8fecadb2fe227"
+  },
+  "contract_before_source_and_both_helper_implementation": true,
+  "positive_source": {
+    "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/Controls.lean",
+    "bytes": 5606,
+    "sha256": "d5c7be16340dda4ad2d4087bb69c043e4660b06df6a02b86769645bfa19d2c2b"
+  },
+  "positive_receipt": {
+    "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/controls-002/record.json",
+    "bytes": 1388,
+    "sha256": "eaed9c0dcb42ea72e266c04b12b84881ea1ce860943aca7d9f218e191358b1fb"
+  },
+  "public_controls": 12,
+  "private_control_adapters": 1,
+  "private_actual_module_noncentered_control": "noncentered_finiteGaussian_control: mean toLp![1,2,3], covariance1 with actual Matrix.PosDef.one; both AC and Dnonnull; included in35constantinventory, no researchtargetcredit",
+  "positive_scope": [
+    "literal actualrows6..8M/9..11S ordinaryXX,XY,YY",
+    "ordinary2x2detD=XX*YY-XYsquare",
+    "D1,2,3minus1 andD1,0,1one",
+    "signedLminus2r0 actualsamplinglaw nonzerotarget1..6 bothtags noPD/RCD/fiberclaim",
+    "fullselected49means andtargetfreeprincipal3..5covariance",
+    "actualselected49R3x6/50coefficientGramPosDef",
+    "actualL2r1bothendpointlaw andPD everyrawtarget",
+    "actualL2r1kernel-a.e bothdetnonnull everyrawtarget",
+    "literalquotientseparation provedintegerparity",
+    "finiteMVG0cov0Dirac0",
+    "finiteDzeroeventmass1",
+    "honestfinitecounterexampletoPDomission"
+  ],
+  "negative_source": {
+    "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/PosDefOmissionMutation.lean",
+    "bytes": 439,
+    "sha256": "b07aa16c85e6d3f6d99744343b6ffc69f0bcf319dc456f8063855037ed26e286"
+  },
+  "negative_receipt": {
+    "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/pd-omission-001/record.json",
+    "bytes": 1434,
+    "sha256": "c11f0c010c6e1c76441e2d9cb7d9bc8202b4855f7b565b4502371480b191d5c2"
+  },
+  "distinct_mutation_count": 1,
+  "mutation_attempts": 1,
+  "negative_mechanism": "DropONLYPDfromprivatefixed3finiteGaussianDnonnulladapter. Mean0/cov0 gives finiteDirac0,D0=0/fullzeroeventmass1. Passedconcretecounterproof reduces exactmutateda.e.nonnullclaim to soleFalse. Explicitlynotactualsourceconfiguration. No mixedsquareomission mutation.",
+  "sole_false_count": 1,
+  "unrelated_negative_diagnostics": 0,
+  "positive_counterexample_object_reuse": {
+    "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/build/Controls.olean",
+    "bytes": 349800,
+    "sha256": "60864229204c4053cb4de3ac734b1b423be71c956afc020c75bf966885a91e95"
+  },
+  "control_object_production_eligible": false,
+  "source_unchanged_through_qualification": true,
+  "failed_positive_attempts": "controls001 nestedvector2x2literal semireducible Finindex matching defeated det_fin_two rewrite; controls002 uses standard!!matrixnotation and det_fin_two_of PASS. All attempts/streams retained."
+}

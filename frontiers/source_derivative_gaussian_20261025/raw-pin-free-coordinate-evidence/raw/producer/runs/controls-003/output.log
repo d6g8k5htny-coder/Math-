@@ -1,0 +1,98 @@
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:123:22: error: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:123:22: error: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:123:22: error: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:123:22: error: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:123:22: error: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:123:22: error: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:124:12: error: Tactic `rfl` failed: The left-hand side
+  (iteratedFDeriv ℝ 1 (modeCoefficient 2 2 (some (⟨control57_frequency s, ⋯⟩, false))) 0) (rawDerivativeDirections 2)
+is not definitionally equal to the right-hand side
+  0
+
+case «2»
+s : Fin 4
+hd : fderiv ℝ (modeCoefficient 2 2 (some (⟨control57_frequency s, ⋯⟩, false))) 0 = 0
+hM : endpointM 0 = 0
+hS : endpointS 0 = 0
+⊢ (iteratedFDeriv ℝ 1 (modeCoefficient 2 2 (some (⟨control57_frequency s, ⋯⟩, false))) 0) (rawDerivativeDirections 2) =
+    0
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:124:12: error: Tactic `rfl` failed: The left-hand side
+  (iteratedFDeriv ℝ 1 (modeCoefficient 2 2 (some (⟨control57_frequency s, ⋯⟩, false))) 0) (rawDerivativeDirections 3)
+is not definitionally equal to the right-hand side
+  0
+
+case «3»
+s : Fin 4
+hd : fderiv ℝ (modeCoefficient 2 2 (some (⟨control57_frequency s, ⋯⟩, false))) 0 = 0
+hM : endpointM 0 = 0
+hS : endpointS 0 = 0
+⊢ (iteratedFDeriv ℝ 1 (modeCoefficient 2 2 (some (⟨control57_frequency s, ⋯⟩, false))) 0) (rawDerivativeDirections 3) =
+    0
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:124:12: error: Tactic `rfl` failed: The left-hand side
+  (iteratedFDeriv ℝ 1 (modeCoefficient 2 2 (some (⟨control57_frequency s, ⋯⟩, false))) 0) (rawDerivativeDirections 4)
+is not definitionally equal to the right-hand side
+  0
+
+case «4»
+s : Fin 4
+hd : fderiv ℝ (modeCoefficient 2 2 (some (⟨control57_frequency s, ⋯⟩, false))) 0 = 0
+hM : endpointM 0 = 0
+hS : endpointS 0 = 0
+⊢ (iteratedFDeriv ℝ 1 (modeCoefficient 2 2 (some (⟨control57_frequency s, ⋯⟩, false))) 0) (rawDerivativeDirections 4) =
+    0
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:124:12: error: Tactic `rfl` failed: The left-hand side
+  (iteratedFDeriv ℝ 1 (modeCoefficient 2 2 (some (⟨control57_frequency s, ⋯⟩, false))) 0) (rawDerivativeDirections 5)
+is not definitionally equal to the right-hand side
+  0
+
+case «5»
+s : Fin 4
+hd : fderiv ℝ (modeCoefficient 2 2 (some (⟨control57_frequency s, ⋯⟩, false))) 0 = 0
+hM : endpointM 0 = 0
+hS : endpointS 0 = 0
+⊢ (iteratedFDeriv ℝ 1 (modeCoefficient 2 2 (some (⟨control57_frequency s, ⋯⟩, false))) 0) (rawDerivativeDirections 5) =
+    0
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:122:23: error: This simp argument is unused:
+  iteratedFDeriv_zero_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [iteratedFDeriv_one_apply, hM, hS, control57_mode, hd, ContinuousLinearMap.zero_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:122:49: error: This simp argument is unused:
+  iteratedFDeriv_one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [iteratedFDeriv_zero_apply, hM, hS, control57_mode, hd, ContinuousLinearMap.zero_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:123:19: error: This simp argument is unused:
+  hd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [iteratedFDeriv_zero_apply, iteratedFDeriv_one_apply, hM, hS, control57_mode,
+    ContinuousLinearMap.zero_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:123:22: error: This simp argument is unused:
+  ContinuousLinearMap.zero_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [iteratedFDeriv_zero_apply, iteratedFDeriv_one_apply, hM, hS, control57_mode, hd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean:571:31: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`

@@ -1,0 +1,12 @@
+{
+  "status": "READONLY_EXEC_TRANSPORT_SPAWN_FAILURE_RECOVERED_WITH_FAILED_READ_ONLY_RETRY",
+  "recorded_utc": "2026-10-28T23:41:20.869652+00:00",
+  "failed_action": "cat runs/controls003/stdout.log and stderr.log",
+  "actual_error": "exec_command failed: CreateProcess { message: \"Rejected(\\\"Failed to create unified exec process: exec-server transport disconnected\\\")\" }",
+  "tool_wall_time_seconds": 12.9,
+  "failed_child_process_created": false,
+  "failure_start_end_utc_not_observed": true,
+  "recovery": "Same read-only command retried once successfully, then clock observed2026-10-28 23:40:48UTC",
+  "mathematical_worker_replays": 0,
+  "controls003_actual_failure_preserved_unchanged": true
+}

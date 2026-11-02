@@ -1,0 +1,80 @@
+{
+  "status": "FINAL_DOCUMENTARY_WORKER_AND_OUTER_ACTUALLY_CLOSED_PASS_NO_REPLAY",
+  "initial_document_freeze_utc": "2026-10-28T20:36:10.954663+00:00",
+  "worker": {
+    "receipt": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-final-package-001/receipt.json",
+    "command": ["python3", "/workspace/scratch/actual-source-quotient-saddle-collar-construct/freeze_documents.py"],
+    "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "started_utc": "2026-10-28T20:36:10.929865+00:00",
+    "ended_utc": "2026-10-28T20:36:11.045074+00:00",
+    "elapsed_seconds": 0.11469362100251601,
+    "exit_code": 0,
+    "stdout": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-final-package-001/stdout.log",
+      "bytes": 576,
+      "sha256": "0b3f0970f1423daaab5d117f063a97b6fded4ecf3e46eb53e0dd982388ddffd7",
+      "identity_origin": "Actual existing first worker-stream identity reused"
+    },
+    "stderr": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-final-package-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Actual existing first worker-stream identity reused"
+    }
+  },
+  "outer": {
+    "intent": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/documentary-outer/final-package-001/OUTER_INTENT.json",
+    "receipt": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/documentary-outer/final-package-001/OUTER_RECEIPT.json",
+    "command": ["python3", "/workspace/scratch/actual-source-quotient-saddle-collar-construct/record_run.py", "documentary-final-package-001", "python3", "/workspace/scratch/actual-source-quotient-saddle-collar-construct/freeze_documents.py"],
+    "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "started_utc": "2026-10-28T20:36:10.897458+00:00",
+    "ended_utc": "2026-10-28T20:36:11.051808+00:00",
+    "elapsed_seconds": 0.15413033300137613,
+    "exit_code": 0,
+    "stdout": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/documentary-outer/final-package-001/stdout.log",
+      "bytes": 820,
+      "sha256": "d0e8c3f5bdf3acd3219473250d1da3efe8b376f1d0324677df5beb14f6af1a10",
+      "identity_origin": "Actual existing first outer-stream identity reused"
+    },
+    "stderr": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/documentary-outer/final-package-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Actual existing first outer-stream identity reused"
+    }
+  },
+  "driver_entry": {
+    "actual_tool_chunk": "7dffc7",
+    "command": "python3 /workspace/scratch/actual-source-quotient-saddle-collar-construct/run_documentary_outer.py > /workspace/scratch/actual-source-quotient-saddle-collar-construct/documentary-outer/final-package-001/driver.stdout.log 2> /workspace/scratch/actual-source-quotient-saddle-collar-construct/documentary-outer/final-package-001/driver.stderr.log",
+    "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "exit_code": 0,
+    "tool_reported_wall_time_seconds": 0.044792352,
+    "stdout_path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/documentary-outer/final-package-001/driver.stdout.log",
+    "stdout_bytes_observed_after_exit": 0,
+    "stderr_path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/documentary-outer/final-package-001/driver.stderr.log",
+    "stderr_bytes_observed_after_exit": 0,
+    "external_driver_entry_utc": "Not instrumented at tool boundary; do not conflate with actual outer child-command UTC. Prospective original entry redirection is present."
+  },
+  "final_worker_scope_counts": {
+    "verification_calls": 13,
+    "verification_original_streams": 26,
+    "documentary_workers": 7,
+    "documentary_original_worker_streams": 14,
+    "total_closed_worker_receipts": 20,
+    "total_original_worker_streams": 40,
+    "additional_final_outer_original_streams": 2,
+    "additional_final_driver_entry_original_streams": 2,
+    "total_stream_files_across_these_scopes": 44,
+    "earlier_six_documentary_enclosing_outer_limit": "Explicitly unchanged in OUTER_CAPTURE_SCOPE_001 and OUTER_COMMAND_TRANSCRIPTIONS_001; no absent files/times fabricated."
+  },
+  "index_allowlist_identity_closure": "This ADDITIVE record extends the initial EXECUTION_RECORD_INDEX/STREAM_COUNTS/ARTIFACT_IDENTITIES/READY/PACKAGING_ALLOWLIST/FINAL_DOCUMENT_IDS by the actual final closed worker receipt, its full snapshots/streams, actual outer intent/receipt/streams and driver-entry streams. Initial pending allowlist paths now actually exist. All initial frozen outputs remain unchanged; no recursive self-hash or generator replay.",
+  "initial_package_counts": {
+    "artifact_rows": 343,
+    "historical_snapshot_bindings": 215,
+    "active_snapshot_bindings": 18,
+    "allowlist_paths": 375
+  },
+  "first_identity_of_this_additive_direct_filewrite": "Root may take its FIRST custody identity when adopting; no existing file/hash is regenerated.",
+  "mathematical_and_copy_status": "All13 mathematical calls unchanged and reusable, exactlyONE final own kernel, root eligible own object copiedONCE/all furtherSKIP. No source/ordinary/negative/math/hash replay."
+}

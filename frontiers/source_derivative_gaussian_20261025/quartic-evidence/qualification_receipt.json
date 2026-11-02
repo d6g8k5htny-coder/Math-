@@ -1,0 +1,226 @@
+{
+  "module": "SourcePinPreservingQuartic",
+  "production_path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourcePinPreservingQuartic.lean",
+  "source_sha256": "8e23717ef98518b6d701db921d1f17958c3dee2c893745cafa7aa6172f1621d9",
+  "olean_sha256": "d4cff4ad4c99947b084df20691dfc1228e9f46710faf52d9f28f7e3d57a97f72",
+  "completed_utc": "2026-10-26T01:14:06.949594+00:00",
+  "frozen_contract_commit": "fa7c043",
+  "contract_path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SOURCE_PIN_PRESERVING_QUARTIC.md",
+  "contract_sha256": "4995b209e6c0244a52d121d6990c2057455c954140654fed31a962824777cfa1",
+  "analytic_candidate_commit": "27c9d92",
+  "analytic_candidate_path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/curvature-evidence/actual-quartic-transfer/PROOF_CANDIDATE.md",
+  "analytic_candidate_sha256": "e501b80eed7702005d9dacbb9711fc030cf84716f464abbf124d98cc90c394dd",
+  "native_canonical_math_pr": "Math#514",
+  "native_canonical_math_pr_id": "6405647183",
+  "compile": "/workspace/scratch/pin-preserving-quartic-implementation/compile11.json",
+  "compile_raw_log": "/workspace/scratch/pin-preserving-quartic-implementation/compile11.log",
+  "named_kernel_replay_count": 1,
+  "kernel": "/workspace/scratch/pin-preserving-quartic-implementation/kernel.json",
+  "kernel_raw_log": "/workspace/scratch/pin-preserving-quartic-implementation/kernel.log",
+  "public_inventory": "/workspace/scratch/pin-preserving-quartic-implementation/public_targets.json",
+  "public_target_count": 141,
+  "private_declarations_replayed": 42,
+  "axiom_audit": "/workspace/scratch/pin-preserving-quartic-implementation/axioms.json",
+  "axiom_raw_log": "/workspace/scratch/pin-preserving-quartic-implementation/axioms.log",
+  "axiom_summary": "/workspace/scratch/pin-preserving-quartic-implementation/axiom_summary.json",
+  "observed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "controls": "/workspace/scratch/pin-preserving-quartic-implementation/quartic_control_receipt.json",
+  "positive_control_exit": 0,
+  "negative_controls_expected_exit": 1,
+  "controls_source_and_artifact_equal_final": true,
+  "key_public_exports": [
+    {
+      "name": "I4SourcePinPreservingQuartic.source_axial_third_error",
+      "kind": "theorem",
+      "line": 607
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.source_low_pin_coefficients",
+      "kind": "theorem",
+      "line": 660
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceRawRadius_le_global",
+      "kind": "theorem",
+      "line": 1055
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceScaledGradient_hasFDerivAt",
+      "kind": "theorem",
+      "line": 1107
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceScaledGradient_eq_gradient",
+      "kind": "theorem",
+      "line": 1868
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_C1_comparison",
+      "kind": "theorem",
+      "line": 1950
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_cutoff_tolerance",
+      "kind": "theorem",
+      "line": 1976
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_curvature_threshold",
+      "kind": "theorem",
+      "line": 1996
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_C1_estimates",
+      "kind": "theorem",
+      "line": 2012
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_width_geometry",
+      "kind": "theorem",
+      "line": 2062
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_cutoff_estimates",
+      "kind": "theorem",
+      "line": 2091
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_weighted_C1_estimates",
+      "kind": "theorem",
+      "line": 2113
+    },
+    {
+      "name": "I4SourcePinPreservingQuartic.sourceQuartic_weighted_cutoff_estimates",
+      "kind": "theorem",
+      "line": 2127
+    }
+  ],
+  "author_side_helper_lineage": [
+    {
+      "agent": "/root/dm2_landed_composition",
+      "provider_family": "OpenAI/Codex",
+      "contribution": "Sole production owner: actual modewise derivative permutation, arbitrary-line gradient/Hessian Taylor chains, actual Euclidean remainder bounds, raw radius, potential-gradient identity, uniform MAX-C1 comparison, certificate size/ball bounds, base and weighted a.e. applications, new-module qualification."
+    },
+    {
+      "agent": "/root/normalizer_palm_research",
+      "provider_family": "OpenAI/Codex",
+      "contribution": "Generic genuine sharp Taylor/Lagrange remainder, symmetric Peano moment and cancellation, endpoint algebra, actual axial and low-pin coefficient bounds.",
+      "sources": [
+        {
+          "path": "/workspace/scratch/actual-quartic-transfer/lean/SymmetricPeano.lean",
+          "sha256": "e155326a61a86aa14696a0aec797e2f7e8c13a368b15af269fa4cd0a979e3eab"
+        },
+        {
+          "path": "/workspace/scratch/actual-quartic-transfer/lean/EndpointCoefficients.lean",
+          "sha256": "90d018783844623c9fae4b1a309d2ae5de8c022ccc08bd5192f843cc685febde"
+        },
+        {
+          "path": "/workspace/scratch/actual-quartic-transfer/lean/ScalarTaylorRemainder.lean",
+          "sha256": "4753458af4bdcce2e9d34872d28db9e57ea07ca8fff6b85d4e1eec197fd50059"
+        },
+        {
+          "path": "/workspace/scratch/actual-quartic-transfer/lean/ActualCurveBounds.lean",
+          "sha256": "0cc08b5f5585bdb5a295f41cf75b0c1064a4803091d899575687d16e9337fb6f"
+        },
+        {
+          "path": "/workspace/scratch/actual-quartic-transfer/lean/ActualAxialCoefficients.lean",
+          "sha256": "023cc6344d0182d75abd073cca9e352b57cc4adccf90e6c4c87920adfa39729e"
+        }
+      ],
+      "actual_records": [
+        "/workspace/scratch/actual-quartic-transfer/lean/symmetric-peano-02.json",
+        "/workspace/scratch/actual-quartic-transfer/lean/endpoint-coefficients-02.json",
+        "/workspace/scratch/actual-quartic-transfer/lean/scalar-taylor-03.json",
+        "/workspace/scratch/actual-quartic-transfer/lean/actual-curve-01.json",
+        "/workspace/scratch/actual-quartic-transfer/lean/actual-axial-02.json"
+      ]
+    },
+    {
+      "agent": "/root/dm2_landed_composition/peano_strategy",
+      "provider_family": "OpenAI/Codex",
+      "contribution": "Pi-to-Euclidean and operator norm bridges, actual gradient/Hessian derivative bridge, exact cutoff arithmetic, literal quartic Jacobian, coefficient-error norm bounds, final controls.",
+      "sources": [
+        {
+          "path": "/workspace/scratch/pin-preserving-quartic-implementation/EuclideanBridge.lean",
+          "sha256": "a72c18ff9ed263078a30d8edf30bed0281477bfe41fc0afcb0fc994f1ee782c3"
+        },
+        {
+          "path": "/workspace/scratch/pin-preserving-quartic-implementation/GradientBridge.lean",
+          "sha256": "cec84c5924609622996ea9e183c4973d862a15c6ef55ae86e58607b02a643d82"
+        },
+        {
+          "path": "/workspace/scratch/pin-preserving-quartic-implementation/CutoffTolerance.lean",
+          "sha256": "661419194a84ecca3976ed417f88e77efe3ab1f095731516dc73f124371f149d"
+        },
+        {
+          "path": "/workspace/scratch/pin-preserving-quartic-implementation/QuarticJacobian.lean",
+          "sha256": "b6f873930c73c0a6150e6f0fb0daa3eed7aa29ad2ceefab6763ff2aed00c1793"
+        },
+        {
+          "path": "/workspace/scratch/pin-preserving-quartic-implementation/CoefficientErrorBounds.lean",
+          "sha256": "1c4e67d4980a7595c10f4843b5967b0fa6d6f76bb39853b077cd92105442c27f"
+        }
+      ],
+      "actual_records": [
+        "/workspace/scratch/pin-preserving-quartic-implementation/euclidean_norm_final.json",
+        "/workspace/scratch/pin-preserving-quartic-implementation/gradient_final.json",
+        "/workspace/scratch/pin-preserving-quartic-implementation/cutoff_final.json",
+        "/workspace/scratch/pin-preserving-quartic-implementation/jacobian_final.json",
+        "/workspace/scratch/pin-preserving-quartic-implementation/coefficient_final.json",
+        "/workspace/scratch/pin-preserving-quartic-implementation/quartic_control_receipt.json"
+      ]
+    },
+    {
+      "agent": "/root/regression_kernel",
+      "provider_family": "OpenAI/Codex",
+      "contribution": "Actual finite multilinear coefficient tables and exact ordinary-Taylor versus LM001 polynomial/Jacobian differences.",
+      "sources": [
+        {
+          "path": "/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean",
+          "sha256": "2b325b397e8757f52a6f85507842d921fa1d555ca3689f411f45ab2a248100cd"
+        },
+        {
+          "path": "/workspace/scratch/pin-preserving-quartic-implementation/NewMismatch.lean",
+          "sha256": "ccd87db756855dec6df784099e5973d5a97bdb7ae738467fddd8bc4d7ec08f47"
+        }
+      ],
+      "actual_records": [
+        "/workspace/scratch/pin-preserving-quartic-implementation/coefficient_handoff.json"
+      ]
+    }
+  ],
+  "scientific_review_credit": 0,
+  "reuse_instruction": "Completed applicable verification is reusable. Do not rerun unchanged baselines, this named replay, the axiom audit, or controls solely because of handoff/new agent/session. Any further verification must identify a new change or uncovered obligation and limit scope. Process/scientific review is separate.",
+  "fixed_dependency_reused": {
+    "module": "SourcePinCurvatureBounds",
+    "source_sha256": "b19a673aa594d1d5ef929cc598f0a142efb56c10b78c4634c92a8a749d1f1d51",
+    "receipt": "/workspace/scratch/pin-curvature-implementation/qualification_receipt.json",
+    "rechecked": false
+  },
+  "baseline_reuse": "All unchanged qualified modules and 23 exact inputs consumed from cached artifacts; no unchanged module builds, kernel replays, tests, or source edits.",
+  "scope_notes": [
+    "Raw U=(a,w,z,c40,c31,c22,c13,c04) and R0 exclude q; R0<=5R is explicit.",
+    "Actual fifth derivative Taylor bounds are derived from C-infinity and global Gamma5. No desired Taylor remainder, field law, covariance limit, or coefficient error is a final mathematical premise.",
+    "Euclidean vector and induced operator norms are explicit. Uniform pointwise max-of-two bounds implement the exact LM004 maximum C1 convention without an unnecessary supremum object.",
+    "Final base/weighted a.e. applications require only actual L!=0 and fixed b, deriving a sufficiently small radius and actual support. No unconditional all-radius pin support is asserted.",
+    "Geometry exports prove exact width/radius size bounds and containment of the strip and endpoint balls in Euclidean ball2. No quotient torus transport or chart injectivity theorem is claimed."
+  ],
+  "not_claimed": [
+    "LM004 robustness validity",
+    "measurable selected-branch capture or noncapture inclusion",
+    "gradient-flow or quotient-torus chart transport",
+    "point-process Palm identity",
+    "Morse/elder/counting or P0.2 closure",
+    "different-family scientific review",
+    "overall parent research completion"
+  ],
+  "production_edits": [
+    "SourcePinPreservingQuartic.lean"
+  ],
+  "shared_manifests_or_lakefile_edited": false,
+  "history": "All failed intermediate new-scope compilation/control logs are retained. Final compile11/kernel/audit/control raw logs and actual before/after hashes are unreconstructed execution evidence."
+}

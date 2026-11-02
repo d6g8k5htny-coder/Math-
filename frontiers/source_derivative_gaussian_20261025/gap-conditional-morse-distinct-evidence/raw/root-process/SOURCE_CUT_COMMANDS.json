@@ -1,0 +1,92 @@
+[
+  {
+    "label": "SOURCE_CUT_PARENT",
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T15:05:15.920109+00:00",
+    "ended_utc": "2026-10-28T15:05:15.922631+00:00",
+    "exit_code": 0,
+    "stdout": "SOURCE_CUT_PARENT.stdout",
+    "stderr": "SOURCE_CUT_PARENT.stderr"
+  },
+  {
+    "label": "SOURCE_CUT_STAGED_BEFORE",
+    "command": [
+      "git",
+      "diff",
+      "--cached",
+      "--name-only"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T15:05:15.922833+00:00",
+    "ended_utc": "2026-10-28T15:05:15.927605+00:00",
+    "exit_code": 0,
+    "stdout": "SOURCE_CUT_STAGED_BEFORE.stdout",
+    "stderr": "SOURCE_CUT_STAGED_BEFORE.stderr"
+  },
+  {
+    "label": "SOURCE_CUT_ADD",
+    "command": [
+      "git",
+      "add",
+      "--",
+      "frontiers/source_derivative_gaussian_20261025/SourceGapConditionalMorseDistinct.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T15:05:15.927759+00:00",
+    "ended_utc": "2026-10-28T15:05:15.941763+00:00",
+    "exit_code": 0,
+    "stdout": "SOURCE_CUT_ADD.stdout",
+    "stderr": "SOURCE_CUT_ADD.stderr"
+  },
+  {
+    "label": "SOURCE_CUT_COMMIT",
+    "command": [
+      "git",
+      "commit",
+      "--only",
+      "-m",
+      "Prove global Morse distinctness for the actual positive-gap law",
+      "--",
+      "frontiers/source_derivative_gaussian_20261025/SourceGapConditionalMorseDistinct.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T15:05:15.941930+00:00",
+    "ended_utc": "2026-10-28T15:05:16.123190+00:00",
+    "exit_code": 0,
+    "stdout": "SOURCE_CUT_COMMIT.stdout",
+    "stderr": "SOURCE_CUT_COMMIT.stderr"
+  },
+  {
+    "label": "SOURCE_CUT_HEAD",
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T15:05:16.123337+00:00",
+    "ended_utc": "2026-10-28T15:05:16.125477+00:00",
+    "exit_code": 0,
+    "stdout": "SOURCE_CUT_HEAD.stdout",
+    "stderr": "SOURCE_CUT_HEAD.stderr"
+  },
+  {
+    "label": "SOURCE_CUT_BLOB",
+    "command": [
+      "git",
+      "rev-parse",
+      "3515bc2144c5d47a197238c1a46bbdd3a50e146b:frontiers/source_derivative_gaussian_20261025/SourceGapConditionalMorseDistinct.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T15:05:16.125614+00:00",
+    "ended_utc": "2026-10-28T15:05:16.128353+00:00",
+    "exit_code": 0,
+    "stdout": "SOURCE_CUT_BLOB.stdout",
+    "stderr": "SOURCE_CUT_BLOB.stderr"
+  }
+]

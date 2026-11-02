@@ -1,0 +1,7 @@
+# New55 qualification scope
+
+Applicable accepted49/53 and earlier public source/derivative/Gaussian/parameter/Gram/topology/kernel verification is reused unchanged. New obligations are the literal joint12-to6 split/residual/translation, full mean and deterministic covariance transport, actual defined sampling pushforward, actual-R five-separation PD composition and the actual equal-point zero-cross-block mutation. Only the new module and its new controls/inventory/negative harness receive qualification. No old checks/hash/kernel/control/audit campaign, no helper execution, no standalone probe or full Lake build.
+
+Every develop attempt is of the actual complete new module and retains its exact production source and harness snapshots and full stdout/stderr. Develop003 compiler PANIC and kernel deterministic timeout are failed strict compilation evidence; they are NOT a run of the final own-module leanchecker. Exactly one final named own-module leanchecker remains required after successful frozen source. No session/environment/label freshness compilation occurs.
+
+Controls-only candidate S is public49's one-point full six-jet covariance at L2,r0,x10, positive under xM/xS separation. The equal-point JOINT6 covariance is singular and is never supplied as PosDef. The fixed3+3 helper takes that one-point S, extracts its first3 principal PSD block and repeats it with cross0. Separate controls match candidate diagonal blocks to actual55 covariance and identify actual positive cross variance through the public49 marginal law.

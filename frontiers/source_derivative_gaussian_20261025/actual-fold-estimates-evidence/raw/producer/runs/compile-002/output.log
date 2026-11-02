@@ -1,0 +1,7 @@
+SourceAdaptiveFoldEstimates.lean:283:44: error: unsolved goals
+case snd
+V : ℝ × ℝ → ℝ
+hV : ContDiff ℝ ∞ V
+p u v w : ℝ × ℝ
+i : Fin (2 + 1)
+⊢ (Fin.snoc ![u, v] w i).2 = (![u, v, w] i).2

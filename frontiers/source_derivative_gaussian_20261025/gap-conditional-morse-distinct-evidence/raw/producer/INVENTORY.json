@@ -1,0 +1,861 @@
+{
+  "status": "PASS",
+  "selector": "Lean env.getModuleIdxFor? constant equals env.getModuleIdx? SourceGapConditionalMorseDistinct; no namespace-only filter",
+  "receipt": "runs/inventory-001/receipt.json",
+  "stdout": "runs/inventory-001/stdout.log",
+  "stderr": "runs/inventory-001/stderr.log",
+  "total_actual_module_constants": 167,
+  "classification_counts": {
+    "authored_private": 133,
+    "compiler_generated_foreign_namespace": 2,
+    "compiler_generated_private": 31,
+    "authored_public_proposition": 1
+  },
+  "constant_kind_counts": {
+    "theorem": 149,
+    "definition": 18
+  },
+  "axioms_allowed": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "axiom_method": "collectAxioms for EVERY actual module-owned constant, including all private/definitions/generated/foreign; harness throws on any other axiom.",
+  "records": [
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.inertia_control_zero_diagonal_saddle",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_clm_isInvertible",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_dummy5_kernel_vector",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "I4SourceRemoteJetWitness.remoteJetCoefficient.eq_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_foreign_namespace"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.inertia_of_symmetric_matrix",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.source_directionY_eq",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_project5_apply",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.RemotePair",
+      "kind": "definition",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_dummy3_kernel_vector",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.sourceGradient_eval_measurable",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.tieConstraint",
+      "kind": "definition",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_composite_kills",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_fixed_parameter_derivative",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.rowResponse._proof_3",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_theta.eq_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.gradientRows_eq",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_project3_apply",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.constraintSquare_continuous",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.remote_open",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.sourceDet_projection",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.tie_frame",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.tieRows.eq_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.gradientRows.eq_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.freeShift_derivative",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.actual_source_normal_equation",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_constraint_parameters_image",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.inertia_control_negative",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.level_constraint_smooth",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.rowResponse._proof_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_project5._proof_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.actual_nonorthogonal_normalization._simp_1_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.rawKernel_tie_compact",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.ae_forall_of_countable_subcharts",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.geometry59_projection_eq_lattice",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_project3._proof_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.finiteFrame_extend",
+      "kind": "definition",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_theta_differentiable",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.Remote",
+      "kind": "definition",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.constraintSquare.eq_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.finiteFrame_pair_lc",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.levelRows_eq",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.rawKernel_remote_morse",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_dummy5_image_inclusion",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.finiteFrame_independent_of_rightInverse",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.finiteFrame_pair_sum",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.tieConstraint.eq_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.tieRows_eq",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_dummy_image_inclusion",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_project3",
+      "kind": "definition",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.actual_lattice_translate_control",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_gaussian5_ac",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.finiteFrame_extend_injective",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.projection_eq_torusDist_zero._abel_1_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_project3_embed3",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_singular_image_null",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.inertia_control_positive",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.finitePairing_linearCombination",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.mode_smooth",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_level_null",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "I4SourceTwoRemoteFirstJetWitness.twoRemoteFirstJetCoefficient.eq_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_foreign_namespace"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_morse_null",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.countable_compact_response_subcharts",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_dummy3_image_null",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.countable_compact_local_ae",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.level_response_smooth",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.finiteShift_derivative",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_theta",
+      "kind": "definition",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.rowResponse_smooth",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_embed3",
+      "kind": "definition",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_dummy3_image_inclusion",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.rawKernel_null_of_sections._simp_1_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.finitePairing_sub_observation",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.rawKernel_morse_compact._simp_1_2",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.actual_tie_dummy_control",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.finiteFrame_extend_gram",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.rawKernel_level_compact._simp_1_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.actual_nonorthogonal_normalization._simp_1_2",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.rawKernel_morse_compact._simp_1_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.finiteFrame_response_bijective_of_same_span",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.tie_constraint_smooth",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.rawKernel_ae_of_sections",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.finiteFrame_pair_single",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.Point2",
+      "kind": "definition",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.rawKernel_null_of_sections",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.rowResponse",
+      "kind": "definition",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_tie_null",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.finiteFrame_response_bijective_of_same_span._simp_1_2",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_theta_section",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.critical_values_distinct",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.finiteFrame_extend._proof_2",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.Point4",
+      "kind": "definition",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.rawKernel_gap_morseDistinct",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.finiteFrame_response_apply",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.finiteFrame_pair_sub_left",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_gaussian3_ac",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.sourceDet",
+      "kind": "definition",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.endpoint_determinants",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_normal_equation_shifted",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.rawKernel_tie_compact._simp_1_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_gaussian_pi_ac",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.inertia_of_symmetric_matrix._simp_1_2",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_dummy3_derivative_kernel",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.actual_nonorthogonal_normalization",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_full_normal_equation",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.positive_discriminant_det",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.finiteFrame_of_linearIndependent",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.projection_eq_torusDist_zero",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.finiteFrame_extend._proof_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_dummy5_derivative_kernel",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.freeShift_value",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.rowResponse.eq_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_dummy3_det_zero",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.small_pins_separate",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.finiteFrame_extend_off",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.level_eval_measurable",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.constraintSquare",
+      "kind": "definition",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.morse_discriminant_nonneg",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.source_directionX_eq",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "I4SourceGapConditionalMorseDistinct.sourceGapLaw_ae_isMorseDistinct",
+      "kind": "theorem",
+      "classification": "authored_public_proposition"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.rawKernel_level_compact",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.inertia_of_symmetric_matrix._proof_1_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.freeShift_gradient_component",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.tie_eval_measurable",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.freeShift_level",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_dummy_image_null",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.inertia_control_axis_saddle",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_project5_embed5",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_embed3._proof_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.constraintSquare_pos_iff",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.tie_response_smooth",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_dummy5_image_null",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_project5",
+      "kind": "definition",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.rowResponse_apply",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_dummy5_det_zero",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.rawKernel_morse_compact",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_embed5",
+      "kind": "definition",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.gradient_frame",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.actual_level_dummy_control",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.finiteFrame_of_rightInverse",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.gradient_response_smooth",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.finitePairing_lift",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.freeShift_gradient",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.levelRows.eq_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.actual_inertia_of_source_det",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.freeShift_tie",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.rowResponse._proof_2",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.finiteFrame_independent_of_rightInverse._simp_1_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.response_neighborhood",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.finiteFrame_of_linearIndependent._simp_1_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.source_jets_of_projection_eq",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.levelConstraint.eq_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.finitePairing_hasSum",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.finiteFrame_extend_on",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_det_zero_of_killed_nonzero",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.tieRows",
+      "kind": "definition",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.finiteFrame_response_bijective_of_same_span._simp_1_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.gradientRows",
+      "kind": "definition",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.geometry59_spectral_quadratic",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.levelConstraint",
+      "kind": "definition",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_theta_singular",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.remotePair_open",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.levelRows",
+      "kind": "definition",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.level_frame",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.rawKernel_remote_level",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.rawKernel_remote_tie",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.incidence_constraint_unique",
+      "kind": "theorem",
+      "classification": "authored_private"
+    },
+    {
+      "name": "_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.gradientRows._proof_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_private"
+    }
+  ]
+}

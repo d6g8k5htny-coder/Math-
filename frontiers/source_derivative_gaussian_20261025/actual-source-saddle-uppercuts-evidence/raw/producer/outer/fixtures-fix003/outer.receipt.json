@@ -1,0 +1,19 @@
+{
+  "label": "fixtures-fix003",
+  "command_argv": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/record_run.py",
+    "fixtures-fix003",
+    "documentary",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/fix_fixtures003.py"
+  ],
+  "cwd": "/workspace/scratch/actual-source-saddle-uppercuts-construct",
+  "start_utc": "2026-10-28T21:33:50.569562+00:00",
+  "end_utc": "2026-10-28T21:33:50.693571+00:00",
+  "elapsed_seconds": 0.12401134100218769,
+  "exit_code": 0,
+  "stdout": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/fixtures-fix003/outer.stdout.log",
+  "stderr": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/fixtures-fix003/outer.stderr.log"
+}

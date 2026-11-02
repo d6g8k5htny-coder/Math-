@@ -1,0 +1,15 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFiniteTrig.lean:106:2: error: linarith failed to find a contradiction
+case h1
+L : ℝ
+t s : TrigTerm
+x : Fin 2 → ℝ
+h :
+  2 * Real.cos (phase 2 L t.frequency x + t.offset) * Real.cos (phase 2 L s.frequency x + s.offset) =
+    Real.cos (phase 2 L t.frequency x + t.offset - (phase 2 L s.frequency x + s.offset)) +
+      Real.cos (phase 2 L t.frequency x + t.offset + (phase 2 L s.frequency x + s.offset))
+a✝ :
+  t.coeff * s.coeff / 2 * Real.cos (phase 2 L t.frequency x + t.offset - (phase 2 L s.frequency x + s.offset)) +
+      t.coeff * s.coeff / 2 * Real.cos (phase 2 L t.frequency x + t.offset + (phase 2 L s.frequency x + s.offset)) <
+    t.coeff * Real.cos (phase 2 L t.frequency x + t.offset) * (s.coeff * Real.cos (phase 2 L s.frequency x + s.offset))
+⊢ False
+failed

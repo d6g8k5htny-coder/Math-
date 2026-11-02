@@ -1,0 +1,18 @@
+{
+  "author": "OpenAI/Codex /root/adaptive_fold_formal_preflight",
+  "assignment_from": "/root",
+  "canonical_pickup": "Math5146408199528",
+  "binding_brief": "frontiers/source_derivative_gaussian_20261025/SOURCE_ADAPTIVE_FOLD_SCALAR_BARRIER.md",
+  "brief_read_before_code": true,
+  "semantic_freeze": "e2c819cf8161f0dc37de113f0157a058ba0fd2ec",
+  "wording_correction": "e88bb14225fb18d11201cb63f733b61ef8826855",
+  "owned_source": [
+    "AdaptiveFoldScalarBarrier.lean"
+  ],
+  "subagents": [],
+  "old_source_edits": [],
+  "lakefile_manifest_edits": [],
+  "commits_or_posts": [],
+  "scope": "Normalized one-dimensional analytic step only. Existing generic convex/interpolation facts and topological elder results reused as completed evidence; direct mathlib APIs instantiate the new normalized component.",
+  "time_correction": "A producer progress message mistakenly attributed implementation to04:33 UTC. That estimate was wrong. The first recorded compile began2026-10-26T04:26:46.593278+00:00, and all timing claims in this package come from unchanged receipt timestamps. The raw message/receipts are not rewritten."
+}

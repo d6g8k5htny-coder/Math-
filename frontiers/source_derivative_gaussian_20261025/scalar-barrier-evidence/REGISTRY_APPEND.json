@@ -1,0 +1,280 @@
+{
+  "module": "AdaptiveFoldScalarBarrier",
+  "source": "AdaptiveFoldScalarBarrier.lean",
+  "written_targets": [
+    {
+      "name": "AdaptiveFoldScalar.J",
+      "kernel_kind": "definition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit": "raw/runs/inventory-01/output.log",
+      "source_kind": "def",
+      "line": 24,
+      "classification": "explicit_written"
+    },
+    {
+      "name": "AdaptiveFoldScalar.q",
+      "kernel_kind": "definition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit": "raw/runs/inventory-01/output.log",
+      "source_kind": "def",
+      "line": 27,
+      "classification": "explicit_written"
+    },
+    {
+      "name": "AdaptiveFoldScalar.ScalarBarrier",
+      "kernel_kind": "inductive",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit": "raw/runs/inventory-01/output.log",
+      "source_kind": "structure",
+      "line": 30,
+      "classification": "explicit_written"
+    },
+    {
+      "name": "AdaptiveFoldScalar.q_hasDerivAt",
+      "kernel_kind": "theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit": "raw/runs/inventory-01/output.log",
+      "source_kind": "theorem",
+      "line": 47,
+      "classification": "explicit_written"
+    },
+    {
+      "name": "AdaptiveFoldScalar.primitive_hasDerivAt",
+      "kernel_kind": "theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit": "raw/runs/inventory-01/output.log",
+      "source_kind": "theorem",
+      "line": 51,
+      "classification": "explicit_written"
+    },
+    {
+      "name": "AdaptiveFoldScalar.integral_q_left",
+      "kernel_kind": "theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit": "raw/runs/inventory-01/output.log",
+      "source_kind": "theorem",
+      "line": 57,
+      "classification": "explicit_written"
+    },
+    {
+      "name": "AdaptiveFoldScalar.integral_q_right",
+      "kernel_kind": "theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit": "raw/runs/inventory-01/output.log",
+      "source_kind": "theorem",
+      "line": 67,
+      "classification": "explicit_written"
+    },
+    {
+      "name": "AdaptiveFoldScalar.scalarBarrier_of_convex",
+      "kernel_kind": "theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit": "raw/runs/inventory-01/output.log",
+      "source_kind": "theorem",
+      "line": 78,
+      "classification": "explicit_written"
+    },
+    {
+      "name": "AdaptiveFoldScalar.scalarBarrier_of_secondDerivative",
+      "kernel_kind": "theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit": "raw/runs/inventory-01/output.log",
+      "source_kind": "theorem",
+      "line": 231,
+      "classification": "explicit_written"
+    }
+  ],
+  "generated_accessor_targets_separate": [
+    {
+      "name": "AdaptiveFoldScalar.ScalarBarrier.middle_comparison",
+      "kernel_kind": "theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit": "raw/runs/inventory-01/output.log",
+      "classification": "generated_field_accessor"
+    },
+    {
+      "name": "AdaptiveFoldScalar.ScalarBarrier.left_comparison",
+      "kernel_kind": "theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit": "raw/runs/inventory-01/output.log",
+      "classification": "generated_field_accessor"
+    },
+    {
+      "name": "AdaptiveFoldScalar.ScalarBarrier.right_comparison",
+      "kernel_kind": "theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit": "raw/runs/inventory-01/output.log",
+      "classification": "generated_field_accessor"
+    },
+    {
+      "name": "AdaptiveFoldScalar.ScalarBarrier.middle_neg",
+      "kernel_kind": "theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit": "raw/runs/inventory-01/output.log",
+      "classification": "generated_field_accessor"
+    },
+    {
+      "name": "AdaptiveFoldScalar.ScalarBarrier.left_pos",
+      "kernel_kind": "theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit": "raw/runs/inventory-01/output.log",
+      "classification": "generated_field_accessor"
+    },
+    {
+      "name": "AdaptiveFoldScalar.ScalarBarrier.right_pos",
+      "kernel_kind": "theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit": "raw/runs/inventory-01/output.log",
+      "classification": "generated_field_accessor"
+    },
+    {
+      "name": "AdaptiveFoldScalar.ScalarBarrier.left_deriv",
+      "kernel_kind": "theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit": "raw/runs/inventory-01/output.log",
+      "classification": "generated_field_accessor"
+    },
+    {
+      "name": "AdaptiveFoldScalar.ScalarBarrier.right_deriv",
+      "kernel_kind": "theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit": "raw/runs/inventory-01/output.log",
+      "classification": "generated_field_accessor"
+    },
+    {
+      "name": "AdaptiveFoldScalar.ScalarBarrier.left_gain",
+      "kernel_kind": "theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit": "raw/runs/inventory-01/output.log",
+      "classification": "generated_field_accessor"
+    },
+    {
+      "name": "AdaptiveFoldScalar.ScalarBarrier.right_gain",
+      "kernel_kind": "theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit": "raw/runs/inventory-01/output.log",
+      "classification": "generated_field_accessor"
+    },
+    {
+      "name": "AdaptiveFoldScalar.ScalarBarrier.left_barrier",
+      "kernel_kind": "theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit": "raw/runs/inventory-01/output.log",
+      "classification": "generated_field_accessor"
+    },
+    {
+      "name": "AdaptiveFoldScalar.ScalarBarrier.right_older",
+      "kernel_kind": "theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit": "raw/runs/inventory-01/output.log",
+      "classification": "generated_field_accessor"
+    },
+    {
+      "name": "AdaptiveFoldScalar.ScalarBarrier.ceiling",
+      "kernel_kind": "theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit": "raw/runs/inventory-01/output.log",
+      "classification": "generated_field_accessor"
+    },
+    {
+      "name": "AdaptiveFoldScalar.ScalarBarrier.floor",
+      "kernel_kind": "theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit": "raw/runs/inventory-01/output.log",
+      "classification": "generated_field_accessor"
+    }
+  ],
+  "suggestion": "Append the six explicit theorem names to the written-proof target list; classify the two definitions and Prop structure separately. If generated accessors are registered, append their fourteen names under a separate generated-accessor classification. Do not silently conflate 9 written / 23 designed exports / 33 complete compiled names."
+}

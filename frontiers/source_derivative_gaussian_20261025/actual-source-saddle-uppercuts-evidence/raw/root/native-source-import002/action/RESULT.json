@@ -1,0 +1,14 @@
+{
+  "operation": "import-one-native-source65-unsigned-commit",
+  "started_utc": "2026-10-28T21:55:35.360851+00:00",
+  "ended_utc": "2026-10-28T21:55:35.383556+00:00",
+  "elapsed_seconds": 0.02269798799898126,
+  "status": "FAIL_PRESERVED_NO_ALTERNATE_CANDIDATE_OR_AUTOMATIC_RETRY",
+  "exception": "RuntimeError('Candidate SHA DOES NOT MATCH native SHA; STOP before ANY local HEAD/index movement. No guess loop.')",
+  "matching_native_object_imported": false,
+  "local_ref_cas_completed": false,
+  "source_index_sync_completed": false,
+  "remote_ref_write": false,
+  "constructed_object_sha": "376df5c1029ce3a39e78b7bafe97a49061145847",
+  "partial_operation_rule": "Inspect actual receipts/events; if CAS succeeded but index sync failed, recover ONLY that affected operation. Never repeat new-object construction or move a different parent silently."
+}

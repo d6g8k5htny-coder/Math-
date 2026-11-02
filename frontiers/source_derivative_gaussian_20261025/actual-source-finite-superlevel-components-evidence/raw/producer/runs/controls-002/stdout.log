@@ -1,0 +1,30 @@
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:85:23: error: Type mismatch
+  Pi.single i ?m.12 j
+has type
+  ?m.7 j
+but is expected to have type
+  (fun x => ℝ) j
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:184:4: error: Type mismatch: After simplification, term
+  he
+ has type
+  (physicalAxis i).ofLp i = 0
+but is expected to have type
+  False
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:193:25: error: Type mismatch: After simplification, term
+  he
+ has type
+  s * (physicalAxis 0).ofLp 0 = t * (physicalAxis 1).ofLp 0
+but is expected to have type
+  s = 0
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:203:4: error: Type mismatch: After simplification, term
+  mul_neg_of_neg_of_pos ha (sq_pos_of_ne_zero hs)
+ has type
+  a * s ^ 2 < 0
+but is expected to have type
+  a * (s * (physicalAxis 0).ofLp 0) ^ 2 + b * (s * (physicalAxis 0).ofLp 1) ^ 2 < 0
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:208:4: error: Type mismatch: After simplification, term
+  mul_pos hb (sq_pos_of_ne_zero hs)
+ has type
+  0 < b * s ^ 2
+but is expected to have type
+  0 < a * (s * (physicalAxis 1).ofLp 0) ^ 2 + b * (s * (physicalAxis 1).ofLp 1) ^ 2

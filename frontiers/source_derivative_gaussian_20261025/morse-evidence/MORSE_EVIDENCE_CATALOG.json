@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "scope_id": "SOURCE_MORSE_INCIDENCE_ONLY_20261026",
+  "role": "Metadata-only registration package from existing completed proof/source/artifact evidence",
+  "packaged_at_utc": "2026-10-26T02:56:23.369896+00:00",
+  "scientific_effect": "NONE",
+  "goal_status": "FULL_ORIGINAL_RESEARCH_GOAL_ACTIVE",
+  "mathematical_qualification": "COMPLETE_APPLICABLE_AUTHOR_EVIDENCE_REUSED_WITHOUT_RERUN",
+  "membership_file": "MORSE_MEMBERSHIP.json",
+  "scope_file": "MORSE_SCOPE.md",
+  "public_inventory": "MORSE_PUBLIC_INVENTORY.json",
+  "public_proof_names_append": "PUBLIC_PROOF_NAMES_APPEND.txt",
+  "public_registry_append": "PUBLIC_PROOF_NAMES_APPEND.json",
+  "public_registry_append_count": 99,
+  "append_plaintext_sha256": "4ab40e48c4552104aca74d7c5e5cc27a141e750e4123c3b5027263292ef60c69",
+  "modules": [
+    {
+      "module": "SourceMorseIncidence",
+      "source_path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceMorseIncidence.lean",
+      "frozen_source_copy": "raw-production/module-08.source.lean",
+      "source_sha256": "b93fe8f7856d4e632b3ff823788469720ae0814440bbec744fde099d4f29f127",
+      "source_sha_origin": "Completed source before/after qualification records; not recomputed during metadata packaging",
+      "source_integration_commit": "1b1badc823725e6025823395463d4948c5cdf6d4",
+      "source_integration_commit_origin": "Provided by root after committing the common four-source cut",
+      "contract_freeze_commit": "ebf49a429ec737f24c29f7c0ca4d9a7b1457c5cd",
+      "olean_path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceMorseIncidence.olean",
+      "olean_sha256": "c59d6ec1e4f72ae2635255dcd81894c39c352eadf10b409a65ec7fa0464d37bb",
+      "artifact_hash_origin": "Original qualification manifest observed-after artifact identity; no packaging rehash or binary copy",
+      "line_count": 1706,
+      "source_bytes": 80240,
+      "public_proof_targets": 99,
+      "registration_declaration_append": 99,
+      "proposition_declarations": 99,
+      "structural_data_instances": 0,
+      "public_definitions_separate": 41,
+      "public_declarations_total": 140,
+      "kind_counts": {
+        "theorem": 99,
+        "lemma": 0,
+        "instance": 0,
+        "def": 40,
+        "abbrev": 1
+      },
+      "private_explicit_theorems": 1,
+      "generated_audit_only_declarations": 78,
+      "exhaustive_module_audit_declarations": 219,
+      "audit_count_meaning": "All219 declarations, not219 public theorems:140 explicit public+1 explicit private+78 generated.",
+      "compile": {
+        "metadata": "raw-production/module-08.json",
+        "raw_output": "raw-production/module-08.log",
+        "actual_record": {
+          "command": [
+            "/home/agent/.elan/bin/lake",
+            "env",
+            "lean",
+            "-o",
+            ".lake/build/lib/lean/SourceMorseIncidence.olean",
+            "SourceMorseIncidence.lean"
+          ],
+          "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "started_utc": "2026-10-26T02:19:46.294634+00:00",
+          "ended_utc": "2026-10-26T02:19:55.719308+00:00",
+          "exit": 0,
+          "source_sha256_before": "b93fe8f7856d4e632b3ff823788469720ae0814440bbec744fde099d4f29f127",
+          "source_sha256_after": "b93fe8f7856d4e632b3ff823788469720ae0814440bbec744fde099d4f29f127",
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "status": "COMPLETED_APPLICABLE_EVIDENCE_REUSED_NO_RERUN"
+      },
+      "kernel": {
+        "metadata": "raw-production/kernel-10.json",
+        "raw_output": "raw-production/kernel-10.log",
+        "actual_record": {
+          "command": [
+            "/home/agent/.elan/bin/lake",
+            "env",
+            "leanchecker",
+            "SourceMorseIncidence"
+          ],
+          "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "started_utc": "2026-10-26T02:21:11.786651+00:00",
+          "ended_utc": "2026-10-26T02:21:18.130737+00:00",
+          "exit": 0,
+          "source_sha256_before": "b93fe8f7856d4e632b3ff823788469720ae0814440bbec744fde099d4f29f127",
+          "source_sha256_after": "b93fe8f7856d4e632b3ff823788469720ae0814440bbec744fde099d4f29f127",
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "status": "COMPLETED_APPLICABLE_EVIDENCE_REUSED_NO_RERUN"
+      },
+      "axioms": {
+        "metadata": "raw-production/axiom-09.json",
+        "raw_output": "raw-production/axiom-09.log",
+        "actual_record": {
+          "command": [
+            "/home/agent/.elan/bin/lake",
+            "env",
+            "lean",
+            "/workspace/scratch/morse-incidence-production/AxiomAudit.lean"
+          ],
+          "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "started_utc": "2026-10-26T02:21:10.501431+00:00",
+          "ended_utc": "2026-10-26T02:21:14.377797+00:00",
+          "exit": 0,
+          "source_sha256_before": "b93fe8f7856d4e632b3ff823788469720ae0814440bbec744fde099d4f29f127",
+          "source_sha256_after": "b93fe8f7856d4e632b3ff823788469720ae0814440bbec744fde099d4f29f127",
+          "log_sha256": "e972c9bffac954e1d09a64cf7e47161322f83d534a82a10026cbf1274835fac0"
+        },
+        "status": "COMPLETED_APPLICABLE_EVIDENCE_REUSED_NO_RERUN"
+      },
+      "controls": {
+        "metadata": "raw-production/controls-13.json",
+        "raw_output": "raw-production/controls-13.log",
+        "actual_record": {
+          "command": [
+            "/home/agent/.elan/bin/lake",
+            "env",
+            "lean",
+            "/workspace/scratch/morse-incidence-production/Controls.lean"
+          ],
+          "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "started_utc": "2026-10-26T02:23:10.228731+00:00",
+          "ended_utc": "2026-10-26T02:23:13.611797+00:00",
+          "exit": 0,
+          "source_sha256_before": "b93fe8f7856d4e632b3ff823788469720ae0814440bbec744fde099d4f29f127",
+          "source_sha256_after": "b93fe8f7856d4e632b3ff823788469720ae0814440bbec744fde099d4f29f127",
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "status": "COMPLETED_APPLICABLE_EVIDENCE_REUSED_NO_RERUN"
+      },
+      "qualification_receipt": "raw-production/EVIDENCE.json",
+      "final_theorem_names_and_lines": [
+        {
+          "name": "I4ActualSourceMorse.smoothLaw_ae_sourceMorseCube",
+          "line": 1561
+        },
+        {
+          "name": "I4ActualSourceMorse.smoothLaw_ae_sourceMorseCompact",
+          "line": 1575
+        },
+        {
+          "name": "I4ActualSourceMorse.smoothLaw_ae_sourceMorse",
+          "line": 1587
+        },
+        {
+          "name": "I4ActualSourceMorse.sourceMorse_regular",
+          "line": 1636
+        },
+        {
+          "name": "I4ActualSourceMorse.smoothLaw_ae_finite_sourceCriticalCube",
+          "line": 1697
+        }
+      ],
+      "source_code_integration_cut": "1b1badc823725e6025823395463d4948c5cdf6d4"
+    }
+  ],
+  "history_and_lineage": "raw-production/HANDOFF.md",
+  "incident_history": "raw-production/INCIDENT_NOTES.md",
+  "helper_source_lineage": "raw-production/helper-lineage.json",
+  "helper_evidence_by_reference": "HELPER_EVIDENCE_REFERENCES.json",
+  "all_production_qualification_logs_and_failed_history": "raw-production/",
+  "baseline_by_reference": "All prior24qualified modules/23inputs and completed Raw7/Capture8/Param source verification are reused by reference; no baseline hash, copy, compile or tests.",
+  "separate_scientific_review_required": true,
+  "review_scope": "Provider-distinct scientific alignment review is separate from established author-side mathematics.",
+  "combined_build_or_baseline_gate_claimed": false,
+  "remaining_formal_nonclaims": [
+    "exact Lifetime Euclidean-coordinate transport",
+    "C263 period-lattice quotient descent and exact quotient adapter",
+    "literal HessianHasInertia transport",
+    "conditional Morse at every specified null pin",
+    "distinct critical heights",
+    "Palm/counting/elder closure",
+    "capture/dynamics closure"
+  ],
+  "packaging_actions_excluded": [
+    "production edits",
+    "proof edits",
+    "Lean compile",
+    "kernel replay",
+    "axiom audit rerun",
+    "control rerun",
+    "baseline hashing/copying/tests",
+    "lakefile/shared manifest edits",
+    "commits",
+    "publication"
+  ],
+  "root_owned_actions": [
+    "integration registration",
+    "lakefile",
+    "shared manifests",
+    "commits",
+    "publication"
+  ],
+  "owner_mandate_links": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md"
+  ],
+  "source_code_integration_cut": "1b1badc823725e6025823395463d4948c5cdf6d4",
+  "integration_cut_origin": "Actual committed production-source cut, supplied by root after the completed source-bound checks. Metadata only; no verification execution."
+}

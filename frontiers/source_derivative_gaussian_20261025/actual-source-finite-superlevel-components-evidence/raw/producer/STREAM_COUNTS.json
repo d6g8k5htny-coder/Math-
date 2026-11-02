@@ -1,0 +1,276 @@
+{
+  "runs": 14,
+  "stdout_streams": 14,
+  "stderr_streams": 14,
+  "total_split_streams": 28,
+  "stdout_bytes": 29200,
+  "stderr_bytes": 0,
+  "rows": [
+    {
+      "label": "core-001",
+      "exit_code": 1,
+      "elapsed_seconds": 3.1773410080004396,
+      "started_utc": "2026-10-28T18:54:51.180256+00:00",
+      "ended_utc": "2026-10-28T18:54:54.357830+00:00",
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-001/stdout.log",
+        "bytes": 1271,
+        "sha256": "1693b52f120b0926cb817e79ba446a00686570de6f992a4594d68486ce36ab10",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "core-002",
+      "exit_code": 0,
+      "elapsed_seconds": 2.624546316001215,
+      "started_utc": "2026-10-28T18:55:19.744092+00:00",
+      "ended_utc": "2026-10-28T18:55:22.368884+00:00",
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-002/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-002/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "production-fixtures-001",
+      "exit_code": 1,
+      "elapsed_seconds": 2.7262396340011037,
+      "started_utc": "2026-10-28T18:55:50.421277+00:00",
+      "ended_utc": "2026-10-28T18:55:53.147746+00:00",
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/stdout.log",
+        "bytes": 1431,
+        "sha256": "9a08b40ed6830289b98eacb893f0496e96ff1e3a48850090a71a897cb7a0f49f",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "production-fixtures-002",
+      "exit_code": 1,
+      "elapsed_seconds": 2.67457649500102,
+      "started_utc": "2026-10-28T18:56:59.601785+00:00",
+      "ended_utc": "2026-10-28T18:57:02.276595+00:00",
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-002/stdout.log",
+        "bytes": 989,
+        "sha256": "c146cbce8c75b8f4f7d60dff1de2a8875f198fc69936c349fdf784218ed9bfbc",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-002/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "production-fixtures-003",
+      "exit_code": 1,
+      "elapsed_seconds": 2.6727977360005752,
+      "started_utc": "2026-10-28T18:57:50.300579+00:00",
+      "ended_utc": "2026-10-28T18:57:52.973664+00:00",
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-003/stdout.log",
+        "bytes": 871,
+        "sha256": "2788aa8c2182cd2d135254c9dc21a0575cca780fea5cebb037c5c3f7830659bf",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-003/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "production-fixtures-004",
+      "exit_code": 0,
+      "elapsed_seconds": 2.784508464999817,
+      "started_utc": "2026-10-28T18:58:24.815798+00:00",
+      "ended_utc": "2026-10-28T18:58:27.600568+00:00",
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "inventory-001",
+      "exit_code": 0,
+      "elapsed_seconds": 2.9253845650000585,
+      "started_utc": "2026-10-28T18:59:30.483899+00:00",
+      "ended_utc": "2026-10-28T18:59:33.409617+00:00",
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/stdout.log",
+        "bytes": 8750,
+        "sha256": "5747daf26ec747fdb268db371632294713bd8103eae40028f90af48b8f0f23e3",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "kernel-001",
+      "exit_code": 0,
+      "elapsed_seconds": 5.132087326001056,
+      "started_utc": "2026-10-28T19:01:06.847602+00:00",
+      "ended_utc": "2026-10-28T19:01:11.980048+00:00",
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "controls-001",
+      "exit_code": 1,
+      "elapsed_seconds": 6.302627528999437,
+      "started_utc": "2026-10-28T19:01:34.420007+00:00",
+      "ended_utc": "2026-10-28T19:01:40.722999+00:00",
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/stdout.log",
+        "bytes": 12815,
+        "sha256": "cb4e0d94e735bfa27dc8d2df847e296ae86b0bf3b461cb57bcdd93bc85a7e8a8",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "controls-002",
+      "exit_code": 1,
+      "elapsed_seconds": 5.667149920000156,
+      "started_utc": "2026-10-28T19:03:33.402254+00:00",
+      "ended_utc": "2026-10-28T19:03:39.069877+00:00",
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/stdout.log",
+        "bytes": 1459,
+        "sha256": "3df71a7fc1bd4b24c799f8f3c2ebc4ed57b48e3c7e6c94c81601a5f3a435ed30",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "controls-003",
+      "exit_code": 1,
+      "elapsed_seconds": 6.089204040999903,
+      "started_utc": "2026-10-28T19:03:56.980217+00:00",
+      "ended_utc": "2026-10-28T19:04:03.069797+00:00",
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/stdout.log",
+        "bytes": 1231,
+        "sha256": "2db6bedb55e92d2c9b6c02389fd92ca9d94f9ffc4603ec581dab1e6c619a5b16",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "controls-004",
+      "exit_code": 1,
+      "elapsed_seconds": 6.259154126000794,
+      "started_utc": "2026-10-28T19:05:03.405451+00:00",
+      "ended_utc": "2026-10-28T19:05:09.664965+00:00",
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/stdout.log",
+        "bytes": 254,
+        "sha256": "33d892b1fa913dd7e4c6f6369d2bcbbed1eef700d85173c5894e6f1a39d17ec0",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "controls-005",
+      "exit_code": 0,
+      "elapsed_seconds": 6.610599191999427,
+      "started_utc": "2026-10-28T19:05:22.054100+00:00",
+      "ended_utc": "2026-10-28T19:05:28.665063+00:00",
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "false-control-001",
+      "exit_code": 1,
+      "elapsed_seconds": 3.0210237669998605,
+      "started_utc": "2026-10-28T19:05:46.335370+00:00",
+      "ended_utc": "2026-10-28T19:05:49.356828+00:00",
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/stdout.log",
+        "bytes": 129,
+        "sha256": "806c1bfc8a3a30dd3b176eb773253b0beda35d64a3a9bbd23ae6dd5c61da6e6b",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    }
+  ]
+}

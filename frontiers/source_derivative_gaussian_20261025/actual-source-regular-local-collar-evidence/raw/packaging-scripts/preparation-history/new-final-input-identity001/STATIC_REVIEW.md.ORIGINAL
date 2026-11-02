@@ -1,0 +1,10 @@
+# Static metadata review
+
+Reviewer /root/stage65_packaging/stage66_metadata_static_review read all initially authored metadata scripts/input-schema/PLAN/READINESS, recovering the truncated reading gap. Review covered metadata control flow/schema/current66 scope and role boundaries only. No prepared script was executed, imported, compiled, tested or hashed; no mathematical proof body was inspected or reverified. No reviewer edits occurred.
+
+Two findings were corrected before any execution or FIRST identity freeze:
+
+- The new in-memory journal cache could stay stale in the parent after finalize_metadata.py appended child identities. custody.refresh_progress now reloads journal/intent/copy state immediately after child termination, before capture IDs, custody snapshot and handoff lookups.
+- Archiving initially rejected historical spawn-exception receipts. Archive association now preserves completed actual historical attempts and their exception fields; selected qualification receipts require the expected exit and no spawn exception.
+
+The gate also explicitly requires external FIRST identities for all seven scripts that execute in the metadata entry chain. The reviewer read only these changed blocks for the follow-up, reused completed scope reading, and reported both findings closed with no additional affected-scope finding. This is static review, not an executed correctness claim or independent mathematical/provider acceptance.

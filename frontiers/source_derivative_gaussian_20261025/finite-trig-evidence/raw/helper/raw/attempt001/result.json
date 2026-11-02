@@ -1,0 +1,18 @@
+{
+  "attempt": "attempt001",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "--root=/workspace/scratch/finite-trig-source-conversion/raw/attempt001",
+    "/workspace/scratch/finite-trig-source-conversion/raw/attempt001/AtomConversion.lean",
+    "-o",
+    "/workspace/scratch/finite-trig-source-conversion/raw/attempt001/AtomConversion.olean"
+  ],
+  "start_utc": "2026-10-26T11:31:17.422651+00:00",
+  "end_utc": "2026-10-26T11:31:20.949456+00:00",
+  "elapsed_seconds": 3.526645091995306,
+  "exit_code": 1
+}

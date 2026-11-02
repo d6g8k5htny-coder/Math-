@@ -1,0 +1,17 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean:66:4: error: Type mismatch: After simplification, term
+  derivative_borel hL 1 x ![directionX]
+ has type
+  @Measurable (SmoothSample 2 L) ℝ Subtype.instMeasurableSpace Real.measurableSpace fun ω =>
+    (fderiv ℝ (smoothSourceField 2 L ω) x) (![directionX] 0)
+but is expected to have type
+  @Measurable (SmoothSample 2 L) ℝ Subtype.instMeasurableSpace Real.measurableSpace fun ω =>
+    (fderiv ℝ (smoothSourceField 2 L ω) x) directionX
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean:68:4: error: Type mismatch: After simplification, term
+  derivative_borel hL 1 x ![directionY]
+ has type
+  @Measurable (SmoothSample 2 L) ℝ Subtype.instMeasurableSpace Real.measurableSpace fun ω =>
+    (fderiv ℝ (smoothSourceField 2 L ω) x) (![directionY] 0)
+but is expected to have type
+  @Measurable (SmoothSample 2 L) ℝ Subtype.instMeasurableSpace Real.measurableSpace fun ω =>
+    (fderiv ℝ (smoothSourceField 2 L ω) x) directionY
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean:160:4: error: No goals to be solved

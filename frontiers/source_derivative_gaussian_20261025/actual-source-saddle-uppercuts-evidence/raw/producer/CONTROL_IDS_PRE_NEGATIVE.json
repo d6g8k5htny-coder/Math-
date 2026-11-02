@@ -1,0 +1,71 @@
+{
+  "observed_freeze_utc": "2026-10-28T21:44:40.509847+00:00",
+  "ordinary_source": {
+    "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/SaddleUppercutsControls.lean",
+    "bytes": 25253,
+    "sha256": "ee7dadcd46475be9ed0da505fa9c7ff857db4e534653c248c4693e42f7cd60e0",
+    "marker": [
+      25253,
+      1793223774904998150
+    ],
+    "first_observed_utc": "2026-10-28T21:42:54.911102+00:00",
+    "origin": "new actual version identity, calculated once"
+  },
+  "ordinary_final_snapshot": {
+    "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/frozen/Controls.FINAL.lean",
+    "bytes": 25253,
+    "sha256": "ee7dadcd46475be9ed0da505fa9c7ff857db4e534653c248c4693e42f7cd60e0",
+    "marker": [
+      25253,
+      1793223880509303915
+    ],
+    "first_observed_utc": "2026-10-28T21:42:54.911102+00:00",
+    "origin": "known exact passed ordinary final source identity reused",
+    "copied_from": "/workspace/scratch/actual-source-saddle-uppercuts-construct/SaddleUppercutsControls.lean"
+  },
+  "ordinary_object": {
+    "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/build/SaddleUppercutsControls.olean",
+    "bytes": 1326832,
+    "sha256": "c8a71e38bfd65abc5dea707deab5ff81233026753139698a2b369ea4d4290ec6",
+    "marker": [
+      1326832,
+      1793223780073262611
+    ],
+    "first_observed_utc": "2026-10-28T21:43:00.196001+00:00",
+    "origin": "new actual version identity, calculated once"
+  },
+  "strict_receipt": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/controls003/receipt.json",
+  "ordinary_all_owned_inventory": 123,
+  "ordinary_inventory_receipt": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/ordinary-inventory001/receipt.json",
+  "ordinary_classification": "/workspace/scratch/actual-source-saddle-uppercuts-construct/CONTROLS_INVENTORY_CLASSIFIED.json",
+  "ordinary_named_kernels": 0,
+  "production_named_kernels": 1,
+  "sole_harness": {
+    "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/FalseControl.lean",
+    "bytes": 273,
+    "sha256": "e41f7b0863ead2c659da7cbfbb4df57037fdd4d947995f55949fd2050b18a6da",
+    "marker": [
+      273,
+      1793223880509645807
+    ],
+    "first_observed_utc": "2026-10-28T21:44:40.509741+00:00",
+    "origin": "FIRST actual complete sole closed no-premise harness identity, computed once BEFORE execution"
+  },
+  "sole_harness_snapshot": {
+    "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/frozen/FalseControl.ORIGINAL.lean",
+    "bytes": 273,
+    "sha256": "e41f7b0863ead2c659da7cbfbb4df57037fdd4d947995f55949fd2050b18a6da",
+    "marker": [
+      273,
+      1793223880509833591
+    ],
+    "first_observed_utc": "2026-10-28T21:44:40.509741+00:00",
+    "origin": "known exact complete sole harness byte-copy identity reused",
+    "copied_from": "/workspace/scratch/actual-source-saddle-uppercuts-construct/FalseControl.lean"
+  },
+  "negative_status": "NOT YET EXECUTED; exactly one planned after this first identity/freeze",
+  "mutation": "ONLY eps>0 to eps>=0, same chosen phi/rho/source/field/CLOSED cut/upper bound; CLOSED assertion without any mutation premise",
+  "counterproof": "independent structural inverse vertical path, full target/source/zero-cut membership, actual midpoint q, negative endpoint coordinate product; no upperbranch/lowerPC shortcut",
+  "ordinary_lines": 487,
+  "no_old_replay": "all qualified64 and completed unchanged65 verification reused"
+}

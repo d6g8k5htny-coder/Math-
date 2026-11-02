@@ -1,0 +1,586 @@
+{
+  "schema_version": 1,
+  "archive_root": "raw",
+  "members": [
+    {
+      "path": "raw/producer/AUTHOR_HELPER_LINEAGE.json",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/AUTHOR_HELPER_LINEAGE.json",
+      "bytes": 1922,
+      "sha256": "14bf387c093e07b627415bf00e45e4b779802cd0bd37b15d19c6816fae41340a",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/CONTROL_CONTRACT.md",
+      "bytes": 4162,
+      "sha256": "51570bf6e42a750876d4f3437fceeba68a5e0890f75f652b33d0d33fb2d7fc8e",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/CONTROL_RECEIPT.json",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/CONTROL_RECEIPT.json",
+      "bytes": 3172,
+      "sha256": "eeb5c1a766f4395eea439bf3e35cdd67c636fa3ff4e6205305244f5819d3bae1",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/Controls.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/Controls.lean",
+      "bytes": 10941,
+      "sha256": "37cafe57c676768ddd74d9954b23b1a57debe526abc8f53ccc0ca7ad0fcefefd",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/EXECUTION_RECORD_INDEX.json",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/EXECUTION_RECORD_INDEX.json",
+      "bytes": 25281,
+      "sha256": "57fa060b984f6c994cca26782ebcb82ecabdb53ca424847055aa399b54ce741c",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/FROZEN_SOURCE.json",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/FROZEN_SOURCE.json",
+      "bytes": 1124,
+      "sha256": "63ad798fd8cb778dc57c88b075c50fdabf65838c5191ddbea3a7dfe39773d414",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/HANDOFF.json",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/HANDOFF.json",
+      "bytes": 3721,
+      "sha256": "ea4ab4361ae6fbcfe23cfd9ee39c752f2593f1c1fca631482a320efbf364439b",
+      "identity_origin": "New final packaging payload hashed once after final write."
+    },
+    {
+      "path": "raw/producer/HELPER_INTEGRATION.json",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/HELPER_INTEGRATION.json",
+      "bytes": 744,
+      "sha256": "1b22456750028c54469c3223d2f9617ee281774cf2a03929347d343013bb722e",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/INVENTORY.json",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/INVENTORY.json",
+      "bytes": 21030,
+      "sha256": "c13bfa71c1ed65255ddce13bb3a2770d664cec184ae166d9fa0de9d3665f2d47",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/Inventory.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/Inventory.lean",
+      "bytes": 1084,
+      "sha256": "0f91ae85f2002976271cdc1ff8656576a6a0c27d6721eb7f7ce3d207d26ca504",
+      "identity_origin": "New final packaging payload hashed once after final write."
+    },
+    {
+      "path": "raw/producer/NormalizationMutation.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/NormalizationMutation.lean",
+      "bytes": 339,
+      "sha256": "e1fde3cee92c50b69ae001103443c813a8ceb026a7777f9556560ea5ebc0b314",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/RAW_LEDGER.jsonl",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/RAW_LEDGER.jsonl",
+      "bytes": 9973,
+      "sha256": "d40c6575b61c85979844b888668c5b16ec176a0dbfb9acf97c67ec270db5618d",
+      "identity_origin": "New final packaging payload hashed once after final write."
+    },
+    {
+      "path": "raw/producer/REPORT.md",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/REPORT.md",
+      "bytes": 7919,
+      "sha256": "68b701d55c2e32af7d8f08cc58522f52f30bea615c1e72e017238a08c3e31939",
+      "identity_origin": "New final packaging payload hashed once after final write."
+    },
+    {
+      "path": "raw/producer/SOURCE_OBJECT_IDENTITIES.json",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/SOURCE_OBJECT_IDENTITIES.json",
+      "bytes": 2195,
+      "sha256": "222c2e4e6cc4ed7f6e311c5ae5a813c23f65d9986a6e8b77d804e6cbf28aac50",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/STATIC_SCOPE.json",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/STATIC_SCOPE.json",
+      "bytes": 1758,
+      "sha256": "ef451a9f02ef0fd6cc7a65dc423b8d71cf61b7315fe8b648caea556753835795",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/TARGET_CLASSIFICATION.json",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/TARGET_CLASSIFICATION.json",
+      "bytes": 20650,
+      "sha256": "9b283bd62e587354411f22b8c239b70fff682bd17bafe37ceb7fbe047abe6ec1",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/classify.py",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/classify.py",
+      "bytes": 2675,
+      "sha256": "2e730cd6fb56a74c632ee4019f9e821cbe6a5bd386ea554c56120cab7989eecc",
+      "identity_origin": "New final packaging payload hashed once after final write."
+    },
+    {
+      "path": "raw/producer/finalize.py",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/finalize.py",
+      "bytes": 9778,
+      "sha256": "a0834da8efa6c06ba140e5ac009b6b7177ed7e9d12bd6d8b86efa636d11f9e34",
+      "identity_origin": "New final packaging payload hashed once after final write."
+    },
+    {
+      "path": "raw/producer/run.py",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/run.py",
+      "bytes": 2100,
+      "sha256": "c18bbd35db939faaa69edb511b9f52bb6a4da62308d6a06d84c30ddd457c9843",
+      "identity_origin": "New final packaging payload hashed once after final write."
+    },
+    {
+      "path": "raw/producer/runs/controls-001/Controls.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/controls-001/Controls.lean",
+      "bytes": 10120,
+      "sha256": "106adaa2e207817c0fa10ce6e9bb083ee8cc0df090ee598898804c02480135f1",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-001/Inventory.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/controls-001/Inventory.lean",
+      "bytes": 1084,
+      "sha256": "0f91ae85f2002976271cdc1ff8656576a6a0c27d6721eb7f7ce3d207d26ca504",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-001/NormalizationMutation.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/controls-001/NormalizationMutation.lean",
+      "bytes": 339,
+      "sha256": "e1fde3cee92c50b69ae001103443c813a8ceb026a7777f9556560ea5ebc0b314",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-001/SourceEndpointHessianWitness.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/controls-001/SourceEndpointHessianWitness.lean",
+      "bytes": 16783,
+      "sha256": "45f69d75cb4418b239f6402d0552da546bccc127e3102fac7da7d4c30324ae8f",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-001/record.json",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/controls-001/record.json",
+      "bytes": 1384,
+      "sha256": "1d0b03bfd9843c2e58c652da49cbb8b37f4b1d756a7f470c75710f2a729a377d",
+      "identity_origin": "New final packaging payload hashed once after final write."
+    },
+    {
+      "path": "raw/producer/runs/controls-001/stderr.log",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/controls-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-001/stdout.log",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/controls-001/stdout.log",
+      "bytes": 6356,
+      "sha256": "ad58152063ca0d1b061d2f6509dd1a8ee927e040d0d0dbf7d12a4a29baeebeb6",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-002/Controls.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/controls-002/Controls.lean",
+      "bytes": 10648,
+      "sha256": "8af8b7d4f0fbcdb8b45c240fa9875edc8d6021ee7236de95b4f193db1a2b56c7",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-002/Inventory.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/controls-002/Inventory.lean",
+      "bytes": 1084,
+      "sha256": "0f91ae85f2002976271cdc1ff8656576a6a0c27d6721eb7f7ce3d207d26ca504",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-002/NormalizationMutation.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/controls-002/NormalizationMutation.lean",
+      "bytes": 339,
+      "sha256": "e1fde3cee92c50b69ae001103443c813a8ceb026a7777f9556560ea5ebc0b314",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-002/SourceEndpointHessianWitness.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/controls-002/SourceEndpointHessianWitness.lean",
+      "bytes": 16783,
+      "sha256": "45f69d75cb4418b239f6402d0552da546bccc127e3102fac7da7d4c30324ae8f",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-002/record.json",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/controls-002/record.json",
+      "bytes": 1385,
+      "sha256": "8592a3552450c73d693c73b93399f7734c783beff2fcbb4621e7fdddcfed2eaa",
+      "identity_origin": "New final packaging payload hashed once after final write."
+    },
+    {
+      "path": "raw/producer/runs/controls-002/stderr.log",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/controls-002/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-002/stdout.log",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/controls-002/stdout.log",
+      "bytes": 1188,
+      "sha256": "40c556daad60a438609c23ca5d9bb8157cba7c399795b69505559305b226121b",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-003/Controls.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/controls-003/Controls.lean",
+      "bytes": 10941,
+      "sha256": "37cafe57c676768ddd74d9954b23b1a57debe526abc8f53ccc0ca7ad0fcefefd",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-003/Inventory.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/controls-003/Inventory.lean",
+      "bytes": 1084,
+      "sha256": "0f91ae85f2002976271cdc1ff8656576a6a0c27d6721eb7f7ce3d207d26ca504",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-003/NormalizationMutation.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/controls-003/NormalizationMutation.lean",
+      "bytes": 339,
+      "sha256": "e1fde3cee92c50b69ae001103443c813a8ceb026a7777f9556560ea5ebc0b314",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-003/SourceEndpointHessianWitness.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/controls-003/SourceEndpointHessianWitness.lean",
+      "bytes": 16783,
+      "sha256": "45f69d75cb4418b239f6402d0552da546bccc127e3102fac7da7d4c30324ae8f",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-003/record.json",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/controls-003/record.json",
+      "bytes": 1381,
+      "sha256": "6cecf82b80169b4d4da8a519c4e82e9ef093d96d7f0fb3e438f93a14b17309c9",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-003/stderr.log",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/controls-003/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/controls-003/stdout.log",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/controls-003/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-001/Controls.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/develop-001/Controls.lean",
+      "bytes": 10120,
+      "sha256": "106adaa2e207817c0fa10ce6e9bb083ee8cc0df090ee598898804c02480135f1",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-001/Inventory.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/develop-001/Inventory.lean",
+      "bytes": 1084,
+      "sha256": "0f91ae85f2002976271cdc1ff8656576a6a0c27d6721eb7f7ce3d207d26ca504",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-001/NormalizationMutation.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/develop-001/NormalizationMutation.lean",
+      "bytes": 339,
+      "sha256": "e1fde3cee92c50b69ae001103443c813a8ceb026a7777f9556560ea5ebc0b314",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-001/SourceEndpointHessianWitness.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/develop-001/SourceEndpointHessianWitness.lean",
+      "bytes": 16402,
+      "sha256": "3ddd9c43ef37542d9ff9ad5cd5c0dadb6a49fd4804594da11492160176de4325",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-001/record.json",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/develop-001/record.json",
+      "bytes": 1308,
+      "sha256": "482bde3666dc1b9d4e17141fca4a2aa8d5e990c8e85b558d5736dc5721b8e1bc",
+      "identity_origin": "New final packaging payload hashed once after final write."
+    },
+    {
+      "path": "raw/producer/runs/develop-001/stderr.log",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/develop-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-001/stdout.log",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/develop-001/stdout.log",
+      "bytes": 2303,
+      "sha256": "305f1609abbb31f591feae8a04cb26beb5124c77bebe600618e49226175dcb5b",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-002/Controls.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/develop-002/Controls.lean",
+      "bytes": 10120,
+      "sha256": "106adaa2e207817c0fa10ce6e9bb083ee8cc0df090ee598898804c02480135f1",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-002/Inventory.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/develop-002/Inventory.lean",
+      "bytes": 1084,
+      "sha256": "0f91ae85f2002976271cdc1ff8656576a6a0c27d6721eb7f7ce3d207d26ca504",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-002/NormalizationMutation.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/develop-002/NormalizationMutation.lean",
+      "bytes": 339,
+      "sha256": "e1fde3cee92c50b69ae001103443c813a8ceb026a7777f9556560ea5ebc0b314",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-002/SourceEndpointHessianWitness.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/develop-002/SourceEndpointHessianWitness.lean",
+      "bytes": 16783,
+      "sha256": "45f69d75cb4418b239f6402d0552da546bccc127e3102fac7da7d4c30324ae8f",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-002/record.json",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/develop-002/record.json",
+      "bytes": 1304,
+      "sha256": "9b75e5c6e1b8c81ca87c53dffe395eb415a4f6434c0acb408fd546dc81074b96",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-002/stderr.log",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/develop-002/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/develop-002/stdout.log",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/develop-002/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/Controls.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/inventory-001/Controls.lean",
+      "bytes": 10120,
+      "sha256": "106adaa2e207817c0fa10ce6e9bb083ee8cc0df090ee598898804c02480135f1",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/Inventory.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/inventory-001/Inventory.lean",
+      "bytes": 1084,
+      "sha256": "0f91ae85f2002976271cdc1ff8656576a6a0c27d6721eb7f7ce3d207d26ca504",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/NormalizationMutation.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/inventory-001/NormalizationMutation.lean",
+      "bytes": 339,
+      "sha256": "e1fde3cee92c50b69ae001103443c813a8ceb026a7777f9556560ea5ebc0b314",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/SourceEndpointHessianWitness.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/inventory-001/SourceEndpointHessianWitness.lean",
+      "bytes": 16783,
+      "sha256": "45f69d75cb4418b239f6402d0552da546bccc127e3102fac7da7d4c30324ae8f",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/record.json",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/inventory-001/record.json",
+      "bytes": 1392,
+      "sha256": "41fc3a50b7b96114dac0a80d5e539dea0dee3a177972f13276f0bc0835f05810",
+      "identity_origin": "New final packaging payload hashed once after final write."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/stderr.log",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/inventory-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/stdout.log",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/inventory-001/stdout.log",
+      "bytes": 14835,
+      "sha256": "ace1ad5d29a3726fd7cb01f7a10ab6690b97854d102ea33b09b09b24a875c195",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/Controls.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/kernel-001/Controls.lean",
+      "bytes": 10941,
+      "sha256": "37cafe57c676768ddd74d9954b23b1a57debe526abc8f53ccc0ca7ad0fcefefd",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/Inventory.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/kernel-001/Inventory.lean",
+      "bytes": 1084,
+      "sha256": "0f91ae85f2002976271cdc1ff8656576a6a0c27d6721eb7f7ce3d207d26ca504",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/NormalizationMutation.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/kernel-001/NormalizationMutation.lean",
+      "bytes": 339,
+      "sha256": "e1fde3cee92c50b69ae001103443c813a8ceb026a7777f9556560ea5ebc0b314",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/SourceEndpointHessianWitness.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/kernel-001/SourceEndpointHessianWitness.lean",
+      "bytes": 16783,
+      "sha256": "45f69d75cb4418b239f6402d0552da546bccc127e3102fac7da7d4c30324ae8f",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/record.json",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/kernel-001/record.json",
+      "bytes": 1168,
+      "sha256": "2b0f63cd152e0df082d660ca1d7f4327a68b1b18fb51361901fa9baebb25c04e",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/stderr.log",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/kernel-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/stdout.log",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/kernel-001/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/normalization-001/Controls.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/normalization-001/Controls.lean",
+      "bytes": 10941,
+      "sha256": "37cafe57c676768ddd74d9954b23b1a57debe526abc8f53ccc0ca7ad0fcefefd",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/normalization-001/Inventory.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/normalization-001/Inventory.lean",
+      "bytes": 1084,
+      "sha256": "0f91ae85f2002976271cdc1ff8656576a6a0c27d6721eb7f7ce3d207d26ca504",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/normalization-001/NormalizationMutation.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/normalization-001/NormalizationMutation.lean",
+      "bytes": 339,
+      "sha256": "e1fde3cee92c50b69ae001103443c813a8ceb026a7777f9556560ea5ebc0b314",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/normalization-001/SourceEndpointHessianWitness.lean",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/normalization-001/SourceEndpointHessianWitness.lean",
+      "bytes": 16783,
+      "sha256": "45f69d75cb4418b239f6402d0552da546bccc127e3102fac7da7d4c30324ae8f",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/normalization-001/record.json",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/normalization-001/record.json",
+      "bytes": 1435,
+      "sha256": "cfacb407c3d1672b4b4a6d2526ea4dc549dc798e70db0790b42d48e6b73b320a",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/normalization-001/stderr.log",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/normalization-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/producer/runs/normalization-001/stdout.log",
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/normalization-001/stdout.log",
+      "bytes": 119,
+      "sha256": "8b1fcd9ee90afecd474b0cfdba96748d1dc4448d06842c2aa865bb512b8141aa",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/helper-arithmetic/ArithmeticSection.lean.txt",
+      "source": "/workspace/scratch/endpoint-hessian-witness-arithmetic/ArithmeticSection.lean.txt",
+      "bytes": 5248,
+      "sha256": "c516c1a59aa5bbe04ec077f481a7e432b72202603c7d87e690ff344b6e6e7a49",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/helper-arithmetic/FROZEN_HANDOFF.md",
+      "source": "/workspace/scratch/endpoint-hessian-witness-arithmetic/FROZEN_HANDOFF.md",
+      "bytes": 3925,
+      "sha256": "40fd9cb427f9ff0284f9ed0914ab8c13cced58dd62a64c09e274d747a7a84536",
+      "identity_origin": "Retained frozen producer/helper/root identity reused for byte copy; no hash replay."
+    },
+    {
+      "path": "raw/review/REPORT.md",
+      "source": "/workspace/scratch/endpoint-hessian-witness-source-review/REPORT.md",
+      "bytes": 12402,
+      "sha256": "465ea427f77d2b9e62df3f71617ebf795c13b72e0e3a7a5ede4e335313b77312",
+      "identity_origin": "New final packaging payload hashed once after final write."
+    }
+  ],
+  "raw_files": 78,
+  "raw_stream_files": 16,
+  "raw_stream_bytes": 24801,
+  "excluded_actual_artifacts": [
+    {
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/build/Controls.olean",
+      "bytes": 545144,
+      "reason": "Actual generated artifact excluded from overlay/archive/production. Only final named own object is separately ROOT-copy eligible."
+    },
+    {
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/build/SourceEndpointHessianWitness.olean",
+      "bytes": 1817208,
+      "reason": "Actual generated artifact excluded from overlay/archive/production. Only final named own object is separately ROOT-copy eligible."
+    },
+    {
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/controls-003/Controls.olean",
+      "bytes": 545144,
+      "reason": "Actual generated artifact excluded from overlay/archive/production. Only final named own object is separately ROOT-copy eligible."
+    },
+    {
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/develop-002/SourceEndpointHessianWitness.olean",
+      "bytes": 1817208,
+      "reason": "Actual generated artifact excluded from overlay/archive/production. Only final named own object is separately ROOT-copy eligible."
+    },
+    {
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/runs/inventory-001/Inventory.olean",
+      "bytes": 2712,
+      "reason": "Actual generated artifact excluded from overlay/archive/production. Only final named own object is separately ROOT-copy eligible."
+    }
+  ],
+  "all_attempts_failures_full_streams_preserved": true,
+  "formatting": "Raw payload and byte-preserved top copies must not be reformatted.",
+  "old_payload_hashes_recomputed": 0,
+  "mathematical_verification_replays": 0
+}

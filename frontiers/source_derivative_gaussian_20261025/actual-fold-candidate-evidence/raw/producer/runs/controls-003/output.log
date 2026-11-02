@@ -1,0 +1,6 @@
+/workspace/scratch/actual-fold-candidate-construct/Controls.lean:53:22: error: Type mismatch: After simplification, term
+  h.right.right.left
+ has type
+  heightGap 2 (actualField 2 1 sample) (endpointLiftM 4⁻¹) (endpointLiftS 4⁻¹) = (4 ^ 3)⁻¹
+but is expected to have type
+  heightGap 2 (actualField 2 1 sample) (endpointLiftM 4⁻¹) (endpointLiftS 4⁻¹) = 64⁻¹

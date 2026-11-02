@@ -1,0 +1,125 @@
+INVENTORY|definition|I4SourceTwoRemoteFirstJetGaussian.twoRemoteFirstJet
+AXIOMS|I4SourceTwoRemoteFirstJetGaussian.twoRemoteFirstJet|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.raw_remote_jointGaussian
+AXIOMS|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.raw_remote_jointGaussian|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|definition|I4SourceTwoRemoteFirstJetGaussian.twoRemoteRegressionMatrix
+AXIOMS|I4SourceTwoRemoteFirstJetGaussian.twoRemoteRegressionMatrix|[propext, Classical.choice, Quot.sound]
+INVENTORY|definition|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.residualMatrix
+AXIOMS|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.residualMatrix|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.fixed12_affine_covariance
+AXIOMS|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.fixed12_affine_covariance|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|definition|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.specificationCoefficient
+AXIOMS|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.specificationCoefficient|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.posterior_actual
+AXIOMS|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.posterior_actual|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointVector_actual
+AXIOMS|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointVector_actual|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.joint_integral_zero
+AXIOMS|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.joint_integral_zero|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|definition|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointVector
+AXIOMS|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointVector|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.residualMatrix_apply
+AXIOMS|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.residualMatrix_apply|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.posterior_hasGaussianLaw
+AXIOMS|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.posterior_hasGaussianLaw|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.posterior_covariance
+AXIOMS|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.posterior_covariance|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|definition|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointSpecification
+AXIOMS|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointSpecification|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|definition|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointCoefficient
+AXIOMS|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointCoefficient|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.joint_hasGaussianLaw
+AXIOMS|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.joint_hasGaussianLaw|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|definition|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointSplit
+AXIOMS|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointSplit|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|I4SourceTwoRemoteFirstJetGaussian.twoRemoteFirstJet._proof_1
+AXIOMS|I4SourceTwoRemoteFirstJetGaussian.twoRemoteFirstJet._proof_1|[propext]
+INVENTORY|theorem|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.residual_hasGaussianLaw
+AXIOMS|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.residual_hasGaussianLaw|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.posterior_integral
+AXIOMS|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.posterior_integral|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointSplit._proof_1
+AXIOMS|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointSplit._proof_1|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.specification_remote
+AXIOMS|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.specification_remote|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|definition|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.specificationObservation
+AXIOMS|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.specificationObservation|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.specification_raw
+AXIOMS|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.specification_raw|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointSplit._proof_3
+AXIOMS|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointSplit._proof_3|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.derivative_measurable
+AXIOMS|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.derivative_measurable|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.observation_measurable
+AXIOMS|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.observation_measurable|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointSplit._proof_2
+AXIOMS|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointSplit._proof_2|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|definition|I4SourceTwoRemoteFirstJetGaussian.twoRemotePosteriorMean
+AXIOMS|I4SourceTwoRemoteFirstJetGaussian.twoRemotePosteriorMean|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.transformed_coefficient
+AXIOMS|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.transformed_coefficient|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|I4SourceTwoRemoteFirstJetGaussian.rawPinKernel_twoRemoteFirstJet_eq_multivariateGaussian
+AXIOMS|I4SourceTwoRemoteFirstJetGaussian.rawPinKernel_twoRemoteFirstJet_eq_multivariateGaussian|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|definition|I4SourceTwoRemoteFirstJetGaussian.twoRemoteResidualCovariance
+AXIOMS|I4SourceTwoRemoteFirstJetGaussian.twoRemoteResidualCovariance|[propext, Classical.choice, Quot.sound]
+INVENTORY|theorem|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointCoefficient_actual
+AXIOMS|_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointCoefficient_actual|[propext,
+ Classical.choice,
+ Quot.sound]
+INVENTORY|theorem|I4SourceTwoRemoteFirstJetGaussian.twoRemoteResidualCovariance_posDef
+AXIOMS|I4SourceTwoRemoteFirstJetGaussian.twoRemoteResidualCovariance_posDef|[propext, Classical.choice, Quot.sound]
+COMPLETE_NEW_MODULE_INVENTORY|SourceTwoRemoteFirstJetGaussian|34

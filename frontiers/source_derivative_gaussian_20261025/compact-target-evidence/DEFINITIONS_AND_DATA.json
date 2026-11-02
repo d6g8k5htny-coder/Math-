@@ -1,0 +1,37 @@
+{
+  "definitions": [
+    {
+      "kind": "def",
+      "name": "I4SourceCompactTargetMoments.sourceGapPins",
+      "line": 150,
+      "axiom_coverage": {
+        "kind": "DIRECT_LEAN_COLLECTAXIOMS_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/inventory-01.json",
+        "log": "raw/inventory-01.log"
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceCompactTargetMoments.sourceGapLaw",
+      "line": 153,
+      "axiom_coverage": {
+        "kind": "DIRECT_LEAN_COLLECTAXIOMS_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/inventory-01.json",
+        "log": "raw/inventory-01.log"
+      }
+    }
+  ],
+  "instances": [],
+  "opaque": [],
+  "custom_axioms": []
+}

@@ -1,0 +1,2654 @@
+{
+  "status": "ROOT_GO_FINAL63_ASSEMBLY_AND_ONE_METADATA_ATTEMPT",
+  "required_status_after_GO": "ROOT_GO_FINAL63_ASSEMBLY_AND_ONE_METADATA_ATTEMPT",
+  "root_finalization_go": "/workspace/scratch/actual-source-finite-superlevel-components-publication/ROOT_FINALIZATION_GO.json",
+  "all_math_complete": true,
+  "final_review_pass": true,
+  "source_cut_committed": true,
+  "own_object_copied_once": true,
+  "immutable_payloads_frozen": true,
+  "qualified_baseline": "139aa244cccb16395b71e244dd5b81bd330e1595",
+  "source_cut": "93a82fa357c55a42035e2303d051a38fca31d775",
+  "source_cut_parent": "139aa244cccb16395b71e244dd5b81bd330e1595",
+  "source_identity": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFiniteSuperlevelComponents.lean",
+    "bytes": 11683,
+    "sha256": "e63abe693a6d23e5679adbb7110cb7b569bd3171db596d470f32b8566bc01a5c",
+    "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+  },
+  "eligible_object_identity": {
+    "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/build/SourceActualFiniteSuperlevelComponents.olean",
+    "bytes": 404464,
+    "sha256": "84d7797bc22096d9d3c9ead68542e952b8a752fe74767812bd4ae093c3876d89",
+    "identity_origin": "FIRST identity of newly created or changed owned payload"
+  },
+  "root_object_copy_record": "/workspace/scratch/actual-source-finite-superlevel-components-publication/ROOT_OWN_OBJECT_COPY.json",
+  "root_reading_record": "/workspace/scratch/actual-source-finite-superlevel-components-publication/ROOT_READING.json",
+  "root_reading_summary": "Root primary coordinator, no63 proof suggestion/edit/Lean execution; NOT independent reviewer. BOUNDED finalproduction1-115/header/compact/LP/privateFinite/publicALLLEVEL body/initialfixture, not full267/privatefixturetail/all30axiomrows/all14receipts28streams. FULL proper contracts and context001+complete002003deltas/rootpathrace acceptance, no canonical003 literal reread claim. FULL19571B410line ordinary Controls/170Bnegative harness/129Bstdout/emptyerr/selected negative receipt and named finalcore docs/all14streammetadata. BOUNDED228artifact126snapshot72identity233allowlist/index exposure. ROOT_READING19:17:23 retained verbatim; final reviewer acceptance separately pending. Initial documentary syntax failure before writer/hash/output; corrected generation had internalUTC19:11:16 only and combined tool output, external process start/end/split capture absent, NOT invented. ALL14 mathematical calls retain28 complete original split streams. Root separately FULLread final7375token reviewer REPORT/scope and accepted19:22:16.271927; no reviewer source/row/raw flags become root flags. Actual upcoming metadata worker/outer will have full original separate captures; that does NOT manufacture missing prior documentary writer external times or split streams.",
+  "reviewer_reading_summary": "Final nonauthor actual_fold_chart_source_review FINAL_PASS/no findings with explicit nonmath capture limit. Full final267source COVERAGE via personally full frozen4756BCORE once + full finalfixturetail + every actual delta, not a second literal whole267 reread. Proper published bodies/context001+whole002003deltas/observedACKs/rootpathrace/runner001, ONE LP and ONE ordinary complete originals/provenance/freezes/all actual patches; all30classifications/full8750Bstd3; all14original receipts28fullstreams29200B via lossless identity rendering; complete ordinary original+initial bindings+4actualpatches/170Bharness129BFalse stdout0err; all228artifact126snapshot233allowlist+2addenda/streamrows/rootrecords. Aggregate index header/schema/representative reuses full original receipts, no duplicate whole aggregate reading or duplicate snapshot-body claim. Documentary writer parser failure before output; corrected combined-only/null absent externalUTC/splitdocstreams retained honestly. Root FULL7375token finalREPORT/scope accepted19:22:16.271927 separately. Samefamily0/scienceNONE; no different-family acceptance.",
+  "immutable_directories": [],
+  "immutable_files": [
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/CONTEXT.md",
+      "archive_path": "raw/producer/CONTEXT.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/CONTROLS_HEADER.001.lean.txt",
+      "archive_path": "raw/producer/CONTROLS_HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/CONTROL_CONTRACT.md",
+      "archive_path": "raw/producer/CONTROL_CONTRACT.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/CONTROL_IDS.json",
+      "archive_path": "raw/producer/CONTROL_IDS.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/CONTROL_RECEIPT.json",
+      "archive_path": "raw/producer/CONTROL_RECEIPT.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/CORE.CHECKED.lean.txt",
+      "archive_path": "raw/producer/CORE.CHECKED.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/CORE_MILESTONE.json",
+      "archive_path": "raw/producer/CORE_MILESTONE.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/DOCUMENTARY_EXECUTION_001.json",
+      "archive_path": "raw/producer/DOCUMENTARY_EXECUTION_001.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/EXECUTION_RECORD_INDEX.json",
+      "archive_path": "raw/producer/EXECUTION_RECORD_INDEX.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/FINAL_SOURCE_OBJECT_IDS.PRE_KERNEL.json",
+      "archive_path": "raw/producer/FINAL_SOURCE_OBJECT_IDS.PRE_KERNEL.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/FalseMutation.lean",
+      "archive_path": "raw/producer/FalseMutation.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean",
+      "archive_path": "raw/producer/FiniteSuperlevelComponentsControls.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/HANDOFF.md",
+      "archive_path": "raw/producer/HANDOFF.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/HEADER.001.lean.txt",
+      "archive_path": "raw/producer/HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/INVENTORY.json",
+      "archive_path": "raw/producer/INVENTORY.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/Inventory.lean",
+      "archive_path": "raw/producer/Inventory.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/PRODUCTION_QUALIFICATION.json",
+      "archive_path": "raw/producer/PRODUCTION_QUALIFICATION.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/ProducerFixtures.INITIAL.lean.txt",
+      "archive_path": "raw/producer/ProducerFixtures.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/ProducerGeneric.INITIAL.lean.txt",
+      "archive_path": "raw/producer/ProducerGeneric.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/READY.json",
+      "archive_path": "raw/producer/READY.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/READ_SCOPE.md",
+      "archive_path": "raw/producer/READ_SCOPE.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/REPORT.md",
+      "archive_path": "raw/producer/REPORT.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/ROOT_CONTEXT_ACCEPTANCE.json",
+      "archive_path": "raw/producer/ROOT_CONTEXT_ACCEPTANCE.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/ROOT_GO.json",
+      "archive_path": "raw/producer/ROOT_GO.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/STREAM_COUNTS.json",
+      "archive_path": "raw/producer/STREAM_COUNTS.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/amendments/context-002.patch",
+      "archive_path": "raw/producer/amendments/context-002.patch"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/amendments/context-003.patch",
+      "archive_path": "raw/producer/amendments/context-003.patch"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/amendments/controls-002.patch",
+      "archive_path": "raw/producer/amendments/controls-002.patch"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/amendments/controls-003.patch",
+      "archive_path": "raw/producer/amendments/controls-003.patch"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/amendments/controls-004.patch",
+      "archive_path": "raw/producer/amendments/controls-004.patch"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/amendments/controls-005.patch",
+      "archive_path": "raw/producer/amendments/controls-005.patch"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/amendments/core-002.patch",
+      "archive_path": "raw/producer/amendments/core-002.patch"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/amendments/documentary-freeze-002.patch",
+      "archive_path": "raw/producer/amendments/documentary-freeze-002.patch"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/amendments/production-fixtures-001.patch",
+      "archive_path": "raw/producer/amendments/production-fixtures-001.patch"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/amendments/production-fixtures-002.patch",
+      "archive_path": "raw/producer/amendments/production-fixtures-002.patch"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/amendments/production-fixtures-003.patch",
+      "archive_path": "raw/producer/amendments/production-fixtures-003.patch"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/amendments/production-fixtures-004.patch",
+      "archive_path": "raw/producer/amendments/production-fixtures-004.patch"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/context/CONTEXT.001.md",
+      "archive_path": "raw/producer/context/CONTEXT.001.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/context/CONTEXT.002.md",
+      "archive_path": "raw/producer/context/CONTEXT.002.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/context/CONTEXT.003.md",
+      "archive_path": "raw/producer/context/CONTEXT.003.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/context/FIRST_ID_001.json",
+      "archive_path": "raw/producer/context/FIRST_ID_001.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/context/FIRST_ID_002.json",
+      "archive_path": "raw/producer/context/FIRST_ID_002.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/context/FIRST_ID_003.json",
+      "archive_path": "raw/producer/context/FIRST_ID_003.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/freeze_documents.py",
+      "archive_path": "raw/producer/freeze_documents.py"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/history/CONTEXT.INITIAL.md",
+      "archive_path": "raw/producer/history/CONTEXT.INITIAL.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/history/INITIAL_RUNNER_CUSTODY.json",
+      "archive_path": "raw/producer/history/INITIAL_RUNNER_CUSTODY.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/history/OWN_ID_CACHE.FINAL.json",
+      "archive_path": "raw/producer/history/OWN_ID_CACHE.FINAL.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/history/freeze_documents.001.py",
+      "archive_path": "raw/producer/history/freeze_documents.001.py"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/history/runner.001.py",
+      "archive_path": "raw/producer/history/runner.001.py"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/A.CONTEXT.ORIGINAL.md",
+      "archive_path": "raw/producer/originals/A.CONTEXT.ORIGINAL.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/A.FROZEN.json",
+      "archive_path": "raw/producer/originals/A.FROZEN.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/A.IMPORTS.ORIGINAL.txt",
+      "archive_path": "raw/producer/originals/A.IMPORTS.ORIGINAL.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/A.LocalPathConnectedSection.ORIGINAL.lean.txt",
+      "archive_path": "raw/producer/originals/A.LocalPathConnectedSection.ORIGINAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/A.PROVENANCE.md",
+      "archive_path": "raw/producer/originals/A.PROVENANCE.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/A_CUSTODY.json",
+      "archive_path": "raw/producer/originals/A_CUSTODY.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/B.Context.ORIGINAL.md",
+      "archive_path": "raw/producer/originals/B.Context.ORIGINAL.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/B.ControlsSection.ORIGINAL.lean.txt",
+      "archive_path": "raw/producer/originals/B.ControlsSection.ORIGINAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/B.Frozen.ORIGINAL.json",
+      "archive_path": "raw/producer/originals/B.Frozen.ORIGINAL.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/B.Imports.ORIGINAL.txt",
+      "archive_path": "raw/producer/originals/B.Imports.ORIGINAL.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/B.Provenance.ORIGINAL.md",
+      "archive_path": "raw/producer/originals/B.Provenance.ORIGINAL.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/B_CUSTODY.json",
+      "archive_path": "raw/producer/originals/B_CUSTODY.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/record_run.py",
+      "archive_path": "raw/producer/record_run.py"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/CONTEXT.md",
+      "archive_path": "raw/producer/runs/controls-001/CONTEXT.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/CONTROLS_HEADER.001.lean.txt",
+      "archive_path": "raw/producer/runs/controls-001/CONTROLS_HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/CORE.CHECKED.lean.txt",
+      "archive_path": "raw/producer/runs/controls-001/CORE.CHECKED.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/FiniteSuperlevelComponentsControls.lean",
+      "archive_path": "raw/producer/runs/controls-001/FiniteSuperlevelComponentsControls.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/HEADER.001.lean.txt",
+      "archive_path": "raw/producer/runs/controls-001/HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/Inventory.lean",
+      "archive_path": "raw/producer/runs/controls-001/Inventory.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/ProducerFixtures.INITIAL.lean.txt",
+      "archive_path": "raw/producer/runs/controls-001/ProducerFixtures.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/ProducerGeneric.INITIAL.lean.txt",
+      "archive_path": "raw/producer/runs/controls-001/ProducerGeneric.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/SourceActualFiniteSuperlevelComponents.lean",
+      "archive_path": "raw/producer/runs/controls-001/SourceActualFiniteSuperlevelComponents.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/receipt.json",
+      "archive_path": "raw/producer/runs/controls-001/receipt.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/record_run.py",
+      "archive_path": "raw/producer/runs/controls-001/record_run.py"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/stderr.log",
+      "archive_path": "raw/producer/runs/controls-001/stderr.log"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/stdout.log",
+      "archive_path": "raw/producer/runs/controls-001/stdout.log"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/CONTEXT.md",
+      "archive_path": "raw/producer/runs/controls-002/CONTEXT.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/CONTROLS_HEADER.001.lean.txt",
+      "archive_path": "raw/producer/runs/controls-002/CONTROLS_HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/CORE.CHECKED.lean.txt",
+      "archive_path": "raw/producer/runs/controls-002/CORE.CHECKED.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/FiniteSuperlevelComponentsControls.lean",
+      "archive_path": "raw/producer/runs/controls-002/FiniteSuperlevelComponentsControls.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/HEADER.001.lean.txt",
+      "archive_path": "raw/producer/runs/controls-002/HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/Inventory.lean",
+      "archive_path": "raw/producer/runs/controls-002/Inventory.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/ProducerFixtures.INITIAL.lean.txt",
+      "archive_path": "raw/producer/runs/controls-002/ProducerFixtures.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/ProducerGeneric.INITIAL.lean.txt",
+      "archive_path": "raw/producer/runs/controls-002/ProducerGeneric.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/SourceActualFiniteSuperlevelComponents.lean",
+      "archive_path": "raw/producer/runs/controls-002/SourceActualFiniteSuperlevelComponents.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/receipt.json",
+      "archive_path": "raw/producer/runs/controls-002/receipt.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/record_run.py",
+      "archive_path": "raw/producer/runs/controls-002/record_run.py"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/stderr.log",
+      "archive_path": "raw/producer/runs/controls-002/stderr.log"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/stdout.log",
+      "archive_path": "raw/producer/runs/controls-002/stdout.log"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/CONTEXT.md",
+      "archive_path": "raw/producer/runs/controls-003/CONTEXT.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/CONTROLS_HEADER.001.lean.txt",
+      "archive_path": "raw/producer/runs/controls-003/CONTROLS_HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/CORE.CHECKED.lean.txt",
+      "archive_path": "raw/producer/runs/controls-003/CORE.CHECKED.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/FiniteSuperlevelComponentsControls.lean",
+      "archive_path": "raw/producer/runs/controls-003/FiniteSuperlevelComponentsControls.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/HEADER.001.lean.txt",
+      "archive_path": "raw/producer/runs/controls-003/HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/Inventory.lean",
+      "archive_path": "raw/producer/runs/controls-003/Inventory.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/ProducerFixtures.INITIAL.lean.txt",
+      "archive_path": "raw/producer/runs/controls-003/ProducerFixtures.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/ProducerGeneric.INITIAL.lean.txt",
+      "archive_path": "raw/producer/runs/controls-003/ProducerGeneric.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/SourceActualFiniteSuperlevelComponents.lean",
+      "archive_path": "raw/producer/runs/controls-003/SourceActualFiniteSuperlevelComponents.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/receipt.json",
+      "archive_path": "raw/producer/runs/controls-003/receipt.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/record_run.py",
+      "archive_path": "raw/producer/runs/controls-003/record_run.py"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/stderr.log",
+      "archive_path": "raw/producer/runs/controls-003/stderr.log"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/stdout.log",
+      "archive_path": "raw/producer/runs/controls-003/stdout.log"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/CONTEXT.md",
+      "archive_path": "raw/producer/runs/controls-004/CONTEXT.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/CONTROLS_HEADER.001.lean.txt",
+      "archive_path": "raw/producer/runs/controls-004/CONTROLS_HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/CORE.CHECKED.lean.txt",
+      "archive_path": "raw/producer/runs/controls-004/CORE.CHECKED.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/FiniteSuperlevelComponentsControls.lean",
+      "archive_path": "raw/producer/runs/controls-004/FiniteSuperlevelComponentsControls.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/HEADER.001.lean.txt",
+      "archive_path": "raw/producer/runs/controls-004/HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/Inventory.lean",
+      "archive_path": "raw/producer/runs/controls-004/Inventory.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/ProducerFixtures.INITIAL.lean.txt",
+      "archive_path": "raw/producer/runs/controls-004/ProducerFixtures.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/ProducerGeneric.INITIAL.lean.txt",
+      "archive_path": "raw/producer/runs/controls-004/ProducerGeneric.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/SourceActualFiniteSuperlevelComponents.lean",
+      "archive_path": "raw/producer/runs/controls-004/SourceActualFiniteSuperlevelComponents.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/receipt.json",
+      "archive_path": "raw/producer/runs/controls-004/receipt.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/record_run.py",
+      "archive_path": "raw/producer/runs/controls-004/record_run.py"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/stderr.log",
+      "archive_path": "raw/producer/runs/controls-004/stderr.log"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/stdout.log",
+      "archive_path": "raw/producer/runs/controls-004/stdout.log"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/CONTEXT.md",
+      "archive_path": "raw/producer/runs/controls-005/CONTEXT.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/CONTROLS_HEADER.001.lean.txt",
+      "archive_path": "raw/producer/runs/controls-005/CONTROLS_HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/CORE.CHECKED.lean.txt",
+      "archive_path": "raw/producer/runs/controls-005/CORE.CHECKED.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/FiniteSuperlevelComponentsControls.lean",
+      "archive_path": "raw/producer/runs/controls-005/FiniteSuperlevelComponentsControls.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/HEADER.001.lean.txt",
+      "archive_path": "raw/producer/runs/controls-005/HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/Inventory.lean",
+      "archive_path": "raw/producer/runs/controls-005/Inventory.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/ProducerFixtures.INITIAL.lean.txt",
+      "archive_path": "raw/producer/runs/controls-005/ProducerFixtures.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/ProducerGeneric.INITIAL.lean.txt",
+      "archive_path": "raw/producer/runs/controls-005/ProducerGeneric.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/SourceActualFiniteSuperlevelComponents.lean",
+      "archive_path": "raw/producer/runs/controls-005/SourceActualFiniteSuperlevelComponents.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/receipt.json",
+      "archive_path": "raw/producer/runs/controls-005/receipt.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/record_run.py",
+      "archive_path": "raw/producer/runs/controls-005/record_run.py"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/stderr.log",
+      "archive_path": "raw/producer/runs/controls-005/stderr.log"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/stdout.log",
+      "archive_path": "raw/producer/runs/controls-005/stdout.log"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-001/CONTEXT.md",
+      "archive_path": "raw/producer/runs/core-001/CONTEXT.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-001/CONTROLS_HEADER.001.lean.txt",
+      "archive_path": "raw/producer/runs/core-001/CONTROLS_HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-001/HEADER.001.lean.txt",
+      "archive_path": "raw/producer/runs/core-001/HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-001/ProducerFixtures.INITIAL.lean.txt",
+      "archive_path": "raw/producer/runs/core-001/ProducerFixtures.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-001/ProducerGeneric.INITIAL.lean.txt",
+      "archive_path": "raw/producer/runs/core-001/ProducerGeneric.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-001/SourceActualFiniteSuperlevelComponents.lean",
+      "archive_path": "raw/producer/runs/core-001/SourceActualFiniteSuperlevelComponents.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-001/receipt.json",
+      "archive_path": "raw/producer/runs/core-001/receipt.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-001/record_run.py",
+      "archive_path": "raw/producer/runs/core-001/record_run.py"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-001/stderr.log",
+      "archive_path": "raw/producer/runs/core-001/stderr.log"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-001/stdout.log",
+      "archive_path": "raw/producer/runs/core-001/stdout.log"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-002/CONTEXT.md",
+      "archive_path": "raw/producer/runs/core-002/CONTEXT.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-002/CONTROLS_HEADER.001.lean.txt",
+      "archive_path": "raw/producer/runs/core-002/CONTROLS_HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-002/HEADER.001.lean.txt",
+      "archive_path": "raw/producer/runs/core-002/HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-002/ProducerFixtures.INITIAL.lean.txt",
+      "archive_path": "raw/producer/runs/core-002/ProducerFixtures.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-002/ProducerGeneric.INITIAL.lean.txt",
+      "archive_path": "raw/producer/runs/core-002/ProducerGeneric.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-002/SourceActualFiniteSuperlevelComponents.lean",
+      "archive_path": "raw/producer/runs/core-002/SourceActualFiniteSuperlevelComponents.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-002/receipt.json",
+      "archive_path": "raw/producer/runs/core-002/receipt.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-002/record_run.py",
+      "archive_path": "raw/producer/runs/core-002/record_run.py"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-002/stderr.log",
+      "archive_path": "raw/producer/runs/core-002/stderr.log"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-002/stdout.log",
+      "archive_path": "raw/producer/runs/core-002/stdout.log"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/CONTEXT.md",
+      "archive_path": "raw/producer/runs/false-control-001/CONTEXT.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/CONTROLS_HEADER.001.lean.txt",
+      "archive_path": "raw/producer/runs/false-control-001/CONTROLS_HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/CORE.CHECKED.lean.txt",
+      "archive_path": "raw/producer/runs/false-control-001/CORE.CHECKED.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/FalseMutation.lean",
+      "archive_path": "raw/producer/runs/false-control-001/FalseMutation.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/FiniteSuperlevelComponentsControls.lean",
+      "archive_path": "raw/producer/runs/false-control-001/FiniteSuperlevelComponentsControls.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/HEADER.001.lean.txt",
+      "archive_path": "raw/producer/runs/false-control-001/HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/Inventory.lean",
+      "archive_path": "raw/producer/runs/false-control-001/Inventory.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/ProducerFixtures.INITIAL.lean.txt",
+      "archive_path": "raw/producer/runs/false-control-001/ProducerFixtures.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/ProducerGeneric.INITIAL.lean.txt",
+      "archive_path": "raw/producer/runs/false-control-001/ProducerGeneric.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/SourceActualFiniteSuperlevelComponents.lean",
+      "archive_path": "raw/producer/runs/false-control-001/SourceActualFiniteSuperlevelComponents.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/receipt.json",
+      "archive_path": "raw/producer/runs/false-control-001/receipt.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/record_run.py",
+      "archive_path": "raw/producer/runs/false-control-001/record_run.py"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/stderr.log",
+      "archive_path": "raw/producer/runs/false-control-001/stderr.log"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/stdout.log",
+      "archive_path": "raw/producer/runs/false-control-001/stdout.log"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/CONTEXT.md",
+      "archive_path": "raw/producer/runs/inventory-001/CONTEXT.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/CONTROLS_HEADER.001.lean.txt",
+      "archive_path": "raw/producer/runs/inventory-001/CONTROLS_HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/CORE.CHECKED.lean.txt",
+      "archive_path": "raw/producer/runs/inventory-001/CORE.CHECKED.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/HEADER.001.lean.txt",
+      "archive_path": "raw/producer/runs/inventory-001/HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/Inventory.lean",
+      "archive_path": "raw/producer/runs/inventory-001/Inventory.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/ProducerFixtures.INITIAL.lean.txt",
+      "archive_path": "raw/producer/runs/inventory-001/ProducerFixtures.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/ProducerGeneric.INITIAL.lean.txt",
+      "archive_path": "raw/producer/runs/inventory-001/ProducerGeneric.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/SourceActualFiniteSuperlevelComponents.lean",
+      "archive_path": "raw/producer/runs/inventory-001/SourceActualFiniteSuperlevelComponents.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/receipt.json",
+      "archive_path": "raw/producer/runs/inventory-001/receipt.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/record_run.py",
+      "archive_path": "raw/producer/runs/inventory-001/record_run.py"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/stderr.log",
+      "archive_path": "raw/producer/runs/inventory-001/stderr.log"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/stdout.log",
+      "archive_path": "raw/producer/runs/inventory-001/stdout.log"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/CONTEXT.md",
+      "archive_path": "raw/producer/runs/kernel-001/CONTEXT.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/CONTROLS_HEADER.001.lean.txt",
+      "archive_path": "raw/producer/runs/kernel-001/CONTROLS_HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/CORE.CHECKED.lean.txt",
+      "archive_path": "raw/producer/runs/kernel-001/CORE.CHECKED.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/FiniteSuperlevelComponentsControls.lean",
+      "archive_path": "raw/producer/runs/kernel-001/FiniteSuperlevelComponentsControls.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/HEADER.001.lean.txt",
+      "archive_path": "raw/producer/runs/kernel-001/HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/Inventory.lean",
+      "archive_path": "raw/producer/runs/kernel-001/Inventory.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/ProducerFixtures.INITIAL.lean.txt",
+      "archive_path": "raw/producer/runs/kernel-001/ProducerFixtures.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/ProducerGeneric.INITIAL.lean.txt",
+      "archive_path": "raw/producer/runs/kernel-001/ProducerGeneric.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/SourceActualFiniteSuperlevelComponents.lean",
+      "archive_path": "raw/producer/runs/kernel-001/SourceActualFiniteSuperlevelComponents.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/receipt.json",
+      "archive_path": "raw/producer/runs/kernel-001/receipt.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/record_run.py",
+      "archive_path": "raw/producer/runs/kernel-001/record_run.py"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/stderr.log",
+      "archive_path": "raw/producer/runs/kernel-001/stderr.log"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/stdout.log",
+      "archive_path": "raw/producer/runs/kernel-001/stdout.log"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/CONTEXT.md",
+      "archive_path": "raw/producer/runs/production-fixtures-001/CONTEXT.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/CONTROLS_HEADER.001.lean.txt",
+      "archive_path": "raw/producer/runs/production-fixtures-001/CONTROLS_HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/CORE.CHECKED.lean.txt",
+      "archive_path": "raw/producer/runs/production-fixtures-001/CORE.CHECKED.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/HEADER.001.lean.txt",
+      "archive_path": "raw/producer/runs/production-fixtures-001/HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/ProducerFixtures.INITIAL.lean.txt",
+      "archive_path": "raw/producer/runs/production-fixtures-001/ProducerFixtures.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/ProducerGeneric.INITIAL.lean.txt",
+      "archive_path": "raw/producer/runs/production-fixtures-001/ProducerGeneric.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/SourceActualFiniteSuperlevelComponents.lean",
+      "archive_path": "raw/producer/runs/production-fixtures-001/SourceActualFiniteSuperlevelComponents.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/receipt.json",
+      "archive_path": "raw/producer/runs/production-fixtures-001/receipt.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/record_run.py",
+      "archive_path": "raw/producer/runs/production-fixtures-001/record_run.py"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/stderr.log",
+      "archive_path": "raw/producer/runs/production-fixtures-001/stderr.log"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/stdout.log",
+      "archive_path": "raw/producer/runs/production-fixtures-001/stdout.log"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-002/CONTEXT.md",
+      "archive_path": "raw/producer/runs/production-fixtures-002/CONTEXT.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-002/CONTROLS_HEADER.001.lean.txt",
+      "archive_path": "raw/producer/runs/production-fixtures-002/CONTROLS_HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-002/CORE.CHECKED.lean.txt",
+      "archive_path": "raw/producer/runs/production-fixtures-002/CORE.CHECKED.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-002/HEADER.001.lean.txt",
+      "archive_path": "raw/producer/runs/production-fixtures-002/HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-002/ProducerFixtures.INITIAL.lean.txt",
+      "archive_path": "raw/producer/runs/production-fixtures-002/ProducerFixtures.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-002/ProducerGeneric.INITIAL.lean.txt",
+      "archive_path": "raw/producer/runs/production-fixtures-002/ProducerGeneric.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-002/SourceActualFiniteSuperlevelComponents.lean",
+      "archive_path": "raw/producer/runs/production-fixtures-002/SourceActualFiniteSuperlevelComponents.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-002/receipt.json",
+      "archive_path": "raw/producer/runs/production-fixtures-002/receipt.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-002/record_run.py",
+      "archive_path": "raw/producer/runs/production-fixtures-002/record_run.py"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-002/stderr.log",
+      "archive_path": "raw/producer/runs/production-fixtures-002/stderr.log"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-002/stdout.log",
+      "archive_path": "raw/producer/runs/production-fixtures-002/stdout.log"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-003/CONTEXT.md",
+      "archive_path": "raw/producer/runs/production-fixtures-003/CONTEXT.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-003/CONTROLS_HEADER.001.lean.txt",
+      "archive_path": "raw/producer/runs/production-fixtures-003/CONTROLS_HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-003/CORE.CHECKED.lean.txt",
+      "archive_path": "raw/producer/runs/production-fixtures-003/CORE.CHECKED.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-003/HEADER.001.lean.txt",
+      "archive_path": "raw/producer/runs/production-fixtures-003/HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-003/ProducerFixtures.INITIAL.lean.txt",
+      "archive_path": "raw/producer/runs/production-fixtures-003/ProducerFixtures.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-003/ProducerGeneric.INITIAL.lean.txt",
+      "archive_path": "raw/producer/runs/production-fixtures-003/ProducerGeneric.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-003/SourceActualFiniteSuperlevelComponents.lean",
+      "archive_path": "raw/producer/runs/production-fixtures-003/SourceActualFiniteSuperlevelComponents.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-003/receipt.json",
+      "archive_path": "raw/producer/runs/production-fixtures-003/receipt.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-003/record_run.py",
+      "archive_path": "raw/producer/runs/production-fixtures-003/record_run.py"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-003/stderr.log",
+      "archive_path": "raw/producer/runs/production-fixtures-003/stderr.log"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-003/stdout.log",
+      "archive_path": "raw/producer/runs/production-fixtures-003/stdout.log"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/CONTEXT.md",
+      "archive_path": "raw/producer/runs/production-fixtures-004/CONTEXT.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/CONTROLS_HEADER.001.lean.txt",
+      "archive_path": "raw/producer/runs/production-fixtures-004/CONTROLS_HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/CORE.CHECKED.lean.txt",
+      "archive_path": "raw/producer/runs/production-fixtures-004/CORE.CHECKED.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/HEADER.001.lean.txt",
+      "archive_path": "raw/producer/runs/production-fixtures-004/HEADER.001.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/ProducerFixtures.INITIAL.lean.txt",
+      "archive_path": "raw/producer/runs/production-fixtures-004/ProducerFixtures.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/ProducerGeneric.INITIAL.lean.txt",
+      "archive_path": "raw/producer/runs/production-fixtures-004/ProducerGeneric.INITIAL.lean.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/SourceActualFiniteSuperlevelComponents.lean",
+      "archive_path": "raw/producer/runs/production-fixtures-004/SourceActualFiniteSuperlevelComponents.lean"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/receipt.json",
+      "archive_path": "raw/producer/runs/production-fixtures-004/receipt.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/record_run.py",
+      "archive_path": "raw/producer/runs/production-fixtures-004/record_run.py"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/stderr.log",
+      "archive_path": "raw/producer/runs/production-fixtures-004/stderr.log"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/stdout.log",
+      "archive_path": "raw/producer/runs/production-fixtures-004/stdout.log"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/ARTIFACT_IDENTITIES.json",
+      "archive_path": "raw/producer/ARTIFACT_IDENTITIES.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/PACKAGING_ALLOWLIST.json",
+      "archive_path": "raw/producer/PACKAGING_ALLOWLIST.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/FINAL_DOCUMENT_IDS.json",
+      "archive_path": "raw/producer/FINAL_DOCUMENT_IDS.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/DOCUMENTARY_EXECUTION_002.json",
+      "archive_path": "raw/producer/DOCUMENTARY_EXECUTION_002.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/FINAL_CUSTODY_ADDENDUM_001.md",
+      "archive_path": "raw/producer/FINAL_CUSTODY_ADDENDUM_001.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/PRECODE63_IDENTITIES.json",
+      "archive_path": "raw/root-process/PRECODE63_IDENTITIES.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/ROOT_PRECODE_PUBLICATION.json",
+      "archive_path": "raw/root-process/ROOT_PRECODE_PUBLICATION.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/ROOT_CONTROL_CONTRACT_COPY.json",
+      "archive_path": "raw/root-process/ROOT_CONTROL_CONTRACT_COPY.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/ROOT_GO63_COPY.json",
+      "archive_path": "raw/root-process/ROOT_GO63_COPY.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/ROOT_READING.json",
+      "archive_path": "raw/root-process/ROOT_READING.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/ROOT_REVIEW_ACCEPTANCE.json",
+      "archive_path": "raw/root-process/ROOT_REVIEW_ACCEPTANCE.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/ROOT_FINALIZATION_GO.json",
+      "archive_path": "raw/root-process/ROOT_FINALIZATION_GO.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/ROOT_SOURCE_CUT.json",
+      "archive_path": "raw/root-process/ROOT_SOURCE_CUT.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/ROOT_OWN_OBJECT_COPY_INTENT.json",
+      "archive_path": "raw/root-process/ROOT_OWN_OBJECT_COPY_INTENT.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/ROOT_OWN_OBJECT_COPY.json",
+      "archive_path": "raw/root-process/ROOT_OWN_OBJECT_COPY.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/ROOT_SOURCE_CUT_COMMANDS.json",
+      "archive_path": "raw/root-process/ROOT_SOURCE_CUT_COMMANDS.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/ROOT_SOURCE_CUT_OUTER.json",
+      "archive_path": "raw/root-process/ROOT_SOURCE_CUT_OUTER.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/ROOT_SOURCE_CUT_OUTER.stdout.txt",
+      "archive_path": "raw/root-process/ROOT_SOURCE_CUT_OUTER.stdout.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/ROOT_SOURCE_CUT_OUTER.stderr.txt",
+      "archive_path": "raw/root-process/ROOT_SOURCE_CUT_OUTER.stderr.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/root_source_cut.py",
+      "archive_path": "raw/root-process/root_source_cut.py"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/CLAIM63_BODY.md",
+      "archive_path": "raw/root-process/CLAIM63_BODY.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/CLAIM63_BOARD_BODY.md",
+      "archive_path": "raw/root-process/CLAIM63_BOARD_BODY.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/CLAIM63_NATIVE.json",
+      "archive_path": "raw/root-process/CLAIM63_NATIVE.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/CLAIM63_NATIVE.stderr",
+      "archive_path": "raw/root-process/CLAIM63_NATIVE.stderr"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/CLAIM63_NATIVE_MATCH.json",
+      "archive_path": "raw/root-process/CLAIM63_NATIVE_MATCH.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/CLAIM63_BOARD_NATIVE_READBACK.json",
+      "archive_path": "raw/root-process/CLAIM63_BOARD_NATIVE_READBACK.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/CLAIM63_BOARD_NATIVE_READBACK.stderr",
+      "archive_path": "raw/root-process/CLAIM63_BOARD_NATIVE_READBACK.stderr"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/CLAIM63_BOARD_NATIVE_MATCH.json",
+      "archive_path": "raw/root-process/CLAIM63_BOARD_NATIVE_MATCH.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/CLAIM63_POSTCLAIM_PR.json",
+      "archive_path": "raw/root-process/CLAIM63_POSTCLAIM_PR.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/CLAIM63_POSTCLAIM_PR.stderr",
+      "archive_path": "raw/root-process/CLAIM63_POSTCLAIM_PR.stderr"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/CLAIM63_POSTCLAIM_BOARD.json",
+      "archive_path": "raw/root-process/CLAIM63_POSTCLAIM_BOARD.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/CLAIM63_POSTCLAIM_BOARD.stderr",
+      "archive_path": "raw/root-process/CLAIM63_POSTCLAIM_BOARD.stderr"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/PRECLAIM63_PR_DELTA.json",
+      "archive_path": "raw/root-process/PRECLAIM63_PR_DELTA.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/PRECLAIM63_PR_DELTA.stderr",
+      "archive_path": "raw/root-process/PRECLAIM63_PR_DELTA.stderr"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/PRECLAIM63_BOARD_DELTA.json",
+      "archive_path": "raw/root-process/PRECLAIM63_BOARD_DELTA.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/PRECLAIM63_BOARD_DELTA.stderr",
+      "archive_path": "raw/root-process/PRECLAIM63_BOARD_DELTA.stderr"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/PRECLAIM63_PR_DIRECT.json",
+      "archive_path": "raw/root-process/PRECLAIM63_PR_DIRECT.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/PRECLAIM63_PR_DIRECT.stderr",
+      "archive_path": "raw/root-process/PRECLAIM63_PR_DIRECT.stderr"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/PRECLAIM63_PR_DIRECT_BINDING.json",
+      "archive_path": "raw/root-process/PRECLAIM63_PR_DIRECT_BINDING.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/CHECKPOINT1905_BODY.md",
+      "archive_path": "raw/root-process/CHECKPOINT1905_BODY.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/CHECKPOINT1905_NATIVE_MATCH.json",
+      "archive_path": "raw/root-process/CHECKPOINT1905_NATIVE_MATCH.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/CHECKPOINT1905_NATIVE_READBACK.json",
+      "archive_path": "raw/root-process/CHECKPOINT1905_NATIVE_READBACK.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/CHECKPOINT1905_NATIVE_READBACK.stderr",
+      "archive_path": "raw/root-process/CHECKPOINT1905_NATIVE_READBACK.stderr"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/CHECKPOINT1905_BOARD_BODY.md",
+      "archive_path": "raw/root-process/CHECKPOINT1905_BOARD_BODY.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_01.stdout.txt",
+      "archive_path": "raw/root-process/SOURCE_CUT_01.stdout.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_01.stderr.txt",
+      "archive_path": "raw/root-process/SOURCE_CUT_01.stderr.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_02.stdout.txt",
+      "archive_path": "raw/root-process/SOURCE_CUT_02.stdout.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_02.stderr.txt",
+      "archive_path": "raw/root-process/SOURCE_CUT_02.stderr.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_03.stdout.txt",
+      "archive_path": "raw/root-process/SOURCE_CUT_03.stdout.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_03.stderr.txt",
+      "archive_path": "raw/root-process/SOURCE_CUT_03.stderr.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_04.stdout.txt",
+      "archive_path": "raw/root-process/SOURCE_CUT_04.stdout.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_04.stderr.txt",
+      "archive_path": "raw/root-process/SOURCE_CUT_04.stderr.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_05.stdout.txt",
+      "archive_path": "raw/root-process/SOURCE_CUT_05.stdout.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_05.stderr.txt",
+      "archive_path": "raw/root-process/SOURCE_CUT_05.stderr.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_06.stdout.txt",
+      "archive_path": "raw/root-process/SOURCE_CUT_06.stdout.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_06.stderr.txt",
+      "archive_path": "raw/root-process/SOURCE_CUT_06.stderr.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_07.stdout.txt",
+      "archive_path": "raw/root-process/SOURCE_CUT_07.stdout.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_07.stderr.txt",
+      "archive_path": "raw/root-process/SOURCE_CUT_07.stderr.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_04B.stdout.txt",
+      "archive_path": "raw/root-process/SOURCE_CUT_04B.stdout.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/SOURCE_CUT_04B.stderr.txt",
+      "archive_path": "raw/root-process/SOURCE_CUT_04B.stderr.txt"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/ROOT_GO.json",
+      "archive_path": "raw/root-process/producer-installed/ROOT_GO.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/CONTROL_CONTRACT.md",
+      "archive_path": "raw/root-process/producer-installed/CONTROL_CONTRACT.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/ROOT_CONTEXT_ACCEPTANCE.json",
+      "archive_path": "raw/root-process/producer-installed/ROOT_CONTEXT_ACCEPTANCE.json"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-source-review/REPORT.md",
+      "archive_path": "raw/review/REPORT.md"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-source-review/scope.json",
+      "archive_path": "raw/review/scope.json"
+    }
+  ],
+  "allowlist_rule": "Prefer actual FINAL producer textual allowlist, each mapped to raw/producer/<actual relative path>, plus explicit immutable root/review files. Retain all contexts001002003/full actual patches/initial runner001/history/personal observedACKs/preTEXT root-path race and ROOT_CONTEXT_ACCEPTANCE, LP and ordinary originals/freezes/FULL producer amendments, ALL actual source/harness/runner/context snapshots/commands/times/exits/originalstreams. Actual final filenames/schemas must be read when present; no guesses. No64/foreign live paths.",
+  "excluded_artifact_directories": [
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/build"
+  ],
+  "existing_file_identities": [
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/CONTEXT.md",
+      "bytes": 19790,
+      "sha256": "c71f098f981c2d745b9cbc735165d27389b6e4e30044ae3283040dccba1ab899"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/CONTROLS_HEADER.001.lean.txt",
+      "bytes": 840,
+      "sha256": "653fe501ae6ed282e14df6654bafbe63623987b378d9c778a3f6d383ce5ebbda"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/CONTROL_CONTRACT.md",
+      "bytes": 15531,
+      "sha256": "4c48057189fb4fcaa0899006dcbd4d30c5af1056612aba787e17fd861c01a943"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/CONTROL_IDS.json",
+      "bytes": 4362,
+      "sha256": "be1e8069b0d212a42c8a531e246e72c3bf79caec47ffbe11dd33668017b17280"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/CONTROL_RECEIPT.json",
+      "bytes": 2997,
+      "sha256": "1a95088e67c31db4a207ffd6451cdda4a5497f3bf165b6c45e46870eca8e9a9f"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/CORE.CHECKED.lean.txt",
+      "bytes": 4756,
+      "sha256": "ee30189b88ff08e8ce476e690c49541cbcf666b84f1e3d9bb1b90beac1241d74"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/CORE_MILESTONE.json",
+      "bytes": 1363,
+      "sha256": "208352241033b5f516d8310e69ea90bcea8144656851504a8213dde1ad2174f5"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/DOCUMENTARY_EXECUTION_001.json",
+      "bytes": 1197,
+      "sha256": "9ba4c753373e93392dff7bf103b49ecfa412e73548a29e2adeaa3fdcfda0ac9b"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/EXECUTION_RECORD_INDEX.json",
+      "bytes": 117131,
+      "sha256": "32ed1f6fba5bb9c134daaff1a9474c90f7d245ec8ab54238ca801f461b3d08db"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/FINAL_SOURCE_OBJECT_IDS.PRE_KERNEL.json",
+      "bytes": 1285,
+      "sha256": "4951a274e8a19547f844f6ce5bdfabc95040884340d880fd2fe9f448ce579576"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/FalseMutation.lean",
+      "bytes": 170,
+      "sha256": "bdd65a9584bcf9101014ae3535ab1ab8fd15191beed2d94f2a0083bce3de732e"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean",
+      "bytes": 19571,
+      "sha256": "fe608ef829162d25a8d90718850361cfbc5f5a60525ca7d6dbe28383ad19a9b0"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/HANDOFF.md",
+      "bytes": 2598,
+      "sha256": "51581fdd0898f724fd2d6c73864737982a51afa8085ffc697eac0a8341c7bf57"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/HEADER.001.lean.txt",
+      "bytes": 800,
+      "sha256": "05bf681bf8c5326b011dba244878b64a4d91f7e1aeb638bf3543dc476251baaf"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/INVENTORY.json",
+      "bytes": 10492,
+      "sha256": "a8e6b32507b1fa7f9852c37c0c49adada4c5444f370ee12660d67ea6f3e342f4"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/Inventory.lean",
+      "bytes": 1101,
+      "sha256": "9b892602c1ae32fa6c170531267fbe0ff1118950d2b7625195baafdbb27c653c"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/PRODUCTION_QUALIFICATION.json",
+      "bytes": 2698,
+      "sha256": "3e9b00ee6a496b6652a6dcb22b08020272f9e7d4e10163822e26a8403a6b7acd"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/ProducerFixtures.INITIAL.lean.txt",
+      "bytes": 6558,
+      "sha256": "da51c0a7c5a733b903ccfe9b05e079ea21e6f8d86b14fbfd9c78eeaaa2cfd674"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/ProducerGeneric.INITIAL.lean.txt",
+      "bytes": 1784,
+      "sha256": "d4d544d5034dd9d996c01752f4c921e8c98dd6518615211e2f0f6d7629b5a029"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/READY.json",
+      "bytes": 644,
+      "sha256": "497e0a3639360902545e994c59de85e2832f663007fddc9cd12da2ae1d190bc1"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/READ_SCOPE.md",
+      "bytes": 2398,
+      "sha256": "c856a507c230530357dc78d0de488fbb81eca977a8493103dd9fc099409216c3"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/REPORT.md",
+      "bytes": 8622,
+      "sha256": "9558a7d04f4eee4b407c8519d67392345054eff7136e7ae8bf902e6bcb1d8d97"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/STREAM_COUNTS.json",
+      "bytes": 12893,
+      "sha256": "122fc1559542dc4bb1e06e31b3077d06c0d47836016749b7bff5dffab9a4cc7f"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/amendments/context-002.patch",
+      "bytes": 2940,
+      "sha256": "cdd990259c3d08e8cd61b944cc9bb7a5b1c9526b295806d18a645512d51b7f79"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/amendments/context-003.patch",
+      "bytes": 2746,
+      "sha256": "45cf95ae6ea8298dafe7235324ca91e1c74600316a74dd7913e8a978c23ee84e"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/amendments/controls-002.patch",
+      "bytes": 7836,
+      "sha256": "93744d54ac6e9aa1f04a47294022820a79578274ad2ba854cdee376b2b8ef782"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/amendments/controls-003.patch",
+      "bytes": 398,
+      "sha256": "3c8491eb570428fcb8aeaa5b6d412bc7e5e89b83a52247cdbcb9d0562a7efdf4"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/amendments/controls-004.patch",
+      "bytes": 1736,
+      "sha256": "27e9b486355ce2ece0ac38b8ff964a484a7970fae50cbf224f973ce99d5a80cc"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/amendments/controls-005.patch",
+      "bytes": 508,
+      "sha256": "48913ea914fd983c0b4b4be63459deb85d34afad72bbff8e5a633ccdb0d8c210"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/amendments/core-002.patch",
+      "bytes": 1420,
+      "sha256": "5f1845414eb9b4f217f2bbebcd9597116bcd1f9b776f0f2ecbfd882ac68a3359"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/amendments/documentary-freeze-002.patch",
+      "bytes": 6889,
+      "sha256": "7d43aaeee3b0450b61291c5b8e78f5f9bca0c1996d0d72d4347f5fd65f4edd19"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/amendments/production-fixtures-001.patch",
+      "bytes": 6961,
+      "sha256": "b6728b77fc7d71aabdd76fc18bc81828a694d94c63f259863be67fed91418162"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/amendments/production-fixtures-002.patch",
+      "bytes": 1507,
+      "sha256": "fb8e0bbc3e5ecaa526141c3cd865d6c523343969a0fe1d79b0bc6d285849c8b6"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/amendments/production-fixtures-003.patch",
+      "bytes": 1955,
+      "sha256": "90aebe78aa6e5e479ea36f286b56a85665f4bc56b46397935f5f2dd8cb59efe7"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/amendments/production-fixtures-004.patch",
+      "bytes": 997,
+      "sha256": "f4a4c338ae36c0ec9489ccb1141f4d4f43759d7f35c976b8a5d7ee482379b6c1"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/context/CONTEXT.001.md",
+      "bytes": 18713,
+      "sha256": "a2b34cb814cf613db33af684432b1a4aca378343f70a998c3c75b6c8438fc5bd"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/context/CONTEXT.002.md",
+      "bytes": 19256,
+      "sha256": "5f39b6af808c0cc79b4b233882e06e009673fd37e4e283a04dd8cd457c928c6b"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/context/CONTEXT.003.md",
+      "bytes": 19790,
+      "sha256": "c71f098f981c2d745b9cbc735165d27389b6e4e30044ae3283040dccba1ab899"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/context/FIRST_ID_001.json",
+      "bytes": 468,
+      "sha256": "59ed87af0217a5a5c553ae3ba1537b93880b5d3a3f136c7ccb46d31d3990bc96"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/context/FIRST_ID_002.json",
+      "bytes": 494,
+      "sha256": "65b70629bdd49738d17af287e0609b046899133fcd8a1b38b89d3d3dd1151bab"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/context/FIRST_ID_003.json",
+      "bytes": 492,
+      "sha256": "06995c46f4a74def105d2ab680a323c44c7eef0dfeb532abfac4db4c4af8feee"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/freeze_documents.py",
+      "bytes": 25205,
+      "sha256": "78bb838ef4895a4bb03ad72a1f2f6f45c13606ece5c2438fc22149f095b0f3d4"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/history/CONTEXT.INITIAL.md",
+      "bytes": 18713,
+      "sha256": "a2b34cb814cf613db33af684432b1a4aca378343f70a998c3c75b6c8438fc5bd"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/history/INITIAL_RUNNER_CUSTODY.json",
+      "bytes": 720,
+      "sha256": "3b2ba77938c0ac0551a28753bfa5b1b3e80bed62c22796f414c11cbd8b4681c2"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/history/OWN_ID_CACHE.FINAL.json",
+      "bytes": 20731,
+      "sha256": "1cf3c8c633e3778e17b94b3678917181002dd1ad211df69321d0aa9ee1e272ba"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/history/freeze_documents.001.py",
+      "bytes": 24422,
+      "sha256": "39375bb9d9419f13f9d4a531a526fe64197ae21dd2998aca7ac104447578b8ff"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/history/runner.001.py",
+      "bytes": 3212,
+      "sha256": "a426ed036f5d5936e03133eae57940752fd07d381b4edebc414c6c06d1613442"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/A.CONTEXT.ORIGINAL.md",
+      "bytes": 19790,
+      "sha256": "c71f098f981c2d745b9cbc735165d27389b6e4e30044ae3283040dccba1ab899"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/A.FROZEN.json",
+      "bytes": 980,
+      "sha256": "b0b278a15632ce2d7585f5f257ebd96ee555e6ab0f5afd1210600734802caa35"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/A.IMPORTS.ORIGINAL.txt",
+      "bytes": 881,
+      "sha256": "fbd75096e41d06d5fe83d927021c8fff623f9909e2e9546be2e8c0b07647f082"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/A.LocalPathConnectedSection.ORIGINAL.lean.txt",
+      "bytes": 2180,
+      "sha256": "aeb1c81e577f6f0d93e9272c00a1d75225d48e1877ec4c8bf78e60b7ae0f7dbf"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/A.PROVENANCE.md",
+      "bytes": 4250,
+      "sha256": "30d1e8203793885166f52967d16a87a61c98904db67da3141c5ff26a6bb55c30"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/A_CUSTODY.json",
+      "bytes": 3006,
+      "sha256": "eed13c022356c6e1b48a0bc7496fd43ee3c4b9a03e7d8b54f640068b6c6339bf"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/B.Context.ORIGINAL.md",
+      "bytes": 1785,
+      "sha256": "958452353b612767bad4c830b385ce24f7d7c8af5d2404d7817d3b1a1298155e"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/B.ControlsSection.ORIGINAL.lean.txt",
+      "bytes": 16959,
+      "sha256": "824a1166336442a65edf4aec17d14b088dcb7e573ec641ca4731e58b670c9ac6"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/B.Frozen.ORIGINAL.json",
+      "bytes": 1009,
+      "sha256": "6fd7c70748ed02f05a182388bd72d86e30047a2bce8ed03dec5aef16b8bde12d"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/B.Imports.ORIGINAL.txt",
+      "bytes": 613,
+      "sha256": "9a46a609dbf767d697b12edbbee0739681aef842ccd20035a2a4ac51507c833b"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/B.Provenance.ORIGINAL.md",
+      "bytes": 5951,
+      "sha256": "06cef528f83b59dd960e69c2173789cc5e58b877ebd36e5bd1d94491322f193c"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/B_CUSTODY.json",
+      "bytes": 3159,
+      "sha256": "557f937cfbe66ffa16b3ba23854abd267db206a06c71f795038744a65812d1ea"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/record_run.py",
+      "bytes": 3212,
+      "sha256": "a426ed036f5d5936e03133eae57940752fd07d381b4edebc414c6c06d1613442"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/CONTEXT.md",
+      "bytes": 19790,
+      "sha256": "c71f098f981c2d745b9cbc735165d27389b6e4e30044ae3283040dccba1ab899"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/CONTROLS_HEADER.001.lean.txt",
+      "bytes": 840,
+      "sha256": "653fe501ae6ed282e14df6654bafbe63623987b378d9c778a3f6d383ce5ebbda"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/CORE.CHECKED.lean.txt",
+      "bytes": 4756,
+      "sha256": "ee30189b88ff08e8ce476e690c49541cbcf666b84f1e3d9bb1b90beac1241d74"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/FiniteSuperlevelComponentsControls.lean",
+      "bytes": 18560,
+      "sha256": "50b46f1a911bef294133e4dd390b34523ad180fd557293644bb2600794fab5b7"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/HEADER.001.lean.txt",
+      "bytes": 800,
+      "sha256": "05bf681bf8c5326b011dba244878b64a4d91f7e1aeb638bf3543dc476251baaf"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/Inventory.lean",
+      "bytes": 1101,
+      "sha256": "9b892602c1ae32fa6c170531267fbe0ff1118950d2b7625195baafdbb27c653c"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/ProducerFixtures.INITIAL.lean.txt",
+      "bytes": 6558,
+      "sha256": "da51c0a7c5a733b903ccfe9b05e079ea21e6f8d86b14fbfd9c78eeaaa2cfd674"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/ProducerGeneric.INITIAL.lean.txt",
+      "bytes": 1784,
+      "sha256": "d4d544d5034dd9d996c01752f4c921e8c98dd6518615211e2f0f6d7629b5a029"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/SourceActualFiniteSuperlevelComponents.lean",
+      "bytes": 11683,
+      "sha256": "e63abe693a6d23e5679adbb7110cb7b569bd3171db596d470f32b8566bc01a5c"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/receipt.json",
+      "bytes": 16200,
+      "sha256": "c24ae9ca9a93a836ab7f43fb72310b5f761cff6fff97d580fda40dea2968f090"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/record_run.py",
+      "bytes": 3212,
+      "sha256": "a426ed036f5d5936e03133eae57940752fd07d381b4edebc414c6c06d1613442"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/stdout.log",
+      "bytes": 12815,
+      "sha256": "cb4e0d94e735bfa27dc8d2df847e296ae86b0bf3b461cb57bcdd93bc85a7e8a8"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/CONTEXT.md",
+      "bytes": 19790,
+      "sha256": "c71f098f981c2d745b9cbc735165d27389b6e4e30044ae3283040dccba1ab899"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/CONTROLS_HEADER.001.lean.txt",
+      "bytes": 840,
+      "sha256": "653fe501ae6ed282e14df6654bafbe63623987b378d9c778a3f6d383ce5ebbda"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/CORE.CHECKED.lean.txt",
+      "bytes": 4756,
+      "sha256": "ee30189b88ff08e8ce476e690c49541cbcf666b84f1e3d9bb1b90beac1241d74"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/FiniteSuperlevelComponentsControls.lean",
+      "bytes": 19549,
+      "sha256": "552e31a8f91299a5868bcf31a27effbf26e7b79c15fce43df7b0087bd593986e"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/HEADER.001.lean.txt",
+      "bytes": 800,
+      "sha256": "05bf681bf8c5326b011dba244878b64a4d91f7e1aeb638bf3543dc476251baaf"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/Inventory.lean",
+      "bytes": 1101,
+      "sha256": "9b892602c1ae32fa6c170531267fbe0ff1118950d2b7625195baafdbb27c653c"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/ProducerFixtures.INITIAL.lean.txt",
+      "bytes": 6558,
+      "sha256": "da51c0a7c5a733b903ccfe9b05e079ea21e6f8d86b14fbfd9c78eeaaa2cfd674"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/ProducerGeneric.INITIAL.lean.txt",
+      "bytes": 1784,
+      "sha256": "d4d544d5034dd9d996c01752f4c921e8c98dd6518615211e2f0f6d7629b5a029"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/SourceActualFiniteSuperlevelComponents.lean",
+      "bytes": 11683,
+      "sha256": "e63abe693a6d23e5679adbb7110cb7b569bd3171db596d470f32b8566bc01a5c"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/receipt.json",
+      "bytes": 16207,
+      "sha256": "e20a46352b8e432866d80c0db5a0cd084365bb87289311fde462dad0ddb62156"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/record_run.py",
+      "bytes": 3212,
+      "sha256": "a426ed036f5d5936e03133eae57940752fd07d381b4edebc414c6c06d1613442"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/stdout.log",
+      "bytes": 1459,
+      "sha256": "3df71a7fc1bd4b24c799f8f3c2ebc4ed57b48e3c7e6c94c81601a5f3a435ed30"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/CONTEXT.md",
+      "bytes": 19790,
+      "sha256": "c71f098f981c2d745b9cbc735165d27389b6e4e30044ae3283040dccba1ab899"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/CONTROLS_HEADER.001.lean.txt",
+      "bytes": 840,
+      "sha256": "653fe501ae6ed282e14df6654bafbe63623987b378d9c778a3f6d383ce5ebbda"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/CORE.CHECKED.lean.txt",
+      "bytes": 4756,
+      "sha256": "ee30189b88ff08e8ce476e690c49541cbcf666b84f1e3d9bb1b90beac1241d74"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/FiniteSuperlevelComponentsControls.lean",
+      "bytes": 19567,
+      "sha256": "8933fa9bbd038886a2516216f4ddb30b267fe3aff911f1e58876c8d872c93b85"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/HEADER.001.lean.txt",
+      "bytes": 800,
+      "sha256": "05bf681bf8c5326b011dba244878b64a4d91f7e1aeb638bf3543dc476251baaf"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/Inventory.lean",
+      "bytes": 1101,
+      "sha256": "9b892602c1ae32fa6c170531267fbe0ff1118950d2b7625195baafdbb27c653c"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/ProducerFixtures.INITIAL.lean.txt",
+      "bytes": 6558,
+      "sha256": "da51c0a7c5a733b903ccfe9b05e079ea21e6f8d86b14fbfd9c78eeaaa2cfd674"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/ProducerGeneric.INITIAL.lean.txt",
+      "bytes": 1784,
+      "sha256": "d4d544d5034dd9d996c01752f4c921e8c98dd6518615211e2f0f6d7629b5a029"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/SourceActualFiniteSuperlevelComponents.lean",
+      "bytes": 11683,
+      "sha256": "e63abe693a6d23e5679adbb7110cb7b569bd3171db596d470f32b8566bc01a5c"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/receipt.json",
+      "bytes": 16207,
+      "sha256": "3d7851ea45387863d49d2860795973b6d7abea823bd0120fa7782514e4b89551"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/record_run.py",
+      "bytes": 3212,
+      "sha256": "a426ed036f5d5936e03133eae57940752fd07d381b4edebc414c6c06d1613442"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/stdout.log",
+      "bytes": 1231,
+      "sha256": "2db6bedb55e92d2c9b6c02389fd92ca9d94f9ffc4603ec581dab1e6c619a5b16"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/CONTEXT.md",
+      "bytes": 19790,
+      "sha256": "c71f098f981c2d745b9cbc735165d27389b6e4e30044ae3283040dccba1ab899"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/CONTROLS_HEADER.001.lean.txt",
+      "bytes": 840,
+      "sha256": "653fe501ae6ed282e14df6654bafbe63623987b378d9c778a3f6d383ce5ebbda"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/CORE.CHECKED.lean.txt",
+      "bytes": 4756,
+      "sha256": "ee30189b88ff08e8ce476e690c49541cbcf666b84f1e3d9bb1b90beac1241d74"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/FiniteSuperlevelComponentsControls.lean",
+      "bytes": 19575,
+      "sha256": "9740e32855005879b845fafa23a056c004af8fa63c83bd6a257df1a562bd0999"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/HEADER.001.lean.txt",
+      "bytes": 800,
+      "sha256": "05bf681bf8c5326b011dba244878b64a4d91f7e1aeb638bf3543dc476251baaf"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/Inventory.lean",
+      "bytes": 1101,
+      "sha256": "9b892602c1ae32fa6c170531267fbe0ff1118950d2b7625195baafdbb27c653c"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/ProducerFixtures.INITIAL.lean.txt",
+      "bytes": 6558,
+      "sha256": "da51c0a7c5a733b903ccfe9b05e079ea21e6f8d86b14fbfd9c78eeaaa2cfd674"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/ProducerGeneric.INITIAL.lean.txt",
+      "bytes": 1784,
+      "sha256": "d4d544d5034dd9d996c01752f4c921e8c98dd6518615211e2f0f6d7629b5a029"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/SourceActualFiniteSuperlevelComponents.lean",
+      "bytes": 11683,
+      "sha256": "e63abe693a6d23e5679adbb7110cb7b569bd3171db596d470f32b8566bc01a5c"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/receipt.json",
+      "bytes": 16206,
+      "sha256": "aa1ba256a4a8dc1b60182a94af0484691b4447eaa47b51ebe15be74da1a6342d"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/record_run.py",
+      "bytes": 3212,
+      "sha256": "a426ed036f5d5936e03133eae57940752fd07d381b4edebc414c6c06d1613442"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/stdout.log",
+      "bytes": 254,
+      "sha256": "33d892b1fa913dd7e4c6f6369d2bcbbed1eef700d85173c5894e6f1a39d17ec0"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/CONTEXT.md",
+      "bytes": 19790,
+      "sha256": "c71f098f981c2d745b9cbc735165d27389b6e4e30044ae3283040dccba1ab899"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/CONTROLS_HEADER.001.lean.txt",
+      "bytes": 840,
+      "sha256": "653fe501ae6ed282e14df6654bafbe63623987b378d9c778a3f6d383ce5ebbda"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/CORE.CHECKED.lean.txt",
+      "bytes": 4756,
+      "sha256": "ee30189b88ff08e8ce476e690c49541cbcf666b84f1e3d9bb1b90beac1241d74"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/FiniteSuperlevelComponentsControls.lean",
+      "bytes": 19571,
+      "sha256": "fe608ef829162d25a8d90718850361cfbc5f5a60525ca7d6dbe28383ad19a9b0"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/HEADER.001.lean.txt",
+      "bytes": 800,
+      "sha256": "05bf681bf8c5326b011dba244878b64a4d91f7e1aeb638bf3543dc476251baaf"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/Inventory.lean",
+      "bytes": 1101,
+      "sha256": "9b892602c1ae32fa6c170531267fbe0ff1118950d2b7625195baafdbb27c653c"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/ProducerFixtures.INITIAL.lean.txt",
+      "bytes": 6558,
+      "sha256": "da51c0a7c5a733b903ccfe9b05e079ea21e6f8d86b14fbfd9c78eeaaa2cfd674"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/ProducerGeneric.INITIAL.lean.txt",
+      "bytes": 1784,
+      "sha256": "d4d544d5034dd9d996c01752f4c921e8c98dd6518615211e2f0f6d7629b5a029"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/SourceActualFiniteSuperlevelComponents.lean",
+      "bytes": 11683,
+      "sha256": "e63abe693a6d23e5679adbb7110cb7b569bd3171db596d470f32b8566bc01a5c"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/receipt.json",
+      "bytes": 16535,
+      "sha256": "150bfb261ccb2c14ffc69fdd7835c13b6cff7adddee2cb3614376fb0c175a80e"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/record_run.py",
+      "bytes": 3212,
+      "sha256": "a426ed036f5d5936e03133eae57940752fd07d381b4edebc414c6c06d1613442"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-001/CONTEXT.md",
+      "bytes": 19790,
+      "sha256": "c71f098f981c2d745b9cbc735165d27389b6e4e30044ae3283040dccba1ab899"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-001/CONTROLS_HEADER.001.lean.txt",
+      "bytes": 840,
+      "sha256": "653fe501ae6ed282e14df6654bafbe63623987b378d9c778a3f6d383ce5ebbda"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-001/HEADER.001.lean.txt",
+      "bytes": 800,
+      "sha256": "05bf681bf8c5326b011dba244878b64a4d91f7e1aeb638bf3543dc476251baaf"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-001/ProducerFixtures.INITIAL.lean.txt",
+      "bytes": 6558,
+      "sha256": "da51c0a7c5a733b903ccfe9b05e079ea21e6f8d86b14fbfd9c78eeaaa2cfd674"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-001/ProducerGeneric.INITIAL.lean.txt",
+      "bytes": 1784,
+      "sha256": "d4d544d5034dd9d996c01752f4c921e8c98dd6518615211e2f0f6d7629b5a029"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-001/SourceActualFiniteSuperlevelComponents.lean",
+      "bytes": 4731,
+      "sha256": "de193cdb61791530ddd48b9456e56dfab00e118120058ee6d642f48f307b416d"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-001/receipt.json",
+      "bytes": 11314,
+      "sha256": "bf8961983a8f86f4bd3305e6edcb243343288da172347769fc9755a53d339548"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-001/record_run.py",
+      "bytes": 3212,
+      "sha256": "a426ed036f5d5936e03133eae57940752fd07d381b4edebc414c6c06d1613442"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-001/stdout.log",
+      "bytes": 1271,
+      "sha256": "1693b52f120b0926cb817e79ba446a00686570de6f992a4594d68486ce36ab10"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-002/CONTEXT.md",
+      "bytes": 19790,
+      "sha256": "c71f098f981c2d745b9cbc735165d27389b6e4e30044ae3283040dccba1ab899"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-002/CONTROLS_HEADER.001.lean.txt",
+      "bytes": 840,
+      "sha256": "653fe501ae6ed282e14df6654bafbe63623987b378d9c778a3f6d383ce5ebbda"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-002/HEADER.001.lean.txt",
+      "bytes": 800,
+      "sha256": "05bf681bf8c5326b011dba244878b64a4d91f7e1aeb638bf3543dc476251baaf"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-002/ProducerFixtures.INITIAL.lean.txt",
+      "bytes": 6558,
+      "sha256": "da51c0a7c5a733b903ccfe9b05e079ea21e6f8d86b14fbfd9c78eeaaa2cfd674"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-002/ProducerGeneric.INITIAL.lean.txt",
+      "bytes": 1784,
+      "sha256": "d4d544d5034dd9d996c01752f4c921e8c98dd6518615211e2f0f6d7629b5a029"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-002/SourceActualFiniteSuperlevelComponents.lean",
+      "bytes": 4756,
+      "sha256": "ee30189b88ff08e8ce476e690c49541cbcf666b84f1e3d9bb1b90beac1241d74"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-002/receipt.json",
+      "bytes": 11612,
+      "sha256": "9f0807775c36442966b472cd42c88ed5e704fd890eb8c6f36c2d77540036ff27"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-002/record_run.py",
+      "bytes": 3212,
+      "sha256": "a426ed036f5d5936e03133eae57940752fd07d381b4edebc414c6c06d1613442"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-002/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-002/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/CONTEXT.md",
+      "bytes": 19790,
+      "sha256": "c71f098f981c2d745b9cbc735165d27389b6e4e30044ae3283040dccba1ab899"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/CONTROLS_HEADER.001.lean.txt",
+      "bytes": 840,
+      "sha256": "653fe501ae6ed282e14df6654bafbe63623987b378d9c778a3f6d383ce5ebbda"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/CORE.CHECKED.lean.txt",
+      "bytes": 4756,
+      "sha256": "ee30189b88ff08e8ce476e690c49541cbcf666b84f1e3d9bb1b90beac1241d74"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/FalseMutation.lean",
+      "bytes": 170,
+      "sha256": "bdd65a9584bcf9101014ae3535ab1ab8fd15191beed2d94f2a0083bce3de732e"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/FiniteSuperlevelComponentsControls.lean",
+      "bytes": 19571,
+      "sha256": "fe608ef829162d25a8d90718850361cfbc5f5a60525ca7d6dbe28383ad19a9b0"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/HEADER.001.lean.txt",
+      "bytes": 800,
+      "sha256": "05bf681bf8c5326b011dba244878b64a4d91f7e1aeb638bf3543dc476251baaf"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/Inventory.lean",
+      "bytes": 1101,
+      "sha256": "9b892602c1ae32fa6c170531267fbe0ff1118950d2b7625195baafdbb27c653c"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/ProducerFixtures.INITIAL.lean.txt",
+      "bytes": 6558,
+      "sha256": "da51c0a7c5a733b903ccfe9b05e079ea21e6f8d86b14fbfd9c78eeaaa2cfd674"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/ProducerGeneric.INITIAL.lean.txt",
+      "bytes": 1784,
+      "sha256": "d4d544d5034dd9d996c01752f4c921e8c98dd6518615211e2f0f6d7629b5a029"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/SourceActualFiniteSuperlevelComponents.lean",
+      "bytes": 11683,
+      "sha256": "e63abe693a6d23e5679adbb7110cb7b569bd3171db596d470f32b8566bc01a5c"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/receipt.json",
+      "bytes": 17993,
+      "sha256": "05a6d7cbf43b7f13f620afacc40fabeb2068c0a26db4ae8441e5703067528260"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/record_run.py",
+      "bytes": 3212,
+      "sha256": "a426ed036f5d5936e03133eae57940752fd07d381b4edebc414c6c06d1613442"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/stdout.log",
+      "bytes": 129,
+      "sha256": "806c1bfc8a3a30dd3b176eb773253b0beda35d64a3a9bbd23ae6dd5c61da6e6b"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/CONTEXT.md",
+      "bytes": 19790,
+      "sha256": "c71f098f981c2d745b9cbc735165d27389b6e4e30044ae3283040dccba1ab899"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/CONTROLS_HEADER.001.lean.txt",
+      "bytes": 840,
+      "sha256": "653fe501ae6ed282e14df6654bafbe63623987b378d9c778a3f6d383ce5ebbda"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/CORE.CHECKED.lean.txt",
+      "bytes": 4756,
+      "sha256": "ee30189b88ff08e8ce476e690c49541cbcf666b84f1e3d9bb1b90beac1241d74"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/HEADER.001.lean.txt",
+      "bytes": 800,
+      "sha256": "05bf681bf8c5326b011dba244878b64a4d91f7e1aeb638bf3543dc476251baaf"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/Inventory.lean",
+      "bytes": 1101,
+      "sha256": "9b892602c1ae32fa6c170531267fbe0ff1118950d2b7625195baafdbb27c653c"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/ProducerFixtures.INITIAL.lean.txt",
+      "bytes": 6558,
+      "sha256": "da51c0a7c5a733b903ccfe9b05e079ea21e6f8d86b14fbfd9c78eeaaa2cfd674"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/ProducerGeneric.INITIAL.lean.txt",
+      "bytes": 1784,
+      "sha256": "d4d544d5034dd9d996c01752f4c921e8c98dd6518615211e2f0f6d7629b5a029"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/SourceActualFiniteSuperlevelComponents.lean",
+      "bytes": 11683,
+      "sha256": "e63abe693a6d23e5679adbb7110cb7b569bd3171db596d470f32b8566bc01a5c"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/receipt.json",
+      "bytes": 14578,
+      "sha256": "efa9ad61cf0cf3159f6535cb120ffcdedcadf8a86459f9649c5d3816c8b852c4"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/record_run.py",
+      "bytes": 3212,
+      "sha256": "a426ed036f5d5936e03133eae57940752fd07d381b4edebc414c6c06d1613442"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/stdout.log",
+      "bytes": 8750,
+      "sha256": "5747daf26ec747fdb268db371632294713bd8103eae40028f90af48b8f0f23e3"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/CONTEXT.md",
+      "bytes": 19790,
+      "sha256": "c71f098f981c2d745b9cbc735165d27389b6e4e30044ae3283040dccba1ab899"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/CONTROLS_HEADER.001.lean.txt",
+      "bytes": 840,
+      "sha256": "653fe501ae6ed282e14df6654bafbe63623987b378d9c778a3f6d383ce5ebbda"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/CORE.CHECKED.lean.txt",
+      "bytes": 4756,
+      "sha256": "ee30189b88ff08e8ce476e690c49541cbcf666b84f1e3d9bb1b90beac1241d74"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/FiniteSuperlevelComponentsControls.lean",
+      "bytes": 18560,
+      "sha256": "50b46f1a911bef294133e4dd390b34523ad180fd557293644bb2600794fab5b7"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/HEADER.001.lean.txt",
+      "bytes": 800,
+      "sha256": "05bf681bf8c5326b011dba244878b64a4d91f7e1aeb638bf3543dc476251baaf"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/Inventory.lean",
+      "bytes": 1101,
+      "sha256": "9b892602c1ae32fa6c170531267fbe0ff1118950d2b7625195baafdbb27c653c"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/ProducerFixtures.INITIAL.lean.txt",
+      "bytes": 6558,
+      "sha256": "da51c0a7c5a733b903ccfe9b05e079ea21e6f8d86b14fbfd9c78eeaaa2cfd674"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/ProducerGeneric.INITIAL.lean.txt",
+      "bytes": 1784,
+      "sha256": "d4d544d5034dd9d996c01752f4c921e8c98dd6518615211e2f0f6d7629b5a029"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/SourceActualFiniteSuperlevelComponents.lean",
+      "bytes": 11683,
+      "sha256": "e63abe693a6d23e5679adbb7110cb7b569bd3171db596d470f32b8566bc01a5c"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/receipt.json",
+      "bytes": 15889,
+      "sha256": "ed1e215c473dd705bc7a7d963d2d1f195911184b6fdb32f95ed5d195df103c06"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/record_run.py",
+      "bytes": 3212,
+      "sha256": "a426ed036f5d5936e03133eae57940752fd07d381b4edebc414c6c06d1613442"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/CONTEXT.md",
+      "bytes": 19790,
+      "sha256": "c71f098f981c2d745b9cbc735165d27389b6e4e30044ae3283040dccba1ab899"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/CONTROLS_HEADER.001.lean.txt",
+      "bytes": 840,
+      "sha256": "653fe501ae6ed282e14df6654bafbe63623987b378d9c778a3f6d383ce5ebbda"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/CORE.CHECKED.lean.txt",
+      "bytes": 4756,
+      "sha256": "ee30189b88ff08e8ce476e690c49541cbcf666b84f1e3d9bb1b90beac1241d74"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/HEADER.001.lean.txt",
+      "bytes": 800,
+      "sha256": "05bf681bf8c5326b011dba244878b64a4d91f7e1aeb638bf3543dc476251baaf"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/ProducerFixtures.INITIAL.lean.txt",
+      "bytes": 6558,
+      "sha256": "da51c0a7c5a733b903ccfe9b05e079ea21e6f8d86b14fbfd9c78eeaaa2cfd674"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/ProducerGeneric.INITIAL.lean.txt",
+      "bytes": 1784,
+      "sha256": "d4d544d5034dd9d996c01752f4c921e8c98dd6518615211e2f0f6d7629b5a029"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/SourceActualFiniteSuperlevelComponents.lean",
+      "bytes": 11315,
+      "sha256": "9e130f125192c57c5f6751419c67d1017e071f40f3420c9100651cdd5cc4311d"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/receipt.json",
+      "bytes": 13419,
+      "sha256": "ef77cdbdc9ee6538f1440a44b6a65f20fb87d4aa50934446e074d27296f18f18"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/record_run.py",
+      "bytes": 3212,
+      "sha256": "a426ed036f5d5936e03133eae57940752fd07d381b4edebc414c6c06d1613442"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/stdout.log",
+      "bytes": 1431,
+      "sha256": "9a08b40ed6830289b98eacb893f0496e96ff1e3a48850090a71a897cb7a0f49f"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-002/CONTEXT.md",
+      "bytes": 19790,
+      "sha256": "c71f098f981c2d745b9cbc735165d27389b6e4e30044ae3283040dccba1ab899"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-002/CONTROLS_HEADER.001.lean.txt",
+      "bytes": 840,
+      "sha256": "653fe501ae6ed282e14df6654bafbe63623987b378d9c778a3f6d383ce5ebbda"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-002/CORE.CHECKED.lean.txt",
+      "bytes": 4756,
+      "sha256": "ee30189b88ff08e8ce476e690c49541cbcf666b84f1e3d9bb1b90beac1241d74"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-002/HEADER.001.lean.txt",
+      "bytes": 800,
+      "sha256": "05bf681bf8c5326b011dba244878b64a4d91f7e1aeb638bf3543dc476251baaf"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-002/ProducerFixtures.INITIAL.lean.txt",
+      "bytes": 6558,
+      "sha256": "da51c0a7c5a733b903ccfe9b05e079ea21e6f8d86b14fbfd9c78eeaaa2cfd674"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-002/ProducerGeneric.INITIAL.lean.txt",
+      "bytes": 1784,
+      "sha256": "d4d544d5034dd9d996c01752f4c921e8c98dd6518615211e2f0f6d7629b5a029"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-002/SourceActualFiniteSuperlevelComponents.lean",
+      "bytes": 11619,
+      "sha256": "96c3f74c56ffb7ea557d2d7d5e47abb67b7b2488a1cdbd8867210fed6b6fe8f0"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-002/receipt.json",
+      "bytes": 13408,
+      "sha256": "a5f44d7450ccc08d40506450ab383183dfd32e1157406da7834e404acf2928c3"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-002/record_run.py",
+      "bytes": 3212,
+      "sha256": "a426ed036f5d5936e03133eae57940752fd07d381b4edebc414c6c06d1613442"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-002/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-002/stdout.log",
+      "bytes": 989,
+      "sha256": "c146cbce8c75b8f4f7d60dff1de2a8875f198fc69936c349fdf784218ed9bfbc"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-003/CONTEXT.md",
+      "bytes": 19790,
+      "sha256": "c71f098f981c2d745b9cbc735165d27389b6e4e30044ae3283040dccba1ab899"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-003/CONTROLS_HEADER.001.lean.txt",
+      "bytes": 840,
+      "sha256": "653fe501ae6ed282e14df6654bafbe63623987b378d9c778a3f6d383ce5ebbda"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-003/CORE.CHECKED.lean.txt",
+      "bytes": 4756,
+      "sha256": "ee30189b88ff08e8ce476e690c49541cbcf666b84f1e3d9bb1b90beac1241d74"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-003/HEADER.001.lean.txt",
+      "bytes": 800,
+      "sha256": "05bf681bf8c5326b011dba244878b64a4d91f7e1aeb638bf3543dc476251baaf"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-003/ProducerFixtures.INITIAL.lean.txt",
+      "bytes": 6558,
+      "sha256": "da51c0a7c5a733b903ccfe9b05e079ea21e6f8d86b14fbfd9c78eeaaa2cfd674"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-003/ProducerGeneric.INITIAL.lean.txt",
+      "bytes": 1784,
+      "sha256": "d4d544d5034dd9d996c01752f4c921e8c98dd6518615211e2f0f6d7629b5a029"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-003/SourceActualFiniteSuperlevelComponents.lean",
+      "bytes": 11764,
+      "sha256": "06723d6ee07cc82d2b21b40e48f4c4e66e7045aacc1ee113a438002e53b713ad"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-003/receipt.json",
+      "bytes": 13410,
+      "sha256": "617c242b0d299cb5110889a1a00987f6e10042416cd9bc187797ca8bbab16e48"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-003/record_run.py",
+      "bytes": 3212,
+      "sha256": "a426ed036f5d5936e03133eae57940752fd07d381b4edebc414c6c06d1613442"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-003/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-003/stdout.log",
+      "bytes": 871,
+      "sha256": "2788aa8c2182cd2d135254c9dc21a0575cca780fea5cebb037c5c3f7830659bf"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/CONTEXT.md",
+      "bytes": 19790,
+      "sha256": "c71f098f981c2d745b9cbc735165d27389b6e4e30044ae3283040dccba1ab899"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/CONTROLS_HEADER.001.lean.txt",
+      "bytes": 840,
+      "sha256": "653fe501ae6ed282e14df6654bafbe63623987b378d9c778a3f6d383ce5ebbda"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/CORE.CHECKED.lean.txt",
+      "bytes": 4756,
+      "sha256": "ee30189b88ff08e8ce476e690c49541cbcf666b84f1e3d9bb1b90beac1241d74"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/HEADER.001.lean.txt",
+      "bytes": 800,
+      "sha256": "05bf681bf8c5326b011dba244878b64a4d91f7e1aeb638bf3543dc476251baaf"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/ProducerFixtures.INITIAL.lean.txt",
+      "bytes": 6558,
+      "sha256": "da51c0a7c5a733b903ccfe9b05e079ea21e6f8d86b14fbfd9c78eeaaa2cfd674"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/ProducerGeneric.INITIAL.lean.txt",
+      "bytes": 1784,
+      "sha256": "d4d544d5034dd9d996c01752f4c921e8c98dd6518615211e2f0f6d7629b5a029"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/SourceActualFiniteSuperlevelComponents.lean",
+      "bytes": 11683,
+      "sha256": "e63abe693a6d23e5679adbb7110cb7b569bd3171db596d470f32b8566bc01a5c"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/receipt.json",
+      "bytes": 13411,
+      "sha256": "cb35b964627f15f1b1a2a4307ade50a9e033057c3394e4b8539adeb45999181b"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/record_run.py",
+      "bytes": 3212,
+      "sha256": "a426ed036f5d5936e03133eae57940752fd07d381b4edebc414c6c06d1613442"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/ARTIFACT_IDENTITIES.json",
+      "bytes": 150035,
+      "sha256": "544bc79da044670d1a23483c5e77601b129f539e98924113eb58b94459a61684"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/PACKAGING_ALLOWLIST.json",
+      "bytes": 28283,
+      "sha256": "14a363fad6c434a2ebcd93bc2a6c96e3c5d8a3ea650a896e7431f8ffec8f8a1d"
+    },
+    {
+      "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFiniteSuperlevelComponents.lean",
+      "bytes": 11683,
+      "sha256": "e63abe693a6d23e5679adbb7110cb7b569bd3171db596d470f32b8566bc01a5c"
+    }
+  ],
+  "existing_identity_entry_shape": {
+    "source": "ABSOLUTE actual IMMUTABLE final payload/snapshot path",
+    "bytes": 0,
+    "sha256": "EXISTING first ID"
+  },
+  "identity_custody_rule": "Reuse ALL existing producer/root/helper/context/ACK/patch/stream/final-document identities at their actual immutable paths. Historical IDs bind their actual snapshots, not changed canonical paths. Source snapshots/runner/context snapshots and split-stream IDs in actual62 receipts seed automatically. Only unrecorded NEW immutable metadata payloads may receive first IDs after final GO. Binary bytes never enter the archive or a second cache copy.",
+  "run_records": [
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-001/receipt.json",
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-002/receipt.json",
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/receipt.json",
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-002/receipt.json",
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-003/receipt.json",
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/receipt.json",
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/receipt.json",
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/receipt.json",
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/receipt.json",
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-002/receipt.json",
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-003/receipt.json",
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-004/receipt.json",
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/receipt.json",
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/receipt.json"
+  ],
+  "run_record_rule": "Normalize actual FINAL execution index into complete receipt.json path list, after reading its actual eventual schema/key; do not assume61 executions or62 receipt_paths. Actual63 runner001 uses snapshots[{immutable_path,existing_identity}], before/after, runner_version/runner_history, started_utc/ended_utc/command/cwd/exit, original stdout.log/stderr.log. Full source/harness/runner/context snapshots retained;124 is resource failure, never intended mathematicalFalse. No guessed labels/counts.",
+  "curated_producer_files": [
+    "REPORT.md",
+    "HANDOFF.md",
+    "PRODUCTION_QUALIFICATION.json",
+    "CONTROL_IDS.json",
+    "CONTROL_RECEIPT.json",
+    "EXECUTION_RECORD_INDEX.json",
+    "STREAM_COUNTS.json",
+    "ARTIFACT_IDENTITIES.json",
+    "READY.json",
+    "PACKAGING_ALLOWLIST.json",
+    "FINAL_DOCUMENT_IDS.json",
+    "INVENTORY.json",
+    "FINAL_SOURCE_OBJECT_IDS.PRE_KERNEL.json",
+    "READ_SCOPE.md",
+    "DOCUMENTARY_EXECUTION_001.json",
+    "DOCUMENTARY_EXECUTION_002.json",
+    "FINAL_CUSTODY_ADDENDUM_001.md"
+  ],
+  "inventory_archive_path": "raw/producer/INVENTORY.json",
+  "inventory_summary": {
+    "all_module_index_owned_constants": 30,
+    "authored_public_Prop": 1,
+    "authored_public_data": 0,
+    "counts": {
+      "authored private theorem": 18,
+      "sole authored public theorem": 1,
+      "private generated proof auxiliary": 3,
+      "authored private definition": 4,
+      "private generated defining equation": 2,
+      "private generated simp theorem": 2
+    },
+    "foreign_generated_names": [],
+    "foreign_generated_count": 0,
+    "standard_three_guard": "PASS: completed actual inventory-001/PRODUCTION_QUALIFICATION, all module-owned rows classified, allowed propext/Classical.choice/Quot.sound only. No mathematical replay in packaging.",
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "coverage": "ALL constants with exact own module index, without prior namespace filter; authored/private/generated/foreigngenerated separately classified; all raw axiom rows retained in original inventory stdout",
+    "zero_count_categories": [
+      "authored private Prop bundle",
+      "authored private type or level-set alias",
+      "foreign-namespace generated declaration",
+      "private generated congruence or other declaration"
+    ]
+  },
+  "expected_production_helper_count": 1,
+  "production_helper_integrations": [
+    {
+      "key": "A-private-LP",
+      "record_path": "raw/producer/originals/A_CUSTODY.json",
+      "integration_count": 1,
+      "helper_executions": 0,
+      "originals": [
+        {
+          "original": "/workspace/scratch/actual-source-finite-superlevel-components-lp-text/LocalPathConnectedSection.ORIGINAL.lean.txt",
+          "immutable_retained": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/A.LocalPathConnectedSection.ORIGINAL.lean.txt",
+          "bytes": 2180,
+          "sha256": "aeb1c81e577f6f0d93e9272c00a1d75225d48e1877ec4c8bf78e60b7ae0f7dbf",
+          "origin": "Producer FIRST newly frozen complete helper original identity BEFORE ONE integration; ZEROhelperhash"
+        },
+        {
+          "original": "/workspace/scratch/actual-source-finite-superlevel-components-lp-text/CONTEXT.ORIGINAL.md",
+          "immutable_retained": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/A.CONTEXT.ORIGINAL.md",
+          "bytes": 19790,
+          "sha256": "c71f098f981c2d745b9cbc735165d27389b6e4e30044ae3283040dccba1ab899",
+          "origin": "Producer FIRST newly frozen complete helper original identity BEFORE ONE integration; ZEROhelperhash"
+        },
+        {
+          "original": "/workspace/scratch/actual-source-finite-superlevel-components-lp-text/IMPORTS.ORIGINAL.txt",
+          "immutable_retained": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/A.IMPORTS.ORIGINAL.txt",
+          "bytes": 881,
+          "sha256": "fbd75096e41d06d5fe83d927021c8fff623f9909e2e9546be2e8c0b07647f082",
+          "origin": "Producer FIRST newly frozen complete helper original identity BEFORE ONE integration; ZEROhelperhash"
+        },
+        {
+          "original": "/workspace/scratch/actual-source-finite-superlevel-components-lp-text/PROVENANCE.md",
+          "immutable_retained": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/A.PROVENANCE.md",
+          "bytes": 4250,
+          "sha256": "30d1e8203793885166f52967d16a87a61c98904db67da3141c5ff26a6bb55c30",
+          "origin": "Producer FIRST newly frozen complete helper original identity BEFORE ONE integration; ZEROhelperhash"
+        },
+        {
+          "original": "/workspace/scratch/actual-source-finite-superlevel-components-lp-text/FROZEN.json",
+          "immutable_retained": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/A.FROZEN.json",
+          "bytes": 980,
+          "sha256": "b0b278a15632ce2d7585f5f257ebd96ee555e6ab0f5afd1210600734802caa35",
+          "origin": "Producer FIRST newly frozen complete helper original identity BEFORE ONE integration; ZEROhelperhash"
+        }
+      ],
+      "observed_fullACK": "2026-10-28T18:49:45Z",
+      "observed_final003ACK": "2026-10-28T18:51:18Z"
+    }
+  ],
+  "production_helper_entry_shape": {
+    "key": "A actual complete PRIVATE production LP adapter original",
+    "record_path": "Actual archived full original/freeze/contextACK/one-integration/full amendment binding",
+    "integration_count": 1,
+    "helper_executions": 0
+  },
+  "ordinary_controls_custody": {
+    "producer_authored": false,
+    "text_helper_authored": true,
+    "original_text_author": "B separate COMPLETE ordinary Controls TEXT helper",
+    "producer_owns_actual_integration_amendments_and_executions": true,
+    "integration_count": 1,
+    "helper_executions": 0,
+    "record_path": "raw/producer/originals/B_CUSTODY.json",
+    "production_kernel_coverage": false,
+    "originals": [
+      {
+        "original": "/workspace/scratch/actual-source-finite-superlevel-components-controls-text/ControlsSection.ORIGINAL.lean.txt",
+        "immutable_retained": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/B.ControlsSection.ORIGINAL.lean.txt",
+        "bytes": 16959,
+        "sha256": "824a1166336442a65edf4aec17d14b088dcb7e573ec641ca4731e58b670c9ac6",
+        "origin": "Producer FIRST newly frozen WHOLE ordinary original identity BEFORE ONE integration; ZEROhelperhash"
+      },
+      {
+        "original": "/workspace/scratch/actual-source-finite-superlevel-components-controls-text/Imports.ORIGINAL.txt",
+        "immutable_retained": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/B.Imports.ORIGINAL.txt",
+        "bytes": 613,
+        "sha256": "9a46a609dbf767d697b12edbbee0739681aef842ccd20035a2a4ac51507c833b",
+        "origin": "Producer FIRST newly frozen WHOLE ordinary original identity BEFORE ONE integration; ZEROhelperhash"
+      },
+      {
+        "original": "/workspace/scratch/actual-source-finite-superlevel-components-controls-text/Context.ORIGINAL.md",
+        "immutable_retained": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/B.Context.ORIGINAL.md",
+        "bytes": 1785,
+        "sha256": "958452353b612767bad4c830b385ce24f7d7c8af5d2404d7817d3b1a1298155e",
+        "origin": "Producer FIRST newly frozen WHOLE ordinary original identity BEFORE ONE integration; ZEROhelperhash"
+      },
+      {
+        "original": "/workspace/scratch/actual-source-finite-superlevel-components-controls-text/Provenance.ORIGINAL.md",
+        "immutable_retained": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/B.Provenance.ORIGINAL.md",
+        "bytes": 5951,
+        "sha256": "06cef528f83b59dd960e69c2173789cc5e58b877ebd36e5bd1d94491322f193c",
+        "origin": "Producer FIRST newly frozen WHOLE ordinary original identity BEFORE ONE integration; ZEROhelperhash"
+      },
+      {
+        "original": "/workspace/scratch/actual-source-finite-superlevel-components-controls-text/Frozen.ORIGINAL.json",
+        "immutable_retained": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/B.Frozen.ORIGINAL.json",
+        "bytes": 1009,
+        "sha256": "6fd7c70748ed02f05a182388bd72d86e30047a2bce8ed03dec5aef16b8bde12d",
+        "origin": "Producer FIRST newly frozen WHOLE ordinary original identity BEFORE ONE integration; ZEROhelperhash"
+      }
+    ],
+    "helper_freeze_time_limitation": "Exact freezeUTC not instrumented inhelpermetadata; deliveredbeforethisfirstID/integration",
+    "passed_source": {
+      "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean",
+      "bytes": 19571,
+      "sha256": "fe608ef829162d25a8d90718850361cfbc5f5a60525ca7d6dbe28383ad19a9b0",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "passed_object_identity": {
+      "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/build/FiniteSuperlevelComponentsControls.olean",
+      "bytes": 1043328,
+      "sha256": "5e142dee950466b5c3aabc93a3f9cb1bf0778355bdc7226702f0b10cd3d0b29e",
+      "identity_origin": "FIRST identity of newly created or changed owned payload"
+    },
+    "passed_receipt": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/receipt.json",
+    "whole_original_identity": {
+      "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/originals/B.ControlsSection.ORIGINAL.lean.txt",
+      "bytes": 16959,
+      "sha256": "824a1166336442a65edf4aec17d14b088dcb7e573ec641ca4731e58b670c9ac6",
+      "identity_origin": "Producer FIRST newly frozen WHOLE ordinary original identity BEFORE ONE integration; ZEROhelperhash",
+      "original_path": "/workspace/scratch/actual-source-finite-superlevel-components-controls-text/ControlsSection.ORIGINAL.lean.txt"
+    },
+    "initial_complete_snapshot": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-001/FiniteSuperlevelComponentsControls.lean",
+    "initial_complete_identity": {
+      "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean",
+      "bytes": 18560,
+      "sha256": "50b46f1a911bef294133e4dd390b34523ad180fd557293644bb2600794fab5b7",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "actual_patches": [
+      "/workspace/scratch/actual-source-finite-superlevel-components-construct/amendments/controls-002.patch",
+      "/workspace/scratch/actual-source-finite-superlevel-components-construct/amendments/controls-003.patch",
+      "/workspace/scratch/actual-source-finite-superlevel-components-construct/amendments/controls-004.patch",
+      "/workspace/scratch/actual-source-finite-superlevel-components-construct/amendments/controls-005.patch"
+    ]
+  },
+  "review_report_archive_path": "raw/review/REPORT.md",
+  "qualification": {
+    "strict": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/receipt.json",
+    "inventory": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/receipt.json",
+    "kernel": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/receipt.json",
+    "positive_controls": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/receipt.json",
+    "negative": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/receipt.json"
+  },
+  "negative_binding": {
+    "imports": "Only already-passed ordinary FiniteSuperlevelComponentsControls object/transitive public dependencies",
+    "actual_mutation": "ONLY quotient torus carrier replaced by FULL physical cover via exact pullback; same sample, actual global hm, period2, field, CLOSED maximum level3/time-3",
+    "counterproof": "Actual Nat maxima Xn=(2n,0) lie in SAME physical CLOSED maximum superlevel3; odd-x coordinate IVT proves physical component-class injection, then Infinite/NOT Finite before ONE importingFalse",
+    "counterproof_in_passed_controls": true,
+    "exactly_one_intendedFalse": true,
+    "ordinary_controls_object_identity": {
+      "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/build/FiniteSuperlevelComponentsControls.olean",
+      "bytes": 1043328,
+      "sha256": "5e142dee950466b5c3aabc93a3f9cb1bf0778355bdc7226702f0b10cd3d0b29e",
+      "identity_origin": "FIRST identity of newly created or changed owned payload"
+    },
+    "negative_harness_identity": {
+      "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/FalseMutation.lean",
+      "bytes": 170,
+      "sha256": "bdd65a9584bcf9101014ae3535ab1ab8fd15191beed2d94f2a0083bce3de732e",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "stdout_bytes": 129,
+    "stderr_bytes": 0,
+    "production_kernel_does_not_cover_ordinary_controls": true,
+    "stdout_identity": {
+      "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/stdout.log",
+      "bytes": 129,
+      "sha256": "806c1bfc8a3a30dd3b176eb773253b0beda35d64a3a9bbd23ae6dd5c61da6e6b",
+      "identity_origin": "FIRST identity of newly created or changed owned payload"
+    },
+    "stderr_identity": {
+      "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity of newly created or changed owned payload"
+    },
+    "actual_counterproof_description": "Independent actual Nat maxima classes at physical(2n,0) inject by actual path/odd-x IVT; Infinite then notFinite before sole importingFalse"
+  },
+  "packager_proof_role": "63 metadata preparation ONLY; prior62A proof authorship disclosed, no transfer to current63 authorship or independent review credit",
+  "independent_review_credit": 0,
+  "packaging_scripts": [
+    "custody.py",
+    "archive_prepare.py",
+    "finalize_metadata.py",
+    "run_finalization.py",
+    "launch_finalization.py",
+    "PLAN.md",
+    "READINESS.md",
+    "FINAL_INPUTS.schema.json",
+    "FINAL_INPUTS.json"
+  ],
+  "packager_is_63_proof_author": false,
+  "production_private_positive_coverage": "Actual3singleton/4empty/-4whole NONEMPTY compact/local-topology/Finite use only; does NOT exercise full global-hm-to61-public-to-subtype route. Ordinary derives globalhmONCE and calls newALLLEVEL public endpoint.",
+  "precode_existing_identity_source": "/workspace/scratch/actual-source-finite-superlevel-components-publication/PRECODE63_IDENTITIES.json",
+  "future64_exclusion": "Root EXTRA only; NEVER inspect/hash/archive/manifest/register/count64 here.",
+  "documentary_execution_capture_limit": {
+    "record": "raw/producer/DOCUMENTARY_EXECUTION_002.json",
+    "addendum": "raw/producer/FINAL_CUSTODY_ADDENDUM_001.md",
+    "initial_failure": "Syntax failed BEFORE any writer code/hash/document output; original command/combined output transcription retained",
+    "corrected_generation": "Completed internalUTC19:11:16.909137 before split-wrapper request; only actual combined tool output, external start/end and original separate streams null/absent",
+    "no_backdating_or_replay": "Do NOT claim all nonmath writers have fullsplit capture or rerun unchanged generation to manufacture history. All14 mathcalls DO have28fulloriginalsplitstreams. New final document IDs cached/once, no62-style duplicate calculations claimed."
+  },
+  "producer_allowlist_path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/PACKAGING_ALLOWLIST.json",
+  "additive_producer_files": [
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/DOCUMENTARY_EXECUTION_002.json",
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/FINAL_CUSTODY_ADDENDUM_001.md"
+  ],
+  "authoritative_dynamic_index_path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/EXECUTION_RECORD_INDEX.json",
+  "producer_aggregate_identity_manifest": "/workspace/scratch/actual-source-finite-superlevel-components-construct/ARTIFACT_IDENTITIES.json",
+  "preparation_scope": "Actual final inputs completed after explicit FINAL63_GO19:22:16.272299; EXACTLY ONE captured new metadata association attempt authorized. Explicit curated root paths only, exclude root_apply_publish.py/future tails/ALL64/binaries. No mathematical rerun."
+}

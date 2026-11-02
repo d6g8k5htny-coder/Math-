@@ -1,0 +1,13 @@
+--- companions/torus_filtration_20261011/SuperlevelBar.lean
++++ /workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/elder/SuperlevelBar.lean
+@@ -1,4 +1,9 @@
+-import Mathlib
++import Mathlib.Analysis.InnerProductSpace.PiL2
++import Mathlib.Analysis.Convex.PathConnected
++import Mathlib.Topology.Order.Compact
++import Mathlib.Topology.Homotopy.Path
++import Mathlib.Tactic.Linarith
++import Mathlib.Tactic.NormNum
+ 
+ /-!
+ # C263 total strict-clearance cut for continuous Euclidean heights

@@ -1,0 +1,70 @@
+{
+  "label": "controls-002",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/gap-conditional-morse-distinct-construct/build:/workspace/scratch/raw-pin-free-coordinate-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -R /workspace/scratch/gap-conditional-morse-distinct-construct -o /workspace/scratch/gap-conditional-morse-distinct-construct/build/GapMorseDistinctControls.olean /workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceGapConditionalMorseDistinct.lean",
+      "bytes": 99430,
+      "sha256": "8baf597fa98ce8f79489e82227951e0f4fd1a960e65589278be8a82f35ce5213"
+    },
+    "object": {
+      "path": "/workspace/scratch/gap-conditional-morse-distinct-construct/build/SourceGapConditionalMorseDistinct.olean",
+      "bytes": 4189248,
+      "sha256": "d73ade27921b1593c99175780e2738a80d3acb158e3c25810ef03b66b5678cb8"
+    },
+    "controls_object": null
+  },
+  "started_utc": "2026-10-28T14:56:05.964822+00:00",
+  "capture": "Original stdout and stderr captured separately without reconstruction/interleaving claims",
+  "harness_snapshots": [
+    {
+      "snapshot": "/workspace/scratch/gap-conditional-morse-distinct-construct/runs/controls-002/GapMorseDistinctControls.lean",
+      "original_identity": {
+        "path": "/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean",
+        "bytes": 24265,
+        "sha256": "f40e1d7a6c504934fff5066847dc3407ff58e67a9a4e13fe7f6d3f3f6abea493"
+      }
+    },
+    {
+      "snapshot": "/workspace/scratch/gap-conditional-morse-distinct-construct/runs/controls-002/Inventory.lean",
+      "original_identity": {
+        "path": "/workspace/scratch/gap-conditional-morse-distinct-construct/Inventory.lean",
+        "bytes": 1095,
+        "sha256": "0217f8d43ed3e1a2dfa16daec1965ec6417246f3dc6eed2e759027241ec747fa"
+      }
+    }
+  ],
+  "exit_code": 1,
+  "elapsed_seconds": 5.874794960021973,
+  "ended_utc": "2026-10-28T14:56:11.840233+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceGapConditionalMorseDistinct.lean",
+      "bytes": 99430,
+      "sha256": "8baf597fa98ce8f79489e82227951e0f4fd1a960e65589278be8a82f35ce5213"
+    },
+    "object": {
+      "path": "/workspace/scratch/gap-conditional-morse-distinct-construct/build/SourceGapConditionalMorseDistinct.olean",
+      "bytes": 4189248,
+      "sha256": "d73ade27921b1593c99175780e2738a80d3acb158e3c25810ef03b66b5678cb8"
+    },
+    "controls_object": null
+  },
+  "stdout": {
+    "path": "/workspace/scratch/gap-conditional-morse-distinct-construct/runs/controls-002/stdout.log",
+    "bytes": 2295,
+    "sha256": "b53ccb4d7263726ec666b288b1dcd11b04377657e4ea16a176b241536fca4d26"
+  },
+  "stderr": {
+    "path": "/workspace/scratch/gap-conditional-morse-distinct-construct/runs/controls-002/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

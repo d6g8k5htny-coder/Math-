@@ -1,0 +1,8 @@
+/workspace/scratch/pin-preserving-quartic-implementation/ActualGradient.lean:31:6: error: This simp argument is unused:
+  Real.inner_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sourceScaledGradient, sourceScaledGradientRaw, PiLp.inner_apply, Fin.sum_univ_two,
+    coordinateDirection_zero, coordinateDirection_one, directionX, directionY, smul_eq_mul, f]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

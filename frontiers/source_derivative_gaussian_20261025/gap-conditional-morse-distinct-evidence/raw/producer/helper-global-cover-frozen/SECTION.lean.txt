@@ -1,0 +1,86 @@
+/-!
+Private deterministic countable compact-subchart and a.e. globalization
+application. Insert inside the frozen59 namespace/noncomputable context.
+Original text identifier: GAP_MORSE_GLOBAL_COVER_TEXT_V1.
+-/
+
+private theorem countable_compact_response_subcharts
+    {X J : Type*} [MetricSpace X] [ProperSpace X]
+    [SecondCountableTopology X]
+    (S : Set X) (hS : IsOpen S) (V : J → Set X)
+    (hV : ∀ j, IsOpen (V j))
+    (hcover : ∀ x ∈ S, ∃ j, x ∈ V j) :
+    ∃ (K : S → Set X) (chart : S → J) (T : Set S),
+      T.Countable ∧
+      (∀ x : S, IsCompact (K x) ∧ K x ⊆ S ∩ V (chart x) ∧
+        (x : X) ∈ interior (K x)) ∧
+      S ⊆ ⋃ x ∈ T, interior (K x) := by
+  classical
+  have hsmall : ∀ x : S, ∃ j : J, ∃ radius : ℝ,
+      0 < radius ∧ Metric.closedBall (x : X) radius ⊆ S ∩ V j := by
+    intro x
+    obtain ⟨j, hj⟩ := hcover (x : X) x.property
+    obtain ⟨radius, hradius, hball⟩ :=
+      Metric.isOpen_iff.mp (hS.inter (hV j)) (x : X) ⟨x.property, hj⟩
+    refine ⟨j, radius / 2, half_pos hradius, ?_⟩
+    exact (Metric.closedBall_subset_ball (half_lt_self hradius)).trans hball
+  let chart : S → J := fun x => Classical.choose (hsmall x)
+  let radius : S → ℝ := fun x =>
+    Classical.choose (Classical.choose_spec (hsmall x))
+  let K : S → Set X := fun x => Metric.closedBall (x : X) (radius x)
+  have hradius : ∀ x : S,
+      0 < radius x ∧ K x ⊆ S ∩ V (chart x) := by
+    intro x
+    exact Classical.choose_spec (Classical.choose_spec (hsmall x))
+  have hK : ∀ x : S, IsCompact (K x) ∧ K x ⊆ S ∩ V (chart x) ∧
+      (x : X) ∈ interior (K x) := by
+    intro x
+    refine ⟨isCompact_closedBall (x : X) (radius x), (hradius x).2, ?_⟩
+    exact Metric.ball_subset_interior_closedBall
+      (Metric.mem_ball_self (hradius x).1)
+  obtain ⟨T, hT, hTcover⟩ :=
+    isOpen_iUnion_countable (fun x : S => interior (K x))
+      (fun _ => isOpen_interior)
+  refine ⟨K, chart, T, hT, hK, ?_⟩
+  intro x hx
+  rw [hTcover]
+  exact Set.mem_iUnion.mpr ⟨⟨x, hx⟩, (hK ⟨x, hx⟩).2.2⟩
+
+private theorem ae_forall_of_countable_subcharts
+    {X Ω : Type*} [TopologicalSpace X] [MeasurableSpace Ω]
+    (μ : Measure Ω) (S : Set X) (K : S → Set X) (T : Set S)
+    (hT : T.Countable)
+    (hcover : S ⊆ ⋃ x ∈ T, interior (K x))
+    (P : Ω → X → Prop)
+    (hP : ∀ x ∈ T, ∀ᵐ ω ∂μ, ∀ y ∈ K x, P ω y) :
+    ∀ᵐ ω ∂μ, ∀ y ∈ S, P ω y := by
+  have hall : ∀ᵐ ω ∂μ, ∀ x ∈ T, ∀ y ∈ K x, P ω y :=
+    (MeasureTheory.ae_ball_iff hT).mpr hP
+  refine hall.mono ?_
+  intro ω hω y hy
+  obtain ⟨x, hx⟩ := Set.mem_iUnion.mp (hcover hy)
+  obtain ⟨hxT, hyK⟩ := Set.mem_iUnion.mp hx
+  exact hω x hxT y (Set.interior_subset hyK)
+
+private theorem countable_compact_local_ae
+    {X Ω : Type*} [NormedAddCommGroup X] [NormedSpace ℝ X]
+    [FiniteDimensional ℝ X] [MeasurableSpace Ω]
+    (μ : Measure Ω) (S : Set X) (hS : IsOpen S) (P : Ω → X → Prop)
+    (hlocal : ∀ x ∈ S, ∃ U : Set X, IsOpen U ∧ x ∈ U ∧ U ⊆ S ∧
+      ∀ K : Set X, IsCompact K → K ⊆ U → ∀ᵐ ω ∂μ, ∀ y ∈ K, P ω y) :
+    ∀ᵐ ω ∂μ, ∀ y ∈ S, P ω y := by
+  classical
+  let V : S → Set X := fun x => Classical.choose (hlocal (x : X) x.property)
+  have hV : ∀ x : S, IsOpen (V x) ∧ (x : X) ∈ V x ∧ V x ⊆ S ∧
+      ∀ K : Set X, IsCompact K → K ⊆ V x → ∀ᵐ ω ∂μ, ∀ y ∈ K, P ω y := by
+    intro x
+    exact Classical.choose_spec (hlocal (x : X) x.property)
+  have hcoverV : ∀ x ∈ S, ∃ j : S, x ∈ V j := by
+    intro x hx
+    exact ⟨⟨x, hx⟩, (hV ⟨x, hx⟩).2.1⟩
+  obtain ⟨K, chart, T, hT, hK, hcover⟩ :=
+    countable_compact_response_subcharts S hS V (fun x => (hV x).1) hcoverV
+  refine ae_forall_of_countable_subcharts μ S K T hT hcover P ?_
+  intro x _hxT
+  exact (hV (chart x)).2.2.2 (K x) (hK x).1
+    ((hK x).2.1.trans Set.inter_subset_right)

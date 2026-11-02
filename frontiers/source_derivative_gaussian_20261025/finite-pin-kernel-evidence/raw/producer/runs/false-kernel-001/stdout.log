@@ -1,0 +1,14 @@
+/workspace/scratch/finite-pin-kernel-construct/FalseKernelMutation.lean:40:2: error: unsolved goals
+case right
+hright : finitePairing (fun x => 1) (Finsupp.single 0 1) = 1
+hcounterexample : ¬(I4ContactGram.coefficientGram (residualCoefficient (fun x x_1 => 1) (fun x x_1 => 1) !![1])).PosDef
+z : Fin 1 → ℝ
+hz : z ≠ 0
+⊢ False
+/workspace/scratch/finite-pin-kernel-construct/FalseKernelMutation.lean:39:60: error: This simp argument is unused:
+  Fin.sum_univ_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [I4ContactGram.coefficientGram, residualCoefficient]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

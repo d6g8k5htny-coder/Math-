@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "role": "New-only qualification of actual varying-gap source normalized chart/pins/Peano data",
+  "module": "SourceAdaptiveFoldChart",
+  "source_cut": "0473748a57196cfd8253ac319197e0a7926ad072",
+  "source_sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073",
+  "object_sha256": "0b2fe620dac30b88a0ff9cbf8a0ad93f8b7f320437fbf50a7bc94e7fbf311171",
+  "binding_contract_cut": "0d802f10b68254068f23348ca8a63ea225180772",
+  "native_activation": 6408832792,
+  "compile_record": "raw/producer/runs/compile-final/receipt.json",
+  "warningAsError": true,
+  "kernel_record": "raw/producer/runs/kernel-001/receipt.json",
+  "named_kernel_checks": 1,
+  "complete_axiom_audit_record": "raw/producer/runs/inventory-001/receipt.json",
+  "direct_axiom_print_run": null,
+  "axiom_audit_mode": "All72 module-owned declarations exhaustively enumerated and collected with Lean.collectAxioms, enforcing standard3; no redundant direct-print audit claimed.",
+  "public_written_theorems": 25,
+  "public_nonProp_definitions": 4,
+  "Prop_definition_bundles": 1,
+  "generated_declarations_separate": 42,
+  "complete_own_module_declarations": 72,
+  "own_namespace_declarations": 70,
+  "two_lazy_imported_namespace_generated_equations": [
+    "AdaptiveFoldTransverseRidge.Vx.eq_1",
+    "AdaptiveFoldTransverseRidge.partialX.eq_1"
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "inventory": "INVENTORY.json",
+  "controls": "CONTROL_RECEIPT.json",
+  "identities": "SOURCE_OBJECT_IDENTITIES.json",
+  "lineage": "AUTHOR_HELPER_LINEAGE.json",
+  "author_side_review": "AUTHOR_SIDE_REVIEW.md",
+  "author_side_review_verdict": "Exact source-specification/task-quality PASS, no findings. OpenAI same-family, zero different-family scientific credit.",
+  "process_review": "New different-family scientific alignment pending; completed mathematics remains reusable.",
+  "parent_evidence_reuse": "Completed32 imported prerequisite modules/25inputs unchanged; parallel disjoint boundary/path module also remains qualified in the33module registry. No old checks replayed.",
+  "artifact_cache": "Only qualified SourceAdaptiveFoldChart.olean copied byte-for-byte to registered cache. Scratch Controls.olean is excluded; no second kernel replay.",
+  "scope": "Literal same-carrier fixed-axis normalized potential C4 and exact coordinate scales, raw pins to actual four gradient pins/gap1/6/Peano2; common hL-derived interval beforeb,k for every-prior-sample posterior and actual sourceGapLaw AE, genuine12k.",
+  "no_inference": [
+    "wider rectangle derivative/sign/numerical source budgets",
+    "framed/translated conditional law or field isotropy",
+    "physical torus/H0 elder/weighted probability/count-density Parent A/B Lean inhabitants",
+    "scientific acceptance or original-goal closure"
+  ],
+  "scientific_effect": "NONE"
+}

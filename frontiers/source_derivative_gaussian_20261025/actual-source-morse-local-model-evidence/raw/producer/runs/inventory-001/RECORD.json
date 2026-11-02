@@ -1,0 +1,59 @@
+{
+  "label": "inventory-001",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "lake",
+    "env",
+    "python",
+    "-c",
+    "import os,subprocess,sys; os.environ[\"LEAN_PATH\"]=sys.argv[1]+os.pathsep+os.environ.get(\"LEAN_PATH\",\"\"); sys.exit(subprocess.run([\"lean\",\"-DwarningAsError=true\",\"--root=\"+sys.argv[2],\"-o\",sys.argv[3],sys.argv[4]],check=False).returncode)",
+    "/workspace/scratch/actual-source-morse-local-model-construct/objects",
+    "/workspace/scratch/actual-source-morse-local-model-construct",
+    "/workspace/scratch/actual-source-morse-local-model-construct/objects/Inventory.olean",
+    "/workspace/scratch/actual-source-morse-local-model-construct/Inventory.lean"
+  ],
+  "start_utc": "2026-10-28T15:33:06.190075+00:00",
+  "source_identity": {
+    "role": "owned_ordinary_source_Inventory",
+    "path": "/workspace/scratch/actual-source-morse-local-model-construct/Inventory.lean",
+    "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0043-Inventory.lean",
+    "bytes": 1082,
+    "sha256": "1e2fe4e6fa7e7796690638ac4265a71551e5ae63f1c0b7236b55ddbece16ffbe",
+    "first_bound_utc": "2026-10-28T15:33:06.169343+00:00",
+    "new_sha256_operations": 1,
+    "reused_identity": false
+  },
+  "harness_identity": {
+    "role": "owned_ordinary_execution_harness",
+    "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_ordinary.py",
+    "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0044-run_ordinary.py",
+    "bytes": 2857,
+    "sha256": "b403d52a574372a05e9f9b6e9518e1f5d22525fd0eaa8d23f654dda50edadcc2",
+    "first_bound_utc": "2026-10-28T15:33:06.169926+00:00",
+    "new_sha256_operations": 1,
+    "reused_identity": false
+  },
+  "production_object_identity": {
+    "role": "owned_production_object",
+    "path": "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+    "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0042-SourceActualMorseLocalModel.olean",
+    "bytes": 3409752,
+    "sha256": "7bc2d9fc1edcbd936dc04b583fa2b4642fc6fd968c594350df8eec28093d7ad3",
+    "first_bound_utc": "2026-10-28T15:30:47.921140+00:00",
+    "new_sha256_operations": 1,
+    "reused_identity": true
+  },
+  "coverage": "ordinary source only, separate from production kernel",
+  "exit_code": 0,
+  "end_utc": "2026-10-28T15:33:09.485889+00:00",
+  "object_identity": {
+    "role": "owned_ordinary_object_Inventory",
+    "path": "/workspace/scratch/actual-source-morse-local-model-construct/objects/Inventory.olean",
+    "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0045-Inventory.olean",
+    "bytes": 2712,
+    "sha256": "137ca4bfb4261cffd31650b2effdc758333e34de3fea8e13236848f2bf4f7045",
+    "first_bound_utc": "2026-10-28T15:33:09.486267+00:00",
+    "new_sha256_operations": 1,
+    "reused_identity": false
+  }
+}

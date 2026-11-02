@@ -1,0 +1,29 @@
+{
+  "operation": "root65-outer-capture",
+  "script_argv": [
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/native-runtime/capture.py",
+    "--run-dir",
+    "/workspace/scratch/actual-source-regular-local-collar-publication/native-runtime-freeze66-001/outer",
+    "--cwd",
+    "/workspace/Math-curvature-20261026",
+    "--scope",
+    "outer",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/native-runtime/capture.py",
+    "--run-dir",
+    "/workspace/scratch/actual-source-regular-local-collar-publication/native-runtime-freeze66-001/worker",
+    "--cwd",
+    "/workspace/Math-curvature-20261026",
+    "--scope",
+    "worker",
+    "--",
+    "python3",
+    "-c",
+    "from pathlib import Path\nfrom datetime import datetime,timezone\nimport json,hashlib\nu=Path(\"/workspace/scratch/actual-source-regular-local-collar-publication\");s=Path('/workspace/scratch/stage66-native-publication-support');d=u/'native-runtime';d.mkdir(exist_ok=False)\nnames=['publication66.py','SOURCE_GO.template.json','README.md','TAIL_FILE_CHOICES.json','preparation-history/static-amendment001/publication66.py.ORIGINAL','preparation-history/static-amendment001/publication66.py.FULL_ACTUAL.patch','preparation-history/static-amendment002/publication66.py.ORIGINAL','preparation-history/static-amendment002/publication66.py.FULL_ACTUAL.patch']\nrows=[]\nfor n in names:\n src=s/n;raw=src.read_bytes();dst=d/n;dst.parent.mkdir(parents=True,exist_ok=True)\n with dst.open('xb') as f:f.write(raw)\n rows.append({'source':str(src),'immutable_exact_copy':str(dst),'bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest(),'first_observed_utc':datetime.now(timezone.utc).isoformat(),'origin':'FIRST_ONCE_NEW66_PUBLICATION_METADATA; exact copy REUSES ID'})\nwith (u/'ROOT_NATIVE_RUNTIME_FIRST_IDS66.json').open('x') as f:json.dump({'status':'NEW66_NATIVE_PUBLICATION_RUNTIME_EXTERNALLY_FROZEN_BEFORE_FIRST_EXECUTION','rows':rows,'root_full_reading':'FULLcurrentpublication66.py4510tokens after001; FULLactual002delta1004 +README/readiness/static2828 andactualsourceGOtemplate/tail934. NewindependentstaticreviewPASS, oldcodec/rawPUBLICGittransport reusedwithoutretest/hash/copy.','old_source_object_hashes':0},f,indent=2);f.write('\\n')\nx={'status':'ROOT_GO66_SOURCE_CUT_AFTER_FINAL_QUALIFICATION','observed_utc':datetime.now(timezone.utc).isoformat(),'qualified_baseline':'263b9d4329043e6debd299a8c27327ee515670d7','all_math_complete':True,'final_review_pass':True,'source_frozen':True,'source_identity':{'bytes':30286,'sha256':'82823ac4360cbfb6eda057eb9fc212c870842703a14f5222454df70f19ed0d96'},'eligible_object_path':'/workspace/scratch/actual-source-regular-local-collar-construct/build/SourceActualRegularLocalCollar.olean','eligible_object_identity':{'bytes':1341664,'sha256':'9050a31e570e121e268239f3374e9129037a78084bca7fc64f63ac0404bddad0'},'review_scope':'Finalmathematicalsource/SPEC/allactualpositives/strict/ALL80std3/EXACTONEkernel andseparateFULLordinaryALL55std3/counterproof/sole296BclosedFalse PASS/no blockers, nonauthorreportedallmathoutcomesFULLfieldcoverage. Final documentarycustody/aggregates/rootcut-copyobservations remain separatelypending; completedmathevidence reused.','root_reading':'FULLcontextoriginal+delta, completephysicaloriginal/placement/provenance/freeze3674tokens pluspriorFULLACK/contextreuse; FULLordinary3219tokens andFULL296Bharness/120BFalse104tokens; FULLPRE_KERNELreport+scope4212. Rootnotwholeproduction/all80rawpersonalreading; reviewerseparatelyFULLactualsource/deltas/all80/raw.','metadata_final_GO':False,'all_future_object_actions':'RooteligibleNEWowncopyONCEaftergenuinecut only; allold/helper/ordinary/furtherSKIP.','creator':6482857252,'checkpoint':'2026-10-29T00:10:00Z','hard_terminal':'2026-10-29T03:30:00Z or invocationend/noautoextension','process':'OpenDraft/noReady/noMerge/samefamily0/scienceNONE/providerprocessseparate/014KMath403STOP'}\nwith (u/'ROOT_SOURCE_GO66.json').open('x') as f:json.dump(x,f,indent=2);f.write('\\n')\nprint(json.dumps({'status':x['status'],'observed_utc':x['observed_utc'],'native_assets_FIRST_IDs':len(rows),'proof_object_hashes_here':0,'metadata_final_GO':False}))"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026",
+  "started_utc": "2026-10-28T23:49:53.620837+00:00",
+  "policy": "No automatic retry; all actual command streams remain original and separate.",
+  "credential_environment_logged": false
+}

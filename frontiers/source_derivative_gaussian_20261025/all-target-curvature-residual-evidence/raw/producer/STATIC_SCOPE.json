@@ -1,0 +1,35 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAllTargetCurvatureResidual.lean",
+    "bytes": 16631,
+    "sha256": "4ae29bc3f2f206cca558df3f78853061cf4892499ac918e40253edd68d44371f"
+  },
+  "imports": [
+    "SourceCompactTargetMoments",
+    "SourceCurvatureDecomposition"
+  ],
+  "forbidden_tokens_found": {
+    "sorry": false,
+    "axiom": false,
+    "native_decide": false,
+    "implemented_by": false,
+    "Mathlib_umbrella": false
+  },
+  "active_probability_or_weight_modules_imported": false,
+  "one_hL_only_interval": true,
+  "all_target_affine_dependence_preserved": true,
+  "original_carrier": "SmoothSample 2 L",
+  "signed_nonzero_period": true,
+  "mean_zero_target_assumed": false,
+  "final_certificate_premises": false,
+  "helper_premises": "Pointwise generic helper interfaces retain explicit envelope/invertibility hypotheses; final uniform endpoint derives them internally.",
+  "nonclaims": [
+    "weighted r5 numerator",
+    "compact positive normalizer",
+    "normalized varying-mark probability",
+    "canonical partner or conditional Morse",
+    "all O(2) frame transport",
+    "count density",
+    "Parent Lean theorem"
+  ]
+}

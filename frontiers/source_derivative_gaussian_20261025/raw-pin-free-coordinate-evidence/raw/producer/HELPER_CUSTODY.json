@@ -1,0 +1,51 @@
+{
+  "integration_record": "HELPER_INTEGRATION.json",
+  "gaussian": {
+    "author": "/root/endpoint_gaussian_ac_text",
+    "owned_originals": "helper-gaussian-frozen/",
+    "original_section_sha256": "11122b77173768f1a791ab6e4856a43dc6950159c1052a30696990f5fd9cc8aa",
+    "original_imports_sha256": "595565681481158d59f1bae08d37925303a2b865d81210b20e72fad2b2a41fc2",
+    "original_provenance_sha256": "c4715388159dd21c8385e59a1ab66f96c9d3123cf8b1d4861269d9a6cb9db98b",
+    "integration_count": 1,
+    "standalone_executions": 0,
+    "integrated_section": {
+      "path": "/workspace/scratch/raw-pin-free-coordinate-construct/INTEGRATED_GAUSSIAN_SECTION.lean.txt",
+      "bytes": 10708,
+      "sha256": "88f6c460ace1457d01219f917e6b6d845ce4142dbad7f05f24c39a54f27f0ed0"
+    },
+    "actual_local_amendments": {
+      "path": "/workspace/scratch/raw-pin-free-coordinate-construct/HELPER_GAUSSIAN_LOCAL_AMENDMENTS.patch",
+      "bytes": 1556,
+      "sha256": "00c25e513ef1b2420a9f0f99b88e1fe2236e87d89e61db6a0bf4b03fe9e3ae6f"
+    },
+    "amendment_scope": "Exactly three proof-instance letI to let style amendments; all mathematical text unchanged.",
+    "coverage": "Final production strict/inventory/one kernel."
+  },
+  "four_mode": {
+    "author": "/root/two_remote_firstjet_arithmetic",
+    "owned_originals": "helper-controls-frozen/",
+    "original_section_sha256": "7f6e7400976aa89d848dc0ca7839c3d8dea11b98df92f11220778ea16226eb8f",
+    "original_imports_sha256": "7e15b07748a4df367090120ed73d8449607bffcc37aacd39e94e2cdba652ce19",
+    "original_guidance_sha256": "3027def7873881c68b84bc5655cf66b3ac3aa977ae4b3c0cb994f5d75036e6d2",
+    "original_unfrozen_draft_sha256": "487c96e1bac0dafeed1f491e994b0578c3913c870084dc30c21e35f2d1995c9a",
+    "original_provenance_sha256": "d4c5877f245f393e7feea08cca3ad2a9a4dc2ba7fb75582a44958a5396e699c9",
+    "unfrozen_draft_used_in_invocation": false,
+    "integration_count": 1,
+    "standalone_executions": 0,
+    "actual_local_amendments": {
+      "path": "/workspace/scratch/raw-pin-free-coordinate-construct/HELPER_CONTROLS_LOCAL_AMENDMENTS.patch",
+      "bytes": 8919,
+      "sha256": "cbba401ae3cd22439577947dffb3a0f5cabbc950bbcec29d896da94e72880d04"
+    },
+    "final_integrated_controls_identity": {
+      "path": "/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean",
+      "bytes": 27218,
+      "sha256": "801100e37373045ed1d77962839a9bdc574322fae8c4091202c80fc6238891a4"
+    },
+    "amendment_scope": "Public weight namespace; explicit phase function equality and actual zero endpoints/derivatives; finite sum simplification and scalar rewrite order; ordinary scratch neg-pairing adapters for negative rotation; nonzero normalization; unused/deprecated/sequence lint fixes. All actual fixed witnesses/control meanings unchanged.",
+    "coverage": "Positive scratch Controls004 strict only. Production kernel does not cover Controls."
+  },
+  "old_payload_hashes": "No old qualified payload rehashed. Original new helper identities supplied by their first freeze; only newly authored integrated/amendment payload first custody identities computed here.",
+  "scientific_effect": "NONE",
+  "same_family_provider_distinct_credit": 0
+}

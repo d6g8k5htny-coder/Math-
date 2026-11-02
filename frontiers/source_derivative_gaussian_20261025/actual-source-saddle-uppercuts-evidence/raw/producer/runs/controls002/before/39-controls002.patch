@@ -1,0 +1,25 @@
+--- Controls.INITIAL.lean
++++ Controls002.lean
+@@ -421,7 +421,7 @@
+     change chosenPhi.symm (![0,(1-2*(1 : ℝ))*chosenRho/2] : Point2) = minusPoint
+     congr 1
+     ext i
+-    fin_cases i <;> simp [minusPoint] <;> ring
++    fin_cases i <;> simp <;> ring
+ 
+ private theorem boundaryPath_formula (t : unitInterval) :
+     boundaryPath t = chosenPhi.symm (boundaryTargetPoint t) := rfl
+@@ -454,11 +454,11 @@
+     simpa [boundaryTargetPoint] using boundaryTargetPoint_mem (0 : unitInterval)
+   have hm : (![0,-chosenRho/2] : Point2) ∈ chosenPhi.target := by
+     convert boundaryTargetPoint_mem (1 : unitInterval) using 1 <;>
+-      congr 1 <;> ext i <;> fin_cases i <;> simp [boundaryTargetPoint] <;> ring
++      congr 1 <;> ext i <;> fin_cases i <;> simp <;> ring
+   change (chosenPhi (chosenPhi.symm (![0,chosenRho/2] : Point2)) 1)*
+     (chosenPhi (chosenPhi.symm (![0,-chosenRho/2] : Point2)) 1) = _
+   rw [chosenPhi.right_inv hp, chosenPhi.right_inv hm]
+-  simp only [Fin.isValue, Matrix.cons_val_one]
++  change (chosenRho/2)*(-chosenRho/2) = -chosenRho^2/4
+   ring
+ private theorem ordinary_cutoff_equality : CutoffEquality fixtureField chosenCenter chosenRho chosenPhi :=
+   cutoffEquality _ _ (fixtureOpen 1 0) chosenRho chosen_positive chosenPhi chosen_uniform

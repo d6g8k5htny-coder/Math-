@@ -1,0 +1,118 @@
+definition | authored private finite-geometry set definition | targetLower | propext,Classical.choice,Quot.sound
+theorem | private generated proof auxiliary | saddleQ._proof_1 | propext
+definition | authored private definition | physicalProjection | propext,Classical.choice,Quot.sound
+definition | generated private Prop-bundle eliminator or auxiliary | ChartFacts.casesOn | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | collar_joined_preimage | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | fixture_seamInputs | propext,Classical.choice,Quot.sound
+theorem | private generated defining equation | fixturePolynomial.eq_1 | propext,Classical.choice,Quot.sound
+theorem | generated private Prop-bundle projection | ChartFacts.target_eq | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | fixture_negativeInput | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | saddleConeGeometry | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | sc64_negative_cone_convex | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | fixture_pointCritical | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | fixture_hasFDerivAt | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | fixture_positiveInput | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | fixture_saddleInputs | propext,Classical.choice,Quot.sound
+theorem | private generated defining equation | fixtureSample.eq_1 | propext,Classical.choice,Quot.sound
+definition | authored private definition | saddleQ | propext,Classical.choice,Quot.sound
+recursor | generated private Prop-bundle recursor | SaddleGeometry.rec | propext,Classical.choice,Quot.sound
+theorem | generated private Prop-bundle projection | SaddleGeometry.disjoint | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | fixture_saddlePositive | propext,Classical.choice,Quot.sound
+definition | authored private definition | fixtureTorusField | propext,Classical.choice,Quot.sound
+recursor | generated private Prop-bundle recursor | ChartFacts.rec | propext,Classical.choice,Quot.sound
+definition | generated private Prop-bundle eliminator or auxiliary | ChartFacts.mk._flat_ctor | propext,Classical.choice,Quot.sound
+theorem | private generated defining equation | fixtureDerivative.eq_1 | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | transportSaddleCollar | propext,Classical.choice,Quot.sound
+theorem | sole authored public theorem | actualSource_quotient_saddle_local_collar | propext,Classical.choice,Quot.sound
+theorem | private generated defining equation | fixtureCoordinate.eq_1 | propext,Classical.choice,Quot.sound
+theorem | generated private Prop-bundle projection | SaddleGeometry.lower_pc | propext,Classical.choice,Quot.sound
+theorem | private generated proof auxiliary | fixtureCoordinate._proof_1 | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | sc64_positive_cone_iff | propext,Classical.choice,Quot.sound
+theorem | generated private Prop-bundle projection | ChartFacts.center_mem | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | fixture_seam | propext,Classical.choice,Quot.sound
+definition | authored private definition | fixturePolynomial | propext,Classical.choice,Quot.sound
+definition | authored private type alias | Point2 | propext,Classical.choice,Quot.sound
+theorem | private generated simp theorem | sc64_lower_pc._simp_1_1 | propext,Classical.choice,Quot.sound
+theorem | private generated proof auxiliary | fixtureDerivative._proof_1 | propext,Classical.choice,Quot.sound
+definition | authored private definition | fixtureSample | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | sc64_plus_pc | propext,Classical.choice,Quot.sound
+theorem | generated private Prop-bundle projection | SaddleGeometry.minus_pc | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | quotientSaddleChart | propext,Classical.choice,Quot.sound
+definition | authored private Prop bundle | CollarFacts | propext,Classical.choice,Quot.sound
+theorem | private generated proof auxiliary | fixtureDerivative._proof_2 | propext,Classical.choice,Quot.sound
+definition | generated private Prop-bundle eliminator or auxiliary | ChartFacts.recOn | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | fixture_smallOpen | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | collar_pc_preimage | propext,Classical.choice,Quot.sound
+theorem | private generated proof auxiliary | fixturePolynomial._proof_1 | propext
+theorem | generated private Prop-bundle projection | ChartFacts.center_zero | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | fixture_actualField | propext,Classical.choice,Quot.sound
+theorem | foreign-namespace generated declaration | UniversalLaw.Spec.Lifetime.hessian.eq_1 | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | sc64_strict_coordinate_ne_zero | propext,Classical.choice,Quot.sound
+theorem | generated private Prop-bundle projection | SaddleGeometry.plus_pc | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | sc64_negative_cone_iff | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | sc64_lower_pc | propext,Classical.choice,Quot.sound
+theorem | private generated defining equation | physicalProjection.eq_1 | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | sc64_targetPlus_eq | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | collar_chart_image_preimage | propext,Classical.choice,Quot.sound
+theorem | foreign-namespace generated declaration | I4SmoothCarrier.sampleInclusion.eq_1 | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | fixture_coordinateFormula | propext,Classical.choice,Quot.sound
+definition | authored private finite-geometry set definition | targetPlus | propext,Classical.choice,Quot.sound
+definition | authored private definition | fixtureSmallOpen | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | sc64_negative_axis_ball | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | sc64_weighted_positive | propext,Classical.choice,Quot.sound
+theorem | generated private Prop-bundle projection | ChartFacts.identity | propext,Classical.choice,Quot.sound
+definition | authored private finite-geometry set definition | targetStrict | propext,Classical.choice,Quot.sound
+inductive | authored private Prop bundle | SaddleGeometry | propext,Classical.choice,Quot.sound
+definition | authored private definition | fixturePoint | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | fixture_negativeFirst_inertia | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | sc64_targetMinus_eq | propext,Classical.choice,Quot.sound
+theorem | private generated defining equation | fixturePoint.eq_1 | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | fixture_hessian | propext,Classical.choice,Quot.sound
+constructor | generated private Prop-bundle constructor | SaddleGeometry.mk | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | fixture_saddleNegative | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | fixtureAxis_coordinates | propext,Classical.choice,Quot.sound
+inductive | authored private Prop bundle | ChartFacts | propext,Classical.choice,Quot.sound
+theorem | private generated proof auxiliary | fixtureDerivative._proof_3 | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | sc64_positive_cone_convex | propext,Classical.choice,Quot.sound
+theorem | generated private Prop-bundle projection | SaddleGeometry.joined_iff | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | fixtureAxis_ne_zero | propext,Classical.choice,Quot.sound
+definition | authored private definition | fixtureCoordinate | propext,Classical.choice,Quot.sound
+theorem | private generated defining equation | saddleQ.eq_1 | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | actualSaddleCollar | propext,Classical.choice,Quot.sound
+definition | authored private definition | fixtureDerivative | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | sc64_positive_axis_ball | propext,Classical.choice,Quot.sound
+definition | authored private finite-geometry set definition | targetMinus | propext,Classical.choice,Quot.sound
+definition | generated private Prop-bundle eliminator or auxiliary | SaddleGeometry.recOn | propext,Classical.choice,Quot.sound
+theorem | private generated proof auxiliary | fixtureTorusField._proof_1 | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | sc64_joined_iff | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | sc64_no_joined_negative_positive | propext,Classical.choice,Quot.sound
+theorem | private generated proof auxiliary | fixtureSmallOpen._proof_1 | propext
+constructor | generated private Prop-bundle constructor | ChartFacts.mk | propext,Classical.choice,Quot.sound
+definition | generated private Prop-bundle eliminator or auxiliary | SaddleGeometry.mk._flat_ctor | propext,Classical.choice,Quot.sound
+definition | authored private definition | fixtureAxis | propext,Classical.choice,Quot.sound
+theorem | generated private Prop-bundle projection | ChartFacts.source_subset | propext,Classical.choice,Quot.sound
+definition | generated private Prop-bundle eliminator or auxiliary | SaddleGeometry.casesOn | propext,Classical.choice,Quot.sound
+theorem | authored private theorem | sc64_minus_pc | propext,Classical.choice,Quot.sound
+theorem | generated private Prop-bundle projection | SaddleGeometry.partition | propext,Classical.choice,Quot.sound
+{
+  "total": 96,
+  "counts": {
+    "authored private finite-geometry set definition": 4,
+    "private generated proof auxiliary": 8,
+    "authored private definition": 10,
+    "generated private Prop-bundle eliminator or auxiliary": 6,
+    "authored private theorem": 38,
+    "private generated defining equation": 7,
+    "generated private Prop-bundle projection": 11,
+    "generated private Prop-bundle recursor": 2,
+    "sole authored public theorem": 1,
+    "authored private type alias": 1,
+    "private generated simp theorem": 1,
+    "authored private Prop bundle": 3,
+    "foreign-namespace generated declaration": 2,
+    "generated private Prop-bundle constructor": 2
+  },
+  "zero_categories": [
+    "other owned generated declaration"
+  ]
+}

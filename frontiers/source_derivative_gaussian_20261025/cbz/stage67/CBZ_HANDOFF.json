@@ -1,0 +1,150 @@
+{
+  "status": "CBZ0_GENERAL_PRODUCTION_TECHNICALLY_CLOSED_ORDINARY_TERMINALLY_QUARANTINED",
+  "agent": "/root/lower67_resume_producer",
+  "observed_utc": "2026-10-29T16:47:43Z",
+  "authority": "Root-carried new user master directive: sole CBZ-0 objective, preserve evidence, finish current general production closure, finish or precisely quarantine existing ordinary obligation; no new research front or extra existential proof",
+  "ceremonial_checkpoints_or_peer_quorum_required": false,
+  "unknown_outcome_replayed": false,
+  "running_worker_at_directive": {
+    "label": "ordinary002-strict",
+    "start_tool_chunk": "faf762",
+    "session_id": 91782,
+    "actual_terminal_tool_chunk": "26472e",
+    "actual_exit": 1,
+    "outcome_now_known": true,
+    "worker_receipt": "/workspace/scratch/actual-source-lower-separation-construct/runs/ordinary002-strict/receipt.json",
+    "full_original_streams": [
+      "/workspace/scratch/actual-source-lower-separation-construct/runs/ordinary002-strict/stdout.log",
+      "/workspace/scratch/actual-source-lower-separation-construct/runs/ordinary002-strict/stderr.log"
+    ]
+  },
+  "general_production": {
+    "module": "SourceActualLowerSeparation",
+    "source_path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualLowerSeparation.lean",
+    "source_bytes": 14899,
+    "source_sha256_REUSED_NOT_RECOMPUTED": "e72ed4f92e7867dc210b771e6afb4548cfad679e8b38795110fa6fd76a15e121",
+    "source_FIRST_utc": "2026-10-29T16:34:46.127061+00:00",
+    "immutable_source": "/workspace/scratch/actual-source-lower-separation-construct/runs/production006-strict/before/12-SourceActualLowerSeparation.lean",
+    "sole_public_Prop": "I4SourceActualLowerSeparation.actualSource_closedSuperlevel_componentInclusion_locally_injective",
+    "mathematical_result": "Actual hL/original SmoothSample/literal legitimate global IsMorseDistinct/fixed c imply ONE delta>0 and injectivity of literal pi0 closed-superlevel inclusion for ALL b in CLOSED[c-delta,c], s=-c,t=-b; explicit empty upper-cut and compact-complement branches",
+    "new_mathematical_declarations": 5,
+    "classification": "ONE public Prop and FOUR private theorems; no owned data/generated remainder",
+    "strict": {
+      "status": "PASS",
+      "label": "production006-strict",
+      "child_exit": 0,
+      "full_stdout_stderr": "Empty",
+      "receipt": "/workspace/scratch/actual-source-lower-separation-construct/runs/production006-strict/receipt.json"
+    },
+    "ALL_owned_std3": {
+      "status": "PASS",
+      "label": "production-inventory002",
+      "actual_module_index": 5362,
+      "ownership_method": "Environment module-index enumeration, not prefix ownership",
+      "all_five_axioms": ["propext", "Classical.choice", "Quot.sound"],
+      "receipt": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-inventory002/receipt.json",
+      "exhaustive_output": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-inventory002/stdout.log"
+    },
+    "object": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/build/SourceActualLowerSeparation.olean",
+      "bytes": 409960,
+      "sha256_REUSED_NOT_RECOMPUTED": "c001bad5446351036112f0c78b264fd3ffc423dc7df7fc09f9431bdbdcac43cc",
+      "FIRST_utc": "2026-10-29T16:34:49.584970+00:00",
+      "bound_source_sha256": "e72ed4f92e7867dc210b771e6afb4548cfad679e8b38795110fa6fd76a15e121",
+      "placement": "Producer own scratch only; no production cache promotion"
+    },
+    "named_final_kernel_executions": 1,
+    "final_kernel_release_received": true,
+    "final_kernel_release_source": "Root explicit inline CBZ instruction after nonauthor complete PRE_KERNEL PASS; no additional JSON/peer/external ceremony required",
+    "final_kernel": {
+      "status": "PASS",
+      "label": "production-final-kernel001",
+      "literal_command": "env LEAN_PATH=/workspace/scratch/actual-source-lower-separation-construct/build lake env leanchecker SourceActualLowerSeparation",
+      "worker_start_utc": "2026-10-29T16:47:24.817525+00:00",
+      "worker_end_utc": "2026-10-29T16:47:29.785445+00:00",
+      "worker_elapsed_seconds": 4.967936528999871,
+      "worker_child_exit": 0,
+      "outer_end_utc": "2026-10-29T16:47:29.798227+00:00",
+      "entry_end_utc": "2026-10-29T16:47:29.806374+00:00",
+      "all_three_actual_child_exits": 0,
+      "full_stdout_stderr": "Empty",
+      "source_object_before_after_binding": "Unchanged14899B e72ed4f92e7867dc210b771e6afb4548cfad679e8b38795110fa6fd76a15e121 /409960B c001bad5446351036112f0c78b264fd3ffc423dc7df7fc09f9431bdbdcac43cc; known IDs reused, no digest replay",
+      "worker_receipt": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/receipt.json",
+      "outer_receipt": "/workspace/scratch/actual-source-lower-separation-construct/outer/production-final-kernel001/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-lower-separation-construct/entry/production-final-kernel001/RECEIPT.json",
+      "available_actual_tool_ids": {
+        "start_chunk": "03b716",
+        "session_id": 39911,
+        "terminal_chunk": "ba4860",
+        "complete_stream_read_chunk": "c00da0",
+        "closure_binding_read_chunk": "ffef9a",
+        "original_orchestrator_tool_call_ID": "Not exposed by tools; not invented"
+      },
+      "automatic_retry_or_second_invocation": false
+    },
+    "remaining_mathematical_closure": "NONE for this general production own-module obligation: final source strict, exhaustive ALL5 std3 and exactly ONE final proper kernel PASS. Root's newly user-required federation G4 all-declarations audit is separate; no duplicate producer strict/std3/kernel is planned.",
+    "estimated_effort": "Producer mathematical closure complete; root proof-index/integration handoff only",
+    "review_state": "Root reports complete nonauthor general PRE_KERNEL PASS, exact endpoint/ALL5/module-index5362/std3/stable binding/no remaining mathematical gap; no external/quorum ceremony required"
+  },
+  "ordinary": {
+    "decision": "TERMINALLY_QUARANTINE_EXISTING_UNPROVED_ORDINARY_SCOPE",
+    "reason": "The full genuine fixture/global-hm/control obligations are a substantial separate formal project, not a short closure of the already completed general theorem. Preserve the current failed private attempt and do not expand research under CBZ-0.",
+    "source_path": "/workspace/scratch/actual-source-lower-separation-construct/ActualLowerSeparationControls.lean",
+    "source_bytes": 3612,
+    "source_sha256_REUSED_NOT_RECOMPUTED": "204712ebd8ef7ba60b29daf11d43d4f0baf1a4077418a8590598bf288d640ac2",
+    "source_FIRST_utc": "2026-10-29T16:44:09.314349+00:00",
+    "immutable_source": "/workspace/scratch/actual-source-lower-separation-construct/runs/ordinary002-strict/before/13-ActualLowerSeparationControls.lean",
+    "object": null,
+    "compiled_or_qualified": false,
+    "actual_text": "Private exact six-mode polynomial/sample, direct finite-support scalar-series/toSource_eval normalization attempt, private profile and exact physical/actual-field formula attempt; no global-hm or control proof",
+    "actual_first_ordinary_strict_failure": [
+      "Unused Pi.zero_apply simp argument at line53 under warningAsError",
+      "Unqualified sourceC unknown at line78; diagnostic identifies public I4Weights.sourceC",
+      "Exact physical formula remains an unsolved trigonometric normalization goal; full goal and streams preserved"
+    ],
+    "precise_unproved_boundary": [
+      "Strict completion of actual six-mode finite-source normalization and exact universal physical/torus field identities",
+      "Actual first/second E2 derivatives and complete universal critical-coordinate classification modulo period2",
+      "Literal complementary-subspace HessianHasInertia for every actual critical point/sign combination",
+      "Eight distinct critical heights plus integer/parity/torusDist binding establishing genuine literal global IsMorseDistinct",
+      "Same-derived-delta actual positive applications at both closed endpoints and midpoint",
+      "Independent auxiliary torus cosine upper obstruction, whole projected lower path, and nonempty literal inclusion collision at c=1/2,b=-2",
+      "Closed mutation proposition/public negation, separate exhaustive ALL-owned ordinary strict/std3 qualification",
+      "Complete exact sole-negative preinvocation freeze and ONE intended False invocation"
+    ],
+    "extra_existential_Prop": "NOT WRITTEN; do not start proof under CBZ-0. Its prior context amendment/release/copy remain preserved history only.",
+    "mutation_proposition_or_negation_written": false,
+    "negative_source_or_invocation": false,
+    "ordinary_named_kernel_executions": 0,
+    "estimated_full_closure_effort": "Previously accepted risk estimate6-12 additional producer hours for normalization/universal hm plus2-4 hours for independent collision/public interval controls; current source has not reached those proofs. No short sound closure established.",
+    "quarantine_effect": "No passed genuine fixture, ordinary coverage, counterproof, negative-control pass, existential witness theorem or complete original stage67 contract qualification is claimed; general theorem retains its legitimate explicit global-hm input. No object exists to promote.",
+    "further_ordinary_execution_planned": false
+  },
+  "actual_math_run_outcomes": {
+    "production001-strict": 1,
+    "production002-strict": 0,
+    "production003-strict": 0,
+    "production004-strict": 1,
+    "production005-strict": 1,
+    "production006-strict": 0,
+    "production-inventory001": 1,
+    "production-inventory002": 0,
+    "ordinary002-strict": 1,
+    "production-final-kernel001": 0
+  },
+  "preservation": {
+    "base": "/workspace/scratch/actual-source-lower-separation-construct",
+    "all_source_versions_patches_worker_outer_entry_receipts_full_split_streams": "Preserved in base/runs, base/outer, base/entry, top-level FULL_ACTUAL patches and history",
+    "helper_six_originals_FIRST_before_ONE_integration": "/workspace/scratch/actual-source-lower-separation-construct/history/helper-original-first001/FIRST_FREEZE.json",
+    "ONE_integration_and_all_producer_amendments": "/workspace/scratch/actual-source-lower-separation-construct/history/helper-integration001/INTEGRATION_CUSTODY.json",
+    "new_lookup_exposure_disclosure": "/workspace/scratch/actual-source-lower-separation-construct/PUBLIC_LOOKUP_SCOPE_002.json",
+    "known_contexts_and_all_completed_61_63_66_evidence_reused": true,
+    "old_verification_hash_kernel_control_or_CI_replay": 0,
+    "Git_shared_cache_external_destructive_actions_by_this_agent": 0,
+    "root_only_federation_inventory_snapshot_tags_merge_prune_LayerB_actions": true
+  },
+  "scientific_effect": "NONE",
+  "same_family_credit": 0,
+  "provider_process": "SEPARATE; no ceremony substitutes for mathematical evidence",
+  "next_action": "Hand root the technically closed general proof and terminally quarantined ordinary boundary for CBZ proof index. Preserve all bytes/objects/evidence; no new mathematical work, repeated verification, Git/shared/cache/external/destructive action by producer. Await root's federation integration instructions."
+}

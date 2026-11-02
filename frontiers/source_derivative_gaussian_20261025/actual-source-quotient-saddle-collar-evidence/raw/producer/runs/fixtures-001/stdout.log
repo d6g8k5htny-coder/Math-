@@ -1,0 +1,71 @@
+SourceActualQuotientSaddleCollar.lean:691:13: error: don't know how to synthesize implicit argument `x`
+  @HasFDerivAt.const_mul ℝ DenselyNormedField.toNontriviallyNormedField (E 2) (PiLp.normedAddCommGroup 2 fun x => ℝ)
+    (PiLp.normedSpace 2 ℝ fun x => ℝ) ?m.37 ℝ Real.normedCommRing.toNormedRing Real.instRCLike.toNormedAlgebra
+    (⇑(fixtureCoordinate 0)) (fixtureCoordinate 0) (ContinuousLinearMap.hasFDerivAt (fixtureCoordinate 0)) Real.pi
+context:
+Y : E 2
+⊢ E 2
+SourceActualQuotientSaddleCollar.lean:691:13: error: don't know how to synthesize implicit argument `x`
+  @ContinuousLinearMap.hasFDerivAt ℝ DenselyNormedField.toNontriviallyNormedField (E 2)
+    (WithLp.instAddCommGroup 2 ((i : Fin 2) → (fun x => ℝ) i)) (WithLp.instModule 2 ℝ ((i : Fin 2) → (fun x => ℝ) i))
+    (PiLp.topologicalSpace 2 fun x => ℝ) ℝ Real.instAddCommGroup Semiring.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace (fixtureCoordinate 0) ?m.37
+context:
+Y : E 2
+⊢ E 2
+SourceActualQuotientSaddleCollar.lean:691:7: error: failed to infer `have` declaration type
+SourceActualQuotientSaddleCollar.lean:690:75: error: unsolved goals
+Y : E 2
+⊢ HasFDerivAt (actualField 2 2 fixtureSample) (fixtureDerivative Y) Y
+SourceActualQuotientSaddleCollar.lean:709:13: error: don't know how to synthesize implicit argument `x`
+  @HasFDerivAt.const_mul ℝ DenselyNormedField.toNontriviallyNormedField (E 2) (PiLp.normedAddCommGroup 2 fun x => ℝ)
+    (PiLp.normedSpace 2 ℝ fun x => ℝ) ?m.189 ℝ Real.normedCommRing.toNormedRing Real.instRCLike.toNormedAlgebra
+    (⇑(fixtureCoordinate 0)) (fixtureCoordinate 0) (ContinuousLinearMap.hasFDerivAt (fixtureCoordinate 0)) Real.pi
+context:
+Y u v : E 2
+⊢ E 2
+SourceActualQuotientSaddleCollar.lean:709:13: error: don't know how to synthesize implicit argument `x`
+  @ContinuousLinearMap.hasFDerivAt ℝ DenselyNormedField.toNontriviallyNormedField (E 2)
+    (WithLp.instAddCommGroup 2 ((i : Fin 2) → (fun x => ℝ) i)) (WithLp.instModule 2 ℝ ((i : Fin 2) → (fun x => ℝ) i))
+    (PiLp.topologicalSpace 2 fun x => ℝ) ℝ Real.instAddCommGroup Semiring.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace (fixtureCoordinate 0) ?m.189
+context:
+Y u v : E 2
+⊢ E 2
+SourceActualQuotientSaddleCollar.lean:709:7: error: failed to infer `have` declaration type
+SourceActualQuotientSaddleCollar.lean:705:107: error: unsolved goals
+Y u v : E 2
+⊢ ((fderiv ℝ fixtureDerivative Y) (![u, v] 0)) (![u, v] 1) =
+    -Real.pi ^ 2 * Real.cos (Real.pi * (coordinates 2) Y 0) * (coordinates 2) u 0 * (coordinates 2) v 0 +
+      -2 * Real.pi ^ 2 * Real.cos (Real.pi * (coordinates 2) Y 1) * (coordinates 2) u 1 * (coordinates 2) v 1
+SourceActualQuotientSaddleCollar.lean:794:67: error: not a positivity goal
+SourceActualQuotientSaddleCollar.lean:810:73: error: not a positivity goal
+SourceActualQuotientSaddleCollar.lean:821:36: error: unexpected token ':='; expected ':'
+SourceActualQuotientSaddleCollar.lean:830:67: error: not a positivity goal
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+SourceActualQuotientSaddleCollar.lean:829:2: error: unsolved goals
+case refine_1
+v : E 2
+⊢ -(Real.pi ^ 2 * Real.cos (-Real.pi) * (coordinates 2) v 0 ^ 2) - Real.pi ^ 2 * (coordinates 2) v 1 ^ 2 * 2 =
+    Real.pi ^ 2 * (coordinates 2) v 0 ^ 2 - Real.pi ^ 2 * (coordinates 2) v 1 ^ 2 * 2
+SourceActualQuotientSaddleCollar.lean:834:68: error: This simp argument is unused:
+  Real.cos_neg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [fixturePoint, ContinuousLinearEquiv.apply_symm_apply, Matrix.cons_val_zero, Matrix.cons_val_one,
+    mul_one, mul_zero, Real.cos_pi, Real.cos_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceActualQuotientSaddleCollar.lean:834:82: error: This simp argument is unused:
+  Real.cos_pi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [fixturePoint, ContinuousLinearEquiv.apply_symm_apply, Matrix.cons_val_zero, Matrix.cons_val_one,
+    mul_one, mul_zero, Real.cos_neg, Real.cos_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
