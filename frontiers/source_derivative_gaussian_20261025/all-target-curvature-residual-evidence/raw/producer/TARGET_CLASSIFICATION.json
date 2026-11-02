@@ -1,0 +1,155 @@
+{
+  "module": "SourceAllTargetCurvatureResidual",
+  "inventory_method": "Lean environment actual module index, every env constant whose getModuleIdxFor? equals target index",
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAllTargetCurvatureResidual.lean",
+    "bytes": 16631,
+    "sha256": "4ae29bc3f2f206cca558df3f78853061cf4892499ac918e40253edd68d44371f"
+  },
+  "receipt": {
+    "path": "/workspace/scratch/all-target-curvature-residual-construct/runs/inventory-002/receipt.json",
+    "bytes": 1998,
+    "sha256": "60ae58645961e6f2f8a68b1d5b21ad421a69817cd7e673391b3d95be30fe556c"
+  },
+  "constants": [
+    {
+      "name": "I4SourceAllTargetCurvatureResidual.one_le_allTargetCurvatureResidualRadius",
+      "lean_kind": "theorem",
+      "classification": "public_export",
+      "source_line": 39,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAllTargetCurvatureResidual.allTargetCurvatureResidualRadius_uniform_bounds",
+      "lean_kind": "theorem",
+      "classification": "public_export",
+      "source_line": 191,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAllTargetCurvatureResidual.sourceDerivativeMajorant_allTarget_curvatureReconstruct",
+      "lean_kind": "theorem",
+      "classification": "public_export",
+      "source_line": 47,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAllTargetCurvatureResidual.allTargetCurvatureResidualRadius_gap_height_moments",
+      "lean_kind": "theorem",
+      "classification": "public_export",
+      "source_line": 247,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAllTargetCurvatureResidual.allTargetCurvatureResidualRadius_prescribed",
+      "lean_kind": "theorem",
+      "classification": "public_export",
+      "source_line": 183,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAllTargetCurvatureResidual.allTargetCurvatureResidualRadius_measurable",
+      "lean_kind": "theorem",
+      "classification": "public_export",
+      "source_line": 34,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAllTargetCurvatureResidual.allTargetCurvatureResidualRadius.congr_simp",
+      "lean_kind": "theorem",
+      "classification": "compiler_generated_congruence_theorem",
+      "source_line": null,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAllTargetCurvatureResidual.sourceContactQ_posterior_abs_le_allTargetRadius",
+      "lean_kind": "theorem",
+      "classification": "public_export",
+      "source_line": 42,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAllTargetCurvatureResidual.allTargetCurvatureResidualRadius_moment_bound",
+      "lean_kind": "theorem",
+      "classification": "public_export",
+      "source_line": 119,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAllTargetCurvatureResidual.sourceGammaRadius_allTarget_curvatureReconstruct",
+      "lean_kind": "theorem",
+      "classification": "public_export",
+      "source_line": 90,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAllTargetCurvatureResidual.allTargetCurvatureResidualRadius_image_bound",
+      "lean_kind": "theorem",
+      "classification": "public_export",
+      "source_line": 106,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceAllTargetCurvatureResidual.allTargetCurvatureResidualRadius",
+      "lean_kind": "definition",
+      "classification": "public_export",
+      "source_line": 31,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "actual_module_constant_count": 12,
+  "declared_public_export_count": 11,
+  "public_theorem_count": 10,
+  "public_definition_count": 1,
+  "generated_theorem_count": 1,
+  "omitted_constants": [],
+  "all_axioms_standard_three": true
+}

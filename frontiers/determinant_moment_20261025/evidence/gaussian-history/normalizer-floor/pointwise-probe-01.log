@@ -1,0 +1,8 @@
+/workspace/scratch/normalizer-floor/pointwise-probe.lean:23:63: error: Application type mismatch: The argument
+  Tendsto.prodMk hr hX
+has type
+  Tendsto (fun x => (x, X x)) (𝓝[>] 0) (𝓝 0 ×ˢ 𝓝 ![-1, 1, -a / 2, a / 2, q, q])
+but is expected to have type
+  Tendsto ?m.144 ?m.146 (𝓝 (0, ![-1, 1, -a / 2, a / 2, q, q]))
+in the application
+  Tendsto.comp (Continuous.tendsto weight_continuous (0, ![-1, 1, -a / 2, a / 2, q, q])) (Tendsto.prodMk hr hX)

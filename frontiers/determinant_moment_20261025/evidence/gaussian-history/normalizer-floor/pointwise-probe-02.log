@@ -1,0 +1,6 @@
+/workspace/scratch/normalizer-floor/pointwise-probe.lean:22:2: error: Type mismatch: After simplification, term
+  Tendsto.comp (Continuous.tendsto weight_continuous (0, ![-1, 1, -a / 2, a / 2, q, q])) (Tendsto.prodMk_nhds hr hX)
+ has type
+  @Tendsto ℝ ℝ ((fun p => gn_normalizedWeight p.1 p.2) ∘ fun c => (c, X c)) (𝓝[>] 0) (𝓝 (max (-q) 0 ^ 2))
+but is expected to have type
+  @Tendsto ℝ ℝ (fun r => gn_normalizedWeight r (X r)) (𝓝[>] 0) (𝓝 (max (-q) 0 ^ 2))

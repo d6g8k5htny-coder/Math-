@@ -1,0 +1,312 @@
+SourceContactCovariance.lean:25:2: error(nested.lean.propRecLargeElim): Tactic `cases` failed with a nested error:
+Tactic `induction` failed: recursor `List.Mem.casesOn` can only eliminate into `Prop`
+
+i : Fin 7
+this✝ : i ∈ Fintype.elems
+a✝ : List (Fin 7)
+this : List.Mem i a✝
+⊢ List.finRange 7 = a✝ → this✝ ≍ this → Fin (contactOrder i) → Fin 2 → ℝ
+SourceContactCovariance.lean:26:4: error: Type mismatch
+  ![]
+has type
+  Fin 0 → ?m.8
+but is expected to have type
+  Fin (contactOrder i) → Fin 2 → ℝ
+SourceContactCovariance.lean:27:2: error: No goals to be solved
+SourceContactCovariance.lean:109:11: error: unsolved goals
+case succ
+L : ℝ
+k : ℕ
+u : Fin (k + 1) → Fin 2 → ℝ
+⊢ (iteratedFDeriv ℝ (k + 1) (modeCoefficient 2 L none) 0) u = 0
+SourceContactCovariance.lean:109:43: error: This simp argument is unused:
+  modeCoefficient
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [derivativeCoefficient, iteratedFDeriv_succ_const]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceContactCovariance.lean:109:60: error: This simp argument is unused:
+  iteratedFDeriv_succ_const
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [derivativeCoefficient, modeCoefficient]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceContactCovariance.lean:120:84: error: `fun_prop` was unable to prove `ContDiff ℝ (↑n) (if false = true then Real.sin else Real.cos)`
+
+Issues:
+  No theorems found for `ite` in order to prove `ContDiff ℝ ↑n fun a => (if false = true then Real.sin else Real.cos) a`
+SourceContactCovariance.lean:128:13: error: Ambiguous term
+  smul_apply
+Possible interpretations:
+  _root_.smul_apply : ∀ (f : ?m.260) (r : ?m.259) (x : ?m.261), (r • f) x = r • f x
+  
+  Matrix.smul_apply : ∀ (r : ?m.262) (A : Matrix ?m.259 ?m.260 ?m.261) (i : ?m.259) (j : ?m.260),
+    (r • A) i j = r • A i j
+SourceContactCovariance.lean:130:2: error: Tactic `rfl` failed: The left-hand side
+  (A • (iteratedFDeriv ℝ n g 0).compContinuousLinearMap fun x => ell) u
+is not definitionally equal to the right-hand side
+  √(2 * sourceWeight 2 L ↑k / sourceZ 2 L) *
+    ((∏ j, (phaseCLM 2 L ↑k) (u j)) * iteratedDeriv n (if b = true then Real.sin else Real.cos) 0)
+
+L : ℝ
+k : ↑(halfLattice 2)
+b : Bool
+n : ℕ
+u : Fin n → Fin 2 → ℝ
+A : ℝ := √(2 * sourceWeight 2 L ↑k / sourceZ 2 L)
+g : ℝ → ℝ := if b = true then Real.sin else Real.cos
+ell : (Fin 2 → ℝ) →L[ℝ] ℝ := phaseCLM 2 L ↑k
+hg : ContDiff ℝ (↑n) g
+hcomp : ContDiff ℝ (↑n) (g ∘ ⇑ell)
+heq : modeCoefficient 2 L (some (k, b)) = A • g ∘ ⇑ell
+⊢ (A • (iteratedFDeriv ℝ n g 0).compContinuousLinearMap fun x => ell) u =
+    √(2 * sourceWeight 2 L ↑k / sourceZ 2 L) *
+      ((∏ j, (phaseCLM 2 L ↑k) (u j)) * iteratedDeriv n (if b = true then Real.sin else Real.cos) 0)
+SourceContactCovariance.lean:120:69: error: This simp argument is unused:
+  ite_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [g, ite_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceContactCovariance.lean:128:25: error: This simp argument is unused:
+  ContinuousMultilinearMap.compContinuousLinearMap_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [smul_apply, map_zero, iteratedFDeriv_apply_eq_iteratedDeriv_mul_prod, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceContactCovariance.lean:129:14: error: This simp argument is unused:
+  iteratedFDeriv_apply_eq_iteratedDeriv_mul_prod
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [smul_apply, ContinuousMultilinearMap.compContinuousLinearMap_apply, map_zero, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceContactCovariance.lean:129:62: error: This simp argument is unused:
+  smul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [smul_apply, ContinuousMultilinearMap.compContinuousLinearMap_apply, map_zero,
+    iteratedFDeriv_apply_eq_iteratedDeriv_mul_prod]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+SourceContactCovariance.lean:136:69: error: unsolved goals
+case «0».«1»
+L : ℝ
+⊢ √(sourceWeight 2 L ![1, 0] * (sourceZ 2 L)⁻¹ * 2) * ∏ x, sourceC L * sorry x 0 =
+    √(sourceWeight 2 L ![1, 0] * (sourceZ 2 L)⁻¹ * 2)
+
+case «0».«2»
+L : ℝ
+⊢ √(sourceWeight 2 L ![0, 1] * (sourceZ 2 L)⁻¹ * 2) * ∏ x, sourceC L * sorry x 1 =
+    √(sourceWeight 2 L ![0, 1] * (sourceZ 2 L)⁻¹ * 2)
+
+case «0».«3»
+L : ℝ
+⊢ √(sourceWeight 2 L ![1, 1] * (sourceZ 2 L)⁻¹ * 2) * ∏ x, (sourceC L * sorry x 0 + sourceC L * sorry x 1) =
+    √(sourceWeight 2 L ![1, 1] * (sourceZ 2 L)⁻¹ * 2)
+
+case «1».«4»
+L : ℝ
+⊢ ∏ x, sourceC L * sorry x 0 = sourceC L ∨ √(sourceWeight 2 L ![1, 0] * (sourceZ 2 L)⁻¹ * 2) = 0
+
+case «1».«5»
+L : ℝ
+⊢ ∏ x, sourceC L * sorry x 0 * 2 = sourceC L * 2 ∨ √(sourceWeight 2 L ![2, 0] * (sourceZ 2 L)⁻¹ * 2) = 0
+
+case «1».«6»
+L : ℝ
+⊢ √(sourceWeight 2 L ![0, 1] * (sourceZ 2 L)⁻¹ * 2) = 0 ∨ ∏ x, sourceC L * sorry x 1 = 0
+
+case «2».«4»
+L : ℝ
+⊢ √(sourceWeight 2 L ![1, 0] * (sourceZ 2 L)⁻¹ * 2) = 0 ∨ ∏ x, sourceC L * sorry x 0 = 0
+
+case «2».«5»
+L : ℝ
+⊢ √(sourceWeight 2 L ![2, 0] * (sourceZ 2 L)⁻¹ * 2) = 0 ∨ ∏ x, sourceC L * sorry x 0 * 2 = 0
+
+case «2».«6»
+L : ℝ
+⊢ ∏ x, sourceC L * sorry x 1 = sourceC L ∨ √(sourceWeight 2 L ![0, 1] * (sourceZ 2 L)⁻¹ * 2) = 0
+
+case «3».«1»
+L : ℝ
+⊢ ∏ x, sourceC L * sorry x 0 = sourceC L ^ 2 ∨ √(sourceWeight 2 L ![1, 0] * (sourceZ 2 L)⁻¹ * 2) = 0
+
+case «3».«2»
+L : ℝ
+⊢ √(sourceWeight 2 L ![0, 1] * (sourceZ 2 L)⁻¹ * 2) = 0 ∨ ∏ x, sourceC L * sorry x 1 = 0
+
+case «3».«3»
+L : ℝ
+⊢ ∏ x, (sourceC L * sorry x 0 + sourceC L * sorry x 1) = sourceC L ^ 2 ∨
+    √(sourceWeight 2 L ![1, 1] * (sourceZ 2 L)⁻¹ * 2) = 0
+
+case «4».«1»
+L : ℝ
+⊢ √(sourceWeight 2 L ![1, 0] * (sourceZ 2 L)⁻¹ * 2) = 0 ∨ ∏ x, sourceC L * sorry x 0 = 0
+
+case «4».«2»
+L : ℝ
+⊢ √(sourceWeight 2 L ![0, 1] * (sourceZ 2 L)⁻¹ * 2) = 0 ∨ ∏ x, sourceC L * sorry x 1 = 0
+
+case «4».«3»
+L : ℝ
+⊢ ∏ x, (sourceC L * sorry x 0 + sourceC L * sorry x 1) = sourceC L ^ 2 ∨
+    √(sourceWeight 2 L ![1, 1] * (sourceZ 2 L)⁻¹ * 2) = 0
+
+case «5».«4»
+L : ℝ
+⊢ ∏ x, sourceC L * sorry x 0 = sourceC L ^ 3 ∨ √(sourceWeight 2 L ![1, 0] * (sourceZ 2 L)⁻¹ * 2) = 0
+
+case «5».«5»
+L : ℝ
+⊢ ∏ x, sourceC L * sorry x 0 * 2 = sourceC L ^ 3 * 8 ∨ √(sourceWeight 2 L ![2, 0] * (sourceZ 2 L)⁻¹ * 2) = 0
+
+case «5».«6»
+L : ℝ
+⊢ √(sourceWeight 2 L ![0, 1] * (sourceZ 2 L)⁻¹ * 2) = 0 ∨ ∏ x, sourceC L * sorry x 1 = 0
+
+case «6».«1»
+L : ℝ
+⊢ √(sourceWeight 2 L ![1, 0] * (sourceZ 2 L)⁻¹ * 2) = 0 ∨ ∏ x, sourceC L * sorry x 0 = 0
+
+case «6».«2»
+L : ℝ
+⊢ ∏ x, sourceC L * sorry x 1 = sourceC L ^ 2 ∨ √(sourceWeight 2 L ![0, 1] * (sourceZ 2 L)⁻¹ * 2) = 0
+
+case «6».«3»
+L : ℝ
+⊢ ∏ x, (sourceC L * sorry x 0 + sourceC L * sorry x 1) = sourceC L ^ 2 ∨
+    √(sourceWeight 2 L ![1, 1] * (sourceZ 2 L)⁻¹ * 2) = 0
+SourceContactCovariance.lean:139:41: error: declaration uses `sorry`

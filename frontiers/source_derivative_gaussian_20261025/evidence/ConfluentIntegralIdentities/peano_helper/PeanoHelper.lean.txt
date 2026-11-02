@@ -1,0 +1,51 @@
+import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
+import Mathlib.Analysis.Calculus.Deriv.Pow
+import Mathlib.Analysis.Calculus.Deriv.Mul
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
+
+noncomputable section
+
+open MeasureTheory
+
+namespace I4ConfluentIntegralsHelper
+
+/-- The cubic Peano identity follows by an explicitly differentiated primitive.
+Only the derivative chain is assumed; no integral remainder is a premise. -/
+theorem peano_generic
+    (f f1 f2 f3 : ℝ → ℝ)
+    (h0 : ∀ x, HasDerivAt f (f1 x) x)
+    (h1 : ∀ x, HasDerivAt f1 (f2 x) x)
+    (h2 : ∀ x, HasDerivAt f2 (f3 x) x)
+    (_hc1 : Continuous f1) (_hc2 : Continuous f2) (hc3 : Continuous f3)
+    (r : ℝ) (hr : r ≠ 0) :
+    (12 / r ^ 2) * ((f1 (r/2) + f1 (-r/2))/2 - (f (r/2) - f (-r/2))/r) =
+      6 * ∫ u in (-1/2 : ℝ)..(1/2 : ℝ), (1/4 - u ^ 2) * f3 (r*u) := by
+  let A : ℝ → ℝ := fun u =>
+    (1/4-u^2)*f2 (r*u) + (2/r)*u*f1 (r*u) - (2/r^2)*f (r*u)
+  have hA (u : ℝ) : HasDerivAt A (r*((1/4-u^2)*f3 (r*u))) u := by
+    have hru : HasDerivAt (fun u : ℝ => r*u) r u := by
+      simpa [id] using (hasDerivAt_id u).const_mul r
+    have hK : HasDerivAt (fun u : ℝ => 1/4-u^2) (-2*u) u := by
+      convert ((hasDerivAt_id u).pow 2).const_sub (1/4 : ℝ) using 1 <;> simp [id]
+    have hU : HasDerivAt (fun u : ℝ => (2/r)*u) (2/r) u := by
+      simpa [id] using (hasDerivAt_id u).const_mul (2/r)
+    have h := ((hK.mul ((h2 (r*u)).comp u hru)).add
+      (hU.mul ((h1 (r*u)).comp u hru))).sub (((h0 (r*u)).comp u hru).const_mul (2/r^2))
+    convert h using 1
+    · rfl
+    · dsimp [Function.comp_def]
+      field_simp [hr]
+      ring
+  have hcont : Continuous (fun u : ℝ => r*((1/4-u^2)*f3 (r*u))) :=
+    (continuous_const.sub (continuous_id.pow 2)).mul
+      (hc3.comp (continuous_const.mul continuous_id)) |>.const_mul r
+  have hft := intervalIntegral.integral_eq_sub_of_hasDerivAt
+    (fun u _ => hA u) (hcont.intervalIntegrable (-1/2 : ℝ) (1/2 : ℝ))
+  rw [intervalIntegral.integral_const_mul] at hft
+  norm_num [A, mul_div_assoc, mul_neg] at hft
+  field_simp [hr] at hft ⊢
+  nlinarith [hft]
+
+end I4ConfluentIntegralsHelper

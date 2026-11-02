@@ -1,0 +1,9 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:64:11: error: `simp` made no progress
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:72:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Var[fun ω => sourceContactVector L ω 6; smoothLaw 2 L]
+in the target expression
+  Var[sourceContactQ L; smoothLaw 2 L] = ∑' (m : SourceMode 2), curvatureCoefficient L m * curvatureCoefficient L m
+
+L : ℝ
+hL : L ≠ 0
+⊢ Var[sourceContactQ L; smoothLaw 2 L] = ∑' (m : SourceMode 2), curvatureCoefficient L m * curvatureCoefficient L m

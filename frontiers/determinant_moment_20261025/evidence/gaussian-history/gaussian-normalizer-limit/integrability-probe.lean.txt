@@ -1,0 +1,50 @@
+import ResearchFormalCoreR1.GaussianCoupling
+import ResearchFormalCoreR1.GaussianNormalizer
+import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+
+namespace ResearchFormalCoreR1
+open MeasureTheory ProbabilityTheory Filter Matrix WithLp
+open scoped NNReal ENNReal Topology
+set_option autoImplicit false
+
+private lemma positivePart_memLp {Ω : Type*} [MeasurableSpace Ω]
+    {P : Measure Ω} {f : Ω → ℝ} {p : ℝ≥0∞} (hf : MemLp f p P) :
+    MemLp (fun x => max (f x) 0) p P := by
+  apply hf.norm.mono' ((hf.aestronglyMeasurable.aemeasurable.sup_const 0).aestronglyMeasurable)
+  filter_upwards [] with x
+  rw [Real.norm_eq_abs, Real.norm_eq_abs, abs_of_nonneg (le_max_right _ _)]
+  exact max_le (le_abs_self _) (abs_nonneg _)
+
+lemma gaussian_weight_integrable (r : ℝ) (m : EuclideanSpace ℝ (Fin 6))
+    (S : Matrix (Fin 6) (Fin 6) ℝ) (hS : S.PosSemidef) :
+    Integrable (fun x : EuclideanSpace ℝ (Fin 6) => gn_normalizedWeight r (ofLp x))
+      (multivariateGaussian m S) := by
+  have : ENNReal.HolderTriple 4 4 2 := ⟨by
+    rw [← two_mul, show (4 : ℝ≥0∞) = 2*2 by norm_num, ENNReal.mul_inv (by simp) (by simp),
+      ← mul_assoc, ENNReal.mul_inv_cancel two_ne_zero ENNReal.ofNat_ne_top, one_mul]⟩
+  let P := multivariateGaussian m S
+  have hc (i : Fin 6) : MemLp (fun x : EuclideanSpace ℝ (Fin 6) => x i) 4 P := by
+    have hp := measurePreserving_eval_multivariateGaussian (μ := m) hS (i := i)
+    have hlaw : HasLaw (fun x : EuclideanSpace ℝ (Fin 6) => x i)
+        (gaussianReal (m i) (S i i).toNNReal) P := ⟨hp.measurable.aemeasurable, hp.map_eq⟩
+    exact hlaw.memLp (memLp_id_gaussianReal 4)
+  have hpos (i : Fin 6) : MemLp (fun x : EuclideanSpace ℝ (Fin 6) => max (-x i) 0) 4 P :=
+    positivePart_memLp (hc i).neg
+  have hM : MemLp (fun x : EuclideanSpace ℝ (Fin 6) =>
+      max (-x 0) 0 * max (-x 4) 0 - r*(x 2)^2) 2 P := by
+    have h1 : MemLp (fun x : EuclideanSpace ℝ (Fin 6) => max (-x 0) 0 * max (-x 4) 0) 2 P :=
+      (hpos 0).fun_mul (hpos 4)
+    have h2 : MemLp (fun x : EuclideanSpace ℝ (Fin 6) => (x 2)^2) 2 P := by
+      simpa only [pow_two] using (hc 2).fun_mul (hc 2)
+    exact h1.sub (h2.const_mul r)
+  have hSadd : MemLp (fun x : EuclideanSpace ℝ (Fin 6) =>
+      r*(x 3)^2 - x 1*x 5) 2 P := by
+    have h1 : MemLp (fun x : EuclideanSpace ℝ (Fin 6) => (x 3)^2) 2 P := by
+      simpa only [pow_two] using (hc 3).fun_mul (hc 3)
+    have h2 : MemLp (fun x : EuclideanSpace ℝ (Fin 6) => x 1*x 5) 2 P :=
+      (hc 1).fun_mul (hc 5)
+    exact (h1.const_mul r).sub h2
+  have hT : MemLp (fun x : EuclideanSpace ℝ (Fin 6) => gn_normalizedWeight r (ofLp x)) 1 P :=
+    (positivePart_memLp hM).fun_mul (positivePart_memLp hSadd)
+  exact memLp_one_iff_integrable.mp hT
+end ResearchFormalCoreR1

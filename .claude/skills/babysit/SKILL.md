@@ -15,5 +15,5 @@ Read [`../steward/SKILL.md`](../steward/SKILL.md) first. It holds this repositor
 - **A failing test is never assumed to be an infra flake.** Reproduce it and root-cause it first (steward §4).
 - **A green, mergeable head may wait on people. A red or conflicted head never waits unattended:** fix it, or, while a nonauthor read is open, post its diagnosis (steward §4).
 - **Keep the head frozen while a nonauthor read is open**, even when a fix seems obvious or CI is red. Apply it after the verdict, or earlier only if the reader releases the pickup or agrees to re-point (steward §3–§4).
-- **Update the PR body's disposition on every material change** (steward §2), and keep the lane's ledger in main#229 current.
+- **Update the PR body's disposition on every material change** (steward §2), and keep the lane's ledger on [main#619](https://github.com/d6g8k5htny-coder/main/issues/619) current (historical [main#229](https://github.com/d6g8k5htny-coder/main/issues/229)).
 - **Stop following a PR** when it is merged or closed, or when Dylan says stop.

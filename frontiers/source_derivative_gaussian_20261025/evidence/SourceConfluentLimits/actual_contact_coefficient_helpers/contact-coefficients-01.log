@@ -1,0 +1,135 @@
+/workspace/scratch/contact-coefficient-limits/ContactCoefficientLimits.lean:33:4: error: Type mismatch: After simplification, term
+  Summable.mul_left 2⁻¹ (Summable.neg hx)
+ has type
+  Summable fun i => -(2⁻¹ * derivativeCoefficient 2 L 3 0 ![directionX, directionX, directionX] i)
+but is expected to have type
+  Summable (contactAdjustedCoefficient L 0)
+/workspace/scratch/contact-coefficient-limits/ContactCoefficientLimits.lean:35:4: error: Type mismatch: After simplification, term
+  Summable.mul_left 2⁻¹ hx
+ has type
+  Summable fun i => 2⁻¹ * derivativeCoefficient 2 L 3 0 ![directionX, directionX, directionX] i
+but is expected to have type
+  Summable (contactAdjustedCoefficient L 1)
+/workspace/scratch/contact-coefficient-limits/ContactCoefficientLimits.lean:37:4: error: Type mismatch: After simplification, term
+  Summable.mul_left 2⁻¹ (Summable.neg ha)
+ has type
+  Summable fun i => -(2⁻¹ * derivativeCoefficient 2 L 3 0 ![directionX, directionX, directionY] i)
+but is expected to have type
+  Summable (contactAdjustedCoefficient L 2)
+/workspace/scratch/contact-coefficient-limits/ContactCoefficientLimits.lean:39:4: error: Type mismatch: After simplification, term
+  Summable.mul_left 2⁻¹ ha
+ has type
+  Summable fun i => 2⁻¹ * derivativeCoefficient 2 L 3 0 ![directionX, directionX, directionY] i
+but is expected to have type
+  Summable (contactAdjustedCoefficient L 3)
+/workspace/scratch/contact-coefficient-limits/ContactCoefficientLimits.lean:71:2: error: unsolved goals
+case «0»
+L : ℝ
+hL : L ≠ 0
+ω : SmoothSample 2 L
+hx :
+  (iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0) ![directionX, directionX, directionX] =
+    scalarSeries (derivativeCoefficient 2 L 3 0 ![directionX, directionX, directionX]) (sampleInclusion 2 L ω)
+ha :
+  (iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0) ![directionX, directionX, directionY] =
+    scalarSeries (derivativeCoefficient 2 L 3 0 ![directionX, directionX, directionY]) (sampleInclusion 2 L ω)
+hq :
+  (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionY, directionY] =
+    scalarSeries (derivativeCoefficient 2 L 2 0 ![directionY, directionY]) (sampleInclusion 2 L ω)
+⊢ -scalarSeries (derivativeCoefficient 2 L 3 0 ![directionX, directionX, directionX]) (sampleInclusion 2 L ω) / 2 =
+    scalarSeries (contactAdjustedCoefficient L ⟨0, ⋯⟩) (sampleInclusion 2 L ω)
+/workspace/scratch/contact-coefficient-limits/ContactCoefficientLimits.lean:74:2: error: unsolved goals
+case «1»
+L : ℝ
+hL : L ≠ 0
+ω : SmoothSample 2 L
+hx :
+  (iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0) ![directionX, directionX, directionX] =
+    scalarSeries (derivativeCoefficient 2 L 3 0 ![directionX, directionX, directionX]) (sampleInclusion 2 L ω)
+ha :
+  (iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0) ![directionX, directionX, directionY] =
+    scalarSeries (derivativeCoefficient 2 L 3 0 ![directionX, directionX, directionY]) (sampleInclusion 2 L ω)
+hq :
+  (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionY, directionY] =
+    scalarSeries (derivativeCoefficient 2 L 2 0 ![directionY, directionY]) (sampleInclusion 2 L ω)
+⊢ scalarSeries (derivativeCoefficient 2 L 3 0 ![directionX, directionX, directionX]) (sampleInclusion 2 L ω) / 2 =
+    scalarSeries (contactAdjustedCoefficient L ⟨1, ⋯⟩) (sampleInclusion 2 L ω)
+/workspace/scratch/contact-coefficient-limits/ContactCoefficientLimits.lean:77:2: error: unsolved goals
+case «2»
+L : ℝ
+hL : L ≠ 0
+ω : SmoothSample 2 L
+hx :
+  (iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0) ![directionX, directionX, directionX] =
+    scalarSeries (derivativeCoefficient 2 L 3 0 ![directionX, directionX, directionX]) (sampleInclusion 2 L ω)
+ha :
+  (iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0) ![directionX, directionX, directionY] =
+    scalarSeries (derivativeCoefficient 2 L 3 0 ![directionX, directionX, directionY]) (sampleInclusion 2 L ω)
+hq :
+  (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionY, directionY] =
+    scalarSeries (derivativeCoefficient 2 L 2 0 ![directionY, directionY]) (sampleInclusion 2 L ω)
+⊢ -scalarSeries (derivativeCoefficient 2 L 3 0 ![directionX, directionX, directionY]) (sampleInclusion 2 L ω) / 2 =
+    scalarSeries (contactAdjustedCoefficient L ⟨2, ⋯⟩) (sampleInclusion 2 L ω)
+/workspace/scratch/contact-coefficient-limits/ContactCoefficientLimits.lean:80:2: error: unsolved goals
+case «3»
+L : ℝ
+hL : L ≠ 0
+ω : SmoothSample 2 L
+hx :
+  (iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0) ![directionX, directionX, directionX] =
+    scalarSeries (derivativeCoefficient 2 L 3 0 ![directionX, directionX, directionX]) (sampleInclusion 2 L ω)
+ha :
+  (iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0) ![directionX, directionX, directionY] =
+    scalarSeries (derivativeCoefficient 2 L 3 0 ![directionX, directionX, directionY]) (sampleInclusion 2 L ω)
+hq :
+  (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) ![directionY, directionY] =
+    scalarSeries (derivativeCoefficient 2 L 2 0 ![directionY, directionY]) (sampleInclusion 2 L ω)
+⊢ scalarSeries (derivativeCoefficient 2 L 3 0 ![directionX, directionX, directionY]) (sampleInclusion 2 L ω) / 2 =
+    scalarSeries (contactAdjustedCoefficient L ⟨3, ⋯⟩) (sampleInclusion 2 L ω)
+/workspace/scratch/contact-coefficient-limits/ContactCoefficientLimits.lean:69:23: warning: This simp argument is unused:
+  contactAdjustedCoefficient
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val, scalarSeries_div, scalarSeries_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/contact-coefficient-limits/ContactCoefficientLimits.lean:69:51: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [contactAdjustedCoefficient, Matrix.cons_val_one, Matrix.cons_val, scalarSeries_div,
+    scalarSeries_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/contact-coefficient-limits/ContactCoefficientLimits.lean:69:73: warning: This simp argument is unused:
+  Matrix.cons_val_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [contactAdjustedCoefficient, Matrix.cons_val_zero, Matrix.cons_val, scalarSeries_div,
+    scalarSeries_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/contact-coefficient-limits/ContactCoefficientLimits.lean:70:4: warning: This simp argument is unused:
+  Matrix.cons_val
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [contactAdjustedCoefficient, Matrix.cons_val_zero, Matrix.cons_val_one, scalarSeries_div,
+    scalarSeries_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/contact-coefficient-limits/ContactCoefficientLimits.lean:70:21: warning: This simp argument is unused:
+  scalarSeries_div
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [contactAdjustedCoefficient, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val,
+    scalarSeries_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/contact-coefficient-limits/ContactCoefficientLimits.lean:70:39: warning: This simp argument is unused:
+  scalarSeries_neg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [contactAdjustedCoefficient, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val,
+    scalarSeries_div]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

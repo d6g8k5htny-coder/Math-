@@ -1,0 +1,66 @@
+import SourceDerivativeContinuity
+import Mathlib.MeasureTheory.Integral.DominatedConvergence
+import Mathlib.Tactic.NormNum
+
+noncomputable section
+
+open I4Source I4SourceDerivativeGaussian I4SourceDerivativeContinuity
+open MeasureTheory Set
+open scoped Interval
+
+namespace I4WeightedModeIntegrals
+
+def weightedDerivativeIntegral (L : ℝ) (k : ℕ) (u : Fin k → (Fin 2 → ℝ))
+    (m : SourceMode 2) (w : ℝ → ℝ) (r : ℝ) : ℝ :=
+  ∫ t in (-1/2 : ℝ)..(1/2 : ℝ), w t * derivativeCoefficient 2 L k ![r*t,0] u m
+
+theorem weighted_integrand_bound {L : ℝ} (hL : L ≠ 0) (k : ℕ)
+    (u : Fin k → (Fin 2 → ℝ)) (m : SourceMode 2) (w : ℝ → ℝ)
+    (K : ℝ) (hK : 0 ≤ K)
+    (hwbound : ∀ t ∈ Set.uIoc (-1/2 : ℝ) (1/2 : ℝ), |w t| ≤ K)
+    (r t : ℝ) (ht : t ∈ Set.uIoc (-1/2 : ℝ) (1/2 : ℝ)) :
+    ‖w t * derivativeCoefficient 2 L k ![r*t,0] u m‖ ≤
+      K * derivativeMajorant 2 L k u m := by
+  rw [norm_mul, Real.norm_eq_abs]
+  exact mul_le_mul (hwbound t ht) (derivativeCoefficient_bound 2 hL k u m ![r*t,0])
+    (norm_nonneg _) hK
+
+theorem weightedDerivativeIntegral_continuous {L : ℝ} (hL : L ≠ 0) (k : ℕ)
+    (u : Fin k → (Fin 2 → ℝ)) (m : SourceMode 2) (w : ℝ → ℝ) (hw : Continuous w)
+    (K : ℝ) (hK : 0 ≤ K)
+    (hwbound : ∀ t ∈ Set.uIoc (-1/2 : ℝ) (1/2 : ℝ), |w t| ≤ K) :
+    Continuous (weightedDerivativeIntegral L k u m w) := by
+  unfold weightedDerivativeIntegral
+  apply intervalIntegral.continuous_of_dominated_interval
+    (bound := fun _ => K * derivativeMajorant 2 L k u m)
+  · intro r
+    have hc : Continuous (fun t => w t * derivativeCoefficient 2 L k ![r*t,0] u m) :=
+      hw.mul ((derivativeCoefficient_continuous 2 L k u m).comp (by fun_prop))
+    exact hc.aestronglyMeasurable
+  · intro r
+    exact Filter.Eventually.of_forall (fun t ht =>
+      weighted_integrand_bound hL k u m w K hK hwbound r t ht)
+  · exact continuous_const.intervalIntegrable _ _
+  · exact Filter.Eventually.of_forall (fun t _ =>
+      continuous_const.mul ((derivativeCoefficient_continuous 2 L k u m).comp (by fun_prop)))
+
+theorem weightedDerivativeIntegral_norm_le {L : ℝ} (hL : L ≠ 0) (k : ℕ)
+    (u : Fin k → (Fin 2 → ℝ)) (m : SourceMode 2) (w : ℝ → ℝ)
+    (K : ℝ) (hK : 0 ≤ K)
+    (hwbound : ∀ t ∈ Set.uIoc (-1/2 : ℝ) (1/2 : ℝ), |w t| ≤ K) (r : ℝ) :
+    ‖weightedDerivativeIntegral L k u m w r‖ ≤ K * derivativeMajorant 2 L k u m := by
+  have h := intervalIntegral.norm_integral_le_of_norm_le_const
+    (fun t ht => weighted_integrand_bound hL k u m w K hK hwbound r t ht)
+  norm_num at h
+  simpa only [weightedDerivativeIntegral, Real.norm_eq_abs, neg_div] using h
+
+theorem weightedDerivativeIntegral_zero (L : ℝ) (k : ℕ)
+    (u : Fin k → (Fin 2 → ℝ)) (m : SourceMode 2) (w : ℝ → ℝ) :
+    weightedDerivativeIntegral L k u m w 0 =
+      (∫ t in (-1/2 : ℝ)..(1/2 : ℝ), w t) * derivativeCoefficient 2 L k 0 u m := by
+  unfold weightedDerivativeIntegral
+  have hzero : (![0,0] : Fin 2 → ℝ) = 0 := by ext i; fin_cases i <;> rfl
+  simp_rw [zero_mul, hzero]
+  exact intervalIntegral.integral_mul_const _ _
+
+end I4WeightedModeIntegrals

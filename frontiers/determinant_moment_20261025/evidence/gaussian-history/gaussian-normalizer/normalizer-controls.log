@@ -1,0 +1,8 @@
+ResearchFormalCoreR1.gn_normalizedWeight (r : ℝ) (v : Fin 6 → ℝ) : ℝ
+ResearchFormalCoreR1.gn_gaussian_reference_integrable_pos (m : ℝ) (v : NNReal) (hv : v ≠ 0) :
+  Integrable (fun q => max (-q) 0 ^ 2) (gaussianReal m v) ∧ 0 < ∫ (q : ℝ), max (-q) 0 ^ 2 ∂gaussianReal m v
+ResearchFormalCoreR1.gn_open_box_floor (r K : ℝ) (v : Fin 6 → ℝ) (hr : 0 ≤ r) (hK : 0 < K) (hsmall : r * K ^ 2 ≤ 1 / 4)
+  (haM : v 0 ∈ Set.Ioo (-5 / 4) (-3 / 4)) (haS : v 1 ∈ Set.Ioo (3 / 4) (5 / 4)) (hbM : |v 2| < K) (_hbS : |v 3| < K)
+  (hcM : v 4 ∈ Set.Ioo (-2) (-1)) (hcS : v 5 ∈ Set.Ioo (-2) (-1)) : 3 / 8 ≤ gn_normalizedWeight r v
+'ResearchFormalCoreR1.gn_gaussian_reference_integrable_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResearchFormalCoreR1.gn_open_box_floor' depends on axioms: [propext, Classical.choice, Quot.sound]

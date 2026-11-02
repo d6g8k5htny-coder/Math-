@@ -1,0 +1,64 @@
+import SourceConfluentLimits
+
+noncomputable section
+open I4Source I4SourceDerivativeGaussian I4SourceConfluentPins I4SourceContact
+open I4SourceConfluentLimits I4ModeCurveChains I4WeightedModeIntegrals I4ContactCoefficientLimits
+open MeasureTheory
+open scoped BigOperators Interval
+set_option autoImplicit false
+
+namespace I4SourceConfluentLimits
+
+theorem regularizedPinCoefficient_zero (L : ℝ) (i : Fin 6) (m : SourceMode 2) :
+    regularizedPinCoefficient L 0 i m = contactPinCoefficient L i m := by
+  have hpoint : (![0,0] : Fin 2 → ℝ) = 0 := by ext j; fin_cases j <;> rfl
+  have hm := peano_kernel_masses
+  fin_cases i
+  · change (modeF L m (-0/2) + modeF L m (0/2))/2 =
+      derivativeCoefficient 2 L 0 0 ![] m
+    simp [modeF, derivativeCoefficient, iteratedFDeriv_zero_apply, hpoint]
+  · change (deriv (modeF L m) (-0/2) + deriv (modeF L m) (0/2))/2 =
+      derivativeCoefficient 2 L 1 0 ![directionX] m
+    simp only [neg_zero, zero_div, modeF_deriv, hpoint]
+    ring
+  · change (modeH L m (-0/2) + modeH L m (0/2))/2 =
+      derivativeCoefficient 2 L 1 0 ![directionY] m
+    simp only [neg_zero, zero_div, modeH, hpoint]
+    ring
+  · change weightedDerivativeIntegral L 2 ![directionX,directionX] m (fun _ => 1) 0 =
+      derivativeCoefficient 2 L 2 0 ![directionX,directionX] m
+    rw [weightedDerivativeIntegral_zero, hm.1, one_mul]
+  · change weightedDerivativeIntegral L 2 ![directionX,directionY] m (fun _ => 1) 0 =
+      derivativeCoefficient 2 L 2 0 ![directionX,directionY] m
+    rw [weightedDerivativeIntegral_zero, hm.1, one_mul]
+  · change 6 * weightedDerivativeIntegral L 3 ![directionX,directionX,directionX]
+      m peanoCubic 0 = derivativeCoefficient 2 L 3 0 ![directionX,directionX,directionX] m
+    rw [weightedDerivativeIntegral_zero, ← mul_assoc, hm.2.2.2, one_mul]
+
+theorem regularizedAdjustedCoefficient_zero (L : ℝ) (i : Fin 6) (m : SourceMode 2) :
+    regularizedAdjustedCoefficient L 0 i m = contactAdjustedCoefficient L i m := by
+  have hpoint : (![0,0] : Fin 2 → ℝ) = 0 := by ext j; fin_cases j <;> rfl
+  have hm := peano_kernel_masses
+  fin_cases i
+  · change -weightedDerivativeIntegral L 3 ![directionX,directionX,directionX]
+      m peanoLeft 0 = -derivativeCoefficient 2 L 3 0 ![directionX,directionX,directionX] m / 2
+    rw [weightedDerivativeIntegral_zero, hm.2.1]
+    ring
+  · change weightedDerivativeIntegral L 3 ![directionX,directionX,directionX]
+      m peanoRight 0 = derivativeCoefficient 2 L 3 0 ![directionX,directionX,directionX] m / 2
+    rw [weightedDerivativeIntegral_zero, hm.2.2.1]
+    ring
+  · change -weightedDerivativeIntegral L 3 ![directionX,directionX,directionY]
+      m peanoLeft 0 = -derivativeCoefficient 2 L 3 0 ![directionX,directionX,directionY] m / 2
+    rw [weightedDerivativeIntegral_zero, hm.2.1]
+    ring
+  · change weightedDerivativeIntegral L 3 ![directionX,directionX,directionY]
+      m peanoRight 0 = derivativeCoefficient 2 L 3 0 ![directionX,directionX,directionY] m / 2
+    rw [weightedDerivativeIntegral_zero, hm.2.2.1]
+    ring
+  · change modeYY L m (-0/2) = derivativeCoefficient 2 L 2 0 ![directionY,directionY] m
+    simp only [neg_zero, zero_div, modeYY, hpoint]
+  · change modeYY L m (0/2) = derivativeCoefficient 2 L 2 0 ![directionY,directionY] m
+    simp only [zero_div, modeYY, hpoint]
+
+end I4SourceConfluentLimits

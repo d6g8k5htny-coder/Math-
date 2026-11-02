@@ -1,0 +1,634 @@
+'I4ThetaBridge.sourceSpectralKernel_eq_periodicCovariance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4LifetimeField.actualGaussianFieldInterface' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4LifetimeField.actualGaussianFieldInterface_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_MODULE GaussianSeriesFoundation COUNT 12
+LIFETIME_AUDIT_DECL I4Foundation.coefficientLaw AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Foundation.coefficientLaw_isProbabilityMeasure AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Foundation.coordinate_abs_integrable AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Foundation.coordinate_integrable AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Foundation.coordinate_marginal AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Foundation.coordinate_measurePreserving AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Foundation.coordinate_memLp AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Foundation.coordinates_independent AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Foundation.scalarSeries AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Foundation.scalarSeries_hasSum_ae AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Foundation.scalarSeries_measurable AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Foundation.weighted_abs_summable_ae AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_MODULE SpectralWeights COUNT 28
+LIFETIME_AUDIT_DECL I4Weights.coordinateBound AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Weights.coordinateBound_summable AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Weights.decay AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Weights.finite_product_summable AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Weights.frequency_l1_le_product AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Weights.pairedBound AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Weights.pairedBound_eq_amplitude AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Weights.pairedBound_subtype_summable AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Weights.pairedBound_summable AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Weights.productBound AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Weights.productBound_summable AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Weights.productDecay AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Weights.productDecay_eq_exp AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Weights.sourceA AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Weights.sourceA_pos AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Weights.sourceC AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Weights.sourceWeight AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Weights.sourceWeight_eq_physical AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Weights.sourceWeight_summable AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Weights.sourceZ AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Weights.sourceZ_pos AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Weights.summable_decay_pow AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Weights.coordinateBound.eq_1 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Weights.decay.eq_1 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Weights.pairedBound.eq_1 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Weights.productDecay.eq_1 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Weights.sourceC._proof_1 AXIOMS [propext]
+LIFETIME_AUDIT_DECL I4Weights.sourceWeight.eq_1 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_MODULE SourceFourierSeries COUNT 25
+LIFETIME_AUDIT_DECL I4Source.SourceMode AXIOMS []
+LIFETIME_AUDIT_DECL I4Source.halfLattice AXIOMS []
+LIFETIME_AUDIT_DECL I4Source.modeCoefficient AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Source.modeCoefficient_bound AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Source.modeMajorant AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Source.modeMajorant_nonneg AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Source.modeMajorant_summable AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Source.phase AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Source.sourceAbs_uniform_ae AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Source.sourceField AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Source.sourceField_continuous_ae AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Source.sourceField_eval_measurable AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Source.sourceField_uniform_ae AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Source.sourceLaw AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Source.sourceMajorant_ae AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Source.modeCoefficient._proof_1 AXIOMS [propext]
+LIFETIME_AUDIT_DECL I4Source.modeCoefficient.eq_1 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Source.modeCoefficient.eq_2 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Source.modeCoefficient.match_1 AXIOMS []
+LIFETIME_AUDIT_DECL I4Source.modeMajorant.eq_1 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Source.modeMajorant.eq_2 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Source.phase.eq_1 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL _private.SourceFourierSeries.0.I4Source.modeCoefficient.match_1.eq_1 AXIOMS []
+LIFETIME_AUDIT_DECL _private.SourceFourierSeries.0.I4Source.modeCoefficient.match_1.eq_2 AXIOMS []
+LIFETIME_AUDIT_DECL _private.SourceFourierSeries.0.I4Source.modeCoefficient.match_1.splitter AXIOMS []
+LIFETIME_AUDIT_MODULE SourceC4 COUNT 10
+LIFETIME_AUDIT_DECL I4C4.modeCoefficient_iteratedFDeriv_bound AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4C4.phaseCLM AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4C4.phaseCLM_apply AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4C4.phaseCLM_norm_le AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4C4.sourceField_contDiff_ae AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4C4.sourceField_contDiff_affine_ae AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4C4.phaseCLM._proof_1 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4C4.phaseCLM._proof_2 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4C4.phaseCLM._proof_3 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4C4.phaseCLM.eq_1 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_MODULE SourceGaussianLaw COUNT 10
+LIFETIME_AUDIT_DECL I4SourceGaussian.scalarSeries_integral_zero AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SourceGaussian.scalarSeries_map_gaussian AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SourceGaussian.scalarSeries_variance AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SourceGaussian.sourceField_isGaussianProcess AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SourceGaussian.source_finiteVector_hasGaussianLaw AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SourceGaussian.source_linearCombination_hasGaussianLaw AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL _private.SourceGaussianLaw.0.I4SourceGaussian.charFun_partial_tendsto AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL _private.SourceGaussianLaw.0.I4SourceGaussian.partial_charFun AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL _private.SourceGaussianLaw.0.I4SourceGaussian.summable_square AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL I4Source.sourceField.eq_1 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_MODULE SourceLattice COUNT 27
+LIFETIME_AUDIT_DECL I4Lattice.halfLattice_ne_zero AXIOMS [propext, Quot.sound]
+LIFETIME_AUDIT_DECL I4Lattice.halfLattice_partition AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Lattice.latticeFrequency AXIOMS [propext]
+LIFETIME_AUDIT_DECL I4Lattice.latticeFrequency_bijective AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Lattice.modeCoefficient_lattice_shift AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Lattice.pairedCoefficient_kernel AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Lattice.phase_lattice_shift AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Lattice.sourceField_lattice_shift AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Lattice.sourceWeight_neg AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Lattice.halfLattice_ne_zero._proof_1_1 AXIOMS [propext, Quot.sound]
+LIFETIME_AUDIT_DECL I4Lattice.halfLattice_partition._proof_1_1 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Lattice.halfLattice_partition._proof_1_2 AXIOMS [propext, Quot.sound]
+LIFETIME_AUDIT_DECL I4Lattice.halfLattice_partition._proof_1_3 AXIOMS [propext, Quot.sound]
+LIFETIME_AUDIT_DECL I4Lattice.halfLattice_partition._proof_1_4 AXIOMS [propext, Quot.sound]
+LIFETIME_AUDIT_DECL I4Lattice.latticeFrequency.eq_1 AXIOMS [propext]
+LIFETIME_AUDIT_DECL I4Lattice.latticeFrequency.eq_2 AXIOMS [propext]
+LIFETIME_AUDIT_DECL I4Lattice.latticeFrequency.match_1 AXIOMS []
+LIFETIME_AUDIT_DECL I4Lattice.phase_lattice_shift._simp_1_1 AXIOMS [propext]
+LIFETIME_AUDIT_DECL I4Lattice.phase_lattice_shift._simp_1_2 AXIOMS [propext]
+LIFETIME_AUDIT_DECL I4Lattice.phase_lattice_shift._simp_1_3 AXIOMS [propext]
+LIFETIME_AUDIT_DECL I4Lattice.phase_lattice_shift._simp_1_4 AXIOMS [propext]
+LIFETIME_AUDIT_DECL I4Lattice.phase_lattice_shift._simp_1_5 AXIOMS [propext]
+LIFETIME_AUDIT_DECL I4Lattice.phase_lattice_shift._simp_1_6 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Lattice.phase_lattice_shift._simp_1_7 AXIOMS [propext]
+LIFETIME_AUDIT_DECL _private.SourceLattice.0.I4Lattice.latticeFrequency.match_1.eq_1 AXIOMS []
+LIFETIME_AUDIT_DECL _private.SourceLattice.0.I4Lattice.latticeFrequency.match_1.eq_2 AXIOMS []
+LIFETIME_AUDIT_DECL _private.SourceLattice.0.I4Lattice.latticeFrequency.match_1.splitter AXIOMS []
+LIFETIME_AUDIT_MODULE SourceKernel COUNT 7
+LIFETIME_AUDIT_DECL I4Kernel.coefficientKernel_eq_fullLattice AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Kernel.frequencyEquiv AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Kernel.modeProduct_summable AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Kernel.sourceSpectralKernel AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Kernel.spectralKernel_summable AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Kernel.spectralKernel_zero AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL _private.SourceKernel.0.I4Kernel.tsum_mode AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_MODULE SourceCovariance COUNT 4
+LIFETIME_AUDIT_DECL I4SourceCovariance.scalarSeries_covariance AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SourceCovariance.sourceField_covariance AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SourceCovariance.sourceField_integral_zero AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SourceCovariance.sourceField_variance_one AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_MODULE SourceTorus COUNT 16
+LIFETIME_AUDIT_DECL I4Torus.SourceTorus AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Torus.sourceField_eq_of_torusProjection_eq AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Torus.torusProjection AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Torus.torusProjection_measurable AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Torus.torusProjection_representative AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Torus.torusRepresentative AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Torus.torusRepresentative_measurable AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Torus.torusSourceField AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Torus.torusSourceField_covariance AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Torus.torusSourceField_covariance_pullback AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Torus.torusSourceField_eval_measurable AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Torus.torusSourceField_finiteVector_hasGaussianLaw AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Torus.torusSourceField_isGaussianProcess AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Torus.torusSourceField_joint_measurable AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Torus.torusSourceField_pullback AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Torus.torusSourceField.congr_simp AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_MODULE SourceTorusC4 COUNT 14
+LIFETIME_AUDIT_DECL I4TorusC4.actualChartedSpace AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4TorusC4.centered_chart_covers AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4TorusC4.chartCenter AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4TorusC4.chart_transition_contDiff AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4TorusC4.quotientChart AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4TorusC4.quotientChart_symm AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4TorusC4.torusSourceField_contMDiff_ae AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4TorusC4.torusSourceField_weakSuperlevel_closed_ae AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4TorusC4.torus_isManifold AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Torus.torusRepresentative.congr_simp AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4TorusC4.actualChartedSpace._proof_1 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4TorusC4.chartCenter._proof_1 AXIOMS [propext]
+LIFETIME_AUDIT_DECL I4TorusC4.quotientChart._proof_1 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4TorusC4.quotientChart.congr_simp AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_MODULE SourceSmooth COUNT 26
+LIFETIME_AUDIT_DECL I4Smooth.goodSample AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Smooth.goodSample_ae AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Smooth.goodSample_congr_cofinite AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Smooth.goodSample_finite_change_iff AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Smooth.modeCoefficient_iteratedFDeriv_order_bound AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Smooth.orderCoordinateBound AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Smooth.orderCoordinateBound_summable AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Smooth.orderModeBound AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Smooth.orderModeBound_four AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Smooth.orderModeBound_nonneg AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Smooth.orderModeBound_summable AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Smooth.orderPairedBound AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Smooth.orderPairedBound_eq_amplitude AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Smooth.orderPairedBound_summable AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Smooth.orderProductBound AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Smooth.orderProductBound_summable AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Smooth.sourceField_smooth_ae AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Smooth.sourceField_smooth_of_goodSample AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Smooth.orderModeBound.eq_1 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Smooth.orderModeBound.eq_2 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4Smooth.orderModeBound.match_1 AXIOMS []
+LIFETIME_AUDIT_DECL I4Smooth.orderPairedBound._proof_1 AXIOMS [propext]
+LIFETIME_AUDIT_DECL I4Smooth.orderPairedBound.eq_1 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL _private.SourceSmooth.0.I4Smooth.orderModeBound.match_1.eq_1 AXIOMS []
+LIFETIME_AUDIT_DECL _private.SourceSmooth.0.I4Smooth.orderModeBound.match_1.eq_2 AXIOMS []
+LIFETIME_AUDIT_DECL _private.SourceSmooth.0.I4Smooth.orderModeBound.match_1.splitter AXIOMS []
+LIFETIME_AUDIT_MODULE SourceSmoothCarrier COUNT 33
+LIFETIME_AUDIT_DECL I4SmoothCarrier.SmoothSample AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothCarrier.coordinate_marginal AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothCarrier.covariance_comp_inclusion AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothCarrier.finiteCoordinate_map_eq AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothCarrier.goodSet AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothCarrier.goodSet_ae AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothCarrier.goodSet_measurable AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothCarrier.goodSet_measure_one AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothCarrier.observation_map_eq AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothCarrier.sampleInclusion AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothCarrier.sampleInclusion_map AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothCarrier.sampleInclusion_measurable AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothCarrier.sampleInclusion_measurePreserving AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothCarrier.smoothLaw AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothCarrier.smoothLaw_isProbabilityMeasure AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothCarrier.smoothSourceField AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothCarrier.smoothSourceField_contDiff AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothCarrier.smoothSourceField_covariance AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothCarrier.smoothSourceField_finiteVector_hasGaussianLaw AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothCarrier.smoothSourceField_finiteVector_map_eq AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothCarrier.smoothSourceField_smooth AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothCarrier.smoothTorusSourceField AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothCarrier.smoothTorusSourceField_covariance AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothCarrier.smoothTorusSourceField_finiteVector_hasGaussianLaw AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothCarrier.smoothTorusSourceField_smooth AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL _private.SourceSmoothCarrier.0.I4SmoothCarrier.orderAbsNN AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL _private.SourceSmoothCarrier.0.I4SmoothCarrier.orderAbsTotal AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL _private.SourceSmoothCarrier.0.I4SmoothCarrier.orderAbsTotal_measurable AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL _private.SourceSmoothCarrier.0.I4SmoothCarrier.orderAbsTotal_ne_top_iff AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL I4Smooth.goodSample.eq_1 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothCarrier.goodSet.eq_1 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothCarrier.goodSet_measurable._simp_1_2 AXIOMS [propext]
+LIFETIME_AUDIT_DECL _private.SourceSmoothCarrier.0.I4SmoothCarrier.orderAbsNN._proof_1 AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_MODULE SourceSmoothControls COUNT 10
+LIFETIME_AUDIT_DECL I4SmoothControls.arbitrary_observation_law_preserved AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothControls.carrier_probability AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothControls.entire_coefficient_law_preserved AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothControls.field_variance_one AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothControls.finite_block_changes_preserve_carrier AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothControls.literal_field_everywhere AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothControls.old_four_does_not_fill_all_orders AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothControls.one_carrier_for_both_orders AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothControls.represented_sample_order_five AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4SmoothControls.represented_sample_order_thirtyseven AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_MODULE Lifetime COUNT 103
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.E AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.FundDomain AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.HessianHasInertia AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.IsCandidatePair AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.IsCriticalPoint AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.IsFiniteBar AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.IsIndexSaddle AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.IsLPeriodic AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.IsLifetimeDensityVersion AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.IsMorseDistinct AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.IsNondegMax AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.IsSmooth AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.IsUnrestrictedLeadingCoefficient AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.IsUnrestrictedPair AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.IsWindowElderPair AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.IsWindowPair AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.ParentCompactWindowDensityB AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.ParentUniformSelectionA AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.ParentUnrestrictedLeadingDensityC AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.PlanarDensityGapE11 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.PlanarElderLowerE2 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.PlanarTwoSidedRateE4 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.RemainderBoundedR1 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.covQuadForm AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.heightGap AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.hessian AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.latticeVec AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.pairCount AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.pairSet AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.periodicCovariance AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.pinM AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.pinS AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.scaledGap AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.thetaSum AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.torusDist AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.F AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.P AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface._sizeOf_1 AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface._sizeOf_inst AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.casesOn AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.covariance AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.ctorIdx AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.gaussian AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.isProb AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.mk AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.mΩ AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.noConfusion AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.noConfusionType AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.periodic AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.quad_nonneg AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.rec AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.recOn AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.smooth AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.summable AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.Ω AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.IsLifetimeDensityVersion._proof_1 AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface._sizeOf_1 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface._sizeOf_inst AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.casesOn AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.ctorIdx AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.mk AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.noConfusion AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.noConfusionType AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.p AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.p_le_one AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.p_nonneg AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.rec AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.recOn AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.ParentCompactWindowDensityB._proof_1 AXIOMS [propext]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.ElderPartner AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.IsEssential AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface._sizeOf_1 AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface._sizeOf_inst AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.casesOn AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.ctorIdx AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.deathHeight AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.deathHeight_maximin AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.elderPartner_iff AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.essential_iff AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.mk AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.noConfusion AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.noConfusionType AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.rec AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.recOn AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.thetaSum._proof_1 AXIOMS [propext]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.mk._flat_ctor AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.mk.inj AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.mk.injEq AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.mk.noConfusion AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.mk.sizeOf_spec AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.mk._flat_ctor AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.mk.inj AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.mk.injEq AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.mk.noConfusion AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.mk.sizeOf_spec AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.mk._flat_ctor AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.mk.inj AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.mk.injEq AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.mk.noConfusion AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.mk.sizeOf_spec AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_MODULE SourceThetaBridge COUNT 34
+LIFETIME_AUDIT_DECL I4ThetaBridge.latticeVec_apply AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4ThetaBridge.shifted_gaussian_le AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4ThetaBridge.shifted_gaussian_summable AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4ThetaBridge.sourceSpectralKernel_eq_periodicCovariance AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL I4ThetaBridge.thetaSum_eq_scaled_cos AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4ThetaBridge.thetaSum_zero_eq AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4ThetaBridge.theta_summable AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4ThetaBridge.theta_summand_eq_product AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4ThetaBridge.theta_zero_pos AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL _private.SourceThetaBridge.0.I4ThetaBridge.complex_spectral_summable AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL _private.SourceThetaBridge.0.I4ThetaBridge.poissonScale AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL _private.SourceThetaBridge.0.I4ThetaBridge.poissonScale_eq AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL _private.SourceThetaBridge.0.I4ThetaBridge.poisson_one_dimension AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL _private.SourceThetaBridge.0.I4ThetaBridge.spectral1Term AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL _private.SourceThetaBridge.0.I4ThetaBridge.spectral1Term_norm AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL _private.SourceThetaBridge.0.I4ThetaBridge.spectral1Term_prod AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL _private.SourceThetaBridge.0.I4ThetaBridge.spectral1Term_summable_norm AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL _private.SourceThetaBridge.0.I4ThetaBridge.summable_nonneg_fin_product AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL _private.SourceThetaBridge.0.I4ThetaBridge.summable_norm_fin_product AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL _private.SourceThetaBridge.0.I4ThetaBridge.thetaSum_complex AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL _private.SourceThetaBridge.0.I4ThetaBridge.tsum_fin_product AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL I4Weights.sourceZ.eq_1 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL _private.SourceThetaBridge.0.I4ThetaBridge.poissonScale._proof_1 AXIOMS [propext]
+LIFETIME_AUDIT_DECL _private.SourceThetaBridge.0.I4ThetaBridge.poisson_one_dimension._simp_1_1 AXIOMS [propext]
+LIFETIME_AUDIT_DECL _private.SourceThetaBridge.0.I4ThetaBridge.poisson_one_dimension._simp_1_2 AXIOMS [propext]
+LIFETIME_AUDIT_DECL _private.SourceThetaBridge.0.I4ThetaBridge.poisson_one_dimension._simp_1_3 AXIOMS [propext]
+LIFETIME_AUDIT_DECL _private.SourceThetaBridge.0.I4ThetaBridge.poisson_one_dimension._simp_1_4 AXIOMS [propext]
+LIFETIME_AUDIT_DECL _private.SourceThetaBridge.0.I4ThetaBridge.poisson_one_dimension._simp_1_5 AXIOMS [propext]
+LIFETIME_AUDIT_DECL _private.SourceThetaBridge.0.I4ThetaBridge.poisson_one_dimension._simp_1_6 AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL _private.SourceThetaBridge.0.I4ThetaBridge.poisson_one_dimension._simp_1_7 AXIOMS [propext]
+LIFETIME_AUDIT_DECL _private.SourceThetaBridge.0.I4ThetaBridge.spectral1Term.eq_1 AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL _private.SourceThetaBridge.0.I4ThetaBridge.thetaSum_complex._simp_1_2 AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.periodicCovariance.eq_1 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.thetaSum.eq_1 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_MODULE SourceLifetimeGeometry COUNT 16
+LIFETIME_AUDIT_DECL I4LifetimeField.actualField AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeField.actualField_covariance_spectral AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeField.actualField_eval_hasGaussianLaw AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeField.actualField_eval_measurable AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeField.actualField_integral_zero AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeField.actualField_linearCombination_hasGaussianLaw AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeField.actualField_linearCombination_integral_zero AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeField.actualField_linearCombination_measurable AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeField.actualField_periodic AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeField.actualField_smooth AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeField.coordinates AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeField.coordinates_apply AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeField.coordinates_latticeVec AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeField.actualField.eq_1 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeField.coordinates.eq_1 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL UniversalLaw.Spec.Lifetime.latticeVec.eq_1 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_MODULE SourceLifetimeField COUNT 11
+LIFETIME_AUDIT_DECL I4LifetimeField.actualField_covariance AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeField.actualField_linearCombination_map AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeField.actualField_linearCombination_variance AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeField.actualField_raw_second_moment AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeField.actualGaussianFieldInterface AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeField.actualGaussianFieldInterface_carrier AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeField.actualGaussianFieldInterface_exists AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeField.actualGaussianFieldInterface_field AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeField.actualGaussianFieldInterface_law AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeField.covQuadForm_nonneg AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeField.actualGaussianFieldInterface._proof_1 AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_MODULE SourceLifetimeControls COUNT 22
+LIFETIME_AUDIT_DECL I4LifetimeControls.cancelledLaw AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeControls.cancelledQuad AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeControls.cancelledSample AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeControls.dimensionZeroRawVariance AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeControls.dimensionZeroSpectralNormalizer AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeControls.dimensionZeroTheta AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeControls.emptyFamilyLaw AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeControls.emptyQuad AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeControls.euclideanNormSquared AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeControls.everyLatticeTranslation AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeControls.literalCarrier AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeControls.literalField AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeControls.literalLaw AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeControls.periodicCovariance_zero AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeControls.rawDiagonalOne AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeControls.reinforcedLaw AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeControls.reinforcedQuad AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeControls.sameCarrierOrders AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeControls.shiftedMeanOne AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeControls.unrestrictedEndpoint AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeControls.wholeCoefficientLaw AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL I4LifetimeControls.zeroMean AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_MODULE NegativeUnusedAxiom COUNT 13
+LIFETIME_AUDIT_DECL C291Negative.UnusedAxiom.actualField_covariance AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL C291Negative.UnusedAxiom.actualField_linearCombination_map AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL C291Negative.UnusedAxiom.actualField_linearCombination_variance AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL C291Negative.UnusedAxiom.actualField_raw_second_moment AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL C291Negative.UnusedAxiom.actualGaussianFieldInterface AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL C291Negative.UnusedAxiom.actualGaussianFieldInterface_carrier AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL C291Negative.UnusedAxiom.actualGaussianFieldInterface_exists AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL C291Negative.UnusedAxiom.actualGaussianFieldInterface_field AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL C291Negative.UnusedAxiom.actualGaussianFieldInterface_law AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+LIFETIME_AUDIT_DECL C291Negative.UnusedAxiom.covQuadForm_nonneg AXIOMS [propext, Classical.choice, Quot.sound]
+LIFETIME_AUDIT_DECL _private.NegativeUnusedAxiom.0.C291Negative.UnusedAxiom.c291UnusedCustomAxiom AXIOMS [_private.NegativeUnusedAxiom.0.C291Negative.UnusedAxiom.c291UnusedCustomAxiom]
+LIFETIME_AUDIT_PROGRESS START
+LIFETIME_AUDIT_PROGRESS GaussianSeriesFoundation COUNT 12
+LIFETIME_AUDIT_PROGRESS SpectralWeights COUNT 28
+LIFETIME_AUDIT_PROGRESS SourceFourierSeries COUNT 25
+LIFETIME_AUDIT_PROGRESS SourceC4 COUNT 10
+LIFETIME_AUDIT_PROGRESS SourceGaussianLaw COUNT 10
+LIFETIME_AUDIT_PROGRESS SourceLattice COUNT 27
+LIFETIME_AUDIT_PROGRESS SourceKernel COUNT 7
+LIFETIME_AUDIT_PROGRESS SourceCovariance COUNT 4
+LIFETIME_AUDIT_PROGRESS SourceTorus COUNT 16
+LIFETIME_AUDIT_PROGRESS SourceTorusC4 COUNT 14
+LIFETIME_AUDIT_PROGRESS SourceSmooth COUNT 26
+LIFETIME_AUDIT_PROGRESS SourceSmoothCarrier COUNT 33
+LIFETIME_AUDIT_PROGRESS SourceSmoothControls COUNT 10
+LIFETIME_AUDIT_PROGRESS Lifetime COUNT 103
+LIFETIME_AUDIT_PROGRESS SourceThetaBridge COUNT 34
+LIFETIME_AUDIT_PROGRESS SourceLifetimeGeometry COUNT 16
+LIFETIME_AUDIT_PROGRESS SourceLifetimeField COUNT 11
+LIFETIME_AUDIT_PROGRESS SourceLifetimeControls COUNT 22
+LIFETIME_AUDIT_PROGRESS NegativeUnusedAxiom COUNT 13
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeUnusedAxiomAudit.lean:19:0: error: forbidden transitive axiom _private.NegativeUnusedAxiom.0.C291Negative.UnusedAxiom.c291UnusedCustomAxiom in _private.NegativeUnusedAxiom.0.C291Negative.UnusedAxiom.c291UnusedCustomAxiom

@@ -531,6 +531,6 @@ bash specifications/lean_statements_20261010/replay.sh
 Environment: Lean `leanprover/lean4:v4.34.1` (release commit `5045d0056413266e57c625dcd7c365b10e377c52`),
 Mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612`, full dependency lock in `lake-manifest.json`
 (identical to `formal/lake-manifest.json` except the package name). CI uses
-`leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865` with `use-mathlib-cache: 'true'`.
+`leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6` with `use-mathlib-cache: 'true'`.
 Without the Mathlib cache (hosts `cache.mathlib.org`, `release.lean-lang.org`,
 `reservoir.lean-lang.org`), Mathlib must be built from source, which takes hours.

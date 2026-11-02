@@ -1,0 +1,22 @@
+SourceContactSchur.lean:118:4: error: Tactic `apply` failed: could not unify the conclusion of `Finset.sum_congr rfl`
+  Finset.sum ?m.105 ?m.102 = Finset.sum ?m.105 ?m.103
+with the goal
+  ∑ x, sourceContactCross L i * (sourcePinCovariance L)⁻¹ i x * sourceContactCross L x =
+    sourceContactCross L i * ∑ x, (sourcePinCovariance L)⁻¹ i x * sourceContactCross L x
+
+Note: The full type of `Finset.sum_congr rfl` is
+  (∀ x ∈ ?m.105, ?m.102 x = ?m.103 x) → Finset.sum ?m.105 ?m.102 = Finset.sum ?m.105 ?m.103
+
+L : ℝ
+hL : L ≠ 0
+hblock :
+  (fromBlocks (sourcePinCovariance L) (sourceContactCrossMatrix L) (sourceContactCrossMatrix L)ᴴ
+      (sourceContactQMatrix L)).PosDef
+hs :
+  0 <
+    (sourceContactQMatrix L - (sourceContactCrossMatrix L)ᴴ * (sourcePinCovariance L)⁻¹ * sourceContactCrossMatrix L) ()
+      ()
+i : Fin 6
+a✝ : i ∈ Finset.univ
+⊢ ∑ x, sourceContactCross L i * (sourcePinCovariance L)⁻¹ i x * sourceContactCross L x =
+    sourceContactCross L i * ∑ x, (sourcePinCovariance L)⁻¹ i x * sourceContactCross L x

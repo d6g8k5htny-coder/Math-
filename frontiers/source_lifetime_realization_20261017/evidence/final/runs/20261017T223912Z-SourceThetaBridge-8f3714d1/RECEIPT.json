@@ -1,0 +1,25 @@
+{
+  "source": "SourceThetaBridge.lean",
+  "source_sha256": "c03df303f47ac056af332ad421a6720966464c474ee77e671f85242d30f6cc9b",
+  "started_utc": "2026-10-17T22:39:12.459313+00:00",
+  "command": [
+    "@PINNED_LEAN_RUNTIME@/bin/lean",
+    "-j2",
+    "-M4096",
+    "-o",
+    "@C291_ROOT@/build/SourceThetaBridge.olean",
+    "@C291_ROOT@/project/SourceThetaBridge.lean"
+  ],
+  "timeout_seconds": 240,
+  "threads": 2,
+  "wrapper_pid": 77808,
+  "child_pid": 77810,
+  "returncode": 0,
+  "timed_out": false,
+  "seconds": 96.407760333,
+  "ended_utc": "2026-10-17T22:40:48.866615+00:00",
+  "source_unchanged": true,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output_sha256": "d54747671c681e25d33e5d48328eeaff875abe4e592d64909d3226c9528c5553"
+}

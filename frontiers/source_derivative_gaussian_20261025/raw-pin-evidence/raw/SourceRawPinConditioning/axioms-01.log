@@ -1,0 +1,47 @@
+'I4SourceRawPinConditioning.rawPinCoefficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.rawPinCoefficient_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.rawPins_series' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.rawPins_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.rawPinCovariance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.rawPinCovariance_coefficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.confluentMatrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.confluentMatrix_mulVec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.confluentMatrix_isUnit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.pinCoefficient_eq_confluentMatrix' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceRawPinConditioning.sourceConfluentPinsAt_eq_matrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.rawPinCovariance_congruence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.rawPinCovariance_isUnit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.rawPinLift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.rawPinLift_goodSample' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.rawPinLift_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.pinLift_confluent_eq_raw' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.rawPosteriorSample' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.rawPosteriorSample_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.rawPosteriorSample_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.rawPosteriorSample_eq_posteriorSample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceRawPinConditioning.rawPinKernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.rawPinKernel_isMarkov' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.rawPinKernel_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.rawPinKernel_eq_confluent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.rawPinKernel_eq_comap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.rawPosteriorSample_rawPins' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.rawPinKernel_pin_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.rawPinKernel_pin_fiber' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.rawPinKernel_hasCondDistrib' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.rawPinKernel_map_hasCondDistrib' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.rawPinCovariance_eventually_isUnit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceRawPinConditioning.rawPinKernel_eventually_hasCondDistrib' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceRawPinConditioning.rawPinKernel_prescribed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.rawPrescribedWeightedMeasure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.rawPrescribedWeightedMeasure_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceRawPinConditioning.rawPrescribedWeightedMeasure_estimates' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

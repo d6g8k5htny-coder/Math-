@@ -1,0 +1,784 @@
+{
+  "source_sha256": "b523da924513fc312c5432c241fc031d4fbe3567fbeedbba981f36dd798574a4",
+  "inventory_run": "inventory-001",
+  "constant_count": 71,
+  "counts": {
+    "generated_theorem": 27,
+    "written_private_theorem": 28,
+    "written_private_def": 13,
+    "written_public_def": 1,
+    "written_public_theorem": 2
+  },
+  "foreign_namespace_generated": [
+    "I4SourceRemoteJetWitness.localGerm.eq_1",
+    "I4Weights.sourceC.eq_1"
+  ],
+  "entries": [
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.firstJetProduct._proof_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.eval_squaredFactorPoly",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.tripleMultiplier_C2",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.firstGermPoly.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.sourceC_ne_zero",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.tripleMultiplierPoly",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.firstJetInterpolant_self._simp_1_4",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceTwoRemoteFirstJetWitness.twoRemoteFirstJetCoefficient",
+      "kind": "definition",
+      "classification": "written_public_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.firstJetProduct.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.interpolationPoly",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.firstJetInterpolant_self._simp_1_10",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.firstGermPoly",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.eval_firstGermPoly",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.firstJet_sum",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.firstJet_scale",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.squaredFactor",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.eval_axisCos",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.squaredFactor_C2",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.tripleMultiplier.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.firstJetInterpolant_self._simp_1_8",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.firstJet_germ_combination",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.localColumn_eq_iff",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.firstJet.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.firstJetInterpolant_self._simp_1_6",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.firstJetInterpolant_self._simp_1_7",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.eval_interpolationPoly",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.firstJetProduct",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.axisCos.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.firstJet_mul",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.eval_tripleMultiplierPoly",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.tripleMultiplierPoly.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceRemoteJetWitness.localGerm.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": true
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.firstJetCoefficients.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.circle_eq_of_cos_one",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.firstJetInterpolant_contDiff",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.squaredFactorPoly",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4Weights.sourceC.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": true
+    },
+    {
+      "name": "I4SourceTwoRemoteFirstJetWitness.actual_finite_twoRemoteFirstJet_witnesses",
+      "kind": "theorem",
+      "classification": "written_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.firstJetInterpolant_self._simp_1_9",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.eval_axisSin",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.firstJetGerm_contDiff",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.localColumn",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.firstJetInterpolant_zero",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.localColumn._proof_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.firstJet_localGerm",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.positive_axis",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.squaredFactor_zero",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceTwoRemoteFirstJetWitness.actual_twoRemoteFirstJet_residual_coefficientGram_posDef",
+      "kind": "theorem",
+      "classification": "written_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.first_pairing",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.firstJetInterpolant",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.row_split",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.firstJetInterpolant_self",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.localColumn_eq_iff._proof_1_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.axisSin._proof_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.rows_summable",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.firstGermPoly._proof_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.axisSin.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.axisSin",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.firstJetCoefficients",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.squaredFactorPoly.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.firstJetInterpolant_self._simp_1_5",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.squaredFactor.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.tripleMultiplier_zero",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.raw_pairing",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceTwoRemoteFirstJetWitness.twoRemoteFirstJetCoefficient._proof_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.tripleMultiplier",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.interpolationPoly.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.axisCos",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.firstJetInterpolant.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.local_finite_witnesses",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetWitness.0.I4SourceTwoRemoteFirstJetWitness.firstJet",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    }
+  ],
+  "complete_actual_module_index": true,
+  "foreign_namespace_inclusion_method": "env.getModuleIdxFor? equals actual module index, not namespace filter",
+  "standard_axioms_only": true,
+  "written_research_targets": 2,
+  "generated_private_data_inventory_only": true
+}

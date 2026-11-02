@@ -1,0 +1,23 @@
+{
+  "source_sha256": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+  "olean_sha256": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+  "public_direct_declaration_count": 88,
+  "kind_counts": {
+    "def": 18,
+    "abbrev": 1,
+    "theorem": 61,
+    "instance": 8
+  },
+  "covered_count": 88,
+  "missing": [],
+  "unexpected": [],
+  "nonstandard_axioms": {},
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "private_count": 0,
+  "audit_log_sha256": "73ce86a847d8711d40529aa406ff91a49945d5814a62b3f8b26024a3a6d3afca",
+  "targets_sha256": "f1eb6d2fc9389201f8b5223d46539012a48361e8c441e2ff49582d88b9415396"
+}

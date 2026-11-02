@@ -1,0 +1,91 @@
+--- history/context-bootstrap-order001/FROZEN_CONTEXT.md.ORIGINAL
++++ FROZEN_CONTEXT.md
+@@ -539,24 +539,32 @@
+ - `runner/bootstrap_context.py`: documentary context-ID binding only.
+ - `BOOTSTRAP_PLAN.md`: exact scope and launch order.
+ 
+-To ground the FIRST stage66 documentary launch without claiming a newly
+-unqualified wrapper has a prior identity, the already frozen root65
+-`native-runtime/capture.py` supplies entry and outer wrappers ONLY for
+-context-bootstrap001. Its actual operation fields therefore retain the
+-legacy `root65-entry-capture`/`root65-outer-capture` labels; their stage66
+-run directories, literal commands and original streams identify this use.
+-No old utility copy/hash or mathematical replay. Dedicated66 wrappers are
+-frozen by that first worker before any later stage66 use.
+-
+-The first actual worker is `record_run.py context-bootstrap001 documentary
+--- python3 runner/bootstrap_context.py`. Before launching its child it
+-records original source/header/context/runner versions and exact snapshots,
+-new required IDs ONCE, known copied-control ID REUSED, literal argv/cwd,
+-prospective start, outer and entry locations, and nonsecret environment
+-selection. Its receipt later records actual end/status/duration, full
+-separate original stdout/stderr and before/after IDs. Outer and entry
+-statuses/streams remain separate and both preserve failures/partial returns.
+-No fictional successful-only history or reconstructed prior stream.
++The FIRST actual stage66 documentary invocation is an external literal
++Python-c freezer under THREE already frozen root65
++`native-runtime/capture.py` wrappers: entry, outer and worker. It preserves
++this initial metadata amendment's actual originals and FULL patch, then
++FIRST-hashes only the explicit NEW66 context/header/plan/runner versions,
++creates immutable exact snapshots with inherited IDs and seeds the copied
++controls' known ID before ANY new66 script's own first execution.
++The first invocation's original argv/code/cwd/start/end/status and full
++separate streams remain in `initial-external-freeze001/{entry,outer,worker}`.
++The wrapper operation fields honestly retain legacy `root65-*-capture`
++labels; actual stage66 paths and literal commands identify this use.
++No old utility copy/hash or mathematical replay is performed.
++
++ONLY AFTER that external freezer and all three wrappers actually close,
++the first DEDICATED66 worker is
++`record_run.py context-bootstrap001 documentary -- python3 runner/bootstrap_context.py`,
++under the now-pre-frozen dedicated66 entry and outer wrappers. It reuses
++the externally cached NEW66 initial script/context/header/plan IDs and known
++control-copy ID; it does NOT claim that a script's self-hash occurs before
++its own start. Before launching its child it snapshots these exact known
++versions with inherited IDs and records literal argv/cwd/prospective start,
++outer/entry locations and nonsecret environment selection. Its later receipt
++retains actual end/status/duration, full separate original stdout/stderr and
++before/after IDs. First external and later dedicated invocations remain
++separate original records. No fictional first-success history, relabeling
++of the later worker as the first invocation or reconstructed prior stream.
+ 
+ The new worker tracks ONLY its own initial context/header/runners, later
+ new source/ordinary/harness versions, own full patches and NEW own/ordinary
+--- history/context-bootstrap-order001/BOOTSTRAP_PLAN.md.ORIGINAL
++++ BOOTSTRAP_PLAN.md
+@@ -7,16 +7,25 @@
+ 
+ 1. Write dedicated66 capture/worker/bootstrap scripts, initial source header
+    and complete FROZEN_CONTEXT.md before the first documentary worker.
+-2. Invoke the dedicated entry capture, dedicated outer capture, then actual
+-   documentary record_run worker, then bootstrap_context.py. Preserve each
+-   command/cwd/time/status and separate original stdout/stderr.
+-3. Worker FIRST-hashes only necessary new versions once, seeds the copied
+-   controls with root's known ID, and makes exact text snapshots with reused
+-   IDs before launching the child. It never snapshots or copies objects.
+-4. Bootstrap binds those cached IDs in INITIAL_CONTEXT_FREEZE.json; it
+-   performs no Lean/API probe, proof edit, fixture/harness body or old hash.
+-5. Deliver the complete literal context and closed actual capture paths to
+-   root for FULL reading/acceptance. Await separate applicable TEXT release.
++2. FIRST invoke the already frozen root65 entry+outer+worker capture around
++   a literal Python-c external documentary freezer. Preserve its real full
++   code/argv/cwd/time/status and all six separate original streams, with
++   legacy root65 operation labels disclosed. It retains actual metadata
++   originals/FULL patch, then FIRST-freezes explicit NEW66 scripts/context/
++   header/plan and seeds the known copied-controls identity BEFORE any NEW66
++   script's own first execution. Exact snapshots inherit IDs without hash.
++3. After that external freeze's actual triple closure, invoke dedicated66
++   entry+outer capture and actual record_run documentary worker, then
++   bootstrap_context.py. The already frozen NEW66 scripts reuse cached IDs;
++   a worker's later self-hash is never represented as preceding its start.
++   It makes exact known text snapshots before its child, no object copies.
++4. Dedicated bootstrap binds those cached IDs in INITIAL_CONTEXT_FREEZE.json;
++   it performs no Lean/API probe, proof edit, fixture/harness body or old
++   hash. The first external and later dedicated records remain distinct.
++5. Deliver the complete literal context, actual metadata-only amendment and
++   both closed capture families to root. Root reuses completed full body
++   reading and personally reads only this actual delta before acceptance.
++   Await separate applicable TEXT release.
+ 
+ No tests of unchanged mathematics or runner replay are planned. The actual
+ documentary bootstrap is the necessary first exercise of this new runner;

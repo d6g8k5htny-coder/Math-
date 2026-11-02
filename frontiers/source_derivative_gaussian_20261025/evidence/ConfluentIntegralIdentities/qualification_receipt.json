@@ -1,0 +1,164 @@
+{
+  "scope": "NEW_CONFLUENT_INTEGRAL_IDENTITIES_ONLY_LOCAL_QUALIFICATION",
+  "scientific_effect": "NONE",
+  "source_path": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025/ConfluentIntegralIdentities.lean",
+  "source_sha256": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+  "frozen_contract_commit": "d382da3",
+  "frozen_contract_path": "frontiers/source_derivative_gaussian_20261025/SOURCE_CONFLUENT_INTEGRALS.md",
+  "author_side_lineage": [
+    "OpenAI/Codex /root/dm2_landed_composition",
+    "OpenAI/Codex /root/dm2_landed_composition/peano_strategy: actual generic Peano scratch helper"
+  ],
+  "compile_evidence_reused": {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-o",
+      ".lake/build/lib/lean/ConfluentIntegralIdentities.olean",
+      "ConfluentIntegralIdentities.lean"
+    ],
+    "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+    "exit_code": 0,
+    "source_sha256": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+    "raw_log": "/workspace/scratch/dm2_landed_composition/confluent_integrals/final_compile.log",
+    "raw_log_sha256": "022f4f8b18c8d5d1fc60362ee2a5a1dcf68599cb92994e4900143d4894238508"
+  },
+  "axiom_audit": {
+    "I4ConfluentIntegralIdentities.pin3_integral": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4ConfluentIntegralIdentities.pin4_integral": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4ConfluentIntegralIdentities.pin5_integral": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4ConfluentIntegralIdentities.adjusted_second_left": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4ConfluentIntegralIdentities.adjusted_second_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4ConfluentIntegralIdentities.adjusted_transverse_left": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "I4ConfluentIntegralIdentities.adjusted_transverse_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "checks": {
+    "kernel": {
+      "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "lake",
+        "env",
+        "leanchecker",
+        "ConfluentIntegralIdentities"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 7.803982257843018,
+      "source_sha256_before": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+      "source_sha256_after": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+      "raw_log": "/workspace/scratch/dm2_landed_composition/confluent_integrals/kernel.log",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_exit_code": 0
+    },
+    "axioms": {
+      "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/dm2_landed_composition/confluent_integrals/AxiomAudit.lean"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 5.193881511688232,
+      "source_sha256_before": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+      "source_sha256_after": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+      "raw_log": "/workspace/scratch/dm2_landed_composition/confluent_integrals/axioms.log",
+      "raw_log_sha256": "0ea71ea95ab6444015bb28170bb6cf70e61de2af3be047daf1a2abe5a63a4d57",
+      "expected_exit_code": 0
+    },
+    "positive": {
+      "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/dm2_landed_composition/confluent_integrals/PositiveControls.lean"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 3.1239266395568848,
+      "source_sha256_before": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+      "source_sha256_after": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+      "raw_log": "/workspace/scratch/dm2_landed_composition/confluent_integrals/positive.log",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_exit_code": 0
+    },
+    "false-cubic": {
+      "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/dm2_landed_composition/confluent_integrals/FalseCubicCoefficient.lean"
+      ],
+      "exit_code": 1,
+      "duration_seconds": 5.286576271057129,
+      "source_sha256_before": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+      "source_sha256_after": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+      "raw_log": "/workspace/scratch/dm2_landed_composition/confluent_integrals/false-cubic.log",
+      "raw_log_sha256": "2f47cdff53f210cc7b7f6fe9a2594085065a3530d8ad49b59d34183a41360ad2",
+      "expected_exit_code": 1
+    },
+    "false-transverse": {
+      "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/dm2_landed_composition/confluent_integrals/FalseTransverseDerivative.lean"
+      ],
+      "exit_code": 1,
+      "duration_seconds": 5.0333075523376465,
+      "source_sha256_before": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+      "source_sha256_after": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+      "raw_log": "/workspace/scratch/dm2_landed_composition/confluent_integrals/false-transverse.log",
+      "raw_log_sha256": "64b33fa722fa610db1fca752962ee9abb252c58100c48dd9edc26205159291c2",
+      "expected_exit_code": 1
+    }
+  },
+  "control_source_sha256": {
+    "AxiomAudit.lean": "362b1e333bb42de7a1dd616d75344e11001ac58a7b77281300464d45b1e55274",
+    "PositiveControls.lean": "d551c3f96a6f60eaa3d769b3ad12da6e9487f41491f9cff5c63ed8e68f0bb191",
+    "FalseCubicCoefficient.lean": "b3911ae4f12a23a10fd6d30fffbf81791981c1bce070348815da6e66c3a79c70",
+    "FalseTransverseDerivative.lean": "2a14a1824d2db7550604896de10b6a2b2ece559441378eab4add8c3cd3adeb14"
+  },
+  "helper_evidence": {
+    "source": "/workspace/scratch/dm2_landed_composition/PeanoHelper.lean",
+    "metadata": "/workspace/scratch/dm2_landed_composition/peano_helper_final.json",
+    "raw_log": "/workspace/scratch/dm2_landed_composition/peano_helper_final.log"
+  },
+  "not_established": [
+    "actual source mode instantiation",
+    "justified covariance infinite sum limit",
+    "actual conditional regression or Palm law",
+    "independent scientific review",
+    "overall campaign completion"
+  ]
+}

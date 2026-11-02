@@ -1,0 +1,14 @@
+{
+  "recorded_utc": "2026-10-28T15:13:19.385831+00:00",
+  "actual_numeric_outcome": "PASS exit0 ended15:10:28.931535UTC,231.533s,emptyseparatestreams.",
+  "resource_observation": "Duringnewnumericpositive001 ps observed>3min,~16GB RSS. Producer considered boundedtermination to avoid furthergrowth; no source amendment/retry occurred.",
+  "maintenance_command": {
+    "command": "kill -TERM 3135",
+    "actual_tool_exit": 1,
+    "original_tool_output": "/bin/bash: line 1: kill: (3135) - No such process\n",
+    "capture": "Original shell-tool output; no fictional separatelycapturedstdout/stderr or invented exactcommandtimestamp.",
+    "effect": "No signal delivered; numericprocess had already completed naturallyPASS. No termination or secondnumericcheck."
+  },
+  "qualification_calls": 1,
+  "source_amendments": 0
+}

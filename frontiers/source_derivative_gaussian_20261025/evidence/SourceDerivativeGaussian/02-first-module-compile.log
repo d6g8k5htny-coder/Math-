@@ -1,0 +1,30 @@
+SourceDerivativeGaussian.lean:37:41: error: Application type mismatch: The argument
+  le_top
+has type
+  ?m.47 ≤ ⊤
+but is expected to have type
+  ↑k ≤ ↑⊤
+in the application
+  ContDiff.of_le (modeCoefficient_smooth d L m) le_top
+SourceDerivativeGaussian.lean:81:42: error: Application type mismatch: The argument
+  le_top
+has type
+  ?m.55 ≤ ⊤
+but is expected to have type
+  ↑↑k ≤ ↑⊤
+in the application
+  ContDiff.of_le (modeCoefficient_smooth d L m) le_top
+SourceDerivativeGaussian.lean:131:56: error: unsolved goals
+ι : Type u_1
+inst✝ : Countable ι
+n : ℕ
+a : Fin n → ι → ℝ
+ha : ∀ (j : Fin n), Summable (a j)
+hm : Measurable fun ω j => scalarSeries (a j) ω
+ell : (Fin n → ℝ) →L[ℝ] ℝ
+c : Fin n → ℝ := fun j => ell (Pi.single j 1)
+z : Fin n → ℝ
+j : Fin n
+a✝ : j ∈ Finset.univ
+hs : Pi.single j (z j) = z j • Pi.single j 1
+⊢ z j * ell (Pi.single j 1) = (∑ i, Pi.single i (z i)) j * ell (Pi.single j 1)

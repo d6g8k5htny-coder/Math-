@@ -1,0 +1,25 @@
+{
+  "source": "SourceLifetimeAxiomAudit.lean",
+  "source_sha256": "fea8df29106f295238b3a039bb2aae350167a9ada2326d6d00ba6f6663be52c3",
+  "started_utc": "2026-10-17T23:05:52.849146+00:00",
+  "command": [
+    "@PINNED_LEAN_RUNTIME@/bin/lean",
+    "-j2",
+    "-M4096",
+    "-o",
+    "@C291_ROOT@/build/SourceLifetimeAxiomAudit.olean",
+    "@C291_ROOT@/project/SourceLifetimeAxiomAudit.lean"
+  ],
+  "timeout_seconds": 420,
+  "threads": 2,
+  "wrapper_pid": 99848,
+  "child_pid": 99854,
+  "returncode": 0,
+  "timed_out": false,
+  "seconds": 351.24686541700004,
+  "ended_utc": "2026-10-17T23:11:44.142696+00:00",
+  "source_unchanged": true,
+  "stdout_sha256": "ce6920b72fbdfc6794051d690a10cf97792ffebe8b2c9145c2b10dcf2116ccea",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output_sha256": "db8e91343bed5508d83ac5aa251243db71c0013457d9cb11731a2114571c9ac0"
+}

@@ -1,0 +1,60 @@
+{
+  "contract": {
+    "path": "/workspace/scratch/remote-jet-witness-construct/CONTROL_CONTRACT.md",
+    "bytes": 2297,
+    "sha256": "5e2788c96e9813b30bee3e52e9f34b6c543e5ac377042f7310f3546b0e0d0311"
+  },
+  "contract_before_producer_and_both_helper_source": true,
+  "positive_source": {
+    "path": "/workspace/scratch/remote-jet-witness-construct/Controls.lean",
+    "bytes": 9630,
+    "sha256": "0810083894db389a7c5168cf326589a3627cbbde752e60b3ffab85bd594ed392"
+  },
+  "positive_receipt": {
+    "path": "/workspace/scratch/remote-jet-witness-construct/runs/controls-005/record.json",
+    "bytes": 2076,
+    "sha256": "f35f65883f77c8178341a02b29e575c4c1f6b374d665521313a4384e069d321a"
+  },
+  "positive_count": 16,
+  "positive_scope": [
+    "all36 actual localgerm entries arbitraryc/center",
+    "translatedmixedgerm actualsixjet",
+    "actualC2 product puresecondfactor2/mixedcrossfactor1",
+    "nontrivial scalar product coefficients291/413/525",
+    "nonconstantP2+y0+y1 fullsecondordertarget interpolation",
+    "both actualnonconstantP firstderivatives1",
+    "constantP2 denominatornormalization",
+    "actualrepresentedpinannihilator values/fullfderiv0 bothpins",
+    "L2r1x0 actualoriginalmode all36raw/all36remote pairings",
+    "repeatedpinsL2r0x1 actualwitnesses",
+    "negativeperiodL\u22122r0x1 actualwitnesses",
+    "arbitraryR actualGramL2r1x0",
+    "arbitraryR repeatedpinGramL2r0x1",
+    "arbitraryR signednegativeperiodGramL\u22122r0x1",
+    "collisionxM retainedhxS literalquotientseparation",
+    "collisionxM actualpinrow0=remotevalue impliesno witnesses"
+  ],
+  "negative_source": {
+    "path": "/workspace/scratch/remote-jet-witness-construct/FalseCollisionMutation.lean",
+    "bytes": 961,
+    "sha256": "6b72f31f185bcced58ac1938a80383497b1abba92fddf5f52e5ff0b1fae5fd24"
+  },
+  "negative_receipt": {
+    "path": "/workspace/scratch/remote-jet-witness-construct/runs/false-collision-001/record.json",
+    "bytes": 2142,
+    "sha256": "2240e1cb6b4fb3c835fa22cfa19b64bf729e20b005ff0816a7254dc7d02af11d"
+  },
+  "distinct_mutation_count": 1,
+  "mutation_attempts": 1,
+  "negative_mechanism": "DropONLYhxM atL2r1x=M, retainhL/hxS. Passed control separately proves validhxS throughcos\u2212\u03c0=\u22121 and actualnonexistence from literalrowidentity:hker00=0 vs hright00=1. Mutation imports passedControls within scratch and simp only[provedcounterexample] reduces exact weakenedexistence claim to soleFalse. No arbitraryexfalso or duplicatedcounterproof campaign.",
+  "sole_false_count": 1,
+  "unrelated_negative_diagnostics": 0,
+  "passed_control_object_reuse": {
+    "path": "/workspace/scratch/remote-jet-witness-construct/build/Controls.olean",
+    "bytes": 393584,
+    "sha256": "05d2c348be67ec33b6f6d0576547fce07062c878e2760bc9e200faa00e34342a"
+  },
+  "control_object_cache_eligible": false,
+  "source_unchanged_for_all_controls": true,
+  "failed_positive_attempts": "001 projectiontype/zeroorderlemma inference;002projectiontype;003/004affinefunctionalias normalization;005PASS. All source snapshots/fullstreams retained."
+}

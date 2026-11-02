@@ -1,0 +1,56 @@
+import Mathlib.Probability.Moments.Covariance
+import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+import Mathlib.LinearAlgebra.Matrix.ToLin
+import Mathlib.Topology.Algebra.Module.FiniteDimension
+
+open MeasureTheory ProbabilityTheory Matrix
+open scoped ProbabilityTheory BigOperators Matrix
+set_option autoImplicit false
+
+namespace EndpointRegressionAPI
+
+noncomputable def matrixCLM {n k : ℕ} (M : Matrix (Fin k) (Fin n) ℝ) :
+    (Fin n → ℝ) →L[ℝ] (Fin k → ℝ) :=
+  (Matrix.toLin' M).toContinuousLinearMap
+
+lemma matrixCLM_apply {n k : ℕ} (M : Matrix (Fin k) (Fin n) ℝ) (x : Fin n → ℝ) :
+    matrixCLM M x = M *ᵥ x := rfl
+
+lemma matrixCLM_single {n k : ℕ} (M : Matrix (Fin k) (Fin n) ℝ) (l : Fin n)
+    (j : Fin k) : matrixCLM M (Pi.single l 1) j = M j l := by
+  simp [matrixCLM]
+
+theorem covariance_normal_equations {Ω : Type*} [MeasurableSpace Ω]
+    {P : Measure Ω} {n k : ℕ} (X : Ω → Fin n → ℝ) (V : Ω → Fin k → ℝ)
+    (hG : IsUnit (Matrix.of (fun i j =>
+      covariance (fun ω => X ω i) (fun ω => X ω j) P) : Matrix (Fin n) (Fin n) ℝ)) :
+    let G : Matrix (Fin n) (Fin n) ℝ := fun i j =>
+      covariance (fun ω => X ω i) (fun ω => X ω j) P
+    let C : Matrix (Fin k) (Fin n) ℝ := fun i j =>
+      covariance (fun ω => V ω i) (fun ω => X ω j) P
+    let B := matrixCLM (C * G⁻¹)
+    ∀ i j, covariance (fun ω => X ω i) (fun ω => V ω j) P =
+      ∑ l, B (Pi.single l 1) j * covariance (fun ω => X ω i) (fun ω => X ω l) P := by
+  let G : Matrix (Fin n) (Fin n) ℝ := fun i j =>
+    covariance (fun ω => X ω i) (fun ω => X ω j) P
+  let C : Matrix (Fin k) (Fin n) ℝ := fun i j =>
+    covariance (fun ω => V ω i) (fun ω => X ω j) P
+  change ∀ i j, covariance (fun ω => X ω i) (fun ω => V ω j) P =
+    ∑ l, matrixCLM (C * G⁻¹) (Pi.single l 1) j *
+      covariance (fun ω => X ω i) (fun ω => X ω l) P
+  have hG' : IsUnit G := hG
+  let _ : Invertible G := hG'.invertible
+  have hprod : C * G⁻¹ * G = C := Matrix.inv_mul_cancel_right_of_invertible G C
+  intro i j
+  calc
+    covariance (fun ω => X ω i) (fun ω => V ω j) P = C j i := covariance_comm _ _
+    _ = ∑ l, (C * G⁻¹) j l * G l i := (congrArg (fun M => M j i) hprod).symm
+    _ = ∑ l, matrixCLM (C * G⁻¹) (Pi.single l 1) j *
+        covariance (fun ω => X ω i) (fun ω => X ω l) P := by
+      apply Finset.sum_congr rfl
+      intro l _
+      rw [matrixCLM_single]
+      congr 1
+      exact covariance_comm _ _
+
+end EndpointRegressionAPI

@@ -1,0 +1,29 @@
+/workspace/scratch/regression-kernel/smooth-conditional/coefficient-cov/CoefficientCovariance.lean:13:18: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DecidableEq ι
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/regression-kernel/smooth-conditional/coefficient-cov/CoefficientCovariance.lean:13:44: error: unsolved goals
+ι : Type u_1
+m : ι
+ω : ι → ℝ
+⊢ ∑' (i : ι), sorry () i * ω i = ω m
+/workspace/scratch/regression-kernel/smooth-conditional/coefficient-cov/CoefficientCovariance.lean:15:22: warning: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [scalarSeries, ite_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/regression-kernel/smooth-conditional/coefficient-cov/CoefficientCovariance.lean:15:39: warning: This simp argument is unused:
+  ite_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [scalarSeries, Pi.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/regression-kernel/smooth-conditional/coefficient-cov/CoefficientCovariance.lean:22:4: error: Type mismatch: After simplification, term
+  HasSum.summable (hasSum_ite_eq m 1 (SummationFilter.unconditional ι))
+ has type
+  Summable fun b' => if m = b' then 1 else 0
+but is expected to have type
+  Summable (Pi.single m 1)

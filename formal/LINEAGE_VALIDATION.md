@@ -72,5 +72,5 @@ python3 formal/gate.py --execute
 
 Only the focused suite was run in the implementer's partial staging checkout at
 publication. Full-suite, exact-source and Lean execution claims require their
-actual complete-checkout results; the expected main-based suite is 97 tests.
+actual complete-checkout results; the complete suite size is not a protocol constant; use the actual current-run count.
 Local focused tests are not a Lean kernel replay or independent review.

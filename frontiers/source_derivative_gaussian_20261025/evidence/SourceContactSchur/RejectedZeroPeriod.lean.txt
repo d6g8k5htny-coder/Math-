@@ -1,0 +1,5 @@
+import SourceContactSchur
+open I4SourceContact
+example : 0 < sourceContactSchur 0 := by
+  apply sourceContactSchur_pos
+  norm_num

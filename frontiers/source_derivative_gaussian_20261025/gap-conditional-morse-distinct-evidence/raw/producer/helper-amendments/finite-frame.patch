@@ -1,0 +1,73 @@
+--- frozen-original/finite-frame
++++ qualified-integration/finite-frame
+@@ -48,7 +48,7 @@
+     simpa only [finiteFrame_pair_lc,map_zero] using h
+   rw [finiteFrame_pair_sum] at hi
+   simpa only [hright,mul_ite,mul_one,mul_zero,Finset.sum_ite_eq,Finset.mem_univ,
+-    if_true] using hi
++    ite_true] using hi
+ 
+ private def finiteFrame_extend (S : Finset (SourceMode 2)) :
+     EuclideanSpace ℝ S →ₗ[ℝ] (SourceMode 2 →₀ ℝ) where
+@@ -66,7 +66,7 @@
+     (u : EuclideanSpace ℝ S) (m : S) : finiteFrame_extend S u m.val=u m := by
+   classical
+   change (∑ k : S, u k • Finsupp.single k.val 1) m.val=u m
+-  simp [Finsupp.finsetSum_apply,Finsupp.single_apply,Subtype.coe_inj]
++  simp [Finsupp.finsetSum_apply,Finsupp.single_apply ]
+ 
+ private theorem finiteFrame_extend_off (S : Finset (SourceMode 2))
+     (u : EuclideanSpace ℝ S) (m : SourceMode 2) (hm : m ∉ S) :
+@@ -77,7 +77,7 @@
+   apply Finset.sum_eq_zero
+   intro k hk
+   have hkm : k.val ≠ m := by intro h; exact hm (h ▸ k.property)
+-  simp [Finsupp.single_apply,hkm]
++  simp [hkm]
+ 
+ private theorem finiteFrame_extend_injective (S : Finset (SourceMode 2)) :
+     Function.Injective (finiteFrame_extend S) := by
+@@ -130,9 +130,9 @@
+   let chi : Fin n → (SourceMode 2 →₀ ℝ) := fun j => E (w j)
+   have hspan : Submodule.span ℝ (Set.range chi)=Submodule.span ℝ (Set.range v) := by
+     have hs : Submodule.span ℝ (Set.range w)=Submodule.span ℝ (Set.range f) :=
+-      (InnerProductSpace.span_gramSchmidtNormed_range ℝ f).trans (InnerProductSpace.span_gramSchmidt ℝ f)
++      (InnerProductSpace.span_gramSchmidtNormed_range (𝕜 := ℝ) f).trans (InnerProductSpace.span_gramSchmidt ℝ f)
+     have hh := congrArg (fun P : Submodule ℝ (EuclideanSpace ℝ S) => P.map E) hs
+-    simp only [Submodule.map_span,Set.image_range,Function.comp_def] at hh
++    simp only [Submodule.map_span,← Set.range_comp,Function.comp_def] at hh
+     have he : (fun j => E (f j))=v := funext hEf
+     rw [he] at hh
+     exact hh
+@@ -175,7 +175,7 @@
+       simpa only [finiteFrame_pair_lc,map_zero] using hp
+     rw [finiteFrame_pair_sum] at hz
+     simpa only [F.gram,mul_ite,mul_one,mul_zero,Finset.sum_ite_eq,Finset.mem_univ,
+-      if_true] using hz
++      ite_true] using hz
+   have hinj : Function.Injective (rowResponse a F) := by
+     intro c d hcd
+     let t : Fin n → ℝ := c-d
+@@ -193,7 +193,7 @@
+         simpa only [t,Pi.sub_apply,sub_mul,Finset.sum_sub_distrib,sub_eq_zero] using hi
+       rw [← he,finiteFrame_pair_sum] at hr
+       simpa only [hright,mul_ite,mul_one,mul_zero,Finset.sum_ite_eq,Finset.mem_univ,
+-        if_true] using hr
++        ite_true] using hr
+     have hu0 : u=0 := by
+       rw [← he]
+       simp only [he0,zero_smul,Finset.sum_const_zero]
+@@ -275,10 +275,11 @@
+     rw [hrows]
+     by_cases hi : i=(4 : Fin 5)
+     · subst i
+-      rw [if_pos rfl,finiteFrame_pair_sub_left,hright,hright]
++      rw [ite_eq_left rfl,finiteFrame_pair_sub_left,hright,hright]
+       fin_cases j <;> norm_num [sel]
+-    · rw [if_neg hi,hright]
++    · rw [ite_eq_right hi,hright]
+       simp only [hsel.eq_iff]
+   obtain ⟨F,hspan,hF⟩ := finiteFrame_of_rightInverse (tieRows L p) (fun j => v (sel j))
+     (fun i j => hraw i (sel j)) hright5
+   exact ⟨F,hF⟩
++

@@ -1,0 +1,4 @@
+import SourceEndpointRegression
+open I4SourceEndpointRegression
+example : sourcePrescribedPins 1 0 = ![0,0,0,0,0,2] := by
+  norm_num [sourcePrescribedPins]

@@ -1,0 +1,130 @@
+{
+  "status": "ROOT_ADOPTED_ALL_NINE_ACTUAL_CLOSED_PATHS_AND_ACTUAL_CUT_COPY_BINDING",
+  "adopted_utc": "2026-10-28T22:12:55.634838+00:00",
+  "rows": [
+    {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/final-closure001/receipt.json",
+      "bytes": 71134,
+      "sha256": "2c12bc05471c9e8fe9e3e5c6106f79ec7c94ae3004c852195d01feaa6664194a",
+      "marker": [
+        71134,
+        1793224377395033985
+      ],
+      "first_observed_utc": "2026-10-28T22:12:55.634396+00:00",
+      "root_adoption_effect": "Previouslyunhashed closedactualdocumentarypayload FIRSTIDONCE"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/final-closure001/stdout.log",
+      "bytes": 2500,
+      "sha256": "e255eb58b3db586f222b29ba9a1cfecb1b6b1afbc66984560a5c42d0733db107",
+      "marker": [
+        2500,
+        1793224377374971057
+      ],
+      "first_observed_utc": "2026-10-28T21:52:57.394183+00:00",
+      "origin": "new actual version identity, calculated once",
+      "root_adoption_effect": "Known producerFIRSTID REUSED, no rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/final-closure001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "marker": [
+        0,
+        1793224377248466941
+      ],
+      "first_observed_utc": "2026-10-28T21:52:57.394228+00:00",
+      "origin": "new actual version identity, calculated once",
+      "root_adoption_effect": "Known producerFIRSTID REUSED, no rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/final-closure001/outer.receipt.json",
+      "bytes": 847,
+      "sha256": "0d593288171027472dedee8ca13335616d0eebd9a98599ac806fe2d9157fe5de",
+      "marker": [
+        847,
+        1793224377413555251
+      ],
+      "first_observed_utc": "2026-10-28T22:12:55.634460+00:00",
+      "root_adoption_effect": "Previouslyunhashed closedactualdocumentarypayload FIRSTIDONCE"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/final-closure001/outer.stdout.log",
+      "bytes": 155,
+      "sha256": "28be8906a62628707e64e9614829a5e984ac6e6e85e48253c0f0c1dfbcbcf537",
+      "marker": [
+        155,
+        1793224377405428304
+      ],
+      "first_observed_utc": "2026-10-28T22:12:55.634478+00:00",
+      "root_adoption_effect": "Previouslyunhashed closedactualdocumentarypayload FIRSTIDONCE"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/final-closure001/outer.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "marker": [
+        0,
+        1793224377177489686
+      ],
+      "first_observed_utc": "2026-10-28T22:12:55.634494+00:00",
+      "root_adoption_effect": "Knownexactempty-payload identity reused; zeroactualbytes implyknownemptySHA withoutrehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/final-closure001/entry.receipt.json",
+      "bytes": 957,
+      "sha256": "48ae13ef3d71e26a456f6805ec3066ee58915072dc3ef88ec80c1534c7742a5a",
+      "marker": [
+        957,
+        1793224377418557778
+      ],
+      "first_observed_utc": "2026-10-28T22:12:55.634581+00:00",
+      "root_adoption_effect": "Previouslyunhashed closedactualdocumentarypayload FIRSTIDONCE"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/final-closure001/entry.stdout.log",
+      "bytes": 795,
+      "sha256": "e45167aff9cddaf9565725e9e0259622104d0f05100fa658bc143f9419f4e69b",
+      "marker": [
+        795,
+        1793224377413555251
+      ],
+      "first_observed_utc": "2026-10-28T22:12:55.634600+00:00",
+      "root_adoption_effect": "Previouslyunhashed closedactualdocumentarypayload FIRSTIDONCE"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/final-closure001/entry.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "marker": [
+        0,
+        1793224377153490162
+      ],
+      "first_observed_utc": "2026-10-28T22:12:55.634608+00:00",
+      "root_adoption_effect": "Knownexactempty-payload identity reused; zeroactualbytes implyknownemptySHA withoutrehash"
+    }
+  ],
+  "new_closed_payload_hashes": 5,
+  "reused_closed_payload_IDs": 4,
+  "FINAL_DOCUMENT_IDS_self_reused": {
+    "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/FINAL_DOCUMENT_IDS.json",
+    "bytes": 7197,
+    "sha256": "ce735a09a95a3972170f3a6115e317471a97f64b2dedc36dc31cb9d8f5ba4ac1",
+    "marker": [
+      7197,
+      1793224377362930156
+    ],
+    "first_observed_utc": "2026-10-28T21:52:57.362964+00:00",
+    "origin": "FIRST new actual final closure payload/version identity, calculated once"
+  },
+  "cut_copy_addendum": {
+    "path": "/workspace/scratch/actual-source-saddle-uppercuts-publication/ROOT_CUT_COPY_ADDENDUM.json",
+    "bytes": 1972,
+    "sha256": "83ee91f2f32f8f3ca794939022b49b7657230110607dff72b47684aa9984f716",
+    "first_observed_utc": "2026-10-28T22:12:55.634836+00:00",
+    "origin": "NEWadditiveprocessbindingpayloadFIRSTIDONCE"
+  },
+  "producer_cache_modified": false,
+  "producer_generator_or_math_replayed": false,
+  "self_identity": "Thisadoptionrecordnotselfhashed; anylaternecessaryFIRSTIDonce/cache."
+}

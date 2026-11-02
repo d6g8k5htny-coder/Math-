@@ -1,0 +1,120 @@
+import SourceConfluentPins
+import ConfluentIntegralIdentities
+import Mathlib.Analysis.Calculus.ContDiff.Comp
+import Mathlib.Tactic.FinCases
+
+noncomputable section
+
+open I4Source I4Weights I4SourceDerivativeGaussian I4SourceConfluentPins
+
+namespace I4ModeCurveChains
+
+def axisMap : ℝ →L[ℝ] (Fin 2 → ℝ) where
+  toFun t := ![t,0]
+  map_add' s t := by ext i; fin_cases i <;> simp
+  map_smul' c t := by ext i; fin_cases i <;> simp
+  cont := by fun_prop
+
+theorem mode_smooth (L : ℝ) (m : SourceMode 2) :
+    ContDiff ℝ (⊤ : ℕ∞) (modeCoefficient 2 L m) := by
+  cases m with
+  | none =>
+    change ContDiff ℝ (⊤ : ℕ∞) (fun _ : Fin 2 → ℝ => Real.sqrt (1 / sourceZ 2 L))
+    fun_prop
+  | some p =>
+    rcases p with ⟨k,b⟩
+    change ContDiff ℝ (⊤ : ℕ∞) (fun x : Fin 2 → ℝ =>
+      Real.sqrt (2 * sourceWeight 2 L k / sourceZ 2 L) *
+        if b then Real.sin (phase 2 L k x) else Real.cos (phase 2 L k x))
+    cases b <;> simp only [Bool.false_eq_true, ite_false, ite_true] <;>
+      unfold phase <;> fun_prop
+
+theorem axis_iteratedDeriv (f : (Fin 2 → ℝ) → ℝ)
+    (hf : ContDiff ℝ (⊤ : ℕ∞) f) (k : ℕ) (t : ℝ) :
+    iteratedDeriv k (fun s => f ![s,0]) t =
+      iteratedFDeriv ℝ k f ![t,0] (fun _ => directionX) := by
+  rw [iteratedDeriv_eq_iteratedFDeriv]
+  have h := axisMap.iteratedFDeriv_comp_right hf t (i := k) (by simp)
+  have hh := congrArg (fun A => A (fun _ => (1 : ℝ))) h
+  simpa [Function.comp_def, axisMap, directionX,
+    ContinuousMultilinearMap.compContinuousLinearMap_apply] using hh
+
+theorem axis_transverse_smooth (f : (Fin 2 → ℝ) → ℝ)
+    (hf : ContDiff ℝ (⊤ : ℕ∞) f) :
+    ContDiff ℝ (⊤ : ℕ∞) (fun t => fderiv ℝ f ![t,0] directionY) := by
+  have hdf : ContDiff ℝ (⊤ : ℕ∞) (fderiv ℝ f) := hf.fderiv_right (by simp)
+  exact (hdf.clm_apply contDiff_const).comp axisMap.contDiff
+
+theorem axis_transverse_iteratedDeriv (f : (Fin 2 → ℝ) → ℝ)
+    (hf : ContDiff ℝ (⊤ : ℕ∞) f) (k : ℕ) (t : ℝ) :
+    iteratedDeriv k (fun s => fderiv ℝ f ![s,0] directionY) t =
+      iteratedFDeriv ℝ (k+1) f ![t,0] (Fin.snoc (fun _ => directionX) directionY) := by
+  have hdf : ContDiff ℝ (⊤ : ℕ∞) (fderiv ℝ f) := hf.fderiv_right (by simp)
+  have hfun : ContDiff ℝ (⊤ : ℕ∞) (fun x => fderiv ℝ f x directionY) :=
+    hdf.clm_apply contDiff_const
+  calc
+    _ = iteratedFDeriv ℝ k (fun x => fderiv ℝ f x directionY) ![t,0]
+        (fun _ => directionX) := axis_iteratedDeriv _ hfun k t
+    _ = iteratedFDeriv ℝ k (fderiv ℝ f) ![t,0] (fun _ => directionX) directionY :=
+      iteratedFDeriv_clm_apply_const_apply hdf (by simp)
+    _ = _ := by
+      rw [iteratedFDeriv_succ_apply_right, Fin.init_snoc, Fin.snoc_last]
+
+def modeF (L : ℝ) (m : SourceMode 2) (t : ℝ) : ℝ := modeCoefficient 2 L m ![t,0]
+def modeH (L : ℝ) (m : SourceMode 2) (t : ℝ) : ℝ :=
+  derivativeCoefficient 2 L 1 ![t,0] ![directionY] m
+
+theorem modeH_eq (L : ℝ) (m : SourceMode 2) :
+    modeH L m = fun t => fderiv ℝ (modeCoefficient 2 L m) ![t,0] directionY := by
+  funext t
+  exact iteratedFDeriv_one_apply _
+
+theorem modeF_C3 (L : ℝ) (m : SourceMode 2) : ContDiff ℝ 3 (modeF L m) :=
+  ((mode_smooth L m).comp axisMap.contDiff).of_le (by simp)
+
+theorem modeH_C2 (L : ℝ) (m : SourceMode 2) : ContDiff ℝ 2 (modeH L m) := by
+  rw [modeH_eq]
+  exact (axis_transverse_smooth _ (mode_smooth L m)).of_le (by simp)
+
+theorem modeF_deriv (L : ℝ) (m : SourceMode 2) (t : ℝ) :
+    deriv (modeF L m) t = derivativeCoefficient 2 L 1 ![t,0] ![directionX] m := by
+  change deriv (fun s => modeCoefficient 2 L m ![s,0]) t = _
+  have h := axis_iteratedDeriv _ (mode_smooth L m) 1 t
+  simpa [derivativeCoefficient, iteratedDeriv_one] using h
+
+theorem modeF_second (L : ℝ) (m : SourceMode 2) (t : ℝ) :
+    iteratedDeriv 2 (modeF L m) t =
+      derivativeCoefficient 2 L 2 ![t,0] ![directionX,directionX] m := by
+  change iteratedDeriv 2 (fun s => modeCoefficient 2 L m ![s,0]) t = _
+  have h := axis_iteratedDeriv _ (mode_smooth L m) 2 t
+  have hd : (fun _ : Fin 2 => directionX) = ![directionX,directionX] := by
+    ext i; fin_cases i <;> rfl
+  simpa only [derivativeCoefficient, hd] using h
+
+theorem modeF_third (L : ℝ) (m : SourceMode 2) (t : ℝ) :
+    iteratedDeriv 3 (modeF L m) t =
+      derivativeCoefficient 2 L 3 ![t,0] ![directionX,directionX,directionX] m := by
+  change iteratedDeriv 3 (fun s => modeCoefficient 2 L m ![s,0]) t = _
+  have h := axis_iteratedDeriv _ (mode_smooth L m) 3 t
+  have hd : (fun _ : Fin 3 => directionX) = ![directionX,directionX,directionX] := by
+    ext i; fin_cases i <;> rfl
+  simpa only [derivativeCoefficient, hd] using h
+
+theorem modeH_deriv (L : ℝ) (m : SourceMode 2) (t : ℝ) :
+    deriv (modeH L m) t = derivativeCoefficient 2 L 2 ![t,0] ![directionX,directionY] m := by
+  rw [modeH_eq]
+  have h := axis_transverse_iteratedDeriv _ (mode_smooth L m) 1 t
+  have hd : Fin.snoc (fun _ : Fin 1 => directionX) directionY =
+      ![directionX,directionY] := by ext i; fin_cases i <;> rfl
+  simpa only [iteratedDeriv_one, derivativeCoefficient, hd] using h
+
+theorem modeH_second (L : ℝ) (m : SourceMode 2) (t : ℝ) :
+    iteratedDeriv 2 (modeH L m) t =
+      derivativeCoefficient 2 L 3 ![t,0] ![directionX,directionX,directionY] m := by
+  rw [modeH_eq]
+  have h := axis_transverse_iteratedDeriv _ (mode_smooth L m) 2 t
+  have hd : Fin.snoc (fun _ : Fin 2 => directionX) directionY =
+      ![directionX,directionX,directionY] := by ext i; fin_cases i <;> rfl
+  simpa only [derivativeCoefficient, hd] using h
+
+end I4ModeCurveChains

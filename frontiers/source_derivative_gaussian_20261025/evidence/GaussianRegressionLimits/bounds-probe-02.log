@@ -1,0 +1,21 @@
+/workspace/scratch/regression-limits/bounds-probe.lean:23:35: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Norm (Matrix ι ι ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/regression-limits/bounds-probe.lean:23:43: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Norm (Matrix ι ι ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/regression-limits/bounds-probe.lean:24:40: error: linarith failed to find a contradiction
+ι : Type u_1
+inst✝ : Fintype ι
+f : ℝ → ι → ℝ
+g : ℝ → Matrix ι ι ℝ
+f0 : ι → ℝ
+g0 : Matrix ι ι ℝ
+hf : Tendsto f (𝓝[>] 0) (𝓝 f0)
+hg : Tendsto g (𝓝[>] 0) (𝓝 g0)
+hfb : ∀ᶠ (r : ℝ) in 𝓝[>] 0, ‖f r‖ < ‖f0‖ + 1
+a✝ : ?m.163 ≤ ‖?m.149‖
+⊢ False
+failed

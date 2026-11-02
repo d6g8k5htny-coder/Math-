@@ -1,11 +1,18 @@
 name: Elder third-order exact controls
 
+# The pull_request paths after tests/test_legacy_workflow_triggers.py are the bound merged sources
+# (consumed in SOURCES.json) and the pinned unmerged dependencies.
 'on':
   pull_request:
     paths:
       - 'frontiers/elder_third_order_20261001/**'
       - '.github/workflows/elder-third-order.yml'
-      # bound merged sources (consumed in SOURCES.json) and the pinned unmerged dependencies
+      - 'tools/legacy_json_replay.py'
+      - 'tools/legacy_json_contracts.json'
+      - 'tests/test_legacy_json_workflows.py'
+      - 'tools/**'
+      - 'tools.py'
+      - 'tests/test_legacy_workflow_triggers.py'
       - 'frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md'
       - 'imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md'
       - 'imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md'
@@ -32,9 +39,20 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
-      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.11.16'
+      - name: Check legacy import-resolution trigger coverage
+        run: |
+          python -B -S tests/test_legacy_workflow_triggers.py
+          python -B -O -S tests/test_legacy_workflow_triggers.py
+      - name: Exercise the complete shell rejection contract in both modes
+        env:
+          LEGACY_TEST_FAMILY: 'elder-third-order'
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python -B -S tests/test_legacy_json_workflows.py
+          python -B -O -S tests/test_legacy_json_workflows.py
       - name: Verify sources, replay both modes, reject mutants
         env:
           PYTHONDONTWRITEBYTECODE: '1'
@@ -140,19 +158,8 @@ jobs:
                   now = current(entry) if kind == 'consumed_unmerged' else None
                   print(json.dumps({kind + '_bound': entry['path'], 'git_blob': entry['git_blob'], 'head': entry['head'],
                                     'via': where, 'current_ref_checked': now}))
-          script = str(root / 'e3_check.py')
-          expected = (root / 'RESULTS.json').read_bytes()
-          for flags in (['-B', '-S'], ['-B', '-O', '-S']):
-              out = subprocess.run([sys.executable, *flags, script], check=True, capture_output=True, timeout=600).stdout
-              if out != expected:
-                  raise RuntimeError('output differs from RESULTS.json under ' + ' '.join(flags))
-              for m in manifest['mutants']:
-                  rc = subprocess.run([sys.executable, *flags, script, '--mutant', m], capture_output=True, timeout=600).returncode
-                  if rc != 1:
-                      raise RuntimeError('mutant ' + m + ' not rejected')
-              rc = subprocess.run([sys.executable, *flags, script, '--mutant', 'M9'], capture_output=True, timeout=600).returncode
-              if rc != 2:
-                  raise RuntimeError('unknown mutant label not rejected with exit 2')
+          from tools.legacy_json_replay import replay
+          replay('elder-third-order', root)
           print(json.dumps({'scientific_effect': 'NONE', 'mathematical_acceptance': False}))
           PY
           git diff --exit-code

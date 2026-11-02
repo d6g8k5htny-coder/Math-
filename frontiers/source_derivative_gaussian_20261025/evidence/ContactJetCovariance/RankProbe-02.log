@@ -1,0 +1,55 @@
+/workspace/scratch/regression-kernel/contact-gram/RankProbe.lean:34:63: error: linarith failed to find a contradiction
+case h1
+c : ℝ
+hc : c ≠ 0
+z : Fin 7 → ℝ
+h : (contactWitness c)ᵀ *ᵥ z = 0
+hs : ∀ (s : Fin 7), ((contactWitness c)ᵀ *ᵥ z) s = 0 s
+h0 : z 0 = 0
+h1 : c = 0 ∨ z 3 = 0
+h2 : c = 0 ∨ z 6 = 0
+h3 : -(c ^ 2 * z 3) + (-(c ^ 2 * z 4) + -(c ^ 2 * z 6)) = 0
+h4 : c * z 1 + -(c ^ 3 * z 5) = 0
+h5 : 2 * c * z 1 + -(8 * c ^ 3 * z 5) = 0
+h6 : c = 0 ∨ z 2 = 0
+hc2 : c ^ 2 ≠ 0
+hc3 : c ^ 3 ≠ 0
+a✝ : c ^ 2 * z 3 < 0
+⊢ False
+failed
+/workspace/scratch/regression-kernel/contact-gram/RankProbe.lean:35:63: error: linarith failed to find a contradiction
+case h1
+c : ℝ
+hc : c ≠ 0
+z : Fin 7 → ℝ
+h : (contactWitness c)ᵀ *ᵥ z = 0
+hs : ∀ (s : Fin 7), ((contactWitness c)ᵀ *ᵥ z) s = 0 s
+h0 : z 0 = 0
+h1 : c = 0 ∨ z 3 = 0
+h2 : c = 0 ∨ z 6 = 0
+h3 : -(c ^ 2 * z 3) + (-(c ^ 2 * z 4) + -(c ^ 2 * z 6)) = 0
+h4 : c * z 1 + -(c ^ 3 * z 5) = 0
+h5 : 2 * c * z 1 + -(8 * c ^ 3 * z 5) = 0
+h6 : c = 0 ∨ z 2 = 0
+hc2 : c ^ 2 ≠ 0
+hc3 : c ^ 3 ≠ 0
+hz3 : z 3 = 0
+a✝ : c ^ 2 * z 6 < 0
+⊢ False
+failed
+/workspace/scratch/regression-kernel/contact-gram/RankProbe.lean:39:40: error: Application type mismatch: The argument
+  h6
+has type
+  c = 0 ∨ z 2 = 0
+but is expected to have type
+  ?m.373 * ?m.374 = 0
+in the application
+  mul_eq_zero.mp h6
+/workspace/scratch/regression-kernel/contact-gram/RankProbe.lean:59:32: error: Application type mismatch: The argument
+  hs
+has type
+  a s * ((contactWitness c)ᵀ *ᵥ x) s = ((diagonal a * (contactWitness c)ᵀ) *ᵥ y) s
+but is expected to have type
+  a s * ((contactWitness c)ᵀ *ᵥ x) s = a s * ((contactWitness c)ᵀ *ᵥ y) s
+in the application
+  mul_left_cancel₀ (ha s) hs

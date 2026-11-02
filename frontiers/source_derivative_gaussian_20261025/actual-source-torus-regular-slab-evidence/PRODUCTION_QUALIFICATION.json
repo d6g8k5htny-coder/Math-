@@ -1,0 +1,49 @@
+{
+  "recorded_utc": "2026-10-28T18:27:04.135360+00:00",
+  "status": "PASS",
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+    "bytes": 57423,
+    "sha256": "14c900c4e81be9b9ffc85e56fe9c3f191ae8405670d15d0e151a766751b6a23b",
+    "identity_origin": "existing OWN first identity reused; unchanged stat"
+  },
+  "own_object": {
+    "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean",
+    "bytes": 1880192,
+    "sha256": "73dcf886a5f3d2614b93b941d15008b9828ee86d93ff15692823e79f3b03afe8",
+    "identity_origin": "FIRST identity newly created/changed OWN payload"
+  },
+  "strict_receipt": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/compile-final/receipt.json",
+  "inventory_receipt": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/inventory-001/receipt.json",
+  "kernel_receipt": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/kernel-001/receipt.json",
+  "declaration_count": 73,
+  "classifications": {
+    "private generated proof auxiliary": 11,
+    "authored private theorem": 35,
+    "private generated congruence or other declaration": 1,
+    "authored private definition": 8,
+    "private generated simp theorem": 3,
+    "authored private type or level-set alias": 3,
+    "authored private Prop bundle": 3,
+    "private generated defining equation": 6,
+    "sole authored public theorem": 1,
+    "foreign-namespace generated declaration": 2
+  },
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "own_kernel_count": 1,
+  "strict_end": "2026-10-28T18:07:03.762278+00:00",
+  "inventory_end": "2026-10-28T18:08:29.512395+00:00",
+  "kernel_end": "2026-10-28T18:11:15.372164+00:00",
+  "historical_pre_kernel_file": "FINAL_SOURCE_OBJECT_IDS.PRE_KERNEL.json is immutable and truthfully records kernel_count_at_this_source_freeze=0",
+  "source_cut": "f99b2e1b4efb7e0d9d3d83420ba7859a611a2016",
+  "parent": "c18ad0b8f62060cb78670f5f806af25f1307614b",
+  "git_blob": "362b629da2b1895e259decf052f40343e5ce6e24",
+  "root_own_copy_count": 1,
+  "root_own_copy_utc": "2026-10-28T18:14:34.683861Z",
+  "all_further_copies": "SKIP",
+  "verification_reuse": "All unchanged applicable evidence reused; no old checks for session/head/process."
+}

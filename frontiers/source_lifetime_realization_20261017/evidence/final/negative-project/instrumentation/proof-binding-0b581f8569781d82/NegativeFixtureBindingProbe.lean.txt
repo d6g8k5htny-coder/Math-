@@ -1,0 +1,12 @@
+import NegativeFixtureBaseline
+
+set_option pp.fullNames true
+set_option pp.proofs true
+
+#print C291Negative.ZeroField.actualGaussianFieldInterface
+#print C291Negative.ShiftedField.actualGaussianFieldInterface
+#print C291Negative.ZeroMeasure.actualGaussianFieldInterface
+#print C291Negative.HiddenPositiveDimension.actualGaussianFieldInterface
+#print C291Negative.DoubledRawCovariance.actualGaussianFieldInterface
+#print C291Negative.WrongCovarianceArgument.actualGaussianFieldInterface
+#print C291Negative.NegativeQuadraticForm.actualGaussianFieldInterface

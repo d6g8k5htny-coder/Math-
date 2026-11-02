@@ -1,0 +1,41 @@
+/workspace/scratch/contact-endpoint-parameters/generic/residual-probe.lean:52:88: error: unsolved goals
+Ω : Type u_1
+ι : Type u_2
+κ : Type u_3
+inst✝⁵ : MeasurableSpace Ω
+inst✝⁴ : Fintype ι
+inst✝³ : DecidableEq ι
+inst✝² : Fintype κ
+inst✝¹ : DecidableEq κ
+P : Measure Ω
+inst✝ : IsFiniteMeasure P
+J : Ω → ι → ℝ
+T : Ω → κ → ℝ
+hJ : ∀ (i : ι), MemLp (fun ω => J ω i) 2 P
+hT : ∀ (i : κ), MemLp (fun ω => T ω i) 2 P
+hG : IsUnit (of fun i j => cov[fun ω => J ω i, fun ω => J ω j; P])
+G : Matrix ι ι ℝ := fun i j => cov[fun ω => J ω i, fun ω => J ω j; P]
+C : Matrix κ ι ℝ := fun i j => cov[fun ω => T ω i, fun ω => J ω j; P]
+B : Matrix κ κ ℝ := fun i j => cov[fun ω => T ω i, fun ω => T ω j; P]
+D : Matrix κ ι ℝ := C * G⁻¹
+R : Ω → κ → ℝ := fun ω => T ω - D *ᵥ J ω
+hG' : IsUnit G
+x✝ : Invertible G := hG'.invertible
+U : Ω → κ → ℝ := fun ω => D *ᵥ J ω
+hU : ∀ (i : κ), MemLp (fun ω => U ω i) 2 P
+hR : ∀ (i : κ), MemLp (fun ω => R ω i) 2 P
+hnormal : D * G = C
+hUJ : ∀ (i : κ) (j : ι), cov[fun ω => U ω i, fun ω => J ω j; P] = C i j
+hJR : ∀ (i : ι) (j : κ), cov[fun ω => J ω i, fun ω => R ω j; P] = 0
+hUR : ∀ (i j : κ), cov[fun ω => U ω i, fun ω => R ω j; P] = 0
+i j : κ
+a : ι
+a✝ : a ∈ Finset.univ
+⊢ D i a * cov[fun ω => T ω j, fun ω => J ω a; P] = D i a * (fun i j => cov[fun ω => T ω i, fun ω => J ω j; P])ᵀ a j
+/workspace/scratch/contact-endpoint-parameters/generic/residual-probe.lean:56:33: warning: This simp argument is unused:
+  Matrix.transpose_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.mul_apply, C]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

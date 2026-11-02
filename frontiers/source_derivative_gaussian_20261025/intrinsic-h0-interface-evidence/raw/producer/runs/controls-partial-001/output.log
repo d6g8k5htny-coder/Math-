@@ -1,0 +1,8 @@
+/workspace/scratch/intrinsic-h0-interface-construct/IntrinsicH0Controls.lean:45:21: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Decidable ((h0Interface 1 2).IsEssential g M)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/intrinsic-h0-interface-construct/IntrinsicH0Controls.lean:65:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Decidable ((h0Interface 1 2).IsEssential constantSeven 0)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.

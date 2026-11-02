@@ -1,0 +1,36 @@
+{
+  "operation": "establish-exact-public-fetched-native-source65-cut",
+  "started_utc": "2026-10-28T22:00:35.058056+00:00",
+  "ended_utc": "2026-10-28T22:00:35.146023+00:00",
+  "elapsed_seconds": 0.08795976699911989,
+  "status": "PASS_NATIVE_SOURCE_COMMIT_IMPORTED_AND_LOCAL_CUT_ESTABLISHED",
+  "native_sha": "b2d4c91162d98a1daefb5377bf3e65ef8615dd57",
+  "source_cut": "b2d4c91162d98a1daefb5377bf3e65ef8615dd57",
+  "parent_sha": "ee5b141d5ff41a0a9040256a8025690ec22d7266",
+  "tree_sha": "2a0183ccdb01a02591c2763d60837ff5e30c203c",
+  "blob_sha": "4946ca201b962101fba6c5b8572e45a0869188ac",
+  "source_path": "frontiers/source_derivative_gaussian_20261025/SourceActualSaddleUppercuts.lean",
+  "source_identity": {
+    "bytes": 36869,
+    "sha256": "d292c767e789b98a6fbb56e5c21ec8867979faa832a97c1e79c79c899b777129"
+  },
+  "local_branch_ref": "refs/heads/codex/cubic-curvature-20261026",
+  "local_HEAD": "b2d4c91162d98a1daefb5377bf3e65ef8615dd57",
+  "root_canonical_record_observed_utc": "2026-10-28T22:00:35.145202+00:00",
+  "exact_commit_transport": "Unauthenticated PUBLIC Git fetch with allcredentialhelpers/authheaders disabled. Nativeplugin lacked raw-byte transport; actualPUBLICvisibility checked independently. No ghcredentialretry/configchange/tokenaccess.",
+  "raw_commit_path": "/workspace/scratch/actual-source-saddle-uppercuts-publication/public-native-source-cut001/action/NATIVE_COMMIT.exact.txt",
+  "root_action_record": "/workspace/scratch/actual-source-saddle-uppercuts-publication/public-native-source-cut001/action/RESULT.json",
+  "earlier_failed_candidates": [
+    "native-source-import001/action/RESULT.json",
+    "native-source-import002/action/RESULT.json"
+  ],
+  "failure_history": "Both earlier metadata-serialization candidates failed exactSHA gate and causedNOlocalbranch/index/cache/remoteref movement. Preservedfullversions/patches/streams; no furtherguesses or nativecreate_commit retries.",
+  "Git_author_committer": "ExactactualnativeGitobject retained, sharedprincipal is not independentproofauthorship.",
+  "qualification": "Completed actual65production strict/ALL119std3/ONEkernel plus ordinarystrict/ALL123std3/soleFalse reused; no proof/sourceSHA256 replays.",
+  "remote_branch_state": "Root has performedNOremote refupdate; recordedremoteheadee5 unchanged until final65metadata normalfastforward.",
+  "future66": "Fourproper66EXTRAs excludedsource-onlycut and65manifest/archive/registry.",
+  "script_first_identity": "/workspace/scratch/actual-source-saddle-uppercuts-publication/public-native-source-cut001/action/SCRIPT_FIRST_ID.json",
+  "local_ref_cas_completed": true,
+  "source_index_sync_completed": true,
+  "remote_ref_write": false
+}

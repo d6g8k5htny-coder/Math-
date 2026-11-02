@@ -1,0 +1,12 @@
+/workspace/scratch/gaussian-majorants/mgf/MGF.lean:58:13: error(lean.unknownIdentifier): Unknown constant `Real.convexOn_exp.map_add_sum_le`
+/workspace/scratch/gaussian-majorants/mgf/MGF.lean:54:68: error: unsolved goals
+I : Type u_1
+s : Finset I
+w x : I → ℝ
+W t : ℝ
+hW : 0 < W
+hw : ∀ (i : I), 0 ≤ w i
+hsum : ∑ i ∈ s, w i ≤ W
+hmass : ∑ i ∈ s, w i / W ≤ 1
+⊢ Real.exp (t * ∑ i ∈ s, w i * |x i|) ≤ 1 - ∑ i ∈ s, w i / W + ∑ i ∈ s, w i / W * Real.exp (t * W * |x i|)
+lean_exit=1

@@ -1,0 +1,36 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean:92:28: error(lean.unknownIdentifier): Unknown identifier `Function.mul_apply`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean:92:166: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq ((Fin 2 → ℝ) →L[ℝ] ℝ)
+    (fderiv ℝ
+      ((fun x => (1 - Real.cos (sourceC L * (x jM - endpointM r jM))) ^ 2) * fun x =>
+        (1 - Real.cos (sourceC L * (x jS - endpointS r jS))) ^ 2)
+      (endpointM r))
+    0
+but is expected to have type
+  @Eq ((Fin 2 → ℝ) →L[ℝ] ℝ)
+    (fderiv ℝ
+      (fun y =>
+        (1 - Real.cos (sourceC L * (y jM - endpointM r jM))) ^ 2 *
+          (1 - Real.cos (sourceC L * (y jS - endpointS r jS))) ^ 2)
+      (endpointM r))
+    0
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean:95:28: error(lean.unknownIdentifier): Unknown identifier `Function.mul_apply`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean:95:166: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq ((Fin 2 → ℝ) →L[ℝ] ℝ)
+    (fderiv ℝ
+      ((fun x => (1 - Real.cos (sourceC L * (x jM - endpointM r jM))) ^ 2) * fun x =>
+        (1 - Real.cos (sourceC L * (x jS - endpointS r jS))) ^ 2)
+      (endpointS r))
+    0
+but is expected to have type
+  @Eq ((Fin 2 → ℝ) →L[ℝ] ℝ)
+    (fderiv ℝ
+      (fun y =>
+        (1 - Real.cos (sourceC L * (y jM - endpointM r jM))) ^ 2 *
+          (1 - Real.cos (sourceC L * (y jS - endpointS r jS))) ^ 2)
+      (endpointS r))
+    0

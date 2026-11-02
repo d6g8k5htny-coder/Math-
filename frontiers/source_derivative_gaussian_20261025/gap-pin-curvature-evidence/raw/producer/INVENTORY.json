@@ -1,0 +1,183 @@
+{
+  "module": "SourceGapPinCurvature",
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceGapPinCurvature.lean",
+    "bytes": 13281,
+    "sha256": "67f6c671e4ed8a7cb8557fc6027403f4fd1e94cba984e672eaa3ceb94ab8847e"
+  },
+  "object": {
+    "path": "/workspace/scratch/gap-pin-curvature-construct/build/SourceGapPinCurvature.olean",
+    "bytes": 467776,
+    "sha256": "00378503fe93cca757712046d9c6818296880b5524d7c0096f87794c2657eb2c"
+  },
+  "coverage": "Every constant selected by actual environment module index SourceGapPinCurvature, not by name prefix. Transitive collectAxioms of every owned constant.",
+  "receipt": {
+    "path": "/workspace/scratch/gap-pin-curvature-construct/runs/inventory-001/receipt.json",
+    "bytes": 1748,
+    "sha256": "48ea83c7e64f1fd54ecdae5c4a4f43ab610d73ed5ad28a0faa437c53ba644a2e"
+  },
+  "complete_constant_count": 10,
+  "all_standard3": true,
+  "rows": [
+    {
+      "name": "I4SourceGapPinCurvature.sourceGapLaw_curvature_bounds",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "research_role": "Closed actual-law all-real-b,k endpoint; hL-only delta before r,b,k; derive covariance invertibility and pins.",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceGapPinCurvature.sourceSmoothKernel_curvature_bounds_ae",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "research_role": "Every target with zero rows 3/4: derive actual posterior support and physical estimates.",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceGapPinCurvature.sourceSmoothWeight_curvature_bound",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "research_role": "Exact physical q-sensitive strict-type weight bound; zero rows 3/4 only.",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceGapPinCurvature.sourceSmoothWeight_radius_bound",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "research_role": "Coarse 10*r^2*Gamma^4 physical weight bound on r<=1.",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceGapPinCurvature.source_bad_curvature_slab",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "research_role": "Visible real A one-sided obstruction gives symmetric slab; no pin premise.",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceGapPinCurvature.source_normalized_determinant_bounds",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "research_role": "Two literal normalized endpoint determinant factors; zero rows 3/4 only.",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceGapPinCurvature.source_normalized_first_four_bound",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "research_role": "Endpoint absolute bound by original Gamma radius; nonzero radius only.",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceGapPinCurvature.source_normalized_first_four_third_bound",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "research_role": "Direct Peano absolute endpoint bound by actual third-majorant/2; no sixth-pin premise or radius cap.",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceGapPinCurvature.source_normalized_transverse_errors",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "research_role": "Both transverse q-errors; no pin premise.",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceGapPinCurvature.source_positive_weight_curvature_upper",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "research_role": "Strict type implies q<r*third-majorant; no pin premise.",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ]
+}

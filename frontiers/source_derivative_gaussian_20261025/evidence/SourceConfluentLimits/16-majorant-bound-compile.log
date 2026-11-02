@@ -1,0 +1,8 @@
+SourceConfluentLimits.lean:821:41: error: Type mismatch: After simplification, term
+  h
+ has type
+  @LE.le ℝ Real.instLE ‖weightedDerivativeIntegral L 3 ![directionX, directionX, directionX] m peanoCubic r‖
+    (derivativeMajorant 2 L 3 ![directionX, directionX, directionX] m)
+but is expected to have type
+  @LE.le ℝ Real.instPreorder.toLE ‖weightedDerivativeIntegral L 3 ![directionX, directionX, directionX] m peanoCubic r‖
+    (modeComponentMajorant L m 5)

@@ -1,0 +1,276 @@
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:73:12: error: Type mismatch
+  actualField_smooth d hL
+has type
+  ∀ (ω : SmoothSample d L), IsSmooth d (actualField d L ω)
+but is expected to have type
+  ∀ (ω : SmoothSample d L), IsSmooth d fun x => 0
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:74:14: error: Type mismatch
+  actualField_periodic d hL
+has type
+  ∀ (ω : SmoothSample d L), IsLPeriodic d L (actualField d L ω)
+but is expected to have type
+  ∀ (ω : SmoothSample d L), IsLPeriodic d L fun x => 0
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:78:16: error: Type mismatch
+  actualField_raw_second_moment d hL
+has type
+  ∀ (x y : E d),
+    ∫ (ω : SmoothSample d L), actualField d L ω x * actualField d L ω y ∂smoothLaw d L = periodicCovariance d L (x - y)
+but is expected to have type
+  ∀ (x y : E d), ∫ (ω : SmoothSample d L), 0 * 0 ∂smoothLaw d L = periodicCovariance d L (x - y)
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:77:14: error: Type mismatch
+  actualField_linearCombination_map d hL
+has type
+  ∀ (x : Fin ?m.26 → E d) (a : Fin ?m.26 → ℝ),
+    Measure.map (fun ω => ∑ i, a i * actualField d L ω (x i)) (smoothLaw d L) = gaussianReal 0 ⟨covQuadForm d L x a, ⋯⟩
+but is expected to have type
+  ∀ (x : Fin m✝ → E d) (a : Fin m✝ → ℝ),
+    Measure.map (fun ω => ∑ i, a i * 0) (smoothLaw d L) = gaussianReal 0 ⟨covQuadForm d L x a, ⋯⟩
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:84:0: error: Not a definitional equality: the left-hand side
+  (actualGaussianFieldInterface d L hL).Ω
+is not definitionally equal to the right-hand side
+  SmoothSample d L
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:85:66: error: Type mismatch
+  rfl
+has type
+  ?m.9 = ?m.9
+but is expected to have type
+  (actualGaussianFieldInterface d L hL).Ω = SmoothSample d L
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:88:46: error: Type mismatch
+  smoothLaw d L
+has type
+  Measure (SmoothSample d L)
+but is expected to have type
+  Measure (actualGaussianFieldInterface d L hL).Ω
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:87:2: error: Cannot add `simp` attribute to `actualGaussianFieldInterface_law`: It is not a proposition nor a definition (to unfold)
+
+Note: The `[simp]` attribute can be added to lemmas that should be automatically used by the simplifier and to definitions that the simplifier should automatically unfold
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:92:44: error: Application type mismatch: The argument
+  ω
+has type
+  SmoothSample d L
+but is expected to have type
+  (actualGaussianFieldInterface d L hL).Ω
+in the application
+  (actualGaussianFieldInterface d L hL).F ω
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:158:12: error: Type mismatch
+  actualField_smooth d hL
+has type
+  ∀ (ω : SmoothSample d L), IsSmooth d (actualField d L ω)
+but is expected to have type
+  ∀ (ω : SmoothSample d L), IsSmooth d fun x => actualField d L ω x + 1
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:159:14: error: Type mismatch
+  actualField_periodic d hL
+has type
+  ∀ (ω : SmoothSample d L), IsLPeriodic d L (actualField d L ω)
+but is expected to have type
+  ∀ (ω : SmoothSample d L), IsLPeriodic d L fun x => actualField d L ω x + 1
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:163:16: error: Type mismatch
+  actualField_raw_second_moment d hL
+has type
+  ∀ (x y : E d),
+    ∫ (ω : SmoothSample d L), actualField d L ω x * actualField d L ω y ∂smoothLaw d L = periodicCovariance d L (x - y)
+but is expected to have type
+  ∀ (x y : E d),
+    ∫ (ω : SmoothSample d L), (actualField d L ω x + 1) * (actualField d L ω y + 1) ∂smoothLaw d L =
+      periodicCovariance d L (x - y)
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:162:14: error: Type mismatch
+  actualField_linearCombination_map d hL
+has type
+  ∀ (x : Fin ?m.31 → E d) (a : Fin ?m.31 → ℝ),
+    Measure.map (fun ω => ∑ i, a i * actualField d L ω (x i)) (smoothLaw d L) = gaussianReal 0 ⟨covQuadForm d L x a, ⋯⟩
+but is expected to have type
+  ∀ (x : Fin m✝ → E d) (a : Fin m✝ → ℝ),
+    Measure.map (fun ω => ∑ i, a i * (actualField d L ω (x i) + 1)) (smoothLaw d L) =
+      gaussianReal 0 ⟨covQuadForm d L x a, ⋯⟩
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:169:0: error: Not a definitional equality: the left-hand side
+  (actualGaussianFieldInterface d L hL).Ω
+is not definitionally equal to the right-hand side
+  SmoothSample d L
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:170:66: error: Type mismatch
+  rfl
+has type
+  ?m.9 = ?m.9
+but is expected to have type
+  (actualGaussianFieldInterface d L hL).Ω = SmoothSample d L
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:173:46: error: Type mismatch
+  smoothLaw d L
+has type
+  Measure (SmoothSample d L)
+but is expected to have type
+  Measure (actualGaussianFieldInterface d L hL).Ω
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:172:2: error: Cannot add `simp` attribute to `actualGaussianFieldInterface_law`: It is not a proposition nor a definition (to unfold)
+
+Note: The `[simp]` attribute can be added to lemmas that should be automatically used by the simplifier and to definitions that the simplifier should automatically unfold
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:177:44: error: Application type mismatch: The argument
+  ω
+has type
+  SmoothSample d L
+but is expected to have type
+  (actualGaussianFieldInterface d L hL).Ω
+in the application
+  (actualGaussianFieldInterface d L hL).F ω
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:241:12: error: Type mismatch
+  smoothLaw_isProbabilityMeasure d (LT.lt.ne' hL)
+has type
+  IsProbabilityMeasure (smoothLaw d L)
+but is expected to have type
+  IsProbabilityMeasure 0
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:248:16: error: Type mismatch
+  actualField_raw_second_moment d hL
+has type
+  ∀ (x y : E d),
+    ∫ (ω : SmoothSample d L), actualField d L ω x * actualField d L ω y ∂smoothLaw d L = periodicCovariance d L (x - y)
+but is expected to have type
+  ∀ (x y : E d), ∫ (ω : SmoothSample d L), actualField d L ω x * actualField d L ω y ∂0 = periodicCovariance d L (x - y)
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:247:14: error: Type mismatch
+  actualField_linearCombination_map d hL
+has type
+  ∀ (x : Fin ?m.22 → E d) (a : Fin ?m.22 → ℝ),
+    Measure.map (fun ω => ∑ i, a i * actualField d L ω (x i)) (smoothLaw d L) = gaussianReal 0 ⟨covQuadForm d L x a, ⋯⟩
+but is expected to have type
+  ∀ (x : Fin m✝ → E d) (a : Fin m✝ → ℝ),
+    Measure.map (fun ω => ∑ i, a i * actualField d L ω (x i)) 0 = gaussianReal 0 ⟨covQuadForm d L x a, ⋯⟩
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:254:0: error: Not a definitional equality: the left-hand side
+  (actualGaussianFieldInterface d L hL).Ω
+is not definitionally equal to the right-hand side
+  SmoothSample d L
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:255:66: error: Type mismatch
+  rfl
+has type
+  ?m.9 = ?m.9
+but is expected to have type
+  (actualGaussianFieldInterface d L hL).Ω = SmoothSample d L
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:258:46: error: Type mismatch
+  smoothLaw d L
+has type
+  Measure (SmoothSample d L)
+but is expected to have type
+  Measure (actualGaussianFieldInterface d L hL).Ω
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:257:2: error: Cannot add `simp` attribute to `actualGaussianFieldInterface_law`: It is not a proposition nor a definition (to unfold)
+
+Note: The `[simp]` attribute can be added to lemmas that should be automatically used by the simplifier and to definitions that the simplifier should automatically unfold
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:262:44: error: Application type mismatch: The argument
+  ω
+has type
+  SmoothSample d L
+but is expected to have type
+  (actualGaussianFieldInterface d L hL).Ω
+in the application
+  (actualGaussianFieldInterface d L hL).F ω
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:321:63: warning: Variable name `hd` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hd
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:337:3: error: Application type mismatch: The argument
+  actualGaussianFieldInterface d L hL
+has type
+  0 < d → GaussianFieldInterface d L
+but is expected to have type
+  GaussianFieldInterface d L
+in the application
+  Nonempty.intro (actualGaussianFieldInterface d L hL)
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:340:42: error(lean.invalidField): Invalid field `Ω`: The environment does not contain `Function.Ω`, so it is not possible to project the field `Ω` from an expression
+  actualGaussianFieldInterface d L hL
+of type
+  0 < d → GaussianFieldInterface d L
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:343:42: error(lean.invalidField): Invalid field `P`: The environment does not contain `Function.P`, so it is not possible to project the field `P` from an expression
+  actualGaussianFieldInterface d L hL
+of type
+  0 < d → GaussianFieldInterface d L
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:347:42: error(lean.invalidField): Invalid field `F`: The environment does not contain `Function.F`, so it is not possible to project the field `F` from an expression
+  actualGaussianFieldInterface d L hL
+of type
+  0 < d → GaussianFieldInterface d L
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:353:2: error: Type mismatch
+  actualGaussianFieldInterface 0 1 ?m.9
+has type
+  0 < 0 → GaussianFieldInterface 0 1
+but is expected to have type
+  GaussianFieldInterface 0 1
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:370:2: error: Type mismatch: After simplification, term
+  actualField_covariance d hL x y
+ has type
+  ∫ (ω : SmoothSample d L), actualField d L ω x * actualField d L ω y ∂smoothLaw d L = periodicCovariance d L (x - y)
+but is expected to have type
+  ∫ (ω : SmoothSample d L), actualField d L ω x * actualField d L ω y ∂smoothLaw d L =
+    2 * periodicCovariance d L (x - y)
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:418:16: error: Type mismatch
+  actualField_raw_second_moment d hL
+has type
+  ∀ (x y : E d),
+    ∫ (ω : SmoothSample d L), actualField d L ω x * actualField d L ω y ∂smoothLaw d L =
+      2 * periodicCovariance d L (x - y)
+but is expected to have type
+  ∀ (x y : E d),
+    ∫ (ω : SmoothSample d L), actualField d L ω x * actualField d L ω y ∂smoothLaw d L = periodicCovariance d L (x - y)
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:455:2: error: Type mismatch: After simplification, term
+  actualField_covariance d hL x y
+ has type
+  ∫ (ω : SmoothSample d L), actualField d L ω x * actualField d L ω y ∂smoothLaw d L = periodicCovariance d L (x - y)
+but is expected to have type
+  ∫ (ω : SmoothSample d L), actualField d L ω x * actualField d L ω y ∂smoothLaw d L = periodicCovariance d L (x + y)
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:503:16: error: Type mismatch
+  actualField_raw_second_moment d hL
+has type
+  ∀ (x y : E d),
+    ∫ (ω : SmoothSample d L), actualField d L ω x * actualField d L ω y ∂smoothLaw d L = periodicCovariance d L (x + y)
+but is expected to have type
+  ∀ (x y : E d),
+    ∫ (ω : SmoothSample d L), actualField d L ω x * actualField d L ω y ∂smoothLaw d L = periodicCovariance d L (x - y)
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:562:2: error: Type mismatch
+  variance_nonneg ?m.18 ?m.19
+has type
+  0 ≤ Var[?m.18; ?m.19]
+but is expected to have type
+  0 ≤ -Var[fun ω => ∑ i, a i * actualField d L ω (x i); smoothLaw d L]
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:567:43: error: Application type mismatch: The argument
+  covQuadForm_nonneg d hL x a
+has type
+  0 ≤ -covQuadForm d L x a
+but is expected to have type
+  0 ≤ covQuadForm d L x a
+in the application
+  ⟨covQuadForm d L x a, ⋯⟩
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:573:28: error: Application type mismatch: The argument
+  covQuadForm_nonneg d hL x a
+has type
+  0 ≤ -covQuadForm d L x a
+but is expected to have type
+  0 ≤ covQuadForm d L x a
+in the application
+  Real.coe_toNNReal (covQuadForm d L x a) (covQuadForm_nonneg d hL x a)
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:586:17: error: Type mismatch
+  covQuadForm_nonneg d hL
+has type
+  ∀ (x : Fin ?m.18 → E d) (a : Fin ?m.18 → ℝ), 0 ≤ -covQuadForm d L x a
+but is expected to have type
+  ∀ (x : Fin m✝ → E d) (a : Fin m✝ → ℝ), 0 ≤ covQuadForm d L x a
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:594:0: error: Not a definitional equality: the left-hand side
+  (actualGaussianFieldInterface d L hL).Ω
+is not definitionally equal to the right-hand side
+  SmoothSample d L
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:595:66: error: Type mismatch
+  rfl
+has type
+  ?m.9 = ?m.9
+but is expected to have type
+  (actualGaussianFieldInterface d L hL).Ω = SmoothSample d L
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:598:46: error: Type mismatch
+  smoothLaw d L
+has type
+  Measure (SmoothSample d L)
+but is expected to have type
+  Measure (actualGaussianFieldInterface d L hL).Ω
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:597:2: error: Cannot add `simp` attribute to `actualGaussianFieldInterface_law`: It is not a proposition nor a definition (to unfold)
+
+Note: The `[simp]` attribute can be added to lemmas that should be automatically used by the simplifier and to definitions that the simplifier should automatically unfold
+@C291_ROOT@/negative-project/generations/0b581f8569781d82/NegativeConstructorMutants.lean:602:44: error: Application type mismatch: The argument
+  ω
+has type
+  SmoothSample d L
+but is expected to have type
+  (actualGaussianFieldInterface d L hL).Ω
+in the application
+  (actualGaussianFieldInterface d L hL).F ω

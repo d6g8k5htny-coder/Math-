@@ -200,3 +200,27 @@ bytes. The new tests are synthetic and do not execute Lean. New
 current-commit kernel receipts and hosted checks are still required after
 publication. Alignment remains PENDING_INDEPENDENT_REVIEW; scientific
 effect NONE.
+
+## RF312 source/receipt engineering proposal, 28 October 2026
+
+This dated private proposal preserves the mathematical text and historical evidence above.
+Its source basis is RF312 `80946e1cf311b3cbbb051bb3662357b11f8b3d75`, formal tree
+`8922fd8c833df0c52d4a8c7b5c3ad802b93098d4`, with the unchanged nine formal Lean/root
+blobs, 63 target entries, source modules, dependencies, toolchain and companion Lean/contract bytes.
+These are source identities and declared dependencies, not a fresh proof or applicability review.
+
+The raw manifest SHA256 is `ba7d11e43574e39da3c759e0501399a6dcd1b7da32b157a4a6b01f5c133b3062`;
+the core receipt instead binds composite source `481653d73d00f64bf06fefbf24be994f60ebe5c54f826abf899461f6e6937066`.
+The fixed strict RF312 overlay contract must match; no raw-receipt fallback is admitted.
+The reused identity validator lies outside the formal tree, at `tools/required_formal_check.py`
+(blob `0b9d694bdf888c75826ca07ae176c5a5c43b8880`, SHA256
+`6c27355237b45d3999298522c141984ff5b7c114f18b3c555cc45989976fc6dc`). Its source bytes are
+checked before those verified bytes are evaluated; drift, symlink, missing overlay and wrong regimes refuse.
+Its identity is also retained in the source snapshot across execution. Atom's two imported companion
+Lean pins and all existing runtime re-observation checks are preserved.
+
+Protocol unit fixtures are synthetic and execute no Lean or finite-law diagnostic. They do not
+supply a core or companion kernel/runtime receipt. Existing receipts/reviews remain historical;
+fresh actual current-composition core and all three D2 hosted/negative-control/runtime checks,
+qualified review and separate integration remain required. Scientific effect NONE; alignment and
+scientific acceptance are unchanged. No existing312 source/ref or integration custody follows.

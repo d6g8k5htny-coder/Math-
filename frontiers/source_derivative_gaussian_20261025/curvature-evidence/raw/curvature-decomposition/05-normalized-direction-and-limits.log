@@ -1,0 +1,41 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:250:78: error: unsolved goals
+case e_a
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+ω : SmoothSample 2 L
+i : Fin 6
+a✝ : i ∈ Finset.univ
+⊢ curvatureBeta L r i * scalarSeries (pinCoefficient L r i) ↑ω =
+    curvatureBeta L r i * scalarSeries (pinCoefficient L r i) (sampleInclusion 2 L ω)
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:503:13: error(lean.unknownIdentifier): Unknown identifier `sourcePrescribedPins_tendsto`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:501:28: error: unsolved goals
+L : ℝ
+hL : L ≠ 0
+b : ℝ
+hb : Tendsto (curvatureBeta L) (𝓝[>] 0) (𝓝 (sourceContactCross L ᵥ* (sourcePinCovariance L)⁻¹))
+⊢ Tendsto (fun r => curvatureMean L r (sourcePrescribedPins r b)) (𝓝[>] 0)
+    (𝓝 (sourceContactCross L ᵥ* (sourcePinCovariance L)⁻¹ ⬝ᵥ ![b, 0, 0, 0, 0, 2]))
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:532:14: error(lean.unknownIdentifier): Unknown identifier `sourceEndpoint_parameter_limits`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:519:62: error: unsolved goals
+L : ℝ
+hL : L ≠ 0
+b : ℝ
+β0 : Fin 6 → ℝ := sourceContactCross L ᵥ* (sourcePinCovariance L)⁻¹
+m0 : ℝ := β0 ⬝ᵥ ![b, 0, 0, 0, 0, 2]
+B : ℝ := ‖β0‖ + 1
+M : ℝ := |m0| + 1
+hτ : ∀ᶠ (r : ℝ) in 𝓝[>] 0, sourceContactSchur L / 2 < curvatureVariance L r
+hβ : ∀ᶠ (r : ℝ) in 𝓝[>] 0, ‖curvatureBeta L r‖ < B
+hm : ∀ᶠ (r : ℝ) in 𝓝[>] 0, |curvatureMean L r (sourcePrescribedPins r b)| < M
+⊢ ∃ B M δ,
+    0 ≤ B ∧
+      0 ≤ M ∧
+        0 < δ ∧
+          δ ≤ 1 ∧
+            ∀ (r : ℝ),
+              0 < r →
+                r < δ →
+                  IsUnit (sourcePinCovarianceAt L r) ∧
+                    sourceContactSchur L / 2 ≤ curvatureVariance L r ∧
+                      (∀ (i : Fin 6), |curvatureBeta L r i| ≤ B) ∧ |curvatureMean L r (sourcePrescribedPins r b)| ≤ M

@@ -1,0 +1,25 @@
+{
+  "operation": "root65-worker-capture",
+  "script_argv": [
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/native-runtime/capture.py",
+    "--run-dir",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/native-source-tree001/worker",
+    "--cwd",
+    "/workspace/Math-curvature-20261026",
+    "--scope",
+    "worker",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/native-runtime/prepare_source_tree.py",
+    "--repo",
+    "/workspace/Math-curvature-20261026",
+    "--frozen-source",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/frozen/FINAL_SOURCE.lean",
+    "--run-dir",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/native-source-tree001/action"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026",
+  "started_utc": "2026-10-28T21:48:47.433550+00:00",
+  "policy": "No automatic retry; all actual command streams remain original and separate.",
+  "credential_environment_logged": false
+}

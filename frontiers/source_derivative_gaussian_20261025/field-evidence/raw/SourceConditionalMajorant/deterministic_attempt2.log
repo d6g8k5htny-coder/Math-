@@ -1,0 +1,7 @@
+SourceConditionalMajorant.lean:196:6: error: Type mismatch: After simplification, term
+  hb
+ has type
+  @LE.le ℝ Real.instPreorder.toLE (‖derivativeCoefficient 2 L k x u m‖ * |↑ω m|)
+    (orderModeBound k 2 L m * (|↑ω m| * ∏ j, ‖u j‖))
+but is expected to have type
+  @LE.le ℝ Real.instLE (|derivativeCoefficient 2 L k x u m| * ‖↑ω m‖) (orderModeBound k 2 L m * (|↑ω m| * ∏ j, ‖u j‖))

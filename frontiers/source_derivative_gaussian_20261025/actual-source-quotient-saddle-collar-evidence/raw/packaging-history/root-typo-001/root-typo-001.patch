@@ -1,0 +1,25 @@
+--- before/FINAL_INPUTS.schema.json
++++ after/FINAL_INPUTS.schema.json
+@@ -32,9 +32,9 @@
+     "bytes": 0,
+     "sha256": "EXISTING first ID"
+   },
+-  "identity_custody_rule": "Reuse ALL existing producer/root/helper/context/ACK/patch/stream/final-document identities at their actual immutable paths. Historical IDs bind their actual snapshots, not changed canonical paths. Source snapshots/runner/context snapshots and split-stream IDs in actual62 receipts seed automatically. Only unrecorded NEW immutable metadata payloads may receive first IDs after final GO. Binary bytes never enter the archive or a second cache copy.",
++  "identity_custody_rule": "Reuse ALL existing producer/root/helper/context/ACK/patch/stream/final-document identities at their actual immutable paths. Historical IDs bind their actual snapshots, not changed canonical paths. Source snapshots/runner/context snapshots and split-stream IDs in actual64 receipts seed automatically. Only unrecorded NEW immutable metadata payloads may receive first IDs after final GO. Binary bytes never enter the archive or a second cache copy.",
+   "run_records": [],
+-  "run_record_rule": "Read actual FINAL execution-index schema/key only when available; normalize its complete authoritative receipt.json list, including real failures/timeouts and documentary calls. Actual64 runner001 adds scope_kind verification/documentary; snapshots[{immutable_path,existing_identity}], runner_version/runner_history, before/after/command/cwd/started_utc/ended_utc/exit and original stdout.log/stderr.log. Keep verification/documentary/unlabeled counts distinct;124/resource failure never intendedFalse. No source/object/run/owned guesses.",
++  "run_record_rule": "Read actual FINAL execution-index schema/key only when available; normalize its complete authoritative receipt.json list, including real failures/timeouts and documentary calls. Preserve actual64 runner001 and runner002: runner001 adds scope_kind verification/documentary; runner002 additionally retains Python harness snapshots and the worker-known copy cache. Retain snapshots[{immutable_path,existing_identity}], runner_version/runner_history, before/after/command/cwd/started_utc/ended_utc/exit and original stdout.log/stderr.log. Keep verification/documentary/unlabeled counts distinct;124/resource failure never intendedFalse. No source/object/run/owned guesses.",
+   "curated_producer_files": [],
+   "inventory_archive_path": "raw/producer/PENDING actual complete classified inventory filename",
+   "inventory_summary": {
+--- before/READINESS.md
++++ after/READINESS.md
+@@ -2,7 +2,7 @@
+ 
+ Prepared custody.py/archive_prepare.py/finalize_metadata.py/run_finalization.py/launch_finalization.py, PLAN.md and FINAL_INPUTS.schema.json. No final generation/archive/firsthash/copy/assembly/check/metadata attempt/seal/math/Lean/Git/shared/external execution. Existing63 outputs/IDs and prior62A original remain untouched, no old CI/verification/hash/object replay.
+ 
+-Actual64 runner001 metadata read: new scope_kind verification/documentary, receipt.json/snapshots[{immutable_path,existing_identity}], runner/context history/before-after/command/cwd/start/end/exit and stdout.log/stderr.log. Future final actual index/allowlist/inventory schema and all sizes/counts remain PENDING. Total/verification/documentary/unlabeled scopes distinct; important documentary and metadata OUTER split captures must precede execution and retain actual script versions. Cache each FIRST new identity once. No fabricated capture history or replay.
++Actual64 runner001 metadata read; retain BOTH actual64 runner001/002 histories, including runner002 Python harness snapshots and worker-known copy cache. Runner001 schema: new scope_kind verification/documentary, receipt.json/snapshots[{immutable_path,existing_identity}], runner/context history/before-after/command/cwd/start/end/exit and stdout.log/stderr.log. Future final actual index/allowlist/inventory schema and all sizes/counts remain PENDING. Total/verification/documentary/unlabeled scopes distinct; important documentary and metadata OUTER split captures must precede execution and retain actual script versions. Cache each FIRST new identity once. No fabricated capture history or replay.
+ 
+ Needed later: explicit FINAL64_GO after WHOLE source strict/inventory ALLowned/std3/ONEfinalkernel/producer-authored ordinary Controls+same-chart counterproof/sole importingFalse; actual root sourcecut/parent/source+eligible own-object IDs/root ONLY copied-once record; exact frozen producer/root/review allowlist and ALL existing current/historical/helper/context/ACK/patch/receipt/stream/final-document IDs; dynamic authoritative receipt list; TWO chart/geometry production originals once/0helperexec/hash; producer ordinary source initial complete snapshot/full amendments/passed object/receipt (NO ordinary TEXT helper); exact negative harness/object/stream sizes and same chosen-chart binding; honest root/final nonauthor review scopes/curated docs/documentary captures. Reuse PRECODE64 four first IDs and6822baseline f482 manifest/SUMS. ALL65 root EXTRA paths excluded.
+ 

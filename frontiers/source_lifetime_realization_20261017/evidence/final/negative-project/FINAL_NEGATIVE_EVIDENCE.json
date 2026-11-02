@@ -1,0 +1,144 @@
+{
+  "status": "PASS",
+  "generation": "0b581f8569781d82",
+  "baseline_production_field_sha256": "daf0949a14d4ed8bd19fbdc564f0f8c3fad72ed243de73e39d65b2951576919a",
+  "baseline_production_audit_sha256": "fea8df29106f295238b3a039bb2aae350167a9ada2326d6d00ba6f6663be52c3",
+  "fixture_manifest": "negative-project/generations/0b581f8569781d82/MANIFEST.json",
+  "fixture_manifest_sha256": "f511a499d1804a3033728cc576e9c6bba0f8954039f811b9ec1fe71cc73df279",
+  "fixture_module_hashes": {
+    "NegativeFixtureBaseline": {
+      "sha256": "a18de8fb87069c26adac05b37bf065cc4c58b910d72a5b3209b826bb1424ae91",
+      "bytes": 26759
+    },
+    "NegativeConstructorMutants": {
+      "sha256": "48e62f0fdcfecac7d9a4a1f53463cd7e3a8323d7a370e5c2696a2046d7484b10",
+      "bytes": 26090
+    },
+    "NegativeUnusedAxiom": {
+      "sha256": "f6a6813861b706769c502e5d86035cbc224608c79f0a90bb2d283c0c1db295e8",
+      "bytes": 4000
+    },
+    "NegativeUnusedAxiomAudit": {
+      "sha256": "4efe2800a8392203c9add4077a4f61278ef56f9fa78183999b238decdfe54a38",
+      "bytes": 3808
+    }
+  },
+  "two_part_acceptance": {
+    "path": "negative-runs/positive-acceptance-0b581f8569781d82/TWO_PART_ACCEPTANCE.json",
+    "sha256": "114095a00fbb6c5e56acfa23e43b3eaf13673b1fc9174dcc0f97d84d5d87714c"
+  },
+  "runs": {
+    "positive_baseline": {
+      "receipt": "negative-runs/20261017T231301Z-NegativeFixtureBaseline-482f2ff2/RECEIPT.json",
+      "receipt_sha256": "1d278de59b1c3d56da4d40f12d12dc77f43c96108a684ec6446644027d1c7272",
+      "actual_lean_exit": 0,
+      "control_pass": false,
+      "timed_out": false,
+      "seconds": 201.524897875,
+      "runner_sha256": "9b666ae4a8834299c154a7642542050be0ee6fcf8d69f76c6161f9b39a0a7b19",
+      "files": {
+        "START.json": "73ca8007177d3e31456963350456219cc1bd68b9edbf5aae613f7f5253e41251",
+        "RECEIPT.json": "1d278de59b1c3d56da4d40f12d12dc77f43c96108a684ec6446644027d1c7272",
+        "stdout.txt": "a6f3dfa8ca8f72eb3148e7ae02920490a79752f43f10e39a2414b1ac468f3819",
+        "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "RUNNER.py": "9b666ae4a8834299c154a7642542050be0ee6fcf8d69f76c6161f9b39a0a7b19"
+      }
+    },
+    "binding_probe": {
+      "receipt": "negative-runs/20261017T232142Z-NegativeFixtureBindingProbe-b26210bd/RECEIPT.json",
+      "receipt_sha256": "6eb94d244bfaa3005821d020f4b591fad865b393d4199a7f679fd6fe6282f437",
+      "actual_lean_exit": 0,
+      "control_pass": true,
+      "timed_out": false,
+      "seconds": 197.70520758299998,
+      "runner_sha256": "e1931aeb581065c2c6e2fbd25bf6e123a43c1bfd6f9ddf0a3df256ee3d735409",
+      "files": {
+        "START.json": "569204ed7d4074c5e360dd17ef02deddb48307fd53b57f50de47642016cbba34",
+        "RECEIPT.json": "6eb94d244bfaa3005821d020f4b591fad865b393d4199a7f679fd6fe6282f437",
+        "stdout.txt": "c4d7478f329200c92e14b4f8257c97502f080a318026b7f97527944ba8a1c639",
+        "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "RUNNER.py": "e1931aeb581065c2c6e2fbd25bf6e123a43c1bfd6f9ddf0a3df256ee3d735409",
+        "IMPORTED_RUNNER.py": "407e16658429c752074acb30c6ced60b26796e89173740334e13863950cd45e1"
+      }
+    },
+    "mutants": {
+      "receipt": "negative-runs/20261017T232636Z-NegativeConstructorMutants-1360c308/RECEIPT.json",
+      "receipt_sha256": "085c9990013e3e8f46a615778fa28ba4bf133d1e021990edd24040bfe8ce994c",
+      "actual_lean_exit": 1,
+      "control_pass": true,
+      "timed_out": false,
+      "seconds": 234.20743158300002,
+      "runner_sha256": "57d43dda2d54d4a4acb5c24cec966a3c469cdedfa05c489f13a2e8c327a802df",
+      "files": {
+        "START.json": "bb91716d12db885cb40b3638a1d210597df629f8f90ad7bf5744ad9a70e0bd58",
+        "RECEIPT.json": "085c9990013e3e8f46a615778fa28ba4bf133d1e021990edd24040bfe8ce994c",
+        "stdout.txt": "f982e65b99a8d61949b1dea1140bfe7106829e141a7653736eced5bbd448a3b1",
+        "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "RUNNER.py": "57d43dda2d54d4a4acb5c24cec966a3c469cdedfa05c489f13a2e8c327a802df"
+      }
+    },
+    "axiom_carrier": {
+      "receipt": "negative-runs/20261017T233110Z-NegativeUnusedAxiom-72e81a54/RECEIPT.json",
+      "receipt_sha256": "2e17f1c3532a563a7ad556051ec14bfa9dfc48efb99a1d6a89bcac006f386ce0",
+      "actual_lean_exit": 0,
+      "control_pass": true,
+      "timed_out": false,
+      "seconds": 231.405199,
+      "runner_sha256": "57d43dda2d54d4a4acb5c24cec966a3c469cdedfa05c489f13a2e8c327a802df",
+      "files": {
+        "START.json": "e8e0a60110b63ff21380a12d95758c76eba163bb9c53fa3840c31d6981846a3c",
+        "RECEIPT.json": "2e17f1c3532a563a7ad556051ec14bfa9dfc48efb99a1d6a89bcac006f386ce0",
+        "stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "RUNNER.py": "57d43dda2d54d4a4acb5c24cec966a3c469cdedfa05c489f13a2e8c327a802df"
+      }
+    },
+    "axiom_rejection": {
+      "receipt": "negative-runs/20261017T233547Z-NegativeUnusedAxiomAudit-34a4e478/RECEIPT.json",
+      "receipt_sha256": "413762ff03b7421c2a49f246d5cc46855256d454d428ea42863ce1d2e5dd716f",
+      "actual_lean_exit": 1,
+      "control_pass": true,
+      "timed_out": false,
+      "seconds": 337.217113042,
+      "runner_sha256": "57d43dda2d54d4a4acb5c24cec966a3c469cdedfa05c489f13a2e8c327a802df",
+      "files": {
+        "START.json": "39b1fe00ac02c9c30abf81df9111247c77a514111bd381a507b223e64d5abc27",
+        "RECEIPT.json": "413762ff03b7421c2a49f246d5cc46855256d454d428ea42863ce1d2e5dd716f",
+        "stdout.txt": "fd5cc2b6c2a6b986492283596a498b73ab4c002307cc21245c93ae06f78ad02a",
+        "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "RUNNER.py": "57d43dda2d54d4a4acb5c24cec966a3c469cdedfa05c489f13a2e8c327a802df"
+      }
+    }
+  },
+  "private_axiom_audit_module_counts": {
+    "GaussianSeriesFoundation": "12",
+    "SpectralWeights": "28",
+    "SourceFourierSeries": "25",
+    "SourceC4": "10",
+    "SourceGaussianLaw": "10",
+    "SourceLattice": "27",
+    "SourceKernel": "7",
+    "SourceCovariance": "4",
+    "SourceTorus": "16",
+    "SourceTorusC4": "14",
+    "SourceSmooth": "26",
+    "SourceSmoothCarrier": "33",
+    "SourceSmoothControls": "10",
+    "Lifetime": "103",
+    "SourceThetaBridge": "34",
+    "SourceLifetimeGeometry": "16",
+    "SourceLifetimeField": "11",
+    "SourceLifetimeControls": "22",
+    "NegativeUnusedAxiom": "13"
+  },
+  "private_axiom_error": [
+    {
+      "line": 19,
+      "column": 0,
+      "message": "forbidden transitive axiom _private.NegativeUnusedAxiom.0.C291Negative.UnusedAxiom.c291UnusedCustomAxiom in _private.NegativeUnusedAxiom.0.C291Negative.UnusedAxiom.c291UnusedCustomAxiom"
+    }
+  ],
+  "evidence_scope": "Compiler proof-binding mutation controls and private unused-axiom census rejection; not independent mathematical or scientific acceptance.",
+  "production_writes": false,
+  "executor": "OpenAI Codex subagent c291_field_feasibility, delegated work for Dylan Roy; not a human review by Dylan Roy."
+}

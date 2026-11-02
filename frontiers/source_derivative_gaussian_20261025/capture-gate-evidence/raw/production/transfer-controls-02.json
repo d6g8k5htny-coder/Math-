@@ -1,0 +1,27 @@
+{
+  "scope": "Only new SourceQuarticCaptureAlgebra transfer-buffer/projection/orientation controls; prior closed Q2/Q3 control evidence reused unchanged, not rerun",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/scratch/quartic-capture-production/Controls.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit_code": 0,
+  "sha256_before": {
+    "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+    "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+    "control": "28fd17cbfbf0dc0568a50dd17fbcb292257f5476f83091227318999938d35784"
+  },
+  "sha256_after": {
+    "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+    "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+    "control": "28fd17cbfbf0dc0568a50dd17fbcb292257f5476f83091227318999938d35784"
+  },
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "log_bytes": 0,
+  "started_utc": "2026-10-26T02:13:24.147905+00:00",
+  "elapsed_seconds": 5.157088041305542,
+  "author_side_helper_lineage": "OpenAI /root/palm_measure_transfer, no independent review credit"
+}

@@ -1,0 +1,104 @@
+[
+  {
+    "label": "boundary-control-001",
+    "exit_code": 0,
+    "receipt": "runs/boundary-control-001/receipt.json",
+    "log": "runs/boundary-control-001/output.log"
+  },
+  {
+    "label": "compile-final",
+    "exit_code": 0,
+    "receipt": "runs/compile-final/receipt.json",
+    "log": "runs/compile-final/output.log"
+  },
+  {
+    "label": "controls-001",
+    "exit_code": 1,
+    "receipt": "runs/controls-001/receipt.json",
+    "log": "runs/controls-001/output.log"
+  },
+  {
+    "label": "controls-002",
+    "exit_code": 1,
+    "receipt": "runs/controls-002/receipt.json",
+    "log": "runs/controls-002/output.log"
+  },
+  {
+    "label": "controls-003",
+    "exit_code": 0,
+    "receipt": "runs/controls-003/receipt.json",
+    "log": "runs/controls-003/output.log"
+  },
+  {
+    "label": "direct-axioms-001",
+    "exit_code": 0,
+    "receipt": "runs/direct-axioms-001/receipt.json",
+    "log": "runs/direct-axioms-001/output.log"
+  },
+  {
+    "label": "early-compile-001",
+    "exit_code": 1,
+    "receipt": "runs/early-compile-001/receipt.json",
+    "log": "runs/early-compile-001/output.log"
+  },
+  {
+    "label": "early-compile-002",
+    "exit_code": 1,
+    "receipt": "runs/early-compile-002/receipt.json",
+    "log": "runs/early-compile-002/output.log"
+  },
+  {
+    "label": "early-compile-003",
+    "exit_code": 1,
+    "receipt": "runs/early-compile-003/receipt.json",
+    "log": "runs/early-compile-003/output.log"
+  },
+  {
+    "label": "early-compile-004",
+    "exit_code": 1,
+    "receipt": "runs/early-compile-004/receipt.json",
+    "log": "runs/early-compile-004/output.log"
+  },
+  {
+    "label": "early-compile-005",
+    "exit_code": 0,
+    "receipt": "runs/early-compile-005/receipt.json",
+    "log": "runs/early-compile-005/output.log"
+  },
+  {
+    "label": "early-compile-006",
+    "exit_code": 1,
+    "receipt": "runs/early-compile-006/receipt.json",
+    "log": "runs/early-compile-006/output.log"
+  },
+  {
+    "label": "early-compile-007",
+    "exit_code": 0,
+    "receipt": "runs/early-compile-007/receipt.json",
+    "log": "runs/early-compile-007/output.log"
+  },
+  {
+    "label": "early-compile-008",
+    "exit_code": 0,
+    "receipt": "runs/early-compile-008/receipt.json",
+    "log": "runs/early-compile-008/output.log"
+  },
+  {
+    "label": "false-control-001",
+    "exit_code": 1,
+    "receipt": "runs/false-control-001/receipt.json",
+    "log": "runs/false-control-001/output.log"
+  },
+  {
+    "label": "inventory-001",
+    "exit_code": 0,
+    "receipt": "runs/inventory-001/receipt.json",
+    "log": "runs/inventory-001/output.log"
+  },
+  {
+    "label": "kernel-001",
+    "exit_code": 0,
+    "receipt": "runs/kernel-001/receipt.json",
+    "log": "runs/kernel-001/output.log"
+  }
+]

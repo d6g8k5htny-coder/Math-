@@ -1,0 +1,214 @@
+ResearchFormalCoreR1/DeterminantMoment.lean:14:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'Real.instDivInvMonoid', which is 'noncomputable'
+ResearchFormalCoreR1/DeterminantMoment.lean:18:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'Real.instDivInvMonoid', which is 'noncomputable'
+ResearchFormalCoreR1/DeterminantMoment.lean:27:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Decidable (dm2Negative (dm2HM r j) ∧ (dm2HS r j).det < 0)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+ResearchFormalCoreR1/DeterminantMoment.lean:66:8: error: linarith failed to find a contradiction
+r : ℝ
+j : DM2Jet
+hr : 0 < r
+hr1 : r ≤ 1
+R : ℝ := dm2Radius j
+hR : 0 ≤ R
+hsum : ∑ i, |j i| = |j 0| + |j 1| + |j 2| + |j 3| + |j 4| + |j 5| + |j 6| + |j 7| + |j 8|
+hbudget : 1 + |j 0| + |j 1| + |j 2| + |j 4| + |j 5| + |j 6| ≤ R
+hscale : ∀ (i : Fin 9), |r * j i| ≤ |j i|
+hscale2 : ∀ (i : Fin 9), |r ^ 2 * j i| ≤ |j i|
+this : |-1 + r * j 4 / 12| ≤ 1 + |r| * |j 4| / 12
+a✝ : 1 + |j 4| < |-1 + r * j 4 / 12|
+⊢ False
+failed
+ResearchFormalCoreR1/DeterminantMoment.lean:72:4: error: linarith failed to find a contradiction
+r : ℝ
+j : DM2Jet
+hr : 0 < r
+hr1 : r ≤ 1
+R : ℝ := dm2Radius j
+hR : 0 ≤ R
+hsum : ∑ i, |j i| = |j 0| + |j 1| + |j 2| + |j 3| + |j 4| + |j 5| + |j 6| + |j 7| + |j 8|
+hbudget : 1 + |j 0| + |j 1| + |j 2| + |j 4| + |j 5| + |j 6| ≤ R
+hscale : ∀ (i : Fin 9), |r * j i| ≤ |j i|
+hscale2 : ∀ (i : Fin 9), |r ^ 2 * j i| ≤ |j i|
+haM : |-1 + r * j 4 / 12| ≤ R
+this : |1 + r * j 4 / 12| ≤ 1 + |r| * |j 4| / 12
+a✝ : R < |1 + r * j 4 / 12|
+⊢ False
+failed
+ResearchFormalCoreR1/DeterminantMoment.lean:77:4: error: linarith failed to find a contradiction
+r : ℝ
+j : DM2Jet
+hr : 0 < r
+hr1 : r ≤ 1
+R : ℝ := dm2Radius j
+hR : 0 ≤ R
+hsum : ∑ i, |j i| = |j 0| + |j 1| + |j 2| + |j 3| + |j 4| + |j 5| + |j 6| + |j 7| + |j 8|
+hbudget : 1 + |j 0| + |j 1| + |j 2| + |j 4| + |j 5| + |j 6| ≤ R
+hscale : ∀ (i : Fin 9), |r * j i| ≤ |j i|
+hscale2 : ∀ (i : Fin 9), |r ^ 2 * j i| ≤ |j i|
+haM : |-1 + r * j 4 / 12| ≤ R
+haS : |1 + r * j 4 / 12| ≤ R
+this : |-j 1 / 2 + r * j 5 / 12| ≤ |j 1| / 2 + |r| * |j 5| / 12
+a✝ : R < |-j 1 / 2 + r * j 5 / 12|
+⊢ False
+failed
+ResearchFormalCoreR1/DeterminantMoment.lean:82:4: error: linarith failed to find a contradiction
+r : ℝ
+j : DM2Jet
+hr : 0 < r
+hr1 : r ≤ 1
+R : ℝ := dm2Radius j
+hR : 0 ≤ R
+hsum : ∑ i, |j i| = |j 0| + |j 1| + |j 2| + |j 3| + |j 4| + |j 5| + |j 6| + |j 7| + |j 8|
+hbudget : 1 + |j 0| + |j 1| + |j 2| + |j 4| + |j 5| + |j 6| ≤ R
+hscale : ∀ (i : Fin 9), |r * j i| ≤ |j i|
+hscale2 : ∀ (i : Fin 9), |r ^ 2 * j i| ≤ |j i|
+haM : |-1 + r * j 4 / 12| ≤ R
+haS : |1 + r * j 4 / 12| ≤ R
+hbM : |-j 1 / 2 + r * j 5 / 12| ≤ R
+this : |j 1 / 2 + r * j 5 / 12| ≤ |j 1| / 2 + |r| * |j 5| / 12
+a✝ : R < |j 1 / 2 + r * j 5 / 12|
+⊢ False
+failed
+ResearchFormalCoreR1/DeterminantMoment.lean:88:4: error: linarith failed to find a contradiction
+r : ℝ
+j : DM2Jet
+hr : 0 < r
+hr1 : r ≤ 1
+R : ℝ := dm2Radius j
+hR : 0 ≤ R
+hsum : ∑ i, |j i| = |j 0| + |j 1| + |j 2| + |j 3| + |j 4| + |j 5| + |j 6| + |j 7| + |j 8|
+hbudget : 1 + |j 0| + |j 1| + |j 2| + |j 4| + |j 5| + |j 6| ≤ R
+hscale : ∀ (i : Fin 9), |r * j i| ≤ |j i|
+hscale2 : ∀ (i : Fin 9), |r ^ 2 * j i| ≤ |j i|
+haM : |-1 + r * j 4 / 12| ≤ R
+haS : |1 + r * j 4 / 12| ≤ R
+hbM : |-j 1 / 2 + r * j 5 / 12| ≤ R
+hbS : |j 1 / 2 + r * j 5 / 12| ≤ R
+h1 : |j 0 - r * j 2 / 2| ≤ |j 0| + |r| * |j 2| / 2
+h2 : |j 0 - r * j 2 / 2 + r ^ 2 * j 6 / 8| ≤ |j 0 - r * j 2 / 2| + r ^ 2 * |j 6| / 8
+a✝ : R < |j 0 - r * j 2 / 2 + r ^ 2 * j 6 / 8|
+⊢ False
+failed
+ResearchFormalCoreR1/DeterminantMoment.lean:94:4: error: linarith failed to find a contradiction
+r : ℝ
+j : DM2Jet
+hr : 0 < r
+hr1 : r ≤ 1
+R : ℝ := dm2Radius j
+hR : 0 ≤ R
+hsum : ∑ i, |j i| = |j 0| + |j 1| + |j 2| + |j 3| + |j 4| + |j 5| + |j 6| + |j 7| + |j 8|
+hbudget : 1 + |j 0| + |j 1| + |j 2| + |j 4| + |j 5| + |j 6| ≤ R
+hscale : ∀ (i : Fin 9), |r * j i| ≤ |j i|
+hscale2 : ∀ (i : Fin 9), |r ^ 2 * j i| ≤ |j i|
+haM : |-1 + r * j 4 / 12| ≤ R
+haS : |1 + r * j 4 / 12| ≤ R
+hbM : |-j 1 / 2 + r * j 5 / 12| ≤ R
+hbS : |j 1 / 2 + r * j 5 / 12| ≤ R
+hcM : |j 0 - r * j 2 / 2 + r ^ 2 * j 6 / 8| ≤ R
+h1 : |j 0 + r * j 2 / 2| ≤ |j 0| + |r| * |j 2| / 2
+h2 : |j 0 + r * j 2 / 2 + r ^ 2 * j 6 / 8| ≤ |j 0 + r * j 2 / 2| + r ^ 2 * |j 6| / 8
+a✝ : R < |j 0 + r * j 2 / 2 + r ^ 2 * j 6 / 8|
+⊢ False
+failed
+ResearchFormalCoreR1/DeterminantMoment.lean:100:21: error: Application type mismatch: The argument
+  hM
+has type
+  |(-1 + r * j 4 / 12) * (j 0 - r * j 2 / 2 + r ^ 2 * j 6 / 8) - r * (-j 1 / 2 + r * j 5 / 12) ^ 2| ≤ 2 * R ^ 2
+but is expected to have type
+  |(-1 + r * j 4 / 12) * (j 0 - r * j 2 / 2 + r * r * j 6 / 8) - r * (-j 1 / 2 + r * j 5 / 12) ^ 2| ≤
+    npowRec 1 (2 * R ^ 2)
+in the application
+  mul_le_mul hM
+ResearchFormalCoreR1/DeterminantMoment.lean:100:46: error: failed to prove positivity/nonnegativity/nonzeroness
+ResearchFormalCoreR1/DeterminantMoment.lean:103:4: error: (deterministic) timeout at `«Mathlib.Tactic.Linarith.SimplexAlgorithm.Gauss.getTableauImp»`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+ResearchFormalCoreR1/DeterminantMoment.lean:47:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+ResearchFormalCoreR1/DeterminantMoment.lean:119:2: error: Tactic `split_ifs` failed: no if-then-else conditions to split
+
+r : ℝ
+j : DM2Jet
+hr : 0 < r
+hr1 : r ≤ 1
+⊢ sorry ^ 2 ≤ 16 * r ^ 4 * dm2Radius j ^ 8
+ResearchFormalCoreR1/DeterminantMoment.lean:144:6: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+ResearchFormalCoreR1/DeterminantMoment.lean:168:36: error: Tactic `apply` failed: could not unify the conclusion of `@isOpen_lt`
+  IsOpen {b | ?f b < ?g b}
+with the goal
+  MeasurableSet fun j => Real.lt✝ (-r + r ^ 2 * j 4 / 12) 0
+
+Note: The full type of `@isOpen_lt` is
+  ∀ {α : Type ?u.312} {β : Type ?u.311} [inst : TopologicalSpace α] [inst_1 : LinearOrder α] [OrderClosedTopology α]
+    [inst_3 : TopologicalSpace β] {f g : β → α}, Continuous f → Continuous g → IsOpen {b | f b < g b}
+
+case h₁.h₁
+r : ℝ
+hm : Continuous fun j => (dm2HM r j).det
+hs : Continuous fun j => (dm2HS r j).det
+⊢ MeasurableSet fun j => Real.lt✝ (-r + r ^ 2 * j 4 / 12) 0
+ResearchFormalCoreR1/DeterminantMoment.lean:168:36: error: Tactic `apply` failed: could not unify the conclusion of `@isOpen_lt`
+  IsOpen {b | ?f b < ?g b}
+with the goal
+  MeasurableSet fun j =>
+    Real.lt✝ 0 ((-r + r ^ 2 * j 4 / 12) * (j 0 - r * j 2 / 2 + r ^ 2 * j 6 / 8) - (-j 1 * r / 2 + r ^ 2 * j 5 / 12) ^ 2)
+
+Note: The full type of `@isOpen_lt` is
+  ∀ {α : Type ?u.312} {β : Type ?u.311} [inst : TopologicalSpace α] [inst_1 : LinearOrder α] [OrderClosedTopology α]
+    [inst_3 : TopologicalSpace β] {f g : β → α}, Continuous f → Continuous g → IsOpen {b | f b < g b}
+
+case h₁.h₂
+r : ℝ
+hm : Continuous fun j => (dm2HM r j).det
+hs : Continuous fun j => (dm2HS r j).det
+⊢ MeasurableSet fun j =>
+    Real.lt✝ 0 ((-r + r ^ 2 * j 4 / 12) * (j 0 - r * j 2 / 2 + r ^ 2 * j 6 / 8) - (-j 1 * r / 2 + r ^ 2 * j 5 / 12) ^ 2)
+ResearchFormalCoreR1/DeterminantMoment.lean:170:2: error: Type mismatch
+  Measurable.ite htype (Measurable.abs (Measurable.mul (Continuous.measurable hm) (Continuous.measurable hs)))
+    measurable_const
+has type
+  Measurable fun x =>
+    if dm2Negative (dm2HM r x) ∧ (dm2HS r x).det < 0 then |((fun j => (dm2HM r j).det) * fun j => (dm2HS r j).det) x|
+    else ?m.1091
+but is expected to have type
+  Measurable (dm2Weight r)
+ResearchFormalCoreR1/DeterminantMoment.lean:160:42: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [dm2HM, Matrix.det_fin_two, Matrix.cons_val_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ResearchFormalCoreR1/DeterminantMoment.lean:160:64: warning: This simp argument is unused:
+  Matrix.cons_val_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [dm2HM, Matrix.det_fin_two, Matrix.cons_val_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ResearchFormalCoreR1/DeterminantMoment.lean:163:42: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [dm2HS, Matrix.det_fin_two, Matrix.cons_val_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ResearchFormalCoreR1/DeterminantMoment.lean:163:64: warning: This simp argument is unused:
+  Matrix.cons_val_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [dm2HS, Matrix.det_fin_two, Matrix.cons_val_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

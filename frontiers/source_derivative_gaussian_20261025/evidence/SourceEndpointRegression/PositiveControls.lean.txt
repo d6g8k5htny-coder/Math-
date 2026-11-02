@@ -1,0 +1,21 @@
+import SourceEndpointRegression
+open I4SourceEndpointRegression I4SmoothCarrier ProbabilityTheory MeasureTheory
+
+example : HasGaussianLaw
+    (fun ω => (sourceConfluentPinsAt (-1) 1 ω, sourceAdjustedEndpoints (-1) 1 ω))
+      (smoothLaw 2 (-1)) := sourcePins_adjusted_hasGaussianLaw (by norm_num) 1
+
+example (hG : IsUnit (sourcePinCovarianceAt 1 1)) :
+    HasCondDistrib (sourceAdjustedEndpoints 1 1) (sourceConfluentPinsAt 1 1)
+      (sourceEndpointKernel 1 1) (smoothLaw 2 1) :=
+  sourceEndpointKernel_hasCondDistrib (by norm_num) 1 hG
+
+example (b : ℝ) : sourceEndpointKernel 1 1 (sourcePrescribedPins 1 b) =
+    ((smoothLaw 2 1).map (sourceEndpointResidual 1 1)).map
+      (fun v => v + sourceRegressionMapAt 1 1 (sourcePrescribedPins 1 b)) :=
+  sourceEndpointKernel_apply (by norm_num) 1 _
+
+example (ω : SmoothSample 2 1) (b : ℝ)
+    (hp : sourceConfluentPinsAt 1 1 ω = sourcePrescribedPins 1 b) :
+    sourceAdjustedEndpoints 1 1 ω = sourceNormalizedEndpoints 1 1 ω :=
+  sourceAdjustedEndpoints_on_prescribed 1 1 b ω hp

@@ -1,0 +1,52 @@
+/workspace/scratch/source-curvature-implementation/radius/RadiusResidual.lean:189:4: error: Type mismatch
+  HasLaw.integral_comp hZlaw ?m.321
+has type
+  (@integral (SmoothSample 2 L) ?m.316 ?m.317 ?m.318 Subtype.instMeasurableSpace (smoothLaw 2 L) fun x =>
+      (?m.320 ∘ curvatureZ L r) x) =
+    ∫ (x : ℝ), ?m.320 x ∂gaussianReal 0 1
+but is expected to have type
+  (@integral (SmoothSample 2 L) ℝ Real.normedAddCommGroup RCLike.toInnerProductSpaceReal.toNormedSpace
+      Subtype.instMeasurableSpace μ fun ω => |curvatureZ L r ω| ^ n) =
+    standardAbsMoment n
+/workspace/scratch/source-curvature-implementation/radius/RadiusResidual.lean:189:28: error: `fun_prop` was unable to prove `AEStronglyMeasurable ?m.320 (gaussianReal 0 1)`
+
+Issues:
+/workspace/scratch/source-curvature-implementation/radius/RadiusResidual.lean:207:25: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |curvatureResidualRadius hL r b ?m.655 ^ n|
+in the target expression
+  |(curvatureResidualRadius hL r b ∘ curvatureResidualSample hL r) ω ^ n| ≤
+    2 ^ (n - 1) * (sourceGammaRadius L (Φ ω) ^ n + H ^ n * |curvatureZ L r ω| ^ n)
+
+L : ℝ
+hL : L ≠ 0
+r b : ℝ
+hG : IsUnit (sourcePinCovarianceAt L r)
+hτ : 0 < curvatureVariance L r
+U : SourceMode 2 → ℝ
+hU : ∀ (m : SourceMode 2), 0 ≤ U m
+hUs : ∀ (n : ℕ), Summable fun m => orderModeBound n 2 L m * U m
+hχU : ∀ (m : SourceMode 2), |curvatureDirection L r m| ≤ U m
+n : ℕ
+M : ℝ
+hRint : Integrable (fun η => sourceGammaRadius L η ^ n) (sourceSmoothLaw hL r b)
+hRbound : ∫ (η : SmoothSample 2 L), sourceGammaRadius L η ^ n ∂sourceSmoothLaw hL r b ≤ M
+Φ : SmoothSample 2 L → SmoothSample 2 L := posteriorSample hL r (sourcePrescribedPins r b)
+μ : Measure (SmoothSample 2 L) := smoothLaw 2 L
+H : ℝ := curvatureEnvelopeTotal L U
+hH : 0 ≤ H
+hΦmeas : Measurable Φ
+hΦlaw : HasLaw Φ (sourceSmoothLaw hL r b) μ
+hRfint : Integrable (fun ω => sourceGammaRadius L (Φ ω) ^ n) μ
+hRfbound : ∫ (ω : SmoothSample 2 L), sourceGammaRadius L (Φ ω) ^ n ∂μ ≤ M
+hZlaw : HasLaw (curvatureZ L r) (gaussianReal 0 1) (smoothLaw 2 L)
+hZint : Integrable (fun ω => |curvatureZ L r ω| ^ n) μ
+hZeq : ∫ (ω : SmoothSample 2 L), |curvatureZ L r ω| ^ n ∂μ = standardAbsMoment n
+hmajor : Integrable (fun ω => 2 ^ (n - 1) * (sourceGammaRadius L (Φ ω) ^ n + H ^ n * |curvatureZ L r ω| ^ n)) μ
+hpoint :
+  ∀ (ω : SmoothSample 2 L),
+    curvatureResidualRadius hL r b (curvatureResidualSample hL r ω) ^ n ≤
+      2 ^ (n - 1) * (sourceGammaRadius L (Φ ω) ^ n + H ^ n * |curvatureZ L r ω| ^ n)
+ω : SmoothSample 2 L
+⊢ |(curvatureResidualRadius hL r b ∘ curvatureResidualSample hL r) ω ^ n| ≤
+    2 ^ (n - 1) * (sourceGammaRadius L (Φ ω) ^ n + H ^ n * |curvatureZ L r ω| ^ n)
+lean_exit=1

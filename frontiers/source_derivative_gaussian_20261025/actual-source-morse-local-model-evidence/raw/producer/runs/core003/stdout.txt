@@ -1,0 +1,29 @@
+SourceActualMorseLocalModel.lean:75:4: error: typeclass instance problem is stuck
+  IsLocallyFiniteMeasure ?m.49
+
+Note: Lean will not try to resolve this typeclass instance problem because the fourth type argument to `IsLocallyFiniteMeasure` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+SourceActualMorseLocalModel.lean:107:4: error: Type mismatch: After simplification, term
+  iteratedFDeriv_comp_add_left 2 X 0
+ has type
+  iteratedFDeriv ℝ 2 (fun z => g (X + z)) 0 = iteratedFDeriv ℝ 2 g X
+but is expected to have type
+  iteratedFDeriv ℝ 2 (fun z => g (X + z)) 0 - 0 0 = iteratedFDeriv ℝ 2 g X
+SourceActualMorseLocalModel.lean:117:6: error: Type mismatch: After simplification, term
+  he
+ has type
+  (iteratedFDeriv ℝ 2 (fun x => g (X + ↑P x) - g X) 0) ![u, v] =
+    (iteratedFDeriv ℝ 2 (fun z => g (X + z) - g X) 0) fun i => ↑P (![u, v] i)
+but is expected to have type
+  (iteratedFDeriv ℝ 2 (normalizedField g X P) 0) ![u, v] = (iteratedFDeriv ℝ 2 (fun z => g (X + z) - g X) 0) ![P u, P v]
+SourceActualMorseLocalModel.lean:106:65: error: This simp argument is unused:
+  sub_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [iteratedFDeriv_const_of_ne (by norm_num : 2 ≠ 0)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceActualMorseLocalModel.lean:131:79: error: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`

@@ -1,0 +1,4 @@
+/workspace/scratch/regression-kernel/contact-gram/PositiveControls.lean:33:64: error: unsolved goals
+h : Function.Injective (contactWitness 1 * diagonal fun x => 0)ᵀ.mulVec
+hmat : (contactWitness 1 * diagonal fun x => 0) = 0
+⊢ col 0 1 = 0

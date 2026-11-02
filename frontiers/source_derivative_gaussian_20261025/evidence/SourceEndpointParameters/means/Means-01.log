@@ -1,0 +1,83 @@
+/workspace/scratch/regression-kernel/endpoint-parameters/means/Means.lean:16:13: error: don't know how to synthesize implicit argument `μ`
+  @integral_map (SmoothSample d L) ℝ Real.normedAddCommGroup RCLike.toInnerProductSpaceReal.toNormedSpace
+    Subtype.instMeasurableSpace ?m.38 (SourceMode d → ℝ) MeasurableSpace.pi (sampleInclusion d L)
+    (Measurable.aemeasurable (sampleInclusion_measurable d L)) (scalarSeries (derivativeCoefficient d L k x u))
+    (Measurable.aestronglyMeasurable (scalarSeries_measurable (derivativeCoefficient d L k x u)))
+context:
+d : ℕ
+L : ℝ
+hL : L ≠ 0
+k : ℕ
+x : Fin d → ℝ
+u : Fin k → Fin d → ℝ
+⊢ Measure (SmoothSample d L)
+/workspace/scratch/regression-kernel/endpoint-parameters/means/Means.lean:17:4: error: don't know how to synthesize implicit argument `μ`
+  @Measurable.aestronglyMeasurable (SourceMode d → ℝ) ℝ PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    MeasurableSpace.pi MeasurableSpace.pi (Measure.map (sampleInclusion d L) ?m.38)
+    (scalarSeries (derivativeCoefficient d L k x u)) Real.measurableSpace PseudoEMetricSpace.pseudoMetrizableSpace
+    instSecondCountableTopologyReal BorelSpace.opensMeasurable
+    (scalarSeries_measurable (derivativeCoefficient d L k x u))
+context:
+d : ℕ
+L : ℝ
+hL : L ≠ 0
+k : ℕ
+x : Fin d → ℝ
+u : Fin k → Fin d → ℝ
+⊢ Measure (SourceMode d → ℝ)
+/workspace/scratch/regression-kernel/endpoint-parameters/means/Means.lean:16:26: error: don't know how to synthesize implicit argument `μ`
+  @Measurable.aemeasurable (SmoothSample d L) (SourceMode d → ℝ) Subtype.instMeasurableSpace MeasurableSpace.pi
+    (sampleInclusion d L) ?m.38 (sampleInclusion_measurable d L)
+context:
+d : ℕ
+L : ℝ
+hL : L ≠ 0
+k : ℕ
+x : Fin d → ℝ
+u : Fin k → Fin d → ℝ
+⊢ Measure (SmoothSample d L)
+/workspace/scratch/regression-kernel/endpoint-parameters/means/Means.lean:16:7: error: failed to infer `have` declaration type
+/workspace/scratch/regression-kernel/endpoint-parameters/means/Means.lean:14:82: error: unsolved goals
+d : ℕ
+L : ℝ
+hL : L ≠ 0
+k : ℕ
+x : Fin d → ℝ
+u : Fin k → Fin d → ℝ
+⊢ ∫ (ω : SmoothSample d L), scalarSeries (derivativeCoefficient d L k x u) (sampleInclusion d L ω) ∂smoothLaw d L = 0
+/workspace/scratch/regression-kernel/endpoint-parameters/means/Means.lean:32:6: error: Type mismatch: After simplification, term
+  smoothSourceField_derivative_integral_zero 2 hL 1 ?m.1408 ![directionY]
+ has type
+  ∫ (ω : SmoothSample 2 L), (fderiv ℝ (smoothSourceField 2 L ω) ?m.1408) (![directionY] 0) ∂smoothLaw 2 L = 0
+but is expected to have type
+  ∫ (ω : SmoothSample 2 L), (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionX ∂smoothLaw 2 L = 0
+/workspace/scratch/regression-kernel/endpoint-parameters/means/Means.lean:32:6: error: Type mismatch: After simplification, term
+  smoothSourceField_derivative_integral_zero 2 hL 1 ?m.1408 ![directionY]
+ has type
+  ∫ (ω : SmoothSample 2 L), (fderiv ℝ (smoothSourceField 2 L ω) ?m.1408) (![directionY] 0) ∂smoothLaw 2 L = 0
+but is expected to have type
+  ∫ (ω : SmoothSample 2 L), (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionX ∂smoothLaw 2 L = 0
+/workspace/scratch/regression-kernel/endpoint-parameters/means/Means.lean:32:6: error: Type mismatch: After simplification, term
+  smoothSourceField_derivative_integral_zero 2 hL 1 (endpointM r) ![directionY]
+ has type
+  @Eq ℝ (∫ (ω : SmoothSample 2 L), (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) (![directionY] 0) ∂smoothLaw 2 L)
+    0
+but is expected to have type
+  @Eq ℝ (∫ (ω : SmoothSample 2 L), (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionY ∂smoothLaw 2 L) 0
+/workspace/scratch/regression-kernel/endpoint-parameters/means/Means.lean:32:6: error: Type mismatch: After simplification, term
+  smoothSourceField_derivative_integral_zero 2 hL 1 (endpointS r) ![directionY]
+ has type
+  @Eq ℝ (∫ (ω : SmoothSample 2 L), (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) (![directionY] 0) ∂smoothLaw 2 L)
+    0
+but is expected to have type
+  @Eq ℝ (∫ (ω : SmoothSample 2 L), (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionY ∂smoothLaw 2 L) 0
+/workspace/scratch/regression-kernel/endpoint-parameters/means/Means.lean:38:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.45 (∫ (x : SmoothSample 2 L), rawPinsWithHessians L r x ∂smoothLaw 2 L)
+in the target expression
+  (∫ (ω : SmoothSample 2 L), rawPinsWithHessians L r ω ∂smoothLaw 2 L) i = 0 i
+
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+i : Fin 12
+⊢ (∫ (ω : SmoothSample 2 L), rawPinsWithHessians L r ω ∂smoothLaw 2 L) i = 0 i

@@ -1,0 +1,8 @@
+/workspace/scratch/pin-curvature-implementation/Controls.lean:51:12: error(lean.unknownIdentifier): Unknown identifier `cubic_pin_pointwise_error`
+/workspace/scratch/pin-curvature-implementation/Controls.lean:47:71: error: unsolved goals
+u : ℝ
+hu : u ∈ Icc (-1 / 2) (1 / 2)
+hpin : 6 * ∫ (t : ℝ) in -1 / 2..1 / 2, peanoCubic t * 2 = 2
+⊢ |2 - 2| ≤ 0
+/workspace/scratch/pin-curvature-implementation/Controls.lean:57:14: error(lean.unknownIdentifier): Unknown identifier `left_weighted_error`
+/workspace/scratch/pin-curvature-implementation/Controls.lean:61:14: error(lean.unknownIdentifier): Unknown identifier `right_weighted_error`

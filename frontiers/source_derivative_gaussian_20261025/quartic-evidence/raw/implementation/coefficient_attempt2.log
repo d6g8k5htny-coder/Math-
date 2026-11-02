@@ -1,0 +1,49 @@
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientErrorBounds.lean:32:19: error: unexpected token '|*'; expected '|' or '|ₘ'
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientErrorBounds.lean:32:18: error: Application type mismatch: The argument
+  T
+has type
+  ℝ
+but is expected to have type
+  Prop
+in the application
+  |T|
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientErrorBounds.lean:32:17: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  AddGroup Prop
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientErrorBounds.lean:32:9: error: Missing cases:
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientErrorBounds.lean:29:45: error: unsolved goals
+S A B C D T : ℝ
+hS : 0 ≤ S
+hA : |A| ≤ 11 * S / 1920
+hB : |B| ≤ S / 384
+hC : |C| ≤ S / 192
+hD : |D| ≤ S / 192
+hT : |T| ≤ S / 40
+z : EuclideanSpace ℝ (Fin 2)
+hx : |z.ofLp 0| ≤ ‖z‖
+hy : |z.ofLp 1| ≤ ‖z‖
+hx2 : z.ofLp 0 ^ 2 ≤ ‖z‖ ^ 2
+hCX : |C * z.ofLp 0| ≤ S / 192 * ‖z‖
+hDX : |D * z.ofLp 0| ≤ S / 192 * ‖z‖
+hDY : |D * z.ofLp 1| ≤ S / 192 * ‖z‖
+hprod : sorry
+⊢ |T| * z.ofLp 0 ^ 2 / 2 ≤ S / 40 * ‖z‖ ^ 2 / 2
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientErrorBounds.lean:15:35: error: unsolved goals
+S A B C D T : ℝ
+hS : 0 ≤ S
+hA : |A| ≤ 11 * S / 1920
+hB : |B| ≤ S / 384
+hC : |C| ≤ S / 192
+hD : |D| ≤ S / 192
+hT : |T| ≤ S / 40
+z : EuclideanSpace ℝ (Fin 2)
+hx : |z.ofLp 0| ≤ ‖z‖
+hy : |z.ofLp 1| ≤ ‖z‖
+hx2 : z.ofLp 0 ^ 2 ≤ ‖z‖ ^ 2
+hCX : |C * z.ofLp 0| ≤ S / 192 * ‖z‖
+hDX : |D * z.ofLp 0| ≤ S / 192 * ‖z‖
+hDY : |D * z.ofLp 1| ≤ S / 192 * ‖z‖
+hTX : |T * z.ofLp 0 ^ 2 / 2| ≤ S / 40 * ‖z‖ ^ 2 / 2
+⊢ ‖!₂[A + C * z.ofLp 0 + D * z.ofLp 1 + T * z.ofLp 0 ^ 2 / 2, B + D * z.ofLp 0]‖ ≤
+    S * (1 / 120 + ‖z‖ / 64 + ‖z‖ ^ 2 / 80)

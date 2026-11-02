@@ -1,0 +1,42 @@
+import Mathlib.MeasureTheory.Measure.WithDensity
+import Mathlib.MeasureTheory.Integral.Bochner.Set
+import Mathlib.MeasureTheory.Measure.Real
+
+open MeasureTheory
+open scoped ENNReal
+
+namespace DensityProbe
+
+noncomputable def tilt {Ω : Type*} [MeasurableSpace Ω]
+    (μ : Measure Ω) (W : Ω → ℝ) : Measure Ω :=
+  μ.withDensity (fun ω => ENNReal.ofReal (W ω / ∫ x, W x ∂μ))
+
+theorem tilt_apply {Ω : Type*} [MeasurableSpace Ω]
+    (μ : Measure Ω) (W : Ω → ℝ) (hW : Integrable W μ)
+    (hW0 : ∀ ω, 0 ≤ W ω) (hZ : 0 < ∫ x, W x ∂μ)
+    (E : Set Ω) (hE : MeasurableSet E) :
+    tilt μ W E = ENNReal.ofReal ((∫ x in E, W x ∂μ) / ∫ x, W x ∂μ) := by
+  unfold tilt
+  rw [withDensity_apply _ hE]
+  rw [← ofReal_integral_eq_lintegral_ofReal
+    (hW.integrableOn.div_const _) (Filter.Eventually.of_forall (fun ω =>
+      div_nonneg (hW0 ω) hZ.le))]
+  rw [integral_div]
+
+theorem tilt_probability {Ω : Type*} [MeasurableSpace Ω]
+    (μ : Measure Ω) (W : Ω → ℝ) (hW : Integrable W μ)
+    (hW0 : ∀ ω, 0 ≤ W ω) (hZ : 0 < ∫ x, W x ∂μ) :
+    IsProbabilityMeasure (tilt μ W) := by
+  constructor
+  rw [tilt_apply μ W hW hW0 hZ Set.univ MeasurableSet.univ]
+  simp [hZ.ne']
+
+theorem tilt_real {Ω : Type*} [MeasurableSpace Ω]
+    (μ : Measure Ω) (W : Ω → ℝ) (hW : Integrable W μ)
+    (hW0 : ∀ ω, 0 ≤ W ω) (hZ : 0 < ∫ x, W x ∂μ)
+    (E : Set Ω) (hE : MeasurableSet E) :
+    (tilt μ W).real E = (∫ x in E, W x ∂μ) / ∫ x, W x ∂μ := by
+  rw [measureReal_def, tilt_apply μ W hW hW0 hZ E hE,
+    ENNReal.toReal_ofReal (div_nonneg (integral_nonneg hW0) hZ.le)]
+
+end DensityProbe

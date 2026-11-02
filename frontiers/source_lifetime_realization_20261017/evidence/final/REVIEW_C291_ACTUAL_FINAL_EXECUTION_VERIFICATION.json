@@ -1,0 +1,2348 @@
+{
+  "started_utc": "2026-10-18T00:42:08.186341+00:00",
+  "review_executor": "OpenAI Codex /root/c291_nonauthor_review",
+  "scope": "Single full read-only invocation on actual terminal execution evidence; no Lean execution",
+  "verifier_sha256": "85a809843d79dc8d68684c0b53b672d27ff4f86e436c3f903eaa280c4316c7c4",
+  "input_sha256": {
+    "FINAL_SOURCE_INVENTORY.json": "82f685a5d71671d9e682ca3df87485e97e8321e16f89c094965a49c2f8a100fe",
+    "FINAL_SEQUENCE_RESULT.json": "a8dddfaf3d46287a573b70fae91d71ba000b219ea4d4b0bed148341e0fe4825d",
+    "FINAL_SEQUENCE_RECOVERED_RESULT.json": "e28e03d16b3df144317b5f1fe1bbec48379665b3dd39db4422d52209c549dc07",
+    "FINAL_SEQUENCE_TERMINAL_RESULT.json": "d2eb35bbf4afe56015ca65a64636690313c05e60253fa530e5633757ca18ba4e",
+    "FINAL_DEPENDENCY_REHASH.json": "b67936f4f98bdd84d33eff5ea57d3c6aafcf8a5c6112afb75cbef501b1f3e884",
+    "NEGATIVE_FINAL_INDEX.json": "3dc4f214c87fcf90096b67bb9bbc49fc57d823d1b96c91e0f79ef56c641f57ae"
+  },
+  "lean_executed": false,
+  "evidence_edited": false,
+  "status": "PASS_ACTUAL_TERMINAL_EXECUTION_VERIFIER",
+  "check_count": 579,
+  "result": {
+    "checks": [
+      {
+        "name": "reviewed_frozen_inventory",
+        "passed": true
+      },
+      {
+        "name": "nineteen_unique_sources",
+        "passed": true
+      },
+      {
+        "name": "five_new_modules",
+        "passed": true
+      },
+      {
+        "name": "exact_source_module_set",
+        "passed": true
+      },
+      {
+        "name": "exact_unique_build_order",
+        "passed": true
+      },
+      {
+        "name": "original_source_record_binding",
+        "passed": true
+      },
+      {
+        "name": "unchanged_thirteen_original_sources",
+        "passed": true
+      },
+      {
+        "name": "original_target_identity",
+        "passed": true
+      },
+      {
+        "name": "literal_source_carrier_identity",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:GaussianSeriesFoundation.lean",
+        "passed": true
+      },
+      {
+        "name": "published_source:GaussianSeriesFoundation.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SpectralWeights.lean",
+        "passed": true
+      },
+      {
+        "name": "published_source:SpectralWeights.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceFourierSeries.lean",
+        "passed": true
+      },
+      {
+        "name": "published_source:SourceFourierSeries.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceLattice.lean",
+        "passed": true
+      },
+      {
+        "name": "published_source:SourceLattice.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceKernel.lean",
+        "passed": true
+      },
+      {
+        "name": "published_source:SourceKernel.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceGaussianLaw.lean",
+        "passed": true
+      },
+      {
+        "name": "published_source:SourceGaussianLaw.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceCovariance.lean",
+        "passed": true
+      },
+      {
+        "name": "published_source:SourceCovariance.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceC4.lean",
+        "passed": true
+      },
+      {
+        "name": "published_source:SourceC4.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceSmooth.lean",
+        "passed": true
+      },
+      {
+        "name": "published_source:SourceSmooth.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceTorus.lean",
+        "passed": true
+      },
+      {
+        "name": "published_source:SourceTorus.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceTorusC4.lean",
+        "passed": true
+      },
+      {
+        "name": "published_source:SourceTorusC4.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceSmoothCarrier.lean",
+        "passed": true
+      },
+      {
+        "name": "published_source:SourceSmoothCarrier.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceSmoothControls.lean",
+        "passed": true
+      },
+      {
+        "name": "published_source:SourceSmoothControls.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:Lifetime.lean",
+        "passed": true
+      },
+      {
+        "name": "published_source:Lifetime.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceThetaBridge.lean",
+        "passed": true
+      },
+      {
+        "name": "published_source:SourceThetaBridge.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceLifetimeGeometry.lean",
+        "passed": true
+      },
+      {
+        "name": "published_source:SourceLifetimeGeometry.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceLifetimeField.lean",
+        "passed": true
+      },
+      {
+        "name": "published_source:SourceLifetimeField.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceLifetimeControls.lean",
+        "passed": true
+      },
+      {
+        "name": "published_source:SourceLifetimeControls.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceLifetimeAxiomAudit.lean",
+        "passed": true
+      },
+      {
+        "name": "published_source:SourceLifetimeAxiomAudit.lean",
+        "passed": true
+      },
+      {
+        "name": "empty_final_build",
+        "passed": true
+      },
+      {
+        "name": "full_dependency_inventory_binding",
+        "passed": true
+      },
+      {
+        "name": "dependency_inventory_exact_count",
+        "passed": true
+      },
+      {
+        "name": "dependency_inventory_unique_paths",
+        "passed": true
+      },
+      {
+        "name": "dependency_inventory_bytes",
+        "passed": true
+      },
+      {
+        "name": "terminal_full_dependency_byte_rehash",
+        "passed": true
+      },
+      {
+        "name": "original_runner_identity",
+        "passed": true
+      },
+      {
+        "name": "reviewed_audit_only_recovery_runner",
+        "passed": true
+      },
+      {
+        "name": "reviewed_recovery_driver",
+        "passed": true
+      },
+      {
+        "name": "reviewed_kernel_recovery_runner",
+        "passed": true
+      },
+      {
+        "name": "reviewed_kernel_recovery_driver",
+        "passed": true
+      },
+      {
+        "name": "frozen_original_failed_sequence",
+        "passed": true
+      },
+      {
+        "name": "frozen_actual_failed_audit_receipt",
+        "passed": true
+      },
+      {
+        "name": "frozen_audit_recovery_failed_sequence",
+        "passed": true
+      },
+      {
+        "name": "frozen_actual_kernel_launch_failure",
+        "passed": true
+      },
+      {
+        "name": "twenty_four_phases",
+        "passed": true
+      },
+      {
+        "name": "original_failed_sequence_status",
+        "passed": true
+      },
+      {
+        "name": "original_exact_nineteen_build_attempts",
+        "passed": true
+      },
+      {
+        "name": "failed_audit_actual_timeout",
+        "passed": true
+      },
+      {
+        "name": "failed_audit_no_mutation_or_product",
+        "passed": true
+      },
+      {
+        "name": "failed_audit_temporal_binding",
+        "passed": true
+      },
+      {
+        "name": "audit_recovery_stopped_at_kernel_launch",
+        "passed": true
+      },
+      {
+        "name": "exact_reused_eighteen_phase_records",
+        "passed": true
+      },
+      {
+        "name": "exact_audit_recovery_twenty_attempts",
+        "passed": true
+      },
+      {
+        "name": "explicit_recovery_provenance",
+        "passed": true
+      },
+      {
+        "name": "recovery_start_binding",
+        "passed": true
+      },
+      {
+        "name": "recovery_after_observed_failure",
+        "passed": true
+      },
+      {
+        "name": "kernel_failure_actual_process",
+        "passed": true
+      },
+      {
+        "name": "kernel_failure_no_mutation_or_product",
+        "passed": true
+      },
+      {
+        "name": "kernel_failure_temporal_binding",
+        "passed": true
+      },
+      {
+        "name": "sequence_success",
+        "passed": true
+      },
+      {
+        "name": "exact_reused_nineteen_successful_phase_records",
+        "passed": true
+      },
+      {
+        "name": "complete_phase_order",
+        "passed": true
+      },
+      {
+        "name": "explicit_kernel_recovery_provenance",
+        "passed": true
+      },
+      {
+        "name": "kernel_recovery_start_binding",
+        "passed": true
+      },
+      {
+        "name": "kernel_recovery_after_observed_failure",
+        "passed": true
+      },
+      {
+        "name": "failed_source_and_dependency_binding",
+        "passed": true
+      },
+      {
+        "name": "failed_audit_empty_stdout",
+        "passed": true
+      },
+      {
+        "name": "failed_audit_empty_stderr",
+        "passed": true
+      },
+      {
+        "name": "failed_audit_start_record",
+        "passed": true
+      },
+      {
+        "name": "kernel_failure_source_and_dependency_binding",
+        "passed": true
+      },
+      {
+        "name": "kernel_launch_failure_exact_stdout",
+        "passed": true
+      },
+      {
+        "name": "kernel_launch_failure_exact_stderr",
+        "passed": true
+      },
+      {
+        "name": "kernel_launch_failure_start_record",
+        "passed": true
+      },
+      {
+        "name": "dependency_rehash_after_sequence",
+        "passed": true
+      },
+      {
+        "name": "exact_twenty_six_terminal_receipts",
+        "passed": true
+      },
+      {
+        "name": "unique_successful_final_phase:('build', 'GaussianSeriesFoundation')",
+        "passed": true
+      },
+      {
+        "name": "unique_successful_final_phase:('build', 'SpectralWeights')",
+        "passed": true
+      },
+      {
+        "name": "unique_successful_final_phase:('build', 'Lifetime')",
+        "passed": true
+      },
+      {
+        "name": "unique_successful_final_phase:('build', 'SourceFourierSeries')",
+        "passed": true
+      },
+      {
+        "name": "unique_successful_final_phase:('build', 'SourceLattice')",
+        "passed": true
+      },
+      {
+        "name": "unique_successful_final_phase:('build', 'SourceGaussianLaw')",
+        "passed": true
+      },
+      {
+        "name": "unique_successful_final_phase:('build', 'SourceC4')",
+        "passed": true
+      },
+      {
+        "name": "unique_successful_final_phase:('build', 'SourceKernel')",
+        "passed": true
+      },
+      {
+        "name": "unique_successful_final_phase:('build', 'SourceSmooth')",
+        "passed": true
+      },
+      {
+        "name": "unique_successful_final_phase:('build', 'SourceCovariance')",
+        "passed": true
+      },
+      {
+        "name": "unique_successful_final_phase:('build', 'SourceThetaBridge')",
+        "passed": true
+      },
+      {
+        "name": "unique_successful_final_phase:('build', 'SourceTorus')",
+        "passed": true
+      },
+      {
+        "name": "unique_successful_final_phase:('build', 'SourceTorusC4')",
+        "passed": true
+      },
+      {
+        "name": "unique_successful_final_phase:('build', 'SourceSmoothCarrier')",
+        "passed": true
+      },
+      {
+        "name": "unique_successful_final_phase:('build', 'SourceSmoothControls')",
+        "passed": true
+      },
+      {
+        "name": "unique_successful_final_phase:('build', 'SourceLifetimeGeometry')",
+        "passed": true
+      },
+      {
+        "name": "unique_successful_final_phase:('build', 'SourceLifetimeField')",
+        "passed": true
+      },
+      {
+        "name": "unique_successful_final_phase:('build', 'SourceLifetimeControls')",
+        "passed": true
+      },
+      {
+        "name": "unique_successful_final_phase:('build', 'SourceLifetimeAxiomAudit')",
+        "passed": true
+      },
+      {
+        "name": "unique_successful_final_phase:('kernel', 'SourceThetaBridge')",
+        "passed": true
+      },
+      {
+        "name": "unique_successful_final_phase:('kernel', 'SourceLifetimeGeometry')",
+        "passed": true
+      },
+      {
+        "name": "unique_successful_final_phase:('kernel', 'SourceLifetimeField')",
+        "passed": true
+      },
+      {
+        "name": "unique_successful_final_phase:('kernel', 'SourceLifetimeControls')",
+        "passed": true
+      },
+      {
+        "name": "unique_successful_final_phase:('kernel', 'SourceLifetimeAxiomAudit')",
+        "passed": true
+      },
+      {
+        "name": "exactly_two_documented_failures",
+        "passed": true
+      },
+      {
+        "name": "exact_successful_final_receipt_set",
+        "passed": true
+      },
+      {
+        "name": "exact_eighteen_original_build_receipts",
+        "passed": true
+      },
+      {
+        "name": "reused_receipt:GaussianSeriesFoundation",
+        "passed": true
+      },
+      {
+        "name": "reused_receipt:SpectralWeights",
+        "passed": true
+      },
+      {
+        "name": "reused_receipt:Lifetime",
+        "passed": true
+      },
+      {
+        "name": "reused_receipt:SourceFourierSeries",
+        "passed": true
+      },
+      {
+        "name": "reused_receipt:SourceLattice",
+        "passed": true
+      },
+      {
+        "name": "reused_receipt:SourceGaussianLaw",
+        "passed": true
+      },
+      {
+        "name": "reused_receipt:SourceC4",
+        "passed": true
+      },
+      {
+        "name": "reused_receipt:SourceKernel",
+        "passed": true
+      },
+      {
+        "name": "reused_receipt:SourceSmooth",
+        "passed": true
+      },
+      {
+        "name": "reused_receipt:SourceCovariance",
+        "passed": true
+      },
+      {
+        "name": "reused_receipt:SourceThetaBridge",
+        "passed": true
+      },
+      {
+        "name": "reused_receipt:SourceTorus",
+        "passed": true
+      },
+      {
+        "name": "reused_receipt:SourceTorusC4",
+        "passed": true
+      },
+      {
+        "name": "reused_receipt:SourceSmoothCarrier",
+        "passed": true
+      },
+      {
+        "name": "reused_receipt:SourceSmoothControls",
+        "passed": true
+      },
+      {
+        "name": "reused_receipt:SourceLifetimeGeometry",
+        "passed": true
+      },
+      {
+        "name": "reused_receipt:SourceLifetimeField",
+        "passed": true
+      },
+      {
+        "name": "reused_receipt:SourceLifetimeControls",
+        "passed": true
+      },
+      {
+        "name": "exact_reused_successful_audit_receipt",
+        "passed": true
+      },
+      {
+        "name": "frozen_execution_root",
+        "passed": true
+      },
+      {
+        "name": "build:GaussianSeriesFoundation:temporal_order",
+        "passed": true
+      },
+      {
+        "name": "build:GaussianSeriesFoundation:actual_success",
+        "passed": true
+      },
+      {
+        "name": "build:GaussianSeriesFoundation:source_and_dependency_binding",
+        "passed": true
+      },
+      {
+        "name": "build:GaussianSeriesFoundation:own_object_chain",
+        "passed": true
+      },
+      {
+        "name": "build:GaussianSeriesFoundation:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "build:GaussianSeriesFoundation:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "build:GaussianSeriesFoundation:start_record_binding",
+        "passed": true
+      },
+      {
+        "name": "build:GaussianSeriesFoundation:bounded_actual_process",
+        "passed": true
+      },
+      {
+        "name": "build:GaussianSeriesFoundation:runner_binding",
+        "passed": true
+      },
+      {
+        "name": "build:GaussianSeriesFoundation:exact_import_paths",
+        "passed": true
+      },
+      {
+        "name": "build:GaussianSeriesFoundation:no_retroactive_path_fields",
+        "passed": true
+      },
+      {
+        "name": "build:GaussianSeriesFoundation:exact_command",
+        "passed": true
+      },
+      {
+        "name": "build:GaussianSeriesFoundation:scientific_effect",
+        "passed": true
+      },
+      {
+        "name": "build:GaussianSeriesFoundation:executable_binding",
+        "passed": true
+      },
+      {
+        "name": "build:GaussianSeriesFoundation:produced_only_target",
+        "passed": true
+      },
+      {
+        "name": "build:GaussianSeriesFoundation:new_warnings_are_errors",
+        "passed": true
+      },
+      {
+        "name": "build:GaussianSeriesFoundation:object_chain_after",
+        "passed": true
+      },
+      {
+        "name": "build:GaussianSeriesFoundation:primary_object_identity",
+        "passed": true
+      },
+      {
+        "name": "build:SpectralWeights:temporal_order",
+        "passed": true
+      },
+      {
+        "name": "build:SpectralWeights:actual_success",
+        "passed": true
+      },
+      {
+        "name": "build:SpectralWeights:source_and_dependency_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SpectralWeights:own_object_chain",
+        "passed": true
+      },
+      {
+        "name": "build:SpectralWeights:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SpectralWeights:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SpectralWeights:start_record_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SpectralWeights:bounded_actual_process",
+        "passed": true
+      },
+      {
+        "name": "build:SpectralWeights:runner_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SpectralWeights:exact_import_paths",
+        "passed": true
+      },
+      {
+        "name": "build:SpectralWeights:no_retroactive_path_fields",
+        "passed": true
+      },
+      {
+        "name": "build:SpectralWeights:exact_command",
+        "passed": true
+      },
+      {
+        "name": "build:SpectralWeights:scientific_effect",
+        "passed": true
+      },
+      {
+        "name": "build:SpectralWeights:executable_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SpectralWeights:produced_only_target",
+        "passed": true
+      },
+      {
+        "name": "build:SpectralWeights:new_warnings_are_errors",
+        "passed": true
+      },
+      {
+        "name": "build:SpectralWeights:object_chain_after",
+        "passed": true
+      },
+      {
+        "name": "build:SpectralWeights:primary_object_identity",
+        "passed": true
+      },
+      {
+        "name": "build:Lifetime:temporal_order",
+        "passed": true
+      },
+      {
+        "name": "build:Lifetime:actual_success",
+        "passed": true
+      },
+      {
+        "name": "build:Lifetime:source_and_dependency_binding",
+        "passed": true
+      },
+      {
+        "name": "build:Lifetime:own_object_chain",
+        "passed": true
+      },
+      {
+        "name": "build:Lifetime:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "build:Lifetime:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "build:Lifetime:start_record_binding",
+        "passed": true
+      },
+      {
+        "name": "build:Lifetime:bounded_actual_process",
+        "passed": true
+      },
+      {
+        "name": "build:Lifetime:runner_binding",
+        "passed": true
+      },
+      {
+        "name": "build:Lifetime:exact_import_paths",
+        "passed": true
+      },
+      {
+        "name": "build:Lifetime:no_retroactive_path_fields",
+        "passed": true
+      },
+      {
+        "name": "build:Lifetime:exact_command",
+        "passed": true
+      },
+      {
+        "name": "build:Lifetime:scientific_effect",
+        "passed": true
+      },
+      {
+        "name": "build:Lifetime:executable_binding",
+        "passed": true
+      },
+      {
+        "name": "build:Lifetime:produced_only_target",
+        "passed": true
+      },
+      {
+        "name": "build:Lifetime:new_warnings_are_errors",
+        "passed": true
+      },
+      {
+        "name": "build:Lifetime:object_chain_after",
+        "passed": true
+      },
+      {
+        "name": "build:Lifetime:primary_object_identity",
+        "passed": true
+      },
+      {
+        "name": "build:SourceFourierSeries:temporal_order",
+        "passed": true
+      },
+      {
+        "name": "build:SourceFourierSeries:actual_success",
+        "passed": true
+      },
+      {
+        "name": "build:SourceFourierSeries:source_and_dependency_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceFourierSeries:own_object_chain",
+        "passed": true
+      },
+      {
+        "name": "build:SourceFourierSeries:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceFourierSeries:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceFourierSeries:start_record_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceFourierSeries:bounded_actual_process",
+        "passed": true
+      },
+      {
+        "name": "build:SourceFourierSeries:runner_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceFourierSeries:exact_import_paths",
+        "passed": true
+      },
+      {
+        "name": "build:SourceFourierSeries:no_retroactive_path_fields",
+        "passed": true
+      },
+      {
+        "name": "build:SourceFourierSeries:exact_command",
+        "passed": true
+      },
+      {
+        "name": "build:SourceFourierSeries:scientific_effect",
+        "passed": true
+      },
+      {
+        "name": "build:SourceFourierSeries:executable_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceFourierSeries:produced_only_target",
+        "passed": true
+      },
+      {
+        "name": "build:SourceFourierSeries:new_warnings_are_errors",
+        "passed": true
+      },
+      {
+        "name": "build:SourceFourierSeries:object_chain_after",
+        "passed": true
+      },
+      {
+        "name": "build:SourceFourierSeries:primary_object_identity",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLattice:temporal_order",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLattice:actual_success",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLattice:source_and_dependency_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLattice:own_object_chain",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLattice:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLattice:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLattice:start_record_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLattice:bounded_actual_process",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLattice:runner_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLattice:exact_import_paths",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLattice:no_retroactive_path_fields",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLattice:exact_command",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLattice:scientific_effect",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLattice:executable_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLattice:produced_only_target",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLattice:new_warnings_are_errors",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLattice:object_chain_after",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLattice:primary_object_identity",
+        "passed": true
+      },
+      {
+        "name": "build:SourceGaussianLaw:temporal_order",
+        "passed": true
+      },
+      {
+        "name": "build:SourceGaussianLaw:actual_success",
+        "passed": true
+      },
+      {
+        "name": "build:SourceGaussianLaw:source_and_dependency_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceGaussianLaw:own_object_chain",
+        "passed": true
+      },
+      {
+        "name": "build:SourceGaussianLaw:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceGaussianLaw:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceGaussianLaw:start_record_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceGaussianLaw:bounded_actual_process",
+        "passed": true
+      },
+      {
+        "name": "build:SourceGaussianLaw:runner_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceGaussianLaw:exact_import_paths",
+        "passed": true
+      },
+      {
+        "name": "build:SourceGaussianLaw:no_retroactive_path_fields",
+        "passed": true
+      },
+      {
+        "name": "build:SourceGaussianLaw:exact_command",
+        "passed": true
+      },
+      {
+        "name": "build:SourceGaussianLaw:scientific_effect",
+        "passed": true
+      },
+      {
+        "name": "build:SourceGaussianLaw:executable_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceGaussianLaw:produced_only_target",
+        "passed": true
+      },
+      {
+        "name": "build:SourceGaussianLaw:new_warnings_are_errors",
+        "passed": true
+      },
+      {
+        "name": "build:SourceGaussianLaw:object_chain_after",
+        "passed": true
+      },
+      {
+        "name": "build:SourceGaussianLaw:primary_object_identity",
+        "passed": true
+      },
+      {
+        "name": "build:SourceC4:temporal_order",
+        "passed": true
+      },
+      {
+        "name": "build:SourceC4:actual_success",
+        "passed": true
+      },
+      {
+        "name": "build:SourceC4:source_and_dependency_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceC4:own_object_chain",
+        "passed": true
+      },
+      {
+        "name": "build:SourceC4:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceC4:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceC4:start_record_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceC4:bounded_actual_process",
+        "passed": true
+      },
+      {
+        "name": "build:SourceC4:runner_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceC4:exact_import_paths",
+        "passed": true
+      },
+      {
+        "name": "build:SourceC4:no_retroactive_path_fields",
+        "passed": true
+      },
+      {
+        "name": "build:SourceC4:exact_command",
+        "passed": true
+      },
+      {
+        "name": "build:SourceC4:scientific_effect",
+        "passed": true
+      },
+      {
+        "name": "build:SourceC4:executable_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceC4:produced_only_target",
+        "passed": true
+      },
+      {
+        "name": "build:SourceC4:new_warnings_are_errors",
+        "passed": true
+      },
+      {
+        "name": "build:SourceC4:object_chain_after",
+        "passed": true
+      },
+      {
+        "name": "build:SourceC4:primary_object_identity",
+        "passed": true
+      },
+      {
+        "name": "build:SourceKernel:temporal_order",
+        "passed": true
+      },
+      {
+        "name": "build:SourceKernel:actual_success",
+        "passed": true
+      },
+      {
+        "name": "build:SourceKernel:source_and_dependency_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceKernel:own_object_chain",
+        "passed": true
+      },
+      {
+        "name": "build:SourceKernel:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceKernel:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceKernel:start_record_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceKernel:bounded_actual_process",
+        "passed": true
+      },
+      {
+        "name": "build:SourceKernel:runner_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceKernel:exact_import_paths",
+        "passed": true
+      },
+      {
+        "name": "build:SourceKernel:no_retroactive_path_fields",
+        "passed": true
+      },
+      {
+        "name": "build:SourceKernel:exact_command",
+        "passed": true
+      },
+      {
+        "name": "build:SourceKernel:scientific_effect",
+        "passed": true
+      },
+      {
+        "name": "build:SourceKernel:executable_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceKernel:produced_only_target",
+        "passed": true
+      },
+      {
+        "name": "build:SourceKernel:new_warnings_are_errors",
+        "passed": true
+      },
+      {
+        "name": "build:SourceKernel:object_chain_after",
+        "passed": true
+      },
+      {
+        "name": "build:SourceKernel:primary_object_identity",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmooth:temporal_order",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmooth:actual_success",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmooth:source_and_dependency_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmooth:own_object_chain",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmooth:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmooth:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmooth:start_record_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmooth:bounded_actual_process",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmooth:runner_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmooth:exact_import_paths",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmooth:no_retroactive_path_fields",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmooth:exact_command",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmooth:scientific_effect",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmooth:executable_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmooth:produced_only_target",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmooth:new_warnings_are_errors",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmooth:object_chain_after",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmooth:primary_object_identity",
+        "passed": true
+      },
+      {
+        "name": "build:SourceCovariance:temporal_order",
+        "passed": true
+      },
+      {
+        "name": "build:SourceCovariance:actual_success",
+        "passed": true
+      },
+      {
+        "name": "build:SourceCovariance:source_and_dependency_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceCovariance:own_object_chain",
+        "passed": true
+      },
+      {
+        "name": "build:SourceCovariance:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceCovariance:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceCovariance:start_record_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceCovariance:bounded_actual_process",
+        "passed": true
+      },
+      {
+        "name": "build:SourceCovariance:runner_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceCovariance:exact_import_paths",
+        "passed": true
+      },
+      {
+        "name": "build:SourceCovariance:no_retroactive_path_fields",
+        "passed": true
+      },
+      {
+        "name": "build:SourceCovariance:exact_command",
+        "passed": true
+      },
+      {
+        "name": "build:SourceCovariance:scientific_effect",
+        "passed": true
+      },
+      {
+        "name": "build:SourceCovariance:executable_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceCovariance:produced_only_target",
+        "passed": true
+      },
+      {
+        "name": "build:SourceCovariance:new_warnings_are_errors",
+        "passed": true
+      },
+      {
+        "name": "build:SourceCovariance:object_chain_after",
+        "passed": true
+      },
+      {
+        "name": "build:SourceCovariance:primary_object_identity",
+        "passed": true
+      },
+      {
+        "name": "build:SourceThetaBridge:temporal_order",
+        "passed": true
+      },
+      {
+        "name": "build:SourceThetaBridge:actual_success",
+        "passed": true
+      },
+      {
+        "name": "build:SourceThetaBridge:source_and_dependency_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceThetaBridge:own_object_chain",
+        "passed": true
+      },
+      {
+        "name": "build:SourceThetaBridge:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceThetaBridge:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceThetaBridge:start_record_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceThetaBridge:bounded_actual_process",
+        "passed": true
+      },
+      {
+        "name": "build:SourceThetaBridge:runner_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceThetaBridge:exact_import_paths",
+        "passed": true
+      },
+      {
+        "name": "build:SourceThetaBridge:no_retroactive_path_fields",
+        "passed": true
+      },
+      {
+        "name": "build:SourceThetaBridge:exact_command",
+        "passed": true
+      },
+      {
+        "name": "build:SourceThetaBridge:scientific_effect",
+        "passed": true
+      },
+      {
+        "name": "build:SourceThetaBridge:executable_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceThetaBridge:produced_only_target",
+        "passed": true
+      },
+      {
+        "name": "build:SourceThetaBridge:new_warnings_are_errors",
+        "passed": true
+      },
+      {
+        "name": "build:SourceThetaBridge:object_chain_after",
+        "passed": true
+      },
+      {
+        "name": "build:SourceThetaBridge:primary_object_identity",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorus:temporal_order",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorus:actual_success",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorus:source_and_dependency_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorus:own_object_chain",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorus:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorus:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorus:start_record_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorus:bounded_actual_process",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorus:runner_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorus:exact_import_paths",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorus:no_retroactive_path_fields",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorus:exact_command",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorus:scientific_effect",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorus:executable_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorus:produced_only_target",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorus:new_warnings_are_errors",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorus:object_chain_after",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorus:primary_object_identity",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorusC4:temporal_order",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorusC4:actual_success",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorusC4:source_and_dependency_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorusC4:own_object_chain",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorusC4:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorusC4:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorusC4:start_record_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorusC4:bounded_actual_process",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorusC4:runner_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorusC4:exact_import_paths",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorusC4:no_retroactive_path_fields",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorusC4:exact_command",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorusC4:scientific_effect",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorusC4:executable_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorusC4:produced_only_target",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorusC4:new_warnings_are_errors",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorusC4:object_chain_after",
+        "passed": true
+      },
+      {
+        "name": "build:SourceTorusC4:primary_object_identity",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothCarrier:temporal_order",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothCarrier:actual_success",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothCarrier:source_and_dependency_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothCarrier:own_object_chain",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothCarrier:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothCarrier:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothCarrier:start_record_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothCarrier:bounded_actual_process",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothCarrier:runner_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothCarrier:exact_import_paths",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothCarrier:no_retroactive_path_fields",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothCarrier:exact_command",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothCarrier:scientific_effect",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothCarrier:executable_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothCarrier:produced_only_target",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothCarrier:new_warnings_are_errors",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothCarrier:object_chain_after",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothCarrier:primary_object_identity",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothControls:temporal_order",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothControls:actual_success",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothControls:source_and_dependency_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothControls:own_object_chain",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothControls:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothControls:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothControls:start_record_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothControls:bounded_actual_process",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothControls:runner_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothControls:exact_import_paths",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothControls:no_retroactive_path_fields",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothControls:exact_command",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothControls:scientific_effect",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothControls:executable_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothControls:produced_only_target",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothControls:new_warnings_are_errors",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothControls:object_chain_after",
+        "passed": true
+      },
+      {
+        "name": "build:SourceSmoothControls:primary_object_identity",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeGeometry:temporal_order",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeGeometry:actual_success",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeGeometry:source_and_dependency_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeGeometry:own_object_chain",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeGeometry:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeGeometry:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeGeometry:start_record_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeGeometry:bounded_actual_process",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeGeometry:runner_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeGeometry:exact_import_paths",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeGeometry:no_retroactive_path_fields",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeGeometry:exact_command",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeGeometry:scientific_effect",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeGeometry:executable_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeGeometry:produced_only_target",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeGeometry:new_warnings_are_errors",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeGeometry:object_chain_after",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeGeometry:primary_object_identity",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeField:temporal_order",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeField:actual_success",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeField:source_and_dependency_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeField:own_object_chain",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeField:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeField:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeField:start_record_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeField:bounded_actual_process",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeField:runner_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeField:exact_import_paths",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeField:no_retroactive_path_fields",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeField:exact_command",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeField:scientific_effect",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeField:executable_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeField:produced_only_target",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeField:new_warnings_are_errors",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeField:object_chain_after",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeField:primary_object_identity",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeControls:temporal_order",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeControls:actual_success",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeControls:source_and_dependency_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeControls:own_object_chain",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeControls:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeControls:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeControls:start_record_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeControls:bounded_actual_process",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeControls:runner_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeControls:exact_import_paths",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeControls:no_retroactive_path_fields",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeControls:exact_command",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeControls:scientific_effect",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeControls:executable_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeControls:produced_only_target",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeControls:new_warnings_are_errors",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeControls:object_chain_after",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeControls:primary_object_identity",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeAxiomAudit:temporal_order",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeAxiomAudit:actual_success",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeAxiomAudit:source_and_dependency_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeAxiomAudit:own_object_chain",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeAxiomAudit:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeAxiomAudit:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeAxiomAudit:start_record_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeAxiomAudit:bounded_actual_process",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeAxiomAudit:runner_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeAxiomAudit:exact_import_paths",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeAxiomAudit:no_retroactive_path_fields",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeAxiomAudit:exact_command",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeAxiomAudit:scientific_effect",
+        "passed": true
+      },
+      {
+        "name": "failed_attempt_in_object_chain",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeAxiomAudit:executable_binding",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeAxiomAudit:produced_only_target",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeAxiomAudit:new_warnings_are_errors",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeAxiomAudit:object_chain_after",
+        "passed": true
+      },
+      {
+        "name": "build:SourceLifetimeAxiomAudit:primary_object_identity",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceThetaBridge:temporal_order",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceThetaBridge:actual_success",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceThetaBridge:source_and_dependency_binding",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceThetaBridge:own_object_chain",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceThetaBridge:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceThetaBridge:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceThetaBridge:start_record_binding",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceThetaBridge:bounded_actual_process",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceThetaBridge:runner_binding",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceThetaBridge:exact_import_paths",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceThetaBridge:pinned_child_discovery",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceThetaBridge:exact_command",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceThetaBridge:scientific_effect",
+        "passed": true
+      },
+      {
+        "name": "kernel_launch_failure_in_object_chain",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceThetaBridge:executable_binding",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceThetaBridge:standard_kernel_scope",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceThetaBridge:object_chain_after",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceThetaBridge:primary_object_identity",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeGeometry:temporal_order",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeGeometry:actual_success",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeGeometry:source_and_dependency_binding",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeGeometry:own_object_chain",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeGeometry:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeGeometry:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeGeometry:start_record_binding",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeGeometry:bounded_actual_process",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeGeometry:runner_binding",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeGeometry:exact_import_paths",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeGeometry:pinned_child_discovery",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeGeometry:exact_command",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeGeometry:scientific_effect",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeGeometry:executable_binding",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeGeometry:standard_kernel_scope",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeGeometry:object_chain_after",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeGeometry:primary_object_identity",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeField:temporal_order",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeField:actual_success",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeField:source_and_dependency_binding",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeField:own_object_chain",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeField:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeField:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeField:start_record_binding",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeField:bounded_actual_process",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeField:runner_binding",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeField:exact_import_paths",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeField:pinned_child_discovery",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeField:exact_command",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeField:scientific_effect",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeField:executable_binding",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeField:standard_kernel_scope",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeField:object_chain_after",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeField:primary_object_identity",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeControls:temporal_order",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeControls:actual_success",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeControls:source_and_dependency_binding",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeControls:own_object_chain",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeControls:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeControls:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeControls:start_record_binding",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeControls:bounded_actual_process",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeControls:runner_binding",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeControls:exact_import_paths",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeControls:pinned_child_discovery",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeControls:exact_command",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeControls:scientific_effect",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeControls:executable_binding",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeControls:standard_kernel_scope",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeControls:object_chain_after",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeControls:primary_object_identity",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeAxiomAudit:temporal_order",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeAxiomAudit:actual_success",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeAxiomAudit:source_and_dependency_binding",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeAxiomAudit:own_object_chain",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeAxiomAudit:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeAxiomAudit:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeAxiomAudit:start_record_binding",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeAxiomAudit:bounded_actual_process",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeAxiomAudit:runner_binding",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeAxiomAudit:exact_import_paths",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeAxiomAudit:pinned_child_discovery",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeAxiomAudit:exact_command",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeAxiomAudit:scientific_effect",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeAxiomAudit:executable_binding",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeAxiomAudit:standard_kernel_scope",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeAxiomAudit:object_chain_after",
+        "passed": true
+      },
+      {
+        "name": "kernel:SourceLifetimeAxiomAudit:primary_object_identity",
+        "passed": true
+      },
+      {
+        "name": "final_object_bytes_exactly_rebuilt",
+        "passed": true
+      },
+      {
+        "name": "exact_eighteen_census_modules",
+        "passed": true
+      },
+      {
+        "name": "per_module_declaration_census",
+        "passed": true
+      },
+      {
+        "name": "whole_module_axiom_census",
+        "passed": true
+      },
+      {
+        "name": "unique_declarations",
+        "passed": true
+      },
+      {
+        "name": "private_declarations_included",
+        "passed": true
+      },
+      {
+        "name": "standard_axioms_only",
+        "passed": true
+      },
+      {
+        "name": "all_required_declarations",
+        "passed": true
+      },
+      {
+        "name": "single_complete_audit_pass",
+        "passed": true
+      },
+      {
+        "name": "no_audit_error_or_warning",
+        "passed": true
+      }
+    ],
+    "phase_count": 24,
+    "terminal_receipts": 26,
+    "documented_failed_attempts": 2,
+    "declarations": 409,
+    "private_declarations": 40,
+    "dependency_artifacts": 83897,
+    "scientific_effect": "NONE"
+  },
+  "ended_utc": "2026-10-18T00:42:08.776576+00:00",
+  "seconds": 0.5888516669999999,
+  "verifier_unchanged": true
+}

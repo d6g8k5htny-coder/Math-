@@ -1,0 +1,7 @@
+/workspace/scratch/regression-kernel/physical-endpoint/PositiveControls.lean:25:34: warning: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sourcePhysicalCorrection] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

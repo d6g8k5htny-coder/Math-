@@ -1,0 +1,21 @@
+--- CONTEXT.001.md
++++ CONTEXT.002.md
+@@ -252,7 +252,7 @@
+ private def minusPoint : I4Torus.SourceTorus 2 2 := chosenPhi.symm (![0,-chosenRho/2] : Point2)
+ private def boundaryTargetPoint (t : unitInterval) : Point2 :=
+   ![0, (1-2*(t : ℝ))*chosenRho/2]
+-private def nonnegativeUpperMutation : Prop :=
++def nonnegativeUpperMutation : Prop :=
+   ∀ eps : ℝ, 0 ≤ eps → eps < chosenBound → UpperClause fixtureField chosenCenter chosenPhi eps
+ 
+ private theorem chosen_positive : 0 < chosenRho
+@@ -292,3 +292,9 @@
+ Prospective runner/outer/entry capture is mandatory for documentary/metadata workers too. Final docwriter receipt closes AFTER it writes index: actual additive closure/index+allowlist addenda after run; no recursive self-ID and no replay generator. Cached FIRST IDs for new outputs; known copies reuse existing IDs. Root final FULLdocs reading→reviewer final custody→root FINAL_GO→root-only one metadata attempt/apply/push; producer no shared edits/copy/Git/external. Root sole new eligible65 own object copiedONCE after cut, all further copies SKIP. Existing64 object/check/CI/hash/copy never replayed. Provider/process review tracked separately; scienceNONE/samefamily0. B is a proof-text author, reviewer has no65proof authorship.
+ 
+ Deadline CP21:20UTC, HARD23:30UTC28October or invocation end, no autoextension. Report actual obstruction/status honestly. Future66 is no source dependency/role/code/GO. Original downstream goal remains unmet beyond this bounded local result.
++
++## Amendment002: ordinary public mutation interface and reused64 lineage
++
++The ordinary `nonnegativeUpperMutation` Prop definition is PUBLIC within ActualSaddleUppercutsControls. Thus the sole importing-only False harness can name the precise false premise using public APIs. All production names/privacy/output and the sole mutation remain unchanged. Ordinary `nonnegativeUpperMutation_false` is public as already stated. B geometry has no dependent change; personal FULL001 reading plus entire002delta ACK before proof text.
++
++Qualified PUBLIC64 lineage is REUSED, never rechecked/rehashed/copied: published normal head ee5b141d5ff41a0a9040256a8025690ec22d7266; source-only cut57f73698fb84efd56166fda57639557794312754, parentf4825c3e3bd0e2d2c46157096e76b9ab17dbbb71; source40252B SHAe0e0a0f77bd75bbbd8994d620ee43b18b2edd50d7649cd8cb9837e7148762265, Gitblob39bce1145fcd714b049bfd4ec941390a0b286f10; ownobject1654224B SHAa57489eb917c4f2fd4d314ab5f7ae9dea60619caf9160e044700114551c1e15e. Root canonical eligible64 copy occurred ONCE20:25:01.660046; all further copies SKIP. Existing authoritative /workspace/scratch/actual-source-quotient-saddle-collar-publication/ROOT_SOURCE_CUT.json and ROOT_OWN_OBJECT_COPY.json bind these known identities. All prior64 mathematical and metadata checks/full nonauthor review and all4CI SUCCESS already completed; no new65 session/process reason changes that evidence.

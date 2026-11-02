@@ -1,0 +1,21 @@
+/workspace/scratch/dm2_landed_composition/ModeCurveChains.lean:82:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq ℝ (deriv (fun s => modeCoefficient 2 L m ![s, 0]) t) ((fderiv ℝ (modeCoefficient 2 L m) ![t, 0]) directionX)
+but is expected to have type
+  @Eq ℝ (deriv (modeF L m) t) ((fderiv ℝ (modeCoefficient 2 L m) ![t, 0]) directionX)
+/workspace/scratch/dm2_landed_composition/ModeCurveChains.lean:90:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq ℝ (iteratedDeriv 2 (fun s => modeCoefficient 2 L m ![s, 0]) t)
+    ((iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ![t, 0]) ![directionX, directionX])
+but is expected to have type
+  @Eq ℝ (iteratedDeriv 2 (modeF L m) t) ((iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ![t, 0]) ![directionX, directionX])
+/workspace/scratch/dm2_landed_composition/ModeCurveChains.lean:98:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq ℝ (iteratedDeriv 3 (fun s => modeCoefficient 2 L m ![s, 0]) t)
+    ((iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) ![t, 0]) ![directionX, directionX, directionX])
+but is expected to have type
+  @Eq ℝ (iteratedDeriv 3 (modeF L m) t)
+    ((iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) ![t, 0]) ![directionX, directionX, directionX])

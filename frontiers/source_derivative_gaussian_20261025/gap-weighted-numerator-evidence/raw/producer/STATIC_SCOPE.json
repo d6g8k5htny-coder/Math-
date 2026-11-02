@@ -1,0 +1,46 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceGapWeightedNumerator.lean",
+    "bytes": 20999,
+    "sha256": "b2fedf3739884ff716d11c85ebcf5de328fc76bc2a5bed31e8ea72c61d2f87a3"
+  },
+  "imports": [
+    "SourceGapPinCurvature",
+    "SourceAllTargetCurvatureResidual",
+    "SourceWeightedCurvatureBound"
+  ],
+  "forbidden_tokens_found": {
+    "sorry": false,
+    "custom_axiom": false,
+    "native_decide": false,
+    "implemented_by": false,
+    "Mathlib_umbrella": false
+  },
+  "endpoint": "exists N>=0 and0<delta<=1 uniform compact actual bad-union physical numerator <=N*r5 with global/restricted W integrability",
+  "final_premises": [
+    "L!=0",
+    "B>=0",
+    "K>=0",
+    "A>=0",
+    "eps>0",
+    "0<r<delta",
+    "abs b<=B",
+    "abs k<=K"
+  ],
+  "desired_certificate_final_premises": false,
+  "signed_nonzero_L": true,
+  "actual_Q": "sourceGapLaw hL r b k",
+  "original_weight": "sourceSmoothWeight L r",
+  "original_carrier": "SmoothSample 2 L",
+  "old_sixth_pin_restriction": false,
+  "allheight_optional_export": "not included; compact required endpoint completed",
+  "normalizer_dependency": false,
+  "nonclaims": [
+    "positive normalizer floor",
+    "normalized compact probability",
+    "canonical partner / conditional Morse",
+    "translation or O2 frame law",
+    "Campbell actual count or count density",
+    "Parent Lean theorem"
+  ]
+}

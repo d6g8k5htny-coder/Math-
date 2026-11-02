@@ -1,0 +1,210 @@
+{
+  "started_utc": "2026-10-17T23:12:26.401993+00:00",
+  "frozen_utc": "2026-10-17T23:12:57.202888+00:00",
+  "sources": [
+    {
+      "name": "GaussianSeriesFoundation.lean",
+      "sha256": "feea566d5aeba58459bd4a1f20f070bdcd80ee30712817324cdd594e3e232c95",
+      "bytes": 4262
+    },
+    {
+      "name": "SpectralWeights.lean",
+      "sha256": "92af14a2d83304de3f8576ee10b3d376587e93c4464f8c715b8d2e32360f44b0",
+      "bytes": 6924
+    },
+    {
+      "name": "SourceFourierSeries.lean",
+      "sha256": "5f145e8e8693bfe4d1554092c8258dbda4f17f8e078c503029e4e8ff2c018014",
+      "bytes": 6524
+    },
+    {
+      "name": "SourceLattice.lean",
+      "sha256": "c644305a426bc876f609c055ce999b8008f028c67a1091639d919f4122981b7b",
+      "bytes": 6284
+    },
+    {
+      "name": "SourceKernel.lean",
+      "sha256": "5fa3abc8fb0db0c14c67b4ee840e659cdf80f7d22c9fd4cb5e6c1c7b204fbd21",
+      "bytes": 5293
+    },
+    {
+      "name": "SourceGaussianLaw.lean",
+      "sha256": "a60ab6099d3cef0eeecaefa9e35d95ec14ec54ffd6c89e42dfcf6170907166e8",
+      "bytes": 8984
+    },
+    {
+      "name": "SourceCovariance.lean",
+      "sha256": "30560009582659a100637b5510c657cf1fa762f68a37bae8fab42c1eeee6aee5",
+      "bytes": 3925
+    },
+    {
+      "name": "SourceC4.lean",
+      "sha256": "b15e53b825c2e2d6af2af18182da227d8794dddcc3e1b29611a913f89a889397",
+      "bytes": 6438
+    },
+    {
+      "name": "SourceSmooth.lean",
+      "sha256": "12ad7263267a970bd5d5c95d7c7aa62d9c971f7beebf28f1aa7ed16d3a112f1b",
+      "bytes": 11336
+    },
+    {
+      "name": "SourceTorus.lean",
+      "sha256": "02857b44552ab0e51a756b3b095c4ba43f8168ac332b069acb5bc8146d337eef",
+      "bytes": 5182
+    },
+    {
+      "name": "SourceTorusC4.lean",
+      "sha256": "b67b13030389dea4521e8e2afcac30ea44f84abd65c374bf208067b288fc64a1",
+      "bytes": 6081
+    },
+    {
+      "name": "SourceSmoothCarrier.lean",
+      "sha256": "5defdf223e85e7ccd23b5a903a1a306fe7f723727eb6aabf62eef523ef8639ed",
+      "bytes": 11222
+    },
+    {
+      "name": "SourceSmoothControls.lean",
+      "sha256": "8eca5ecdb5e2a0c1cb786468b340e4516df653468f958e535f156baafef088b4",
+      "bytes": 3257
+    },
+    {
+      "name": "Lifetime.lean",
+      "sha256": "90f4892608e953ecc696bb32ea159d1c178ceb8a1c6edfd11acfceb14af462c6",
+      "bytes": 51383
+    },
+    {
+      "name": "SourceThetaBridge.lean",
+      "sha256": "c03df303f47ac056af332ad421a6720966464c474ee77e671f85242d30f6cc9b",
+      "bytes": 11897
+    },
+    {
+      "name": "SourceLifetimeGeometry.lean",
+      "sha256": "8ec4b18959055f20d849337e44a70d0c5b39b7959b54cb4d7b6c2a473ee0612d",
+      "bytes": 4588
+    },
+    {
+      "name": "SourceLifetimeField.lean",
+      "sha256": "daf0949a14d4ed8bd19fbdc564f0f8c3fad72ed243de73e39d65b2951576919a",
+      "bytes": 3913
+    },
+    {
+      "name": "SourceLifetimeControls.lean",
+      "sha256": "f50da7cb374c3e75280ae465696b657902f9070cff1256784dc28050017cd171",
+      "bytes": 5456
+    },
+    {
+      "name": "SourceLifetimeAxiomAudit.lean",
+      "sha256": "fea8df29106f295238b3a039bb2aae350167a9ada2326d6d00ba6f6663be52c3",
+      "bytes": 3759
+    }
+  ],
+  "new_modules": [
+    "SourceThetaBridge",
+    "SourceLifetimeGeometry",
+    "SourceLifetimeField",
+    "SourceLifetimeControls",
+    "SourceLifetimeAxiomAudit"
+  ],
+  "old_modules": [
+    "GaussianSeriesFoundation",
+    "SpectralWeights",
+    "SourceFourierSeries",
+    "SourceLattice",
+    "SourceKernel",
+    "SourceGaussianLaw",
+    "SourceCovariance",
+    "SourceC4",
+    "SourceSmooth",
+    "SourceTorus",
+    "SourceTorusC4",
+    "SourceSmoothCarrier",
+    "SourceSmoothControls"
+  ],
+  "build_order": [
+    "GaussianSeriesFoundation",
+    "SpectralWeights",
+    "Lifetime",
+    "SourceFourierSeries",
+    "SourceLattice",
+    "SourceGaussianLaw",
+    "SourceC4",
+    "SourceKernel",
+    "SourceSmooth",
+    "SourceCovariance",
+    "SourceThetaBridge",
+    "SourceTorus",
+    "SourceTorusC4",
+    "SourceSmoothCarrier",
+    "SourceSmoothControls",
+    "SourceLifetimeGeometry",
+    "SourceLifetimeField",
+    "SourceLifetimeControls",
+    "SourceLifetimeAxiomAudit"
+  ],
+  "local_imports": {
+    "GaussianSeriesFoundation": [],
+    "SpectralWeights": [],
+    "SourceFourierSeries": [
+      "GaussianSeriesFoundation",
+      "SpectralWeights"
+    ],
+    "SourceLattice": [
+      "SourceFourierSeries"
+    ],
+    "SourceKernel": [
+      "SourceLattice"
+    ],
+    "SourceGaussianLaw": [
+      "SourceFourierSeries"
+    ],
+    "SourceCovariance": [
+      "SourceKernel",
+      "SourceGaussianLaw"
+    ],
+    "SourceC4": [
+      "SourceFourierSeries"
+    ],
+    "SourceSmooth": [
+      "SourceC4"
+    ],
+    "SourceTorus": [
+      "SourceCovariance"
+    ],
+    "SourceTorusC4": [
+      "SourceC4",
+      "SourceTorus"
+    ],
+    "SourceSmoothCarrier": [
+      "SourceSmooth",
+      "SourceGaussianLaw",
+      "SourceCovariance",
+      "SourceTorusC4"
+    ],
+    "SourceSmoothControls": [
+      "SourceSmoothCarrier"
+    ],
+    "Lifetime": [],
+    "SourceThetaBridge": [
+      "Lifetime",
+      "SourceKernel"
+    ],
+    "SourceLifetimeGeometry": [
+      "Lifetime",
+      "SourceSmoothCarrier"
+    ],
+    "SourceLifetimeField": [
+      "SourceLifetimeGeometry",
+      "SourceThetaBridge"
+    ],
+    "SourceLifetimeControls": [
+      "SourceLifetimeField"
+    ],
+    "SourceLifetimeAxiomAudit": [
+      "SourceLifetimeField",
+      "SourceLifetimeControls",
+      "SourceSmoothControls"
+    ]
+  },
+  "dependency_artifact_inventory_sha256": "b78b6e0f99bd38c633ae2677c55698363b1290e6d4318e505991c8df259ae2e3",
+  "scientific_effect": "NONE"
+}

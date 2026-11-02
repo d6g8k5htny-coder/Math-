@@ -1,0 +1,114 @@
+{
+  "status": "PASS_SCOPED_FINAL",
+  "reviewer": "/root/remote_jet_gaussian_source_review",
+  "date_UTC": "2026-10-28, after final-document freeze15:49:03",
+  "prior_involvement": "Design-only PREFLIGHT; no60 production/helper proof authorship; PREFLIGHT immutable",
+  "source": {
+    "module": "SourceActualMorseLocalModel",
+    "bytes": 65754,
+    "sha256_reused": "d6776bd34a2ae1371c2af8fbfcc54d2a536e7c96b2e4db517a5f4a81b4128cd5",
+    "public_Prop": "I4SourceActualMorseLocalModel.actualSource_c1_quadratic_localModel",
+    "authored_public_Props": 1,
+    "public_data": 0,
+    "personally_complete_source_read": true
+  },
+  "eligible_own_object": {
+    "bytes": 3409752,
+    "sha256_reused": "7bc2d9fc1edcbd936dc04b583fa2b4642fc6fd968c594350df8eec28093d7ad3",
+    "strict": "core019 PASS15:30:47.909461",
+    "exactly_one_kernel": "kernel-001 PASS15:39:08.870724"
+  },
+  "contract": {
+    "literal_criticality_and_genuine_inertia_only": true,
+    "derived_j_le_2_and_ordered_full_bilinear_2J": true,
+    "actual_C1_chart_inverse_centering": true,
+    "exact_identity_on_whole_final_source": true,
+    "same_chart_arbitrarily_small_critical_superlevel_path_connected_basis": true,
+    "Taylor_1_minus_t_retained_center_J": true,
+    "source_order3_compact_first_derivative_domination": true,
+    "finite2_J_selfadjoint_branch_not_ordinary_Z_symmetry": true,
+    "desired_chart_pivot_Cinf_coordinate_premise": false
+  },
+  "actual_controls": {
+    "four_original_source_samples_explicitP_genuine_inertia": true,
+    "direct_Taylor_branch_actual_neighborhood_derivative_IFT_same_chart_cone": true,
+    "ordinary_source_bytes": 10149,
+    "ordinary_source_sha256_reused": "8887149774e637c1c55734949c300a10c636770c635678552a897951893d9328",
+    "ordinary_object_bytes": 823096,
+    "ordinary_object_sha256_reused": "99cea3a0b8be53bf53980263c97768ecf13c0222f8c2c063ae3ab7c1e4f8a4dc",
+    "positive_counterproof": "controls-003 PASS15:37:55.054585 before sole negative",
+    "same_actual_minimum_P_h_weighted1_omitted2": true,
+    "mutant_center_2I_not_rank_collapse": true,
+    "scratch_qualified_separately_not_production_kernel_coverage": true,
+    "sole_negative": {
+      "run": "omitted-weight-false-001",
+      "end_UTC": "2026-10-28T15:40:57.590518+00:00",
+      "exit": 1,
+      "source_bytes": 175,
+      "source_sha256_reused": "0ac7b1f17de8d94bcf96004c2dbd5a778292b7b190606984954feb0d9849c405",
+      "stdout_bytes": 138,
+      "stderr_bytes": 0,
+      "exact_one_intended_False_no_other_diagnostics": true,
+      "only_import": "MorseLocalModelControls",
+      "only_mutation": "omit factor1-t; all actual data unchanged",
+      "attempts": 1
+    }
+  },
+  "ownership": {
+    "actual_module_index_selector": true,
+    "owned_total": 173,
+    "authored_private_definitions": 37,
+    "authored_private_Props": 68,
+    "private_generated_Props": 64,
+    "authored_public_Props": 1,
+    "foreign_generated_Props": 3,
+    "foreign_names": [
+      "LinearEquiv.toContinuousLinearEquiv.congr_simp",
+      "I4Weights.sourceC.eq_1",
+      "sigNeg.eq_1"
+    ],
+    "all_axioms_standard_three_or_subset": true
+  },
+  "personal_reading": {
+    "complete_new_source_SPEC_PLAN_CONTROLS_GO_context_supplements": true,
+    "all25_actual_records": true,
+    "all50_complete_original_split_streams": true,
+    "all_failed_attempts_included": true,
+    "complete_inventory_stdout_bytes": 41844,
+    "all173_classification_entries_and_axioms": true,
+    "complete_three_production_helper_originals_and_separate_Controls_original": true,
+    "all_imports_provenance_context_and_freezes": true,
+    "complete_A_B_C_Controls_and_shared_header_amendment_patches": true,
+    "integration_count_each": 1,
+    "helper_executions": 0,
+    "full_execution_and_snapshot_index": true,
+    "all_artifact_identity_entries": 61,
+    "final_document_identity_closure": true,
+    "final_REPORT_HANDOFF_CONTROL_RECEIPT_SOURCE_OBJECT_ROOT_CONTEXT_READY": true,
+    "every_historical_source_snapshot_body_read_claim": false,
+    "root_full_source_or_all_stream_reading_claim": false
+  },
+  "process_only_findings": {
+    "size_precision": "CLOSED: source175B/stdout138B/stderr0; original root wording preserved and corrected in ROOT_PROCESS_SIZE_CORRECTION.json; no replay",
+    "timing": "Original GO15:20 preserved; saved native6472971214 actual15:20:15 and correction6472992139/board6472992763 set nextCP15:50, terminal16:30/end unchanged",
+    "later_checkpoint_read": "6473661841 actual15:49:00UTC before15:50; next16:10, terminal16:30/end unchanged; no61 coverage inferred",
+    "source_cut_supplied_record": "c43a952b3fd71f7239fe31be51cba074cd5bd82b",
+    "source_gitblob_supplied_record": "6a5a5fbbc85fd5703f4a3c3eb727a30f55e6827d",
+    "qualified_parent59": "29e76f91af5f88606ca3f4f8e39ee88c1022fd73",
+    "root_only_eligible_object_copy_once": true,
+    "reviewer_git_hash_or_copy": 0,
+    "open_material_findings": []
+  },
+  "reviewer_Lean_probe_build_test_inventory_audit_kernel_control_hash_Git_cache_external_operations": 0,
+  "no59_implementation_or_private_dependency": true,
+  "source61_helper_bodies_inspected": false,
+  "scientific_effect": "NONE",
+  "same_family_provider_distinct_credit": 0,
+  "different_family_scientific_acceptance": false,
+  "owner_reuse": "/workspace/AGENTS.md: completed applicable evidence reusable; pending process separate; session/agent/handoff/head/lease alone does not justify replay",
+  "canonical_links_carried_not_fresh_external_reading": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/main/governance/OWNER_DECISION_20261025_REVIEW_FAMILIES.md"
+  ]
+}

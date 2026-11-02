@@ -1,0 +1,120 @@
+--- passed009-draft
++++ final-source
+@@ -1805,6 +1805,117 @@
+   exact incidence_theta_differentiable U hU _ _
+     (tie_constraint_smooth hL ω).contDiffOn (tie_response_smooth F).contDiffOn hinv x hx
+ 
++/- Private direct positive: the first frame comes from the actual48 source
++   family; its Gram law makes the mixed family provably nonorthogonal. -/
++private theorem actual_nonorthogonal_normalization {L : ℝ} (hL : L≠0)
++    (r : ℝ) (x : Point2) (hx : Remote L r x) :
++    ∃ (F G : RawPinFreeFrame L r 2),
++      let v : Fin 2 → SourceMode 2 →₀ ℝ := ![(2 : ℝ) • F.chi 0,F.chi 0+(3 : ℝ) • F.chi 1]
++      finitePairing (fun m => v 0 m) (v 1)=2 ∧
++      Submodule.span ℝ (Set.range G.chi)=Submodule.span ℝ (Set.range v) ∧
++      Function.Bijective (rowResponse (fun i m => F.chi i m) G) := by
++  classical
++  obtain ⟨F,_hF⟩ := gradient_frame hL r x hx
++  let v : Fin 2 → SourceMode 2 →₀ ℝ := ![(2 : ℝ) • F.chi 0,F.chi 0+(3 : ℝ) • F.chi 1]
++  have hcombo (a b c d : ℝ) :
++      finitePairing (fun m => (a • F.chi 0+b • F.chi 1) m)
++        (c • F.chi 0+d • F.chi 1)=a*c+b*d := by
++    have hl (u : SourceMode 2 →₀ ℝ) :
++        finitePairing (fun m => (a • F.chi 0+b • F.chi 1) m) u=
++          a*finitePairing (fun m => F.chi 0 m) u+
++          b*finitePairing (fun m => F.chi 1 m) u := by
++      simp only [Finsupp.add_apply,Finsupp.smul_apply,smul_eq_mul,finitePairing,
++        Finsupp.sum,add_mul,mul_assoc,Finset.sum_add_distrib,← Finset.mul_sum]
++    rw [hl]
++    simp only [finiteFrame_pair_lc,map_add,map_smul,smul_eq_mul]
++    simp only [← finiteFrame_pair_lc,F.gram]
++    norm_num
++  have hrows0 (j : Fin 2) : finitePairing (fun m => F.chi 0 m) (v j)=![2,1] j := by
++    fin_cases j
++    · simpa [v] using hcombo 1 0 2 0
++    · simpa [v] using hcombo 1 0 1 3
++  have hrows1 (j : Fin 2) : finitePairing (fun m => F.chi 1 m) (v j)=![0,3] j := by
++    fin_cases j
++    · simpa [v] using hcombo 0 1 2 0
++    · simpa [v] using hcombo 0 1 1 3
++  have hv : LinearIndependent ℝ v := by
++    apply Fintype.linearIndependent_iff.mpr
++    intro c hc i
++    have h0 := congrArg (Finsupp.linearCombination ℝ (fun m => F.chi 0 m)) hc
++    have h1 := congrArg (Finsupp.linearCombination ℝ (fun m => F.chi 1 m)) hc
++    have hp0 : finitePairing (fun m => F.chi 0 m) (∑j,c j • v j)=0 := by
++      simpa only [finiteFrame_pair_lc,map_zero] using h0
++    have hp1 : finitePairing (fun m => F.chi 1 m) (∑j,c j • v j)=0 := by
++      simpa only [finiteFrame_pair_lc,map_zero] using h1
++    rw [finiteFrame_pair_sum] at hp0 hp1
++    simp only [hrows0,hrows1,Fin.sum_univ_two,Matrix.cons_val_zero,
++      Matrix.cons_val_one] at hp0 hp1
++    fin_cases i
++    · change c 0=0; linarith
++    · change c 1=0; linarith
++  have hraw (i : Fin 6) (j : Fin 2) : finitePairing (rawPinCoefficient L r i) (v j)=0 := by
++    fin_cases j
++    · change finitePairing (rawPinCoefficient L r i) ((2 : ℝ) • F.chi 0)=0
++      rw [finiteFrame_pair_lc,map_smul,← finiteFrame_pair_lc,F.raw_kernel]
++      simp
++    · change finitePairing (rawPinCoefficient L r i) (F.chi 0+(3 : ℝ) • F.chi 1)=0
++      rw [finiteFrame_pair_lc,map_add,map_smul,← finiteFrame_pair_lc,← finiteFrame_pair_lc,
++        F.raw_kernel,F.raw_kernel]
++      simp
++  obtain ⟨G,hG⟩ := finiteFrame_of_linearIndependent v hv hraw
++  have hspan : Submodule.span ℝ (Set.range v)=Submodule.span ℝ (Set.range F.chi) := by
++    apply le_antisymm
++    · apply Submodule.span_le.mpr
++      rintro w ⟨j,rfl⟩
++      fin_cases j
++      · change (2 : ℝ) • F.chi 0 ∈ Submodule.span ℝ (Set.range F.chi)
++        exact Submodule.smul_mem _ _ (Submodule.subset_span (Set.mem_range_self 0))
++      · change F.chi 0+(3 : ℝ) • F.chi 1 ∈ Submodule.span ℝ (Set.range F.chi)
++        exact Submodule.add_mem _ (Submodule.subset_span (Set.mem_range_self 0))
++          (Submodule.smul_mem _ _ (Submodule.subset_span (Set.mem_range_self 1)))
++    · apply Submodule.span_le.mpr
++      rintro w ⟨j,rfl⟩
++      have hv0 : v 0 ∈ Submodule.span ℝ (Set.range v) := Submodule.subset_span ⟨0,rfl⟩
++      have hv1 : v 1 ∈ Submodule.span ℝ (Set.range v) := Submodule.subset_span ⟨1,rfl⟩
++      fin_cases j
++      · change F.chi 0 ∈ Submodule.span ℝ (Set.range v)
++        have he : F.chi 0=(1/2 : ℝ) • v 0 := by ext m; simp [v]
++        rw [he]
++        exact Submodule.smul_mem _ _ hv0
++      · change F.chi 1 ∈ Submodule.span ℝ (Set.range v)
++        have he : F.chi 1=(1/3 : ℝ) • (v 1-(1/2 : ℝ) • v 0) := by
++          ext m; simp [v]
++        rw [he]
++        exact Submodule.smul_mem _ _
++          (Submodule.sub_mem _ hv1 (Submodule.smul_mem _ _ hv0))
++  refine ⟨F,G,?_,hG,?_⟩
++  · simpa [v] using hcombo 2 0 1 3
++  · exact finiteFrame_response_bijective_of_same_span (fun i m => F.chi i m) F.chi
++      F.gram G (hG.trans hspan)
++
++private theorem actual_lattice_translate_control {L : ℝ} (hL : 0<L)
++    (ω : SmoothSample 2 L) (X : E 2) (n : Fin 2 → ℤ) :
++    torusDist 2 L X (X+latticeVec 2 L n)=0 ∧
++      actualField 2 L ω X=actualField 2 L ω (X+latticeVec 2 L n) ∧
++      ∀k,iteratedFDeriv ℝ k (smoothSourceField 2 L ω) (coordinates 2 X)=
++        iteratedFDeriv ℝ k (smoothSourceField 2 L ω)
++          (coordinates 2 (X+latticeVec 2 L n)) := by
++  have hp : I4Torus.torusProjection 2 L (coordinates 2 X)=
++      I4Torus.torusProjection 2 L (coordinates 2 (X+latticeVec 2 L n)) := by
++    funext i
++    apply sub_eq_zero.mp
++    change (((coordinates 2 X) i : ℝ) : AddCircle L)-
++      (((coordinates 2 (X+latticeVec 2 L n)) i : ℝ) : AddCircle L)=0
++    rw [← AddCircle.coe_sub]
++    apply (AddCircle.coe_eq_zero_iff (p := L)).2
++    refine ⟨-n i,?_⟩
++    rw [map_add,coordinates_latticeVec]
++    simp only [Pi.add_apply,zsmul_eq_mul,Int.cast_neg]
++    ring
++  exact ⟨projection_eq_torusDist_zero hL _ _ hp,
++    (source_jets_of_projection_eq hL ω _ _ hp).1,
++    (source_jets_of_projection_eq hL ω _ _ hp).2⟩
++
+ private def sourceDet {L : ℝ} (ω : SmoothSample 2 L) (x : Point2) : ℝ :=
+   (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) x ![directionX,directionX]) *
+     (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) x ![directionY,directionY]) -

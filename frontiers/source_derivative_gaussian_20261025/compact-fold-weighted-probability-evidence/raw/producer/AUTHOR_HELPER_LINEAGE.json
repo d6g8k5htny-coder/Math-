@@ -1,0 +1,23 @@
+{
+  "author": {
+    "provider": "OpenAI",
+    "family": "GPT-6/Codex",
+    "agent": "/root/compact_fold_weighted_probability_construct",
+    "role": "sole new-module author and execution"
+  },
+  "root": "/root",
+  "precode_commit": "b8114e28d0e440e078a831c8df7fe69411b3a6e5",
+  "spec_read_before_code": "SOURCE_COMPACT_FOLD_WEIGHTED_PROBABILITY.md + SOURCE_COMPACT_FOLD_WEIGHTED_PROBABILITY_PLAN.md",
+  "worker_agents_spawned_by_author": 0,
+  "helpers": [],
+  "completed_evidence_reused": true,
+  "old_math_kernel_control_review_replays": 0,
+  "same_provider_review_credit": "Technical only; zero provider-distinct or organizational independence credit.",
+  "scientific_effect": "NONE",
+  "canonical_authority": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md"
+  ],
+  "verification_reuse_instruction": "/workspace/AGENTS.md owner clarification25October2026: completed applicable unchanged verification is reusable; pending process requirements do not erase mathematics; agent/session/handoff alone does not justify replay.",
+  "root_owned_process": "Registration/cache/publication/current CI and separate source/spec review; no production metadata or old source/config/cache/manifests touched by this author."
+}

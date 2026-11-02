@@ -1,0 +1,1 @@
+These exact files preserve the earlier scaffold checkpoint: 17 Lean modules, 20 identity records, and three development compile receipts. They are historical evidence and do not describe the later package with controls and audit. The current records are in the parent evidence directory. The recorded validator SHA refers to the preserved validator here.

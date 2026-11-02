@@ -1,0 +1,314 @@
+{
+  "schema_version": 1,
+  "status": "PASS_STATIC_ONLY",
+  "scope": "File identities, generated TOML subset, module mappings, direct import resolution, acyclic local imports, unchanged dependency manifest entries, and text-only public package hygiene.",
+  "lake_loader": "NOT_RUN",
+  "lean_compile": "NOT_RUN_BY_THIS_VALIDATION",
+  "hosted_ci": "NOT_OBSERVED",
+  "network_or_cache_mutation": "NONE",
+  "generated_toml_parser": "Restricted JSON-compatible assignment and array-of-table subset; not the Lake TOML loader.",
+  "identity_records_verified": 20,
+  "identity_manifest_sha256": "d52b1cef415f56d3d4c51c176f92fe9e550a4a6cbad9b979ac58adbdbba36fed",
+  "lakefile_sha256": "0a40a1aa47450d8d2b43586cce96068f452b71f17f0fc43d22d32680aadef729",
+  "lake_manifest_sha256": "dec36bd447e05b93b4faa770967e32d9af68867381967d750ce6dbe49a20ca01",
+  "toolchain_sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+  "module_count": 17,
+  "module_mapping": {
+    "GaussianSeriesFoundation": "inputs/GaussianSeriesFoundation.lean",
+    "SourceC4": "inputs/SourceC4.lean",
+    "SourceCovariance": "inputs/SourceCovariance.lean",
+    "SourceFourierSeries": "inputs/SourceFourierSeries.lean",
+    "SourceGaussianLaw": "inputs/SourceGaussianLaw.lean",
+    "SourceKernel": "inputs/SourceKernel.lean",
+    "SourceLattice": "inputs/SourceLattice.lean",
+    "SourceTorus": "inputs/SourceTorus.lean",
+    "SourceTorusC4": "inputs/SourceTorusC4.lean",
+    "SpectralWeights": "inputs/SpectralWeights.lean",
+    "SourceSmooth": "inputs/SourceSmooth.lean",
+    "SourceSmoothCarrier": "inputs/SourceSmoothCarrier.lean",
+    "SourceSmoothControls": "inputs/SourceSmoothControls.lean",
+    "Lifetime": "inputs/Lifetime.lean",
+    "SourceThetaBridge": "SourceThetaBridge.lean",
+    "SourceLifetimeGeometry": "SourceLifetimeGeometry.lean",
+    "SourceLifetimeField": "SourceLifetimeField.lean"
+  },
+  "local_imports": {
+    "GaussianSeriesFoundation": [],
+    "SourceC4": [
+      "SourceFourierSeries"
+    ],
+    "SourceCovariance": [
+      "SourceKernel",
+      "SourceGaussianLaw"
+    ],
+    "SourceFourierSeries": [
+      "GaussianSeriesFoundation",
+      "SpectralWeights"
+    ],
+    "SourceGaussianLaw": [
+      "SourceFourierSeries"
+    ],
+    "SourceKernel": [
+      "SourceLattice"
+    ],
+    "SourceLattice": [
+      "SourceFourierSeries"
+    ],
+    "SourceTorus": [
+      "SourceCovariance"
+    ],
+    "SourceTorusC4": [
+      "SourceC4",
+      "SourceTorus"
+    ],
+    "SpectralWeights": [],
+    "SourceSmooth": [
+      "SourceC4"
+    ],
+    "SourceSmoothCarrier": [
+      "SourceSmooth",
+      "SourceGaussianLaw",
+      "SourceCovariance",
+      "SourceTorusC4"
+    ],
+    "SourceSmoothControls": [
+      "SourceSmoothCarrier"
+    ],
+    "Lifetime": [],
+    "SourceThetaBridge": [
+      "Lifetime",
+      "SourceKernel"
+    ],
+    "SourceLifetimeGeometry": [
+      "Lifetime",
+      "SourceSmoothCarrier"
+    ],
+    "SourceLifetimeField": [
+      "SourceLifetimeGeometry",
+      "SourceThetaBridge"
+    ]
+  },
+  "topological_module_order": [
+    "GaussianSeriesFoundation",
+    "Lifetime",
+    "SpectralWeights",
+    "SourceFourierSeries",
+    "SourceC4",
+    "SourceGaussianLaw",
+    "SourceLattice",
+    "SourceKernel",
+    "SourceSmooth",
+    "SourceCovariance",
+    "SourceThetaBridge",
+    "SourceTorus",
+    "SourceTorusC4",
+    "SourceSmoothCarrier",
+    "SourceLifetimeGeometry",
+    "SourceSmoothControls",
+    "SourceLifetimeField"
+  ],
+  "external_imports": [
+    "Mathlib",
+    "Mathlib.Algebra.BigOperators.Fin",
+    "Mathlib.Analysis.Calculus.SmoothSeries",
+    "Mathlib.Analysis.Normed.Ring.InfiniteSum",
+    "Mathlib.Analysis.SpecialFunctions.Gaussian.PoissonSummation",
+    "Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv",
+    "Mathlib.Data.Fin.Tuple.Basic",
+    "Mathlib.Data.Finset.Max",
+    "Mathlib.Data.Nat.Choose.Sum",
+    "Mathlib.Geometry.Manifold.ContMDiff.Basic",
+    "Mathlib.Geometry.Manifold.ContMDiff.NormedSpace",
+    "Mathlib.Logic.Equiv.Option",
+    "Mathlib.MeasureTheory.Constructions.BorelSpace.Real",
+    "Mathlib.MeasureTheory.Function.LpSeminorm.SMul",
+    "Mathlib.MeasureTheory.Function.LpSpace.InfiniteSum",
+    "Mathlib.MeasureTheory.Integral.DominatedConvergence",
+    "Mathlib.MeasureTheory.Integral.IntervalIntegral.Periodic",
+    "Mathlib.MeasureTheory.Measure.Restrict",
+    "Mathlib.MeasureTheory.Measure.Typeclasses.Probability",
+    "Mathlib.NumberTheory.ModularForms.JacobiTheta.TwoVariable",
+    "Mathlib.Probability.Distributions.Gaussian.HasGaussianLaw.Independence",
+    "Mathlib.Probability.Distributions.Gaussian.IsGaussianProcess.Basic",
+    "Mathlib.Probability.Distributions.Gaussian.IsGaussianProcess.Def",
+    "Mathlib.Probability.Distributions.Gaussian.Real",
+    "Mathlib.Probability.Independence.CharacteristicFunction",
+    "Mathlib.Probability.Independence.InfinitePi",
+    "Mathlib.Probability.Moments.Covariance",
+    "Mathlib.Probability.Moments.Variance",
+    "Mathlib.Topology.Algebra.InfiniteSum.TsumUniformlyOn",
+    "Mathlib.Topology.LocallyConstant.Basic",
+    "Mathlib.Topology.OpenPartialHomeomorph.Constructions"
+  ],
+  "external_source_check": "DIRECT_MATHLIB_SOURCE_FILES_PRESENT",
+  "external_toolchain_imports": [],
+  "external_source_files": [
+    {
+      "module": "Mathlib",
+      "path_in_mathlib": "Mathlib.lean",
+      "sha256": "61d699d8ace6240934a751f1b1951339090d6e380b505041632227dd7eb73a29"
+    },
+    {
+      "module": "Mathlib.Algebra.BigOperators.Fin",
+      "path_in_mathlib": "Mathlib/Algebra/BigOperators/Fin.lean",
+      "sha256": "798914333dd97eada9032afc50a9106cc5cf481b57477c4a6f198220ffd17304"
+    },
+    {
+      "module": "Mathlib.Analysis.Calculus.SmoothSeries",
+      "path_in_mathlib": "Mathlib/Analysis/Calculus/SmoothSeries.lean",
+      "sha256": "293196f8d3e0fc74837fda06ee2b518ba5d917aba80e72c435311681473c14a1"
+    },
+    {
+      "module": "Mathlib.Analysis.Normed.Ring.InfiniteSum",
+      "path_in_mathlib": "Mathlib/Analysis/Normed/Ring/InfiniteSum.lean",
+      "sha256": "d197a22a8073f6dfe1def4f755919629fdbbecdc4e72f82325eaff2759c4d62c"
+    },
+    {
+      "module": "Mathlib.Analysis.SpecialFunctions.Gaussian.PoissonSummation",
+      "path_in_mathlib": "Mathlib/Analysis/SpecialFunctions/Gaussian/PoissonSummation.lean",
+      "sha256": "b8eab715bff1f1f28932b8ff1b2b3051108b9dc83ce50ede77b8e6fbd1a57d42"
+    },
+    {
+      "module": "Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv",
+      "path_in_mathlib": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Deriv.lean",
+      "sha256": "c44a764cdb0db89c4c0fcfcc385bb904d2f4081ae5bd018785b84dbeb8d7744f"
+    },
+    {
+      "module": "Mathlib.Data.Fin.Tuple.Basic",
+      "path_in_mathlib": "Mathlib/Data/Fin/Tuple/Basic.lean",
+      "sha256": "041399716b52e8892ae463b3cc6c66a3eea0f799734b75facd5a8e415ee82cf8"
+    },
+    {
+      "module": "Mathlib.Data.Finset.Max",
+      "path_in_mathlib": "Mathlib/Data/Finset/Max.lean",
+      "sha256": "f9381a30f98377e15faa35c02d19d3fa0d6576c1709460ed699f4616e4d2539e"
+    },
+    {
+      "module": "Mathlib.Data.Nat.Choose.Sum",
+      "path_in_mathlib": "Mathlib/Data/Nat/Choose/Sum.lean",
+      "sha256": "cbca67f03a1951b004626f42c3ae4b0bac6f44cd3222020aae2ae052fe37033a"
+    },
+    {
+      "module": "Mathlib.Geometry.Manifold.ContMDiff.Basic",
+      "path_in_mathlib": "Mathlib/Geometry/Manifold/ContMDiff/Basic.lean",
+      "sha256": "63dbf6a3a284738ffca038ba4cce3da6acc5168d9fffd773bd2feea53bf6a69f"
+    },
+    {
+      "module": "Mathlib.Geometry.Manifold.ContMDiff.NormedSpace",
+      "path_in_mathlib": "Mathlib/Geometry/Manifold/ContMDiff/NormedSpace.lean",
+      "sha256": "307f9b63afc67a534e6fee7646e6d4e4c994577a71f474af1775ebbec375877f"
+    },
+    {
+      "module": "Mathlib.Logic.Equiv.Option",
+      "path_in_mathlib": "Mathlib/Logic/Equiv/Option.lean",
+      "sha256": "0499487ca3dd031ebe97acced60901ace1faa193b4bb5dfd922950e6de0c9ef8"
+    },
+    {
+      "module": "Mathlib.MeasureTheory.Constructions.BorelSpace.Real",
+      "path_in_mathlib": "Mathlib/MeasureTheory/Constructions/BorelSpace/Real.lean",
+      "sha256": "676b1b9cc426b14fc331fc24e1da1a23d32d12c4e431223bd11d01014779206c"
+    },
+    {
+      "module": "Mathlib.MeasureTheory.Function.LpSeminorm.SMul",
+      "path_in_mathlib": "Mathlib/MeasureTheory/Function/LpSeminorm/SMul.lean",
+      "sha256": "5efd230a270ebe8690b34439fbe623f4d6cde4ebaa45c410dbb0868131529b36"
+    },
+    {
+      "module": "Mathlib.MeasureTheory.Function.LpSpace.InfiniteSum",
+      "path_in_mathlib": "Mathlib/MeasureTheory/Function/LpSpace/InfiniteSum.lean",
+      "sha256": "15c3f38f129a0a74832cefe26799e583fb0d926aad8d44cde3c04480d10c4f29"
+    },
+    {
+      "module": "Mathlib.MeasureTheory.Integral.DominatedConvergence",
+      "path_in_mathlib": "Mathlib/MeasureTheory/Integral/DominatedConvergence.lean",
+      "sha256": "8b992825c893a377d5be8c370fae94c31dbee29d6b4bfbe0a3cd36bd5438a3d7"
+    },
+    {
+      "module": "Mathlib.MeasureTheory.Integral.IntervalIntegral.Periodic",
+      "path_in_mathlib": "Mathlib/MeasureTheory/Integral/IntervalIntegral/Periodic.lean",
+      "sha256": "c29cf7392ddbd5acbe615c55fc36315e65bd7563c84f0118273666ef523bd403"
+    },
+    {
+      "module": "Mathlib.MeasureTheory.Measure.Restrict",
+      "path_in_mathlib": "Mathlib/MeasureTheory/Measure/Restrict.lean",
+      "sha256": "f5ac9e88c8ff8528710ccab6a5995bd4ec9fb300b2f4294e1444edcdf5b26abc"
+    },
+    {
+      "module": "Mathlib.MeasureTheory.Measure.Typeclasses.Probability",
+      "path_in_mathlib": "Mathlib/MeasureTheory/Measure/Typeclasses/Probability.lean",
+      "sha256": "054a34de6303b06fb714c4f8e583a92a3513a1ae95354e672404830c33ba3632"
+    },
+    {
+      "module": "Mathlib.NumberTheory.ModularForms.JacobiTheta.TwoVariable",
+      "path_in_mathlib": "Mathlib/NumberTheory/ModularForms/JacobiTheta/TwoVariable.lean",
+      "sha256": "037f03fd24d0df4a30cda7801283ba455ff706eae4a9d3e78bbd2c27b500e807"
+    },
+    {
+      "module": "Mathlib.Probability.Distributions.Gaussian.HasGaussianLaw.Independence",
+      "path_in_mathlib": "Mathlib/Probability/Distributions/Gaussian/HasGaussianLaw/Independence.lean",
+      "sha256": "06f064a27a0fc4a08277d545b643e2f40e5adffec4c37917bd8bd3752070f1ff"
+    },
+    {
+      "module": "Mathlib.Probability.Distributions.Gaussian.IsGaussianProcess.Basic",
+      "path_in_mathlib": "Mathlib/Probability/Distributions/Gaussian/IsGaussianProcess/Basic.lean",
+      "sha256": "c1dae1e9d6c15521dd923ffc962948005a816a74dc356fcc024c281ea4a75307"
+    },
+    {
+      "module": "Mathlib.Probability.Distributions.Gaussian.IsGaussianProcess.Def",
+      "path_in_mathlib": "Mathlib/Probability/Distributions/Gaussian/IsGaussianProcess/Def.lean",
+      "sha256": "1dce719afde290695718b795b2b64ae5045726de8d59e9674f7252ac666cfb83"
+    },
+    {
+      "module": "Mathlib.Probability.Distributions.Gaussian.Real",
+      "path_in_mathlib": "Mathlib/Probability/Distributions/Gaussian/Real.lean",
+      "sha256": "9e2bc94dd8c51e27118fd577dcf9c924d81a8cf5e03d7d1832a8527d3a12a767"
+    },
+    {
+      "module": "Mathlib.Probability.Independence.CharacteristicFunction",
+      "path_in_mathlib": "Mathlib/Probability/Independence/CharacteristicFunction.lean",
+      "sha256": "cbc97d0493d8e19229cc3af652f005fec45ae329b43fff94d323f5d30ae0d159"
+    },
+    {
+      "module": "Mathlib.Probability.Independence.InfinitePi",
+      "path_in_mathlib": "Mathlib/Probability/Independence/InfinitePi.lean",
+      "sha256": "d53662a8ca667e78ec2f45166544f326b53a8dfb69d0ce21fed83b6e097b4f97"
+    },
+    {
+      "module": "Mathlib.Probability.Moments.Covariance",
+      "path_in_mathlib": "Mathlib/Probability/Moments/Covariance.lean",
+      "sha256": "627b0715f8603daff3a29a47cbd21ce3c192020295c96f088784f4b197bf0312"
+    },
+    {
+      "module": "Mathlib.Probability.Moments.Variance",
+      "path_in_mathlib": "Mathlib/Probability/Moments/Variance.lean",
+      "sha256": "216c4c4d4cd97f51c19ab8101eec246b669299eb784fcafa932539514eea38f1"
+    },
+    {
+      "module": "Mathlib.Topology.Algebra.InfiniteSum.TsumUniformlyOn",
+      "path_in_mathlib": "Mathlib/Topology/Algebra/InfiniteSum/TsumUniformlyOn.lean",
+      "sha256": "e5708e42d1d98f9bc1ba4dc0e8131eb931e2445fa70c6c04c29c9235603900f4"
+    },
+    {
+      "module": "Mathlib.Topology.LocallyConstant.Basic",
+      "path_in_mathlib": "Mathlib/Topology/LocallyConstant/Basic.lean",
+      "sha256": "57c005cec05118edbe54ea3efcc389823258026774226e9f93ff3c862adf5ddf"
+    },
+    {
+      "module": "Mathlib.Topology.OpenPartialHomeomorph.Constructions",
+      "path_in_mathlib": "Mathlib/Topology/OpenPartialHomeomorph/Constructions.lean",
+      "sha256": "93d321b3145f14bd1794b62e6808302042f58167689877fee78c088a900ad999"
+    }
+  ],
+  "dependency_pins": {
+    "plausible": "118aa17ee84656b8bd727fef7c458ee8c833385c",
+    "LeanSearchClient": "ddf04cf3949fa556442341e87d47f9f6e6074707",
+    "importGraph": "e928b72544873815af278d38681b31c0293588e3",
+    "proofwidgets": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
+    "aesop": "355695d523e41d0554926416cba2a2b3544fbbc9",
+    "Qq": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+    "batteries": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+    "Cli": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204",
+    "mathlib": "d13f23b723b8a846827a245b89c10fc7d3f11612"
+  },
+  "file_count_at_validation": 31
+}

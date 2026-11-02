@@ -1,0 +1,26 @@
+SourceConfluentLimits.lean:529:60: error: unsolved goals
+hi : IntervalIntegrable (fun t => t) ℙ (-1 / 2) (1 / 2)
+hp : IntervalIntegrable (fun t => t ^ 2) ℙ (-1 / 2) (1 / 2)
+⊢ ∫ (t : ℝ) in -(1 / 2)..1 / 2, 1 / 2 - t = 1 / 2
+SourceConfluentLimits.lean:568:4: error: Tactic `rfl` failed: The left-hand side
+  ∫ (u : ℝ) in -1 / 2..1 / 2, derivativeCoefficient 2 L 2 ![r * u, 0] ![directionX, directionX] m
+is not definitionally equal to the right-hand side
+  regularizedPinCoefficient L r ⟨3, ⋯⟩ m
+
+case «3»
+L r : ℝ
+hr : r ≠ 0
+m : SourceMode 2
+⊢ ∫ (u : ℝ) in -1 / 2..1 / 2, derivativeCoefficient 2 L 2 ![r * u, 0] ![directionX, directionX] m =
+    regularizedPinCoefficient L r ⟨3, ⋯⟩ m
+SourceConfluentLimits.lean:572:4: error: Tactic `rfl` failed: The left-hand side
+  ∫ (u : ℝ) in -1 / 2..1 / 2, derivativeCoefficient 2 L 2 ![r * u, 0] ![directionX, directionY] m
+is not definitionally equal to the right-hand side
+  regularizedPinCoefficient L r ⟨4, ⋯⟩ m
+
+case «4»
+L r : ℝ
+hr : r ≠ 0
+m : SourceMode 2
+⊢ ∫ (u : ℝ) in -1 / 2..1 / 2, derivativeCoefficient 2 L 2 ![r * u, 0] ![directionX, directionY] m =
+    regularizedPinCoefficient L r ⟨4, ⋯⟩ m

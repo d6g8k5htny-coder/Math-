@@ -1,0 +1,6 @@
+GaussianWeightedMajorants.lean:53:6: error: Type mismatch: After simplification, term
+  eLpNorm_const_smul (w i) (fun ω => |U i ω|) p P
+ has type
+  @Eq ℝ≥0∞ (eLpNorm (w i • fun ω => |U i ω|) p P) (‖w i‖ₑ * eLpNorm (fun ω => |U i ω|) p P)
+but is expected to have type
+  @Eq ℝ≥0∞ (eLpNorm (fun ω => w i * |U i ω|) p P) (‖w i‖ₑ * eLpNorm (fun ω => |U i ω|) p P)

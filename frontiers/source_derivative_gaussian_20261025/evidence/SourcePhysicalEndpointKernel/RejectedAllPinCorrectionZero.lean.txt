@@ -1,0 +1,5 @@
+import SourcePhysicalEndpointKernel
+open I4SourcePhysicalEndpointKernel
+example : sourcePhysicalCorrection 1 (Pi.single (3 : Fin 6) (1 : ℝ)) = 0 := by
+  ext i
+  fin_cases i <;> norm_num [sourcePhysicalCorrection, Pi.single_apply]

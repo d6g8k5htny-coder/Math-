@@ -1,0 +1,23 @@
+/workspace/scratch/regression-kernel/endpoint-parameters/Identification.lean:39:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (x : Ω), ↑e (Z x) ∂P
+in the target expression
+  ∫ (ω : Ω), e (Z ω) ∂P = e m
+
+case hm
+Ω : Type u_1
+inst✝ : MeasurableSpace Ω
+P : Measure Ω
+n : ℕ
+Z : Ω → Fin n → ℝ
+hZ : HasGaussianLaw Z P
+m : Fin n → ℝ
+hm : ∫ (ω : Ω), Z ω ∂P = m
+S : Matrix (Fin n) (Fin n) ℝ
+hcov : ∀ (i j : Fin n), cov[fun ω => Z ω i, fun ω => Z ω j; P] = S i j
+this✝ : IsProbabilityMeasure P
+e : (Fin n → ℝ) ≃L[ℝ] EuclideanSpace ℝ (Fin n) := (PiLp.continuousLinearEquiv 2 ℝ fun x => ℝ).symm
+hE : HasGaussianLaw (fun ω => toLp 2 (Z ω)) P
+this : IsGaussian (Measure.map (fun ω => toLp 2 (Z ω)) P)
+hZi : ∀ (i : Fin n), MemLp (fun ω => Z ω i) 2 P
+hS : S.PosSemidef
+⊢ ∫ (ω : Ω), e (Z ω) ∂P = e m

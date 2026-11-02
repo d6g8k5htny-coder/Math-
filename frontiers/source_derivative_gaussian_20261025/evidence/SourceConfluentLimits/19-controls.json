@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/scratch/source-confluent-limits/controls.lean"
+  ],
+  "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+  "exitcode": 0,
+  "source_sha256_before": "1635a05bbd5b56608bc0a1a04eb4404c2df4601f1255f5846c1342a597bf5b0b",
+  "source_sha256_after": "1635a05bbd5b56608bc0a1a04eb4404c2df4601f1255f5846c1342a597bf5b0b",
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

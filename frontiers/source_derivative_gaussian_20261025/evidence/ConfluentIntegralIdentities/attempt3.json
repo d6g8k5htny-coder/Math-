@@ -1,0 +1,13 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-o",
+    ".lake/build/lib/lean/ConfluentIntegralIdentities.olean",
+    "ConfluentIntegralIdentities.lean"
+  ],
+  "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+  "exit_code": 1,
+  "source_sha256": "03ffd76905e0326b5569627f16d55ea6735c33eff63920f69ce5b472b07e7341"
+}

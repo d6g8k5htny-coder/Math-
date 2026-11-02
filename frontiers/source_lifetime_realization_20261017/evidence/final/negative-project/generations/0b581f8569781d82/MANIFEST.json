@@ -1,0 +1,195 @@
+{
+  "schema": "C291-negative-fixtures-v3-seven-controls-once-census",
+  "generation": "0b581f8569781d82",
+  "status": "PREPARED_NOT_EXECUTED",
+  "baseline_source_path": "project/SourceLifetimeField.lean",
+  "baseline_source_sha256": "daf0949a14d4ed8bd19fbdc564f0f8c3fad72ed243de73e39d65b2951576919a",
+  "baseline_audit_path": "project/SourceLifetimeAxiomAudit.lean",
+  "baseline_audit_sha256": "fea8df29106f295238b3a039bb2aae350167a9ada2326d6d00ba6f6663be52c3",
+  "wrapper_transform": "Preserve original imports/proof body; replace only namespace wrapper; open I4LifetimeField for unchanged Geometry helpers; append d0 consumer. Positive harness has identical wrapping and zero substantive edits.",
+  "production_field_module_imported_by_clone": false,
+  "positive_binding_required_local_suffixes": [
+    "covQuadForm_nonneg",
+    "actualField_linearCombination_map",
+    "actualField_raw_second_moment"
+  ],
+  "constructor_cases": [
+    {
+      "name": "ZeroField",
+      "namespace": "C291Negative.ZeroField",
+      "single_edit": {
+        "byte_offset": 2901,
+        "old": "  F := actualField d L\n",
+        "new": "  F := fun _ _ => 0\n",
+        "original_line": 69
+      },
+      "raw_clone_path": "raw-clones/ZeroField.lean",
+      "raw_clone_sha256": "a2223cbe461db3936b1c391e701e3c474f58d60d63745799a55ce4ba64e84a15",
+      "combined_namespace_range": [
+        17,
+        102
+      ],
+      "required_error_line_range": [
+        66,
+        80
+      ]
+    },
+    {
+      "name": "ShiftedField",
+      "namespace": "C291Negative.ShiftedField",
+      "single_edit": {
+        "byte_offset": 2901,
+        "old": "  F := actualField d L\n",
+        "new": "  F := fun \u03c9 x => actualField d L \u03c9 x + 1\n",
+        "original_line": 69
+      },
+      "raw_clone_path": "raw-clones/ShiftedField.lean",
+      "raw_clone_sha256": "45be31e28e35624d413e791eccb1042bab5bdab1e7262d2fcef31fb89d36f299",
+      "combined_namespace_range": [
+        102,
+        187
+      ],
+      "required_error_line_range": [
+        151,
+        165
+      ]
+    },
+    {
+      "name": "ZeroMeasure",
+      "namespace": "C291Negative.ZeroMeasure",
+      "single_edit": {
+        "byte_offset": 2828,
+        "old": "  P := smoothLaw d L\n",
+        "new": "  P := 0\n",
+        "original_line": 67
+      },
+      "raw_clone_path": "raw-clones/ZeroMeasure.lean",
+      "raw_clone_sha256": "e5072b0169c2c422b101423973043af9a70d8f9b8f9aec851b51963852ce7494",
+      "combined_namespace_range": [
+        187,
+        272
+      ],
+      "required_error_line_range": [
+        236,
+        250
+      ]
+    },
+    {
+      "name": "HiddenPositiveDimension",
+      "namespace": "C291Negative.HiddenPositiveDimension",
+      "single_edit": {
+        "byte_offset": 2675,
+        "old": "def actualGaussianFieldInterface (d : \u2115) (L : \u211d) (hL : 0 < L) :\n",
+        "new": "def actualGaussianFieldInterface (d : \u2115) (L : \u211d) (hL : 0 < L) (hd : 0 < d) :\n",
+        "original_line": 63
+      },
+      "raw_clone_path": "raw-clones/HiddenPositiveDimension.lean",
+      "raw_clone_sha256": "8bc6a73e8c87f78705b42ffbf5a8029e20dd75b0842975c9e4838b6bf2dde70c",
+      "combined_namespace_range": [
+        272,
+        357
+      ],
+      "required_error_line_range": [
+        352,
+        354
+      ]
+    },
+    {
+      "name": "DoubledRawCovariance",
+      "namespace": "C291Negative.DoubledRawCovariance",
+      "single_edit": {
+        "byte_offset": 965,
+        "old": "      periodicCovariance d L (x - y) := by\n",
+        "new": "      2 * periodicCovariance d L (x - y) := by\n",
+        "original_line": 26
+      },
+      "raw_clone_path": "raw-clones/DoubledRawCovariance.lean",
+      "raw_clone_sha256": "7e8a31e67be81c5e05f9a1d3b957371534e439b31904d2827e83cfb79c223c49",
+      "combined_namespace_range": [
+        357,
+        442
+      ],
+      "required_error_line_range": [
+        366,
+        373
+      ]
+    },
+    {
+      "name": "WrongCovarianceArgument",
+      "namespace": "C291Negative.WrongCovarianceArgument",
+      "single_edit": {
+        "byte_offset": 965,
+        "old": "      periodicCovariance d L (x - y) := by\n",
+        "new": "      periodicCovariance d L (x + y) := by\n",
+        "original_line": 26
+      },
+      "raw_clone_path": "raw-clones/WrongCovarianceArgument.lean",
+      "raw_clone_sha256": "2011a125ad08bb581ebd5f6530c6419ea0c1fe02d57c541f2a006df240e7f385",
+      "combined_namespace_range": [
+        442,
+        527
+      ],
+      "required_error_line_range": [
+        451,
+        458
+      ]
+    },
+    {
+      "name": "NegativeQuadraticForm",
+      "namespace": "C291Negative.NegativeQuadraticForm",
+      "single_edit": {
+        "byte_offset": 1897,
+        "old": "    0 \u2264 covQuadForm d L x a := by\n",
+        "new": "    0 \u2264 -covQuadForm d L x a := by\n",
+        "original_line": 47
+      },
+      "raw_clone_path": "raw-clones/NegativeQuadraticForm.lean",
+      "raw_clone_sha256": "f6cf2abdb3e1a5a99d4eb1074e639ca58622825e3fe6ea77e57f0b8bd020dacd",
+      "combined_namespace_range": [
+        527,
+        612
+      ],
+      "required_error_line_range": [
+        558,
+        564
+      ]
+    }
+  ],
+  "unused_axiom": {
+    "single_edit": {
+      "byte_offset": 3893,
+      "old": "end I4LifetimeField\n",
+      "new": "\nprivate axiom c291UnusedCustomAxiom : False\n\nend I4LifetimeField\n",
+      "original_line": 92
+    },
+    "private_unused_name_suffix": "C291Negative.UnusedAxiom.c291UnusedCustomAxiom",
+    "raw_clone_sha256": "2295891c9ff863e59164e0fce06b8f023d0cd5764f5d82ca123b9547557ad9d5",
+    "audit_harness_change": {
+      "byte_offset": 1135,
+      "old": "    `SourceLifetimeControls]\n",
+      "new": "    `SourceLifetimeControls, `NegativeUnusedAxiom]\n",
+      "original_line": 28
+    },
+    "audit_scope": "Exact production whole-module census plus NegativeUnusedAxiom; setExporting false includes private declarations; no endpoint reference to the axiom"
+  },
+  "modules": {
+    "NegativeFixtureBaseline": {
+      "sha256": "a18de8fb87069c26adac05b37bf065cc4c58b910d72a5b3209b826bb1424ae91",
+      "bytes": 26759
+    },
+    "NegativeConstructorMutants": {
+      "sha256": "48e62f0fdcfecac7d9a4a1f53463cd7e3a8323d7a370e5c2696a2046d7484b10",
+      "bytes": 26090
+    },
+    "NegativeUnusedAxiom": {
+      "sha256": "f6a6813861b706769c502e5d86035cbc224608c79f0a90bb2d283c0c1db295e8",
+      "bytes": 4000
+    },
+    "NegativeUnusedAxiomAudit": {
+      "sha256": "4efe2800a8392203c9add4077a4f61278ef56f9fa78183999b238decdfe54a38",
+      "bytes": 3808
+    }
+  },
+  "scientific_effect": "NONE",
+  "interpretation": "Compiler mutation binding and whole-module axiom guard controls; neither numerical evidence nor independent theorem acceptance."
+}

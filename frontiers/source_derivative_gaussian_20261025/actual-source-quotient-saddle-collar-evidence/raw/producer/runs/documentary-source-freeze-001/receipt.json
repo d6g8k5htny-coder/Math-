@@ -1,0 +1,300 @@
+{
+  "label": "documentary-source-freeze-001",
+  "scope_kind": "documentary",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "python3",
+    "-c",
+    "from pathlib import Path\nimport json,datetime\nb=Path(\"/workspace/scratch/actual-source-quotient-saddle-collar-construct\")\np=Path(\"/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualQuotientSaddleCollar.lean\")\nr=json.loads((b/\"runs/fixtures-002/receipt.json\").read_text())\nd={\"status\":\"FINAL_PRODUCTION_SOURCE_FROZEN_LAST_ACTUAL_STRICT_PASS_REUSED_AWAIT_INVENTORY_REVIEW_ONE_KERNEL\",\"recorded_utc\":datetime.datetime.now(datetime.timezone.utc).isoformat(),\"receipt\":str(b/\"runs/fixtures-002/receipt.json\"),\"source\":r[\"after\"][str(p)],\"object\":r[\"after\"][str(b/\"build/SourceActualQuotientSaddleCollar.olean\")],\"lines\":len(p.read_text().splitlines()),\"strict_completed_utc\":r[\"ended_utc\"],\"kernel_count_at_this_source_freeze\":0,\"ordinary_controls_scope\":\"Separate producer-owned ordinary notyetqualified; productionkernel excludes it\",\"strict_label\":\"fixtures002 is actualfinal Werror; no redundantcompile-final\"}\n(b/\"FINAL_SOURCE_OBJECT_IDS.PRE_KERNEL.json\").write_text(json.dumps(d,indent=2)+\"\\n\")\nprint(json.dumps(d,indent=2))\n"
+  ],
+  "runner_version": "002",
+  "runner_history": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/history/runner.002.py",
+  "before": {
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualQuotientSaddleCollar.lean": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualQuotientSaddleCollar.lean",
+      "bytes": 40252,
+      "sha256": "e0e0a0f77bd75bbbd8994d620ee43b18b2edd50d7649cd8cb9837e7148762265",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-quotient-saddle-collar-construct/build/SourceActualQuotientSaddleCollar.olean": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/build/SourceActualQuotientSaddleCollar.olean",
+      "bytes": 1654224,
+      "sha256": "a57489eb917c4f2fd4d314ab5f7ae9dea60619caf9160e044700114551c1e15e",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-quotient-saddle-collar-construct/build/QuotientSaddleCollarControls.olean": null,
+    "/workspace/scratch/actual-source-quotient-saddle-collar-construct/record_run.py": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/record_run.py",
+      "bytes": 3416,
+      "sha256": "8747416abfc5b1a9116be72fa3776ffdc0f3e2d6884cffb72564d2747f654535",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-quotient-saddle-collar-construct/CONTEXT.md": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/CONTEXT.md",
+      "bytes": 26852,
+      "sha256": "e4a6ee4cd13dfaa3c1881380033ed103cc03b89537278d19f05b4bdee48773ff",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-quotient-saddle-collar-construct/ProducerTransport.INITIAL.lean.txt": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/ProducerTransport.INITIAL.lean.txt",
+      "bytes": 7992,
+      "sha256": "432634f0e01ccb72762e0bb35c8385f66b0cf62fbee123a1a718574f1137ef92",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-quotient-saddle-collar-construct/COMMON.001.lean.txt": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/COMMON.001.lean.txt",
+      "bytes": 2289,
+      "sha256": "b170a810fa8ae168f16b328827a405d209f74f476bc93c1288e09042088b8af7",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-quotient-saddle-collar-construct/GEOMETRY.CHECKED.lean.txt": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/GEOMETRY.CHECKED.lean.txt",
+      "bytes": 18677,
+      "sha256": "44c717422e00d9bc87d3666afeadc7fb94029d12265c7e43b966954ba10aca7c",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-quotient-saddle-collar-construct/HEADER.001.lean.txt": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/HEADER.001.lean.txt",
+      "bytes": 1091,
+      "sha256": "9b550c3ab3a0b543e17955a1e7368981b7b6919858ab70de4ab71b9bdb2525e9",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-quotient-saddle-collar-construct/CHART.CHECKED.lean.txt": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/CHART.CHECKED.lean.txt",
+      "bytes": 8671,
+      "sha256": "c1b9b7706b3b0cc47564f4d79d67be1f256478a937e45ba430a95e9936016d0c",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-quotient-saddle-collar-construct/CORE.CHECKED.lean.txt": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/CORE.CHECKED.lean.txt",
+      "bytes": 26792,
+      "sha256": "4705dce9f1509b45e15ad21cf4d754ab51ecc361a9490feca4de83d1b0956e79",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-quotient-saddle-collar-construct/ProducerFixtureCore.INITIAL.lean.txt": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/ProducerFixtureCore.INITIAL.lean.txt",
+      "bytes": 12357,
+      "sha256": "1ed58e5e28f23b8aa8c886b1f15393d9aec57f716adf46a7579241129a700a11",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-quotient-saddle-collar-construct/HEADER.002.lean.txt": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/HEADER.002.lean.txt",
+      "bytes": 1136,
+      "sha256": "cc8ca6b1a51f8ef39836a96a16fb969f979e7c57e67ab453682bcd442b529cee",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-quotient-saddle-collar-construct/ProducerTransport.002.lean.txt": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/ProducerTransport.002.lean.txt",
+      "bytes": 7989,
+      "sha256": "1e42420dc21c9550c7208fae4a2cfde41ceb0307fc794769eae587b55874b5bd",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    }
+  },
+  "snapshots": [
+    {
+      "immutable_path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-source-freeze-001/SourceActualQuotientSaddleCollar.lean",
+      "existing_identity": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualQuotientSaddleCollar.lean",
+        "bytes": 40252,
+        "sha256": "e0e0a0f77bd75bbbd8994d620ee43b18b2edd50d7649cd8cb9837e7148762265",
+        "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+      }
+    },
+    {
+      "immutable_path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-source-freeze-001/record_run.py",
+      "existing_identity": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/record_run.py",
+        "bytes": 3416,
+        "sha256": "8747416abfc5b1a9116be72fa3776ffdc0f3e2d6884cffb72564d2747f654535",
+        "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+      }
+    },
+    {
+      "immutable_path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-source-freeze-001/CONTEXT.md",
+      "existing_identity": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/CONTEXT.md",
+        "bytes": 26852,
+        "sha256": "e4a6ee4cd13dfaa3c1881380033ed103cc03b89537278d19f05b4bdee48773ff",
+        "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+      }
+    },
+    {
+      "immutable_path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-source-freeze-001/ProducerTransport.INITIAL.lean.txt",
+      "existing_identity": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/ProducerTransport.INITIAL.lean.txt",
+        "bytes": 7992,
+        "sha256": "432634f0e01ccb72762e0bb35c8385f66b0cf62fbee123a1a718574f1137ef92",
+        "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+      }
+    },
+    {
+      "immutable_path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-source-freeze-001/COMMON.001.lean.txt",
+      "existing_identity": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/COMMON.001.lean.txt",
+        "bytes": 2289,
+        "sha256": "b170a810fa8ae168f16b328827a405d209f74f476bc93c1288e09042088b8af7",
+        "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+      }
+    },
+    {
+      "immutable_path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-source-freeze-001/GEOMETRY.CHECKED.lean.txt",
+      "existing_identity": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/GEOMETRY.CHECKED.lean.txt",
+        "bytes": 18677,
+        "sha256": "44c717422e00d9bc87d3666afeadc7fb94029d12265c7e43b966954ba10aca7c",
+        "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+      }
+    },
+    {
+      "immutable_path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-source-freeze-001/HEADER.001.lean.txt",
+      "existing_identity": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/HEADER.001.lean.txt",
+        "bytes": 1091,
+        "sha256": "9b550c3ab3a0b543e17955a1e7368981b7b6919858ab70de4ab71b9bdb2525e9",
+        "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+      }
+    },
+    {
+      "immutable_path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-source-freeze-001/CHART.CHECKED.lean.txt",
+      "existing_identity": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/CHART.CHECKED.lean.txt",
+        "bytes": 8671,
+        "sha256": "c1b9b7706b3b0cc47564f4d79d67be1f256478a937e45ba430a95e9936016d0c",
+        "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+      }
+    },
+    {
+      "immutable_path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-source-freeze-001/CORE.CHECKED.lean.txt",
+      "existing_identity": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/CORE.CHECKED.lean.txt",
+        "bytes": 26792,
+        "sha256": "4705dce9f1509b45e15ad21cf4d754ab51ecc361a9490feca4de83d1b0956e79",
+        "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+      }
+    },
+    {
+      "immutable_path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-source-freeze-001/ProducerFixtureCore.INITIAL.lean.txt",
+      "existing_identity": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/ProducerFixtureCore.INITIAL.lean.txt",
+        "bytes": 12357,
+        "sha256": "1ed58e5e28f23b8aa8c886b1f15393d9aec57f716adf46a7579241129a700a11",
+        "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+      }
+    },
+    {
+      "immutable_path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-source-freeze-001/HEADER.002.lean.txt",
+      "existing_identity": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/HEADER.002.lean.txt",
+        "bytes": 1136,
+        "sha256": "cc8ca6b1a51f8ef39836a96a16fb969f979e7c57e67ab453682bcd442b529cee",
+        "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+      }
+    },
+    {
+      "immutable_path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-source-freeze-001/ProducerTransport.002.lean.txt",
+      "existing_identity": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/ProducerTransport.002.lean.txt",
+        "bytes": 7989,
+        "sha256": "1e42420dc21c9550c7208fae4a2cfde41ceb0307fc794769eae587b55874b5bd",
+        "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+      }
+    }
+  ],
+  "started_utc": "2026-10-28T20:16:08.321332+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 0.03233754600296379,
+  "ended_utc": "2026-10-28T20:16:08.354173+00:00",
+  "after": {
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualQuotientSaddleCollar.lean": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualQuotientSaddleCollar.lean",
+      "bytes": 40252,
+      "sha256": "e0e0a0f77bd75bbbd8994d620ee43b18b2edd50d7649cd8cb9837e7148762265",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-quotient-saddle-collar-construct/build/SourceActualQuotientSaddleCollar.olean": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/build/SourceActualQuotientSaddleCollar.olean",
+      "bytes": 1654224,
+      "sha256": "a57489eb917c4f2fd4d314ab5f7ae9dea60619caf9160e044700114551c1e15e",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-quotient-saddle-collar-construct/build/QuotientSaddleCollarControls.olean": null,
+    "/workspace/scratch/actual-source-quotient-saddle-collar-construct/record_run.py": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/record_run.py",
+      "bytes": 3416,
+      "sha256": "8747416abfc5b1a9116be72fa3776ffdc0f3e2d6884cffb72564d2747f654535",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-quotient-saddle-collar-construct/CONTEXT.md": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/CONTEXT.md",
+      "bytes": 26852,
+      "sha256": "e4a6ee4cd13dfaa3c1881380033ed103cc03b89537278d19f05b4bdee48773ff",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-quotient-saddle-collar-construct/ProducerTransport.INITIAL.lean.txt": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/ProducerTransport.INITIAL.lean.txt",
+      "bytes": 7992,
+      "sha256": "432634f0e01ccb72762e0bb35c8385f66b0cf62fbee123a1a718574f1137ef92",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-quotient-saddle-collar-construct/COMMON.001.lean.txt": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/COMMON.001.lean.txt",
+      "bytes": 2289,
+      "sha256": "b170a810fa8ae168f16b328827a405d209f74f476bc93c1288e09042088b8af7",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-quotient-saddle-collar-construct/GEOMETRY.CHECKED.lean.txt": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/GEOMETRY.CHECKED.lean.txt",
+      "bytes": 18677,
+      "sha256": "44c717422e00d9bc87d3666afeadc7fb94029d12265c7e43b966954ba10aca7c",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-quotient-saddle-collar-construct/HEADER.001.lean.txt": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/HEADER.001.lean.txt",
+      "bytes": 1091,
+      "sha256": "9b550c3ab3a0b543e17955a1e7368981b7b6919858ab70de4ab71b9bdb2525e9",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-quotient-saddle-collar-construct/CHART.CHECKED.lean.txt": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/CHART.CHECKED.lean.txt",
+      "bytes": 8671,
+      "sha256": "c1b9b7706b3b0cc47564f4d79d67be1f256478a937e45ba430a95e9936016d0c",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-quotient-saddle-collar-construct/CORE.CHECKED.lean.txt": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/CORE.CHECKED.lean.txt",
+      "bytes": 26792,
+      "sha256": "4705dce9f1509b45e15ad21cf4d754ab51ecc361a9490feca4de83d1b0956e79",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-quotient-saddle-collar-construct/ProducerFixtureCore.INITIAL.lean.txt": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/ProducerFixtureCore.INITIAL.lean.txt",
+      "bytes": 12357,
+      "sha256": "1ed58e5e28f23b8aa8c886b1f15393d9aec57f716adf46a7579241129a700a11",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-quotient-saddle-collar-construct/HEADER.002.lean.txt": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/HEADER.002.lean.txt",
+      "bytes": 1136,
+      "sha256": "cc8ca6b1a51f8ef39836a96a16fb969f979e7c57e67ab453682bcd442b529cee",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-quotient-saddle-collar-construct/ProducerTransport.002.lean.txt": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/ProducerTransport.002.lean.txt",
+      "bytes": 7989,
+      "sha256": "1e42420dc21c9550c7208fae4a2cfde41ceb0307fc794769eae587b55874b5bd",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    }
+  },
+  "stdout": {
+    "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-source-freeze-001/stdout.log",
+    "bytes": 1259,
+    "sha256": "63719ebafea7963dbc3b5730b60cff52aade82a401408f71cbcc122dfd716e94",
+    "identity_origin": "FIRST identity of newly created or changed owned payload"
+  },
+  "stderr": {
+    "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-source-freeze-001/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "identity_origin": "FIRST identity of newly created or changed owned payload"
+  }
+}

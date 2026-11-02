@@ -1,0 +1,80 @@
+{
+  "source": "ContactJetCovariance.lean",
+  "source_sha256": "50df0281c580ac7af018713a38c6bdd5dd34b52e3834b573165045bc64acd49d",
+  "source_contract_commit": "45b0ede",
+  "author": "OpenAI/Codex /root/regression_kernel with OpenAI/Codex /root/regression_kernel/gaussian_api optional Schur API/proof support",
+  "scientific_effect": "NONE; author-side verification only; actual coefficient and physical covariance identification separately required",
+  "new_module_build": {
+    "command": "/home/agent/.elan/bin/lake env lean -o .lake/build/lib/lean/ContactJetCovariance.olean ContactJetCovariance.lean",
+    "exit": 0,
+    "log": "ContactJetCovariance-02.log"
+  },
+  "new_module_kernel_replay": {
+    "command": "/home/agent/.elan/bin/lake env leanchecker ContactJetCovariance",
+    "exit": 0,
+    "log": "KernelReplay-01.log"
+  },
+  "axiom_audit": {
+    "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/contact-gram/AxiomAudit.lean",
+    "exit": 0,
+    "targets": 8,
+    "allowed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "log": "AxiomAudit-01.log"
+  },
+  "controls": [
+    {
+      "file": "PositiveControls.lean",
+      "exit": 0,
+      "log": "PositiveControls-03.log",
+      "claims": [
+        "positive finite Gram c=1 amplitudes=1",
+        "positive finite Gram c=-1 amplitudes=2",
+        "actual failure of transpose injectivity for c=0",
+        "actual failure of transpose injectivity for zero amplitudes"
+      ]
+    },
+    {
+      "file": "RejectedZeroFrequency.lean",
+      "exit": 1,
+      "log": "RejectedZeroFrequency-01.log",
+      "reason": "unsolved False side condition c\u22600"
+    },
+    {
+      "file": "RejectedZeroAmplitude.lean",
+      "exit": 1,
+      "log": "RejectedZeroAmplitude-01.log",
+      "reason": "unsolved False side condition \u2200s a_s\u22600"
+    }
+  ],
+  "logs": {
+    "ContactJetCovariance-02.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "PositiveControls-03.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "RejectedZeroFrequency-01.log": {
+      "bytes": 115,
+      "sha256": "15bbcb32f00f3b6855f8d63d99ce54f84221a07548d69ddc33714842cdaf9e01"
+    },
+    "RejectedZeroAmplitude-01.log": {
+      "bytes": 125,
+      "sha256": "be30efec397f160a20ff069eed66d1490704e096c08060cab37d5dc2ec69c929"
+    },
+    "AxiomAudit-01.log": {
+      "bytes": 868,
+      "sha256": "d767504ed20e66d9b326686703729954244281675cd41ca15cfce5cc10e832f1"
+    },
+    "KernelReplay-01.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "reuse": "Previously completed regression proofs and source-input checks were not rerun; these checks concern the new contact certificate and its new controls."
+}

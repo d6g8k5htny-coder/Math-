@@ -1,0 +1,21 @@
+{
+  "label": "inventory-classify001",
+  "command_argv": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/outer_capture.py",
+    "inventory-classify001",
+    "documentary",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/classify_inventory.py",
+    "production"
+  ],
+  "cwd": "/workspace/scratch/actual-source-saddle-uppercuts-construct",
+  "start_utc": "2026-10-28T21:35:33.826454+00:00",
+  "end_utc": "2026-10-28T21:35:33.954980+00:00",
+  "elapsed_seconds": 0.12852797199957422,
+  "exit_code": 0,
+  "stdout": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/inventory-classify001/entry.stdout.log",
+  "stderr": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/inventory-classify001/entry.stderr.log",
+  "invocation_scope": "entry process begins here; caller tool stdout is only this closed receipt summary"
+}

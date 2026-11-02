@@ -1,0 +1,45 @@
+/workspace/scratch/gaussian-coupling/coupling-probe.lean:12:30: error: Function expected at
+  toEuclideanCLM
+but this term has type
+  Matrix ?m.2 ?m.2 ?m.1 ≃⋆ₐ[?m.1] EuclideanSpace ?m.1 ?m.2 →L[?m.1] EuclideanSpace ?m.1 ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  (CFC.sqrt S)
+/workspace/scratch/gaussian-coupling/coupling-probe.lean:19:12: error: Type mismatch
+  rfl
+has type
+  ?m.24 = ?m.24
+but is expected to have type
+  Measure.map (gc_coupledVector m S) (stdGaussian (EuclideanSpace ℝ ι)) = multivariateGaussian m S
+/workspace/scratch/gaussian-coupling/coupling-probe.lean:33:33: error: Function expected at
+  toEuclideanCLM
+but this term has type
+  Matrix ?m.131 ?m.131 ?m.130 ≃⋆ₐ[?m.130] EuclideanSpace ?m.130 ?m.131 →L[?m.130] EuclideanSpace ?m.130 ?m.131
+
+Note: Expected a function because this term is being applied to the argument
+  (CFC.sqrt (S t))
+/workspace/scratch/gaussian-coupling/coupling-probe.lean:34:10: error: Function expected at
+  toEuclideanCLM
+but this term has type
+  Matrix ?m.139 ?m.139 ?m.138 ≃⋆ₐ[?m.138] EuclideanSpace ?m.138 ?m.139 →L[?m.138] EuclideanSpace ?m.138 ?m.139
+
+Note: Expected a function because this term is being applied to the argument
+  (CFC.sqrt S0)
+/workspace/scratch/gaussian-coupling/coupling-probe.lean:28:40: error: unsolved goals
+ι : Type u_1
+κ : Type u_2
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+u : Filter κ
+m : κ → EuclideanSpace ℝ ι
+S : κ → Matrix ι ι ℝ
+m0 : EuclideanSpace ℝ ι
+S0 : Matrix ι ι ℝ
+hm : Tendsto m u (𝓝 m0)
+hS : Tendsto S u (𝓝 S0)
+hPSD : ∀ᶠ (t : κ) in u, (S t).PosSemidef
+hPSD0 : S0.PosSemidef
+z : EuclideanSpace ℝ ι
+hwithin : Tendsto S u (𝓝[{B | 0 ≤ B}] S0)
+hsqrt : Tendsto (fun t => CFC.sqrt (S t)) u (𝓝 (CFC.sqrt S0))
+⊢ Tendsto (fun t => gc_coupledVector (m t) (S t) z) u (𝓝 (gc_coupledVector m0 S0 z))

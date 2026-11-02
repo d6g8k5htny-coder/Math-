@@ -1,0 +1,229 @@
+{
+  "recorded_utc": "2026-10-26T09:50:16.307007+00:00",
+  "all_verification_invocations": [
+    {
+      "label": "compile-001",
+      "receipt": {
+        "path": "/workspace/scratch/fold-weighted-probability-construct/runs/compile-001/receipt.json",
+        "bytes": 1468,
+        "sha256": "cc9f9e1570a7fa068eaf7024fb809a961ba3f7b0e65db6b78c0b1c261214592b"
+      },
+      "exit_code": 1,
+      "started_utc": "2026-10-26T09:45:23.320521+00:00",
+      "ended_utc": "2026-10-26T09:45:29.247578+00:00",
+      "elapsed_seconds": 5.927022218704224,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/fold-weighted-probability-construct/build/SourceFoldWeightedProbability.olean",
+        "-i",
+        "/workspace/scratch/fold-weighted-probability-construct/build/SourceFoldWeightedProbability.ilean",
+        "SourceFoldWeightedProbability.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/fold-weighted-probability-construct/runs/compile-001/output.log",
+        "bytes": 5991,
+        "sha256": "9a8cdabfe8588f82584e5b1e9acffcb4b8de15b6cd080cebf5320d446637306b"
+      },
+      "credit": "retained development failure"
+    },
+    {
+      "label": "compile-002",
+      "receipt": {
+        "path": "/workspace/scratch/fold-weighted-probability-construct/runs/compile-002/receipt.json",
+        "bytes": 1468,
+        "sha256": "c8d63f98d08c8817c48e7f7465ed3be22cb83bfee4188c39a5f3f1015ca44d1a"
+      },
+      "exit_code": 1,
+      "started_utc": "2026-10-26T09:45:42.681624+00:00",
+      "ended_utc": "2026-10-26T09:45:46.980660+00:00",
+      "elapsed_seconds": 4.2990171909332275,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/fold-weighted-probability-construct/build/SourceFoldWeightedProbability.olean",
+        "-i",
+        "/workspace/scratch/fold-weighted-probability-construct/build/SourceFoldWeightedProbability.ilean",
+        "SourceFoldWeightedProbability.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/fold-weighted-probability-construct/runs/compile-002/output.log",
+        "bytes": 682,
+        "sha256": "4200152c6d7cb62e9554d1b14322d317cc804a3e188859f3e58a51bf6458883d"
+      },
+      "credit": "retained development failure"
+    },
+    {
+      "label": "controls-001",
+      "receipt": {
+        "path": "/workspace/scratch/fold-weighted-probability-construct/runs/controls-001/receipt.json",
+        "bytes": 1955,
+        "sha256": "e69294f7c665a019a3f98b3719d4828893cb8e803d2053825cbc9bc5cfc0a275"
+      },
+      "exit_code": 1,
+      "started_utc": "2026-10-26T09:47:13.603480+00:00",
+      "ended_utc": "2026-10-26T09:47:18.467014+00:00",
+      "elapsed_seconds": 4.863492488861084,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/fold-weighted-probability-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/fold-weighted-probability-construct -o /workspace/scratch/fold-weighted-probability-construct/build/Controls.olean /workspace/scratch/fold-weighted-probability-construct/Controls.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/fold-weighted-probability-construct/runs/controls-001/output.log",
+        "bytes": 225,
+        "sha256": "bbe4cf5f6c808c562b90c14d856779944038bab0ec42244f6eaacfaec112f200"
+      },
+      "credit": "retained development failure"
+    },
+    {
+      "label": "controls-002",
+      "receipt": {
+        "path": "/workspace/scratch/fold-weighted-probability-construct/runs/controls-002/receipt.json",
+        "bytes": 1953,
+        "sha256": "6e82ad2388e142c687c804ae16d5634540f7dce424a9b94306bc97756b61fb2e"
+      },
+      "exit_code": 0,
+      "started_utc": "2026-10-26T09:47:26.122363+00:00",
+      "ended_utc": "2026-10-26T09:47:30.559882+00:00",
+      "elapsed_seconds": 4.437439441680908,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/fold-weighted-probability-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/fold-weighted-probability-construct -o /workspace/scratch/fold-weighted-probability-construct/build/Controls.olean /workspace/scratch/fold-weighted-probability-construct/Controls.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/fold-weighted-probability-construct/runs/controls-002/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "credit": "successful"
+    },
+    {
+      "label": "false-scale-001",
+      "receipt": {
+        "path": "/workspace/scratch/fold-weighted-probability-construct/runs/false-scale-001/receipt.json",
+        "bytes": 1892,
+        "sha256": "c085861f969f9a3c762c5f9e908066d96c1e50370108c91dc9649e5374a15801"
+      },
+      "exit_code": 1,
+      "started_utc": "2026-10-26T09:47:37.722929+00:00",
+      "ended_utc": "2026-10-26T09:47:41.203303+00:00",
+      "elapsed_seconds": 3.480339765548706,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/fold-weighted-probability-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/fold-weighted-probability-construct /workspace/scratch/fold-weighted-probability-construct/FalseScaleMutation.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/fold-weighted-probability-construct/runs/false-scale-001/output.log",
+        "bytes": 352,
+        "sha256": "8d865b650f6a9a8e82b8b0ad5f101897c576d8c4d300b2de24213b790aa5cea4"
+      },
+      "credit": "intentional sole-False rejection"
+    },
+    {
+      "label": "inventory-001",
+      "receipt": {
+        "path": "/workspace/scratch/fold-weighted-probability-construct/runs/inventory-001/receipt.json",
+        "bytes": 1880,
+        "sha256": "50c1ef752cc8b86538fdf0920636bb765155d3c36f166d2c77f41726283559e8"
+      },
+      "exit_code": 0,
+      "started_utc": "2026-10-26T09:47:45.730401+00:00",
+      "ended_utc": "2026-10-26T09:47:51.553152+00:00",
+      "elapsed_seconds": 5.822695016860962,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/fold-weighted-probability-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/fold-weighted-probability-construct /workspace/scratch/fold-weighted-probability-construct/Inventory.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/fold-weighted-probability-construct/runs/inventory-001/output.log",
+        "bytes": 4070,
+        "sha256": "c7c18f1b433b3d4c7d03b458ba18b9f0a005f83062528f1af73a940707f8819c"
+      },
+      "credit": "successful"
+    },
+    {
+      "label": "kernel-001",
+      "receipt": {
+        "path": "/workspace/scratch/fold-weighted-probability-construct/runs/kernel-001/receipt.json",
+        "bytes": 1754,
+        "sha256": "fc61439e14c207f48e8f8d8ca95eb540d0ef183e30c3336d2be21c8a41d99b8b"
+      },
+      "exit_code": 0,
+      "started_utc": "2026-10-26T09:48:48.579602+00:00",
+      "ended_utc": "2026-10-26T09:48:54.861806+00:00",
+      "elapsed_seconds": 6.282121896743774,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/fold-weighted-probability-construct/build:$LEAN_PATH exec leanchecker SourceFoldWeightedProbability"
+      ],
+      "log": {
+        "path": "/workspace/scratch/fold-weighted-probability-construct/runs/kernel-001/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "credit": "successful"
+    },
+    {
+      "label": "strict-003",
+      "receipt": {
+        "path": "/workspace/scratch/fold-weighted-probability-construct/runs/strict-003/receipt.json",
+        "bytes": 1686,
+        "sha256": "3cb8f954e3693959f9a58f05cbfc1fc68e57c15c7e0acbc1c9ab43c7a56c37fa"
+      },
+      "exit_code": 0,
+      "started_utc": "2026-10-26T09:46:01.140350+00:00",
+      "ended_utc": "2026-10-26T09:46:05.940190+00:00",
+      "elapsed_seconds": 4.799805164337158,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/fold-weighted-probability-construct/build/SourceFoldWeightedProbability.olean",
+        "-i",
+        "/workspace/scratch/fold-weighted-probability-construct/build/SourceFoldWeightedProbability.ilean",
+        "SourceFoldWeightedProbability.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/fold-weighted-probability-construct/runs/strict-003/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "credit": "successful"
+    }
+  ],
+  "exactly_one_own_module_kernel": true,
+  "old_math_replay_count": 0,
+  "all_failures_retained": true,
+  "source_snapshots": "runs/*/SourceFoldWeightedProbability.lean; helper snapshots for each run",
+  "native_checkpoint_utc": "2026-10-26T10:15:00Z",
+  "terminal_utc": "2026-10-26T11:15:00Z",
+  "timers_reset": false,
+  "failed_source_attempts": [
+    "compile-001: reserved lambda token, missing endpoint namespace, measurable proof simplification, strict style linter; all logs/source retained.",
+    "compile-002: strict unnecessarySeqFocus linter; all mathematical goals otherwise closed."
+  ],
+  "verification_scope": "Only newly added event/probability/AE-H0 composition and new controls; unchanged upstream proofs, checks and reviews reused."
+}

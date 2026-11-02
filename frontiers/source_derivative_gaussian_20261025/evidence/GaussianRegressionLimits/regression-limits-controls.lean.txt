@@ -1,0 +1,44 @@
+import GaussianRegressionLimits
+import Mathlib.Tactic.FinCases
+import Mathlib.Tactic.NormNum
+namespace I4GaussianRegressionLimits
+open Matrix Filter
+open scoped Topology
+
+private def controlG (r : ℝ) : Matrix (Fin 1) (Fin 1) ℝ := fun _ _ => 1+r^2
+private def controlD (r : ℝ) : Fin 1 → ℝ := fun _ => 3+r
+
+-- Changing pin covariance and nonzero targets; the limiting target covariance is singular.
+example : ∃ M V δ : ℝ, 0 ≤ M ∧ 0 ≤ V ∧ 0 < δ ∧ ∀ r : ℝ, 0 < r → r < δ →
+    IsUnit (controlG r) ∧
+      (∀ i : Fin 1, |regressionMean (controlG r) 1 (controlD r) i| ≤ M) ∧
+      (∀ i : Fin 1, |regressionCovariance (controlG r) 1 1 i i| ≤ V) := by
+  have hG : Tendsto controlG (𝓝[>] (0:ℝ)) (𝓝 (controlG 0)) := by
+    have hc : Continuous controlG := by unfold controlG; fun_prop
+    exact hc.continuousWithinAt
+  have hd : Tendsto controlD (𝓝[>] (0:ℝ)) (𝓝 (controlD 0)) := by
+    have hc : Continuous controlD := by unfold controlD; fun_prop
+    exact hc.continuousWithinAt
+  have hunit : IsUnit (controlG 0) := by
+    have heq : controlG 0 = 1 := by
+      ext i j
+      fin_cases i
+      fin_cases j
+      norm_num [controlG]
+    rw [heq]
+    exact isUnit_one
+  exact regression_uniform_bounds controlG (fun _r => 1) (fun _r => 1) controlD
+    (controlG 0) 1 1 (controlD 0) hG tendsto_const_nhds tendsto_const_nhds hd hunit
+
+-- Both finite sizes may be empty; no Nonempty assumption is hidden in the inverse API.
+example : ∃ M V δ : ℝ, 0 ≤ M ∧ 0 ≤ V ∧ 0 < δ ∧ ∀ r : ℝ, 0 < r → r < δ →
+    IsUnit (1 : Matrix (Fin 0) (Fin 0) ℝ) ∧
+      (∀ i : Fin 0, |regressionMean (1 : Matrix (Fin 0) (Fin 0) ℝ)
+        (0 : Matrix (Fin 0) (Fin 0) ℝ) (0 : Fin 0 → ℝ) i| ≤ M) ∧
+      (∀ i : Fin 0, |regressionCovariance (1 : Matrix (Fin 0) (Fin 0) ℝ)
+        (0 : Matrix (Fin 0) (Fin 0) ℝ) 0 i i| ≤ V) := by
+  exact regression_uniform_bounds (fun _r => (1 : Matrix (Fin 0) (Fin 0) ℝ))
+    (fun _r => (0 : Matrix (Fin 0) (Fin 0) ℝ)) (fun _r => 0) (fun _r => 0)
+    1 0 0 0 tendsto_const_nhds tendsto_const_nhds tendsto_const_nhds tendsto_const_nhds isUnit_one
+
+end I4GaussianRegressionLimits

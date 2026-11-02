@@ -1,0 +1,124 @@
+{
+  "source": "SourceContactSchur.lean",
+  "source_sha256": "2fe122a50ec1889b579558d80086251d87ed0cec2420d268ab1d04f6bfff4409",
+  "source_contract_commit": "3bb99c9",
+  "author": "OpenAI/Codex /root/regression_kernel with OpenAI/Codex /root/regression_kernel/gaussian_api generic L2 residual-variance proof support",
+  "scientific_effect": "NONE; author-side evidence; different-family scientific review remains separate",
+  "build": {
+    "command": "/home/agent/.elan/bin/lake env lean -o .lake/build/lib/lean/SourceContactSchur.olean SourceContactSchur.lean",
+    "exit": 0,
+    "log": "SourceContactSchur-04.log"
+  },
+  "kernel": {
+    "command": "/home/agent/.elan/bin/lake env leanchecker SourceContactSchur",
+    "exit": 0,
+    "log": "KernelReplay-01.log"
+  },
+  "axioms": {
+    "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/source-contact-schur/AxiomAudit.lean",
+    "exit": 0,
+    "targets": {
+      "I4SourceContact.sourceContactBlockEquiv_inl": [
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceContact.sourceContactBlockEquiv_inr": [
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceContact.sourceContactCovariance_block_identity": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceContact.sourcePinCovariance_posDef": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceContact.sourcePinCovariance_isUnit": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceContact.sourcePinCovarianceInvertible": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceContact.sourceContactQVariance_eq_variance": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceContact.sourceContactSchur_pos": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceContact.contact_residual_variance_of_isUnit_covariance": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceContact.sourceContactResidual_variance": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceContact.sourceContactResidual_variance_pos": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "log": "AxiomAudit-01.log"
+  },
+  "controls": [
+    {
+      "file": "PositiveControls.lean",
+      "exit": 0,
+      "log": "PositiveControls-01.log",
+      "checks": "literal G positive/invertible at \u00b11; actual Schur positive at \u00b11; actual residual variance positive; exact block indices/roundtrip"
+    },
+    {
+      "file": "RejectedZeroPeriod.lean",
+      "exit": 1,
+      "log": "RejectedZeroPeriod-01.log",
+      "reason": "False nonzero-period side condition"
+    },
+    {
+      "file": "RejectedWrongQIndex.lean",
+      "exit": 1,
+      "log": "RejectedWrongQIndex-01.log",
+      "reason": "False equality of Q index6 with index0"
+    }
+  ],
+  "logs": {
+    "SourceContactSchur-04.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "PositiveControls-01.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "RejectedZeroPeriod-01.log": {
+      "bytes": 120,
+      "sha256": "a32530bb6df4ff65058d541b0bdd131f54e1cf4c879b308012e30a65fe6a4140"
+    },
+    "RejectedWrongQIndex-01.log": {
+      "bytes": 121,
+      "sha256": "fb8ff7ec25f05d726bb11363c9948bfa76eb723c6ed26798d177eac9504675b9"
+    },
+    "AxiomAudit-01.log": {
+      "bytes": 1163,
+      "sha256": "f1e25d18acc7628a1300de08d5807a8667fe7f377248e303b9f769f999e621f0"
+    },
+    "KernelReplay-01.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "reuse": "Completed Gaussian regression, contact Gram and literal source covariance evidence reused; only this new module and its controls audited."
+}

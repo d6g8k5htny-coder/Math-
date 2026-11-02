@@ -1,0 +1,4 @@
+import SourceEndpointRegression
+open I4SourceEndpointRegression I4SourceConfluentPins
+example : (endpointObservationMap 1 ![0,0,0,1,0,0,0,0,0,0,0,0]).2 0 = 0 := by
+  norm_num [endpointObservationMap, confluentTransform]

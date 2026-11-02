@@ -1,0 +1,16 @@
+ResearchFormalCoreR1/DeterminantMoment.lean:124:4: error: not a positivity goal
+ResearchFormalCoreR1/DeterminantMoment.lean:172:29: error: `fun_prop` was unable to prove `Continuous ?m.1032`
+
+Issues:
+ResearchFormalCoreR1/DeterminantMoment.lean:173:46: error: `fun_prop` was unable to prove `Continuous ?m.1052`
+
+Issues:
+ResearchFormalCoreR1/DeterminantMoment.lean:175:2: error: Type mismatch: After simplification, term
+  Measurable.ite htype (Measurable.abs (Measurable.mul (Continuous.measurable hm) (Continuous.measurable hs)))
+    measurable_const
+ has type
+  @Measurable DM2Jet ℝ MeasurableSpace.pi Real.measurableSpace fun x =>
+    if dm2Negative (dm2HM r x) ∧ (dm2HS r x).det < 0 then |((fun j => (dm2HM r j).det) * fun j => (dm2HS r j).det) x|
+    else 0
+but is expected to have type
+  @Measurable DM2Jet ℝ MeasurableSpace.pi Real.measurableSpace (dm2Weight r)

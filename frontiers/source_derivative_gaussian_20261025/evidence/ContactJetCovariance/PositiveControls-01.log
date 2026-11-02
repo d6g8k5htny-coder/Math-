@@ -1,0 +1,12 @@
+/workspace/scratch/regression-kernel/contact-gram/PositiveControls.lean:8:44: error: unsolved goals
+⊢ ¬?m.30 = 0
+/workspace/scratch/regression-kernel/contact-gram/PositiveControls.lean:6:57: error: unsolved goals
+i s : Fin 7
+⊢ contactWitness 1 i s = contactWitness ?m.30 i s
+
+⊢ ℝ
+/workspace/scratch/regression-kernel/contact-gram/PositiveControls.lean:15:44: error: unsolved goals
+⊢ ¬?m.52 = 0
+/workspace/scratch/regression-kernel/contact-gram/PositiveControls.lean:33:64: error: unsolved goals
+h : Function.Injective (contactWitness 1 * diagonal fun x => 0)ᵀ.mulVec
+⊢ col 0 1 = 0

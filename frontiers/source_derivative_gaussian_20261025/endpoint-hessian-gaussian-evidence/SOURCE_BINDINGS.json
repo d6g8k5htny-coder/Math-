@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "status": "EXACT_ROOT_SOURCECUT_BOUND_FOUR_INSTALLED_BINDINGS_SKIP",
+  "source_cut": "08e8ecd854fa66e145f022ef465c0392873ce231",
+  "root_source_cut_record": "ROOT_SOURCE_CUT.json",
+  "binding_precode": "81e3a89e595c849186d86d0c654b483c174c32ac",
+  "native_activation": 6421975582,
+  "native_activation_utc": "2026-10-26T16:53:34Z",
+  "source": {
+    "path": "SourceEndpointHessianGaussian.lean",
+    "bytes": 17034,
+    "sha256": "b9900b7553f7722241137f8f0cba08862b19ae415253a9a14bfd7c9b53c3e613",
+    "root_apply_action": "SKIP_UNCHANGED_ALREADY_INSTALLED_BY_ROOT",
+    "identity_origin": "Retained root/producer frozen source identity reused without packaging sourcehash replay."
+  },
+  "precode_documents": [
+    {
+      "path": "SOURCE_ENDPOINT_HESSIAN_GAUSSIAN.md",
+      "bytes": 8595,
+      "sha256": "08abd7a805ff8e1966d6c7d2a873350686097de02c00ab36982011f6d9d02d3c",
+      "root_apply_action": "SKIP_UNCHANGED_ALREADY_INSTALLED_BY_ROOT",
+      "expected_binding_cut": "81e3a89e595c849186d86d0c654b483c174c32ac",
+      "identity_origin": "Exactly one new52bindingcustody hash after producer/helper/root lookup found no retained identity; root explicitly authorized only these3 hashes."
+    },
+    {
+      "path": "SOURCE_ENDPOINT_HESSIAN_GAUSSIAN_PLAN.md",
+      "bytes": 2760,
+      "sha256": "8f9e8b5726ae0183b919459ba583fe5fe54baf1a90a461b0f5876abebbe0940d",
+      "root_apply_action": "SKIP_UNCHANGED_ALREADY_INSTALLED_BY_ROOT",
+      "expected_binding_cut": "81e3a89e595c849186d86d0c654b483c174c32ac",
+      "identity_origin": "Exactly one new52bindingcustody hash after producer/helper/root lookup found no retained identity; root explicitly authorized only these3 hashes."
+    },
+    {
+      "path": "SOURCE_ENDPOINT_HESSIAN_GAUSSIAN_CONTENDERS.json",
+      "bytes": 4660,
+      "sha256": "1812ab77c3a934dfa454bcb0f29e57692bbeeb547883a8f324711fcfdd4d15f5",
+      "root_apply_action": "SKIP_UNCHANGED_ALREADY_INSTALLED_BY_ROOT",
+      "expected_binding_cut": "81e3a89e595c849186d86d0c654b483c174c32ac",
+      "identity_origin": "Exactly one new52bindingcustody hash after producer/helper/root lookup found no retained identity; root explicitly authorized only these3 hashes."
+    }
+  ],
+  "producer_review_history": "Original pending-cut producer/review records preserved verbatim; later ROOT_SOURCE_CUT supplies actualprocessbinding08e8 without sourcechange/reverification.",
+  "old_payload_hashes_recomputed": 0,
+  "scientific_effect": "NONE"
+}

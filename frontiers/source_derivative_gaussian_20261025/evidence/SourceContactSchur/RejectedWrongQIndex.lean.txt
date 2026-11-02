@@ -1,0 +1,4 @@
+import SourceContactSchur
+open I4SourceContact
+example : sourceContactBlockEquiv (Sum.inr ()) = (0 : Fin 7) := by
+  norm_num

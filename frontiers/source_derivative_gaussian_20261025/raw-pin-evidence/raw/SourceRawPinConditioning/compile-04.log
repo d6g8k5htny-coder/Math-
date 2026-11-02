@@ -1,0 +1,15 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRawPinConditioning.lean:276:51: error: unsolved goals
+case hr
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+hr : r ≠ 0
+hG : IsUnit (sourcePinCovarianceAt L r)
+t : Fin 6 → ℝ
+ω : SmoothSample 2 L
+⊢ r ≠ 0
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRawPinConditioning.lean:303:33: error: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRawPinConditioning.lean:306:8: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsProbabilityMeasure (smoothLaw 2 L)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.

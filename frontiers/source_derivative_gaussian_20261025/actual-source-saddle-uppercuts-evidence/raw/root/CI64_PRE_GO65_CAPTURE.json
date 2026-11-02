@@ -1,0 +1,45 @@
+{
+  "command": [
+    "/usr/bin/gh",
+    "api",
+    "repos/d6g8k5htny-coder/Math-/commits/ee5b141d5ff41a0a9040256a8025690ec22d7266/check-runs?per_page=100"
+  ],
+  "start_utc": "2026-10-28T20:59:35.739102+00:00",
+  "end_utc": "2026-10-28T20:59:36.597639+00:00",
+  "exit_code": 0,
+  "count": 4,
+  "checks": [
+    {
+      "id": 123096248450,
+      "name": "math-downstream-gates",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "ee5b141d5ff41a0a9040256a8025690ec22d7266",
+      "completed_at": "2026-10-28T20:56:47Z"
+    },
+    {
+      "id": 123093366625,
+      "name": "formal / formal-evidence",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "ee5b141d5ff41a0a9040256a8025690ec22d7266",
+      "completed_at": "2026-10-28T20:56:38Z"
+    },
+    {
+      "id": 123093366324,
+      "name": "downstream-replay",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "ee5b141d5ff41a0a9040256a8025690ec22d7266",
+      "completed_at": "2026-10-28T20:54:14Z"
+    },
+    {
+      "id": 123093365817,
+      "name": "math-hypergraph",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "ee5b141d5ff41a0a9040256a8025690ec22d7266",
+      "completed_at": "2026-10-28T20:51:27Z"
+    }
+  ]
+}

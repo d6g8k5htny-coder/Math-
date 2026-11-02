@@ -1,0 +1,97 @@
+[
+  {
+    "command": [
+      "git",
+      "diff",
+      "--cached",
+      "--name-only"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T16:47:45.265954+00:00",
+    "ended_utc": "2026-10-28T16:47:45.272449+00:00",
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-torus-superlevel-local-basis-publication/SOURCE_CUT_01.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-torus-superlevel-local-basis-publication/SOURCE_CUT_01.stderr.txt"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T16:47:45.272872+00:00",
+    "ended_utc": "2026-10-28T16:47:45.274936+00:00",
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-torus-superlevel-local-basis-publication/SOURCE_CUT_02.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-torus-superlevel-local-basis-publication/SOURCE_CUT_02.stderr.txt"
+  },
+  {
+    "command": [
+      "git",
+      "add",
+      "--",
+      "frontiers/source_derivative_gaussian_20261025/SourceActualTorusSuperlevelLocalBasis.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T16:47:45.275260+00:00",
+    "ended_utc": "2026-10-28T16:47:45.287371+00:00",
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-torus-superlevel-local-basis-publication/SOURCE_CUT_03.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-torus-superlevel-local-basis-publication/SOURCE_CUT_03.stderr.txt"
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--cached",
+      "--name-only"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T16:47:45.287795+00:00",
+    "ended_utc": "2026-10-28T16:47:45.292003+00:00",
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-torus-superlevel-local-basis-publication/SOURCE_CUT_04.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-torus-superlevel-local-basis-publication/SOURCE_CUT_04.stderr.txt"
+  },
+  {
+    "command": [
+      "git",
+      "commit",
+      "-m",
+      "Prove actual torus closed-superlevel local path connectivity"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T16:47:45.292343+00:00",
+    "ended_utc": "2026-10-28T16:47:45.318117+00:00",
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-torus-superlevel-local-basis-publication/SOURCE_CUT_05.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-torus-superlevel-local-basis-publication/SOURCE_CUT_05.stderr.txt"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T16:47:45.318393+00:00",
+    "ended_utc": "2026-10-28T16:47:45.320338+00:00",
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-torus-superlevel-local-basis-publication/SOURCE_CUT_06.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-torus-superlevel-local-basis-publication/SOURCE_CUT_06.stderr.txt"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "917271a33398d58ab3471da2bb3a452849950660:frontiers/source_derivative_gaussian_20261025/SourceActualTorusSuperlevelLocalBasis.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026",
+    "started_utc": "2026-10-28T16:47:45.320696+00:00",
+    "ended_utc": "2026-10-28T16:47:45.322984+00:00",
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-torus-superlevel-local-basis-publication/SOURCE_CUT_07.stdout.txt",
+    "stderr": "/workspace/scratch/actual-source-torus-superlevel-local-basis-publication/SOURCE_CUT_07.stderr.txt"
+  }
+]

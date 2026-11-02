@@ -1,0 +1,39 @@
+import Mathlib.Analysis.Normed.Group.Real
+import Mathlib.Analysis.Normed.Group.Constructions
+import Mathlib.Analysis.Normed.Group.Continuity
+import Mathlib.Topology.Order.LeftRightNhds
+import Mathlib.Topology.Instances.Matrix
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Positivity
+
+open Filter Matrix
+open scoped Topology
+set_option autoImplicit false
+namespace ResearchFormalCoreR1
+
+theorem bounds_from_limits {ι : Type*} [Fintype ι]
+    (f : ℝ → (ι → ℝ)) (g : ℝ → Matrix ι ι ℝ)
+    (f0 : ι → ℝ) (g0 : Matrix ι ι ℝ)
+    (hf : Tendsto f (𝓝[>] (0 : ℝ)) (𝓝 f0))
+    (hg : Tendsto g (𝓝[>] (0 : ℝ)) (𝓝 g0)) :
+    ∃ B V δ : ℝ, 0 ≤ B ∧ 0 ≤ V ∧ 0 < δ ∧
+      ∀ r : ℝ, 0 < r → r < δ →
+        (∀ i, |f r i| ≤ B) ∧ (∀ i, |g r i i| ≤ V) := by
+  have hfb : ∀ᶠ r in 𝓝[>] (0 : ℝ), ‖f r‖ < ‖f0‖ + 1 :=
+    hf.norm.eventually (gt_mem_nhds (by linarith))
+  have hgg : Tendsto (fun r => fun i j => g r i j) (𝓝[>] (0 : ℝ))
+      (𝓝 (fun i j => g0 i j)) := hg
+  have hgb : ∀ᶠ r in 𝓝[>] (0 : ℝ), ‖fun i j => g r i j‖ < ‖fun i j => g0 i j‖ + 1 :=
+    hgg.norm.eventually (gt_mem_nhds (by linarith))
+  obtain ⟨δ, hδ, hbounds⟩ := mem_nhdsGT_iff_exists_Ioo_subset.mp (hfb.and hgb)
+  refine ⟨‖f0‖+1, ‖fun i j => g0 i j‖+1, δ, by positivity, by positivity, hδ, ?_⟩
+  intro r hr hrδ
+  have hb := hbounds ⟨hr, hrδ⟩
+  constructor
+  · intro i
+    exact (show |f r i| ≤ ‖f r‖ by simpa only [Real.norm_eq_abs] using norm_le_pi_norm (f r) i).trans hb.1.le
+  · intro i
+    exact (show |g r i i| ≤ ‖fun i j => g r i j‖ by
+      exact (show |g r i i| ≤ ‖g r i‖ by simpa only [Real.norm_eq_abs] using norm_le_pi_norm (g r i) i).trans
+        (norm_le_pi_norm (fun i j => g r i j) i)).trans hb.2.le
+end ResearchFormalCoreR1

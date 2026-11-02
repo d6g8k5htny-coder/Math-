@@ -1,0 +1,27 @@
+✔ [3167/3194] Built ResearchFormalCoreR1.AlgebraV2 (2.6s)
+⚠ [3186/3202] Built ResearchFormalCoreR1.ProbabilityCompanionsV2 (3.0s)
+warning: ResearchFormalCoreR1/ProbabilityCompanionsV2.lean:27:18: Variable name `hcW` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcW
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ResearchFormalCoreR1/ProbabilityCompanionsV2.lean:27:48: Variable name `hq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [3189/3202] Built ResearchFormalCoreR1.GaussianScalarMoments (7.0s)
+✔ [3191/3202] Built ResearchFormalCoreR1.PalmReweighting (6.5s)
+✔ [3192/3202] Built ResearchFormalCoreR1.GaussianRegressionKernel (7.7s)
+✔ [3193/3202] Built ResearchFormalCoreR1.GaussianNormalizer (10s)
+✔ [3194/3202] Built ResearchFormalCoreR1.GaussianCoupling (5.1s)
+✔ [3195/3202] Built ResearchFormalCoreR1.NormalizerFloor (3.2s)
+✔ [3196/3202] Built ResearchFormalCoreR1.DeterminantMoment (14s)
+✔ [3197/3202] Built ResearchFormalCoreR1.GaussianJetMoments (3.8s)
+✔ [3198/3202] Built ResearchFormalCoreR1.EndpointGaussianMoments (2.8s)
+✔ [3199/3202] Built ResearchFormalCoreR1.EndpointNormalizerBridge (3.9s)
+✔ [3200/3202] Built ResearchFormalCoreR1.GaussianNormalizerLimit (4.8s)
+✔ [3201/3202] Built ResearchFormalCoreR1 (2.4s)
+Build completed successfully (3202 jobs).

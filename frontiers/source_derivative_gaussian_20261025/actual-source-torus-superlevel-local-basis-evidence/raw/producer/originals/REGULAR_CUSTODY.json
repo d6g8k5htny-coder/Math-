@@ -1,0 +1,37 @@
+{
+  "recorded_utc": "2026-10-28T16:38:20.768699+00:00",
+  "logical_id": "STAGE61-REGULAR-ADAPTER-ORIGINAL-V1-COMPLETE",
+  "helper": "/root/actual_canonical_capture_application",
+  "context_ACKs": "Full001 plus amendment002 personally ACKed before dependent proof text; exact event time not instrumented by producer",
+  "integrations": 1,
+  "originals": [
+    {
+      "original": "/workspace/scratch/actual-source-torus-regular-adapter-text/RegularSection.ORIGINAL.lean.txt",
+      "retained": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/RegularSection.ORIGINAL.lean.txt",
+      "bytes": 8331,
+      "sha256": "62aedfeda4f959d5c9bc51a3f58bad71845e85152182400bd31d02e1970ba8e6",
+      "identity_origin": "producer first ID of newly delivered owned helper original BEFORE one integration; helper hashes zero"
+    },
+    {
+      "original": "/workspace/scratch/actual-source-torus-regular-adapter-text/CONTEXT.ORIGINAL.md",
+      "retained": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/CONTEXT.ORIGINAL.md",
+      "bytes": 18389,
+      "sha256": "64c5e1030097b8f93f003ffe19b44f0775cc7107ccbb21494463ee536b1b3ac0",
+      "identity_origin": "producer first ID of newly delivered owned helper original BEFORE one integration; helper hashes zero"
+    },
+    {
+      "original": "/workspace/scratch/actual-source-torus-regular-adapter-text/PROVENANCE.md",
+      "retained": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/Regular.PROVENANCE.md",
+      "bytes": 3290,
+      "sha256": "543f0044944e461883992ccd30f2b720db6c28e7158c07ddf6b6f4a39801e5ed",
+      "identity_origin": "producer first ID of newly delivered owned helper original BEFORE one integration; helper hashes zero"
+    },
+    {
+      "original": "/workspace/scratch/actual-source-torus-regular-adapter-text/FROZEN.json",
+      "retained": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/Regular.FROZEN.json",
+      "bytes": 840,
+      "sha256": "1c9876570ce5ccef94fca9b318b5e190c204ee90dabafe71562d7857d207fd3a",
+      "identity_origin": "producer first ID of newly delivered owned helper original BEFORE one integration; helper hashes zero"
+    }
+  ]
+}

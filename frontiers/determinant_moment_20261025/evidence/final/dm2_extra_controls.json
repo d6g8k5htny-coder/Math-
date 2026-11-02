@@ -1,0 +1,30 @@
+[
+  {
+    "label": "false_r6",
+    "argv": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "lean",
+      "/workspace/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/dm2_false_r6.lean"
+    ],
+    "exit_code": 1,
+    "elapsed_seconds": 2.4222649689999116,
+    "intended_goal_refusal": true,
+    "source_sha256": "c0ce4598ff5e188475e0ec9d0eeb3c3465169583a457baec90625d7b0f3a8439",
+    "log_sha256": "8c2a173f0db626faad2b7d100cafbcc1d2b2c13ff691de6523621a457454f03f"
+  },
+  {
+    "label": "false_omit_q",
+    "argv": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "lean",
+      "/workspace/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/dm2_false_omit_q.lean"
+    ],
+    "exit_code": 1,
+    "elapsed_seconds": 2.196419590000005,
+    "intended_goal_refusal": true,
+    "source_sha256": "cbcd846199ff2f48099bc33518188ddfcd3667f9e7a9ef932a2627e69b540a46",
+    "log_sha256": "a1d9cc2f68628e6bb7d11f91265fadc8ab1f6f34b277cfcfe785d46d92f40a67"
+  }
+]

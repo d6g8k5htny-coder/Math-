@@ -1,0 +1,34 @@
+import SourceEndpointParameters
+open I4SourceEndpointRegression I4SourceEndpointParameters I4SmoothCarrier
+open MeasureTheory ProbabilityTheory Matrix WithLp
+open scoped BigOperators Matrix
+
+example (r b : ℝ) (hG : IsUnit (sourcePinCovarianceAt 1 r)) :
+    (sourceEndpointKernel 1 r (sourcePrescribedPins r b)).map (toLp 2) =
+      multivariateGaussian (toLp 2 (sourceRegressionMapAt 1 r (sourcePrescribedPins r b)))
+        (sourceEndpointSchurAt 1 r) :=
+  sourceEndpointKernel_eq_multivariateGaussian (by norm_num) r hG _
+
+example (r : ℝ) (hG : IsUnit (sourcePinCovarianceAt (-1) r)) :
+    (sourceEndpointSchurAt (-1) r).PosSemidef :=
+  sourceEndpointSchurAt_posSemidef (by norm_num) r hG
+
+example : (Measure.dirac (toLp 2 (fun _ : Fin 1 => (3 : ℝ)))) =
+    multivariateGaussian (toLp 2 (fun _ : Fin 1 => (3 : ℝ))) (0 : Matrix (Fin 1) (Fin 1) ℝ) := by
+  have hZ : HasGaussianLaw (fun _ : Unit => (fun _ : Fin 1 => (3 : ℝ))) (Measure.dirac ()) := by
+    refine ⟨measurable_const.aemeasurable, ?_⟩
+    rw [Measure.map_dirac' measurable_const]
+    infer_instance
+  have h := finiteGaussian_law_parameters hZ (fun _ => 3) (by simp)
+    (0 : Matrix (Fin 1) (Fin 1) ℝ) (by intro i j; simp)
+  simpa using h.2
+
+example : (Measure.dirac (toLp 2 (0 : Fin 0 → ℝ))) =
+    multivariateGaussian (toLp 2 (0 : Fin 0 → ℝ)) (0 : Matrix (Fin 0) (Fin 0) ℝ) := by
+  have hZ : HasGaussianLaw (fun _ : Unit => (0 : Fin 0 → ℝ)) (Measure.dirac ()) := by
+    refine ⟨measurable_const.aemeasurable, ?_⟩
+    rw [Measure.map_dirac' measurable_const]
+    infer_instance
+  have h := finiteGaussian_law_parameters hZ 0 (by simp)
+    (0 : Matrix (Fin 0) (Fin 0) ℝ) (by intro i; exact i.elim0)
+  simpa using h.2

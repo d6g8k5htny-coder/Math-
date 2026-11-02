@@ -1,0 +1,13 @@
+# Frozen finite implementation plan: SourceEndpointHessianGaussian
+
+Root-adopted plan,26October2026. Binding `SOURCE_ENDPOINT_HESSIAN_GAUSSIAN.md`, exactly3data/3publicProps. Root publishes precode/native pickup before code; producer freezes concrete controls. Qualified49/50/51 mathematical evidence/objects reused. Root alone owns shared cache/config/registry/Git/external publication. Two fixed3 helper text sections may integrate once, no standalone helper qualification.
+
+1. Confirm qualified50 availability using root's existing evidence; reuse49/50 and all earlier qualification. Freeze three data definitions, three public written propositions, fixed private scope and one Dirac0 PosDef-omission mutation. Provider-distinct/hosted/publication process remains separate; scientific effect NONE, credit0.
+2. Define the literal ordinary Hessian triple from existing raw rows, and select49 mean/covariance at M/S coordinates3…5. Derive private finite-case observation/coefficient identities and the selected3×6 correction/Gram identity. Do not identify adjusted Schur blocks without a new concrete consumer.
+3. Supply only the private deterministic PSD6 and measurable-coordinate adapters needed by existing MVG projection APIs. Use public Gram quadratic HasSum and norm-Borel derivative field APIs, not49's private Gaussian/series chain. Choose either ready finite-set restriction plus relabeling or one private fixed6→3 IsGaussian.ext lemma, not both.
+4. Compose49's exact all-r law at each endpoint with the fixed projection. Prove public proposition1 with full noncentered selected mean and target-independent principal Gram covariance.
+5. Apply50's actual arbitrary-correction marginal theorem at selected49 R, with the exact coefficient match, to obtain public proposition2. No fresh interpolation, Gram positivity proof or joint-six rank is required.
+6. Privately derive Gaussian3 AC from scalar Gaussian products, volume-preserving Pi/toLp maps, invertible sqrt covariance and existing Haar APIs. Prove the fixed polynomial zero set null by two Fubini sections; do not implement a generic polynomial library. Combine law/PD/AC with a.e. pullback and finite conjunction for public proposition3.
+7. Root qualifies only this new module's actual declarations/controls/mutation with the established strict/exhaustive inventory/one-own-module-kernel/source-spec route, preserving actual failures and lineage. Reuse applicable unchanged successes; no old evidence replay. Root alone handles registration, caches and publication.
+
+Stop after the three public propositions and necessary private/data/generated inventory. RCD/fiber interpretation, global conditional Morse/ties, canonical H0/Lifetime, count/Rice and Parent applications remain separate.

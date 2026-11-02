@@ -1,0 +1,47 @@
+/workspace/scratch/fold-numeric-budget/NumericBudget.lean:108:4: error: Tactic `apply` failed: could not unify the conclusion of `(eq_div_iff (LT.lt.ne' hsqrt)).mp`
+  ?m.2233 * √κ = ?m.2231
+with the goal
+  κ / 2 * (4 / √κ) = 2 * √κ
+
+Note: The full type of `(eq_div_iff (LT.lt.ne' hsqrt)).mp` is
+  ?m.2233 = ?m.2231 / √κ → ?m.2233 * √κ = ?m.2231
+
+T r κ : ℝ
+hT : 1 ≤ T
+hr : 0 < r
+hrT : r * T ^ 5 ≤ 1 / 100
+hκ : 1024 * T ^ 5 ≤ κ
+hT0 : 0 ≤ T
+hTpos : 0 < T
+hT5 : 1 ≤ T ^ 5
+hT15 : T ≤ T ^ 5
+hT25 : T ^ 2 ≤ T ^ 5
+hk : 0 < κ
+hc : 0 < κ / 2
+hsqrt : 0 < √κ
+hsqrt0 : 0 ≤ √κ
+hsqrt_sq : √κ ^ 2 = κ
+hroot : 32 * T ≤ √κ
+hTroot : T ≤ √κ
+hradius : 4 / √κ ≤ 1 / 8
+htwice : 2 * T ≤ κ / 2
+hcenter : T < 2 * √κ
+hrT1 : r * T ≤ 1 / 100
+s : ℝ := 6 * T / κ
+hs0 : 0 ≤ s
+hs1 : s ≤ 1
+hfirst : T * (2 * s + s ^ 2) ≤ 18 * T ^ 2 / κ
+hsecond : 6 * T ^ 2 / κ * (1 + s) ^ 2 ≤ 24 * T ^ 2 / κ
+herr_eq : profileError (κ / 2) (3 * T) T = T * (2 * s + s ^ 2) + 6 * T ^ 2 / κ * (1 + s) ^ 2
+herr42 : profileError (κ / 2) (3 * T) T ≤ 42 * T ^ 2 / κ
+herr72 : profileError (κ / 2) (3 * T) T ≤ 72 * T ^ 2 / κ
+hquotient : T ^ 2 / κ ≤ 1 / 1024
+hcurv : 1 + profileError (κ / 2) (3 * T) T ≤ 2 - 3 * r * T
+hcap2 : T / (κ / 2) ≤ 2 / √κ
+hcap : T / (κ / 2) ≤ 4 / √κ
+hdropbase : 2 / √κ ≤ 4 / √κ - T / (κ / 2)
+hdrop0 : 0 ≤ 2 / √κ
+hdrop_sq : (2 / √κ) ^ 2 ≤ (4 / √κ - T / (κ / 2)) ^ 2
+hdrop_id : κ / 2 / 2 * (2 / √κ) ^ 2 = 1
+hdrop : 1 ≤ κ / 2 / 2 * (4 / √κ - T / (κ / 2)) ^ 2
+⊢ κ / 2 * (4 / √κ) = 2 * √κ

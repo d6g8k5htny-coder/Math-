@@ -1,0 +1,41 @@
+import Mathlib.MeasureTheory.Integral.Bochner.Basic
+import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+import Mathlib.Topology.Instances.ENNReal.Lemmas
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Positivity
+
+open MeasureTheory Filter
+open scoped ENNReal Topology
+set_option autoImplicit false
+
+namespace ResearchFormalCoreR1
+
+theorem fatou_floor {Ω ι : Type*} [MeasurableSpace Ω]
+    (P : Measure Ω) (u : Filter ι) [IsCountablyGenerated u] [NeBot u]
+    (f : ι → Ω → ℝ) (g : Ω → ℝ)
+    (hmeas : ∀ r, Measurable (f r))
+    (hnonneg : ∀ r ω, 0 ≤ f r ω)
+    (hg : Integrable g P) (hgpos : 0 < ∫ ω, g ω ∂P)
+    (hconv : ∀ᵐ ω ∂P, Tendsto (fun r => f r ω) u (𝓝 (g ω)))
+    (hfint : ∀ᶠ r in u, Integrable (f r) P) :
+    ∀ᶠ r in u, (∫ ω, g ω ∂P)/2 ≤ ∫ ω, f r ω ∂P := by
+  have hg0 : 0 ≤ᵐ[P] g := hconv.mono (fun ω hω =>
+    ge_of_tendsto hω (Eventually.of_forall (fun r => hnonneg r ω)))
+  have hlim : (fun ω => liminf (fun r => ENNReal.ofReal (f r ω)) u) =ᵐ[P]
+      (fun ω => ENNReal.ofReal (g ω)) := by
+    filter_upwards [hconv] with ω hω
+    exact ((ENNReal.continuous_ofReal.tendsto (g ω)).comp hω).liminf_eq
+  have hfatou : ENNReal.ofReal (∫ ω, g ω ∂P) ≤
+      liminf (fun r => ∫⁻ ω, ENNReal.ofReal (f r ω) ∂P) u := by
+    rw [ofReal_integral_eq_lintegral_ofReal hg hg0]
+    rw [← lintegral_congr_ae hlim]
+    exact lintegral_liminf_le (fun r => (hmeas r).ennreal_ofReal)
+  have hhalf : ENNReal.ofReal ((∫ ω, g ω ∂P)/2) <
+      ENNReal.ofReal (∫ ω, g ω ∂P) := by
+    exact (ENNReal.ofReal_lt_ofReal_iff hgpos).mpr (by linarith)
+  have hevent := eventually_lt_of_lt_liminf (hhalf.trans_le hfatou)
+  filter_upwards [hevent, hfint] with r hr hri
+  rw [← ofReal_integral_eq_lintegral_ofReal hri
+    (Eventually.of_forall (fun ω => hnonneg r ω))] at hr
+  exact (ENNReal.ofReal_lt_ofReal_iff'.mp hr).1.le
+end ResearchFormalCoreR1

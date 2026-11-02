@@ -1,0 +1,46 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:185:86: error: don't know how to synthesize placeholder for argument `q`
+context:
+L : ℝ
+hL : L ≠ 0
+z e n : E 2
+r : ℝ
+he : ‖e‖ ≤ 1
+hn : ‖n‖ ≤ 1
+m : SourceMode 2
+p : Fin 2 → ℝ := ⋯
+a : Fin 2 → ℝ := ⋯
+b : Fin 2 → ℝ := ⋯
+f : (Fin 2 → ℝ) → ℝ := ⋯
+ha : ‖a‖ ≤ 1
+hb : ‖b‖ ≤ 1
+hsum : 0 ≤ ∑ j, orderModeBound (↑j) 2 L m
+hle : ∀ (j : Fin 4), orderModeBound (↑j) 2 L m ≤ ∑ j, orderModeBound (↑j) 2 L m
+h0 : ∀ (q : Fin 2 → ℝ), |f q| ≤ orderModeBound 0 2 L m
+h1 : ∀ (q v : Fin 2 → ℝ), ‖v‖ ≤ 1 → |(fderiv ℝ f q) v| ≤ orderModeBound 1 2 L m
+h2 : ∀ (q v w : Fin 2 → ℝ), ‖v‖ ≤ 1 → ‖w‖ ≤ 1 → |(iteratedFDeriv ℝ 2 f q) ![v, w]| ≤ orderModeBound 2 2 L m
+h3 : ∀ (q : Fin 2 → ℝ), |(iteratedFDeriv ℝ 3 f q) ![a, a, a]| ≤ orderModeBound 3 2 L m
+t : ℝ
+⊢ Fin 2 → ℝ
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:185:37: error: don't know how to synthesize placeholder for argument `g`
+context:
+L : ℝ
+hL : L ≠ 0
+z e n : E 2
+r : ℝ
+he : ‖e‖ ≤ 1
+hn : ‖n‖ ≤ 1
+m : SourceMode 2
+p : Fin 2 → ℝ := ⋯
+a : Fin 2 → ℝ := ⋯
+b : Fin 2 → ℝ := ⋯
+f : (Fin 2 → ℝ) → ℝ := ⋯
+ha : ‖a‖ ≤ 1
+hb : ‖b‖ ≤ 1
+hsum : 0 ≤ ∑ j, orderModeBound (↑j) 2 L m
+hle : ∀ (j : Fin 4), orderModeBound (↑j) 2 L m ≤ ∑ j, orderModeBound (↑j) 2 L m
+h0 : ∀ (q : Fin 2 → ℝ), |f q| ≤ orderModeBound 0 2 L m
+h1 : ∀ (q v : Fin 2 → ℝ), ‖v‖ ≤ 1 → |(fderiv ℝ f q) v| ≤ orderModeBound 1 2 L m
+h2 : ∀ (q v w : Fin 2 → ℝ), ‖v‖ ≤ 1 → ‖w‖ ≤ 1 → |(iteratedFDeriv ℝ 2 f q) ![v, w]| ≤ orderModeBound 2 2 L m
+h3 : ∀ (q : Fin 2 → ℝ), |(iteratedFDeriv ℝ 3 f q) ![a, a, a]| ≤ orderModeBound 3 2 L m
+⊢ ℝ → ℝ
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:185:9: error: failed to infer `have` declaration type

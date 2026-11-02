@@ -1,0 +1,26 @@
+ResearchFormalCoreR1/PalmReweighting.lean:41:2: warning: Unused tactic linter: `change |W ω| ≤ 1 + W ω ^ 2` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+ResearchFormalCoreR1/PalmReweighting.lean:100:44: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (x : Ω), E.indicator 1 x ∂?m.288
+in the target expression
+  ∫ (x : Ω) in E, W x ∂μ ≤ (∫ (a : Ω), W a ^ 2 ∂μ) ^ (1 / 2) * integral μ (E.indicator fun x => 1) ^ (1 / 2)
+
+Ω : Type u_1
+inst✝¹ : MeasurableSpace Ω
+μ : Measure Ω
+inst✝ : IsFiniteMeasure μ
+W : Ω → ℝ
+hW : Measurable W
+hW0 : ∀ (ω : Ω), 0 ≤ W ω
+hsq : Integrable (fun ω => W ω ^ 2) μ
+E : Set Ω
+hE : MeasurableSet E
+I : Ω → ℝ := E.indicator fun x => 1
+hI0 : ∀ (ω : Ω), 0 ≤ I ω
+hWLp : MemLp W (ENNReal.ofReal 2) μ
+hILp : MemLp I (ENNReal.ofReal 2) μ
+hCS : ∫ (x : Ω) in E, W x ∂μ ≤ (∫ (a : Ω), W a ^ 2 ∂μ) ^ (1 / 2) * integral μ (E.indicator fun x => 1) ^ (1 / 2)
+hleft : (fun ω => W ω * I ω) = E.indicator W
+hright : (fun ω => I ω ^ 2) = E.indicator fun x => 1
+⊢ ∫ (x : Ω) in E, W x ∂μ ≤ √(∫ (x : Ω), W x ^ 2 ∂μ) * √(μ.real E)

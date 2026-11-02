@@ -1,0 +1,7 @@
+import SourcePhysicalEndpointKernel
+open I4SourceEndpointRegression I4SourcePhysicalEndpointKernel MeasureTheory
+example : (∫ v, v ∂sourcePhysicalEndpointKernel 1 1 (Pi.single (3 : Fin 6) (1 : ℝ))) =
+    sourceRegressionMapAt 1 1 (Pi.single (3 : Fin 6) (1 : ℝ)) := by
+  rw [sourcePhysicalEndpointKernel_integral (by norm_num)]
+  ext i
+  fin_cases i <;> simp [sourcePhysicalCorrection, Pi.single_apply]

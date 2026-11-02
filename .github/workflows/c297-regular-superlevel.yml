@@ -1,0 +1,71 @@
+name: C297 regular superlevel geometry (hosted Lean, no scientific promotion)
+'on':
+  pull_request:
+    paths:
+      - 'frontiers/regular_superlevel_geometry_20261020/**'
+      - '.github/workflows/c297-regular-superlevel.yml'
+      - 'formal/lean-toolchain'
+      - 'formal/lakefile.toml'
+      - 'formal/lake-manifest.json'
+      - 'specifications/lean_statements_20261010/Specifications/Lifetime.lean'
+  push:
+    branches: [main]
+    paths:
+      - 'frontiers/regular_superlevel_geometry_20261020/**'
+      - '.github/workflows/c297-regular-superlevel.yml'
+      - 'formal/lean-toolchain'
+      - 'formal/lakefile.toml'
+      - 'formal/lake-manifest.json'
+      - 'specifications/lean_statements_20261010/Specifications/Lifetime.lean'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: c297-${{ github.event_name == 'pull_request' && github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  c297-hosted-formal:
+    name: c297-hosted-formal
+    runs-on: ubuntu-24.04
+    timeout-minutes: 205
+    env:
+      LEAN_NUM_THREADS: '2'
+      # Exact frozen five-module and two-control source manifest.
+      C297_MANIFEST_SHA256: 'c339a9d1ca5b9ef70f8d581ea0760f11922aba2cd16cbeeb7aba02092b476e94'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Bind frozen source manifest and verify engineering failure controls
+        timeout-minutes: 5
+        run: |
+          python3 -B -S frontiers/regular_superlevel_geometry_20261020/c297_hosted_verify.py source --manifest-sha256 "$C297_MANIFEST_SHA256"
+          python3 -B -S -m unittest discover -s frontiers/regular_superlevel_geometry_20261020 -p test_c297_hosted_verify.py -v
+          python3 -B -O -S -m unittest discover -s frontiers/regular_superlevel_geometry_20261020 -p test_c297_hosted_verify.py -v
+      - name: Install pinned Lean and retrieve dependency cache
+        timeout-minutes: 15
+        uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6
+        with:
+          lake-package-directory: formal
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+          use-github-cache: 'false'
+      - name: Fresh five-module build, four kernel checks, complete audit and two controls
+        timeout-minutes: 180
+        run: |
+          cd formal
+          lake env python3 -B -S ../frontiers/regular_superlevel_geometry_20261020/c297_hosted_verify.py execute --manifest-sha256 "$C297_MANIFEST_SHA256"
+      - name: Retain exact C297 tested-run sources, objects, streams and failure receipts
+        if: always()
+        timeout-minutes: 5
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: c297-hosted-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .lake/c297-hosted-evidence/
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 90

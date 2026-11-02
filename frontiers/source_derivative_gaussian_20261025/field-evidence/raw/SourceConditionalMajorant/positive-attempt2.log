@@ -1,0 +1,22 @@
+/workspace/scratch/dm2_landed_composition/conditional_majorant/ConditionalMajorantControlSupport.lean:34:35: error: linarith failed to find a contradiction
+L : ℝ
+hL : L ≠ 0
+b δ : ℝ
+hδ : δ ∈ Set.Ioi 0
+hint : Set.Ioo 0 δ ⊆ {x | (fun r => IsUnit (sourcePinCovarianceAt L r)) x}
+r : ℝ := δ / 2
+a✝ : δ / 2 ≤ 0
+⊢ False
+failed
+/workspace/scratch/dm2_landed_composition/conditional_majorant/ConditionalMajorantControlSupport.lean:35:77: error: linarith failed to find a contradiction
+case right
+L : ℝ
+hL : L ≠ 0
+b δ : ℝ
+hδ : δ ∈ Set.Ioi 0
+hint : Set.Ioo 0 δ ⊆ {x | (fun r => IsUnit (sourcePinCovarianceAt L r)) x}
+r : ℝ := δ / 2
+hr : 0 < r
+a✝ : δ ≤ δ / 2
+⊢ False
+failed

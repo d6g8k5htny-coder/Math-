@@ -1,0 +1,3629 @@
+{
+  "schema_version": 1,
+  "role": "read-only projection of existing mathematical evidence; no new execution",
+  "scientific_effect": "NONE",
+  "goal_status": "FULL_ORIGINAL_RESEARCH_GOAL_ACTIVE",
+  "source_root": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+  "scope": [
+    "SourceDerivativeGaussian",
+    "ContactJetCovariance",
+    "SourceContactCovariance",
+    "SourceConfluentPins",
+    "SourceContactSchur",
+    "SourceDerivativeContinuity",
+    "ConfluentIntegralIdentities"
+  ],
+  "not_in_this_completed_inventory": [
+    "GaussianRegressionLimits",
+    "SourceEndpointRegression",
+    "SourceConfluentLimits"
+  ],
+  "source_inputs_binding": {
+    "path": "INPUT_BINDING.json",
+    "sha256": "fd8aed39de7ba48db4813887b85c18d6b98356c1a8ea82c87a1d06b49bc29dff",
+    "input_count": 13,
+    "record": {
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "e75cb81e8961d178f43aa9967dddd11cd579dc8a",
+      "files": {
+        "inputs/GaussianSeriesFoundation.lean": {
+          "origin_path": "frontiers/source_smooth_realization_20261011/GaussianSeriesFoundation.lean",
+          "sha256": "feea566d5aeba58459bd4a1f20f070bdcd80ee30712817324cdd594e3e232c95"
+        },
+        "inputs/SpectralWeights.lean": {
+          "origin_path": "frontiers/source_smooth_realization_20261011/SpectralWeights.lean",
+          "sha256": "92af14a2d83304de3f8576ee10b3d376587e93c4464f8c715b8d2e32360f44b0"
+        },
+        "inputs/SourceFourierSeries.lean": {
+          "origin_path": "frontiers/source_smooth_realization_20261011/SourceFourierSeries.lean",
+          "sha256": "5f145e8e8693bfe4d1554092c8258dbda4f17f8e078c503029e4e8ff2c018014"
+        },
+        "inputs/SourceC4.lean": {
+          "origin_path": "frontiers/source_smooth_realization_20261011/SourceC4.lean",
+          "sha256": "b15e53b825c2e2d6af2af18182da227d8794dddcc3e1b29611a913f89a889397"
+        },
+        "inputs/SourceGaussianLaw.lean": {
+          "origin_path": "frontiers/source_smooth_realization_20261011/SourceGaussianLaw.lean",
+          "sha256": "a60ab6099d3cef0eeecaefa9e35d95ec14ec54ffd6c89e42dfcf6170907166e8"
+        },
+        "inputs/SourceLattice.lean": {
+          "origin_path": "frontiers/source_smooth_realization_20261011/SourceLattice.lean",
+          "sha256": "c644305a426bc876f609c055ce999b8008f028c67a1091639d919f4122981b7b"
+        },
+        "inputs/SourceKernel.lean": {
+          "origin_path": "frontiers/source_smooth_realization_20261011/SourceKernel.lean",
+          "sha256": "5fa3abc8fb0db0c14c67b4ee840e659cdf80f7d22c9fd4cb5e6c1c7b204fbd21"
+        },
+        "inputs/SourceCovariance.lean": {
+          "origin_path": "frontiers/source_smooth_realization_20261011/SourceCovariance.lean",
+          "sha256": "30560009582659a100637b5510c657cf1fa762f68a37bae8fab42c1eeee6aee5"
+        },
+        "inputs/SourceTorus.lean": {
+          "origin_path": "frontiers/source_smooth_realization_20261011/SourceTorus.lean",
+          "sha256": "02857b44552ab0e51a756b3b095c4ba43f8168ac332b069acb5bc8146d337eef"
+        },
+        "inputs/SourceTorusC4.lean": {
+          "origin_path": "frontiers/source_smooth_realization_20261011/SourceTorusC4.lean",
+          "sha256": "b67b13030389dea4521e8e2afcac30ea44f84abd65c374bf208067b288fc64a1"
+        },
+        "inputs/SourceSmooth.lean": {
+          "origin_path": "frontiers/source_smooth_realization_20261011/SourceSmooth.lean",
+          "sha256": "12ad7263267a970bd5d5c95d7c7aa62d9c971f7beebf28f1aa7ed16d3a112f1b"
+        },
+        "inputs/SourceSmoothCarrier.lean": {
+          "origin_path": "frontiers/source_smooth_realization_20261011/SourceSmoothCarrier.lean",
+          "sha256": "5defdf223e85e7ccd23b5a903a1a306fe7f723727eb6aabf62eef523ef8639ed"
+        },
+        "inputs/ResearchFormalCoreR1/GaussianRegressionKernel.lean": {
+          "origin_path": "frontiers/determinant_moment_20261025/ResearchFormalCoreR1/GaussianRegressionKernel.lean",
+          "commit": "16f81b973a02783f8be83081aa7f198724cf5767",
+          "sha256": "66d4fbee044a1a0c0b434bcd7614e220fad21d1ac275ce9b01070a66c5780460",
+          "verification_receipt_sha256": "95e502472e3d748c8b5dca3328a8644a9cb7cfc8fe40d5f9cce95a32814e5ec6"
+        }
+      }
+    }
+  },
+  "modules": [
+    {
+      "module": "SourceDerivativeGaussian",
+      "namespace": "I4SourceDerivativeGaussian",
+      "source_path": "SourceDerivativeGaussian.lean",
+      "source_bytes": 9874,
+      "source_sha256": "c9754debcbf2aab7ff8d9604f2c13726723e8a8c1921ae68f83349205e43885d",
+      "imports": [
+        "SourceSmoothCarrier",
+        "Mathlib.Analysis.Calculus.SmoothSeries",
+        "Mathlib.Topology.Algebra.Module.Multilinear.Topology"
+      ],
+      "public_targets": [
+        "I4SourceDerivativeGaussian.derivativeCoefficient_summable",
+        "I4SourceDerivativeGaussian.smoothSourceField_derivative_series",
+        "I4SourceDerivativeGaussian.scalarSeries_finiteVector_hasGaussianLaw",
+        "I4SourceDerivativeGaussian.smoothSourceField_derivativeVector_hasGaussianLaw",
+        "I4SourceDerivativeGaussian.smoothSourceField_derivative_covariance"
+      ],
+      "public_declarations": [
+        {
+          "kind": "def",
+          "name": "I4SourceDerivativeGaussian.derivativeCoefficient",
+          "line": 53
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceDerivativeGaussian.derivativeCoefficient_summable",
+          "line": 57
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceDerivativeGaussian.smoothSourceField_derivative_series",
+          "line": 72
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceDerivativeGaussian.scalarSeries_finiteVector_hasGaussianLaw",
+          "line": 123
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceDerivativeGaussian.smoothSourceField_derivativeVector_hasGaussianLaw",
+          "line": 154
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceDerivativeGaussian.smoothSourceField_derivative_covariance",
+          "line": 176
+        }
+      ],
+      "saved_axiom_reports": {
+        "I4SourceDerivativeGaussian.derivativeCoefficient_summable": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-derivative-gaussian/07-axiom-audit.log",
+          "raw_log_sha256": "bd7f4f26b3cbebcea4d5a40786cb51c0b8da4b07b7f8143aa1e46dfe93da9b46"
+        },
+        "I4SourceDerivativeGaussian.smoothSourceField_derivative_series": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-derivative-gaussian/07-axiom-audit.log",
+          "raw_log_sha256": "bd7f4f26b3cbebcea4d5a40786cb51c0b8da4b07b7f8143aa1e46dfe93da9b46"
+        },
+        "I4SourceDerivativeGaussian.scalarSeries_finiteVector_hasGaussianLaw": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-derivative-gaussian/07-axiom-audit.log",
+          "raw_log_sha256": "bd7f4f26b3cbebcea4d5a40786cb51c0b8da4b07b7f8143aa1e46dfe93da9b46"
+        },
+        "I4SourceDerivativeGaussian.smoothSourceField_derivativeVector_hasGaussianLaw": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-derivative-gaussian/07-axiom-audit.log",
+          "raw_log_sha256": "bd7f4f26b3cbebcea4d5a40786cb51c0b8da4b07b7f8143aa1e46dfe93da9b46"
+        },
+        "I4SourceDerivativeGaussian.smoothSourceField_derivative_covariance": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-derivative-gaussian/07-axiom-audit.log",
+          "raw_log_sha256": "bd7f4f26b3cbebcea4d5a40786cb51c0b8da4b07b7f8143aa1e46dfe93da9b46"
+        }
+      },
+      "existing_source_hash_bindings": []
+    },
+    {
+      "module": "ContactJetCovariance",
+      "namespace": "I4ContactGram",
+      "source_path": "ContactJetCovariance.lean",
+      "source_bytes": 6927,
+      "source_sha256": "50df0281c580ac7af018713a38c6bdd5dd34b52e3834b573165045bc64acd49d",
+      "imports": [
+        "Mathlib.LinearAlgebra.Matrix.PosDef",
+        "Mathlib.LinearAlgebra.Matrix.Notation",
+        "Mathlib.Analysis.Normed.Ring.InfiniteSum",
+        "Mathlib.Analysis.Normed.Module.FiniteDimension",
+        "Mathlib.Tactic.FinCases",
+        "Mathlib.Tactic.Linarith"
+      ],
+      "public_targets": [
+        "I4ContactGram.contactWitness_transpose_mulVec_eq_zero",
+        "I4ContactGram.contactWitness_transpose_injective",
+        "I4ContactGram.contactWitness_amplitude_transpose_injective",
+        "I4ContactGram.coefficient_product_summable",
+        "I4ContactGram.coefficientGram_quadratic_hasSum",
+        "I4ContactGram.coefficientGram_posDef_of_separating",
+        "I4ContactGram.contact_coefficientGram_posDef",
+        "I4ContactGram.contact_schur_pos"
+      ],
+      "public_declarations": [
+        {
+          "kind": "def",
+          "name": "I4ContactGram.contactWitness",
+          "line": 27
+        },
+        {
+          "kind": "lemma",
+          "name": "I4ContactGram.contactWitness_transpose_mulVec_eq_zero",
+          "line": 36
+        },
+        {
+          "kind": "lemma",
+          "name": "I4ContactGram.contactWitness_transpose_injective",
+          "line": 59
+        },
+        {
+          "kind": "lemma",
+          "name": "I4ContactGram.contactWitness_amplitude_transpose_injective",
+          "line": 66
+        },
+        {
+          "kind": "def",
+          "name": "I4ContactGram.coefficientGram",
+          "line": 77
+        },
+        {
+          "kind": "lemma",
+          "name": "I4ContactGram.coefficient_product_summable",
+          "line": 80
+        },
+        {
+          "kind": "lemma",
+          "name": "I4ContactGram.coefficientGram_quadratic_hasSum",
+          "line": 87
+        },
+        {
+          "kind": "lemma",
+          "name": "I4ContactGram.coefficientGram_posDef_of_separating",
+          "line": 105
+        },
+        {
+          "kind": "theorem",
+          "name": "I4ContactGram.contact_coefficientGram_posDef",
+          "line": 123
+        },
+        {
+          "kind": "theorem",
+          "name": "I4ContactGram.contact_schur_pos",
+          "line": 145
+        }
+      ],
+      "saved_axiom_reports": {
+        "I4ContactGram.contactWitness_transpose_mulVec_eq_zero": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/regression-kernel/contact-gram/AxiomAudit-01.log",
+          "raw_log_sha256": "d767504ed20e66d9b326686703729954244281675cd41ca15cfce5cc10e832f1"
+        },
+        "I4ContactGram.contactWitness_transpose_injective": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/regression-kernel/contact-gram/AxiomAudit-01.log",
+          "raw_log_sha256": "d767504ed20e66d9b326686703729954244281675cd41ca15cfce5cc10e832f1"
+        },
+        "I4ContactGram.contactWitness_amplitude_transpose_injective": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/regression-kernel/contact-gram/AxiomAudit-01.log",
+          "raw_log_sha256": "d767504ed20e66d9b326686703729954244281675cd41ca15cfce5cc10e832f1"
+        },
+        "I4ContactGram.coefficient_product_summable": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/regression-kernel/contact-gram/AxiomAudit-01.log",
+          "raw_log_sha256": "d767504ed20e66d9b326686703729954244281675cd41ca15cfce5cc10e832f1"
+        },
+        "I4ContactGram.coefficientGram_quadratic_hasSum": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/regression-kernel/contact-gram/AxiomAudit-01.log",
+          "raw_log_sha256": "d767504ed20e66d9b326686703729954244281675cd41ca15cfce5cc10e832f1"
+        },
+        "I4ContactGram.coefficientGram_posDef_of_separating": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/regression-kernel/contact-gram/AxiomAudit-01.log",
+          "raw_log_sha256": "d767504ed20e66d9b326686703729954244281675cd41ca15cfce5cc10e832f1"
+        },
+        "I4ContactGram.contact_coefficientGram_posDef": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/regression-kernel/contact-gram/AxiomAudit-01.log",
+          "raw_log_sha256": "d767504ed20e66d9b326686703729954244281675cd41ca15cfce5cc10e832f1"
+        },
+        "I4ContactGram.contact_schur_pos": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/regression-kernel/contact-gram/AxiomAudit-01.log",
+          "raw_log_sha256": "d767504ed20e66d9b326686703729954244281675cd41ca15cfce5cc10e832f1"
+        }
+      },
+      "existing_source_hash_bindings": [
+        {
+          "record_path": "/workspace/scratch/regression-kernel/contact-gram/EVIDENCE.json",
+          "source_sha256": "50df0281c580ac7af018713a38c6bdd5dd34b52e3834b573165045bc64acd49d",
+          "matches_current_source": true
+        }
+      ]
+    },
+    {
+      "module": "SourceContactCovariance",
+      "namespace": "I4SourceContact",
+      "source_path": "SourceContactCovariance.lean",
+      "source_bytes": 8225,
+      "source_sha256": "4189cbaf4c18c55f21e3af2c96b0b2842d83161f44596eb691c507dcc1a439c8",
+      "imports": [
+        "SourceDerivativeGaussian",
+        "ContactJetCovariance",
+        "Mathlib.Tactic.FinCases",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring"
+      ],
+      "public_targets": [
+        "I4SourceContact.sourceContactVector_hasGaussianLaw",
+        "I4SourceContact.sourceContactCoefficient_summable",
+        "I4SourceContact.sourceContactCovariance_eq_coefficientGram",
+        "I4SourceContact.sourceContactMode_nonzero_frequency",
+        "I4SourceContact.sourceContactAmplitude_pos",
+        "I4SourceContact.sourceContact_selected_columns",
+        "I4SourceContact.sourceContactCovariance_posDef"
+      ],
+      "public_declarations": [
+        {
+          "kind": "def",
+          "name": "I4SourceContact.contactOrder",
+          "line": 18
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceContact.contactE0",
+          "line": 20
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceContact.contactE1",
+          "line": 21
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceContact.contactDirections",
+          "line": 23
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceContact.sourceContactVector",
+          "line": 32
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceContact.sourceContactCoefficient",
+          "line": 35
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceContact.sourceContactCovariance",
+          "line": 38
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceContact.sourceContactVector_hasGaussianLaw",
+          "line": 42
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceContact.sourceContactCoefficient_summable",
+          "line": 47
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceContact.sourceContactCovariance_eq_coefficientGram",
+          "line": 51
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceContact.sourceContactMode",
+          "line": 79
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceContact.sourceContactMode_nonzero_frequency",
+          "line": 83
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceContact.sourceModeAmplitude",
+          "line": 91
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceContact.sourceContactAmplitude",
+          "line": 95
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceContact.sourceContactAmplitude_pos",
+          "line": 98
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceContact.sourceContact_selected_columns",
+          "line": 147
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceContact.sourceContactCovariance_posDef",
+          "line": 169
+        }
+      ],
+      "saved_axiom_reports": {
+        "I4SourceContact.sourceContactVector_hasGaussianLaw": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-contact-covariance/07-axiom-audit.log",
+          "raw_log_sha256": "e8fa9efb15f5085bf7dba91598df2020f28cb968fa6301cb8a647c942f87fa54"
+        },
+        "I4SourceContact.sourceContactCoefficient_summable": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-contact-covariance/07-axiom-audit.log",
+          "raw_log_sha256": "e8fa9efb15f5085bf7dba91598df2020f28cb968fa6301cb8a647c942f87fa54"
+        },
+        "I4SourceContact.sourceContactCovariance_eq_coefficientGram": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-contact-covariance/07-axiom-audit.log",
+          "raw_log_sha256": "e8fa9efb15f5085bf7dba91598df2020f28cb968fa6301cb8a647c942f87fa54"
+        },
+        "I4SourceContact.sourceContactMode_nonzero_frequency": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-contact-covariance/07-axiom-audit.log",
+          "raw_log_sha256": "e8fa9efb15f5085bf7dba91598df2020f28cb968fa6301cb8a647c942f87fa54"
+        },
+        "I4SourceContact.sourceContactAmplitude_pos": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-contact-covariance/07-axiom-audit.log",
+          "raw_log_sha256": "e8fa9efb15f5085bf7dba91598df2020f28cb968fa6301cb8a647c942f87fa54"
+        },
+        "I4SourceContact.sourceContact_selected_columns": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-contact-covariance/07-axiom-audit.log",
+          "raw_log_sha256": "e8fa9efb15f5085bf7dba91598df2020f28cb968fa6301cb8a647c942f87fa54"
+        },
+        "I4SourceContact.sourceContactCovariance_posDef": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-contact-covariance/07-axiom-audit.log",
+          "raw_log_sha256": "e8fa9efb15f5085bf7dba91598df2020f28cb968fa6301cb8a647c942f87fa54"
+        }
+      },
+      "existing_source_hash_bindings": []
+    },
+    {
+      "module": "SourceConfluentPins",
+      "namespace": "I4SourceConfluentPins",
+      "source_path": "SourceConfluentPins.lean",
+      "source_bytes": 7123,
+      "source_sha256": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+      "imports": [
+        "SourceDerivativeGaussian",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.FinCases",
+        "Mathlib.Tactic.Ring"
+      ],
+      "public_targets": [
+        "I4SourceConfluentPins.rawTransform_confluentTransform",
+        "I4SourceConfluentPins.confluentTransform_rawTransform",
+        "I4SourceConfluentPins.confluentEquiv_apply",
+        "I4SourceConfluentPins.confluentEquiv_symm_apply",
+        "I4SourceConfluentPins.prescribed_target",
+        "I4SourceConfluentPins.rawPins_hasGaussianLaw",
+        "I4SourceConfluentPins.confluentPins_hasGaussianLaw",
+        "I4SourceConfluentPins.rawPinsWithHessians_hasGaussianLaw"
+      ],
+      "public_declarations": [
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentPins.confluentTransform",
+          "line": 23
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentPins.rawTransform",
+          "line": 29
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentPins.rawTransform_confluentTransform",
+          "line": 35
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentPins.confluentTransform_rawTransform",
+          "line": 42
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentPins.confluentEquiv",
+          "line": 51
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentPins.confluentEquiv_apply",
+          "line": 65
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentPins.confluentEquiv_symm_apply",
+          "line": 68
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentPins.prescribed_target",
+          "line": 73
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentPins.endpointM",
+          "line": 79
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentPins.endpointS",
+          "line": 80
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentPins.directionX",
+          "line": 81
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentPins.directionY",
+          "line": 82
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentPins.rawPins",
+          "line": 86
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentPins.rawPins_hasGaussianLaw",
+          "line": 96
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentPins.confluentPins",
+          "line": 111
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentPins.confluentPins_hasGaussianLaw",
+          "line": 114
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentPins.rawPinsWithHessians",
+          "line": 120
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentPins.rawPinsWithHessians_hasGaussianLaw",
+          "line": 132
+        }
+      ],
+      "saved_axiom_reports": {
+        "I4SourceConfluentPins.rawTransform_confluentTransform": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/axioms.log",
+          "raw_log_sha256": "88fab8464a91fa4d5c239f06458cff95566fdb5e64228ebada870581771a3a20"
+        },
+        "I4SourceConfluentPins.confluentTransform_rawTransform": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/axioms.log",
+          "raw_log_sha256": "88fab8464a91fa4d5c239f06458cff95566fdb5e64228ebada870581771a3a20"
+        },
+        "I4SourceConfluentPins.confluentEquiv_apply": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/axioms.log",
+          "raw_log_sha256": "88fab8464a91fa4d5c239f06458cff95566fdb5e64228ebada870581771a3a20"
+        },
+        "I4SourceConfluentPins.confluentEquiv_symm_apply": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/axioms.log",
+          "raw_log_sha256": "88fab8464a91fa4d5c239f06458cff95566fdb5e64228ebada870581771a3a20"
+        },
+        "I4SourceConfluentPins.prescribed_target": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/axioms.log",
+          "raw_log_sha256": "88fab8464a91fa4d5c239f06458cff95566fdb5e64228ebada870581771a3a20"
+        },
+        "I4SourceConfluentPins.rawPins_hasGaussianLaw": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/axioms.log",
+          "raw_log_sha256": "88fab8464a91fa4d5c239f06458cff95566fdb5e64228ebada870581771a3a20"
+        },
+        "I4SourceConfluentPins.confluentPins_hasGaussianLaw": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/axioms.log",
+          "raw_log_sha256": "88fab8464a91fa4d5c239f06458cff95566fdb5e64228ebada870581771a3a20"
+        },
+        "I4SourceConfluentPins.rawPinsWithHessians_hasGaussianLaw": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/axioms.log",
+          "raw_log_sha256": "88fab8464a91fa4d5c239f06458cff95566fdb5e64228ebada870581771a3a20"
+        }
+      },
+      "existing_source_hash_bindings": [
+        {
+          "record_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/qualification_receipt.json",
+          "source_sha256": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+          "matches_current_source": true
+        }
+      ]
+    },
+    {
+      "module": "SourceContactSchur",
+      "namespace": "I4SourceContact",
+      "source_path": "SourceContactSchur.lean",
+      "source_bytes": 9665,
+      "source_sha256": "2fe122a50ec1889b579558d80086251d87ed0cec2420d268ab1d04f6bfff4409",
+      "imports": [
+        "SourceContactCovariance"
+      ],
+      "public_targets": [
+        "I4SourceContact.sourceContactBlockEquiv_inl",
+        "I4SourceContact.sourceContactBlockEquiv_inr",
+        "I4SourceContact.sourceContactCovariance_block_identity",
+        "I4SourceContact.sourcePinCovariance_posDef",
+        "I4SourceContact.sourcePinCovariance_isUnit",
+        "I4SourceContact.sourceContactQVariance_eq_variance",
+        "I4SourceContact.sourceContactSchur_pos",
+        "I4SourceContact.contact_residual_variance_of_isUnit_covariance",
+        "I4SourceContact.sourceContactResidual_variance",
+        "I4SourceContact.sourceContactResidual_variance_pos"
+      ],
+      "public_declarations": [
+        {
+          "kind": "def",
+          "name": "I4SourceContact.sourcePinVector",
+          "line": 27
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceContact.sourceContactQ",
+          "line": 31
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceContact.sourcePinCovariance",
+          "line": 35
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceContact.sourceContactCross",
+          "line": 39
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceContact.sourceContactQVariance",
+          "line": 43
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceContact.sourceContactCrossMatrix",
+          "line": 45
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceContact.sourceContactQMatrix",
+          "line": 48
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceContact.sourceContactSchur",
+          "line": 52
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceContact.sourceContactBlockEquiv",
+          "line": 57
+        },
+        {
+          "kind": "lemma",
+          "name": "I4SourceContact.sourceContactBlockEquiv_inl",
+          "line": 60
+        },
+        {
+          "kind": "lemma",
+          "name": "I4SourceContact.sourceContactBlockEquiv_inr",
+          "line": 63
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceContact.sourceContactCovariance_block_identity",
+          "line": 69
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceContact.sourcePinCovariance_posDef",
+          "line": 90
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceContact.sourcePinCovariance_isUnit",
+          "line": 94
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceContact.sourcePinCovarianceInvertible",
+          "line": 99
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceContact.sourceContactQVariance_eq_variance",
+          "line": 103
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceContact.sourceContactSchur_pos",
+          "line": 109
+        },
+        {
+          "kind": "lemma",
+          "name": "I4SourceContact.contact_residual_variance_of_isUnit_covariance",
+          "line": 131
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceContact.sourceContactResidual",
+          "line": 175
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceContact.sourceContactResidual_variance",
+          "line": 180
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceContact.sourceContactResidual_variance_pos",
+          "line": 201
+        }
+      ],
+      "saved_axiom_reports": {
+        "I4SourceContact.sourceContactBlockEquiv_inl": {
+          "axioms": [
+            "propext",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/regression-kernel/source-contact-schur/AxiomAudit-01.log",
+          "raw_log_sha256": "f1e25d18acc7628a1300de08d5807a8667fe7f377248e303b9f769f999e621f0"
+        },
+        "I4SourceContact.sourceContactBlockEquiv_inr": {
+          "axioms": [
+            "propext",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/regression-kernel/source-contact-schur/AxiomAudit-01.log",
+          "raw_log_sha256": "f1e25d18acc7628a1300de08d5807a8667fe7f377248e303b9f769f999e621f0"
+        },
+        "I4SourceContact.sourceContactCovariance_block_identity": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/regression-kernel/source-contact-schur/AxiomAudit-01.log",
+          "raw_log_sha256": "f1e25d18acc7628a1300de08d5807a8667fe7f377248e303b9f769f999e621f0"
+        },
+        "I4SourceContact.sourcePinCovariance_posDef": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/regression-kernel/source-contact-schur/AxiomAudit-01.log",
+          "raw_log_sha256": "f1e25d18acc7628a1300de08d5807a8667fe7f377248e303b9f769f999e621f0"
+        },
+        "I4SourceContact.sourcePinCovariance_isUnit": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/regression-kernel/source-contact-schur/AxiomAudit-01.log",
+          "raw_log_sha256": "f1e25d18acc7628a1300de08d5807a8667fe7f377248e303b9f769f999e621f0"
+        },
+        "I4SourceContact.sourcePinCovarianceInvertible": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/regression-kernel/source-contact-schur/AxiomAudit-01.log",
+          "raw_log_sha256": "f1e25d18acc7628a1300de08d5807a8667fe7f377248e303b9f769f999e621f0"
+        },
+        "I4SourceContact.sourceContactQVariance_eq_variance": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/regression-kernel/source-contact-schur/AxiomAudit-01.log",
+          "raw_log_sha256": "f1e25d18acc7628a1300de08d5807a8667fe7f377248e303b9f769f999e621f0"
+        },
+        "I4SourceContact.sourceContactSchur_pos": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/regression-kernel/source-contact-schur/AxiomAudit-01.log",
+          "raw_log_sha256": "f1e25d18acc7628a1300de08d5807a8667fe7f377248e303b9f769f999e621f0"
+        },
+        "I4SourceContact.contact_residual_variance_of_isUnit_covariance": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/regression-kernel/source-contact-schur/AxiomAudit-01.log",
+          "raw_log_sha256": "f1e25d18acc7628a1300de08d5807a8667fe7f377248e303b9f769f999e621f0"
+        },
+        "I4SourceContact.sourceContactResidual_variance": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/regression-kernel/source-contact-schur/AxiomAudit-01.log",
+          "raw_log_sha256": "f1e25d18acc7628a1300de08d5807a8667fe7f377248e303b9f769f999e621f0"
+        },
+        "I4SourceContact.sourceContactResidual_variance_pos": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/regression-kernel/source-contact-schur/AxiomAudit-01.log",
+          "raw_log_sha256": "f1e25d18acc7628a1300de08d5807a8667fe7f377248e303b9f769f999e621f0"
+        }
+      },
+      "existing_source_hash_bindings": [
+        {
+          "record_path": "/workspace/scratch/regression-kernel/source-contact-schur/EVIDENCE.json",
+          "source_sha256": "2fe122a50ec1889b579558d80086251d87ed0cec2420d268ab1d04f6bfff4409",
+          "matches_current_source": true
+        }
+      ]
+    },
+    {
+      "module": "SourceDerivativeContinuity",
+      "namespace": "I4SourceDerivativeContinuity",
+      "source_path": "SourceDerivativeContinuity.lean",
+      "source_bytes": 5076,
+      "source_sha256": "552511e0aee227133b7d067faeceaab9c43c0094b07d68b8eddab0ab2419775e",
+      "imports": [
+        "SourceDerivativeGaussian",
+        "Mathlib.Analysis.Normed.Group.FunctionSeries"
+      ],
+      "public_targets": [
+        "I4SourceDerivativeContinuity.derivativeMajorant_nonneg",
+        "I4SourceDerivativeContinuity.derivativeMajorant_summable",
+        "I4SourceDerivativeContinuity.derivativeCoefficient_bound",
+        "I4SourceDerivativeContinuity.derivativeCoefficient_continuous",
+        "I4SourceDerivativeContinuity.smoothSourceField_derivative_covariance_continuous",
+        "I4SourceDerivativeContinuity.smoothSourceField_derivative_integral_zero"
+      ],
+      "public_declarations": [
+        {
+          "kind": "def",
+          "name": "I4SourceDerivativeContinuity.derivativeMajorant",
+          "line": 16
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceDerivativeContinuity.derivativeMajorant_nonneg",
+          "line": 20
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceDerivativeContinuity.derivativeMajorant_summable",
+          "line": 26
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceDerivativeContinuity.derivativeCoefficient_bound",
+          "line": 30
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceDerivativeContinuity.derivativeCoefficient_continuous",
+          "line": 37
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceDerivativeContinuity.smoothSourceField_derivative_covariance_continuous",
+          "line": 67
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceDerivativeContinuity.smoothSourceField_derivative_integral_zero",
+          "line": 87
+        }
+      ],
+      "saved_axiom_reports": {
+        "I4SourceDerivativeContinuity.derivativeMajorant_nonneg": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-derivative-continuity/04-axiom-audit.log",
+          "raw_log_sha256": "4b92b95bad0bfae56f26140ddab4d9e0fc5950cac0c105983a6b9cc053981887"
+        },
+        "I4SourceDerivativeContinuity.derivativeMajorant_summable": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-derivative-continuity/04-axiom-audit.log",
+          "raw_log_sha256": "4b92b95bad0bfae56f26140ddab4d9e0fc5950cac0c105983a6b9cc053981887"
+        },
+        "I4SourceDerivativeContinuity.derivativeCoefficient_bound": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-derivative-continuity/04-axiom-audit.log",
+          "raw_log_sha256": "4b92b95bad0bfae56f26140ddab4d9e0fc5950cac0c105983a6b9cc053981887"
+        },
+        "I4SourceDerivativeContinuity.derivativeCoefficient_continuous": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-derivative-continuity/04-axiom-audit.log",
+          "raw_log_sha256": "4b92b95bad0bfae56f26140ddab4d9e0fc5950cac0c105983a6b9cc053981887"
+        },
+        "I4SourceDerivativeContinuity.smoothSourceField_derivative_covariance_continuous": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-derivative-continuity/04-axiom-audit.log",
+          "raw_log_sha256": "4b92b95bad0bfae56f26140ddab4d9e0fc5950cac0c105983a6b9cc053981887"
+        },
+        "I4SourceDerivativeContinuity.smoothSourceField_derivative_integral_zero": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-derivative-continuity/04-axiom-audit.log",
+          "raw_log_sha256": "4b92b95bad0bfae56f26140ddab4d9e0fc5950cac0c105983a6b9cc053981887"
+        }
+      },
+      "existing_source_hash_bindings": []
+    },
+    {
+      "module": "ConfluentIntegralIdentities",
+      "namespace": "I4ConfluentIntegralIdentities",
+      "source_path": "ConfluentIntegralIdentities.lean",
+      "source_bytes": 10154,
+      "source_sha256": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+      "imports": [
+        "Mathlib.Analysis.Calculus.IteratedDeriv.Defs",
+        "Mathlib.Analysis.Calculus.Deriv.Pow",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.IntegrationByParts",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Ring"
+      ],
+      "public_targets": [
+        "I4ConfluentIntegralIdentities.pin3_integral",
+        "I4ConfluentIntegralIdentities.pin4_integral",
+        "I4ConfluentIntegralIdentities.pin5_integral",
+        "I4ConfluentIntegralIdentities.adjusted_second_left",
+        "I4ConfluentIntegralIdentities.adjusted_second_right",
+        "I4ConfluentIntegralIdentities.adjusted_transverse_left",
+        "I4ConfluentIntegralIdentities.adjusted_transverse_right"
+      ],
+      "public_declarations": [
+        {
+          "kind": "def",
+          "name": "I4ConfluentIntegralIdentities.pin3",
+          "line": 24
+        },
+        {
+          "kind": "def",
+          "name": "I4ConfluentIntegralIdentities.pin4",
+          "line": 27
+        },
+        {
+          "kind": "def",
+          "name": "I4ConfluentIntegralIdentities.pin5",
+          "line": 30
+        },
+        {
+          "kind": "theorem",
+          "name": "I4ConfluentIntegralIdentities.pin3_integral",
+          "line": 148
+        },
+        {
+          "kind": "theorem",
+          "name": "I4ConfluentIntegralIdentities.pin4_integral",
+          "line": 155
+        },
+        {
+          "kind": "theorem",
+          "name": "I4ConfluentIntegralIdentities.pin5_integral",
+          "line": 162
+        },
+        {
+          "kind": "theorem",
+          "name": "I4ConfluentIntegralIdentities.adjusted_second_left",
+          "line": 172
+        },
+        {
+          "kind": "theorem",
+          "name": "I4ConfluentIntegralIdentities.adjusted_second_right",
+          "line": 180
+        },
+        {
+          "kind": "theorem",
+          "name": "I4ConfluentIntegralIdentities.adjusted_transverse_left",
+          "line": 188
+        },
+        {
+          "kind": "theorem",
+          "name": "I4ConfluentIntegralIdentities.adjusted_transverse_right",
+          "line": 196
+        }
+      ],
+      "saved_axiom_reports": {
+        "I4ConfluentIntegralIdentities.pin3_integral": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/axioms.log",
+          "raw_log_sha256": "0ea71ea95ab6444015bb28170bb6cf70e61de2af3be047daf1a2abe5a63a4d57"
+        },
+        "I4ConfluentIntegralIdentities.pin4_integral": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/axioms.log",
+          "raw_log_sha256": "0ea71ea95ab6444015bb28170bb6cf70e61de2af3be047daf1a2abe5a63a4d57"
+        },
+        "I4ConfluentIntegralIdentities.pin5_integral": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/axioms.log",
+          "raw_log_sha256": "0ea71ea95ab6444015bb28170bb6cf70e61de2af3be047daf1a2abe5a63a4d57"
+        },
+        "I4ConfluentIntegralIdentities.adjusted_second_left": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/axioms.log",
+          "raw_log_sha256": "0ea71ea95ab6444015bb28170bb6cf70e61de2af3be047daf1a2abe5a63a4d57"
+        },
+        "I4ConfluentIntegralIdentities.adjusted_second_right": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/axioms.log",
+          "raw_log_sha256": "0ea71ea95ab6444015bb28170bb6cf70e61de2af3be047daf1a2abe5a63a4d57"
+        },
+        "I4ConfluentIntegralIdentities.adjusted_transverse_left": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/axioms.log",
+          "raw_log_sha256": "0ea71ea95ab6444015bb28170bb6cf70e61de2af3be047daf1a2abe5a63a4d57"
+        },
+        "I4ConfluentIntegralIdentities.adjusted_transverse_right": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/axioms.log",
+          "raw_log_sha256": "0ea71ea95ab6444015bb28170bb6cf70e61de2af3be047daf1a2abe5a63a4d57"
+        }
+      },
+      "existing_source_hash_bindings": [
+        {
+          "record_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/attempt1.json",
+          "source_sha256": "54cb0b5178f81009b50eed936785ff55e0aeb48a564abafd1e9a9f9782f29503",
+          "matches_current_source": false
+        },
+        {
+          "record_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/attempt2.json",
+          "source_sha256": "89fdef1ec0ae0983d2eb5ee80bd8fe3cbd2c5d07dd13f91b242487a229c87a8c",
+          "matches_current_source": false
+        },
+        {
+          "record_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/attempt3.json",
+          "source_sha256": "03ffd76905e0326b5569627f16d55ea6735c33eff63920f69ce5b472b07e7341",
+          "matches_current_source": false
+        },
+        {
+          "record_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/final_compile.json",
+          "source_sha256": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+          "matches_current_source": true
+        },
+        {
+          "record_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/qualification_receipt.json",
+          "source_sha256": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+          "matches_current_source": true
+        }
+      ]
+    }
+  ],
+  "public_theorem_lemma_count": 51,
+  "execution_records": [
+    {
+      "module": "SourceDerivativeGaussian",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-derivative-gaussian/00-required-input-compilation.command",
+      "command_text": "/home/agent/.elan/bin/lake build SourceDerivativeInputs",
+      "exit_record_path": "/workspace/scratch/source-derivative-gaussian/00-required-input-compilation.exitcode",
+      "exit_code": 0,
+      "raw_log_path": "/workspace/scratch/source-derivative-gaussian/00-required-input-compilation.log",
+      "raw_log_sha256": "15a278cde131b885f1aabbf7c945922aa6d281c7c104b69a31120cc7e7119ca5"
+    },
+    {
+      "module": "SourceDerivativeGaussian",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-derivative-gaussian/01-initial-api.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean /workspace/scratch/source-derivative-gaussian/initial_api.lean",
+      "exit_record_path": "/workspace/scratch/source-derivative-gaussian/01-initial-api.exitcode",
+      "exit_code": 1,
+      "raw_log_path": "/workspace/scratch/source-derivative-gaussian/01-initial-api.log",
+      "raw_log_sha256": "77eb7532d64fa8806c50c6acece17a55b8f7b4c6c53a862e153ca70ae4e35a7f"
+    },
+    {
+      "module": "SourceDerivativeGaussian",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-derivative-gaussian/02-first-module-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceDerivativeGaussian.olean SourceDerivativeGaussian.lean",
+      "exit_record_path": "/workspace/scratch/source-derivative-gaussian/02-first-module-compile.exitcode",
+      "exit_code": 1,
+      "raw_log_path": "/workspace/scratch/source-derivative-gaussian/02-first-module-compile.log",
+      "raw_log_sha256": "1842b39f70d760d0b2221cb68a4c9bf301bdfbdac6e37c24c2b42c68bb8bcc45"
+    },
+    {
+      "module": "SourceDerivativeGaussian",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-derivative-gaussian/03-order-coercions-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceDerivativeGaussian.olean SourceDerivativeGaussian.lean",
+      "exit_record_path": "/workspace/scratch/source-derivative-gaussian/03-order-coercions-compile.exitcode",
+      "exit_code": 1,
+      "raw_log_path": "/workspace/scratch/source-derivative-gaussian/03-order-coercions-compile.log",
+      "raw_log_sha256": "9d76690b6da0d2a49906651d1d38a334cc2cfc16812fe223acd9a3c4bf9607f3"
+    },
+    {
+      "module": "SourceDerivativeGaussian",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-derivative-gaussian/04-core-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceDerivativeGaussian.olean SourceDerivativeGaussian.lean",
+      "exit_record_path": "/workspace/scratch/source-derivative-gaussian/04-core-compile.exitcode",
+      "exit_code": 0,
+      "raw_log_path": "/workspace/scratch/source-derivative-gaussian/04-core-compile.log",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "SourceDerivativeGaussian",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-derivative-gaussian/05-covariance-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceDerivativeGaussian.olean SourceDerivativeGaussian.lean",
+      "exit_record_path": "/workspace/scratch/source-derivative-gaussian/05-covariance-compile.exitcode",
+      "exit_code": 0,
+      "raw_log_path": "/workspace/scratch/source-derivative-gaussian/05-covariance-compile.log",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "SourceDerivativeGaussian",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-derivative-gaussian/06-controls.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true /workspace/scratch/source-derivative-gaussian/controls.lean",
+      "exit_record_path": "/workspace/scratch/source-derivative-gaussian/06-controls.exitcode",
+      "exit_code": 0,
+      "raw_log_path": "/workspace/scratch/source-derivative-gaussian/06-controls.log",
+      "raw_log_sha256": "2a5ca7d6ad3767f5b870f30d26d4e46db1eac80562eab390024a5438bf956d36"
+    },
+    {
+      "module": "SourceDerivativeGaussian",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-derivative-gaussian/07-axiom-audit.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true /workspace/scratch/source-derivative-gaussian/axiom_audit.lean",
+      "exit_record_path": "/workspace/scratch/source-derivative-gaussian/07-axiom-audit.exitcode",
+      "exit_code": 0,
+      "raw_log_path": "/workspace/scratch/source-derivative-gaussian/07-axiom-audit.log",
+      "raw_log_sha256": "bd7f4f26b3cbebcea4d5a40786cb51c0b8da4b07b7f8143aa1e46dfe93da9b46"
+    },
+    {
+      "module": "SourceDerivativeGaussian",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-derivative-gaussian/08-kernel-replay.command",
+      "command_text": "/home/agent/.elan/bin/lake env leanchecker SourceDerivativeGaussian",
+      "exit_record_path": "/workspace/scratch/source-derivative-gaussian/08-kernel-replay.exitcode",
+      "exit_code": 0,
+      "raw_log_path": "/workspace/scratch/source-derivative-gaussian/08-kernel-replay.log",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "ContactJetCovariance",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/regression-kernel/contact-gram/EVIDENCE.json",
+      "record_sha256": "fcd08acbafb9d54cd52ff7ee387f565aaadc37eab4dba6ac90ce9083d90cd909",
+      "record": {
+        "source": "ContactJetCovariance.lean",
+        "source_sha256": "50df0281c580ac7af018713a38c6bdd5dd34b52e3834b573165045bc64acd49d",
+        "source_contract_commit": "45b0ede",
+        "author": "OpenAI/Codex /root/regression_kernel with OpenAI/Codex /root/regression_kernel/gaussian_api optional Schur API/proof support",
+        "scientific_effect": "NONE; author-side verification only; actual coefficient and physical covariance identification separately required",
+        "new_module_build": {
+          "command": "/home/agent/.elan/bin/lake env lean -o .lake/build/lib/lean/ContactJetCovariance.olean ContactJetCovariance.lean",
+          "exit": 0,
+          "log": "ContactJetCovariance-02.log"
+        },
+        "new_module_kernel_replay": {
+          "command": "/home/agent/.elan/bin/lake env leanchecker ContactJetCovariance",
+          "exit": 0,
+          "log": "KernelReplay-01.log"
+        },
+        "axiom_audit": {
+          "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/contact-gram/AxiomAudit.lean",
+          "exit": 0,
+          "targets": 8,
+          "allowed": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "log": "AxiomAudit-01.log"
+        },
+        "controls": [
+          {
+            "file": "PositiveControls.lean",
+            "exit": 0,
+            "log": "PositiveControls-03.log",
+            "claims": [
+              "positive finite Gram c=1 amplitudes=1",
+              "positive finite Gram c=-1 amplitudes=2",
+              "actual failure of transpose injectivity for c=0",
+              "actual failure of transpose injectivity for zero amplitudes"
+            ]
+          },
+          {
+            "file": "RejectedZeroFrequency.lean",
+            "exit": 1,
+            "log": "RejectedZeroFrequency-01.log",
+            "reason": "unsolved False side condition c\u22600"
+          },
+          {
+            "file": "RejectedZeroAmplitude.lean",
+            "exit": 1,
+            "log": "RejectedZeroAmplitude-01.log",
+            "reason": "unsolved False side condition \u2200s a_s\u22600"
+          }
+        ],
+        "logs": {
+          "ContactJetCovariance-02.log": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "PositiveControls-03.log": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "RejectedZeroFrequency-01.log": {
+            "bytes": 115,
+            "sha256": "15bbcb32f00f3b6855f8d63d99ce54f84221a07548d69ddc33714842cdaf9e01"
+          },
+          "RejectedZeroAmplitude-01.log": {
+            "bytes": 125,
+            "sha256": "be30efec397f160a20ff069eed66d1490704e096c08060cab37d5dc2ec69c929"
+          },
+          "AxiomAudit-01.log": {
+            "bytes": 868,
+            "sha256": "d767504ed20e66d9b326686703729954244281675cd41ca15cfce5cc10e832f1"
+          },
+          "KernelReplay-01.log": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        },
+        "reuse": "Previously completed regression proofs and source-input checks were not rerun; these checks concern the new contact certificate and its new controls."
+      }
+    },
+    {
+      "module": "SourceContactCovariance",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-contact-covariance/00-initial-api.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean /workspace/scratch/source-contact-covariance/initial_api.lean",
+      "exit_record_path": "/workspace/scratch/source-contact-covariance/00-initial-api.exitcode",
+      "exit_code": 1,
+      "raw_log_path": "/workspace/scratch/source-contact-covariance/00-initial-api.log",
+      "raw_log_sha256": "76a84c62bffd2192a328dcbb6b6fb5b3399143d382edf047c276b3fb2ed0c562"
+    },
+    {
+      "module": "SourceContactCovariance",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-contact-covariance/01-first-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceContactCovariance.olean SourceContactCovariance.lean",
+      "exit_record_path": "/workspace/scratch/source-contact-covariance/01-first-compile.exitcode",
+      "exit_code": 1,
+      "raw_log_path": "/workspace/scratch/source-contact-covariance/01-first-compile.log",
+      "raw_log_sha256": "9ca14e4c75021549f92dad91573bb6201693d41e2665c487414ad590c9979c1c"
+    },
+    {
+      "module": "SourceContactCovariance",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-contact-covariance/02-dependent-directions-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceContactCovariance.olean SourceContactCovariance.lean",
+      "exit_record_path": "/workspace/scratch/source-contact-covariance/02-dependent-directions-compile.exitcode",
+      "exit_code": 1,
+      "raw_log_path": "/workspace/scratch/source-contact-covariance/02-dependent-directions-compile.log",
+      "raw_log_sha256": "cba5c094683063a5e69fb3bb7c32ad7b8e6d15f35d10fac315024e007bcc7519"
+    },
+    {
+      "module": "SourceContactCovariance",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-contact-covariance/03-column-reduction-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceContactCovariance.olean SourceContactCovariance.lean",
+      "exit_record_path": "/workspace/scratch/source-contact-covariance/03-column-reduction-compile.exitcode",
+      "exit_code": 1,
+      "raw_log_path": "/workspace/scratch/source-contact-covariance/03-column-reduction-compile.log",
+      "raw_log_sha256": "cfa898a83d718b0f272d568d0809eec1a06e150e5120082746653ebd312e1748"
+    },
+    {
+      "module": "SourceContactCovariance",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-contact-covariance/04-normalized-row-types-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceContactCovariance.olean SourceContactCovariance.lean",
+      "exit_record_path": "/workspace/scratch/source-contact-covariance/04-normalized-row-types-compile.exitcode",
+      "exit_code": 1,
+      "raw_log_path": "/workspace/scratch/source-contact-covariance/04-normalized-row-types-compile.log",
+      "raw_log_sha256": "819f7d4767a6807351e6d19a93a426d5fb62b6ca8091f121864f6663ff14fd9c"
+    },
+    {
+      "module": "SourceContactCovariance",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-contact-covariance/05-column-identities-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceContactCovariance.olean SourceContactCovariance.lean",
+      "exit_record_path": "/workspace/scratch/source-contact-covariance/05-column-identities-compile.exitcode",
+      "exit_code": 0,
+      "raw_log_path": "/workspace/scratch/source-contact-covariance/05-column-identities-compile.log",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "SourceContactCovariance",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-contact-covariance/06-controls.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true /workspace/scratch/source-contact-covariance/controls.lean",
+      "exit_record_path": "/workspace/scratch/source-contact-covariance/06-controls.exitcode",
+      "exit_code": 0,
+      "raw_log_path": "/workspace/scratch/source-contact-covariance/06-controls.log",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "SourceContactCovariance",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-contact-covariance/07-axiom-audit.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true /workspace/scratch/source-contact-covariance/axiom_audit.lean",
+      "exit_record_path": "/workspace/scratch/source-contact-covariance/07-axiom-audit.exitcode",
+      "exit_code": 0,
+      "raw_log_path": "/workspace/scratch/source-contact-covariance/07-axiom-audit.log",
+      "raw_log_sha256": "e8fa9efb15f5085bf7dba91598df2020f28cb968fa6301cb8a647c942f87fa54"
+    },
+    {
+      "module": "SourceContactCovariance",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-contact-covariance/08-kernel-replay.command",
+      "command_text": "/home/agent/.elan/bin/lake env leanchecker SourceContactCovariance",
+      "exit_record_path": "/workspace/scratch/source-contact-covariance/08-kernel-replay.exitcode",
+      "exit_code": 0,
+      "raw_log_path": "/workspace/scratch/source-contact-covariance/08-kernel-replay.log",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "SourceConfluentPins",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/axioms.json",
+      "record_sha256": "6901e5482c7e8eb73c490666be1ee54f513a4dc289ad10dc57506575437f159d",
+      "record": {
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/dm2_landed_composition/confluent_qualification/AxiomAudit.lean"
+        ],
+        "exit_code": 0,
+        "duration_seconds": 5.699351787567139,
+        "source_sha256_before": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+        "source_sha256_after": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f"
+      }
+    },
+    {
+      "module": "SourceConfluentPins",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/false-zero-cubic.json",
+      "record_sha256": "ea2e7de1c2d343b4d3ac4bef24c979d74acbd883c26742a4b191e74a96b94abc",
+      "record": {
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/dm2_landed_composition/confluent_qualification/FalseZeroCubicPin.lean"
+        ],
+        "exit_code": 1,
+        "duration_seconds": 7.52158784866333,
+        "source_sha256_before": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+        "source_sha256_after": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f"
+      }
+    },
+    {
+      "module": "SourceConfluentPins",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/false-zero-inverse.json",
+      "record_sha256": "8da44bb6852111b636ba145a501107eefd1844dcf3757e77726ac2d22c4617a9",
+      "record": {
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/dm2_landed_composition/confluent_qualification/FalseZeroInverse.lean"
+        ],
+        "exit_code": 1,
+        "duration_seconds": 7.989002466201782,
+        "source_sha256_before": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+        "source_sha256_after": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f"
+      }
+    },
+    {
+      "module": "SourceConfluentPins",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/kernel.json",
+      "record_sha256": "5292e7cfb4e12947dac63e7997e75537bb60ee1d2b51d01478e3560f3ad8104d",
+      "record": {
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "leanchecker",
+          "SourceConfluentPins"
+        ],
+        "exit_code": 0,
+        "duration_seconds": 11.284632682800293,
+        "source_sha256_before": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+        "source_sha256_after": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f"
+      }
+    },
+    {
+      "module": "SourceConfluentPins",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/positive.json",
+      "record_sha256": "b453d38e5cac012cba5c221ae943f6ed59f9932d2cef4e4922e736cb03398aa6",
+      "record": {
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/dm2_landed_composition/confluent_qualification/PositiveControls.lean"
+        ],
+        "exit_code": 0,
+        "duration_seconds": 7.29991602897644,
+        "source_sha256_before": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+        "source_sha256_after": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f"
+      }
+    },
+    {
+      "module": "SourceConfluentPins",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/qualification_receipt.json",
+      "record_sha256": "fab84e1e90da43bfdf59cf1c1110ae394d3e1893f2f17635f199b271c3ae6a36",
+      "record": {
+        "scope": "NEW_SOURCE_CONFLUENT_PINS_ONLY_LOCAL_QUALIFICATION",
+        "scientific_effect": "NONE",
+        "author_side_agent": "OpenAI/Codex /root/dm2_landed_composition",
+        "source_path": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025/SourceConfluentPins.lean",
+        "source_sha256": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+        "compile_evidence_reused": {
+          "command": [
+            "lake",
+            "env",
+            "lean",
+            "-o",
+            ".lake/build/lib/lean/SourceConfluentPins.olean",
+            "SourceConfluentPins.lean"
+          ],
+          "exit_code": 0,
+          "raw_log": "/workspace/scratch/dm2_landed_composition/source_confluent_final.log",
+          "metadata": "/workspace/scratch/dm2_landed_composition/source_confluent_final.meta"
+        },
+        "axiom_audit": {
+          "I4SourceConfluentPins.rawTransform_confluentTransform": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceConfluentPins.confluentTransform_rawTransform": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceConfluentPins.confluentEquiv_apply": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceConfluentPins.confluentEquiv_symm_apply": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceConfluentPins.prescribed_target": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceConfluentPins.rawPins_hasGaussianLaw": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceConfluentPins.confluentPins_hasGaussianLaw": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceConfluentPins.rawPinsWithHessians_hasGaussianLaw": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        "checks": {
+          "kernel": {
+            "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+            "command": [
+              "lake",
+              "env",
+              "leanchecker",
+              "SourceConfluentPins"
+            ],
+            "exit_code": 0,
+            "duration_seconds": 11.284632682800293,
+            "source_sha256_before": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+            "source_sha256_after": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+            "raw_log": "/workspace/scratch/dm2_landed_composition/confluent_qualification/kernel.log",
+            "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "expected_exit_code": 0
+          },
+          "axioms": {
+            "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+            "command": [
+              "lake",
+              "env",
+              "lean",
+              "/workspace/scratch/dm2_landed_composition/confluent_qualification/AxiomAudit.lean"
+            ],
+            "exit_code": 0,
+            "duration_seconds": 5.699351787567139,
+            "source_sha256_before": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+            "source_sha256_after": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+            "raw_log": "/workspace/scratch/dm2_landed_composition/confluent_qualification/axioms.log",
+            "raw_log_sha256": "88fab8464a91fa4d5c239f06458cff95566fdb5e64228ebada870581771a3a20",
+            "expected_exit_code": 0
+          },
+          "positive": {
+            "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+            "command": [
+              "lake",
+              "env",
+              "lean",
+              "/workspace/scratch/dm2_landed_composition/confluent_qualification/PositiveControls.lean"
+            ],
+            "exit_code": 0,
+            "duration_seconds": 7.29991602897644,
+            "source_sha256_before": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+            "source_sha256_after": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+            "raw_log": "/workspace/scratch/dm2_landed_composition/confluent_qualification/positive.log",
+            "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "expected_exit_code": 0
+          },
+          "false-zero-inverse": {
+            "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+            "command": [
+              "lake",
+              "env",
+              "lean",
+              "/workspace/scratch/dm2_landed_composition/confluent_qualification/FalseZeroInverse.lean"
+            ],
+            "exit_code": 1,
+            "duration_seconds": 7.989002466201782,
+            "source_sha256_before": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+            "source_sha256_after": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+            "raw_log": "/workspace/scratch/dm2_landed_composition/confluent_qualification/false-zero-inverse.log",
+            "raw_log_sha256": "abe6a0ad3e7510758b2ce683a3fd3fac8bea7fa5f10a876456d085c0253e7434",
+            "expected_exit_code": 1
+          },
+          "false-zero-cubic": {
+            "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+            "command": [
+              "lake",
+              "env",
+              "lean",
+              "/workspace/scratch/dm2_landed_composition/confluent_qualification/FalseZeroCubicPin.lean"
+            ],
+            "exit_code": 1,
+            "duration_seconds": 7.52158784866333,
+            "source_sha256_before": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+            "source_sha256_after": "41e1ea1ef4f9960307552a8271a5c04d2b72d94736b98eb601b51669ed603c3f",
+            "raw_log": "/workspace/scratch/dm2_landed_composition/confluent_qualification/false-zero-cubic.log",
+            "raw_log_sha256": "57fa6b8b5bdd65fdd1bd7b77e555773d00a054e1a137f9f368038559afe662e7",
+            "expected_exit_code": 1
+          }
+        },
+        "control_sources": {
+          "AxiomAudit.lean": "1f14cbf5cbc43c71e5f05ed837fcde4b80f82a27d02cfa6885d77b3cbd2f41c0",
+          "PositiveControls.lean": "c8954c8a2a67c38b855c3665f8b0738f1ed9488af589ef73ecd95ef2a8fd1d39",
+          "FalseZeroInverse.lean": "5105e7581dfd422360e48f7399130d830cfaaa27ca9d9f5a9bf1fdf530276799",
+          "FalseZeroCubicPin.lean": "7d7ada04833212dd49ab73ca02f9af6cbc93a8d18e6efe741dd6eb0ace394c2e"
+        },
+        "not_established": [
+          "covariance limits or invertibility",
+          "actual conditional regression blocks",
+          "Palm event identification",
+          "independent scientific review",
+          "overall campaign completion"
+        ]
+      }
+    },
+    {
+      "module": "SourceContactSchur",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/regression-kernel/source-contact-schur/EVIDENCE.json",
+      "record_sha256": "74cd22b287de6e53bd51bbdc5dcac88a2ec2c5af93c7a9426776314633afcfe0",
+      "record": {
+        "source": "SourceContactSchur.lean",
+        "source_sha256": "2fe122a50ec1889b579558d80086251d87ed0cec2420d268ab1d04f6bfff4409",
+        "source_contract_commit": "3bb99c9",
+        "author": "OpenAI/Codex /root/regression_kernel with OpenAI/Codex /root/regression_kernel/gaussian_api generic L2 residual-variance proof support",
+        "scientific_effect": "NONE; author-side evidence; different-family scientific review remains separate",
+        "build": {
+          "command": "/home/agent/.elan/bin/lake env lean -o .lake/build/lib/lean/SourceContactSchur.olean SourceContactSchur.lean",
+          "exit": 0,
+          "log": "SourceContactSchur-04.log"
+        },
+        "kernel": {
+          "command": "/home/agent/.elan/bin/lake env leanchecker SourceContactSchur",
+          "exit": 0,
+          "log": "KernelReplay-01.log"
+        },
+        "axioms": {
+          "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/source-contact-schur/AxiomAudit.lean",
+          "exit": 0,
+          "targets": {
+            "I4SourceContact.sourceContactBlockEquiv_inl": [
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourceContact.sourceContactBlockEquiv_inr": [
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourceContact.sourceContactCovariance_block_identity": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourceContact.sourcePinCovariance_posDef": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourceContact.sourcePinCovariance_isUnit": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourceContact.sourcePinCovarianceInvertible": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourceContact.sourceContactQVariance_eq_variance": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourceContact.sourceContactSchur_pos": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourceContact.contact_residual_variance_of_isUnit_covariance": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourceContact.sourceContactResidual_variance": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourceContact.sourceContactResidual_variance_pos": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ]
+          },
+          "log": "AxiomAudit-01.log"
+        },
+        "controls": [
+          {
+            "file": "PositiveControls.lean",
+            "exit": 0,
+            "log": "PositiveControls-01.log",
+            "checks": "literal G positive/invertible at \u00b11; actual Schur positive at \u00b11; actual residual variance positive; exact block indices/roundtrip"
+          },
+          {
+            "file": "RejectedZeroPeriod.lean",
+            "exit": 1,
+            "log": "RejectedZeroPeriod-01.log",
+            "reason": "False nonzero-period side condition"
+          },
+          {
+            "file": "RejectedWrongQIndex.lean",
+            "exit": 1,
+            "log": "RejectedWrongQIndex-01.log",
+            "reason": "False equality of Q index6 with index0"
+          }
+        ],
+        "logs": {
+          "SourceContactSchur-04.log": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "PositiveControls-01.log": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "RejectedZeroPeriod-01.log": {
+            "bytes": 120,
+            "sha256": "a32530bb6df4ff65058d541b0bdd131f54e1cf4c879b308012e30a65fe6a4140"
+          },
+          "RejectedWrongQIndex-01.log": {
+            "bytes": 121,
+            "sha256": "fb8ff7ec25f05d726bb11363c9948bfa76eb723c6ed26798d177eac9504675b9"
+          },
+          "AxiomAudit-01.log": {
+            "bytes": 1163,
+            "sha256": "f1e25d18acc7628a1300de08d5807a8667fe7f377248e303b9f769f999e621f0"
+          },
+          "KernelReplay-01.log": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        },
+        "reuse": "Completed Gaussian regression, contact Gram and literal source covariance evidence reused; only this new module and its controls audited."
+      }
+    },
+    {
+      "module": "SourceDerivativeContinuity",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-derivative-continuity/00-initial-api.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean /workspace/scratch/source-derivative-continuity/initial_api.lean",
+      "exit_record_path": "/workspace/scratch/source-derivative-continuity/00-initial-api.exitcode",
+      "exit_code": 1,
+      "raw_log_path": "/workspace/scratch/source-derivative-continuity/00-initial-api.log",
+      "raw_log_sha256": "0e2accbd4c9bdd9622b0721f3d10514d648ce3ce9815b5bdc2da8fe5ae1ff2cf"
+    },
+    {
+      "module": "SourceDerivativeContinuity",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-derivative-continuity/01-first-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceDerivativeContinuity.olean SourceDerivativeContinuity.lean",
+      "exit_record_path": "/workspace/scratch/source-derivative-continuity/01-first-compile.exitcode",
+      "exit_code": 1,
+      "raw_log_path": "/workspace/scratch/source-derivative-continuity/01-first-compile.log",
+      "raw_log_sha256": "b9e6e0a9f3c68f8641eb751ccd6a7aef5fef70025ea63b8ea20eb5c560541608"
+    },
+    {
+      "module": "SourceDerivativeContinuity",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-derivative-continuity/02-evaluation-and-law-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceDerivativeContinuity.olean SourceDerivativeContinuity.lean",
+      "exit_record_path": "/workspace/scratch/source-derivative-continuity/02-evaluation-and-law-compile.exitcode",
+      "exit_code": 0,
+      "raw_log_path": "/workspace/scratch/source-derivative-continuity/02-evaluation-and-law-compile.log",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "SourceDerivativeContinuity",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-derivative-continuity/03-controls.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true /workspace/scratch/source-derivative-continuity/controls.lean",
+      "exit_record_path": "/workspace/scratch/source-derivative-continuity/03-controls.exitcode",
+      "exit_code": 1,
+      "raw_log_path": "/workspace/scratch/source-derivative-continuity/03-controls.log",
+      "raw_log_sha256": "a421ad69b085ce183fb2ede84a4cc87306f77eb695e1fefcfcb8c1ebfafd948d"
+    },
+    {
+      "module": "SourceDerivativeContinuity",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-derivative-continuity/04-axiom-audit.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true /workspace/scratch/source-derivative-continuity/axiom_audit.lean",
+      "exit_record_path": "/workspace/scratch/source-derivative-continuity/04-axiom-audit.exitcode",
+      "exit_code": 0,
+      "raw_log_path": "/workspace/scratch/source-derivative-continuity/04-axiom-audit.log",
+      "raw_log_sha256": "4b92b95bad0bfae56f26140ddab4d9e0fc5950cac0c105983a6b9cc053981887"
+    },
+    {
+      "module": "SourceDerivativeContinuity",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-derivative-continuity/05-controls-explicit-path.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true /workspace/scratch/source-derivative-continuity/controls.lean",
+      "exit_record_path": "/workspace/scratch/source-derivative-continuity/05-controls-explicit-path.exitcode",
+      "exit_code": 0,
+      "raw_log_path": "/workspace/scratch/source-derivative-continuity/05-controls-explicit-path.log",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "SourceDerivativeContinuity",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-derivative-continuity/06-kernel-replay.command",
+      "command_text": "/home/agent/.elan/bin/lake env leanchecker SourceDerivativeContinuity",
+      "exit_record_path": "/workspace/scratch/source-derivative-continuity/06-kernel-replay.exitcode",
+      "exit_code": 0,
+      "raw_log_path": "/workspace/scratch/source-derivative-continuity/06-kernel-replay.log",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "ConfluentIntegralIdentities",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/attempt1.json",
+      "record_sha256": "8e268a0aee1f220c7156763512939e48b5f04306f2da6e5d99ef4d7f3e9bb1cc",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-o",
+          ".lake/build/lib/lean/ConfluentIntegralIdentities.olean",
+          "ConfluentIntegralIdentities.lean"
+        ],
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source_sha256": "54cb0b5178f81009b50eed936785ff55e0aeb48a564abafd1e9a9f9782f29503"
+      }
+    },
+    {
+      "module": "ConfluentIntegralIdentities",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/attempt2.json",
+      "record_sha256": "1b08ee432b47cd54192a7fc406419c03e40c5d030eb9a0f35cd7229d40808e74",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-o",
+          ".lake/build/lib/lean/ConfluentIntegralIdentities.olean",
+          "ConfluentIntegralIdentities.lean"
+        ],
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source_sha256": "89fdef1ec0ae0983d2eb5ee80bd8fe3cbd2c5d07dd13f91b242487a229c87a8c"
+      }
+    },
+    {
+      "module": "ConfluentIntegralIdentities",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/attempt3.json",
+      "record_sha256": "f3315a3e00046baf47d83df394c9746a43f82b073ab1007c40089e0c4d82bd54",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-o",
+          ".lake/build/lib/lean/ConfluentIntegralIdentities.olean",
+          "ConfluentIntegralIdentities.lean"
+        ],
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source_sha256": "03ffd76905e0326b5569627f16d55ea6735c33eff63920f69ce5b472b07e7341"
+      }
+    },
+    {
+      "module": "ConfluentIntegralIdentities",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/axioms.json",
+      "record_sha256": "7c3a0d0b4c8d766e5b7bd41453225d42efa9aaaaefd5db1cdb9d52d370a9b36b",
+      "record": {
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/dm2_landed_composition/confluent_integrals/AxiomAudit.lean"
+        ],
+        "exit_code": 0,
+        "duration_seconds": 5.193881511688232,
+        "source_sha256_before": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+        "source_sha256_after": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8"
+      }
+    },
+    {
+      "module": "ConfluentIntegralIdentities",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/false-cubic.json",
+      "record_sha256": "4ed1ad29262440f5e9eb52534f13460f10220638f565276037afb6ab008e0fee",
+      "record": {
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/dm2_landed_composition/confluent_integrals/FalseCubicCoefficient.lean"
+        ],
+        "exit_code": 1,
+        "duration_seconds": 5.286576271057129,
+        "source_sha256_before": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+        "source_sha256_after": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8"
+      }
+    },
+    {
+      "module": "ConfluentIntegralIdentities",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/false-transverse.json",
+      "record_sha256": "42e5796fb299f0068bab603123eca52ceb9c27e10f20acc921a56e58915e2a5a",
+      "record": {
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/dm2_landed_composition/confluent_integrals/FalseTransverseDerivative.lean"
+        ],
+        "exit_code": 1,
+        "duration_seconds": 5.0333075523376465,
+        "source_sha256_before": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+        "source_sha256_after": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8"
+      }
+    },
+    {
+      "module": "ConfluentIntegralIdentities",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/final_compile.json",
+      "record_sha256": "fc7f71dbba31cc421ebc98d9fa88062e1c659c30ae2c181ded14ae67ea669f56",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-o",
+          ".lake/build/lib/lean/ConfluentIntegralIdentities.olean",
+          "ConfluentIntegralIdentities.lean"
+        ],
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source_sha256": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8"
+      }
+    },
+    {
+      "module": "ConfluentIntegralIdentities",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/kernel.json",
+      "record_sha256": "baedd8edf2360180ee8d53a8261271d7d67c9f2f3195a1679b14c24b51d1f87e",
+      "record": {
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "leanchecker",
+          "ConfluentIntegralIdentities"
+        ],
+        "exit_code": 0,
+        "duration_seconds": 7.803982257843018,
+        "source_sha256_before": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+        "source_sha256_after": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8"
+      }
+    },
+    {
+      "module": "ConfluentIntegralIdentities",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/positive-attempt1.json",
+      "record_sha256": "3775f182d9990745b9a9ed12d33461b8146f4aafe634dfa713bd57aff8805845",
+      "record": {
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/dm2_landed_composition/confluent_integrals/PositiveControls.lean"
+        ],
+        "exit_code": 1,
+        "duration_seconds": 5.598034620285034,
+        "source_sha256_before": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+        "source_sha256_after": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8"
+      }
+    },
+    {
+      "module": "ConfluentIntegralIdentities",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/positive.json",
+      "record_sha256": "9ff1e62b5e3f16fb241b2bc5f043ab64179cc87ff997748380643eb0803e642d",
+      "record": {
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/dm2_landed_composition/confluent_integrals/PositiveControls.lean"
+        ],
+        "exit_code": 0,
+        "duration_seconds": 3.1239266395568848,
+        "source_sha256_before": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+        "source_sha256_after": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8"
+      }
+    },
+    {
+      "module": "ConfluentIntegralIdentities",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/qualification_receipt.json",
+      "record_sha256": "8ae8111081eee00b34def209c23d23881d668adf854b9ceacffda3ef5f6c5ac8",
+      "record": {
+        "scope": "NEW_CONFLUENT_INTEGRAL_IDENTITIES_ONLY_LOCAL_QUALIFICATION",
+        "scientific_effect": "NONE",
+        "source_path": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025/ConfluentIntegralIdentities.lean",
+        "source_sha256": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+        "frozen_contract_commit": "d382da3",
+        "frozen_contract_path": "frontiers/source_derivative_gaussian_20261025/SOURCE_CONFLUENT_INTEGRALS.md",
+        "author_side_lineage": [
+          "OpenAI/Codex /root/dm2_landed_composition",
+          "OpenAI/Codex /root/dm2_landed_composition/peano_strategy: actual generic Peano scratch helper"
+        ],
+        "compile_evidence_reused": {
+          "command": [
+            "lake",
+            "env",
+            "lean",
+            "-o",
+            ".lake/build/lib/lean/ConfluentIntegralIdentities.olean",
+            "ConfluentIntegralIdentities.lean"
+          ],
+          "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+          "exit_code": 0,
+          "source_sha256": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+          "raw_log": "/workspace/scratch/dm2_landed_composition/confluent_integrals/final_compile.log",
+          "raw_log_sha256": "022f4f8b18c8d5d1fc60362ee2a5a1dcf68599cb92994e4900143d4894238508"
+        },
+        "axiom_audit": {
+          "I4ConfluentIntegralIdentities.pin3_integral": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4ConfluentIntegralIdentities.pin4_integral": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4ConfluentIntegralIdentities.pin5_integral": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4ConfluentIntegralIdentities.adjusted_second_left": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4ConfluentIntegralIdentities.adjusted_second_right": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4ConfluentIntegralIdentities.adjusted_transverse_left": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4ConfluentIntegralIdentities.adjusted_transverse_right": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        "checks": {
+          "kernel": {
+            "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+            "command": [
+              "lake",
+              "env",
+              "leanchecker",
+              "ConfluentIntegralIdentities"
+            ],
+            "exit_code": 0,
+            "duration_seconds": 7.803982257843018,
+            "source_sha256_before": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+            "source_sha256_after": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+            "raw_log": "/workspace/scratch/dm2_landed_composition/confluent_integrals/kernel.log",
+            "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "expected_exit_code": 0
+          },
+          "axioms": {
+            "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+            "command": [
+              "lake",
+              "env",
+              "lean",
+              "/workspace/scratch/dm2_landed_composition/confluent_integrals/AxiomAudit.lean"
+            ],
+            "exit_code": 0,
+            "duration_seconds": 5.193881511688232,
+            "source_sha256_before": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+            "source_sha256_after": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+            "raw_log": "/workspace/scratch/dm2_landed_composition/confluent_integrals/axioms.log",
+            "raw_log_sha256": "0ea71ea95ab6444015bb28170bb6cf70e61de2af3be047daf1a2abe5a63a4d57",
+            "expected_exit_code": 0
+          },
+          "positive": {
+            "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+            "command": [
+              "lake",
+              "env",
+              "lean",
+              "/workspace/scratch/dm2_landed_composition/confluent_integrals/PositiveControls.lean"
+            ],
+            "exit_code": 0,
+            "duration_seconds": 3.1239266395568848,
+            "source_sha256_before": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+            "source_sha256_after": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+            "raw_log": "/workspace/scratch/dm2_landed_composition/confluent_integrals/positive.log",
+            "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "expected_exit_code": 0
+          },
+          "false-cubic": {
+            "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+            "command": [
+              "lake",
+              "env",
+              "lean",
+              "/workspace/scratch/dm2_landed_composition/confluent_integrals/FalseCubicCoefficient.lean"
+            ],
+            "exit_code": 1,
+            "duration_seconds": 5.286576271057129,
+            "source_sha256_before": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+            "source_sha256_after": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+            "raw_log": "/workspace/scratch/dm2_landed_composition/confluent_integrals/false-cubic.log",
+            "raw_log_sha256": "2f47cdff53f210cc7b7f6fe9a2594085065a3530d8ad49b59d34183a41360ad2",
+            "expected_exit_code": 1
+          },
+          "false-transverse": {
+            "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+            "command": [
+              "lake",
+              "env",
+              "lean",
+              "/workspace/scratch/dm2_landed_composition/confluent_integrals/FalseTransverseDerivative.lean"
+            ],
+            "exit_code": 1,
+            "duration_seconds": 5.0333075523376465,
+            "source_sha256_before": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+            "source_sha256_after": "0324d7556d485cd360a513587199354fa1f3863d15cf06b52c86e362de5e56b8",
+            "raw_log": "/workspace/scratch/dm2_landed_composition/confluent_integrals/false-transverse.log",
+            "raw_log_sha256": "64b33fa722fa610db1fca752962ee9abb252c58100c48dd9edc26205159291c2",
+            "expected_exit_code": 1
+          }
+        },
+        "control_source_sha256": {
+          "AxiomAudit.lean": "362b1e333bb42de7a1dd616d75344e11001ac58a7b77281300464d45b1e55274",
+          "PositiveControls.lean": "d551c3f96a6f60eaa3d769b3ad12da6e9487f41491f9cff5c63ed8e68f0bb191",
+          "FalseCubicCoefficient.lean": "b3911ae4f12a23a10fd6d30fffbf81791981c1bce070348815da6e66c3a79c70",
+          "FalseTransverseDerivative.lean": "2a14a1824d2db7550604896de10b6a2b2ece559441378eab4add8c3cd3adeb14"
+        },
+        "helper_evidence": {
+          "source": "/workspace/scratch/dm2_landed_composition/PeanoHelper.lean",
+          "metadata": "/workspace/scratch/dm2_landed_composition/peano_helper_final.json",
+          "raw_log": "/workspace/scratch/dm2_landed_composition/peano_helper_final.log"
+        },
+        "not_established": [
+          "actual source mode instantiation",
+          "justified covariance infinite sum limit",
+          "actual conditional regression or Palm law",
+          "independent scientific review",
+          "overall campaign completion"
+        ]
+      }
+    },
+    {
+      "module": "ConfluentIntegralIdentities",
+      "role": "actual helper proof provenance",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/peano_helper_attempt1.json",
+      "record_sha256": "c6ad5b5671caecefaf0f0f74c543bfd6e257fcbff8b863f6aaa31e1547ae53e9",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/dm2_landed_composition/PeanoHelper.lean"
+        ],
+        "exit_code": 1,
+        "source_sha256": "60a0b740f99eb5df5807cb1f07e6f8f1984f5b65dae07f08fbb24b2af2e74c99"
+      }
+    },
+    {
+      "module": "ConfluentIntegralIdentities",
+      "role": "actual helper proof provenance",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/peano_helper_attempt2.json",
+      "record_sha256": "4a489e6f6b2f9a7d1486353ae564dd9cc5861cc51fb787e3dc466a9dbaef25ef",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/dm2_landed_composition/PeanoHelper.lean"
+        ],
+        "exit_code": 1,
+        "source_sha256": "9320d72b03fffea8c55915653804b36486d65db6e6cc13707a785dffb10af495"
+      }
+    },
+    {
+      "module": "ConfluentIntegralIdentities",
+      "role": "actual helper proof provenance",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/peano_helper_attempt3.json",
+      "record_sha256": "7a464c291db50bcc38fa495a8bd4911433de2f6d13c9f87e899ecc5bc9784127",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/dm2_landed_composition/PeanoHelper.lean"
+        ],
+        "exit_code": 0,
+        "source_sha256": "bd5eb2469adbc58560b6f412d14350c5a85c0e92368f5508262d98aeaaa18b52"
+      }
+    },
+    {
+      "module": "ConfluentIntegralIdentities",
+      "role": "actual helper proof provenance",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/peano_helper_final.json",
+      "record_sha256": "a540240e70ca0f29e747d006d3e506d6b71a4dd6618d8467eaaf4228105ecddc",
+      "record": {
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/dm2_landed_composition/PeanoHelper.lean"
+        ],
+        "exit_code": 0,
+        "source_sha256": "ce78d03bae945c8092053b271cc3ee801af6da07e9be987218cfb1f03f398315",
+        "scope": "NEW_SCRATCH_PEANO_LEMMA_ONLY",
+        "author_side_lineage": "OpenAI/Codex /root/dm2_landed_composition/peano_strategy"
+      }
+    }
+  ],
+  "projected_files": [
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/00-required-input-compilation.command",
+      "projection_path": "evidence/SourceDerivativeGaussian/00-required-input-compilation.command",
+      "bytes": 56,
+      "sha256": "6b666b9af6ab1e402e80d304271ac10ae3d7d01df7d667d5ab5874be19d4a35c"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/00-required-input-compilation.exitcode",
+      "projection_path": "evidence/SourceDerivativeGaussian/00-required-input-compilation.exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/00-required-input-compilation.log",
+      "projection_path": "evidence/SourceDerivativeGaussian/00-required-input-compilation.log",
+      "bytes": 854,
+      "sha256": "15a278cde131b885f1aabbf7c945922aa6d281c7c104b69a31120cc7e7119ca5"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/01-initial-api.command",
+      "projection_path": "evidence/SourceDerivativeGaussian/01-initial-api.command",
+      "bytes": 99,
+      "sha256": "c694bcfb8e08e51ae34850db0211191030981b1b4ba35240f931cd9c30b56cf4"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/01-initial-api.exitcode",
+      "projection_path": "evidence/SourceDerivativeGaussian/01-initial-api.exitcode",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/01-initial-api.log",
+      "projection_path": "evidence/SourceDerivativeGaussian/01-initial-api.log",
+      "bytes": 746,
+      "sha256": "77eb7532d64fa8806c50c6acece17a55b8f7b4c6c53a862e153ca70ae4e35a7f"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/02-first-module-compile.command",
+      "projection_path": "evidence/SourceDerivativeGaussian/02-first-module-compile.command",
+      "bytes": 143,
+      "sha256": "b962a988cfd058623f4bcc2e2ea1258d534e689d4870106f499f1a43f38b94e0"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/02-first-module-compile.exitcode",
+      "projection_path": "evidence/SourceDerivativeGaussian/02-first-module-compile.exitcode",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/02-first-module-compile.log",
+      "projection_path": "evidence/SourceDerivativeGaussian/02-first-module-compile.log",
+      "bytes": 967,
+      "sha256": "1842b39f70d760d0b2221cb68a4c9bf301bdfbdac6e37c24c2b42c68bb8bcc45"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/03-order-coercions-compile.command",
+      "projection_path": "evidence/SourceDerivativeGaussian/03-order-coercions-compile.command",
+      "bytes": 143,
+      "sha256": "b962a988cfd058623f4bcc2e2ea1258d534e689d4870106f499f1a43f38b94e0"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/03-order-coercions-compile.exitcode",
+      "projection_path": "evidence/SourceDerivativeGaussian/03-order-coercions-compile.exitcode",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/03-order-coercions-compile.log",
+      "projection_path": "evidence/SourceDerivativeGaussian/03-order-coercions-compile.log",
+      "bytes": 2266,
+      "sha256": "9d76690b6da0d2a49906651d1d38a334cc2cfc16812fe223acd9a3c4bf9607f3"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/04-core-compile.command",
+      "projection_path": "evidence/SourceDerivativeGaussian/04-core-compile.command",
+      "bytes": 143,
+      "sha256": "b962a988cfd058623f4bcc2e2ea1258d534e689d4870106f499f1a43f38b94e0"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/04-core-compile.exitcode",
+      "projection_path": "evidence/SourceDerivativeGaussian/04-core-compile.exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/04-core-compile.log",
+      "projection_path": "evidence/SourceDerivativeGaussian/04-core-compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/05-covariance-compile.command",
+      "projection_path": "evidence/SourceDerivativeGaussian/05-covariance-compile.command",
+      "bytes": 143,
+      "sha256": "b962a988cfd058623f4bcc2e2ea1258d534e689d4870106f499f1a43f38b94e0"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/05-covariance-compile.exitcode",
+      "projection_path": "evidence/SourceDerivativeGaussian/05-covariance-compile.exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/05-covariance-compile.log",
+      "projection_path": "evidence/SourceDerivativeGaussian/05-covariance-compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/06-controls.command",
+      "projection_path": "evidence/SourceDerivativeGaussian/06-controls.command",
+      "bytes": 118,
+      "sha256": "b7aca8b96f137dc4e3330c41242453b8be3be03f1a5b5c5a3722428da2e459f6"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/06-controls.exitcode",
+      "projection_path": "evidence/SourceDerivativeGaussian/06-controls.exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/06-controls.log",
+      "projection_path": "evidence/SourceDerivativeGaussian/06-controls.log",
+      "bytes": 1749,
+      "sha256": "2a5ca7d6ad3767f5b870f30d26d4e46db1eac80562eab390024a5438bf956d36"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/07-axiom-audit.command",
+      "projection_path": "evidence/SourceDerivativeGaussian/07-axiom-audit.command",
+      "bytes": 121,
+      "sha256": "0898c7ba8e0bf481bf82669584458055c3d88362a88eae62bd2f3add5a143c30"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/07-axiom-audit.exitcode",
+      "projection_path": "evidence/SourceDerivativeGaussian/07-axiom-audit.exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/07-axiom-audit.log",
+      "projection_path": "evidence/SourceDerivativeGaussian/07-axiom-audit.log",
+      "bytes": 646,
+      "sha256": "bd7f4f26b3cbebcea4d5a40786cb51c0b8da4b07b7f8143aa1e46dfe93da9b46"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/08-kernel-replay.command",
+      "projection_path": "evidence/SourceDerivativeGaussian/08-kernel-replay.command",
+      "bytes": 68,
+      "sha256": "c610655d8e1f65c01e03bfb76456ed3a51291f9815489771b65b7ab54d79b2ce"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/08-kernel-replay.exitcode",
+      "projection_path": "evidence/SourceDerivativeGaussian/08-kernel-replay.exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/08-kernel-replay.log",
+      "projection_path": "evidence/SourceDerivativeGaussian/08-kernel-replay.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/axiom_audit.lean",
+      "projection_path": "evidence/SourceDerivativeGaussian/axiom_audit.lean.txt",
+      "bytes": 436,
+      "sha256": "0df4ac75c21d6a4d6a23596f96429d89b48a2c59dd3ff8ddcdc4e1c2eb4a5729"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/controls.lean",
+      "projection_path": "evidence/SourceDerivativeGaussian/controls.lean.txt",
+      "bytes": 1954,
+      "sha256": "f262dc0eb818ed273d53bbbc1a26ab92e1ff67d09fef2a066f9c25283fd52880"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-gaussian/initial_api.lean",
+      "projection_path": "evidence/SourceDerivativeGaussian/initial_api.lean.txt",
+      "bytes": 366,
+      "sha256": "fec949ba7bcc6bfcc3ad4e5509b008fb19b16d9800376653a8322cf97384081d"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-gram/AxiomAudit-01.log",
+      "projection_path": "evidence/ContactJetCovariance/AxiomAudit-01.log",
+      "bytes": 868,
+      "sha256": "d767504ed20e66d9b326686703729954244281675cd41ca15cfce5cc10e832f1"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-gram/AxiomAudit.lean",
+      "projection_path": "evidence/ContactJetCovariance/AxiomAudit.lean.txt",
+      "bytes": 520,
+      "sha256": "60df511cbc5219daf1651ed6a7c667efa2089480e8219b6ab88b47dc08150b5f"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-gram/ContactJetCovariance-01.log",
+      "projection_path": "evidence/ContactJetCovariance/ContactJetCovariance-01.log",
+      "bytes": 76,
+      "sha256": "ad1bcd64014b4a391298261575cdde9b6d608f7994092ae3094f156e2e59e7e9"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-gram/ContactJetCovariance-02.log",
+      "projection_path": "evidence/ContactJetCovariance/ContactJetCovariance-02.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-gram/EVIDENCE.json",
+      "projection_path": "evidence/ContactJetCovariance/EVIDENCE.json",
+      "bytes": 2909,
+      "sha256": "fcd08acbafb9d54cd52ff7ee387f565aaadc37eab4dba6ac90ce9083d90cd909"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-gram/GramProbe-01.log",
+      "projection_path": "evidence/ContactJetCovariance/GramProbe-01.log",
+      "bytes": 733,
+      "sha256": "057e984a85de0123b8934673c2673604085f801bc3c46127d546c2c0f0ebecc5"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-gram/GramProbe-02.log",
+      "projection_path": "evidence/ContactJetCovariance/GramProbe-02.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-gram/GramProbe.lean",
+      "projection_path": "evidence/ContactJetCovariance/GramProbe.lean.txt",
+      "bytes": 2226,
+      "sha256": "1ecccd74aadf2a97c13c2b852f816dac1c52a2b39f265af60900debcfaeccc47"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-gram/KernelReplay-01.log",
+      "projection_path": "evidence/ContactJetCovariance/KernelReplay-01.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-gram/PositiveControls-01.log",
+      "projection_path": "evidence/ContactJetCovariance/PositiveControls-01.log",
+      "bytes": 597,
+      "sha256": "f76d27e656c9ebeadad92474650417657c02f236fa1a8c8c7598fa0215a4f994"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-gram/PositiveControls-02.log",
+      "projection_path": "evidence/ContactJetCovariance/PositiveControls-02.log",
+      "bytes": 243,
+      "sha256": "aa0f02df22c1fe760cf174c5e952fb065ce01a66fe5468e230f4df1a3d85aaa6"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-gram/PositiveControls-03.log",
+      "projection_path": "evidence/ContactJetCovariance/PositiveControls-03.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-gram/PositiveControls.lean",
+      "projection_path": "evidence/ContactJetCovariance/PositiveControls.lean.txt",
+      "bytes": 1554,
+      "sha256": "ee23c58caa3d950526a29a9e1405a943aa190666f000fb53a25b47b80d7d018a"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-gram/RankProbe-01.log",
+      "projection_path": "evidence/ContactJetCovariance/RankProbe-01.log",
+      "bytes": 271,
+      "sha256": "4037f857237eb363825b5fadabac0c226c0ea72780953e4eae8304b85dfd3900"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-gram/RankProbe-02.log",
+      "projection_path": "evidence/ContactJetCovariance/RankProbe-02.log",
+      "bytes": 1758,
+      "sha256": "da945393730aa2c4ee4234847bc964fa8cc2ed5a090772ec88a378be162014b7"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-gram/RankProbe-03.log",
+      "projection_path": "evidence/ContactJetCovariance/RankProbe-03.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-gram/RankProbe.lean",
+      "projection_path": "evidence/ContactJetCovariance/RankProbe.lean.txt",
+      "bytes": 2245,
+      "sha256": "83bf3a79e58efd1513b6380c5a7d254e5cdd447cda083a7f11a4808a3cfcb5e7"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-gram/RejectedZeroAmplitude-01.log",
+      "projection_path": "evidence/ContactJetCovariance/RejectedZeroAmplitude-01.log",
+      "bytes": 125,
+      "sha256": "be30efec397f160a20ff069eed66d1490704e096c08060cab37d5dc2ec69c929"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-gram/RejectedZeroAmplitude.lean",
+      "projection_path": "evidence/ContactJetCovariance/RejectedZeroAmplitude.lean.txt",
+      "bytes": 240,
+      "sha256": "012d8aa95b30479e1816daac728b1a8c385d13a3f43ba3e018d11db3ba873b50"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-gram/RejectedZeroFrequency-01.log",
+      "projection_path": "evidence/ContactJetCovariance/RejectedZeroFrequency-01.log",
+      "bytes": 115,
+      "sha256": "15bbcb32f00f3b6855f8d63d99ce54f84221a07548d69ddc33714842cdaf9e01"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-gram/RejectedZeroFrequency.lean",
+      "projection_path": "evidence/ContactJetCovariance/RejectedZeroFrequency.lean.txt",
+      "bytes": 174,
+      "sha256": "f37c74e71982dcd64cd8303b1eaa92e23ef4acb0da7b08be875a16afa63ffba4"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-gram/assemble.py",
+      "projection_path": "evidence/ContactJetCovariance/assemble.py",
+      "bytes": 2883,
+      "sha256": "8d6f9bf7cd10a08ed2fcdcd8d14d327c25165263f20fc4028531e3867bbeb6aa"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/00-initial-api.command",
+      "projection_path": "evidence/SourceContactCovariance/00-initial-api.command",
+      "bytes": 98,
+      "sha256": "349e1045519e0f55c41719a6caa817269231e4f1630dff25e8bc71aa617daceb"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/00-initial-api.exitcode",
+      "projection_path": "evidence/SourceContactCovariance/00-initial-api.exitcode",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/00-initial-api.log",
+      "projection_path": "evidence/SourceContactCovariance/00-initial-api.log",
+      "bytes": 680,
+      "sha256": "76a84c62bffd2192a328dcbb6b6fb5b3399143d382edf047c276b3fb2ed0c562"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/01-first-compile.command",
+      "projection_path": "evidence/SourceContactCovariance/01-first-compile.command",
+      "bytes": 141,
+      "sha256": "4bf54b43ae2778884831fc1e06c8dda8091abaf1723677d2540c2c90adf75f79"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/01-first-compile.exitcode",
+      "projection_path": "evidence/SourceContactCovariance/01-first-compile.exitcode",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/01-first-compile.log",
+      "projection_path": "evidence/SourceContactCovariance/01-first-compile.log",
+      "bytes": 13707,
+      "sha256": "9ca14e4c75021549f92dad91573bb6201693d41e2665c487414ad590c9979c1c"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/02-dependent-directions-compile.command",
+      "projection_path": "evidence/SourceContactCovariance/02-dependent-directions-compile.command",
+      "bytes": 141,
+      "sha256": "4bf54b43ae2778884831fc1e06c8dda8091abaf1723677d2540c2c90adf75f79"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/02-dependent-directions-compile.exitcode",
+      "projection_path": "evidence/SourceContactCovariance/02-dependent-directions-compile.exitcode",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/02-dependent-directions-compile.log",
+      "projection_path": "evidence/SourceContactCovariance/02-dependent-directions-compile.log",
+      "bytes": 1915,
+      "sha256": "cba5c094683063a5e69fb3bb7c32ad7b8e6d15f35d10fac315024e007bcc7519"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/03-column-reduction-compile.command",
+      "projection_path": "evidence/SourceContactCovariance/03-column-reduction-compile.command",
+      "bytes": 141,
+      "sha256": "4bf54b43ae2778884831fc1e06c8dda8091abaf1723677d2540c2c90adf75f79"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/03-column-reduction-compile.exitcode",
+      "projection_path": "evidence/SourceContactCovariance/03-column-reduction-compile.exitcode",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/03-column-reduction-compile.log",
+      "projection_path": "evidence/SourceContactCovariance/03-column-reduction-compile.log",
+      "bytes": 44788,
+      "sha256": "cfa898a83d718b0f272d568d0809eec1a06e150e5120082746653ebd312e1748"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/04-normalized-row-types-compile.command",
+      "projection_path": "evidence/SourceContactCovariance/04-normalized-row-types-compile.command",
+      "bytes": 141,
+      "sha256": "4bf54b43ae2778884831fc1e06c8dda8091abaf1723677d2540c2c90adf75f79"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/04-normalized-row-types-compile.exitcode",
+      "projection_path": "evidence/SourceContactCovariance/04-normalized-row-types-compile.exitcode",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/04-normalized-row-types-compile.log",
+      "projection_path": "evidence/SourceContactCovariance/04-normalized-row-types-compile.log",
+      "bytes": 3234,
+      "sha256": "819f7d4767a6807351e6d19a93a426d5fb62b6ca8091f121864f6663ff14fd9c"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/05-column-identities-compile.command",
+      "projection_path": "evidence/SourceContactCovariance/05-column-identities-compile.command",
+      "bytes": 141,
+      "sha256": "4bf54b43ae2778884831fc1e06c8dda8091abaf1723677d2540c2c90adf75f79"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/05-column-identities-compile.exitcode",
+      "projection_path": "evidence/SourceContactCovariance/05-column-identities-compile.exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/05-column-identities-compile.log",
+      "projection_path": "evidence/SourceContactCovariance/05-column-identities-compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/06-controls.command",
+      "projection_path": "evidence/SourceContactCovariance/06-controls.command",
+      "bytes": 117,
+      "sha256": "8371e8f1bc3e07c8fc41a446c5cbca13793c610281fb8bcddf07f133341a9aed"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/06-controls.exitcode",
+      "projection_path": "evidence/SourceContactCovariance/06-controls.exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/06-controls.log",
+      "projection_path": "evidence/SourceContactCovariance/06-controls.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/07-axiom-audit.command",
+      "projection_path": "evidence/SourceContactCovariance/07-axiom-audit.command",
+      "bytes": 120,
+      "sha256": "2eae9dbc1277e11708b0b9ec59aced7513fe4a2848a0d4e021ad35e3c0512957"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/07-axiom-audit.exitcode",
+      "projection_path": "evidence/SourceContactCovariance/07-axiom-audit.exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/07-axiom-audit.log",
+      "projection_path": "evidence/SourceContactCovariance/07-axiom-audit.log",
+      "bytes": 776,
+      "sha256": "e8fa9efb15f5085bf7dba91598df2020f28cb968fa6301cb8a647c942f87fa54"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/08-kernel-replay.command",
+      "projection_path": "evidence/SourceContactCovariance/08-kernel-replay.command",
+      "bytes": 67,
+      "sha256": "788b36db852d6c29721671ed4090990fde7fd97f5fee085000f15eb164c800c3"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/08-kernel-replay.exitcode",
+      "projection_path": "evidence/SourceContactCovariance/08-kernel-replay.exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/08-kernel-replay.log",
+      "projection_path": "evidence/SourceContactCovariance/08-kernel-replay.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/axiom_audit.lean",
+      "projection_path": "evidence/SourceContactCovariance/axiom_audit.lean.txt",
+      "bytes": 479,
+      "sha256": "df63fd3d2f8961f3a9a0b201d291708107c53ebd915c3734fa6942bc73b161e7"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/controls.lean",
+      "projection_path": "evidence/SourceContactCovariance/controls.lean.txt",
+      "bytes": 1728,
+      "sha256": "010e04b9c2d2283d0db04fe3a76de866f396c71d89a9bbc87d895935b7da7a98"
+    },
+    {
+      "original_path": "/workspace/scratch/source-contact-covariance/initial_api.lean",
+      "projection_path": "evidence/SourceContactCovariance/initial_api.lean.txt",
+      "bytes": 293,
+      "sha256": "3c5120c0572369036cc51e965ce954fbdd69277bff56d5300aa8fcefd0a83fe8"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/AxiomAudit.lean",
+      "projection_path": "evidence/SourceConfluentPins/AxiomAudit.lean.txt",
+      "bytes": 531,
+      "sha256": "1f14cbf5cbc43c71e5f05ed837fcde4b80f82a27d02cfa6885d77b3cbd2f41c0"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/FalseZeroCubicPin.lean",
+      "projection_path": "evidence/SourceConfluentPins/FalseZeroCubicPin.lean.txt",
+      "bytes": 223,
+      "sha256": "7d7ada04833212dd49ab73ca02f9af6cbc93a8d18e6efe741dd6eb0ace394c2e"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/FalseZeroInverse.lean",
+      "projection_path": "evidence/SourceConfluentPins/FalseZeroInverse.lean.txt",
+      "bytes": 252,
+      "sha256": "5105e7581dfd422360e48f7399130d830cfaaa27ca9d9f5a9bf1fdf530276799"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/PositiveControls.lean",
+      "projection_path": "evidence/SourceConfluentPins/PositiveControls.lean.txt",
+      "bytes": 1003,
+      "sha256": "c8954c8a2a67c38b855c3665f8b0738f1ed9488af589ef73ecd95ef2a8fd1d39"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/README.md",
+      "projection_path": "evidence/SourceConfluentPins/README.md",
+      "bytes": 2098,
+      "sha256": "e14f561a780560ba89985da10c5b7adc6aecf6e00a544ae5cef79fef4576814b"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/axioms.json",
+      "projection_path": "evidence/SourceConfluentPins/axioms.json",
+      "bytes": 467,
+      "sha256": "6901e5482c7e8eb73c490666be1ee54f513a4dc289ad10dc57506575437f159d"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/axioms.log",
+      "projection_path": "evidence/SourceConfluentPins/axioms.log",
+      "bytes": 880,
+      "sha256": "88fab8464a91fa4d5c239f06458cff95566fdb5e64228ebada870581771a3a20"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/false-zero-cubic.json",
+      "projection_path": "evidence/SourceConfluentPins/false-zero-cubic.json",
+      "bytes": 473,
+      "sha256": "ea2e7de1c2d343b4d3ac4bef24c979d74acbd883c26742a4b191e74a96b94abc"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/false-zero-cubic.log",
+      "projection_path": "evidence/SourceConfluentPins/false-zero-cubic.log",
+      "bytes": 127,
+      "sha256": "57fa6b8b5bdd65fdd1bd7b77e555773d00a054e1a137f9f368038559afe662e7"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/false-zero-inverse.json",
+      "projection_path": "evidence/SourceConfluentPins/false-zero-inverse.json",
+      "bytes": 473,
+      "sha256": "8da44bb6852111b636ba145a501107eefd1844dcf3757e77726ac2d22c4617a9"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/false-zero-inverse.log",
+      "projection_path": "evidence/SourceConfluentPins/false-zero-inverse.log",
+      "bytes": 126,
+      "sha256": "abe6a0ad3e7510758b2ce683a3fd3fac8bea7fa5f10a876456d085c0253e7434"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/kernel.json",
+      "projection_path": "evidence/SourceConfluentPins/kernel.json",
+      "bytes": 413,
+      "sha256": "5292e7cfb4e12947dac63e7997e75537bb60ee1d2b51d01478e3560f3ad8104d"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/kernel.log",
+      "projection_path": "evidence/SourceConfluentPins/kernel.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/positive.json",
+      "projection_path": "evidence/SourceConfluentPins/positive.json",
+      "bytes": 472,
+      "sha256": "b453d38e5cac012cba5c221ae943f6ed59f9932d2cef4e4922e736cb03398aa6"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/positive.log",
+      "projection_path": "evidence/SourceConfluentPins/positive.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/qualification_receipt.json",
+      "projection_path": "evidence/SourceConfluentPins/qualification_receipt.json",
+      "bytes": 6205,
+      "sha256": "fab84e1e90da43bfdf59cf1c1110ae394d3e1893f2f17635f199b271c3ae6a36"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_qualification/run_one.py",
+      "projection_path": "evidence/SourceConfluentPins/run_one.py",
+      "bytes": 969,
+      "sha256": "d2400344b8ea9cb3dcea211e21373fd9874e4a46f16bd59b5da1947fdb52a459"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/source-contact-schur/AxiomAudit-01.log",
+      "projection_path": "evidence/SourceContactSchur/AxiomAudit-01.log",
+      "bytes": 1163,
+      "sha256": "f1e25d18acc7628a1300de08d5807a8667fe7f377248e303b9f769f999e621f0"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/source-contact-schur/AxiomAudit.lean",
+      "projection_path": "evidence/SourceContactSchur/AxiomAudit.lean.txt",
+      "bytes": 706,
+      "sha256": "7bd33a7dea0b4571460c8a91eee2fb6bcd9b2626ba1e618dacec716704648c90"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/source-contact-schur/EVIDENCE.json",
+      "projection_path": "evidence/SourceContactSchur/EVIDENCE.json",
+      "bytes": 4069,
+      "sha256": "74cd22b287de6e53bd51bbdc5dcac88a2ec2c5af93c7a9426776314633afcfe0"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/source-contact-schur/KernelReplay-01.log",
+      "projection_path": "evidence/SourceContactSchur/KernelReplay-01.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/source-contact-schur/PositiveControls-01.log",
+      "projection_path": "evidence/SourceContactSchur/PositiveControls-01.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/source-contact-schur/PositiveControls.lean",
+      "projection_path": "evidence/SourceContactSchur/PositiveControls.lean.txt",
+      "bytes": 793,
+      "sha256": "a5e5fe831b657a944e69c5aefdc63f5bef2387715304782f3e4a0a95ddb5394f"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/source-contact-schur/RejectedWrongQIndex-01.log",
+      "projection_path": "evidence/SourceContactSchur/RejectedWrongQIndex-01.log",
+      "bytes": 121,
+      "sha256": "fb8ff7ec25f05d726bb11363c9948bfa76eb723c6ed26798d177eac9504675b9"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/source-contact-schur/RejectedWrongQIndex.lean",
+      "projection_path": "evidence/SourceContactSchur/RejectedWrongQIndex.lean.txt",
+      "bytes": 125,
+      "sha256": "7152d532c479ce15af5402ccb87687db5a045a32a687888bf6efb78428282b84"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/source-contact-schur/RejectedZeroPeriod-01.log",
+      "projection_path": "evidence/SourceContactSchur/RejectedZeroPeriod-01.log",
+      "bytes": 120,
+      "sha256": "a32530bb6df4ff65058d541b0bdd131f54e1cf4c879b308012e30a65fe6a4140"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/source-contact-schur/RejectedZeroPeriod.lean",
+      "projection_path": "evidence/SourceContactSchur/RejectedZeroPeriod.lean.txt",
+      "bytes": 130,
+      "sha256": "6ec2735b8a4fc71586d526a300d8697d9c2d943333aaa684b606207f46d16928"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/source-contact-schur/SourceContactSchur-01.log",
+      "projection_path": "evidence/SourceContactSchur/SourceContactSchur-01.log",
+      "bytes": 1486,
+      "sha256": "06a3ad832ee32b802cd20bacbf626bd3ed476653926da2f0586f1bf5e7ee7aee"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/source-contact-schur/SourceContactSchur-02.log",
+      "projection_path": "evidence/SourceContactSchur/SourceContactSchur-02.log",
+      "bytes": 1062,
+      "sha256": "df077904c2824d23848b15361423a370591e569aa01fcfc0aae9d71948404e67"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/source-contact-schur/SourceContactSchur-03.log",
+      "projection_path": "evidence/SourceContactSchur/SourceContactSchur-03.log",
+      "bytes": 383,
+      "sha256": "7909591898c2186d510fcfa9783d47923642a2574d8a205a51cdc3ed74bd7fbe"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/source-contact-schur/SourceContactSchur-04.log",
+      "projection_path": "evidence/SourceContactSchur/SourceContactSchur-04.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-continuity/00-initial-api.command",
+      "projection_path": "evidence/SourceDerivativeContinuity/00-initial-api.command",
+      "bytes": 101,
+      "sha256": "c089da07d892fdc6ea8d6c295ddc7d5b97866c2df1e3108fc164c8560f02e37d"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-continuity/00-initial-api.exitcode",
+      "projection_path": "evidence/SourceDerivativeContinuity/00-initial-api.exitcode",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-continuity/00-initial-api.log",
+      "projection_path": "evidence/SourceDerivativeContinuity/00-initial-api.log",
+      "bytes": 580,
+      "sha256": "0e2accbd4c9bdd9622b0721f3d10514d648ce3ce9815b5bdc2da8fe5ae1ff2cf"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-continuity/01-first-compile.command",
+      "projection_path": "evidence/SourceDerivativeContinuity/01-first-compile.command",
+      "bytes": 147,
+      "sha256": "8bbe15330cea8e84ae74bc8bc23686068700957b31b19a69716dc254d5d02d5a"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-continuity/01-first-compile.exitcode",
+      "projection_path": "evidence/SourceDerivativeContinuity/01-first-compile.exitcode",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-continuity/01-first-compile.log",
+      "projection_path": "evidence/SourceDerivativeContinuity/01-first-compile.log",
+      "bytes": 742,
+      "sha256": "b9e6e0a9f3c68f8641eb751ccd6a7aef5fef70025ea63b8ea20eb5c560541608"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-continuity/02-evaluation-and-law-compile.command",
+      "projection_path": "evidence/SourceDerivativeContinuity/02-evaluation-and-law-compile.command",
+      "bytes": 147,
+      "sha256": "8bbe15330cea8e84ae74bc8bc23686068700957b31b19a69716dc254d5d02d5a"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-continuity/02-evaluation-and-law-compile.exitcode",
+      "projection_path": "evidence/SourceDerivativeContinuity/02-evaluation-and-law-compile.exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-continuity/02-evaluation-and-law-compile.log",
+      "projection_path": "evidence/SourceDerivativeContinuity/02-evaluation-and-law-compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-continuity/03-controls.command",
+      "projection_path": "evidence/SourceDerivativeContinuity/03-controls.command",
+      "bytes": 120,
+      "sha256": "41030ad9348e8a3d4365630b4aa32049325533c0c539df9407c69439f185488a"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-continuity/03-controls.exitcode",
+      "projection_path": "evidence/SourceDerivativeContinuity/03-controls.exitcode",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-continuity/03-controls.log",
+      "projection_path": "evidence/SourceDerivativeContinuity/03-controls.log",
+      "bytes": 135,
+      "sha256": "a421ad69b085ce183fb2ede84a4cc87306f77eb695e1fefcfcb8c1ebfafd948d"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-continuity/04-axiom-audit.command",
+      "projection_path": "evidence/SourceDerivativeContinuity/04-axiom-audit.command",
+      "bytes": 123,
+      "sha256": "51df8016866ebd220494cfc05ae356c039c16fe6c4000ba6128615ef424d9a05"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-continuity/04-axiom-audit.exitcode",
+      "projection_path": "evidence/SourceDerivativeContinuity/04-axiom-audit.exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-continuity/04-axiom-audit.log",
+      "projection_path": "evidence/SourceDerivativeContinuity/04-axiom-audit.log",
+      "bytes": 755,
+      "sha256": "4b92b95bad0bfae56f26140ddab4d9e0fc5950cac0c105983a6b9cc053981887"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-continuity/05-controls-explicit-path.command",
+      "projection_path": "evidence/SourceDerivativeContinuity/05-controls-explicit-path.command",
+      "bytes": 120,
+      "sha256": "41030ad9348e8a3d4365630b4aa32049325533c0c539df9407c69439f185488a"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-continuity/05-controls-explicit-path.exitcode",
+      "projection_path": "evidence/SourceDerivativeContinuity/05-controls-explicit-path.exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-continuity/05-controls-explicit-path.log",
+      "projection_path": "evidence/SourceDerivativeContinuity/05-controls-explicit-path.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-continuity/06-kernel-replay.command",
+      "projection_path": "evidence/SourceDerivativeContinuity/06-kernel-replay.command",
+      "bytes": 70,
+      "sha256": "315bdfca2d77435370703fe68ed56075e84cbf4d603247e70bdfd9808590c46e"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-continuity/06-kernel-replay.exitcode",
+      "projection_path": "evidence/SourceDerivativeContinuity/06-kernel-replay.exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-continuity/06-kernel-replay.log",
+      "projection_path": "evidence/SourceDerivativeContinuity/06-kernel-replay.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-continuity/axiom_audit.lean",
+      "projection_path": "evidence/SourceDerivativeContinuity/axiom_audit.lean.txt",
+      "bytes": 502,
+      "sha256": "7fb5184de61f5779b47114f03b05fb53bf7e8c120f733505cfdfb404e7b71c8a"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-continuity/controls.lean",
+      "projection_path": "evidence/SourceDerivativeContinuity/controls.lean.txt",
+      "bytes": 2105,
+      "sha256": "66d5ba21d0b5cfb4f3faf9380352705fd8e2c94c58ad84e42d740c588553a125"
+    },
+    {
+      "original_path": "/workspace/scratch/source-derivative-continuity/initial_api.lean",
+      "projection_path": "evidence/SourceDerivativeContinuity/initial_api.lean.txt",
+      "bytes": 268,
+      "sha256": "590b5bd9b3a4e470a1065fbe513ac9b9c9cd919770e1498044934ebf96914535"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/AxiomAudit.lean",
+      "projection_path": "evidence/ConfluentIntegralIdentities/AxiomAudit.lean.txt",
+      "bytes": 479,
+      "sha256": "362b1e333bb42de7a1dd616d75344e11001ac58a7b77281300464d45b1e55274"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/FalseCubicCoefficient.lean",
+      "projection_path": "evidence/ConfluentIntegralIdentities/FalseCubicCoefficient.lean.txt",
+      "bytes": 226,
+      "sha256": "b3911ae4f12a23a10fd6d30fffbf81791981c1bce070348815da6e66c3a79c70"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/FalseTransverseDerivative.lean",
+      "projection_path": "evidence/ConfluentIntegralIdentities/FalseTransverseDerivative.lean.txt",
+      "bytes": 210,
+      "sha256": "2a14a1824d2db7550604896de10b6a2b2ece559441378eab4add8c3cd3adeb14"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/HANDOFF.md",
+      "projection_path": "evidence/ConfluentIntegralIdentities/HANDOFF.md",
+      "bytes": 3245,
+      "sha256": "8a6ed494577408e4ab4d793396f39707f14bd60eb7439ead0c830471201e32ef"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/PositiveControls.lean",
+      "projection_path": "evidence/ConfluentIntegralIdentities/PositiveControls.lean.txt",
+      "bytes": 1221,
+      "sha256": "d551c3f96a6f60eaa3d769b3ad12da6e9487f41491f9cff5c63ed8e68f0bb191"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/attempt1.json",
+      "projection_path": "evidence/ConfluentIntegralIdentities/attempt1.json",
+      "bytes": 349,
+      "sha256": "8e268a0aee1f220c7156763512939e48b5f04306f2da6e5d99ef4d7f3e9bb1cc"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/attempt1.log",
+      "projection_path": "evidence/ConfluentIntegralIdentities/attempt1.log",
+      "bytes": 3701,
+      "sha256": "2b408982e7e1062823dc26cfc7b4c51cb756918bc0a48930faf9767f76dbe0ad"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/attempt2.json",
+      "projection_path": "evidence/ConfluentIntegralIdentities/attempt2.json",
+      "bytes": 349,
+      "sha256": "1b08ee432b47cd54192a7fc406419c03e40c5d030eb9a0f35cd7229d40808e74"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/attempt2.log",
+      "projection_path": "evidence/ConfluentIntegralIdentities/attempt2.log",
+      "bytes": 1927,
+      "sha256": "17e2e3644f13a3199912e2ff94b8569409bc58335edb88f0b8c26eb42138e424"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/attempt3.json",
+      "projection_path": "evidence/ConfluentIntegralIdentities/attempt3.json",
+      "bytes": 349,
+      "sha256": "f3315a3e00046baf47d83df394c9746a43f82b073ab1007c40089e0c4d82bd54"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/attempt3.log",
+      "projection_path": "evidence/ConfluentIntegralIdentities/attempt3.log",
+      "bytes": 1267,
+      "sha256": "89eea40ea151ebba97ecef116d2682ced21f849e0d2e9ef5092764b4c157e604"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/axioms.json",
+      "projection_path": "evidence/ConfluentIntegralIdentities/axioms.json",
+      "bytes": 463,
+      "sha256": "7c3a0d0b4c8d766e5b7bd41453225d42efa9aaaaefd5db1cdb9d52d370a9b36b"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/axioms.log",
+      "projection_path": "evidence/ConfluentIntegralIdentities/axioms.log",
+      "bytes": 773,
+      "sha256": "0ea71ea95ab6444015bb28170bb6cf70e61de2af3be047daf1a2abe5a63a4d57"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/false-cubic.json",
+      "projection_path": "evidence/ConfluentIntegralIdentities/false-cubic.json",
+      "bytes": 474,
+      "sha256": "4ed1ad29262440f5e9eb52534f13460f10220638f565276037afb6ab008e0fee"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/false-cubic.log",
+      "projection_path": "evidence/ConfluentIntegralIdentities/false-cubic.log",
+      "bytes": 127,
+      "sha256": "2f47cdff53f210cc7b7f6fe9a2594085065a3530d8ad49b59d34183a41360ad2"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/false-transverse.json",
+      "projection_path": "evidence/ConfluentIntegralIdentities/false-transverse.json",
+      "bytes": 479,
+      "sha256": "42e5796fb299f0068bab603123eca52ceb9c27e10f20acc921a56e58915e2a5a"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/false-transverse.log",
+      "projection_path": "evidence/ConfluentIntegralIdentities/false-transverse.log",
+      "bytes": 131,
+      "sha256": "64b33fa722fa610db1fca752962ee9abb252c58100c48dd9edc26205159291c2"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/final_compile.json",
+      "projection_path": "evidence/ConfluentIntegralIdentities/final_compile.json",
+      "bytes": 349,
+      "sha256": "fc7f71dbba31cc421ebc98d9fa88062e1c659c30ae2c181ded14ae67ea669f56"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/final_compile.log",
+      "projection_path": "evidence/ConfluentIntegralIdentities/final_compile.log",
+      "bytes": 191,
+      "sha256": "022f4f8b18c8d5d1fc60362ee2a5a1dcf68599cb92994e4900143d4894238508"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/kernel.json",
+      "projection_path": "evidence/ConfluentIntegralIdentities/kernel.json",
+      "bytes": 420,
+      "sha256": "baedd8edf2360180ee8d53a8261271d7d67c9f2f3195a1679b14c24b51d1f87e"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/kernel.log",
+      "projection_path": "evidence/ConfluentIntegralIdentities/kernel.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/positive-attempt1.json",
+      "projection_path": "evidence/ConfluentIntegralIdentities/positive-attempt1.json",
+      "bytes": 469,
+      "sha256": "3775f182d9990745b9a9ed12d33461b8146f4aafe634dfa713bd57aff8805845"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/positive-attempt1.log",
+      "projection_path": "evidence/ConfluentIntegralIdentities/positive-attempt1.log",
+      "bytes": 469,
+      "sha256": "59f48242d2b8ed61ce35a89ddad91882a2dfc1fa23d5bd3304a841c27c73500c"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/positive.json",
+      "projection_path": "evidence/ConfluentIntegralIdentities/positive.json",
+      "bytes": 470,
+      "sha256": "9ff1e62b5e3f16fb241b2bc5f043ab64179cc87ff997748380643eb0803e642d"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/positive.log",
+      "projection_path": "evidence/ConfluentIntegralIdentities/positive.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/qualification_receipt.json",
+      "projection_path": "evidence/ConfluentIntegralIdentities/qualification_receipt.json",
+      "bytes": 6829,
+      "sha256": "8ae8111081eee00b34def209c23d23881d668adf854b9ceacffda3ef5f6c5ac8"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/confluent_integrals/run_one.py",
+      "projection_path": "evidence/ConfluentIntegralIdentities/run_one.py",
+      "bytes": 991,
+      "sha256": "a8e3547c7bf294284dab08a05f21a26b25362675d2661699c1278a51e1c521fe"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/source_confluent_attempt1.log",
+      "projection_path": "evidence/SourceConfluentPins/earlier_compile/source_confluent_attempt1.log",
+      "bytes": 3772,
+      "sha256": "011bdc82abade2d54766b0a80a6920294d34f0a48b52d23940837e36fd741b28"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/source_confluent_attempt2.log",
+      "projection_path": "evidence/SourceConfluentPins/earlier_compile/source_confluent_attempt2.log",
+      "bytes": 4341,
+      "sha256": "ad74dea00192f389caf2eb6f637781b41f32e0b4823960a4ea0c0f55a5995624"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/source_confluent_attempt2.meta",
+      "projection_path": "evidence/SourceConfluentPins/earlier_compile/source_confluent_attempt2.meta",
+      "bytes": 195,
+      "sha256": "05164b13a5d04b3541f1348f4a0db27c5fa342a3e0d3d02b29f22e4767c1ee7b"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/source_confluent_attempt3.log",
+      "projection_path": "evidence/SourceConfluentPins/earlier_compile/source_confluent_attempt3.log",
+      "bytes": 183,
+      "sha256": "5b08dd5150a9ab7c5634442e085b867f040e4a28f941b00a8590c0378f52fcbb"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/source_confluent_attempt3.meta",
+      "projection_path": "evidence/SourceConfluentPins/earlier_compile/source_confluent_attempt3.meta",
+      "bytes": 195,
+      "sha256": "1a9c7c6c8f56e510c81b4f4c1e33ed255286958fd3295e0ed3f7e081bc8d64bd"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/source_confluent_attempt4.log",
+      "projection_path": "evidence/SourceConfluentPins/earlier_compile/source_confluent_attempt4.log",
+      "bytes": 122,
+      "sha256": "b1f73e344bc5b68d1dcb7687576c136dd2bfb23ea4e68c2e65221a4fb148a9c6"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/source_confluent_attempt4.meta",
+      "projection_path": "evidence/SourceConfluentPins/earlier_compile/source_confluent_attempt4.meta",
+      "bytes": 195,
+      "sha256": "05164b13a5d04b3541f1348f4a0db27c5fa342a3e0d3d02b29f22e4767c1ee7b"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/source_confluent_final.log",
+      "projection_path": "evidence/SourceConfluentPins/earlier_compile/source_confluent_final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/source_confluent_final.meta",
+      "projection_path": "evidence/SourceConfluentPins/earlier_compile/source_confluent_final.meta",
+      "bytes": 195,
+      "sha256": "1a9c7c6c8f56e510c81b4f4c1e33ed255286958fd3295e0ed3f7e081bc8d64bd"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/source_confluent_handoff.md",
+      "projection_path": "evidence/SourceConfluentPins/earlier_compile/source_confluent_handoff.md",
+      "bytes": 2772,
+      "sha256": "12a6073e8bffd09cd8e7d8a5072e787e7e3b0269e40f0a94627cbd38b0add330"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/peano_helper_attempt1.json",
+      "projection_path": "evidence/ConfluentIntegralIdentities/peano_helper/peano_helper_attempt1.json",
+      "bytes": 228,
+      "sha256": "c6ad5b5671caecefaf0f0f74c543bfd6e257fcbff8b863f6aaa31e1547ae53e9"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/peano_helper_attempt1.log",
+      "projection_path": "evidence/ConfluentIntegralIdentities/peano_helper/peano_helper_attempt1.log",
+      "bytes": 2680,
+      "sha256": "140b4cdc85de597842de056b1907eda3c4f5b6c5673684d3b02cb376a1692d8b"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/peano_helper_attempt2.json",
+      "projection_path": "evidence/ConfluentIntegralIdentities/peano_helper/peano_helper_attempt2.json",
+      "bytes": 228,
+      "sha256": "4a489e6f6b2f9a7d1486353ae564dd9cc5861cc51fb787e3dc466a9dbaef25ef"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/peano_helper_attempt2.log",
+      "projection_path": "evidence/ConfluentIntegralIdentities/peano_helper/peano_helper_attempt2.log",
+      "bytes": 2078,
+      "sha256": "51be51078a5fb63a2ab084cc9d2d1ea7f74113e454d54e5a3d530225a1bdbb97"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/peano_helper_attempt3.json",
+      "projection_path": "evidence/ConfluentIntegralIdentities/peano_helper/peano_helper_attempt3.json",
+      "bytes": 228,
+      "sha256": "7a464c291db50bcc38fa495a8bd4911433de2f6d13c9f87e899ecc5bc9784127"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/peano_helper_attempt3.log",
+      "projection_path": "evidence/ConfluentIntegralIdentities/peano_helper/peano_helper_attempt3.log",
+      "bytes": 385,
+      "sha256": "b53974104b53b49e4fa1948482285cc03a1c1d259e21274196c05408779e54ac"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/peano_helper_final.json",
+      "projection_path": "evidence/ConfluentIntegralIdentities/peano_helper/peano_helper_final.json",
+      "bytes": 431,
+      "sha256": "a540240e70ca0f29e747d006d3e506d6b71a4dd6618d8467eaaf4228105ecddc"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/peano_helper_final.log",
+      "projection_path": "evidence/ConfluentIntegralIdentities/peano_helper/peano_helper_final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/PeanoHelper.lean",
+      "projection_path": "evidence/ConfluentIntegralIdentities/peano_helper/PeanoHelper.lean.txt",
+      "bytes": 2196,
+      "sha256": "ce78d03bae945c8092053b271cc3ee801af6da07e9be987218cfb1f03f398315"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-schur/SchurProbe.failed1.lean",
+      "projection_path": "evidence/author_helper_gaussian_api/SchurProbe.failed1.lean.txt",
+      "bytes": 1028,
+      "sha256": "6a063229ac813f7ce64ede5bddb66cef808bbc254162be6dbadac4d2a3ea616d"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-schur/SchurProbe.failed1.log",
+      "projection_path": "evidence/author_helper_gaussian_api/SchurProbe.failed1.log",
+      "bytes": 964,
+      "sha256": "43e78db1ba5d3c3b91e0529c2f222fc6c6e6cd300e22b274963e8b7ed4284ebd"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-schur/SchurProbe.lean",
+      "projection_path": "evidence/author_helper_gaussian_api/SchurProbe.lean.txt",
+      "bytes": 1030,
+      "sha256": "47e787a80c8953c940706d63b6a4f60cdc91cda1312a89e490bc9ebd1aaf9276"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-schur/SchurProbe.log",
+      "projection_path": "evidence/author_helper_gaussian_api/SchurProbe.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-schur/actual-residual/ResidualVariance.failed1.lean",
+      "projection_path": "evidence/author_helper_gaussian_api/actual-residual/ResidualVariance.failed1.lean.txt",
+      "bytes": 2541,
+      "sha256": "0b04e9ccba6dea56630b0d295491bdc4328d9a1371a016b6bdff9b4750b41b99"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-schur/actual-residual/ResidualVariance.failed1.log",
+      "projection_path": "evidence/author_helper_gaussian_api/actual-residual/ResidualVariance.failed1.log",
+      "bytes": 303,
+      "sha256": "d2e1a374d559ff2b2aa030d18416de3304eb6b60540b8d272d23865a7ef83018"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-schur/actual-residual/ResidualVariance.lean",
+      "projection_path": "evidence/author_helper_gaussian_api/actual-residual/ResidualVariance.lean.txt",
+      "bytes": 2553,
+      "sha256": "915c0ac31728b3edcb51043d8b0c70a57194af186f69bfbabe7c1aac91587b3d"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/contact-schur/actual-residual/ResidualVariance.log",
+      "projection_path": "evidence/author_helper_gaussian_api/actual-residual/ResidualVariance.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "known_missing_records": [],
+  "author_lineage": [
+    "OpenAI/Codex /root: source contracts, integration and packaging",
+    "OpenAI/Codex /root/uniform_jet_moment_sources: actual derivative Gaussianity, actual source contact covariance, derivative continuity",
+    "OpenAI/Codex /root/regression_kernel: contact Gram and source contact Schur",
+    "OpenAI/Codex /root/regression_kernel/gaussian_api: optional Schur and generic L2 residual-variance proof support",
+    "OpenAI/Codex /root/dm2_landed_composition: confluent pin equivalence and integral identities",
+    "OpenAI/Codex /root/dm2_landed_composition/peano_strategy: actual generic Peano scratch proof helper",
+    "OpenAI/Codex /root/palm_measure_transfer: read-only evidence projection",
+    "OpenAI/Codex /root/palm_measure_transfer/density_api: read-only README/SCOPE draft assistance"
+  ],
+  "review": "All above work is OpenAI author-side. Different-family scientific alignment review remains pending.",
+  "verification_reuse": "All saved compilation, named kernel, axiom and controls evidence reused. No Lean, kernel replay, tests, or old verification executed during this projection.",
+  "packaging_note": "Original raw logs, commands, metadata, failures and control/helper source bytes preserved. Lean source artifacts have .lean.txt projection suffix; actual original paths remain in records. This index is not a hosted receipt or accepted scientific alignment record.",
+  "author_history_supplement": {
+    "path": "AUTHOR_HISTORY_SUPPLEMENT.json",
+    "sha256": "3b8f3b7505c9646198c7427f5fc02e1ccd036ec38ec0d95181159d9c1ebc720b",
+    "record": {
+      "record_type": "author tool-history reports; not a machine-created execution receipt",
+      "scientific_effect": "NONE",
+      "reports": [
+        {
+          "author": "OpenAI/Codex /root/uniform_jet_moment_sources",
+          "scope": [
+            "SourceDerivativeGaussian",
+            "SourceContactCovariance",
+            "SourceDerivativeContinuity"
+          ],
+          "verbatim_report": "Author-history confirmation: all three exact SHA values you list are my final source bytes, unchanged by me since their recorded final compile/controls/axiom/kernel executions. No existing JSON receipt/sourcehash record file was created by me; SHA values were read by sha256sum after source freeze and reported in my source-bound handoffs to root. Treat that as author-history confirmation, not a machine-created execution receipt. Existing command/exit/log triples are the only machine artifacts I produced; please preserve those honest limits and do not rerun.",
+          "confirmed_source_hashes": {
+            "SourceDerivativeGaussian.lean": "c9754debcbf2aab7ff8d9604f2c13726723e8a8c1921ae68f83349205e43885d",
+            "SourceContactCovariance.lean": "4189cbaf4c18c55f21e3af2c96b0b2842d83161f44596eb691c507dcc1a439c8",
+            "SourceDerivativeContinuity.lean": "552511e0aee227133b7d067faeceaab9c43c0094b07d68b8eddab0ab2419775e"
+          }
+        },
+        {
+          "author": "OpenAI/Codex /root/regression_kernel",
+          "scope": [
+            "ContactJetCovariance",
+            "SourceContactSchur"
+          ],
+          "control_cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+          "capture_shell_prelude": "set -o pipefail",
+          "controls": [
+            {
+              "module": "ContactJetCovariance",
+              "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/contact-gram/PositiveControls.lean 2>&1 | tee /workspace/scratch/regression-kernel/contact-gram/PositiveControls-03.log",
+              "observed_exit": 0
+            },
+            {
+              "module": "ContactJetCovariance",
+              "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/contact-gram/RejectedZeroFrequency.lean 2>&1 | tee /workspace/scratch/regression-kernel/contact-gram/RejectedZeroFrequency-01.log",
+              "observed_exit": 1
+            },
+            {
+              "module": "ContactJetCovariance",
+              "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/contact-gram/RejectedZeroAmplitude.lean 2>&1 | tee /workspace/scratch/regression-kernel/contact-gram/RejectedZeroAmplitude-01.log",
+              "observed_exit": 1
+            },
+            {
+              "module": "SourceContactSchur",
+              "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/source-contact-schur/PositiveControls.lean 2>&1 | tee /workspace/scratch/regression-kernel/source-contact-schur/PositiveControls-01.log",
+              "observed_exit": 0
+            },
+            {
+              "module": "SourceContactSchur",
+              "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/source-contact-schur/RejectedZeroPeriod.lean 2>&1 | tee /workspace/scratch/regression-kernel/source-contact-schur/RejectedZeroPeriod-01.log",
+              "observed_exit": 1
+            },
+            {
+              "module": "SourceContactSchur",
+              "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/source-contact-schur/RejectedWrongQIndex.lean 2>&1 | tee /workspace/scratch/regression-kernel/source-contact-schur/RejectedWrongQIndex-01.log",
+              "observed_exit": 1
+            }
+          ],
+          "report_transcription": "Actual control commands, no rerun: cwd=/workspace/Math-/frontiers/source_derivative_gaussian_20261025; each ran bash set -o pipefail then /home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/contact-gram/PositiveControls.lean 2>&1 | tee /workspace/scratch/regression-kernel/contact-gram/PositiveControls-03.log observed exit0; corresponding contact-gram RejectedZeroFrequency.lean / RejectedZeroAmplitude.lean with matching -01.log each observed exit1. Schur controls same command pattern under scratch/regression-kernel/source-contact-schur/: PositiveControls.lean to PositiveControls-01.log observedexit0; RejectedZeroPeriod.lean and RejectedWrongQIndex.lean to matching-01.log each observedexit1. These are actual tool-observed command/exits from my current transcript. Helper evidence: /workspace/scratch/regression-kernel/contact-schur/SchurProbe.{lean,log} final exit0 and failed1 retained; /workspace/scratch/regression-kernel/contact-schur/actual-residual/ResidualVariance.{lean,log} final exit0 and ResidualVariance.failed1.* retained. Helpers coauthored OpenAI/Codex gaussian_api. Earlier failedproduction ContactJetCovariance-01 was assembly-script ValueError/no sourcefile, exit1; ContactJetCovariance-02 success. SourceContactSchur-01/-02/-03 failed author attempts exit1; -04 success.",
+          "transcription_note": "Faithful plain-text transcription of author report; punctuation/arrow notation normalized. Not a raw machine log."
+        }
+      ],
+      "metadata_limits": [
+        "The three uniform_jet_moment_sources groups preserve exact command/exit/raw-log triples. Their source-hash association is an author-history confirmation plus current projection hashes, not a newly invented historical machine receipt.",
+        "The two regression_kernel control command strings above come from the author's actual tool-history report. Existing EVIDENCE.json files and raw logs separately retain their observed exit statuses."
+      ],
+      "reuse": "No checks repeated. These metadata limits do not invalidate completed applicable mathematical evidence or authorize a repeated proof campaign."
+    }
+  },
+  "metadata_limits": [
+    "The three uniform_jet_moment_sources groups preserve exact command/exit/raw-log triples. Their source-hash association is an author-history confirmation plus current projection hashes, not a newly invented historical machine receipt.",
+    "The two regression_kernel control command strings above come from the author's actual tool-history report. Existing EVIDENCE.json files and raw logs separately retain their observed exit statuses."
+  ]
+}

@@ -1,0 +1,81 @@
+import SourceSmoothConditionalKernel
+
+noncomputable section
+
+open I4Source I4SmoothCarrier I4SourceEndpointRegression ResearchFormalCoreR1
+open MeasureTheory ProbabilityTheory Matrix
+set_option autoImplicit false
+
+namespace I4SourceSmoothConditional
+
+theorem posteriorSample_self {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (ω : SmoothSample 2 L) :
+    posteriorSample hL r (sourceConfluentPinsAt L r ω) ω = ω := by
+  apply Subtype.ext
+  funext m
+  simp only [posteriorSample_val, sub_self, pinLift_zero, Pi.zero_apply, add_zero]
+
+theorem posteriorSample_eq_addLift_residual {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (x : Fin 6 → ℝ) (ω : SmoothSample 2 L) :
+    addLift hL r x (posteriorSample hL r 0 ω) = posteriorSample hL r x ω := by
+  apply Subtype.ext
+  funext m
+  simp only [addLift_val, posteriorSample_val, sub_eq_add_neg,
+    pinLift_add, pinLift_neg, pinLift_zero, Pi.zero_apply, Pi.add_apply, Pi.neg_apply]
+  abel
+
+theorem addLift_observation_residual {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (ω : SmoothSample 2 L) :
+    addLift hL r (sourceConfluentPinsAt L r ω) (posteriorSample hL r 0 ω) = ω := by
+  rw [posteriorSample_eq_addLift_residual, posteriorSample_self]
+
+theorem posteriorSample_zero_inclusion {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (ω : SmoothSample 2 L) :
+    sampleInclusion 2 L (posteriorSample hL r 0 ω) = residualCoefficient L r ω := by
+  funext m
+  change (posteriorSample hL r 0 ω).val m = residualCoefficient L r ω m
+  simp only [posteriorSample_val, residualCoefficient, sub_eq_add_neg, zero_add,
+    pinLift_neg, Pi.neg_apply]
+
+theorem posteriorSample_zero_indepFun {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (hG : IsUnit (sourcePinCovarianceAt L r)) :
+    IndepFun (sourceConfluentPinsAt L r) (posteriorSample hL r 0) (smoothLaw 2 L) := by
+  obtain ⟨q,hq,hret⟩ := exists_measurable_sampleProjection 2 L
+  have hi := (residualCoefficient_indepFun hL r hG).comp measurable_id hq
+  have heq : q ∘ (fun ω => residualCoefficient L r ω) = posteriorSample hL r 0 := by
+    funext ω
+    rw [Function.comp_apply, ← posteriorSample_zero_inclusion hL r ω, hret]
+  simpa only [Function.id_comp, heq] using hi
+
+theorem sourceSmoothKernel_hasCondDistrib {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (hG : IsUnit (sourcePinCovarianceAt L r)) :
+    HasCondDistrib (id : SmoothSample 2 L → SmoothSample 2 L)
+      (sourceConfluentPinsAt L r) (sourceSmoothKernel hL r) (smoothLaw 2 L) := by
+  have : IsProbabilityMeasure (smoothLaw 2 L) := smoothLaw_isProbabilityMeasure 2 hL
+  have hX := sourceConfluentPinsAt_measurable hL r
+  have hR : Measurable (posteriorSample hL r 0) :=
+    (posteriorSample_measurable hL r).comp (measurable_const.prodMk measurable_id)
+  have hc := (regression_pair_hasCondDistrib hX.aemeasurable hR.aemeasurable
+    (posteriorSample_zero_indepFun hL r hG)).comp_left (addLift_measurable hL r)
+  have hrec : (fun p : (Fin 6 → ℝ) × SmoothSample 2 L => addLift hL r p.1 p.2) ∘
+      (fun ω => (sourceConfluentPinsAt L r ω, posteriorSample hL r 0 ω)) = id := by
+    funext ω
+    exact addLift_observation_residual hL r ω
+  have hk : ((Kernel.id : Kernel (Fin 6 → ℝ) (Fin 6 → ℝ)) ×ₖ
+      Kernel.const (Fin 6 → ℝ) ((smoothLaw 2 L).map (posteriorSample hL r 0))).map
+        (fun p => addLift hL r p.1 p.2) = sourceSmoothKernel hL r := by
+    ext x : 1
+    rw [Kernel.map_apply _ (addLift_measurable hL r), Kernel.prod_apply,
+      Kernel.id_apply, Kernel.const_apply, Measure.dirac_prod,
+      Measure.map_map (addLift_measurable hL r) (by fun_prop), sourceSmoothKernel_apply hL r x]
+    have ha : Measurable (addLift hL r x) :=
+      (addLift_measurable hL r).comp (measurable_const.prodMk measurable_id)
+    change (((smoothLaw 2 L).map (posteriorSample hL r 0)).map (addLift hL r x)) = _
+    rw [Measure.map_map ha hR]
+    congr 1
+    funext ω
+    exact posteriorSample_eq_addLift_residual hL r x ω
+  rw [hrec, hk] at hc
+  exact hc
+
+end I4SourceSmoothConditional

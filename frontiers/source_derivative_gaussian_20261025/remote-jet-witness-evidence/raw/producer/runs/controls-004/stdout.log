@@ -1,0 +1,12 @@
+/workspace/scratch/remote-jet-witness-construct/Controls.lean:62:4: error: Type mismatch: After simplification, term
+  HasFDerivAt.add (HasFDerivAt.add (hasFDerivAt_const 2 0) (hasFDerivAt_apply 0 0)) (hasFDerivAt_apply 1 0)
+ has type
+  @HasFDerivAt ℝ DenselyNormedField.toNontriviallyNormedField (Fin 2 → ℝ) Pi.normedAddCommGroup.toAddCommGroup
+    Pi.normedSpace.toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace ℝ Real.normedAddCommGroup.toAddCommGroup
+    RCLike.toInnerProductSpaceReal.toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    (((fun x => 2) + fun y => y 0) + fun y => y 1) (ContinuousLinearMap.proj 0 + ContinuousLinearMap.proj 1) 0
+but is expected to have type
+  @HasFDerivAt ℝ DenselyNormedField.toNontriviallyNormedField (Fin 2 → ℝ) Pi.addCommGroup
+    (Pi.Function.module (Fin 2) ℝ ℝ) Pi.topologicalSpace ℝ Real.instAddCommGroup Semiring.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace affineP
+    (ContinuousLinearMap.proj 0 + ContinuousLinearMap.proj 1) 0

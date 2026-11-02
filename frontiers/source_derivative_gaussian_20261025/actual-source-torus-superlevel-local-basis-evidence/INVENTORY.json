@@ -1,0 +1,666 @@
+{
+  "module": "SourceActualTorusSuperlevelLocalBasis",
+  "total": 65,
+  "counts": {
+    "authored private definition": 9,
+    "authored private theorem": 25,
+    "private generated proof auxiliary": 18,
+    "private generated defining equation": 6,
+    "public generated simp theorem": 1,
+    "foreign-namespace generated defining equation": 4,
+    "private generated simp theorem": 1,
+    "sole authored public theorem": 1
+  },
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "axiom_coverage": "Every actual module-index-owned declaration collected once, including all private/generated and foreign-namespace lazily generated equations.",
+  "declarations": [
+    {
+      "kind": "theorem",
+      "name": "I4SmoothCarrier.sampleInclusion.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "foreign-namespace generated defining equation"
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SmoothCarrier.smoothSourceField.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "foreign-namespace generated defining equation"
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceActualTorusSuperlevelLocalBasis.actualSource_torus_closedSuperlevel_localPathConnectedBasis",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "sole authored public theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceActualTorusSuperlevelLocalBasis.actualSource_torus_closedSuperlevel_localPathConnectedBasis._simp_1_2",
+      "axioms": [
+        "propext"
+      ],
+      "classification": "public generated simp theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "UniversalLaw.Spec.Lifetime.IsCriticalPoint.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "foreign-namespace generated defining equation"
+    },
+    {
+      "kind": "theorem",
+      "name": "UniversalLaw.Spec.Lifetime.hessian.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "foreign-namespace generated defining equation"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.coverProjection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.coverProjection.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated defining equation"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.criticalCoverLevelBasis",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixtureCoord",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixtureCoord._proof_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixtureCoord.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated defining equation"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixtureCriticalPoint",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixtureCriticalPoint.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated defining equation"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixtureDerivative",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixtureDerivative._proof_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixtureDerivative._proof_2",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixtureDerivative._proof_3",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixtureDerivative.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated defining equation"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixturePoint",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixturePoint_apply",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixturePolynomial",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixturePolynomial._proof_1",
+      "axioms": [
+        "propext"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixturePolynomial.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated defining equation"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixtureSample",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixtureSample.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated defining equation"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixture_actualField",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixture_axis_ne",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixture_coordinateField",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixture_critical",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixture_critical_max",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixture_critical_min",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixture_critical_saddleMinusOne",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixture_critical_saddleOne",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixture_hasFDerivAt",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixture_heights",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixture_hessian",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixture_interior",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixture_max_inertia",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixture_min_inertia",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixture_regular",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixture_saddleMinus_inertia",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixture_saddleOne_inertia",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.fixture_seam",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.interiorCoverBasis",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.projectCoverTrace",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.regularCoverLevelBasis",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.regularCoverLevelBasis._simp_1_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated simp theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.regular_choose_rowEquiv",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.regular_finTwo_functional",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.regular_firstRowEquiv",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.regular_firstRowEquiv._proof_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.regular_firstRowEquiv._proof_2",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.regular_firstRowEquiv._proof_3",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.regular_firstRowEquiv._proof_4",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.regular_firstRowEquiv._proof_5",
+      "axioms": [
+        "propext"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.regular_firstRowEquiv._proof_6",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.regular_firstRowEquiv._proof_7",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.regular_firstRowEquiv._proof_8",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.regular_firstRowEquiv._proof_9",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.regular_secondRowEquiv",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.regular_secondRowEquiv._proof_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.regular_secondRowEquiv._proof_2",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.regular_secondRowEquiv._proof_3",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualTorusSuperlevelLocalBasis.0.I4SourceActualTorusSuperlevelLocalBasis.regular_secondRowEquiv._proof_4",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    }
+  ]
+}

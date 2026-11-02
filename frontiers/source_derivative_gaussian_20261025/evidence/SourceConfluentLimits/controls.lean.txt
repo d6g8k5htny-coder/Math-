@@ -1,0 +1,42 @@
+import SourceConfluentLimits
+
+open I4Source I4Weights I4SmoothCarrier I4SourceConfluentPins I4SourceContact
+open I4SourceEndpointRegression I4SourceConfluentLimits I4ContactCoefficientLimits
+open MeasureTheory ProbabilityTheory Filter
+open scoped Topology
+
+example (L : ℝ) (ω : SmoothSample 2 L) : sourceConfluentPinsAt L 0 ω 5 = 0 := by
+  simp [sourceConfluentPinsAt, confluentTransform]
+
+example (L : ℝ) (m : SourceMode 2) : pinCoefficient L 0 5 m = 0 := by
+  simp [pinCoefficient, pinObservationMap, endpointObservationMap, confluentTransform]
+
+example {L : ℝ} (hL : L ≠ 0) :
+    regularizedPinCoefficient L 0 5 (sourceContactMode 5) ≠ 0 := by
+  rw [regularizedPinCoefficient_zero]
+  change sourceContactCoefficient L 5 (sourceContactMode 5) ≠ 0
+  have hcol : sourceContactCoefficient L 5 (sourceContactMode 5) =
+      sourceContactAmplitude L 5 * (-8 * sourceC L ^ 3) := by
+    simpa [I4ContactGram.contactWitness] using sourceContact_selected_columns L 5 5
+  rw [hcol]
+  have hc : sourceC L ≠ 0 := div_ne_zero
+    (mul_ne_zero (by norm_num) (ne_of_gt Real.pi_pos)) hL
+  exact mul_ne_zero (sourceContactAmplitude_pos hL 5).ne'
+    (mul_ne_zero (by norm_num) (pow_ne_zero _ hc))
+
+example (L : ℝ) (m : SourceMode 2) (i : Fin 6) :
+    pinCoefficient L (-2) i m = regularizedPinCoefficient L (-2) i m :=
+  pinCoefficient_eq_regularized L (-2) (by norm_num) i m
+
+example (L : ℝ) (m : SourceMode 2) (i : Fin 6) :
+    adjustedCoefficient L (-2) i m = regularizedAdjustedCoefficient L (-2) i m :=
+  adjustedCoefficient_eq_regularized L (-2) (by norm_num) i m
+
+example : Tendsto (sourcePinCovarianceAt 24) (𝓝[>] (0 : ℝ))
+    (𝓝 (sourcePinCovariance 24)) := sourcePinCovarianceAt_tendsto (by norm_num)
+
+example : Tendsto (sourceCrossCovarianceAt 24) (𝓝[>] (0 : ℝ))
+    (𝓝 (sourceContactEndpointCrossCovariance 24)) := sourceCrossCovarianceAt_tendsto (by norm_num)
+
+example : Tendsto (sourceEndpointCovarianceAt (-24)) (𝓝[>] (0 : ℝ))
+    (𝓝 (sourceContactEndpointCovariance (-24))) := sourceEndpointCovarianceAt_tendsto (by norm_num)

@@ -1,0 +1,19 @@
+I4SourceDerivativeGaussian.derivativeCoefficient (d : ℕ) (L : ℝ) (k : ℕ) (x : Fin d → ℝ) (u : Fin k → Fin d → ℝ)
+  (m : I4Source.SourceMode d) : ℝ
+I4SourceDerivativeGaussian.derivativeCoefficient_summable (d : ℕ) {L : ℝ} (hL : L ≠ 0) (k : ℕ) (x : Fin d → ℝ)
+  (u : Fin k → Fin d → ℝ) : Summable (derivativeCoefficient d L k x u)
+I4SourceDerivativeGaussian.smoothSourceField_derivative_series (d : ℕ) {L : ℝ} (hL : L ≠ 0) (ω : SmoothSample d L)
+  (k : ℕ) (x : Fin d → ℝ) (u : Fin k → Fin d → ℝ) :
+  (iteratedFDeriv ℝ k (smoothSourceField d L ω) x) u =
+    scalarSeries (derivativeCoefficient d L k x u) (sampleInclusion d L ω)
+I4SourceDerivativeGaussian.scalarSeries_finiteVector_hasGaussianLaw.{u_1} {ι : Type u_1} [Countable ι] (n : ℕ)
+  (a : Fin n → ι → ℝ) (ha : ∀ (j : Fin n), Summable (a j)) :
+  HasGaussianLaw (fun ω j => scalarSeries (a j) ω) (coefficientLaw ι)
+I4SourceDerivativeGaussian.smoothSourceField_derivativeVector_hasGaussianLaw (d : ℕ) {L : ℝ} (hL : L ≠ 0) (n : ℕ)
+  (k : Fin n → ℕ) (x : Fin n → Fin d → ℝ) (u : (j : Fin n) → Fin (k j) → Fin d → ℝ) :
+  HasGaussianLaw (fun ω j => (iteratedFDeriv ℝ (k j) (smoothSourceField d L ω) (x j)) (u j)) (smoothLaw d L)
+I4SourceDerivativeGaussian.smoothSourceField_derivative_covariance (d : ℕ) {L : ℝ} (hL : L ≠ 0) (k l : ℕ)
+  (x y : Fin d → ℝ) (u : Fin k → Fin d → ℝ) (v : Fin l → Fin d → ℝ) :
+  cov[fun ω => (iteratedFDeriv ℝ k (smoothSourceField d L ω) x) u, fun ω =>
+      (iteratedFDeriv ℝ l (smoothSourceField d L ω) y) v; smoothLaw d L] =
+    ∑' (m : I4Source.SourceMode d), derivativeCoefficient d L k x u m * derivativeCoefficient d L l y v m

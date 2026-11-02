@@ -1,0 +1,31 @@
+{
+  "kind": "collision",
+  "run": "collision-001",
+  "start": "2026-10-26T17:43:09.609176+00:00",
+  "end": "2026-10-26T17:43:12.781426+00:00",
+  "seconds": 3.172261426007026,
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/two-remote-firstjet-witness-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/two-remote-firstjet-witness-construct /workspace/scratch/two-remote-firstjet-witness-construct/CollisionMutation.lean -o /workspace/scratch/two-remote-firstjet-witness-construct/runs/collision-001/CollisionMutation.olean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 1,
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetWitness.lean",
+    "bytes": 21442,
+    "sha256": "b523da924513fc312c5432c241fc031d4fbe3567fbeedbba981f36dd798574a4"
+  },
+  "stdout": {
+    "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/collision-001/stdout.log",
+    "bytes": 119,
+    "sha256": "6c8a43e0a670f58e88e0d5ac7715396c03bd32089972c197b57024df01733b9b"
+  },
+  "stderr": {
+    "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/collision-001/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

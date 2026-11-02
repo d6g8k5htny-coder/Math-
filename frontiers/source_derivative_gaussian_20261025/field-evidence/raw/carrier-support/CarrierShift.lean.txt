@@ -1,0 +1,184 @@
+import SourceConfluentLimits
+import Mathlib.MeasureTheory.MeasurableSpace.Embedding
+
+noncomputable section
+
+open I4Foundation I4Source I4Smooth I4SmoothCarrier I4SourceGaussian
+open I4SourceDerivativeGaussian I4SourceDerivativeContinuity I4SourceConfluentLimits
+open I4SourceEndpointRegression I4ContactGram MeasureTheory ProbabilityTheory Matrix
+open scoped BigOperators
+set_option autoImplicit false
+
+namespace I4SourceSmoothConditional
+
+def zeroSample (d : ℕ) (L : ℝ) : SmoothSample d L :=
+  ⟨fun _ => 0, by
+    intro n
+    simpa only [Pi.zero_apply, abs_zero, mul_zero] using
+      (summable_zero : Summable (fun _ : SourceMode d => (0 : ℝ)))⟩
+
+theorem exists_measurable_sampleProjection (d : ℕ) (L : ℝ) :
+    ∃ q : (SourceMode d → ℝ) → SmoothSample d L,
+      Measurable q ∧ ∀ ω : SmoothSample d L, q (sampleInclusion d L ω) = ω := by
+  exact (goodSet_measurable d L).exists_measurable_proj
+    ⟨(zeroSample d L).val, (zeroSample d L).property⟩
+
+theorem goodSample_add {d : ℕ} {L : ℝ}
+    (ω η : SourceMode d → ℝ) (hω : goodSample d L ω) (hη : goodSample d L η) :
+    goodSample d L (ω + η) := by
+  intro n
+  apply Summable.of_nonneg_of_le
+    (fun m => mul_nonneg (orderModeBound_nonneg n d L m) (abs_nonneg _))
+    (fun m => ?_) ((hω n).add (hη n))
+  change orderModeBound n d L m * |ω m + η m| ≤
+    orderModeBound n d L m * |ω m| + orderModeBound n d L m * |η m|
+  rw [← mul_add]
+  exact mul_le_mul_of_nonneg_left (abs_add_le _ _) (orderModeBound_nonneg n d L m)
+
+theorem goodSample_neg {d : ℕ} {L : ℝ}
+    (ω : SourceMode d → ℝ) (hω : goodSample d L ω) : goodSample d L (-ω) := by
+  intro n
+  simpa only [Pi.neg_apply, abs_neg] using hω n
+
+
+theorem derivativeCoefficient_weighted_summable {L : ℝ} (hL : L ≠ 0)
+    (ω : SmoothSample 2 L) (k : ℕ) (x : Fin 2 → ℝ) (u : Fin k → (Fin 2 → ℝ)) :
+    Summable (fun m => derivativeCoefficient 2 L k x u m * sampleInclusion 2 L ω m) := by
+  apply ((ω.property k).mul_right (∏ j, ‖u j‖)).of_norm_bounded
+  intro m
+  rw [norm_mul, Real.norm_eq_abs]
+  calc
+    _ ≤ derivativeMajorant 2 L k u m * |sampleInclusion 2 L ω m| :=
+      mul_le_mul_of_nonneg_right (derivativeCoefficient_bound 2 hL k u m x) (abs_nonneg _)
+    _ = (orderModeBound k 2 L m * |sampleInclusion 2 L ω m|) * ∏ j, ‖u j‖ := by
+      unfold derivativeMajorant
+      ring
+
+theorem finiteCoefficient_weighted_summable {ι : Type*} {n q : ℕ}
+    (a : Fin n → ι → ℝ) (ω : ι → ℝ)
+    (ha : ∀ i, Summable (fun m => a i m * ω m))
+    (T : (Fin n → ℝ) →L[ℝ] (Fin q → ℝ)) (j : Fin q) :
+    Summable (fun m => T (fun i => a i m) j * ω m) := by
+  have hs : HasSum (fun m i => a i m * ω m) (fun i => ∑' m, a i m * ω m) :=
+    Pi.hasSum.mpr (fun i => (ha i).hasSum)
+  have ht := hs.map T.toAddMonoidHom T.continuous
+  convert (Pi.hasSum.mp ht j).summable using 1
+  funext m
+  have hm : (fun i => a i m * ω m) = ω m • (fun i => a i m) := by
+    funext i
+    simp only [Pi.smul_apply, smul_eq_mul, mul_comm]
+  change T (fun i => a i m) j * ω m = T (fun i => a i m * ω m) j
+  rw [hm, map_smul]
+  exact mul_comm _ _
+
+theorem pinCoefficient_weighted_summable {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (ω : SmoothSample 2 L) (i : Fin 6) :
+    Summable (fun m => pinCoefficient L r i m * sampleInclusion 2 L ω m) :=
+  finiteCoefficient_weighted_summable (rawDerivativeCoefficient L r)
+    (sampleInclusion 2 L ω)
+    (fun j => derivativeCoefficient_weighted_summable hL ω (rawDerivativeOrder j)
+      (rawDerivativePoint r j) (rawDerivativeDirections j)) (pinObservationMap r) i
+
+theorem adjustedCoefficient_weighted_summable {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (ω : SmoothSample 2 L) (i : Fin 6) :
+    Summable (fun m => adjustedCoefficient L r i m * sampleInclusion 2 L ω m) :=
+  finiteCoefficient_weighted_summable (rawDerivativeCoefficient L r)
+    (sampleInclusion 2 L ω)
+    (fun j => derivativeCoefficient_weighted_summable hL ω (rawDerivativeOrder j)
+      (rawDerivativePoint r j) (rawDerivativeDirections j)) (adjustedObservationMap r) i
+
+theorem sourceConfluentPinsAt_measurable {L : ℝ} (hL : L ≠ 0) (r : ℝ) :
+    Measurable (sourceConfluentPinsAt L r) := by
+  have heq : sourceConfluentPinsAt L r =
+      fun ω i => scalarSeries (pinCoefficient L r i) (sampleInclusion 2 L ω) := by
+    funext ω
+    exact sourceConfluentPinsAt_series hL r ω
+  rw [heq]
+  exact Measurable.of_eval (fun i =>
+    (scalarSeries_measurable _).comp (sampleInclusion_measurable 2 L))
+
+theorem sourceAdjustedEndpoints_measurable {L : ℝ} (hL : L ≠ 0) (r : ℝ) :
+    Measurable (sourceAdjustedEndpoints L r) := by
+  have heq : sourceAdjustedEndpoints L r =
+      fun ω i => scalarSeries (adjustedCoefficient L r i) (sampleInclusion 2 L ω) := by
+    funext ω
+    exact sourceAdjustedEndpoints_series hL r ω
+  rw [heq]
+  exact Measurable.of_eval (fun i =>
+    (scalarSeries_measurable _).comp (sampleInclusion_measurable 2 L))
+
+def pinLift (L r : ℝ) (y : Fin 6 → ℝ) (m : SourceMode 2) : ℝ :=
+  ∑ i, pinCoefficient L r i m * (((sourcePinCovarianceAt L r)⁻¹ *ᵥ y) i)
+
+theorem pinLift_zero (L r : ℝ) : pinLift L r 0 = 0 := by
+  funext m
+  simp [pinLift]
+
+theorem pinLift_add (L r : ℝ) (x y : Fin 6 → ℝ) :
+    pinLift L r (x + y) = pinLift L r x + pinLift L r y := by
+  funext m
+  simp [pinLift, Matrix.mulVec_add, mul_add, Finset.sum_add_distrib]
+
+theorem pinLift_neg (L r : ℝ) (x : Fin 6 → ℝ) :
+    pinLift L r (-x) = -pinLift L r x := by
+  funext m
+  simp [pinLift, Matrix.mulVec_neg]
+
+theorem pinLift_goodSample {L : ℝ} (hL : L ≠ 0) (r : ℝ) (y : Fin 6 → ℝ) :
+    goodSample 2 L (pinLift L r y) := by
+  intro n
+  have hprod (i : Fin 6) : Summable (fun m =>
+      orderModeBound n 2 L m * |pinCoefficient L r i m|) :=
+    coefficient_product_summable (orderModeBound_summable n 2 hL)
+      (pinCoefficient_summable hL r i).abs
+  have hs : Summable (fun m => ∑ i,
+      (orderModeBound n 2 L m * |pinCoefficient L r i m|) *
+        |((sourcePinCovarianceAt L r)⁻¹ *ᵥ y) i|) :=
+    summable_sum (fun i _ => (hprod i).mul_right _)
+  apply Summable.of_nonneg_of_le (fun m =>
+    mul_nonneg (orderModeBound_nonneg n 2 L m) (abs_nonneg _)) _ hs
+  intro m
+  calc
+    _ ≤ orderModeBound n 2 L m *
+        ∑ i, |pinCoefficient L r i m * (((sourcePinCovarianceAt L r)⁻¹ *ᵥ y) i)| :=
+      mul_le_mul_of_nonneg_left (Finset.abs_sum_le_sum_abs _ _) (orderModeBound_nonneg n 2 L m)
+    _ = _ := by simp only [abs_mul, Finset.mul_sum, mul_assoc]
+
+theorem pinLift_measurable (L r : ℝ) : Measurable (pinLift L r) := by
+  apply Measurable.of_eval
+  intro m
+  unfold pinLift
+  fun_prop
+
+def addLift {L : ℝ} (hL : L ≠ 0) (r : ℝ) (y : Fin 6 → ℝ)
+    (ω : SmoothSample 2 L) : SmoothSample 2 L :=
+  ⟨sampleInclusion 2 L ω + pinLift L r y,
+    goodSample_add _ _ ω.property (pinLift_goodSample hL r y)⟩
+
+@[simp] theorem addLift_val {L : ℝ} (hL : L ≠ 0) (r : ℝ) (y : Fin 6 → ℝ)
+    (ω : SmoothSample 2 L) (m : SourceMode 2) :
+    (addLift hL r y ω).val m = ω.val m + pinLift L r y m := rfl
+
+theorem addLift_measurable {L : ℝ} (hL : L ≠ 0) (r : ℝ) :
+    Measurable (fun p : (Fin 6 → ℝ) × SmoothSample 2 L => addLift hL r p.1 p.2) := by
+  unfold addLift
+  apply Measurable.subtype_mk
+  exact ((sampleInclusion_measurable 2 L).comp measurable_snd).add
+    ((pinLift_measurable L r).comp measurable_fst)
+
+def posteriorSample {L : ℝ} (hL : L ≠ 0) (r : ℝ) (x : Fin 6 → ℝ)
+    (ω : SmoothSample 2 L) : SmoothSample 2 L :=
+  addLift hL r (x - sourceConfluentPinsAt L r ω) ω
+
+@[simp] theorem posteriorSample_val {L : ℝ} (hL : L ≠ 0) (r : ℝ) (x : Fin 6 → ℝ)
+    (ω : SmoothSample 2 L) (m : SourceMode 2) :
+    (posteriorSample hL r x ω).val m = ω.val m +
+      pinLift L r (x - sourceConfluentPinsAt L r ω) m := rfl
+
+theorem posteriorSample_measurable {L : ℝ} (hL : L ≠ 0) (r : ℝ) :
+    Measurable (fun p : (Fin 6 → ℝ) × SmoothSample 2 L => posteriorSample hL r p.1 p.2) := by
+  exact (addLift_measurable hL r).comp
+    ((measurable_fst.sub ((sourceConfluentPinsAt_measurable hL r).comp measurable_snd)).prodMk
+      measurable_snd)
+
+end I4SourceSmoothConditional

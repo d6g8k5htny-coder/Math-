@@ -1,0 +1,21 @@
+--- runs/production-fixtures-003/SourceActualFiniteSuperlevelComponents.lean
++++ SourceActualFiniteSuperlevelComponents.lean
+@@ -255,11 +255,13 @@
+ 
+ private theorem fixture_finite_whole :
+     Finite (ZerothHomotopy (TorusFiltration.superlevel_set fixtureTorusField 4)) := by
+-  have hp : LocallyPathConnectedSpace (TorusFiltration.superlevel_set
+-      (SourceActualFoldTorus.actualTorusField (by norm_num : (2 : ℝ) ≠ 0) fixtureSample)
+-      (-(-4 : ℝ))) := by
+-    convert fixture_wholeLocalTopology using 1 <;> norm_num [fixtureTorusField]
++  have htime : -(-4 : ℝ) = 4 := by norm_num
++  have hp : LocallyPathConnectedSpace
++      (TorusFiltration.superlevel_set fixtureTorusField (-(-4 : ℝ))) := by
++    rw [htime]
++    exact fixture_wholeLocalTopology
+   have hf := consumeFiniteClosedSubtype (by norm_num : (0 : ℝ) < 2) fixtureSample (-4) hp
+-  convert hf using 1 <;> norm_num [fixtureTorusField]
++  rw [htime] at hf
++  exact hf
+ 
+ end I4SourceActualFiniteSuperlevelComponents
