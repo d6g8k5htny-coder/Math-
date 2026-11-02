@@ -16,6 +16,11 @@ WRAPPER = ROOT / 'frontiers/lifetime_dd_model_d_20261013/replay.py'
 EXPECTED = (ROOT / 'tests/fixtures/lifetime_dd_changed_node_stdout.txt').read_bytes()
 MISSING_TEMPLATE = (ROOT / 'tests/fixtures/lifetime_dd_missing_node_stderr.txt').read_bytes()
 MISSING = MISSING_TEMPLATE.replace(b'<CERTIFICATE_V2>', str(WRAPPER.parent / 'certificate_v2').encode())
+# The live specimen compares a child's complete stderr with a CPython 3.11
+# traceback fixture byte for byte, so it runs only on CPython 3.11. The
+# dedicated workflow pins Python 3.11.16 (test_workflow_binding asserts the
+# pin); workflows that discover this file on another runtime skip it.
+LIVE_SPECIMEN_RUNTIME = sys.implementation.name == 'cpython' and sys.version_info[:2] == (3, 11)
 
 
 def load():
@@ -208,6 +213,9 @@ class NodeOracleTests(unittest.TestCase):
         self.assertEqual(hashlib.sha256(MISSING_TEMPLATE).hexdigest(),
                          '74c9a35ac855ac1abba7c48a3eb1f25333b277738fd75da47fa8c73fe402833b')
 
+    @unittest.skipUnless(LIVE_SPECIMEN_RUNTIME,
+                         'live specimen fixture is a CPython 3.11 traceback; it runs in '
+                         'lifetime-dd-model-d.yml, which pins Python 3.11.16')
     def test_real_bounded_specimens(self):
         m=load()
         capture=io.StringIO()
@@ -225,6 +233,7 @@ class NodeOracleTests(unittest.TestCase):
             self.assertIn("      - '"+name+"'",text)
             self.assertIn('cp '+name,text)
         self.assertIn('-p test_lifetime_dd_node_oracle.py -v',text)
+        self.assertIn("python-version: '3.11.16'",text)
 
     def mutations(self, needle, variants, methods):
         source=WRAPPER.read_text()
