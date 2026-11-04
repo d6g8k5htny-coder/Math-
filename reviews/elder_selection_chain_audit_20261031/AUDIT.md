@@ -150,11 +150,13 @@ L3), with the exact limit `α₁ + α₂` only a candidate (LP-EQ).
 
 **Good configurations at leading order.** P section 13 removes the compact-mark restriction by dominated convergence:
 the unnormalized intensity has the target-growth majorant (13.4), `p_r → 1` pointwise by Theorem A on compact
-neighbourhoods (P l.415), and the far population is `O(1)` (14.1). That is Theorem C's leading term (C). What does
-not exist, and cannot, is a quantitative unrestricted rate: Theorem U shows `ν_cand^all − ν_eld^all ≥ c_* > 0` (U), so
-candidate C7 is Refuted and the `O(1)` rejected density (RHO) is a candidate. "Counting candidate maximum–saddle pairs
-is not the same as counting actual persistence bars" is therefore a theorem of the project, at leading order and in
-the difference, not a gap: the two counts agree to leading order `ℓ^{−1/3}` and differ by a positive bounded-below
+neighbourhoods (P l.415), and the far population is `O(1)` (14.1). That is Theorem C's leading term (C) for the
+elder-selected pairs; reading it as a statement about finite bars uses the Morse-locus identification F5 (P l.445),
+which is why C is Conditional on F5 alone. What does not exist, and cannot, is a quantitative unrestricted rate:
+Theorem U shows `ν_cand^all − ν_eld^all ≥ c_* > 0` (U, Conditional on F5 in the same way), so candidate C7 is Refuted
+and the `O(1)` rejected density (RHO) is a candidate. "Counting candidate maximum–saddle pairs is not the same as
+counting actual persistence bars" is therefore, granted F5, a theorem of the project at leading order and in the
+difference, not a gap: the two counts agree to leading order `ℓ^{−1/3}` and differ by a positive bounded-below
 amount.
 
 **What remains open mathematically.** (a) The alignment review of D1 (I-4). (b) Formalization of anything
@@ -223,7 +225,8 @@ exact failure mechanism (LP-P) and from the far-pair separation of Theorem U.
 `CLAIMS.json` gives each claim its statement, event, status, evidence, exact sources (repository, commit, path, blob,
 bytes, SHA-256), reviews (performer, record, verdict, independence flags), `depends_on` and `obligations`.
 `check_claims.py` verifies that every cited blob exists in the local object store with the recorded length and digest,
-that the recorded commit maps the path to that blob when the commit is available, that every status is one of the five
+that the recorded commit maps the path to that blob when the commit is available (an absent commit is a NOTE; a present
+commit whose path does not exist is a FAIL), that every status is one of the five
 values, that every `depends_on`, source and review reference resolves, and that no claim is "Proved" without a review or
 kernel check. `test_check_claims.py` exercises it, including tampered-digest, wrong-length, unknown-status, dangling
 dependency and unreviewed-"Proved" failures, and byte-identical output in normal and optimized Python. The checker does
@@ -248,11 +251,14 @@ Computed from this record at the cuts above; the values are in `CLAIMS.json` und
 
 ## 8. Proposed wording for the canonical surfaces (for the integrator; not applied here)
 
-- PROOF_INDEX D1 row: append "Status (owner taxonomy, 2026-10-31 audit): Theorems A, B, C **Proved** at existential
-  scope, prose, nonauthor AI reads by xAI/Grok and Anthropic session_017 only; no formal statement about the actual
-  event (register BLOCKED_INTERFACE; Math-#543 countermodel). Deterministic cap step **Proved (kernel)** in
-  `frontiers/cap_first_exit_lean_20261002`, alignment review open. Lower bound `1 − p_r ≥ c r³`: **Proved** for d = 2
-  (EL, read) and for every fixed d ≥ 3 (DL, read, Math-#129); CL-ELDER-LOWER-ALL-D is a candidate."
+- PROOF_INDEX D1 row: append "Status (owner taxonomy, 2026-10-31 audit, v1.2): Theorem A (elder selection) and
+  Theorem B (elder-selected compact-window pairs) **Proved** at existential scope, prose, nonauthor AI reads by
+  xAI/Grok and Anthropic session_017 only. Theorem C (finite bars) **Conditional** on the classical Morse-locus
+  identification of elder-selected pairs with bars (P l.445; an interface clause in Lean), its Gaussian analysis read
+  at the same scope. No formal statement about the actual event exists (register BLOCKED_INTERFACE; Math-#543
+  countermodel). Deterministic cap step **Proved (kernel)** in `frontiers/cap_first_exit_lean_20261002`, alignment
+  review open. Lower bound `1 − p_r ≥ c r³`: **Proved** for d = 2 (EL, read) and for every fixed d ≥ 3 (DL, read,
+  Math-#129); CL-ELDER-LOWER-ALL-D is a candidate."
 - main `docs/DISCOVERY_PRIORITY_LEDGER_20260925.md` DP-02 current-state cell: resolve against `STATUS.md` D1 (I-1).
 - `STATUS.md` "How to verify" or the D1 row: name the formal-coverage boundary in one sentence: "No kernel-checked
   statement of Theorems A, B or C about the elder event exists; `PairLawInterface.p` is primitive."
@@ -266,8 +272,14 @@ Computed from this record at the cuts above; the values are in `CLAIMS.json` und
   AMEND S1), 01SHCrxv (Anthropic; custody 44/44 and S1, [main#684 6548184976](https://github.com/d6g8k5htny-coder/main/issues/684#issuecomment-6548184976)).
 - **v1.1.** S1: C and U Conditional on F5; B's dependency on F5 removed because P states Theorem B through the elder
   relation; a status-propagation rule added to `check_claims.py` with a test. F1: 01XJMJ's nine checker tests added.
-  F3: the I-3 attribution corrected. F4: the I-2 wording corrected. No source identity, review record, claim statement
-  or inconsistency other than I-2 and I-3 changed.
+  F3: the I-3 attribution corrected. F4: the I-2 wording corrected. No source identity or review record changed; the
+  statement fields of B, C and U were reworded to name their populations (elder-selected pairs for B, finite bars for
+  C and U), and the inconsistency rows I-2 and I-3 were reworded.
+- **v1.2.** OpenAI amendment readback ([6645040299](https://github.com/d6g8k5htny-coder/Math-/pull/554#issuecomment-6645040299),
+  AMEND_SCOPED_RECORD). RB1: the §8 proposal now separates Theorems A and B (Proved) from Theorem C (Conditional on
+  F5); F5's evidence names C and U, not B, as its consumers; §2's bar-count conclusion carries the F5 qualification;
+  the finite-bar definition is cited at P l.47. RB2: `check_claims.py` now distinguishes an absent commit (NOTE) from a
+  present commit whose recorded path does not exist (FAIL), with a missing-path test. Histogram unchanged.
 
 ## 10. Non-claims
 

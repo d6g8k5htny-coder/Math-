@@ -3,8 +3,9 @@
 
 What it checks, and nothing more:
   * every source entry resolves in the local Git object store to a blob of exactly the recorded
-    byte length and SHA-256 (the recorded commit is also checked to map the path to that blob
-    when the commit is available locally);
+    byte length and SHA-256; when the recorded commit is available locally, the recorded path
+    must exist at that commit and map to that blob (a missing path is FAIL; only an absent
+    commit is a NOTE);
   * every claim uses a status from the owner's five-value taxonomy, cites at least one source,
     and every `depends_on`, `sources` and `reviews` reference resolves;
   * a claim marked Proved depends only on claims marked Proved (status propagation: a Proved
@@ -49,15 +50,19 @@ def check_source(key, src, repos, out):
     if digest != src['sha256']:
         out.append('FAIL %s: sha256 %s, recorded %s' % (key, digest, src['sha256']))
         ok = False
-    at = git(repo_dir, 'rev-parse', '--verify', '--quiet', '%s:%s' % (src['commit'], src['path']))
-    if at.returncode == 0:
-        if at.stdout.decode().strip() != src['blob']:
+    have_commit = git(repo_dir, 'cat-file', '-e', src['commit'] + '^{commit}').returncode == 0
+    if not have_commit:
+        out.append('NOTE %s: commit %s not available locally; blob checked by identity only'
+                   % (key, src['commit'][:12]))
+    else:
+        at = git(repo_dir, 'rev-parse', '--verify', '--quiet', '%s:%s' % (src['commit'], src['path']))
+        if at.returncode != 0:
+            out.append('FAIL %s: path %s does not exist at commit %s' % (key, src['path'], src['commit'][:12]))
+            ok = False
+        elif at.stdout.decode().strip() != src['blob']:
             out.append('FAIL %s: %s:%s is blob %s, recorded %s'
                        % (key, src['commit'][:12], src['path'], at.stdout.decode().strip(), src['blob']))
             ok = False
-    else:
-        out.append('NOTE %s: commit %s not available locally; blob checked by identity only'
-                   % (key, src['commit'][:12]))
     if ok:
         out.append('OK %s %s %d %s' % (key, src['blob'][:12], src['bytes'], src['path']))
     return ok

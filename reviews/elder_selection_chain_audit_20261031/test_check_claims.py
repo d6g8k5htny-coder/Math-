@@ -174,6 +174,16 @@ class CheckClaimsTests(unittest.TestCase):
         self.assertIn('FAIL %s: Proved but depends on %s, which is %s'
                       % (parent['id'], weaker['id'], status_of[weaker['id']]), out)
 
+    def test_missing_path_at_present_commit_fails(self):
+        doc = load()
+        key = sorted(k for k, s in doc['sources'].items() if s['repo'] == 'Math-')[0]
+        doc['sources'][key]['path'] += '.missing'          # blob, size and digest unchanged
+        ok, out = run_doc(doc)
+        self.assertFalse(ok)
+        self.assertIn('FAIL %s: path %s does not exist at commit %s'
+                      % (key, doc['sources'][key]['path'], doc['sources'][key]['commit'][:12]), out)
+        self.assertFalse(any(line.startswith('OK %s ' % key) for line in out))
+
     def test_cli_modes_agree(self):
         env = dict(os.environ, PYTHONDONTWRITEBYTECODE='1')
         a = subprocess.run([sys.executable, '-B', '-S', os.path.join(HERE, 'check_claims.py')],
