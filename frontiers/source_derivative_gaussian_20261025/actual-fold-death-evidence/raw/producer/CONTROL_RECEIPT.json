@@ -1,0 +1,61 @@
+{
+  "contract": {
+    "path": "/workspace/scratch/actual-fold-death-construct/CONTROL_CONTRACT.md",
+    "bytes": 1312,
+    "sha256": "8959e4f6dc9d1f1d73f844ac4065d31b3d20448011e01abef6178be2f58fdceb"
+  },
+  "positive_source": {
+    "path": "/workspace/scratch/actual-fold-death-construct/Controls.lean",
+    "bytes": 4867,
+    "sha256": "c64f64c0b5abfff6856b15c9e17113867d165bfab1796cb40fa85faad140e17f"
+  },
+  "positive_receipt": "runs/controls-004/receipt.json",
+  "positive_exit": 0,
+  "positive_theorems": 9,
+  "positive_definitions": 3,
+  "false_source": {
+    "path": "/workspace/scratch/actual-fold-death-construct/FalseMutation.lean",
+    "bytes": 431,
+    "sha256": "989930c6201430263dae5eb5d23d0c898927e1ffcd2790a5978c20e8ee3bacb1"
+  },
+  "false_receipt": "runs/false-control-002/receipt.json",
+  "false_exit": 1,
+  "false_target_count": 1,
+  "intended_diagnostic": "exactly one unsolved goal, solely False",
+  "production_source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFoldDeath.lean",
+    "bytes": 8882,
+    "sha256": "ee84ce7a775ae8163ec9309a0841757ce2990576adfd7186d4ad5bc8ac4de0d0"
+  },
+  "actual_diagnostic": "FalseMutation.lean:8:64: error: unsolved goals\n\u22a2 False",
+  "false_log": {
+    "path": "/workspace/scratch/actual-fold-death-construct/runs/false-control-002/output.log",
+    "bytes": 104,
+    "sha256": "609cc6124addf796c8befe6288abde3e855f03702e1b0a44c6b9627f07124e97"
+  },
+  "false_residual_goal_count": 1,
+  "prior_negative_result": {
+    "prior_record": {
+      "false_source": {
+        "path": "/workspace/scratch/actual-fold-death-construct/FalseMutation.lean",
+        "bytes": 419,
+        "sha256": "629ab0e8aa60c0ccb1cf7347bcafd0003ebf6b868fd11a5a0cafca34ac460368"
+      },
+      "false_receipt": "runs/false-control-001/receipt.json",
+      "false_exit": 1,
+      "false_target_count": 1,
+      "intended_diagnostic": "death=2 proof rejected where death=-(1/12) requested"
+    },
+    "actual_diagnostic": "Type mismatch: death=2 proof expected death=-(1/12)",
+    "satisfied_sole_residual_False_contract": false,
+    "original_summary_inaccurate": true,
+    "preserved_summary": "summary-history/CONTROL_RECEIPT.before-negative-shape-correction.json"
+  },
+  "reused_unchanged_verification": [
+    "strict-005",
+    "kernel-001",
+    "inventory-001",
+    "controls-004"
+  ],
+  "correction_scope": "Scratch mutation and evidence summaries only; no production change and no verification replay."
+}

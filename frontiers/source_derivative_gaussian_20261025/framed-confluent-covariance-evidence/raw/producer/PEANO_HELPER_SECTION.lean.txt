@@ -1,0 +1,104 @@
+/- UNCOMPILED TEXT ONLY. Insert once inside namespace
+   I4SourceFramedConfluentCovariance, after the corrected shared peanoRows
+   definition. No physical-coordinate or series/Gram adapter is included. -/
+
+open I4ConfluentIntegralIdentities
+open scoped Interval
+
+private theorem peanoCurve_iteratedDeriv
+    (f : (Fin 2 → ℝ) → ℝ) (hf : ContDiff ℝ (⊤ : ℕ∞) f)
+    (p e : Fin 2 → ℝ) (k : ℕ) (t : ℝ) :
+    iteratedDeriv k (fun s : ℝ => f (p+s • e)) t =
+      iteratedFDeriv ℝ k f (p+t • e) (fun _ => e) := by
+  let ell : ℝ →L[ℝ] (Fin 2 → ℝ) :=
+    (ContinuousLinearMap.id ℝ ℝ).smulRight e
+  have hshift : ContDiff ℝ (⊤ : ℕ∞) (fun y : Fin 2 → ℝ => f (p+y)) :=
+    hf.comp (contDiff_const.add contDiff_id)
+  rw [iteratedDeriv_eq_iteratedFDeriv]
+  have h := ell.iteratedFDeriv_comp_right hshift t (i := k) (by simp)
+  have hh := congrArg (fun A => A (fun _ : Fin k => (1 : ℝ))) h
+  simpa only [Function.comp_def,ContinuousMultilinearMap.compContinuousLinearMap_apply,
+    iteratedFDeriv_comp_add_left,ell,ContinuousLinearMap.smulRight_apply,
+    ContinuousLinearMap.id_apply,one_smul] using hh
+
+private theorem peanoCurve_deriv
+    (f : (Fin 2 → ℝ) → ℝ) (hf : ContDiff ℝ (⊤ : ℕ∞) f)
+    (p e : Fin 2 → ℝ) (t : ℝ) :
+    deriv (fun s : ℝ => f (p+s • e)) t = fderiv ℝ f (p+t • e) e := by
+  simpa only [iteratedDeriv_one,iteratedFDeriv_one_apply] using
+    peanoCurve_iteratedDeriv f hf p e 1 t
+
+private theorem peanoCurve_transverse_iteratedDeriv
+    (f : (Fin 2 → ℝ) → ℝ) (hf : ContDiff ℝ (⊤ : ℕ∞) f)
+    (p e n : Fin 2 → ℝ) (k : ℕ) (t : ℝ) :
+    iteratedDeriv k (fun s : ℝ => fderiv ℝ f (p+s • e) n) t =
+      iteratedFDeriv ℝ (k+1) f (p+t • e) (Fin.snoc (fun _ => e) n) := by
+  have hdf : ContDiff ℝ (⊤ : ℕ∞) (fderiv ℝ f) := hf.fderiv_right (by simp)
+  have hfun : ContDiff ℝ (⊤ : ℕ∞) (fun y : Fin 2 → ℝ => fderiv ℝ f y n) :=
+    hdf.clm_apply contDiff_const
+  calc
+    _ = iteratedFDeriv ℝ k (fun y : Fin 2 → ℝ => fderiv ℝ f y n)
+        (p+t • e) (fun _ => e) :=
+      peanoCurve_iteratedDeriv _ hfun p e k t
+    _ = iteratedFDeriv ℝ k (fderiv ℝ f) (p+t • e) (fun _ => e) n :=
+      iteratedFDeriv_clm_apply_const_apply hdf (by simp)
+    _ = _ := by
+      rw [iteratedFDeriv_succ_apply_right,Fin.init_snoc,Fin.snoc_last]
+
+private theorem peanoRows_confluent
+    (f : (Fin 2 → ℝ) → ℝ) (hf : ContDiff ℝ (⊤ : ℕ∞) f)
+    (p e n : Fin 2 → ℝ) (r : ℝ) (hr : r ≠ 0) :
+    (fun i : Fin 6 => peanoRows f p e n r (Fin.castAdd 1 i)) =
+      I4SourceConfluentPins.confluentTransform r
+        ![f (p-(r/2) • e),f (p+(r/2) • e),
+          fderiv ℝ f (p-(r/2) • e) e,fderiv ℝ f (p+(r/2) • e) e,
+          fderiv ℝ f (p-(r/2) • e) n,fderiv ℝ f (p+(r/2) • e) n] := by
+  let F : ℝ → ℝ := fun s => f (p+s • e)
+  let H : ℝ → ℝ := fun s => fderiv ℝ f (p+s • e) n
+  have hcurve : ContDiff ℝ (⊤ : ℕ∞) (fun s : ℝ => p+s • e) :=
+    contDiff_const.add (contDiff_id.smul contDiff_const)
+  have hF : ContDiff ℝ 3 F := (hf.comp hcurve).of_le (by simp)
+  have hdf : ContDiff ℝ (⊤ : ℕ∞) (fderiv ℝ f) := hf.fderiv_right (by simp)
+  have hH : ContDiff ℝ 2 H :=
+    ((hdf.clm_apply contDiff_const).comp hcurve).of_le (by simp)
+  have hF1 (s : ℝ) : deriv F s = fderiv ℝ f (p+s • e) e :=
+    peanoCurve_deriv f hf p e s
+  have he2 : (fun _ : Fin 2 => e) = ![e,e] := by
+    funext i
+    fin_cases i <;> rfl
+  have he3 : (fun _ : Fin 3 => e) = ![e,e,e] := by
+    funext i
+    fin_cases i <;> rfl
+  have hF2 (s : ℝ) :
+      iteratedDeriv 2 F s = iteratedFDeriv ℝ 2 f (p+s • e) ![e,e] := by
+    simpa only [he2] using peanoCurve_iteratedDeriv f hf p e 2 s
+  have hF3 (s : ℝ) :
+      iteratedDeriv 3 F s = iteratedFDeriv ℝ 3 f (p+s • e) ![e,e,e] := by
+    simpa only [he3] using peanoCurve_iteratedDeriv f hf p e 3 s
+  have hen : Fin.snoc (fun _ : Fin 1 => e) n = ![e,n] := by
+    funext i
+    fin_cases i <;> rfl
+  have hH1 (s : ℝ) :
+      deriv H s = iteratedFDeriv ℝ 2 f (p+s • e) ![e,n] := by
+    simpa only [iteratedDeriv_one,hen] using
+      peanoCurve_transverse_iteratedDeriv f hf p e n 1 s
+  have hneg : p+(-r/2) • e = p-(r/2) • e := by
+    simp only [neg_div,neg_smul,sub_eq_add_neg]
+  have h3 := pin3_integral F hF r hr
+  simp only [pin3,hF1,hF2,hneg] at h3
+  have h4 := pin4_integral H hH r hr
+  simp only [pin4,hH1] at h4
+  simp only [H,hneg] at h4
+  have h5 := pin5_integral F hF r hr
+  simp only [pin5,hF1,hF3] at h5
+  simp only [F,hneg] at h5
+  rw [add_comm (fderiv ℝ f (p+(r/2) • e) e)
+    (fderiv ℝ f (p-(r/2) • e) e)] at h5
+  funext i
+  fin_cases i
+  · rfl
+  · rfl
+  · rfl
+  · exact h3.symm
+  · exact h4.symm
+  · exact h5.symm

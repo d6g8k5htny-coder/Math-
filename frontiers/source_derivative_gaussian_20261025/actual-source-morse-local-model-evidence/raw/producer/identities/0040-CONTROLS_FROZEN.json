@@ -1,0 +1,13 @@
+{
+  "logical_id": "60C-CONTROLS-ORIGINAL-V1-COMPLETE",
+  "status": "FROZEN COMPLETE ORIGINAL BEFORE ONE ORDINARY CONTROLS INTEGRATION",
+  "section": "CONTROLS_SECTION.lean.txt",
+  "imports": "CONTROLS_IMPORTS.txt",
+  "provenance": "CONTROLS_PROVENANCE.md",
+  "namespace": "I4MorseLocalModelControls",
+  "counterproof_exports": ["correctTaylorEntry_eq_one", "omittedTaylorEntry_eq_two", "omittedTaylorEntry_ne_one"],
+  "custody": "Logical IDs only; ZERO helper hashes or executions",
+  "originals_immutable": true,
+  "coverage": "Positive ordinary Controls compilation covers actual amendments; production kernel DOES NOT cover this Controls-only helper",
+  "negative": "No negative authored or executed here; producer sole importing-False only after counterproof PASS"
+}

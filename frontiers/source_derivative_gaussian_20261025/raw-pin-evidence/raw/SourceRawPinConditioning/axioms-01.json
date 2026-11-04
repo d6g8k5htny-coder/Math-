@@ -1,0 +1,26 @@
+{
+  "scope": "Only new SourceRawPinConditioning qualification; unchanged24modules/23inputs reused",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/scratch/raw-pin-conditioning/AxiomAudit.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit_code": 0,
+  "sha256_before": {
+    "source": "77e521c7fc3fc3da1c922a4ef547b065be58b232b321480948c8fe50d76c2aa5",
+    "artifact": "757a9326500ed5ed1205eaccde2d0480aefafeceb66a3122852223c57cb2e090",
+    "control": "dcc553702aaff7d7b3a65789d776f101db0e9979191c984dc40b701514982e2d"
+  },
+  "sha256_after": {
+    "source": "77e521c7fc3fc3da1c922a4ef547b065be58b232b321480948c8fe50d76c2aa5",
+    "artifact": "757a9326500ed5ed1205eaccde2d0480aefafeceb66a3122852223c57cb2e090",
+    "control": "dcc553702aaff7d7b3a65789d776f101db0e9979191c984dc40b701514982e2d"
+  },
+  "log_sha256": "8f87280844572453d2f3a1591b9b922cb19667a23c9ce8a56456bf5f82bce7c6",
+  "log_bytes": 4192,
+  "started_utc": "2026-10-26T02:02:21.347834+00:00",
+  "elapsed_seconds": 5.887192964553833
+}

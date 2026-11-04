@@ -1,0 +1,220 @@
+{
+  "module": "SourcePinPreservingQuartic",
+  "count": 42,
+  "role": "Private declarations covered by the completed named-module kernel replay, not public targets and not claimed as individually direct axiom-print reports.",
+  "counts_toward_public_inventory_or_575_append": false,
+  "declarations": [
+    {
+      "name": "scalarTaylor_eq_interval",
+      "kind": "theorem",
+      "line": 166
+    },
+    {
+      "name": "sourceF_third_zero",
+      "kind": "theorem",
+      "line": 564
+    },
+    {
+      "name": "sourceF_fourth_zero",
+      "kind": "theorem",
+      "line": 574
+    },
+    {
+      "name": "sourceH_third_zero",
+      "kind": "theorem",
+      "line": 584
+    },
+    {
+      "name": "sourceF_deriv_pins",
+      "kind": "theorem",
+      "line": 594
+    },
+    {
+      "name": "sourceH_pins",
+      "kind": "theorem",
+      "line": 603
+    },
+    {
+      "name": "endpoint_derivative_low",
+      "kind": "theorem",
+      "line": 642
+    },
+    {
+      "name": "plane_decompose",
+      "kind": "theorem",
+      "line": 1118
+    },
+    {
+      "name": "cml_head",
+      "kind": "theorem",
+      "line": 1123
+    },
+    {
+      "name": "cml_pp",
+      "kind": "theorem",
+      "line": 1131
+    },
+    {
+      "name": "cml_ppp",
+      "kind": "theorem",
+      "line": 1146
+    },
+    {
+      "name": "source_word_2_xx",
+      "kind": "theorem",
+      "line": 1165
+    },
+    {
+      "name": "source_word_2_xy",
+      "kind": "theorem",
+      "line": 1169
+    },
+    {
+      "name": "source_word_2_yx",
+      "kind": "theorem",
+      "line": 1173
+    },
+    {
+      "name": "source_word_2_yy",
+      "kind": "theorem",
+      "line": 1180
+    },
+    {
+      "name": "source_word_3_xxx",
+      "kind": "theorem",
+      "line": 1184
+    },
+    {
+      "name": "source_word_3_xxy",
+      "kind": "theorem",
+      "line": 1188
+    },
+    {
+      "name": "source_word_3_xyx",
+      "kind": "theorem",
+      "line": 1192
+    },
+    {
+      "name": "source_word_3_xyy",
+      "kind": "theorem",
+      "line": 1200
+    },
+    {
+      "name": "source_word_3_yxx",
+      "kind": "theorem",
+      "line": 1204
+    },
+    {
+      "name": "source_word_3_yxy",
+      "kind": "theorem",
+      "line": 1212
+    },
+    {
+      "name": "source_word_3_yyx",
+      "kind": "theorem",
+      "line": 1220
+    },
+    {
+      "name": "source_word_3_yyy",
+      "kind": "theorem",
+      "line": 1228
+    },
+    {
+      "name": "source_word_4_xxxx",
+      "kind": "theorem",
+      "line": 1232
+    },
+    {
+      "name": "source_word_4_xxxy",
+      "kind": "theorem",
+      "line": 1236
+    },
+    {
+      "name": "source_word_4_xxyx",
+      "kind": "theorem",
+      "line": 1240
+    },
+    {
+      "name": "source_word_4_xxyy",
+      "kind": "theorem",
+      "line": 1248
+    },
+    {
+      "name": "source_word_4_xyxx",
+      "kind": "theorem",
+      "line": 1252
+    },
+    {
+      "name": "source_word_4_xyxy",
+      "kind": "theorem",
+      "line": 1260
+    },
+    {
+      "name": "source_word_4_xyyx",
+      "kind": "theorem",
+      "line": 1268
+    },
+    {
+      "name": "source_word_4_xyyy",
+      "kind": "theorem",
+      "line": 1276
+    },
+    {
+      "name": "source_word_4_yxxx",
+      "kind": "theorem",
+      "line": 1280
+    },
+    {
+      "name": "source_word_4_yxxy",
+      "kind": "theorem",
+      "line": 1288
+    },
+    {
+      "name": "source_word_4_yxyx",
+      "kind": "theorem",
+      "line": 1296
+    },
+    {
+      "name": "source_word_4_yxyy",
+      "kind": "theorem",
+      "line": 1304
+    },
+    {
+      "name": "source_word_4_yyxx",
+      "kind": "theorem",
+      "line": 1312
+    },
+    {
+      "name": "source_word_4_yyxy",
+      "kind": "theorem",
+      "line": 1320
+    },
+    {
+      "name": "source_word_4_yyyx",
+      "kind": "theorem",
+      "line": 1328
+    },
+    {
+      "name": "source_word_4_yyyy",
+      "kind": "theorem",
+      "line": 1336
+    },
+    {
+      "name": "source_second_transpose",
+      "kind": "theorem",
+      "line": 1541
+    },
+    {
+      "name": "coordinateDirection_eq_array",
+      "kind": "theorem",
+      "line": 1549
+    },
+    {
+      "name": "actual_normalized_coefficient_errors",
+      "kind": "theorem",
+      "line": 1747
+    }
+  ],
+  "kernel_record": "raw/final/kernel.json",
+  "kernel_replay_count": 1
+}

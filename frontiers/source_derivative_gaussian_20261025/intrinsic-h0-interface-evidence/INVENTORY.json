@@ -1,0 +1,173 @@
+{
+  "module": "SourceIntrinsicH0Interface",
+  "method": "Actual environment constants filtered by exact module index; includes private/generated/data/public/foreign",
+  "receipt": {
+    "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/inventory-001/receipt.json",
+    "bytes": 2057,
+    "sha256": "52c9d48c2902679ae8b581ad1e6e474f609ac0762626ac2bc3e3d831a3eb742c"
+  },
+  "full_log": {
+    "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/inventory-001/output.log",
+    "bytes": 3027,
+    "sha256": "0fcba3ed20b156c924cc88126df1b12474d317f1a450d3dddc1adbe7126db4ed"
+  },
+  "declarations": [
+    {
+      "name": "I4SourceIntrinsicH0Interface.h0Interface._proof_3",
+      "kind": "theorem",
+      "classification": "generated proof/equation auxiliary",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceIntrinsicH0Interface.sourceGapLaw_intrinsic_h0_finiteBar_uniform",
+      "kind": "theorem",
+      "classification": "authored public proposition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceIntrinsicH0Interface.h0Interface_morse_compatibility",
+      "kind": "theorem",
+      "classification": "authored public proposition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceIntrinsicH0Interface.0.I4SourceIntrinsicH0Interface.h0Death.eq_1",
+      "kind": "theorem",
+      "classification": "generated proof/equation auxiliary",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceIntrinsicH0Interface.0.I4SourceIntrinsicH0Interface.h0Cut",
+      "kind": "definition",
+      "classification": "authored private helper",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceIntrinsicH0Interface.h0Interface._proof_2",
+      "kind": "theorem",
+      "classification": "generated proof/equation auxiliary",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceIntrinsicH0Interface.0.I4SourceIntrinsicH0Interface.thresholdPair_iff",
+      "kind": "theorem",
+      "classification": "authored private helper",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceIntrinsicH0Interface.0.I4SourceIntrinsicH0Interface.given_death_eq",
+      "kind": "theorem",
+      "classification": "authored private helper",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceIntrinsicH0Interface.h0ThresholdPair",
+      "kind": "definition",
+      "classification": "authored public definition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceIntrinsicH0Interface.h0Interface._proof_1",
+      "kind": "theorem",
+      "classification": "generated proof/equation auxiliary",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceIntrinsicH0Interface.h0Interface_cut_death_eq_C263",
+      "kind": "theorem",
+      "classification": "authored public proposition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceIntrinsicH0Interface.h0Interface",
+      "kind": "definition",
+      "classification": "authored public definition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceIntrinsicH0Interface.0.I4SourceIntrinsicH0Interface.h0Death",
+      "kind": "definition",
+      "classification": "authored private helper",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceIntrinsicH0Interface.0.I4SourceIntrinsicH0Interface.cut_eq_C263",
+      "kind": "theorem",
+      "classification": "authored private helper",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceIntrinsicH0Interface.0.I4SourceIntrinsicH0Interface.death_eq_C263",
+      "kind": "theorem",
+      "classification": "authored private helper",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "total": 15,
+  "authored_public_definitions": 2,
+  "authored_public_propositions": 3,
+  "authored_private_helpers": 6,
+  "generated_auxiliaries": 4,
+  "foreign_namespace_declarations": 0,
+  "forbidden_axioms": []
+}

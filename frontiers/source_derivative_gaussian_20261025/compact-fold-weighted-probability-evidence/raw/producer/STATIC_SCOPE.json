@@ -1,0 +1,33 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactFoldWeightedProbability.lean",
+    "bytes": 8882,
+    "sha256": "97e6c694b62d90f6b723b0e510691e019f763ff26ebba743664d596dc72223b9"
+  },
+  "imports": [
+    "SourceFoldWeightedProbability",
+    "SourceCompactGapNormalizer"
+  ],
+  "forbidden_token_matches": {
+    "\\bsorry\\b": false,
+    "^\\s*axiom\\b": false,
+    "\\bnative_decide\\b": false,
+    "\\bimplemented_by\\b": false,
+    "^import Mathlib\\s*$": false
+  },
+  "closed_endpoints": [
+    "sourceCompactFoldWeightedProbability_bound",
+    "sourceCompactFoldWeightedProbability_h0"
+  ],
+  "final_premises": [
+    "L!=0",
+    "B>=0",
+    "0<k0",
+    "k0<=k1"
+  ],
+  "literal_same_actual_carrier_measure_weight_and_event": true,
+  "constants": "C=N/c; probability delta=min(deltaN,deltac); H0 delta additionally min(deltaH), all before r,b,k,K.",
+  "full_obstruction_constants": "lambda=8*max1(1/(6*k0)); eps=1/(100*lambda^5); A=6*k1*1024*lambda^5",
+  "no_final_model_certificate_premises": true,
+  "scope": "Compact fixed-axis normalized cutoff/H0 success probability. No canonical partner/selector, conditional genericity, frame/translation uniformity, actual Campbell/count-density or ParentA/B closure."
+}

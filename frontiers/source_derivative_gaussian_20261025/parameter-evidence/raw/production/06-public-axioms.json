@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/scratch/smooth-parameter-production/AxiomAudit.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit_code": 0,
+  "source": "/workspace/scratch/smooth-parameter-production/AxiomAudit.lean",
+  "source_sha256_before": "2598597037aa2a1d70a473cf2e971e3f6dc9259897de129c82e1a3ab9c96a74d",
+  "source_sha256_after": "2598597037aa2a1d70a473cf2e971e3f6dc9259897de129c82e1a3ab9c96a74d",
+  "production_source_sha256_before": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+  "production_source_sha256_after": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+  "olean_sha256_before": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+  "olean_sha256_after": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+  "log_sha256": "73ce86a847d8711d40529aa406ff91a49945d5814a62b3f8b26024a3a6d3afca",
+  "elapsed_seconds": 6.460231304168701,
+  "scope": "ONLY new SourceSmoothParameterSpace module; completed dependencies reused without rechecks"
+}

@@ -1,0 +1,64 @@
+AdaptiveFoldTransverseRidge.lean:36:12: error: Application type mismatch: The argument
+  DifferentiableAt.hasFDerivAt hG
+has type
+  HasFDerivAt G (fderiv ℝ G (x, y)) (x, y)
+but is expected to have type
+  HasFDerivAt ?m.69 ?m.70 (?m.46 ?m.68)
+in the application
+  HasFDerivAt.comp_hasDerivAt ?m.68 (DifferentiableAt.hasFDerivAt hG)
+AdaptiveFoldTransverseRidge.lean:54:71: error: Application type mismatch: The argument
+  hx
+has type
+  x ∈ interior S
+but is expected to have type
+  (0 < G (x, -R) ∧ G (x, R) < 0) ∈ interior (And (∀ y ∈ Icc (-R) R, (x, y) ∈ O ∧ partialY G (x, y) < -c / 2))
+in the application
+  interior_subset hx
+AdaptiveFoldTransverseRidge.lean:71:4: error: Type mismatch
+  ContinuousAt.comp (ContDiffAt.continuousAt (ContDiffOn.contDiffAt hG (IsOpen.mem_nhds hO hlowO))) ?m.503
+has type
+  ContinuousAt (G ∘ Prod.mk x) (-R)
+but is expected to have type
+  ContinuousAt (fun t => G (t, -R)) x
+AdaptiveFoldTransverseRidge.lean:72:6: error: Application type mismatch: The argument
+  ContinuousAt.prodMk continuousAt_id continuousAt_const
+has type
+  ContinuousAt (fun x => (id x, ?m.502)) ?m.501
+but is expected to have type
+  ContinuousAt (Prod.mk x) (-R)
+in the application
+  ContinuousAt.comp (ContDiffAt.continuousAt (ContDiffOn.contDiffAt hG (IsOpen.mem_nhds hO hlowO)))
+    (ContinuousAt.prodMk continuousAt_id continuousAt_const)
+AdaptiveFoldTransverseRidge.lean:126:8: error: `ext` did not consume the patterns `t`
+
+Note: This linter can be disabled with `set_option linter.unusedRCasesPattern false`
+AdaptiveFoldTransverseRidge.lean:128:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  A ?t
+in the target expression
+  (fderiv ℝ G p) ((ContinuousLinearMap.inr ℝ ℝ ℝ) (B 1)) = 1
+
+case hf
+G : ℝ × ℝ → ℝ
+p : ℝ × ℝ
+hq : partialY G p ≠ 0
+A : ℝ →L[ℝ] ℝ := fderiv ℝ G p ∘SL ContinuousLinearMap.inr ℝ ℝ ℝ
+B : ℝ →L[ℝ] ℝ := (partialY G p)⁻¹ • ContinuousLinearMap.id ℝ ℝ
+hA : ∀ (t : ℝ), A t = t * partialY G p
+⊢ (fderiv ℝ G p) ((ContinuousLinearMap.inr ℝ ℝ ℝ) (B 1)) = 1
+AdaptiveFoldTransverseRidge.lean:130:8: error: `ext` did not consume the patterns `t`
+
+Note: This linter can be disabled with `set_option linter.unusedRCasesPattern false`
+AdaptiveFoldTransverseRidge.lean:132:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  A ?t
+in the target expression
+  B ((fderiv ℝ G p) ((ContinuousLinearMap.inr ℝ ℝ ℝ) 1)) = 1
+
+case hg
+G : ℝ × ℝ → ℝ
+p : ℝ × ℝ
+hq : partialY G p ≠ 0
+A : ℝ →L[ℝ] ℝ := fderiv ℝ G p ∘SL ContinuousLinearMap.inr ℝ ℝ ℝ
+B : ℝ →L[ℝ] ℝ := (partialY G p)⁻¹ • ContinuousLinearMap.id ℝ ℝ
+hA : ∀ (t : ℝ), A t = t * partialY G p
+⊢ B ((fderiv ℝ G p) ((ContinuousLinearMap.inr ℝ ℝ ℝ) 1)) = 1
+AdaptiveFoldTransverseRidge.lean:182:19: error: `dif_pos` has been deprecated: Use `dite_eq_left` instead

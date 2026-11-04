@@ -1,0 +1,21 @@
+SourceGapConditionalMorseDistinct.lean:1611:26: error: This simp argument is unused:
+  not_imp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [not_forall, not_lt] at hz
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:1669:26: error: This simp argument is unused:
+  not_imp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [not_forall] at hz
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:1699:26: error: This simp argument is unused:
+  not_imp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [not_forall] at hz
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

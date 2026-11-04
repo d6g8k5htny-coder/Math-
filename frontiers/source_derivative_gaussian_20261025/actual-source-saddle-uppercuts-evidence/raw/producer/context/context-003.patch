@@ -1,0 +1,29 @@
+--- CONTEXT.002.md
++++ CONTEXT.003.md
+@@ -193,7 +193,8 @@
+ private def fixtureCenter (x y : ℝ) : I4Torus.SourceTorus 2 2 :=
+   I4Torus.torusProjection 2 2 ![x,y]
+ private def fixtureOpen (x y : ℝ) : Set (I4Torus.SourceTorus 2 2) :=
+-  I4Torus.torusProjection 2 2 '' Metric.ball (![x,y] : Fin 2 → ℝ) (1/8)
++  I4Torus.torusProjection 2 2 '' (I4LifetimeField.coordinates 2 ''
++    Metric.ball (fixturePoint x y) (1/8))
+ private def fixtureField : I4Torus.SourceTorus 2 2 → ℝ :=
+   SourceActualFoldTorus.actualTorusField (by norm_num : (2 : ℝ) ≠ 0) fixtureSample
+ 
+@@ -231,7 +232,7 @@
+       CutoffEquality fixtureField (fixtureCenter (-1) 0) rho phi
+ ```
+ 
+-Full actual HessianHasInertia includes complementary finite dimensions and strict negative/positive subspaces; derive all fields freshly through public finite-source/actual-derivative APIs. No assumed saddle certificate, no hm and no old private fixture text. Same source, literal period2 and cosine1/2 field for production/ordinary. Small O is actual projected ball1/8. Equality examples eps*=rho²/16 use inverse ±rho/4 and prove EXACT field equality and CLOSED-cut membership, not merely strict-above examples.
++Full actual HessianHasInertia includes complementary finite dimensions and strict negative/positive subspaces; derive all fields freshly through public finite-source/actual-derivative APIs. No assumed saddle certificate, no hm and no old private fixture text. Same source, literal period2 and cosine1/2 field for production/ordinary. Small O is the actual projected PHYSICAL E2 ball1/8, transported by coordinates as a homeomorphism without an isometry claim. Equality examples eps*=rho²/16 use inverse ±rho/4 and prove EXACT field equality and CLOSED-cut membership, not merely strict-above examples.
+ 
+ ## Complete ordinary witness/zero-path/mutation contract
+ 
+@@ -298,3 +299,7 @@
+ The ordinary `nonnegativeUpperMutation` Prop definition is PUBLIC within ActualSaddleUppercutsControls. Thus the sole importing-only False harness can name the precise false premise using public APIs. All production names/privacy/output and the sole mutation remain unchanged. Ordinary `nonnegativeUpperMutation_false` is public as already stated. B geometry has no dependent change; personal FULL001 reading plus entire002delta ACK before proof text.
+ 
+ Qualified PUBLIC64 lineage is REUSED, never rechecked/rehashed/copied: published normal head ee5b141d5ff41a0a9040256a8025690ec22d7266; source-only cut57f73698fb84efd56166fda57639557794312754, parentf4825c3e3bd0e2d2c46157096e76b9ab17dbbb71; source40252B SHAe0e0a0f77bd75bbbd8994d620ee43b18b2edd50d7649cd8cb9837e7148762265, Gitblob39bce1145fcd714b049bfd4ec941390a0b286f10; ownobject1654224B SHAa57489eb917c4f2fd4d314ab5f7ae9dea60619caf9160e044700114551c1e15e. Root canonical eligible64 copy occurred ONCE20:25:01.660046; all further copies SKIP. Existing authoritative /workspace/scratch/actual-source-quotient-saddle-collar-publication/ROOT_SOURCE_CUT.json and ROOT_OWN_OBJECT_COPY.json bind these known identities. All prior64 mathematical and metadata checks/full nonauthor review and all4CI SUCCESS already completed; no new65 session/process reason changes that evidence.
++
++## Amendment003: literal physical small neighborhood
++
++The fixtureOpen definition now retains ROOT_GO's exact projected PHYSICAL E2 ball of radius1/8, first mapped by the actual coordinates map and then the torus projection. The earlier Pi-ball shape is historical001/002 only. This corrects the concrete reviewer GO/context alignment finding. No isometry, norm equality, public/math/geometry interface, control mutation or helper scope changes. Full earlier context reading plus entire003delta is the effective preTEXT context.

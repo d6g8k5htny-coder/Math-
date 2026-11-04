@@ -1,0 +1,112 @@
+SourceActualMorseLocalModel.lean:163:33: error: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.one_apply, hik]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceActualMorseLocalModel.lean:208:70: error: unsolved goals
+j : ℕ
+i k : Fin 2
+⊢ (√4)⁻¹ * ((if i = k then 1 else 0) + if i = k then 1 else 0) = if i = k then 1 else 0
+SourceActualMorseLocalModel.lean:246:58: error: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.mul_apply, Fin.sum_univ_two, Matrix.add_apply, Matrix.smul_apply, smul_eq_mul,
+    Matrix.det_fin_two, Matrix.trace_fin_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceActualMorseLocalModel.lean:357:25: error: This simp argument is unused:
+  LinearMap.zero_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_zero] at heq
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceActualMorseLocalModel.lean:379:4: error: unsolved goals
+case inl.inl
+w : Fin 2 → ℝ
+hw : ∀ (i : Fin 2), w i = -1 ∨ w i = 1
+h0 : w 0 = -1
+h1 : w 1 = -1
+hs : {i | w i < 0} = univ
+hj2 : {i | w i < 0}.ncard = 2
+u : Point2
+⊢ -u 0 ^ 2 + -u 1 ^ 2 =
+    (if 0 < {i | w i < 0}.ncard then -u 0 ^ 2 else u 0 ^ 2) + if 1 < {i | w i < 0}.ncard then -u 1 ^ 2 else u 1 ^ 2
+SourceActualMorseLocalModel.lean:387:4: error: unsolved goals
+case inl.inr
+w : Fin 2 → ℝ
+hw : ∀ (i : Fin 2), w i = -1 ∨ w i = 1
+h0 : w 0 = -1
+h1 : w 1 = 1
+hs : {i | w i < 0} = {0}
+hj1 : {i | w i < 0}.ncard = 1
+u : Point2
+⊢ -u 0 ^ 2 + u 1 ^ 2 =
+    (if 0 < {i | w i < 0}.ncard then -u 0 ^ 2 else u 0 ^ 2) + if 1 < {i | w i < 0}.ncard then -u 1 ^ 2 else u 1 ^ 2
+SourceActualMorseLocalModel.lean:396:4: error: unsolved goals
+case inr.inl
+w : Fin 2 → ℝ
+hw : ∀ (i : Fin 2), w i = -1 ∨ w i = 1
+h0 : w 0 = 1
+h1 : w 1 = -1
+hs : {i | w i < 0} = {1}
+hj1 : {i | w i < 0}.ncard = 1
+u : Point2
+⊢ -u 0 ^ 2 + u 1 ^ 2 =
+    (if 0 < {i | w i < 0}.ncard then -u 0 ^ 2 else u 0 ^ 2) + if 1 < {i | w i < 0}.ncard then -u 1 ^ 2 else u 1 ^ 2
+SourceActualMorseLocalModel.lean:404:4: error: unsolved goals
+case inr.inr
+w : Fin 2 → ℝ
+hw : ∀ (i : Fin 2), w i = -1 ∨ w i = 1
+h0 : w 0 = 1
+h1 : w 1 = 1
+hs : {i | w i < 0} = ∅
+hj0 : {i | w i < 0}.ncard = 0
+u : Point2
+⊢ u 0 ^ 2 + u 1 ^ 2 =
+    (if 0 < {i | w i < 0}.ncard then -u 0 ^ 2 else u 0 ^ 2) + if 1 < {i | w i < 0}.ncard then -u 1 ^ 2 else u 1 ^ 2
+SourceActualMorseLocalModel.lean:424:34: error(lean.invalidField): Invalid field `toQuadraticMap`: The environment does not contain `LinearMap.toQuadraticMap`, so it is not possible to project the field `toQuadraticMap` from an expression
+  C
+of type `E2 →ₗ[ℝ] E2 →ₗ[ℝ] ℝ`
+SourceActualMorseLocalModel.lean:457:4: error: Type mismatch
+  QuadraticMap.associated_left_inverse ℝ hCs
+has type
+  (QuadraticMap.associatedHom ℝ) (LinearMap.BilinMap.toQuadraticMap C) = C
+but is expected to have type
+  QuadraticMap.associated Q = C
+SourceActualMorseLocalModel.lean:467:4: error: 'change' tactic failed, pattern
+  0 < -(C ↑v) ↑v
+is not definitionally equal to target
+  0 < (QuadraticMap.restrict (-Q) V) v
+SourceActualMorseLocalModel.lean:471:4: error: 'change' tactic failed, pattern
+  0 < (C ↑v) ↑v
+is not definitionally equal to target
+  0 < (QuadraticMap.restrict Q W) v
+SourceActualMorseLocalModel.lean:474:50: error: Application type mismatch: The argument
+  hVdef
+has type
+  (QuadraticMap.restrict (-Q) V).PosDef
+of sort `Prop` but is expected to have type
+  QuadraticForm ?m.641 ?m.642
+of sort `Type (max ?u.319 ?u.318)` in the application
+  @le_sigNeg_of_negDef ?m.641 ?m.642 ?m.643 ?m.644 ?m.645 ?m.646 hVdef
+SourceActualMorseLocalModel.lean:479:6: error: 'change' tactic failed, pattern
+  -(C v) v ≤ 0
+is not definitionally equal to target
+  (-Q) v ≤ 0
+SourceActualMorseLocalModel.lean:493:4: error: Type mismatch: After simplification, term
+  QuadraticForm.equivalent_one_neg_one_weighted_sum_squared Q hsepQ
+ has type
+  ∃ (w : Fin (Module.finrank ℝ E2) → ℝ),
+    (∀ (i : Fin (Module.finrank ℝ E2)), w i = -1 ∨ w i = 1) ∧
+      QuadraticMap.Equivalent Q (QuadraticMap.weightedSumSquares ℝ w)
+but is expected to have type
+  ∃ (w : Fin 2 → ℝ),
+    (∀ (i : Fin 2), w i = -1 ∨ w i = 1) ∧ QuadraticMap.Equivalent Q (QuadraticMap.weightedSumSquares ℝ w)
+SourceActualMorseLocalModel.lean:512:4: error: 'change' tactic failed, pattern
+  (B (P u)) (P v) = 1 / 2 * (B (P (u + v))) (P (u + v)) - 1 / 2 * (B (P u)) (P u) - 1 / 2 * (B (P v)) (P v)
+is not definitionally equal to target
+  (B (P u)) (P v) = Q (P (u + v)) - Q (P u) - Q (P v)

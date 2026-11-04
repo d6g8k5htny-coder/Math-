@@ -1,0 +1,37 @@
+{
+  "frozen_utc": "2026-10-26T19:23:02.618903+00:00",
+  "status": "PRODUCER_SOURCE_AND_NEW_QUALIFICATION_COMPLETE_READY_FOR_ROOT_READONLY_REVIEW_AND_PUBLICATION_PROCESS",
+  "report": {
+    "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/REPORT.md",
+    "bytes": 9122,
+    "sha256": "01a6aedce863076347f12666ec6b5fce6353cb720635bd4750d316ba036d320c"
+  },
+  "handoff": {
+    "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/HANDOFF.json",
+    "bytes": 5600,
+    "sha256": "93a1b48cbe9b1c3dea0a7140c1d745936f60cd0effc8cc02cc6c30a79714d81e"
+  },
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean",
+    "bytes": 21774,
+    "sha256": "4677ada085e7c53b4e9b4fd2160bcffc326e6a73b20cbb6cb7540ee3aece2a91"
+  },
+  "eligible_own_object": {
+    "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/build/SourceTwoRemoteFirstJetGaussian.olean",
+    "bytes": 753408,
+    "sha256": "2eb9c10def60add68448a5465947491679e7961332e57eab242aa7331751c7f1"
+  },
+  "all_actual_Lean_invocations": 13,
+  "strict_success_reused": "develop-006",
+  "controls": "controls-004",
+  "inventory": "inventory-001",
+  "exactly_one_own_kernel": "kernel-001",
+  "sole_mutation": "cross-block-001, one intendedFalse backed by passed actualcounterexample",
+  "root_sourcecut_status": "Root-only, not supplied at producer finalfreeze; separate process binding may follow. Do not rewrite frozen producer history or replay math for cut/Git/session.",
+  "helper_integration_count_each": 1,
+  "helper_execution_count": 0,
+  "old_verification_replays": 0,
+  "scientific_effect": "NONE",
+  "same_family_credit": 0,
+  "production_cache_copy_count_by_producer": 0
+}

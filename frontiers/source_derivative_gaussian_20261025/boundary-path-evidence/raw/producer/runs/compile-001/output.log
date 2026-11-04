@@ -1,0 +1,12 @@
+AdaptiveFoldBoundaryPath.lean:65:5: error: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AdaptiveFoldBoundaryPath.lean:156:4: error: Type mismatch
+  (hb x hx).right.left
+has type
+  |deriv z x| ≤ M₁ / c
+but is expected to have type
+  0 ≤ M₂ / c

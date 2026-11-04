@@ -1,0 +1,52 @@
+Read-only coordinate-height API lookup
+
+Requested control: g : UniversalLaw.Spec.Lifetime.E 1 -> R, g(x)=x(0:Fin1), continuity and fderiv at0 nonzero. No in-flight H0 source or parallel53 source was inspected.
+
+Exact existing carrier
+
+inputs/Lifetime.lean:69 is namespace UniversalLaw.Spec.Lifetime. At line83:
+  abbrev E (d : Nat) : Type := EuclideanSpace R (Fin d)
+At204:
+  def IsCriticalPoint (d) (g : E d -> R) (x : E d) : Prop := fderiv R g x = 0
+At230:
+  def IsNondegMax ... : Prop := IsCriticalPoint d g x /\ HessianHasInertia d g x d
+Thus the first conjunct of IsNondegMax is enough for the desired contradiction.
+
+Use the public bundled coordinate projection
+
+Mathlib/Analysis/InnerProductSpace/PiL2.lean:288 provides:
+  abbrev EuclideanSpace.proj (i : iota) : StrongDual k (EuclideanSpace k iota) := PiLp.proj _ _ i
+For this control, take the continuous linear map
+  p : Lifetime.E 1 ->L[R] R := EuclideanSpace.proj (k := R) (0 : Fin 1)
+Here the source spelling of the scalar named argument is the usual mathlib symbol `𝕜`, so use `(𝕜 := ℝ)` in Lean. `StrongDual` is the scalar-valued continuous linear map type.
+
+PiL2.lean:291, public simp lemma:
+  EuclideanSpace.coe_proj (k) : (EuclideanSpace.proj i : _ -> k) = (fun x => x i)
+The source proof is rfl. Hence p's underlying function is exactly g, with no Euclidean/Pi norm identification argument. Continuity is the existing bundled property p.continuous.
+
+Exact derivative names and signatures
+
+Mathlib/Analysis/Calculus/FDeriv/Linear.lean:57, namespace ContinuousLinearMap:
+  protected theorem hasFDerivAt : HasFDerivAt f f x
+At79, public simp theorem:
+  protected theorem fderiv : fderiv k f x = f
+For p this gives p.hasFDerivAt and p.fderiv at x=0; the latter identifies fderiv R g0 with p. The point x is implicit, so it may be fixed by the goal or `(x := (0 : Lifetime.E 1))`.
+
+Projection nonzero: evaluate on a public single vector
+
+PiL2.lean:300:
+  abbrev EuclideanSpace.single (i : iota) (a : k) : EuclideanSpace k iota := PiLp.single 2 i a
+Use v=EuclideanSpace.single (0:Fin1) (1:R). Then p(v)=v0=1. If p=0, applying both sides at v gives1=0, a contradiction. This avoids any special projection-nonzero theorem.
+
+Preferred nondeprecated simplification lemma is Mathlib/Analysis/Normed/Lp/PiLp.lean:176:
+  @[simp] lemma PiLp.single_apply (i) (a) (j) :
+    (single p i a : PiLp p (fun _ => k)) j = if j=i then a else0
+`EuclideanSpace.single_apply` is deprecated in this pin; use PiLp.single_apply or the definitional projection/single reductions. PiLp.proj itself is the public CLM at PiLp.lean:1168, with coordinate application by construction.
+
+Producer-owned proof route
+
+Treat g as p using EuclideanSpace.coe_proj (or the definitional equality); obtain continuity from p.continuous and rewrite the derivative by ContinuousLinearMap.fderiv. Refute derivative=0 by evaluating that CLM equation at v and reducing with PiLp.single_apply. Unfold Lifetime.IsCriticalPoint for the first conclusion, then use the first conjunct of Lifetime.IsNondegMax for the second. This is a source-level API route, not a supplied integrated code fragment.
+
+Scope and evidence
+
+Only the old public Lifetime carrier/predicate definitions and the named public Mathlib source declarations above were read. The producer said its existing narrow closure imports SourceH0OlderClearance and SourceActualFoldCandidate; no import or execution probe was run here. No code edit, compilation, checker, hash, object, Git, cache or external action occurred. No new mathematical qualification or helper code integration is claimed. Completed applicable verification remains reusable under /workspace/AGENTS.md; a new helper or handoff does not justify replay. Scientific effect NONE; provider-distinct credit0.

@@ -1,0 +1,154 @@
+/- Complete PRIVATE height/hitting section62C. Insert once inside the
+frozen I4SourceActualTorusRegularSlab context. Common definitions belong
+to the producer. No imports/namespace/end or helper executions. -/
+
+private theorem height_scalar_increment_bounds
+    (f v : ℝ → ℝ) (t lower upper : ℝ) (ht : 0 ≤ t)
+    (hd : ∀ u ∈ Icc (0:ℝ) t, HasDerivAt f (v u) u)
+    (hv : ∀ u ∈ Icc (0:ℝ) t, lower ≤ v u ∧ v u ≤ upper) :
+    lower*t ≤ f t-f 0 ∧ f t-f 0 ≤ upper*t := by
+  have hcont : ContinuousOn f (Icc (0:ℝ) t) := by
+    intro u hu
+    exact (hd u hu).continuousAt.continuousWithinAt
+  have hdiff : DifferentiableOn ℝ f (interior (Icc (0:ℝ) t)) := by
+    intro u hu
+    exact (hd u (interior_subset hu)).differentiableAt.differentiableWithinAt
+  have hlo := (convex_Icc : Convex ℝ (Icc (0:ℝ) t)).mul_sub_le_image_sub_of_le_deriv
+    hcont hdiff (C:=lower) (fun u hu => by
+      rw [(hd u (interior_subset hu)).deriv]
+      exact (hv u (interior_subset hu)).1)
+    0 ⟨le_rfl,ht⟩ t ⟨ht,le_rfl⟩ ht
+  have hhi := (convex_Icc : Convex ℝ (Icc (0:ℝ) t)).image_sub_le_mul_sub_of_deriv_le
+    hcont hdiff (C:=upper) (fun u hu => by
+      rw [(hd u (interior_subset hu)).deriv]
+      exact (hv u (interior_subset hu)).2)
+    0 ⟨le_rfl,ht⟩ t ⟨ht,le_rfl⟩ ht
+  exact ⟨by simpa only [sub_zero] using hlo,by simpa only [sub_zero] using hhi⟩
+
+private theorem heightHittingData {L : ℝ} (hL : 0 < L)
+    (omega : SmoothSample 2 L) (a b : ℝ) (hab : a ≤ b)
+    (c A : ℝ) (Kp M K : ℝ≥0) (H : ℝ → E2 → E2)
+    (hfield : NormalizedFieldFacts omega a b c A Kp M K)
+    (hfamily : FiniteHorizonFacts L
+      (normalizedVelocity (actualField 2 L omega) c) (b-a) H) :
+    ∃ Rcover : CoverSuperlevel omega a → CoverSuperlevel omega b,
+      HeightHittingFacts omega a b hab H Rcover := by
+  let g : E2 → ℝ := actualField 2 L omega
+  let V : E2 → E2 := normalizedVelocity g c
+  dsimp only [NormalizedFieldFacts] at hfield
+  rcases hfield with ⟨_hc,_hA,_hpbound,_hplip,_hpper,_hfloor,
+    _hVbound,_hVlip,_hVper,_hspeedFormula,hspeed,hbandSpeed⟩
+  rcases hfamily with ⟨hzero,hjoint,hODE,htranslate⟩
+  have hg : Differentiable ℝ g :=
+    (actualField_smooth 2 hL omega 1).differentiable (by norm_num)
+  have hgcont : Continuous g := hg.continuous
+  have hheight : ∀ (X : E2) (t : ℝ), t ∈ Icc (0:ℝ) (b-a) →
+      HasDerivAt (fun u => g (H u X)) (fderiv ℝ g (H t X) (V (H t X))) t := by
+    intro X t ht
+    simpa only [Function.comp_def] using
+      (hg (H t X)).hasFDerivAt.comp_hasDerivAt t (hODE X t ht)
+
+  /- Unconditional GLOBAL barriers are proved first. No band residence or
+  no-exit hypothesis enters this comparison. Full derivatives include0/T. -/
+  have hbarriers : ∀ (X : E2) (t : ℝ), t ∈ Icc (0:ℝ) (b-a) →
+      g X ≤ g (H t X) ∧ g (H t X) ≤ g X+t := by
+    intro X t ht
+    have hsub : Icc (0:ℝ) t ⊆ Icc (0:ℝ) (b-a) :=
+      fun u hu => ⟨hu.1,hu.2.trans ht.2⟩
+    obtain ⟨hlo,hhi⟩ := height_scalar_increment_bounds
+      (fun u => g (H u X))
+      (fun u => fderiv ℝ g (H u X) (V (H u X))) t 0 1 ht.1
+      (fun u hu => hheight X u (hsub hu))
+      (fun u _hu => hspeed (H u X))
+    rw [hzero X] at hlo hhi
+    constructor <;> linarith
+
+  /- The preceding barriers place EVERY intermediate time in the CLOSED
+  band before its unit speed is used. This is the noncircular arrival join. -/
+  have hunit : ∀ X : E2, a ≤ g X → g X ≤ b → ∀ t : ℝ,
+      0 ≤ t → t ≤ b-g X → g (H t X)=g X+t := by
+    intro X hXa hXb t ht htend
+    have htT : t ≤ b-a := by linarith
+    have hresidence : ∀ u ∈ Icc (0:ℝ) t, a ≤ g (H u X) ∧ g (H u X) ≤ b := by
+      intro u hu
+      obtain ⟨hlo,hhi⟩ := hbarriers X u ⟨hu.1,hu.2.trans htT⟩
+      exact ⟨hXa.trans hlo,by linarith [hu.2]⟩
+    obtain ⟨hlo,hhi⟩ := height_scalar_increment_bounds
+      (fun u => g (H u X))
+      (fun u => fderiv ℝ g (H u X) (V (H u X))) t 1 1 ht
+      (fun u hu => hheight X u ⟨hu.1,hu.2.trans htT⟩)
+      (fun u hu => by
+        have hstay := hresidence u hu
+        have hs := hbandSpeed (H u X) hstay.1 hstay.2
+        exact ⟨hs.ge,hs.le⟩)
+    rw [hzero X] at hlo hhi
+    linarith
+
+  let tau : CoverSuperlevel omega a → ℝ := fun X => max 0 (b-g X.val)
+  have htau : ∀ X : CoverSuperlevel omega a, tau X ∈ Icc (0:ℝ) (b-a) := by
+    intro X
+    refine ⟨le_max_left _ _,max_le ?_ ?_⟩
+    · exact sub_nonneg.mpr hab
+    · have hXa : a ≤ g X.val := X.property
+      linarith
+  have htau_cont : Continuous tau :=
+    continuous_const.max (continuous_const.sub (hgcont.comp continuous_subtype_val))
+  have heval_cont : Continuous (fun X : CoverSuperlevel omega a => H (tau X) X.val) := by
+    have hh := hjoint.comp_continuous
+      (continuous_subtype_val.prodMk htau_cont)
+      (fun X : CoverSuperlevel omega a => ⟨Set.mem_univ _,htau X⟩)
+    simpa only [Function.comp_def] using hh
+  have hlands : ∀ X : CoverSuperlevel omega a, b ≤ g (H (tau X) X.val) := by
+    intro X
+    by_cases hupper : b ≤ g X.val
+    · have ht0 : tau X=0 := max_eq_left (sub_nonpos.mpr hupper)
+      rw [ht0,hzero]
+      exact hupper
+    · have hXb : g X.val ≤ b := (lt_of_not_ge hupper).le
+      have htaueq : tau X=b-g X.val := max_eq_right (sub_nonneg.mpr hXb)
+      rw [htaueq,hunit X.val X.property hXb (b-g X.val)
+        (sub_nonneg.mpr hXb) le_rfl]
+      linarith
+  let Rcover : CoverSuperlevel omega a → CoverSuperlevel omega b :=
+    fun X => ⟨H (tau X) X.val,hlands X⟩
+  have hRcont : Continuous Rcover := heval_cont.subtype_mk hlands
+  refine ⟨Rcover,?_⟩
+  dsimp only [HeightHittingFacts]
+  refine ⟨hbarriers,hunit,hRcont,?_,?_,?_,?_⟩
+  · intro X
+    rfl
+  · intro X
+    apply Subtype.ext
+    change H (tau ⟨X.val,hab.trans X.property⟩) X.val=X.val
+    have ht0 : tau ⟨X.val,hab.trans X.property⟩=0 :=
+      max_eq_left (sub_nonpos.mpr X.property)
+    rw [ht0,hzero]
+  · intro X
+    have htime : ∀ s ∈ Icc (0:ℝ) 1, s*tau X ∈ Icc (0:ℝ) (b-a) := by
+      intro s hs
+      refine ⟨mul_nonneg hs.1 (htau X).1,?_⟩
+      have hh := mul_le_mul_of_nonneg_right hs.2 (htau X).1
+      have hh' : s*tau X ≤ tau X := by simpa only [one_mul] using hh
+      exact hh'.trans (htau X).2
+    have hcurve : ContinuousOn (fun s : ℝ => H (s*tau X) X.val) (Icc (0:ℝ) 1) := by
+      have hmap : Continuous (fun s : ℝ => (X.val,s*tau X)) :=
+        continuous_const.prodMk (continuous_id.mul continuous_const)
+      have hh := hjoint.comp
+        hmap.continuousOn
+        (fun s hs => ⟨Set.mem_univ _,htime s hs⟩)
+      simpa only [Function.comp_def] using hh
+    apply JoinedIn.ofLine hcurve
+    · simpa only [zero_mul] using hzero X.val
+    · simp only [one_mul]
+      rfl
+    · rintro Y ⟨s,hs,rfl⟩
+      exact X.property.trans (hbarriers X.val (s*tau X) (htime s hs)).1
+  · intro X Y n hYX
+    have hperiod : g (X.val+latticeVec 2 L n)=g X.val :=
+      actualField_periodic 2 hL omega X.val n
+    have htXY : tau Y=tau X := by
+      change max 0 (b-g Y.val)=max 0 (b-g X.val)
+      rw [hYX,hperiod]
+    change H (tau Y) Y.val=H (tau X) X.val+latticeVec 2 L n
+    rw [htXY,hYX]
+    exact htranslate (tau X) (htau X) X.val n

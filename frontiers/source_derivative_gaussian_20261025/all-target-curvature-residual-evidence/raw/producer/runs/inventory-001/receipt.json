@@ -1,0 +1,44 @@
+{
+  "label": "inventory-001",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/all-target-curvature-residual-construct/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/all-target-curvature-residual-construct/build/Inventory.olean /workspace/scratch/all-target-curvature-residual-construct/Inventory.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAllTargetCurvatureResidual.lean",
+      "bytes": 16631,
+      "sha256": "4ae29bc3f2f206cca558df3f78853061cf4892499ac918e40253edd68d44371f"
+    },
+    "object": {
+      "path": "/workspace/scratch/all-target-curvature-residual-construct/build/SourceAllTargetCurvatureResidual.olean",
+      "bytes": 599296,
+      "sha256": "0a193cd6fc68ac0507169dc0a601d8f804dd51fc382d6ea86c2997715d2d245e"
+    }
+  },
+  "started_utc": "2026-10-26T09:49:23.501822+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 0.5421521663665771,
+  "ended_utc": "2026-10-26T09:49:24.043996+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAllTargetCurvatureResidual.lean",
+      "bytes": 16631,
+      "sha256": "4ae29bc3f2f206cca558df3f78853061cf4892499ac918e40253edd68d44371f"
+    },
+    "object": {
+      "path": "/workspace/scratch/all-target-curvature-residual-construct/build/SourceAllTargetCurvatureResidual.olean",
+      "bytes": 599296,
+      "sha256": "0a193cd6fc68ac0507169dc0a601d8f804dd51fc382d6ea86c2997715d2d245e"
+    }
+  },
+  "log": {
+    "path": "/workspace/scratch/all-target-curvature-residual-construct/runs/inventory-001/output.log",
+    "bytes": 207,
+    "sha256": "8a0b85c13903274840aa073bf30d0928dfb536ac5db81277b610751cb04f5967"
+  }
+}

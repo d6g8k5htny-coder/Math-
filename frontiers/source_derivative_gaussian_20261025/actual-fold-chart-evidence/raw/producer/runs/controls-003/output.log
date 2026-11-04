@@ -1,0 +1,5 @@
+/workspace/scratch/actual-fold-chart-construct/Controls.lean:71:4: error: 'change' tactic failed, pattern
+  HasFDerivAt (polynomial a c) ?m.170 p
+is not definitionally equal to target
+  HasFDerivAt (fun x => a * ((fun y => y.1 ^ 3 * (1 / 3)) - fun y => y.1 * (1 / 4)) x + c)
+    (a • ((1 / 3) • (3 • p.1 ^ (3 - 1)) • ContinuousLinearMap.fst ℝ ℝ ℝ - (1 / 4) • ContinuousLinearMap.fst ℝ ℝ ℝ)) p

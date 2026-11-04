@@ -1,0 +1,27 @@
+{
+  "label": "api-002",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "/workspace/scratch/actual-fold-estimates-construct/Check.lean"
+  ],
+  "before": {
+    "source": null,
+    "object": null
+  },
+  "started_utc": "2026-10-26T05:40:51.538318+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 5.138195276260376,
+  "ended_utc": "2026-10-26T05:40:56.676534+00:00",
+  "after": {
+    "source": null,
+    "object": null
+  },
+  "log": {
+    "path": "/workspace/scratch/actual-fold-estimates-construct/runs/api-002/output.log",
+    "bytes": 5756,
+    "sha256": "e0d7cd160fa4d4593e871dbf996cb47ea290dc931017aef0cda5c1ab5f745622"
+  }
+}

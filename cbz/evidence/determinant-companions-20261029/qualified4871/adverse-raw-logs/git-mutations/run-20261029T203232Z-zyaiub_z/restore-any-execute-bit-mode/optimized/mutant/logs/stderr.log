@@ -1,0 +1,60 @@
+test_non_owner_execute_bits_do_not_preserve_executable_component_source (test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source) ... 
+  test_non_owner_execute_bits_do_not_preserve_executable_component_source (test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source) (path='frontiers/determinant_moment_20261025/gate.py', filemode='true', mode='0o645') ... FAIL
+  test_non_owner_execute_bits_do_not_preserve_executable_component_source (test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source) (path='frontiers/determinant_moment_20261025/gate.py', filemode='true', mode='0o654') ... FAIL
+  test_non_owner_execute_bits_do_not_preserve_executable_component_source (test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source) (path='frontiers/determinant_moment_20261025/gate.py', filemode='true', mode='0o655') ... FAIL
+  test_non_owner_execute_bits_do_not_preserve_executable_component_source (test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source) (path='frontiers/determinant_moment_20261025/gate.py', filemode='false', mode='0o645') ... FAIL
+  test_non_owner_execute_bits_do_not_preserve_executable_component_source (test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source) (path='frontiers/determinant_moment_20261025/gate.py', filemode='false', mode='0o654') ... FAIL
+  test_non_owner_execute_bits_do_not_preserve_executable_component_source (test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source) (path='frontiers/determinant_moment_20261025/gate.py', filemode='false', mode='0o655') ... FAIL
+
+======================================================================
+FAIL: test_non_owner_execute_bits_do_not_preserve_executable_component_source (test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source) (path='frontiers/determinant_moment_20261025/gate.py', filemode='true', mode='0o645')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/restore-any-execute-bit-mode/optimized/mutant/source/tests/test_determinant_git_identity.py", line 183, in assert_owner_execute_loss_refuses
+    with self.assertRaisesRegex(ValueError,'source mode differs from HEAD'):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_non_owner_execute_bits_do_not_preserve_executable_component_source (test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source) (path='frontiers/determinant_moment_20261025/gate.py', filemode='true', mode='0o654')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/restore-any-execute-bit-mode/optimized/mutant/source/tests/test_determinant_git_identity.py", line 183, in assert_owner_execute_loss_refuses
+    with self.assertRaisesRegex(ValueError,'source mode differs from HEAD'):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_non_owner_execute_bits_do_not_preserve_executable_component_source (test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source) (path='frontiers/determinant_moment_20261025/gate.py', filemode='true', mode='0o655')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/restore-any-execute-bit-mode/optimized/mutant/source/tests/test_determinant_git_identity.py", line 183, in assert_owner_execute_loss_refuses
+    with self.assertRaisesRegex(ValueError,'source mode differs from HEAD'):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_non_owner_execute_bits_do_not_preserve_executable_component_source (test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source) (path='frontiers/determinant_moment_20261025/gate.py', filemode='false', mode='0o645')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/restore-any-execute-bit-mode/optimized/mutant/source/tests/test_determinant_git_identity.py", line 183, in assert_owner_execute_loss_refuses
+    with self.assertRaisesRegex(ValueError,'source mode differs from HEAD'):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_non_owner_execute_bits_do_not_preserve_executable_component_source (test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source) (path='frontiers/determinant_moment_20261025/gate.py', filemode='false', mode='0o654')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/restore-any-execute-bit-mode/optimized/mutant/source/tests/test_determinant_git_identity.py", line 183, in assert_owner_execute_loss_refuses
+    with self.assertRaisesRegex(ValueError,'source mode differs from HEAD'):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_non_owner_execute_bits_do_not_preserve_executable_component_source (test_determinant_git_identity.DeterminantGitIdentityTests.test_non_owner_execute_bits_do_not_preserve_executable_component_source) (path='frontiers/determinant_moment_20261025/gate.py', filemode='false', mode='0o655')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/restore-any-execute-bit-mode/optimized/mutant/source/tests/test_determinant_git_identity.py", line 183, in assert_owner_execute_loss_refuses
+    with self.assertRaisesRegex(ValueError,'source mode differs from HEAD'):
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.138s
+
+FAILED (failures=6)

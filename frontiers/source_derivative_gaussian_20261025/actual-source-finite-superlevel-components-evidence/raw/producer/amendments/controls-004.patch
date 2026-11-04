@@ -1,0 +1,35 @@
+--- runs/controls-003/FiniteSuperlevelComponentsControls.lean
++++ FiniteSuperlevelComponentsControls.lean
+@@ -181,7 +181,7 @@
+   have haxis (i : Fin 2) : physicalAxis i ≠ 0 := by
+     intro hh
+     have he := congrArg (fun Y => coordinates 2 Y i) hh
+-    simpa [axis_coordinates] using he
++    simpa [physicalAxis_value] using he
+   have hN : Module.finrank ℝ N=1 := finrank_span_singleton (haxis 0)
+   have hP : Module.finrank ℝ P=1 := finrank_span_singleton (haxis 1)
+   have hdis : Disjoint N P := by
+@@ -190,7 +190,7 @@
+     obtain ⟨s,hs⟩ := Submodule.mem_span_singleton.mp hv
+     obtain ⟨t,ht⟩ := Submodule.mem_span_singleton.mp hw
+     have he := congrArg (fun Y => coordinates 2 Y 0) (hs.trans ht.symm)
+-    have hs0 : s=0 := by simpa [axis_coordinates] using he
++    have hs0 : s=0 := by simpa [physicalAxis_value] using he
+     simpa [hs0] using hs.symm
+   have hcompl : IsCompl N P := by
+     apply (Submodule.isCompl_iff_disjoint _ _ ?_).mpr hdis
+@@ -200,12 +200,12 @@
+     obtain ⟨s,rfl⟩ := Submodule.mem_span_singleton.mp hv
+     have hs : s ≠ 0 := by intro hh; apply hv0; simp [hh]
+     rw [hdiag]
+-    simpa [axis_coordinates] using mul_neg_of_neg_of_pos ha (sq_pos_of_ne_zero hs)
++    simpa [physicalAxis_value] using mul_neg_of_neg_of_pos ha (sq_pos_of_ne_zero hs)
+   · intro v hv hv0
+     obtain ⟨s,rfl⟩ := Submodule.mem_span_singleton.mp hv
+     have hs : s ≠ 0 := by intro hh; apply hv0; simp [hh]
+     rw [hdiag]
+-    simpa [axis_coordinates] using mul_pos hb (sq_pos_of_ne_zero hs)
++    simpa [physicalAxis_value] using mul_pos hb (sq_pos_of_ne_zero hs)
+ 
+ private theorem nonzero_diagonal_has_inertia
+     (X : UniversalLaw.Spec.Lifetime.E 2) (a b : ℝ) (ha : a ≠ 0) (hb : b ≠ 0)

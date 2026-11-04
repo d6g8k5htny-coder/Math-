@@ -1,0 +1,90 @@
+{
+  "module": "SourceRemoteJetWitness",
+  "actual_module_index_coverage": true,
+  "constant_count": 98,
+  "counts": {
+    "written_private_def": 11,
+    "generated_theorem": 38,
+    "written_private_theorem": 38,
+    "written_public_def": 6,
+    "written_public_theorem": 5
+  },
+  "public_written_propositions": [
+    "I4SourceRemoteJetWitness.actual_finite_remoteJet_witnesses",
+    "I4SourceRemoteJetWitness.localGerm_jet2",
+    "I4SourceRemoteJetWitness.actual_remote_residual_coefficientGram_posDef",
+    "I4SourceRemoteJetWitness.jet2_mul",
+    "I4SourceRemoteJetWitness.jet2_interpolate_mul"
+  ],
+  "public_written_data": [
+    "I4SourceRemoteJetWitness.localGerm",
+    "I4SourceRemoteJetWitness.interpolant",
+    "I4SourceRemoteJetWitness.inverseMulJet2Coefficients",
+    "I4SourceRemoteJetWitness.jet2",
+    "I4SourceRemoteJetWitness.remoteJetCoefficient",
+    "I4SourceRemoteJetWitness.mulJet2"
+  ],
+  "private_written_proofs": [
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.phase_axis",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.axis_sin_jet",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.inverseMulJet2_right",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.eval_combinationPoly",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.eval_factorPoly",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.sourceC_ne_zero",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.directional_contDiff",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.jet2_const",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.product_second",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.eval_axisCosPoly",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.normalized_sin_jet",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.cosine_sourceC_eq_one_iff",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.remote_positive_coordinate",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.jet2_sum",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.normalized_cos_jet",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.remoteJetCoefficient_summable",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.pinFactor_contDiff",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.annihilator_pin_values",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.axis_cos_second",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.eval_witnessPoly",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.axis_cos_first",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.phase_hasFDerivAt",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.eval_germPoly",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.localGerm_contDiff",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.rawPin_pairing",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.interpolant_pin_zero",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.jet2_scale",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.remoteJet_pairing",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.jet2_germ_combination",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.eval_axisSinPoly",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.annihilator_contDiff",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.directional_second",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.axis_cos_jet",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.annihilator_pin_derivatives",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.eval_annihilatorPoly",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.jet2_add",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.axis_sin_second",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.axis_sin_first"
+  ],
+  "private_written_definitions": [
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.rawFunctionPins",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.axisFrequency",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.annihilatorPoly",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.combinationPoly",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.axisSinPoly",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.annihilator",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.germPoly",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.pinFactor",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.factorPoly",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.witnessPoly",
+    "_private.SourceRemoteJetWitness.0.I4SourceRemoteJetWitness.axisCosPoly"
+  ],
+  "foreign_namespace_generated": [
+    "I4SourceConfluentPins.directionY.eq_1"
+  ],
+  "prop_bundles": [],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "note": "Exactlyfivepublicwrittenpropositions count as researchtargets. Sixfixedpublicdatadefs/private/generated/foreignnamespace constants separatelyclassified. Actualmoduleindex covers all98, regardless namespace."
+}

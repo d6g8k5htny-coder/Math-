@@ -1,0 +1,304 @@
+{
+  "label": "draft-amend001",
+  "scope_kind": "documentary",
+  "command_argv": [
+    "python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/amend_drafts001.py"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "start_utc": "2026-10-28T21:27:51.123861+00:00",
+  "end_utc": "2026-10-28T21:27:51.158148+00:00",
+  "elapsed_seconds": 0.03429279799820506,
+  "exit_code": 0,
+  "before": {
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/CONTEXT.md": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/CONTEXT.md",
+      "bytes": 25589,
+      "sha256": "3ef453f2e8ba9a1c5256d33ee093bfbb13dc03d82247d3aa562ea492f4964627",
+      "marker": [
+        25589,
+        1793222562752600522
+      ],
+      "first_observed_utc": "2026-10-28T21:22:42.752910+00:00",
+      "origin": "new actual context004 identity calculated once"
+    },
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/amend_context002.py": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/amend_context002.py",
+      "bytes": 2874,
+      "sha256": "3b7e9491e6ca3a69923ad293fbb70ccad37ee91f57ff39faae64bd17580c8efd",
+      "marker": [
+        2874,
+        1793222422162362812
+      ],
+      "first_observed_utc": "2026-10-28T21:20:22.413148+00:00",
+      "origin": "new actual version identity, calculated once"
+    },
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/amend_context003.py": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/amend_context003.py",
+      "bytes": 2267,
+      "sha256": "847cb1d3bbdf2f81e32f5e207fe35e4d118ef017e4243d85b4b81b3c49b87dcf",
+      "marker": [
+        2267,
+        1793222461061596321
+      ],
+      "first_observed_utc": "2026-10-28T21:21:01.296718+00:00",
+      "origin": "new actual version identity, calculated once"
+    },
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/amend_context004.py": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/amend_context004.py",
+      "bytes": 2597,
+      "sha256": "54b7b58bdf4a25290bc7e1639fddd3a98efb63de14b11fbc7a8be44b9b4f6c81",
+      "marker": [
+        2597,
+        1793222562498359952
+      ],
+      "first_observed_utc": "2026-10-28T21:22:42.721352+00:00",
+      "origin": "new actual version identity, calculated once"
+    },
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/amend_drafts001.py": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/amend_drafts001.py",
+      "bytes": 1859,
+      "sha256": "30de9483c80c1a07dced8ce7d0ce92a4fd047f27fff0b8463af4050221d0349c",
+      "marker": [
+        1859,
+        1793222870900276147
+      ],
+      "first_observed_utc": "2026-10-28T21:27:51.122746+00:00",
+      "origin": "new actual version identity, calculated once"
+    },
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/bootstrap_source.py": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/bootstrap_source.py",
+      "bytes": 696,
+      "sha256": "677b19bf735c95b50bc7e94c491f7524c25ab653ecff1bd0833acbfd71855169",
+      "marker": [
+        696,
+        1793222673616401727
+      ],
+      "first_observed_utc": "2026-10-28T21:24:33.840300+00:00",
+      "origin": "new actual version identity, calculated once"
+    },
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/entry_capture.py": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/entry_capture.py",
+      "bytes": 1018,
+      "sha256": "64b6b1fbfca45c4fddf9d21f06875e8a308a6ac1f4379d706f09ad0361b8d3e6",
+      "marker": [
+        1018,
+        1793222331112261667
+      ],
+      "first_observed_utc": "2026-10-28T21:18:51.711565+00:00",
+      "origin": "new actual version identity, calculated once"
+    },
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/freeze_context.py": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/freeze_context.py",
+      "bytes": 1679,
+      "sha256": "dd70071e55cafa8ca0b7096cb480c8bef9f8328137070893bf48715576dd4cac",
+      "marker": [
+        1679,
+        1793222331488252917
+      ],
+      "first_observed_utc": "2026-10-28T21:18:51.711711+00:00",
+      "origin": "new actual version identity, calculated once"
+    },
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/outer_capture.py": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/outer_capture.py",
+      "bytes": 869,
+      "sha256": "5a4b1625b89dab5ab1ff266db956c6d0cf91a530f89b70f2e71798d6e9a6243a",
+      "marker": [
+        869,
+        1793222330764269778
+      ],
+      "first_observed_utc": "2026-10-28T21:18:51.711811+00:00",
+      "origin": "new actual version identity, calculated once"
+    },
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/record_run.py": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/record_run.py",
+      "bytes": 3161,
+      "sha256": "31a21918a28fade227d008ce5dd133252fa0cd0d119b4ab9873be7c0431e8ab4",
+      "marker": [
+        3161,
+        1793222330404278163
+      ],
+      "first_observed_utc": "2026-10-28T21:18:51.711890+00:00",
+      "origin": "new actual version identity, calculated once"
+    },
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualSaddleUppercuts.lean": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualSaddleUppercuts.lean",
+      "bytes": 4306,
+      "sha256": "3ca49a40fed7e8757d38ac08353ed376e3ae0276e8971c32dde8a7fdd176bd6a",
+      "marker": [
+        4306,
+        1793222673864291134
+      ],
+      "first_observed_utc": "2026-10-28T21:24:33.868042+00:00",
+      "origin": "new actual version identity, calculated once"
+    },
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/build/SourceActualSaddleUppercuts.olean": null,
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/SaddleUppercutsControls.lean": null,
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/build/SaddleUppercutsControls.olean": null
+  },
+  "before_snapshots": {
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/CONTEXT.md": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/draft-amend001/before/0-CONTEXT.md",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/amend_context002.py": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/draft-amend001/before/1-amend_context002.py",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/amend_context003.py": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/draft-amend001/before/2-amend_context003.py",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/amend_context004.py": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/draft-amend001/before/3-amend_context004.py",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/amend_drafts001.py": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/draft-amend001/before/4-amend_drafts001.py",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/bootstrap_source.py": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/draft-amend001/before/5-bootstrap_source.py",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/entry_capture.py": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/draft-amend001/before/6-entry_capture.py",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/freeze_context.py": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/draft-amend001/before/7-freeze_context.py",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/outer_capture.py": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/draft-amend001/before/8-outer_capture.py",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/record_run.py": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/draft-amend001/before/9-record_run.py",
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualSaddleUppercuts.lean": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/draft-amend001/before/10-SourceActualSaddleUppercuts.lean"
+  },
+  "after": {
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/CONTEXT.md": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/CONTEXT.md",
+      "bytes": 25589,
+      "sha256": "3ef453f2e8ba9a1c5256d33ee093bfbb13dc03d82247d3aa562ea492f4964627",
+      "marker": [
+        25589,
+        1793222562752600522
+      ],
+      "first_observed_utc": "2026-10-28T21:22:42.752910+00:00",
+      "origin": "new actual context004 identity calculated once"
+    },
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/amend_context002.py": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/amend_context002.py",
+      "bytes": 2874,
+      "sha256": "3b7e9491e6ca3a69923ad293fbb70ccad37ee91f57ff39faae64bd17580c8efd",
+      "marker": [
+        2874,
+        1793222422162362812
+      ],
+      "first_observed_utc": "2026-10-28T21:20:22.413148+00:00",
+      "origin": "new actual version identity, calculated once"
+    },
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/amend_context003.py": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/amend_context003.py",
+      "bytes": 2267,
+      "sha256": "847cb1d3bbdf2f81e32f5e207fe35e4d118ef017e4243d85b4b81b3c49b87dcf",
+      "marker": [
+        2267,
+        1793222461061596321
+      ],
+      "first_observed_utc": "2026-10-28T21:21:01.296718+00:00",
+      "origin": "new actual version identity, calculated once"
+    },
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/amend_context004.py": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/amend_context004.py",
+      "bytes": 2597,
+      "sha256": "54b7b58bdf4a25290bc7e1639fddd3a98efb63de14b11fbc7a8be44b9b4f6c81",
+      "marker": [
+        2597,
+        1793222562498359952
+      ],
+      "first_observed_utc": "2026-10-28T21:22:42.721352+00:00",
+      "origin": "new actual version identity, calculated once"
+    },
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/amend_drafts001.py": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/amend_drafts001.py",
+      "bytes": 1859,
+      "sha256": "30de9483c80c1a07dced8ce7d0ce92a4fd047f27fff0b8463af4050221d0349c",
+      "marker": [
+        1859,
+        1793222870900276147
+      ],
+      "first_observed_utc": "2026-10-28T21:27:51.122746+00:00",
+      "origin": "new actual version identity, calculated once"
+    },
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/bootstrap_source.py": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/bootstrap_source.py",
+      "bytes": 696,
+      "sha256": "677b19bf735c95b50bc7e94c491f7524c25ab653ecff1bd0833acbfd71855169",
+      "marker": [
+        696,
+        1793222673616401727
+      ],
+      "first_observed_utc": "2026-10-28T21:24:33.840300+00:00",
+      "origin": "new actual version identity, calculated once"
+    },
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/entry_capture.py": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/entry_capture.py",
+      "bytes": 1018,
+      "sha256": "64b6b1fbfca45c4fddf9d21f06875e8a308a6ac1f4379d706f09ad0361b8d3e6",
+      "marker": [
+        1018,
+        1793222331112261667
+      ],
+      "first_observed_utc": "2026-10-28T21:18:51.711565+00:00",
+      "origin": "new actual version identity, calculated once"
+    },
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/freeze_context.py": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/freeze_context.py",
+      "bytes": 1679,
+      "sha256": "dd70071e55cafa8ca0b7096cb480c8bef9f8328137070893bf48715576dd4cac",
+      "marker": [
+        1679,
+        1793222331488252917
+      ],
+      "first_observed_utc": "2026-10-28T21:18:51.711711+00:00",
+      "origin": "new actual version identity, calculated once"
+    },
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/outer_capture.py": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/outer_capture.py",
+      "bytes": 869,
+      "sha256": "5a4b1625b89dab5ab1ff266db956c6d0cf91a530f89b70f2e71798d6e9a6243a",
+      "marker": [
+        869,
+        1793222330764269778
+      ],
+      "first_observed_utc": "2026-10-28T21:18:51.711811+00:00",
+      "origin": "new actual version identity, calculated once"
+    },
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/record_run.py": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/record_run.py",
+      "bytes": 3161,
+      "sha256": "31a21918a28fade227d008ce5dd133252fa0cd0d119b4ab9873be7c0431e8ab4",
+      "marker": [
+        3161,
+        1793222330404278163
+      ],
+      "first_observed_utc": "2026-10-28T21:18:51.711890+00:00",
+      "origin": "new actual version identity, calculated once"
+    },
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualSaddleUppercuts.lean": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualSaddleUppercuts.lean",
+      "bytes": 4306,
+      "sha256": "3ca49a40fed7e8757d38ac08353ed376e3ae0276e8971c32dde8a7fdd176bd6a",
+      "marker": [
+        4306,
+        1793222673864291134
+      ],
+      "first_observed_utc": "2026-10-28T21:24:33.868042+00:00",
+      "origin": "new actual version identity, calculated once"
+    },
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/build/SourceActualSaddleUppercuts.olean": null,
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/SaddleUppercutsControls.lean": null,
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/build/SaddleUppercutsControls.olean": null
+  },
+  "streams": {
+    "stdout.log": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/draft-amend001/stdout.log",
+      "bytes": 118,
+      "sha256": "25285ba576ab0384ce14b272180286e4c94c8367da13a106fc5c0e4969a399b2",
+      "marker": [
+        118,
+        1793222871154858097
+      ],
+      "first_observed_utc": "2026-10-28T21:27:51.158555+00:00",
+      "origin": "new actual version identity, calculated once"
+    },
+    "stderr.log": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/draft-amend001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "marker": [
+        0,
+        1793222871123775045
+      ],
+      "first_observed_utc": "2026-10-28T21:27:51.158581+00:00",
+      "origin": "new actual version identity, calculated once"
+    }
+  },
+  "worker_capture": "full original separate stdout/stderr, no truncation",
+  "outer_capture_dir": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/draft-amend001"
+}

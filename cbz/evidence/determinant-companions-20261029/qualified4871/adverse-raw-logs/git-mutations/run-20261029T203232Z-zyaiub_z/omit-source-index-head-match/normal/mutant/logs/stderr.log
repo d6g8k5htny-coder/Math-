@@ -1,0 +1,15 @@
+test_staged_file_differs_from_head_even_when_live_bytes_restored (test_determinant_git_identity.DeterminantGitIdentityTests.test_staged_file_differs_from_head_even_when_live_bytes_restored) ... FAIL
+
+======================================================================
+FAIL: test_staged_file_differs_from_head_even_when_live_bytes_restored (test_determinant_git_identity.DeterminantGitIdentityTests.test_staged_file_differs_from_head_even_when_live_bytes_restored)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py", line 23, in wrapped
+    return _original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.034s
+
+FAILED (failures=1)

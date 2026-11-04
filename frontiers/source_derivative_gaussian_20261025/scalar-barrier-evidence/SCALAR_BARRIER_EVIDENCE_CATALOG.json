@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "role": "New-only qualification of normalized deterministic scalar fold barrier",
+  "module": "AdaptiveFoldScalarBarrier",
+  "source_sha256": "cfe6a63a789ae085c2351d9d0be9bcf998f911d8c2e80bb01e1dd9e2b74c30d5",
+  "sourcecut": "bb5a32ef10a06289ab14680b5ed1cf809d3457d6",
+  "binding_semantic_freeze": "e2c819cf8161f0dc37de113f0157a058ba0fd2ec",
+  "binding_wording_correction": "e88bb14225fb18d11201cb63f733b61ef8826855",
+  "canonical_pickup": "Math5146408199528",
+  "compile_record": "raw/runs/compile-05/receipt.json",
+  "warningAsError": true,
+  "kernel_record": "raw/runs/kernel-01/receipt.json",
+  "named_kernel_checks": 1,
+  "complete_axiom_audit_record": "raw/runs/inventory-01/receipt.json",
+  "complete_own_declarations": 33,
+  "stable_name_direct_print_axiom_record": "raw/runs/direct-axioms-02/receipt.json",
+  "direct_print_targets": 30,
+  "auxiliary_proof_names_covered_only_by_collector": 3,
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "public_inventory": "SCALAR_BARRIER_PUBLIC_INVENTORY.json",
+  "controls": "CONTROL_RECEIPT.json",
+  "identity_record": "SOURCE_OBJECT_IDENTITIES.json",
+  "lineage": "AUTHOR_HELPER_LINEAGE.json",
+  "parent_evidence_reuse": "Existing29-module/25-input completed verification and qualified30th all-target module evidence reused. No old proofs, gates, controls, kernels or hash audits replayed.",
+  "process_review": {
+    "source_review": "PENDING_ROOT_SEPARATE_REVIEW",
+    "provider_distinct_review": "NOT_CLAIMED",
+    "mathematical_evidence": "The new-only compile, one kernel replay, complete own-module axiom inventory and mathematical controls are completed evidence. Pending process review does not invalidate them."
+  },
+  "scientific_effect": "NONE",
+  "no_inference": [
+    "actual transverse ridge existence or quantitative ridge derivatives",
+    "ambient rectangular boundary or vertical-concavity inequalities",
+    "physical chart transport or attained path construction",
+    "elder death or H0 parent instantiation",
+    "actual-law probability bounds or Parent A/B Lean inhabitants",
+    "scientific acceptance or original-goal closure"
+  ],
+  "sourcecut_origin": "Actual frozen source commit supplied by root after completed checks; metadata only, no replay."
+}

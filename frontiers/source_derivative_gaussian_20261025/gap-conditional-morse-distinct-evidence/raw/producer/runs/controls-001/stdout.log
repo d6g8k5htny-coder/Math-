@@ -1,0 +1,258 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:81:78: error: unsolved goals
+case «1»
+y : Control59Point
+⊢ True ∨ y 0 = 0
+
+case «3»
+y : Control59Point
+⊢ True ∨ y 1 = 0
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:128:32: error: typeclass instance problem is stuck, it is often due to metavariables
+  (i : Fin 2) → Module ?m.13 (?m.16 i)
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:139:33: error: typeclass instance problem is stuck, it is often due to metavariables
+  (i : Fin 2) → Module ?m.13 (?m.16 i)
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:155:31: error(lean.unknownIdentifier): Unknown identifier `control59_wave_hasFDerivAt`
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:155:31: error(lean.unknownIdentifier): Unknown identifier `control59_wave_hasFDerivAt`
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:149:83: error: unsolved goals
+case «0»
+y : Control59Point
+hf : control59_phi0 = control59_wave control59_a0 0
+⊢ (fderiv ℝ (control59_wave control59_a0 0) y) (Pi.single 0 1) = control59_slope control59_a0 0 y
+
+case «1»
+y : Control59Point
+hf : control59_phi0 = control59_wave control59_a0 0
+⊢ (fderiv ℝ (control59_wave control59_a0 0) y) (Pi.single 1 1) = 0
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:164:31: error(lean.unknownIdentifier): Unknown identifier `control59_wave_hasFDerivAt`
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:164:31: error(lean.unknownIdentifier): Unknown identifier `control59_wave_hasFDerivAt`
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:158:83: error: unsolved goals
+case «0»
+y : Control59Point
+hf : control59_phi1 = control59_wave control59_a1 1
+⊢ (fderiv ℝ (control59_wave control59_a1 1) y) (Pi.single 0 1) = 0
+
+case «1»
+y : Control59Point
+hf : control59_phi1 = control59_wave control59_a1 1
+⊢ (fderiv ℝ (control59_wave control59_a1 1) y) (Pi.single 1 1) = control59_slope control59_a1 1 y
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:213:5: error(lean.unknownIdentifier): Unknown identifier `control59_slope_hasFDerivAt`
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:222:14: error(lean.unknownIdentifier): Unknown identifier `control59_slope_hasFDerivAt`
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:221:104: error: unsolved goals
+y : Control59Point
+⊢ HasFDerivAt control59_B
+    ((control59_slopeD control59_a0 0 y • ContinuousLinearMap.proj 0).smulRight (control59_axisMap 0) +
+      (control59_slopeD control59_a1 1 y • ContinuousLinearMap.proj 1).smulRight (control59_axisMap 1))
+    y
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:231:87: error: unsolved goals
+case refine_1
+hp : 2 * Real.pi * (1 / 2) = Real.pi
+⊢ -(control59_a0 * Real.pi * Real.sin (Real.pi * (1 / 2))) + control59_a0 * Real.pi * Real.sin Real.pi * 2 =
+    -(control59_a0 * Real.pi)
+
+case refine_2
+hp : 2 * Real.pi * (1 / 2) = Real.pi
+⊢ -(control59_a1 * Real.pi * Real.sin (Real.pi * (1 / 2))) + control59_a1 * Real.pi * Real.sin Real.pi * 2 =
+    -(control59_a1 * Real.pi)
+
+case refine_3
+hp : 2 * Real.pi * (1 / 2) = Real.pi
+⊢ -(control59_a0 * Real.pi ^ 2 * Real.cos (Real.pi * (1 / 2))) + control59_a0 * Real.pi ^ 2 * Real.cos Real.pi * 4 =
+    -(control59_a0 * Real.pi ^ 2 * 4)
+
+case refine_4
+hp : 2 * Real.pi * (1 / 2) = Real.pi
+⊢ -(control59_a1 * Real.pi ^ 2 * Real.cos (Real.pi * (1 / 2))) + control59_a1 * Real.pi ^ 2 * Real.cos Real.pi * 4 =
+    -(control59_a1 * Real.pi ^ 2 * 4)
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:234:59: error: This simp argument is unused:
+  hp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [control59_slope, control59_slopeD, control59_xStar, show Real.pi * (1 / 2 : ℝ) = Real.pi / 2 by ring,
+    Real.sin_pi_div_two, Real.cos_pi_div_two, Real.sin_pi, Real.cos_pi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:235:6: error: This simp argument is unused:
+  show Real.pi * (1 / 2 : ℝ) = Real.pi / 2 by ring
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [control59_slope, control59_slopeD, control59_xStar, hp, Real.sin_pi_div_two, Real.cos_pi_div_two,
+    Real.sin_pi, Real.cos_pi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:235:52: error: This simp argument is unused:
+  Real.sin_pi_div_two
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [control59_slope, control59_slopeD, control59_xStar, hp,
+    show Real.pi * (1 / 2 : ℝ) = Real.pi / 2 by ring, Real.cos_pi_div_two, Real.sin_pi, Real.cos_pi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:236:6: error: This simp argument is unused:
+  Real.cos_pi_div_two
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [control59_slope, control59_slopeD, control59_xStar, hp,
+    show Real.pi * (1 / 2 : ℝ) = Real.pi / 2 by ring, Real.sin_pi_div_two, Real.sin_pi, Real.cos_pi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:236:26: error: This simp argument is unused:
+  Real.sin_pi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [control59_slope, control59_slopeD, control59_xStar, hp,
+    show Real.pi * (1 / 2 : ℝ) = Real.pi / 2 by ring, Real.sin_pi_div_two, Real.cos_pi_div_two, Real.cos_pi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:236:38: error: This simp argument is unused:
+  Real.cos_pi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [control59_slope, control59_slopeD, control59_xStar, hp,
+    show Real.pi * (1 / 2 : ℝ) = Real.pi / 2 by ring, Real.sin_pi_div_two, Real.cos_pi_div_two, Real.sin_pi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:249:7: error(lean.unknownIdentifier): Unknown identifier `control59_slope_hasFDerivAt`
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:252:7: error(lean.unknownIdentifier): Unknown identifier `control59_slope_hasFDerivAt`
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:257:73: error: unexpected identifier; expected '⟩'
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:257:8: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `And.intro` has 2 explicit field, but only 1 was provided
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:257:22: error: Type mismatch
+  mul_ne_zero (neg_ne_zero.mpr Real.pi_ne_zero)
+has type
+  ?m.21 ≠ 0 → -Real.pi * ?m.21 ≠ 0
+but is expected to have type
+  -Real.pi * control59_a0 ≠ 0
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:272:2: error: unsolved goals
+case right.«0»
+y : Control59Point
+hy : y ∈ control59_rankSet
+w : Control59Point
+⊢ control59_slope control59_a0 0 y * (w 0 / control59_slope control59_a0 0 y) = w 0
+
+case right.«1»
+y : Control59Point
+hy : y ∈ control59_rankSet
+w : Control59Point
+⊢ control59_slope control59_a1 1 y * (w 1 / control59_slope control59_a1 1 y) = w 1
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:277:26: error: This simp argument is unused:
+  hy.1
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hy.2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:277:31: error: This simp argument is unused:
+  hy.2
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hy.1]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:315:4: error: typeclass instance problem is stuck
+  Module ?m.1 Control59Point
+
+Note: Lean will not try to resolve this typeclass instance problem because the first and third type arguments to `Module` contain metavariables. These arguments must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:337:78: error: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:349:63: error: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:394:2: error: `simp` made no progress
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:401:13: error: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:437:4: error: Type mismatch: After simplification, term
+  control59_pair_combo 2 0 2 0
+ has type
+  finitePairing (fun m => 2 * control57_chi0 m) (2 • control57_chi0) = 2 * 2
+but is expected to have type
+  finitePairing (fun m => 2 * control57_chi0 m) (2 • control57_chi0) = 4
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:440:4: error: Type mismatch: After simplification, term
+  control59_pair_combo 1 3 1 3
+ has type
+  finitePairing (fun m => control57_chi0 m + 3 * control57_chi1 m) (control57_chi0 + 3 • control57_chi1) = 1 + 3 * 3
+but is expected to have type
+  finitePairing (fun m => control57_chi0 m + 3 * control57_chi1 m) (control57_chi0 + 3 • control57_chi1) = 10
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:461:4: error: No goals to be solved
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:465:4: error: No goals to be solved
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:468:4: error: No goals to be solved
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:504:4: error: Type mismatch: After simplification, term
+  rawPinKernel_pin_fiber
+    (Mathlib.Meta.NormNum.isNat_eq_false (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2))
+      (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero) (Eq.refl false))
+    r (LT.lt.ne' hr) hG ![b, b - 0 * r ^ 3, 0, 0, 0, 0]
+ has type
+  ((rawPinKernel ⋯ r) ![b, b - 0 * r ^ 3, 0, 0, 0, 0]) {ω | rawPins 2 r ω = ![b, b - 0 * r ^ 3, 0, 0, 0, 0]} = 1
+but is expected to have type
+  ((rawPinKernel ⋯ r) ![b, b, 0, 0, 0, 0]) {ω | rawPins 2 r ω = ![b, b, 0, 0, 0, 0]} = 1
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:516:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  actualField 2 2 ω ((coordinates 2).symm (endpointM r))
+in the target expression
+  actualField 2 2 ω (endpointLiftM r) = actualField 2 2 ω (endpointLiftS r)
+
+K ε : ℝ
+_hK : 0 ≤ K
+hε : 0 < ε
+hε1 : ε ≤ 1
+hbound :
+  ∀ (r : ℝ),
+    0 < r →
+      r < ε →
+        IsUnit (I4SourceEndpointRegression.sourcePinCovarianceAt 2 r) ∧
+          ∀ (i j : Fin 6), |(I4SourceEndpointRegression.sourcePinCovarianceAt 2 r)⁻¹ i j| ≤ K
+r : ℝ
+hr : 0 < r
+hrε : r < ε
+b : ℝ
+hG : IsUnit (I4SourceEndpointRegression.sourcePinCovarianceAt 2 r)
+hpins : ∀ᵐ (ω : SmoothSample 2 2) ∂sourceGapLaw ⋯ r b 0, rawPins 2 r ω = ![b, b - 0 * r ^ 3, 0, 0, 0, 0]
+ω : SmoothSample 2 2
+hp : rawPins 2 r ω = ![b, b - 0 * r ^ 3, 0, 0, 0, 0]
+hmd : IsMorseDistinct 2 2 (actualField 2 2 ω)
+hM : IsCriticalPoint 2 (actualField 2 2 ω) ((coordinates 2).symm (endpointM r))
+hS : IsCriticalPoint 2 (actualField 2 2 ω) ((coordinates 2).symm (endpointS r))
+hvalM : actualField 2 2 ω ((coordinates 2).symm (endpointM r)) = b
+hvalS : actualField 2 2 ω ((coordinates 2).symm (endpointS r)) = b - 0 * r ^ 3
+right✝ :
+  heightGap 2 (actualField 2 2 ω) ((coordinates 2).symm (endpointM r)) ((coordinates 2).symm (endpointS r)) = 0 * r ^ 3
+hrL : r < 2 / 2
+hdist : 0 < torusDist 2 2 (endpointLiftM r) (endpointLiftS r)
+hne : actualField 2 2 ω (endpointLiftM r) ≠ actualField 2 2 ω (endpointLiftS r)
+⊢ actualField 2 2 ω (endpointLiftM r) = actualField 2 2 ω (endpointLiftS r)

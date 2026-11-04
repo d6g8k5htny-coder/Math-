@@ -1,0 +1,270 @@
+--- CONTACT_FROZEN_ORIGINAL
++++ CONTACT_FINAL_BODY
+@@ -41,7 +41,7 @@
+   have hk : ContDiff ℝ (k : ℕ∞) f := hf.of_le (by simp)
+   have h := congrArg (fun A => A u)
+     (iteratedFDeriv_const_smul_apply' (a := a) (x := p) hk.contDiffAt)
+-  simpa only [smul_eq_mul, Pi.smul_apply, ContinuousMultilinearMap.smul_apply] using h
++  simpa only [smul_eq_mul, Pi.smul_apply, smul_apply] using h
+ 
+ private theorem ct58_ifd_add (f g : (Fin 2 → ℝ) → ℝ)
+     (hf : ContDiff ℝ (⊤ : ℕ∞) f) (hg : ContDiff ℝ (⊤ : ℕ∞) g)
+@@ -50,8 +50,8 @@
+       iteratedFDeriv ℝ k f p u+iteratedFDeriv ℝ k g p u := by
+   have hf' : ContDiff ℝ (k : ℕ∞) f := hf.of_le (by simp)
+   have hg' : ContDiff ℝ (k : ℕ∞) g := hg.of_le (by simp)
+-  have h := congrArg (fun A => A u) (iteratedFDeriv_add_apply hf'.contDiffAt hg'.contDiffAt)
+-  simpa only [Pi.add_apply, ContinuousMultilinearMap.add_apply] using h
++  have h := congrArg (fun A => A u) (fun_iteratedFDeriv_add_apply (x:=p) hf'.contDiffAt hg'.contDiffAt)
++  simpa only [Pi.add_apply, add_apply] using h
+ 
+ private theorem ct58_jet2_scale (f : (Fin 2 → ℝ) → ℝ)
+     (hf : ContDiff ℝ (⊤ : ℕ∞) f) (a : ℝ) (p : Fin 2 → ℝ) :
+@@ -74,8 +74,8 @@
+     ContDiff ℝ (⊤ : ℕ∞) (eval L P) := by
+   induction P with
+   | nil =>
+-      simpa only [eval, List.map_nil, List.sum_nil] using
+-        (contDiff_const : ContDiff ℝ (⊤ : ℕ∞) (fun _ : Fin 2 → ℝ => (0 : ℝ)))
++      change ContDiff ℝ (⊤ : ℕ∞) (fun _ : Fin 2 → ℝ => (0:ℝ))
++      exact contDiff_const
+   | cons t P ih =>
+       have hterm : ContDiff ℝ (⊤ : ℕ∞) (termEval L t) := by
+         unfold termEval phase
+@@ -95,13 +95,13 @@
+ private theorem ct58_eval_axisCos (L : ℝ) (p y : Fin 2 → ℝ) (j : Fin 2) :
+     eval L (ct58_axisCosPoly L p j) y = Real.cos (sourceC L*(y j-p j)) := by
+   rw [ct58_axisCosPoly, eval_translate]
+-  fin_cases j <;> simp [eval, termEval, phase, Fin.sum_univ_two, Pi.single_apply]
++  fin_cases j <;> simp [eval, termEval, phase, Fin.sum_univ_two]
+ 
+ private theorem ct58_eval_axisSin (L : ℝ) (p y : Fin 2 → ℝ) (j : Fin 2) :
+     eval L (ct58_axisSinPoly L p j) y = Real.sin (sourceC L*(y j-p j)) := by
+   rw [ct58_axisSinPoly, eval_translate]
+   fin_cases j <;>
+-    simp [eval, termEval, phase, Fin.sum_univ_two, Pi.single_apply,
++    simp [eval, termEval, phase, Fin.sum_univ_two,
+       ← sub_eq_add_neg, Real.cos_sub_pi_div_two]
+ 
+ private def ct58_germPoly (L : ℝ) (p : Fin 2 → ℝ) (s : Fin 6) : TrigPoly :=
+@@ -128,16 +128,31 @@
+       jet2 (eval L P) p j := by
+   fin_cases j
+   · exact toSource_eval hL P p
+-  · simpa [jet2,derivativeCoefficient,iteratedFDeriv_one_apply] using
+-      toSource_derivative hL P 1 p ![directionX]
+-  · simpa [jet2,derivativeCoefficient,iteratedFDeriv_one_apply] using
+-      toSource_derivative hL P 1 p ![directionY]
+-  · simpa [jet2,derivativeCoefficient] using
+-      toSource_derivative hL P 2 p ![directionX,directionX]
+-  · simpa [jet2,derivativeCoefficient] using
+-      toSource_derivative hL P 2 p ![directionX,directionY]
+-  · simpa [jet2,derivativeCoefficient] using
+-      toSource_derivative hL P 2 p ![directionY,directionY]
++  · change finitePairing (fun m => fderiv ℝ (modeCoefficient 2 L m) p directionX) (toSource L P) =
++      fderiv ℝ (eval L P) p directionX
++    have he : derivativeCoefficient 2 L 1 p (fun _ => directionX) =
++        (fun m => fderiv ℝ (modeCoefficient 2 L m) p directionX) := by
++      funext m
++      exact iteratedFDeriv_one_apply _
++    rw [← he]
++    simpa only [iteratedFDeriv_one_apply] using toSource_derivative hL P 1 p (fun _ => directionX)
++  · change finitePairing (fun m => fderiv ℝ (modeCoefficient 2 L m) p directionY) (toSource L P) =
++      fderiv ℝ (eval L P) p directionY
++    have he : derivativeCoefficient 2 L 1 p (fun _ => directionY) =
++        (fun m => fderiv ℝ (modeCoefficient 2 L m) p directionY) := by
++      funext m
++      exact iteratedFDeriv_one_apply _
++    rw [← he]
++    simpa only [iteratedFDeriv_one_apply] using toSource_derivative hL P 1 p (fun _ => directionY)
++  · change finitePairing (derivativeCoefficient 2 L 2 p ![directionX,directionX]) (toSource L P) =
++      iteratedFDeriv ℝ 2 (eval L P) p ![directionX,directionX]
++    exact toSource_derivative hL P 2 p ![directionX,directionX]
++  · change finitePairing (derivativeCoefficient 2 L 2 p ![directionX,directionY]) (toSource L P) =
++      iteratedFDeriv ℝ 2 (eval L P) p ![directionX,directionY]
++    exact toSource_derivative hL P 2 p ![directionX,directionY]
++  · change finitePairing (derivativeCoefficient 2 L 2 p ![directionY,directionY]) (toSource L P) =
++      iteratedFDeriv ℝ 2 (eval L P) p ![directionY,directionY]
++    exact toSource_derivative hL P 2 p ![directionY,directionY]
+ 
+ private theorem ct58_ordinary_finite_interpolation {L : ℝ} (hL : L ≠ 0)
+     (p : Fin 2 → ℝ) (u : Fin 6 → ℝ) :
+@@ -156,7 +171,7 @@
+   refine ⟨∑ s, u s • w s,?_⟩
+   intro j
+   rw [ct58_pair_direction_sum]
+-  simp [hw, eq_comm]
++  simp [hw]
+ 
+ private def ct58_lowerIndex : Fin 6 → Fin 7 := ![0,1,2,3,4,6]
+ 
+@@ -173,8 +188,9 @@
+   have hu : u = u 0 • directionX+u 1 • directionY := by
+     ext j
+     fin_cases j <;> simp [directionX,directionY]
+-  rw [hu, map_add, map_smul, map_smul]
+-  rfl
++  calc
++    A u = A (u 0 • directionX+u 1 • directionY) := congrArg A hu
++    _ = _ := by simp only [map_add,map_smul,smul_eq_mul]
+ 
+ private theorem ct58_second_coordinates (f : (Fin 2 → ℝ) → ℝ)
+     (hf : ContDiff ℝ (⊤ : ℕ∞) f) (p u v : Fin 2 → ℝ) :
+@@ -188,9 +204,9 @@
+     ext j
+     fin_cases j <;> simp [directionX,directionY]
+   have hB : B u v = u 0*B directionX v+u 1*B directionY v := by
+-    rw [hu]
+-    simp only [map_add, map_smul, ContinuousLinearMap.add_apply,
+-      ContinuousLinearMap.smul_apply, smul_eq_mul]
++    calc
++      B u v = B (u 0 • directionX+u 1 • directionY) v := congrArg (fun z => B z v) hu
++      _ = _ := by simp only [map_add,map_smul,add_apply,smul_apply,smul_eq_mul]
+   rw [iteratedFDeriv_two_apply]
+   change B u v = _
+   rw [hB, ct58_linear_coordinates (B directionX) v,
+@@ -224,7 +240,7 @@
+   have heq : (fun m => contactRows (modeCoefficient 2 L m) p e n (ct58_lowerIndex j)) =
+       fun m => ct58_lowerTransform e n (jet2 (modeCoefficient 2 L m) p) j := by
+     funext m
+-    exact ct58_contact_lower_formula _ (modeCoefficient_smooth 2 L m) p e n j
++    exact ct58_contact_lower_formula _ (mode_smooth L m) p e n j
+   rw [heq]
+   fin_cases j <;>
+     simp [ct58_lowerTransform,ct58_pair_row_add,ct58_pair_row_scale]
+@@ -296,14 +312,13 @@
+     let n := coordinates 2 (R 1)
+     e 0^2+e 1^2=1 ∧ n 0^2+n 1^2=1 ∧ e 0*n 0+e 1*n 1=0 := by
+   dsimp only
+-  constructor
+-  · simpa [coordinates,EuclideanSpace.inner_eq_star_dotProduct,dotProduct,
+-      Fin.sum_univ_two,pow_two] using R.orthonormal.inner_eq (0 : Fin 2) (0 : Fin 2)
+-  constructor
+-  · simpa [coordinates,EuclideanSpace.inner_eq_star_dotProduct,dotProduct,
+-      Fin.sum_univ_two,pow_two] using R.orthonormal.inner_eq (1 : Fin 2) (1 : Fin 2)
+-  · simpa [coordinates,EuclideanSpace.inner_eq_star_dotProduct,dotProduct,
+-      Fin.sum_univ_two,mul_comm] using R.orthonormal.inner_eq (0 : Fin 2) (1 : Fin 2)
++  have h00 := R.inner_eq_one (0:Fin 2)
++  have h11 := R.inner_eq_one (1:Fin 2)
++  have h01 := R.inner_eq_zero (i:=(0:Fin 2)) (j:=(1:Fin 2)) (by decide)
++  simp only [EuclideanSpace.inner_eq_star_dotProduct,star_trivial,dotProduct,Fin.sum_univ_two] at h00 h11 h01
++  exact ⟨by simpa only [coordinates_apply,pow_two] using h00,
++    by simpa only [coordinates_apply,pow_two] using h11,
++    by simpa only [coordinates_apply, mul_comm] using h01⟩
+ 
+ private theorem ct58_frame_delta_four (e n : Fin 2 → ℝ)
+     (he : e 0^2+e 1^2=1) (hn : n 0^2+n 1^2=1)
+@@ -320,13 +335,13 @@
+     iteratedDeriv 3 (fun x : ℝ => Real.sin (x-d)) t = -Real.cos (t-d) := by
+   have h1 : deriv (fun x : ℝ => Real.sin (x-d)) = fun x => Real.cos (x-d) := by
+     funext x
+-    simpa using (((hasDerivAt_id x).sub_const d).sin).deriv
++    simp
+   have h2 : deriv (fun x : ℝ => Real.cos (x-d)) = fun x => -Real.sin (x-d) := by
+     funext x
+-    simpa using (((hasDerivAt_id x).sub_const d).cos).deriv
++    simp
+   have h3 : deriv (fun x : ℝ => -Real.sin (x-d)) = fun x => -Real.cos (x-d) := by
+     funext x
+-    simpa using ((((hasDerivAt_id x).sub_const d).sin).neg).deriv
++    simp
+   simp only [iteratedDeriv_succ,iteratedDeriv_zero,h1,h2,h3]
+ 
+ private theorem ct58_axis_sine_third (c : ℝ) (p e : Fin 2 → ℝ) (j : Fin 2) :
+@@ -337,8 +352,9 @@
+   have hg : ContDiff ℝ (⊤ : ℕ∞) g := by dsimp [g]; fun_prop
+   have heq : (fun y : Fin 2 → ℝ => Real.sin (c*(y j-p j))) = g ∘ A := by
+     funext y
+-    dsimp [g,A]
++    simp only [Function.comp_apply,g]
+     congr 1
++    simp only [A,smul_apply,ContinuousLinearMap.proj_apply,smul_eq_mul]
+     ring
+   rw [heq]
+   have h := congrArg (fun T => T ![e,e,e])
+@@ -416,10 +432,13 @@
+     change (Real.sin (c*(y j-p j))/c)^3/(6*(e j)^3)=
+       (24*c^3*(e j)^3)⁻¹*(3*Real.sin (c*(y j-p j))+(-1)*Real.sin ((3*c)*(y j-p j)))
+     rw [show (3*c)*(y j-p j)=3*(c*(y j-p j)) by ring]
++    rw [hs]
+     field_simp [hc,hej]
+-    nlinarith [hs]
+-  rw [heq,ct58_ifd_scale _ ((hf.const_mul 3).add (hg.const_mul (-1))),
+-    ct58_ifd_add _ _ (hf.const_mul 3) (hg.const_mul (-1)),
++    ring
++  have hf3 : ContDiff ℝ (⊤ : ℕ∞) (fun y => 3*f y) := contDiff_const.mul hf
++  have hgm : ContDiff ℝ (⊤ : ℕ∞) (fun y => (-1:ℝ)*g y) := contDiff_const.mul hg
++  rw [heq,ct58_ifd_scale _ (hf3.add hgm),
++    ct58_ifd_add _ _ hf3 hgm,
+     ct58_ifd_scale _ hf,ct58_ifd_scale _ hg]
+   dsimp only [f,g]
+   rw [ct58_axis_sine_third,ct58_axis_sine_third]
+@@ -432,14 +451,34 @@
+       contactRows (eval L P) p e n i := by
+   fin_cases i
+   · exact toSource_eval hL P p
+-  · simpa [contactRows,derivativeCoefficient,iteratedFDeriv_one_apply] using
+-      toSource_derivative hL P 1 p ![e]
+-  · simpa [contactRows,derivativeCoefficient,iteratedFDeriv_one_apply] using
+-      toSource_derivative hL P 1 p ![n]
+-  · simpa [contactRows,derivativeCoefficient] using toSource_derivative hL P 2 p ![e,e]
+-  · simpa [contactRows,derivativeCoefficient] using toSource_derivative hL P 2 p ![e,n]
+-  · simpa [contactRows,derivativeCoefficient] using toSource_derivative hL P 3 p ![e,e,e]
+-  · simpa [contactRows,derivativeCoefficient] using toSource_derivative hL P 2 p ![n,n]
++  · change finitePairing (fun m => fderiv ℝ (modeCoefficient 2 L m) p e) (toSource L P) =
++      fderiv ℝ (eval L P) p e
++    have he : derivativeCoefficient 2 L 1 p (fun _ => e) =
++        (fun m => fderiv ℝ (modeCoefficient 2 L m) p e) := by
++      funext m
++      exact iteratedFDeriv_one_apply _
++    rw [← he]
++    simpa only [iteratedFDeriv_one_apply] using toSource_derivative hL P 1 p (fun _ => e)
++  · change finitePairing (fun m => fderiv ℝ (modeCoefficient 2 L m) p n) (toSource L P) =
++      fderiv ℝ (eval L P) p n
++    have he : derivativeCoefficient 2 L 1 p (fun _ => n) =
++        (fun m => fderiv ℝ (modeCoefficient 2 L m) p n) := by
++      funext m
++      exact iteratedFDeriv_one_apply _
++    rw [← he]
++    simpa only [iteratedFDeriv_one_apply] using toSource_derivative hL P 1 p (fun _ => n)
++  · change finitePairing (derivativeCoefficient 2 L 2 p ![e,e]) (toSource L P) =
++      iteratedFDeriv ℝ 2 (eval L P) p ![e,e]
++    exact toSource_derivative hL P 2 p ![e,e]
++  · change finitePairing (derivativeCoefficient 2 L 2 p ![e,n]) (toSource L P) =
++      iteratedFDeriv ℝ 2 (eval L P) p ![e,n]
++    exact toSource_derivative hL P 2 p ![e,n]
++  · change finitePairing (derivativeCoefficient 2 L 3 p ![e,e,e]) (toSource L P) =
++      iteratedFDeriv ℝ 3 (eval L P) p ![e,e,e]
++    exact toSource_derivative hL P 3 p ![e,e,e]
++  · change finitePairing (derivativeCoefficient 2 L 2 p ![n,n]) (toSource L P) =
++      iteratedFDeriv ℝ 2 (eval L P) p ![n,n]
++    exact toSource_derivative hL P 2 p ![n,n]
+ 
+ private theorem ct58_contact_target {L : ℝ} (hL : L ≠ 0)
+     (p e n : Fin 2 → ℝ) (he : e 0^2+e 1^2=1) (hn : n 0^2+n 1^2=1)
+@@ -455,7 +494,6 @@
+     have hvec : (fun s => finitePairing (fun m => jet2 (modeCoefficient 2 L m) p s) w) =
+         ct58_inverseLower e n tlo := funext hw
+     rw [hvec,ct58_lower_inverse e n he hn hen]
+-    rfl
+   obtain ⟨j,hej⟩ : ∃ j : Fin 2, e j ≠ 0 := by
+     by_cases h0 : e 0=0
+     · refine ⟨1,?_⟩
+@@ -470,7 +508,6 @@
+       ext s
+       rw [show q=toSource L (ct58_cubePoly L p e j) from rfl,
+         ct58_pair_ordinary hL,ct58_cube_lower_zero hL]
+-      rfl
+     rw [hzero]
+     fin_cases k <;> simp [ct58_lowerTransform]
+   have hq5 : finitePairing (fun m => contactRows (modeCoefficient 2 L m) p e n 5) q=1 := by
+@@ -491,7 +528,8 @@
+   · exact hvlo 2
+   · exact hvlo 3
+   · exact hvlo 4
+-  · rw [show v=w+(t 5-beta) • q from rfl,ct58_pair_direction_add_smul,hq5]
++  · change finitePairing (fun m => contactRows (modeCoefficient 2 L m) p e n (5:Fin 7)) v = t 5
++    rw [show v=w+(t 5-beta) • q from rfl,ct58_pair_direction_add_smul,hq5]
+     change beta+(t 5-beta)*1=t 5
+     ring
+   · exact hvlo 5

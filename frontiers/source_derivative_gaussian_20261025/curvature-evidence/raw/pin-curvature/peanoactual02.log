@@ -1,0 +1,62 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/scratch/pin-curvature-implementation/ActualPeanoRepresentations.lean:69:60: error: unsolved goals
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+ω : SmoothSample 2 L
+⊢ ![smoothSourceField 2 L ω ![r * (-1 / 2), 0] * (1 / 2) + smoothSourceField 2 L ω ![r * (1 / 2), 0] * (1 / 2),
+        (fderiv ℝ (smoothSourceField 2 L ω) ![r * (-1 / 2), 0]) directionX * (1 / 2) +
+          (fderiv ℝ (smoothSourceField 2 L ω) ![r * (1 / 2), 0]) directionX * (1 / 2),
+        ![smoothSourceField 2 L ω ![r * (-1 / 2), 0], smoothSourceField 2 L ω ![r * (1 / 2), 0],
+                (fderiv ℝ (smoothSourceField 2 L ω) ![r * (-1 / 2), 0]) directionX,
+                (fderiv ℝ (smoothSourceField 2 L ω) ![r * (1 / 2), 0]) directionX,
+                (fderiv ℝ (smoothSourceField 2 L ω) ![r * (-1 / 2), 0]) directionY,
+                (fderiv ℝ (smoothSourceField 2 L ω) ![r * (1 / 2), 0]) directionY]
+              4 *
+            (1 / 2) +
+          ![smoothSourceField 2 L ω ![r * (-1 / 2), 0], smoothSourceField 2 L ω ![r * (1 / 2), 0],
+                (fderiv ℝ (smoothSourceField 2 L ω) ![r * (-1 / 2), 0]) directionX,
+                (fderiv ℝ (smoothSourceField 2 L ω) ![r * (1 / 2), 0]) directionX,
+                (fderiv ℝ (smoothSourceField 2 L ω) ![r * (-1 / 2), 0]) directionY,
+                (fderiv ℝ (smoothSourceField 2 L ω) ![r * (1 / 2), 0]) directionY]
+              5 *
+            (1 / 2),
+        -((fderiv ℝ (smoothSourceField 2 L ω) ![r * (-1 / 2), 0]) directionX * r⁻¹) +
+          (fderiv ℝ (smoothSourceField 2 L ω) ![r * (1 / 2), 0]) directionX * r⁻¹,
+        -(![smoothSourceField 2 L ω ![r * (-1 / 2), 0], smoothSourceField 2 L ω ![r * (1 / 2), 0],
+                  (fderiv ℝ (smoothSourceField 2 L ω) ![r * (-1 / 2), 0]) directionX,
+                  (fderiv ℝ (smoothSourceField 2 L ω) ![r * (1 / 2), 0]) directionX,
+                  (fderiv ℝ (smoothSourceField 2 L ω) ![r * (-1 / 2), 0]) directionY,
+                  (fderiv ℝ (smoothSourceField 2 L ω) ![r * (1 / 2), 0]) directionY]
+                4 *
+              r⁻¹) +
+          ![smoothSourceField 2 L ω ![r * (-1 / 2), 0], smoothSourceField 2 L ω ![r * (1 / 2), 0],
+                (fderiv ℝ (smoothSourceField 2 L ω) ![r * (-1 / 2), 0]) directionX,
+                (fderiv ℝ (smoothSourceField 2 L ω) ![r * (1 / 2), 0]) directionX,
+                (fderiv ℝ (smoothSourceField 2 L ω) ![r * (-1 / 2), 0]) directionY,
+                (fderiv ℝ (smoothSourceField 2 L ω) ![r * (1 / 2), 0]) directionY]
+              5 *
+            r⁻¹,
+        smoothSourceField 2 L ω ![r * (-1 / 2), 0] * r⁻¹ ^ 3 * 12 -
+              smoothSourceField 2 L ω ![r * (1 / 2), 0] * r⁻¹ ^ 3 * 12 +
+            (fderiv ℝ (smoothSourceField 2 L ω) ![r * (-1 / 2), 0]) directionX * r⁻¹ ^ 2 * 6 +
+          (fderiv ℝ (smoothSourceField 2 L ω) ![r * (1 / 2), 0]) directionX * r⁻¹ ^ 2 * 6]
+      5 =
+    smoothSourceField 2 L ω ![r * (-1 / 2), 0] * r⁻¹ ^ 3 * 12 -
+          smoothSourceField 2 L ω ![r * (1 / 2), 0] * r⁻¹ ^ 3 * 12 +
+        (fderiv ℝ (smoothSourceField 2 L ω) ![r * (-1 / 2), 0]) directionX * r⁻¹ ^ 2 * 6 +
+      (fderiv ℝ (smoothSourceField 2 L ω) ![r * (1 / 2), 0]) directionX * r⁻¹ ^ 2 * 6
+/workspace/scratch/pin-curvature-implementation/ActualPeanoRepresentations.lean:74:4: error: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sourceConfluentPinsAt, confluentTransform, rawPins, sourceF, endpointM, endpointS,
+    Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_two, Matrix.cons_val_three, Matrix.head_cons,
+    Matrix.tail_cons]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

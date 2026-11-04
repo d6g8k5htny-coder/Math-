@@ -1,0 +1,16 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "--root=/workspace/scratch/actual-fold-chart-jets/runs/005",
+    "-DwarningAsError=true",
+    "-o",
+    "/workspace/scratch/actual-fold-chart-jets/runs/005/ActualFoldChartJets.olean",
+    "/workspace/scratch/actual-fold-chart-jets/runs/005/ActualFoldChartJets.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "started_utc": "2026-10-26T05:23:51.376591+00:00",
+  "elapsed_seconds": 9.312634333997266,
+  "exit_code": 0
+}

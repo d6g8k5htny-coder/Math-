@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "role": "One unchanged accepted compact-frontier theorem; zero new research targets",
+  "origin": {
+    "observed_utc": "2026-10-26T06:34:53.892033+00:00",
+    "origin_commit": "5f49444d13b9c322f5214e11bc3936b2271b615f",
+    "origin_path": "frontiers/cap_first_exit_lean_20261002/CapFirstExit.lean",
+    "origin_blob_sha1": "01744e2cf571049d7d1557b9ed54646881d341cf",
+    "origin_last_change_commit": "c4eabc1a917ba2c1b96fe4af425cf2a484877c03",
+    "origin_file_sha256": "040aa91fcbdf25ccdaced1c828dd779318217a7c41ac928f87e8d17a8d3c3ef0",
+    "origin_file_bytes": 326607,
+    "origin_worktree_equals_pinned_blob": true,
+    "origin_declaration_lines": [
+      359,
+      369
+    ],
+    "origin_exact_name": "CapFirstExit.frontier_image_subset",
+    "origin_surrounding_context": [
+      "open Set unitInterval",
+      "namespace CapFirstExit",
+      "variable {X : Type*} [TopologicalSpace X]"
+    ],
+    "successor_context_delta": "Dropped unused open unitInterval only; open Set, namespace and implicit variables retained exactly.",
+    "extracted_documented_declaration_sha256": "f891109a501642f4c1f44e47c7601d58fbdefd5497408177691b5bceb8a93007",
+    "extracted_documented_declaration_bytes": 743,
+    "statement_and_proof_sha256": "0a9af73f1cefe45a94ea1a99b18a2a336b150a5d6ca5f9dcca65f7996b03fdf0",
+    "proof_body_sha256": "ce1e3e8de7a4c2f2d7b80497f661cf183aa0ea361774e3cefd0a115155b31925",
+    "exact_documented_declaration_comparison": true,
+    "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/elder/ReusedCompactFrontier.lean",
+    "source_sha256": "29d77453ef7c3cd216521a8ac84639aa30daf5a1d4061785a826b2c2d42d23db",
+    "source_bytes": 1360,
+    "old_imports": [
+      "Mathlib"
+    ],
+    "new_imports": [
+      "Mathlib.Topology.Separation.Hausdorff"
+    ],
+    "old_mathematical_evidence_reused": true,
+    "new_research_target_credit": 0,
+    "new_obligation": "Strict compilation of extracted unchanged theorem in finite narrow-import environment only.",
+    "binding_spec_commit": "5f49444d13b9c322f5214e11bc3936b2271b615f",
+    "binding_spec_path": "frontiers/source_derivative_gaussian_20261025/SOURCE_ACTUAL_FOLD_TORUS.md",
+    "binding_spec_sha256": "f22812f5033d512d7182c58a7e026309a2b7dcd5f42f95e40a56ec7de5899dcb",
+    "preflight_path": "/workspace/scratch/actual-fold-torus-elder-preflight/REPORT.md",
+    "preflight_sha256": "f1bf242601d9473adc06b5c6ed30be5bd5b95f0cde5f617f729052633779039b"
+  },
+  "new_composition_receipt": "compact-frontier-input-evidence/strict-01.json",
+  "old_mathematical_verification_reused": true,
+  "scientific_effect": "NONE"
+}

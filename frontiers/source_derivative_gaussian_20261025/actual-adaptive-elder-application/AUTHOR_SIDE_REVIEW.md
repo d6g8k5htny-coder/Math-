@@ -1,0 +1,29 @@
+# Focused author-side review of the new adaptive elder application
+
+26 October 2026. Reviewer: OpenAI/Codex `/root/adaptive_elder_new_source_review`, who did not author the proof. This is a same-family internal quality review, not provider-distinct scientific-review credit or acceptance.
+
+**Verdict: no critical or important mathematical/specification findings in the stated conventional planar, compact-mark result.**
+
+The review concerns the supplied new proofsource cut `cd145a0aa1a007c98031311b77743803c72c3d25` and the scratch `PROOF.md`, identified by the supplied SHA256 `37ff2436e4acafbb6027fe07529e40dc4eef412bbecf759dbd3ea801765793b2`. The binding brief and `ROOT_NEW_PROOF_REVIEW.diff` were read first; the proof, inventory and handoff were then inspected. Source identities are supplied identifiers, not newly recomputed verification receipts.
+
+## Mathematical assessment
+
+- **Actual normalization and ridge constants (`PROOF.md:76–181`).** The positive amplitude `6k`, spatial scale `r`, physical curvature `-q/(6kr)`, and conservative all-frame derivative certificate give the displayed bounds with the chosen `D`, epsilon and `K`. The rectangle lies in the controlled ball and one injective physical chart. The two-zero divided-difference bound, ridge existence, bounds for its first two derivatives, and chain rule for `a''` are valid. The exact cubic Peano identity and fourth derivative bound give `a'' > 1` with the stated constants.
+
+- **Actual elder mechanism (`PROOF.md:183–252`).** Strong convexity gives the stated signs and endpoint derivative bounds. The integral `5/12` provides both the left boundary deficit and a right point strictly older than the pinned maximum. Vertical strong concavity supplies the horizontal deficit and the saddle-only gate. The connected active superlevels, first-exit obstruction, and explicit attained ridge path establish the literal strict-clearance cut `(-infinity,d)`, nonessentiality and endpoint types. These data meet the reused boundary/H0 constructor's actual hypotheses. On the Morse/distinct locus they give ordinary global elder death at the unique quotient saddle, rather than branch capture alone.
+
+- **Every-target conditional genericity (`PROOF.md:254–293`).** The finite-supported orthonormal directions lie in the kernel of the actual two-endpoint observation map. Their original Gaussian coordinates are independent of the entire residual coefficient process, and equation (21a) preserves that independence after the literal posterior lift at every target. Full joint jet rank supplies the needed remote surjectivity on each separated compact domain. The reused finite-dimensional Sard and one-/two-point incidence arguments therefore apply there; endpoint conditional Hessian densities and the two distinct prescribed heights complete Morse/distinct genericity. This argument does not replace a null-pin assertion by unconditional genericity or an almost-every-target regular-conditional-law identity.
+
+- **Actual normalizer floor (`PROOF.md:295–352`).** The endpoint integral identity avoids dividing an uncontrolled convergence error by `r`. It yields the physical determinant limit `W/r^2 -> 36 k^2 q^2 1(q<0)`, including the type indicator. The contact Schur floor makes the limiting negative second moment positive and continuous. The eighth-radius-moment estimate supplies uniform integrability; common-source coupling and compact subsequences justify uniform convergence and a uniform positive floor on compact `b,k,z,e`.
+
+- **Interface and frames (`PROOF.md:354–374`).** Dividing the actual rejection numerator by that floor gives `C r^3`. Reflection of the normal changes only zero-target observation-row signs and leaves the physical posterior, determinant weight and elder event unchanged, covering both components of `O(2)` without rotational invariance of the law. The chosen strict-clearance/essentiality interface has actual ordinary-H0 meaning on the Morse/distinct locus; the claim is about its canonical weighted probability, not arbitrary `PairLawInterface.p`.
+
+- **Actual density versions and coefficient (`PROOF.md:376–469`).** The reused Campbell identity applies to the joint Borel elder mark. Both endpoint representatives are included, including pairs crossing the fundamental-domain boundary. The midpoint/short-displacement map is injective at the selected cutoff and gives `dx dy = r dz dr dtheta`. The height Jacobian `r^3` and fixed-lifetime derivative `1/(3 k r^2)` give the factor `r^2/(3k)`. The resulting density versions satisfy the actual expected-count identity, are finite at each positive lifetime, and have integrable total counts. The defect is `O(ell^(2/3))`. The physical determinant limit and raw observation multiplier yield `12 * 36 / 3 = 144`, with the displayed power `k^(4/3)`, the single per-volume factor `L^(-2)`, the full circle, and no unordered-pair half.
+
+## Reused evidence and limits
+
+Accepted GAD, finite-L law admission, source covariance/kernel/moment estimates, asymmetric elder/H0 results and the Lifetime pair-finiteness bridge were treated as applicable dependencies. Inspection was limited to their hypotheses and interfaces needed by this new application. No old build, kernel, axiom, control, hash check or mathematical re-audit was replayed, consistently with `/workspace/AGENTS.md`.
+
+This verdict covers the new conventional Parent A and compact-window Parent B application in dimension two, for one fixed positive finite period/law, compact birth marks and a compact positive gap interval. It supplies no new Lean parent theorem, provider-distinct review credit, scientific acceptance, unrestricted quantitative R1, lower rejection/E2 result, `k -> 0` limit, or broader original-goal closure. The inventory and handoff preserve these boundaries.
+
+Only this review file was written. No proof/shared edits, commits, external posts or subagents were used.

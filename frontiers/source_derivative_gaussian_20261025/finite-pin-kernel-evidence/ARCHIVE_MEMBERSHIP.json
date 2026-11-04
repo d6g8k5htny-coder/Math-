@@ -1,0 +1,455 @@
+{
+  "schema_version": 1,
+  "role": "Exact byte-preserved membership of the new finite-pin producer and read-only review archives.",
+  "raw_member_count": 69,
+  "members": [
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/AUTHOR_LINEAGE.json",
+      "archive": "finite-pin-kernel-evidence/raw/producer/AUTHOR_LINEAGE.json",
+      "bytes": 1319
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/CONTROL_CONTRACT.md",
+      "archive": "finite-pin-kernel-evidence/raw/producer/CONTROL_CONTRACT.md",
+      "bytes": 1854
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/CONTROL_RECEIPT.json",
+      "archive": "finite-pin-kernel-evidence/raw/producer/CONTROL_RECEIPT.json",
+      "bytes": 2419
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/Controls.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/Controls.lean",
+      "bytes": 6749
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/EXECUTION_RECORD_INDEX.json",
+      "archive": "finite-pin-kernel-evidence/raw/producer/EXECUTION_RECORD_INDEX.json",
+      "bytes": 21456
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/FROZEN_SOURCE.json",
+      "archive": "finite-pin-kernel-evidence/raw/producer/FROZEN_SOURCE.json",
+      "bytes": 814
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/FalseKernelMutation.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/FalseKernelMutation.lean",
+      "bytes": 1636
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/HANDOFF.json",
+      "archive": "finite-pin-kernel-evidence/raw/producer/HANDOFF.json",
+      "bytes": 3057
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/INVENTORY.json",
+      "archive": "finite-pin-kernel-evidence/raw/producer/INVENTORY.json",
+      "bytes": 5597
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/Inventory.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/Inventory.lean",
+      "bytes": 1070
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/RAW_LEDGER.jsonl",
+      "archive": "finite-pin-kernel-evidence/raw/producer/RAW_LEDGER.jsonl",
+      "bytes": 12293
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/REPORT.md",
+      "archive": "finite-pin-kernel-evidence/raw/producer/REPORT.md",
+      "bytes": 6086
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/SOURCE_OBJECT_IDENTITIES.json",
+      "archive": "finite-pin-kernel-evidence/raw/producer/SOURCE_OBJECT_IDENTITIES.json",
+      "bytes": 2002
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/STATIC_SCOPE.json",
+      "archive": "finite-pin-kernel-evidence/raw/producer/STATIC_SCOPE.json",
+      "bytes": 1404
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/TARGET_CLASSIFICATION.json",
+      "archive": "finite-pin-kernel-evidence/raw/producer/TARGET_CLASSIFICATION.json",
+      "bytes": 1637
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/finalize.py",
+      "archive": "finite-pin-kernel-evidence/raw/producer/finalize.py",
+      "bytes": 8058
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/run.py",
+      "archive": "finite-pin-kernel-evidence/raw/producer/run.py",
+      "bytes": 1296
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/controls-001/Controls.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/controls-001/Controls.lean",
+      "bytes": 6357
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/controls-001/FalseKernelMutation.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/controls-001/FalseKernelMutation.lean",
+      "bytes": 1654
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/controls-001/Inventory.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/controls-001/Inventory.lean",
+      "bytes": 1070
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/controls-001/SourceFinitePinKernel.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/controls-001/SourceFinitePinKernel.lean",
+      "bytes": 6893
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/controls-001/record.json",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/controls-001/record.json",
+      "bytes": 2064
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/controls-001/stderr.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/controls-001/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/controls-001/stdout.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/controls-001/stdout.log",
+      "bytes": 1145
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/controls-002/Controls.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/controls-002/Controls.lean",
+      "bytes": 6749
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/controls-002/FalseKernelMutation.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/controls-002/FalseKernelMutation.lean",
+      "bytes": 1636
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/controls-002/Inventory.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/controls-002/Inventory.lean",
+      "bytes": 1070
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/controls-002/SourceFinitePinKernel.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/controls-002/SourceFinitePinKernel.lean",
+      "bytes": 6893
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/controls-002/record.json",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/controls-002/record.json",
+      "bytes": 2060
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/controls-002/stderr.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/controls-002/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/controls-002/stdout.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/controls-002/stdout.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/develop-001/SourceFinitePinKernel.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/develop-001/SourceFinitePinKernel.lean",
+      "bytes": 6866
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/develop-001/record.json",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/develop-001/record.json",
+      "bytes": 672
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/develop-001/stderr.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/develop-001/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/develop-001/stdout.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/develop-001/stdout.log",
+      "bytes": 1365
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/develop-002/SourceFinitePinKernel.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/develop-002/SourceFinitePinKernel.lean",
+      "bytes": 6893
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/develop-002/record.json",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/develop-002/record.json",
+      "bytes": 673
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/develop-002/stderr.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/develop-002/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/develop-002/stdout.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/develop-002/stdout.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/false-kernel-001/Controls.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/false-kernel-001/Controls.lean",
+      "bytes": 6357
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/false-kernel-001/FalseKernelMutation.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/false-kernel-001/FalseKernelMutation.lean",
+      "bytes": 1654
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/false-kernel-001/Inventory.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/false-kernel-001/Inventory.lean",
+      "bytes": 1070
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/false-kernel-001/SourceFinitePinKernel.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/false-kernel-001/SourceFinitePinKernel.lean",
+      "bytes": 6893
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/false-kernel-001/record.json",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/false-kernel-001/record.json",
+      "bytes": 2104
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/false-kernel-001/stderr.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/false-kernel-001/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/false-kernel-001/stdout.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/false-kernel-001/stdout.log",
+      "bytes": 663
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/false-kernel-002/Controls.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/false-kernel-002/Controls.lean",
+      "bytes": 6749
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/false-kernel-002/FalseKernelMutation.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/false-kernel-002/FalseKernelMutation.lean",
+      "bytes": 1636
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/false-kernel-002/Inventory.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/false-kernel-002/Inventory.lean",
+      "bytes": 1070
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/false-kernel-002/SourceFinitePinKernel.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/false-kernel-002/SourceFinitePinKernel.lean",
+      "bytes": 6893
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/false-kernel-002/record.json",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/false-kernel-002/record.json",
+      "bytes": 2104
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/false-kernel-002/stderr.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/false-kernel-002/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/false-kernel-002/stdout.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/false-kernel-002/stdout.log",
+      "bytes": 334
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/inventory-001/Controls.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/inventory-001/Controls.lean",
+      "bytes": 6357
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/inventory-001/FalseKernelMutation.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/inventory-001/FalseKernelMutation.lean",
+      "bytes": 1654
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/inventory-001/Inventory.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/inventory-001/Inventory.lean",
+      "bytes": 1070
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/inventory-001/SourceFinitePinKernel.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/inventory-001/SourceFinitePinKernel.lean",
+      "bytes": 6893
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/inventory-001/record.json",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/inventory-001/record.json",
+      "bytes": 2071
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/inventory-001/stderr.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/inventory-001/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/inventory-001/stdout.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/inventory-001/stdout.log",
+      "bytes": 2785
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/kernel-001/Controls.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/kernel-001/Controls.lean",
+      "bytes": 6749
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/kernel-001/FalseKernelMutation.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/kernel-001/FalseKernelMutation.lean",
+      "bytes": 1636
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/kernel-001/Inventory.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/kernel-001/Inventory.lean",
+      "bytes": 1070
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/kernel-001/SourceFinitePinKernel.lean",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/kernel-001/SourceFinitePinKernel.lean",
+      "bytes": 6893
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/kernel-001/record.json",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/kernel-001/record.json",
+      "bytes": 1861
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/kernel-001/stderr.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/kernel-001/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/kernel-001/stdout.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/kernel-001/stdout.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/stage.py",
+      "archive": "finite-pin-kernel-evidence/raw/producer/stage.py",
+      "bytes": 1985
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-source-review/REPORT.md",
+      "archive": "finite-pin-kernel-evidence/raw/review/REPORT.md",
+      "bytes": 14193
+    }
+  ],
+  "raw_streams": [
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/controls-001/stderr.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/controls-001/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/controls-001/stdout.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/controls-001/stdout.log",
+      "bytes": 1145
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/controls-002/stderr.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/controls-002/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/controls-002/stdout.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/controls-002/stdout.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/develop-001/stderr.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/develop-001/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/develop-001/stdout.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/develop-001/stdout.log",
+      "bytes": 1365
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/develop-002/stderr.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/develop-002/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/develop-002/stdout.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/develop-002/stdout.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/false-kernel-001/stderr.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/false-kernel-001/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/false-kernel-001/stdout.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/false-kernel-001/stdout.log",
+      "bytes": 663
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/false-kernel-002/stderr.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/false-kernel-002/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/false-kernel-002/stdout.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/false-kernel-002/stdout.log",
+      "bytes": 334
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/inventory-001/stderr.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/inventory-001/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/inventory-001/stdout.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/inventory-001/stdout.log",
+      "bytes": 2785
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/kernel-001/stderr.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/kernel-001/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/kernel-001/stdout.log",
+      "archive": "finite-pin-kernel-evidence/raw/producer/runs/kernel-001/stdout.log",
+      "bytes": 0
+    }
+  ],
+  "excluded_compiled_artifacts": [
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/build/SourceFinitePinKernel.olean",
+      "reason": "Compiled artifact; no build directory or object is included in the raw archive."
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/controls-002/Controls.olean",
+      "reason": "Compiled artifact; no build directory or object is included in the raw archive."
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/develop-002/SourceFinitePinKernel.olean",
+      "reason": "Compiled artifact; no build directory or object is included in the raw archive."
+    },
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/runs/inventory-001/Inventory.olean",
+      "reason": "Compiled artifact; no build directory or object is included in the raw archive."
+    }
+  ],
+  "preservation": "All retained files, including full streams, failed attempts, snapshots, scripts, reports and lineage, were copied byte-for-byte without whitespace changes.",
+  "old_archive_checks": 0,
+  "mathematical_verification_replays": 0
+}

@@ -1,0 +1,15 @@
+test_empty_matrix_is_a_failure_instead_of_vacuous_success (test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_matrix_is_a_failure_instead_of_vacuous_success) ... FAIL
+
+======================================================================
+FAIL: test_empty_matrix_is_a_failure_instead_of_vacuous_success (test_cbz_mutation_runner.OuterMutationRunnerTests.test_empty_matrix_is_a_failure_instead_of_vacuous_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py", line 23, in wrapped
+    return _original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 1 test in 0.004s
+
+FAILED (failures=1)

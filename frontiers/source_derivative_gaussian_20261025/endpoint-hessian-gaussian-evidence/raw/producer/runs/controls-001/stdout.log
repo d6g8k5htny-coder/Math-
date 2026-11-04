@@ -1,0 +1,20 @@
+/workspace/scratch/endpoint-hessian-gaussian-construct/Controls.lean:25:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Matrix.det ?A
+in the target expression
+  Matrix.det ![![H 0, H 1], ![H 1, H 2]] = H 0 * H 2 - H 1 ^ 2
+
+H : Fin 3 → ℝ
+⊢ Matrix.det ![![H 0, H 1], ![H 1, H 2]] = H 0 * H 2 - H 1 ^ 2
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    ![![H 0, H 1], ![H 1, H 2]]
+  has type
+    Fin (Nat.succ 1) → Fin 2 → ℝ
+  but is expected to have type
+    Matrix (Fin (Nat.succ 1)) (Fin (Nat.succ 1)) ℝ
+  in the application
+    Matrix.det ![![H 0, H 1], ![H 1, H 2]]
+/workspace/scratch/endpoint-hessian-gaussian-construct/Controls.lean:31:42: error: unsolved goals
+⊢ Matrix.det ![![1, 2], ![2, 3]] = -1

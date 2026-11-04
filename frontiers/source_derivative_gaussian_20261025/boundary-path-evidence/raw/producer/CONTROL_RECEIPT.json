@@ -1,0 +1,36 @@
+{
+  "positive_and_actual_negative_receipt": "/workspace/scratch/ridge-boundary-path-construct/runs/controls-004/receipt.json",
+  "positive_exit": 0,
+  "positive_V": "x^3/3-x/4-4*y^2",
+  "positive_parameters": {
+    "R": 1,
+    "c": 8,
+    "M0": 0,
+    "M1": 0,
+    "M2": 0,
+    "A": 2
+  },
+  "negative_V": "x^3/3-x/4-y^2/100",
+  "negative_parameters": {
+    "R": 1,
+    "c": "1/50",
+    "M0": 0,
+    "M1": 0,
+    "M2": 0,
+    "A": 2
+  },
+  "counterexample_point": [
+    "-1/2",
+    1
+  ],
+  "counterexample_value": "11/150",
+  "death_value": "-1/12",
+  "violation_gap": "47/300",
+  "negative_analytic_structure_and_constructed_ridge": "passed controls-004",
+  "negative_failed_budget": "(c/2)*(R-M0/c)^2 = 1/100 < 1",
+  "false_mutation_receipt": "/workspace/scratch/ridge-boundary-path-construct/runs/false-without-drop-002/receipt.json",
+  "expected_false_exit": 1,
+  "actual_false_exit": 1,
+  "actual_false_log": "/workspace/scratch/ridge-boundary-path-construct/FalseWithoutDrop.lean:25:46: error: unsolved goals\n\u22a2 False\n",
+  "no_control_olean_written": true
+}

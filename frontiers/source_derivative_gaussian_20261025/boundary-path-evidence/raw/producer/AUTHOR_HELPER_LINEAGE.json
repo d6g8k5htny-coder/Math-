@@ -1,0 +1,31 @@
+{
+  "helper": "/root/ridge_vertical_loss",
+  "frozen_source": "/workspace/scratch/ridge-vertical-loss/runs/run-006/VerticalLoss.lean",
+  "source_sha256_transcribed": "40a313e48d747774916a240740d136d47ed84c9494b6fd5a2ea68eeacf8042d2",
+  "helper_receipt": "/workspace/scratch/ridge-vertical-loss/runs/run-006/metadata.json",
+  "report": "/workspace/scratch/ridge-vertical-loss/REPORT.md",
+  "integrated": [
+    {
+      "name": "AdaptiveFoldBoundaryPath.quadratic_loss_of_second_derivative",
+      "integrated_once": true,
+      "section_sha256": "8345c83c86a13943b092b622bbbd02634a604f0610388dab7c5f5a6acfad1d78",
+      "sha256": "8345c83c86a13943b092b622bbbd02634a604f0610388dab7c5f5a6acfad1d78",
+      "first_line": 15,
+      "last_line": 68,
+      "signature": "theorem quadratic_loss_of_second_derivative\n    {f f\u2081 f\u2082 : \u211d \u2192 \u211d} {a b c z y : \u211d}\n    (hf : \u2200 t \u2208 Icc a b, HasDerivAt f (f\u2081 t) t)\n    (hf\u2081 : \u2200 t \u2208 Icc a b, HasDerivAt f\u2081 (f\u2082 t) t)\n    (hneg : \u2200 t \u2208 Icc a b, f\u2082 t \u2264 -c)\n    (hz : z \u2208 Icc a b) (hroot : f\u2081 z = 0) (hy : y \u2208 Icc a b) :\n    f y \u2264 f z - (c / 2) * (y - z) ^ 2",
+      "byte_count": 2238
+    },
+    {
+      "name": "AdaptiveFoldBoundaryPath.vertical_quadratic_loss",
+      "integrated_once": true,
+      "section_sha256": "e6dce24c11a073a774426a9e192f2d21aeae7a8d87b270efcabbe372251e9f75",
+      "sha256": "e6dce24c11a073a774426a9e192f2d21aeae7a8d87b270efcabbe372251e9f75",
+      "first_line": 71,
+      "last_line": 89,
+      "signature": "theorem vertical_quadratic_loss\n    {V : \u211d \u00d7 \u211d \u2192 \u211d} {O : Set (\u211d \u00d7 \u211d)} {R c x z y : \u211d}\n    (hO : IsOpen O) (hV : ContDiffOn \u211d 4 V O)\n    (hstrip : \u2200 t \u2208 Icc (-R) R, (x, t) \u2208 O)\n    (hneg : \u2200 t \u2208 Icc (-R) R, partialY (Vy V) (x, t) \u2264 -c)\n    (hz : z \u2208 Icc (-R) R) (hroot : Vy V (x, z) = 0)\n    (hy : y \u2208 Icc (-R) R) :\n    V (x, y) \u2264 V (x, z) - (c / 2) * (y - z) ^ 2",
+      "byte_count": 910
+    }
+  ],
+  "author_family": "OpenAI/GPT",
+  "different_family_credit": 0
+}

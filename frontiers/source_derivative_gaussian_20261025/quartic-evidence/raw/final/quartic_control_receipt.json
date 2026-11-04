@@ -1,0 +1,119 @@
+{
+  "scope": "NEW_SOURCE_PIN_PRESERVING_QUARTIC_CONTROLS_ONLY",
+  "author_side_helper_lineage": "OpenAI/Codex /root/dm2_landed_composition/peano_strategy",
+  "scientific_review_credit": 0,
+  "frozen_production_source_sha256": "8e23717ef98518b6d701db921d1f17958c3dee2c893745cafa7aa6172f1621d9",
+  "consumed_olean_sha256": "d4cff4ad4c99947b084df20691dfc1228e9f46710faf52d9f28f7e3d57a97f72",
+  "checks": {
+    "Controls.attempt2": {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/pin-preserving-quartic-implementation/Controls.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 0,
+      "duration_seconds": 6.076973915100098,
+      "timestamp_utc": "2026-10-26T01:11:51.197987+00:00",
+      "sha256_before": {
+        "source": "8e23717ef98518b6d701db921d1f17958c3dee2c893745cafa7aa6172f1621d9",
+        "olean": "d4cff4ad4c99947b084df20691dfc1228e9f46710faf52d9f28f7e3d57a97f72",
+        "control": "97736c8a013167ea92a00cbfcabb3d88c4ec9b0f0077c062cd8faddd088e21ff"
+      },
+      "sha256_after": {
+        "source": "8e23717ef98518b6d701db921d1f17958c3dee2c893745cafa7aa6172f1621d9",
+        "olean": "d4cff4ad4c99947b084df20691dfc1228e9f46710faf52d9f28f7e3d57a97f72",
+        "control": "97736c8a013167ea92a00cbfcabb3d88c4ec9b0f0077c062cd8faddd088e21ff"
+      },
+      "author_side_helper_lineage": "OpenAI/Codex /root/dm2_landed_composition/peano_strategy",
+      "scope": "NEW_SOURCE_PIN_PRESERVING_QUARTIC_CONTROLS_ONLY",
+      "raw_log": "/workspace/scratch/pin-preserving-quartic-implementation/Controls.attempt2.log",
+      "expected_exit_code": 0,
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "FalseSumC1.attempt1": {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/pin-preserving-quartic-implementation/FalseSumC1.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 1,
+      "duration_seconds": 4.190439939498901,
+      "timestamp_utc": "2026-10-26T01:10:53.600590+00:00",
+      "sha256_before": {
+        "source": "8e23717ef98518b6d701db921d1f17958c3dee2c893745cafa7aa6172f1621d9",
+        "olean": "d4cff4ad4c99947b084df20691dfc1228e9f46710faf52d9f28f7e3d57a97f72",
+        "control": "b8385cb16f66989f64bbb01609df347f4e3eb2dfac316f8e6e231320241c7171"
+      },
+      "sha256_after": {
+        "source": "8e23717ef98518b6d701db921d1f17958c3dee2c893745cafa7aa6172f1621d9",
+        "olean": "d4cff4ad4c99947b084df20691dfc1228e9f46710faf52d9f28f7e3d57a97f72",
+        "control": "b8385cb16f66989f64bbb01609df347f4e3eb2dfac316f8e6e231320241c7171"
+      },
+      "author_side_helper_lineage": "OpenAI/Codex /root/dm2_landed_composition/peano_strategy",
+      "scope": "NEW_SOURCE_PIN_PRESERVING_QUARTIC_CONTROLS_ONLY",
+      "raw_log": "/workspace/scratch/pin-preserving-quartic-implementation/FalseSumC1.attempt1.log",
+      "expected_exit_code": 1,
+      "raw_log_sha256": "3a06d16a2116bdd92433dde2e2488845023222630c1bf78ea9706ecb857ffc9e"
+    },
+    "FalseMissingFifthDerivative.attempt1": {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/pin-preserving-quartic-implementation/FalseMissingFifthDerivative.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 1,
+      "duration_seconds": 4.238556623458862,
+      "timestamp_utc": "2026-10-26T01:10:53.671992+00:00",
+      "sha256_before": {
+        "source": "8e23717ef98518b6d701db921d1f17958c3dee2c893745cafa7aa6172f1621d9",
+        "olean": "d4cff4ad4c99947b084df20691dfc1228e9f46710faf52d9f28f7e3d57a97f72",
+        "control": "98df1e71ff2b1c710a85a97a840695c49328b6593034c0e2f1c02c0439206aea"
+      },
+      "sha256_after": {
+        "source": "8e23717ef98518b6d701db921d1f17958c3dee2c893745cafa7aa6172f1621d9",
+        "olean": "d4cff4ad4c99947b084df20691dfc1228e9f46710faf52d9f28f7e3d57a97f72",
+        "control": "98df1e71ff2b1c710a85a97a840695c49328b6593034c0e2f1c02c0439206aea"
+      },
+      "author_side_helper_lineage": "OpenAI/Codex /root/dm2_landed_composition/peano_strategy",
+      "scope": "NEW_SOURCE_PIN_PRESERVING_QUARTIC_CONTROLS_ONLY",
+      "raw_log": "/workspace/scratch/pin-preserving-quartic-implementation/FalseMissingFifthDerivative.attempt1.log",
+      "expected_exit_code": 1,
+      "raw_log_sha256": "5a0622709a4c036066d36dd84f09c04484d42344ca346ee011de19658b5c702e"
+    }
+  },
+  "coverage": [
+    "literal LM001 mixed U and nonunit radius at rational point",
+    "hardcoded exact symmetric Jacobian and actual Euclidean fderiv identity",
+    "exact polynomial positive and negative half pins",
+    "sharp quartic scalar Taylor factorial 1/24 at x=2,G=24",
+    "sharp cubic second-order scalar Taylor factorial 1/6 at x=-2,G=6",
+    "Pi sup norm 4 versus Euclidean norm 5 for [3,4]",
+    "all-ones 2x2 induced Euclidean operator norm exactly 2",
+    "separate maximum C1 constants <=3 and their sum >4",
+    "exact K0,epsilonStar,Kcap and Fstar coefficient normalization",
+    "literal q-excluded cutoff U radius 7 <=5*2 with r=epsilonStar/32",
+    "generic cutoff regularity,tolerance,curvature threshold and width geometry",
+    "false sum-C1 surrogate rejected at False",
+    "false zero fifth-derivative majorant rejected at False"
+  ],
+  "initial_positive_attempt": {
+    "metadata": "/workspace/scratch/pin-preserving-quartic-implementation/Controls.attempt1.json",
+    "raw_log": "/workspace/scratch/pin-preserving-quartic-implementation/Controls.attempt1.log",
+    "source": "/workspace/scratch/pin-preserving-quartic-implementation/Controls.attempt1.lean",
+    "defect": "Only optional all-ones operator equality had numeral normalization and cancellation-API defects. These control-only defects were corrected; no production source change. Both negative controls were reused after their single intended-failure execution."
+  },
+  "completed_verification_reuse": "Do not repeat successful unchanged controls or negative controls after this handoff. Kernel replay and public-target axiom audit remain the parent-owned distinct checks.",
+  "not_claimed": [
+    "actual periodic-field sample constructed by controls",
+    "capture or torus transport",
+    "different-family review",
+    "scientific acceptance",
+    "overall research closure"
+  ]
+}

@@ -1,0 +1,242 @@
+{
+  "schema": 1,
+  "verdict": "ACCEPT_SCOPED",
+  "must_fix_findings": [],
+  "mandatory_source_changes": [],
+  "finalized_utc": "2026-10-17T22:00:15.238420+00:00",
+  "scope": "Exact local conditional geometric elder-clearance/C263 death and actual ordinary-singular-H0 interval direct summand; local source/result review only",
+  "actual_reviewer": {
+    "agent": "/root/c261a_successor_preparation_review_20261016",
+    "provider": "OpenAI/Codex",
+    "nonauthor_of_all_three_new_lean_modules": true,
+    "authors": [
+      "Root01a11cbf: ElderClearance and ElderBridge",
+      "elder_interval_lean_20261017: ElderInterval"
+    ],
+    "source_exposed": true,
+    "prior_exposure": "Reviewer of exact accepted conventional asymmetric proof and its topology integration; earlier C261 source/outcome reviews",
+    "shared_principal": true,
+    "organizational_independence_credit": 0,
+    "blind_credit": 0,
+    "new_helper_review_credit": 0
+  },
+  "source_identities": [
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/ElderClearance.lean",
+      "bytes": 5866,
+      "sha256": "d3d78472881059546402218cc77792eeef00755c222bb02499d69abd3b5cd57e"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/interval-project/ElderInterval.lean",
+      "bytes": 16006,
+      "sha256": "3dab19342c307f6b70f4fa05ac913b4ead083742a56408db71b45276c0acb9ab"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/ElderBridge.lean",
+      "bytes": 3683,
+      "sha256": "6b0be1116f6b357b0ffbda202c572c27c2788b98bee639e228375a5ebeea1fa9"
+    }
+  ],
+  "source_claims_accepted": [
+    "Closed D plus frontier height bound derives strict-superlevel clopen separation",
+    "All ambient higher-endpoint paths meet height at most d; no remote detour exception",
+    "Actual supplied closed path witnesses all strict clearances below d and attains d",
+    "Literal Euclidean C263 clearance equals Iio d and continuous nonessential death equals d",
+    "Actual scalar interval functor [-m,-d) with constructed ordered maps",
+    "Actual singular-H0 point-class-difference section and component-indicator retraction",
+    "Naturality includes prebirth-to-active via ceiling and active-to-death via closed path",
+    "Constructed retraction identity and natural interval-plus-kernel isomorphism",
+    "Boundary adapter constructs the trap and joins same geometric data to actual H0 sum and literal C263 death",
+    "Ordinary individual point nonvanishing retained; characteristic-two split supported"
+  ],
+  "explicit_premises": [
+    "Topological space and height function",
+    "Closed geometric D",
+    "Boundary heights at most d",
+    "d<m for nonempty interval",
+    "g(M)=m and M in D",
+    "All heights in D at most m",
+    "Higher endpoint g(P)>m",
+    "Actual continuous path M to P with all heights at least d",
+    "Continuous g and Euclidean carrier for literal C263 death",
+    "Actual Field k for ModuleCat interval/summand"
+  ],
+  "runtime_results": {
+    "source_and_positive_control_elaboration": "ACTUAL_PASS_RETAINED_RECORDS",
+    "axiom_prints": {
+      "total_unique_named_targets": 49,
+      "explicit_new_source_declarations": 45,
+      "named_clearance_controls": 3,
+      "additional_generated_reassoc": 1,
+      "per_group": [
+        10,
+        35,
+        4
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "not_every_compiler_generated_constant": true
+    },
+    "interval_positive_examples": 9,
+    "interval_signature_checks": 8,
+    "anonymous_example_credit": "Actual elaboration; replay does not re-elaborate erased anonymous examples",
+    "substantive_negative_count": 3,
+    "negative_cases": [
+      "death cannot belong to strict clearance",
+      "closed interval death endpoint breaks endpoint/map obligations",
+      "m+1 ceiling no longer excludes prebirth D points"
+    ],
+    "kernel_module_count": 8,
+    "kernel_modules": [
+      "SuperlevelBar",
+      "ClosedSuperlevel",
+      "OrdinaryH0",
+      "ElderClearance",
+      "ElderClearanceControls",
+      "ElderInterval",
+      "ElderIntervalControls",
+      "ElderBridge"
+    ],
+    "kernel_mode": "Standard Lean own-constant module replay against imports; NOT --fresh; NOT external verifier",
+    "serial_terminal_utc": "2026-10-17T21:55:49.033218+00:00",
+    "root_supervised_queue_exit": 0,
+    "baseline_new_capture": "ACTUAL_EXIT0; old interrupted baseline exit remains UNOBSERVED",
+    "c263_old_new_artifact_bytes_equal": true,
+    "no_unobserved_hermetic_portable_default_lake_build_claim": true
+  },
+  "compiled_artifacts": [
+    {
+      "module": "SuperlevelBar",
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/build/SuperlevelBar.olean",
+      "bytes": 233680,
+      "sha256": "e3034e68ec9141f26498835ecb4b08b4268d1c89e56b09ec85151e555fae8086",
+      "optional_olean_parts": []
+    },
+    {
+      "module": "ClosedSuperlevel",
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/interval-project/.lake/build/lib/lean/ClosedSuperlevel.olean",
+      "bytes": 230416,
+      "sha256": "fb5b7385a442a7e0a9b9bf7911fa2fd65b95870b60a71d8e38031852bf1d9d37",
+      "optional_olean_parts": []
+    },
+    {
+      "module": "OrdinaryH0",
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/interval-project/.lake/build/lib/lean/OrdinaryH0.olean",
+      "bytes": 333024,
+      "sha256": "29bd5a004e17da4bc49ad89ed399e0dafea925ccfc4445d2176030ca00b1bc41",
+      "optional_olean_parts": []
+    },
+    {
+      "module": "ElderClearance",
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/build/ElderClearance.olean",
+      "bytes": 90944,
+      "sha256": "2b4d7be7d5c30ac89c96cb3e7ea229e3930e6677b81f3b7081a2eb5cfe364db7",
+      "optional_olean_parts": []
+    },
+    {
+      "module": "ElderClearanceControls",
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/build/ElderClearanceControls.olean",
+      "bytes": 65664,
+      "sha256": "22ada029d075643e99cdffa8dfa4bf8008c92c8e6d9e2398eb801fff2b00d468",
+      "optional_olean_parts": []
+    },
+    {
+      "module": "ElderInterval",
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/interval-project/.lake/build/lib/lean/ElderInterval.olean",
+      "bytes": 839672,
+      "sha256": "5a93f68a6f4a21d2d3b8ab453e2231dbcf0f9cb6da07ce2e62d5ed1b75508836",
+      "optional_olean_parts": []
+    },
+    {
+      "module": "ElderIntervalControls",
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/interval-project/.lake/build/lib/lean/ElderIntervalControls.olean",
+      "bytes": 3224,
+      "sha256": "df6c474fdf6b6232b9370df5c0c3ae9c9a26c3465ddf4d7ccbf50a9af76ec716",
+      "optional_olean_parts": []
+    },
+    {
+      "module": "ElderBridge",
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/build/ElderBridge.olean",
+      "bytes": 109000,
+      "sha256": "805117e56525742fbe128137c35bab69bae8d0515a08f0ad46d922cb210bade4",
+      "optional_olean_parts": []
+    }
+  ],
+  "custody": {
+    "historical_interval_author_seal_files": 74,
+    "all_author_seal_files_unchanged": true,
+    "historical_pending_labels_preserved": true,
+    "local_source_freeze_rows": 6,
+    "all_source_freeze_rows_match": true,
+    "source_set_clarification": "Original proof-2 false source_unchanged retained; all preexisting bytes unchanged and exactly3 future files added",
+    "failed_attempts_and_unexecuted_early_mutant_preparation_preserved": true,
+    "full_author_execution_summaries_read": true,
+    "author_summaries_are_extra_review_credit": false
+  },
+  "interface_graph_review": {
+    "verdict": "ACCEPT_SCOPED_LOCAL_TYPED_INTERFACE_INVENTORY",
+    "sources": 6,
+    "named_symbol_references": 31,
+    "nodes": 16,
+    "edges": 23,
+    "acyclic": true,
+    "scope": "Local semantic interface inventory, not complete compiler/global dependency authority",
+    "analytic_and_open_interfaces_remain_explicit": true,
+    "runtime_credit_from_graph": false
+  },
+  "dependency_runtime_checks": {
+    "fresh_readonly_nine_pin_and_clean_status_match": true,
+    "pin_check_utc": "2026-10-17T21:50:22.912682+00:00",
+    "formal_config_count": 3,
+    "runtime_lean_version": "4.34.1; commit5045d0056413266e57c625dcd7c365b10e377c52; Darwin arm64",
+    "runtime_binary_hashes_bound": true,
+    "git_optional_locks": "0",
+    "reviewer_lean_execution": false
+  },
+  "remaining_out_of_scope_interfaces": [
+    "Analytic ridge-to-closed-domain construction in Lean",
+    "Eigenframe/derivative quantitative estimates in Lean",
+    "Torus lift/carrier transfer and unique quotient saddle",
+    "Compact Morse/distinct-value canonical elder label and finite-event uniqueness",
+    "Simultaneous or exhaustive barcode decomposition",
+    "Full all-bar counting and stochastic convergence formalization",
+    "C261 actual-law realization",
+    "Institutional C263/C264 statement alignment and legacy FORMAL HOLD",
+    "Hermetic offline image or portable default lake-build replay",
+    "Production candidate/source adoption/remote hosted qualification",
+    "Scientific acceptance"
+  ],
+  "reviewer_operations": {
+    "new_lean_launches": 0,
+    "prior_math_payloads_or_controls_rerun": 0,
+    "reviewed_source_edits": 0,
+    "prior_seal_edits": 0,
+    "native_writes": 0,
+    "claim_mutations": 0,
+    "scientific_status_mutations": 0,
+    "new_writes": "Review directory only; inert verification and report artifacts"
+  },
+  "chronology": {
+    "prior_math468_p1_task_sealed_before_this_review": "2026-10-17T21:14:31.682599Z",
+    "new_source_review_first_clock": "2026-10-17T21:16:09Z",
+    "local_checkpoint": "2026-10-17T21:20Z",
+    "serial_terminal": "2026-10-17T21:55:49.033218Z",
+    "full_author_summary_join_verified": "2026-10-17T21:58:07.908746+00:00",
+    "review_finalized": "2026-10-17T22:00:15.238420+00:00"
+  },
+  "report": "NONAUTHOR_ELDER_BRIDGE_REVIEW.md",
+  "evidence": [
+    "RETAINED_INPUT_VERIFICATION.json",
+    "SERIAL_RESULT_REVIEW.json",
+    "FINAL_PINS_AND_SOURCE_CHECK.json",
+    "INTERFACE_GRAPH_REVIEW.json",
+    "AUTHOR_SUMMARY_JOIN_VERIFICATION.json"
+  ],
+  "scientific_effect": "NONE",
+  "legacy_formal_hold_and_alignment_unchanged": true,
+  "full_research_goal": "ACTIVE_UNMET",
+  "canonical_archive_consumption": "SEPARATE_LATER_OBSERVATION; not performed by this source/result review"
+}

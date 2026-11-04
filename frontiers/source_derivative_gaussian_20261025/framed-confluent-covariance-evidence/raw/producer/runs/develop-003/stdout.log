@@ -1,0 +1,30 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:200:2: error: Type mismatch: After simplification, term
+  pairCoefficient_bound hL z (R 0) (R 1) r (Eq.le (OrthonormalBasis.norm_eq_one R 0))
+    (Eq.le (OrthonormalBasis.norm_eq_one R 1)) i m
+ has type
+  @LE.le ℝ Real.instLE |pairCoefficient L z (R 0) (R 1) r i m| (envelope L m)
+but is expected to have type
+  @LE.le ℝ Real.instLE |framedConfluentCoefficient L z R r i m| (envelope L m)
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:227:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (x : ℝ) in ?m.115..?m.116, ?m.98 - (id ^ 2) x ∂?m.112
+in the target expression
+  ∫ (t : ℝ) in -1 / 2..1 / 2, 1 / 4 - t ^ 2 = 1 / 6
+
+f : (Fin 2 → ℝ) → ℝ
+p e n : Fin 2 → ℝ
+⊢ ∫ (t : ℝ) in -1 / 2..1 / 2, 1 / 4 - t ^ 2 = 1 / 6
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:244:2: error: unsolved goals
+case «5»
+f : (Fin 2 → ℝ) → ℝ
+p e n : Fin 2 → ℝ
+hw : ∫ (t : ℝ) in -1 / 2..1 / 2, 1 / 4 - t ^ 2 = 1 / 6
+⊢ (iteratedFDeriv ℝ 3 f p) ![e, e, e] =
+    ![f p, (fderiv ℝ f p) e, (fderiv ℝ f p) n, (iteratedFDeriv ℝ 2 f p) ![e, e], (iteratedFDeriv ℝ 2 f p) ![e, n],
+        (iteratedFDeriv ℝ 3 f p) ![e, e, e], (iteratedFDeriv ℝ 2 f p) ![n, n] ]
+      ⟨5, ⋯⟩

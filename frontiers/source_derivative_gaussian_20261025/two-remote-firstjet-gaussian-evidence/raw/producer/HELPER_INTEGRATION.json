@@ -1,0 +1,75 @@
+{
+  "production_covariance": {
+    "integrated_utc": "2026-10-26T18:37:50.634077+00:00",
+    "helper": "/root/two_remote_firstjet_arithmetic",
+    "original_path": "/workspace/scratch/two-remote-firstjet-gaussian-covariance-text/SECTION.lean.txt",
+    "original_sha256": "089455f1855b4fb72b85afc59c34ad2628d128957cc8bd1b387f14ef7cf331d7",
+    "integration_count": 1,
+    "destination": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean",
+    "local_amendments": [],
+    "helper_executions": 0,
+    "retained_frozen_payloads": [
+      {
+        "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/COVARIANCE_HELPER_SECTION.lean.txt",
+        "bytes": 2379,
+        "sha256": "089455f1855b4fb72b85afc59c34ad2628d128957cc8bd1b387f14ef7cf331d7",
+        "identity_reused_from_frozen_helper_handoff": true
+      },
+      {
+        "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/COVARIANCE_HELPER_IMPORTS.txt",
+        "bytes": 385,
+        "sha256": "c854b9b099cd429c6fbec6b8d57d4100f960256e5db43d27054258c34d568ed7",
+        "identity_reused_from_frozen_helper_handoff": true
+      },
+      {
+        "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/COVARIANCE_HELPER_FROZEN_PROVENANCE.json",
+        "bytes": 3743,
+        "sha256": "b650136f5585d8a8c8634698e23a1a014c607847576af3de52edbf03d40e078c",
+        "identity_reused_from_frozen_helper_handoff": true
+      }
+    ],
+    "helper_target_credit": 0
+  },
+  "controls_only_psd": {
+    "integrated_utc": "2026-10-26T18:43:30.200148+00:00",
+    "helper": "/root/two_remote_firstjet_arithmetic",
+    "original_path": "/workspace/scratch/two-remote-firstjet-gaussian-controls-psd-text/SECTION.lean.txt",
+    "original_sha256": "f703463e65a7395c821f7fb2c4f7ff009320317087551b67aafe345a4d202f3e",
+    "integration_count": 1,
+    "destination": "/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean",
+    "local_amendments": [
+      "eta-expand literal block matrix and both coordinate inclusion matrices; supply dimensions3+3/index and real numeric types to Lean eliminator",
+      "expand matrix addition/multiplication/adjoints BEFORE finite coordinate simplification; remove unused Fin.sum_univ_succ simp argument"
+    ],
+    "production_needed": false,
+    "helper_executions": 0,
+    "retained_frozen_payloads": [
+      {
+        "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/PSD_HELPER_SECTION.lean.txt",
+        "bytes": 1542,
+        "sha256": "f703463e65a7395c821f7fb2c4f7ff009320317087551b67aafe345a4d202f3e",
+        "identity_reused_from_frozen_helper_handoff": true
+      },
+      {
+        "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/PSD_HELPER_IMPORTS.txt",
+        "bytes": 333,
+        "sha256": "b20f649fcdcffdd0de71d534992463bec0b6e36fdd4209e7730cb06d90c71f41",
+        "identity_reused_from_frozen_helper_handoff": true
+      },
+      {
+        "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/PSD_HELPER_FROZEN_PROVENANCE.json",
+        "bytes": 3726,
+        "sha256": "5f4e9b9a0962c8214f6139e3f65fc1981340e007c06dcc020c8a55f0c9f9a0a9",
+        "identity_reused_from_frozen_helper_handoff": true
+      }
+    ],
+    "helper_target_credit": 0,
+    "complete_actual_amendment_record": "/workspace/scratch/two-remote-firstjet-gaussian-construct/HELPER_AMENDMENTS.json",
+    "exact_actual_section": {
+      "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/PSD_HELPER_ACTUAL_NEEDED_SECTION.lean.txt",
+      "bytes": 1659,
+      "sha256": "53a56e584d4fd6ad165627653670db6388f5e2121474507c00a4efdcf82d195e"
+    }
+  },
+  "historical_before_amendment_record": "/workspace/scratch/two-remote-firstjet-gaussian-construct/HELPER_INTEGRATION.pre_amendments.json"
+}

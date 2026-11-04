@@ -1,0 +1,40 @@
+{
+  "status": "FROZEN_FULL_PRODUCTION_WITH_ACTUAL_FOUR_FIXTURES_STRICT_PASS_PENDING_REMAINING_QUALIFICATION",
+  "strict_run": "core019",
+  "strict_start_utc": "2026-10-28T15:30:36.415860+00:00",
+  "strict_end_utc": "2026-10-28T15:30:47.909461+00:00",
+  "strict_exit": 0,
+  "source": {
+    "role": "owned_production_source",
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+    "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0041-SourceActualMorseLocalModel.lean",
+    "bytes": 65754,
+    "sha256": "d6776bd34a2ae1371c2af8fbfcc54d2a536e7c96b2e4db517a5f4a81b4128cd5",
+    "first_bound_utc": "2026-10-28T15:30:36.412696+00:00",
+    "new_sha256_operations": 1,
+    "reused_identity": false
+  },
+  "owned_object": {
+    "role": "owned_production_object",
+    "path": "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+    "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0042-SourceActualMorseLocalModel.olean",
+    "bytes": 3409752,
+    "sha256": "7bc2d9fc1edcbd936dc04b583fa2b4642fc6fd968c594350df8eec28093d7ad3",
+    "first_bound_utc": "2026-10-28T15:30:47.921140+00:00",
+    "new_sha256_operations": 1,
+    "reused_identity": false
+  },
+  "public_theorem": "I4SourceActualMorseLocalModel.actualSource_c1_quadratic_localModel",
+  "authored_public_propositions": 1,
+  "authored_public_data": 0,
+  "all_helper_integrations": 1,
+  "helper_executions": 0,
+  "pending": [
+    "all-owned inventory/std3",
+    "ordinary Controls positive/counterproof",
+    "EXACTLY ONE own-module kernel",
+    "sole intendedFalse mutation",
+    "final independent source/spec technical review"
+  ],
+  "reuse": "Strict/source/object IDs reused unchanged for later qualification; no new hashes at freeze."
+}

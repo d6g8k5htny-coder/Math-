@@ -1,0 +1,35 @@
+SourceMorseIncidence.lean:1406:2: error: Type mismatch: After simplification, term
+  measurePreserving_piCongrLeft (fun x => gaussianReal 0 1) fourModeEquiv.symm
+ has type
+  MeasurePreserving (⇑(Equiv.piCongrLeft (fun x => ℝ) fourModeEquiv.symm)) (Measure.pi fun i' => gaussianReal 0 1)
+    (Measure.pi fun x => gaussianReal 0 1)
+but is expected to have type
+  MeasurePreserving fourReindex (Measure.pi fun x => gaussianReal 0 1) (Measure.pi fun x => gaussianReal 0 1)
+SourceMorseIncidence.lean:1421:2: error: unsolved goals
+case pos
+L : ℝ
+a : ↥fourModeSet → ℝ
+ρ : SmoothSample 2 L
+j : Fin 4
+left✝ : j ∈ Finset.univ
+hm : fourMode j ∈ fourModeSet
+⊢ a ⟨fourMode j, ⋯⟩ = a ((Equiv.ofBijective (fun j => ⟨fourMode j, ⋯⟩) ⋯) j)
+SourceMorseIncidence.lean:1492:6: error: Type mismatch: After simplification, term
+  hp
+ has type
+  @Eq ℝ ((fderiv ℝ (smoothSourceField 2 L ω) x) (Pi.single 0 1)) 0
+but is expected to have type
+  @Eq ℝ ((fderiv ℝ (smoothSourceField 2 L ω) x) (Pi.single ⟨0, ⋯⟩ 1)) 0
+SourceMorseIncidence.lean:1494:6: error: Type mismatch: After simplification, term
+  hq
+ has type
+  @Eq ℝ ((fderiv ℝ (smoothSourceField 2 L ω) x) (Pi.single 1 1)) 0
+but is expected to have type
+  @Eq ℝ ((fderiv ℝ (smoothSourceField 2 L ω) x) (Pi.single ⟨1, ⋯⟩ 1)) 0
+SourceMorseIncidence.lean:1523:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```

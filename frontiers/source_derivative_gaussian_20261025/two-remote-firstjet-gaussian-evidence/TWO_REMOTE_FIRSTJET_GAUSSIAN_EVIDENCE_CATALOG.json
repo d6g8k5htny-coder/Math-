@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "module": "SourceTwoRemoteFirstJetGaussian",
+  "namespace": "I4SourceTwoRemoteFirstJetGaussian",
+  "source_cut": "8a21124e0f77679d8be0c0e16b8f5693f60785ae",
+  "source": {
+    "bytes": 21774,
+    "sha256": "4677ada085e7c53b4e9b4fd2160bcffc326e6a73b20cbb6cb7540ee3aece2a91"
+  },
+  "object": {
+    "bytes": 753408,
+    "sha256": "2eb9c10def60add68448a5465947491679e7961332e57eab242aa7331751c7f1"
+  },
+  "binding_precode": "98ec56b05b8b729c5f1638227280711f2f3b1718",
+  "native_pickup": 6424105296,
+  "native_pickup_utc": "2026-10-26T18:27:13Z",
+  "checkpoint_utc": "2026-10-26T19:15:00Z",
+  "terminal_utc": "2026-10-26T20:30:00Z",
+  "timer_reset": false,
+  "inventory": "INVENTORY.json",
+  "classification": "TARGET_CLASSIFICATION.json",
+  "actual_module_constants": 34,
+  "classifications": {
+    "written_public_def": 4,
+    "written_public_theorem": 2,
+    "written_private_def": 7,
+    "written_private_theorem": 17,
+    "generated_theorem": 4
+  },
+  "foreign_namespace_generated": [],
+  "public_research_targets": [
+    "I4SourceTwoRemoteFirstJetGaussian.rawPinKernel_twoRemoteFirstJet_eq_multivariateGaussian",
+    "I4SourceTwoRemoteFirstJetGaussian.twoRemoteResidualCovariance_posDef"
+  ],
+  "public_data_inventory_only": [
+    "I4SourceTwoRemoteFirstJetGaussian.twoRemoteFirstJet",
+    "I4SourceTwoRemoteFirstJetGaussian.twoRemoteRegressionMatrix",
+    "I4SourceTwoRemoteFirstJetGaussian.twoRemotePosteriorMean",
+    "I4SourceTwoRemoteFirstJetGaussian.twoRemoteResidualCovariance"
+  ],
+  "strict_record": "raw/producer/runs/develop-006/record.json",
+  "strict_reuse": "Exact successful strict006 at18:59:20.912955 reused; no fresh compile for freeze, Git or handoff.",
+  "kernel_record": "raw/producer/runs/kernel-001/record.json",
+  "named_own_kernel_checks": 1,
+  "kernel_completed_utc": "2026-10-26T19:02:08.301860Z",
+  "positive_record": "raw/producer/runs/controls-004/record.json",
+  "negative_record": "raw/producer/runs/cross-block-001/record.json",
+  "controls": "CONTROL_RECEIPT.json",
+  "root_ownobject_copy": "Actual root copy completed19:28:36.858463, count1; reuse ROOT_OWN_OBJECT_COPY.json, never copy again.",
+  "all_actual_runs": [
+    "develop-001",
+    "develop-002",
+    "develop-003",
+    "develop-004",
+    "develop-005",
+    "develop-006",
+    "inventory-001",
+    "controls-001",
+    "kernel-001",
+    "controls-002",
+    "controls-003",
+    "controls-004",
+    "cross-block-001"
+  ],
+  "stream_filenames_actually_present": [
+    "stderr.log",
+    "stdout.log"
+  ],
+  "failure_custody": "All actual attempts preserved, including develop003 large PANIC stdout, develop004 bridge reduction timeout and develop005 own-PID termination/resource reason. These are development failures, not mutation credit; exact exits/times/capture remain in original records.",
+  "helper_roles": [
+    {
+      "archive_role": "helper-covariance-production",
+      "directory": "/workspace/scratch/two-remote-firstjet-gaussian-covariance-text",
+      "destination_role": "production",
+      "originals_uncompiled": true,
+      "standalone_executions_objects_campaigns": 0
+    },
+    {
+      "archive_role": "helper-PSD-controls",
+      "directory": "/workspace/scratch/two-remote-firstjet-gaussian-controls-psd-text",
+      "destination_role": "controls",
+      "originals_uncompiled": true,
+      "standalone_executions_objects_campaigns": 0,
+      "local_amendments": "Eta/dimension/real-type and matrix-expansion changes, complete2062Bdiff in producer custody."
+    }
+  ],
+  "root_process_supplements": [
+    "ROOT_SOURCE_CUT.json",
+    "ROOT_DEPENDENCY_REUSE.json",
+    "ROOT_OWN_OBJECT_COPY.json"
+  ],
+  "dependency_custody": "Producer has inline HANDOFF/SOURCE_OBJECT baseline bindings, no fabricated separate producer DEPENDENCY_REUSE. Actual root ROOT_DEPENDENCY_REUSE supplement preserves retained old49/53 registered-object/topology lineage and qualified54 metadata identities without old hash/check replay.",
+  "helper_history": "Original uncompiled covariance text belongs to production, original PSD text belongs to Controls. Actual integration, eta/local amendments and complete differences preserved in raw/top producer custody. No standalone helper execution/object/campaign or extra target credit.",
+  "cross_block_mutation_scope": "Only delete cross-remote covariance blocks. At actual L2,r0,x=y(1,0),t0 coincident value rows have positive common variance; actual cross covariance conflicts with mutant zero block. Actual defined sampling case, not singular-radius RCD or invented Gaussian realization. Do not replay53 collision rank.",
+  "scope": "Joint same-sample firstjet6 defined sampling MVG with full Rxy*t target mean and actual target-free Gram(B-Ra) covariance. PosDef under four remote/pin and x/y quotient inequalities, arbitrary signed r and nonzero signed L. No independence from marginals, conditionalSchur, ties/Morse/canonicalH0/Lifetime/Rice/Parent claim.",
+  "historical_pending_cut_preservation": "Frozen producer/reviewer records retain their original context; later ROOT_SOURCE_CUT and explicit rootGO supply process binding without rewriting or replay.",
+  "technical_review": "Stable final source/spec/retained-evidence PASS supplied by rootGO; same-family provider-distinct credit0. Reviewer failure reading used honest bounded excerpts/diagnostic index, not every PANIC/partial expansion line; Full original streams retained; root and reviewer fully read the source, actual records, current controls, success/mutation streams and full34 inventory, and used bounded large-failure diagnostics.",
+  "scientific_process": "Actual different-family exact-source alignment remains separate. Native5655734753 only unchanged pair-finiteness+2inputs, not55 review.",
+  "publication": {
+    "baseline": {
+      "publication": "72eb5de8b70c16816a31424197d733820509cfe5",
+      "manifest_sha256": "ca67103c33b8683338d7757a224d554284f331d0bdecd2a8df041f63959741c4",
+      "sums_sha256": "a28e2d9e4134062312abff5dd8ac07f1dffc1cb73fb9d61ec9a3bbf33c8330fc",
+      "catalog_sha256": "06ed024fa6073c56d7a013e9476a694f687c26059d1e896e61bad1b9a3e1507a",
+      "modules": 54,
+      "targets": 1118,
+      "Prop_targets": 1109,
+      "data_targets": 9,
+      "support_inputs": 32,
+      "manifest_entries": 4446
+    },
+    "source_cut": "8a21124e0f77679d8be0c0e16b8f5693f60785ae",
+    "status": "QUALIFIED55_PROPOSED_ROOT_APPLY_NOT_EXECUTED_BY_PACKAGING_AGENT",
+    "remote_registration_or_current_source_CI_claimed": false,
+    "root_only_publication": true
+  },
+  "archive_membership": "ARCHIVE_MEMBERSHIP.json",
+  "canonical_authority_carried": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md"
+  ],
+  "link_delivery_does_not_establish_reading": true,
+  "scientific_effect": "NONE",
+  "provider_distinct_credit": 0
+}

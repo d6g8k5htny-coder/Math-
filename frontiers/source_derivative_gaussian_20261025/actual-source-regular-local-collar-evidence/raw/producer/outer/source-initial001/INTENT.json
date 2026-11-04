@@ -1,0 +1,40 @@
+{
+  "operation": "stage66-outer-capture",
+  "scope": "outer",
+  "script_argv": [
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+    "--run-dir",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/outer/source-initial001",
+    "--cwd",
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "--scope",
+    "outer",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+    "source-initial001",
+    "documentary",
+    "--",
+    "python3",
+    "-c",
+    "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nS=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\ncachepath=B/'FIRST_ID_CACHE.json';cache=json.loads(cachepath.read_text())\ninitial=B/'INITIAL_SOURCE_COMMON.lean.txt'\npatch=''.join(difflib.unified_diff(initial.read_text().splitlines(keepends=True),S.read_text().splitlines(keepends=True),fromfile='INITIAL_SOURCE_COMMON.lean.txt',tofile='SourceActualRegularLocalCollar.lean'))\np=B/'SOURCE_INITIAL_FULL.patch';p.write_text(patch);st=p.stat()\nrow={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual complete source patch identity, once'}\ncache[str(p)]=row;cachepath.write_text(json.dumps(cache,indent=2)+'\\n')\n(B/'build').mkdir(exist_ok=True)\nr={'status':'INITIAL_OWN66_QUOTIENT_GEOMETRY_SOURCE_FROZEN_BEFORE_FIRST_LEAN','observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'source':cache[str(S)],'initial_header_ID_reused':cache[str(initial)],'full_actual_patch':row,'scope':'Producer quotient chart from private structural physical chart parameter plus finite Pi geometry; no helperintegration/publictheorem/fixturebodyyet','mathematical_execution_so_far':0,'helper_integrations':0}\n(B/'SOURCE_INITIAL_CUSTODY.json').write_text(json.dumps(r,indent=2)+'\\n')\nprint(json.dumps(r))\n"
+  ],
+  "command_argv": [
+    "python3",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+    "source-initial001",
+    "documentary",
+    "--",
+    "python3",
+    "-c",
+    "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nS=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\ncachepath=B/'FIRST_ID_CACHE.json';cache=json.loads(cachepath.read_text())\ninitial=B/'INITIAL_SOURCE_COMMON.lean.txt'\npatch=''.join(difflib.unified_diff(initial.read_text().splitlines(keepends=True),S.read_text().splitlines(keepends=True),fromfile='INITIAL_SOURCE_COMMON.lean.txt',tofile='SourceActualRegularLocalCollar.lean'))\np=B/'SOURCE_INITIAL_FULL.patch';p.write_text(patch);st=p.stat()\nrow={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual complete source patch identity, once'}\ncache[str(p)]=row;cachepath.write_text(json.dumps(cache,indent=2)+'\\n')\n(B/'build').mkdir(exist_ok=True)\nr={'status':'INITIAL_OWN66_QUOTIENT_GEOMETRY_SOURCE_FROZEN_BEFORE_FIRST_LEAN','observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'source':cache[str(S)],'initial_header_ID_reused':cache[str(initial)],'full_actual_patch':row,'scope':'Producer quotient chart from private structural physical chart parameter plus finite Pi geometry; no helperintegration/publictheorem/fixturebodyyet','mathematical_execution_so_far':0,'helper_integrations':0}\n(B/'SOURCE_INITIAL_CUSTODY.json').write_text(json.dumps(r,indent=2)+'\\n')\nprint(json.dumps(r))\n"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "started_utc": "2026-10-28T23:26:27.076218+00:00",
+  "original_split_streams": true,
+  "environment_recorded": {
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "credential_environment_logged": false,
+  "automatic_retry": false
+}
