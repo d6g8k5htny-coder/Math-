@@ -48,6 +48,39 @@ class RunnerControls(unittest.TestCase):
                 self.assertEqual(classification['killed'], failure, result.stderr)
                 self.assertEqual(classification['control_pass'], not failure, result.stderr)
 
+    def test_body_kill_requires_selected_or_explicit_helper_code_origin(self):
+        variants = {
+            'raw_assertion': ('        raise AssertionError("selected-body assertion")\n', True),
+            'nested_callback': ('        def callback(): self.fail("nested callback")\n'
+                                '        callback()\n', False),
+            'unregistered_helper': ('        self.oracle_helper()\n', False),
+            'registered_helper': ('        self.oracle_helper()\n', True),
+        }
+        for optimized in (False, True):
+            for label, (body, accepted) in variants.items():
+                with self.subTest(optimized=optimized, variant=label), tempfile.TemporaryDirectory() as directory:
+                    registration = ("    CBZ_MUTATION_ORACLE_HELPERS = ('oracle_helper',)\n"
+                                    if label == 'registered_helper' else '')
+                    helper = ("    def oracle_helper(self): self.fail('helper assertion')\n"
+                              if label in ('registered_helper', 'unregistered_helper') else '')
+                    fixture = ('class Case(unittest.TestCase):\n' + registration + helper +
+                               '    def test_check(self):\n        print("BODY_ENTERED")\n' + body)
+                    result = self.run_fixture(directory, fixture, label, optimized)
+                    classification = runner.classify(result, expected_count=1)
+                    self.assertEqual(classification['killed'], accepted, result.stderr)
+
+    def test_origin_bypass_self_mutant_is_detected_without_nested_transcript(self):
+        """Give the outer grader one unambiguous failure transcript per self-mutant."""
+        fixture = ('class Case(unittest.TestCase):\n'
+                   '    def oracle_helper(self): self.fail("unregistered helper")\n'
+                   '    def test_check(self):\n'
+                   '        print("BODY_ENTERED")\n'
+                   '        self.oracle_helper()\n')
+        with tempfile.TemporaryDirectory() as directory:
+            result = self.run_fixture(directory, fixture, 'unregistered-helper')
+            classification = runner.classify(result, expected_count=1)
+            self.assertFalse(classification['killed'])
+
     def test_actual_atexit_failure_cannot_count_as_exit_status_one_kill(self):
         fixture = ('import atexit, os\natexit.register(lambda: os._exit(2))\n'
                    'class Case(unittest.TestCase):\n    def test_check(self):\n'
@@ -67,7 +100,9 @@ class RunnerControls(unittest.TestCase):
     def result(self, status=0, output='Ran 2 tests in 0.1s\n\nOK\n'):
         evidence = {'tests': [{'id': 'suite.test_check', 'body_entered': True},
                               {'id': 'suite.test_second', 'body_entered': True}],
-                    'events': ([{'id': 'suite.test_check', 'phase': 'body', 'kind': 'failure'}]
+                    'events': ([{'id': 'suite.test_check', 'phase': 'body', 'kind': 'failure',
+                                 'origin_authorized': True,
+                                 'origin_frames': [{'file': 'fixture', 'function': 'test_check', 'line': 1}]}]
                                if 'FAIL:' in output else [])}
         return subprocess.CompletedProcess([], status, '', output + 'SOURCE_MUTATION_PHASES|' + json.dumps(evidence) + '\n')
 
@@ -134,8 +169,8 @@ class RunnerControls(unittest.TestCase):
 
     def test_all_named_cases_and_modes_required_without_duplicates(self):
         names = [case[0] for case in runner.MUTATIONS] + ['control-helper', 'control-determinant', 'control-cap']
-        self.assertEqual(len(runner.MUTATIONS), 18)
-        self.assertEqual(len(set(names)), 21)
+        self.assertEqual(len(runner.MUTATIONS), 20)
+        self.assertEqual(len(set(names)), 23)
         records = [dict(name=name, optimized=mode, passed=True) for name in names for mode in (False, True)]
         self.assertTrue(runner.complete(records))
         for bad in (records[:-1], records + records[:1], [{**records[0], 'passed': False}] + records[1:],

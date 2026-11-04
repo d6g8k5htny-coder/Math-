@@ -44,15 +44,19 @@ not full Git hygiene, binary/runtime authentication or a continuous write lock.
 
 Mutation tools are tests/run_cbz_mutations.py, tests/run_adapter_mutations.py and
 tests/run_git_identity_mutations.py, plus tests/run_cbz_runner_mutations.py which
-mutates the outer auditor itself in11 ways across both modes. Twelve persistent
-wrapper controls and22 exact same-harness positive/body-assertion pairs verify
+mutates the outer auditor itself in12 ways across both modes. Thirteen persistent
+wrapper controls and24 exact same-harness positive/body-assertion pairs verify
 its loader, lifecycle phases, baseline/protocol, paths and source-preservation.
 The outer runner preserves six predecessor
 mutant effects and adds producer-boundary defenses; the latter two run both
 modes per invocation. They require exact selected nonzero cases, a same-harness
 passing baseline and intended body assertions. A shared phase-aware harness
-rejects setup/teardown/cleanup/import/runtime errors, skips, invalid return codes
-and malformed reports. Adverse runner controls test the auditors themselves.
+records traceback frames before unittest cleanup and accepts only exact selected
+body, explicitly named helper, unittest.case or unittest.mock code. Subject,
+nested callback, unregistered helper, setup/teardown/cleanup/import/runtime
+errors, skips, invalid return codes and malformed reports refuse. Missing old
+origin fields never receive successor credit. Adverse runner controls and three
+origin-bypass self-mutants test the auditors themselves.
 Core policy mutation fixtures deliberately rebind only the independent core
 source hash in an isolated copy to measure admission deletion, never production.
 All new retained output uses unique run children; no earlier failure is erased.
@@ -91,10 +95,13 @@ successor execution is pending at publication; use the actual run/artifact.
 ../../tests/run_source_admission_mutations.py accepts only exact integer status0
 controls/status1 assertion failures. A real atexit handler changed a complete
 body-failure child's status to2; the old grader incorrectly counted that as a
-kill. Three new permanent controls and two exact guard-removal selfmutants
-extend the preserved16-case matrix to18cases in both modes:42positive baselines,
-6controls and36intended body-assertion mutants;84raw log digests matched.
-The13focused grader tests pass per mode. Exact commands/fresh output guidance
+kill. Exact-exit and code-origin controls plus four exact runner guard-removal
+selfmutants extend the preserved16-case matrix to20cases in both modes:46 total
+rows (6 controls and40 intended mutants), each with its own positive same-copy
+baseline. The15 focused grader controls exercise normal and optimized children.
+The fresh complete local matrix passed46/46 rows; its summary SHA256 is
+67f4b153c2b531fd0b062e3a1f7511eb05cf09c4a12f830b64206aa89c40bf42.
+Exact commands/fresh output guidance
 are in STATUS; source/helper proof scope remains unchanged. Historical matrices
 keep their original identities. Maintenance owner none; bounded G0/G6/G11 only.
 

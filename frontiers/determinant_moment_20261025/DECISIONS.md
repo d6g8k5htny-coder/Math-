@@ -155,3 +155,39 @@ Actual publication remains pending until its readback is observed. Reversible.
 [2026-10-29T21:12:42.607267+00:00] [Phase2/3] [Layer B] Preserve raw native logs byte-for-byte, including trailing transport spaces. Scope whitespace-format exemption only to *.log under qualified4871 evidence through local.gitattributes; source formatting still rejects an adverse active.py control and passes after its real source fix. Do not strip or alter captured evidence to satisfy formatting. Mathematical tests/bounds/audits unchanged; old raw-log formatting failure retained. Reversible. Evidence: PRESERVATION_BOUNDARY.md and WHITESPACE_PRESERVATION_BOUNDARY.json.
 
 [2026-10-29T21:38:04.733505+00:00] [Phase3] [Layer B/C] Preserve actual1e95 byte-workflow success with INCOMPLETE402-entry capture: hidden unit/ZIP-summary directory absent;40pairs/160logs intact. Add include-hidden-files:true, persistent regression RED against1e95,20th source effect and both workflow copy/attestation fixtures. Observe263normal/263optimized controls/no skips, both exact command blocks exit0,42pairs/168logs independently inspected. Preserve old19effects/original17ZIPbodies/allcaps. Fresh native archive remains required; exact4871 formal closure and14Lean/66statements unchanged. Record actual4871 configured full regression1099 per mode/zero skips atbece, not current-head credit. Reversible. Evidence: partial artifact3651321c, RED_EXIT, component/command exits and OUTER_UNION_VERIFICATION.
+
+[2026-11-04T07:45:56Z] [Phase3] [Layer A/C] Preserve two actual red
+findings at source0dd9. Hosted determinant run40959869272 failed before Lean
+because the outer self-mutation copier omitted the byte-integrity workflow
+read by its test setup. A separate16-fixture adverse experiment found40 of96
+pairs falsely accepted subject/helper/nested-callback AssertionError as oracle
+failures. Historical kernel and seven-control evidence remains unchanged and
+is not rebound. Reversible. Evidence: hosted job123749516467 and retained local
+origin-audit checkpoint.
+
+[2026-11-04T08:25:09Z] [Phase3] [Layer B/C] Repair only those bounded
+grader defects. The copier now includes both workflows. Each grader records the
+live traceback before unittest cleanup and accepts a failure only when every
+post-selection frame is the exact selected test, an explicitly named oracle
+helper, or exact unittest.case/unittest.mock code. Subject, nested-callback and
+unregistered-helper frames fail closed. Four production-callback assertions in
+the V2 synthetic helper moved to registered test code after gate return;
+production gate/mock callback frames are not trusted. Missing-origin records
+remain invalid. Add two shared-grader origin-bypass mutants and one outer
+origin-relabel mutant. Observed local results: Git36/36, adapter24/24,
+outer24/24, producer21/21 in both normal and optimized modes. Fresh shared and
+complete component exits remain separate. No Lean source, proof statement,
+dependency, mathematical bound or scientific status changed. Reversible.
+
+[2026-11-04T12:03:00Z] [Phase3] [Layer B/C] Replace the ambiguous shared
+self-mutant target whose assertion diagnostic embedded nested unittest
+transcripts with a one-fixture adverse test that emits exactly one outer
+transcript; retain the broader diagnostic control unchanged. Observe fresh
+component266/266 in each mode and the complete shared46/46 matrix (6 controls,
+40 intended mutants), summary SHA256
+67f4b153c2b531fd0b062e3a1f7511eb05cf09c4a12f830b64206aa89c40bf42.
+Create local recovery tag pre-cbz-origin-repair-20261104 at exact source0dd9
+before any publication. Native/hosted successor evidence remains pending; no
+receipt, Lean statement, continuum claim, review or acceptance is rebound.
+Reversible: yes. Evidence: local final-shared46d-20261104 and complete component
+normal/optimized receipts.

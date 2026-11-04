@@ -91,7 +91,7 @@ def execute_scenario(scenario):
         gate.ROOT=package;gate._compiled=None;gate._determinant=None
         digest='d'*64
         module=tuple(m['source_modules'][0][:-5].replace('/','.').split('.'))
-        calls=[];postchecks=[];source_observations=[]
+        calls=[];postchecks=[];post_source_calls=[];source_observations=[]
         source_identity=dict(checked_commit='a'*40, checked_tree='b'*40, manifest_sha256=digest,
                              scope='SYNTHETIC_ORCHESTRATION_ONLY_NO_GIT_EVIDENCE')
 
@@ -158,7 +158,7 @@ def execute_scenario(scenario):
             return subprocess.CompletedProcess(command,returncode,stdout=result)
 
         def post_source(**kwargs):
-            ensure(kwargs=={'expected_manifest_sha256':digest}, 'post-source guard lost expected manifest digest')
+            post_source_calls.append(dict(kwargs))
             postchecks.append('source')
             if scenario=='post_source_failure':
                 raise ValueError('SYNTHETIC post-execution source mismatch')
@@ -201,6 +201,8 @@ def execute_scenario(scenario):
                 ensure(receipt['checked_commit']==source_identity['checked_commit'] and
                        receipt['checked_tree']==source_identity['checked_tree'],'receipt uses an unqualified late identity')
                 outcome='SYNTHETIC_V2_BRANCH_REACHED_ALL_SEVEN_CONTROLS'
+        ensure(all(call=={'expected_manifest_sha256':digest} for call in post_source_calls),
+               'post-source guard lost expected manifest digest')
         ensure(archive.read_text()=='preserve historical evidence\n','historical evidence changed')
         ensure(not (package/'.lake/determinant-compiled-admission').exists(),'disposable admission work leaked')
         if scenario=='injection_prerequisite_failure':

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Eighteen bounded source checker mutations, same-copy controls, both Python modes.
+"""Twenty bounded source checker mutations, same-copy controls, both Python modes.
 
 No Lean execution; this is not federation G0 or compiled-adapter qualification.
 """
@@ -12,7 +12,9 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import types
 import unittest
+import unittest.mock
 
 ROOT = Path(__file__).resolve().parents[1]
 DETP='frontiers/determinant_moment_20261025'
@@ -72,6 +74,20 @@ for name, replacement, selection in [
                       ['-m', 'unittest', 'discover', '-s', 'tests',
                        '-p', 'test_source_admission_mutations.py', '-k', selection, '-v']))
 
+MUTATIONS.extend([
+    ('runner-origin-code-check-removal', 'tests/run_source_admission_mutations.py',
+     '                          bool(suffix) and all(' + 'frame.f_code in test._source_oracle_codes or',
+     '                          bool(suffix) and all(True or frame.f_code in test._source_oracle_codes or',
+     ['-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_source_admission_mutations.py',
+      '-k', 'origin_bypass_self_mutant_is_detected_without_nested_transcript', '-v']),
+    ('runner-origin-verdict-removal', 'tests/run_source_admission_mutations.py',
+     "            and e['phase'] == 'body' and e['kind'] == 'failure' and " +
+     "e['origin_authorized'] is True",
+     "            and e['phase'] == 'body' and e['kind'] == 'failure' and True",
+     ['-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_source_admission_mutations.py',
+      '-k', 'origin_bypass_self_mutant_is_detected_without_nested_transcript', '-v']),
+])
+
 
 def replace_anchor(source, old, new):
     if source.count(old) != 1:
@@ -87,6 +103,25 @@ def run_unittest(args):
     """
     if args[:3] != ['-m', 'unittest', 'discover']:
         raise ValueError('unsupported scoped unittest invocation')
+    def code_objects(container, module, seen=None):
+        seen = set() if seen is None else seen
+        if id(container) in seen:
+            return set()
+        seen.add(id(container))
+        result = set()
+        for value in vars(container).values():
+            if isinstance(value, types.FunctionType):
+                while isinstance(value, types.FunctionType):
+                    result.add(value.__code__)
+                    value = getattr(value, '__wrapped__', None)
+            elif isinstance(value, type) and value.__module__ == module:
+                result.update(code_objects(value, module, seen))
+        return result
+
+    unittest_codes = (code_objects(unittest.case, unittest.case.__name__) |
+                      code_objects(unittest.mock, unittest.mock.__name__))
+    oracle_helpers = {'test_gate.SourceGate': ('assertGateFails',)}
+
     class PhaseResult(unittest.TextTestResult):
         def __init__(self, *a, **kw):
             super().__init__(*a, **kw)
@@ -98,24 +133,53 @@ def run_unittest(args):
                 for method in ('run', '_callSetUp', '_callTestMethod', '_callTearDown', 'doCleanups'))
             test._source_phase = 'start'
             test._source_record = {'id': test.id(), 'body_entered': False}
+            test.failureException = AssertionError
+            helper_names = oracle_helpers.get(type(test).__module__ + '.' + type(test).__qualname__,
+                                              getattr(type(test), 'CBZ_MUTATION_ORACLE_HELPERS', ()))
+            if (type(helper_names) is not tuple or
+                any(type(name) is not str or not name or not hasattr(type(test), name)
+                    for name in helper_names)):
+                raise TypeError('CBZ_MUTATION_ORACLE_HELPERS must be a tuple of exact method names')
+            test._source_oracle_codes = {getattr(type(test), test._testMethodName).__code__}
+            test._source_oracle_codes.update(getattr(type(test), name).__code__ for name in helper_names)
             self.records.append(test._source_record)
             super().startTest(test)
 
-        def event(self, test, kind):
+        def event(self, test, kind, err):
+            frames = []
+            traceback = err[2]
+            while traceback is not None:
+                frames.append(traceback.tb_frame)
+                traceback = traceback.tb_next
+            selected_code = getattr(type(test), test._testMethodName).__code__
+            selected = next((index for index, frame in enumerate(frames)
+                             if frame.f_code == selected_code), None)
+            active = sys._getframe()
+            selected_active = False
+            while active is not None:
+                selected_active = selected_active or active.f_code == selected_code
+                active = active.f_back
+            suffix = frames[selected:] if selected is not None else frames
+            authorized = (issubclass(err[0], AssertionError) and (selected is not None or selected_active) and
+                          bool(suffix) and all(frame.f_code in test._source_oracle_codes or
+                                               frame.f_code in unittest_codes for frame in suffix))
             self.events.append({'id': test.id(), 'phase': getattr(test, '_source_phase', 'unknown'),
-                                'kind': kind})
+                                'kind': kind, 'origin_authorized': authorized,
+                                'origin_frames': [
+                                    {'file': frame.f_code.co_filename, 'function': frame.f_code.co_qualname,
+                                     'line': frame.f_lineno} for frame in suffix]})
 
         def addFailure(self, test, err):
-            self.event(test, 'failure')
+            self.event(test, 'failure', err)
             super().addFailure(test, err)
 
         def addError(self, test, err):
-            self.event(test, 'error')
+            self.event(test, 'error', err)
             super().addError(test, err)
 
         def addSubTest(self, test, subtest, err):
             if err is not None:
-                self.event(test, 'failure' if issubclass(err[0], test.failureException) else 'error')
+                self.event(test, 'failure' if issubclass(err[0], test.failureException) else 'error', err)
             super().addSubTest(test, subtest, err)
 
     class PhaseRunner(unittest.TextTestRunner):
@@ -162,8 +226,10 @@ def phase_evidence(text, count, failures):
         if len(set(ids)) != count:
             return False, False
         body_failures = len(events) == failures and all(
-            isinstance(e, dict) and set(e) == {'id', 'phase', 'kind'} and e['id'] in ids
-            and e['phase'] == 'body' and e['kind'] == 'failure' for e in events)
+            isinstance(e, dict) and set(e) == {
+                'id', 'phase', 'kind', 'origin_authorized', 'origin_frames'} and e['id'] in ids
+            and e['phase'] == 'body' and e['kind'] == 'failure' and e['origin_authorized'] is True
+            and isinstance(e['origin_frames'], list) and bool(e['origin_frames']) for e in events)
         return not events, body_failures
     except (ValueError, TypeError):
         return False, False
@@ -185,7 +251,7 @@ def classify(result, expected_count=None):
     control = (valid_status and clean_phases and result.returncode == 0 and discovered and not errors and not failures
                and re.search(r'^OK\s*$', text, re.M) is not None and 'FAILED' not in text)
     killed = (valid_status and body_failures and result.returncode != 0 and discovered and not errors and bool(failures)
-              and 'AssertionError:' in text and failed_summary is not None
+              and failed_summary is not None
               and int(failed_summary.group(1)) == len(failures))
     return dict(collected=count, control_pass=control, killed=killed)
 

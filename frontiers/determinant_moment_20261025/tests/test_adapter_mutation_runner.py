@@ -40,6 +40,38 @@ class MutationRunnerTests(unittest.TestCase):
             self.assertFalse(runner.classify_pair(results['baseline'], results['error'])['killed'])
             self.assertFalse(runner.classify_pair(results['error'], results['assertion'])['killed'])
 
+    def test_only_selected_body_and_explicit_helpers_are_oracle_origins(self):
+        harness = self.base/'origin-harness.py'
+        harness.write_text(runner.HARNESS_SOURCE)
+        variants = {
+            'direct': ("self.fail('selected assertion')", '', True),
+            'assert_raises': ("with self.assertRaises(RuntimeError):\n            pass", '', True),
+            'raw_assertion': ("raise AssertionError('selected-body assertion')", '', True),
+            'subject': ("import subject\n        subject.fail(self)",
+                        "def fail(case):\n    case.fail('subject assertion')\n", False),
+            'nested': ("def nested():\n            self.fail('nested callback assertion')\n        nested()", '', False),
+            'unregistered_helper': ("self.oracle_helper()", '', False),
+            'registered_helper': ("self.oracle_helper()", '', True),
+        }
+        for mode in ('normal', 'optimized'):
+            for name, (body, subject, accepted) in variants.items():
+                with self.subTest(mode=mode, variant=name):
+                    source = self.base/(mode+'-'+name)
+                    (source/'tests').mkdir(parents=True)
+                    registration = ("    CBZ_MUTATION_ORACLE_HELPERS = ('oracle_helper',)\n"
+                                    if name == 'registered_helper' else '')
+                    helper = ("    def oracle_helper(self):\n        self.fail('helper assertion')\n"
+                              if name in ('registered_helper', 'unregistered_helper') else '')
+                    (source/'tests/test_fixture.py').write_text(
+                        'import unittest\nclass Fixture(unittest.TestCase):\n'+registration+helper+
+                        '    def test_selected(self):\n        '+body.replace('\n', '\n        ')+'\n')
+                    if subject:
+                        (source/'subject.py').write_text(subject)
+                    result = runner.run_selected(source, SELECTION, mode,
+                        self.base/(mode+'-'+name+'-origin-evidence'), harness, self.base/'unused-core')
+                    self.assertEqual(result['classification'],
+                                     'ASSERTION_FAILURE' if accepted else 'INVALID')
+
     def test_same_selection_mode_and_harness_are_required(self):
         baseline = dict(classification='PASS', selection=SELECTION, mode='normal', harness_sha256='a'*64)
         mutant = dict(baseline, classification='ASSERTION_FAILURE')
@@ -66,9 +98,14 @@ class MutationRunnerTests(unittest.TestCase):
         for changes in mutations:
             with self.subTest(changes=changes):
                 self.assertEqual(runner.classify_execution(dict(copy.deepcopy(clean), **changes)), 'INVALID')
-        adverse = dict(clean, returncode=1, successful=False, failure_ids=[SELECTION+' (case=1)'],
+        missing_origin = dict(clean, returncode=1, successful=False, failure_ids=[SELECTION+' (case=1)'],
             failure_details=[dict(test_id=SELECTION+' (case=1)', parent_test_id=SELECTION,
                                  phase='test', is_assertion=True, exception_type='AssertionError')])
+        self.assertEqual(runner.classify_execution(missing_origin), 'INVALID')
+        adverse = dict(clean, returncode=1, successful=False, failure_ids=[SELECTION+' (case=1)'],
+            failure_details=[dict(test_id=SELECTION+' (case=1)', parent_test_id=SELECTION,
+                phase='test', is_assertion=True, exception_type='AssertionError',
+                origin_authorized=True, origin_frames=[dict(file='fixture', function='test_selected', line=1)])])
         self.assertEqual(runner.classify_execution(adverse), 'ASSERTION_FAILURE')
 
     def test_only_test_body_assertions_qualify_including_subtests(self):

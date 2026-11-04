@@ -17,7 +17,9 @@ HARNESS_SOURCE = '''"""One exact unittest selection; no Lean process is executed
 import json
 from pathlib import Path
 import sys
+import types
 import unittest
+import unittest.mock
 
 sys.path.insert(0, str(Path.cwd()/'tests'))
 selection, report = sys.argv[1:]
@@ -28,7 +30,41 @@ def test_cases(node):
     return [node]
 cases = test_cases(suite)
 loaded = [case.id() for case in cases]
+def code_objects(container, module, seen=None):
+    seen = set() if seen is None else seen
+    if id(container) in seen:
+        return set()
+    seen.add(id(container))
+    result = set()
+    for value in vars(container).values():
+        if isinstance(value, types.FunctionType):
+            while isinstance(value, types.FunctionType):
+                result.add(value.__code__)
+                value = getattr(value, '__wrapped__', None)
+        elif isinstance(value, type) and value.__module__ == module:
+            result.update(code_objects(value, module, seen))
+    return result
+UNITTEST_CODES = (code_objects(unittest.case, unittest.case.__name__) |
+                  code_objects(unittest.mock, unittest.mock.__name__))
+ORACLE_HELPERS = {
+    'test_determinant_git_identity.DeterminantGitIdentityTests':
+        ('accepted', 'assert_owner_execute_loss_refuses'),
+    'test_artifact_integrity.ArchiveIntegrityTests': ('reject',),
+    'test_determinant_execute.V2ExecutionTests': ('execute_scenario', 'ensure'),
+}
 for case in cases:
+    case.failureException = AssertionError
+    helper_names = ORACLE_HELPERS.get(type(case).__module__ + '.' + type(case).__qualname__,
+                                      getattr(type(case), 'CBZ_MUTATION_ORACLE_HELPERS', ()))
+    module = sys.modules[type(case).__module__]
+    if type(helper_names) is not tuple or any(type(name) is not str or not name for name in helper_names):
+        raise TypeError('CBZ_MUTATION_ORACLE_HELPERS must be a tuple of exact method names')
+    case._cbz_oracle_codes = {getattr(type(case), case._testMethodName).__code__}
+    for name in helper_names:
+        helper = getattr(type(case), name, getattr(module, name, None))
+        if not isinstance(helper, types.FunctionType):
+            raise TypeError('unknown exact mutation oracle helper: ' + name)
+        case._cbz_oracle_codes.add(helper.__code__)
     case._adapter_mutation_phase = 'setup'
     for method, phase in (('_callSetUp', 'setup'), ('_callTestMethod', 'test'),
                           ('_callTearDown', 'teardown'), ('doCleanups', 'cleanup')):
@@ -40,9 +76,31 @@ for case in cases:
 failure_details = []
 class RecordingResult(unittest.TextTestResult):
     def record_failure(self, test, error, parent):
+        frames = []
+        traceback = error[2]
+        while traceback is not None:
+            frame = traceback.tb_frame
+            frames.append(frame)
+            traceback = traceback.tb_next
+        selected_code = getattr(type(parent), parent._testMethodName).__code__
+        selected = next((index for index, frame in enumerate(frames)
+                         if frame.f_code == selected_code), None)
+        active = sys._getframe()
+        selected_active = False
+        while active is not None:
+            selected_active = selected_active or active.f_code == selected_code
+            active = active.f_back
+        suffix = frames[selected:] if selected is not None else frames
+        authorized = (issubclass(error[0], AssertionError) and (selected is not None or selected_active) and
+                      bool(suffix) and
+                      all(frame.f_code in parent._cbz_oracle_codes or frame.f_code in UNITTEST_CODES
+                          for frame in suffix))
         failure_details.append(dict(test_id=test.id(), parent_test_id=parent.id(),
             phase=getattr(parent, '_adapter_mutation_phase', 'outside_test'),
-            exception_type=error[0].__name__, is_assertion=issubclass(error[0], AssertionError)))
+            exception_type=error[0].__name__, is_assertion=issubclass(error[0], AssertionError),
+            origin_authorized=authorized,
+            origin_frames=[dict(file=frame.f_code.co_filename, function=frame.f_code.co_qualname,
+                                line=frame.f_lineno) for frame in suffix]))
     def addFailure(self, test, error):
         self.record_failure(test, error, test)
         super().addFailure(test, error)
@@ -104,7 +162,9 @@ def classify_execution(record):
         all(type(detail) is dict and detail.get('test_id') == name and
             detail.get('parent_test_id') == selection and detail.get('phase') == 'test' and
             detail.get('is_assertion') is True and type(detail.get('exception_type')) is str and
-            bool(detail['exception_type']) and (name == selection or name.startswith(selection+' '))
+            bool(detail['exception_type']) and
+            detail.get('origin_authorized') is True and type(detail.get('origin_frames')) is list and
+            bool(detail['origin_frames']) and (name == selection or name.startswith(selection+' '))
             for name, detail in zip(record['failure_ids'], details))):
         return 'ASSERTION_FAILURE'
     return 'INVALID'

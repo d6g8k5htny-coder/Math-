@@ -31,6 +31,9 @@ CASES = (
     ('relabel-invalid-mutant-as-assertion', [(PAIR,
       "        pair = _shared.classify_pair(baseline, dict(mutant, classification='ASSERTION_FAILURE' if mutant.get('failure_ids') else mutant.get('classification')))")],
      'test_invalid_return_zero_wrong_and_skipped_reports_are_not_reclassified'),
+    ('accept-untrusted-assertion-origin', [(PAIR,
+      "        pair = _shared.classify_pair(baseline, dict(mutant, classification='ASSERTION_FAILURE' if mutant.get('failure_ids') else mutant.get('classification')))")],
+     'test_assertion_origin_refuses_subject_nested_and_unregistered_helpers'),
     ('omit-exact-selection-validation', [(
       '    validate_selections(selections)\n',
       '    pass  # MUTANT: zero, duplicate and broad selections accepted\n')],
@@ -75,7 +78,8 @@ def inventory():
             raise ValueError('symlink source refused')
         if path.is_file():
             records[rel.as_posix()] = hashlib.sha256(path.read_bytes()).hexdigest()
-    for rel in ('tools/lean_packet_admission.py', '.github/workflows/determinant-moment-lean.yml'):
+    for rel in ('tools/lean_packet_admission.py', '.github/workflows/determinant-moment-lean.yml',
+                '.github/workflows/cbz-determinant-artifact-integrity.yml'):
         path = ROOT.parents[1] / rel
         if any(p.is_symlink() for p in (path, *path.parents)):
             raise ValueError('symlink external fixture refused')
@@ -112,7 +116,8 @@ def main(argv=None):
             for label, text in (('baseline', original), ('mutant', changed)):
                 source = case / label / 'repo/frontiers' / ROOT.name
                 shutil.copytree(ROOT, source, ignore=shutil.ignore_patterns('.lake', '__pycache__'))
-                for rel in ('tools/lean_packet_admission.py', '.github/workflows/determinant-moment-lean.yml'):
+                for rel in ('tools/lean_packet_admission.py', '.github/workflows/determinant-moment-lean.yml',
+                            '.github/workflows/cbz-determinant-artifact-integrity.yml'):
                     target = source.parents[1] / rel
                     target.parent.mkdir(parents=True, exist_ok=True)
                     shutil.copy2(ROOT.parents[1] / rel, target)

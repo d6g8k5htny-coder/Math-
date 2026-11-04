@@ -82,10 +82,10 @@ cbz_source_evidence_parent=$(mktemp -d)
 python3 -B -S tests/run_source_admission_mutations.py --output "$cbz_source_evidence_parent/results"
 ```
 
-The shared driver executes18cases and three controls per mode itself. The actual
+The shared driver executes20cases and three controls per mode itself. The actual
 exit2-after-body-failure defect and exact-integer0/1 correction are preserved in
-the ledger and native4871 qualification. Its42rows/42passingbaselines/36intended
-mutants/6controls/84logs do not imply arbitrary semantic audit completeness.
+the ledger and native4871 qualification. Its46rows/46passing baselines/40intended
+mutants/6controls/92logs do not imply arbitrary semantic audit completeness.
 
 For downloaded-byte controls, use the checked-in historical ZIPs and the exact
 independent commit/manifest/SHA values in artifact-integrity-requests.json. The
@@ -321,3 +321,33 @@ The proof artifact12927504778 has ZIP digeste4731beb3f6d5bc7e376afd4c7442a68a111
 Durable raw-byte Git publication is now being run because ephemeral artifact
 URLs alone are insufficient for future cold starts; read PUBLICATION.json and
 its exact tree/blob readback rather than inferring that this step succeeded.
+
+## Assertion-origin and outer-fixture successor (2026-11-04)
+
+The source0dd9 hosted outcomes are now observed. Byte workflow40959869387,
+Cap40959869450, full regression40959869443 and downstream40959869313 succeeded.
+Determinant run40959869272 failed before Lean: its outer self-mutation fixture
+copied the producer workflow but omitted the byte-integrity workflow read by
+test setup, so every pair had an invalid baseline. Preserve that red run; it is
+not current kernel credit.
+
+A separate16-fixture adverse experiment reproduced40 false kills among96 pairs:
+phase and exception-name checks alone admitted subject/helper/callback
+AssertionError outcomes. This local successor records raw traceback frames
+before unittest cleanup and requires every post-selection frame to be the exact
+selected body, an explicitly named helper, or exact unittest.case/unittest.mock
+code. Subject, nested callback, unregistered helper, missing-origin and
+production-callback frames refuse. The V2 helper now checks callback arguments
+after the production call returns; production code is not allowlisted.
+
+Fresh local successor results are Git36/36 pairs, adapter24/24,
+outer-auditor24/24 and producer21/21 in each of normal and optimized modes.
+Initial266-test component reruns retained one red because their nested producer
+command still used the pre-repair helper allowlist; after the exact helper
+registrations, fresh complete component runs pass266/266 normally and266/266
+optimized. The expanded shared-source matrix passes46/46 rows (6 same-copy
+controls and40 intended mutants), summary SHA256
+67f4b153c2b531fd0b062e3a1f7511eb05cf09c4a12f830b64206aa89c40bf42.
+Current-source hosted execution remains required before native successor credit.
+These engineering controls alter no Lean source,66 target statements,
+historical4871 receipt or parent continuum/scientific status.

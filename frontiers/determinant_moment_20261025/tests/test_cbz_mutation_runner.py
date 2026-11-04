@@ -76,6 +76,30 @@ class OuterMutationRunnerTests(unittest.TestCase):
         compile(source, 'controlled_fixture', 'exec')
         (self.root / 'tests/test_compiled_admission.py').write_text(source)
 
+    def origin_fixture(self, origin):
+        helper = ''
+        prefix = ''
+        if origin in ('registered', 'unregistered'):
+            registration = ("    CBZ_MUTATION_ORACLE_HELPERS = ('oracle_helper',)\n"
+                            if origin == 'registered' else '')
+            helper = "    def oracle_helper(self):\n        if mutated(): self.fail('helper assertion')\n"
+            action = 'self.oracle_helper()'
+        elif origin == 'nested':
+            registration = ''
+            action = "(lambda: self.fail('nested callback assertion'))() if mutated() else None"
+        elif origin == 'subject':
+            registration = ''
+            prefix = "def subject_check(case, changed):\n    if changed: case.fail('subject assertion')\n"
+            action = 'subject_check(self, mutated())'
+        else:
+            raise ValueError('unknown origin fixture')
+        source = ('import unittest\nfrom pathlib import Path\n'
+                  "def mutated():\n    return 'MUTANT:' in Path('compiled_inventory.py').read_text()\n"
+                  + prefix + 'class CompiledAdmissionTests(unittest.TestCase):\n' + registration + helper +
+                  '    def test_unused_definition_forbidden_closure_is_rejected(self):\n        ' + action + '\n')
+        compile(source, 'origin_fixture', 'exec')
+        (self.root / 'tests/test_compiled_admission.py').write_text(source)
+
     def execute(self, case=None):
         self.serial += 1
         work = self.base / ('work-' + str(self.serial))
@@ -98,6 +122,15 @@ class OuterMutationRunnerTests(unittest.TestCase):
                 self.fixture(phase)
                 record = self.execute()
                 self.assertTrue(record['killed_by_intended_assertions'], record)
+
+    def test_assertion_origin_refuses_subject_nested_and_unregistered_helpers(self):
+        for origin in ('subject', 'nested', 'unregistered', 'registered'):
+            with self.subTest(origin=origin, mode=MODE):
+                self.origin_fixture(origin)
+                record = self.execute()
+                self.assertEqual(record['killed_by_intended_assertions'], origin == 'registered', record)
+                self.assertEqual(record['selection_results'][0]['status'],
+                                 'KILLED' if origin == 'registered' else 'INVALID_MUTANT')
 
     def test_import_runtime_and_skip_outcomes_never_count_as_kills(self):
         for phase, exception in (('import', 'error'), ('test', 'error'),
