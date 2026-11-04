@@ -1,0 +1,42 @@
+--- frozen-helper-original
++++ producer-controls-actual
+@@ -4,11 +4,11 @@
+ 
+ private def firstThreeBlockDiagonal (S : Matrix (Fin 6) (Fin 6) ℝ) :
+     Matrix (Fin 6) (Fin 6) ℝ :=
+-  Fin.addCases
+-    (fun i : Fin 3 => Fin.addCases
+-      (fun j : Fin 3 => S (Fin.castAdd 3 i) (Fin.castAdd 3 j)) (fun _ : Fin 3 => 0))
+-    (fun i : Fin 3 => Fin.addCases
+-      (fun _ : Fin 3 => 0) (fun j : Fin 3 => S (Fin.castAdd 3 i) (Fin.castAdd 3 j)))
++  fun i j => Fin.addCases (m:=3) (n:=3)
++    (fun a : Fin 3 => Fin.addCases (m:=3) (n:=3)
++      (fun b : Fin 3 => S (Fin.castAdd 3 a) (Fin.castAdd 3 b)) (fun _ : Fin 3 => (0:ℝ)) j)
++    (fun a : Fin 3 => Fin.addCases (m:=3) (n:=3)
++      (fun _ : Fin 3 => (0:ℝ)) (fun b : Fin 3 => S (Fin.castAdd 3 a) (Fin.castAdd 3 b)) j) i
+ 
+ private theorem firstThreeBlockDiagonal_posSemidef
+     (S : Matrix (Fin 6) (Fin 6) ℝ) (hS : S.PosDef) :
+@@ -18,16 +18,16 @@
+   have hA : A.PosSemidef :=
+     hS.posSemidef.submatrix (Fin.castAdd 3 : Fin 3 → Fin 6)
+   let P₀ : Matrix (Fin 6) (Fin 3) ℝ :=
+-    Fin.addCases (fun i j : Fin 3 => if i=j then 1 else 0)
+-      (fun (_ : Fin 3) (_ : Fin 3) => 0)
++    fun i j => Fin.addCases (m:=3) (n:=3) (fun a : Fin 3 => if a=j then (1:ℝ) else 0)
++      (fun _ : Fin 3 => (0:ℝ)) i
+   let P₁ : Matrix (Fin 6) (Fin 3) ℝ :=
+-    Fin.addCases (fun (_ : Fin 3) (_ : Fin 3) => 0)
+-      (fun i j : Fin 3 => if i=j then 1 else 0)
++    fun i j => Fin.addCases (m:=3) (n:=3) (fun _ : Fin 3 => (0:ℝ))
++      (fun a : Fin 3 => if a=j then (1:ℝ) else 0) i
+   have heq : firstThreeBlockDiagonal S = P₀ * A * P₀ᴴ + P₁ * A * P₁ᴴ := by
+     ext i j
++    simp only [Matrix.add_apply,Matrix.mul_apply,Matrix.conjTranspose_apply]
+     fin_cases i <;> fin_cases j <;>
+-      simp [firstThreeBlockDiagonal, P₀, P₁, A, Matrix.mul_apply,
+-        Matrix.conjTranspose_apply, Fin.sum_univ_succ, Fin.addCases]
++      simp [firstThreeBlockDiagonal,P₀,P₁,A,Fin.addCases]
+   rw [heq]
+   exact (hA.mul_mul_conjTranspose_same P₀).add
+     (hA.mul_mul_conjTranspose_same P₁)

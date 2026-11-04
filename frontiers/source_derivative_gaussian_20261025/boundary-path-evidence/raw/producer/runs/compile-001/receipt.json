@@ -1,0 +1,36 @@
+{
+  "label": "compile-001",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "AdaptiveFoldBoundaryPath.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/AdaptiveFoldBoundaryPath.lean",
+      "bytes": 9429,
+      "sha256": "747de26f1231ac7e5f10adf62fa8c5b14509e80918889811dcf295637acea4a0"
+    },
+    "object": null
+  },
+  "started_utc": "2026-10-26T05:13:12.110571+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 5.805000300999382,
+  "ended_utc": "2026-10-26T05:13:17.915625+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/AdaptiveFoldBoundaryPath.lean",
+      "bytes": 9429,
+      "sha256": "747de26f1231ac7e5f10adf62fa8c5b14509e80918889811dcf295637acea4a0"
+    },
+    "object": null
+  },
+  "log": {
+    "path": "/workspace/scratch/ridge-boundary-path-construct/runs/compile-001/output.log",
+    "bytes": 497,
+    "sha256": "b0e11f24b873a4cf134e7d738878e573150926d0650ee6321e19dee49cd940f3"
+  }
+}

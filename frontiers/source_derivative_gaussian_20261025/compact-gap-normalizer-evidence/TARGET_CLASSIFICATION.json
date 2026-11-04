@@ -1,0 +1,40 @@
+{
+  "module": "SourceCompactGapNormalizer",
+  "total_kernel_constants": 19,
+  "named_public_theorems": 13,
+  "named_public_definitions": 2,
+  "named_prop_bundles": 0,
+  "handwritten_private_theorems": 0,
+  "generated_constants": 4,
+  "generated_theorems": 4,
+  "generated_definitions": 0,
+  "public_theorem_targets": [
+    "SourceCompactGapNormalizer.cubic_pin_pointwise_error_target",
+    "SourceCompactGapNormalizer.endpointWeight_gap_floor",
+    "SourceCompactGapNormalizer.gaussianCompactLowerConstant_pos",
+    "SourceCompactGapNormalizer.gaussianPDFReal_lower_compact",
+    "SourceCompactGapNormalizer.gaussianReal_Icc_lower_compact",
+    "SourceCompactGapNormalizer.sourceCompactGoodEvent_mass",
+    "SourceCompactGapNormalizer.sourceCompactGoodEvent_measurable",
+    "SourceCompactGapNormalizer.sourceGapLaw_compact_normalizer",
+    "SourceCompactGapNormalizer.sourceGapLaw_negative_interval_mass",
+    "SourceCompactGapNormalizer.sourceGapLaw_q_hasLaw",
+    "SourceCompactGapNormalizer.sourceGap_curvatureMean_bound",
+    "SourceCompactGapNormalizer.sourceSmoothWeight_gap_floor",
+    "SourceCompactGapNormalizer.source_normalized_gap_axial_errors"
+  ],
+  "definitions": [
+    "SourceCompactGapNormalizer.gaussianCompactLowerConstant",
+    "SourceCompactGapNormalizer.sourceCompactGoodEvent"
+  ],
+  "prop_bundles": [],
+  "private_support_theorems": [],
+  "generated_constants_names": [
+    "ResearchFormalCoreR1.egm_weight.eq_1",
+    "SourceCompactGapNormalizer.gaussianCompactLowerConstant._proof_1",
+    "SourceCompactGapNormalizer.gaussianCompactLowerConstant._proof_2",
+    "SourceCompactGapNormalizer.sourceCompactGoodEvent_mass._simp_1_3"
+  ],
+  "classification_policy": "All actual module-index constants classified, including the generated external-namespace egm_weight equation. Generated proof/equation/simp constants are not separate research theorem targets.",
+  "rows": "INVENTORY.json"
+}

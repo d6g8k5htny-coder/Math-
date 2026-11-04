@@ -1,0 +1,64 @@
+{
+  "scope": "New raw-pin module only; root merges this fragment into its current manifest.",
+  "source_modules": [
+    "SourceRawPinConditioning.lean"
+  ],
+  "targets": [
+    "I4SourceRawPinConditioning.rawPinCoefficient_summable",
+    "I4SourceRawPinConditioning.rawPins_series",
+    "I4SourceRawPinConditioning.rawPins_measurable",
+    "I4SourceRawPinConditioning.rawPinCovariance_coefficient",
+    "I4SourceRawPinConditioning.confluentMatrix_mulVec",
+    "I4SourceRawPinConditioning.confluentMatrix_isUnit",
+    "I4SourceRawPinConditioning.pinCoefficient_eq_confluentMatrix",
+    "I4SourceRawPinConditioning.sourceConfluentPinsAt_eq_matrix",
+    "I4SourceRawPinConditioning.rawPinCovariance_congruence",
+    "I4SourceRawPinConditioning.rawPinCovariance_isUnit",
+    "I4SourceRawPinConditioning.rawPinLift_goodSample",
+    "I4SourceRawPinConditioning.rawPinLift_measurable",
+    "I4SourceRawPinConditioning.pinLift_confluent_eq_raw",
+    "I4SourceRawPinConditioning.rawPosteriorSample_val",
+    "I4SourceRawPinConditioning.rawPosteriorSample_measurable",
+    "I4SourceRawPinConditioning.rawPosteriorSample_eq_posteriorSample",
+    "I4SourceRawPinConditioning.rawPinKernel_isMarkov",
+    "I4SourceRawPinConditioning.rawPinKernel_apply",
+    "I4SourceRawPinConditioning.rawPinKernel_eq_confluent",
+    "I4SourceRawPinConditioning.rawPinKernel_eq_comap",
+    "I4SourceRawPinConditioning.rawPosteriorSample_rawPins",
+    "I4SourceRawPinConditioning.rawPinKernel_pin_map",
+    "I4SourceRawPinConditioning.rawPinKernel_pin_fiber",
+    "I4SourceRawPinConditioning.rawPinKernel_hasCondDistrib",
+    "I4SourceRawPinConditioning.rawPinKernel_map_hasCondDistrib",
+    "I4SourceRawPinConditioning.rawPinCovariance_eventually_isUnit",
+    "I4SourceRawPinConditioning.rawPinKernel_eventually_hasCondDistrib",
+    "I4SourceRawPinConditioning.rawPinKernel_prescribed",
+    "I4SourceRawPinConditioning.rawPrescribedWeightedMeasure_eq",
+    "I4SourceRawPinConditioning.rawPrescribedWeightedMeasure_estimates"
+  ],
+  "new_target_count": 30,
+  "definitions_separately_inventoried": [
+    "I4SourceRawPinConditioning.rawPinCoefficient",
+    "I4SourceRawPinConditioning.rawPinCovariance",
+    "I4SourceRawPinConditioning.confluentMatrix",
+    "I4SourceRawPinConditioning.rawPinLift",
+    "I4SourceRawPinConditioning.rawPosteriorSample",
+    "I4SourceRawPinConditioning.rawPinKernel",
+    "I4SourceRawPinConditioning.rawPrescribedWeightedMeasure"
+  ],
+  "files": {
+    "SourceRawPinConditioning.lean": "77e521c7fc3fc3da1c922a4ef547b065be58b232b321480948c8fe50d76c2aa5"
+  },
+  "base_context_from_parent_instruction": {
+    "unchanged_modules": 24,
+    "unchanged_exact_inputs": 23,
+    "standalone_total_modules_after_append": 25,
+    "standalone_total_proof_instance_targets_after_append": 645,
+    "concurrent_new_modules": "Excluded; root adds each separately at its own source/evidence cut."
+  },
+  "qualification_receipt": "raw/SourceRawPinConditioning/QUALIFICATION_RECEIPT.json",
+  "not_claimed": [
+    "Formal geometric Campbell/Kac–Rice theorem",
+    "Globally normalized mark Markov kernel",
+    "Original-goal closure"
+  ]
+}

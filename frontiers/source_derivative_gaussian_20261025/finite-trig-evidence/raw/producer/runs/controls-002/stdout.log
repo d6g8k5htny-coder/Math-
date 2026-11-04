@@ -1,0 +1,78 @@
+/workspace/scratch/finite-trig-construct/Controls.lean:42:21: error: Invalid simp theorem: Expected a proposition, but found
+  TrigTerm → TrigTerm → TrigPoly
+/workspace/scratch/finite-trig-construct/Controls.lean:41:31: error: unsolved goals
+⊢ I4SourceFiniteTrig.termProduct✝ { coeff := 1, frequency := 0, offset := 0 }
+      { coeff := 1, frequency := 0, offset := 0 } =
+    [{ coeff := 2⁻¹, frequency := 0, offset := 0 }, { coeff := 2⁻¹, frequency := 0, offset := 0 }]
+/workspace/scratch/finite-trig-construct/Controls.lean:65:19: error: Invalid simp theorem: Expected a proposition, but found
+  ℝ → (Fin 2 → ℤ) → ℝ → SourceMode 2 →₀ ℝ
+/workspace/scratch/finite-trig-construct/Controls.lean:65:19: error: Invalid simp theorem: Expected a proposition, but found
+  ℝ → (Fin 2 → ℤ) → ℝ → SourceMode 2 →₀ ℝ
+/workspace/scratch/finite-trig-construct/Controls.lean:62:66: error: unsolved goals
+case left
+L θ : ℝ
+⊢ (I4SourceFiniteTrig.atomSource✝ L (↑axial) θ) (some (axial, false)) =
+    Real.cos θ / sourceModeAmplitude L (some (axial, false))
+
+case right
+L θ : ℝ
+⊢ (I4SourceFiniteTrig.atomSource✝ L (↑axial) θ) (some (axial, true)) =
+    -Real.sin θ / sourceModeAmplitude L (some (axial, false))
+/workspace/scratch/finite-trig-construct/Controls.lean:66:6: error: This simp argument is unused:
+  axial_ne_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [toSource, (trigPrivate%atomSource), axial.property]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/finite-trig-construct/Controls.lean:66:20: error: This simp argument is unused:
+  axial.property
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [toSource, (trigPrivate%atomSource), axial_ne_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/finite-trig-construct/Controls.lean:81:19: error: Invalid simp theorem: Expected a proposition, but found
+  ℝ → (Fin 2 → ℤ) → ℝ → SourceMode 2 →₀ ℝ
+/workspace/scratch/finite-trig-construct/Controls.lean:81:19: error: Invalid simp theorem: Expected a proposition, but found
+  ℝ → (Fin 2 → ℤ) → ℝ → SourceMode 2 →₀ ℝ
+/workspace/scratch/finite-trig-construct/Controls.lean:74:65: error: unsolved goals
+case left
+L θ : ℝ
+hn0 : -↑axial ≠ 0
+hn : -↑axial ∉ halfLattice 2
+⊢ (I4SourceFiniteTrig.atomSource✝ L (-↑axial) θ) (some (axial, false)) =
+    Real.cos θ / sourceModeAmplitude L (some (axial, false))
+
+case right
+L θ : ℝ
+hn0 : -↑axial ≠ 0
+hn : -↑axial ∉ halfLattice 2
+⊢ (I4SourceFiniteTrig.atomSource✝ L (-↑axial) θ) (some (axial, true)) =
+    Real.sin θ / sourceModeAmplitude L (some (axial, false))
+/workspace/scratch/finite-trig-construct/Controls.lean:81:45: error: This simp argument is unused:
+  hn0
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [toSource, (trigPrivate%atomSource), hn]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/finite-trig-construct/Controls.lean:81:49: error: This simp argument is unused:
+  hn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [toSource, (trigPrivate%atomSource), hn0]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/finite-trig-construct/Controls.lean:89:19: error: Invalid simp theorem: Expected a proposition, but found
+  ℝ → (Fin 2 → ℤ) → ℝ → SourceMode 2 →₀ ℝ
+/workspace/scratch/finite-trig-construct/Controls.lean:89:19: error: Invalid simp theorem: Expected a proposition, but found
+  ℝ → (Fin 2 → ℤ) → ℝ → SourceMode 2 →₀ ℝ
+/workspace/scratch/finite-trig-construct/Controls.lean:86:53: error: unsolved goals
+case left
+L θ : ℝ
+⊢ (I4SourceFiniteTrig.atomSource✝ L 0 θ) none = Real.cos θ / sourceModeAmplitude L none
+
+case right
+L θ : ℝ
+⊢ (I4SourceFiniteTrig.atomSource✝ L 0 θ) (some (axial, false)) = 0

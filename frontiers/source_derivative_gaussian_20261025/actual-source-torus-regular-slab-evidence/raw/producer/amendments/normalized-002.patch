@@ -1,0 +1,49 @@
+--- normalized001/source
++++ normalized002/source
+@@ -28,7 +28,7 @@
+ open Set Filter
+ open I4SmoothCarrier I4LifetimeField
+ open UniversalLaw.Spec.Lifetime
+-open scoped Topology BigOperators Matrix
++open scoped Topology BigOperators Matrix NNReal
+ set_option autoImplicit false
+ namespace I4SourceActualTorusRegularSlab
+ 
+@@ -165,9 +165,12 @@
+         (fderiv ℝ S (q Y)).comp q.toContinuousLinearMap =
+         (fderiv ℝ S (q X) - fderiv ℝ S (q Y)).comp q.toContinuousLinearMap := by
+       ext Z
+-      simp only [ContinuousLinearMap.sub_apply, ContinuousLinearMap.comp_apply]
++      simp only [sub_apply, ContinuousLinearMap.comp_apply]
+     have hq : dist (q X) (q Y) ≤ Cq * dist X Y := by
+-      simpa only [dist_eq_norm, ← map_sub] using q.toContinuousLinearMap.le_opNorm (X-Y)
++      change ‖q X - q Y‖ ≤ Cq * ‖X-Y‖
++      rw [← map_sub]
++      change ‖q.toContinuousLinearMap (X-Y)‖ ≤ ‖q.toContinuousLinearMap‖ * ‖X-Y‖
++      exact q.toContinuousLinearMap.le_opNorm (X-Y)
+     calc
+       dist (gradient (actualField 2 L omega) X)
+           (gradient (actualField 2 L omega) Y) =
+@@ -193,9 +196,9 @@
+   refine ⟨Y, n, rfl, coordinates 2 Y, ?_, (coordinates 2).symm_apply_apply Y⟩
+   intro i _
+   have he : coordinates 2 Y i = L * Int.fract (coordinates 2 X i / L) := by
+-    dsimp [Y, n]
++    change coordinates 2 (X + latticeVec 2 L n) i = L * Int.fract (coordinates 2 X i / L)
+     rw [map_add, coordinates_latticeVec]
+-    simp only [Pi.add_apply, Int.cast_neg, Int.fract]
++    simp only [Pi.add_apply, n, Int.cast_neg, Int.fract]
+     field_simp [hL.ne'] <;> ring
+   rw [he]
+   constructor
+@@ -233,7 +236,9 @@
+     have hp : p X ≠ 0 := by
+       intro hz
+       apply hreg X hX.2.1 hX.2.2
+-      rw [← toDual_gradient, hz, map_zero]
++      rw [← toDual_gradient]
++      change (InnerProductSpace.toDual ℝ E2) (p X) = 0
++      rw [hz, map_zero]
+     exact pow_pos (norm_pos_iff.mpr hp) 2
+   obtain ⟨Z, hZ, hmin⟩ := hband.exists_isMinOn hbandne
+     (hpcont.norm.pow 2).continuousOn

@@ -1,0 +1,38 @@
+{
+  "recorded_utc": "2026-10-28T16:44:58.703574+00:00",
+  "logical_id": "61B-CONTROLS-ORIGINAL-COMPLETE-V1",
+  "helper": "/root/actual_canonical_partner_preflight",
+  "integrations": 1,
+  "context_ACKs": "001/002/003 plus rootmethod001 and recordedordinary004 personally ACKed before dependent text",
+  "originals": [
+    {
+      "original": "/workspace/scratch/actual-source-torus-fixtures-text/Controls.ORIGINAL.lean.txt",
+      "retained": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/Controls.ORIGINAL.lean.txt",
+      "bytes": 25686,
+      "sha256": "c6dc0869a103d0312d658eff4c144592de11712a10fff95d79a3f17e117feb5a",
+      "identity_origin": "producer FIRST identity of new complete ordinary Controls original BEFORE one integration; helper hashes0"
+    },
+    {
+      "original": "/workspace/scratch/actual-source-torus-fixtures-text/ControlsImports.ORIGINAL.txt",
+      "retained": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/ControlsImports.ORIGINAL.txt",
+      "bytes": 832,
+      "sha256": "7b06678a9bd46a1bcddeaba23be47d2410b56fa1baaef5131176b6b0884e1cab",
+      "identity_origin": "producer FIRST identity of new complete ordinary Controls original BEFORE one integration; helper hashes0"
+    },
+    {
+      "original": "/workspace/scratch/actual-source-torus-fixtures-text/ControlsProvenance.ORIGINAL.md",
+      "retained": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/ControlsProvenance.ORIGINAL.md",
+      "bytes": 5386,
+      "sha256": "6e83c6cdea09ec28a9b4c08db78d16a05984230fd1e8b7c3ffc96384befb1642",
+      "identity_origin": "producer FIRST identity of new complete ordinary Controls original BEFORE one integration; helper hashes0"
+    },
+    {
+      "original": "/workspace/scratch/actual-source-torus-fixtures-text/ControlsFrozen.ORIGINAL.json",
+      "retained": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/ControlsFrozen.ORIGINAL.json",
+      "bytes": 828,
+      "sha256": "4ea53a2c624029faaca17d231dd274eb885081187a185b96caa6c4c3bdb2e7fc",
+      "identity_origin": "producer FIRST identity of new complete ordinary Controls original BEFORE one integration; helper hashes0"
+    }
+  ],
+  "integration": "Complete separate ordinary Controls file integrated ONCE, exactoriginal, no production concatenation/private names"
+}

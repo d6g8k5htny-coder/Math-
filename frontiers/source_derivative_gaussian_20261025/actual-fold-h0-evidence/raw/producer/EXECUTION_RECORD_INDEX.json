@@ -1,0 +1,236 @@
+{
+  "recorded_utc": "2026-10-26T09:35:28.362182+00:00",
+  "all_verification_invocations": [
+    {
+      "label": "controls-001",
+      "receipt": {
+        "path": "/workspace/scratch/actual-fold-h0-construct/runs/controls-001/receipt.json",
+        "bytes": 1849,
+        "sha256": "f0991180472e64ead9c21de695869b2ab6cec5887c378a1faf0be1bfad3cf754"
+      },
+      "exit_code": 1,
+      "started_utc": "2026-10-26T09:31:27.913671+00:00",
+      "ended_utc": "2026-10-26T09:31:28.642643+00:00",
+      "elapsed_seconds": 0.728950023651123,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/actual-fold-h0-construct/build/ActualH0Controls.olean /workspace/scratch/actual-fold-h0-construct/ActualH0Controls.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/actual-fold-h0-construct/runs/controls-001/output.log",
+        "bytes": 199,
+        "sha256": "c52420eb0616de227a1cd2645376e33ad5382df17e039274ffd7014f8682ef30"
+      },
+      "credit": "retained development failure"
+    },
+    {
+      "label": "controls-002",
+      "receipt": {
+        "path": "/workspace/scratch/actual-fold-h0-construct/runs/controls-002/receipt.json",
+        "bytes": 1898,
+        "sha256": "ebe8f5c4a0dbdb581d62441af17ae76b9b5b5dbf87b8e79247bf8d5f5db1fc98"
+      },
+      "exit_code": 1,
+      "started_utc": "2026-10-26T09:31:44.379752+00:00",
+      "ended_utc": "2026-10-26T09:31:47.818567+00:00",
+      "elapsed_seconds": 3.4387757778167725,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -R /workspace/scratch/actual-fold-h0-construct -o /workspace/scratch/actual-fold-h0-construct/build/ActualH0Controls.olean /workspace/scratch/actual-fold-h0-construct/ActualH0Controls.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/actual-fold-h0-construct/runs/controls-002/output.log",
+        "bytes": 1095,
+        "sha256": "cebf6fd044cf13f2c871b36e05a9929d4a69e8508f6108ce7a96b870d3ce0700"
+      },
+      "credit": "retained development failure"
+    },
+    {
+      "label": "controls-003",
+      "receipt": {
+        "path": "/workspace/scratch/actual-fold-h0-construct/runs/controls-003/receipt.json",
+        "bytes": 1896,
+        "sha256": "fc1d2ced508625aff7419f39af20ae4d9c16b0b0610b01cff6860c5fb293f447"
+      },
+      "exit_code": 1,
+      "started_utc": "2026-10-26T09:32:12.392621+00:00",
+      "ended_utc": "2026-10-26T09:32:15.791911+00:00",
+      "elapsed_seconds": 3.399240493774414,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -R /workspace/scratch/actual-fold-h0-construct -o /workspace/scratch/actual-fold-h0-construct/build/ActualH0Controls.olean /workspace/scratch/actual-fold-h0-construct/ActualH0Controls.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/actual-fold-h0-construct/runs/controls-003/output.log",
+        "bytes": 833,
+        "sha256": "228aa95c77b196f83553a35d14055e1c83b8ecd45aa8fc694198d7e52982b561"
+      },
+      "credit": "retained development failure"
+    },
+    {
+      "label": "controls-004",
+      "receipt": {
+        "path": "/workspace/scratch/actual-fold-h0-construct/runs/controls-004/receipt.json",
+        "bytes": 1895,
+        "sha256": "1783e45173c32ed87551bd63080dba6a368d48a771daa46f8c6de11c47e0904f"
+      },
+      "exit_code": 0,
+      "started_utc": "2026-10-26T09:32:37.630579+00:00",
+      "ended_utc": "2026-10-26T09:32:41.704723+00:00",
+      "elapsed_seconds": 4.0741190910339355,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -R /workspace/scratch/actual-fold-h0-construct -o /workspace/scratch/actual-fold-h0-construct/build/ActualH0Controls.olean /workspace/scratch/actual-fold-h0-construct/ActualH0Controls.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/actual-fold-h0-construct/runs/controls-004/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "credit": "successful"
+    },
+    {
+      "label": "false-death-001",
+      "receipt": {
+        "path": "/workspace/scratch/actual-fold-h0-construct/runs/false-death-001/receipt.json",
+        "bytes": 1782,
+        "sha256": "47761ffe21615fc427b8fbd9092f4df26730ec638eeb5dd7cc72c35880b25fcd"
+      },
+      "exit_code": 1,
+      "started_utc": "2026-10-26T09:33:11.074246+00:00",
+      "ended_utc": "2026-10-26T09:33:14.662839+00:00",
+      "elapsed_seconds": 3.5885558128356934,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true /workspace/scratch/actual-fold-h0-construct/FalseDeathMutation.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/actual-fold-h0-construct/runs/false-death-001/output.log",
+        "bytes": 166,
+        "sha256": "ac8e9d4d3fe4f5389178dae54db630d091e8a82e10da2968b463d6ae3482f9b9"
+      },
+      "credit": "preliminary, uncredited"
+    },
+    {
+      "label": "false-death-002",
+      "receipt": {
+        "path": "/workspace/scratch/actual-fold-h0-construct/runs/false-death-002/receipt.json",
+        "bytes": 1782,
+        "sha256": "009462c3a0800af672235ea1944dd00bc860f5ff5185b055c6eeef33f740c883"
+      },
+      "exit_code": 1,
+      "started_utc": "2026-10-26T09:34:24.653412+00:00",
+      "ended_utc": "2026-10-26T09:34:27.457017+00:00",
+      "elapsed_seconds": 2.8035809993743896,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true /workspace/scratch/actual-fold-h0-construct/FalseDeathMutation.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/actual-fold-h0-construct/runs/false-death-002/output.log",
+        "bytes": 166,
+        "sha256": "ac8e9d4d3fe4f5389178dae54db630d091e8a82e10da2968b463d6ae3482f9b9"
+      },
+      "credit": "final rejection"
+    },
+    {
+      "label": "inventory-001",
+      "receipt": {
+        "path": "/workspace/scratch/actual-fold-h0-construct/runs/inventory-001/receipt.json",
+        "bytes": 1770,
+        "sha256": "214d4890720304bbee2627ba4ee74e6806d3e0da87758e604b55aceebc16b321"
+      },
+      "exit_code": 0,
+      "started_utc": "2026-10-26T09:31:27.906203+00:00",
+      "ended_utc": "2026-10-26T09:31:31.595579+00:00",
+      "elapsed_seconds": 3.6892526149749756,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true /workspace/scratch/actual-fold-h0-construct/Inventory.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/actual-fold-h0-construct/runs/inventory-001/output.log",
+        "bytes": 1776,
+        "sha256": "4d442139ff064af78dd06bf44c2548c45766c979cfb8cefb33cb1bd17ed76b9c"
+      },
+      "credit": "successful"
+    },
+    {
+      "label": "kernel-001",
+      "receipt": {
+        "path": "/workspace/scratch/actual-fold-h0-construct/runs/kernel-001/receipt.json",
+        "bytes": 1705,
+        "sha256": "d2b1c625a454a2b9a4cc8264147f92032e06a1712c2b067620711533ada48c23"
+      },
+      "exit_code": 0,
+      "started_utc": "2026-10-26T09:31:19.191995+00:00",
+      "ended_utc": "2026-10-26T09:31:25.748020+00:00",
+      "elapsed_seconds": 6.555988311767578,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec leanchecker SourceActualFoldH0"
+      ],
+      "log": {
+        "path": "/workspace/scratch/actual-fold-h0-construct/runs/kernel-001/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "credit": "successful"
+    },
+    {
+      "label": "strict-001",
+      "receipt": {
+        "path": "/workspace/scratch/actual-fold-h0-construct/runs/strict-001/receipt.json",
+        "bytes": 1630,
+        "sha256": "a9c4fb36144a600df3fe02c4224e201b2ae901d645819d32641e06fd796225c0"
+      },
+      "exit_code": 0,
+      "started_utc": "2026-10-26T09:30:39.819413+00:00",
+      "ended_utc": "2026-10-26T09:30:43.585222+00:00",
+      "elapsed_seconds": 3.765789270401001,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/actual-fold-h0-construct/build/SourceActualFoldH0.olean -i /workspace/scratch/actual-fold-h0-construct/build/SourceActualFoldH0.ilean SourceActualFoldH0.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/actual-fold-h0-construct/runs/strict-001/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "credit": "successful"
+    }
+  ],
+  "exactly_one_own_module_kernel": true,
+  "old_math_replay_count": 0,
+  "all_failures_retained": true,
+  "native_checkpoint_utc": "2026-10-26T10:00:00Z",
+  "terminal_utc": "2026-10-26T11:00:00Z",
+  "timers_reset": false
+}

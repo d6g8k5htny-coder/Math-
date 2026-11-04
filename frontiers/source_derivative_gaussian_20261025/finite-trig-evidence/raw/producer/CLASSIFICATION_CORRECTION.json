@@ -1,0 +1,11 @@
+{
+  "field": "foreign_namespace_generated",
+  "original_derived_value": [],
+  "corrected_value": [
+    "I4SourceSmoothConditional.zeroSample.eq_1"
+  ],
+  "cause": "Derived Python field used stale loop-name variable rather than each row name. Actual audit/raw row and per-constant classification were correct throughout.",
+  "scope": "Metadata-only derived-field correction requested by readonly source/spec reviewer; no source edit/audit rerun/strict replay/kernel retry.",
+  "original_field_bytes_not_separately_snapshotted": true,
+  "failure_record": "Reviewer message and this explicit original/corrected-value record preserve the metadata defect; no raw initial JSON claim is made."
+}

@@ -1,0 +1,45 @@
+{
+  "kind": "controls",
+  "run": "controls-003",
+  "start": "2026-10-26T10:41:49.801747+00:00",
+  "end": "2026-10-26T10:41:54.083214+00:00",
+  "seconds": 4.28148017499916,
+  "command": [
+    "lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/actual-fold-candidate-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/actual-fold-candidate-construct /workspace/scratch/actual-fold-candidate-construct/Controls.lean -o /workspace/scratch/actual-fold-candidate-construct/runs/controls-003/Controls.olean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 1,
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFoldCandidate.lean",
+      "bytes": 34367,
+      "sha256": "a03d6cc83ec35971d8e67a0ccb3032681eed76ca056a075bbd3bbddff7727e0e"
+    },
+    "object": {
+      "path": "/workspace/scratch/actual-fold-candidate-construct/build/SourceActualFoldCandidate.olean",
+      "bytes": 2037352,
+      "sha256": "a545f758072accbe4a97cb48a8ce30b542215bc8218c408b28fccd6d30f85f99"
+    }
+  },
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFoldCandidate.lean",
+      "bytes": 34367,
+      "sha256": "a03d6cc83ec35971d8e67a0ccb3032681eed76ca056a075bbd3bbddff7727e0e"
+    },
+    "object": {
+      "path": "/workspace/scratch/actual-fold-candidate-construct/build/SourceActualFoldCandidate.olean",
+      "bytes": 2037352,
+      "sha256": "a545f758072accbe4a97cb48a8ce30b542215bc8218c408b28fccd6d30f85f99"
+    }
+  },
+  "log": {
+    "path": "/workspace/scratch/actual-fold-candidate-construct/runs/controls-003/output.log",
+    "bytes": 376,
+    "sha256": "3dcbbdb4b37caf44d1b4ac5aeec6fababe3653f5edf8e92ea86c245f1468560a"
+  }
+}

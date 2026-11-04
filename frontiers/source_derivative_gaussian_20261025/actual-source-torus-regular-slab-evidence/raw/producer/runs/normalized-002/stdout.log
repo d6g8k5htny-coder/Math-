@@ -1,0 +1,74 @@
+SourceActualTorusRegularSlab.lean:184:39: error: Type mismatch: After simplification, term
+  LipschitzWith.dist_le_mul hSLip (q X) (q Y)
+ has type
+  @LE.le ℝ Real.instLE ‖fderiv ℝ S (q X) - fderiv ℝ S (q Y)‖ (↑⟨G2, hG2⟩ * ‖q X - q Y‖)
+but is expected to have type
+  @LE.le ℝ Real.instPreorder.toLE ‖fderiv ℝ S (q X) - fderiv ℝ S (q Y)‖ (G2 * ‖q X - q Y‖)
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+SourceActualTorusRegularSlab.lean:187:33: error: unsolved goals
+L : ℝ
+hL : 0 < L
+omega : SmoothSample 2 L
+q : E 2 ≃L[ℝ] Fin 2 → ℝ := coordinates 2
+S : (Fin 2 → ℝ) → ℝ := smoothSourceField 2 L omega
+Cq : ℝ := ‖↑q‖
+G1 : ℝ := I4SourceConditionalMajorant.sourceDerivativeMajorant L 1 omega
+G2 : ℝ := I4SourceConditionalMajorant.sourceDerivativeMajorant L 2 omega
+hG1 : 0 ≤ G1
+hG2 : 0 ≤ G2
+hS : ContDiff ℝ (↑2) S
+hSd : Differentiable ℝ S
+hSd' : Differentiable ℝ (fderiv ℝ S)
+hfirst : ∀ (x : Fin 2 → ℝ), ‖fderiv ℝ S x‖ ≤ G1
+hsecond : ∀ (x : Fin 2 → ℝ), ‖fderiv ℝ (fderiv ℝ S) x‖ ≤ G2
+hSLip : LipschitzWith ⟨G2, hG2⟩ (fderiv ℝ S)
+hchain : ∀ (X : E2), fderiv ℝ (actualField 2 L omega) X = fderiv ℝ S (q X) ∘SL ↑q
+A : ℝ := 1 + Cq * G1
+Kp : ℝ≥0 := ⟨Cq ^ 2 * G2, ⋯⟩
+X Y : E 2
+hR :
+  ‖gradient (actualField 2 L omega) X - gradient (actualField 2 L omega) Y‖ =
+    ‖fderiv ℝ (actualField 2 L omega) X - fderiv ℝ (actualField 2 L omega) Y‖
+he : fderiv ℝ S (q X) ∘SL ↑q - fderiv ℝ S (q Y) ∘SL ↑q = (fderiv ℝ S (q X) - fderiv ℝ S (q Y)) ∘SL ↑q
+hq : dist (q X) (q Y) ≤ Cq * dist X Y
+⊢ G2 * Cq ^ 2 * dist X Y = dist X Y * ↑⟨G2 * Cq ^ 2, ⋯⟩
+SourceActualTorusRegularSlab.lean:202:24: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+SourceActualTorusRegularSlab.lean:340:30: error: unsolved goals
+L : ℝ
+omega : SmoothSample 2 L
+c A : ℝ
+Kp : ℝ≥0
+hc : 0 < c
+hA : 0 ≤ A
+hbound : ∀ (X : E2), ‖gradient (actualField 2 L omega) X‖ ≤ A
+hplip : LipschitzWith Kp (gradient (actualField 2 L omega))
+p : E 2 → E 2 := gradient (actualField 2 L omega)
+d : E2 → ℝ := fun X => max c (‖p X‖ ^ 2)
+D : ℝ := 2 * A * ↑Kp
+hD : 0 ≤ D
+hdlower : ∀ (X : E2), c ≤ d X
+hdpos : ∀ (X : E2), 0 < d X
+hdinv : ∀ (X : E2), |(d X)⁻¹| ≤ 1 / c
+hsq : LipschitzWith ⟨D, hD⟩ fun X => ‖p X‖ ^ 2
+hdlip : LipschitzWith ⟨D, hD⟩ d
+hrecip : ∀ (X Y : E2), |(d X)⁻¹ - (d Y)⁻¹| ≤ D / (c * c) * dist X Y
+M : ℝ≥0 := ⟨A / c, ⋯⟩
+K : ℝ≥0 := ⟨↑Kp / c + D / (c * c) * A, ⋯⟩
+X Y : E2
+hv :
+  normalizedVelocity (actualField 2 L omega) c X - normalizedVelocity (actualField 2 L omega) c Y =
+    (d X)⁻¹ • (p X - p Y) + ((d X)⁻¹ - (d Y)⁻¹) • p Y
+⊢ c⁻¹ * ↑Kp * dist X Y + c⁻¹ ^ 2 * dist X Y * D * A = dist X Y * ↑⟨c⁻¹ * ↑Kp + c⁻¹ ^ 2 * D * A, ⋯⟩

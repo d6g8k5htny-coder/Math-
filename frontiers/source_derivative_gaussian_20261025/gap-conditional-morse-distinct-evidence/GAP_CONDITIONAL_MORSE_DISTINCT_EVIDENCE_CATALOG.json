@@ -1,0 +1,253 @@
+{
+  "module": "SourceGapConditionalMorseDistinct",
+  "public_Prop_targets": [
+    "I4SourceGapConditionalMorseDistinct.sourceGapLaw_ae_isMorseDistinct"
+  ],
+  "public_data": 0,
+  "scope": "Actual defined sourceGapLaw at positive gap: for each L>0 derive delta>0 with delta<=1,L/2 before r,b,k; for each0<r<delta andb,0<k, a.e. literal actualField has Lifetime.IsMorseDistinct. Actual2/3/5 source frames, whole-vector57law/reconstruction, fullDBtheta/dummySard, compactcountable quotient-aware assembly and52pin nullity/fiber; genuine inertia. No common uncountable parameter event, Parent/canonical elder/Rice/counting/localModel60 claim.",
+  "source_cut": "3515bc2144c5d47a197238c1a46bbdd3a50e146b",
+  "source_bytes": 99430,
+  "source_sha256": "8baf597fa98ce8f79489e82227951e0f4fd1a960e65589278be8a82f35ce5213",
+  "eligible_object_bytes": 4189248,
+  "eligible_object_sha256": "d73ade27921b1593c99175780e2738a80d3acb158e3c25810ef03b66b5678cb8",
+  "object_action": "SKIP_ROOT_COPIED_ONCE",
+  "actual_owned_constants": 167,
+  "classification": {
+    "authored_public_propositions": [
+      "I4SourceGapConditionalMorseDistinct.sourceGapLaw_ae_isMorseDistinct"
+    ],
+    "authored_public_data": 0,
+    "full_module_constant_count": 167,
+    "classification_counts": {
+      "authored_private": 133,
+      "compiler_generated_foreign_namespace": 2,
+      "compiler_generated_private": 31,
+      "authored_public_proposition": 1
+    },
+    "foreign_generated": [
+      {
+        "name": "I4SourceRemoteJetWitness.remoteJetCoefficient.eq_1",
+        "kind": "theorem",
+        "classification": "compiler_generated_foreign_namespace"
+      },
+      {
+        "name": "I4SourceTwoRemoteFirstJetWitness.twoRemoteFirstJetCoefficient.eq_1",
+        "kind": "theorem",
+        "classification": "compiler_generated_foreign_namespace"
+      }
+    ],
+    "foreign_generated_explanation": "Compiler-owned generated public equation/unfold artifacts attributed to this module by Lean actual module-index selector. Explicit source contains no references to these generated names or foreign private API. Retained and classified, not hidden by namespace filter.",
+    "source_local_direct_positive_coverage": [
+      "gradient_frame,level_frame,tie_frame: selected actual48/53 families and exact2/3/5 row response",
+      "actual_source_normal_equation: actualsourceg/B and fullDBtheta",
+      "actual_level_dummy_control,actual_tie_dummy_control: actualsource solvedtheta and actual dummy adapters",
+      "actual_nonorthogonal_normalization: actual48derivedF then mixed2chi0/chi0+3chi1; directfiniteGS,offdiag2,same span,basis responsebijective",
+      "four conditional finite symmetric-form inertia controls including zero-diagonal saddle: exactquadraticform premises, noGaussian realization",
+      "actual_lattice_translate_control: actualprojection/torusDist/value/all-orderjets directadapter calls"
+    ],
+    "scratch_boundary": "New ordinary actual finite cosine/DBtheta/publicglobal/k0limit controls qualified separately. They do not call production private APIs, and production kernel does not cover them."
+  },
+  "all_axioms_allowed": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "strict_receipt": "raw/producer/runs/final-adapter-controls-012/receipt.json",
+  "strict_reused_after_freeze": true,
+  "inventory_receipt": "raw/producer/runs/inventory-001/receipt.json",
+  "ONE_kernel_receipt": "raw/producer/runs/kernel-001/receipt.json",
+  "ordinary_control_receipts": [
+    "runs/controls-003/receipt.json",
+    "runs/numeric-controls-001/receipt.json"
+  ],
+  "sole_negative_receipt": "runs/false-drop-DBtheta-001/receipt.json",
+  "negative_binding": {
+    "imports": "Immutable GapMorseDistinctControls003 only; not companion",
+    "controls_object": {
+      "bytes": 1479440,
+      "sha256": "90e8eac00890fc1240be834cf7802eae9c64dcee456c259782259bd2c057e305"
+    },
+    "original_stdout_bytes": 120
+  },
+  "extra_positive_companion": {
+    "module": "GapMorseDistinctNumericControls",
+    "receipt": "runs/numeric-controls-001/receipt.json",
+    "ended_utc": "2026-10-28T15:10:28.931535+00:00",
+    "source_bytes": 6469,
+    "source_sha256": "6a442f03fce8f0b31a5fc05525e106a5eece5575cf312c00dfe047af37aa39f7",
+    "object_bytes": 605632,
+    "object_sha256": "b99656065196ff0b82946295ac1d3f4f45e28a8ab092330e4bc0e65d6f25931c",
+    "coverage": "ONEnewpositive-onlycontrolcall forliteralnumericremoteness+openrankintersection+9/25ledgers; originaltextunchanged/zeroactualamendments; no production/privatecall/kernel/negative/replaycredit; Controls003negativebinding unchanged."
+  },
+  "kernel_coverage": "Production plus four production-private helpers/source-local positives only; fifth helper and ordinary Controls/companion qualified separately. Negative imports immutable Controls003, not the later companion.",
+  "actual_run_count": 19,
+  "actual_split_stream_files": 38,
+  "actual_split_stream_bytes": 119362,
+  "all_attempts_original_split_streams_retained": true,
+  "helpers": {
+    "originals_preserved_immutable": true,
+    "original_old_file_hash_operations": 0,
+    "records": [
+      {
+        "helper": "global-cover",
+        "original_directory": "helper-global-cover-frozen/",
+        "original_identity_source": "HELPER_D_ORIGINAL_IDENTITIES.json",
+        "one_integration_record": "HELPER_INTEGRATION.json",
+        "integration_count": 1,
+        "helper_executions": 0,
+        "complete_actual_section_snapshot": "/workspace/scratch/gap-conditional-morse-distinct-construct/helper-amendments/global-cover-actual-section.lean.txt",
+        "full_actual_amendment_patch": "/workspace/scratch/gap-conditional-morse-distinct-construct/helper-amendments/global-cover.patch",
+        "coverage": "Final production strict/full actual module inventory/one production kernel"
+      },
+      {
+        "helper": "incidence",
+        "original_directory": "helper-incidence-frozen/",
+        "original_identity_source": "helper-incidence-frozen/FROZEN_HELPER.json",
+        "one_integration_record": "HELPER_INTEGRATION.json",
+        "integration_count": 1,
+        "helper_executions": 0,
+        "complete_actual_section_snapshot": "/workspace/scratch/gap-conditional-morse-distinct-construct/helper-amendments/incidence-actual-section.lean.txt",
+        "full_actual_amendment_patch": "/workspace/scratch/gap-conditional-morse-distinct-construct/helper-amendments/incidence.patch",
+        "coverage": "Final production strict/full actual module inventory/one production kernel"
+      },
+      {
+        "helper": "finite-frame",
+        "original_directory": "helper-finite-frame-frozen/",
+        "original_identity_source": "helper-finite-frame-frozen/FROZEN_HELPER.json",
+        "one_integration_record": "HELPER_INTEGRATION.json",
+        "integration_count": 1,
+        "helper_executions": 0,
+        "complete_actual_section_snapshot": "/workspace/scratch/gap-conditional-morse-distinct-construct/helper-amendments/finite-frame-actual-section.lean.txt",
+        "full_actual_amendment_patch": "/workspace/scratch/gap-conditional-morse-distinct-construct/helper-amendments/finite-frame.patch",
+        "coverage": "Final production strict/full actual module inventory/one production kernel"
+      },
+      {
+        "helper": "lifetime-geometry",
+        "original_directory": "helper-lifetime-geometry-frozen/",
+        "original_identity_source": "helper-lifetime-geometry-frozen/FROZEN_IDENTITIES.json",
+        "one_integration_record": "HELPER_INTEGRATION.json",
+        "integration_count": 1,
+        "helper_executions": 0,
+        "complete_actual_section_snapshot": "/workspace/scratch/gap-conditional-morse-distinct-construct/helper-amendments/lifetime-geometry-actual-section.lean.txt",
+        "full_actual_amendment_patch": "/workspace/scratch/gap-conditional-morse-distinct-construct/helper-amendments/lifetime-geometry.patch",
+        "coverage": "Final production strict/full actual module inventory/one production kernel"
+      },
+      {
+        "helper": "actual-controls",
+        "original_directory": "helper-actual-controls-frozen/",
+        "original_identity_source": "helper-actual-controls-frozen/FROZEN_HELPER.json",
+        "one_integration_record": "HELPER_INTEGRATION.json",
+        "integration_count": 1,
+        "helper_executions": 0,
+        "complete_actual_section_snapshot": "/workspace/scratch/gap-conditional-morse-distinct-construct/helper-amendments/actual-controls-actual-section.lean.txt",
+        "full_actual_amendment_patch": "/workspace/scratch/gap-conditional-morse-distinct-construct/helper-amendments/actual-controls.patch",
+        "coverage": "Positive scratch Controls qualification only; NOT production kernel"
+      }
+    ],
+    "root_original_reading_reused": "/workspace/scratch/gap-conditional-morse-distinct-publication/ROOT_ORIGINAL_HELPER_READING59.json",
+    "actual_amendments": "helper-amendments/ALL_HELPER_AMENDMENTS.patch",
+    "coverage_boundary": "Four production helper sections in one production object; fifth Controls-only helper in one separately qualified scratch object. No helper objects or independent executions. Evidence snapshots are copies for reading, not reintegrations.",
+    "final_production_qualification": "strict012/inventory001/EXACTLYONEkernel001 PASS; source99430B/object4189248B, frozen unchanged",
+    "final_controls_qualification": "positiveControls003 PASS; actualControls-onlypatch frozen, sole importedcounterexample-backedFalse001 asintended",
+    "new_helper_text_or_reintegration_after_resume": "No reintegration of anyoriginalhelper. One newlyauthorized separatepositive-onlynumericcompanionextension fromsamefifthhelper, frozenbeforeONEnewintegration.",
+    "numeric_positive_companion_extension": {
+      "originals": "helper-numeric-controls-frozen/",
+      "first_original_ids": "NUMERIC_HELPER_FIRST_IDENTITIES.json beforeoneintegration",
+      "logical_id": "59-CONTROLS-NUMERIC-SUPPLEMENT-20261028-V1-COMPLETE",
+      "helper_executions": 0,
+      "helper_hashes": 0,
+      "integration_count": 1,
+      "actual_producer_amendments": 0,
+      "coverage": "numeric-controls-001 PASS only; not productionkernel or negative replay; originalfivehelperintegrationsunchanged",
+      "scope_reason": "Root/reviewer uncovered literal remoteness/numeric ledger precision in precommitted controls; separatepositiveclosure aftersamefixedproduction/Controls qualifications."
+    }
+  },
+  "raw_membership": "RAW_EVIDENCE_CATALOG.json",
+  "publication": {
+    "status": "QUALIFIED59_SCRATCH_PROPOSAL_ROOT_APPLY_ONLY",
+    "source_cut": "3515bc2144c5d47a197238c1a46bbdd3a50e146b",
+    "source_cut_parent": "4e41aaec1d6a63d2425112141372a2d23d7c7409",
+    "qualified_baseline58": "f89543e2a81f56418a083c62a49e9689a189a139",
+    "root_reading_verbatim": {
+      "status": "ROOT_FINAL_SOURCE_AND_EVIDENCE_READING_COMPLETE_WITH_EXPLICIT_BOUNDED_SOURCE_SCOPE",
+      "completed_utc": "2026-10-28T15:18:37.889856+00:00",
+      "source_ID_REUSED": {
+        "bytes": 99430,
+        "sha256": "8baf597fa98ce8f79489e82227951e0f4fd1a960e65589278be8a82f35ce5213"
+      },
+      "source_cut": "3515bc2144c5d47a197238c1a46bbdd3a50e146b",
+      "personally_bounded_source_intervals": [
+        "1-250",
+        "285-483",
+        "660-943",
+        "1560-1775",
+        "1770-1918",
+        "1919-end"
+      ],
+      "original_production_helper_reading_reused": "ROOT_ORIGINAL_HELPER_READING59.json: allfouroriginalsections/imports/provenance/freeze; unchangedreadingsreused",
+      "personally_full_final_report_readings": [
+        "ProducerREPORT: fullpriorbody plusFULLfinalnumeric/contextdiff",
+        "FinalproducerHANDOFF/CONTROL_RECEIPT/SOURCE_OBJECT_IDENTITIES summaries",
+        "IndependentfinalREPORT.md andscope.json inFULL",
+        "Inventory.lean harness inFULL; actual167classificationcounts andbothforeignnames",
+        "Kernel001receipt inFULL; originalempty-streamfactsretained",
+        "DropDBthetaFalse.lean andFULL120BoriginalFalse/emptyerr",
+        "Complete6469BGapMorseDistinctNumericControls.lean",
+        "Finalcustodyheader/policy/252entrycount/firstentryschema; all252IDsrelayedtoassembler"
+      ],
+      "honest_limits": [
+        "Root NOTpersonallyfullassembledproduction/sourceControls003/all167rows/all19rawstreams/allhistoricalsnapshotbodies/fullallactualhelperpatches",
+        "Independentreviewer personalFULLsource/helper/patch/all19streams/167inventory/custody reading asactualREPORT/scope, notrootcredit",
+        "Productionkernel doesnotcoverordinaryControls003/numericcompanion; old003objectremainssoleNegativebinding",
+        "No58native-scientificreviewcoverageof59/differentfamilyscientificacceptance/Ready/merge/promotion"
+      ],
+      "root_summary": "Personally read bounded production intervals1-250,285-483,660-943,1560-1775,1770-1918,1919-end; all four originalproductionhelperreadings reused; actualinventoryharness/classificationsummary/twoforeignnames, strict/kernel receipts, final producerREPORT(allpriorbody+completefinaldiff)/HANDOFF/CONTROL_RECEIPT/custodyheader, fullnumeric6469Bcompanion/sole120BFalse+negativeharness. Notroot-fullassembledsource/all167rows/allrawstreams/fullallactualpatches. Independentreviewer supplies fullsource/helper/patch/all19streams/167classification reading; no root-all-raw claim.",
+      "independent_reviewer_summary": "Independent nonauthor same-family reviewer personallyFULL99430Bsource, all19actualreceipts/38originalsplitstreams(includingallfailures),167actualmoduleclassification/46167Baxiomstream, all4production+initialControls+numericoriginalsections/imports/provenance/freeze andfullactualpatches, completeControls003/numeric6469B/negativeharness/full120BFalse/finalproducerdocs/index/all252custodyentries. Not everyhistoricalsnapshotbodyread. No reviewerexecution/hash/Git/cache/source60inspection; samefamilycredit0/scienceNONE, notdifferentfamilyscientificacceptance.",
+      "actualclosed_finding": {
+        "finding": "Literal fixed-point remoteness/remote-rank neighborhood and numeric9/25 precommitted positive coverage was initially absent as an explicit control",
+        "production_theorem_defect": false,
+        "closure": "NEW positive-only ordinary GapMorseDistinctNumericControls",
+        "source_bytes": 6469,
+        "source_sha256_reused": "6a442f03fce8f0b31a5fc05525e106a5eece5575cf312c00dfe047af37aa39f7",
+        "object_bytes": 605632,
+        "object_sha256_reused": "b99656065196ff0b82946295ac1d3f4f45e28a8ab092330e4bc0e65d6f25931c",
+        "receipt": "runs/numeric-controls-001/receipt.json",
+        "pass": "2026-10-28T15:10:28.931535+00:00",
+        "attempt_count": 1,
+        "complete_original_split_streams_empty": true,
+        "five_quotient_inequalities": true,
+        "remote_open_intersect_rank_neighborhood": true,
+        "actual48_all9_rawzero": true,
+        "actual53_all25_rawzero_final_value_difference": true,
+        "universal_production_GS_frame_dummy_evidence_reused": true,
+        "private_calls_claimed": false,
+        "helper_original_once_integration_zero_execution": true,
+        "producer_patch_empty": true,
+        "additional_production_kernel_or_negative_replays": 0,
+        "remaining_open_findings": []
+      },
+      "completed_applicable_verification": "strict012/167std3/ONEkernel/Controls003/ONE120BFalse/numeric001 allREUSED; no proof/hash/build/kernel/control replayforcut/metadata/providerprocess",
+      "own_object_action": "SKIP_ALREADY_ROOT_COPIED_ONCE; ALLotherobjectactionsSKIP",
+      "new_SHA256_operations": 0,
+      "scientific_effect": "NONE",
+      "same_family_credit": 0
+    },
+    "root_reading_summary": "Personally read bounded production intervals1-250,285-483,660-943,1560-1775,1770-1918,1919-end; all four originalproductionhelperreadings reused; actualinventoryharness/classificationsummary/twoforeignnames, strict/kernel receipts, final producerREPORT(allpriorbody+completefinaldiff)/HANDOFF/CONTROL_RECEIPT/custodyheader, fullnumeric6469Bcompanion/sole120BFalse+negativeharness. Notroot-fullassembledsource/all167rows/allrawstreams/fullallactualpatches. Independentreviewer supplies fullsource/helper/patch/all19streams/167classification reading; no root-all-raw claim.",
+    "final_reviewer_summary": "Independent nonauthor same-family reviewer personallyFULL99430Bsource, all19actualreceipts/38originalsplitstreams(includingallfailures),167actualmoduleclassification/46167Baxiomstream, all4production+initialControls+numericoriginalsections/imports/provenance/freeze andfullactualpatches, completeControls003/numeric6469B/negativeharness/full120BFalse/finalproducerdocs/index/all252custodyentries. Not everyhistoricalsnapshotbodyread. No reviewerexecution/hash/Git/cache/source60inspection; samefamilycredit0/scienceNONE, notdifferentfamilyscientificacceptance.",
+    "old58_review_not59_credit": true,
+    "historical_pending_records_preserved": true,
+    "remote59publication_claimed": false,
+    "hosted59CI_claimed": false,
+    "same_family_credit": 0,
+    "scientific_effect": "NONE"
+  },
+  "owner_reuse": "Completed applicable proofs/objects/identities/strict/inventory/ONEkernel/Controls/negative reused unchanged; no old hashes or math checks.",
+  "canonical_authority": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/main/governance/OWNER_DECISION_20261025_REVIEW_FAMILIES.md"
+  ],
+  "link_delivery_not_reading": true,
+  "scientific_effect": "NONE",
+  "same_family_credit": 0
+}

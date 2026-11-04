@@ -1,0 +1,56 @@
+{
+  "status": "NEW66_METADATA_ASSEMBLY_AND_BOUNDED_ASSOCIATIONS_PASS",
+  "source_cut": "42da22188b49c5624ec30c4d0f3ef7169a850dff",
+  "qualified_baseline": "263b9d4329043e6debd299a8c27327ee515670d7",
+  "counts": {
+    "modules": 66,
+    "written": 1136,
+    "Prop": 1127,
+    "data": 9,
+    "inputs": 32,
+    "manifest_entries": 11573,
+    "new_manifest_entries": 1888,
+    "overlay_files": 1893,
+    "apply_files": 1888,
+    "binding_SKIP": 5,
+    "actual_owned_constants": 80,
+    "actual_runs": 39,
+    "verification_runs": 17,
+    "documentary_runs": 22,
+    "unlabeled_runs": 0,
+    "worker_split_stream_files": 78,
+    "worker_split_stream_bytes": 51018,
+    "excluded_artifacts": 3
+  },
+  "manifest_identity": {
+    "path": "/workspace/scratch/actual-source-regular-local-collar-packaging/overlay/frontiers/source_derivative_gaussian_20261025/SOURCE_MANIFEST.json",
+    "bytes": 2092840,
+    "sha256": "6438b1bd69754fddad1b045b2461e94dfbd790ec74bc5c47f1a09aeab13eb584",
+    "hash_computed_here": true,
+    "origin": "FIRST necessary NEW66 immutable metadata identity, once"
+  },
+  "sums_identity": {
+    "path": "/workspace/scratch/actual-source-regular-local-collar-packaging/overlay/frontiers/source_derivative_gaussian_20261025/SOURCE_SHA256SUMS",
+    "bytes": 1746319,
+    "sha256": "0cb2d33197e471a2337022ec4c033e6703dc9921d0e305606b3658cdb9a745a2",
+    "hash_computed_here": true,
+    "origin": "FIRST necessary NEW66 immutable metadata identity, once"
+  },
+  "catalog_identity": {
+    "path": "/workspace/scratch/actual-source-regular-local-collar-packaging/overlay/frontiers/source_derivative_gaussian_20261025/actual-source-regular-local-collar-evidence/ACTUAL_REGULAR_LOCAL_COLLAR_EVIDENCE_CATALOG.json",
+    "bytes": 14973,
+    "sha256": "ed0e3dc84df227595f5a642775c2561b22fa44265ebbd19b00459d77e5def586",
+    "hash_computed_here": true,
+    "origin": "FIRST necessary NEW66 immutable metadata identity, once"
+  },
+  "apply_plan_identity": {
+    "path": "/workspace/scratch/actual-source-regular-local-collar-packaging/APPLY_PLAN.json",
+    "bytes": 536746,
+    "sha256": "cacf4491aa2f02d320f61afccb1e214f891d4c885f234d632d1217e88563c6c1",
+    "hash_computed_here": true,
+    "origin": "FIRST necessary NEW66 immutable metadata identity, once"
+  },
+  "object_action": "SKIP_ROOT_COPIED_ONCE",
+  "old_payload_hashes": 0,
+  "proof_replays": 0
+}

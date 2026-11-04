@@ -1,0 +1,27 @@
+{
+  "frozen_utc": "2026-10-26T17:42:22.576695+00:00",
+  "original_pre_source_contract": {
+    "path": "/workspace/scratch/intrinsic-h0-interface-construct/CONTROL_CONTRACT.md",
+    "bytes": 4322,
+    "sha256": "6c5663ca61b43e9cb7293e2519a3a0f2c2b6381b900895afb0be37efc73c364b"
+  },
+  "mandatory_controls": {
+    "path": "/workspace/scratch/intrinsic-h0-interface-construct/IntrinsicH0Controls.lean",
+    "bytes": 8291,
+    "sha256": "e374fae511349c45c5e3ed181ad47739c558761ccf9258bc05fa73c9370c3e25"
+  },
+  "positive_receipt": {
+    "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-001/receipt.json",
+    "bytes": 2149,
+    "sha256": "e2d1442c88c6a7594aea2447c9ab03b4af6fd60ef6802df1f2ceeb59d732dc12"
+  },
+  "negative_harness": {
+    "path": "/workspace/scratch/intrinsic-h0-interface-construct/FalseEssentialDefaultMutation.lean",
+    "bytes": 510,
+    "sha256": "cee97613a7920950b780bcfca6536e947e258353dc5a067db5f5430a8d828d26"
+  },
+  "counterexample_passed_before_first_negative": true,
+  "previous_negative_attempts": 0,
+  "production_source_unchanged_since_strict002": true,
+  "own_kernel001_already_passed_and_reused": true
+}

@@ -1,0 +1,69 @@
+SourceCompactGapNormalizer.lean:103:32: error: Variable name `hB` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hB
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+SourceCompactGapNormalizer.lean:197:21: error: Application type mismatch: The argument
+  h
+has type
+  ω ∈ {ω | A < sourceGammaRadius L ω}
+but is expected to have type
+  ?m.178 < ?m.179
+in the application
+  le_of_lt h
+SourceCompactGapNormalizer.lean:198:45: error: could not synthesize default value for parameter 'h₂' using tactics
+SourceCompactGapNormalizer.lean:198:45: error: Tactic `aesop` failed, failed to prove the goal. Some goals were not explored because the maximum rule application depth (30) was reached. Set option 'maxRuleApplicationDepth' to increase the limit.
+Initial goal:
+  L : ℝ
+  Q : Measure (SmoothSample 2 L)
+  inst✝ : IsFiniteMeasure Q
+  η H : ℝ
+  hη : 0 < η
+  hH : 0 ≤ H
+  hΓ : Integrable (sourceGammaRadius L) Q
+  hmoment : ∫ (ω : SmoothSample 2 L), sourceGammaRadius L ω ∂Q ≤ H
+  hq : η ≤ Q.real {ω | sourceQ L ω ∈ Icc (-2) (-1)}
+  A : ℝ := max 1 (2 * H / η)
+  hA : 0 < A
+  hAH : 2 * H ≤ A * η
+  hMarkov : A * Q.real {x | A ≤ sourceGammaRadius L x} ≤ ∫ (x : SmoothSample 2 L), sourceGammaRadius L x ∂Q
+  hsub : {ω | A < sourceGammaRadius L ω} ⊆ {ω | A ≤ sourceGammaRadius L ω}
+  ⊢ ?m.192 {ω | A ≤ sourceGammaRadius L ω} ≠ ⊤
+Remaining goals after safe rules:
+  L : ℝ
+  Q : Measure (SmoothSample 2 L)
+  inst : IsFiniteMeasure Q
+  η H : ℝ
+  hη : 0 < η
+  hH : 0 ≤ H
+  hΓ : Integrable (sourceGammaRadius L) Q
+  hmoment : ∫ (ω : SmoothSample 2 L), sourceGammaRadius L ω ∂Q ≤ H
+  hq : η ≤ Q.real {ω | sourceQ L ω ∈ Icc (-2) (-1)}
+  A : ℝ := ⋯
+  hA : 0 < A
+  hAH : 2 * H ≤ A * η
+  hMarkov : A * Q.real {x | A ≤ sourceGammaRadius L x} ≤ ∫ (x : SmoothSample 2 L), sourceGammaRadius L x ∂Q
+  hsub : {ω | A < sourceGammaRadius L ω} ⊆ {ω | A ≤ sourceGammaRadius L ω}
+  ⊢ ?m.192 {ω | A ≤ sourceGammaRadius L ω} ≠ ⊤
+SourceCompactGapNormalizer.lean:205:70: error: unsolved goals
+L : ℝ
+Q : Measure (SmoothSample 2 L)
+inst✝ : IsFiniteMeasure Q
+η H : ℝ
+hη : 0 < η
+hH : 0 ≤ H
+hΓ : Integrable (sourceGammaRadius L) Q
+hmoment : ∫ (ω : SmoothSample 2 L), sourceGammaRadius L ω ∂Q ≤ H
+hq : η ≤ Q.real {ω | sourceQ L ω ∈ Icc (-2) (-1)}
+A : ℝ := max 1 (2 * H / η)
+hA : 0 < A
+hAH : 2 * H ≤ A * η
+hMarkov : A * Q.real {x | A ≤ sourceGammaRadius L x} ≤ ∫ (x : SmoothSample 2 L), sourceGammaRadius L x ∂Q
+hbad : Q.real {ω | A < sourceGammaRadius L ω} ≤ η / 2
+hsubtract :
+  Q.real {ω | sourceQ L ω ∈ Icc (-2) (-1)} - Q.real {ω | A < sourceGammaRadius L ω} ≤
+    Q.real ({ω | sourceQ L ω ∈ Icc (-2) (-1)} \ {ω | A < sourceGammaRadius L ω})
+ω : SmoothSample 2 L
+⊢ ω ∈ {ω | sourceQ L ω ∈ Icc (-2) (-1)} ∧ sourceGammaRadius L ω ≤ A ↔
+    sourceQ L ω ∈ Icc (-2) (-1) ∧ sourceGammaRadius L ω ≤ A

@@ -1,0 +1,23 @@
+{
+  "command_argv": [
+    "git",
+    "diff",
+    "--cached",
+    "--name-only",
+    "-z",
+    "263b9d4329043e6debd299a8c27327ee515670d7",
+    "--"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026",
+  "started_utc": "2026-10-28T23:50:04.612201+00:00",
+  "explicit_environment_overrides": {
+    "GIT_INDEX_FILE": "/workspace/scratch/actual-source-regular-local-collar-publication/native-source-tree66-001/action/isolated.index"
+  },
+  "stdin_binding": null,
+  "original_separate_capture": true,
+  "ended_utc": "2026-10-28T23:50:04.618473+00:00",
+  "elapsed_seconds": 0.006274249004491139,
+  "exit_code": 0,
+  "stdout": "stdout.log",
+  "stderr": "stderr.log"
+}

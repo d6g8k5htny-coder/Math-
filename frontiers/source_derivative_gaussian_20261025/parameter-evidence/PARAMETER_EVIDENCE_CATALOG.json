@@ -1,0 +1,413 @@
+{
+  "schema_version": 1,
+  "scope_id": "SOURCE_SMOOTH_PARAMETER_SPACE_ONLY_20261026",
+  "role": "New-only projection of completed applicable source/artifact verification; no verification command execution",
+  "scientific_effect": "NONE",
+  "goal_status": "FULL_ORIGINAL_RESEARCH_GOAL_ACTIVE",
+  "mathematical_qualification": "COMPLETE_REUSED_FROM_EXISTING_RECEIPT",
+  "packaged_at_utc": "2026-10-26T02:41:26.112358+00:00",
+  "worktree": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "membership_file": "PARAMETER_MEMBERSHIP.json",
+  "scope_file": "PARAMETER_SCOPE.md",
+  "public_inventory": "PARAMETER_PUBLIC_INVENTORY.json",
+  "public_registry_append": "PUBLIC_PROOF_NAMES_APPEND.txt",
+  "history_and_lineage": "HISTORY_AND_LINEAGE.json",
+  "raw_index": "RAW_EVIDENCE_INDEX.json",
+  "execution_index": "EXECUTION_RECORD_INDEX.json",
+  "original_receipt": "qualification_receipt.json",
+  "review_scope": "REVIEW_SCOPE.json",
+  "modules": [
+    {
+      "module": "SourceSmoothParameterSpace",
+      "source_path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothParameterSpace.lean",
+      "frozen_source_copy": "sources/SourceSmoothParameterSpace.lean",
+      "source_sha256": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+      "source_sha_origin": "Original completed before/after records; not recomputed during packaging",
+      "line_count": 594,
+      "olean_path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceSmoothParameterSpace.olean",
+      "olean_sha256": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+      "artifact_hash_origin": "Actual original new-module compile/kernel/audit/control records; no hash recomputed or binary copied during packaging",
+      "artifact_binding": "Final compile04 wrote the named object; kernel07, all88 direct audit reports06 and controls08 retain equal source and olean before/after identities. Raw original record bytes retained.",
+      "frozen_contract_commit": "ebf49a429ec737f24c29f7c0ca4d9a7b1457c5cd",
+      "contract_reference": "contracts/SOURCE_SMOOTH_PARAMETER_SPACE.md",
+      "contract_sha256_from_receipt": "3ec89dcf181e2bfc888d415c79c90bc7ebc682f6fe81a7c73795ae8bc00b4c22",
+      "source_integration_commit": "1b1badc823725e6025823395463d4948c5cdf6d4",
+      "source_integration_commit_owned_by_root": true,
+      "source_integration_commit_status": "Actual committed frozen production-source cut supplied by root.",
+      "public_direct_reports": 88,
+      "kind_counts": {
+        "def": 18,
+        "abbrev": 1,
+        "theorem": 61,
+        "instance": 8
+      },
+      "registration_declaration_append": 69,
+      "registration_count_meaning": "61 theorems +1 proposition BorelSpace instance +7 structural/data instances",
+      "proposition_declarations": 62,
+      "structural_data_instances": 7,
+      "definitions_abbreviations": 19,
+      "private_declarations": 0,
+      "compile": {
+        "metadata": "raw/production/04-complete-parameter-family.json",
+        "raw_output": "raw/production/04-complete-parameter-family.log",
+        "actual_record": {
+          "command": [
+            "/home/agent/.elan/bin/lake",
+            "env",
+            "lean",
+            "-DwarningAsError=true",
+            "-o",
+            ".lake/build/lib/lean/SourceSmoothParameterSpace.olean",
+            "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothParameterSpace.lean"
+          ],
+          "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "exit_code": 0,
+          "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothParameterSpace.lean",
+          "source_sha256_before": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+          "source_sha256_after": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+          "production_source_sha256_before": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+          "production_source_sha256_after": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+          "olean_sha256_before": "02767ad7a71485f5bad02a3537f4d99c7de15726cb223c8060828d669ffe4733",
+          "olean_sha256_after": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_seconds": 24.88279700279236,
+          "scope": "ONLY new SourceSmoothParameterSpace module; completed dependencies reused without rechecks"
+        }
+      },
+      "kernel": {
+        "metadata": "raw/production/07-kernel-replay.json",
+        "raw_output": "raw/production/07-kernel-replay.log",
+        "actual_record": {
+          "command": [
+            "/home/agent/.elan/bin/lake",
+            "env",
+            "leanchecker",
+            "SourceSmoothParameterSpace"
+          ],
+          "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "exit_code": 0,
+          "production_source_sha256_before": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+          "production_source_sha256_after": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+          "olean_sha256_before": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+          "olean_sha256_after": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_seconds": 12.21668529510498,
+          "scope": "ONLY new SourceSmoothParameterSpace; dependencies reused without rechecks"
+        }
+      },
+      "axioms": {
+        "metadata": "raw/production/06-public-axioms.json",
+        "raw_output": "raw/production/06-public-axioms.log",
+        "actual_record": {
+          "command": [
+            "/home/agent/.elan/bin/lake",
+            "env",
+            "lean",
+            "-DwarningAsError=true",
+            "/workspace/scratch/smooth-parameter-production/AxiomAudit.lean"
+          ],
+          "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "exit_code": 0,
+          "source": "/workspace/scratch/smooth-parameter-production/AxiomAudit.lean",
+          "source_sha256_before": "2598597037aa2a1d70a473cf2e971e3f6dc9259897de129c82e1a3ab9c96a74d",
+          "source_sha256_after": "2598597037aa2a1d70a473cf2e971e3f6dc9259897de129c82e1a3ab9c96a74d",
+          "production_source_sha256_before": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+          "production_source_sha256_after": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+          "olean_sha256_before": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+          "olean_sha256_after": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+          "log_sha256": "73ce86a847d8711d40529aa406ff91a49945d5814a62b3f8b26024a3a6d3afca",
+          "elapsed_seconds": 6.460231304168701,
+          "scope": "ONLY new SourceSmoothParameterSpace module; completed dependencies reused without rechecks"
+        }
+      },
+      "controls": {
+        "metadata": "raw/production/08-controls-fixed.json",
+        "raw_output": "raw/production/08-controls-fixed.log",
+        "actual_record": {
+          "command": [
+            "/home/agent/.elan/bin/lake",
+            "env",
+            "lean",
+            "-DwarningAsError=true",
+            "/workspace/scratch/smooth-parameter-production/Controls.lean"
+          ],
+          "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "exit_code": 0,
+          "source": "/workspace/scratch/smooth-parameter-production/Controls.lean",
+          "source_sha256_before": "a1024cddaedeebac6fcba692daa3103b77b7e8a1f82fcbcbf8ce015f5e4dfa13",
+          "source_sha256_after": "a1024cddaedeebac6fcba692daa3103b77b7e8a1f82fcbcbf8ce015f5e4dfa13",
+          "production_source_sha256_before": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+          "production_source_sha256_after": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+          "olean_sha256_before": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+          "olean_sha256_after": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_seconds": 3.5946128368377686,
+          "scope": "ONLY new SourceSmoothParameterSpace module; completed dependencies reused without rechecks"
+        }
+      },
+      "axiom_coverage": {
+        "reference": "raw/production/AXIOM_COVERAGE.json",
+        "all88_public_declarations_directly_reported": true,
+        "missing": [],
+        "unexpected": [],
+        "nonstandard_axioms": {},
+        "allowed_axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "key_public_exports": [
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothParameterSpace.weightedCarrier_norm_eq_radius_sub_one",
+          "line": 62,
+          "local_attribute": false,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothParameterSpace.weightedCarrier_stronglyMeasurable",
+          "line": 67,
+          "local_attribute": false,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothParameterSpace.weightedCarrier_borel",
+          "line": 76,
+          "local_attribute": false,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothParameterSpace.smoothParameter_complete",
+          "line": 81,
+          "local_attribute": false,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothParameterSpace.smoothParameter_separable",
+          "line": 84,
+          "local_attribute": false,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothParameterSpace.smoothParameter_polish",
+          "line": 101,
+          "local_attribute": false,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothParameterSpace.parameterWeight_pos",
+          "line": 107,
+          "local_attribute": false,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothParameterSpace.weightedFourierField_contDiff",
+          "line": 152,
+          "local_attribute": false,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothParameterSpace.parameterJetCLM_norm_le",
+          "line": 261,
+          "local_attribute": false,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothParameterSpace.parameterJet_continuous",
+          "line": 270,
+          "local_attribute": false,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothParameterSpace.actual_parameter_field_eq",
+          "line": 290,
+          "local_attribute": false,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothParameterSpace.actual_parameter_jet_eq",
+          "line": 300,
+          "local_attribute": false,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothParameterSpace.parameterField_contDiff",
+          "line": 323,
+          "local_attribute": false,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothParameterSpace.parameterField_periodic",
+          "line": 336,
+          "local_attribute": false,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothParameterSpace.weightedCarrier_hasCondDistrib",
+          "line": 357,
+          "local_attribute": false,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothParameterSpace.weightedCarrier_functional_eventually_hasCondDistrib",
+          "line": 376,
+          "local_attribute": false,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothParameterSpace.parameterGradientEuclidean_spatial_C2",
+          "line": 501,
+          "local_attribute": false,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothParameterSpace.parameterGradientJet_continuous",
+          "line": 512,
+          "local_attribute": false,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothParameterSpace.parameterGradientJet_apply",
+          "line": 518,
+          "local_attribute": false,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothParameterSpace.parameterGradientEuclideanDerivativeBCF_apply",
+          "line": 565,
+          "local_attribute": false,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothParameterSpace.parameterEuclideanC1Family_continuous",
+          "line": 589,
+          "local_attribute": false,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        }
+      ],
+      "source_code_integration_cut": "1b1badc823725e6025823395463d4948c5cdf6d4"
+    }
+  ],
+  "baseline_by_reference": {
+    "qualified_baseline_module_count": 24,
+    "baseline_through": "SourceSmoothTopology",
+    "baseline_by_reference_only": [
+      "EVIDENCE_CATALOG.json",
+      "FIELD_EVIDENCE_CATALOG.json",
+      "curvature-evidence/CURVATURE_EVIDENCE_CATALOG.json",
+      "quartic-evidence/QUARTIC_EVIDENCE_CATALOG.json",
+      "topology-evidence/TOPOLOGY_EVIDENCE_CATALOG.json"
+    ],
+    "current_qualified_successors_by_reference": [
+      {
+        "module": "SourceRawPinConditioning",
+        "existing_receipt": "/workspace/scratch/raw-pin-conditioning/QUALIFICATION_RECEIPT.json"
+      },
+      {
+        "module": "SourceQuarticCaptureAlgebra",
+        "existing_receipt": "/workspace/scratch/quartic-capture-production/qualification_receipt.json"
+      }
+    ],
+    "exact_input_count": 23,
+    "current_aggregate_registration_and_counts": "Root-owned; no duplicate aggregate count/status invented by this new-only package",
+    "baseline_sources_objects_inputs_evidence_copied": false,
+    "baseline_hashing_or_verification_performed": false
+  },
+  "root_owned_actions_not_performed": [
+    "Set actual committed source cut",
+    "Append69 registry names and update aggregate metadata",
+    "Register module/Lakefile/manifests",
+    "Publish or commit package",
+    "Route separate scientific/source-alignment review"
+  ],
+  "actual_helper_lineage_reference": "raw/production/AUTHOR_HELPER_LINEAGE.json",
+  "coherent_structure_fix": "Six inherited local BCF/jet structures fix a direct-vs-normed structure diamond in operator norms. Diagnostic probes establish the API fix but are not additional mathematical proof targets. The six final named structure declarations are included in88 direct reports and69 registry declarations as data instances.",
+  "mathematical_scope": "E is a proved separable complete/Polish ell1 Banach parameter. Actual alpha is every-carrier strongly/norm-Borel measurable with exact norm R\u22121. Arbitrary a yields C5, not C-infinity. The whole BCF jet synthesis is continuous linear with norm\u22641 and literal actual-source recovery. Pi C2 gradient jets and Euclidean C1 value/fderiv uniform data vary continuously, with spatial C2 proved by finite C5 chain rules. The actual source kernel maps through alpha into its norm Borel sigma algebra, with every measurable functional and source-only eventual conditional laws.",
+  "application_boundary": "No arbitrary-parameter C-infinity assertion. The selector/flow/hitting/capture-event pullback is an explicit further theorem; Polishness and continuous C1/C2 field assignment alone do not prove that event Borel. No native C3 torus Banach identification/surjection, geometric Palm, Morse/elder/counting or original-parent closure is claimed.",
+  "no_automatic_event_borel_claim": true,
+  "no_banach_parameter_Gaussian_law_claim": "Only the actual source/conditional parameter pushforward is exported here; no additional abstract IsGaussian E declaration is inferred without proof.",
+  "packaging_actions": [
+    "Read existing new-scope receipts and inventories",
+    "Byte-copy only frozen newmodule sources/raw records and declared parameter-helper evidence",
+    "Classify named declarations and project original command/source/artifact/exit identities"
+  ],
+  "packaging_nonactions": [
+    "No Lean/build/kernel/test/control reruns",
+    "No source/production/manifests/Lakefile edits",
+    "No old/new source/object/evidence hash recomputation",
+    "No baseline source/evidence duplication",
+    "No geometry helper mixing",
+    "No posts or commits",
+    "No scientific-status promotion"
+  ],
+  "verification_reuse": "Completed applicable verification reused; no new agent/session/worktree reruns. Scientific review requirements are separate.",
+  "owner_mandate_links": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md"
+  ],
+  "source_code_integration_cut": "1b1badc823725e6025823395463d4948c5cdf6d4",
+  "integration_cut_origin": "Actual committed production-source cut, supplied by root after the completed source-bound checks. Metadata only; no verification execution."
+}

@@ -1,0 +1,33 @@
+{
+  "written_reports": [
+    "INVENTORY.json",
+    "TARGET_CLASSIFICATION.json",
+    "CONTROL_RECEIPT.json",
+    "EXECUTION_RECORD_INDEX.json",
+    "AUTHOR_HELPER_LINEAGE.json",
+    "IDENTITIES.json",
+    "SOURCE_OBJECT_IDENTITIES.json",
+    "STATIC_SCOPE.json"
+  ],
+  "module_constants": 50,
+  "roles": {
+    "prop_bundle": 1,
+    "generated": 25,
+    "public_theorem_target": 19,
+    "definition": 4,
+    "private_support_theorem": 1
+  },
+  "kernel_kinds": {
+    "inductive": 1,
+    "definition": 7,
+    "theorem": 40,
+    "constructor": 1,
+    "recursor": 1
+  },
+  "sole_False": true,
+  "production_ilean": {
+    "path": "/workspace/scratch/actual-fold-torus-construct/build/SourceActualFoldTorus.ilean",
+    "bytes": 52153,
+    "sha256": "859007d6e8752a374ac705b33e4c1280279095d779671dfeec4e714cef9f8681"
+  }
+}

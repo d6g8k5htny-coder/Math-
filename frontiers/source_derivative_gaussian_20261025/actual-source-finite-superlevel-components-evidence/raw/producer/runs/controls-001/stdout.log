@@ -1,0 +1,229 @@
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:99:21: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:99:31: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:99:70: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:116:28: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:137:4: error: linarith failed to find a contradiction
+case «0».h1
+X : E 2
+hX : IsCriticalPoint 2 (actualField 2 2 fixtureSample) X
+hd : firstJet X = 0
+hzero : ∀ (i : Fin 2), (firstJet X) (physicalAxis i) = 0 (physicalAxis i)
+hs0 : Real.sin (Real.pi * (coordinates 2) X 0) = 0
+hs1 : Real.sin (Real.pi * (coordinates 2) X 1) = 0
+k0 : ℤ
+h0 : ↑k0 * Real.pi = Real.pi * (coordinates 2) X 0
+k1 : ℤ
+h1 : ↑k1 * Real.pi = Real.pi * (coordinates 2) X 1
+a✝ : Real.pi * (coordinates 2) X ((fun i => i) ⟨0, ⋯⟩) < Real.pi * ↑(![k0, k1] ((fun i => i) ⟨0, ⋯⟩))
+⊢ False
+failed
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:139:4: error: linarith failed to find a contradiction
+case «1».h1
+X : E 2
+hX : IsCriticalPoint 2 (actualField 2 2 fixtureSample) X
+hd : firstJet X = 0
+hzero : ∀ (i : Fin 2), (firstJet X) (physicalAxis i) = 0 (physicalAxis i)
+hs0 : Real.sin (Real.pi * (coordinates 2) X 0) = 0
+hs1 : Real.sin (Real.pi * (coordinates 2) X 1) = 0
+k0 : ℤ
+h0 : ↑k0 * Real.pi = Real.pi * (coordinates 2) X 0
+k1 : ℤ
+h1 : ↑k1 * Real.pi = Real.pi * (coordinates 2) X 1
+a✝ : Real.pi * (coordinates 2) X ((fun i => i) ⟨1, ⋯⟩) < Real.pi * ↑(![k0, k1] ((fun i => i) ⟨1, ⋯⟩))
+⊢ False
+failed
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:173:4: error: Type mismatch: After simplification, term
+  he
+ has type
+  (physicalAxis i).ofLp i = 0
+but is expected to have type
+  False
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:182:25: error: Type mismatch: After simplification, term
+  he
+ has type
+  s * (physicalAxis 0).ofLp 0 = t * (physicalAxis 1).ofLp 0
+but is expected to have type
+  s = 0
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:192:4: error: Type mismatch: After simplification, term
+  mul_neg_of_neg_of_pos ha (sq_pos_of_ne_zero hs)
+ has type
+  a * s ^ 2 < 0
+but is expected to have type
+  a * (s * (physicalAxis 0).ofLp 0) ^ 2 + b * (s * (physicalAxis 0).ofLp 1) ^ 2 < 0
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:197:4: error: Type mismatch: After simplification, term
+  mul_pos hb (sq_pos_of_ne_zero hs)
+ has type
+  0 < b * s ^ 2
+but is expected to have type
+  0 < a * (s * (physicalAxis 1).ofLp 0) ^ 2 + b * (s * (physicalAxis 1).ofLp 1) ^ 2
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:209:15: error: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:215:15: error: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:242:6: error: linarith failed to find a contradiction
+case «0».h1
+X Y : E 2
+k0 k1 : ℤ
+h0 : (coordinates 2) X 0 - (coordinates 2) Y 0 = 2 * ↑k0
+h1 : (coordinates 2) X 1 - (coordinates 2) Y 1 = 2 * ↑k1
+n : Fin 2 → ℤ := ![-k0, -k1]
+a✝ : X.ofLp 0 - Y.ofLp 0 + -(2 * ↑k0) < 0
+⊢ False
+failed
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:244:6: error: linarith failed to find a contradiction
+case «1».h1
+X Y : E 2
+k0 k1 : ℤ
+h0 : (coordinates 2) X 0 - (coordinates 2) Y 0 = 2 * ↑k0
+h1 : (coordinates 2) X 1 - (coordinates 2) Y 1 = 2 * ↑k1
+n : Fin 2 → ℤ := ![-k0, -k1]
+a✝ : X.ofLp 1 - Y.ofLp 1 + -(2 * ↑k1) < 0
+⊢ False
+failed
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:260:78: error: failed to prove positivity/nonnegativity/nonzeroness
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:260:78: error: failed to prove positivity/nonnegativity/nonzeroness
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:304:2: error: Type mismatch: After simplification, term
+  fixture_all_levels_finite (-4)
+ has type
+  Finite (ZerothHomotopy ↑(TorusFiltration.superlevel_set fixtureTorusField (- -4)))
+but is expected to have type
+  Finite (ZerothHomotopy ↑(TorusFiltration.superlevel_set fixtureTorusField 4))
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:314:2: error: Type mismatch: After simplification, term
+  have this :=
+    Mathlib.Meta.NormNum.isInt_le_true
+      (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+        (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 4)))
+        (Eq.refl (Int.negOfNat 4)))
+      (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 3))) (Eq.refl true);
+  this
+ has type
+  -4 ≤ 3
+but is expected to have type
+  -4 ≤ 1 + 2
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:322:2: error: Type mismatch: After simplification, term
+  have this :=
+    Eq.mpr (id (congrArg (fun _a => _a + 2 * Real.cos 0 = 3) h0))
+      (of_eq_true
+        (Eq.trans
+          (Eq.trans
+            (congrFun'
+              (congrArg Eq
+                (Eq.trans (congrArg (HAdd.hAdd 1) (Eq.trans (congrArg (HMul.hMul 2) Real.cos_zero) (mul_one 2)))
+                  (Mathlib.Meta.NormNum.IsNat.to_eq
+                    (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                      (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one) (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2))
+                      (Eq.refl 3))
+                    (Eq.refl 3))))
+              3)
+            (eq_self 3))
+          (eq_true True.intro)));
+  this
+ has type
+  1 + 2 = 3
+but is expected to have type
+  Real.cos (Real.pi * ((coordinates 2).symm ![2 * ↑n, 0]).ofLp 0) +
+      2 * Real.cos (Real.pi * ((coordinates 2).symm ![2 * ↑n, 0]).ofLp 1) =
+    3
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:327:4: error: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:334:4: error: Tactic `apply` failed: could not unify the conclusion of `(TorusFiltration.superlevel_component_eq_iff_joinedIn
+    (actualField 2 2 fixtureSample) (-3) ?m.31 ?m.32).mp`
+  JoinedIn (TorusFiltration.superlevel_set (actualField 2 2 fixtureSample) (-3)) ↑?m.31 ↑?m.32
+with the goal
+  JoinedIn (TorusFiltration.superlevel_set (actualField 2 2 fixtureSample) (-3)) (coverMaxPoint m) (coverMaxPoint n)
+
+Note: The full type of `(TorusFiltration.superlevel_component_eq_iff_joinedIn (actualField 2 2 fixtureSample) (-3) ?m.31
+    ?m.32).mp` is
+  ZerothHomotopy.mk ?m.31 = ZerothHomotopy.mk ?m.32 →
+    JoinedIn (TorusFiltration.superlevel_set (actualField 2 2 fixtureSample) (-3)) ↑?m.31 ↑?m.32
+
+m n : ℕ
+hmn : m < n
+hequal : coverMaxClass m = coverMaxClass n
+⊢ JoinedIn (TorusFiltration.superlevel_set (actualField 2 2 fixtureSample) (-3)) (coverMaxPoint m) (coverMaxPoint n)
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:344:20: error: linarith failed to find a contradiction
+case left
+m n : ℕ
+hmn : m < n
+hequal : coverMaxClass m = coverMaxClass n
+hj : JoinedIn (TorusFiltration.superlevel_set (actualField 2 2 fixtureSample) (-3)) (coverMaxPoint m) (coverMaxPoint n)
+p : Path (coverMaxPoint m) (coverMaxPoint n) := hj.somePath
+hcoordinate : Continuous fun t => (coordinates 2) (p t) 0
+hmnR : ↑m + 1 ≤ ↑n
+a✝ : 2 * ↑m + 1 < (coordinates 2) (hj.somePath 0) 0
+⊢ False
+failed
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:344:20: error: linarith failed to find a contradiction
+case right
+m n : ℕ
+hmn : m < n
+hequal : coverMaxClass m = coverMaxClass n
+hj : JoinedIn (TorusFiltration.superlevel_set (actualField 2 2 fixtureSample) (-3)) (coverMaxPoint m) (coverMaxPoint n)
+p : Path (coverMaxPoint m) (coverMaxPoint n) := hj.somePath
+hcoordinate : Continuous fun t => (coordinates 2) (p t) 0
+hmnR : ↑m + 1 ≤ ↑n
+a✝ : (coordinates 2) (hj.somePath 1) 0 < 2 * ↑m + 1
+⊢ False
+failed
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:347:4: error: Type mismatch: After simplification, term
+  JoinedIn.somePath_mem hj t
+ has type
+  True
+but is expected to have type
+  3 ≤ actualField 2 2 fixtureSample (⋯.somePath t)
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:351:26: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (fun t => (coordinates 2) (p t) 0) t
+in the target expression
+  3 ≤ Real.cos (Real.pi * (coordinates 2) (p t) 0) + 2 * Real.cos (Real.pi * (coordinates 2) (p t) 1)
+
+m n : ℕ
+hmn : m < n
+hequal : coverMaxClass m = coverMaxClass n
+hj : JoinedIn (TorusFiltration.superlevel_set (actualField 2 2 fixtureSample) (-3)) (coverMaxPoint m) (coverMaxPoint n)
+p : Path (coverMaxPoint m) (coverMaxPoint n) := hj.somePath
+hcoordinate : Continuous fun t => (coordinates 2) (p t) 0
+hbetween : 2 * ↑m + 1 ∈ Icc ((coordinates 2) (p 0) 0) ((coordinates 2) (p 1) 0)
+t : ↑unitInterval
+ht : (fun t => (coordinates 2) (p t) 0) t = 2 * ↑m + 1
+hmember : 3 ≤ Real.cos (Real.pi * (coordinates 2) (p t) 0) + 2 * Real.cos (Real.pi * (coordinates 2) (p t) 1)
+hcosodd : Real.cos (Real.pi * (2 * ↑m + 1)) = -1
+⊢ False
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:342:17: error: This simp argument is unused:
+  Path.source
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [p, Path.target, coverMaxPoint, ContinuousLinearEquiv.apply_symm_apply, Matrix.cons_val_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:342:29: error: This simp argument is unused:
+  Path.target
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [p, Path.source, coverMaxPoint, ContinuousLinearEquiv.apply_symm_apply, Matrix.cons_val_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:342:55: error: This simp argument is unused:
+  ContinuousLinearEquiv.apply_symm_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [p, Path.source, Path.target, coverMaxPoint, Matrix.cons_val_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean:343:6: error: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [p, Path.source, Path.target, coverMaxPoint, ContinuousLinearEquiv.apply_symm_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

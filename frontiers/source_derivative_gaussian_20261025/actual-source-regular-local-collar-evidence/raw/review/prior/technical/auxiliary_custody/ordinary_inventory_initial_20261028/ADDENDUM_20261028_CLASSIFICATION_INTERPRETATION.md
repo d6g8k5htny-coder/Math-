@@ -1,0 +1,9 @@
+# Correction addendum, 28 October 2026
+
+This addendum corrects only the carried interpretation in `REPORT_20261028.md` and `READING_SCOPE_20261028.json`. Those completed artifacts are retained unchanged as requested. Their complete original-receipt and split-stream reading evidence remains applicable and reusable; no original was reread for this correction.
+
+The initial `ordinary-inventory-classify001` stdout was and remains exactly `private_generated: 53`, `public_prop_theorem: 1`, `public_prop_definition: 1`, for 55 owned constants. The statement that this first classification put a public row into `private_generated` was inaccurate. The public theorem count was already 1.
+
+The parent corrected its briefing after personally reading the correction record: the split-at-FIRST defect concerned the private module prefix versus the authored namespace in private-name parsing. It did not concern public-row misclassification. The parent's personally read `ordinary-inventory-classify002` stdout reports `private_generated: 14`, `public_prop_theorem: 1`, `private_authored_theorem: 20`, `private_authored_data_definition: 16`, `private_prop_definition: 3`, and `public_prop_definition: 1`. Those later counts and that interpretation are attributed to the parent; this subreviewer has not read the later originals and claims no personal reading of them.
+
+The original first-classification counts and capture success remain honestly retained. The corrected interpretation changes metadata attribution only; it supplies no new mathematical verification, no replay, and no source/object comparison. This addendum supersedes the earlier public-row interpretation in both retained artifacts. The carried unchanged-raw55/source qualification and separation of mathematical evidence from process requirements remain in force.

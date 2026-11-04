@@ -1,0 +1,36 @@
+{
+  "label": "compile-004",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "SourceAdaptiveFoldEstimates.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldEstimates.lean",
+      "bytes": 24744,
+      "sha256": "41ac693c034f32d33a6e52567716cfaf284bfe080b0fdd02581729bbe6d05d14"
+    },
+    "object": null
+  },
+  "started_utc": "2026-10-26T05:43:43.214148+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 21.9224214553833,
+  "ended_utc": "2026-10-26T05:44:05.136671+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldEstimates.lean",
+      "bytes": 24744,
+      "sha256": "41ac693c034f32d33a6e52567716cfaf284bfe080b0fdd02581729bbe6d05d14"
+    },
+    "object": null
+  },
+  "log": {
+    "path": "/workspace/scratch/actual-fold-estimates-construct/runs/compile-004/output.log",
+    "bytes": 840,
+    "sha256": "5cb3ae22523646fe2819727357557806bed394a5f409f7e1b573b9435d5295ff"
+  }
+}

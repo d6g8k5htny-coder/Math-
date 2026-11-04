@@ -1,0 +1,42 @@
+{
+  "status": "FROZEN_HELPER_STRICT_PASS",
+  "source": "/workspace/scratch/remote-jet-torus-separation/TorusSeparation.lean",
+  "source_bytes": 2416,
+  "source_sha256": "6623bd6a46481c5c4ae2c4fed5af1afe5d30e7b42687d8eaf8106cc500434993",
+  "needed_section": {
+    "path": "/workspace/scratch/remote-jet-torus-separation/NEEDED_SECTION.lean.txt",
+    "source_line_start": 8,
+    "source_line_end": 63,
+    "bytes": 2201,
+    "sha256": "24483ebad3befebc16ae12b498a606b73548989e2717c3c6242d99f8f7148c78"
+  },
+  "strict_record": "/workspace/scratch/remote-jet-torus-separation/runs/strict-003/record.json",
+  "strict_seconds": 2.678742208001495,
+  "strict_exit": 0,
+  "helper_object": {
+    "path": "/workspace/scratch/remote-jet-torus-separation/runs/strict-003/TorusSeparation.olean",
+    "bytes": 132384,
+    "sha256": "54d2a26836c7d9a544a12b938300b6b46384579ecd0fa79687f406e5cca3b59b",
+    "eligible_for_production_import_or_cache": false
+  },
+  "all_runs": [
+    "strict-001",
+    "strict-002",
+    "strict-003"
+  ],
+  "private_names": [
+    "sourceC_ne_zero",
+    "cosine_sourceC_eq_one_iff",
+    "remote_positive_coordinate"
+  ],
+  "namespace": "I4SourceRemoteJetWitness",
+  "required_imports": [
+    "SourceTorus",
+    "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic"
+  ],
+  "control_contract": "/workspace/scratch/remote-jet-witness-construct/CONTROL_CONTRACT.md",
+  "scientific_effect": "NONE",
+  "provider_distinct_credit": 0,
+  "standalone_kernel_audit_or_control_campaigns": 0,
+  "old_verification_replays": 0
+}

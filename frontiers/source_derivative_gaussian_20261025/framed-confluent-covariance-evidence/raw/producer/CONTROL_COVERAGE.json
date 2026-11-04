@@ -1,0 +1,73 @@
+{
+  "positiveReceipt": "/workspace/scratch/framed-confluent-covariance-construct/runs/controls-008/record.json",
+  "controlSource": {
+    "path": "/workspace/scratch/framed-confluent-covariance-construct/Controls.lean",
+    "bytes": 24138,
+    "sha256": "685d013162e3fa5bd4d7f59da3874fbd1cebfcd23f7b4e11f7d0716c1e991b28"
+  },
+  "cases": [
+    {
+      "names": [
+        "standard_axis_coefficient_join",
+        "standard_axis_same_sample",
+        "standard_contact_order"
+      ],
+      "covers": "All signed nonzero L, all signed r; accepted fixed-axis regularized coefficient/same-source pin join and exact seven contact entries."
+    },
+    {
+      "names": [
+        "reflected_coefficient_signs",
+        "reflected_gram_signs"
+      ],
+      "covers": "Arbitrary midpoint/frame/radius; literal signs(1,1,-1,1,-1,1,1) under normal reflection; deterministic Gram congruence."
+    },
+    {
+      "names": [
+        "signed_nonaxis_actual",
+        "reflected_nonaxis_actual",
+        "reflected_nonaxis_law"
+      ],
+      "covers": "Actual rational e=(3/5,4/5),n=(-4/5,3/5) and reflectedn; midpoint(1/3,-1/5), L=-2,r=-1/3; original-carrier joint law, covariance and actual physical nonzero-radius pin identity."
+    },
+    {
+      "names": [
+        "explicit_envelope_above_three"
+      ],
+      "covers": "Literal factor8/Fin4 orders0..3, weighted ell7 and all-z/all-real-r coefficient bounds."
+    },
+    {
+      "names": [
+        "same_constants_two_orientations"
+      ],
+      "covers": "Same existential gamma,Lambda,delta for rational frame and reflection, r=0 anddelta/2, full quadratic bounds, G7/G6 positivity/invertibility and same-gamma Schur bound in midpoint square."
+    },
+    {
+      "names": [
+        "sineBase_eval",
+        "sineCube_eval",
+        "sineCube_lower_jets",
+        "sineCube_third",
+        "physical_sineCube_third",
+        "finite_lower_pairings",
+        "correct_pairing_one",
+        "omitted_pairing_sixth",
+        "factor_six_actual_counterexample"
+      ],
+      "covers": "Actual toSource finite direction for sin(pi*x)^3/(6*pi^3), original L2/z0/std/r0; lower jets and six finite pairings0, actual physical cubic derivative1, true row5pair1, literal omitted-factor rowpair1/6 and !=1."
+    }
+  ],
+  "soleMutation": {
+    "source": {
+      "path": "/workspace/scratch/framed-confluent-covariance-construct/FactorSixMutation.lean",
+      "bytes": 346,
+      "sha256": "8311ce37842992810b470710ec25837b28670076c6045c364372b00e2c956bfa"
+    },
+    "receipt": "/workspace/scratch/framed-confluent-covariance-construct/runs/factor-six-001/record.json",
+    "positivePrecedesMutation": true,
+    "fullDiagnostic": "/workspace/scratch/framed-confluent-covariance-construct/FactorSixMutation.lean:6:68: error: unsolved goals\n\u22a2 False\n",
+    "fullStdoutBytes": 118,
+    "soleFalse": true,
+    "productionEditedForMutation": false,
+    "scope": "Omit only row5 factor6 at fixedL2,z0,std,r0 while claiming contact pairing1; NOT rank collapse and NOT an actual production configuration."
+  }
+}

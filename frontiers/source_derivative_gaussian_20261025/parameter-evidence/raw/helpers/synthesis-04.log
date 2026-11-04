@@ -1,0 +1,17 @@
+/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean:147:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Norm (Parameter →L[ℝ] DerivativeBCF 2 k)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean:153:55: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Norm (Parameter →L[ℝ] (k : Fin 4) → DerivativeBCF 2 ↑k)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean:189:75: error: unsolved goals
+case hL
+L : ℝ
+hL : L ≠ 0
+ω : SmoothSample 2 L
+k : Fin 4
+x : Fin 2 → ℝ
+u : Fin ↑k → Fin 2 → ℝ
+⊢ L ≠ 0

@@ -1,0 +1,255 @@
+--- CORE.CHECKED.lean.txt
++++ SourceActualQuotientSaddleCollar.lean
+@@ -630,4 +630,252 @@
+   exact ⟨rho, hrho, phi, hchart.center_mem, hchart.center_zero, hchart.source_subset,
+     hchart.target_eq, hchart.identity, hbranches⟩
+ 
++private def fixturePolynomial : I4SourceFiniteTrig.TrigPoly :=
++  [⟨1, Pi.single (0 : Fin 2) 1, 0⟩,
++   ⟨2, Pi.single (1 : Fin 2) 1, 0⟩]
++
++private def fixtureSample : I4SmoothCarrier.SmoothSample 2 2 :=
++  I4SourceFinitePinKernel.finiteShiftSample
++    (I4SourceFiniteTrig.toSource 2 fixturePolynomial)
++    (I4SourceSmoothConditional.zeroSample 2 2)
++
++private def fixtureTorusField : I4Torus.SourceTorus 2 2 → ℝ :=
++  SourceActualFoldTorus.actualTorusField (by norm_num : (2 : ℝ) ≠ 0) fixtureSample
++
++private def fixturePoint (x y : ℝ) : UniversalLaw.Spec.Lifetime.E 2 :=
++  (coordinates 2).symm ![x,y]
++
++private def fixtureSmallOpen (X : UniversalLaw.Spec.Lifetime.E 2) :
++    Set (I4Torus.SourceTorus 2 2) :=
++  physicalProjection 2 '' Metric.ball X (1/8 : ℝ)
++
++private theorem fixture_coordinateFormula (x : Fin 2 → ℝ) :
++    smoothSourceField 2 2 fixtureSample x =
++      Real.cos (Real.pi * x 0) + 2 * Real.cos (Real.pi * x 1) := by
++  let v := I4SourceFiniteTrig.toSource 2 fixturePolynomial
++  have hsample : sampleInclusion 2 2 fixtureSample = v := by
++    funext m
++    simp [sampleInclusion, fixtureSample, I4SourceFinitePinKernel.finiteShiftSample_val,
++      I4SourceSmoothConditional.zeroSample, v]
++  change I4Source.sourceField 2 2 (sampleInclusion 2 2 fixtureSample) x = _
++  rw [hsample]
++  have hsum : (∑' m, I4Source.modeCoefficient 2 2 m x * v m) =
++      I4SourceFinitePinKernel.finitePairing (fun m => I4Source.modeCoefficient 2 2 m x) v := by
++    unfold I4SourceFinitePinKernel.finitePairing Finsupp.sum
++    apply tsum_eq_sum
++    intro m hm
++    rw [Finsupp.notMem_support_iff.mp hm, mul_zero]
++  change (∑' m, I4Source.modeCoefficient 2 2 m x * v m) = _
++  rw [hsum]
++  change I4SourceFinitePinKernel.finitePairing (fun m => I4Source.modeCoefficient 2 2 m x)
++    (I4SourceFiniteTrig.toSource 2 fixturePolynomial) = _
++  rw [I4SourceFiniteTrig.toSource_eval (by norm_num : (2 : ℝ) ≠ 0)]
++  norm_num [I4SourceFiniteTrig.eval, I4SourceFiniteTrig.termEval, fixturePolynomial,
++    I4Source.phase, I4Weights.sourceC, Fin.sum_univ_two, Pi.single_apply]
++
++private theorem fixture_actualField (Y : UniversalLaw.Spec.Lifetime.E 2) :
++    actualField 2 2 fixtureSample Y =
++      Real.cos (Real.pi * coordinates 2 Y 0) + 2 * Real.cos (Real.pi * coordinates 2 Y 1) :=
++  fixture_coordinateFormula (coordinates 2 Y)
++
++private def fixtureCoordinate (i : Fin 2) : UniversalLaw.Spec.Lifetime.E 2 →L[ℝ] ℝ :=
++  (ContinuousLinearMap.proj i : (Fin 2 → ℝ) →L[ℝ] ℝ).comp (coordinates 2).toContinuousLinearMap
++
++private def fixtureDerivative (Y : UniversalLaw.Spec.Lifetime.E 2) :
++    UniversalLaw.Spec.Lifetime.E 2 →L[ℝ] ℝ :=
++  (-Real.pi * Real.sin (Real.pi * coordinates 2 Y 0)) • fixtureCoordinate 0 +
++    (-2 * Real.pi * Real.sin (Real.pi * coordinates 2 Y 1)) • fixtureCoordinate 1
++
++private theorem fixture_hasFDerivAt (Y : UniversalLaw.Spec.Lifetime.E 2) :
++    HasFDerivAt (actualField 2 2 fixtureSample) (fixtureDerivative Y) Y := by
++  have a0 := (fixtureCoordinate 0).hasFDerivAt.const_mul Real.pi
++  have a1 := (fixtureCoordinate 1).hasFDerivAt.const_mul Real.pi
++  have d := a0.cos.add (a1.cos.const_mul 2)
++  rw [show actualField 2 2 fixtureSample = fun Z : UniversalLaw.Spec.Lifetime.E 2 =>
++      Real.cos (Real.pi * coordinates 2 Z 0) + 2 * Real.cos (Real.pi * coordinates 2 Z 1)
++    from funext fixture_actualField]
++  convert d using 1
++  ext v
++  simp [fixtureDerivative, fixtureCoordinate]
++  ring
++
++private theorem fixture_hessian (Y u v : UniversalLaw.Spec.Lifetime.E 2) :
++    hessian 2 (actualField 2 2 fixtureSample) Y u v =
++      (-Real.pi^2 * Real.cos (Real.pi * coordinates 2 Y 0)) * coordinates 2 u 0 * coordinates 2 v 0 +
++      (-2 * Real.pi^2 * Real.cos (Real.pi * coordinates 2 Y 1)) * coordinates 2 u 1 * coordinates 2 v 1 := by
++  rw [hessian, iteratedFDeriv_two_apply]
++  rw [show fderiv ℝ (actualField 2 2 fixtureSample) = fixtureDerivative
++    from funext fun Z => (fixture_hasFDerivAt Z).fderiv]
++  have a0 := (fixtureCoordinate 0).hasFDerivAt.const_mul Real.pi
++  have a1 := (fixtureCoordinate 1).hasFDerivAt.const_mul Real.pi
++  have d := ((a0.sin.const_mul (-Real.pi)).smul_const (fixtureCoordinate 0)).add
++    ((a1.sin.const_mul (-2 * Real.pi)).smul_const (fixtureCoordinate 1))
++  rw [show fderiv ℝ fixtureDerivative Y = _ from d.fderiv]
++  simp [fixtureCoordinate]
++  ring
++
++private def fixtureAxis (i : Fin 2) : UniversalLaw.Spec.Lifetime.E 2 :=
++  (coordinates 2).symm (Pi.single i 1)
++
++private theorem fixtureAxis_coordinates (i : Fin 2) :
++    coordinates 2 (fixtureAxis i) = (Pi.single i 1 : Fin 2 → ℝ) :=
++  (coordinates 2).apply_symm_apply _
++
++private theorem fixtureAxis_ne_zero (i : Fin 2) : fixtureAxis i ≠ 0 := by
++  intro h
++  have hz : (Pi.single i 1 : Fin 2 → ℝ) = 0 := by
++    rw [← fixtureAxis_coordinates, h, map_zero]
++  have hi := congrFun hz i
++  norm_num at hi
++
++private theorem fixture_negativeFirst_inertia (Y : UniversalLaw.Spec.Lifetime.E 2)
++    (a b : ℝ) (ha : a < 0) (hb : 0 < b)
++    (hquadratic : ∀ v, hessian 2 (actualField 2 2 fixtureSample) Y v v =
++      a * (coordinates 2 v 0)^2 + b * (coordinates 2 v 1)^2) :
++    HessianHasInertia 2 (actualField 2 2 fixtureSample) Y 1 := by
++  let N := Submodule.span ℝ {fixtureAxis 0}
++  let P := Submodule.span ℝ {fixtureAxis 1}
++  have hN : Module.finrank ℝ N = 1 := finrank_span_singleton (fixtureAxis_ne_zero 0)
++  have hP : Module.finrank ℝ P = 1 := finrank_span_singleton (fixtureAxis_ne_zero 1)
++  have hd : Disjoint N P := by
++    rw [Submodule.disjoint_def]
++    intro v hvN hvP
++    obtain ⟨s, hs⟩ := Submodule.mem_span_singleton.mp hvN
++    obtain ⟨t, ht⟩ := Submodule.mem_span_singleton.mp hvP
++    have he : s • (Pi.single (0 : Fin 2) 1 : Fin 2 → ℝ) =
++        t • (Pi.single (1 : Fin 2) 1 : Fin 2 → ℝ) := by
++      simpa only [map_smul, fixtureAxis_coordinates] using
++        congrArg (coordinates 2) (hs.trans ht.symm)
++    have hs0 : s = 0 := by
++      have he0 := congrFun he 0
++      simpa using he0
++    rw [← hs, hs0, zero_smul]
++  have hc : IsCompl N P := by
++    apply (Submodule.isCompl_iff_disjoint _ _ ?_).mpr hd
++    simp [UniversalLaw.Spec.Lifetime.E, hN, hP]
++  refine ⟨N, P, hc, hN, by simpa using hP, ?_, ?_⟩
++  · intro v hv hv0
++    obtain ⟨s, rfl⟩ := Submodule.mem_span_singleton.mp hv
++    have hs : s ≠ 0 := by
++      intro hs
++      apply hv0
++      simp [hs]
++    rw [hquadratic]
++    simp only [map_smul, fixtureAxis_coordinates]
++    simpa using mul_neg_of_neg_of_pos ha (sq_pos_of_ne_zero hs)
++  · intro v hv hv0
++    obtain ⟨s, rfl⟩ := Submodule.mem_span_singleton.mp hv
++    have hs : s ≠ 0 := by
++      intro hs
++      apply hv0
++      simp [hs]
++    rw [hquadratic]
++    simp only [map_smul, fixtureAxis_coordinates]
++    simpa using mul_pos hb (sq_pos_of_ne_zero hs)
++
++private theorem fixture_pointCritical (x y : ℝ)
++    (hx : Real.sin (Real.pi*x) = 0) (hy : Real.sin (Real.pi*y) = 0) :
++    IsCriticalPoint 2 (actualField 2 2 fixtureSample) (fixturePoint x y) := by
++  change fderiv ℝ (actualField 2 2 fixtureSample) (fixturePoint x y) = 0
++  rw [(fixture_hasFDerivAt _).fderiv]
++  ext v
++  change (-Real.pi * Real.sin (Real.pi * coordinates 2 (fixturePoint x y) 0)) *
++      coordinates 2 v 0 + (-2 * Real.pi * Real.sin (Real.pi * coordinates 2 (fixturePoint x y) 1)) *
++      coordinates 2 v 1 = 0
++  simp only [fixturePoint, ContinuousLinearEquiv.apply_symm_apply,
++    Matrix.cons_val_zero, Matrix.cons_val_one, hx, hy, mul_zero, zero_mul, add_zero]
++
++private theorem fixture_positiveInput :
++    IsCriticalPoint 2 (actualField 2 2 fixtureSample) (fixturePoint 1 0) ∧
++      HessianHasInertia 2 (actualField 2 2 fixtureSample) (fixturePoint 1 0) 1 ∧
++      actualField 2 2 fixtureSample (fixturePoint 1 0) = 1 := by
++  refine ⟨fixture_pointCritical 1 0 (by norm_num) (by norm_num), ?_, ?_⟩
++  · apply I4SourceActualFoldCandidate.hessianHasInertia_one_of_diag _ _ 1
++      (Real.pi^2) (-2*Real.pi^2) (by norm_num) (by positivity) (by positivity) 0
++    intro v
++    rw [fixture_hessian]
++    simp only [fixturePoint, ContinuousLinearEquiv.apply_symm_apply,
++      Matrix.cons_val_zero, Matrix.cons_val_one, mul_one, mul_zero, Real.cos_pi, Real.cos_zero]
++    ring
++  · rw [fixture_actualField]
++    simp only [fixturePoint, ContinuousLinearEquiv.apply_symm_apply,
++      Matrix.cons_val_zero, Matrix.cons_val_one]
++    norm_num
++
++private theorem fixture_negativeInput :
++    IsCriticalPoint 2 (actualField 2 2 fixtureSample) (fixturePoint 0 1) ∧
++      HessianHasInertia 2 (actualField 2 2 fixtureSample) (fixturePoint 0 1) 1 ∧
++      actualField 2 2 fixtureSample (fixturePoint 0 1) = -1 := by
++  refine ⟨fixture_pointCritical 0 1 (by norm_num) (by norm_num), ?_, ?_⟩
++  · apply fixture_negativeFirst_inertia _ (-Real.pi^2) (2*Real.pi^2) (by positivity) (by positivity)
++    intro v
++    rw [fixture_hessian]
++    simp only [fixturePoint, ContinuousLinearEquiv.apply_symm_apply,
++      Matrix.cons_val_zero, Matrix.cons_val_one, mul_one, mul_zero, Real.cos_pi, Real.cos_zero]
++    ring
++  · rw [fixture_actualField]
++    simp only [fixturePoint, ContinuousLinearEquiv.apply_symm_apply,
++      Matrix.cons_val_zero, Matrix.cons_val_one]
++    norm_num
++
++private theorem fixture_saddleInputs := And.intro fixture_positiveInput fixture_negativeInput
++
++private theorem fixture_seamInputs :
++    IsCriticalPoint 2 (actualField 2 2 fixtureSample) (fixturePoint (-1) 0) ∧
++      HessianHasInertia 2 (actualField 2 2 fixtureSample) (fixturePoint (-1) 0) 1 ∧
++      actualField 2 2 fixtureSample (fixturePoint (-1) 0) = 1 ∧
++      physicalProjection 2 (fixturePoint (-1) 0) = physicalProjection 2 (fixturePoint 1 0) := by
++  refine ⟨fixture_pointCritical (-1) 0 (by norm_num) (by norm_num), ?_, ?_, ?_⟩
++  · apply I4SourceActualFoldCandidate.hessianHasInertia_one_of_diag _ _ 1
++      (Real.pi^2) (-2*Real.pi^2) (by norm_num) (by positivity) (by positivity) 0
++    intro v
++    rw [fixture_hessian]
++    simp only [fixturePoint, ContinuousLinearEquiv.apply_symm_apply,
++      Matrix.cons_val_zero, Matrix.cons_val_one, mul_one, mul_zero, Real.cos_neg, Real.cos_pi, Real.cos_zero]
++    ring
++  · rw [fixture_actualField]
++    simp only [fixturePoint, ContinuousLinearEquiv.apply_symm_apply,
++      Matrix.cons_val_zero, Matrix.cons_val_one]
++    norm_num
++  · simp only [physicalProjection, fixturePoint, ContinuousLinearEquiv.apply_symm_apply]
++    funext i
++    fin_cases i
++    · change ((-1 : ℝ) : _root_.AddCircle (2 : ℝ)) = ((1 : ℝ) : _root_.AddCircle (2 : ℝ))
++      simpa only [show (-1 : ℝ)+2 = 1 by norm_num] using
++        (_root_.AddCircle.coe_add_period (2 : ℝ) (-1)).symm
++    · rfl
++
++private theorem fixture_smallOpen (X : UniversalLaw.Spec.Lifetime.E 2) :
++    IsOpen (fixtureSmallOpen X) ∧ physicalProjection 2 X ∈ fixtureSmallOpen X := by
++  have hopen : IsOpenMap (physicalProjection (2 : ℝ)) :=
++    (SourceActualFoldTorus.torusProjection2L_open 2).comp (coordinates 2).toHomeomorph.isOpenMap
++  exact ⟨hopen _ Metric.isOpen_ball, X, Metric.mem_ball_self (by norm_num), rfl⟩
++
++private theorem fixture_saddlePositive :
++    ∃ rho : ℝ, 0 < rho ∧
++      ∃ phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 2) Point2,
++        CollarFacts fixtureTorusField (physicalProjection 2 (fixturePoint 1 0))
++          (fixtureSmallOpen (fixturePoint 1 0)) rho phi := by
++  exact actualSaddleCollar (by norm_num) fixtureSample (fixturePoint 1 0)
++    fixture_positiveInput.1 fixture_positiveInput.2.1 _
++    (fixture_smallOpen _).1 (fixture_smallOpen _).2
++
++private theorem fixture_saddleNegative :
++    ∃ rho : ℝ, 0 < rho ∧
++      ∃ phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 2) Point2,
++        CollarFacts fixtureTorusField (physicalProjection 2 (fixturePoint 0 1))
++          (fixtureSmallOpen (fixturePoint 0 1)) rho phi := by
++  exact actualSaddleCollar (by norm_num) fixtureSample (fixturePoint 0 1)
++    fixture_negativeInput.1 fixture_negativeInput.2.1 _
++    (fixture_smallOpen _).1 (fixture_smallOpen _).2
++
++private theorem fixture_seam :
++    ∃ rho : ℝ, 0 < rho ∧
++      ∃ phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 2) Point2,
++        CollarFacts fixtureTorusField (physicalProjection 2 (fixturePoint (-1) 0))
++          (fixtureSmallOpen (fixturePoint (-1) 0)) rho phi := by
++  exact actualSaddleCollar (by norm_num) fixtureSample (fixturePoint (-1) 0)
++    fixture_seamInputs.1 fixture_seamInputs.2.1 _
++    (fixture_smallOpen _).1 (fixture_smallOpen _).2
++
+ end I4SourceActualQuotientSaddleCollar

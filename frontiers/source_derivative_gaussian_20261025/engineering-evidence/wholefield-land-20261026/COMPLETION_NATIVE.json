@@ -1,0 +1,340 @@
+{
+  "closeout": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Action completed."
+      }
+    ],
+    "structuredContent": {
+      "id": 6408484663
+    },
+    "isError": false
+  },
+  "jobs": [
+    {
+      "status": "fulfilled",
+      "value": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Action completed."
+          }
+        ],
+        "structuredContent": {
+          "jobs": [
+            {
+              "id": 121402569131,
+              "name": "downstream-replay",
+              "status": "completed",
+              "conclusion": "success",
+              "run_id": 40270661759,
+              "logs_url": null,
+              "steps": [
+                {
+                  "name": "Set up job",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 1
+                },
+                {
+                  "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 2
+                },
+                {
+                  "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 3
+                },
+                {
+                  "name": "Required-check integration controls in both Python modes",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 4
+                },
+                {
+                  "name": "Validation timeout evidence controls in both Python modes",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 5
+                },
+                {
+                  "name": "Verify exact sources, transition inputs and regressions",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 6
+                },
+                {
+                  "name": "P-C paired A/B source-bound conformance",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 7
+                },
+                {
+                  "name": "Retain evidence even on failure",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 8
+                },
+                {
+                  "name": "Bind existing checks to tested commit",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 9
+                },
+                {
+                  "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 17
+                },
+                {
+                  "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 18
+                },
+                {
+                  "name": "Complete job",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 19
+                }
+              ]
+            },
+            {
+              "id": 121402569341,
+              "name": "formal / formal-evidence",
+              "status": "completed",
+              "conclusion": "success",
+              "run_id": 40270661759,
+              "logs_url": null,
+              "steps": [
+                {
+                  "name": "Set up job",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 1
+                },
+                {
+                  "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 2
+                },
+                {
+                  "name": "Gate tests and exact source identity",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 3
+                },
+                {
+                  "name": "Install pinned Lean and retrieve dependency cache",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 4
+                },
+                {
+                  "name": "Build, recheck, audit axioms and execute negative controls",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 5
+                },
+                {
+                  "name": "Bind current-run receipt to required check",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 6
+                },
+                {
+                  "name": "Preserve logs and exact-run receipt",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 7
+                },
+                {
+                  "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 14
+                },
+                {
+                  "name": "Complete job",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 15
+                }
+              ]
+            },
+            {
+              "id": 121403429755,
+              "name": "math-downstream-gates",
+              "status": "completed",
+              "conclusion": "success",
+              "run_id": 40270661759,
+              "logs_url": null,
+              "steps": [
+                {
+                  "name": "Set up job",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 1
+                },
+                {
+                  "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 2
+                },
+                {
+                  "name": "Require both checks and source-bound current-run formal success",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 3
+                },
+                {
+                  "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 6
+                },
+                {
+                  "name": "Complete job",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 7
+                }
+              ]
+            }
+          ]
+        },
+        "isError": false
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Action completed."
+          }
+        ],
+        "structuredContent": {
+          "jobs": [
+            {
+              "id": 121402568734,
+              "name": "math-hypergraph",
+              "status": "completed",
+              "conclusion": "success",
+              "run_id": 40270661683,
+              "logs_url": null,
+              "steps": [
+                {
+                  "name": "Set up job",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 1
+                },
+                {
+                  "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 2
+                },
+                {
+                  "name": "Checkout main (public, read-only)",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 3
+                },
+                {
+                  "name": "Checkout query- (public, read-only)",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 4
+                },
+                {
+                  "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 5
+                },
+                {
+                  "name": "Install pinned requirements",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 6
+                },
+                {
+                  "name": "Tests",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 7
+                },
+                {
+                  "name": "validate (Math- artifacts)",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 8
+                },
+                {
+                  "name": "gaps",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 9
+                },
+                {
+                  "name": "Build all-repo bundle with PNG",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 10
+                },
+                {
+                  "name": "Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 11
+                },
+                {
+                  "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 19
+                },
+                {
+                  "name": "Post Checkout query- (public, read-only)",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 20
+                },
+                {
+                  "name": "Post Checkout main (public, read-only)",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 21
+                },
+                {
+                  "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 22
+                },
+                {
+                  "name": "Complete job",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 23
+                }
+              ]
+            }
+          ]
+        },
+        "isError": false
+      }
+    }
+  ]
+}

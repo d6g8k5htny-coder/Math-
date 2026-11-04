@@ -1,0 +1,20 @@
+{
+  "label": "fixtures-fix002",
+  "command_argv": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/outer_capture.py",
+    "fixtures-fix002",
+    "documentary",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/fix_fixtures002.py"
+  ],
+  "cwd": "/workspace/scratch/actual-source-saddle-uppercuts-construct",
+  "start_utc": "2026-10-28T21:32:51.945286+00:00",
+  "end_utc": "2026-10-28T21:32:52.071939+00:00",
+  "elapsed_seconds": 0.12665589399694,
+  "exit_code": 0,
+  "stdout": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/fixtures-fix002/entry.stdout.log",
+  "stderr": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/fixtures-fix002/entry.stderr.log",
+  "invocation_scope": "entry process begins here; caller tool stdout is only this closed receipt summary"
+}

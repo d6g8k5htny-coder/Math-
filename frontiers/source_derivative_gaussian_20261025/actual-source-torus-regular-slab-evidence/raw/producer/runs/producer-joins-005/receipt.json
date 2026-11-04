@@ -1,0 +1,270 @@
+{
+  "label": "producer-joins-005",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "SourceActualTorusRegularSlab.lean"
+  ],
+  "runner_version": "001",
+  "runner_history": "/workspace/scratch/actual-source-torus-regular-slab-construct/history/runner.001.py",
+  "before": {
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 57457,
+      "sha256": "2bd7f65c02bc7e10a29bee35d25c40d6609bd500833a6f72259e18a19aa26ff0",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py",
+      "bytes": 3167,
+      "sha256": "0a48e451489df6849684a78b60f30ea9d51507a48b2d4392c7f347fd7be41e6c",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md",
+      "bytes": 21036,
+      "sha256": "85b93f97305bb51cf28a706705d6c5162de97b1290c149873fd3502ec5110923",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt",
+      "bytes": 4004,
+      "sha256": "3234c7922c0e158bdc3d06e2eb62004ea0cd88bbfa71ce24d103599f81bb1761",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/FixtureSection.PRODUCER.INITIAL.lean.txt": {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/FixtureSection.PRODUCER.INITIAL.lean.txt",
+      "bytes": 10117,
+      "sha256": "547841d24a0c37e5a83cb29f8cb4ed536545477c7e62280ec06b7e3216f5b846",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt",
+      "bytes": 24830,
+      "sha256": "8ca3478bdc906c49fea98e03c2134e8cbd9e180428a7dcd093d5d7d32a77a47f",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt",
+      "bytes": 5766,
+      "sha256": "a89022d368a863ed8e95462573fb0d0b98a2b0c0743bb296df8c18c566cff87c",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt",
+      "bytes": 18734,
+      "sha256": "c432fca4df42cc957a850b096ab31744e9889556a12ccd0cdc4b0ae3f80eda4d",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt": {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt",
+      "bytes": 9322,
+      "sha256": "4f6e545e2da091a96f460ac4eab8ddcf8b3e588ad5a0a9bf3d673654fae71a26",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt": {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt",
+      "bytes": 32029,
+      "sha256": "2ea9f439fab4cf5038d44c8afd10810abcd277bce53c1bc17fbdc6c8cfda4fd5",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt",
+      "bytes": 3997,
+      "sha256": "d5a513d3ea7f24e95bc0ab82bebb23365e4033405b4f200515cfdf9330f1d7e0",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    }
+  },
+  "snapshots": [
+    {
+      "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/SourceActualTorusRegularSlab.lean",
+      "existing_identity": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+        "bytes": 57457,
+        "sha256": "2bd7f65c02bc7e10a29bee35d25c40d6609bd500833a6f72259e18a19aa26ff0",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      }
+    },
+    {
+      "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/record_run.py",
+      "existing_identity": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py",
+        "bytes": 3167,
+        "sha256": "0a48e451489df6849684a78b60f30ea9d51507a48b2d4392c7f347fd7be41e6c",
+        "identity_origin": "existing OWN first identity reused; unchanged stat"
+      }
+    },
+    {
+      "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/CONTEXT.md",
+      "existing_identity": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md",
+        "bytes": 21036,
+        "sha256": "85b93f97305bb51cf28a706705d6c5162de97b1290c149873fd3502ec5110923",
+        "identity_origin": "existing OWN first identity reused; unchanged stat"
+      }
+    },
+    {
+      "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/PREFIX.002.lean.txt",
+      "existing_identity": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt",
+        "bytes": 4004,
+        "sha256": "3234c7922c0e158bdc3d06e2eb62004ea0cd88bbfa71ce24d103599f81bb1761",
+        "identity_origin": "existing OWN first identity reused; unchanged stat"
+      }
+    },
+    {
+      "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/FixtureSection.PRODUCER.INITIAL.lean.txt",
+      "existing_identity": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/FixtureSection.PRODUCER.INITIAL.lean.txt",
+        "bytes": 10117,
+        "sha256": "547841d24a0c37e5a83cb29f8cb4ed536545477c7e62280ec06b7e3216f5b846",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      }
+    },
+    {
+      "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/FINITE_HORIZON.CHECKED.lean.txt",
+      "existing_identity": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt",
+        "bytes": 24830,
+        "sha256": "8ca3478bdc906c49fea98e03c2134e8cbd9e180428a7dcd093d5d7d32a77a47f",
+        "identity_origin": "existing OWN first identity reused; unchanged stat"
+      }
+    },
+    {
+      "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/ProducerBranches.INITIAL.lean.txt",
+      "existing_identity": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt",
+        "bytes": 5766,
+        "sha256": "a89022d368a863ed8e95462573fb0d0b98a2b0c0743bb296df8c18c566cff87c",
+        "identity_origin": "existing OWN first identity reused; unchanged stat"
+      }
+    },
+    {
+      "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/NORMALIZED.CHECKED.lean.txt",
+      "existing_identity": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt",
+        "bytes": 18734,
+        "sha256": "c432fca4df42cc957a850b096ab31744e9889556a12ccd0cdc4b0ae3f80eda4d",
+        "identity_origin": "existing OWN first identity reused; unchanged stat"
+      }
+    },
+    {
+      "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/ProducerDescent.INITIAL.lean.txt",
+      "existing_identity": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt",
+        "bytes": 9322,
+        "sha256": "4f6e545e2da091a96f460ac4eab8ddcf8b3e588ad5a0a9bf3d673654fae71a26",
+        "identity_origin": "existing OWN first identity reused; unchanged stat"
+      }
+    },
+    {
+      "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/HEIGHT_HITTING.CHECKED.lean.txt",
+      "existing_identity": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt",
+        "bytes": 32029,
+        "sha256": "2ea9f439fab4cf5038d44c8afd10810abcd277bce53c1bc17fbdc6c8cfda4fd5",
+        "identity_origin": "existing OWN first identity reused; unchanged stat"
+      }
+    },
+    {
+      "immutable_path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/PREFIX.001.lean.txt",
+      "existing_identity": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt",
+        "bytes": 3997,
+        "sha256": "d5a513d3ea7f24e95bc0ab82bebb23365e4033405b4f200515cfdf9330f1d7e0",
+        "identity_origin": "existing OWN first identity reused; unchanged stat"
+      }
+    }
+  ],
+  "started_utc": "2026-10-28T17:58:58.936364+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 7.876841725999839,
+  "ended_utc": "2026-10-28T17:59:06.813610+00:00",
+  "after": {
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+      "bytes": 57457,
+      "sha256": "2bd7f65c02bc7e10a29bee35d25c40d6609bd500833a6f72259e18a19aa26ff0",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean": null,
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean": null,
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py": {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/record_run.py",
+      "bytes": 3167,
+      "sha256": "0a48e451489df6849684a78b60f30ea9d51507a48b2d4392c7f347fd7be41e6c",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md": {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/CONTEXT.md",
+      "bytes": 21036,
+      "sha256": "85b93f97305bb51cf28a706705d6c5162de97b1290c149873fd3502ec5110923",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt": {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.002.lean.txt",
+      "bytes": 4004,
+      "sha256": "3234c7922c0e158bdc3d06e2eb62004ea0cd88bbfa71ce24d103599f81bb1761",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/FixtureSection.PRODUCER.INITIAL.lean.txt": {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/FixtureSection.PRODUCER.INITIAL.lean.txt",
+      "bytes": 10117,
+      "sha256": "547841d24a0c37e5a83cb29f8cb4ed536545477c7e62280ec06b7e3216f5b846",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt": {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/FINITE_HORIZON.CHECKED.lean.txt",
+      "bytes": 24830,
+      "sha256": "8ca3478bdc906c49fea98e03c2134e8cbd9e180428a7dcd093d5d7d32a77a47f",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt": {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerBranches.INITIAL.lean.txt",
+      "bytes": 5766,
+      "sha256": "a89022d368a863ed8e95462573fb0d0b98a2b0c0743bb296df8c18c566cff87c",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt": {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/NORMALIZED.CHECKED.lean.txt",
+      "bytes": 18734,
+      "sha256": "c432fca4df42cc957a850b096ab31744e9889556a12ccd0cdc4b0ae3f80eda4d",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt": {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/ProducerDescent.INITIAL.lean.txt",
+      "bytes": 9322,
+      "sha256": "4f6e545e2da091a96f460ac4eab8ddcf8b3e588ad5a0a9bf3d673654fae71a26",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt": {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/HEIGHT_HITTING.CHECKED.lean.txt",
+      "bytes": 32029,
+      "sha256": "2ea9f439fab4cf5038d44c8afd10810abcd277bce53c1bc17fbdc6c8cfda4fd5",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt": {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/PREFIX.001.lean.txt",
+      "bytes": 3997,
+      "sha256": "d5a513d3ea7f24e95bc0ab82bebb23365e4033405b4f200515cfdf9330f1d7e0",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    }
+  },
+  "stdout": {
+    "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/stdout.log",
+    "bytes": 1671,
+    "sha256": "14a2b6863c6b3538f18b1de84c7501f116288ce8d1756d8317b3b2c70d58536a",
+    "identity_origin": "FIRST identity newly created/changed OWN payload"
+  },
+  "stderr": {
+    "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-005/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "identity_origin": "FIRST identity newly created/changed OWN payload"
+  }
+}

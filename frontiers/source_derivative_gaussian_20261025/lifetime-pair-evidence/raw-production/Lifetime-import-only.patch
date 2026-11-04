@@ -1,0 +1,15 @@
+--- /workspace/Math-curvature-20261026/frontiers/source_lifetime_realization_20261017/inputs/Lifetime.lean
++++ /workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/Lifetime.lean
+@@ -1,4 +1,11 @@
+-import Mathlib
++import Mathlib.Analysis.InnerProductSpace.PiL2
++import Mathlib.Analysis.Calculus.ContDiff.Defs
++import Mathlib.Analysis.Calculus.IteratedDeriv.Defs
++import Mathlib.Probability.Distributions.Gaussian.Real
++import Mathlib.Analysis.Asymptotics.AsymptoticEquivalent
++import Mathlib.Analysis.SpecialFunctions.Pow.Real
++import Mathlib.Topology.Homotopy.Path
++import Mathlib.Data.Set.Card
+ 
+ /-!
+ # Lifetime-track statements: parent Theorems A, B, C, the bounded remainder R and the

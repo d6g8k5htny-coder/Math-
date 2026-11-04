@@ -1,0 +1,290 @@
+{
+  "schema_version": 1,
+  "scope_id": "SOURCE_SMOOTH_TOPOLOGY_ONLY_20261026",
+  "role": "New-only projection of completed applicable verification; no verification execution",
+  "scientific_effect": "NONE",
+  "goal_status": "FULL_ORIGINAL_RESEARCH_GOAL_ACTIVE",
+  "mathematical_qualification": "COMPLETE_REUSED_FROM_EXISTING_RECEIPT",
+  "packaged_at_utc": "2026-10-26T01:28:27.730120+00:00",
+  "worktree": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "membership_file": "TOPOLOGY_MEMBERSHIP.json",
+  "scope_file": "TOPOLOGY_SCOPE.md",
+  "public_inventory": "TOPOLOGY_PUBLIC_INVENTORY.json",
+  "public_proof_names_append": "PUBLIC_PROOF_NAMES_APPEND.txt",
+  "modules": [
+    {
+      "module": "SourceSmoothTopology",
+      "source_path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothTopology.lean",
+      "frozen_source_copy": "sources/SourceSmoothTopology.lean",
+      "source_sha256": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+      "source_sha_origin": "Completed actual before/after source records and receipt; not recomputed during packaging",
+      "line_count": 396,
+      "olean_path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceSmoothTopology.olean",
+      "olean_sha256": null,
+      "olean_hash_note": "Not captured by original topology records; no object hash is fabricated or newly computed",
+      "artifact_binding": "Final compile explicitly wrote SourceSmoothTopology.olean; subsequent named leanchecker/import audit and controls consumed it under the unchanged frozen source. Original records retain source before/after hashes; they do not separately digest the object.",
+      "frozen_contract_commit": "9d999aa",
+      "contract_reference": "contracts/SOURCE_SMOOTH_TOPOLOGY.md",
+      "contract_sha256_from_receipt": "a7e7b1f448d9eafcba2e83c7915b2239a43b186f2c4f65f13d0d8efcb4096dcb",
+      "source_integration_commit": null,
+      "source_integration_commit_owned_by_root": true,
+      "source_integration_commit_status": "Pending actual root-supplied commit; source SHA binding is already complete",
+      "direct_public_audit_declarations": 49,
+      "kind_counts": {
+        "abbrev": 2,
+        "theorem": 36,
+        "def": 7,
+        "instance": 4
+      },
+      "registration_target_append": 40,
+      "registration_count_meaning": "36 proposition theorems +2 proposition-valued local instances +2 structural/data local instances",
+      "proposition_declarations": 38,
+      "structural_data_instances": 2,
+      "definitions_abbreviations": 9,
+      "private_declarations": 0,
+      "compile": {
+        "metadata": "raw/implementation/06-final-norm-borel-fields.json",
+        "raw_output": "raw/implementation/06-final-norm-borel-fields.log",
+        "actual_record": {
+          "command": [
+            "/home/agent/.elan/bin/lake",
+            "env",
+            "lean",
+            "-DwarningAsError=true",
+            "-o",
+            ".lake/build/lib/lean/SourceSmoothTopology.olean",
+            "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothTopology.lean"
+          ],
+          "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "exit_code": 0,
+          "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothTopology.lean",
+          "source_sha256_before": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+          "source_sha256_after": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+          "production_source_sha256_before": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+          "production_source_sha256_after": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_seconds": 6.646421194076538
+        }
+      },
+      "kernel": {
+        "metadata": "raw/implementation/09-kernel-replay.json",
+        "raw_output": "raw/implementation/09-kernel-replay.log",
+        "actual_record": {
+          "command": [
+            "/home/agent/.elan/bin/lake",
+            "env",
+            "leanchecker",
+            "SourceSmoothTopology"
+          ],
+          "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "exit_code": 0,
+          "source_sha256_before": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+          "source_sha256_after": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_seconds": 8.211804151535034
+        }
+      },
+      "axioms": {
+        "metadata": "raw/implementation/08-axiom-audit.json",
+        "raw_output": "raw/implementation/08-axiom-audit.log",
+        "actual_record": {
+          "command": [
+            "/home/agent/.elan/bin/lake",
+            "env",
+            "lean",
+            "-DwarningAsError=true",
+            "/workspace/scratch/source-smooth-topology/AxiomAudit.lean"
+          ],
+          "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "exit_code": 0,
+          "source": "/workspace/scratch/source-smooth-topology/AxiomAudit.lean",
+          "source_sha256_before": "1c332a73caff2cc7b00e65a91dea453baaf06fcbb0dc762b2e4259bb5fa37c11",
+          "source_sha256_after": "1c332a73caff2cc7b00e65a91dea453baaf06fcbb0dc762b2e4259bb5fa37c11",
+          "production_source_sha256_before": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+          "production_source_sha256_after": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+          "log_sha256": "4820e9f4c8579b204a1c1641e9798e8ee6ef2c23058c7962db95ac85f884aace",
+          "elapsed_seconds": 5.3644936084747314
+        }
+      },
+      "controls": {
+        "metadata": "raw/implementation/10-controls-fixed.json",
+        "raw_output": "raw/implementation/10-controls-fixed.log",
+        "actual_record": {
+          "command": [
+            "/home/agent/.elan/bin/lake",
+            "env",
+            "lean",
+            "-DwarningAsError=true",
+            "/workspace/scratch/source-smooth-topology/Controls.lean"
+          ],
+          "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "exit_code": 0,
+          "source": "/workspace/scratch/source-smooth-topology/Controls.lean",
+          "source_sha256_before": "c6f6f3a0c08ea22f20350ceeaf5a97903ab259e573126b0c36c22ec24426f26a",
+          "source_sha256_after": "c6f6f3a0c08ea22f20350ceeaf5a97903ab259e573126b0c36c22ec24426f26a",
+          "production_source_sha256_before": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+          "production_source_sha256_after": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_seconds": 4.835841655731201
+        }
+      },
+      "axiom_coverage": {
+        "reference": "raw/implementation/AXIOM_COVERAGE.json",
+        "all49_directly_reported": true,
+        "missing": [],
+        "unexpected": [],
+        "nonstandard_axioms": {},
+        "allowed_axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "key_public_exports": [
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothTopology.sourceDerivativeBCF_apply",
+          "line": 72,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothTopology.sourceDerivativeBCF_stronglyMeasurable",
+          "line": 98,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothTopology.sourceFiniteJet_stronglyMeasurable",
+          "line": 117,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothTopology.sourceFiniteJet_borel",
+          "line": 132,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothTopology.sourceDerivativeBCF_tendstoUniformly",
+          "line": 148,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothTopology.jetRestriction_norm_le",
+          "line": 174,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothTopology.sourceRestrictedJet_borel",
+          "line": 196,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothTopology.sourceFiniteJet_dist_le_iff",
+          "line": 204,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothTopology.sourceDerivativeBCF_lattice_periodic",
+          "line": 242,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothTopology.sourceCompatibleJet_borel",
+          "line": 307,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothTopology.sourceFiniteJet_hasCondDistrib",
+          "line": 321,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothTopology.sourceFiniteJet_functional_eventually_hasCondDistrib",
+          "line": 372,
+          "classification": "proposition_theorem",
+          "registration_append": true,
+          "proposition_valued": true
+        }
+      ]
+    }
+  ],
+  "baseline_by_reference": {
+    "qualified_modules": 23,
+    "public_proof_instance_declaration_targets": 575,
+    "exact_inputs": 23,
+    "includes": "22 qualified modules plus SourcePinPreservingQuartic",
+    "registration_metadata_status": "Root reports quartic metadata append pending; counts are authorized baseline references, no fabricated completed append"
+  },
+  "root_registration_append": {
+    "qualified_modules_after_append": 24,
+    "public_proof_instance_declaration_targets_after_append": 615,
+    "new_theorem_instance_declaration_targets": 40,
+    "contains_structural_data_instances": true
+  },
+  "root_actions_not_performed": [
+    "Append40 names to shared inventory",
+    "Register24-module/615-target aggregate and root metadata",
+    "Assign actual committed topology code cut",
+    "Update shared manifests/Lakefile",
+    "Route separate different-family review",
+    "Publish or commit package"
+  ],
+  "preservation": "All top-level topology implementation sources/snapshots/metadata/raw logs retained, including failures. Read-only successor proposal is copied under recon-only and excluded from qualified reports.",
+  "history_and_lineage_file": "HISTORY_AND_LINEAGE.json",
+  "raw_evidence_index": "RAW_EVIDENCE_INDEX.json",
+  "execution_record_index": "EXECUTION_RECORD_INDEX.json",
+  "original_qualification_receipt": "qualification_receipt.json",
+  "review_scope": "REVIEW_SCOPE.json",
+  "packaging_actions": [
+    "Read completed new-scope receipts and inventories",
+    "Byte-copy only new topology source and its raw evidence",
+    "Project counts, names, scope and recorded command/source/exit metadata"
+  ],
+  "packaging_nonactions": [
+    "No Lean/build/kernel/test/control command",
+    "No source/production/manifests/Lakefile edits",
+    "No old or new evidence/source hash recomputation",
+    "No baseline evidence duplication",
+    "No posts or commits",
+    "No review/status promotion"
+  ],
+  "remaining_application_boundary": "Conventional C3 torus quotient/local-chart identification and usual C3 norm equivalence, followed by GP-DER197 capture/ODE event pullback; no claim of automatic capture measurability, geometric Palm, Morse, elder, or counting closure.",
+  "recon_only": "recon-only/INTERFACE_PROPOSAL.md is successor research, not qualified proof or part of49 reports",
+  "verification_reuse": "Completed applicable verification reused; new session/worktree never warrants baseline reruns.",
+  "owner_mandate_links": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md"
+  ]
+}

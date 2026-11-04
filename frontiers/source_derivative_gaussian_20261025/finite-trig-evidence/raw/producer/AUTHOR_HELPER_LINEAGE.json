@@ -1,0 +1,53 @@
+{
+  "producer": "/root/actual_fold_candidate_construct",
+  "provider": "OpenAI",
+  "family": "GPT-6",
+  "root": "/root",
+  "worker_agents_spawned": 0,
+  "root_dispatched_helper": "/root/conditional_remote_jet_preflight",
+  "helper_report": {
+    "path": "/workspace/scratch/finite-trig-source-conversion/REPORT.md",
+    "bytes": 6502,
+    "sha256": "c449aa78cb69e639b360c4e17a83d8a062f740b99851c293e833d716c5a671cd"
+  },
+  "helper_identity": {
+    "path": "/workspace/scratch/finite-trig-source-conversion/IDENTITY.json",
+    "bytes": 1199,
+    "sha256": "c05194d1e87674852087df0d210e07ee3637c85068fb56db1369755541df1467"
+  },
+  "integration": {
+    "path": "/workspace/scratch/finite-trig-construct/HELPER_INTEGRATION.json",
+    "bytes": 1648,
+    "sha256": "e704e33d591167c48b7520ec4d33c4ffe111253b582f0dc4b5ed7336adb00eee"
+  },
+  "helper_section": {
+    "path": "/workspace/scratch/finite-trig-source-conversion/NEEDED_SECTION.lean.txt",
+    "bytes": 3652,
+    "sha256": "bb748238147162c2e68e6134361c9c4ad17610a2f2adb78d2510a08c786ddff3"
+  },
+  "helper_strict_receipt": {
+    "path": "/workspace/scratch/finite-trig-source-conversion/raw/attempt003/result.json",
+    "bytes": 636,
+    "sha256": "8d7d1acd87c7c4277ec00740aee723228da2310d07083391232fc71f526f72b1"
+  },
+  "helper_development_attempts": "raw/attempt001,attempt002,attempt003; all retained byhelper",
+  "helper_objects_imported_or_copied": false,
+  "helper_kernel_audit_control_campaigns": 0,
+  "separate_helper_research_target_credit": 0,
+  "precode_commit": "f20c0b067a571c29ebaaa478986c2395e39af4e5",
+  "root_sourcecut": "32732ff7c343b6ee0fd5b66cbdf72cda3cf48f2c",
+  "source_authority_read": [
+    "SOURCE_FINITE_TRIG.md",
+    "SOURCE_FINITE_TRIG_PLAN.md",
+    "SOURCE_FINITE_TRIG_CONTENDERS.json",
+    "/workspace/scratch/finite-trig-representation-preflight/REPORT.md",
+    "/workspace/AGENTS.md reuse guidance retained"
+  ],
+  "completed_verification_reused": true,
+  "scientific_effect": "NONE",
+  "provider_distinct_credit": 0,
+  "canonical_authority": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md"
+  ]
+}

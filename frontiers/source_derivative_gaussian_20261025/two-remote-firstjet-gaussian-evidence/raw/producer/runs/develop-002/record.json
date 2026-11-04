@@ -1,0 +1,33 @@
+{
+  "kind": "develop",
+  "run": "develop-002",
+  "start": "2026-10-26T18:39:46.511340+00:00",
+  "end": "2026-10-26T18:40:44.500276+00:00",
+  "seconds": 57.98899861999962,
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean",
+    "-o",
+    "/workspace/scratch/two-remote-firstjet-gaussian-construct/runs/develop-002/SourceTwoRemoteFirstJetGaussian.olean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 1,
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean",
+    "bytes": 18069,
+    "sha256": "cc071992e200ade2f93bc0cd68c43b5a109b13ff3e3216750bb3b06252bf2c97"
+  },
+  "stdout": {
+    "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/runs/develop-002/stdout.log",
+    "bytes": 2615,
+    "sha256": "03caffbe954aa9e26277150ae5025e6b10bb99e92d0c5ce494cfd37eb5cdeb87"
+  },
+  "stderr": {
+    "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/runs/develop-002/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

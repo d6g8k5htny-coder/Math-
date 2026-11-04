@@ -1,0 +1,108 @@
+--- history/transfer-fixture001/SourceActualRegularLocalCollar.lean.ORIGINAL
++++ SourceActualRegularLocalCollar.lean
+@@ -158,4 +158,105 @@
+     · simpa using hε
+   · simp
+ 
++
++private theorem same_chart_traces_pc {L : ℝ}
++    (F : Torus2 L → ℝ) (c ρ : ℝ) (hρ : 0 < ρ)
++    (φ : OpenPartialHomeomorph (Torus2 L) Point2)
++    (htarget : φ.target = Metric.ball (0 : Point2) ρ)
++    (hheight : ∀ z ∈ φ.source, F z = c + φ z 1) :
++    ∀ ε : ℝ, |ε| < ρ →
++      IsPathConnected (φ.source ∩ {z | c + ε ≤ F z}) ∧
++      IsPathConnected (φ.source ∩ {z | F z = c + ε}) := by
++  intro ε hε
++  have hupper_image :
++      φ.symm '' (Metric.ball (0 : Point2) ρ ∩ {u | ε ≤ u 1}) =
++        φ.source ∩ {z | c + ε ≤ F z} := by
++    ext z
++    constructor
++    · rintro ⟨u, hu, rfl⟩
++      have hut : u ∈ φ.target := htarget ▸ hu.1
++      refine ⟨φ.map_target hut, ?_⟩
++      have hh := hheight (φ.symm u) (φ.map_target hut)
++      rw [φ.right_inv hut] at hh
++      change ε ≤ u 1 at hu
++      linarith [hu.2]
++    · intro hz
++      refine ⟨φ z, ⟨?_, ?_⟩, φ.left_inv hz.1⟩
++      · rw [← htarget]
++        exact φ.map_source hz.1
++      · change ε ≤ φ z 1
++        have hh := hheight z hz.1
++        change c + ε ≤ F z at hz
++        linarith [hz.2]
++  have hlevel_image :
++      φ.symm '' (Metric.ball (0 : Point2) ρ ∩ {u | u 1 = ε}) =
++        φ.source ∩ {z | F z = c + ε} := by
++    ext z
++    constructor
++    · rintro ⟨u, hu, rfl⟩
++      have hut : u ∈ φ.target := htarget ▸ hu.1
++      refine ⟨φ.map_target hut, ?_⟩
++      have hh := hheight (φ.symm u) (φ.map_target hut)
++      rw [φ.right_inv hut] at hh
++      change u 1 = ε at hu
++      linarith [hu.2]
++    · intro hz
++      refine ⟨φ z, ⟨?_, ?_⟩, φ.left_inv hz.1⟩
++      · rw [← htarget]
++        exact φ.map_source hz.1
++      · change φ z 1 = ε
++        have hh := hheight z hz.1
++        change F z = c + ε at hz
++        linarith [hz.2]
++  have hcupper : ContinuousOn φ.symm
++      (Metric.ball (0 : Point2) ρ ∩ {u | ε ≤ u 1}) :=
++    φ.continuousOn_symm.mono (fun _ hu => htarget ▸ hu.1)
++  have hclevel : ContinuousOn φ.symm
++      (Metric.ball (0 : Point2) ρ ∩ {u | u 1 = ε}) :=
++    φ.continuousOn_symm.mono (fun _ hu => htarget ▸ hu.1)
++  constructor
++  · rw [← hupper_image]
++    exact (pi_closed_upper_trace_pc ρ ε hρ hε).image' hcupper
++  · rw [← hlevel_image]
++    exact (pi_level_trace_pc ρ ε hρ hε).image' hclevel
++
++private def fixturePoly : I4SourceFiniteTrig.TrigPoly :=
++  [⟨1, ![(1 : ℤ), 0], 0⟩, ⟨2, ![(0 : ℤ), 1], 0⟩]
++
++private def fixtureSample : SmoothSample 2 2 :=
++  I4SourceFinitePinKernel.finiteShiftSample
++    (I4SourceFiniteTrig.toSource 2 fixturePoly)
++    (I4SourceSmoothConditional.zeroSample 2 2)
++
++private theorem fixture_actual_formula (Y : E2) :
++    I4LifetimeField.actualField 2 2 fixtureSample Y =
++      Real.cos (Real.pi * (Q Y) 0) + 2 * Real.cos (Real.pi * (Q Y) 1) := by
++  classical
++  let v := I4SourceFiniteTrig.toSource 2 fixturePoly
++  have hcoeff (m : I4Source.SourceMode 2) :
++      I4SmoothCarrier.sampleInclusion 2 2 fixtureSample m = v m := by
++    simp [fixtureSample, I4SourceFinitePinKernel.finiteShiftSample_val,
++      I4SourceSmoothConditional.zeroSample, I4SmoothCarrier.sampleInclusion, v]
++  have hs : HasSum (fun m : I4Source.SourceMode 2 =>
++      I4Source.modeCoefficient 2 2 m (Q Y) * v m)
++      (I4SourceFiniteTrig.eval 2 fixturePoly (Q Y)) := by
++    rw [← I4SourceFiniteTrig.toSource_eval (show (2 : ℝ) ≠ 0 by norm_num)]
++    change HasSum (fun m => I4Source.modeCoefficient 2 2 m (Q Y) * v m)
++      (v.sum (fun m z => I4Source.modeCoefficient 2 2 m (Q Y) * z))
++    apply hasSum_sum_of_ne_finset_zero
++    intro m hm
++    rw [Finsupp.notMem_support_iff.mp hm, mul_zero]
++  change I4Foundation.scalarSeries
++    (fun m => I4Source.modeCoefficient 2 2 m (Q Y))
++    (I4SmoothCarrier.sampleInclusion 2 2 fixtureSample) = _
++  have heq : I4SmoothCarrier.sampleInclusion 2 2 fixtureSample = fun m => v m :=
++    funext hcoeff
++  rw [heq]
++  calc
++    I4Foundation.scalarSeries (fun m => I4Source.modeCoefficient 2 2 m (Q Y))
++        (fun m => v m) = I4SourceFiniteTrig.eval 2 fixturePoly (Q Y) := hs.tsum_eq
++    _ = Real.cos (Real.pi * (Q Y) 0) + 2 * Real.cos (Real.pi * (Q Y) 1) := by
++      simp [I4SourceFiniteTrig.eval, fixturePoly, I4SourceFiniteTrig.termEval,
++        I4Source.phase, I4Weights.sourceC, Fin.sum_univ_two]
++
+ end I4SourceActualRegularLocalCollar

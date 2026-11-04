@@ -1,0 +1,33 @@
+private theorem cutoffEquality {L : ℝ} (F : I4Torus.SourceTorus 2 L → ℝ)
+    (q : I4Torus.SourceTorus 2 L) (O : Set (I4Torus.SourceTorus 2 L))
+    (rho : ℝ) (hrho : 0 < rho)
+    (phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) Point2)
+    (h : UniformCutResult F q O rho phi) : CutoffEquality F q rho phi := by
+  have ht := h.2.2.2.1
+  have hf := h.2.2.2.2.1
+  have hball (s : ℝ) (hs : |s| < rho) : (![0,s] : Point2) ∈ phi.target := by
+    rw [ht, Metric.mem_ball, dist_zero_right]
+    apply (pi_norm_lt_iff hrho).2
+    intro i
+    fin_cases i
+    · simpa using hrho
+    · simpa using hs
+  have hp : (![0,rho/4] : Point2) ∈ phi.target := hball _ (by rw [abs_of_pos (by positivity)]; linarith)
+  have hm : (![0,-rho/4] : Point2) ∈ phi.target := hball _ (by rw [abs_of_neg (show -rho/4 < 0 by linarith)]; linarith)
+  have hps := phi.map_target hp
+  have hms := phi.map_target hm
+  have hpi := phi.right_inv hp
+  have hmi := phi.right_inv hm
+  have hpf := hf _ hps
+  have hmf := hf _ hms
+  rw [hpi] at hpf
+  rw [hmi] at hmf
+  norm_num only [Fin.isValue, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons, zero_pow] at hpf hmf
+  have hpfe : F (phi.symm (![0,rho/4] : Point2)) = F q + rho^2/16 := by nlinarith [hpf]
+  have hmfe : F (phi.symm (![0,-rho/4] : Point2)) = F q + rho^2/16 := by nlinarith [hmf]
+  refine ⟨by positivity, by nlinarith [sq_pos_of_pos hrho], ⟨hps, hpfe.ge⟩,
+    ⟨hms, hmfe.ge⟩, hpfe, hmfe, ?_, ?_⟩
+  · rw [hpi]
+    simpa using (show 0 < rho/4 by positivity)
+  · rw [hmi]
+    simpa using (show -rho/4 < 0 by linarith)

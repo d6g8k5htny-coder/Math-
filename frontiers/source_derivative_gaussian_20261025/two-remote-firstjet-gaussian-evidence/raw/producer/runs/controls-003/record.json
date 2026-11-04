@@ -1,0 +1,31 @@
+{
+  "kind": "controls",
+  "run": "controls-003",
+  "start": "2026-10-26T19:11:45.244063+00:00",
+  "end": "2026-10-26T19:15:01.128284+00:00",
+  "seconds": 195.88464609700895,
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/two-remote-firstjet-gaussian-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/two-remote-firstjet-gaussian-construct /workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean -o /workspace/scratch/two-remote-firstjet-gaussian-construct/runs/controls-003/Controls.olean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 1,
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean",
+    "bytes": 21774,
+    "sha256": "4677ada085e7c53b4e9b4fd2160bcffc326e6a73b20cbb6cb7540ee3aece2a91"
+  },
+  "stdout": {
+    "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/runs/controls-003/stdout.log",
+    "bytes": 863,
+    "sha256": "0af23a6b7c7cccf5bb720dc7008b55a0f7b260d16f7aa08b893a42678e895022"
+  },
+  "stderr": {
+    "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/runs/controls-003/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

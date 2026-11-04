@@ -1,0 +1,13 @@
+# Frozen finite plan: SourceTwoRemoteFirstJetWitness
+
+26 October2026. Root adopts this finite plan and the companion specification after the completed read-only preflight review. The original scratch proposal remains preserved. This plan itself performs no code/build/probe/check/kernel/audit/control action. Root publishes precode and actual native pickup before implementation. The producer freezes the concrete control contract before source or helper text.
+
+1. Root freezes one public coefficient definition, two public written propositions, the five literal quotient inequalities and the concrete collision/control harness. Reuse qualified47/48 APIs and all applicable evidence. No52 source/helper or Gaussian-law dependency is required.
+2. Define B6 in the exact order `(valueX,dxX,dyX,valueY,dxY,dyY)`. Add private literal value/derivative pairing and summability adapters using public old source APIs. Raw six-pin order remains unchanged.
+3. For each remote target p, choose one coordinate for each separation from M,S,other remote q. Derive positivity at p and zero first jets at those avoided points for the product of three squared1-cos factors. Preserve repeated pins/arbitrary signed radius; no endpoint separation is introduced.
+4. Specialize public local germs0/1/2. Use the three-scalar triangular inverse to recover exactly the desired value/dx/dy at p; apply first-derivative product/combination rules. No Hessian targets or full second-jet inverse.
+5. Represent the actual functions through qualified47 finite trig operations and convert to original SourceMode Finsupp directions. Build three functions at each remote point, with cross-remote first jets zero, and concatenate to obtain the actual6×6 identity and raw6 zeros. Prove public proposition1.
+6. Apply the qualified generic finite-kernel Gram theorem at p=q=6 for arbitrary R. Prove public proposition2; do not repeat the underlying Gram mathematics or require regression/inversion/law hypotheses.
+7. Root qualifies only the new assembly/adapters and full new declaration inventory, with scoped strict/audit/one-own-module-kernel/controls/source-review and one collision-backed sole-False mutation. Preserve actual failures and lineage; reuse applicable unchanged success and old checks. Root owns metadata/cache/publication; scientific effect NONE and same-family/provider-distinct credit0.
+
+Completion is finite actual first-jet6 interpolation modulo raw pins and arbitrary-R Gram PosDef. Future actual joint posterior Gaussian law, conditional tie incidence, global Morse and canonical/Rice/Parent joins remain separate. Owner verification reuse/process separation and canonical mandate/delegation links are carried in the companion contract.

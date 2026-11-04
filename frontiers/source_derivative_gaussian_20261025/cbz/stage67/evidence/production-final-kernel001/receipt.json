@@ -1,0 +1,735 @@
+{
+  "label": "production-final-kernel001",
+  "scope_kind": "math",
+  "command_argv": [
+    "env",
+    "LEAN_PATH=/workspace/scratch/actual-source-lower-separation-construct/build",
+    "lake",
+    "env",
+    "leanchecker",
+    "SourceActualLowerSeparation"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "start_utc": "2026-10-29T16:47:24.817525+00:00",
+  "before": {
+    "/workspace/scratch/actual-source-lower-separation-construct/FROZEN_CONTEXT.md": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/FROZEN_CONTEXT.md",
+      "bytes": 40579,
+      "sha256": "f9592bfe1efdec4fc7bfa9fc3c69db5c4748d31dd59fd490592f6c53b38572d6",
+      "marker": [
+        40579,
+        1793233122538331741
+      ],
+      "first_observed_utc": "2026-10-29T00:19:38.448254+00:00",
+      "origin": "FIRST necessaryNEW67immutablecontext/scriptmetadata ID ONCE BEFOREanynew67script ownfirstexecution"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/INITIAL_SOURCE_COMMON.lean.txt": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/INITIAL_SOURCE_COMMON.lean.txt",
+      "bytes": 776,
+      "sha256": "b29acd4166dc8f6f043c0301331c50ba18d5cb47708395bd0cac1633ba52b6d7",
+      "marker": [
+        776,
+        1793233122538233748
+      ],
+      "first_observed_utc": "2026-10-29T00:19:38.448664+00:00",
+      "origin": "FIRST necessaryNEW67immutablecontext/scriptmetadata ID ONCE BEFOREanynew67script ownfirstexecution"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/BOOTSTRAP_PLAN.md": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/BOOTSTRAP_PLAN.md",
+      "bytes": 3972,
+      "sha256": "9a5146428d5a825fcf607fb089914cff1e632a3c8d33c842389e95f26fe14b66",
+      "marker": [
+        3972,
+        1793233122538437568
+      ],
+      "first_observed_utc": "2026-10-29T00:19:38.448796+00:00",
+      "origin": "FIRST necessaryNEW67immutablecontext/scriptmetadata ID ONCE BEFOREanynew67script ownfirstexecution"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/CONTROL_CONTRACT.md": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/CONTROL_CONTRACT.md",
+      "bytes": 16634,
+      "sha256": "d640cd0c68369f327565b5ad2431ed5a6ee2ce37d3a70efdd3c8419ac9d32b6a",
+      "marker": [
+        16634,
+        1793229979840633736
+      ],
+      "first_observed_utc": "2026-10-29T00:13:02.407802+00:00",
+      "origin": "KNOWNrootexactadoptedCONTROLcopyIDreuse/nohash",
+      "copied_from": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SOURCE_ACTUAL_LOWER_SEPARATION_CONTROLS.md"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/Inventory.lean": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/Inventory.lean",
+      "bytes": 1879,
+      "sha256": "1b82a70e12c79efd410db18199b7541f849eaf0760324fb0890d296b36e5d2c7",
+      "marker": [
+        1879,
+        1793292023724347551
+      ],
+      "first_observed_utc": "2026-10-29T16:40:24.478700+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/ControlsInventory.lean": null,
+    "/workspace/scratch/actual-source-lower-separation-construct/RESUMPTION_CONTEXT_ADDENDUM67.json": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/RESUMPTION_CONTEXT_ADDENDUM67.json",
+      "bytes": 3235,
+      "sha256": "b3e754089fd39c7d71959bb16751c8f5c7b7511d44c098c9f532f1a62a43d779",
+      "marker": [
+        3235,
+        1793290040419937812
+      ],
+      "first_observed_utc": "2026-10-29T16:07:20.420389+00:00",
+      "origin": "Known exact current process mirror ID REUSED from root FIRST record; zero duplicate SHA",
+      "copied_from": "/workspace/scratch/actual-source-lower-separation-publication/RESUMPTION_CONTEXT_ADDENDUM67.json"
+    },
+    "/workspace/scratch/actual-source-lower-separation-publication/ROOT_MATHEMATICAL_EXECUTION_RELEASE67.json": {
+      "path": "/workspace/scratch/actual-source-lower-separation-publication/ROOT_MATHEMATICAL_EXECUTION_RELEASE67.json",
+      "bytes": 3500,
+      "sha256": "07a58084b33ca0768e67c8beead5c8078b8d5a72649176baa6e1b7bc6772cf6b",
+      "marker": [
+        3500,
+        1793290702934482172
+      ],
+      "first_observed_utc": "2026-10-29T16:23:12.057016+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-publication/ROOT_CONTEXT67_ACCEPTANCE_001.json": {
+      "path": "/workspace/scratch/actual-source-lower-separation-publication/ROOT_CONTEXT67_ACCEPTANCE_001.json",
+      "bytes": 3571,
+      "sha256": "ce4da44fdd5057dcf094e0f8c64e769fe8d8346b57084f3c22dd64ddf3b1a0ed",
+      "marker": [
+        3571,
+        1793290702934285105
+      ],
+      "first_observed_utc": "2026-10-29T16:23:12.057097+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/runner/bootstrap_context.py": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/runner/bootstrap_context.py",
+      "bytes": 2136,
+      "sha256": "afaa42936707d23dda698d47b8c0ec544d761b577578750dadce8dcb6714eed7",
+      "marker": [
+        2136,
+        1793233122538204186
+      ],
+      "first_observed_utc": "2026-10-29T00:19:38.449153+00:00",
+      "origin": "FIRST necessaryNEW67immutablecontext/scriptmetadata ID ONCE BEFOREanynew67script ownfirstexecution"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/runner/capture67.py": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/runner/capture67.py",
+      "bytes": 2941,
+      "sha256": "afb7b2aa2447c982a8261d5eb563d690860c0cddbcdcff645b94fad16ea1cd56",
+      "marker": [
+        2941,
+        1793233122537366097
+      ],
+      "first_observed_utc": "2026-10-29T00:19:38.448978+00:00",
+      "origin": "FIRST necessaryNEW67immutablecontext/scriptmetadata ID ONCE BEFOREanynew67script ownfirstexecution"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/runner/record_run.py": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/runner/record_run.py",
+      "bytes": 7080,
+      "sha256": "fb6691bf3066a6e055d16490fffddb1a4f81b9662cc2c15b42f079a38663a277",
+      "marker": [
+        7080,
+        1793290398221372139
+      ],
+      "first_observed_utc": "2026-10-29T16:13:18.223338+00:00",
+      "origin": "FIRST necessary genuinely NEW metadata version ONCE before amended script own first execution"
+    },
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualLowerSeparation.lean": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualLowerSeparation.lean",
+      "bytes": 14899,
+      "sha256": "e72ed4f92e7867dc210b771e6afb4548cfad679e8b38795110fa6fd76a15e121",
+      "marker": [
+        14899,
+        1793291685396345876
+      ],
+      "first_observed_utc": "2026-10-29T16:34:46.127061+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/ActualLowerSeparationControls.lean": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/ActualLowerSeparationControls.lean",
+      "bytes": 3612,
+      "sha256": "204712ebd8ef7ba60b29daf11d43d4f0baf1a4077418a8590598bf288d640ac2",
+      "marker": [
+        3612,
+        1793292114083733745
+      ],
+      "first_observed_utc": "2026-10-29T16:44:09.314349+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/FalseControl.lean": null,
+    "/workspace/scratch/actual-source-lower-separation-construct/build/SourceActualLowerSeparation.olean": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/build/SourceActualLowerSeparation.olean",
+      "bytes": 409960,
+      "sha256": "c001bad5446351036112f0c78b264fd3ffc423dc7df7fc09f9431bdbdcac43cc",
+      "marker": [
+        409960,
+        1793291689492247884
+      ],
+      "first_observed_utc": "2026-10-29T16:34:49.584970+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/build/ActualLowerSeparationControls.olean": null,
+    "/workspace/scratch/actual-source-lower-separation-construct/FINAL_KERNEL_INTENT.lean.txt": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/FINAL_KERNEL_INTENT.lean.txt",
+      "bytes": 1481,
+      "sha256": "41af4973896c18bdac78ee03186e25d94b12134eef92daded754c344d4c5fb4a",
+      "marker": [
+        1481,
+        1793292444233029684
+      ],
+      "first_observed_utc": "2026-10-29T16:47:24.813501+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/ORDINARY_EXISTENCE_CONTEXT.lean.txt": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/ORDINARY_EXISTENCE_CONTEXT.lean.txt",
+      "bytes": 5983,
+      "sha256": "7f5df0e1e79fe9a9a5f3abe4771ed3814db8d0192766ba09fac50acfb8ff2229",
+      "marker": [
+        5983,
+        1793292223290876646
+      ],
+      "first_observed_utc": "2026-10-29T16:38:51.424233+00:00",
+      "origin": "Exact authorized ordinary context mirror known root FIRST ID REUSED; zero duplicate SHA",
+      "copied_from": "/workspace/scratch/actual-source-lower-separation-publication/SOURCE_ACTUAL_LOWER_SEPARATION_ORDINARY_EXISTENCE_AMENDMENT_001.md"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/production004.INTEGRATED_ORIGINAL.lean.txt": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/production004.INTEGRATED_ORIGINAL.lean.txt",
+      "bytes": 14139,
+      "sha256": "5e0d1235a6894160a3e629f4649b98b44a86f7254206e32c11a93028131bebfb",
+      "marker": [
+        14139,
+        1793291458043798296
+      ],
+      "first_observed_utc": "2026-10-29T16:30:58.044719+00:00",
+      "origin": "FIRST NEW complete integrated-original source version ONCE before producer amendments or any Lean execution"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/inventory001.FULL_ACTUAL.patch": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/inventory001.FULL_ACTUAL.patch",
+      "bytes": 2036,
+      "sha256": "6cd01a384c9530caf4fe4758e37702542abc866af27f85b1eab76472af19fb51",
+      "marker": [
+        2036,
+        1793291922223093766
+      ],
+      "first_observed_utc": "2026-10-29T16:38:42.519692+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/inventory002.FULL_ACTUAL.patch": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/inventory002.FULL_ACTUAL.patch",
+      "bytes": 614,
+      "sha256": "668bced69e656f066c19b351307a21cda788dc98bed9a8a2eea21e921102108a",
+      "marker": [
+        614,
+        1793292024232396945
+      ],
+      "first_observed_utc": "2026-10-29T16:40:24.479335+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/ordinary001.INITIAL_FULL_ACTUAL.patch": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/ordinary001.INITIAL_FULL_ACTUAL.patch",
+      "bytes": 2804,
+      "sha256": "172a6d1e74b81aee3fe1d8d986311b34b1066d5ddb051326c06311e5a1837a7e",
+      "marker": [
+        2804,
+        1793292249073485423
+      ],
+      "first_observed_utc": "2026-10-29T16:44:09.314757+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/ordinary002.FULL_ACTUAL.patch": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/ordinary002.FULL_ACTUAL.patch",
+      "bytes": 1463,
+      "sha256": "f92b1dca337404eddb407d46e128ecacb3b7557046506b5a8b7843915af51ed4",
+      "marker": [
+        1463,
+        1793292249074168598
+      ],
+      "first_observed_utc": "2026-10-29T16:44:09.314859+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/production001.FULL_ACTUAL.patch": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/production001.FULL_ACTUAL.patch",
+      "bytes": 3349,
+      "sha256": "ffeed787efd0848fdf75ebe22d0bd2cde68a15b540da51cd4fcf0d6c1018b9c7",
+      "marker": [
+        3349,
+        1793290975585260200
+      ],
+      "first_observed_utc": "2026-10-29T16:23:12.057443+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/production002.FULL_ACTUAL.patch": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/production002.FULL_ACTUAL.patch",
+      "bytes": 853,
+      "sha256": "18f66f00ea48f265759b455330d2398631fc96fe41bf636108ab798bf1bcf29f",
+      "marker": [
+        853,
+        1793291045700872138
+      ],
+      "first_observed_utc": "2026-10-29T16:24:05.956468+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/production003.FULL_ACTUAL.patch": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/production003.FULL_ACTUAL.patch",
+      "bytes": 3516,
+      "sha256": "98265bd23168afd73eb5cf35484a86252d1214a9833b0d79c9ace57fb7067694",
+      "marker": [
+        3516,
+        1793291227533194946
+      ],
+      "first_observed_utc": "2026-10-29T16:27:07.800713+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/production004.FULL_ACTUAL.patch": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/production004.FULL_ACTUAL.patch",
+      "bytes": 9621,
+      "sha256": "6332e3819522293084cbfc9aefdff2d60c268f05cbc42a5fb81694e07a7b7ad6",
+      "marker": [
+        9621,
+        1793291458047087894
+      ],
+      "first_observed_utc": "2026-10-29T16:31:19.281934+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/production004.INTEGRATION_FULL_ACTUAL.patch": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/production004.INTEGRATION_FULL_ACTUAL.patch",
+      "bytes": 8686,
+      "sha256": "8b3e7b76e5e3f464ec919786938d68b34991f0b2b390d6ed2dfa32f56460d485",
+      "marker": [
+        8686,
+        1793291458045234403
+      ],
+      "first_observed_utc": "2026-10-29T16:31:19.282235+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/production004.PRODUCER_AMENDMENTS_FULL_ACTUAL.patch": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/production004.PRODUCER_AMENDMENTS_FULL_ACTUAL.patch",
+      "bytes": 2442,
+      "sha256": "0867637b4d37c04a59703df32d72d78574690ed890ed66ceb98eb4afe2df593f",
+      "marker": [
+        2442,
+        1793291458046360030
+      ],
+      "first_observed_utc": "2026-10-29T16:31:19.282562+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/production005.FULL_ACTUAL.patch": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/production005.FULL_ACTUAL.patch",
+      "bytes": 1433,
+      "sha256": "004843397d30afaf072ebd830c98e1aa7e8897b284ccd67f96971f76f9652722",
+      "marker": [
+        1433,
+        1793291559565329445
+      ],
+      "first_observed_utc": "2026-10-29T16:32:39.823579+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/production006.FULL_ACTUAL.patch": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/production006.FULL_ACTUAL.patch",
+      "bytes": 756,
+      "sha256": "bccbd9b3baeff90b2433a4cd7f4765a19d8be430b1a03a1aaee82dd541e7aae8",
+      "marker": [
+        756,
+        1793291685857940222
+      ],
+      "first_observed_utc": "2026-10-29T16:34:46.127909+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    }
+  },
+  "before_snapshots": {
+    "/workspace/scratch/actual-source-lower-separation-construct/FROZEN_CONTEXT.md": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/before/0-FROZEN_CONTEXT.md",
+    "/workspace/scratch/actual-source-lower-separation-construct/INITIAL_SOURCE_COMMON.lean.txt": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/before/1-INITIAL_SOURCE_COMMON.lean.txt",
+    "/workspace/scratch/actual-source-lower-separation-construct/BOOTSTRAP_PLAN.md": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/before/2-BOOTSTRAP_PLAN.md",
+    "/workspace/scratch/actual-source-lower-separation-construct/CONTROL_CONTRACT.md": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/before/3-CONTROL_CONTRACT.md",
+    "/workspace/scratch/actual-source-lower-separation-construct/Inventory.lean": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/before/4-Inventory.lean",
+    "/workspace/scratch/actual-source-lower-separation-construct/RESUMPTION_CONTEXT_ADDENDUM67.json": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/before/6-RESUMPTION_CONTEXT_ADDENDUM67.json",
+    "/workspace/scratch/actual-source-lower-separation-publication/ROOT_MATHEMATICAL_EXECUTION_RELEASE67.json": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/before/7-ROOT_MATHEMATICAL_EXECUTION_RELEASE67.json",
+    "/workspace/scratch/actual-source-lower-separation-publication/ROOT_CONTEXT67_ACCEPTANCE_001.json": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/before/8-ROOT_CONTEXT67_ACCEPTANCE_001.json",
+    "/workspace/scratch/actual-source-lower-separation-construct/runner/bootstrap_context.py": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/before/9-bootstrap_context.py",
+    "/workspace/scratch/actual-source-lower-separation-construct/runner/capture67.py": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/before/10-capture67.py",
+    "/workspace/scratch/actual-source-lower-separation-construct/runner/record_run.py": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/before/11-record_run.py",
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualLowerSeparation.lean": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/before/12-SourceActualLowerSeparation.lean",
+    "/workspace/scratch/actual-source-lower-separation-construct/ActualLowerSeparationControls.lean": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/before/13-ActualLowerSeparationControls.lean",
+    "/workspace/scratch/actual-source-lower-separation-construct/FINAL_KERNEL_INTENT.lean.txt": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/before/17-FINAL_KERNEL_INTENT.lean.txt",
+    "/workspace/scratch/actual-source-lower-separation-construct/ORDINARY_EXISTENCE_CONTEXT.lean.txt": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/before/18-ORDINARY_EXISTENCE_CONTEXT.lean.txt",
+    "/workspace/scratch/actual-source-lower-separation-construct/production004.INTEGRATED_ORIGINAL.lean.txt": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/before/19-production004.INTEGRATED_ORIGINAL.lean.txt",
+    "/workspace/scratch/actual-source-lower-separation-construct/inventory001.FULL_ACTUAL.patch": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/before/20-inventory001.FULL_ACTUAL.patch",
+    "/workspace/scratch/actual-source-lower-separation-construct/inventory002.FULL_ACTUAL.patch": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/before/21-inventory002.FULL_ACTUAL.patch",
+    "/workspace/scratch/actual-source-lower-separation-construct/ordinary001.INITIAL_FULL_ACTUAL.patch": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/before/22-ordinary001.INITIAL_FULL_ACTUAL.patch",
+    "/workspace/scratch/actual-source-lower-separation-construct/ordinary002.FULL_ACTUAL.patch": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/before/23-ordinary002.FULL_ACTUAL.patch",
+    "/workspace/scratch/actual-source-lower-separation-construct/production001.FULL_ACTUAL.patch": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/before/24-production001.FULL_ACTUAL.patch",
+    "/workspace/scratch/actual-source-lower-separation-construct/production002.FULL_ACTUAL.patch": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/before/25-production002.FULL_ACTUAL.patch",
+    "/workspace/scratch/actual-source-lower-separation-construct/production003.FULL_ACTUAL.patch": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/before/26-production003.FULL_ACTUAL.patch",
+    "/workspace/scratch/actual-source-lower-separation-construct/production004.FULL_ACTUAL.patch": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/before/27-production004.FULL_ACTUAL.patch",
+    "/workspace/scratch/actual-source-lower-separation-construct/production004.INTEGRATION_FULL_ACTUAL.patch": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/before/28-production004.INTEGRATION_FULL_ACTUAL.patch",
+    "/workspace/scratch/actual-source-lower-separation-construct/production004.PRODUCER_AMENDMENTS_FULL_ACTUAL.patch": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/before/29-production004.PRODUCER_AMENDMENTS_FULL_ACTUAL.patch",
+    "/workspace/scratch/actual-source-lower-separation-construct/production005.FULL_ACTUAL.patch": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/before/30-production005.FULL_ACTUAL.patch",
+    "/workspace/scratch/actual-source-lower-separation-construct/production006.FULL_ACTUAL.patch": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/before/31-production006.FULL_ACTUAL.patch"
+  },
+  "outer_capture_dir": "/workspace/scratch/actual-source-lower-separation-construct/outer/production-final-kernel001",
+  "entry_capture_dir": "/workspace/scratch/actual-source-lower-separation-construct/entry/production-final-kernel001",
+  "environment_recorded": {
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "credential_environment_logged": false,
+  "automatic_retry": false,
+  "end_utc": "2026-10-29T16:47:29.785445+00:00",
+  "elapsed_seconds": 4.967936528999871,
+  "exit_code": 0,
+  "spawn_or_worker_exception": null,
+  "after": {
+    "/workspace/scratch/actual-source-lower-separation-construct/FROZEN_CONTEXT.md": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/FROZEN_CONTEXT.md",
+      "bytes": 40579,
+      "sha256": "f9592bfe1efdec4fc7bfa9fc3c69db5c4748d31dd59fd490592f6c53b38572d6",
+      "marker": [
+        40579,
+        1793233122538331741
+      ],
+      "first_observed_utc": "2026-10-29T00:19:38.448254+00:00",
+      "origin": "FIRST necessaryNEW67immutablecontext/scriptmetadata ID ONCE BEFOREanynew67script ownfirstexecution"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/INITIAL_SOURCE_COMMON.lean.txt": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/INITIAL_SOURCE_COMMON.lean.txt",
+      "bytes": 776,
+      "sha256": "b29acd4166dc8f6f043c0301331c50ba18d5cb47708395bd0cac1633ba52b6d7",
+      "marker": [
+        776,
+        1793233122538233748
+      ],
+      "first_observed_utc": "2026-10-29T00:19:38.448664+00:00",
+      "origin": "FIRST necessaryNEW67immutablecontext/scriptmetadata ID ONCE BEFOREanynew67script ownfirstexecution"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/BOOTSTRAP_PLAN.md": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/BOOTSTRAP_PLAN.md",
+      "bytes": 3972,
+      "sha256": "9a5146428d5a825fcf607fb089914cff1e632a3c8d33c842389e95f26fe14b66",
+      "marker": [
+        3972,
+        1793233122538437568
+      ],
+      "first_observed_utc": "2026-10-29T00:19:38.448796+00:00",
+      "origin": "FIRST necessaryNEW67immutablecontext/scriptmetadata ID ONCE BEFOREanynew67script ownfirstexecution"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/CONTROL_CONTRACT.md": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/CONTROL_CONTRACT.md",
+      "bytes": 16634,
+      "sha256": "d640cd0c68369f327565b5ad2431ed5a6ee2ce37d3a70efdd3c8419ac9d32b6a",
+      "marker": [
+        16634,
+        1793229979840633736
+      ],
+      "first_observed_utc": "2026-10-29T00:13:02.407802+00:00",
+      "origin": "KNOWNrootexactadoptedCONTROLcopyIDreuse/nohash",
+      "copied_from": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SOURCE_ACTUAL_LOWER_SEPARATION_CONTROLS.md"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/Inventory.lean": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/Inventory.lean",
+      "bytes": 1879,
+      "sha256": "1b82a70e12c79efd410db18199b7541f849eaf0760324fb0890d296b36e5d2c7",
+      "marker": [
+        1879,
+        1793292023724347551
+      ],
+      "first_observed_utc": "2026-10-29T16:40:24.478700+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/ControlsInventory.lean": null,
+    "/workspace/scratch/actual-source-lower-separation-construct/RESUMPTION_CONTEXT_ADDENDUM67.json": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/RESUMPTION_CONTEXT_ADDENDUM67.json",
+      "bytes": 3235,
+      "sha256": "b3e754089fd39c7d71959bb16751c8f5c7b7511d44c098c9f532f1a62a43d779",
+      "marker": [
+        3235,
+        1793290040419937812
+      ],
+      "first_observed_utc": "2026-10-29T16:07:20.420389+00:00",
+      "origin": "Known exact current process mirror ID REUSED from root FIRST record; zero duplicate SHA",
+      "copied_from": "/workspace/scratch/actual-source-lower-separation-publication/RESUMPTION_CONTEXT_ADDENDUM67.json"
+    },
+    "/workspace/scratch/actual-source-lower-separation-publication/ROOT_MATHEMATICAL_EXECUTION_RELEASE67.json": {
+      "path": "/workspace/scratch/actual-source-lower-separation-publication/ROOT_MATHEMATICAL_EXECUTION_RELEASE67.json",
+      "bytes": 3500,
+      "sha256": "07a58084b33ca0768e67c8beead5c8078b8d5a72649176baa6e1b7bc6772cf6b",
+      "marker": [
+        3500,
+        1793290702934482172
+      ],
+      "first_observed_utc": "2026-10-29T16:23:12.057016+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-publication/ROOT_CONTEXT67_ACCEPTANCE_001.json": {
+      "path": "/workspace/scratch/actual-source-lower-separation-publication/ROOT_CONTEXT67_ACCEPTANCE_001.json",
+      "bytes": 3571,
+      "sha256": "ce4da44fdd5057dcf094e0f8c64e769fe8d8346b57084f3c22dd64ddf3b1a0ed",
+      "marker": [
+        3571,
+        1793290702934285105
+      ],
+      "first_observed_utc": "2026-10-29T16:23:12.057097+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/runner/bootstrap_context.py": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/runner/bootstrap_context.py",
+      "bytes": 2136,
+      "sha256": "afaa42936707d23dda698d47b8c0ec544d761b577578750dadce8dcb6714eed7",
+      "marker": [
+        2136,
+        1793233122538204186
+      ],
+      "first_observed_utc": "2026-10-29T00:19:38.449153+00:00",
+      "origin": "FIRST necessaryNEW67immutablecontext/scriptmetadata ID ONCE BEFOREanynew67script ownfirstexecution"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/runner/capture67.py": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/runner/capture67.py",
+      "bytes": 2941,
+      "sha256": "afb7b2aa2447c982a8261d5eb563d690860c0cddbcdcff645b94fad16ea1cd56",
+      "marker": [
+        2941,
+        1793233122537366097
+      ],
+      "first_observed_utc": "2026-10-29T00:19:38.448978+00:00",
+      "origin": "FIRST necessaryNEW67immutablecontext/scriptmetadata ID ONCE BEFOREanynew67script ownfirstexecution"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/runner/record_run.py": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/runner/record_run.py",
+      "bytes": 7080,
+      "sha256": "fb6691bf3066a6e055d16490fffddb1a4f81b9662cc2c15b42f079a38663a277",
+      "marker": [
+        7080,
+        1793290398221372139
+      ],
+      "first_observed_utc": "2026-10-29T16:13:18.223338+00:00",
+      "origin": "FIRST necessary genuinely NEW metadata version ONCE before amended script own first execution"
+    },
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualLowerSeparation.lean": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualLowerSeparation.lean",
+      "bytes": 14899,
+      "sha256": "e72ed4f92e7867dc210b771e6afb4548cfad679e8b38795110fa6fd76a15e121",
+      "marker": [
+        14899,
+        1793291685396345876
+      ],
+      "first_observed_utc": "2026-10-29T16:34:46.127061+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/ActualLowerSeparationControls.lean": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/ActualLowerSeparationControls.lean",
+      "bytes": 3612,
+      "sha256": "204712ebd8ef7ba60b29daf11d43d4f0baf1a4077418a8590598bf288d640ac2",
+      "marker": [
+        3612,
+        1793292114083733745
+      ],
+      "first_observed_utc": "2026-10-29T16:44:09.314349+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/FalseControl.lean": null,
+    "/workspace/scratch/actual-source-lower-separation-construct/build/SourceActualLowerSeparation.olean": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/build/SourceActualLowerSeparation.olean",
+      "bytes": 409960,
+      "sha256": "c001bad5446351036112f0c78b264fd3ffc423dc7df7fc09f9431bdbdcac43cc",
+      "marker": [
+        409960,
+        1793291689492247884
+      ],
+      "first_observed_utc": "2026-10-29T16:34:49.584970+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/build/ActualLowerSeparationControls.olean": null,
+    "/workspace/scratch/actual-source-lower-separation-construct/FINAL_KERNEL_INTENT.lean.txt": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/FINAL_KERNEL_INTENT.lean.txt",
+      "bytes": 1481,
+      "sha256": "41af4973896c18bdac78ee03186e25d94b12134eef92daded754c344d4c5fb4a",
+      "marker": [
+        1481,
+        1793292444233029684
+      ],
+      "first_observed_utc": "2026-10-29T16:47:24.813501+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/ORDINARY_EXISTENCE_CONTEXT.lean.txt": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/ORDINARY_EXISTENCE_CONTEXT.lean.txt",
+      "bytes": 5983,
+      "sha256": "7f5df0e1e79fe9a9a5f3abe4771ed3814db8d0192766ba09fac50acfb8ff2229",
+      "marker": [
+        5983,
+        1793292223290876646
+      ],
+      "first_observed_utc": "2026-10-29T16:38:51.424233+00:00",
+      "origin": "Exact authorized ordinary context mirror known root FIRST ID REUSED; zero duplicate SHA",
+      "copied_from": "/workspace/scratch/actual-source-lower-separation-publication/SOURCE_ACTUAL_LOWER_SEPARATION_ORDINARY_EXISTENCE_AMENDMENT_001.md"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/production004.INTEGRATED_ORIGINAL.lean.txt": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/production004.INTEGRATED_ORIGINAL.lean.txt",
+      "bytes": 14139,
+      "sha256": "5e0d1235a6894160a3e629f4649b98b44a86f7254206e32c11a93028131bebfb",
+      "marker": [
+        14139,
+        1793291458043798296
+      ],
+      "first_observed_utc": "2026-10-29T16:30:58.044719+00:00",
+      "origin": "FIRST NEW complete integrated-original source version ONCE before producer amendments or any Lean execution"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/inventory001.FULL_ACTUAL.patch": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/inventory001.FULL_ACTUAL.patch",
+      "bytes": 2036,
+      "sha256": "6cd01a384c9530caf4fe4758e37702542abc866af27f85b1eab76472af19fb51",
+      "marker": [
+        2036,
+        1793291922223093766
+      ],
+      "first_observed_utc": "2026-10-29T16:38:42.519692+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/inventory002.FULL_ACTUAL.patch": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/inventory002.FULL_ACTUAL.patch",
+      "bytes": 614,
+      "sha256": "668bced69e656f066c19b351307a21cda788dc98bed9a8a2eea21e921102108a",
+      "marker": [
+        614,
+        1793292024232396945
+      ],
+      "first_observed_utc": "2026-10-29T16:40:24.479335+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/ordinary001.INITIAL_FULL_ACTUAL.patch": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/ordinary001.INITIAL_FULL_ACTUAL.patch",
+      "bytes": 2804,
+      "sha256": "172a6d1e74b81aee3fe1d8d986311b34b1066d5ddb051326c06311e5a1837a7e",
+      "marker": [
+        2804,
+        1793292249073485423
+      ],
+      "first_observed_utc": "2026-10-29T16:44:09.314757+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/ordinary002.FULL_ACTUAL.patch": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/ordinary002.FULL_ACTUAL.patch",
+      "bytes": 1463,
+      "sha256": "f92b1dca337404eddb407d46e128ecacb3b7557046506b5a8b7843915af51ed4",
+      "marker": [
+        1463,
+        1793292249074168598
+      ],
+      "first_observed_utc": "2026-10-29T16:44:09.314859+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/production001.FULL_ACTUAL.patch": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/production001.FULL_ACTUAL.patch",
+      "bytes": 3349,
+      "sha256": "ffeed787efd0848fdf75ebe22d0bd2cde68a15b540da51cd4fcf0d6c1018b9c7",
+      "marker": [
+        3349,
+        1793290975585260200
+      ],
+      "first_observed_utc": "2026-10-29T16:23:12.057443+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/production002.FULL_ACTUAL.patch": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/production002.FULL_ACTUAL.patch",
+      "bytes": 853,
+      "sha256": "18f66f00ea48f265759b455330d2398631fc96fe41bf636108ab798bf1bcf29f",
+      "marker": [
+        853,
+        1793291045700872138
+      ],
+      "first_observed_utc": "2026-10-29T16:24:05.956468+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/production003.FULL_ACTUAL.patch": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/production003.FULL_ACTUAL.patch",
+      "bytes": 3516,
+      "sha256": "98265bd23168afd73eb5cf35484a86252d1214a9833b0d79c9ace57fb7067694",
+      "marker": [
+        3516,
+        1793291227533194946
+      ],
+      "first_observed_utc": "2026-10-29T16:27:07.800713+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/production004.FULL_ACTUAL.patch": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/production004.FULL_ACTUAL.patch",
+      "bytes": 9621,
+      "sha256": "6332e3819522293084cbfc9aefdff2d60c268f05cbc42a5fb81694e07a7b7ad6",
+      "marker": [
+        9621,
+        1793291458047087894
+      ],
+      "first_observed_utc": "2026-10-29T16:31:19.281934+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/production004.INTEGRATION_FULL_ACTUAL.patch": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/production004.INTEGRATION_FULL_ACTUAL.patch",
+      "bytes": 8686,
+      "sha256": "8b3e7b76e5e3f464ec919786938d68b34991f0b2b390d6ed2dfa32f56460d485",
+      "marker": [
+        8686,
+        1793291458045234403
+      ],
+      "first_observed_utc": "2026-10-29T16:31:19.282235+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/production004.PRODUCER_AMENDMENTS_FULL_ACTUAL.patch": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/production004.PRODUCER_AMENDMENTS_FULL_ACTUAL.patch",
+      "bytes": 2442,
+      "sha256": "0867637b4d37c04a59703df32d72d78574690ed890ed66ceb98eb4afe2df593f",
+      "marker": [
+        2442,
+        1793291458046360030
+      ],
+      "first_observed_utc": "2026-10-29T16:31:19.282562+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/production005.FULL_ACTUAL.patch": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/production005.FULL_ACTUAL.patch",
+      "bytes": 1433,
+      "sha256": "004843397d30afaf072ebd830c98e1aa7e8897b284ccd67f96971f76f9652722",
+      "marker": [
+        1433,
+        1793291559565329445
+      ],
+      "first_observed_utc": "2026-10-29T16:32:39.823579+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "/workspace/scratch/actual-source-lower-separation-construct/production006.FULL_ACTUAL.patch": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/production006.FULL_ACTUAL.patch",
+      "bytes": 756,
+      "sha256": "bccbd9b3baeff90b2433a4cd7f4765a19d8be430b1a03a1aaee82dd541e7aae8",
+      "marker": [
+        756,
+        1793291685857940222
+      ],
+      "first_observed_utc": "2026-10-29T16:34:46.127909+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    }
+  },
+  "streams": {
+    "stdout.log": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "marker": [
+        0,
+        1793292444819383863
+      ],
+      "first_observed_utc": "2026-10-29T16:47:29.787415+00:00",
+      "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+    },
+    "stderr.log": {
+      "path": "/workspace/scratch/actual-source-lower-separation-construct/runs/production-final-kernel001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "marker": [
+        0,
+        1793292444819383863
+      ],
+      "first_observed_utc": "2026-10-29T16:47:29.787441+00:00",
+      "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+    }
+  },
+  "worker_capture": "Original separate full stdout/stderr; actual inner result retained independently of outer/entry",
+  "binary_snapshot_or_canonical_object_copy": false
+}

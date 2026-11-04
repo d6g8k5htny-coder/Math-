@@ -1,0 +1,94 @@
+{
+  "module": "SourceActualFoldTorus",
+  "final_identities": [
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFoldTorus.lean",
+      "bytes": 17840,
+      "sha256": "d2ca01d1f881852372c371215c30216bee7d917fdf2eaafbbd097f8c840e20c6"
+    },
+    {
+      "path": "/workspace/scratch/actual-fold-torus-construct/build/SourceActualFoldTorus.olean",
+      "bytes": 733480,
+      "sha256": "9dd9d93e12ddb685ece1348b0699045b7e57b362cb48eaa54ac4373ddb9fd6e9"
+    },
+    {
+      "path": "/workspace/scratch/actual-fold-torus-construct/build/SourceActualFoldTorus.ilean",
+      "bytes": 52153,
+      "sha256": "859007d6e8752a374ac705b33e4c1280279095d779671dfeec4e714cef9f8681"
+    },
+    {
+      "path": "/workspace/scratch/actual-fold-torus-construct/ActualTorusControls.lean",
+      "bytes": 4658,
+      "sha256": "f98562087be74352b2071e5c746c211c90baec3c8c05f100ff4e4e421862dbe4"
+    },
+    {
+      "path": "/workspace/scratch/actual-fold-torus-construct/build/ActualTorusControls.olean",
+      "bytes": 124496,
+      "sha256": "95ae4d43db340ad6f964b103210ff112e30b123a3bdb633917a3718927a2ddd1"
+    },
+    {
+      "path": "/workspace/scratch/actual-fold-torus-construct/FalseMutation.lean",
+      "bytes": 591,
+      "sha256": "e088a290d49ea7ae87b16e8cd147afd63d2b42c9011f7fe1fac172d8a377a55e"
+    },
+    {
+      "path": "/workspace/scratch/actual-fold-torus-construct/Inventory.lean",
+      "bytes": 1071,
+      "sha256": "82ceef5316a10ebc2c31bba18d1195f23384d6f8b3a17031ce8fdf4e3a40b694"
+    },
+    {
+      "path": "/workspace/scratch/actual-fold-torus-construct/CONTROL_CONTRACT.md",
+      "bytes": 1644,
+      "sha256": "881684f649c1313f4f719076a88cceb900e1b607dd9ab20dcc22a1e561a4006c"
+    },
+    {
+      "path": "/workspace/scratch/actual-fold-torus-construct/FROZEN_DESCENT_SECTION.lean.txt",
+      "bytes": 4573,
+      "sha256": "4aab485703cb679309e183c6afbb8a2c051c0506a0a6555718be4a748edfa174"
+    },
+    {
+      "path": "/workspace/scratch/actual-fold-torus-construct/Generic.lean",
+      "bytes": 2717,
+      "sha256": "8f6d1f43b266c26240e40856c8341d08e70fae5a71b21d55703a2e04e88cf7b9"
+    },
+    {
+      "path": "/workspace/scratch/actual-fold-torus-construct/Transport.lean",
+      "bytes": 5207,
+      "sha256": "2595a775493b4dfef236a0e715f160f3ac8d7bbe55252f37cb7c0efcdf8bbf11"
+    },
+    {
+      "path": "/workspace/scratch/actual-fold-torus-construct/ActualBody.lean.txt",
+      "bytes": 7767,
+      "sha256": "25c2ee1c29e9162c91543e2e13c89ef9548755fb022ab74f9e3d34bd87bf0c69"
+    },
+    {
+      "path": "/workspace/scratch/actual-fold-torus-construct/run_stage.py",
+      "bytes": 1425,
+      "sha256": "11de2ec9eb05e6f973593324f5c1bc8d0fc6919cbe053c57a1b6d22ad2cde571"
+    }
+  ],
+  "source_frozen_before_kernel": true,
+  "binding_strict_receipt": "runs/strict-003/receipt.json",
+  "sole_kernel_receipt": "runs/kernel-001/receipt.json",
+  "source_object_bindings_reused_in": [
+    "kernel-001",
+    "inventory-001",
+    "controls-002",
+    "false-control-001"
+  ],
+  "copy_to_packet_only": [
+    "build/SourceActualFoldTorus.olean",
+    "build/SourceActualFoldTorus.ilean"
+  ],
+  "never_copy_to_production_cache": [
+    "build/ActualTorusControls.olean",
+    "FalseMutation.lean",
+    "Inventory.lean",
+    "Generic.lean",
+    "Transport.lean"
+  ],
+  "custody_observation_scope": "Own final artifacts only; reused helper/upstream identities are copied in AUTHOR_HELPER_LINEAGE.json, not freshly recomputed.",
+  "no_source_or_production_object_mutation_in_recovery": true,
+  "published_source_cut_from_root_handoff": "33a305a35312eca7fbfd04a4ed4f5269db69b97c",
+  "source_cut_evidence_basis": "Root message on 26 October 2026; unchanged frozen source committed by root, no new source check performed."
+}

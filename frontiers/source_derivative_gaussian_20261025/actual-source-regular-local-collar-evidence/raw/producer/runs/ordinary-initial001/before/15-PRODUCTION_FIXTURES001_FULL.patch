@@ -1,0 +1,225 @@
+--- history/production-fixtures001/SourceActualRegularLocalCollar.lean.ORIGINAL
++++ SourceActualRegularLocalCollar.lean
+@@ -519,4 +519,222 @@
+     same_chart_traces_pc (actualF hL ω) (actualF hL ω (cover L X)) ρ hρ φ
+       htarget hfield⟩
+ 
++
++private theorem fixture_derivative_apply (Y V : E2) :
++    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) Y) V =
++      -Real.pi * Real.sin (Real.pi * (Q Y) 0) * (Q V) 0 -
++        2 * Real.pi * Real.sin (Real.pi * (Q Y) 1) * (Q V) 1 := by
++  let d0 : E2 →L[ℝ] ℝ := (ContinuousLinearMap.proj (0 : Fin 2)).comp Q
++  let d1 : E2 →L[ℝ] ℝ := (ContinuousLinearMap.proj (1 : Fin 2)).comp Q
++  have h0 : HasFDerivAt (fun Z : E2 => Real.pi * (Q Z) 0) (Real.pi • d0) Y :=
++    d0.hasFDerivAt.const_mul Real.pi
++  have h1 : HasFDerivAt (fun Z : E2 => Real.pi * (Q Z) 1) (Real.pi • d1) Y :=
++    d1.hasFDerivAt.const_mul Real.pi
++  have hd := h0.cos.add (h1.cos.const_mul 2)
++  have heq : I4LifetimeField.actualField 2 2 fixtureSample =
++      fun Z : E2 => Real.cos (Real.pi * (Q Z) 0) +
++        2 * Real.cos (Real.pi * (Q Z) 1) := funext fixture_actual_formula
++  rw [heq, hd.fderiv]
++  simp only [ContinuousLinearMap.add_apply, ContinuousLinearMap.smul_apply,
++    smul_eq_mul, d0, d1, ContinuousLinearMap.comp_apply, ContinuousLinearMap.proj_apply]
++  ring
++
++private def fixtureXx : E2 := Q.symm ![(1 / 2 : ℝ), 0]
++private def fixtureXy : E2 := Q.symm ![0, (1 / 2 : ℝ)]
++private def fixtureXseam : E2 := Q.symm ![(-3 / 2 : ℝ), 0]
++private def fixtureXmax : E2 := Q.symm ![(0 : ℝ), 0]
++
++private theorem fixture_regularX_value :
++    I4LifetimeField.actualField 2 2 fixtureSample fixtureXx = 2 := by
++  rw [fixture_actual_formula]
++  norm_num [fixtureXx, mul_one_div]
++
++private theorem fixture_regularY_value :
++    I4LifetimeField.actualField 2 2 fixtureSample fixtureXy = 1 := by
++  rw [fixture_actual_formula]
++  norm_num [fixtureXy, mul_one_div]
++
++private theorem fixture_regularX_derivative :
++    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXx) physicalBasis0 =
++      -Real.pi ∧
++    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXx) physicalBasis1 = 0 := by
++  constructor <;> rw [fixture_derivative_apply] <;>
++    norm_num [fixtureXx, physicalBasis0, physicalBasis1, mul_one_div]
++
++private theorem fixture_regularY_derivative :
++    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXy) physicalBasis0 = 0 ∧
++    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXy) physicalBasis1 =
++      -2 * Real.pi := by
++  constructor <;> rw [fixture_derivative_apply] <;>
++    norm_num [fixtureXy, physicalBasis0, physicalBasis1, mul_one_div]
++
++private theorem fixture_seam_phase :
++    Real.sin (Real.pi * (-3 / 2 : ℝ)) = 1 ∧
++    Real.cos (Real.pi * (-3 / 2 : ℝ)) = 0 := by
++  have heq : Real.pi * (-3 / 2 : ℝ) = Real.pi / 2 - 2 * Real.pi := by ring
++  rw [heq, Real.sin_sub_two_pi, Real.cos_sub_two_pi]
++  exact ⟨Real.sin_pi_div_two, Real.cos_pi_div_two⟩
++
++private theorem fixture_seam_value :
++    I4LifetimeField.actualField 2 2 fixtureSample fixtureXseam = 2 := by
++  rw [fixture_actual_formula]
++  simpa [fixtureXseam, fixture_seam_phase.2] using fixture_seam_phase.2
++
++private theorem fixture_seam_derivative :
++    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXseam) physicalBasis0 =
++      -Real.pi ∧
++    (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXseam) physicalBasis1 = 0 := by
++  constructor <;> rw [fixture_derivative_apply] <;>
++    simp [fixtureXseam, physicalBasis0, physicalBasis1, fixture_seam_phase.1]
++
++private theorem fixture_seam_quotient : cover 2 fixtureXseam = cover 2 fixtureXx := by
++  have hq : ((-3 / 2 : ℝ) : AddCircle (2 : ℝ)) =
++      ((1 / 2 : ℝ) : AddCircle (2 : ℝ)) := by
++    have hp := (AddCircle.coe_add_period (2 : ℝ) (-3 / 2 : ℝ)).symm
++    norm_num at hp
++    exact hp
++  ext i
++  fin_cases i
++  · simpa [cover, fixtureXseam, fixtureXx, I4Torus.torusProjection] using hq
++  · simp [cover, fixtureXseam, fixtureXx, I4Torus.torusProjection]
++
++private theorem smallO_isOpen (L : ℝ) (X : E2) : IsOpen (smallO L X) := by
++  have hp : IsOpenMap (cover L) :=
++    (SourceActualFoldTorus.torusProjection2L_open L).comp Q.toHomeomorph.isOpenMap
++  exact hp _ Metric.isOpen_ball
++
++private theorem center_mem_smallO (L : ℝ) (X : E2) : cover L X ∈ smallO L X :=
++  ⟨X, Metric.mem_ball_self (by norm_num), rfl⟩
++
++private def FixedCutChecks {L : ℝ} (F : Torus2 L → ℝ) (c ρ : ℝ)
++    (φ : OpenPartialHomeomorph (Torus2 L) Point2) : Prop :=
++  ∀ ε : ℝ, (ε = 0 ∨ ε = ρ / 2 ∨ ε = -ρ / 2) →
++    let z := φ.symm ![0, ε]
++    let zm := φ.symm ![-ρ / 2, ε]
++    let zp := φ.symm ![ρ / 2, ε]
++    z ∈ φ.source ∧ zm ∈ φ.source ∧ zp ∈ φ.source ∧
++    φ z = ![0, ε] ∧ φ zm = ![-ρ / 2, ε] ∧ φ zp = ![ρ / 2, ε] ∧
++    F z = c + ε ∧ F zm = c + ε ∧ F zp = c + ε ∧
++    z ∈ φ.source ∩ {p | c + ε ≤ F p} ∧
++    z ∈ φ.source ∩ {p | F p = c + ε} ∧
++    zm ∈ φ.source ∩ {p | F p = c + ε} ∧
++    zp ∈ φ.source ∩ {p | F p = c + ε} ∧
++    zm ≠ zp ∧ JoinedIn (φ.source ∩ {p | F p = c + ε}) zm zp
++
++private theorem fixed_cut_checks {L : ℝ} (F : Torus2 L → ℝ) (c ρ : ℝ)
++    (hρ : 0 < ρ) (φ : OpenPartialHomeomorph (Torus2 L) Point2)
++    (htarget : φ.target = Metric.ball (0 : Point2) ρ)
++    (hheight : ∀ z ∈ φ.source, F z = c + φ z 1)
++    (hpc : ∀ ε : ℝ, |ε| < ρ →
++      IsPathConnected (φ.source ∩ {z | c + ε ≤ F z}) ∧
++      IsPathConnected (φ.source ∩ {z | F z = c + ε})) :
++    FixedCutChecks F c ρ φ := by
++  intro ε he
++  have hhalf : |ρ / 2| < ρ := by
++    rw [abs_of_pos (by positivity : 0 < ρ / 2)]
++    linarith
++  have hε : |ε| < ρ := by
++    rcases he with rfl | rfl | rfl
++    · simpa using hρ
++    · exact hhalf
++    · simpa only [neg_div, abs_neg] using hhalf
++  have ht0 : (![0, ε] : Point2) ∈ φ.target := by
++    rw [htarget]
++    apply point_mem_ball hρ
++    intro i
++    fin_cases i
++    · simpa using hρ
++    · simpa using hε
++  have htm : (![-ρ / 2, ε] : Point2) ∈ φ.target := by
++    rw [htarget]
++    apply point_mem_ball hρ
++    intro i
++    fin_cases i
++    · simpa only [Matrix.cons_val_zero, neg_div, abs_neg] using hhalf
++    · simpa using hε
++  have htp : (![ρ / 2, ε] : Point2) ∈ φ.target := by
++    rw [htarget]
++    apply point_mem_ball hρ
++    intro i
++    fin_cases i
++    · simpa using hhalf
++    · simpa using hε
++  have hs0 := φ.map_target ht0
++  have hsm := φ.map_target htm
++  have hsp := φ.map_target htp
++  have hi0 := φ.right_inv ht0
++  have him := φ.right_inv htm
++  have hip := φ.right_inv htp
++  have hv0 : F (φ.symm ![0, ε]) = c + ε := by
++    rw [hheight _ hs0, hi0]
++    rfl
++  have hvm : F (φ.symm ![-ρ / 2, ε]) = c + ε := by
++    rw [hheight _ hsm, him]
++    rfl
++  have hvp : F (φ.symm ![ρ / 2, ε]) = c + ε := by
++    rw [hheight _ hsp, hip]
++    rfl
++  have hneq : φ.symm ![-ρ / 2, ε] ≠ φ.symm ![ρ / 2, ε] := by
++    intro heq
++    have he0 := congrArg (fun z => φ z 0) heq
++    rw [him, hip] at he0
++    change -ρ / 2 = ρ / 2 at he0
++    linarith
++  have hm : φ.symm ![-ρ / 2, ε] ∈ φ.source ∩ {p | F p = c + ε} :=
++    ⟨hsm, hvm⟩
++  have hp : φ.symm ![ρ / 2, ε] ∈ φ.source ∩ {p | F p = c + ε} :=
++    ⟨hsp, hvp⟩
++  exact ⟨hs0, hsm, hsp, hi0, him, hip, hv0, hvm, hvp,
++    ⟨hs0, hv0.ge⟩, ⟨hs0, hv0⟩, hm, hp, hneq, (hpc ε hε).2.joinedIn hm hp⟩
++
++private def FixtureOutput (X : E2) : Prop :=
++  ∃ ρ : ℝ, 0 < ρ ∧ ∃ φ : OpenPartialHomeomorph (Torus2 2) Point2,
++    cover 2 X ∈ φ.source ∧ φ (cover 2 X) = 0 ∧
++    φ.source ⊆ smallO 2 X ∧ φ.target = Metric.ball (0 : Point2) ρ ∧
++    (∀ z ∈ φ.source,
++      actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample z =
++        actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample (cover 2 X) + φ z 1) ∧
++    (∀ ε : ℝ, |ε| < ρ →
++      IsPathConnected (φ.source ∩ {z |
++        actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample (cover 2 X) + ε ≤
++          actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample z}) ∧
++      IsPathConnected (φ.source ∩ {z |
++        actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample z =
++          actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample (cover 2 X) + ε})) ∧
++    FixedCutChecks (actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample)
++      (actualF (show (0 : ℝ) < 2 by norm_num) fixtureSample (cover 2 X)) ρ φ
++
++private theorem fixture_output (X : E2)
++    (hreg : fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) X ≠ 0) :
++    FixtureOutput X := by
++  obtain ⟨ρ, hρ, φ, hq, hc, hO, ht, hh, hp⟩ :=
++    actualSource_quotient_regular_local_collar (show (0 : ℝ) < 2 by norm_num)
++      fixtureSample X hreg (smallO 2 X) (smallO_isOpen 2 X) (center_mem_smallO 2 X)
++  exact ⟨ρ, hρ, φ, hq, hc, hO, ht, hh, hp,
++    fixed_cut_checks _ _ ρ hρ φ ht hh hp⟩
++
++private theorem fixture_regularX_consumer : FixtureOutput fixtureXx := by
++  apply fixture_output
++  intro hz
++  have he := fixture_regularX_derivative.1
++  rw [hz] at he
++  simp only [ContinuousLinearMap.zero_apply] at he
++  linarith [Real.pi_pos]
++
++private theorem fixture_regularY_consumer : FixtureOutput fixtureXy := by
++  apply fixture_output
++  intro hz
++  have he := fixture_regularY_derivative.2
++  rw [hz] at he
++  simp only [ContinuousLinearMap.zero_apply] at he
++  linarith [Real.pi_pos]
++
++private theorem fixture_seam_consumer : FixtureOutput fixtureXseam := by
++  apply fixture_output
++  intro hz
++  have he := fixture_seam_derivative.1
++  rw [hz] at he
++  simp only [ContinuousLinearMap.zero_apply] at he
++  linarith [Real.pi_pos]
++
+ end I4SourceActualRegularLocalCollar

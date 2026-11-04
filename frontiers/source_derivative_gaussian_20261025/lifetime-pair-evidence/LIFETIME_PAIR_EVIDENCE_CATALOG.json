@@ -1,0 +1,451 @@
+{
+  "schema_version": 1,
+  "scope_id": "ACTUAL_SOURCE_LIFETIME_PAIR_FINITENESS_20261026",
+  "role": "New actual-source application qualification, packaged from completed execution records without rerun",
+  "packaged_at_utc": "2026-10-26T03:31:41.595307+00:00",
+  "scientific_effect": "NONE",
+  "source_integration_commit": "c039243e449fcab837127ff2bc0b12edb1dc05e9",
+  "contract_freeze_commit": "8d64490df8620b749ba2f224da535eeb6016c2d0",
+  "contract_sha256": "4c45c172ab8cf5beb11032cdd3169f102f9238bd1967efb2837b379f38588804",
+  "scope_file": "LIFETIME_PAIR_SCOPE.md",
+  "public_inventory": "LIFETIME_PAIR_PUBLIC_INVENTORY.json",
+  "public_registry_append": "PUBLIC_PROOF_NAMES_APPEND.json",
+  "public_registry_append_count": 9,
+  "producer": {
+    "provider": "OpenAI",
+    "family": "Codex",
+    "agent": "/root/lifetime_pair_finiteness"
+  },
+  "module": {
+    "module": "SourceLifetimePairFiniteness",
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceLifetimePairFiniteness.lean",
+      "bytes": 6073,
+      "sha256": "36bf363f88d450a61052086c5d7eb799d12dd58ce4b74c1c083a056991606081"
+    },
+    "source_hash_origin": "Recorded during qualification, reused for packaging",
+    "source_snapshot": "raw-production/SourceLifetimePairFiniteness.lean.frozen",
+    "olean": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceLifetimePairFiniteness.olean",
+      "sha256": "4a022061f7fc2d8434462e94f03dd9146c3b3aa248ae2872009b4367b40bce6f",
+      "bytes": 151904
+    },
+    "artifact_hash_origin": "Structured named-kernel before/after record, reused without object rehash",
+    "public_proof_targets": 9,
+    "proposition_declarations": 9,
+    "structural_data_instances": 0,
+    "public_definitions_separate": 0,
+    "exhaustive_audit_declarations": 9,
+    "compile": {
+      "record_kind": "author_tool_history_transcription",
+      "command_argv": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        ".lake/build/lib/lean/SourceLifetimePairFiniteness.olean",
+        "SourceLifetimePairFiniteness.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "observed_exit_code": 0,
+      "raw_output": "SourceLifetimePairFiniteness-compile-03.log",
+      "source_snapshot": "SourceLifetimePairFiniteness.lean.frozen",
+      "source_snapshot_sha256": "36bf363f88d450a61052086c5d7eb799d12dd58ce4b74c1c083a056991606081",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "association": "Source snapshot/exit association witnessed in producer tool history; initial runs predate the structured recorder. No machine-captured before/after receipt is invented for them."
+    },
+    "kernel": {
+      "record": "raw-production/SourceLifetimePairFiniteness-kernel.json",
+      "log": "raw-production/SourceLifetimePairFiniteness-kernel.log",
+      "exit_code": 0
+    },
+    "audit": {
+      "record": "raw-production/AxiomAudit-01.json",
+      "log": "raw-production/AxiomAudit-01.log",
+      "exit_code": 0
+    }
+  },
+  "support_inputs": [
+    {
+      "original": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_lifetime_realization_20261017/inputs/Lifetime.lean",
+        "bytes": 51383,
+        "sha256": "90f4892608e953ecc696bb32ea159d1c178ceb8a1c6edfd11acfceb14af462c6"
+      },
+      "adapted": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/Lifetime.lean",
+        "bytes": 51743,
+        "sha256": "371365f9bb17fbe1491c38bb00359300ea76641d3b5693d8feb11bb2c3fad51e"
+      },
+      "delta": "Only the first import Mathlib line replaced by eight narrow Mathlib imports; all following bytes identical.",
+      "mathematical_bodies_byte_identical": true
+    },
+    {
+      "original": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_lifetime_realization_20261017/SourceLifetimeGeometry.lean",
+        "bytes": 4588,
+        "sha256": "8ec4b18959055f20d849337e44a70d0c5b39b7959b54cb4d7b6c2a473ee0612d"
+      },
+      "adapted": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/SourceLifetimeGeometry.lean",
+        "bytes": 4588,
+        "sha256": "8ec4b18959055f20d849337e44a70d0c5b39b7959b54cb4d7b6c2a473ee0612d"
+      },
+      "delta": "None: exact byte copy for current package ABI.",
+      "mathematical_bodies_byte_identical": true
+    }
+  ],
+  "support_input_qualification": {
+    "reason": "No compatible Lifetime.olean or SourceLifetimeGeometry.olean found anywhere under /workspace. Lifetime umbrella import is replaced only by sufficient narrow imports; SourceLifetimeGeometry is an exact original-body copy. Both were compiled once for this uncovered input ABI.",
+    "Lifetime": {
+      "compile": {
+        "record_kind": "author_tool_history_transcription",
+        "command_argv": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/Lifetime.olean",
+          "inputs/Lifetime.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "observed_exit_code": 0,
+        "raw_output": "Lifetime-compile-01.log",
+        "source_snapshot": "Lifetime.lean.frozen",
+        "source_snapshot_sha256": "371365f9bb17fbe1491c38bb00359300ea76641d3b5693d8feb11bb2c3fad51e",
+        "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "association": "Source snapshot/exit association witnessed in producer tool history; initial runs predate the structured recorder. No machine-captured before/after receipt is invented for them."
+      },
+      "source_declarations": {
+        "abbrev": 1,
+        "def": 34,
+        "structure": 3
+      },
+      "explicit_named_declarations": 38,
+      "source_proof_theorems": 0,
+      "all_module_declarations_audited": 103,
+      "olean": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/Lifetime.olean",
+        "sha256": "20c75a4af23430fdcd4b2f0da3d002e99512cb3cf512d59efd8d7f75558fd5c1",
+        "bytes": 474152
+      }
+    },
+    "SourceLifetimeGeometry": {
+      "compile": {
+        "record_kind": "author_tool_history_transcription",
+        "command_argv": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceLifetimeGeometry.olean",
+          "inputs/SourceLifetimeGeometry.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "observed_exit_code": 0,
+        "raw_output": "SourceLifetimeGeometry-compile-01.log",
+        "source_snapshot": "SourceLifetimeGeometry.lean.frozen",
+        "source_snapshot_sha256": "8ec4b18959055f20d849337e44a70d0c5b39b7959b54cb4d7b6c2a473ee0612d",
+        "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "association": "Source snapshot/exit association witnessed in producer tool history; initial runs predate the structured recorder. No machine-captured before/after receipt is invented for them."
+      },
+      "source_declarations": {
+        "def": 2,
+        "theorem": 11
+      },
+      "explicit_named_declarations": 13,
+      "preexisting_source_proof_theorems": 11,
+      "all_module_declarations_audited": 16,
+      "olean": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceLifetimeGeometry.olean",
+        "sha256": "02a01c3c4b5e32706540c6d355853bc008826fc4b0f0e07a415eee0eb10ec567",
+        "bytes": 140344
+      }
+    },
+    "import_only_delta": "LIFETIME_IMPORT_ONLY.patch",
+    "mathematical_definition_bodies_and_names_byte_identical": true,
+    "support_proofs_registry_policy": "No duplicate proof-registration append for copied preexisting geometry; only the new nine application theorems append."
+  },
+  "audit": {
+    "method": "Lean.Util.CollectAxioms over every declaration whose originating module is Lifetime, SourceLifetimeGeometry, or SourceLifetimePairFiniteness; exact new public statement prints follow.",
+    "module_declaration_counts": {
+      "Lifetime": 103,
+      "SourceLifetimeGeometry": 16,
+      "SourceLifetimePairFiniteness": 9
+    },
+    "total_declarations": 128,
+    "kind_counts_by_module": {
+      "Lifetime": {
+        "definition_or_data": 70,
+        "generated_inductive_data": 9,
+        "theorem": 24
+      },
+      "SourceLifetimeGeometry": {
+        "theorem": 14,
+        "definition_or_data": 2
+      },
+      "SourceLifetimePairFiniteness": {
+        "theorem": 9
+      }
+    },
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "exit_code": 0,
+    "proof_names_exactly_matched_to_inventory": true
+  },
+  "controls": {
+    "positive_and_counterexamples": {
+      "source": "raw-production/Controls.lean",
+      "record": "raw-production/Controls-02.json",
+      "log": "raw-production/Controls-02.log",
+      "exit_code": 0,
+      "claims": [
+        "FundDomain 2 L infinite when 0<L",
+        "arbitrary Pair=True actual-source pairSet on univ infinite for every actual sample",
+        "actual zeroSample field is identically zero",
+        "actual zeroSample critical FundDomain infinite: every-sample strengthening false",
+        "concrete actual candidate window a.s. finite at L=1 with no finiteness or Morse premise"
+      ]
+    },
+    "expected_rejections": [
+      {
+        "record": "raw-production/RejectedWithoutCriticality-01.json",
+        "log": "raw-production/RejectedWithoutCriticality-01.log",
+        "observed_exit_code": 1,
+        "reason": "Endpoint-criticality witnesses cannot be constructed by reflexivity for arbitrary actual source points."
+      },
+      {
+        "record": "raw-production/RejectedEverySample-01.json",
+        "log": "raw-production/RejectedEverySample-01.log",
+        "observed_exit_code": 1,
+        "reason": "The almost-sure theorem cannot be used as a pointwise theorem for each actual sample."
+      }
+    ]
+  },
+  "failures": {
+    "records": "raw-production/initial-command-history.json",
+    "retained": [
+      "SourceLifetimePairFiniteness.failed01.lean",
+      "SourceLifetimePairFiniteness-compile-01.log",
+      "SourceLifetimePairFiniteness.failed02.lean",
+      "SourceLifetimePairFiniteness-compile-02.log",
+      "Controls.failed01.lean",
+      "Controls-01.log"
+    ],
+    "explanation": [
+      "Main compile01: spatial point argument omitted when projecting DifferentiableAt.hasFDerivAt; corrected.",
+      "Main compile02: deprecated ContinuousLinearMap.zero_apply under warningAsError; changed to zero_apply.",
+      "Controls01: interval membership simplification and deprecated set constructor alias; corrected without any production change."
+    ]
+  },
+  "reused_verification": {
+    "policy": "/workspace/AGENTS.md owner clarification 25 October 2026: completed applicable evidence is reusable; no unchanged checks repeated for handoff. Provider review remains separate.",
+    "source_morse_source": {
+      "sha256": "b93fe8f7856d4e632b3ff823788469720ae0814440bbec744fde099d4f29f127",
+      "bytes": 80240
+    },
+    "source_morse_olean": {
+      "sha256": "c59d6ec1e4f72ae2635255dcd81894c39c352eadf10b409a65ec7fa0464d37bb",
+      "bytes": 3338496
+    },
+    "basis": "Completed SourceMorseIncidence smoothLaw_ae_finite_sourceCriticalCube source/cube theorem qualification and mathematical evidence remain reused, including all219 standard-axiom audit. No Sard, IFT or generic compact-zero proof replay/reproof.",
+    "prior_evidence_reference": "frontiers/source_derivative_gaussian_20261025/evidence/SourceMorseIncidence",
+    "old_source_and_object_hashes": "Imported from before.json/provenance or earlier records, never recomputed in this packaging step."
+  },
+  "toolchain": {
+    "lean": "leanprover/lean4:v4.34.1",
+    "mathlib_rev": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "toolchain_file_identity": {
+      "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+      "bytes": 25
+    },
+    "lake_manifest_identity": {
+      "sha256": "4cc60e1f98fc3a46bccafe6b8315445d950ca1db55ceba26fdebe3a45eafe59a",
+      "bytes": 3558
+    }
+  },
+  "identity_preservation": {
+    "original_C291_source_unchanged": true,
+    "completed_SourceMorseIncidence_source_and_olean_unchanged": true,
+    "basis": "Producer preserved and compared before.json identities before source freeze; qualification recorder snapshots the new application and support identities before/after. Packaging does not rerun those comparisons."
+  },
+  "review_boundary": {
+    "mathematical_execution": "Completed applicable producer evidence above; reused without further execution during packaging.",
+    "provider_distinct_alignment_review": "Not claimed; a distinct process requirement, not a reason to erase completed mathematics.",
+    "full_density_version_or_parent_theorem": "Not claimed."
+  },
+  "ownership": "Producer changed only new application, two new support copies, and scratch evidence. Root exclusively owns lakefile, global manifests, commits, publication, and integration. PR482/485 and existing source/evidence untouched.",
+  "raw_records_custody": [
+    {
+      "path": "raw-production/AxiomAudit-01.json",
+      "bytes": 3682,
+      "sha256": "02c47f2e09c04b9ab145795cd4652712d13a3244e5f14c9e72fadf9484107671"
+    },
+    {
+      "path": "raw-production/AxiomAudit-01.log",
+      "bytes": 26833,
+      "sha256": "5febd1e09836bdc0990603984fc9728a8302cd71c30d1eb8a158e1fddfe45d46"
+    },
+    {
+      "path": "raw-production/AxiomAudit.lean",
+      "bytes": 1790,
+      "sha256": "d52609596d7f2a095e5da7a82e7a39d43e8a9acfad8d9dd229c5cf79c45b4959"
+    },
+    {
+      "path": "raw-production/Controls-01.log",
+      "bytes": 618,
+      "sha256": "35cbde8f8a83ae9f282e82f0d2a283346c3c62111fc3dd0bc423ca170a0d5e0e"
+    },
+    {
+      "path": "raw-production/Controls-02.json",
+      "bytes": 3674,
+      "sha256": "d4aba1c4472b7c0b3231b3ae84f40bc8585bb10a1a259c5e75b443fb0eccaa1d"
+    },
+    {
+      "path": "raw-production/Controls-02.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw-production/Controls.failed01.lean",
+      "bytes": 2566,
+      "sha256": "dcf9217423e525fbbab0beca5f232e4652f6982a21cdaffaee45d8acd5344561"
+    },
+    {
+      "path": "raw-production/Controls.lean",
+      "bytes": 2545,
+      "sha256": "dde846571474043c9e8b3714a637596130c38838fbce3c58b5982211dbcfd665"
+    },
+    {
+      "path": "raw-production/Lifetime-compile-01.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw-production/Lifetime-import-only.patch",
+      "bytes": 723,
+      "sha256": "ca4c874909509a3e9a257b0e1b61e53bedb09f2e5ee1ad0e59dbf201988f828d"
+    },
+    {
+      "path": "raw-production/Lifetime.lean.frozen",
+      "bytes": 51743,
+      "sha256": "371365f9bb17fbe1491c38bb00359300ea76641d3b5693d8feb11bb2c3fad51e"
+    },
+    {
+      "path": "raw-production/RejectedEverySample-01.json",
+      "bytes": 3698,
+      "sha256": "0b6342b71c902567179e92221ecf9cff5e471f923ddd1130a454d4cab7d39ef1"
+    },
+    {
+      "path": "raw-production/RejectedEverySample-01.log",
+      "bytes": 389,
+      "sha256": "6c009350065298886d693fd17a310f9b0774895c120bbe2558bc2f0813218dcc"
+    },
+    {
+      "path": "raw-production/RejectedEverySample.lean",
+      "bytes": 504,
+      "sha256": "3db2e28921256cd302c7254956cf3c567ecc74ccbfc736061183054b9e21c9c4"
+    },
+    {
+      "path": "raw-production/RejectedWithoutCriticality-01.json",
+      "bytes": 3712,
+      "sha256": "9ff8e6ec70c589ea14cabeeefa084cea98187c570ecb4a84b5c803c7fa70e1bf"
+    },
+    {
+      "path": "raw-production/RejectedWithoutCriticality-01.log",
+      "bytes": 273,
+      "sha256": "418204ce06c13caaaa7f4289978cee1ea4c0e76da0bdd63795d53a7d04aff286"
+    },
+    {
+      "path": "raw-production/RejectedWithoutCriticality.lean",
+      "bytes": 586,
+      "sha256": "f850bb566328949063c3b416a74129c585135bf0b552714c4d686a4e44fac131"
+    },
+    {
+      "path": "raw-production/SourceLifetimeGeometry-compile-01.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw-production/SourceLifetimeGeometry.lean.frozen",
+      "bytes": 4588,
+      "sha256": "8ec4b18959055f20d849337e44a70d0c5b39b7959b54cb4d7b6c2a473ee0612d"
+    },
+    {
+      "path": "raw-production/SourceLifetimePairFiniteness-compile-01.log",
+      "bytes": 629,
+      "sha256": "0773be0ec3cb75819bea4dc2b50446617331414f54d08b96abaad2ced35932ad"
+    },
+    {
+      "path": "raw-production/SourceLifetimePairFiniteness-compile-02.log",
+      "bytes": 267,
+      "sha256": "4d218447c789c27b9ee52308ff626c678989ba5348b75e2e7b3467a428f68792"
+    },
+    {
+      "path": "raw-production/SourceLifetimePairFiniteness-compile-03.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw-production/SourceLifetimePairFiniteness-kernel.json",
+      "bytes": 3647,
+      "sha256": "8b0a45d8cbcd63841dc0b6d614f3fcaacfe372ec255ca2b0378d404e4bc507bb"
+    },
+    {
+      "path": "raw-production/SourceLifetimePairFiniteness-kernel.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw-production/SourceLifetimePairFiniteness.failed01.lean",
+      "bytes": 6075,
+      "sha256": "99851c1f0bad7bc58761e8e190045c1b55e5553a78a25ba45d0d27d179811177"
+    },
+    {
+      "path": "raw-production/SourceLifetimePairFiniteness.failed02.lean",
+      "bytes": 6093,
+      "sha256": "0b0c7402f3bf0a85a3f9ccdc272bf2f436bc0d40bb86c8d94bbfc1fa00554ca2"
+    },
+    {
+      "path": "raw-production/SourceLifetimePairFiniteness.lean.frozen",
+      "bytes": 6073,
+      "sha256": "36bf363f88d450a61052086c5d7eb799d12dd58ce4b74c1c083a056991606081"
+    },
+    {
+      "path": "raw-production/before.json",
+      "bytes": 1362,
+      "sha256": "1e9664d304689a366ac1e3addea4def858cfce310312802c6b5baa00a6a2fe21"
+    },
+    {
+      "path": "raw-production/initial-command-history.json",
+      "bytes": 5518,
+      "sha256": "91bb9b91c6c7b8ee35fbe2ab7c6d2ec3918d248661b3e68758a729f2334586ce"
+    },
+    {
+      "path": "raw-production/package_evidence.py",
+      "bytes": 11749,
+      "sha256": "9e93619ae76140cfd5ec9a57c5ddccbb8298ee1b015cc2ea6728e13a66dd25fb"
+    },
+    {
+      "path": "raw-production/provenance.json",
+      "bytes": 2361,
+      "sha256": "df18512120d3cdcea56b60dc3677e575079dacf29f82faf8ef9439111d74ea7d"
+    },
+    {
+      "path": "raw-production/public-source-inventory.json",
+      "bytes": 7152,
+      "sha256": "fde77dc78d2b7fef6870e2c826921eace19c2beedc462ff46d29e2a4746d1b22"
+    },
+    {
+      "path": "raw-production/run_recorded.py",
+      "bytes": 1306,
+      "sha256": "eb8ac0f8e09b495bd7e5d89045c91d0c921fb28eb7e28d2e1ef113c06689f776"
+    }
+  ]
+}

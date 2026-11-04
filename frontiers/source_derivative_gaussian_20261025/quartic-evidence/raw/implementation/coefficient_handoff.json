@@ -1,0 +1,183 @@
+{
+  "scope": "scratch-only actual finite CML coefficient and exact polynomial difference support",
+  "author_lineage": "OpenAI/Codex /root/regression_kernel; source production owner /root/dm2_landed_composition",
+  "timestamp_utc": "2026-10-26T00:56:36.751054+00:00",
+  "frozen_contract": "SOURCE_PIN_PRESERVING_QUARTIC.md (fa7c043)",
+  "sources": [
+    {
+      "path": "/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean",
+      "sha256": "2b325b397e8757f52a6f85507842d921fa1d555ca3689f411f45ab2a248100cd",
+      "olean_sha256": "7d37c8fecaba5fdca3d7ccc5deb1712a2aba072669d7ae05ce6d5e44160a7cd5"
+    },
+    {
+      "path": "/workspace/scratch/pin-preserving-quartic-implementation/NewMismatch.lean",
+      "sha256": "ccd87db756855dec6df784099e5973d5a97bdb7ae738467fddd8bc4d7ec08f47",
+      "olean_sha256": "c21d91fc9f55422a822894108298c88dc0f329d8638d3924381070a9c1e6fc99"
+    }
+  ],
+  "verification": [
+    {
+      "command_argv": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "log": "/workspace/scratch/pin-preserving-quartic-implementation/coefficients01.log",
+      "exit_code_observed": 1,
+      "source_sha_at_attempt": "not captured; source changed during proof development"
+    },
+    {
+      "command_argv": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "log": "/workspace/scratch/pin-preserving-quartic-implementation/coefficients02.log",
+      "exit_code_observed": 1,
+      "source_sha_at_attempt": "not captured; source changed during proof development"
+    },
+    {
+      "command_argv": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "log": "/workspace/scratch/pin-preserving-quartic-implementation/coefficients03.log",
+      "exit_code_observed": 1,
+      "source_sha_at_attempt": "not captured; source changed during proof development"
+    },
+    {
+      "command_argv": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "log": "/workspace/scratch/pin-preserving-quartic-implementation/coefficients04.log",
+      "exit_code_observed": 1,
+      "source_sha_at_attempt": "not captured; source changed during proof development"
+    },
+    {
+      "command_argv": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "log": "/workspace/scratch/pin-preserving-quartic-implementation/coefficients05.log",
+      "exit_code_observed": 1,
+      "source_sha_at_attempt": "not captured; source changed during proof development"
+    },
+    {
+      "command_argv": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.olean",
+        "/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "log": "/workspace/scratch/pin-preserving-quartic-implementation/coefficients06.log",
+      "exit_code_observed": 1,
+      "source_sha_at_attempt": "not captured; source changed during proof development"
+    },
+    {
+      "command_argv": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-R",
+        "/workspace/scratch/pin-preserving-quartic-implementation",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.olean",
+        "/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "log": "/workspace/scratch/pin-preserving-quartic-implementation/coefficients07.log",
+      "exit_code_observed": 1,
+      "source_sha_at_attempt": "not captured; source changed during proof development"
+    },
+    {
+      "command_argv": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-R",
+        "/workspace/scratch/pin-preserving-quartic-implementation",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.olean",
+        "/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "log": "/workspace/scratch/pin-preserving-quartic-implementation/coefficients08.log",
+      "exit_code_observed": 0,
+      "source_sha_at_attempt": "2b325b397e8757f52a6f85507842d921fa1d555ca3689f411f45ab2a248100cd"
+    },
+    {
+      "command_argv": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-R",
+        "/workspace/scratch/pin-preserving-quartic-implementation",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/pin-preserving-quartic-implementation/NewMismatch.olean",
+        "/workspace/scratch/pin-preserving-quartic-implementation/NewMismatch.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "log": "/workspace/scratch/pin-preserving-quartic-implementation/mismatch01.log",
+      "exit_code_observed": 1,
+      "source_sha_at_attempt": "not captured; source changed during proof development"
+    },
+    {
+      "command_argv": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-R",
+        "/workspace/scratch/pin-preserving-quartic-implementation",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/pin-preserving-quartic-implementation/NewMismatch.olean",
+        "/workspace/scratch/pin-preserving-quartic-implementation/NewMismatch.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "log": "/workspace/scratch/pin-preserving-quartic-implementation/mismatch02.log",
+      "exit_code_observed": 0,
+      "source_sha_at_attempt": "ccd87db756855dec6df784099e5973d5a97bdb7ae738467fddd8bc4d7ec08f47"
+    }
+  ],
+  "public_targets": [
+    "source_third_ppx_expansion",
+    "source_third_ppy_expansion",
+    "source_fourth_pppx_expansion",
+    "source_fourth_pppy_expansion",
+    "source_second_p_basis",
+    "source_third_p_basis_basis",
+    "source_fourth_pp_basis_basis",
+    "sourceGradientTaylorRaw_sub_quartic_zero",
+    "sourceGradientTaylorRaw_sub_quartic_one",
+    "sourceHessianTaylor_sub_quarticJacobian"
+  ],
+  "assumptions": "Only L \u2260 0 for actual source symmetry; polynomial mismatch additionally r \u2260 0. No pin, Taylor remainder or symmetry conclusion assumptions.",
+  "qualification_boundary": "Scratch Lean elaboration clean with warningAsError. Full final production kernel/axiom/control qualification belongs to production owner; not claimed here. Earlier completed source proof evidence reused; no unchanged baseline reruns.",
+  "retention": "All failed logs retained. Historical command and exit records transcribed from actual observed tool invocations; no missing attempt hashes invented."
+}

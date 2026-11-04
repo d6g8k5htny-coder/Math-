@@ -1,0 +1,24 @@
+{
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "env",
+    "LEAN_PATH=/workspace/scratch/adaptive-fold-scalar-barrier/build:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Cli/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/batteries/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Qq/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/aesop/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/plausible/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean:/home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean",
+    "lean",
+    "-R",
+    "/workspace/scratch/adaptive-fold-scalar-barrier",
+    "-DwarningAsError=true",
+    "/workspace/scratch/adaptive-fold-scalar-barrier/NegativeSymmetricCeiling.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "started_unix": 1792989068.1755574,
+  "elapsed_seconds": 2.2824785709381104,
+  "exit_code": 1,
+  "snapshots": {
+    "AdaptiveFoldScalarBarrier.lean": "cfe6a63a789ae085c2351d9d0be9bcf998f911d8c2e80bb01e1dd9e2b74c30d5",
+    "Inventory.lean": "110cdc80f8950de36d42cff8181dea0ebbfd647663ee9495e69872c3b6767232",
+    "Controls.lean": "4f06a059b01d381b7c65b84f7e3eda6201e11759d8581a7768302452cc9aa895",
+    "DirectAxioms.lean": "2c996973eccd492242cd97a76723a315b3b46e6f4971ed6ba0828a41cdf01161",
+    "NegativeSymmetricCeiling.lean": "c5808fc08769e2292e028c6cc50566b5a44378f021185d3564cb3daab152fbdd"
+  }
+}

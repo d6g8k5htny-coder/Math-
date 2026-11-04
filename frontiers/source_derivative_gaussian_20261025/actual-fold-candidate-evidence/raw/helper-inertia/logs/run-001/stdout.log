@@ -1,0 +1,67 @@
+/workspace/scratch/actual-fold-candidate-inertia/logs/run-001/Inertia.lean:42:16: error(lean.unknownIdentifier): Unknown constant `Submodule.mem_bot.mp`
+/workspace/scratch/actual-fold-candidate-inertia/logs/run-001/Inertia.lean:59:4: error: Type mismatch: After simplification, term
+  h1
+ has type
+  ((coordinates 2).symm ![0, 1]).ofLp 1 = 0
+but is expected to have type
+  False
+/workspace/scratch/actual-fold-candidate-inertia/logs/run-001/Inertia.lean:63:4: error: Type mismatch: After simplification, term
+  h0
+ has type
+  ((coordinates 2).symm ![1, -β]).ofLp 0 = 0
+but is expected to have type
+  False
+/workspace/scratch/actual-fold-candidate-inertia/logs/run-001/Inertia.lean:65:4: error(lean.unknownIdentifier): Unknown constant `Submodule.finrank_span_singleton`
+/workspace/scratch/actual-fold-candidate-inertia/logs/run-001/Inertia.lean:67:4: error(lean.unknownIdentifier): Unknown constant `Submodule.finrank_span_singleton`
+/workspace/scratch/actual-fold-candidate-inertia/logs/run-001/Inertia.lean:74:27: error: Type mismatch: After simplification, term
+  Eq.symm h0
+ has type
+  b * ((coordinates 2).symm ![1, -β]).ofLp 0 = a * ((coordinates 2).symm ![0, 1]).ofLp 0
+but is expected to have type
+  b = 0
+/workspace/scratch/actual-fold-candidate-inertia/logs/run-001/Inertia.lean:90:4: error: Type mismatch: After simplification, term
+  hneg
+ has type
+  α * (c * t ^ 2) < 0
+but is expected to have type
+  α *
+      (s * (t * ((coordinates 2).symm ![0, 1]).ofLp 0) ^ 2 +
+        c * (t * ((coordinates 2).symm ![0, 1]).ofLp 1 + β * (t * ((coordinates 2).symm ![0, 1]).ofLp 0)) ^ 2) <
+    0
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/scratch/actual-fold-candidate-inertia/logs/run-001/Inertia.lean:91:2: error: unsolved goals
+case e'_4
+g : E 2 → ℝ
+x : E 2
+α s c : ℝ
+hα : 0 < α
+hs : 0 < s
+hc : c < 0
+β : ℝ
+hQ :
+  ∀ (v : E 2),
+    hessian 2 g x v v = α * (s * (coordinates 2) v 0 ^ 2 + c * ((coordinates 2) v 1 + β * (coordinates 2) v 0) ^ 2)
+n : E 2 := (coordinates 2).symm ![0, 1]
+p : E 2 := (coordinates 2).symm ![1, -β]
+hn : n ≠ 0
+hp : p ≠ 0
+hndim : Module.finrank ℝ ↥(ℝ ∙ n) = 1
+hpdim : Module.finrank ℝ ↥(ℝ ∙ p) = 1
+hdisj : Disjoint (ℝ ∙ n) (ℝ ∙ p)
+hcompl : IsCompl (ℝ ∙ n) (ℝ ∙ p)
+t : ℝ
+hv : t • p ∈ ℝ ∙ p
+hv0 : t • p ≠ 0
+ht : t ≠ 0
+hpos : 0 < α * (s * t ^ 2)
+⊢ s * t ^ 2 * ((coordinates 2).symm ![1, -β]).ofLp 0 ^ 2 +
+            t ^ 2 * β * ((coordinates 2).symm ![1, -β]).ofLp 0 * c * ((coordinates 2).symm ![1, -β]).ofLp 1 * 2 +
+          t ^ 2 * β ^ 2 * ((coordinates 2).symm ![1, -β]).ofLp 0 ^ 2 * c +
+        t ^ 2 * c * ((coordinates 2).symm ![1, -β]).ofLp 1 ^ 2 =
+      s * t ^ 2 ∨
+    α = 0

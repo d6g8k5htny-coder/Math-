@@ -1,0 +1,51 @@
+{
+  "module": "SourceActualFoldCandidate",
+  "actual_module_index_coverage": true,
+  "constant_count": 47,
+  "counts": {
+    "public_written_theorem": 32,
+    "generated_theorem": 13,
+    "public_written_def": 2
+  },
+  "public_written_theorems": [
+    "I4SourceActualFoldCandidate.ridge_profileSlopeFirst_eq_schur",
+    "I4SourceActualFoldCandidate.endpointLiftS_apply",
+    "I4SourceActualFoldCandidate.actual_hessian_physical",
+    "I4SourceActualFoldCandidate.sourceGapLaw_actual_candidate_death_h0",
+    "I4SourceActualFoldCandidate.coordinates_endpointLiftS",
+    "I4SourceActualFoldCandidate.actual_hessian_coordinates",
+    "I4SourceActualFoldCandidate.actual_hessian_complete_square",
+    "I4SourceActualFoldCandidate.hessianHasInertia_one_of_diag",
+    "I4SourceActualFoldCandidate.actual_rawPins_ridge_candidate",
+    "I4SourceActualFoldCandidate.hessianHasInertia_two_of_diag",
+    "I4SourceActualFoldCandidate.actual_rawPins_critical",
+    "I4SourceActualFoldCandidate.endpointLiftM_apply",
+    "I4SourceActualFoldCandidate.endpoint_lifts_sub_norm",
+    "I4SourceActualFoldCandidate.endpoint_lifts_torusDist",
+    "I4SourceActualFoldCandidate.actual_rawPins_ridge_types",
+    "I4SourceActualFoldCandidate.actual_planar_hessian_quadratic",
+    "I4SourceActualFoldCandidate.actual_rawPins_heights",
+    "I4SourceActualFoldCandidate.actual_critical_of_coordinate_pins",
+    "I4SourceActualFoldCandidate.actual_endpoint_schur_signs",
+    "I4SourceActualFoldCandidate.endpoint_lifts_torusDist_unit_ne_radius",
+    "I4SourceActualFoldCandidate.planar_vector_decomposition",
+    "I4SourceActualFoldCandidate.torusProjection_endpointLiftS",
+    "I4SourceActualFoldCandidate.endpoint_schur_signs",
+    "I4SourceActualFoldCandidate.actual_torus_lifetime_pullback",
+    "I4SourceActualFoldCandidate.interface_values_eq_actual",
+    "I4SourceActualFoldCandidate.derivative_zero_of_coordinate_pins",
+    "I4SourceActualFoldCandidate.endpoint_lifts_torusDist_unit_zero",
+    "I4SourceActualFoldCandidate.coordinates_endpointLiftM",
+    "I4SourceActualFoldCandidate.planar_bilinear_quadratic",
+    "I4SourceActualFoldCandidate.torusProjection_endpointLiftM",
+    "I4SourceActualFoldCandidate.endpoint_lifts_lattice_lower",
+    "I4SourceActualFoldCandidate.planar_quadratic_complete_square"
+  ],
+  "public_definitions": [
+    "I4SourceActualFoldCandidate.endpointLiftM",
+    "I4SourceActualFoldCandidate.endpointLiftS"
+  ],
+  "private_written_declarations": [],
+  "prop_bundles": [],
+  "note": "UniversalLaw.Spec.Lifetime.heightGap.eq_1 is compiler-generated in this actual module and therefore included despite its external namespace. All 47 constants transitively use only standard three or subsets."
+}

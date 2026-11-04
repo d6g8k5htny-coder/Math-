@@ -1,0 +1,38 @@
+{
+  "label": "core-002",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "-o",
+    "/workspace/scratch/raw-pin-free-coordinate-construct/build/SourceRawPinFreeCoordinates.olean",
+    "SourceRawPinFreeCoordinates.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRawPinFreeCoordinates.lean",
+      "bytes": 6458,
+      "sha256": "efc1083d698bb28beea52824af4dba5d2873b69a92334e50e70c0fb11ed26c2f"
+    },
+    "object": null
+  },
+  "started_utc": "2026-10-26T20:12:52.563333+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 17.008545398712158,
+  "ended_utc": "2026-10-26T20:13:09.571896+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRawPinFreeCoordinates.lean",
+      "bytes": 6458,
+      "sha256": "efc1083d698bb28beea52824af4dba5d2873b69a92334e50e70c0fb11ed26c2f"
+    },
+    "object": null
+  },
+  "log": {
+    "path": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/core-002/output.log",
+    "bytes": 305,
+    "sha256": "5e91ee2796c205030716e2c9da608fcbf6c016cc730de84c60472dce38e7f2f2"
+  }
+}

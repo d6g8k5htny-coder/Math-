@@ -1,0 +1,84 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:606:8: error(lean.unknownIdentifier): Unknown constant `MeasureTheory.Measure.isProbabilityMeasure_map`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:627:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  scalarSeries (pinCoefficient L r i) ↑(curvatureShift hL r t ω)
+in the target expression
+  scalarSeries (pinCoefficient L r i) (sampleInclusion 2 L (curvatureShift hL r t ω)) =
+    scalarSeries (pinCoefficient L r i) (sampleInclusion 2 L ω)
+
+L : ℝ
+hL : L ≠ 0
+r t : ℝ
+hG : IsUnit (sourcePinCovarianceAt L r)
+ω : SmoothSample 2 L
+i : Fin 6
+⊢ scalarSeries (pinCoefficient L r i) (sampleInclusion 2 L (curvatureShift hL r t ω)) =
+    scalarSeries (pinCoefficient L r i) (sampleInclusion 2 L ω)
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:678:2: error: Type mismatch: After simplification, term
+  hi
+ has type
+  @IndepFun (SmoothSample 2 L) ℝ (SmoothSample 2 L) Subtype.instMeasurableSpace Real.measurableSpace
+    Subtype.instMeasurableSpace (unitDirection (curvatureDirection L r)) (curvatureResidualSample hL r) (smoothLaw 2 L)
+but is expected to have type
+  @IndepFun (SmoothSample 2 L) ℝ (SmoothSample 2 L) Subtype.instMeasurableSpace Real.measurableSpace
+    Subtype.instMeasurableSpace (curvatureZ L r) (curvatureResidualSample hL r) (smoothLaw 2 L)
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:684:6: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsFiniteMeasure (smoothLaw 2 L)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:683:61: error: unsolved goals
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+hG : IsUnit (sourcePinCovarianceAt L r)
+hτ : 0 < curvatureVariance L r
+⊢ Measure.map (fun ω => (curvatureResidualSample hL r ω, curvatureZ L r ω)) (smoothLaw 2 L) =
+    (curvatureResidualLaw hL r).prod (gaussianReal 0 1)
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:708:57: error: Application type mismatch: The argument
+  curvatureZ_eq hL r ω
+has type
+  curvatureZ L r ω = (sourceContactQ L ω - curvatureMean L r (sourceConfluentPinsAt L r ω)) / curvatureSigma L r
+but is expected to have type
+  ?m.26 / curvatureSigma L r = ?m.28
+in the application
+  (div_eq_iff (LT.lt.ne' (curvatureSigma_pos hτ))).mp (curvatureZ_eq hL r ω)
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:722:94: error: unsolved goals
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+hG : IsUnit (sourcePinCovarianceAt L r)
+x : Fin 6 → ℝ
+ω : SmoothSample 2 L
+m : SourceMode 2
+⊢ ↑ω m + pinLift L r (x - sourceConfluentPinsAt L r (curvatureShift hL r (-curvatureZ L r ω) ω)) m =
+    ↑ω m + pinLift L r (x - sourceConfluentPinsAt L r ω) m
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:725:54: error: This simp argument is unused:
+  curvatureResidualSample_pins hL r hG
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [curvatureShift_val, posteriorSample_val, curvatureResidualSample, curvatureShift_val]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:753:2: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:763:47: error: unsolved goals
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+hG : IsUnit (sourcePinCovarianceAt L r)
+hτ : 0 < curvatureVariance L r
+x : Fin 6 → ℝ
+ω : SmoothSample 2 L
+⊢ curvatureSigma L r * curvatureZ L r ω * (curvatureSigma L r)⁻¹ = curvatureZ L r ω

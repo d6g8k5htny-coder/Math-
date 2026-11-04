@@ -1,0 +1,69 @@
+{
+  "frozen_utc": "2026-10-26T10:07:05.198461+00:00",
+  "agent": "/root/compact_normalizer_gaussian",
+  "provider": "OpenAI",
+  "family": "Codex/GPT-6",
+  "scientific_effect": "NONE",
+  "separate_research_targets": 0,
+  "provider_distinct_review_credit": 0,
+  "qualification_scope": "New lower Gaussian PDF and Icc(-2,-1) mass section only; scratch strict elaboration. Integrated producer owns new-module kernel/audit/controls. No standalone helper qualification claim.",
+  "frozen_source": {
+    "path": "/workspace/scratch/compact-normalizer-gaussian/GaussianLower.lean",
+    "bytes": 3713,
+    "sha256": "22266fc02dc57c3511d1d1b2da33b74cf85fb26ae464134d62c91f72d4e16863"
+  },
+  "frozen_needed_section": {
+    "path": "/workspace/scratch/compact-normalizer-gaussian/FROZEN_SECTION.lean",
+    "bytes": 3532,
+    "sha256": "2286f304a69e742b84d762f8df649d4788643237d67be90009ed2cfa76bf671f"
+  },
+  "scratch_object": {
+    "path": "/workspace/scratch/compact-normalizer-gaussian/build/GaussianLower.olean",
+    "bytes": 262248,
+    "sha256": "13ce7b56c3d87d4ea12c2d4a2ae2fde10e4d5bd37fa8567155bd4c1310e260f3"
+  },
+  "imports": [
+    {
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceGapPinCurvature.lean",
+        "bytes": 13281,
+        "sha256": "67f6c671e4ed8a7cb8557fc6027403f4fd1e94cba984e672eaa3ceb94ab8847e"
+      },
+      "object": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceGapPinCurvature.olean",
+        "bytes": 467776,
+        "sha256": "00378503fe93cca757712046d9c6818296880b5524d7c0096f87794c2657eb2c"
+      }
+    },
+    {
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean",
+        "bytes": 72082,
+        "sha256": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503"
+      },
+      "object": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceCurvatureDecomposition.olean",
+        "bytes": 1680264,
+        "sha256": "186e102acd338378579f91cb3d0f552afae449f64b93b9f4be21c4404ef07b2b"
+      }
+    }
+  ],
+  "execution_receipts": [
+    {
+      "path": "/workspace/scratch/compact-normalizer-gaussian/runs/compile-001/receipt.json",
+      "bytes": 1316,
+      "sha256": "a21c37378c0513b141490a71ec5b14038652afe9b36010c9972b596a9fc045dc"
+    },
+    {
+      "path": "/workspace/scratch/compact-normalizer-gaussian/runs/compile-002/receipt.json",
+      "bytes": 1514,
+      "sha256": "c1844c9bb714ce80c674c85a2f79353fd845ad1a1893a92d6f94572d5b59ee4b"
+    }
+  ],
+  "reused_evidence": "41 source modules / 32 support inputs plus completed old all-target Gaussian/product-law/upper-density mathematics and qualification. Do not rerun unchanged checks for a new agent/session/handoff.",
+  "new_obligation": "Lower density under bounded affine mean and V/2 \u2264 \u03bd \u2264 2V, and integrated length-one interval mass.",
+  "owner_links": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md"
+  ]
+}

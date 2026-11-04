@@ -1,0 +1,418 @@
+{
+  "module": "SourceRawPinFreeCoordinates",
+  "actual_owned_module_constants": 64,
+  "classification_counts": {
+    "owned_generated_proof_equation_or_simplifier_auxiliary": 10,
+    "authored_private_proposition": 27,
+    "generated_frame_constructor_recursor_or_auxiliary": 14,
+    "authored_public_map": 3,
+    "authored_public_proposition": 3,
+    "authored_private_data": 2,
+    "generated_frame_proof_projection": 2,
+    "generated_frame_data_projection": 1,
+    "authored_public_frame_structure": 1,
+    "owned_generated_foreign_namespace_equation": 1
+  },
+  "lean_kind_counts": {
+    "theorem": 46,
+    "definition": 15,
+    "recursor": 1,
+    "inductive": 1,
+    "constructor": 1
+  },
+  "constants": [
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeGaussian_projection._proof_2",
+      "lean_kind": "theorem",
+      "classification": "owned_generated_proof_equation_or_simplifier_auxiliary",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeGaussian_finiteResidual_indepFun",
+      "lean_kind": "theorem",
+      "classification": "authored_private_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.free_reconstruction",
+      "lean_kind": "theorem",
+      "classification": "authored_private_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "I4SourceRawPinFreeCoordinates.RawPinFreeFrame.recOn",
+      "lean_kind": "definition",
+      "classification": "generated_frame_constructor_recursor_or_auxiliary",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeCoordinate_shift",
+      "lean_kind": "theorem",
+      "classification": "authored_private_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "I4SourceRawPinFreeCoordinates.RawPinFreeFrame.mk.noConfusion",
+      "lean_kind": "definition",
+      "classification": "generated_frame_constructor_recursor_or_auxiliary",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.chi_summable",
+      "lean_kind": "theorem",
+      "classification": "authored_private_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.finitePairing_eq_tsum",
+      "lean_kind": "theorem",
+      "classification": "authored_private_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeLift_apply",
+      "lean_kind": "theorem",
+      "classification": "authored_private_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "I4SourceRawPinFreeCoordinates.freeCoordinate",
+      "lean_kind": "definition",
+      "classification": "authored_public_map",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "I4SourceRawPinFreeCoordinates.freeMaps_measurable",
+      "lean_kind": "theorem",
+      "classification": "authored_public_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "I4SourceRawPinFreeCoordinates.freeResidual_freeCoordinate_joint_map",
+      "lean_kind": "theorem",
+      "classification": "authored_public_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "I4SourceRawPinFreeCoordinates.rawPosteriorSample_free_reconstruction",
+      "lean_kind": "theorem",
+      "classification": "authored_public_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "I4SourceRawPinFreeCoordinates.RawPinFreeFrame.mk.injEq",
+      "lean_kind": "theorem",
+      "classification": "generated_frame_constructor_recursor_or_auxiliary",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeCoordinate_residual",
+      "lean_kind": "theorem",
+      "classification": "authored_private_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeGaussian_projection",
+      "lean_kind": "definition",
+      "classification": "authored_private_data",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeGaussian_sample_indepFun",
+      "lean_kind": "theorem",
+      "classification": "authored_private_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeGaussian_iIndepFun",
+      "lean_kind": "theorem",
+      "classification": "authored_private_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeLift",
+      "lean_kind": "definition",
+      "classification": "authored_private_data",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeGaussian_covariance_gram",
+      "lean_kind": "theorem",
+      "classification": "authored_private_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeCoordinate_eq_unitDirection",
+      "lean_kind": "theorem",
+      "classification": "authored_private_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.finitePairing_sum_observation",
+      "lean_kind": "theorem",
+      "classification": "authored_private_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "I4SourceRawPinFreeCoordinates.freeResidualSample.eq_1",
+      "lean_kind": "theorem",
+      "classification": "owned_generated_proof_equation_or_simplifier_auxiliary",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "I4SourceRawPinFreeCoordinates.RawPinFreeFrame.ctorIdx",
+      "lean_kind": "definition",
+      "classification": "generated_frame_constructor_recursor_or_auxiliary",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeLift.eq_1",
+      "lean_kind": "theorem",
+      "classification": "owned_generated_proof_equation_or_simplifier_auxiliary",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.finitePairing_eq_linearCombination",
+      "lean_kind": "theorem",
+      "classification": "authored_private_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeGaussian_projection._proof_3",
+      "lean_kind": "theorem",
+      "classification": "owned_generated_proof_equation_or_simplifier_auxiliary",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeGaussian_pi_map",
+      "lean_kind": "theorem",
+      "classification": "authored_private_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "I4SourceRawPinFreeCoordinates.freeCoordinate.eq_1",
+      "lean_kind": "theorem",
+      "classification": "owned_generated_proof_equation_or_simplifier_auxiliary",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.chi_normSquared",
+      "lean_kind": "theorem",
+      "classification": "authored_private_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "I4SourceRawPinFreeCoordinates.freeShiftSample.eq_1",
+      "lean_kind": "theorem",
+      "classification": "owned_generated_proof_equation_or_simplifier_auxiliary",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "I4SourceRawPinFreeCoordinates.RawPinFreeFrame.gram",
+      "lean_kind": "theorem",
+      "classification": "generated_frame_proof_projection",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "I4SourceRawPinFreeCoordinates.RawPinFreeFrame.casesOn",
+      "lean_kind": "definition",
+      "classification": "generated_frame_constructor_recursor_or_auxiliary",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeGaussian_finiteResidual_hasGaussianLaw",
+      "lean_kind": "theorem",
+      "classification": "authored_private_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "I4SourceRawPinFreeCoordinates.RawPinFreeFrame.rec",
+      "lean_kind": "recursor",
+      "classification": "generated_frame_constructor_recursor_or_auxiliary",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.finitePairing_add_observation",
+      "lean_kind": "theorem",
+      "classification": "authored_private_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeGaussian_projection_apply",
+      "lean_kind": "theorem",
+      "classification": "authored_private_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeShiftSample_val",
+      "lean_kind": "theorem",
+      "classification": "authored_private_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "I4SourceRawPinFreeCoordinates.RawPinFreeFrame.chi",
+      "lean_kind": "definition",
+      "classification": "generated_frame_data_projection",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "I4SourceRawPinFreeCoordinates.RawPinFreeFrame.mk._flat_ctor",
+      "lean_kind": "definition",
+      "classification": "generated_frame_constructor_recursor_or_auxiliary",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "I4SourceRawPinFreeCoordinates.RawPinFreeFrame.noConfusion",
+      "lean_kind": "definition",
+      "classification": "generated_frame_constructor_recursor_or_auxiliary",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeGaussian_coefficient_covariance",
+      "lean_kind": "theorem",
+      "classification": "authored_private_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "I4SourceRawPinFreeCoordinates.RawPinFreeFrame.noConfusionType",
+      "lean_kind": "definition",
+      "classification": "generated_frame_constructor_recursor_or_auxiliary",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "I4SourceRawPinFreeCoordinates.RawPinFreeFrame.mk.inj",
+      "lean_kind": "theorem",
+      "classification": "generated_frame_constructor_recursor_or_auxiliary",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "I4SourceRawPinFreeCoordinates.RawPinFreeFrame._sizeOf_inst",
+      "lean_kind": "definition",
+      "classification": "generated_frame_constructor_recursor_or_auxiliary",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "I4SourceRawPinFreeCoordinates.freeResidualSample",
+      "lean_kind": "definition",
+      "classification": "authored_public_map",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "I4SourceRawPinFreeCoordinates.RawPinFreeFrame.raw_kernel",
+      "lean_kind": "theorem",
+      "classification": "generated_frame_proof_projection",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeGaussian_scalar_hasLaw",
+      "lean_kind": "theorem",
+      "classification": "authored_private_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeGaussian_vector_hasGaussianLaw",
+      "lean_kind": "theorem",
+      "classification": "authored_private_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeGaussian_process_indepFun",
+      "lean_kind": "theorem",
+      "classification": "authored_private_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "I4SourceRawPinFreeCoordinates.RawPinFreeFrame._sizeOf_1",
+      "lean_kind": "definition",
+      "classification": "generated_frame_constructor_recursor_or_auxiliary",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeGaussian_finiteCoefficients_hasGaussianLaw",
+      "lean_kind": "theorem",
+      "classification": "authored_private_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeGaussian_finiteCoefficients_hasGaussianLaw._simp_1_1",
+      "lean_kind": "theorem",
+      "classification": "owned_generated_proof_equation_or_simplifier_auxiliary",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeGaussian_projection.eq_1",
+      "lean_kind": "theorem",
+      "classification": "owned_generated_proof_equation_or_simplifier_auxiliary",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "I4SourceRawPinFreeCoordinates.freeShiftSample",
+      "lean_kind": "definition",
+      "classification": "authored_public_map",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "I4SourceRawPinFreeCoordinates.RawPinFreeFrame",
+      "lean_kind": "inductive",
+      "classification": "authored_public_frame_structure",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "I4SourceRawPinFreeCoordinates.RawPinFreeFrame.mk.sizeOf_spec",
+      "lean_kind": "theorem",
+      "classification": "generated_frame_constructor_recursor_or_auxiliary",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeLift_raw_kernel._simp_1_2",
+      "lean_kind": "theorem",
+      "classification": "owned_generated_proof_equation_or_simplifier_auxiliary",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeResidualSample_val",
+      "lean_kind": "theorem",
+      "classification": "authored_private_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeGaussian_residual_zero_covariance",
+      "lean_kind": "theorem",
+      "classification": "authored_private_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeLift_raw_kernel",
+      "lean_kind": "theorem",
+      "classification": "authored_private_proposition",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "I4SourceCurvatureDecomposition.unitDirection.eq_1",
+      "lean_kind": "theorem",
+      "classification": "owned_generated_foreign_namespace_equation",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "_private.SourceRawPinFreeCoordinates.0.I4SourceRawPinFreeCoordinates.freeGaussian_projection._proof_1",
+      "lean_kind": "theorem",
+      "classification": "owned_generated_proof_equation_or_simplifier_auxiliary",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    },
+    {
+      "name": "I4SourceRawPinFreeCoordinates.RawPinFreeFrame.mk",
+      "lean_kind": "constructor",
+      "classification": "generated_frame_constructor_recursor_or_auxiliary",
+      "axiom_check": "PASS standard3 only via complete inventory001"
+    }
+  ],
+  "foreign_note": "The sole owned foreign-namespace constant is compiler-generated I4SourceCurvatureDecomposition.unitDirection.eq_1 caused by unfolding public unitDirection. Production source does not name it; no foreign private/generated API is invoked. It is inventoried/axiomchecked/kernelcovered as part of the owned module, not hidden.",
+  "inventory_receipt": "runs/inventory-001/receipt.json",
+  "full_log": "runs/inventory-001/output.log",
+  "standard_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "extra_public_authored_API": []
+}

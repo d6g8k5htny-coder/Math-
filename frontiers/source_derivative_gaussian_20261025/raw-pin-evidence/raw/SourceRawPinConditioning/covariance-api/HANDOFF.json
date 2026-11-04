@@ -1,0 +1,50 @@
+{
+  "scope": "scratch-only new generic finite covariance transformation and nonsingular middle matrix helpers",
+  "author_lineage": "OpenAI/Codex /root/regression_kernel, requested by /root/palm_measure_transfer (SourceRawPinConditioning sole production owner)",
+  "source_sha256": "c9d92319cb1127cf228d78497b5608db574e4509e99074a5344930871daafee4",
+  "source": "/workspace/scratch/raw-pin-conditioning/covariance-api/CovarianceCongruence.lean",
+  "recorded_utc": "2026-10-26T01:55:21.474554+00:00",
+  "commands": [
+    {
+      "argv": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-R",
+        "/workspace/scratch/raw-pin-conditioning/covariance-api",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/raw-pin-conditioning/covariance-api/CovarianceCongruence.olean",
+        "/workspace/scratch/raw-pin-conditioning/covariance-api/CovarianceCongruence.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit_code_observed": 1,
+      "log": "/workspace/scratch/raw-pin-conditioning/covariance-api/compile01.log",
+      "source_sha256_at_attempt": "not captured; corrected development source"
+    },
+    {
+      "argv": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-R",
+        "/workspace/scratch/raw-pin-conditioning/covariance-api",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/raw-pin-conditioning/covariance-api/CovarianceCongruence.olean",
+        "/workspace/scratch/raw-pin-conditioning/covariance-api/CovarianceCongruence.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit_code_observed": 0,
+      "log": "/workspace/scratch/raw-pin-conditioning/covariance-api/compile02.log",
+      "source_sha256_at_attempt": "c9d92319cb1127cf228d78497b5608db574e4509e99074a5344930871daafee4"
+    }
+  ],
+  "failed_attempt": "compile01 failed at Matrix HMul type elaboration requiring Matrix.of, and lowercase isUnit_mul_iff not found; corrected to IsUnit.mul_iff. No mathematical assumption change.",
+  "public_targets": [
+    "ActualGeometricPalmJoin.covariance_matrix_congruence",
+    "ActualGeometricPalmJoin.isUnit_middle_of_congruence"
+  ],
+  "assumptions": "Finite measure, finite index types, each actual random coordinate in L2. Nonsingular middle conclusion from nonsingular T*G*T.transpose; no independent nonsingular T premise needed. No Gaussian/conditional law conclusions assumed.",
+  "boundary": "Clean scratch Werror elaboration, no kernel/axiom/control qualification claimed here. Production owner integrates and qualifies new production module; all unchanged source evidence reused, no old source edits/checks."
+}

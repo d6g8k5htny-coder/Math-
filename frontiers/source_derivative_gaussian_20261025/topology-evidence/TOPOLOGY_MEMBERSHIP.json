@@ -1,0 +1,31 @@
+{
+  "scope_id": "SOURCE_SMOOTH_TOPOLOGY_ONLY_20261026",
+  "modules": [
+    {
+      "module": "SourceSmoothTopology",
+      "source_sha256": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+      "public_direct_audit_declarations": 49,
+      "theorem_declarations": 36,
+      "named_local_instance_declarations": 4,
+      "proposition_instances": 2,
+      "structural_data_instances": 2,
+      "registration_target_append": 40,
+      "definition_abbreviation_count": 9,
+      "private_declarations": 0
+    }
+  ],
+  "baseline_referenced_not_copied_hashed_or_rechecked": {
+    "qualified_modules": 23,
+    "public_proof_instance_declaration_targets": 575,
+    "exact_inputs": 23,
+    "includes": "22 qualified modules plus SourcePinPreservingQuartic",
+    "registration_metadata_status": "Root reports quartic metadata append pending; counts are authorized baseline references, no fabricated completed append"
+  },
+  "root_only_registration_proposal": {
+    "qualified_modules_after_append": 24,
+    "public_proof_instance_declaration_targets_after_append": 615,
+    "new_theorem_instance_declaration_targets": 40,
+    "contains_structural_data_instances": true
+  },
+  "combined_build_or_baseline_gate_claimed": false
+}
