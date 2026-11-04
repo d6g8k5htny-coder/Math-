@@ -1,0 +1,23 @@
+[
+  {
+    "label": "historical-negative",
+    "artifact_id": 12924995112,
+    "archive_sha256": "3a8214a9ab51ceceb0f01e59adb06a9839f6ba75296e7ae750c9ede2eea35bea",
+    "checked_commit": "38127a2a1fc1672c13e9e150e119b8f21b8cc7a9",
+    "manifest_sha256": "266860bd2a5e3b383c0103d4c7a46b427a404952bcccade4089042dccf2e2ce7",
+    "expected_exit": 1,
+    "expected_status": "FAIL",
+    "expected_code": "LOG_HASH_MISMATCH",
+    "expected_error": "receipt-bound log hash mismatch: authoritative-gate.log"
+  },
+  {
+    "label": "repaired-positive",
+    "artifact_id": 12928575403,
+    "archive_sha256": "afb412746bcda2a2b869b8513a3300230eec1d7207b30fce927bd003e6c60410",
+    "checked_commit": "2559df149ef4387b8972056559fb5f4e642d0134",
+    "manifest_sha256": "6978949f6e46b73a6ffce7aa2acfa47640ef4392704e5fbe9ffb321ecb53ea59",
+    "expected_exit": 0,
+    "expected_status": "PASS",
+    "expected_verified_logs": 21
+  }
+]

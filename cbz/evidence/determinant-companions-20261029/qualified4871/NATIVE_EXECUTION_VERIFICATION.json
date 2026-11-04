@@ -1,0 +1,127 @@
+{
+  "scope": "ACTUAL_4871_NATIVE_EXECUTION_ONLY_NOT_SCIENTIFIC_ACCEPTANCE_OR_CBZ",
+  "run": 40949497117,
+  "job": 123713536925,
+  "head": "4871e8d29de1e7c97f8362ab8eab2433b53a00ce",
+  "tested_commit": "bece46fe51e09fd6d6ca91b43f5623f5fbba2cf1",
+  "tree": "ed3e78c819516055a954a7f9897863bdb216acf3",
+  "manifest_sha256": "bb774f16ca361825fefb307fc12dc1212941668e358f75520919ae5f022d7ff7",
+  "receipt_sha256": "032d72523da90b4699d269236a4608994e009cb1e3998fe18c4d1c410706dbaa",
+  "source_record_matches": 263,
+  "source_endpoints_equal": true,
+  "runtime_endpoints_equal": true,
+  "process_exits": {
+    "version-preflight": 0,
+    "build": 0,
+    "leanchecker": 0,
+    "axioms": 0,
+    "elaborated-types": 0,
+    "inventory": 0,
+    "compiled_baseline": 0,
+    "compiled_admission_build": 0,
+    "compiled_admission_leanchecker": 0,
+    "compiled_admission_axioms": 0,
+    "compiled_admission": 0,
+    "compiled_metaprogram_build": 0,
+    "compiled_metaprogram_leanchecker": 0,
+    "compiled_metaprogram_axioms": 0,
+    "compiled_metaprogram": 0,
+    "false_fold": 1,
+    "false_power": 1,
+    "sorry": 0,
+    "custom_imported": 0,
+    "native": 0,
+    "version": 0
+  },
+  "constant_infos": 157,
+  "closure": 58421,
+  "approved_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "public_targets": 66,
+  "injections": {
+    "compiled_admission": {
+      "injected_name_encoded": "s5f70726976617465/s5265736561726368466f726d616c436f72655231/s416c67656272615632/n0/s5265736561726368466f726d616c436f72655231/s636f6d70696c656441646d697373696f6e",
+      "module_encoded": "s5265736561726368466f726d616c436f72655231/s416c67656272615632",
+      "module_sha256": "681d1e426416899e2635f6f23c94ae026e0995957af2b635f74449223e900f76",
+      "outcome": "REJECTED_FOR_EXPECTED_REASON",
+      "stages": [
+        "build",
+        "leanchecker",
+        "public_axioms",
+        "inventory"
+      ],
+      "violations": [
+        {
+          "code": "extra_theorem",
+          "name_encoded": "s5f70726976617465/s5265736561726368466f726d616c436f72655231/s416c67656272615632/n0/s5265736561726368466f726d616c436f72655231/s636f6d70696c656441646d697373696f6e",
+          "note": ""
+        },
+        {
+          "code": "forbidden_axiom",
+          "name_encoded": "s736f7272794178",
+          "note": ""
+        }
+      ]
+    },
+    "compiled_metaprogram": {
+      "injected_name_encoded": "s5265736561726368466f726d616c436f72655231/s65633030355f666f6c645f676170/s5f70726f6f665f393939",
+      "module_encoded": "s5265736561726368466f726d616c436f72655231/s416c67656272615632",
+      "module_sha256": "90f099ee88fd8c20c6d0d3d9f808acfbde13986a5a877f30e9a3123bd8027573",
+      "outcome": "REJECTED_FOR_EXPECTED_REASON",
+      "stages": [
+        "build",
+        "leanchecker",
+        "public_axioms",
+        "inventory"
+      ],
+      "violations": [
+        {
+          "code": "unregistered_constant",
+          "name_encoded": "s5265736561726368466f726d616c436f72655231/s65633030355f666f6c645f676170/s5f70726f6f665f393939",
+          "note": "theorem/aux"
+        }
+      ]
+    }
+  },
+  "proof_axiom_controls": {
+    "false_fold": "REJECTED_BY_LEAN",
+    "false_power": "REJECTED_BY_LEAN",
+    "sorry": "REJECTED_BY_AXIOM_GATE",
+    "custom_imported": "REJECTED_BY_AXIOM_GATE",
+    "native": "REJECTED_BY_AXIOM_GATE"
+  },
+  "native_adverse_matrices": [
+    {
+      "scope": "adapter-mutations",
+      "mutants": 12,
+      "qualified_pairs": 24,
+      "report": "adapter-mutations/run-20261029T203223Z-j3g716vb/results.json",
+      "sha256": "18172e326d2917c7b79e2387c4709d27f6784fedba82564c695782d25b116ddd"
+    },
+    {
+      "scope": "git-mutations",
+      "mutants": 18,
+      "qualified_pairs": 36,
+      "report": "git-mutations/run-20261029T203232Z-zyaiub_z/results.json",
+      "sha256": "bf55febf9e57a700a5dd76eaf721c77821aecf633b4e519a11dc98f67b6fccc3"
+    },
+    {
+      "scope": "outer-self-mutations",
+      "mutants": 11,
+      "qualified_pairs": 22,
+      "report": "outer-self-mutations/run-20261029T203255Z-lnsqhc0w/results.json",
+      "sha256": "9159f2776a6417eaf418d5e6756e11a092de8de4e448db27f92f7678a9b83ebf"
+    }
+  ],
+  "adverse_execution_logs_checked": 328,
+  "owned_log_hash_matches": 21,
+  "console_contains_full_receipt_once": true,
+  "console_sha256": "e741940ff3159e64ea10585443865bf74fa1121415fb0ef3464146b1f184d70b",
+  "IR_scope": "Exact module counts only; IR names/payloads are not authenticated",
+  "Lean_responses": "ACTUAL",
+  "quarantine": "Retained until deliberate disposition in compatible source composition",
+  "remaining": "Current native full regression/required contexts and fresh peer531 artifact-verifier/532 preservation successors need reconciliation; no old receipt is rebound."
+}
