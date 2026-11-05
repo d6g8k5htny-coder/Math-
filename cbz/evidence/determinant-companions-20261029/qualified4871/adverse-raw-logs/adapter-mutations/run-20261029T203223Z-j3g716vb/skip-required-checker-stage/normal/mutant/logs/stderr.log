@@ -1,0 +1,15 @@
+test_prerequisite_failure_is_not_counted_as_an_admission_rejection (test_determinant_admission_harness.AdmissionHarnessTests.test_prerequisite_failure_is_not_counted_as_an_admission_rejection) ... 
+  test_prerequisite_failure_is_not_counted_as_an_admission_rejection (test_determinant_admission_harness.AdmissionHarnessTests.test_prerequisite_failure_is_not_counted_as_an_admission_rejection) (label='compiled_admission_leanchecker') ... FAIL
+
+======================================================================
+FAIL: test_prerequisite_failure_is_not_counted_as_an_admission_rejection (test_determinant_admission_harness.AdmissionHarnessTests.test_prerequisite_failure_is_not_counted_as_an_admission_rejection) (label='compiled_admission_leanchecker')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/skip-required-checker-stage/normal/mutant/source/tests/test_determinant_admission_harness.py", line 83, in test_prerequisite_failure_is_not_counted_as_an_admission_rejection
+    with self.subTest(label=label),self.assertRaisesRegex(ValueError,'synthetic prerequisite failure'):
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.076s
+
+FAILED (failures=1)

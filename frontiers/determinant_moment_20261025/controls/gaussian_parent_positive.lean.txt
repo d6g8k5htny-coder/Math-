@@ -18,7 +18,7 @@ example : (∫ x : ℝ, |x|^8 ∂gaussianReal 1 0) = 1 := by
 example (x : Fin 1 → ℝ) :
     regressionKernel (Measure.dirac (0 : Fin 1 → ℝ))
       (ContinuousLinearMap.id ℝ (Fin 1 → ℝ)) 0 0 x = Measure.dirac x := by
-  rw [regressionKernel_apply, Measure.map_dirac (by fun_prop)]
+  rw [regressionKernel_apply, Measure.map_dirac' (by fun_prop)]
   simp
 -- The two actual endpoint types in the six-coordinate chart are allowed.
 example : dm2Negative (egm_HM 1 ![-1,0,-1,1,0,-1]) ∧

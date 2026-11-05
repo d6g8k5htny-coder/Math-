@@ -20,8 +20,15 @@ class CliReceiptBoundaryTests(unittest.TestCase):
     def fixture(self):
         tmp = tempfile.TemporaryDirectory()
         self.addCleanup(tmp.cleanup)
-        root = Path(tmp.name) / 'component'
+        root = Path(tmp.name) / 'repo/frontiers/component'
         shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns('.lake', '__pycache__'))
+        helper = root.parents[1] / 'tools/lean_packet_admission.py'
+        helper.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(ROOT.parents[1] / 'tools/lean_packet_admission.py', helper)
+        m = json.loads((root / 'manifest.json').read_text())
+        m['compiled_inventory'] = None  # Explicitly retain the unqualified-boundary fixture.
+        m.pop('compiled_inventory_version', None)
+        (root / 'manifest.json').write_text(json.dumps(m))
         active = root / '.lake/formal-evidence/receipt.json'
         active.parent.mkdir(parents=True)
         active.write_text('{"synthetic_test_fixture":"stale active receipt"}')
@@ -156,15 +163,36 @@ class QuarantineRecordTests(unittest.TestCase):
         self.assertEqual({x['path'] for x in records}, set(m['source_modules']) | {'ResearchFormalCoreR1.lean'})
         for record in records:
             self.assertEqual(record['sha256'], hashlib.sha256((ROOT / record['path']).read_bytes()).hexdigest())
-        self.assertEqual(q['layer_a_status']['A2'], 'UNESTABLISHED_PACKAGE_WIDE_EVIDENCE')
-        self.assertEqual(q['layer_a_status']['A8'], 'UNESTABLISHED_PACKAGE_WIDE_EVIDENCE')
+        self.assertEqual(q['layer_a_status']['A2'], 'ACTUAL_APPROVED_AXIOM_CLOSURE_VERIFIED_AT_4871')
+        self.assertEqual(q['layer_a_status']['A7'], 'EXACT_GIT_SOURCE_AND_FULL_RETAINED_LOG_CUSTODY_VERIFIED_AT_4871')
+        self.assertEqual(q['layer_a_status']['A8'], 'SOURCE_STATUS_GUARDS_AND_NATIVE_PAIRED_ADVERSE_CONTROLS_VERIFIED')
+        self.assertEqual(q['exact_boundary']['status'], 'CLOSED')
+        native = [entry for entry in q['attempted'] if entry['kind'] == 'actual_native_seven_control_execution']
+        self.assertEqual(len(native), 1)
+        self.assertIn('40933537063', native[0]['result'])
+        self.assertIn('aafb9c9fa28aef592d05ce70276eb5448fd4157b', native[0]['result'])
+        self.assertIn('only first526bytes', native[0]['result'])
+        qualified = [entry for entry in q['attempted'] if entry['kind'] == 'actual_source_qualified_execution']
+        self.assertEqual(len(qualified), 2)
+        self.assertIn('40945103791', qualified[0]['result'])
+        self.assertIn('7f335b0b8f619dddeaee2f8759f93bff61c751be33860fffa23124465b59b796', qualified[0]['result'])
+        self.assertIn('263source records,21owned log hashes', qualified[0]['result'])
+        self.assertIn('40949497117', qualified[1]['result'])
+        self.assertIn('032d72523da90b4699d269236a4608994e009cb1e3998fe18c4d1c410706dbaa', qualified[1]['result'])
+        self.assertEqual(q['exact_boundary']['formal_evidence']['public_targets'], 66)
+        self.assertEqual(q['exact_boundary']['formal_evidence']['owned_log_hash_matches'], 21)
+        self.assertIn('No surrounding continuum', q['exact_boundary']['closure_limit'])
+        self.assertTrue((ROOT / 'APPLICATION_BOUNDARIES.md').is_file())
         self.assertNotIn('manifest_sha256', q['location'])
 
     def test_quarantine_record_cannot_be_omitted_from_control_manifest(self):
         tmp = tempfile.TemporaryDirectory()
         self.addCleanup(tmp.cleanup)
-        root = Path(tmp.name) / 'component'
+        root = Path(tmp.name) / 'repo/frontiers/component'
         shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns('.lake', '__pycache__'))
+        helper = root.parents[1] / 'tools/lean_packet_admission.py'
+        helper.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(ROOT.parents[1] / 'tools/lean_packet_admission.py', helper)
         m = json.loads((root / 'manifest.json').read_text())
         m['files'].pop('QUARANTINE.json', None)
         (root / 'manifest.json').write_text(json.dumps(m))
@@ -181,16 +209,42 @@ class PortableMutationRunnerTests(unittest.TestCase):
     def test_component_copy_runs_all_five_mutations_with_intended_failures(self):
         with tempfile.TemporaryDirectory() as d:
             base = Path(d)
-            root = base / 'cold-start-component'
+            root = base / 'repo/frontiers/cold-start-component'
             shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns('.lake', '__pycache__'))
+            helper = root.parents[1] / 'tools/lean_packet_admission.py'
+            helper.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(ROOT.parents[1] / 'tools/lean_packet_admission.py', helper)
+            workflow = root.parents[1] / '.github/workflows/determinant-moment-lean.yml'
+            workflow.parent.mkdir(parents=True)
+            shutil.copy2(ROOT.parents[1] / '.github/workflows/determinant-moment-lean.yml', workflow)
+            shutil.copy2(ROOT.parents[1] / '.github/workflows/cbz-determinant-artifact-integrity.yml',
+                         workflow.with_name('cbz-determinant-artifact-integrity.yml'))
             before = {p.relative_to(root): p.read_bytes() for p in root.rglob('*') if p.is_file()}
             output = base / 'reports'
-            result = subprocess.run([sys.executable, '-B', '-S', str(root / 'tests/run_cbz_mutations.py'),
+            result = subprocess.run([sys.executable, '-B', '-S', *(['-O'] if sys.flags.optimize else []),
+                                     str(root / 'tests/run_cbz_mutations.py'),
                                      '--output', str(output)], cwd=base, capture_output=True, text=True,
                                     env={**os.environ, 'TMPDIR': str(base)})
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-            report = json.loads((output / 'mutation_results.json').read_text())
-            self.assertEqual(len(report['mutations']), 5)
+            summary = json.loads(result.stdout)
+            self.assertIn('results', summary, 'runner must return the unique retained report path')
+            report_path = Path(summary['results'])
+            self.assertTrue(report_path.is_relative_to(output))
+            report = json.loads(report_path.read_text())
+            expected = {'omit-forbidden-closure', 'omit-extra-theorem-admission',
+                        'omit-bound-constant-admission', 'omit-stale-receipt-removal',
+                        'execute-cached-inventory-bytecode', 'omit-runtime-census-and-controls',
+                        'omit-execute-source-qualification', 'omit-cli-pre-helper-qualification',
+                        'omit-post-manifest-guard', 'omit-final-source-qualification',
+                        'use-unqualified-late-receipt-identity', 'revert-console-capture-to-log',
+                        'omit-artifact-log-hash', 'omit-artifact-commit-binding',
+                        'omit-artifact-manifest-binding', 'omit-artifact-duplicate-refusal',
+                        'omit-artifact-path-refusal', 'omit-artifact-empty-inventory-refusal',
+                        'reopen-artifact-path-for-final-hash', 'omit-byte-workflow-hidden-captures'}
+            self.assertEqual({row['name'] for row in report['mutations']}, expected)
+            self.assertEqual(len(report['mutations']), 20)
+            self.assertEqual(report['execution_pairs'], 21)
+            self.assertEqual(report['mode'], 'optimized' if sys.flags.optimize else 'normal')
             self.assertTrue(report['source_preserved'])
             for record in report['mutations']:
                 self.assertGreater(record['collected_tests'], 0)
@@ -198,6 +252,21 @@ class PortableMutationRunnerTests(unittest.TestCase):
                 self.assertNotEqual(record['exit_code'], 0)
                 self.assertTrue(record['killed_by_intended_assertions'])
                 self.assertFalse(record['import_or_test_errors'])
+                self.assertGreater(len(record['selection_results']), 0)
+                for pair in record['selection_results']:
+                    self.assertEqual(pair['status'], 'KILLED')
+                    self.assertTrue(pair['same_harness'])
+                    self.assertTrue(pair['baseline_passed'])
+                    self.assertEqual(pair['baseline']['classification'], 'PASS')
+                    self.assertEqual(pair['mutant']['classification'], 'ASSERTION_FAILURE')
+                    self.assertEqual(pair['baseline']['loaded_test_ids'], [pair['selection']])
+                    self.assertEqual(pair['mutant']['loaded_test_ids'], [pair['selection']])
+                    self.assertTrue(all(detail['phase'] == 'test' and detail['is_assertion']
+                                        for detail in pair['mutant']['failure_details']))
+                if record['name'] == 'omit-runtime-census-and-controls':
+                    self.assertEqual({pair['selection'] for pair in record['selection_results']}, {
+                        'test_gate.RuntimeGuardTests.test_green_public_targets_do_not_hide_bad_compiled_inventory',
+                        'test_gate.RuntimeGuardTests.test_missing_compiled_output_refuses_receipt'})
             after = {p.relative_to(root): p.read_bytes() for p in root.rglob('*') if p.is_file()}
             self.assertEqual(after, before)
 
