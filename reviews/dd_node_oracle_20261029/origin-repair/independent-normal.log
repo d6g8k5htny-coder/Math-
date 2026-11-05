@@ -1,0 +1,17 @@
+test_accepts_genuine_body_and_subtest_assertions (tests.test_lifetime_dd_node_oracle.OracleOriginSelfTests.test_accepts_genuine_body_and_subtest_assertions) ... ok
+test_baseline_requires_actual_success (tests.test_lifetime_dd_node_oracle.OracleOriginSelfTests.test_baseline_requires_actual_success) ... ok
+test_grader_source_safeguards_are_assertion_killed (tests.test_lifetime_dd_node_oracle.OracleOriginSelfTests.test_grader_source_safeguards_are_assertion_killed) ... ok
+test_rejects_empty_duplicate_and_missing_execution (tests.test_lifetime_dd_node_oracle.OracleOriginSelfTests.test_rejects_empty_duplicate_and_missing_execution) ... ok
+test_rejects_expected_and_unexpected_success (tests.test_lifetime_dd_node_oracle.OracleOriginSelfTests.test_rejects_expected_and_unexpected_success) ... ok
+test_rejects_lazy_body (tests.test_lifetime_dd_node_oracle.OracleOriginSelfTests.test_rejects_lazy_body) ... ok
+test_rejects_missing_and_duplicate_success_events (tests.test_lifetime_dd_node_oracle.OracleOriginSelfTests.test_rejects_missing_and_duplicate_success_events) ... ok
+test_rejects_returned_deferred_and_non_none_values (tests.test_lifetime_dd_node_oracle.OracleOriginSelfTests.test_rejects_returned_deferred_and_non_none_values) ... ok
+test_rejects_runtime_and_skip (tests.test_lifetime_dd_node_oracle.OracleOriginSelfTests.test_rejects_runtime_and_skip) ... ok
+test_rejects_setup_teardown_cleanup_and_manual_body (tests.test_lifetime_dd_node_oracle.OracleOriginSelfTests.test_rejects_setup_teardown_cleanup_and_manual_body) ... ok
+test_rejects_subject_helper_nested_and_subtest_origin (tests.test_lifetime_dd_node_oracle.OracleOriginSelfTests.test_rejects_subject_helper_nested_and_subtest_origin) ... ok
+test_subject_mutant_is_not_admitted (tests.test_lifetime_dd_node_oracle.OracleOriginSelfTests.test_subject_mutant_is_not_admitted) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 1.485s
+
+OK
