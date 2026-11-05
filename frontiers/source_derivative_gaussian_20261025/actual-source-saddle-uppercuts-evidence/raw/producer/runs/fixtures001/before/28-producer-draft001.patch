@@ -1,0 +1,13 @@
+--- ProducerJoinSection.INITIAL.lean.txt
++++ ProducerJoinSection.ACTUAL.lean.txt
+@@ -117,7 +117,9 @@
+     rw [ht, Metric.mem_ball, dist_zero_right]
+     apply (pi_norm_lt_iff hrho).2
+     intro i
+-    fin_cases i <;> simpa using (show |(0 : ℝ)| < rho by simpa using hrho) <;> assumption
++    fin_cases i
++    · simpa using hrho
++    · simpa using hs
+   have hp : (![0,rho/4] : Point2) ∈ phi.target := hball _ (by rw [abs_of_pos (by positivity)]; linarith)
+   have hm : (![0,-rho/4] : Point2) ∈ phi.target := hball _ (by rw [abs_neg, abs_of_pos (by positivity)]; linarith)
+   have hps := phi.map_target hp

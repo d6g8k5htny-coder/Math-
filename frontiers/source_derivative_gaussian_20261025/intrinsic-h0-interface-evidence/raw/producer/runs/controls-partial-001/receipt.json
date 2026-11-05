@@ -1,0 +1,44 @@
+{
+  "label": "controls-partial-001",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -R /workspace/scratch/intrinsic-h0-interface-construct -o /workspace/scratch/intrinsic-h0-interface-construct/build/IntrinsicH0Controls.olean /workspace/scratch/intrinsic-h0-interface-construct/IntrinsicH0Controls.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0Interface.lean",
+      "bytes": 8366,
+      "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef"
+    },
+    "object": {
+      "path": "/workspace/scratch/intrinsic-h0-interface-construct/build/SourceIntrinsicH0Interface.olean",
+      "bytes": 975440,
+      "sha256": "ff59fe74b6d755b1173b2300559c7fd896e3ec567b43df447a9b3ad2ab5a5fec"
+    }
+  },
+  "started_utc": "2026-10-26T17:37:28.450498+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 3.9400999546051025,
+  "ended_utc": "2026-10-26T17:37:32.390635+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0Interface.lean",
+      "bytes": 8366,
+      "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef"
+    },
+    "object": {
+      "path": "/workspace/scratch/intrinsic-h0-interface-construct/build/SourceIntrinsicH0Interface.olean",
+      "bytes": 975440,
+      "sha256": "ff59fe74b6d755b1173b2300559c7fd896e3ec567b43df447a9b3ad2ab5a5fec"
+    }
+  },
+  "log": {
+    "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-partial-001/output.log",
+    "bytes": 680,
+    "sha256": "034b773a91a0e6b24246cc77cac11dd90a70a4d9c72a46213ef20fb777eba121"
+  }
+}

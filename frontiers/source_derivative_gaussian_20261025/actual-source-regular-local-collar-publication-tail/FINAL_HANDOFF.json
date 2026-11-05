@@ -1,0 +1,159 @@
+{
+  "status": "FINAL_READY_FROZEN_ROOT_ONLY_APPLY_NOT_APPLIED",
+  "source_cut": "42da22188b49c5624ec30c4d0f3ef7169a850dff",
+  "qualified_baseline": "263b9d4329043e6debd299a8c27327ee515670d7",
+  "overlay_root": "/workspace/scratch/actual-source-regular-local-collar-packaging/overlay",
+  "apply_plan": {
+    "recorded_utc": "2026-10-29T00:04:42.804541+00:00",
+    "event": "identity_recorded",
+    "path": "/workspace/scratch/actual-source-regular-local-collar-packaging/APPLY_PLAN.json",
+    "bytes": 536746,
+    "sha256": "cacf4491aa2f02d320f61afccb1e214f891d4c885f234d632d1217e88563c6c1",
+    "hash_computed_here": true,
+    "origin": "FIRST necessary NEW66 immutable metadata identity, once"
+  },
+  "copy_plan": {
+    "recorded_utc": "2026-10-29T00:04:42.750469+00:00",
+    "event": "identity_recorded",
+    "path": "/workspace/scratch/actual-source-regular-local-collar-packaging/COPY_PLAN.json",
+    "bytes": 819,
+    "sha256": "8efd4f76913b4536b6279308a21756cad1d5294a40e7e231ac7420f6ea113b4c",
+    "hash_computed_here": false,
+    "origin": "Existing exact-byte identity reused",
+    "identity_source": "/workspace/scratch/actual-source-regular-local-collar-packaging/overlay/frontiers/source_derivative_gaussian_20261025/actual-source-regular-local-collar-evidence/COPY_PLAN.json"
+  },
+  "counts": {
+    "modules": 66,
+    "written": 1136,
+    "Prop": 1127,
+    "data": 9,
+    "inputs": 32,
+    "manifest_entries": 11573,
+    "new_manifest_entries": 1888,
+    "overlay_files": 1893,
+    "apply_files": 1888,
+    "binding_SKIP": 5,
+    "actual_owned_constants": 80,
+    "actual_runs": 39,
+    "verification_runs": 17,
+    "documentary_runs": 22,
+    "unlabeled_runs": 0,
+    "worker_split_stream_files": 78,
+    "worker_split_stream_bytes": 51018,
+    "excluded_artifacts": 3
+  },
+  "manifest_identity": {
+    "path": "/workspace/scratch/actual-source-regular-local-collar-packaging/overlay/frontiers/source_derivative_gaussian_20261025/SOURCE_MANIFEST.json",
+    "bytes": 2092840,
+    "sha256": "6438b1bd69754fddad1b045b2461e94dfbd790ec74bc5c47f1a09aeab13eb584",
+    "hash_computed_here": true,
+    "origin": "FIRST necessary NEW66 immutable metadata identity, once"
+  },
+  "sums_identity": {
+    "path": "/workspace/scratch/actual-source-regular-local-collar-packaging/overlay/frontiers/source_derivative_gaussian_20261025/SOURCE_SHA256SUMS",
+    "bytes": 1746319,
+    "sha256": "0cb2d33197e471a2337022ec4c033e6703dc9921d0e305606b3658cdb9a745a2",
+    "hash_computed_here": true,
+    "origin": "FIRST necessary NEW66 immutable metadata identity, once"
+  },
+  "catalog_identity": {
+    "path": "/workspace/scratch/actual-source-regular-local-collar-packaging/overlay/frontiers/source_derivative_gaussian_20261025/actual-source-regular-local-collar-evidence/ACTUAL_REGULAR_LOCAL_COLLAR_EVIDENCE_CATALOG.json",
+    "bytes": 14973,
+    "sha256": "ed0e3dc84df227595f5a642775c2561b22fa44265ebbd19b00459d77e5def586",
+    "hash_computed_here": true,
+    "origin": "FIRST necessary NEW66 immutable metadata identity, once"
+  },
+  "metadata_receipt_identity": {
+    "path": "/workspace/scratch/actual-source-regular-local-collar-packaging/METADATA_VALIDATION_RECEIPT.json",
+    "bytes": 4102,
+    "sha256": "56079c61acc344b9094ff64af9175074d37535cb1af3e9ef90f490bbd1beed41",
+    "hash_computed_here": true,
+    "origin": "FIRST necessary NEW66 immutable metadata identity, once"
+  },
+  "report_identity": {
+    "path": "/workspace/scratch/actual-source-regular-local-collar-packaging/REPORT.md",
+    "bytes": 2639,
+    "sha256": "974471bc545d3f741dc036b53c7dffa90cf523faef68490b51c22f02950fd97c",
+    "hash_computed_here": true,
+    "origin": "FIRST necessary NEW66 immutable metadata identity, once"
+  },
+  "custody_snapshot_identity": {
+    "path": "/workspace/scratch/actual-source-regular-local-collar-packaging/CUSTODY_IDENTITIES.json",
+    "bytes": 2643709,
+    "sha256": "05aee81a871e437fb315619727ef5f1b5495de272e8be2a0436472dfbe598524",
+    "hash_computed_here": true,
+    "origin": "FIRST necessary NEW66 immutable metadata identity, once"
+  },
+  "actual_metadata_executions": 1,
+  "failed_metadata_executions": 0,
+  "metadata_checks_passed": 7,
+  "actual_worker_capture": {
+    "attempt": 1,
+    "command_argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/scratch/actual-source-regular-local-collar-packaging/finalize_metadata.py"
+    ],
+    "cwd": "/workspace",
+    "start_utc": "2026-10-29T00:04:30.609163+00:00",
+    "end_utc": "2026-10-29T00:04:42.963312+00:00",
+    "elapsed_seconds": 12.354176815002575,
+    "exit_code": 0,
+    "spawn_or_worker_exception": null,
+    "stdout": "stdout.log",
+    "stderr": "stderr.log",
+    "full_actual_capture": true,
+    "old_payload_hashes": 0,
+    "proof_replays": 0
+  },
+  "capture_identities": {
+    "STARTED.json": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-packaging/metadata-attempts/attempt-001/STARTED.json",
+      "bytes": 431,
+      "sha256": "18ff335e6e87043160b187d3a290a4a239e7e1bfddcef25d40478e63ed947cb2",
+      "hash_computed_here": true,
+      "origin": "FIRST necessary NEW66 immutable metadata identity, once"
+    },
+    "stdout.log": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-packaging/metadata-attempts/attempt-001/stdout.log",
+      "bytes": 2419,
+      "sha256": "1f10e32a1e8c25e849e48228ae3aaed9d0ac9eb7c6b73fbe2e707534c00688e3",
+      "hash_computed_here": true,
+      "origin": "FIRST necessary NEW66 immutable metadata identity, once"
+    },
+    "stderr.log": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-packaging/metadata-attempts/attempt-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_computed_here": false,
+      "origin": "Existing exact-byte identity reused",
+      "identity_source": "/workspace/scratch/actual-source-regular-local-collar-publication/root-producer-closure-adoption001/worker/01-worker/stderr.log"
+    },
+    "execution_receipt.json": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-packaging/metadata-attempts/attempt-001/execution_receipt.json",
+      "bytes": 567,
+      "sha256": "e9248797a5afe5df4f9d26bc3836d4e657b98497c280c5b46613a1174779d8f4",
+      "hash_computed_here": true,
+      "origin": "FIRST necessary NEW66 immutable metadata identity, once"
+    }
+  },
+  "entry_outer_capture": "{entry,outer}-captures/metadata-attempt-001/{STARTED.json,stdout.log,stderr.log,RECEIPT.json}; actual wrappers close later, no premature completion or selfhash",
+  "identity_journal": "IDENTITY_JOURNAL.jsonl",
+  "copy_journal": "ARCHIVE_PROGRESS.jsonl",
+  "check_journal": "VALIDATION_PROGRESS.jsonl",
+  "own_object_action": "SKIP_ROOT_COPIED_ONCE_ALL_FURTHER_COPIES_SKIP",
+  "production_helpers_once": 1,
+  "Controls_only_helper_once": 0,
+  "packager_is_66_proof_author": false,
+  "packager_role": "66 metadata only",
+  "independent_scientific_review_credit": 0,
+  "old_payload_hashes": 0,
+  "proof_replays": 0,
+  "shared_mutations": 0,
+  "scientific_effect": "NONE",
+  "same_family_credit": 0,
+  "canonical_authority": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/main/governance/OWNER_DECISION_20261025_REVIEW_FAMILIES.md"
+  ]
+}

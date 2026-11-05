@@ -1,0 +1,31 @@
+{
+  "kind": "cross-block",
+  "run": "cross-block-001",
+  "start": "2026-10-26T19:19:31.887165+00:00",
+  "end": "2026-10-26T19:19:36.225981+00:00",
+  "seconds": 4.338826639010222,
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/two-remote-firstjet-gaussian-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/two-remote-firstjet-gaussian-construct /workspace/scratch/two-remote-firstjet-gaussian-construct/CrossBlockMutation.lean -o /workspace/scratch/two-remote-firstjet-gaussian-construct/runs/cross-block-001/CrossBlockMutation.olean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 1,
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean",
+    "bytes": 21774,
+    "sha256": "4677ada085e7c53b4e9b4fd2160bcffc326e6a73b20cbb6cb7540ee3aece2a91"
+  },
+  "stdout": {
+    "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/runs/cross-block-001/stdout.log",
+    "bytes": 120,
+    "sha256": "7db3d9b495c3137515aed8a881822c5f11c267e36c2802256954ce95b0990bcf"
+  },
+  "stderr": {
+    "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/runs/cross-block-001/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

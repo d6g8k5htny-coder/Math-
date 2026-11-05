@@ -1,0 +1,79 @@
+{
+  "status": "ADDITIVE_RAW_GIT_METADATA_ALLOWLIST_CORRECTION",
+  "observed_utc": "2026-10-29T00:03:23.798154+00:00",
+  "reason": "Originalrootfreeze mistakenlytreats NUL-delimited Git metadata outputs as binaryartifacts. These5 are originalrawdocumentary streams/pathbindingrecords, eligibleandretainedverbatim. Actualisolated.index remains excluded. Originalfreeze preserved, no math/check/source/objecthash/replay.",
+  "files": [
+    {
+      "source": "/workspace/scratch/actual-source-regular-local-collar-publication/native-source-import66-001/action/ONLY_OWNED_INDEX_BINDINGS.nul.txt",
+      "archive_path": "raw/root/native-source-import66-001/action/ONLY_OWNED_INDEX_BINDINGS.nul.txt",
+      "bytes": 130,
+      "sha256": "b831e242ba30e06ab9666dc835eba17ff2c1214ba56bb6f13de53e2f7df5c383",
+      "marker": [
+        130,
+        1793231545172721527
+      ],
+      "origin": "FIRST unrecorded NEW root rawdocumentary metadata payload once; NULpathdelimiters retained verbatim",
+      "identity_status": "KNOWN_REQUIRED",
+      "first_observed_utc": "2026-10-29T00:03:23.792520+00:00"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-regular-local-collar-publication/native-source-tree66-001/action/05-actual-changed-paths/stdout.log",
+      "archive_path": "raw/root/native-source-tree66-001/action/05-actual-changed-paths/stdout.log",
+      "bytes": 82,
+      "sha256": "d747ea9603dfae7185e239c787b1afe4dda667147e390d1830aa8f67c4083d90",
+      "marker": [
+        82,
+        1793231404613531088
+      ],
+      "origin": "FIRST unrecorded NEW root rawdocumentary metadata payload once; NULpathdelimiters retained verbatim",
+      "identity_status": "KNOWN_REQUIRED",
+      "first_observed_utc": "2026-10-29T00:03:23.792600+00:00"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-regular-local-collar-publication/native-source-tree66-001/action/06-actual-isolated-index-bindings/stdout.log",
+      "archive_path": "raw/root/native-source-tree66-001/action/06-actual-isolated-index-bindings/stdout.log",
+      "bytes": 2114625,
+      "sha256": "9a784b6d15a6ed0b789b2d9ee0c9025534aee196683688a9ae84f2b0bb869299",
+      "marker": [
+        2114625,
+        1793231404626958997
+      ],
+      "origin": "FIRST unrecorded NEW root rawdocumentary metadata payload once; NULpathdelimiters retained verbatim",
+      "identity_status": "KNOWN_REQUIRED",
+      "first_observed_utc": "2026-10-29T00:03:23.795128+00:00"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-regular-local-collar-publication/native-source-tree66-001/action/07-remote-known-actual-parent-tree-bindings/stdout.log",
+      "archive_path": "raw/root/native-source-tree66-001/action/07-remote-known-actual-parent-tree-bindings/stdout.log",
+      "bytes": 2153652,
+      "sha256": "0f6ab62fc1f1604b01f4117113d11c5cdd10ec18acd4e4caecd836c34a7c4dad",
+      "marker": [
+        2153652,
+        1793231404658273908
+      ],
+      "origin": "FIRST unrecorded NEW root rawdocumentary metadata payload once; NULpathdelimiters retained verbatim",
+      "identity_status": "KNOWN_REQUIRED",
+      "first_observed_utc": "2026-10-29T00:03:23.797991+00:00"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-regular-local-collar-publication/native-source-tree66-001/action/EXPLICIT_STAGE_PATHS.nul.txt",
+      "archive_path": "raw/root/native-source-tree66-001/action/EXPLICIT_STAGE_PATHS.nul.txt",
+      "bytes": 82,
+      "sha256": "d747ea9603dfae7185e239c787b1afe4dda667147e390d1830aa8f67c4083d90",
+      "marker": [
+        82,
+        1793231404573914950
+      ],
+      "origin": "FIRST unrecorded NEW root rawdocumentary metadata payload once; NULpathdelimiters retained verbatim",
+      "identity_status": "KNOWN_REQUIRED",
+      "first_observed_utc": "2026-10-29T00:03:23.798145+00:00"
+    }
+  ],
+  "supersedes_only_five_nonindex_exclusions_in": "ROOT_FROZEN_FILES66.json",
+  "excluded": [
+    {
+      "source": "/workspace/scratch/actual-source-regular-local-collar-publication/native-source-tree66-001/action/isolated.index",
+      "reason": "binary/index explicitlyineligible"
+    }
+  ]
+}

@@ -1,0 +1,1250 @@
+{
+ "schema": "elder-selection-chain-audit/v1",
+ "object": "CL-ELDER-SELECTION-CHAIN-AUDIT-20261031-v1.2",
+ "author": "Anthropic Claude, Claude Code session_017Mi3hxjaxV45x6zo6o1ee3, delegated AI work for Dylan Roy",
+ "scientific_effect": "NONE",
+ "kind": "source-bound review record; proposes PROOF_INDEX/STATUS wording for the integrator; not a register",
+ "trigger": {
+  "what": "owner assessment received 2026-10-31T15:14:11Z",
+  "recorded_at": "main#686 comment 6546811519",
+  "file": "sources/OWNER_ASSESSMENT_20261031.txt",
+  "bytes": 7395,
+  "sha256": "73ea6544478c3c8d0bfbae26ce58d4b04325b9f641fde31b9c6d3385eb3b187a"
+ },
+ "cuts": {
+  "Math-": "19a55750451b8016b50d1d20be6a18c021807ecb",
+  "main": "4712fc13b99a4e4df68481663657b2952ce858fe",
+  "Math-#543 head": "9e89980bfa4f281e00550f481202033775f35485"
+ },
+ "taxonomy": {
+  "Proved": "complete written proof (prose or Lean) of a fixed statement, with a kernel check or at least one nonauthor read recording no open defect at the stated scope",
+  "Proved under assumptions": "complete proof whose conclusion holds under explicitly listed hypotheses or interface clauses that the project has not established for the actual model",
+  "Conditional": "complete argument whose conclusion consumes a cited claim whose status is not Proved",
+  "Conjectural": "no complete nonauthor-read proof: author-side complete proofs with no located nonauthor read (candidates) and open conjectures",
+  "Refuted": "a counterexample or contradiction is recorded"
+ },
+ "assignment_rule": "Status follows the located evidence, not the author's label. A nonauthor AI read earns Proved; the evidence field says who read it. A Proved claim may depend only on Proved claims; check_claims.py enforces this (v1.1). No claim in this chain has verification independent of the project's AI reviewers, and none has human review.",
+ "event_vocabulary": {
+  "elder": "elder event {d_f(M) = f(S)} on the Morse-distinct locus (P section 8); p_r is its Q^W-probability",
+  "good-jet": "the event G_r of P (7.1)/l.216: the CAP (1) hypotheses hold on the pinned cylinder",
+  "deterministic": "a statement about a fixed function, no probability",
+  "candidate-count": "counts of critical points or candidate pairs, not elder-selected",
+  "elder-vs-candidates": "elder-selected candidate pairs (Theorem B's nu_eld, defined through E0) against all candidate pairs (nu_cand)",
+  "bars-vs-candidates": "finite H0 bars (nu_eld^all) against candidate pairs (nu_cand^all); the bar identification is F5",
+  "normalizer": "the full normalizer Z_r",
+  "formal-interface": "a statement about the Lean interface objects of specifications/lean_statements_20261010"
+ },
+ "sources": {
+  "P": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+   "blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+   "bytes": 40261,
+   "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+  },
+  "E1-ERRATUM": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+   "blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+   "bytes": 1782,
+   "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028"
+  },
+  "CAP": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md",
+   "blob": "0633aca3c2a2882b0de4399da0a75d64c2e6b2e1",
+   "bytes": 15160,
+   "sha256": "0bf922b9203c29088b12388807aa0e2ecd020485eb0f6e919679841b5b2636fc"
+  },
+  "E2-REPAIR": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+   "blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+   "bytes": 9062,
+   "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f"
+  },
+  "REC": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+   "blob": "75da2597971510f843f8d90c743950cb8c177342",
+   "bytes": 23312,
+   "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da"
+  },
+  "REC-LEDGER": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "reviews/d1_chain_reconciliation_20260928/LEDGER.json",
+   "blob": "e49a15aee0399e797388fd6f0fdcaa6845846e97",
+   "bytes": 14446,
+   "sha256": "8276335175af875c82bbb0936bb2b2d9657771c66859a37bda7dfd04e945e328"
+  },
+  "REV-C1-FILE": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "reviews/d1_theorem_a_nonauthor_20260928/REVIEW.md",
+   "blob": "bc11369c41ebc76de5700df3f931939ccfc88b9b",
+   "bytes": 24105,
+   "sha256": "b7328d4bab97fa2d12622ca730dc698970febc1ea8bcbc0b24555e69e2a66392"
+  },
+  "REV-SP-FILE": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "reviews/d1_cap_elder_partner_second_pass_claude_20260930/REVIEW.md",
+   "blob": "a653dbc7bd8bd692433587f050ab8678713c297e",
+   "bytes": 30771,
+   "sha256": "dc6cfc863b5b9f36065ded609e9834370e49bbe5fcf8bc11ec6b9bc0e53b133a"
+  },
+  "REV-G2-FILE": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "reviews/d1_section9_borel_grok_lucas_20260928/REVIEW.md",
+   "blob": "48ea9ad5a3ae5a1515a3533a4c776800547a92bc",
+   "bytes": 4287,
+   "sha256": "a654ea6b52181fa46371c3a2ef9ee17e82f8e365f9de24857526c6dd48154d7e"
+  },
+  "REV-EL-FILE": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "reviews/d1_elder_lower_claude_20260928/REVIEW.md",
+   "blob": "179c1e6d3d4005b2e406b1bd4d9584caf5465793",
+   "bytes": 16640,
+   "sha256": "53bd5289a2060ce6c906023ed09a5aec457313e782135e1df86e743941839495"
+  },
+  "REV-DL-FILE": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "reviews/elder_dimension_lift_claude_20260928/REVIEW.md",
+   "blob": "e2b9fcdc8d24f6a4d532afb7d02627e4716158d1",
+   "bytes": 17030,
+   "sha256": "032bb4c79e4a985e5b53f5abb6bb06da4d643ec7345e4df9591e2046fb287e12"
+  },
+  "REV-U-FILE": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "reviews/c7_nonvanishing_openai_20260929/REVIEW.md",
+   "blob": "64794e5801b70d950c7e1202f7b6b7d07055cbb6",
+   "bytes": 10807,
+   "sha256": "68b6cd43351706745992c4af242abdc5bdabd46ab5ac99347f2c12b505e1a15d"
+  },
+  "REV-IW-G-FILE": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "reviews/d5_intermediate_window_grok_20260928/REVIEW.md",
+   "blob": "1b0998b97677ff3e2a22e4fc5d9fabe9eb6a1f76",
+   "bytes": 8897,
+   "sha256": "3295b16edf6be150e4dee233f7666d9e2de7681574caf81a99a7367898b036d3"
+  },
+  "REV-IW-C-FILE": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "reviews/d5_intermediate_window_claude_20260928/REVIEW.md",
+   "blob": "100ce8ecc120fcf4e3e4e6b9b039c08632e2711c",
+   "bytes": 14710,
+   "sha256": "fb3207802bf2d92ad138bc338a36f39bcd3a94440669b9aba9558e566f767976"
+  },
+  "REV-I5-G-FILE": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "reviews/d5_i5_planar_f_20260928/REVIEW.md",
+   "blob": "031c5364d1377e0f85ed62caadd8406fbbedc0ab",
+   "bytes": 3552,
+   "sha256": "527d66e72b079ef7c854987f7e9d44f2252b81aa0e8d9e7ef3b45deb02388659"
+  },
+  "D5-REC": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "reviews/d5_reconciliation_20260929/RECONCILIATION.md",
+   "blob": "4062d76bdf3c60bc73f04295b88c245bcee395de",
+   "bytes": 12536,
+   "sha256": "14342b7eb0ad47c1c99b06be58fb6c901f5c7c72fc70f73e81de3dde50c23432"
+  },
+  "EL": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "frontiers/window_multiplicity_laws_20260928/ELDER_LOWER_AND_DENSITY_GAP.md",
+   "blob": "aaefc8da9668e819591dd9db0b34442394f2362e",
+   "bytes": 10229,
+   "sha256": "8ce05a43bde8e0d718f09e2da1ffe75d3ec5893489254afdbf5b58b602cdba0c"
+  },
+  "DL": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "frontiers/elder_dimension_lift_20260928/PROOF.md",
+   "blob": "7303bd791a68a1139251f0f6e403a9f7cc89b006",
+   "bytes": 23971,
+   "sha256": "b529fe3780e1909014b3cb144b9a74156d976bbdc19b6711d0c5b1a1da9e5669"
+  },
+  "ELD": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "frontiers/elder_lower_all_d_20260929/PROOF.md",
+   "blob": "7f41c9e315be0a7985d4c770a11a2cdf717bd46a",
+   "bytes": 16485,
+   "sha256": "88c6bfc7973fe832918f91e2ed1f47da3e51987ed9efc1a99648e82b2eb119e5"
+  },
+  "LPAIR": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "frontiers/local_pairing_20260930/LOCAL_PAIRING.md",
+   "blob": "1f8c9455b6d8bf8b22342cc705c2119a67f8dc76",
+   "bytes": 46742,
+   "sha256": "e01e1d097fb087fee013559f508ad58849da06f9a764eed1464286946d78331a"
+  },
+  "LEG": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "frontiers/local_elder_geometry_20260930/PROOF.md",
+   "blob": "ef2aa57959ea9f721bbf2316ce94cf616c1c9113",
+   "bytes": 39722,
+   "sha256": "f68038be79b46124b0f9b31205aa6e3682b34b6f5ef81f4a5697ae81f07cc46b"
+  },
+  "CFE": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "frontiers/concave_fibre_elder_20260930/PROOF.md",
+   "blob": "923d3236b5291a29bd162937f172190db84dcef5",
+   "bytes": 23416,
+   "sha256": "5681896a6808f48fb7508914d0860ec508af7646e9e706fc260d935dd951c75e"
+  },
+  "U": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "frontiers/unrestricted_selection_difference_20260929/PROOF.md",
+   "blob": "5a55b179a974a90c65d257f3f93765cc6fb30bb8",
+   "bytes": 13028,
+   "sha256": "93a63002d32fd5c35ae994fe28b1205d8098026d6ddde19c67d4977dcf5817a9"
+  },
+  "IW": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "frontiers/intermediate_window_20260928/PROOF.md",
+   "blob": "f53a527ce0204fda271f24730b62b4223a5e43ec",
+   "bytes": 27775,
+   "sha256": "b3eb9456d7058b5b78149cfca4e072679beda85cd1a0293d209664a542db66cf"
+  },
+  "C7T": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "frontiers/c7_total_bounded_20260929/PROOF.md",
+   "blob": "28748b086ec6761ef467dc67cba475fbdf8b7455",
+   "bytes": 14982,
+   "sha256": "16c0efe372c1b1f26460aaa109287fed78e6fbd2dd00a0530998db296278dd01"
+  },
+  "CFE-LEAN": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "frontiers/cap_first_exit_lean_20261002/CapFirstExit.lean",
+   "blob": "01744e2cf571049d7d1557b9ed54646881d341cf",
+   "bytes": 326607,
+   "sha256": "040aa91fcbdf25ccdaced1c828dd779318217a7c41ac928f87e8d17a8d3c3ef0"
+  },
+  "CFE-ALIGN": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "frontiers/cap_first_exit_lean_20261002/ALIGNMENT.md",
+   "blob": "ef05eb264ea219771fa37d7ecd10985d55846c48",
+   "bytes": 57035,
+   "sha256": "91b086c04d083d2220821c8b6900e2bd070ad11f4be03bf2255bdbd83d677f21"
+  },
+  "CFE-MANIFEST": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "frontiers/cap_first_exit_lean_20261002/MANIFEST.json",
+   "blob": "5252de50e9dbe5f733ec5442e2c61fc81eb76e55",
+   "bytes": 22679,
+   "sha256": "630d5edeaf975918c1c1b2648e32478c06d14a8e22a2a5e43ccb587e1cf04d8f"
+  },
+  "LIFETIME-LEAN": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "specifications/lean_statements_20261010/Specifications/Lifetime.lean",
+   "blob": "f2508f7f2e3fd42f22f5aa52bc5ead5ff9e73b9a",
+   "bytes": 51383,
+   "sha256": "90f4892608e953ecc696bb32ea159d1c178ceb8a1c6edfd11acfceb14af462c6"
+  },
+  "REG-SCOPE": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "specifications/lean_statements_20261010/SCOPE.md",
+   "blob": "7dc499e939108f8912ba73807fa0ea32592114d0",
+   "bytes": 286891,
+   "sha256": "0917ba26c1b97d78f49da78f59981fe654012f18de4ab099aaaf4e29a62b9723"
+  },
+  "REG-README": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "specifications/lean_statements_20261010/README.md",
+   "blob": "2eb556620c56fc13a082fb83dbaf7981d2d2d8ef",
+   "bytes": 104907,
+   "sha256": "40ca3a949df7794f12555c9398c37daad4c380c0c463267ec019a5593cdb7bf1"
+  },
+  "EB-LEAN": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "frontiers/asymmetric_elder_bridge_20261017/ElderBridge.lean",
+   "blob": "a59ee9daab7b67eafd7e4f806b27244bcc5caed1",
+   "bytes": 3683,
+   "sha256": "6b0be1116f6b357b0ffbda202c572c27c2788b98bee639e228375a5ebeea1fa9"
+  },
+  "EB-REVIEW-FILE": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "frontiers/asymmetric_elder_bridge_20261017/review/NONAUTHOR_ELDER_BRIDGE_REVIEW.md",
+   "blob": "5e744c58db65bb705ba241cb8cbeef84ead91fd5",
+   "bytes": 26691,
+   "sha256": "aab177777595d0e725b779258fd5042e78771d4f5f89427ccd979d5949c36b43"
+  },
+  "CMA-PROOF": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "frontiers/compact_morse_elder_adapter_20261018/PROOF.md",
+   "blob": "bbfa404260bcbfb4cbc03e2021a26ce0b95d3dcb",
+   "bytes": 25662,
+   "sha256": "39f92734da35aa4c3ad97ea9d8e194cea4ee3a0b23054a8a412f331294d74762"
+  },
+  "CMA-REVIEW-FILE": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "frontiers/compact_morse_elder_adapter_20261018/reviews/NONAUTHOR_REVIEW.md",
+   "blob": "955357eeefdd61ff1bb69005c28b9cc45194f1ff",
+   "bytes": 16983,
+   "sha256": "ab8ab0084449e676f0466510e31f8e0a84b36616d1d4f7488f470c47a30a4ede"
+  },
+  "CMA-ACCEPT": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "frontiers/compact_morse_elder_adapter_20261018/ROOT_ACCEPTANCE.json",
+   "blob": "3139c6102ea2fef01098bf1ce2715a684cc36b91",
+   "bytes": 1502,
+   "sha256": "7b5d4a92ab87abef35722ac2446849c5f96c6bb2b3bc7383fb9956dc469c83f4"
+  },
+  "TF-SCOPE": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "companions/torus_filtration_20261011/SCOPE.md",
+   "blob": "a68e8497ad198981c2973e66de606640d7aaf778",
+   "bytes": 41948,
+   "sha256": "ac7ecaba59c6ff0912f3064c4cfe860dee256b593e248b0e0322a67b902892cf"
+  },
+  "PROOF-INDEX": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "PROOF_INDEX.md",
+   "blob": "6b406a44acff3005b1112e932b9f053324e96632",
+   "bytes": 37988,
+   "sha256": "4ad88f3e5e43a4caaada8124eade96114336b7c80ca5cbaeb2aab934f7862c58"
+  },
+  "CANDIDATES": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "reviews/candidates_pending_20260928/CANDIDATES.md",
+   "blob": "02455f0561d51990e1486e5d4fbb4229c8a34f5a",
+   "bytes": 9465,
+   "sha256": "cbaa71b55190ac234b8363614b7e57387f60c33b393ea102408eb88ec1e44513"
+  },
+  "REACH": {
+   "repo": "Math-",
+   "commit": "19a55750451b8016b50d1d20be6a18c021807ecb",
+   "path": "docs/integration/2026-10-02-proof-reachability.md",
+   "blob": "c5dd02757723740ed3ec6368ffffbe984a9e2a16",
+   "bytes": 27720,
+   "sha256": "ead58da5dff5cc2a0bd5cdca9826177a1b2652173b8528c3429c3b0685a76345"
+  },
+  "CE4-LEAN": {
+   "repo": "Math-",
+   "commit": "9e89980bfa4f281e00550f481202033775f35485",
+   "path": "cbz/lifetime_pair_law/CounterexampleE4.lean",
+   "blob": "3b7712e41e8a6b0569c31c549a83857d9fe2ada6",
+   "bytes": 1743,
+   "sha256": "812ba30d02f16a69abdcb8b23d28fa4a8fe68e3a016911d7f08e98ebe04cdfc7"
+  },
+  "CE4-README": {
+   "repo": "Math-",
+   "commit": "9e89980bfa4f281e00550f481202033775f35485",
+   "path": "cbz/lifetime_pair_law/README.md",
+   "blob": "eaab733e57026c501ae5bde0cff5f5ef081f70e4",
+   "bytes": 2514,
+   "sha256": "f347dc9da375411866f11ead4867678e71a6cbf133c5f7d7060504e3652634e3"
+  },
+  "MAIN-LEDGER": {
+   "repo": "main",
+   "commit": "4712fc13b99a4e4df68481663657b2952ce858fe",
+   "path": "docs/DISCOVERY_PRIORITY_LEDGER_20260925.md",
+   "blob": "30e8de81929f70df7fc0fc797aed6bb7cfa95f3a",
+   "bytes": 23444,
+   "sha256": "f1a4fa748faabd383249307fa1d7e7145ce0dc5ed97851944b09d510d5e83432"
+  },
+  "MAIN-STATUS": {
+   "repo": "main",
+   "commit": "4712fc13b99a4e4df68481663657b2952ce858fe",
+   "path": "STATUS.md",
+   "blob": "d209fe1183ece223944e0267202c1f513dbe4f8d",
+   "bytes": 18072,
+   "sha256": "677bb4e77562649af4f34d98dd0fe188c3f6e54f059ec88bbe22738f997645fe"
+  }
+ },
+ "reviews": {
+  "REV-G1": {
+   "performer": "xAI Grok 4.7 via Cursor, bc-ce4bf0bc",
+   "record": "main#63 comment 5841570965",
+   "verdict": "ACCEPT D1-A to D1-E",
+   "scope": "P sections 8-15 and the statements",
+   "provider_distinct_from_author": true,
+   "same_github_principal": true,
+   "human": false
+  },
+  "REV-C1": {
+   "performer": "Anthropic Claude, Claude Code session_017Mi3hxjaxV45x6zo6o1ee3 (the author of this record)",
+   "record": "Math- reviews/d1_theorem_a_nonauthor_20260928/REVIEW.md (REV-C1-FILE) and main#63 comment 5873873903",
+   "verdict": "ACCEPT A1-A7, CAP, Theorem A and E2 C1-C6; wording W1",
+   "scope": "P sections 2-8 with E1, CAP sections 1-5, E2",
+   "provider_distinct_from_author": true,
+   "same_github_principal": true,
+   "human": false
+  },
+  "REV-G2": {
+   "performer": "xAI Grok, Lucas lane (editorial transcription by session_017)",
+   "record": "Math- reviews/d1_section9_borel_grok_lucas_20260928/REVIEW.md (REV-G2-FILE)",
+   "verdict": "E2 C1-C6 ACCEPT (narrative record; runner absent)",
+   "scope": "E2 Borel repair",
+   "provider_distinct_from_author": true,
+   "same_github_principal": true,
+   "human": false
+  },
+  "REV-G4": {
+   "performer": "xAI Grok 4.7 via Cursor, bc-81faa729 and bc-dfbce246",
+   "record": "main#67 comments 5841270276 and 5841782206",
+   "verdict": "partial re-derivation of P (6.2), the depth-failure integral, the m=1 split, the far and M4 Markov pieces",
+   "scope": "P sections 6-7 (partial, while reviewing D2)",
+   "provider_distinct_from_author": true,
+   "same_github_principal": true,
+   "human": false
+  },
+  "REV-C2": {
+   "performer": "Anthropic Claude, Claude Code session_017Mi3hxjaxV45x6zo6o1ee3 (the author of this record)",
+   "record": "Math- reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md section 6 (REC)",
+   "verdict": "P sections 11-12 ACCEPT; spot re-derivations of (13.1), (13.4), (15.2)",
+   "scope": "P sections 11-15",
+   "provider_distinct_from_author": true,
+   "same_github_principal": true,
+   "human": false
+  },
+  "REV-SP": {
+   "performer": "Anthropic Claude, Claude Code session_017Mi3hxjaxV45x6zo6o1ee3 (the author of this record)",
+   "record": "Math- reviews/d1_cap_elder_partner_second_pass_claude_20260930/REVIEW.md (REV-SP-FILE)",
+   "verdict": "CAP sections 2-5 re-derived line by line, no gap; composition with P section 7 ACCEPT at Theorem A scope",
+   "scope": "CAP sections 2-5 and the G_r match",
+   "provider_distinct_from_author": true,
+   "same_github_principal": true,
+   "human": false
+  },
+  "REV-EL": {
+   "performer": "Anthropic Claude, Claude Code session_017Mi3hxjaxV45x6zo6o1ee3 (the author of this record)",
+   "record": "Math- reviews/d1_elder_lower_claude_20260928/REVIEW.md (REV-EL-FILE)",
+   "verdict": "Theorem E1 ACCEPT at existential scope; Corollary E2 ACCEPT as a composition with Theorem A",
+   "scope": "EL (E1)-(E8) and the local multiplicity candidate",
+   "provider_distinct_from_author": true,
+   "same_github_principal": true,
+   "human": false
+  },
+  "REV-DL": {
+   "performer": "Anthropic Claude, Claude Code session_017Mi3hxjaxV45x6zo6o1ee3 (the author of this record)",
+   "record": "Math- reviews/elder_dimension_lift_claude_20260928/REVIEW.md (REV-DL-FILE)",
+   "verdict": "DL Theorem A (A2)-(A3) ACCEPT at existential scope for every fixed d >= 3",
+   "scope": "DL sections 2-8",
+   "provider_distinct_from_author": true,
+   "same_github_principal": true,
+   "human": false
+  },
+  "REV-U": {
+   "performer": "OpenAI / ChatGPT (nonauthor review of candidate C7 and Theorem U)",
+   "record": "Math- reviews/c7_nonvanishing_openai_20260929/REVIEW.md (REV-U-FILE)",
+   "verdict": "ACCEPT Theorem U and (U2)-(U4), compatible-density-version convention",
+   "scope": "U v3",
+   "provider_distinct_from_author": true,
+   "same_github_principal": true,
+   "human": false
+  },
+  "REV-IW-G": {
+   "performer": "xAI Grok",
+   "record": "Math- reviews/d5_intermediate_window_grok_20260928/REVIEW.md (REV-IW-G-FILE)",
+   "verdict": "ACCEPT (finite exact checks of the Hermite frame and rank steps)",
+   "scope": "IW (I3)-(I5) algebraic interfaces",
+   "provider_distinct_from_author": true,
+   "same_github_principal": true,
+   "human": false
+  },
+  "REV-IW-C": {
+   "performer": "Anthropic Claude, Claude Code session_017Mi3hxjaxV45x6zo6o1ee3 (the author of this record)",
+   "record": "Math- reviews/d5_intermediate_window_claude_20260928/REVIEW.md (REV-IW-C-FILE)",
+   "verdict": "ACCEPT (I7)-(I9) and the continuum steps at their stated scope",
+   "scope": "IW",
+   "provider_distinct_from_author": true,
+   "same_github_principal": true,
+   "human": false
+  },
+  "REV-I5-G": {
+   "performer": "xAI Grok",
+   "record": "Math- reviews/d5_i5_planar_f_20260928/REVIEW.md (REV-I5-G-FILE)",
+   "verdict": "ACCEPT I15-I18 and Corollary F",
+   "scope": "IW (I5) and remote_collision Corollary F",
+   "provider_distinct_from_author": true,
+   "same_github_principal": true,
+   "human": false
+  },
+  "REV-D5-REC": {
+   "performer": "Anthropic Claude, Claude Code session_017Mi3hxjaxV45x6zo6o1ee3 (the author of this record)",
+   "record": "Math- reviews/d5_reconciliation_20260929/RECONCILIATION.md (D5-REC)",
+   "verdict": "binds the D5 window-count sources to nonauthor verdicts; summed pin-neighbourhood bound AMEND",
+   "scope": "D5 components",
+   "provider_distinct_from_author": true,
+   "same_github_principal": true,
+   "human": false
+  },
+  "REV-CE4-ENG": {
+   "performer": "OpenAI / Codex research task loop",
+   "record": "Math-#543 review 5706003799 and comment 6510388884",
+   "verdict": "PASS_SCOPED_ENGINEERING_EVIDENCE / AMEND_SCOPED_METADATA / MATH_REVIEW_PENDING",
+   "scope": "nine-path delta, workflow, axiom and kernel logs",
+   "provider_distinct_from_author": false,
+   "same_github_principal": true,
+   "human": false
+  },
+  "REV-CE4-FORMAL": {
+   "performer": "OpenAI / ChatGPT GPT-6",
+   "record": "Math-#543 review 5707632836 and comment 6513991759",
+   "verdict": "PASS_SCOPED_FORMAL_DERIVATION / CONDITIONAL_INTERFACE_BOUNDARY",
+   "scope": "oneLaw_upper and oneLaw_refutes_twoSided against Lifetime.lean",
+   "provider_distinct_from_author": false,
+   "same_github_principal": true,
+   "human": false
+  },
+  "REV-EB": {
+   "performer": "OpenAI / Codex /root/c261a_successor_preparation_review_20261016",
+   "record": "Math- frontiers/asymmetric_elder_bridge_20261017/review/NONAUTHOR_ELDER_BRIDGE_REVIEW.md (EB-REVIEW-FILE)",
+   "verdict": "ACCEPT_SCOPED (local conditional bridge; 49 axiom targets; three negative controls)",
+   "scope": "ElderClearance, ElderInterval, ElderBridge",
+   "provider_distinct_from_author": false,
+   "same_github_principal": true,
+   "human": false
+  },
+  "REV-CMA": {
+   "performer": "OpenAI / Codex /root/c292_geometry_review, with Root acceptance",
+   "record": "Math- frontiers/compact_morse_elder_adapter_20261018/reviews/NONAUTHOR_REVIEW.md (CMA-REVIEW-FILE) and ROOT_ACCEPTANCE.json (CMA-ACCEPT)",
+   "verdict": "ACCEPT_SCOPED_CONVENTIONAL",
+   "scope": "the compact Morse trap construction",
+   "provider_distinct_from_author": false,
+   "same_github_principal": true,
+   "human": false
+  }
+ },
+ "claims": [
+  {
+   "id": "E0",
+   "title": "The elder event and p_r",
+   "event": "elder",
+   "statement": "For fixed pins M, S and a sample f let d_f(M) = sup{ min_t f(gamma(t)) : gamma(0) = M, f(gamma(1)) > f(M) } (empty supremum -infinity). The elder event is {d_f(M) = f(S)} on the Morse distinct-value locus; it is Borel in f for fixed pins, and p_r(b,k,R) := Q^W_r(elder event). Theorems A, B, C, E1, the dimension lift and Theorem U all refer to this p_r (P l.29, l.290-297; EL section 1 \"exactly the p_r definition\").",
+   "status": "Proved",
+   "proof_form": "prose",
+   "evidence": "P section 8 with the E2 section-9 replacement; reads REV-G1, REV-C1 (section 8 and E2 C1-C6), REV-G2. Formal: the deterministic level sets are Lean definitions (CFE-LEAN connectionLevels l.124, joinedLevels l.211, olderPeakLevels l.332); the sample-path event and its Q^W-measure are not formalized; in the statement register p is a primitive field (LIFETIME-LEAN l.457-467).",
+   "sources": [
+    "P",
+    "E2-REPAIR",
+    "EL",
+    "CFE-LEAN",
+    "LIFETIME-LEAN"
+   ],
+   "reviews": [
+    "REV-G1",
+    "REV-C1",
+    "REV-G2"
+   ],
+   "depends_on": [],
+   "obligations": [
+    "Formal: define the elder event as a set of sample paths and p_r as its Q^W-measure. This needs the regression law Q_r as a measure on smooth functions; the register classifies the parent Props as Mathlib-blocked (REG-README, REG-SCOPE)."
+   ]
+  },
+  {
+   "id": "D1",
+   "title": "Deterministic cap theorem: CAP (1) on the cylinder forces the global elder partner",
+   "event": "deterministic",
+   "statement": "Let f be C^4 near D = [-2r,2r] x closedBall(0,2r) with critical pins M = (-r/2,0), S = (r/2,0), f(M) - f(S) = k r^3, lambda_min(-D_y^2 f(M)) > (4/(3k)) r M3^2 and r M4 <= 3k/10. Then on C = [-2r, r/2] x closedBall(0,2r): (C1) f <= f(M) on C; (C2+) f <= f(S) on the frontier of C with equality only at S; (C3) a path from M through S to a point z with f(z) > f(M) along which f >= f(S). Hence d_f(M) = f(S); on a compact locally connected space the largest level at which the closed-superlevel component of M contains a strictly higher local maximum is f(S). D contains exactly the critical points M and S, and every path from M to a higher point crosses the frontier of C, so no critical point elsewhere changes the pairing.",
+   "status": "Proved",
+   "proof_form": "lean+prose",
+   "kernel_checked": true,
+   "evidence": "Kernel-checked: CFE-LEAN ridge_capHyp_E (l.3162), torus_capHyp_blocks (l.5214), torus_elder_death_level_blocks (l.5256), axioms propext, Classical.choice, Quot.sound only (CFE-MANIFEST), Lean author session_017. Prose: CAP sections 2-5, read by REV-C1 and re-derived by REV-SP (both session_017). MANIFEST: mathematical_acceptance false, alignment_review NOT_CLAIMED.",
+   "sources": [
+    "CAP",
+    "CFE-LEAN",
+    "CFE-ALIGN",
+    "CFE-MANIFEST",
+    "REV-SP-FILE"
+   ],
+   "reviews": [
+    "REV-C1",
+    "REV-SP"
+   ],
+   "depends_on": [],
+   "obligations": [
+    "Nonauthor alignment review of the Lean statements against CAP sections 1-5 (the Lean author is the same session as both prose reviewers).",
+    "No PROOF_INDEX row for frontiers/cap_first_exit_lean_20261002; only the reachability inventory lists it (REACH)."
+   ]
+  },
+  {
+   "id": "A-I",
+   "title": "Full-normalizer floor Z_r >= z_* r^2 and Z_r / r^2 -> z_0 > 0",
+   "event": "normalizer",
+   "statement": "P sections 2-5 read with E1 (congruence factor diag(r^{-1/2}, I)) and W1: uniform contact frame, residual independence, endpoint identities and the full normalizer floor (5.4)-(5.5), uniformly over compact marks and all frames.",
+   "status": "Proved",
+   "proof_form": "prose",
+   "evidence": "REV-C1 full depth on A1-A4; REV-G4 partial (certified det T_r). Reconciled in REC section 3 component (I).",
+   "sources": [
+    "P",
+    "E1-ERRATUM",
+    "REC",
+    "REC-LEDGER"
+   ],
+   "reviews": [
+    "REV-C1",
+    "REV-G4"
+   ],
+   "depends_on": [],
+   "obligations": [
+    "No numerical z_* or r_*.",
+    "Not formalized."
+   ]
+  },
+  {
+   "id": "A-II",
+   "title": "Boundary layer: Q^W(G_r^c) <= C r^3 (P (7.8))",
+   "event": "good-jet",
+   "statement": "G_r = { lambda_min(-A_M) > (4/(3k)) r M3^2, r M4 <= 3k/10 } (P l.216). E_Q[W_r 1_{G_r^c}] <= C r^5 by the double soft-eigenvalue factor (P section 6), the eigenvalue-coordinate integration including corank >= 2 (7.2)-(7.4), the scalar m = 1 far branch (7.5)-(7.6) and the M4 Markov bound (7.7); dividing by the floor (5.5) gives (7.8). This is a statement about the jet and sup-norm event G_r, not about the elder event.",
+   "status": "Proved",
+   "proof_form": "prose",
+   "evidence": "REV-C1 full depth on A5-A7; REV-G4 re-derived (6.2), the depth-failure integral, the m = 1 split and the far and M4 Markov pieces.",
+   "sources": [
+    "P",
+    "REC",
+    "REC-LEDGER"
+   ],
+   "reviews": [
+    "REV-C1",
+    "REV-G4"
+   ],
+   "depends_on": [
+    "A-I"
+   ],
+   "obligations": [
+    "No numerical C or r_*.",
+    "Not formalized.",
+    "Together with A-I this is where the r^3 of Theorem A arises; it is the natural target for the external question \"weakest indispensable lemma\"."
+   ]
+  },
+  {
+   "id": "A",
+   "title": "Theorem A (P 1.1): 0 <= 1 - p_r <= C r^3 on compact B, K, all frames, 0 < r <= r_*",
+   "event": "elder",
+   "statement": "For compact B and K in (0, infinity) there are r_* > 0 and C < infinity with 0 <= 1 - p_r(b,k,R) <= C r^3 for all 0 < r <= r_*, b in B, k in K and all orthonormal frames, with p_r the Q^W-probability of the elder event (E0). Proof: 1 - p_r = Q^W(elder event^c) <= Q^W(G_r^c) by D1 on the full-probability Morse locus (P section 8), and Q^W(G_r^c) <= C r^3 by A-II.",
+   "status": "Proved",
+   "proof_form": "prose",
+   "evidence": "REV-G1 and REV-C1 ACCEPT at existential scope; REV-SP confirms the composition; REC section 2 records ACCEPT. Formal: none about the actual event (see F2); the register shape ParentUniformSelectionA is a predicate on an uninterpreted p.",
+   "sources": [
+    "P",
+    "E1-ERRATUM",
+    "E2-REPAIR",
+    "REC",
+    "REC-LEDGER",
+    "PROOF-INDEX",
+    "MAIN-STATUS",
+    "MAIN-LEDGER"
+   ],
+   "reviews": [
+    "REV-G1",
+    "REV-C1",
+    "REV-SP"
+   ],
+   "depends_on": [
+    "E0",
+    "D1",
+    "A-I",
+    "A-II"
+   ],
+   "obligations": [
+    "Formal statement about the actual event: none exists (F2).",
+    "Surface inconsistency I-1: main ledger DP-02 says AMEND; main STATUS.md D1 and Math- PROOF_INDEX record ACCEPT at existential scope.",
+    "All nonauthor reads are by xAI/Grok or by session_017; no human or external review."
+   ]
+  },
+  {
+   "id": "L2",
+   "title": "Theorem E1: planar lower bound 1 - p_r >= c r^3",
+   "event": "elder",
+   "statement": "d = 2, compact birth and positive gap marks, all frames: there are c, r_* > 0 with 1 - p_r >= c r^3 for 0 < r <= r_*. The proof exhibits an event of Q^W-probability >= c r^3 on which an explicit path from M to a point above the birth stays above f(S), so d_f(M) >= b - k r^3/4 > f(S) (EL (E3)): an extra window saddle preempts S.",
+   "status": "Proved",
+   "proof_form": "prose",
+   "evidence": "REV-EL ACCEPT at existential scope (session_017); CANDIDATES C1 records the integration (Math-#124) and that the author's algebra.py is absent.",
+   "sources": [
+    "EL",
+    "REV-EL-FILE",
+    "CANDIDATES"
+   ],
+   "reviews": [
+    "REV-EL"
+   ],
+   "depends_on": [
+    "E0"
+   ],
+   "obligations": [
+    "Sole nonauthor reviewer is session_017.",
+    "The author's original finite check is not publicly reproducible; the review's distinct checker does not recover it (CANDIDATES C1)."
+   ]
+  },
+  {
+   "id": "L2b",
+   "title": "Corollary E2: c r^3 <= 1 - p_r <= C r^3 in d = 2",
+   "event": "elder",
+   "statement": "Composition of L2 with Theorem A.",
+   "status": "Proved",
+   "proof_form": "prose",
+   "evidence": "REV-EL ACCEPT as a composition; REC section 2 \"Sharpness in d = 2\".",
+   "sources": [
+    "EL",
+    "REC"
+   ],
+   "reviews": [
+    "REV-EL"
+   ],
+   "depends_on": [
+    "A",
+    "L2"
+   ],
+   "obligations": []
+  },
+  {
+   "id": "L3",
+   "title": "Every-d lower bound (OA-ELDER-DIMENSION-LIFT Theorem A (A2)-(A3))",
+   "event": "elder",
+   "statement": "For every fixed d >= 3, compact marks and all frames, 1 - p_r >= c r^3 for small r, by one soft transverse direction and the planar path (DL sections 2-8; (A25)). \"No parent upper selection theorem entered this argument\" (DL l.361).",
+   "status": "Proved",
+   "proof_form": "prose",
+   "evidence": "REV-DL ACCEPT at existential scope (session_017); integrated by Math-#129; main STATUS.md D1 notes it as outside the reconciliation row.",
+   "sources": [
+    "DL",
+    "REV-DL-FILE",
+    "MAIN-STATUS"
+   ],
+   "reviews": [
+    "REV-DL"
+   ],
+   "depends_on": [
+    "E0"
+   ],
+   "obligations": [
+    "Sole nonauthor reviewer is session_017.",
+    "Surface wording I-2: REC section 2 and the PROOF_INDEX D1 row (l.27) say \"no lower bound is asserted for d >= 3\" (scoped to the D1 chain) and do not point to this reviewed lift, which PROOF_INDEX lists only in its PR inventory (l.107, 110, 111)."
+   ]
+  },
+  {
+   "id": "L3b",
+   "title": "CL-ELDER-LOWER-ALL-D Theorem E1_d (soft-eigenplane lift)",
+   "event": "elder",
+   "statement": "The planar E1 lifted to every fixed d >= 2 by a different route (Anthropic session_01NMeK).",
+   "status": "Conjectural",
+   "proof_form": "prose",
+   "evidence": "Candidate: complete author-side proof; \"nonauthor analytic review required\"; no nonauthor read located in Math- (PROOF-INDEX #149 \"proof candidate\"; REACH \"no\" PROOF_INDEX verdict).",
+   "sources": [
+    "ELD",
+    "PROOF-INDEX",
+    "REACH"
+   ],
+   "reviews": [],
+   "depends_on": [
+    "E0",
+    "L2"
+   ],
+   "obligations": [
+    "Nonauthor analytic review."
+   ]
+  },
+  {
+   "id": "LP-P",
+   "title": "Lemma P, Lemma P', Proposition 3.3: the extra-window-saddle criterion on the pinned planar cubic",
+   "event": "deterministic",
+   "statement": "On the limiting pinned cubic P_theta, off a null tie set, (M, S) is the elder pair iff the cubic has no extra strict-window critical point (n(theta) = 0); if n(theta) >= 1, M dies at the highest extra window saddle (LPAIR sections 2-3). Math-#170 Theorem E (LEG section 2) proves the same deterministic statement by another route.",
+   "status": "Conjectural",
+   "proof_form": "prose",
+   "evidence": "Two independent author-side derivations by different providers agree (Anthropic LPAIR; OpenAI LEG); exact finite controls (pairing_check.py). The LPAIR header's \"clean-context referee\" reads are not repository records, and the located Codex review (C85, comment 5396856086) covered slice C only. Under this record's rule a complete proof without a located nonauthor read is a candidate.",
+   "sources": [
+    "LPAIR",
+    "LEG"
+   ],
+   "reviews": [],
+   "depends_on": [],
+   "obligations": [
+    "Slice A nonauthor read (deterministic, planar cubic; any lane)."
+   ]
+  },
+  {
+   "id": "LP-LP",
+   "title": "Theorem LP: liminf r^{-3}(1 - p_r) >= a_1 + a_2 = nu_1 + nu_2 - beta_far (planar)",
+   "event": "elder",
+   "statement": "The planar selection loss is bounded below by an explicit functional of the local cluster measure (LPAIR section 4), consuming [SC], [CUB], [TSL] and Lemma 5.1 (QS-E) at their own status.",
+   "status": "Conditional",
+   "proof_form": "prose",
+   "evidence": "Author-side; depends on LP-P and on interfaces not audited here.",
+   "sources": [
+    "LPAIR"
+   ],
+   "reviews": [],
+   "depends_on": [
+    "LP-P",
+    "E0"
+   ],
+   "obligations": [
+    "Status of the consumed interfaces [SC], [CUB], [TSL], QS-E Lemma 5.1 (outside this audit).",
+    "Nonauthor read of slice B."
+   ]
+  },
+  {
+   "id": "LP-EQ",
+   "title": "Identified selection-failure law r^{-3}(1 - p_r) -> alpha_1 + alpha_2 (Theorem S planar, Theorem F every d; Conjecture LP=)",
+   "event": "elder",
+   "statement": "The exact limit of the scaled failure probability and the law of the replacement partner (LEG sections 7-8 Theorem S; CFE section 5 Theorem F; LPAIR section 5 Conjecture LP=).",
+   "status": "Conjectural",
+   "proof_form": "prose",
+   "evidence": "AUTHOR_SIDE / HOLD pending qualified source-bound review (LEG l.4, CFE l.4); no nonauthor read located; REACH lists both with no PROOF_INDEX verdict.",
+   "sources": [
+    "LEG",
+    "CFE",
+    "LPAIR",
+    "REACH"
+   ],
+   "reviews": [],
+   "depends_on": [
+    "LP-P",
+    "A"
+   ],
+   "obligations": [
+    "Qualified nonauthor review of Theorem E/S and of the hard-fibre lemma/Theorem F.",
+    "Keep alpha_1 + alpha_2 and any numerical value out of the headline until then (owner item 4)."
+   ]
+  },
+  {
+   "id": "W",
+   "title": "Window critical-point counts: E_{Q^W} N_{r,j}(torus minus pins, between-pin height window) <= C r^3",
+   "event": "candidate-count",
+   "statement": "Planar, compact marks, all frames and indices: the expected number of critical points other than the pins with height in I_r = (b - k r^3, b) is O(r^3) (IW (I3)-(I5) with the collar and punctured-disk inputs; D5 reconciliation). IW section 1: \"This is not an elder-selection theorem\". The proof of Theorem A does not use these counts.",
+   "status": "Proved",
+   "proof_form": "prose",
+   "evidence": "REV-IW-G, REV-IW-C, REV-I5-G ACCEPT at stated scope; REV-D5-REC binds them (summed pin-neighbourhood bound AMEND).",
+   "sources": [
+    "IW",
+    "D5-REC",
+    "REV-IW-G-FILE",
+    "REV-IW-C-FILE",
+    "REV-I5-G-FILE"
+   ],
+   "reviews": [
+    "REV-IW-G",
+    "REV-IW-C",
+    "REV-I5-G",
+    "REV-D5-REC"
+   ],
+   "depends_on": [],
+   "obligations": [
+    "Planar only; no all-height global count (D5-REC).",
+    "A count of candidate configurations; it enters no elder statement of this chain."
+   ]
+  },
+  {
+   "id": "F5",
+   "title": "Identification of the maximin level with the H0 bar death and of elder-selected pairs with finite bars",
+   "event": "deterministic",
+   "statement": "On the Morse distinct-value locus, d_f(M) is the death level of the superlevel H0 class born at M (elder rule), and each finite bar has exactly one local-maximum birth and one index-(d-1) merging-saddle death, so the elder-selected candidate pairs are exactly the finite bars (P l.290-297, l.445).",
+   "status": "Proved under assumptions",
+   "proof_form": "prose",
+   "evidence": "Classical persistence/Morse theory asserted in P and consumed by Theorem C (bars, P l.47 and l.445) and through it by Theorem U; Theorem B is stated through the elder relation (P l.37) and does not consume it (v1.2, RB1). Read with sections 8 and 14 by REV-G1 and REV-C1. In Lean it is an interface clause (LIFETIME-LEAN elderPartner_iff l.348, deathHeight_maximin l.341) and, for the cap case only, CapHyp.elder_death_level / elder_death_level_peak (CFE-LEAN l.217, l.338); the compact Morse adapter (CMA-PROOF) supplies one interval summand per maximum, not the bar bijection; torus_filtration (TF-SCOPE) lists once-counting, interval decomposition and bar bijection as not established.",
+   "sources": [
+    "P",
+    "LIFETIME-LEAN",
+    "CFE-LEAN",
+    "CMA-PROOF",
+    "TF-SCOPE"
+   ],
+   "reviews": [
+    "REV-G1",
+    "REV-C1"
+   ],
+   "depends_on": [
+    "E0"
+   ],
+   "obligations": [
+    "Formal bijection between finite bars and elder-selected candidate pairs on the Morse locus."
+   ]
+  },
+  {
+   "id": "B",
+   "title": "Theorem B (P 1.2): compact-window densities and the O(ell^{2/3}) difference",
+   "event": "elder-vs-candidates",
+   "statement": "For B, K of positive length: nu_cand ~ nu_eld ~ c_{B,K} ell^{-1/3} and 0 <= nu_cand - nu_eld <= C_{B,K} ell^{2/3}, where nu_eld counts the candidate pairs that are actual ordinary elder partners (P l.37: \"let nu_eld(ell) count only pairs which are actual ordinary elder partners\"), that is the elder event E0, not bars. Proof: Theorem A plus the marked Kac-Rice interface (E2) and the radial ledger and pushforward (P sections 9-11).",
+   "status": "Proved",
+   "proof_form": "prose",
+   "evidence": "REV-G1, REV-C1, REV-C2; REC section 2. Theorem B is stated through the elder relation (E0); the bar identification F5 enters Theorem C, not Theorem B (v1.1, after S1 of the Grok Bot a4 and 01SHCrxv reads).",
+   "sources": [
+    "P",
+    "E2-REPAIR",
+    "REC"
+   ],
+   "reviews": [
+    "REV-G1",
+    "REV-C1",
+    "REV-C2"
+   ],
+   "depends_on": [
+    "A",
+    "E0"
+   ],
+   "obligations": [
+    "The Kac-Rice representation and pushforward are prose only.",
+    "No numerical c_{B,K} or C_{B,K}."
+   ]
+  },
+  {
+   "id": "C",
+   "title": "Theorem C (P 1.3): unrestricted leading density nu_cand^all ~ nu_eld^all ~ c_{d,L} ell^{-1/3}",
+   "event": "bars-vs-candidates",
+   "statement": "All births, gaps and separations; essential class excluded; nu_eld^all counts all finite ordinary superlevel H0 bars (P l.47). Near pairs: dominated convergence with the target-growth majorant (13.4) and p_r -> 1 pointwise from Theorem A on compact neighbourhoods (P l.415); far pairs: nu^far <= C (14.1); c_{d,L} is the integral (13.6)/(15.2). The selected pair count equals the finite-bar count by the Morse-locus identification (P l.445), which is F5. Leading term only: no unrestricted remainder or difference rate.",
+   "status": "Conditional",
+   "proof_form": "prose",
+   "evidence": "The Gaussian analysis is complete and read: REV-G1, REV-C1, REV-C2 (spot re-derivations of (13.1), (13.4), (15.2)); REC section 2 records ACCEPT. Its only non-Proved dependency is F5, the classical bar identification, which this record holds at Proved under assumptions (asserted in P, an interface clause in Lean); under the record's rule that makes Theorem C Conditional on F5 and on nothing else (v1.1, S1 of the Grok Bot a4 and 01SHCrxv reads; v1.0 had Proved).",
+   "sources": [
+    "P",
+    "REC"
+   ],
+   "reviews": [
+    "REV-G1",
+    "REV-C1",
+    "REV-C2"
+   ],
+   "depends_on": [
+    "A",
+    "E0",
+    "F5"
+   ],
+   "obligations": [
+    "Discharge F5 (the bar identification) as a theorem rather than an interface clause; Theorem C then becomes Proved with no other change.",
+    "No unrestricted difference rate; Theorem U shows none of order ell^{2/3} exists.",
+    "c_{d,L} is an identified integral with no numerical value; numerical SIDE24 coefficient work is outside this audit and belongs outside the headline until derived (owner item 4)."
+   ]
+  },
+  {
+   "id": "U",
+   "title": "Theorem U: the unrestricted selection difference does not vanish",
+   "event": "bars-vs-candidates",
+   "statement": "nu_cand^all(ell) - nu_eld^all(ell) >= nu_cand^far - nu_eld^far >= c_* > 0 for 0 < ell <= ell_0, where nu_eld^all counts finite H0 bars; hence D(ell)/ell^alpha -> infinity for every alpha > 0 and c_* <= D(ell) = o(ell^{-1/3}) (the upper half of (U2) uses Theorem C).",
+   "status": "Conditional",
+   "proof_form": "prose",
+   "evidence": "REV-U ACCEPT Theorem U and (U2)-(U4) (OpenAI); author session_017. (U1) reads \"cannot be persistence partners\" through the bar identification F5, and (U2) consumes Theorem C, so under the record's rule Theorem U is Conditional on F5 (and on C, itself Conditional on F5 alone) (v1.1, S1; v1.0 had Proved).",
+   "sources": [
+    "U",
+    "REV-U-FILE"
+   ],
+   "reviews": [
+    "REV-U"
+   ],
+   "depends_on": [
+    "C",
+    "F5"
+   ],
+   "obligations": [
+    "Whether D is bounded is not decided by U (U section 5); see RHO.",
+    "Discharging F5 makes U Proved with no other change."
+   ]
+  },
+  {
+   "id": "C7",
+   "title": "Candidate C7: unrestricted difference rate 0 <= nu_cand^all - nu_eld^all <= C ell^{2/3}",
+   "event": "bars-vs-candidates",
+   "statement": "The compact-window rate (1.2) extended to the unrestricted densities (CANDIDATES C7).",
+   "status": "Refuted",
+   "proof_form": "prose",
+   "evidence": "Theorem U (U2): the difference is bounded below by c_* > 0 (REV-U). The contradiction consumes the bar identification F5 exactly as U does; a refutation of C7 for elder-selected pairs in place of bars needs no F5.",
+   "sources": [
+    "U",
+    "CANDIDATES"
+   ],
+   "reviews": [
+    "REV-U"
+   ],
+   "depends_on": [
+    "U"
+   ],
+   "obligations": []
+  },
+  {
+   "id": "RHO",
+   "title": "Rejected density rho_rej(ell) = nu_cand^all - nu_eld^all = O(1) (C7-total Theorem K; ledger DP-07)",
+   "event": "bars-vs-candidates",
+   "statement": "A gap-mark-explicit failure intensity giving a bounded unrestricted rejected density and finite inverse moments exactly for q > -1 (C7T sections 0-3).",
+   "status": "Conjectural",
+   "proof_form": "prose",
+   "evidence": "Author-side proof candidate (Anthropic session_01NMeK), \"nonauthor analytic review required\" (C7T l.3); the v1 memo was retracted and a normalized-form scope erratum added; no nonauthor analytic read located. The owner's item 4 names the rejected-density estimate as not yet established; this record agrees.",
+   "sources": [
+    "C7T",
+    "MAIN-LEDGER"
+   ],
+   "reviews": [],
+   "depends_on": [
+    "A-II",
+    "U"
+   ],
+   "obligations": [
+    "Nonauthor analytic review of Theorem K."
+   ]
+  },
+  {
+   "id": "F1",
+   "title": "Interface-level implication \"upper selection shape implies two-sided rate shape\" for every PairLawInterface",
+   "event": "formal-interface",
+   "statement": "For all G, I and every PairLawInterface p: ParentUniformSelectionA -> PlanarTwoSidedRateE4 (lower half included). Refuted by the constant law p = 1: oneLaw_upper proves the upper shape and oneLaw_refutes_twoSided contradicts the two-sided shape at r = r_*/2 (CE4-LEAN). The register also names p = 0 as falsifying the universal closure of ParentUniformSelectionA itself (REG-SCOPE round-4 triage).",
+   "status": "Refuted",
+   "proof_form": "lean",
+   "kernel_checked": true,
+   "evidence": "Lean-checked at Math- commit 5a470bfd (run 40957238766, job 123740377857; axioms propext, Classical.choice, Quot.sound), relocated byte-identically to cbz/lifetime_pair_law at Math-#543 head 9e89980b; REV-CE4-ENG and REV-CE4-FORMAL PASS at scope; an Anthropic different-family review (01XJMJ, Math-#543 comment 6545265266) is open at this cut. Byte count: blob 3b7712e4 is 1,743 bytes; the \"1,720\" of GPT-6's pickup 6513952657 and of 01XJMJ's review 5724470777 counts characters (I-3).",
+   "sources": [
+    "CE4-LEAN",
+    "CE4-README",
+    "LIFETIME-LEAN",
+    "REG-SCOPE"
+   ],
+   "reviews": [
+    "REV-CE4-ENG",
+    "REV-CE4-FORMAL"
+   ],
+   "depends_on": [],
+   "obligations": [
+    "Math-#543 integration is behind main and has pending metadata AMENDs (not this record's claim)."
+   ]
+  },
+  {
+   "id": "F2",
+   "title": "The register shapes are kernel-checkable statements of Theorems A, B, C, E2, E4 about the actual event",
+   "event": "formal-interface",
+   "statement": "ParentUniformSelectionA, ParentCompactWindowDensityB, ParentUnrestrictedLeadingDensityC, PlanarElderLowerE2, PlanarTwoSidedRateE4, PlanarDensityGapE11 (LIFETIME-LEAN l.479-623) pin down the parent theorems.",
+   "status": "Refuted",
+   "proof_form": "lean",
+   "evidence": "The register says so itself: PairLawInterface.p has no field tying it to G or I (LIFETIME-LEAN l.455-467 docstring); the round-4 triage marks the Props BLOCKED_INTERFACE with the falsifying inhabitants p = 0 and p = 1, and \"specified refers to the statement shape at the source's object, which is not constructed\" (REG-SCOPE). F1 is the kernel-checked instance. Consequently \"does the formal verification cover the exact theorem being advertised?\" is answered no for every probabilistic statement of this chain.",
+   "sources": [
+    "LIFETIME-LEAN",
+    "REG-SCOPE",
+    "REG-README",
+    "CE4-LEAN"
+   ],
+   "reviews": [
+    "REV-CE4-FORMAL"
+   ],
+   "depends_on": [
+    "F1"
+   ],
+   "obligations": [
+    "Successor interface in which p is the Q^W-measure of the E0 event under a constructed law (the register's own route: a numbered successor interface carrying the law of p or a Kac-Rice intensity; Mathlib-blocked, estimated weeks)."
+   ]
+  },
+  {
+   "id": "F3",
+   "title": "Formal elder bridge: trap data give the C263 death and one ordinary-H0 interval summand",
+   "event": "deterministic",
+   "statement": "From explicit data (closed D containing M, a height ceiling, the frontier bound, an older point outside D and a path at the death level) the literal C263 strict-clearance death is d and one ordinary-H0 interval [-g(M), -d) splits off naturally (ElderClearance, ElderInterval, ElderBridge).",
+   "status": "Proved under assumptions",
+   "proof_form": "lean",
+   "kernel_checked": true,
+   "evidence": "Local Lean 4.34.1 compilation and kernel replays, 49 named targets with only the three standard axioms, three negative controls (EB-REVIEW-FILE); REV-EB ACCEPT_SCOPED (same provider as the authors). C263 registration remains under FORMAL HOLD (TF-SCOPE).",
+   "sources": [
+    "EB-LEAN",
+    "EB-REVIEW-FILE",
+    "TF-SCOPE"
+   ],
+   "reviews": [
+    "REV-EB"
+   ],
+   "depends_on": [],
+   "obligations": [
+    "Chart construction, torus transfer, canonical elder labels, exhaustive decomposition and any Gaussian law are outside the bridge (EB-REVIEW-FILE)."
+   ]
+  },
+  {
+   "id": "F4",
+   "title": "Compact Morse adapter: the trap data exist for every nonessential nondegenerate maximum of a smooth periodic Morse-distinct function",
+   "event": "deterministic",
+   "statement": "Closed domain = closure of the strict-superlevel path component of M at the literal C263 death; height and frontier bounds; a path to a strictly older maximum at the closed death level; hence one interval summand per supplied maximum (CMA-PROOF).",
+   "status": "Proved under assumptions",
+   "proof_form": "prose",
+   "evidence": "Conventional proof with named classical imports (Morse lemma, inverse function theorem, quotient atlas); REV-CMA ACCEPT_SCOPED_CONVENTIONAL and Root acceptance (same provider as the author). Morse admission for the Gaussian law, a unique saddle partner, exhaustive once-counting and counts remain separate (CMA-ACCEPT).",
+   "sources": [
+    "CMA-PROOF",
+    "CMA-REVIEW-FILE",
+    "CMA-ACCEPT"
+   ],
+   "reviews": [
+    "REV-CMA"
+   ],
+   "depends_on": [
+    "F3"
+   ],
+   "obligations": [
+    "No Lean implementation of this adapter.",
+    "Unique saddle partner and the bar bijection are not supplied (see F5)."
+   ]
+  }
+ ],
+ "inconsistencies": [
+  {
+   "id": "I-1",
+   "finding": "main docs/DISCOVERY_PRIORITY_LEDGER_20260925.md DP-02 (l.18, l.157) records parent sections 2-7 as AMEND (\"reopened for independent review with an additive section-5 congruence erratum\", aligned with STATUS.md of 2026-09-26, repeated by the 2026-10-28 refresh at main#669 comment 6465885945), while main STATUS.md D1 (l.88) and Math- PROOF_INDEX.md (l.27) record ACCEPT at existential scope from the 2026-09-28 reconciliation, whose residual R-A3-congruence is DISCHARGED by E1 (REC-LEDGER).",
+   "proposal": "Root (B-003) decides which surface governs; this record reads the ledger cell as stale and proposes the wording in section 8.",
+   "sources": [
+    "MAIN-LEDGER",
+    "MAIN-STATUS",
+    "PROOF-INDEX",
+    "REC-LEDGER"
+   ]
+  },
+  {
+   "id": "I-2",
+   "finding": "REC section 2 and the PROOF_INDEX D1 row (l.27) say \"No lower bound is asserted for d >= 3\" (scoped to the reconciled D1 chain) although the every-d lower bound DL was ACCEPTed by REV-DL and integrated (Math-#129). PROOF_INDEX does list the lift in its PR inventory (l.107 the #129 integration record, l.110 the #125 proof, l.111 the #127 review) and STATUS.md D1 carries a note; what is missing is a pointer in the D1 row itself. (v1.1 wording per 01XJMJ review 5724603343 F4.)",
+   "proposal": "Add the DL pointer to the PROOF_INDEX D1 row (section 8).",
+   "sources": [
+    "REC",
+    "PROOF-INDEX",
+    "DL",
+    "REV-DL-FILE",
+    "MAIN-STATUS"
+   ]
+  },
+  {
+   "id": "I-3",
+   "finding": "GPT-6's pickup 6513952657 and review 5724470777 (01XJMJ) on Math-#543 record CounterexampleE4.lean (blob 3b7712e4) as 1,720 bytes; the blob is 1,743 bytes (1,720 is the character count). Review 5707632836 states no byte count. The SHA-256 in the README is correct. (v1.1: attribution corrected per 01XJMJ review 5724603343 F3; v1.0 pinned it on review 5707632836.)",
+   "proposal": "Note only; the SHA-256 and blob bind the source correctly. 01XJMJ posted its own correction at Math-#543 comment 6548199529.",
+   "sources": [
+    "CE4-LEAN",
+    "CE4-README"
+   ]
+  },
+  {
+   "id": "I-4",
+   "finding": "frontiers/cap_first_exit_lean_20261002 (D1) has no PROOF_INDEX row and its MANIFEST records alignment_review NOT_CLAIMED, so the only kernel-checked link of the chain is invisible to a cold-start reader of PROOF_INDEX.",
+   "proposal": "Add a row with status \"Proved (kernel); alignment review open\" (section 8).",
+   "sources": [
+    "PROOF-INDEX",
+    "CFE-MANIFEST",
+    "REACH"
+   ]
+  }
+ ],
+ "metrics": {
+  "claims": 23,
+  "status_histogram": {
+   "Conditional": 3,
+   "Conjectural": 4,
+   "Proved": 10,
+   "Proved under assumptions": 3,
+   "Refuted": 3
+  },
+  "open_obligations_listed": 37,
+  "claims_whose_only_nonauthor_reader_is_session_017": [
+   "D1",
+   "L2",
+   "L2b",
+   "L3"
+  ],
+  "kernel_checked_claims": [
+   "D1",
+   "F1",
+   "F3"
+  ],
+  "kernel_checked_with_nonauthor_alignment_review": [
+   "F3"
+  ],
+  "human_or_external_reviews": 0,
+  "distinct_ai_reviewer_providers_on_the_probabilistic_chain": [
+   "xAI/Grok",
+   "Anthropic (session_017)"
+  ],
+  "counterexamples_recorded": [
+   {
+    "what": "p = 1 pair-law inhabitant refutes the interface-level implication (F1)",
+    "source": "CE4-LEAN",
+    "resolved": "open: successor interface (F2)"
+   },
+   {
+    "what": "p = 0 inhabitant refutes the universal closure of ParentUniformSelectionA (F2)",
+    "source": "REG-SCOPE",
+    "resolved": "open: successor interface (F2)"
+   },
+   {
+    "what": "Theorem U refutes candidate C7 (unrestricted O(ell^{2/3}) rate)",
+    "source": "U",
+    "resolved": "resolved: C7 marked Refuted; Theorems B/C unchanged"
+   },
+   {
+    "what": "Slice C falsifier C-01 of the LOCAL_PAIRING v1.1 section-5 margin sketch",
+    "source": "LPAIR",
+    "resolved": "resolved: sketch withdrawn in v1.2, Lemma 5.1 consumed instead"
+   }
+  ],
+  "claims_downgraded_or_withdrawn": [
+   {
+    "what": "Candidate C7",
+    "to": "Refuted",
+    "source": "U"
+   },
+   {
+    "what": "LOCAL_PAIRING v1.1 section-5 margin sketch",
+    "to": "withdrawn as a proof",
+    "source": "LPAIR"
+   },
+   {
+    "what": "C7-total v1 memo CL-C7-TOTAL-K-SCALING-RECON",
+    "to": "retracted; superseded by v1.1",
+    "source": "C7T"
+   }
+  ],
+  "failed_verifications_that_led_to_corrections": [
+   {
+    "what": "congruence factor diag(sqrt r, I) corrected to diag(r^{-1/2}, I) (E1)",
+    "found_by": "REV-G4 / REV-C1 (R-A3-congruence)",
+    "source": "E1-ERRATUM"
+   },
+   {
+    "what": "section 9 Kac-Rice interface replaced (E2 v1.1) after the Borel-event objection",
+    "found_by": "REV-G2, REV-C1",
+    "source": "E2-REPAIR"
+   },
+   {
+    "what": "wording W1 and the embedding radius r < L/(4 sqrt 2)",
+    "found_by": "REV-C1 / REC",
+    "source": "REC"
+   },
+   {
+    "what": "Theorem U v1 -> v3 amendments",
+    "found_by": "REV-U",
+    "source": "U"
+   },
+   {
+    "what": "LOCAL_PAIRING C-01",
+    "found_by": "OpenAI/Codex slice C review",
+    "source": "LPAIR"
+   },
+   {
+    "what": "Math-#543 stale \"pending execution\" wording and unbound review claim",
+    "found_by": "REV-CE4-ENG",
+    "source": "CE4-README"
+   }
+  ]
+ }
+}

@@ -1,0 +1,7 @@
+/workspace/scratch/compact-target-moments/PositiveControls.lean:64:2: error: linarith failed to find a contradiction
+C : ℝ
+h : ∀ (b : ℝ), ‖sourceGapPins (1 / 2) b 0‖ ≤ C
+hc : ‖sourceGapPins (1 / 2) (|C| + 1) 0‖ ≤ C
+hn : |C| + 1 ≤ ‖![|C| + 1, 0, 0, 0, 0, 0]‖
+⊢ False
+failed

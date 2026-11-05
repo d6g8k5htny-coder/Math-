@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "role": "Two reused clearance support inputs with import-only composition; zero new research target credit",
+  "origin_commit": "c4eabc1a917ba2c1b96fe4af425cf2a484877c03",
+  "source_bindings": [
+    {
+      "module": "SuperlevelBar",
+      "origin_repository": "/workspace/Math-curvature-20261026",
+      "origin_head": "1a7c51b01902146cf0809d576b99a6fc0be06bad",
+      "origin_last_change_commit": "c4eabc1a917ba2c1b96fe4af425cf2a484877c03",
+      "origin_path": "companions/torus_filtration_20261011/SuperlevelBar.lean",
+      "origin_sha256": "346eea948e18d5904422904006827930e27d3141ccbc19ee8ac2c24bcf65a4a9",
+      "origin_bytes": 15309,
+      "successor_path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/elder/SuperlevelBar.lean",
+      "successor_sha256": "f328d66d7240469f080c8bbf83f7259677fee21593465977e23a95685667ebd9",
+      "successor_bytes": 15523,
+      "body_equality": true,
+      "body_sha256": "073707c3ce1bb78cddcc6f7e556ebc62de6d8df401c26187d9db1aa2a640ad82",
+      "body_boundary": "all bytes after the first import line, including its following blank line; new header is the six import lines",
+      "exact_original_body_equals_successor_body": true,
+      "only_import_header_changed": true,
+      "origin_commit_blob_equals_original_bytes": true,
+      "artifacts": [
+        {
+          "path": "/workspace/scratch/actual-fold-clearance-inputs/build/SuperlevelBar.olean",
+          "sha256": "a9b0cba546587329f4c4cfa999e764e196d033b1e0614198221f4d486f2a069b",
+          "bytes": 234760
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-clearance-inputs/build/SuperlevelBar.ilean",
+          "sha256": "f057603caab1a172c3f65994350363e248f18d5c4eb4f32d4c2ee9fd0547f1f2",
+          "bytes": 25830
+        }
+      ]
+    },
+    {
+      "module": "ElderClearance",
+      "origin_repository": "/workspace/Math-curvature-20261026",
+      "origin_head": "1a7c51b01902146cf0809d576b99a6fc0be06bad",
+      "origin_last_change_commit": "c4eabc1a917ba2c1b96fe4af425cf2a484877c03",
+      "origin_path": "frontiers/asymmetric_elder_bridge_20261017/ElderClearance.lean",
+      "origin_sha256": "d3d78472881059546402218cc77792eeef00755c222bb02499d69abd3b5cd57e",
+      "origin_bytes": 5866,
+      "successor_path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/elder/ElderClearance.lean",
+      "successor_sha256": "d3d78472881059546402218cc77792eeef00755c222bb02499d69abd3b5cd57e",
+      "successor_bytes": 5866,
+      "body_equality": true,
+      "exact_whole_file_equal": true,
+      "only_import_header_changed": false,
+      "origin_commit_blob_equals_original_bytes": true,
+      "artifacts": [
+        {
+          "path": "/workspace/scratch/actual-fold-clearance-inputs/build/ElderClearance.olean",
+          "sha256": "b7e451c701e38d37be48f68a500ca253ba8ed72007b085797f9f1d57b4a61596",
+          "bytes": 91280
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-clearance-inputs/build/ElderClearance.ilean",
+          "sha256": "00a0f1e7fb10b007973e2a5d01c91e5f2f9e28f8f429160ebf31977016a7af18",
+          "bytes": 12134
+        }
+      ]
+    }
+  ],
+  "body_preservation": "SuperlevelBar all bytes after original import line preserved; ElderClearance entire file identical. Only six narrow imports replace SuperlevelBar umbrella.",
+  "new_artifact_composition": "Both same-pin strict first-attempt compiles passed; all existing old mathematical/kernel/control/axiom evidence reused. No replay.",
+  "evidence": "clearance-input-evidence/BINDINGS.json",
+  "historical_evidence": "clearance-input-evidence/historical_LOCAL_FORMAL_EXECUTION_REPORT.md",
+  "scientific_effect": "NONE"
+}

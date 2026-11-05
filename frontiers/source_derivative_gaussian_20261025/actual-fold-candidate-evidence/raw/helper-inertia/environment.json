@@ -1,0 +1,31 @@
+[
+  {
+    "argv": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "printenv",
+      "LEAN_PATH"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "utc_start": "2026-10-26T10:36:48.937678+00:00",
+    "utc_end": "2026-10-26T10:36:49.498313+00:00",
+    "elapsed_seconds": 0.5606428550017881,
+    "exit_code": 0,
+    "stdout": "/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Cli/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/batteries/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Qq/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/aesop/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/plausible/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean:/home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "utc_start": "2026-10-26T10:36:49.498342+00:00",
+    "utc_end": "2026-10-26T10:36:49.501210+00:00",
+    "elapsed_seconds": 0.002878639003029093,
+    "exit_code": 0,
+    "stdout": "d7c3634a1ac7ea80da32863cb3348e856bd26a88\n",
+    "stderr": ""
+  }
+]

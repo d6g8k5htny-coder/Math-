@@ -1,0 +1,53 @@
+AdaptiveFoldTransverseRidge.lean:72:7: error: Type mismatch
+  this
+has type
+  ContinuousAt (fun t => (t, -R)) x
+but is expected to have type
+  ContinuousAt (Prod.mk x) (-R)
+AdaptiveFoldTransverseRidge.lean:76:7: error: Type mismatch
+  this
+has type
+  ContinuousAt (fun t => (t, R)) x
+but is expected to have type
+  ContinuousAt (Prod.mk x) R
+AdaptiveFoldTransverseRidge.lean:128:2: error: unsolved goals
+case hf
+G : ℝ × ℝ → ℝ
+p : ℝ × ℝ
+hq : partialY G p ≠ 0
+A : ℝ →L[ℝ] ℝ := fderiv ℝ G p ∘SL ContinuousLinearMap.inr ℝ ℝ ℝ
+B : ℝ →L[ℝ] ℝ := (partialY G p)⁻¹ • ContinuousLinearMap.id ℝ ℝ
+hA : ∀ (t : ℝ), A t = t * partialY G p
+t : ℝ
+⊢ (partialY G p)⁻¹ * (t * partialY G p) = t
+AdaptiveFoldTransverseRidge.lean:133:2: error: unsolved goals
+case hg
+G : ℝ × ℝ → ℝ
+p : ℝ × ℝ
+hq : partialY G p ≠ 0
+A : ℝ →L[ℝ] ℝ := fderiv ℝ G p ∘SL ContinuousLinearMap.inr ℝ ℝ ℝ
+B : ℝ →L[ℝ] ℝ := (partialY G p)⁻¹ • ContinuousLinearMap.id ℝ ℝ
+hA : ∀ (t : ℝ), A t = t * partialY G p
+t : ℝ
+⊢ (partialY G p)⁻¹ * (t * partialY G p) = t
+AdaptiveFoldTransverseRidge.lean:132:24: error: This simp argument is unused:
+  hq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [B, mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+AdaptiveFoldTransverseRidge.lean:137:13: error: This simp argument is unused:
+  mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [B, hq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+AdaptiveFoldTransverseRidge.lean:137:24: error: This simp argument is unused:
+  hq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [B, mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

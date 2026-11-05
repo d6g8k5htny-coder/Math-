@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "execution_owner": "root",
+  "executed_by_packaging_agent": false,
+  "source_cut": "8957eeda44993a1789e56da601af5ece9dc01d21",
+  "source_path": "frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0Interface.lean",
+  "source_sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef",
+  "copies": [
+    {
+      "source": "/workspace/scratch/intrinsic-h0-interface-construct/build/SourceIntrinsicH0Interface.olean",
+      "destination": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceIntrinsicH0Interface.olean",
+      "bytes": 975440,
+      "sha256": "ff59fe74b6d755b1173b2300559c7fd896e3ec567b43df447a9b3ad2ab5a5fec",
+      "identity_origin": "Reused frozen strict002/inventory001/single kernel001 source-object evidence; no object hash replay."
+    }
+  ],
+  "no_ilean_produced": true,
+  "old_dependency_objects_to_copy": [],
+  "dependency_guidance": "Retain exact accepted dependency priority from DEPENDENCY_REUSE.json: newbuild,qualified51,qualifiedcandidate,qualifiedactualH0,qualifiedsupport,packet/mathlib baseline. All old object identities/receipts reused; no old copy/hash/rebuild.",
+  "guidance": "Root alone copies only named final SourceIntrinsicH0Interface.olean once. Every control/helper/mutation/prior-attempt object is ineligible; no ilean/freshness compile.",
+  "scientific_effect": "NONE"
+}

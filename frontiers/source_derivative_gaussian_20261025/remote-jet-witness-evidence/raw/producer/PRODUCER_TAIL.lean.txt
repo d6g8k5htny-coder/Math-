@@ -1,0 +1,139 @@
+private theorem remoteJet_pairing {L : ℝ} (hL : L ≠ 0) (p : TrigPoly)
+    (x : Fin 2 → ℝ) (j : Fin 6) :
+    finitePairing (remoteJetCoefficient L x j) (toSource L p) = jet2 (eval L p) x j := by
+  fin_cases j
+  · exact toSource_eval hL p x
+  · exact (toSource_derivative hL p 1 x (fun _ => directionX)).trans
+      (iteratedFDeriv_one_apply _)
+  · exact (toSource_derivative hL p 1 x (fun _ => directionY)).trans
+      (iteratedFDeriv_one_apply _)
+  · exact toSource_derivative hL p 2 x ![directionX,directionX]
+  · exact toSource_derivative hL p 2 x ![directionX,directionY]
+  · exact toSource_derivative hL p 2 x ![directionY,directionY]
+
+private def germPoly (L : ℝ) (x : Fin 2 → ℝ) : Fin 6 → TrigPoly :=
+  ![constant 1,
+    scale (sourceC L)⁻¹ (axisSinPoly L x 0),
+    scale (sourceC L)⁻¹ (axisSinPoly L x 1),
+    scale ((sourceC L)^2)⁻¹ (factorPoly L x 0),
+    scale ((sourceC L)^2)⁻¹ (mul (axisSinPoly L x 0) (axisSinPoly L x 1)),
+    scale ((sourceC L)^2)⁻¹ (factorPoly L x 1)]
+
+private theorem eval_germPoly (L : ℝ) (x : Fin 2 → ℝ) (s : Fin 6) (y : Fin 2 → ℝ) :
+    eval L (germPoly L x s) y = localGerm (sourceC L) x s y := by
+  fin_cases s
+  · exact eval_constant L 1 y
+  · change eval L (scale (sourceC L)⁻¹ (axisSinPoly L x 0)) y =
+      Real.sin (sourceC L*(y 0-x 0))/sourceC L
+    rw [eval_scale,eval_axisSinPoly]
+    ring
+  · change eval L (scale (sourceC L)⁻¹ (axisSinPoly L x 1)) y =
+      Real.sin (sourceC L*(y 1-x 1))/sourceC L
+    rw [eval_scale,eval_axisSinPoly]
+    ring
+  · change eval L (scale ((sourceC L)^2)⁻¹ (factorPoly L x 0)) y =
+      (1-Real.cos (sourceC L*(y 0-x 0)))/(sourceC L)^2
+    rw [eval_scale,eval_factorPoly]
+    simp only [pinFactor,div_eq_mul_inv]
+    ring
+  · change eval L (scale ((sourceC L)^2)⁻¹
+      (mul (axisSinPoly L x 0) (axisSinPoly L x 1))) y =
+        Real.sin (sourceC L*(y 0-x 0))*Real.sin (sourceC L*(y 1-x 1))/(sourceC L)^2
+    rw [eval_scale,eval_mul,eval_axisSinPoly,eval_axisSinPoly]
+    ring
+  · change eval L (scale ((sourceC L)^2)⁻¹ (factorPoly L x 1)) y =
+      (1-Real.cos (sourceC L*(y 1-x 1)))/(sourceC L)^2
+    rw [eval_scale,eval_factorPoly]
+    simp only [pinFactor,div_eq_mul_inv]
+    ring
+
+private def combinationPoly (L : ℝ) (x : Fin 2 → ℝ) (a : Fin 6 → ℝ) : TrigPoly :=
+  scale (a 0) (germPoly L x 0) ++ scale (a 1) (germPoly L x 1) ++
+  scale (a 2) (germPoly L x 2) ++ scale (a 3) (germPoly L x 3) ++
+  scale (a 4) (germPoly L x 4) ++ scale (a 5) (germPoly L x 5)
+
+private theorem eval_combinationPoly (L : ℝ) (x : Fin 2 → ℝ) (a : Fin 6 → ℝ)
+    (y : Fin 2 → ℝ) :
+    eval L (combinationPoly L x a) y = ∑ s, a s * localGerm (sourceC L) x s y := by
+  simp [combinationPoly,eval_append,eval_scale,eval_germPoly,Fin.sum_univ_succ]
+
+private def witnessPoly (L r : ℝ) (x : Fin 2 → ℝ) (jM jS : Fin 2)
+    (t : Fin 6 → ℝ) : TrigPoly :=
+  mul (annihilatorPoly L r jM jS)
+    (combinationPoly L x (inverseMulJet2Coefficients (jet2 (annihilator L r jM jS) x) t))
+
+private theorem eval_witnessPoly (L r : ℝ) (x : Fin 2 → ℝ) (jM jS : Fin 2)
+    (t : Fin 6 → ℝ) :
+    eval L (witnessPoly L r x jM jS t) =
+      interpolant (sourceC L) x (annihilator L r jM jS) t := by
+  funext y
+  rw [witnessPoly,eval_mul,eval_annihilatorPoly,eval_combinationPoly]
+  rfl
+
+private theorem interpolant_pin_zero (L r : ℝ) (x : Fin 2 → ℝ) (jM jS : Fin 2)
+    (t : Fin 6 → ℝ) :
+    rawFunctionPins r (interpolant (sourceC L) x (annihilator L r jM jS) t) = 0 := by
+  let P := annihilator L r jM jS
+  let a := inverseMulJet2Coefficients (jet2 P x) t
+  let Q := fun y => ∑ s, a s * localGerm (sourceC L) x s y
+  have hP := (annihilator_contDiff L r jM jS).differentiable (by simp)
+  have hQtop : ContDiff ℝ (⊤ : ℕ∞) Q :=
+    contDiff_sum (fun s _ => contDiff_const.mul (localGerm_contDiff (sourceC L) x s))
+  have hQ := hQtop.differentiable (by simp)
+  obtain ⟨hvM,hvS⟩ := annihilator_pin_values L r jM jS
+  obtain ⟨hdM,hdS⟩ := annihilator_pin_derivatives L r jM jS
+  have hFM : interpolant (sourceC L) x P t (endpointM r) = 0 := by
+    change P (endpointM r)*Q (endpointM r) = 0
+    rw [hvM]
+    simp
+  have hFS : interpolant (sourceC L) x P t (endpointS r) = 0 := by
+    change P (endpointS r)*Q (endpointS r) = 0
+    rw [hvS]
+    simp
+  have hdFM : fderiv ℝ (interpolant (sourceC L) x P t) (endpointM r) = 0 := by
+    change fderiv ℝ (fun y => P y*Q y) (endpointM r) = 0
+    rw [fderiv_fun_mul (hP _) (hQ _),hvM,hdM]
+    simp
+  have hdFS : fderiv ℝ (interpolant (sourceC L) x P t) (endpointS r) = 0 := by
+    change fderiv ℝ (fun y => P y*Q y) (endpointS r) = 0
+    rw [fderiv_fun_mul (hP _) (hQ _),hvS,hdS]
+    simp
+  ext i
+  fin_cases i <;> simp [rawFunctionPins,hFM,hFS,hdFM,hdFS]
+
+/-- Concrete finite original-mode directions annihilate all six literal raw
+pins and interpolate the full remote six-jet. Repeated pins and arbitrary
+radius are allowed; the only geometry is remote separation from each pin. -/
+theorem actual_finite_remoteJet_witnesses {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (x : Fin 2 → ℝ)
+    (hxM : I4Torus.torusProjection 2 L x ≠ I4Torus.torusProjection 2 L (endpointM r))
+    (hxS : I4Torus.torusProjection 2 L x ≠ I4Torus.torusProjection 2 L (endpointS r)) :
+    ∃ v : Fin 6 → (SourceMode 2 →₀ ℝ),
+      (∀ i s, finitePairing (rawPinCoefficient L r i) (v s) = 0) ∧
+      (∀ j s, finitePairing (remoteJetCoefficient L x j) (v s) = if j=s then 1 else 0) := by
+  obtain ⟨jM,hM⟩ := remote_positive_coordinate hL x (endpointM r) hxM
+  obtain ⟨jS,hS⟩ := remote_positive_coordinate hL x (endpointS r) hxS
+  have hpx : 0 < annihilator L r jM jS x := mul_pos (pow_pos hM 2) (pow_pos hS 2)
+  have hP2 : ContDiff ℝ 2 (annihilator L r jM jS) :=
+    (annihilator_contDiff L r jM jS).of_le (by norm_num)
+  refine ⟨fun s => toSource L (witnessPoly L r x jM jS (fun j => if j=s then 1 else 0)),?_,?_⟩
+  · intro i s
+    rw [rawPin_pairing,eval_witnessPoly]
+    exact congrFun (interpolant_pin_zero L r x jM jS (fun j => if j=s then 1 else 0)) i
+  · intro j s
+    rw [remoteJet_pairing,eval_witnessPoly]
+    exact congrFun (jet2_interpolate_mul (sourceC L) (sourceC_ne_zero hL) x
+      (annihilator L r jM jS) hP2 hpx.ne' (fun j => if j=s then 1 else 0)) j
+
+/-- Actual remote residual coefficient Gram positivity for EVERY finite
+correction matrix, without a pin-inverse, target or conditional-law premise. -/
+theorem actual_remote_residual_coefficientGram_posDef {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (x : Fin 2 → ℝ)
+    (hxM : I4Torus.torusProjection 2 L x ≠ I4Torus.torusProjection 2 L (endpointM r))
+    (hxS : I4Torus.torusProjection 2 L x ≠ I4Torus.torusProjection 2 L (endpointS r))
+    (R : Matrix (Fin 6) (Fin 6) ℝ) :
+    (I4ContactGram.coefficientGram
+      (residualCoefficient (rawPinCoefficient L r) (remoteJetCoefficient L x) R)).PosDef := by
+  obtain ⟨v,hker,hright⟩ := actual_finite_remoteJet_witnesses hL r x hxM hxS
+  exact coefficientGram_posDef_of_finite_kernel_rightInverse _ _ R
+    (rawPinCoefficient_summable hL r) (remoteJetCoefficient_summable hL x) v hker hright

@@ -1,0 +1,47 @@
+{
+  "label": "core019",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "-o",
+    "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+    "SourceActualMorseLocalModel.lean"
+  ],
+  "start_utc": "2026-10-28T15:30:36.415860+00:00",
+  "source_identity": {
+    "role": "owned_production_source",
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+    "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0041-SourceActualMorseLocalModel.lean",
+    "bytes": 65754,
+    "sha256": "d6776bd34a2ae1371c2af8fbfcc54d2a536e7c96b2e4db517a5f4a81b4128cd5",
+    "first_bound_utc": "2026-10-28T15:30:36.412696+00:00",
+    "new_sha256_operations": 1,
+    "reused_identity": false
+  },
+  "harness_identity": {
+    "role": "owned_source_execution_harness",
+    "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_source.py",
+    "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0010-run_source.py",
+    "bytes": 3721,
+    "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+    "first_bound_utc": "2026-10-28T14:56:44.623288+00:00",
+    "new_sha256_operations": 1,
+    "reused_identity": true
+  },
+  "scope": "new owned60 source only; no helper execution or support rebuild",
+  "exit_code": 0,
+  "end_utc": "2026-10-28T15:30:47.909461+00:00",
+  "object_identity": {
+    "role": "owned_production_object",
+    "path": "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+    "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0042-SourceActualMorseLocalModel.olean",
+    "bytes": 3409752,
+    "sha256": "7bc2d9fc1edcbd936dc04b583fa2b4642fc6fd968c594350df8eec28093d7ad3",
+    "first_bound_utc": "2026-10-28T15:30:47.921140+00:00",
+    "new_sha256_operations": 1,
+    "reused_identity": false
+  }
+}

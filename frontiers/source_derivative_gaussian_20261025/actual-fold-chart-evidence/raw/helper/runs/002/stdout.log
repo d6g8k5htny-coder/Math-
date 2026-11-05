@@ -1,0 +1,89 @@
+/workspace/scratch/actual-fold-chart-jets/runs/002/ActualFoldChartJets.lean:22:0: error: Not a definitional equality: the left-hand side
+  (chartMap r) p
+is not definitionally equal to the right-hand side
+  r • ![p.1, p.2]
+/workspace/scratch/actual-fold-chart-jets/runs/002/ActualFoldChartJets.lean:23:38: error: Type mismatch
+  rfl
+has type
+  ?m.17 = ?m.17
+but is expected to have type
+  (chartMap r) p = r • ![p.1, p.2]
+/workspace/scratch/actual-fold-chart-jets/runs/002/ActualFoldChartJets.lean:31:2: error: Type mismatch
+  ContDiff.div_const (ContDiff.comp hf (ContinuousLinearMap.contDiff (chartMap r))) ?m.54
+has type
+  ContDiff ℝ ∞ fun x => (f ∘ ⇑(chartMap r)) x / ?m.54
+but is expected to have type
+  ContDiff ℝ ∞ (V f r k)
+/workspace/scratch/actual-fold-chart-jets/runs/002/ActualFoldChartJets.lean:42:12: error: don't know how to synthesize implicit argument `a₂`
+  @congrArg (ℝ × ℝ [×n]→L[ℝ] ℝ) ℝ (iteratedFDeriv ℝ n (fun x => a • (f ∘ ⇑(chartMap r)) x) ?m.171)
+    (a • iteratedFDeriv ℝ n (f ∘ ⇑(chartMap r)) ?m.171) (fun A => A v)
+    (iteratedFDeriv_const_smul_apply' (ContDiff.contDiffAt hc))
+context:
+f : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ ∞ f
+n : ℕ
+a r : ℝ
+p : ℝ × ℝ
+v : Fin n → ℝ × ℝ
+hc : ContDiff ℝ (↑↑n) (f ∘ ⇑(chartMap r))
+⊢ ℝ × ℝ [×n]→L[ℝ] ℝ
+/workspace/scratch/actual-fold-chart-jets/runs/002/ActualFoldChartJets.lean:42:12: error: don't know how to synthesize implicit argument `a₁`
+  @congrArg (ℝ × ℝ [×n]→L[ℝ] ℝ) ℝ (iteratedFDeriv ℝ n (fun x => a • (f ∘ ⇑(chartMap r)) x) ?m.171)
+    (a • iteratedFDeriv ℝ n (f ∘ ⇑(chartMap r)) ?m.171) (fun A => A v)
+    (iteratedFDeriv_const_smul_apply' (ContDiff.contDiffAt hc))
+context:
+f : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ ∞ f
+n : ℕ
+a r : ℝ
+p : ℝ × ℝ
+v : Fin n → ℝ × ℝ
+hc : ContDiff ℝ (↑↑n) (f ∘ ⇑(chartMap r))
+⊢ ℝ × ℝ [×n]→L[ℝ] ℝ
+/workspace/scratch/actual-fold-chart-jets/runs/002/ActualFoldChartJets.lean:43:5: error: don't know how to synthesize implicit argument `x`
+  @iteratedFDeriv_const_smul_apply' ℝ DenselyNormedField.toNontriviallyNormedField (ℝ × ℝ) Prod.normedAddCommGroup
+    Prod.normedSpace ℝ Real.normedAddCommGroup RCLike.toInnerProductSpaceReal.toNormedSpace (f ∘ ⇑(chartMap r)) ?m.171 ℝ
+    NonUnitalNonAssocSemiring.toDistribSMul Algebra.to_smulCommClass SeparatelyContinuousMul.to_continuousSMul n a
+    (ContDiff.contDiffAt hc)
+context:
+f : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ ∞ f
+n : ℕ
+a r : ℝ
+p : ℝ × ℝ
+v : Fin n → ℝ × ℝ
+hc : ContDiff ℝ (↑↑n) (f ∘ ⇑(chartMap r))
+⊢ ℝ × ℝ
+/workspace/scratch/actual-fold-chart-jets/runs/002/ActualFoldChartJets.lean:43:47: error: don't know how to synthesize implicit argument `x`
+  @ContDiff.contDiffAt ℝ DenselyNormedField.toNontriviallyNormedField (ℝ × ℝ) Prod.normedAddCommGroup Prod.normedSpace ℝ
+    Real.normedAddCommGroup RCLike.toInnerProductSpaceReal.toNormedSpace (f ∘ ⇑(chartMap r)) ?m.171 (↑↑n) hc
+context:
+f : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ ∞ f
+n : ℕ
+a r : ℝ
+p : ℝ × ℝ
+v : Fin n → ℝ × ℝ
+hc : ContDiff ℝ (↑↑n) (f ∘ ⇑(chartMap r))
+⊢ ℝ × ℝ
+/workspace/scratch/actual-fold-chart-jets/runs/002/ActualFoldChartJets.lean:42:7: error: failed to infer `have` declaration type
+/workspace/scratch/actual-fold-chart-jets/runs/002/ActualFoldChartJets.lean:39:42: error: unsolved goals
+f : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ ∞ f
+n : ℕ
+a r : ℝ
+p : ℝ × ℝ
+v : Fin n → ℝ × ℝ
+hc : ContDiff ℝ (↑↑n) (f ∘ ⇑(chartMap r))
+⊢ (iteratedFDeriv ℝ n (fun q => a * f (r • ![q.1, q.2])) p) v =
+    a * r ^ n * (iteratedFDeriv ℝ n f (r • ![p.1, p.2])) fun i => ![(v i).1, (v i).2]
+/workspace/scratch/actual-fold-chart-jets/runs/002/ActualFoldChartJets.lean:64:2: error: No goals to be solved
+/workspace/scratch/actual-fold-chart-jets/runs/002/ActualFoldChartJets.lean:80:2: error: No goals to be solved
+/workspace/scratch/actual-fold-chart-jets/runs/002/ActualFoldChartJets.lean:105:2: error: No goals to be solved
+/workspace/scratch/actual-fold-chart-jets/runs/002/ActualFoldChartJets.lean:132:2: error: No goals to be solved
+/workspace/scratch/actual-fold-chart-jets/runs/002/ActualFoldChartJets.lean:140:2: error: Type mismatch: After simplification, term
+  HasDerivAt.deriv h
+ has type
+  @Eq ℝ (deriv (V f r k ∘ fun x => (x, 0)) u) ((fderiv ℝ (V f r k) (u, 0)) (1, 0))
+but is expected to have type
+  @Eq ℝ (deriv (fun t => V f r k (t, 0)) u) ((fderiv ℝ (V f r k) (u, 0)) (1, 0))

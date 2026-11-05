@@ -1,0 +1,93 @@
+'I4PeanoErrorBounds.abs_weighted_integral_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4PeanoErrorBounds.abs_weighted_integral_sub_mass_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4PeanoErrorBounds.peanoCubic_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4PeanoErrorBounds.scaled_lipschitz_center_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4PeanoErrorBounds.cubic_pin_pointwise_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4PeanoErrorBounds.left_weighted_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4PeanoErrorBounds.right_weighted_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceGammaRadius' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceA' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceQ_eq_sourceContactQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceA_eq_sourceContactA' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceDerivativeMajorant_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceGammaRadius_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.one_le_sourceGammaRadius' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceGammaRadius_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceDerivativeMajorant_le_radius' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinCurvatureBounds.orderModeBound_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceDerivativeMajorant_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceGammaRadius_le_fifth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceGammaRadius_moments' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceH' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceQCurve' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.directionX_norm_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.directionY_norm_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.axis_point_sub_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.axis_derivative_lipschitz' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.source_axis_derivative_abs_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceF_third_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceH_second_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceF_third_lipschitz' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceH_second_lipschitz' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceQCurve_lipschitz' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceF_third_abs_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceH_second_abs_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceQCurve_abs_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceF_C3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceH_C2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceF_deriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceF_second' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceH_deriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceH_second_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.source_pin3_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.source_pin4_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.source_pin5_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.source_normalized_peano' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.endpoint_det_abs_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.endpointWeight_curvature_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.strict_endpoint_transverse_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.curvature_slab_of_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceQCurve_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceQ_abs_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceA_abs_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.source_normalized_endpoint_errors' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinCurvatureBounds.sourceGammaRadius_ge_third_fourth' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinCurvatureBounds.source_normalized_endpoint_first_four_bounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinCurvatureBounds.sourceQ_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceA_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.source_normalized_determinant_bounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinCurvatureBounds.sourceSmoothWeight_curvature_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinCurvatureBounds.source_positive_weight_curvature_upper' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinCurvatureBounds.source_bad_curvature_slab' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.source_prescribed_pin_constraints_ae' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinCurvatureBounds.sourceSmoothLaw_curvature_bound_ae' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinCurvatureBounds.source_curvature_estimates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceEndpointCenters' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinCurvatureBounds.sourceEndpointErrorOrder' does not depend on any axioms
+'I4SourcePinCurvatureBounds.source_normalized_endpoint_errors_all' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinCurvatureBounds.sourceSmoothLaw_endpoint_errors_ae' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinCurvatureBounds.source_endpoint_error_estimates' depends on axioms: [propext, Classical.choice, Quot.sound]

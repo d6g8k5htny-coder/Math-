@@ -1,0 +1,56 @@
+/workspace/scratch/source-smooth-topology/DerivativeBCF.lean:47:2: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/scratch/source-smooth-topology/DerivativeBCF.lean:64:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (↑(evalCLM ℝ x)).toAddMonoidHom (∑' (b : SourceMode d), ↑ω b • modeDerivativeBCF d hL k b)
+in the target expression
+  ((sourceDerivativeBCF d hL k ω) x) u = (iteratedFDeriv ℝ k (smoothSourceField d L ω) x) u
+
+d : ℕ
+L : ℝ
+hL : L ≠ 0
+k : ℕ
+ω : SmoothSample d L
+x : Fin d → ℝ
+hs : Summable fun m => ↑ω m • modeDerivativeBCF d hL k m
+hx :
+  HasSum (⇑(↑(evalCLM ℝ x)).toAddMonoidHom ∘ fun m => ↑ω m • modeDerivativeBCF d hL k m)
+    ((↑(evalCLM ℝ x)).toAddMonoidHom (∑' (b : SourceMode d), ↑ω b • modeDerivativeBCF d hL k b))
+u : Fin k → Fin d → ℝ
+⊢ ((sourceDerivativeBCF d hL k ω) x) u = (iteratedFDeriv ℝ k (smoothSourceField d L ω) x) u
+/workspace/scratch/source-smooth-topology/DerivativeBCF.lean:92:2: error: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/workspace/scratch/source-smooth-topology/DerivativeBCF.lean:93:8: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  BorelSpace (DerivativeBCF d k)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/source-smooth-topology/DerivativeBCF.lean:105:10: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/scratch/source-smooth-topology/DerivativeBCF.lean:98:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/scratch/source-smooth-topology/DerivativeBCF.lean:110:2: error: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/workspace/scratch/source-smooth-topology/DerivativeBCF.lean:111:8: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  BorelSpace ((j : Fin (K + 1)) → DerivativeBCF d ↑j)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.

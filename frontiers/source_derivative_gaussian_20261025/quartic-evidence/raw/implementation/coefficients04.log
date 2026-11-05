@@ -1,0 +1,30 @@
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:238:13: error(lean.unknownIdentifier): Unknown constant `Fin.cons_vecCons`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:238:2: error: `simp` made no progress
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:247:13: error(lean.unknownIdentifier): Unknown constant `Fin.cons_vecCons`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:247:2: error: `simp` made no progress
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:256:13: error(lean.unknownIdentifier): Unknown constant `Fin.cons_vecCons`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:256:2: error: `simp` made no progress
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:265:13: error(lean.unknownIdentifier): Unknown constant `Fin.cons_vecCons`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:265:2: error: `simp` made no progress
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:278:13: error(lean.unknownIdentifier): Unknown constant `Fin.cons_vecCons`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:278:2: error: `simp` made no progress
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:293:13: error(lean.unknownIdentifier): Unknown constant `Fin.cons_vecCons`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:293:2: error: `simp` made no progress
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    !![sourceAxialThird L ω * p 0 + sourceRawU L ω 0 * p 1, sourceRawU L ω 0 * p 0 + sourceRawU L ω 1 * p 1;
+        sourceRawU L ω 0 * p 0 + sourceRawU L ω 1 * p 1, sourceRawU L ω 1 * p 0 + sourceRawU L ω 2 * p 1]
+      i
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:309:13: error(lean.unknownIdentifier): Unknown constant `Fin.cons_vecCons`
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:309:2: error: `simp` made no progress
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    !![sourceRawU L ω 3 * p 0 ^ 2 + 2 * sourceRawU L ω 4 * p 0 * p 1 + sourceRawU L ω 5 * p 1 ^ 2,
+          sourceRawU L ω 4 * p 0 ^ 2 + 2 * sourceRawU L ω 5 * p 0 * p 1 + sourceRawU L ω 6 * p 1 ^ 2;
+        sourceRawU L ω 4 * p 0 ^ 2 + 2 * sourceRawU L ω 5 * p 0 * p 1 + sourceRawU L ω 6 * p 1 ^ 2,
+          sourceRawU L ω 5 * p 0 ^ 2 + 2 * sourceRawU L ω 6 * p 0 * p 1 + sourceRawU L ω 7 * p 1 ^ 2]
+      i

@@ -1,0 +1,57 @@
+{
+  "authoritative_controls": "CONTROL_CONTRACT.md; published freeze bound by ROOT_GO.json",
+  "original_draft_preserved": "CONTROL_CONTRACT_ORIGINAL_DRAFT.md",
+  "lexical_route": "CONTROL_ROUTE.md; helper integrated once into scratch Controls only, ordinary exported names; no copied source/private API in negative.",
+  "positive": {
+    "source": {
+      "path": "/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean",
+      "bytes": 27218,
+      "sha256": "801100e37373045ed1d77962839a9bdc574322fae8c4091202c80fc6238891a4"
+    },
+    "object": {
+      "path": "/workspace/scratch/raw-pin-free-coordinate-construct/build/FreeCoordinateControls.olean",
+      "bytes": 1888680,
+      "sha256": "17f2ba55cc996f330999ab58506ef4353138b49fb05aa24bb1bfdc1968502fd9"
+    },
+    "receipt": "runs/controls-004/receipt.json",
+    "ended_utc": "2026-10-26T20:28:25.481807+00:00",
+    "exit_code": 0,
+    "stream": {
+      "path": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/controls-004/output.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "groups": [
+    "four_cosine_raw_frame",
+    "single_direction_identification",
+    "empty_frame_maps_and_joint_law",
+    "rotated_frame_coordinates_and_projection",
+    "projection_keeps_complement",
+    "singular_posterior_reconstruction",
+    "second_projection_omission_counterexample"
+  ],
+  "substantive_witnesses": "Four actual cosine frequencies (1,0),(2,0),(0,1),(0,2), actual positive amplitudes from physical source weights/sourceZ, six actual raw columns at L2,r0, full Gram/raw kernel, rational rotation and all-four supports, whole projection equality, omegaA positive AA^2/DAB^2 versus erasure0, scalar public-unitDirection identification, Fin0 and actual2frame whole joint laws, symbolic fulltarget singular reconstruction, actual omega1 chi1 and q>0 versus2q.",
+  "negative": {
+    "source": {
+      "path": "/workspace/scratch/raw-pin-free-coordinate-construct/FalseSecondProjectionMutation.lean",
+      "bytes": 297,
+      "sha256": "afa33b0421110d0ebdfa43a2ac0ae8bb3b162932da7682f981588f67b13b4876"
+    },
+    "receipt": "runs/false-second-projection-001/receipt.json",
+    "started_utc": "2026-10-26T20:28:53.948031+00:00",
+    "ended_utc": "2026-10-26T20:28:56.961704+00:00",
+    "exit_code": 1,
+    "stream": {
+      "path": "/workspace/scratch/raw-pin-free-coordinate-construct/runs/false-second-projection-001/output.log",
+      "bytes": 126,
+      "sha256": "1785c54ba91db3054e2e142d938d7a7cf5d368a5497ac72bc99276834aa4f58e"
+    },
+    "diagnostic": "Only one unsolved goal: False. No unrelated import/type/linter/private-name failure.",
+    "meaning": "Omit only SECOND projection from residual, keep both coordinates in reconstruction; actual L2,r0,target0,omega1,mC gives q versus2q.",
+    "counterexample_precedes_negative": true,
+    "import": "Exact qualified FreeCoordinateControls object; ordinary control57_mutant_equality_iff_false derived from the separately passed actual mismatch."
+  },
+  "coverage": "PositiveControls004 qualifies complete Controls helper and actual amendments. Exactly-one production kernel covers production only; no Controls kernel claimed.",
+  "not_claimed": "No positive Gaussian mass for deterministic samples, spatial O2 invariance, singular-pin RCD/fiber assertion or old control replay."
+}

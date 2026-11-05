@@ -1,0 +1,16 @@
+/workspace/scratch/pin-preserving-quartic-implementation/ActualGradient.lean:31:6: error(lean.unknownIdentifier): Unknown identifier `real_inner_eq_mul`
+/workspace/scratch/pin-preserving-quartic-implementation/ActualGradient.lean:38:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  @HasFDerivAt ℝ DenselyNormedField.toNontriviallyNormedField SourcePlane
+    (PiLp.normedAddCommGroup 2 fun x => ℝ).toAddCommGroup (PiLp.normedSpace 2 ℝ fun x => ℝ).toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace ℝ Real.normedCommRing.toAddCommGroup
+    (NormedAlgebra.toNormedSpace ℝ).toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    (fun y => (r ^ 3)⁻¹ * (smoothSourceField 2 L ω ∘ fun z => r • z.ofLp) y)
+    ((r ^ 3)⁻¹ • fderiv ℝ (smoothSourceField 2 L ω) (r • p.ofLp) ∘SL (r • euclideanToPi)) p
+but is expected to have type
+  @HasFDerivAt ℝ DenselyNormedField.toNontriviallyNormedField SourcePlane
+    (instAddCommGroup 2 ((i : Fin 2) → (fun x => ℝ) i)) (PiLp.innerProductSpace fun x => ℝ).toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace ℝ Real.instAddCommGroup Semiring.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace (fun z => (r ^ 3)⁻¹ * f (r • z.ofLp))
+    ((r ^ 3)⁻¹ • fderiv ℝ f (r • p.ofLp) ∘SL (r • euclideanToPi)) p

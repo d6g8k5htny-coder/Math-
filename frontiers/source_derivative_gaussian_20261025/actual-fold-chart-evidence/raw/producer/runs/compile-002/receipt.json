@@ -1,0 +1,36 @@
+{
+  "label": "compile-002",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "SourceAdaptiveFoldChart.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+      "bytes": 2417,
+      "sha256": "950f7719938a82ee282614412e3664df98dcaaafb63485099dbbc87995f8de93"
+    },
+    "object": null
+  },
+  "started_utc": "2026-10-26T05:21:39.956129+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 2.694404363632202,
+  "ended_utc": "2026-10-26T05:21:42.650554+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+      "bytes": 2417,
+      "sha256": "950f7719938a82ee282614412e3664df98dcaaafb63485099dbbc87995f8de93"
+    },
+    "object": null
+  },
+  "log": {
+    "path": "/workspace/scratch/actual-fold-chart-construct/runs/compile-002/output.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

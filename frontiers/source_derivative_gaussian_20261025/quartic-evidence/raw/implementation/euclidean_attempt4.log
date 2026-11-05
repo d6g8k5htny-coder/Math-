@@ -1,0 +1,9 @@
+/workspace/scratch/pin-preserving-quartic-implementation/EuclideanBridge.lean:85:19: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |?a| ^ 2
+in the target expression
+  b ^ 2 * v.ofLp 1 ^ 2 + (b * v.ofLp 0) ^ 2 = (|b| * ‖v‖) ^ 2
+
+b : ℝ
+v : EuclideanSpace ℝ (Fin 2)
+hy : ‖(matrixLinearEuclidean !![0, b; b, 0]) v‖ ^ 2 = (b * v.ofLp 1) ^ 2 + (b * v.ofLp 0) ^ 2
+⊢ b ^ 2 * v.ofLp 1 ^ 2 + (b * v.ofLp 0) ^ 2 = (|b| * ‖v‖) ^ 2

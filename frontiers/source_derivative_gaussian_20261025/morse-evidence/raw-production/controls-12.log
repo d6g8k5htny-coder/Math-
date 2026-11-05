@@ -1,0 +1,32 @@
+/workspace/scratch/morse-incidence-production/Controls.lean:73:26: error: Function expected at
+  0
+but this term has type
+  ?m.117
+
+Note: Expected a function because this term is being applied to the argument
+  0
+/workspace/scratch/morse-incidence-production/Controls.lean:72:33: error: unsolved goals
+c : ℝ
+a : (Fin 2 → ℝ) × (Fin 2 → ℝ)
+a✝ : a ∈ Set.univ
+hf :
+  (fun y => twoChannelGradientFamily (fun x => 0) (cosineGradientChannel 0 c) (sineGradientChannel 0 c) y a) = fun x =>
+    0
+hinj : Function.Injective ⇑(0 0)
+⊢ 0 = sorry ()
+/workspace/scratch/morse-incidence-production/Controls.lean:101:26: error: Function expected at
+  0
+but this term has type
+  ?m.119
+
+Note: Expected a function because this term is being applied to the argument
+  0
+/workspace/scratch/morse-incidence-production/Controls.lean:100:33: error: unsolved goals
+A : Fin 2 → ℝ
+a : (Fin 2 → ℝ) × (Fin 2 → ℝ)
+a✝ : a ∈ Set.univ
+hf :
+  (fun y => twoChannelGradientFamily (fun x => 0) (cosineGradientChannel A 0) (sineGradientChannel A 0) y a) = fun x =>
+    0
+hinj : Function.Injective ⇑(0 0)
+⊢ 0 = sorry ()

@@ -1,0 +1,17 @@
+SourceWeightedCurvatureBound.lean:142:4: error(lean.unknownIdentifier): Unknown identifier `prw_measure_real`
+SourceWeightedCurvatureBound.lean:138:19: error: unsolved goals
+L : ℝ
+hL : L ≠ 0
+r b K eps N c : ℝ
+hr : 0 < r
+hN : 0 ≤ N
+hc : 0 < c
+hW : Integrable (sourceSmoothWeight L r) (sourceSmoothLaw hL r b)
+hf : c * r ^ 2 ≤ ∫ (ω : SmoothSample 2 L), sourceSmoothWeight L r ω ∂sourceSmoothLaw hL r b
+hn :
+  ∫ (ω : SmoothSample 2 L) in sourceRegularCurvatureSlab L r K eps, sourceSmoothWeight L r ω ∂sourceSmoothLaw hL r b ≤
+    N * r ^ 5
+hZ : 0 < ∫ (ω : SmoothSample 2 L), sourceSmoothWeight L r ω ∂sourceSmoothLaw hL r b
+⊢ (ResearchFormalCoreR1.prwMeasure (sourceSmoothLaw hL r b) (sourceSmoothWeight L r)).real
+      (sourceRegularCurvatureSlab L r K eps) ≤
+    N / c * r ^ 3

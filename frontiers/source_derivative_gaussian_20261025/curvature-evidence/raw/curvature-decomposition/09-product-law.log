@@ -1,0 +1,66 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:870:70: error: unsolved goals
+L r : ℝ
+hτ : 0 < curvatureVariance L r
+m : ℝ
+⊢ gaussianReal m (NNReal.mk (curvatureSigma L r ^ 2) ⋯) = gaussianReal m (⟨curvatureSigma L r ^ 2, ⋯⟩ * 1)
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:878:6: error: Type mismatch
+  curvatureSigma_sq hτ
+has type
+  curvatureSigma L r ^ 2 = curvatureVariance L r
+but is expected to have type
+  ↑(⟨curvatureSigma L r ^ 2, ⋯⟩ * 1) = curvatureVariance L r
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:876:17: error: This simp argument is unused:
+  NNReal.coe_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [NNReal.coe_mk, NNReal.coe_one, mul_one, Real.coe_toNNReal _ hτ.le]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:876:33: error: This simp argument is unused:
+  NNReal.coe_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [NNReal.coe_mul, NNReal.coe_one, mul_one, Real.coe_toNNReal _ hτ.le]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:876:48: error: This simp argument is unused:
+  NNReal.coe_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [NNReal.coe_mul, NNReal.coe_mk, mul_one, Real.coe_toNNReal _ hτ.le]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:876:64: error: This simp argument is unused:
+  mul_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [NNReal.coe_mul, NNReal.coe_mk, NNReal.coe_one, Real.coe_toNNReal _ hτ.le]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:912:4: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Measure.map (fun p => curvatureReconstruct hL r x p.1 p.2)
+    (Measure.map (fun a => (curvatureResidualSample hL r a, ((fun x => ?m.63) + (fun x => ?m.76) * curvatureZ L r) a))
+      ?m.46)
+in the target expression
+  (sourceSmoothKernel hL r) x =
+    Measure.map (fun p => curvatureReconstruct hL r x p.1 p.2)
+      (Measure.map
+        (fun ω => (curvatureResidualSample hL r ω, curvatureMean L r x + curvatureSigma L r * curvatureZ L r ω))
+        (smoothLaw 2 L))
+
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+hG : IsUnit (sourcePinCovarianceAt L r)
+hτ : 0 < curvatureVariance L r
+x : Fin 6 → ℝ
+⊢ (sourceSmoothKernel hL r) x =
+    Measure.map (fun p => curvatureReconstruct hL r x p.1 p.2)
+      (Measure.map
+        (fun ω => (curvatureResidualSample hL r ω, curvatureMean L r x + curvatureSigma L r * curvatureZ L r ω))
+        (smoothLaw 2 L))
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:927:4: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.

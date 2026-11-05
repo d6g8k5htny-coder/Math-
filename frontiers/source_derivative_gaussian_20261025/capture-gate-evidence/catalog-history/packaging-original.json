@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "scope_id": "SOURCE_QUARTIC_CAPTURE_ALGEBRA_ONLY_20261026",
+  "role": "Delivery packaging only; byte-copy/read-only projections of completed evidence",
+  "packaged_at_utc": "2026-10-26T02:40:44.762992+00:00",
+  "scientific_effect": "NONE",
+  "goal_status": "FULL_ORIGINAL_RESEARCH_GOAL_ACTIVE",
+  "mathematical_qualification": "COMPLETE_REUSED_FROM_EXISTING_PRODUCTION_RECEIPT",
+  "membership_file": "CAPTURE_GATES_MEMBERSHIP.json",
+  "scope_file": "CAPTURE_GATES_SCOPE.md",
+  "public_inventory": "CAPTURE_GATES_PUBLIC_INVENTORY.json",
+  "public_proof_names_append": "PUBLIC_PROOF_NAMES_APPEND.txt",
+  "modules": [
+    {
+      "module": "SourceQuarticCaptureAlgebra",
+      "source_path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceQuarticCaptureAlgebra.lean",
+      "frozen_source_copy": "sources/SourceQuarticCaptureAlgebra.lean",
+      "source_sha256": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+      "olean_sha256": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+      "hash_origin": "Completed receipts; no packaging hash computation",
+      "source_integration_commit": null,
+      "integration_cut_owned_by_root": true,
+      "contract_freeze_commit": "ebf49a429ec737f24c29f7c0ca4d9a7b1457c5cd",
+      "public_proof_targets": 28,
+      "public_definitions_separate": 6,
+      "public_declarations_total": 34,
+      "private_kernel_only_declarations": 8,
+      "compile": "raw/production/compile03.json",
+      "kernel": "raw/production/kernel01.json",
+      "axioms": "raw/production/audit01.json",
+      "positive_new_controls": "raw/production/transfer-controls-02.json",
+      "negative_new_controls": [
+        "raw/production/rejected-unchanged-drift-01.json",
+        "raw/production/rejected-reversed-upper-01.json"
+      ],
+      "prior_scratch21_evidence_reused": "raw/reused-scratch21/EVIDENCE.json",
+      "qualification_receipt": "qualification_receipt.json",
+      "olean_path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceQuarticCaptureAlgebra.olean"
+    }
+  ],
+  "current_norm_field_C1_dependency": {
+    "module": "SourcePinPreservingQuartic",
+    "source_sha256": "8e23717ef98518b6d701db921d1f17958c3dee2c893745cafa7aa6172f1621d9",
+    "reference_only": true,
+    "copied_hashed_or_rechecked": false
+  },
+  "baseline_by_reference": {
+    "qualified_modules": 24,
+    "public_proof_instance_declaration_targets": 615,
+    "exact_inputs": 23,
+    "reference_only": true,
+    "copied_hashed_or_rechecked": false,
+    "reference": "../topology-evidence/TOPOLOGY_MEMBERSHIP.json and root current baseline instruction"
+  },
+  "raw_successor_by_reference": {
+    "module": "SourceRawPinConditioning",
+    "root_label": "newRaw7",
+    "source_sha256": "77e521c7fc3fc3da1c922a4ef547b065be58b232b321480948c8fe50d76c2aa5",
+    "artifact_sha256": "757a9326500ed5ed1205eaccde2d0480aefafeceb66a3122852223c57cb2e090",
+    "qualification_receipt_reference": "/workspace/scratch/raw-pin-conditioning/QUALIFICATION_RECEIPT.json",
+    "reference_only": true,
+    "direct_dependency_of_this_module": false,
+    "registration_owned_by_root": true
+  },
+  "packaging_actions_excluded": [
+    "Lean/build/kernel/test/stress rerun",
+    "hash recomputation",
+    "production source edits",
+    "shared metadata edits",
+    "commits",
+    "posts"
+  ],
+  "separate_scientific_review_required": true,
+  "combined_build_or_baseline_gate_claimed": false,
+  "excluded_from_package": "All other source modules, including the active parameter-space successor; baseline and raw-pin successor are reference-only."
+}

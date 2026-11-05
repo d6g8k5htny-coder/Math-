@@ -1,0 +1,40 @@
+{
+  "module": "SourceGapWeightedNumerator",
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceGapWeightedNumerator.lean",
+    "bytes": 20999,
+    "sha256": "b2fedf3739884ff716d11c85ebcf5de328fc76bc2a5bed31e8ea72c61d2f87a3"
+  },
+  "public_targets": [
+    "I4SourceGapWeightedNumerator.sourceGapLaw_weight_integrable",
+    "I4SourceGapWeightedNumerator.sourceGapLaw_compact_moments",
+    "I4SourceGapWeightedNumerator.sourceGapLaw_regularity_base_bound",
+    "I4SourceGapWeightedNumerator.sourceGapLaw_regularity_numerator",
+    "I4SourceGapWeightedNumerator.sourceGapLaw_regular_numerator_of_product",
+    "I4SourceGapWeightedNumerator.sourceGapLaw_regular_numerator",
+    "I4SourceGapWeightedNumerator.sourceBadUnion_integral_le",
+    "I4SourceGapWeightedNumerator.sourceGapLaw_bad_union_numerator"
+  ],
+  "actual_module_constants": [
+    "I4SourceGapWeightedNumerator.sourceGapLaw_regular_numerator",
+    "I4SourceGapWeightedNumerator.sourceGapLaw_regularity_numerator",
+    "I4SourceGapWeightedNumerator.sourceGapLaw_regularity_base_bound._simp_1_1",
+    "I4SourceGapWeightedNumerator.sourceBadUnion_integral_le",
+    "I4SourceCompactTargetMoments.sourceGapLaw.congr_simp",
+    "I4SourceGapWeightedNumerator.sourceGapLaw_bad_union_numerator",
+    "I4SourceGapWeightedNumerator.sourceGapLaw_weight_integrable",
+    "I4SourceGapWeightedNumerator.sourceGapLaw_regular_numerator_of_product",
+    "I4SourceGapWeightedNumerator.sourceGapLaw_regularity_base_bound",
+    "I4SourceGapWeightedNumerator.sourceGapLaw_compact_moments"
+  ],
+  "classification": {
+    "path": "/workspace/scratch/gap-weighted-numerator-construct/TARGET_CLASSIFICATION.json",
+    "bytes": 3587,
+    "sha256": "5faf659413836089c27b1b6d3f15b9d388c62ae4dbd4c8db0c4622cdda609422"
+  },
+  "raw_inventory": {
+    "path": "/workspace/scratch/gap-weighted-numerator-construct/runs/inventory-001/output.log",
+    "bytes": 1915,
+    "sha256": "6ff503beb549933062122e3da0059610c849e543148bb9e64c5a6a02bfd32069"
+  }
+}

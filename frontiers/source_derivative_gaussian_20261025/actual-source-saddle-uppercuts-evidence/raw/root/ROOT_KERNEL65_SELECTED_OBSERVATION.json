@@ -1,0 +1,152 @@
+{
+  "label": "kernel001",
+  "scope_kind": "math",
+  "command_argv": [
+    "env",
+    "LEAN_PATH=/workspace/scratch/actual-source-saddle-uppercuts-construct/build",
+    "lake",
+    "env",
+    "leanchecker",
+    "SourceActualSaddleUppercuts"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "start_utc": "2026-10-28T21:41:03.157417+00:00",
+  "end_utc": "2026-10-28T21:41:08.352349+00:00",
+  "elapsed_seconds": 5.194949351000105,
+  "exit_code": 0,
+  "streams": {
+    "stdout.log": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/kernel001/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "marker": [
+        0,
+        1793223663156130918
+      ],
+      "first_observed_utc": "2026-10-28T21:41:08.355199+00:00",
+      "origin": "new actual version identity, calculated once"
+    },
+    "stderr.log": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/kernel001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "marker": [
+        0,
+        1793223663156130918
+      ],
+      "first_observed_utc": "2026-10-28T21:41:08.355248+00:00",
+      "origin": "new actual version identity, calculated once"
+    }
+  },
+  "outer_capture_dir": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/kernel001",
+  "selected_before": {
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualSaddleUppercuts.lean": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualSaddleUppercuts.lean",
+      "bytes": 36869,
+      "sha256": "d292c767e789b98a6fbb56e5c21ec8867979faa832a97c1e79c79c899b777129",
+      "marker": [
+        36869,
+        1793223230675960181
+      ],
+      "first_observed_utc": "2026-10-28T21:33:50.681212+00:00",
+      "origin": "new actual version identity, calculated once"
+    },
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/build/SourceActualSaddleUppercuts.olean": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/build/SourceActualSaddleUppercuts.olean",
+      "bytes": 1852408,
+      "sha256": "5fbf02004a484d7447147d09b0cd8d19bc84b0ef5c96e97aa6655fc54f88a319",
+      "marker": [
+        1852408,
+        1793223236359857536
+      ],
+      "first_observed_utc": "2026-10-28T21:33:56.484164+00:00",
+      "origin": "new actual version identity, calculated once"
+    }
+  },
+  "selected_after": {
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualSaddleUppercuts.lean": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualSaddleUppercuts.lean",
+      "bytes": 36869,
+      "sha256": "d292c767e789b98a6fbb56e5c21ec8867979faa832a97c1e79c79c899b777129",
+      "marker": [
+        36869,
+        1793223230675960181
+      ],
+      "first_observed_utc": "2026-10-28T21:33:50.681212+00:00",
+      "origin": "new actual version identity, calculated once"
+    },
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/build/SourceActualSaddleUppercuts.olean": {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/build/SourceActualSaddleUppercuts.olean",
+      "bytes": 1852408,
+      "sha256": "5fbf02004a484d7447147d09b0cd8d19bc84b0ef5c96e97aa6655fc54f88a319",
+      "marker": [
+        1852408,
+        1793223236359857536
+      ],
+      "first_observed_utc": "2026-10-28T21:33:56.484164+00:00",
+      "origin": "new actual version identity, calculated once"
+    }
+  },
+  "selected_before_snapshots": {
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualSaddleUppercuts.lean": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/kernel001/before/22-SourceActualSaddleUppercuts.lean",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/build/SourceActualSaddleUppercuts.olean": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/kernel001/before/23-SourceActualSaddleUppercuts.olean"
+  },
+  "actual_worker_streams": {
+    "stdout.log": "",
+    "stderr.log": ""
+  },
+  "outer": {
+    "label": "kernel001",
+    "command_argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/record_run.py",
+      "kernel001",
+      "math",
+      "--",
+      "env",
+      "LEAN_PATH=/workspace/scratch/actual-source-saddle-uppercuts-construct/build",
+      "lake",
+      "env",
+      "leanchecker",
+      "SourceActualSaddleUppercuts"
+    ],
+    "cwd": "/workspace/scratch/actual-source-saddle-uppercuts-construct",
+    "start_utc": "2026-10-28T21:41:03.098146+00:00",
+    "end_utc": "2026-10-28T21:41:08.368590+00:00",
+    "elapsed_seconds": 5.270449928000744,
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/kernel001/outer.stdout.log",
+    "stderr": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/kernel001/outer.stderr.log"
+  },
+  "entry": {
+    "label": "kernel001",
+    "command_argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/outer_capture.py",
+      "kernel001",
+      "math",
+      "--",
+      "env",
+      "LEAN_PATH=/workspace/scratch/actual-source-saddle-uppercuts-construct/build",
+      "lake",
+      "env",
+      "leanchecker",
+      "SourceActualSaddleUppercuts"
+    ],
+    "cwd": "/workspace/scratch/actual-source-saddle-uppercuts-construct",
+    "start_utc": "2026-10-28T21:41:03.069860+00:00",
+    "end_utc": "2026-10-28T21:41:08.374675+00:00",
+    "elapsed_seconds": 5.304820039000333,
+    "exit_code": 0,
+    "stdout": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/kernel001/entry.stdout.log",
+    "stderr": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/kernel001/entry.stderr.log",
+    "invocation_scope": "entry process begins here; caller tool stdout is only this closed receipt summary"
+  },
+  "actual_outer_entry_streams": {
+    "outer.stdout.log": "{\"label\": \"kernel001\", \"exit_code\": 0, \"receipt\": \"/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/kernel001/receipt.json\"}\n",
+    "outer.stderr.log": "",
+    "entry.stdout.log": "{\"label\": \"kernel001\", \"command_argv\": [\"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3\", \"/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/record_run.py\", \"kernel001\", \"math\", \"--\", \"env\", \"LEAN_PATH=/workspace/scratch/actual-source-saddle-uppercuts-construct/build\", \"lake\", \"env\", \"leanchecker\", \"SourceActualSaddleUppercuts\"], \"cwd\": \"/workspace/scratch/actual-source-saddle-uppercuts-construct\", \"start_utc\": \"2026-10-28T21:41:03.098146+00:00\", \"end_utc\": \"2026-10-28T21:41:08.368590+00:00\", \"elapsed_seconds\": 5.270449928000744, \"exit_code\": 0, \"stdout\": \"/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/kernel001/outer.stdout.log\", \"stderr\": \"/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/kernel001/outer.stderr.log\"}\n",
+    "entry.stderr.log": ""
+  },
+  "reading_scope": "Selected exact kernel command/cwd/times/exit/source-object before-after/snapshot/stream identity fields; FULLoriginal6kernelworker/outer/entrysplitstreams+outerentryreceipts. NOTallworkerreceiptfields."
+}

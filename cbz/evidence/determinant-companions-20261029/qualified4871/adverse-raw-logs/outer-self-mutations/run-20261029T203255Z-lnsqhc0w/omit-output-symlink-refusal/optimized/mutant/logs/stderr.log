@@ -1,0 +1,24 @@
+test_output_children_are_retained_and_source_and_symlink_paths_refuse (test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse) ... 
+  test_output_children_are_retained_and_source_and_symlink_paths_refuse (test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse) (parent='/tmp/outer-mutation-regression-tzq40s3q/output-alias') ... FAIL
+  test_output_children_are_retained_and_source_and_symlink_paths_refuse (test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse) (parent='/tmp/outer-mutation-regression-tzq40s3q/output-alias/child') ... FAIL
+
+======================================================================
+FAIL: test_output_children_are_retained_and_source_and_symlink_paths_refuse (test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse) (parent='/tmp/outer-mutation-regression-tzq40s3q/output-alias')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-output-symlink-refusal/optimized/mutant/repo/frontiers/determinant_moment_20261025/tests/test_cbz_mutation_runner.py", line 191, in test_output_children_are_retained_and_source_and_symlink_paths_refuse
+    with self.subTest(parent=str(parent)), self.assertRaises(ValueError):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_output_children_are_retained_and_source_and_symlink_paths_refuse (test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse) (parent='/tmp/outer-mutation-regression-tzq40s3q/output-alias/child')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/omit-output-symlink-refusal/optimized/mutant/repo/frontiers/determinant_moment_20261025/tests/test_cbz_mutation_runner.py", line 191, in test_output_children_are_retained_and_source_and_symlink_paths_refuse
+    with self.subTest(parent=str(parent)), self.assertRaises(ValueError):
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+FAILED (failures=2)

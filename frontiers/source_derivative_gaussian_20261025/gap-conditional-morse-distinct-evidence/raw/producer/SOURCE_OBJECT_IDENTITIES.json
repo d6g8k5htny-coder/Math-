@@ -1,0 +1,54 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceGapConditionalMorseDistinct.lean",
+    "bytes": 99430,
+    "sha256": "8baf597fa98ce8f79489e82227951e0f4fd1a960e65589278be8a82f35ce5213"
+  },
+  "object": {
+    "path": "/workspace/scratch/gap-conditional-morse-distinct-construct/build/SourceGapConditionalMorseDistinct.olean",
+    "bytes": 4189248,
+    "sha256": "d73ade27921b1593c99175780e2738a80d3acb158e3c25810ef03b66b5678cb8"
+  },
+  "strict_receipt": "runs/final-adapter-controls-012/receipt.json",
+  "inventory_receipt": "runs/inventory-001/receipt.json",
+  "exactly_one_kernel_receipt": "runs/kernel-001/receipt.json",
+  "positive_controls_receipt": "runs/controls-003/receipt.json",
+  "sole_negative_receipt": "runs/false-drop-DBtheta-001/receipt.json",
+  "controls_source": {
+    "path": "/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean",
+    "bytes": 24267,
+    "sha256": "5029e709d71e7d1b89aa3ad72345dfe3f9bcfdac00f3b32ce325b79d0fad68c4"
+  },
+  "controls_object": {
+    "path": "/workspace/scratch/gap-conditional-morse-distinct-construct/build/GapMorseDistinctControls.olean",
+    "bytes": 1479440,
+    "sha256": "90e8eac00890fc1240be834cf7802eae9c64dcee456c259782259bd2c057e305"
+  },
+  "eligible_production_objects": [
+    "SourceGapConditionalMorseDistinct.olean"
+  ],
+  "ineligible": "GapMorseDistinctControls.olean and all harness/inventory/mutation/development objects. No helper objects. No ilean/freshness compile. GapMorseDistinctNumericControls.olean is also Controls-only and ineligible.",
+  "root_source_cut": "3515bc2144c5d47a197238c1a46bbdd3a50e146b",
+  "root_cache_rule": "Only root may copy exact eligible ownobject once. Producer has performed no packet cache/config/Git/sharedmetadata/external mutation.",
+  "identities": "Frozen finalsource/object IDs reused from strict012. Controls source/object IDs reused frompositive003. OlddependencyIDs transcribedfromretainedmanifests.",
+  "qualified_baseline": "f89543e2a81f56418a083c62a49e9689a189a139",
+  "published_precode59": "a88e4c65fe2b02de9638c4482e4d50f767359205",
+  "fresh_resume_pickup6471999400": "https://github.com/d6g8k5htny-coder/Math-/pull/514#issuecomment-6471999400",
+  "same_family_credit": 0,
+  "scientific_effect": "NONE",
+  "numeric_controls_source": {
+    "path": "/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctNumericControls.lean",
+    "bytes": 6469,
+    "sha256": "6a442f03fce8f0b31a5fc05525e106a5eece5575cf312c00dfe047af37aa39f7"
+  },
+  "numeric_controls_object": {
+    "path": "/workspace/scratch/gap-conditional-morse-distinct-construct/build/GapMorseDistinctNumericControls.olean",
+    "bytes": 605632,
+    "sha256": "b99656065196ff0b82946295ac1d3f4f45e28a8ab092330e4bc0e65d6f25931c"
+  },
+  "numeric_positive_receipt": "runs/numeric-controls-001/receipt.json",
+  "root_source_cut_historical_pending_record": "FROZEN_SOURCE.json remains unchanged with original pending-cut status",
+  "root_source_cut_process_record": "/workspace/scratch/gap-conditional-morse-distinct-publication/ROOT_SOURCE_CUT.json",
+  "root_copy_once_record": "/workspace/scratch/gap-conditional-morse-distinct-publication/ROOT_OWN_OBJECT_COPY.json",
+  "root_copy_status": "Root copied exact eligible own4189248B object ONCE15:05:16, no producer copy, zero replay/hash for cut/copy labels."
+}

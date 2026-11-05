@@ -1,0 +1,4 @@
+/workspace/scratch/actual-fold-candidate-construct/FalseDistanceMutation.lean:10:61: error: unsolved goals
+hcounterexample : torusDist 2 1 (endpointLiftM 1) (endpointLiftS 1) ≠ 1
+hzero : torusDist 2 1 (endpointLiftM 1) (endpointLiftS 1) = 0
+⊢ False

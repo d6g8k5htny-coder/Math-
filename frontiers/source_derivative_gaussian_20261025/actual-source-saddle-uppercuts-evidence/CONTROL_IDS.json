@@ -1,0 +1,86 @@
+{
+  "status": "PASS ordinary strict plus separate ALL-owned/std3, then sole expected negative",
+  "pre_negative_immutable_record": "/workspace/scratch/actual-source-saddle-uppercuts-construct/CONTROL_IDS_PRE_NEGATIVE.json",
+  "ordinary_source": {
+    "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/SaddleUppercutsControls.lean",
+    "bytes": 25253,
+    "sha256": "ee7dadcd46475be9ed0da505fa9c7ff857db4e534653c248c4693e42f7cd60e0",
+    "marker": [
+      25253,
+      1793223774904998150
+    ],
+    "first_observed_utc": "2026-10-28T21:42:54.911102+00:00",
+    "origin": "new actual version identity, calculated once"
+  },
+  "ordinary_object": {
+    "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/build/SaddleUppercutsControls.olean",
+    "bytes": 1326832,
+    "sha256": "c8a71e38bfd65abc5dea707deab5ff81233026753139698a2b369ea4d4290ec6",
+    "marker": [
+      1326832,
+      1793223780073262611
+    ],
+    "first_observed_utc": "2026-10-28T21:43:00.196001+00:00",
+    "origin": "new actual version identity, calculated once"
+  },
+  "ordinary_final_snapshot": {
+    "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/frozen/Controls.FINAL.lean",
+    "bytes": 25253,
+    "sha256": "ee7dadcd46475be9ed0da505fa9c7ff857db4e534653c248c4693e42f7cd60e0",
+    "marker": [
+      25253,
+      1793223880509303915
+    ],
+    "first_observed_utc": "2026-10-28T21:42:54.911102+00:00",
+    "origin": "known exact passed ordinary final source identity reused",
+    "copied_from": "/workspace/scratch/actual-source-saddle-uppercuts-construct/SaddleUppercutsControls.lean"
+  },
+  "ordinary_owned_constants": 123,
+  "ordinary_classification_counts": {
+    "private_authored_data_definition": 25,
+    "private_generated": 52,
+    "private_authored_theorem": 39,
+    "private_prop_definition": 3,
+    "public_prop_definition": 1,
+    "private_prop_structure": 2,
+    "public_prop_theorem": 1
+  },
+  "ordinary_strict_receipt": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/controls003/receipt.json",
+  "ordinary_inventory_receipt": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/ordinary-inventory001/receipt.json",
+  "ordinary_named_kernels": 0,
+  "sole_negative_harness": {
+    "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/FalseControl.lean",
+    "bytes": 273,
+    "sha256": "e41f7b0863ead2c659da7cbfbb4df57037fdd4d947995f55949fd2050b18a6da",
+    "marker": [
+      273,
+      1793223880509645807
+    ],
+    "first_observed_utc": "2026-10-28T21:44:40.509741+00:00",
+    "origin": "FIRST actual complete sole closed no-premise harness identity, computed once BEFORE execution"
+  },
+  "sole_negative_harness_snapshot": {
+    "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/frozen/FalseControl.ORIGINAL.lean",
+    "bytes": 273,
+    "sha256": "e41f7b0863ead2c659da7cbfbb4df57037fdd4d947995f55949fd2050b18a6da",
+    "marker": [
+      273,
+      1793223880509833591
+    ],
+    "first_observed_utc": "2026-10-28T21:44:40.509741+00:00",
+    "origin": "known exact complete sole harness byte-copy identity reused",
+    "copied_from": "/workspace/scratch/actual-source-saddle-uppercuts-construct/FalseControl.lean"
+  },
+  "negative_receipt": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/false-control001/receipt.json",
+  "negative_exit": 1,
+  "negative_stdout_bytes": 116,
+  "negative_stderr_bytes": 0,
+  "unsolved_False_count": 1,
+  "negative_worker_times": {
+    "start_utc": "2026-10-28T21:44:40.785059+00:00",
+    "end_utc": "2026-10-28T21:44:43.106470+00:00",
+    "elapsed_seconds": 2.3214239179978904
+  },
+  "mutation": "ONLY eps>0 to eps>=0. Same chosen rho/phi/source/field/CLOSED cut and upper bound. Closed assertion has no mutation premise/axiom/parameter.",
+  "counterproof": "Actual full inverse vertical target path, every-time target/source/closed-zero-cut membership, actual q midpoint and negative endpoint coordinate product. Structural fields only; no production upperbranch or inherited lowerPC shortcut."
+}

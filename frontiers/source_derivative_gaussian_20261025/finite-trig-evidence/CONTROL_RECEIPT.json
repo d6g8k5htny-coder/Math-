@@ -1,0 +1,54 @@
+{
+  "contract": {
+    "path": "/workspace/scratch/finite-trig-construct/CONTROL_CONTRACT.md",
+    "bytes": 2144,
+    "sha256": "57a40b35e00dc69b8475addeb7fdfca6b4187293672300f1b5147cf6f83108f7"
+  },
+  "contract_before_any_producer_or_helper_source": true,
+  "positive_source": {
+    "path": "/workspace/scratch/finite-trig-construct/Controls.lean",
+    "bytes": 7236,
+    "sha256": "1d7656099554f10ad2dc510ec0cda9bd253daa06c74f18572bdf45a6031f2c7a"
+  },
+  "positive_receipt": {
+    "path": "/workspace/scratch/finite-trig-construct/runs/controls-006/record.json",
+    "bytes": 1994,
+    "sha256": "7c9d8ccce875817b9a4383ffdcb3cb2aa64323fe6705d37fce45b31bba350e5c"
+  },
+  "positive_count": 15,
+  "positive_scope": [
+    "empty/constant includingL0 andnegativeL",
+    "append/negative scale",
+    "nonzero translationx\u2212z",
+    "exact product half coefficients",
+    "constantone product evaluatesone",
+    "sine offset\u2212\u03c0/2",
+    "canonicalpositivefrequency negative sinechannel coefficient for arbitrary\u03b8",
+    "negativefrequency positive sinechannel coefficient for arbitrary\u03b8",
+    "zero frequency actualnone and no cosinechannel",
+    "actual finite-shift originalsample fieldequality",
+    "arbitrary-order product derivative adapter",
+    "n0 derivative/evaluation",
+    "n1 full directionalderivative",
+    "n2 ordered derivative pair",
+    "actual source coefficient representation of futureannihilator product(1\u2212cosaxial)(1\u2212cosvertical), no jetclaim"
+  ],
+  "private_control_hooks": "Control-only term/tactic identifier macros reference inventoried private constants; they only unfold existing exact definitions. No source/public API amendment.",
+  "negative_source": {
+    "path": "/workspace/scratch/finite-trig-construct/FalseProductMutation.lean",
+    "bytes": 1162,
+    "sha256": "7d58f5a380e6e278c57c1ac300ac19713dd6b12690f0a1bec92a77c5a237b725"
+  },
+  "negative_receipt": {
+    "path": "/workspace/scratch/finite-trig-construct/runs/false-product-001/record.json",
+    "bytes": 2045,
+    "sha256": "f4747247aee53a6d7cc404486ef25760593a732ace4d95ab1a379ff9102bbe37"
+  },
+  "distinct_mutation_count": 1,
+  "mutation_attempts": 1,
+  "negative_mechanism": "Omit1/2 in both termProduct output coefficients. Constantones evaluate2 while actualproduct1; proved finite normalization counterexample incontext; direct rewrite/norm_num leaves exactlyFalse.",
+  "sole_false_count": 1,
+  "unrelated_negative_diagnostics": 0,
+  "source_unchanged_for_all_controls": true,
+  "control_failures": "001 numericprivate-name syntax;002 termmacro used as simp theorem rather than definition-unfold;003/004 percent-suffixed tacticmacro dispatch;005 unusedList.nil_append;006PASS. All source snapshots/fullstreams retained."
+}

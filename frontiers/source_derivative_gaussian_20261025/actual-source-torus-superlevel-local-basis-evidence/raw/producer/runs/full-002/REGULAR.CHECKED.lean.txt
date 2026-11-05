@@ -1,0 +1,265 @@
+import SourceActualMorseLocalModel
+import SourceActualFoldTorus
+import SourceFiniteTrig
+import SourceSmoothConditionalKernel
+import Mathlib.Analysis.Calculus.InverseFunctionTheorem.ContDiff
+import Mathlib.Analysis.Convex.Topology
+import Mathlib.Analysis.Convex.PathConnected
+import Mathlib.Analysis.Normed.Module.FiniteDimension
+import Mathlib.Topology.Connected.PathConnected
+import Mathlib.Topology.Instances.AddCircle.Defs
+import Mathlib.Topology.OpenPartialHomeomorph.Constructions
+import Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds
+import Mathlib.Tactic.FinCases
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.FunProp
+import Mathlib.Tactic.Positivity
+import Lean.Elab.Tactic.Omega
+import Mathlib.Tactic.GCongr
+
+noncomputable section
+open Set Filter
+open I4SmoothCarrier I4LifetimeField
+open UniversalLaw.Spec.Lifetime
+open scoped Topology BigOperators Matrix
+set_option autoImplicit false
+namespace I4SourceActualTorusSuperlevelLocalBasis
+
+private def coverProjection (L : ℝ) (X : UniversalLaw.Spec.Lifetime.E 2) :
+    I4Torus.SourceTorus 2 L :=
+  I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)
+
+
+/-
+Stage61 Helper A: complete original private regular-boundary adapter.
+Frozen lexical input: CONTEXT.ORIGINAL.md (shared context amendment002).
+TEXT ONLY. No Lean/probe/build/kernel/control/hash/object execution by helper.
+-/
+
+private theorem regular_finTwo_functional
+    (d : (Fin 2 → ℝ) →L[ℝ] ℝ) (v : Fin 2 → ℝ) :
+    d v = d ![1, 0] * v 0 + d ![0, 1] * v 1 := by
+  have hv : v = v 0 • ![(1 : ℝ), 0] + v 1 • ![(0 : ℝ), 1] := by
+    ext i
+    fin_cases i <;> simp
+  calc
+    d v = d (v 0 • ![(1 : ℝ), 0] + v 1 • ![(0 : ℝ), 1]) := congrArg d hv
+    _ = d ![1, 0] * v 0 + d ![0, 1] * v 1 := by
+      simp only [map_add, map_smul, smul_eq_mul]
+      ring
+
+private def regular_firstRowEquiv
+    (d : (Fin 2 → ℝ) →L[ℝ] ℝ) (ha : d ![1, 0] ≠ 0) :
+    (Fin 2 → ℝ) ≃L[ℝ] (Fin 2 → ℝ) :=
+  ({ toFun := fun v => ![d v, v 1]
+     invFun := fun w => ![(w 0 - d ![0, 1] * w 1) / d ![1, 0], w 1]
+     left_inv := by
+       intro v
+       ext i
+       fin_cases i
+       · change (d v - d ![0, 1] * v 1) / d ![1, 0] = v 0
+         rw [regular_finTwo_functional d v]
+         field_simp [ha]; ring
+       · rfl
+     right_inv := by
+       intro w
+       ext i
+       fin_cases i
+       · change d ![(w 0 - d ![0, 1] * w 1) / d ![1, 0], w 1] = w 0
+         rw [regular_finTwo_functional d]
+         simp only [Matrix.cons_val_zero, Matrix.cons_val_one]
+         field_simp [ha]; ring
+       · rfl
+     map_add' := by
+       intro u v
+       ext i
+       fin_cases i <;> simp
+     map_smul' := by
+       intro a v
+       ext i
+       fin_cases i <;> simp
+   } : (Fin 2 → ℝ) ≃ₗ[ℝ] (Fin 2 → ℝ)).toContinuousLinearEquiv
+
+private def regular_secondRowEquiv
+    (d : (Fin 2 → ℝ) →L[ℝ] ℝ) (hb : d ![0, 1] ≠ 0) :
+    (Fin 2 → ℝ) ≃L[ℝ] (Fin 2 → ℝ) :=
+  ({ toFun := fun v => ![d v, v 0]
+     invFun := fun w => ![w 1, (w 0 - d ![1, 0] * w 1) / d ![0, 1]]
+     left_inv := by
+       intro v
+       ext i
+       fin_cases i
+       · rfl
+       · change (d v - d ![1, 0] * v 0) / d ![0, 1] = v 1
+         rw [regular_finTwo_functional d v]
+         field_simp [hb]; ring
+     right_inv := by
+       intro w
+       ext i
+       fin_cases i
+       · change d ![w 1, (w 0 - d ![1, 0] * w 1) / d ![0, 1]] = w 0
+         rw [regular_finTwo_functional d]
+         simp only [Matrix.cons_val_zero, Matrix.cons_val_one]
+         field_simp [hb]; ring
+       · rfl
+     map_add' := by
+       intro u v
+       ext i
+       fin_cases i <;> simp
+     map_smul' := by
+       intro a v
+       ext i
+       fin_cases i <;> simp
+   } : (Fin 2 → ℝ) ≃ₗ[ℝ] (Fin 2 → ℝ)).toContinuousLinearEquiv
+
+private theorem regular_choose_rowEquiv
+    (d : (Fin 2 → ℝ) →L[ℝ] ℝ) (hd : d ≠ 0) :
+    ∃ (k : Fin 2) (A : (Fin 2 → ℝ) ≃L[ℝ] (Fin 2 → ℝ)),
+      ∀ v, A v = ![d v, v k] := by
+  by_cases ha : d ![1, 0] = 0
+  · have hb : d ![0, 1] ≠ 0 := by
+      intro hb
+      apply hd
+      apply ContinuousLinearMap.ext
+      intro v
+      change d v = 0
+      rw [regular_finTwo_functional d v, ha, hb]
+      ring
+    exact ⟨0, regular_secondRowEquiv d hb, fun _ => rfl⟩
+  · exact ⟨1, regular_firstRowEquiv d ha, fun _ => rfl⟩
+
+private theorem regularCoverLevelBasis {L : ℝ} (hL : 0 < L)
+    (omega : SmoothSample 2 L) (X : UniversalLaw.Spec.Lifetime.E 2)
+    (U : Set (UniversalLaw.Spec.Lifetime.E 2)) (hU : IsOpen U) (hX : X ∈ U)
+    (hreg : fderiv ℝ (actualField 2 L omega) X ≠ 0) :
+    ∃ W : Set (UniversalLaw.Spec.Lifetime.E 2), IsOpen W ∧ X ∈ W ∧ W ⊆ U ∧
+      IsPathConnected (W ∩ {Y | actualField 2 L omega X ≤ actualField 2 L omega Y}) := by
+  let c := coordinates 2
+  let g := actualField 2 L omega
+  let ell : UniversalLaw.Spec.Lifetime.E 2 →L[ℝ] ℝ := fderiv ℝ g X
+  let d : (Fin 2 → ℝ) →L[ℝ] ℝ := ell.comp c.symm.toContinuousLinearMap
+  have hd : d ≠ 0 := by
+    intro hz
+    apply hreg
+    apply ContinuousLinearMap.ext
+    intro Y
+    have h := congrArg (fun q : (Fin 2 → ℝ) →L[ℝ] ℝ => q (c Y)) hz
+    change ell (c.symm (c Y)) = 0 at h
+    change ell Y = 0
+    simpa only [ContinuousLinearEquiv.symm_apply_apply] using h
+  obtain ⟨k, A, hA⟩ := regular_choose_rowEquiv d hd
+  let B : UniversalLaw.Spec.Lifetime.E 2 ≃L[ℝ] (Fin 2 → ℝ) := c.trans A
+  let p : UniversalLaw.Spec.Lifetime.E 2 →L[ℝ] ℝ :=
+    (ContinuousLinearMap.proj k).comp c.toContinuousLinearMap
+  let f : UniversalLaw.Spec.Lifetime.E 2 → (Fin 2 → ℝ) :=
+    fun Y => ![g Y - g X, c Y k - c X k]
+  have hg : ContDiff ℝ 1 g := actualField_smooth 2 hL omega 1
+  have hf : ContDiff ℝ 1 f := by
+    apply contDiff_pi.2
+    intro i
+    fin_cases i
+    · change ContDiff ℝ 1 (fun Y => g Y - g X)
+      exact hg.sub contDiff_const
+    · change ContDiff ℝ 1 (fun Y => p Y - c X k)
+      exact p.contDiff.sub contDiff_const
+  have hB0 : (ContinuousLinearMap.proj (0 : Fin 2)).comp
+      B.toContinuousLinearMap = ell := by
+    apply ContinuousLinearMap.ext
+    intro Y
+    change A (c Y) 0 = ell Y
+    rw [hA]
+    change ell (c.symm (c Y)) = ell Y
+    simp only [ContinuousLinearEquiv.symm_apply_apply]
+  have hB1 : (ContinuousLinearMap.proj (1 : Fin 2)).comp
+      B.toContinuousLinearMap = p := by
+    apply ContinuousLinearMap.ext
+    intro Y
+    change A (c Y) 1 = p Y
+    rw [hA]
+    rfl
+  have hfderiv : HasFDerivAt f B.toContinuousLinearMap X := by
+    apply hasFDerivAt_pi'.2
+    intro i
+    fin_cases i
+    · change HasFDerivAt (fun Y => g Y - g X)
+        ((ContinuousLinearMap.proj (0 : Fin 2)).comp B.toContinuousLinearMap) X
+      rw [hB0]
+      exact (hg.differentiable (by norm_num)).differentiableAt.hasFDerivAt.sub_const (g X)
+    · change HasFDerivAt (fun Y => p Y - c X k)
+        ((ContinuousLinearMap.proj (1 : Fin 2)).comp B.toContinuousLinearMap) X
+      rw [hB1]
+      exact p.hasFDerivAt.sub_const (c X k)
+  let phi : OpenPartialHomeomorph (UniversalLaw.Spec.Lifetime.E 2) (Fin 2 → ℝ) :=
+    hf.contDiffAt.toOpenPartialHomeomorph f hfderiv (by norm_num)
+  have hXs : X ∈ phi.source :=
+    hf.contDiffAt.mem_toOpenPartialHomeomorph_source hfderiv (by norm_num)
+  have hphiX : phi X = 0 := by
+    change f X = 0
+    ext i
+    fin_cases i <;> simp [f]
+  have hzeroTarget : (0 : Fin 2 → ℝ) ∈ phi.target := by
+    rw [← hphiX]
+    exact phi.mapsTo hXs
+  have hInvZero : phi.symm 0 = X := by
+    rw [← hphiX]
+    exact phi.left_inv hXs
+  let Q : Set (Fin 2 → ℝ) := phi.target ∩ phi.symm ⁻¹' U
+  have hQ : IsOpen Q := phi.isOpen_inter_preimage_symm hU
+  have hzeroQ : (0 : Fin 2 → ℝ) ∈ Q := by
+    refine ⟨hzeroTarget, ?_⟩
+    change phi.symm 0 ∈ U
+    rw [hInvZero]
+    exact hX
+  obtain ⟨epsilon, hepsilon, hball⟩ := Metric.isOpen_iff.1 hQ 0 hzeroQ
+  have hballTarget : Metric.ball (0 : Fin 2 → ℝ) epsilon ⊆ phi.target :=
+    fun v hv => (hball hv).1
+  let W : Set (UniversalLaw.Spec.Lifetime.E 2) :=
+    phi.symm '' Metric.ball (0 : Fin 2 → ℝ) epsilon
+  have hW : IsOpen W :=
+    phi.isOpen_image_symm_of_subset_target Metric.isOpen_ball hballTarget
+  have hXW : X ∈ W := by
+    refine ⟨0, ?_, hInvZero⟩
+    simpa only [Metric.mem_ball, dist_self] using hepsilon
+  have hWU : W ⊆ U := by
+    rintro Y ⟨v, hv, rfl⟩
+    exact (hball hv).2
+  have hheight (v : Fin 2 → ℝ) (hv : v ∈ Metric.ball 0 epsilon) :
+      g (phi.symm v) - g X = v 0 := by
+    have h := congrFun (phi.right_inv (hballTarget hv)) (0 : Fin 2)
+    change (f (phi.symm v)) 0 = v 0 at h
+    simpa only [f, Matrix.cons_val_zero] using h
+  have htrace : W ∩ {Y | g X ≤ g Y} =
+      phi.symm '' (Metric.ball (0 : Fin 2 → ℝ) epsilon ∩ {v | 0 ≤ v 0}) := by
+    ext Y
+    constructor
+    · rintro ⟨⟨v, hv, rfl⟩, hlev⟩
+      refine ⟨v, ⟨hv, ?_⟩, rfl⟩
+      have hh := hheight v hv
+      change g X ≤ g (phi.symm v) at hlev
+      change 0 ≤ v 0
+      linarith
+    · rintro ⟨v, ⟨hv, hlev⟩, rfl⟩
+      refine ⟨⟨v, hv, rfl⟩, ?_⟩
+      have hh := hheight v hv
+      change 0 ≤ v 0 at hlev
+      change g X ≤ g (phi.symm v)
+      linarith
+  have hhalf : Convex ℝ {v : Fin 2 → ℝ | 0 ≤ v 0} := by
+    intro u hu v hv a b ha hb _hab
+    change 0 ≤ a * u 0 + b * v 0
+    exact add_nonneg (mul_nonneg ha hu) (mul_nonneg hb hv)
+  have hpc : IsPathConnected
+      (Metric.ball (0 : Fin 2 → ℝ) epsilon ∩ {v | 0 ≤ v 0}) := by
+    apply ((convex_ball (0 : Fin 2 → ℝ) epsilon).inter hhalf).isPathConnected
+    refine ⟨0, ?_, ?_⟩
+    · simpa only [Metric.mem_ball, dist_self] using hepsilon
+    · simp
+  refine ⟨W, hW, hXW, hWU, ?_⟩
+  change IsPathConnected (W ∩ {Y | g X ≤ g Y})
+  rw [htrace]
+  exact hpc.image' (phi.symm.continuousOn.mono fun v hv => hballTarget hv.1)
+
+end I4SourceActualTorusSuperlevelLocalBasis

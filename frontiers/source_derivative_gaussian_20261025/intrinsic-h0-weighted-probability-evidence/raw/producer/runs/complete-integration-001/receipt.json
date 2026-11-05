@@ -1,0 +1,44 @@
+{
+  "label": "complete-integration-001",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:/workspace/scratch/compact-fold-weighted-probability-construct/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean SourceIntrinsicH0WeightedProbability.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+      "bytes": 32442,
+      "sha256": "8fa12ef2420367c9405810ac63dc0755ec95158068b60be1a6044461516fb40a"
+    },
+    "object": {
+      "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+      "bytes": 746416,
+      "sha256": "c60a31130c226f78050c19ac1942cd9b7d7535f6a2717cc3e0421c2580f57c8c"
+    }
+  },
+  "started_utc": "2026-10-26T18:49:35.399019+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 20.009477138519287,
+  "ended_utc": "2026-10-26T18:49:55.408540+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+      "bytes": 32442,
+      "sha256": "8fa12ef2420367c9405810ac63dc0755ec95158068b60be1a6044461516fb40a"
+    },
+    "object": {
+      "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+      "bytes": 746416,
+      "sha256": "c60a31130c226f78050c19ac1942cd9b7d7535f6a2717cc3e0421c2580f57c8c"
+    }
+  },
+  "log": {
+    "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/complete-integration-001/output.log",
+    "bytes": 11298,
+    "sha256": "d22bd1705799b5a9197c8638337ec3a358b5ad24dd58761edc51111298c83bfa"
+  }
+}

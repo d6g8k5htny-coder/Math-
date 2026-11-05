@@ -1,0 +1,1737 @@
+{
+  "status": "ALL_ORIGINAL_CLOSED_RECORDS_PLUS_EXPLICIT_FINAL_DOCUMENTARY_TAIL",
+  "observed_utc": "2026-10-28T23:48:04.280801+00:00",
+  "closed_dedicated_worker_count_at_generation": 38,
+  "closed_counts": {
+    "documentary": 21,
+    "math": 17
+  },
+  "actual_closed_runs": [
+    {
+      "label": "context-bootstrap001",
+      "scope_kind": "documentary",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/context-bootstrap001/receipt.json",
+      "command_argv": [
+        "python3",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/runner/bootstrap_context.py"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:17:02.122638+00:00",
+      "end_utc": "2026-10-28T23:17:02.150748+00:00",
+      "elapsed_seconds": 0.0281090940006834,
+      "exit_code": 0,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/context-bootstrap001/stdout.log",
+          "bytes": 189,
+          "sha256": "1517b6cacac7905dcd88cc387c28afe7677b993f3789618fe5beb428679c4e90",
+          "marker": [
+            189,
+            1793229422146472638
+          ],
+          "first_observed_utc": "2026-10-28T23:17:02.151068+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/context-bootstrap001/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793229422124028970
+          ],
+          "first_observed_utc": "2026-10-28T23:17:02.151096+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        }
+      },
+      "before_snapshot_count": 7,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/context-bootstrap001/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/context-bootstrap001/RECEIPT.json"
+    },
+    {
+      "label": "controls001",
+      "scope_kind": "math",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/controls001/receipt.json",
+      "command_argv": [
+        "env",
+        "LEAN_PATH=/workspace/scratch/actual-source-regular-local-collar-construct/build",
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/build/RegularLocalCollarControls.olean",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/RegularLocalCollarControls.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:39:10.585892+00:00",
+      "end_utc": "2026-10-28T23:39:11.106218+00:00",
+      "elapsed_seconds": 0.5203356349993555,
+      "exit_code": 1,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/controls001/stdout.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230750587317437
+          ],
+          "first_observed_utc": "2026-10-28T23:39:11.107962+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/controls001/stderr.log",
+          "bytes": 229,
+          "sha256": "8ba9164e227469aaced88d6d74d9df97b25bf981d7ccbb8bc4fc9a7bd1c2e496",
+          "marker": [
+            229,
+            1793230751083673740
+          ],
+          "first_observed_utc": "2026-10-28T23:39:11.108035+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        }
+      },
+      "before_snapshot_count": 20,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/controls001/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/controls001/RECEIPT.json"
+    },
+    {
+      "label": "controls002",
+      "scope_kind": "math",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/controls002/receipt.json",
+      "command_argv": [
+        "env",
+        "LEAN_PATH=/workspace/scratch/actual-source-regular-local-collar-construct/build",
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "--root=/workspace/scratch/actual-source-regular-local-collar-construct",
+        "-o",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/build/RegularLocalCollarControls.olean",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/RegularLocalCollarControls.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:39:40.919557+00:00",
+      "end_utc": "2026-10-28T23:39:44.163622+00:00",
+      "elapsed_seconds": 3.244123431002663,
+      "exit_code": 1,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/controls002/stdout.log",
+          "bytes": 1465,
+          "sha256": "f1e3c1c3848130b9e9fc16d76cc087636923e2eaa2b2ea413c80282026bc7bb2",
+          "marker": [
+            1465,
+            1793230784049856180
+          ],
+          "first_observed_utc": "2026-10-28T23:39:44.166572+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/controls002/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230780921298773
+          ],
+          "first_observed_utc": "2026-10-28T23:39:44.166599+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 20,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/controls002/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/controls002/RECEIPT.json"
+    },
+    {
+      "label": "controls003",
+      "scope_kind": "math",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/controls003/receipt.json",
+      "command_argv": [
+        "env",
+        "LEAN_PATH=/workspace/scratch/actual-source-regular-local-collar-construct/build",
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "--root=/workspace/scratch/actual-source-regular-local-collar-construct",
+        "-o",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/build/RegularLocalCollarControls.olean",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/RegularLocalCollarControls.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:40:17.191235+00:00",
+      "end_utc": "2026-10-28T23:40:20.311693+00:00",
+      "elapsed_seconds": 3.120469667002908,
+      "exit_code": 1,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/controls003/stdout.log",
+          "bytes": 228,
+          "sha256": "82af0dc0da4f0169f11aa935623ff1bd04e24b3fd34de9dd3d756516bc40759a",
+          "marker": [
+            228,
+            1793230820199852011
+          ],
+          "first_observed_utc": "2026-10-28T23:40:20.314274+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/controls003/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230817192672650
+          ],
+          "first_observed_utc": "2026-10-28T23:40:20.314302+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 21,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/controls003/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/controls003/RECEIPT.json"
+    },
+    {
+      "label": "controls004",
+      "scope_kind": "math",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/controls004/receipt.json",
+      "command_argv": [
+        "env",
+        "LEAN_PATH=/workspace/scratch/actual-source-regular-local-collar-construct/build",
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "--root=/workspace/scratch/actual-source-regular-local-collar-construct",
+        "-o",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/build/RegularLocalCollarControls.olean",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/RegularLocalCollarControls.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:41:21.118084+00:00",
+      "end_utc": "2026-10-28T23:41:24.453178+00:00",
+      "elapsed_seconds": 3.335105794998526,
+      "exit_code": 0,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/controls004/stdout.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230881119392451
+          ],
+          "first_observed_utc": "2026-10-28T23:41:24.456617+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/controls004/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230881119392451
+          ],
+          "first_observed_utc": "2026-10-28T23:41:24.456633+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 22,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/controls004/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/controls004/RECEIPT.json"
+    },
+    {
+      "label": "false-control001",
+      "scope_kind": "math",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/false-control001/receipt.json",
+      "command_argv": [
+        "env",
+        "LEAN_PATH=/workspace/scratch/actual-source-regular-local-collar-construct/build",
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "--root=/workspace/scratch/actual-source-regular-local-collar-construct",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/FalseControl.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:43:38.156354+00:00",
+      "end_utc": "2026-10-28T23:43:40.322006+00:00",
+      "elapsed_seconds": 2.1656641450026655,
+      "exit_code": 1,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/false-control001/stdout.log",
+          "bytes": 120,
+          "sha256": "be6f94457d7be9fc54d03bbed182202d8b7e08034d426b47ab012f9ddcef92e9",
+          "marker": [
+            120,
+            1793231020291779331
+          ],
+          "first_observed_utc": "2026-10-28T23:43:40.324973+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/false-control001/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793231018157987760
+          ],
+          "first_observed_utc": "2026-10-28T23:43:40.325001+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 24,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/false-control001/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/false-control001/RECEIPT.json"
+    },
+    {
+      "label": "fixtures001",
+      "scope_kind": "math",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/fixtures001/receipt.json",
+      "command_argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/build/SourceActualRegularLocalCollar.olean",
+        "SourceActualRegularLocalCollar.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:34:02.688647+00:00",
+      "end_utc": "2026-10-28T23:34:06.900388+00:00",
+      "elapsed_seconds": 4.212028194000595,
+      "exit_code": 1,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/fixtures001/stdout.log",
+          "bytes": 1829,
+          "sha256": "17113a27c7e7c2aa9bc3cdcca2fb578de649524b6ca1dfbc7164770bf339d566",
+          "marker": [
+            1829,
+            1793230446775469233
+          ],
+          "first_observed_utc": "2026-10-28T23:34:06.903319+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/fixtures001/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230442690226823
+          ],
+          "first_observed_utc": "2026-10-28T23:34:06.903356+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 15,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/fixtures001/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/fixtures001/RECEIPT.json"
+    },
+    {
+      "label": "fixtures002",
+      "scope_kind": "math",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/fixtures002/receipt.json",
+      "command_argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/build/SourceActualRegularLocalCollar.olean",
+        "SourceActualRegularLocalCollar.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:34:35.177558+00:00",
+      "end_utc": "2026-10-28T23:34:39.608312+00:00",
+      "elapsed_seconds": 4.430833981998148,
+      "exit_code": 1,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/fixtures002/stdout.log",
+          "bytes": 1208,
+          "sha256": "cf047bb7d8bfc2e6cd298810b97d794e37120a1916d455e20d88b2650ef1dd73",
+          "marker": [
+            1208,
+            1793230479486641363
+          ],
+          "first_observed_utc": "2026-10-28T23:34:39.611156+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/fixtures002/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230475179061696
+          ],
+          "first_observed_utc": "2026-10-28T23:34:39.611186+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 16,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/fixtures002/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/fixtures002/RECEIPT.json"
+    },
+    {
+      "label": "fixtures003",
+      "scope_kind": "math",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/fixtures003/receipt.json",
+      "command_argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/build/SourceActualRegularLocalCollar.olean",
+        "SourceActualRegularLocalCollar.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:35:01.859907+00:00",
+      "end_utc": "2026-10-28T23:35:06.762067+00:00",
+      "elapsed_seconds": 4.902187962001335,
+      "exit_code": 1,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/fixtures003/stdout.log",
+          "bytes": 1860,
+          "sha256": "20a607cc13057a06da7521276fe41ad63685103d73ad4af9707124a24d98d939",
+          "marker": [
+            1860,
+            1793230506649991326
+          ],
+          "first_observed_utc": "2026-10-28T23:35:06.765040+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/fixtures003/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230501862091768
+          ],
+          "first_observed_utc": "2026-10-28T23:35:06.765069+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 17,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/fixtures003/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/fixtures003/RECEIPT.json"
+    },
+    {
+      "label": "fixtures004",
+      "scope_kind": "math",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/fixtures004/receipt.json",
+      "command_argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/build/SourceActualRegularLocalCollar.olean",
+        "SourceActualRegularLocalCollar.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:35:31.445886+00:00",
+      "end_utc": "2026-10-28T23:35:35.470725+00:00",
+      "elapsed_seconds": 4.024876800998754,
+      "exit_code": 0,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/fixtures004/stdout.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230531447302717
+          ],
+          "first_observed_utc": "2026-10-28T23:35:35.476773+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/fixtures004/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230531447302717
+          ],
+          "first_observed_utc": "2026-10-28T23:35:35.476791+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 18,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/fixtures004/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/fixtures004/RECEIPT.json"
+    },
+    {
+      "label": "helper-fix001",
+      "scope_kind": "documentary",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/helper-fix001/receipt.json",
+      "command_argv": [
+        "python3",
+        "-c",
+        "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nS=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();new=old\nassert new.count('field_simp [ha] <;> ring')==2;assert new.count('field_simp [hb] <;> ring')==2\nnew=new.replace('field_simp [ha] <;> ring','field_simp [ha]\\n      ring').replace('field_simp [hb] <;> ring','field_simp [hb]\\n      ring')\nassert new.count('(contDiff_apply j).sub')==1;new=new.replace('(contDiff_apply j).sub','(contDiff_apply \u211d \u211d j).sub')\nH=B/'history/helper-fix001';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'HELPER_FIX001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/helper-fix001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST actual full helper amendment patch identity, once'}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only public001 four tactic-style findings and contDiff_apply explicit scalar/carrier argument','full_patch':str(p),'helper_integrations':1}))\n"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:31:27.615861+00:00",
+      "end_utc": "2026-10-28T23:31:27.660381+00:00",
+      "elapsed_seconds": 0.044519389000925,
+      "exit_code": 0,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/helper-fix001/stdout.log",
+          "bytes": 239,
+          "sha256": "ec2c3a3d1d7682da1b24aa762870fedecbfb85323494d9a43703390dd0b9e0bf",
+          "marker": [
+            239,
+            1793230287655817506
+          ],
+          "first_observed_utc": "2026-10-28T23:31:27.661166+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/helper-fix001/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230287619313577
+          ],
+          "first_observed_utc": "2026-10-28T23:31:27.661179+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 13,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/helper-fix001/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/helper-fix001/RECEIPT.json"
+    },
+    {
+      "label": "helper-integration001",
+      "scope_kind": "documentary",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/helper-integration001/receipt.json",
+      "command_argv": [
+        "python3",
+        "-c",
+        "import datetime,difflib,hashlib,json,pathlib,shutil\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nA=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-physical-text')\nS=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text())\nnames=['PHYSICAL_ADAPTER_ORIGINAL.lean.txt','IMPORTS_AND_PLACEMENT.lean.txt','ACCEPTED_CONTEXT.md','ACK.md','PROVENANCE.md','FREEZE.md']\nout=B/'helper-originals';out.mkdir(exist_ok=False)\nrows=[]\nfor name in names:\n p=A/name;st=p.stat()\n if name=='ACCEPTED_CONTEXT.md':\n  known=cache[str(B/'FROZEN_CONTEXT.md')];assert st.st_size==known['bytes'];row={**known,'path':str(p),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact accepted context copy identity REUSED; no hash','copied_from':str(B/'FROZEN_CONTEXT.md')}\n elif str(p) in cache:\n  row=cache[str(p)];assert row['marker']==[st.st_size,st.st_mtime_ns]\n else:\n  row={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST immutable NEW helper documentary original ID, once'}\n cache[str(p)]=row\n dst=out/name;shutil.copyfile(p,dst);st2=dst.stat();cache[str(dst)]={**row,'path':str(dst),'marker':[st2.st_size,st2.st_mtime_ns],'origin':'Known exact retained helper original copy ID REUSED; no hash','copied_from':str(p)}\n rows.append({'source':str(p),'identity':row,'retained_exact_copy':str(dst)})\nfreeze=datetime.datetime.now(datetime.timezone.utc).isoformat()\nrecord={'status':'ONE_COMPLETE_PRIVATE_PHYSICAL_TEXT_ORIGINAL_FIRST_IDS_BEFORE_ONE_INTEGRATION','observed_utc':freeze,'helper':'/root/regular_collar_physical_text','original_completion_observed_utc':'2026-10-28T23:27:57Z','six_originals_present_before_delivery_observed_utc':'2026-10-28T23:29:07Z','accepted_context_personal_FULL_ACK':'2026-10-28T23:21:45Z','root_TEXT_release':'2026-10-28T23:22:56.127340+00:00','files':rows,'helper_executions_hashes_probes_objects':0,'new_payload_FIRST_hashes_here':5,'known_context_hashes_here':0,'intended_integration_count':1}\n(B/'B_ORIGINAL_CUSTODY.json').write_text(json.dumps(record,indent=2)+'\\n')\nold=S.read_text();new=old\na=\"      have huc : \u03b5 \u2264 u 1 := hu.2\\n      linarith [huc]\"\nb=\"      have huc : \u03b5 \u2264 u 1 := hu.2\\n      change c + \u03b5 \u2264 F (\u03c6.symm u)\\n      linarith [huc]\"\nassert new.count(a)==1;new=new.replace(a,b)\na=\"      have huc : u 1 = \u03b5 := hu.2\\n      linarith [huc]\"\nb=\"      have huc : u 1 = \u03b5 := hu.2\\n      change F (\u03c6.symm u) = c + \u03b5\\n      linarith [huc]\"\nassert new.count(a)==1;new=new.replace(a,b)\nmarker='private theorem actual_pullback'\nassert new.count(marker)==1;helper=(A/'PHYSICAL_ADAPTER_ORIGINAL.lean.txt').read_text();new=new.replace(marker,helper+'\\n'+marker)\nending='end I4SourceActualRegularLocalCollar\\n';assert new.endswith(ending)\nnew=new[:-len(ending)]+\"\\ntheorem actualSource_quotient_regular_local_collar\\n    {L : \u211d} (hL : 0 < L)\\n    (\u03c9 : I4SmoothCarrier.SmoothSample 2 L)\\n    (X : UniversalLaw.Spec.Lifetime.E 2)\\n    (hreg : fderiv \u211d (I4LifetimeField.actualField 2 L \u03c9) X \u2260 0) :\\n    \u2200 O : Set (I4Torus.SourceTorus 2 L), IsOpen O \u2192\\n      I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X) \u2208 O \u2192\\n      \u2203 \u03c1 : \u211d, 0 < \u03c1 \u2227\\n        \u2203 \u03c6 : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) (Fin 2 \u2192 \u211d),\\n          I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X) \u2208 \u03c6.source \u2227\\n          \u03c6 (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) = 0 \u2227\\n          \u03c6.source \u2286 O \u2227 \u03c6.target = Metric.ball (0 : Fin 2 \u2192 \u211d) \u03c1 \u2227\\n          (\u2200 z \u2208 \u03c6.source,\\n            SourceActualFoldTorus.actualTorusField hL.ne' \u03c9 z =\\n              SourceActualFoldTorus.actualTorusField hL.ne' \u03c9\\n                (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) + \u03c6 z 1) \u2227\\n          \u2200 \u03b5 : \u211d, |\u03b5| < \u03c1 \u2192\\n            IsPathConnected (\u03c6.source \u2229 {z |\\n              SourceActualFoldTorus.actualTorusField hL.ne' \u03c9\\n                (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) + \u03b5 \u2264\\n                  SourceActualFoldTorus.actualTorusField hL.ne' \u03c9 z}) \u2227\\n            IsPathConnected (\u03c6.source \u2229 {z |\\n              SourceActualFoldTorus.actualTorusField hL.ne' \u03c9 z =\\n                SourceActualFoldTorus.actualTorusField hL.ne' \u03c9\\n                  (I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)) + \u03b5}) := by\\n  intro O hO hXO\\n  obtain \u27e8e, hXe, heX, _h0e, hheight\u27e9 :=\\n    actual_physical_submersion_chart hL \u03c9 X hreg\\n  obtain \u27e8\u03c1, h\u03c1, \u03c6, hq, hcenter, hinside, htarget, hfield\u27e9 :=\\n    quotient_chart_from_physical hL \u03c9 X e hXe heX hheight O hO hXO\\n  exact \u27e8\u03c1, h\u03c1, \u03c6, hq, hcenter, hinside, htarget, hfield,\\n    same_chart_traces_pc (actualF hL \u03c9) (actualF hL \u03c9 (cover L X)) \u03c1 h\u03c1 \u03c6\\n      htarget hfield\u27e9\\n\"+'\\n'+ending\nH=B/'history/helper-integration001';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\nprior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior own source ID REUSED; no hash','copied_from':str(S)}\np=B/'HELPER_INTEGRATION001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/helper-integration001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')));st=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST actual one-integration/full amendment patch identity, once'}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nr={'status':'ONE_HELPER_ORIGINAL_INTEGRATED_ONCE_AFTER_ORIGINAL_FREEZE','observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'originals_frozen_utc':freeze,'integration_count':1,'full_actual_patch':cache[str(p)],'producer_changes_in_same_patch':'Two actual inverse-image membership targets plus sole public assembly; no fixture consumer bodies yet','helper_executions':0}\n(B/'B_INTEGRATION001.json').write_text(json.dumps(r,indent=2)+'\\n')\nprint(json.dumps({'status':r['status'],'originals_frozen_utc':freeze,'integration_utc':r['observed_utc'],'helper_integrations':1,'known_context_hashes':0,'new_original_first_hashes':5}))\n"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:30:42.814783+00:00",
+      "end_utc": "2026-10-28T23:30:42.856442+00:00",
+      "elapsed_seconds": 0.041658154001197545,
+      "exit_code": 0,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/helper-integration001/stdout.log",
+          "bytes": 272,
+          "sha256": "9b4b2948c643c40b0a6e4253f32a6b3f070dd08a60dd28e630466f5853f75f51",
+          "marker": [
+            272,
+            1793230242851782598
+          ],
+          "first_observed_utc": "2026-10-28T23:30:42.857253+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/helper-integration001/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230242816245691
+          ],
+          "first_observed_utc": "2026-10-28T23:30:42.857267+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 12,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/helper-integration001/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/helper-integration001/RECEIPT.json"
+    },
+    {
+      "label": "inventory-classify001",
+      "scope_kind": "documentary",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/inventory-classify001/receipt.json",
+      "command_argv": [
+        "python3",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/runner/classify_inventory.py",
+        "production"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:37:04.039269+00:00",
+      "end_utc": "2026-10-28T23:37:04.067786+00:00",
+      "elapsed_seconds": 0.02851682099935715,
+      "exit_code": 0,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/inventory-classify001/stdout.log",
+          "bytes": 347,
+          "sha256": "4ca13c4dae275a65de36e30f7451e9162efa50bba06c802e3d53c4834b774080",
+          "marker": [
+            347,
+            1793230624063837522
+          ],
+          "first_observed_utc": "2026-10-28T23:37:04.069353+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/inventory-classify001/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230624040968787
+          ],
+          "first_observed_utc": "2026-10-28T23:37:04.069376+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 19,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/inventory-classify001/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/inventory-classify001/RECEIPT.json"
+    },
+    {
+      "label": "inventory-initial001",
+      "scope_kind": "documentary",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/inventory-initial001/receipt.json",
+      "command_argv": [
+        "python3",
+        "-c",
+        "import datetime,hashlib,json,pathlib,shutil\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nS=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());f=B/'frozen';f.mkdir(exist_ok=True)\ndst=f/'FINAL_SOURCE.lean';shutil.copyfile(S,dst);st=dst.stat();cache[str(dst)]={**cache[str(S)],'path':str(dst),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact final own source frozen copy ID REUSED; no hash','copied_from':str(S)}\npayloads=[(B/'Inventory.lean',\"import SourceActualRegularLocalCollar\\nimport Lean.Util.CollectAxioms\\nopen Lean Elab Command in\\nrun_cmd do\\n  let env \u2190 getEnv\\n  let mod := `SourceActualRegularLocalCollar\\n  let some idx := env.getModuleIdx? mod | throwError \\\"Missing own module\\\"\\n  let names := ((env.constants.toList.filter fun (n, _) =>\\n    env.getModuleIdxFor? n == some idx).map Prod.fst).toArray.qsort Name.quickLt\\n  for n in names do\\n    let some ci := env.find? n | throwError \\\"Missing constant {n}\\\"\\n    let kind := match ci with\\n      | .thmInfo _ => \\\"theorem\\\"\\n      | .defnInfo _ => \\\"definition\\\"\\n      | .axiomInfo _ => \\\"axiom\\\"\\n      | .opaqueInfo _ => \\\"opaque\\\"\\n      | .inductInfo _ => \\\"inductive\\\"\\n      | .ctorInfo _ => \\\"constructor\\\"\\n      | .recInfo _ => \\\"recursor\\\"\\n      | .quotInfo _ => \\\"quotient\\\"\\n    logInfo m!\\\"INVENTORY|{kind}|{n}\\\"\\n    let axs \u2190 collectAxioms n\\n    for ax in axs do\\n      unless #[`propext, `Classical.choice, `Quot.sound].contains ax do\\n        throwError \\\"Forbidden axiom {ax} in {n}\\\"\\n    logInfo m!\\\"AXIOMS|{n}|{axs}\\\"\\n  logInfo m!\\\"COMPLETE_NEW_MODULE_INVENTORY|{mod}|{names.size}\\\"\\n\"),(B/'runner/classify_inventory.py',\"import collections,json,pathlib,re,sys\\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\\nscope=sys.argv[1] if len(sys.argv)>1 else 'production'\\nmodule='SourceActualRegularLocalCollar' if scope=='production' else 'RegularLocalCollarControls'\\nnamespace='I4SourceActualRegularLocalCollar' if scope=='production' else 'RegularLocalCollarControls'\\nsource=B/'frozen/FINAL_SOURCE.lean' if scope=='production' else B/'RegularLocalCollarControls.lean'\\nlabel='inventory001' if scope=='production' else 'ordinary-inventory001'\\nraw=(B/'runs'/label/'stdout.log').read_text()\\ntext=source.read_text()\\nauthored={m.group(3):(m.group(1) or '',m.group(2)) for m in re.finditer(r'^(private )?(theorem|def|abbrev|structure) ([A-Za-z0-9_]+)',text,re.M)}\\nprops={'FixedCutChecks','FixtureOutput','omittedNonzeroDerivativeMutation'}\\nrows=[]\\nfor line in raw.splitlines():\\n if not line.startswith('INVENTORY|'):continue\\n _,kind,name=line.split('|',2)\\n short=name.split(namespace+'.',1)[1] if namespace+'.' in name else None\\n if short is None:category='foreign_generated'\\n elif short in authored:\\n  private,decl=authored[short]\\n  if not private:category='public_prop_definition' if decl=='def' else 'public_prop_theorem'\\n  elif short in props:category='private_prop_structure' if decl=='structure' else 'private_prop_definition'\\n  elif decl=='theorem':category='private_authored_theorem'\\n  else:category='private_authored_data_definition'\\n else:category='private_generated'\\n rows.append({'name':name,'lean_kind':kind,'classification':category})\\nmatch=re.search(r'COMPLETE_NEW_MODULE_INVENTORY\\\\|'+module+r'\\\\|(\\\\d+)',raw)\\nassert match and int(match.group(1))==len(rows)\\nassert len({r['name'] for r in rows})==len(rows)\\ncounts=dict(collections.Counter(r['classification'] for r in rows))\\nif scope=='production':assert counts.get('public_prop_theorem')==1 and not counts.get('public_prop_definition')\\nrecord={'module':module,'namespace':namespace,'scope':scope,'owned_constants':len(rows),'classification_counts':counts,'all_rows':rows,'collector':str(B/('Inventory.lean' if scope=='production' else 'ControlsInventory.lean')),'qualification_receipt':str(B/'runs'/label/'receipt.json'),'raw_complete_axiom_stream':str(B/'runs'/label/'stdout.log'),'standard_three_guard':'PASS: each exact owned constant recursively restricted to propext/Classical.choice/Quot.sound by actually passed collector','ordinary_kernel':'NONE; never covered by production kernel','production_kernel':'Pending separate root release; no preliminary own kernel','old_verification_replays':0}\\nout=B/('INVENTORY_CLASSIFIED.json' if scope=='production' else 'CONTROLS_INVENTORY_CLASSIFIED.json')\\nout.write_text(json.dumps(record,indent=2)+'\\\\n')\\nout.with_suffix('.tsv').write_text('name\\\\tlean_kind\\\\tclassification\\\\n'+''.join(r['name']+'\\\\t'+r['lean_kind']+'\\\\t'+r['classification']+'\\\\n' for r in rows))\\nprint(json.dumps({'scope':scope,'owned_constants':len(rows),'counts':counts,'classification':str(out)}))\\n\")]\nrows=[]\nfor p,text in payloads:\n assert not p.exists();p.write_text(text);st=p.stat();row={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new audit/classification source identity before own first execution'};cache[str(p)]=row\n immutable=f/('INITIAL_'+p.name);shutil.copyfile(p,immutable);si=immutable.stat();cache[str(immutable)]={**row,'path':str(immutable),'marker':[si.st_size,si.st_mtime_ns],'origin':'Known exact audit/classifier original copy ID REUSED; no hash','copied_from':str(p)}\n rows.append({'source':str(p),'identity':row,'original_before_first_execution':str(immutable)})\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nr={'status':'EXACT_NEW66_INVENTORY_AND_CLASSIFIER_ORIGINALS_FROZEN_BEFORE_FIRST_EXECUTION','observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'reused_collector_logic':'Qualified prior generic module-index ALL-owned/std3 collector retargeted ONLY to genuinely new66; no old mathematical scope executed','new_scripts':rows,'frozen_final_source':cache[str(dst)],'source_hashes_here':0,'production_kernel_authorized':False}\n(B/'INVENTORY_INITIAL_CUSTODY.json').write_text(json.dumps(r,indent=2)+'\\n');print(json.dumps({'status':r['status'],'new_script_ids':len(rows),'source_ID_reused':True}))\n"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:37:00.366613+00:00",
+      "end_utc": "2026-10-28T23:37:00.403616+00:00",
+      "elapsed_seconds": 0.03700314800153137,
+      "exit_code": 0,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/inventory-initial001/stdout.log",
+          "bytes": 138,
+          "sha256": "393c1ad3794a90af7d65f89a7dad4c8469a0982987e04eb1e765b2fa94d3ea70",
+          "marker": [
+            138,
+            1793230620398078416
+          ],
+          "first_observed_utc": "2026-10-28T23:37:00.405001+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/inventory-initial001/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230620368244994
+          ],
+          "first_observed_utc": "2026-10-28T23:37:00.405024+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 18,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/inventory-initial001/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/inventory-initial001/RECEIPT.json"
+    },
+    {
+      "label": "inventory001",
+      "scope_kind": "math",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/inventory001/receipt.json",
+      "command_argv": [
+        "env",
+        "LEAN_PATH=/workspace/scratch/actual-source-regular-local-collar-construct/build",
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/Inventory.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:37:00.646167+00:00",
+      "end_utc": "2026-10-28T23:37:03.781292+00:00",
+      "elapsed_seconds": 3.1351391229982255,
+      "exit_code": 0,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/inventory001/stdout.log",
+          "bytes": 20219,
+          "sha256": "8733a99eb3e3771e3a2bdb3f2dfc56516fcf63cfea3fce7d711e2ad90a1dcfe7",
+          "marker": [
+            20219,
+            1793230623671364347
+          ],
+          "first_observed_utc": "2026-10-28T23:37:03.782966+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/inventory001/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230620647536969
+          ],
+          "first_observed_utc": "2026-10-28T23:37:03.782991+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 19,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/inventory001/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/inventory001/RECEIPT.json"
+    },
+    {
+      "label": "kernel001",
+      "scope_kind": "math",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/kernel001/receipt.json",
+      "command_argv": [
+        "env",
+        "LEAN_PATH=/workspace/scratch/actual-source-regular-local-collar-construct/build",
+        "lake",
+        "env",
+        "leanchecker",
+        "SourceActualRegularLocalCollar"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:42:09.440624+00:00",
+      "end_utc": "2026-10-28T23:42:14.194574+00:00",
+      "elapsed_seconds": 4.753965583993704,
+      "exit_code": 0,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/kernel001/stdout.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230929442353145
+          ],
+          "first_observed_utc": "2026-10-28T23:42:14.197436+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/kernel001/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230929442353145
+          ],
+          "first_observed_utc": "2026-10-28T23:42:14.197471+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 22,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/kernel001/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/kernel001/RECEIPT.json"
+    },
+    {
+      "label": "negative-freeze001",
+      "scope_kind": "documentary",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/negative-freeze001/receipt.json",
+      "command_argv": [
+        "python3",
+        "-c",
+        "import datetime,hashlib,json,pathlib,shutil\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nstrict=json.loads((B/'runs/controls004/receipt.json').read_text());inv=json.loads((B/'runs/ordinary-inventory001/receipt.json').read_text());classified=json.loads((B/'CONTROLS_INVENTORY_CLASSIFIED.json').read_text())\nassert strict['exit_code']==0 and inv['exit_code']==0 and classified['owned_constants']==55\nassert classified['classification_counts']['public_prop_definition']==1 and classified['classification_counts']['public_prop_theorem']==1\nS=B/'FalseControl.lean';assert not S.exists();assert not (B/'runs/false-control001').exists()\nS.write_text(\"import RegularLocalCollarControls\\n\\nexample : RegularLocalCollarControls.omittedNonzeroDerivativeMutation := by\\n  rw [show RegularLocalCollarControls.omittedNonzeroDerivativeMutation = False from\\n    propext (iff_false_intro\\n      RegularLocalCollarControls.not_omittedNonzeroDerivativeMutation)]\\n\")\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());st=S.stat();row={'path':str(S),'bytes':st.st_size,'sha256':hashlib.sha256(S.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST actual CLOSED negative harness identity BEFORE its sole invocation'};cache[str(S)]=row\norig=B/'frozen/FalseControl.ORIGINAL.lean';shutil.copyfile(S,orig);so=orig.stat();cache[str(orig)]={**row,'path':str(orig),'marker':[so.st_size,so.st_mtime_ns],'origin':'Known exact initial negative original snapshot ID REUSED; no hash','copied_from':str(S)}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nr={'status':'CLOSED_SINGLE_OMITTED_DERIVATIVE_NEGATIVE_FROZEN_BEFORE_ONE_INVOCATION','observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'harness':row,'complete_initial_snapshot':str(orig),'ordinary_strict_pass':str(B/'runs/controls004/receipt.json'),'ordinary_ALL55_std3_pass':str(B/'runs/ordinary-inventory001/receipt.json'),'ordinary_classification_corrected_from_stored_raw':str(B/'CONTROLS_INVENTORY_CLASSIFIED.json'),'already_passed_ordinary_object_identity_REUSED':cache[str(B/'build/RegularLocalCollarControls.olean')],'mutation':'ONLY actual input fderiv!=0 omitted at SAMEoriginalsample actualmax/fixedO; every chart/height/samechart-all-epsilon cut-slice output retained','harness_imports':['RegularLocalCollarControls'],'assumed_mutation_hypothesis_axiom_parameter':False,'counterproof_replayed':False,'ordinary_named_kernel':'NONE','sole_intended_negative_invocations_before_this_freeze':0,'expected_rejection':'Exactly one unsolved False goal, no setup/API/type/source errors'}\n(B/'NEGATIVE_INITIAL_CUSTODY.json').write_text(json.dumps(r,indent=2)+'\\n')\nprint(json.dumps({'status':r['status'],'observed_utc':r['observed_utc'],'harness':row,'prior_ordinary_strict_and_ALL55_std3':True}))\n"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:43:37.870046+00:00",
+      "end_utc": "2026-10-28T23:43:37.908988+00:00",
+      "elapsed_seconds": 0.03894202099763788,
+      "exit_code": 0,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/negative-freeze001/stdout.log",
+          "bytes": 563,
+          "sha256": "ba19d46c3fc2305dc92a36e241e40c27f04b97c2a5158068935b2212e43b530b",
+          "marker": [
+            563,
+            1793231017904216568
+          ],
+          "first_observed_utc": "2026-10-28T23:43:37.911370+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/negative-freeze001/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793231017871287337
+          ],
+          "first_observed_utc": "2026-10-28T23:43:37.911392+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 23,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/negative-freeze001/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/negative-freeze001/RECEIPT.json"
+    },
+    {
+      "label": "ordinary-classification-fix001",
+      "scope_kind": "documentary",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-classification-fix001/receipt.json",
+      "command_argv": [
+        "python3",
+        "-c",
+        "import datetime,difflib,hashlib,json,pathlib,shutil\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct');C=B/'runner/classify_inventory.py'\nold=C.read_text();a=\"name.split(namespace+'.',1)[1]\";assert old.count(a)==1;new=old.replace(a,\"name.rsplit(namespace+'.',1)[1]\")\nH=B/'history/ordinary-classification-fix001';H.mkdir(parents=True,exist_ok=False)\norig=H/'classify_inventory.py.ORIGINAL';orig.write_text(old)\nfor name in ['CONTROLS_INVENTORY_CLASSIFIED.json','CONTROLS_INVENTORY_CLASSIFIED.tsv']:\n shutil.copyfile(B/name,H/(name+'.ORIGINAL'))\nC.write_text(new)\np=B/'ORDINARY_CLASSIFICATION_FIX001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/ordinary-classification-fix001/classify_inventory.py.ORIGINAL',tofile='runner/classify_inventory.py')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(C)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior classifier original ID REUSED; no hash','copied_from':str(C)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual classifier correction patch ID, once'};cp.write_text(json.dumps(cache,indent=2)+'\\n')\nr={'status':'STORED_RAW55_ORDINARY_INVENTORY_CLASSIFICATION_NAMESPACE_PREFIX_FIX','observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'defect':'Ordinary module equalsnamespace; initial split-first sees private module-prefix instead of authored namespace','fix':'rsplit namespace separator LAST','initial_generated_metadata_preserved':str(H),'raw_inventory_and_source_unchanged':True,'mathematical_checks_repeated':0,'production_classification_repeated':False,'next_documentary_classification':'ordinary-inventory-classify002'}\n(B/'ORDINARY_CLASSIFICATION_FIX001.json').write_text(json.dumps(r,indent=2)+'\\n')\nprint(json.dumps(r))\n"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:42:53.049557+00:00",
+      "end_utc": "2026-10-28T23:42:53.106478+00:00",
+      "elapsed_seconds": 0.05692205700324848,
+      "exit_code": 0,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-classification-fix001/stdout.log",
+          "bytes": 638,
+          "sha256": "a0e3e067cc88761e579d766e1c12455a0c1513519b0c77396358f80684016033",
+          "marker": [
+            638,
+            1793230973101087167
+          ],
+          "first_observed_utc": "2026-10-28T23:42:53.108950+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-classification-fix001/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230973051232509
+          ],
+          "first_observed_utc": "2026-10-28T23:42:53.108967+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 22,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/ordinary-classification-fix001/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/ordinary-classification-fix001/RECEIPT.json"
+    },
+    {
+      "label": "ordinary-fix001",
+      "scope_kind": "documentary",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-fix001/receipt.json",
+      "command_argv": [
+        "python3",
+        "-c",
+        "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct');S=B/'RegularLocalCollarControls.lean';cp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text())\nH=B/'history/ordinary-fix001';H.mkdir(parents=True,exist_ok=False)\nchanges=[]\nold=S.read_text();new=old\nfor a,b in [[\"    \u00b7 simpa only [Matrix.cons_val_zero, Real.norm_eq_abs] using ha\",\"    \u00b7 simpa using ha\"],[\"    \u00b7 simpa only [Matrix.cons_val_one, Real.norm_eq_abs] using h\u03b5\",\"    \u00b7 simpa using h\u03b5\"],[\"    \u00b7 simp only [Matrix.cons_val_one, Real.norm_eq_abs]\\n      rw [abs_of_pos (by positivity : 0 < \u03c1 / 2)]\\n      linarith\",\"    \u00b7 have hh : |\u03c1 / 2| < \u03c1 := by\\n        rw [abs_of_pos (by positivity : 0 < \u03c1 / 2)]\\n        linarith\\n      simpa using hh\"]]:\n assert new.count(a)==1;new=new.replace(a,b)\nchanges.append((S,old,new))\nC=B/'runner/classify_inventory.py';before=C.read_text();a=\"props={'FixedCutChecks','FixtureOutput','omittedNonzeroDerivativeMutation'}\";assert before.count(a)==1\nchanges.append((C,before,before.replace(a,\"props={'FixedCutChecks','FixtureOutput','InversePoint','FixedCases','PositiveAt','omittedNonzeroDerivativeMutation'}\")))\npatch=[]\nfor path,before,after in changes:\n orig=H/(path.name+'.ORIGINAL');orig.write_text(before);prior=cache[str(path)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source/script ID REUSED; no hash','copied_from':str(path)}\n path.write_text(after);patch.extend(difflib.unified_diff(before.splitlines(keepends=True),after.splitlines(keepends=True),fromfile='history/ordinary-fix001/'+path.name+'.ORIGINAL',tofile=str(path.relative_to(B))))\np=B/'ORDINARY_FIX001_FULL.patch';p.write_text(''.join(patch));st=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST actual ordinary/new-classification amendment patch identity, once'}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only controls002 finite-vector membership simplifications; classify NEW ordinary privateProp names correctly without rerunning production','full_patch':str(p)}))\n"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:40:16.844706+00:00",
+      "end_utc": "2026-10-28T23:40:16.896679+00:00",
+      "elapsed_seconds": 0.05197156799840741,
+      "exit_code": 0,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-fix001/stdout.log",
+          "bytes": 259,
+          "sha256": "81199125f48a19e3029d20d762b58ddab7fcf8c860e2caadca891520984f414a",
+          "marker": [
+            259,
+            1793230816891781943
+          ],
+          "first_observed_utc": "2026-10-28T23:40:16.898659+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-fix001/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230816846137869
+          ],
+          "first_observed_utc": "2026-10-28T23:40:16.898674+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 20,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/ordinary-fix001/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/ordinary-fix001/RECEIPT.json"
+    },
+    {
+      "label": "ordinary-fix002",
+      "scope_kind": "documentary",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-fix002/receipt.json",
+      "command_argv": [
+        "python3",
+        "-c",
+        "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct');S=B/'RegularLocalCollarControls.lean'\nold=S.read_text();a=\"    \u00b7 have hh : |\u03c1 / 2| < \u03c1 := by\\n        rw [abs_of_pos (by positivity : 0 < \u03c1 / 2)]\\n        linarith\\n      simpa using hh\";assert old.count(a)==1;new=old.replace(a,\"    \u00b7 simpa [Real.norm_eq_abs, abs_div, abs_of_pos h\u03c1] using\\n        (show \u03c1 / 2 < \u03c1 by linarith)\")\nH=B/'history/ordinary-fix002';H.mkdir(parents=True,exist_ok=False);orig=H/'RegularLocalCollarControls.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'ORDINARY_FIX002_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/ordinary-fix002/RegularLocalCollarControls.lean.ORIGINAL',tofile='RegularLocalCollarControls.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior ordinary source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST actual ordinary full patch identity, once'};cp.write_text(json.dumps(cache,indent=2)+'\\n')\nrecord={'status':'READONLY_EXEC_TRANSPORT_SPAWN_FAILURE_RECOVERED_WITH_FAILED_READ_ONLY_RETRY','recorded_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'failed_action':'cat runs/controls003/stdout.log and stderr.log','actual_error':'exec_command failed: CreateProcess { message: \"Rejected(\\\\\\\"Failed to create unified exec process: exec-server transport disconnected\\\\\\\")\" }','tool_wall_time_seconds':12.9,'failed_child_process_created':False,'failure_start_end_utc_not_observed':True,'recovery':'Same read-only command retried once successfully, then clock observed2026-10-28 23:40:48UTC','mathematical_worker_replays':0,'controls003_actual_failure_preserved_unchanged':True}\n(B/'EXEC_READONLY_TRANSPORT_FAILURE001.json').write_text(json.dumps(record,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only controls003 max-inverse vector norm simplification','full_patch':str(p),'transport_failure_record':str(B/'EXEC_READONLY_TRANSPORT_FAILURE001.json')}))\n"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:41:20.830148+00:00",
+      "end_utc": "2026-10-28T23:41:20.875024+00:00",
+      "elapsed_seconds": 0.044875824998598546,
+      "exit_code": 0,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-fix002/stdout.log",
+          "bytes": 312,
+          "sha256": "7ac1c7f6c6bf4056a02a9dca55e2c69999bb50d05173d8b93a08260169e557c6",
+          "marker": [
+            312,
+            1793230880869929887
+          ],
+          "first_observed_utc": "2026-10-28T23:41:20.877113+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-fix002/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230880831995825
+          ],
+          "first_observed_utc": "2026-10-28T23:41:20.877127+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 21,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/ordinary-fix002/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/ordinary-fix002/RECEIPT.json"
+    },
+    {
+      "label": "ordinary-initial001",
+      "scope_kind": "documentary",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-initial001/receipt.json",
+      "command_argv": [
+        "python3",
+        "-c",
+        "import datetime,hashlib,json,pathlib,shutil\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nS=B/'RegularLocalCollarControls.lean';assert not S.exists();S.write_text(\"import SourceActualRegularLocalCollar\\nimport SourceFiniteTrig\\nimport SourceSmoothConditionalKernel\\n\\nnoncomputable section\\nset_option autoImplicit false\\nopen Set\\nopen scoped BigOperators\\nopen UniversalLaw.Spec.Lifetime I4SmoothCarrier I4LifetimeField\\n\\nnamespace RegularLocalCollarControls\\n\\nprivate abbrev P2 := Fin 2 \u2192 \u211d\\nprivate abbrev V2 := UniversalLaw.Spec.Lifetime.E 2\\nprivate abbrev T2 := I4Torus.SourceTorus 2 2\\nprivate def coords : V2 \u2243L[\u211d] P2 := I4LifetimeField.coordinates 2\\nprivate def projection (X : V2) : T2 := I4Torus.torusProjection 2 2 (coords X)\\nprivate def terms : I4SourceFiniteTrig.TrigPoly :=\\n  [\u27e81, ![(1 : \u2124), 0], 0\u27e9, \u27e82, ![(0 : \u2124), 1], 0\u27e9]\\nprivate def sample : SmoothSample 2 2 :=\\n  I4SourceFinitePinKernel.finiteShiftSample (I4SourceFiniteTrig.toSource 2 terms)\\n    (I4SourceSmoothConditional.zeroSample 2 2)\\nprivate def g : V2 \u2192 \u211d := I4LifetimeField.actualField 2 2 sample\\nprivate def F : T2 \u2192 \u211d :=\\n  SourceActualFoldTorus.actualTorusField (show (2 : \u211d) \u2260 0 by norm_num) sample\\nprivate def neighborhood (X : V2) : Set T2 :=\\n  projection '' Metric.ball X (1 / 8 : \u211d)\\nprivate def px : V2 := coords.symm ![(1 / 2 : \u211d), 0]\\nprivate def py : V2 := coords.symm ![0, (1 / 2 : \u211d)]\\nprivate def ps : V2 := coords.symm ![(-3 / 2 : \u211d), 0]\\nprivate def pm : V2 := coords.symm ![(0 : \u211d), 0]\\nprivate def b0 : V2 := coords.symm ![(1 : \u211d), 0]\\nprivate def b1 : V2 := coords.symm ![(0 : \u211d), 1]\\n\\nprivate theorem literal_original_field (X : V2) :\\n    g X = Real.cos (Real.pi * (coords X) 0) +\\n      2 * Real.cos (Real.pi * (coords X) 1) := by\\n  classical\\n  let v := I4SourceFiniteTrig.toSource 2 terms\\n  have hv : sampleInclusion 2 2 sample = fun m => v m := by\\n    funext m\\n    simp [sample, I4SourceFinitePinKernel.finiteShiftSample_val,\\n      I4SourceSmoothConditional.zeroSample, sampleInclusion, v]\\n  have hs : HasSum (fun m : I4Source.SourceMode 2 =>\\n      I4Source.modeCoefficient 2 2 m (coords X) * v m)\\n      (I4SourceFiniteTrig.eval 2 terms (coords X)) := by\\n    rw [\u2190 I4SourceFiniteTrig.toSource_eval (show (2 : \u211d) \u2260 0 by norm_num)]\\n    change HasSum (fun m => I4Source.modeCoefficient 2 2 m (coords X) * v m)\\n      (v.sum (fun m a => I4Source.modeCoefficient 2 2 m (coords X) * a))\\n    apply hasSum_sum_of_ne_finset_zero\\n    intro m hm\\n    simp only [Finsupp.notMem_support_iff.mp hm, mul_zero]\\n  change I4Foundation.scalarSeries\\n    (fun m => I4Source.modeCoefficient 2 2 m (coords X)) (sampleInclusion 2 2 sample) = _\\n  rw [hv]\\n  calc\\n    I4Foundation.scalarSeries (fun m => I4Source.modeCoefficient 2 2 m (coords X))\\n      (fun m => v m) = I4SourceFiniteTrig.eval 2 terms (coords X) := hs.tsum_eq\\n    _ = Real.cos (Real.pi * (coords X) 0) +\\n      2 * Real.cos (Real.pi * (coords X) 1) := by\\n        simp [I4SourceFiniteTrig.eval, terms, I4SourceFiniteTrig.termEval,\\n          I4Source.phase, I4Weights.sourceC, Fin.sum_univ_two]\\n\\nprivate theorem literal_pullback (X : V2) : F (projection X) = g X :=\\n  SourceActualFoldTorus.actualTorusField_pullback\\n    (show (2 : \u211d) \u2260 0 by norm_num) sample (coords X)\\n\\nprivate theorem actual_derivative (X V : V2) :\\n    (fderiv \u211d g X) V =\\n      -Real.pi * Real.sin (Real.pi * (coords X) 0) * (coords V) 0 -\\n      2 * Real.pi * Real.sin (Real.pi * (coords X) 1) * (coords V) 1 := by\\n  let d0 : V2 \u2192L[\u211d] \u211d :=\\n    (ContinuousLinearMap.proj (0 : Fin 2) : P2 \u2192L[\u211d] \u211d).comp\\n      (coords : V2 \u2192L[\u211d] P2)\\n  let d1 : V2 \u2192L[\u211d] \u211d :=\\n    (ContinuousLinearMap.proj (1 : Fin 2) : P2 \u2192L[\u211d] \u211d).comp\\n      (coords : V2 \u2192L[\u211d] P2)\\n  have h0 : HasFDerivAt (fun Y : V2 => Real.pi * (coords Y) 0)\\n      (Real.pi \u2022 d0) X := d0.hasFDerivAt.const_mul Real.pi\\n  have h1 : HasFDerivAt (fun Y : V2 => Real.pi * (coords Y) 1)\\n      (Real.pi \u2022 d1) X := d1.hasFDerivAt.const_mul Real.pi\\n  have hformula : g = fun Y : V2 =>\\n      Real.cos (Real.pi * (coords Y) 0) + 2 * Real.cos (Real.pi * (coords Y) 1) :=\\n    funext literal_original_field\\n  have hg : HasFDerivAt g\\n      (-Real.sin (Real.pi * (coords X) 0) \u2022 Real.pi \u2022 d0 +\\n        (2 : \u211d) \u2022 -Real.sin (Real.pi * (coords X) 1) \u2022 Real.pi \u2022 d1) X := by\\n    rw [hformula]\\n    exact h0.cos.add (h1.cos.const_mul 2)\\n  rw [hg.fderiv]\\n  change -Real.sin (Real.pi * (coords X) 0) * (Real.pi * (coords V) 0) +\\n    2 * (-Real.sin (Real.pi * (coords X) 1) * (Real.pi * (coords V) 1)) = _\\n  ring\\n\\nprivate theorem regular_x_data :\\n    g px = 2 \u2227 (fderiv \u211d g px) b0 = -Real.pi \u2227 (fderiv \u211d g px) b1 = 0 := by\\n  constructor\\n  \u00b7 rw [literal_original_field]\\n    norm_num [px, mul_one_div]\\n  \u00b7 constructor <;> rw [actual_derivative] <;> norm_num [px, b0, b1, mul_one_div]\\n\\nprivate theorem regular_y_data :\\n    g py = 1 \u2227 (fderiv \u211d g py) b0 = 0 \u2227 (fderiv \u211d g py) b1 = -2 * Real.pi := by\\n  constructor\\n  \u00b7 rw [literal_original_field]\\n    norm_num [py, mul_one_div]\\n  \u00b7 constructor <;> rw [actual_derivative] <;> norm_num [py, b0, b1, mul_one_div]\\n\\nprivate theorem seam_trig :\\n    Real.sin (Real.pi * (-3 / 2 : \u211d)) = 1 \u2227\\n    Real.cos (Real.pi * (-3 / 2 : \u211d)) = 0 := by\\n  rw [show Real.pi * (-3 / 2 : \u211d) = Real.pi / 2 - 2 * Real.pi by ring,\\n    Real.sin_sub_two_pi, Real.cos_sub_two_pi]\\n  exact \u27e8Real.sin_pi_div_two, Real.cos_pi_div_two\u27e9\\n\\nprivate theorem seam_data :\\n    g ps = 2 \u2227 (fderiv \u211d g ps) b0 = -Real.pi \u2227 (fderiv \u211d g ps) b1 = 0 := by\\n  constructor\\n  \u00b7 rw [literal_original_field]\\n    simp [ps, seam_trig.2]\\n  \u00b7 constructor <;> rw [actual_derivative] <;> simp [ps, b0, b1, seam_trig.1]\\n\\nprivate theorem seam_quotient : projection ps = projection px := by\\n  have hp := (AddCircle.coe_add_period (2 : \u211d) (-3 / 2 : \u211d)).symm\\n  norm_num at hp\\n  have hq : ((-3 / 2 : \u211d) : AddCircle (2 : \u211d)) =\\n      ((1 / 2 : \u211d) : AddCircle (2 : \u211d)) := by simpa [neg_div] using hp\\n  ext i\\n  fin_cases i\\n  \u00b7 simpa [projection, ps, px, I4Torus.torusProjection] using hq\\n  \u00b7 simp [projection, ps, px, I4Torus.torusProjection]\\n\\nprivate theorem neighborhood_open (X : V2) : IsOpen (neighborhood X) := by\\n  have hop : IsOpenMap projection :=\\n    (SourceActualFoldTorus.torusProjection2L_open 2).comp coords.toHomeomorph.isOpenMap\\n  exact hop _ Metric.isOpen_ball\\n\\nprivate theorem neighborhood_center (X : V2) : projection X \u2208 neighborhood X :=\\n  \u27e8X, Metric.mem_ball_self (by norm_num), rfl\u27e9\\n\\nprivate def InversePoint (c a \u03b5 : \u211d)\\n    (\u03c6 : OpenPartialHomeomorph T2 P2) : Prop :=\\n  let u : P2 := ![a, \u03b5]\\n  let z := \u03c6.symm u\\n  u \u2208 \u03c6.target \u2227 z \u2208 \u03c6.source \u2227 \u03c6 z = u \u2227 F z = c + \u03b5 \u2227\\n    z \u2208 \u03c6.source \u2229 {p | c + \u03b5 \u2264 F p} \u2227 z \u2208 \u03c6.source \u2229 {p | F p = c + \u03b5}\\n\\nprivate theorem inverse_point (c \u03c1 a \u03b5 : \u211d) (h\u03c1 : 0 < \u03c1)\\n    (ha : |a| < \u03c1) (h\u03b5 : |\u03b5| < \u03c1)\\n    (\u03c6 : OpenPartialHomeomorph T2 P2)\\n    (htarget : \u03c6.target = Metric.ball (0 : P2) \u03c1)\\n    (hheight : \u2200 z \u2208 \u03c6.source, F z = c + \u03c6 z 1) :\\n    InversePoint c a \u03b5 \u03c6 := by\\n  have ht : (![a, \u03b5] : P2) \u2208 \u03c6.target := by\\n    rw [htarget, Metric.mem_ball, dist_zero_right]\\n    apply (pi_norm_lt_iff h\u03c1).mpr\\n    intro i\\n    fin_cases i\\n    \u00b7 simpa only [Matrix.cons_val_zero, Real.norm_eq_abs] using ha\\n    \u00b7 simpa only [Matrix.cons_val_one, Real.norm_eq_abs] using h\u03b5\\n  have hz := \u03c6.map_target ht\\n  have hi := \u03c6.right_inv ht\\n  have hv : F (\u03c6.symm ![a, \u03b5]) = c + \u03b5 := by\\n    rw [hheight _ hz, hi]\\n    rfl\\n  exact \u27e8ht, hz, hi, hv, \u27e8hz, hv.ge\u27e9, \u27e8hz, hv\u27e9\u27e9\\n\\nprivate def FixedCases (c \u03c1 : \u211d) (\u03c6 : OpenPartialHomeomorph T2 P2) : Prop :=\\n  \u2200 \u03b5 : \u211d, (\u03b5 = 0 \u2228 \u03b5 = \u03c1 / 2 \u2228 \u03b5 = -\u03c1 / 2) \u2192\\n    InversePoint c 0 \u03b5 \u03c6 \u2227 InversePoint c (-\u03c1 / 2) \u03b5 \u03c6 \u2227\\n      InversePoint c (\u03c1 / 2) \u03b5 \u03c6 \u2227\\n      \u03c6.symm ![-\u03c1 / 2, \u03b5] \u2260 \u03c6.symm ![\u03c1 / 2, \u03b5] \u2227\\n      JoinedIn (\u03c6.source \u2229 {z | F z = c + \u03b5})\\n        (\u03c6.symm ![-\u03c1 / 2, \u03b5]) (\u03c6.symm ![\u03c1 / 2, \u03b5])\\n\\nprivate theorem fixed_cases (c \u03c1 : \u211d) (h\u03c1 : 0 < \u03c1)\\n    (\u03c6 : OpenPartialHomeomorph T2 P2)\\n    (htarget : \u03c6.target = Metric.ball (0 : P2) \u03c1)\\n    (hheight : \u2200 z \u2208 \u03c6.source, F z = c + \u03c6 z 1)\\n    (hall : \u2200 \u03b5 : \u211d, |\u03b5| < \u03c1 \u2192\\n      IsPathConnected (\u03c6.source \u2229 {z | c + \u03b5 \u2264 F z}) \u2227\\n      IsPathConnected (\u03c6.source \u2229 {z | F z = c + \u03b5})) :\\n    FixedCases c \u03c1 \u03c6 := by\\n  intro \u03b5 he\\n  have hh : |\u03c1 / 2| < \u03c1 := by\\n    rw [abs_of_pos (by positivity : 0 < \u03c1 / 2)]\\n    linarith\\n  have heps : |\u03b5| < \u03c1 := by\\n    rcases he with rfl | rfl | rfl\\n    \u00b7 simpa using h\u03c1\\n    \u00b7 exact hh\\n    \u00b7 simpa only [neg_div, abs_neg] using hh\\n  have hneg : |-\u03c1 / 2| < \u03c1 := by simpa only [neg_div, abs_neg] using hh\\n  have hzero : |(0 : \u211d)| < \u03c1 := by simpa using h\u03c1\\n  have h0 := inverse_point c \u03c1 0 \u03b5 h\u03c1 hzero heps \u03c6 htarget hheight\\n  have hm := inverse_point c \u03c1 (-\u03c1 / 2) \u03b5 h\u03c1 hneg heps \u03c6 htarget hheight\\n  have hp := inverse_point c \u03c1 (\u03c1 / 2) \u03b5 h\u03c1 hh heps \u03c6 htarget hheight\\n  have hneq : \u03c6.symm ![-\u03c1 / 2, \u03b5] \u2260 \u03c6.symm ![\u03c1 / 2, \u03b5] := by\\n    intro heq\\n    have he0 := congrArg (fun z => \u03c6 z 0) heq\\n    rw [hm.2.2.1, hp.2.2.1] at he0\\n    change -\u03c1 / 2 = \u03c1 / 2 at he0\\n    linarith\\n  exact \u27e8h0, hm, hp, hneq, (hall \u03b5 heps).2.joinedIn\\n    _ hm.2.2.2.2.2 _ hp.2.2.2.2.2\u27e9\\n\\nprivate def PositiveAt (X : V2) : Prop :=\\n  \u2203 \u03c1 : \u211d, 0 < \u03c1 \u2227 \u2203 \u03c6 : OpenPartialHomeomorph T2 P2,\\n    projection X \u2208 \u03c6.source \u2227 \u03c6 (projection X) = 0 \u2227\\n    \u03c6.source \u2286 neighborhood X \u2227 \u03c6.target = Metric.ball (0 : P2) \u03c1 \u2227\\n    (\u2200 z \u2208 \u03c6.source, F z = F (projection X) + \u03c6 z 1) \u2227\\n    (\u2200 \u03b5 : \u211d, |\u03b5| < \u03c1 \u2192\\n      IsPathConnected (\u03c6.source \u2229 {z | F (projection X) + \u03b5 \u2264 F z}) \u2227\\n      IsPathConnected (\u03c6.source \u2229 {z | F z = F (projection X) + \u03b5})) \u2227\\n    FixedCases (F (projection X)) \u03c1 \u03c6\\n\\nprivate theorem positive_at (X : V2) (hregular : fderiv \u211d g X \u2260 0) : PositiveAt X := by\\n  obtain \u27e8\u03c1, h\u03c1, \u03c6, hq, hc, hinside, ht, hh, hall\u27e9 :=\\n    I4SourceActualRegularLocalCollar.actualSource_quotient_regular_local_collar\\n      (show (0 : \u211d) < 2 by norm_num) sample X hregular\\n      (neighborhood X) (neighborhood_open X) (neighborhood_center X)\\n  exact \u27e8\u03c1, h\u03c1, \u03c6, hq, hc, hinside, ht, hh, hall, fixed_cases _ \u03c1 h\u03c1 \u03c6 ht hh hall\u27e9\\n\\nprivate theorem regular_x_positive : PositiveAt px := by\\n  apply positive_at\\n  intro hz\\n  have he := regular_x_data.2.1\\n  rw [hz] at he\\n  simp only [zero_apply] at he\\n  linarith [Real.pi_pos]\\n\\nprivate theorem regular_y_positive : PositiveAt py := by\\n  apply positive_at\\n  intro hz\\n  have he := regular_y_data.2.2\\n  rw [hz] at he\\n  simp only [zero_apply] at he\\n  linarith [Real.pi_pos]\\n\\nprivate theorem seam_positive : PositiveAt ps := by\\n  apply positive_at\\n  intro hz\\n  have he := seam_data.2.1\\n  rw [hz] at he\\n  simp only [zero_apply] at he\\n  linarith [Real.pi_pos]\\n\\nprivate theorem actual_maximum_value : g pm = 3 := by\\n  rw [literal_original_field]\\n  norm_num [pm]\\n\\nprivate theorem actual_maximum_derivative : fderiv \u211d g pm = 0 := by\\n  ext V\\n  rw [actual_derivative]\\n  simp [pm]\\n\\nprivate theorem actual_global_bound (z : T2) : F z \u2264 3 := by\\n  obtain \u27e8u, hu\u27e9 := SourceActualFoldTorus.torusProjection2L_surjective 2 z\\n  have hz : projection (coords.symm u) = z := by simpa [projection] using hu\\n  rw [\u2190 hz, literal_pullback, literal_original_field]\\n  nlinarith [Real.cos_le_one (Real.pi * (coords (coords.symm u)) 0),\\n    Real.cos_le_one (Real.pi * (coords (coords.symm u)) 1)]\\n\\nprivate theorem no_linear_chart_at_maximum (\u03c1 : \u211d) (h\u03c1 : 0 < \u03c1)\\n    (\u03c6 : OpenPartialHomeomorph T2 P2)\\n    (_hsource : projection pm \u2208 \u03c6.source) (_hcenter : \u03c6 (projection pm) = 0)\\n    (_hinside : \u03c6.source \u2286 neighborhood pm)\\n    (htarget : \u03c6.target = Metric.ball (0 : P2) \u03c1)\\n    (hheight : \u2200 z \u2208 \u03c6.source, F z = F (projection pm) + \u03c6 z 1) : False := by\\n  have hu : (![0, \u03c1 / 2] : P2) \u2208 \u03c6.target := by\\n    rw [htarget, Metric.mem_ball, dist_zero_right]\\n    apply (pi_norm_lt_iff h\u03c1).mpr\\n    intro i\\n    fin_cases i\\n    \u00b7 simpa using h\u03c1\\n    \u00b7 simp only [Matrix.cons_val_one, Real.norm_eq_abs]\\n      rw [abs_of_pos (by positivity : 0 < \u03c1 / 2)]\\n      linarith\\n  have hz := \u03c6.map_target hu\\n  have hi := \u03c6.right_inv hu\\n  have hv := hheight (\u03c6.symm ![0, \u03c1 / 2]) hz\\n  rw [literal_pullback, actual_maximum_value, hi] at hv\\n  change F (\u03c6.symm ![0, \u03c1 / 2]) = 3 + \u03c1 / 2 at hv\\n  have hbound := actual_global_bound (\u03c6.symm ![0, \u03c1 / 2])\\n  linarith\\n\\ndef omittedNonzeroDerivativeMutation : Prop :=\\n  \u2203 \u03c1 : \u211d, 0 < \u03c1 \u2227 \u2203 \u03c6 : OpenPartialHomeomorph T2 P2,\\n    projection pm \u2208 \u03c6.source \u2227 \u03c6 (projection pm) = 0 \u2227\\n    \u03c6.source \u2286 neighborhood pm \u2227 \u03c6.target = Metric.ball (0 : P2) \u03c1 \u2227\\n    (\u2200 z \u2208 \u03c6.source, F z = F (projection pm) + \u03c6 z 1) \u2227\\n    \u2200 \u03b5 : \u211d, |\u03b5| < \u03c1 \u2192\\n      IsPathConnected (\u03c6.source \u2229 {z | F (projection pm) + \u03b5 \u2264 F z}) \u2227\\n      IsPathConnected (\u03c6.source \u2229 {z | F z = F (projection pm) + \u03b5})\\n\\ntheorem not_omittedNonzeroDerivativeMutation : \u00ac omittedNonzeroDerivativeMutation := by\\n  rintro \u27e8\u03c1, h\u03c1, \u03c6, hq, hc, hinside, ht, hh, _hall\u27e9\\n  exact no_linear_chart_at_maximum \u03c1 h\u03c1 \u03c6 hq hc hinside ht hh\\n\\nend RegularLocalCollarControls\\n\")\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());st=S.stat();row={'path':str(S),'bytes':st.st_size,'sha256':hashlib.sha256(S.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST complete producer-authored ordinary original before its first qualification'}\ncache[str(S)]=row;original=B/'frozen/RegularLocalCollarControls.ORIGINAL.lean';shutil.copyfile(S,original);st=original.stat();cache[str(original)]={**row,'path':str(original),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact original ordinary snapshot ID REUSED; no hash','copied_from':str(S)}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nr={'status':'PRODUCER_AUTHORED_COMPLETE_ORDINARY_SOURCE_FROZEN_BEFORE_FIRST_QUALIFICATION','observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'author':'/root/regular_collar_prospective','ordinary_TEXT_helpers':0,'source':row,'complete_original_snapshot':str(original),'production_private_fixture_or_helper_import':False,'public_inputs':'New public66 theorem plus old PUBLIC finite-source/actualField/quotient APIs; fresh owned scope finite HasSum/evaluation/derivative/fixture inverse consumers','independent_counterproof':'Actual global quotient boundF<=3; structural targetinverse(0,rho/2) aboveactualmax; no productioncollar/PC conclusion insidecounterproof','negative_harness_created':False,'ordinary_named_kernel':'NONE'}\n(B/'ORDINARY_INITIAL_CUSTODY.json').write_text(json.dumps(r,indent=2)+'\\n')\nprint(json.dumps({'status':r['status'],'source':row,'ordinary_helpers':0,'harness_created':False}))\n"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:39:10.184275+00:00",
+      "end_utc": "2026-10-28T23:39:10.221623+00:00",
+      "elapsed_seconds": 0.03734924200034584,
+      "exit_code": 0,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-initial001/stdout.log",
+          "bytes": 546,
+          "sha256": "795cd963945b123f8b447831ab2ecb87c8d7c5d899ce3986eb40b1b2a3c68461",
+          "marker": [
+            546,
+            1793230750216858554
+          ],
+          "first_observed_utc": "2026-10-28T23:39:10.223143+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-initial001/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230750185788061
+          ],
+          "first_observed_utc": "2026-10-28T23:39:10.223164+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 19,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/ordinary-initial001/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/ordinary-initial001/RECEIPT.json"
+    },
+    {
+      "label": "ordinary-inventory-classify001",
+      "scope_kind": "documentary",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-inventory-classify001/receipt.json",
+      "command_argv": [
+        "python3",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/runner/classify_inventory.py",
+        "ordinary"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:41:51.143542+00:00",
+      "end_utc": "2026-10-28T23:41:51.171582+00:00",
+      "elapsed_seconds": 0.028039880002324935,
+      "exit_code": 0,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-inventory-classify001/stdout.log",
+          "bytes": 257,
+          "sha256": "770c6faa80cc762883f26ae65e6dffc1cbd9203d03de057bda2ff30e56066ab2",
+          "marker": [
+            257,
+            1793230911167846923
+          ],
+          "first_observed_utc": "2026-10-28T23:41:51.173777+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-inventory-classify001/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230911145133275
+          ],
+          "first_observed_utc": "2026-10-28T23:41:51.173826+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 22,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/ordinary-inventory-classify001/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/ordinary-inventory-classify001/RECEIPT.json"
+    },
+    {
+      "label": "ordinary-inventory-classify002",
+      "scope_kind": "documentary",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-inventory-classify002/receipt.json",
+      "command_argv": [
+        "python3",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/runner/classify_inventory.py",
+        "ordinary"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:42:53.346654+00:00",
+      "end_utc": "2026-10-28T23:42:53.374065+00:00",
+      "elapsed_seconds": 0.027390816998376977,
+      "exit_code": 0,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-inventory-classify002/stdout.log",
+          "bytes": 359,
+          "sha256": "c070f50eca25d0c950fe6bdff17304c6f8db7f78e2ab677532cac158a1b1d22f",
+          "marker": [
+            359,
+            1793230973369881872
+          ],
+          "first_observed_utc": "2026-10-28T23:42:53.376604+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-inventory-classify002/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230973348018024
+          ],
+          "first_observed_utc": "2026-10-28T23:42:53.376625+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 23,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/ordinary-inventory-classify002/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/ordinary-inventory-classify002/RECEIPT.json"
+    },
+    {
+      "label": "ordinary-inventory-initial001",
+      "scope_kind": "documentary",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-inventory-initial001/receipt.json",
+      "command_argv": [
+        "python3",
+        "-c",
+        "import datetime,hashlib,json,pathlib,shutil\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text())\nC=B/'RegularLocalCollarControls.lean';dest=B/'frozen/FINAL_CONTROLS.lean';shutil.copyfile(C,dest);st=dest.stat();cache[str(dest)]={**cache[str(C)],'path':str(dest),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact final ordinary source copy ID REUSED; no hash','copied_from':str(C)}\np=B/'ControlsInventory.lean';assert not p.exists();p.write_text((B/'Inventory.lean').read_text().replace('SourceActualRegularLocalCollar','RegularLocalCollarControls'));st=p.stat();row={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST actual NEW ordinary exhaustive inventory collector before first execution'};cache[str(p)]=row\noriginal=B/'frozen/INITIAL_ControlsInventory.lean';shutil.copyfile(p,original);so=original.stat();cache[str(original)]={**row,'path':str(original),'marker':[so.st_size,so.st_mtime_ns],'origin':'Known exact ordinary collector original identity REUSED; no hash','copied_from':str(p)}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nr={'status':'SEPARATE_ORDINARY_ALL_OWNED_COLLECTOR_FROZEN_AFTER_ORDINARY_STRICT_PASS','observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'collector':row,'immutable_original':str(original),'final_ordinary_source_ID_reused':cache[str(dest)],'ordinary_strict_receipt':str(B/'runs/controls004/receipt.json'),'ordinary_named_kernel':'NONE','negative_harness_created':False}\n(B/'ORDINARY_INVENTORY_INITIAL_CUSTODY.json').write_text(json.dumps(r,indent=2)+'\\n');print(json.dumps({'status':r['status'],'collector':row}))\n"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:41:47.683247+00:00",
+      "end_utc": "2026-10-28T23:41:47.720876+00:00",
+      "elapsed_seconds": 0.03762849900522269,
+      "exit_code": 0,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-inventory-initial001/stdout.log",
+          "bytes": 482,
+          "sha256": "4907fcda513031030f684432abdc8a3c05979fd2be394c4265611925c28830d2",
+          "marker": [
+            482,
+            1793230907716043665
+          ],
+          "first_observed_utc": "2026-10-28T23:41:47.722748+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-inventory-initial001/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230907684966249
+          ],
+          "first_observed_utc": "2026-10-28T23:41:47.722802+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 22,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/ordinary-inventory-initial001/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/ordinary-inventory-initial001/RECEIPT.json"
+    },
+    {
+      "label": "ordinary-inventory001",
+      "scope_kind": "math",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-inventory001/receipt.json",
+      "command_argv": [
+        "env",
+        "LEAN_PATH=/workspace/scratch/actual-source-regular-local-collar-construct/build",
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "--root=/workspace/scratch/actual-source-regular-local-collar-construct",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/ControlsInventory.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:41:47.973182+00:00",
+      "end_utc": "2026-10-28T23:41:50.889831+00:00",
+      "elapsed_seconds": 2.916681767994305,
+      "exit_code": 0,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-inventory001/stdout.log",
+          "bytes": 12007,
+          "sha256": "17f53cb90922171dc6871a71fd24e0d41ee09e3b85135ae33bca5373ad8318ad",
+          "marker": [
+            12007,
+            1793230910779503360
+          ],
+          "first_observed_utc": "2026-10-28T23:41:50.893393+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-inventory001/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230907974846639
+          ],
+          "first_observed_utc": "2026-10-28T23:41:50.893422+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 22,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/ordinary-inventory001/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/ordinary-inventory001/RECEIPT.json"
+    },
+    {
+      "label": "production-fixtures-fix001",
+      "scope_kind": "documentary",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix001/receipt.json",
+      "command_argv": [
+        "python3",
+        "-c",
+        "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct');S=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();new=old\nfor a,b in [[\"(ContinuousLinearMap.proj (0 : Fin 2)).comp Q\",\"(ContinuousLinearMap.proj (0 : Fin 2) : Point2 \u2192L[\u211d] \u211d).comp (Q : E2 \u2192L[\u211d] Point2)\"],[\"(ContinuousLinearMap.proj (1 : Fin 2)).comp Q\",\"(ContinuousLinearMap.proj (1 : Fin 2) : Point2 \u2192L[\u211d] \u211d).comp (Q : E2 \u2192L[\u211d] Point2)\"],[\"  simpa [fixtureXseam, fixture_seam_phase.2] using fixture_seam_phase.2\",\"  simp [fixtureXseam, fixture_seam_phase.2]\"],[\"    exact hp\\n  ext i\",\"    simpa [neg_div] using hp\\n  ext i\"],[\"    \u00b7 simpa only [Matrix.cons_val_zero, neg_div, abs_neg] using hhalf\",\"    \u00b7 simpa [neg_div, abs_neg] using hhalf\"],[\"(hpc \u03b5 h\u03b5).2.joinedIn hm hp\",\"(hpc \u03b5 h\u03b5).2.joinedIn _ hm _ hp\"],[\"ContinuousLinearMap.zero_apply\",\"zero_apply\"]]:\n assert a in new,a;new=new.replace(a,b)\nH=B/'history/production-fixtures-fix001';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'PRODUCTION_FIXTURES_FIX001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/production-fixtures-fix001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual full patch identity, once'};cp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only fixtures001 concrete CLM type/simp/coercion/JoinedIn/deprecation findings','full_patch':str(p)}))\n"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:34:34.851888+00:00",
+      "end_utc": "2026-10-28T23:34:34.896367+00:00",
+      "elapsed_seconds": 0.04448022799988394,
+      "exit_code": 0,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix001/stdout.log",
+          "bytes": 211,
+          "sha256": "e61a9e54b23edc0b7a0f47b4809a34678cc18b1271ea5e2844fe840fbfe6c2d8",
+          "marker": [
+            211,
+            1793230474891581793
+          ],
+          "first_observed_utc": "2026-10-28T23:34:34.897424+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix001/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230474854039226
+          ],
+          "first_observed_utc": "2026-10-28T23:34:34.897438+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 15,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures-fix001/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/production-fixtures-fix001/RECEIPT.json"
+    },
+    {
+      "label": "production-fixtures-fix002",
+      "scope_kind": "documentary",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix002/receipt.json",
+      "command_argv": [
+        "python3",
+        "-c",
+        "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct');S=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();a=\"  rw [heq, hd.fderiv]\";assert old.count(a)==1;new=old.replace(a,\"  have hactual : HasFDerivAt (I4LifetimeField.actualField 2 2 fixtureSample)\\n      (-Real.sin (Real.pi * (Q Y) 0) \u2022 Real.pi \u2022 d0 +\\n        (2 : \u211d) \u2022 -Real.sin (Real.pi * (Q Y) 1) \u2022 Real.pi \u2022 d1) Y := by\\n    rw [heq]\\n    exact hd\\n  rw [hactual.fderiv]\")\nH=B/'history/production-fixtures-fix002';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'PRODUCTION_FIXTURES_FIX002_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/production-fixtures-fix002/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual full patch identity, once'};cp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only fixtures002 pointwise function-add derivative rewrite shape','full_patch':str(p)}))\n"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:35:01.553555+00:00",
+      "end_utc": "2026-10-28T23:35:01.595723+00:00",
+      "elapsed_seconds": 0.04216638900106773,
+      "exit_code": 0,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix002/stdout.log",
+          "bytes": 197,
+          "sha256": "5e097a92c4f6ee08ab7caa1a0dd81c049b93597901b3496f818200c8d3e58d2c",
+          "marker": [
+            197,
+            1793230501590878501
+          ],
+          "first_observed_utc": "2026-10-28T23:35:01.596932+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix002/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230501554943341
+          ],
+          "first_observed_utc": "2026-10-28T23:35:01.596947+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 16,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures-fix002/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/production-fixtures-fix002/RECEIPT.json"
+    },
+    {
+      "label": "production-fixtures-fix003",
+      "scope_kind": "documentary",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix003/receipt.json",
+      "command_argv": [
+        "python3",
+        "-c",
+        "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct');S=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();a=\"  simp only [ContinuousLinearMap.add_apply, ContinuousLinearMap.smul_apply,\\n    smul_eq_mul, d0, d1, ContinuousLinearMap.comp_apply, ContinuousLinearMap.proj_apply]\\n  ring\";assert old.count(a)==1;new=old.replace(a,\"  change -Real.sin (Real.pi * (Q Y) 0) * (Real.pi * (Q V) 0) +\\n    2 * (-Real.sin (Real.pi * (Q Y) 1) * (Real.pi * (Q V) 1)) = _\\n  ring\")\nH=B/'history/production-fixtures-fix003';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'PRODUCTION_FIXTURES_FIX003_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/production-fixtures-fix003/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual full patch identity, once'};cp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only fixtures003 deprecated CLM simp names and equivalent coerced-Q ring atoms','full_patch':str(p)}))\n"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:35:31.161047+00:00",
+      "end_utc": "2026-10-28T23:35:31.203331+00:00",
+      "elapsed_seconds": 0.04233950599882519,
+      "exit_code": 0,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix003/stdout.log",
+          "bytes": 211,
+          "sha256": "2db8eb66c6f9d9caa240d85d899f170816135dc0d4808921a2e5f281776d7efe",
+          "marker": [
+            211,
+            1793230531197943093
+          ],
+          "first_observed_utc": "2026-10-28T23:35:31.204951+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures-fix003/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230531162831054
+          ],
+          "first_observed_utc": "2026-10-28T23:35:31.204964+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 17,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures-fix003/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/production-fixtures-fix003/RECEIPT.json"
+    },
+    {
+      "label": "production-fixtures001",
+      "scope_kind": "documentary",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures001/receipt.json",
+      "command_argv": [
+        "python3",
+        "-c",
+        "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nS=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();ending='end I4SourceActualRegularLocalCollar\\n';assert old.endswith(ending)\nnew=old[:-len(ending)]+\"\\nprivate theorem fixture_derivative_apply (Y V : E2) :\\n    (fderiv \u211d (I4LifetimeField.actualField 2 2 fixtureSample) Y) V =\\n      -Real.pi * Real.sin (Real.pi * (Q Y) 0) * (Q V) 0 -\\n        2 * Real.pi * Real.sin (Real.pi * (Q Y) 1) * (Q V) 1 := by\\n  let d0 : E2 \u2192L[\u211d] \u211d := (ContinuousLinearMap.proj (0 : Fin 2)).comp Q\\n  let d1 : E2 \u2192L[\u211d] \u211d := (ContinuousLinearMap.proj (1 : Fin 2)).comp Q\\n  have h0 : HasFDerivAt (fun Z : E2 => Real.pi * (Q Z) 0) (Real.pi \u2022 d0) Y :=\\n    d0.hasFDerivAt.const_mul Real.pi\\n  have h1 : HasFDerivAt (fun Z : E2 => Real.pi * (Q Z) 1) (Real.pi \u2022 d1) Y :=\\n    d1.hasFDerivAt.const_mul Real.pi\\n  have hd := h0.cos.add (h1.cos.const_mul 2)\\n  have heq : I4LifetimeField.actualField 2 2 fixtureSample =\\n      fun Z : E2 => Real.cos (Real.pi * (Q Z) 0) +\\n        2 * Real.cos (Real.pi * (Q Z) 1) := funext fixture_actual_formula\\n  rw [heq, hd.fderiv]\\n  simp only [ContinuousLinearMap.add_apply, ContinuousLinearMap.smul_apply,\\n    smul_eq_mul, d0, d1, ContinuousLinearMap.comp_apply, ContinuousLinearMap.proj_apply]\\n  ring\\n\\nprivate def fixtureXx : E2 := Q.symm ![(1 / 2 : \u211d), 0]\\nprivate def fixtureXy : E2 := Q.symm ![0, (1 / 2 : \u211d)]\\nprivate def fixtureXseam : E2 := Q.symm ![(-3 / 2 : \u211d), 0]\\nprivate def fixtureXmax : E2 := Q.symm ![(0 : \u211d), 0]\\n\\nprivate theorem fixture_regularX_value :\\n    I4LifetimeField.actualField 2 2 fixtureSample fixtureXx = 2 := by\\n  rw [fixture_actual_formula]\\n  norm_num [fixtureXx, mul_one_div]\\n\\nprivate theorem fixture_regularY_value :\\n    I4LifetimeField.actualField 2 2 fixtureSample fixtureXy = 1 := by\\n  rw [fixture_actual_formula]\\n  norm_num [fixtureXy, mul_one_div]\\n\\nprivate theorem fixture_regularX_derivative :\\n    (fderiv \u211d (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXx) physicalBasis0 =\\n      -Real.pi \u2227\\n    (fderiv \u211d (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXx) physicalBasis1 = 0 := by\\n  constructor <;> rw [fixture_derivative_apply] <;>\\n    norm_num [fixtureXx, physicalBasis0, physicalBasis1, mul_one_div]\\n\\nprivate theorem fixture_regularY_derivative :\\n    (fderiv \u211d (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXy) physicalBasis0 = 0 \u2227\\n    (fderiv \u211d (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXy) physicalBasis1 =\\n      -2 * Real.pi := by\\n  constructor <;> rw [fixture_derivative_apply] <;>\\n    norm_num [fixtureXy, physicalBasis0, physicalBasis1, mul_one_div]\\n\\nprivate theorem fixture_seam_phase :\\n    Real.sin (Real.pi * (-3 / 2 : \u211d)) = 1 \u2227\\n    Real.cos (Real.pi * (-3 / 2 : \u211d)) = 0 := by\\n  have heq : Real.pi * (-3 / 2 : \u211d) = Real.pi / 2 - 2 * Real.pi := by ring\\n  rw [heq, Real.sin_sub_two_pi, Real.cos_sub_two_pi]\\n  exact \u27e8Real.sin_pi_div_two, Real.cos_pi_div_two\u27e9\\n\\nprivate theorem fixture_seam_value :\\n    I4LifetimeField.actualField 2 2 fixtureSample fixtureXseam = 2 := by\\n  rw [fixture_actual_formula]\\n  simpa [fixtureXseam, fixture_seam_phase.2] using fixture_seam_phase.2\\n\\nprivate theorem fixture_seam_derivative :\\n    (fderiv \u211d (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXseam) physicalBasis0 =\\n      -Real.pi \u2227\\n    (fderiv \u211d (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXseam) physicalBasis1 = 0 := by\\n  constructor <;> rw [fixture_derivative_apply] <;>\\n    simp [fixtureXseam, physicalBasis0, physicalBasis1, fixture_seam_phase.1]\\n\\nprivate theorem fixture_seam_quotient : cover 2 fixtureXseam = cover 2 fixtureXx := by\\n  have hq : ((-3 / 2 : \u211d) : AddCircle (2 : \u211d)) =\\n      ((1 / 2 : \u211d) : AddCircle (2 : \u211d)) := by\\n    have hp := (AddCircle.coe_add_period (2 : \u211d) (-3 / 2 : \u211d)).symm\\n    norm_num at hp\\n    exact hp\\n  ext i\\n  fin_cases i\\n  \u00b7 simpa [cover, fixtureXseam, fixtureXx, I4Torus.torusProjection] using hq\\n  \u00b7 simp [cover, fixtureXseam, fixtureXx, I4Torus.torusProjection]\\n\\nprivate theorem smallO_isOpen (L : \u211d) (X : E2) : IsOpen (smallO L X) := by\\n  have hp : IsOpenMap (cover L) :=\\n    (SourceActualFoldTorus.torusProjection2L_open L).comp Q.toHomeomorph.isOpenMap\\n  exact hp _ Metric.isOpen_ball\\n\\nprivate theorem center_mem_smallO (L : \u211d) (X : E2) : cover L X \u2208 smallO L X :=\\n  \u27e8X, Metric.mem_ball_self (by norm_num), rfl\u27e9\\n\\nprivate def FixedCutChecks {L : \u211d} (F : Torus2 L \u2192 \u211d) (c \u03c1 : \u211d)\\n    (\u03c6 : OpenPartialHomeomorph (Torus2 L) Point2) : Prop :=\\n  \u2200 \u03b5 : \u211d, (\u03b5 = 0 \u2228 \u03b5 = \u03c1 / 2 \u2228 \u03b5 = -\u03c1 / 2) \u2192\\n    let z := \u03c6.symm ![0, \u03b5]\\n    let zm := \u03c6.symm ![-\u03c1 / 2, \u03b5]\\n    let zp := \u03c6.symm ![\u03c1 / 2, \u03b5]\\n    z \u2208 \u03c6.source \u2227 zm \u2208 \u03c6.source \u2227 zp \u2208 \u03c6.source \u2227\\n    \u03c6 z = ![0, \u03b5] \u2227 \u03c6 zm = ![-\u03c1 / 2, \u03b5] \u2227 \u03c6 zp = ![\u03c1 / 2, \u03b5] \u2227\\n    F z = c + \u03b5 \u2227 F zm = c + \u03b5 \u2227 F zp = c + \u03b5 \u2227\\n    z \u2208 \u03c6.source \u2229 {p | c + \u03b5 \u2264 F p} \u2227\\n    z \u2208 \u03c6.source \u2229 {p | F p = c + \u03b5} \u2227\\n    zm \u2208 \u03c6.source \u2229 {p | F p = c + \u03b5} \u2227\\n    zp \u2208 \u03c6.source \u2229 {p | F p = c + \u03b5} \u2227\\n    zm \u2260 zp \u2227 JoinedIn (\u03c6.source \u2229 {p | F p = c + \u03b5}) zm zp\\n\\nprivate theorem fixed_cut_checks {L : \u211d} (F : Torus2 L \u2192 \u211d) (c \u03c1 : \u211d)\\n    (h\u03c1 : 0 < \u03c1) (\u03c6 : OpenPartialHomeomorph (Torus2 L) Point2)\\n    (htarget : \u03c6.target = Metric.ball (0 : Point2) \u03c1)\\n    (hheight : \u2200 z \u2208 \u03c6.source, F z = c + \u03c6 z 1)\\n    (hpc : \u2200 \u03b5 : \u211d, |\u03b5| < \u03c1 \u2192\\n      IsPathConnected (\u03c6.source \u2229 {z | c + \u03b5 \u2264 F z}) \u2227\\n      IsPathConnected (\u03c6.source \u2229 {z | F z = c + \u03b5})) :\\n    FixedCutChecks F c \u03c1 \u03c6 := by\\n  intro \u03b5 he\\n  have hhalf : |\u03c1 / 2| < \u03c1 := by\\n    rw [abs_of_pos (by positivity : 0 < \u03c1 / 2)]\\n    linarith\\n  have h\u03b5 : |\u03b5| < \u03c1 := by\\n    rcases he with rfl | rfl | rfl\\n    \u00b7 simpa using h\u03c1\\n    \u00b7 exact hhalf\\n    \u00b7 simpa only [neg_div, abs_neg] using hhalf\\n  have ht0 : (![0, \u03b5] : Point2) \u2208 \u03c6.target := by\\n    rw [htarget]\\n    apply point_mem_ball h\u03c1\\n    intro i\\n    fin_cases i\\n    \u00b7 simpa using h\u03c1\\n    \u00b7 simpa using h\u03b5\\n  have htm : (![-\u03c1 / 2, \u03b5] : Point2) \u2208 \u03c6.target := by\\n    rw [htarget]\\n    apply point_mem_ball h\u03c1\\n    intro i\\n    fin_cases i\\n    \u00b7 simpa only [Matrix.cons_val_zero, neg_div, abs_neg] using hhalf\\n    \u00b7 simpa using h\u03b5\\n  have htp : (![\u03c1 / 2, \u03b5] : Point2) \u2208 \u03c6.target := by\\n    rw [htarget]\\n    apply point_mem_ball h\u03c1\\n    intro i\\n    fin_cases i\\n    \u00b7 simpa using hhalf\\n    \u00b7 simpa using h\u03b5\\n  have hs0 := \u03c6.map_target ht0\\n  have hsm := \u03c6.map_target htm\\n  have hsp := \u03c6.map_target htp\\n  have hi0 := \u03c6.right_inv ht0\\n  have him := \u03c6.right_inv htm\\n  have hip := \u03c6.right_inv htp\\n  have hv0 : F (\u03c6.symm ![0, \u03b5]) = c + \u03b5 := by\\n    rw [hheight _ hs0, hi0]\\n    rfl\\n  have hvm : F (\u03c6.symm ![-\u03c1 / 2, \u03b5]) = c + \u03b5 := by\\n    rw [hheight _ hsm, him]\\n    rfl\\n  have hvp : F (\u03c6.symm ![\u03c1 / 2, \u03b5]) = c + \u03b5 := by\\n    rw [hheight _ hsp, hip]\\n    rfl\\n  have hneq : \u03c6.symm ![-\u03c1 / 2, \u03b5] \u2260 \u03c6.symm ![\u03c1 / 2, \u03b5] := by\\n    intro heq\\n    have he0 := congrArg (fun z => \u03c6 z 0) heq\\n    rw [him, hip] at he0\\n    change -\u03c1 / 2 = \u03c1 / 2 at he0\\n    linarith\\n  have hm : \u03c6.symm ![-\u03c1 / 2, \u03b5] \u2208 \u03c6.source \u2229 {p | F p = c + \u03b5} :=\\n    \u27e8hsm, hvm\u27e9\\n  have hp : \u03c6.symm ![\u03c1 / 2, \u03b5] \u2208 \u03c6.source \u2229 {p | F p = c + \u03b5} :=\\n    \u27e8hsp, hvp\u27e9\\n  exact \u27e8hs0, hsm, hsp, hi0, him, hip, hv0, hvm, hvp,\\n    \u27e8hs0, hv0.ge\u27e9, \u27e8hs0, hv0\u27e9, hm, hp, hneq, (hpc \u03b5 h\u03b5).2.joinedIn hm hp\u27e9\\n\\nprivate def FixtureOutput (X : E2) : Prop :=\\n  \u2203 \u03c1 : \u211d, 0 < \u03c1 \u2227 \u2203 \u03c6 : OpenPartialHomeomorph (Torus2 2) Point2,\\n    cover 2 X \u2208 \u03c6.source \u2227 \u03c6 (cover 2 X) = 0 \u2227\\n    \u03c6.source \u2286 smallO 2 X \u2227 \u03c6.target = Metric.ball (0 : Point2) \u03c1 \u2227\\n    (\u2200 z \u2208 \u03c6.source,\\n      actualF (show (0 : \u211d) < 2 by norm_num) fixtureSample z =\\n        actualF (show (0 : \u211d) < 2 by norm_num) fixtureSample (cover 2 X) + \u03c6 z 1) \u2227\\n    (\u2200 \u03b5 : \u211d, |\u03b5| < \u03c1 \u2192\\n      IsPathConnected (\u03c6.source \u2229 {z |\\n        actualF (show (0 : \u211d) < 2 by norm_num) fixtureSample (cover 2 X) + \u03b5 \u2264\\n          actualF (show (0 : \u211d) < 2 by norm_num) fixtureSample z}) \u2227\\n      IsPathConnected (\u03c6.source \u2229 {z |\\n        actualF (show (0 : \u211d) < 2 by norm_num) fixtureSample z =\\n          actualF (show (0 : \u211d) < 2 by norm_num) fixtureSample (cover 2 X) + \u03b5})) \u2227\\n    FixedCutChecks (actualF (show (0 : \u211d) < 2 by norm_num) fixtureSample)\\n      (actualF (show (0 : \u211d) < 2 by norm_num) fixtureSample (cover 2 X)) \u03c1 \u03c6\\n\\nprivate theorem fixture_output (X : E2)\\n    (hreg : fderiv \u211d (I4LifetimeField.actualField 2 2 fixtureSample) X \u2260 0) :\\n    FixtureOutput X := by\\n  obtain \u27e8\u03c1, h\u03c1, \u03c6, hq, hc, hO, ht, hh, hp\u27e9 :=\\n    actualSource_quotient_regular_local_collar (show (0 : \u211d) < 2 by norm_num)\\n      fixtureSample X hreg (smallO 2 X) (smallO_isOpen 2 X) (center_mem_smallO 2 X)\\n  exact \u27e8\u03c1, h\u03c1, \u03c6, hq, hc, hO, ht, hh, hp,\\n    fixed_cut_checks _ _ \u03c1 h\u03c1 \u03c6 ht hh hp\u27e9\\n\\nprivate theorem fixture_regularX_consumer : FixtureOutput fixtureXx := by\\n  apply fixture_output\\n  intro hz\\n  have he := fixture_regularX_derivative.1\\n  rw [hz] at he\\n  simp only [ContinuousLinearMap.zero_apply] at he\\n  linarith [Real.pi_pos]\\n\\nprivate theorem fixture_regularY_consumer : FixtureOutput fixtureXy := by\\n  apply fixture_output\\n  intro hz\\n  have he := fixture_regularY_derivative.2\\n  rw [hz] at he\\n  simp only [ContinuousLinearMap.zero_apply] at he\\n  linarith [Real.pi_pos]\\n\\nprivate theorem fixture_seam_consumer : FixtureOutput fixtureXseam := by\\n  apply fixture_output\\n  intro hz\\n  have he := fixture_seam_derivative.1\\n  rw [hz] at he\\n  simp only [ContinuousLinearMap.zero_apply] at he\\n  linarith [Real.pi_pos]\\n\"+'\\n'+ending\nH=B/'history/production-fixtures001';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'PRODUCTION_FIXTURES001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/production-fixtures001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual production-fixture patch identity, once'}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Complete actual production regular partials/seam/physicalsmallO/universal+fixedcut coherent inverse positives','full_patch':str(p),'ordinary_not_created':True}))\n"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:34:02.398931+00:00",
+      "end_utc": "2026-10-28T23:34:02.439743+00:00",
+      "elapsed_seconds": 0.040811163002217654,
+      "exit_code": 0,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures001/stdout.log",
+          "bytes": 268,
+          "sha256": "11153c17ed18e95228abe5ba09fc9a9018f9ef55b0f57979d6f820163bfa595b",
+          "marker": [
+            268,
+            1793230442434930287
+          ],
+          "first_observed_utc": "2026-10-28T23:34:02.440662+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/production-fixtures001/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230442400546055
+          ],
+          "first_observed_utc": "2026-10-28T23:34:02.440676+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 14,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/production-fixtures001/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/production-fixtures001/RECEIPT.json"
+    },
+    {
+      "label": "public001",
+      "scope_kind": "math",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/public001/receipt.json",
+      "command_argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/build/SourceActualRegularLocalCollar.olean",
+        "SourceActualRegularLocalCollar.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:30:43.101611+00:00",
+      "end_utc": "2026-10-28T23:30:46.878621+00:00",
+      "elapsed_seconds": 3.777025381998101,
+      "exit_code": 1,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/public001/stdout.log",
+          "bytes": 1006,
+          "sha256": "cf9a765f8c4c27fdf2baafb57950439503da0f1682b0d0e832109e62a6997360",
+          "marker": [
+            1006,
+            1793230246769872543
+          ],
+          "first_observed_utc": "2026-10-28T23:30:46.880287+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/public001/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230243103228983
+          ],
+          "first_observed_utc": "2026-10-28T23:30:46.880314+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 13,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/public001/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/public001/RECEIPT.json"
+    },
+    {
+      "label": "public002",
+      "scope_kind": "math",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/public002/receipt.json",
+      "command_argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/build/SourceActualRegularLocalCollar.olean",
+        "SourceActualRegularLocalCollar.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:31:27.900936+00:00",
+      "end_utc": "2026-10-28T23:31:31.835644+00:00",
+      "elapsed_seconds": 3.9347202089993516,
+      "exit_code": 0,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/public002/stdout.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230287902552042
+          ],
+          "first_observed_utc": "2026-10-28T23:31:31.838028+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/public002/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230287902552042
+          ],
+          "first_observed_utc": "2026-10-28T23:31:31.838043+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 14,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/public002/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/public002/RECEIPT.json"
+    },
+    {
+      "label": "quotient001",
+      "scope_kind": "math",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/quotient001/receipt.json",
+      "command_argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/build/SourceActualRegularLocalCollar.olean",
+        "SourceActualRegularLocalCollar.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:26:27.386009+00:00",
+      "end_utc": "2026-10-28T23:26:33.244484+00:00",
+      "elapsed_seconds": 5.8584866329983925,
+      "exit_code": 1,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/quotient001/stdout.log",
+          "bytes": 662,
+          "sha256": "d08e8207b92d01914c0df2948a2b02955fc68fc5e02a755958adb863cd71ccd2",
+          "marker": [
+            662,
+            1793229993139704191
+          ],
+          "first_observed_utc": "2026-10-28T23:26:33.245018+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/quotient001/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793229987387284131
+          ],
+          "first_observed_utc": "2026-10-28T23:26:33.245039+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 9,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/quotient001/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/quotient001/RECEIPT.json"
+    },
+    {
+      "label": "quotient002",
+      "scope_kind": "math",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/quotient002/receipt.json",
+      "command_argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/build/SourceActualRegularLocalCollar.olean",
+        "SourceActualRegularLocalCollar.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:27:07.485941+00:00",
+      "end_utc": "2026-10-28T23:27:10.276628+00:00",
+      "elapsed_seconds": 2.7907087560015498,
+      "exit_code": 0,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/quotient002/stdout.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230027487449451
+          ],
+          "first_observed_utc": "2026-10-28T23:27:10.277688+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/quotient002/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230027487449451
+          ],
+          "first_observed_utc": "2026-10-28T23:27:10.277705+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 10,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/quotient002/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/quotient002/RECEIPT.json"
+    },
+    {
+      "label": "source-fix001",
+      "scope_kind": "documentary",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/source-fix001/receipt.json",
+      "command_argv": [
+        "python3",
+        "-c",
+        "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nS=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();new=old.replace(\"  letI : Fact (0 < L) := \u27e8hL\u27e9\",\"  let : Fact (0 < L) := \u27e8hL\u27e9\")\na=\"\"\"    nlinarith [mul_nonneg ha (sub_nonneg.mpr hx),\n      mul_nonneg hb (sub_nonneg.mpr hy)]\"\"\"\nb=\"\"\"    change \u03b5 \u2264 x 1 at hx\n    change \u03b5 \u2264 y 1 at hy\n    calc\n      \u03b5 = a * \u03b5 + b * \u03b5 := by rw [\u2190 add_mul, hab, one_mul]\n      _ \u2264 a * x 1 + b * y 1 :=\n        add_le_add (mul_le_mul_of_nonneg_left hx ha)\n          (mul_le_mul_of_nonneg_left hy hb)\"\"\"\nassert old.count(a)==1;new=new.replace(a,b);assertnew=new!=old;assert assertnew\nH=B/'history/source-fix001';H.mkdir(parents=True,exist_ok=False)\n(H/'SourceActualRegularLocalCollar.lean.ORIGINAL').write_text(old)\nS.write_text(new)\np=B/'SOURCE_FIX001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/source-fix001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncachepath=B/'FIRST_ID_CACHE.json';cache=json.loads(cachepath.read_text())\nprior=cache[str(S)];orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact previous actual source snapshot ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();row={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST necessary new actual patch identity, once'};cache[str(p)]=row\ncachepath.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'Only quotient001 Fact-style and convex arithmetic defects','full_patch':row,'old_source_ID_reused':prior['sha256']}))\n"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:27:07.198964+00:00",
+      "end_utc": "2026-10-28T23:27:07.238613+00:00",
+      "elapsed_seconds": 0.03964904900203692,
+      "exit_code": 0,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/source-fix001/stdout.log",
+          "bytes": 530,
+          "sha256": "213b3d8e4d99a7e12b1df10481a2943f31068fef69bbe53fc3c1a8b3f68f2d82",
+          "marker": [
+            530,
+            1793230027233710660
+          ],
+          "first_observed_utc": "2026-10-28T23:27:07.239034+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/source-fix001/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230027200286611
+          ],
+          "first_observed_utc": "2026-10-28T23:27:07.239048+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 9,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/source-fix001/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/source-fix001/RECEIPT.json"
+    },
+    {
+      "label": "source-initial001",
+      "scope_kind": "documentary",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/source-initial001/receipt.json",
+      "command_argv": [
+        "python3",
+        "-c",
+        "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nS=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\ncachepath=B/'FIRST_ID_CACHE.json';cache=json.loads(cachepath.read_text())\ninitial=B/'INITIAL_SOURCE_COMMON.lean.txt'\npatch=''.join(difflib.unified_diff(initial.read_text().splitlines(keepends=True),S.read_text().splitlines(keepends=True),fromfile='INITIAL_SOURCE_COMMON.lean.txt',tofile='SourceActualRegularLocalCollar.lean'))\np=B/'SOURCE_INITIAL_FULL.patch';p.write_text(patch);st=p.stat()\nrow={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual complete source patch identity, once'}\ncache[str(p)]=row;cachepath.write_text(json.dumps(cache,indent=2)+'\\n')\n(B/'build').mkdir(exist_ok=True)\nr={'status':'INITIAL_OWN66_QUOTIENT_GEOMETRY_SOURCE_FROZEN_BEFORE_FIRST_LEAN','observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'source':cache[str(S)],'initial_header_ID_reused':cache[str(initial)],'full_actual_patch':row,'scope':'Producer quotient chart from private structural physical chart parameter plus finite Pi geometry; no helperintegration/publictheorem/fixturebodyyet','mathematical_execution_so_far':0,'helper_integrations':0}\n(B/'SOURCE_INITIAL_CUSTODY.json').write_text(json.dumps(r,indent=2)+'\\n')\nprint(json.dumps(r))\n"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:26:27.111919+00:00",
+      "end_utc": "2026-10-28T23:26:27.148190+00:00",
+      "elapsed_seconds": 0.036270210999646224,
+      "exit_code": 0,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/source-initial001/stdout.log",
+          "bytes": 1532,
+          "sha256": "048c7e482c156bb6e9be1a897d16efe20b5257688e05545bc3ed3a380772800e",
+          "marker": [
+            1532,
+            1793229987143695151
+          ],
+          "first_observed_utc": "2026-10-28T23:26:27.148499+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/source-initial001/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793229987113159903
+          ],
+          "first_observed_utc": "2026-10-28T23:26:27.148516+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 8,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/source-initial001/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/source-initial001/RECEIPT.json"
+    },
+    {
+      "label": "transfer-fixture-check001",
+      "scope_kind": "math",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-fixture-check001/receipt.json",
+      "command_argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/build/SourceActualRegularLocalCollar.olean",
+        "SourceActualRegularLocalCollar.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:29:29.372765+00:00",
+      "end_utc": "2026-10-28T23:29:32.439014+00:00",
+      "elapsed_seconds": 3.066268728001887,
+      "exit_code": 1,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-fixture-check001/stdout.log",
+          "bytes": 1020,
+          "sha256": "82c617e20094f6d7551676e43d609b7c47ad53e6b6d1d7f33f5c1f968db03dc2",
+          "marker": [
+            1020,
+            1793230172329139209
+          ],
+          "first_observed_utc": "2026-10-28T23:29:32.440961+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-fixture-check001/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230169374402499
+          ],
+          "first_observed_utc": "2026-10-28T23:29:32.441030+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 12,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/transfer-fixture-check001/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/transfer-fixture-check001/RECEIPT.json"
+    },
+    {
+      "label": "transfer-fixture001",
+      "scope_kind": "documentary",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-fixture001/receipt.json",
+      "command_argv": [
+        "python3",
+        "-c",
+        "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nS=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nold=S.read_text();block=\"\\nprivate theorem same_chart_traces_pc {L : \u211d}\\n    (F : Torus2 L \u2192 \u211d) (c \u03c1 : \u211d) (h\u03c1 : 0 < \u03c1)\\n    (\u03c6 : OpenPartialHomeomorph (Torus2 L) Point2)\\n    (htarget : \u03c6.target = Metric.ball (0 : Point2) \u03c1)\\n    (hheight : \u2200 z \u2208 \u03c6.source, F z = c + \u03c6 z 1) :\\n    \u2200 \u03b5 : \u211d, |\u03b5| < \u03c1 \u2192\\n      IsPathConnected (\u03c6.source \u2229 {z | c + \u03b5 \u2264 F z}) \u2227\\n      IsPathConnected (\u03c6.source \u2229 {z | F z = c + \u03b5}) := by\\n  intro \u03b5 h\u03b5\\n  have hupper_image :\\n      \u03c6.symm '' (Metric.ball (0 : Point2) \u03c1 \u2229 {u | \u03b5 \u2264 u 1}) =\\n        \u03c6.source \u2229 {z | c + \u03b5 \u2264 F z} := by\\n    ext z\\n    constructor\\n    \u00b7 rintro \u27e8u, hu, rfl\u27e9\\n      have hut : u \u2208 \u03c6.target := htarget \u25b8 hu.1\\n      refine \u27e8\u03c6.map_target hut, ?_\u27e9\\n      have hh := hheight (\u03c6.symm u) (\u03c6.map_target hut)\\n      rw [\u03c6.right_inv hut] at hh\\n      change \u03b5 \u2264 u 1 at hu\\n      linarith [hu.2]\\n    \u00b7 intro hz\\n      refine \u27e8\u03c6 z, \u27e8?_, ?_\u27e9, \u03c6.left_inv hz.1\u27e9\\n      \u00b7 rw [\u2190 htarget]\\n        exact \u03c6.map_source hz.1\\n      \u00b7 change \u03b5 \u2264 \u03c6 z 1\\n        have hh := hheight z hz.1\\n        change c + \u03b5 \u2264 F z at hz\\n        linarith [hz.2]\\n  have hlevel_image :\\n      \u03c6.symm '' (Metric.ball (0 : Point2) \u03c1 \u2229 {u | u 1 = \u03b5}) =\\n        \u03c6.source \u2229 {z | F z = c + \u03b5} := by\\n    ext z\\n    constructor\\n    \u00b7 rintro \u27e8u, hu, rfl\u27e9\\n      have hut : u \u2208 \u03c6.target := htarget \u25b8 hu.1\\n      refine \u27e8\u03c6.map_target hut, ?_\u27e9\\n      have hh := hheight (\u03c6.symm u) (\u03c6.map_target hut)\\n      rw [\u03c6.right_inv hut] at hh\\n      change u 1 = \u03b5 at hu\\n      linarith [hu.2]\\n    \u00b7 intro hz\\n      refine \u27e8\u03c6 z, \u27e8?_, ?_\u27e9, \u03c6.left_inv hz.1\u27e9\\n      \u00b7 rw [\u2190 htarget]\\n        exact \u03c6.map_source hz.1\\n      \u00b7 change \u03c6 z 1 = \u03b5\\n        have hh := hheight z hz.1\\n        change F z = c + \u03b5 at hz\\n        linarith [hz.2]\\n  have hcupper : ContinuousOn \u03c6.symm\\n      (Metric.ball (0 : Point2) \u03c1 \u2229 {u | \u03b5 \u2264 u 1}) :=\\n    \u03c6.continuousOn_symm.mono (fun _ hu => htarget \u25b8 hu.1)\\n  have hclevel : ContinuousOn \u03c6.symm\\n      (Metric.ball (0 : Point2) \u03c1 \u2229 {u | u 1 = \u03b5}) :=\\n    \u03c6.continuousOn_symm.mono (fun _ hu => htarget \u25b8 hu.1)\\n  constructor\\n  \u00b7 rw [\u2190 hupper_image]\\n    exact (pi_closed_upper_trace_pc \u03c1 \u03b5 h\u03c1 h\u03b5).image' hcupper\\n  \u00b7 rw [\u2190 hlevel_image]\\n    exact (pi_level_trace_pc \u03c1 \u03b5 h\u03c1 h\u03b5).image' hclevel\\n\\nprivate def fixturePoly : I4SourceFiniteTrig.TrigPoly :=\\n  [\u27e81, ![(1 : \u2124), 0], 0\u27e9, \u27e82, ![(0 : \u2124), 1], 0\u27e9]\\n\\nprivate def fixtureSample : SmoothSample 2 2 :=\\n  I4SourceFinitePinKernel.finiteShiftSample\\n    (I4SourceFiniteTrig.toSource 2 fixturePoly)\\n    (I4SourceSmoothConditional.zeroSample 2 2)\\n\\nprivate theorem fixture_actual_formula (Y : E2) :\\n    I4LifetimeField.actualField 2 2 fixtureSample Y =\\n      Real.cos (Real.pi * (Q Y) 0) + 2 * Real.cos (Real.pi * (Q Y) 1) := by\\n  classical\\n  let v := I4SourceFiniteTrig.toSource 2 fixturePoly\\n  have hcoeff (m : I4Source.SourceMode 2) :\\n      I4SmoothCarrier.sampleInclusion 2 2 fixtureSample m = v m := by\\n    simp [fixtureSample, I4SourceFinitePinKernel.finiteShiftSample_val,\\n      I4SourceSmoothConditional.zeroSample, I4SmoothCarrier.sampleInclusion, v]\\n  have hs : HasSum (fun m : I4Source.SourceMode 2 =>\\n      I4Source.modeCoefficient 2 2 m (Q Y) * v m)\\n      (I4SourceFiniteTrig.eval 2 fixturePoly (Q Y)) := by\\n    rw [\u2190 I4SourceFiniteTrig.toSource_eval (show (2 : \u211d) \u2260 0 by norm_num)]\\n    change HasSum (fun m => I4Source.modeCoefficient 2 2 m (Q Y) * v m)\\n      (v.sum (fun m z => I4Source.modeCoefficient 2 2 m (Q Y) * z))\\n    apply hasSum_sum_of_ne_finset_zero\\n    intro m hm\\n    rw [Finsupp.notMem_support_iff.mp hm, mul_zero]\\n  change I4Foundation.scalarSeries\\n    (fun m => I4Source.modeCoefficient 2 2 m (Q Y))\\n    (I4SmoothCarrier.sampleInclusion 2 2 fixtureSample) = _\\n  have heq : I4SmoothCarrier.sampleInclusion 2 2 fixtureSample = fun m => v m :=\\n    funext hcoeff\\n  rw [heq]\\n  calc\\n    I4Foundation.scalarSeries (fun m => I4Source.modeCoefficient 2 2 m (Q Y))\\n        (fun m => v m) = I4SourceFiniteTrig.eval 2 fixturePoly (Q Y) := hs.tsum_eq\\n    _ = Real.cos (Real.pi * (Q Y) 0) + 2 * Real.cos (Real.pi * (Q Y) 1) := by\\n      simp [I4SourceFiniteTrig.eval, fixturePoly, I4SourceFiniteTrig.termEval,\\n        I4Source.phase, I4Weights.sourceC, Fin.sum_univ_two]\\n\";ending='end I4SourceActualRegularLocalCollar\\n';assert old.endswith(ending)\nnew=old[:-len(ending)]+block+'\\n'+ending\nH=B/'history/transfer-fixture001';H.mkdir(parents=True,exist_ok=False);orig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'TRANSFER_FIXTURE001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/transfer-fixture001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual full patch identity, once'};cp.write_text(json.dumps(cache,indent=2)+'\\n')\nprint(json.dumps({'scope':'New same-chart inverse-image transport and owned original finite sample formula','full_patch':str(p),'helper_integrations':0}))\n"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:28:51.797930+00:00",
+      "end_utc": "2026-10-28T23:28:51.836661+00:00",
+      "elapsed_seconds": 0.03873159800059511,
+      "exit_code": 0,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-fixture001/stdout.log",
+          "bytes": 231,
+          "sha256": "ef7367199feda533007b03da9fdc5ae004fb90285b50d1e4d428d23ead405a5c",
+          "marker": [
+            231,
+            1793230131832248762
+          ],
+          "first_observed_utc": "2026-10-28T23:28:51.837290+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-fixture001/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230131799801858
+          ],
+          "first_observed_utc": "2026-10-28T23:28:51.837303+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 10,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/transfer-fixture001/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/transfer-fixture001/RECEIPT.json"
+    },
+    {
+      "label": "transfer-staticfix001",
+      "scope_kind": "documentary",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-staticfix001/receipt.json",
+      "command_argv": [
+        "python3",
+        "-c",
+        "import datetime,difflib,hashlib,json,pathlib\nB=pathlib.Path('/workspace/scratch/actual-source-regular-local-collar-construct')\nS=pathlib.Path('/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean')\nH=B/'history/transfer-staticfix001';H.mkdir(parents=True,exist_ok=False)\nold=S.read_text();new=old\nreplacements=[\n(\"      change \u03b5 \u2264 u 1 at hu\\n      linarith [hu.2]\",\"      have huc : \u03b5 \u2264 u 1 := hu.2\\n      linarith [huc]\"),\n(\"        change c + \u03b5 \u2264 F z at hz\\n        linarith [hz.2]\",\"        have hzc : c + \u03b5 \u2264 F z := hz.2\\n        linarith [hzc]\"),\n(\"      change u 1 = \u03b5 at hu\\n      linarith [hu.2]\",\"      have huc : u 1 = \u03b5 := hu.2\\n      linarith [huc]\"),\n(\"        change F z = c + \u03b5 at hz\\n        linarith [hz.2]\",\"        have hzc : F z = c + \u03b5 := hz.2\\n        linarith [hzc]\")]\nfor a,b in replacements:\n assert new.count(a)==1;new=new.replace(a,b)\norig=H/'SourceActualRegularLocalCollar.lean.ORIGINAL';orig.write_text(old);S.write_text(new)\np=B/'TRANSFER_STATICFIX001_FULL.patch';p.write_text(''.join(difflib.unified_diff(old.splitlines(keepends=True),new.splitlines(keepends=True),fromfile='history/transfer-staticfix001/SourceActualRegularLocalCollar.lean.ORIGINAL',tofile='SourceActualRegularLocalCollar.lean')))\ncp=B/'FIRST_ID_CACHE.json';cache=json.loads(cp.read_text());prior=cache[str(S)];st=orig.stat();cache[str(orig)]={**prior,'path':str(orig),'marker':[st.st_size,st.st_mtime_ns],'origin':'Known exact prior source ID REUSED; no hash','copied_from':str(S)}\nst=p.stat();cache[str(p)]={'path':str(p),'bytes':st.st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'marker':[st.st_size,st.st_mtime_ns],'first_observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'origin':'FIRST new actual full patch identity, once'}\ncp.write_text(json.dumps(cache,indent=2)+'\\n')\n(B/'ORCHESTRATION_DUPLICATE_LABEL001.stderr.log').write_text(\"Traceback (most recent call last):\\n  File \\\"/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py\\\", line 73, in <module>\\n    raise SystemExit(main())\\n                     ^^^^^^\\n  File \\\"/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py\\\", line 37, in main\\n    folder.mkdir(parents=True, exist_ok=False)\\n  File \\\"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py\\\", line 1311, in mkdir\\n    os.mkdir(self, mode)\\nFileExistsError: [Errno 17] File exists: '/workspace/scratch/actual-source-regular-local-collar-construct/entry/transfer-fixture001'\\n\")\nrecord={'status':'ACTUAL_OUTER_DUPLICATE_DIRECTORY_GUARD_FAILED_BEFORE_CHILD','recorded_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'attempted_label':'transfer-fixture001','attempted_kind':'math','tool_exit_code':1,'tool_wall_time_seconds':0.000041206,'actual_new_child_or_Lean_run':False,'child_start_end_exit_not_observed':True,'original_exec_combined_output_preserved_as_returned':str(B/'ORCHESTRATION_DUPLICATE_LABEL001.stderr.log'),'stream_limit':'exec tool returned combined traceback only; do not claim separately captured worker/outer streams for this prelaunch guard','existing_documentary_family_preserved_unchanged':str(B/'entry/transfer-fixture001'),'next_fresh_math_label':'transfer-fixture-check001'}\n(B/'ORCHESTRATION_DUPLICATE_LABEL001.json').write_text(json.dumps(record,indent=2)+'\\n')\nprint(json.dumps({'source_static_fix':'Four intersection hypothesis projections before first new-scope math call','orchestration_failure':record}))\n"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "start_utc": "2026-10-28T23:29:29.072571+00:00",
+      "end_utc": "2026-10-28T23:29:29.118998+00:00",
+      "elapsed_seconds": 0.04642650099776802,
+      "exit_code": 0,
+      "streams": {
+        "stdout.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-staticfix001/stdout.log",
+          "bytes": 965,
+          "sha256": "f1259d53ccd93ee74c32d829d2738da9f685c732f238d4b5f3ff8efa154ea2cc",
+          "marker": [
+            965,
+            1793230169114312792
+          ],
+          "first_observed_utc": "2026-10-28T23:29:29.119645+00:00",
+          "origin": "FIRST identity of necessary NEW actual version; cached once"
+        },
+        "stderr.log": {
+          "path": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/transfer-staticfix001/stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "marker": [
+            0,
+            1793230169079507782
+          ],
+          "first_observed_utc": "2026-10-28T23:29:29.119658+00:00",
+          "origin": "Literal known EMPTY content identity REUSED; zero hashes"
+        }
+      },
+      "before_snapshot_count": 11,
+      "outer_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/outer/transfer-staticfix001/RECEIPT.json",
+      "entry_receipt": "/workspace/scratch/actual-source-regular-local-collar-construct/entry/transfer-staticfix001/RECEIPT.json"
+    }
+  ],
+  "current_documentary_worker": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/final-documents001/STARTED.json",
+  "after_actual_entry_closure": {
+    "dedicated_workers": 39,
+    "math": 17,
+    "documentary": 22,
+    "outer": 39,
+    "entry": 39,
+    "original_split_streams": 234
+  },
+  "external_first_documentary_capture_families": [
+    {
+      "family": "initial-external-freeze001",
+      "scope": "documentary external literal Python-c",
+      "legacy_wrapper_labels": "root65-* honestly retained",
+      "original_layer_records": [
+        "/workspace/scratch/actual-source-regular-local-collar-construct/initial-external-freeze001/worker/01-worker/RECEIPT.json",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/initial-external-freeze001/outer/01-outer/RECEIPT.json",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/initial-external-freeze001/entry/01-entry/RECEIPT.json"
+      ],
+      "original_split_streams": [
+        "/workspace/scratch/actual-source-regular-local-collar-construct/initial-external-freeze001/worker/01-worker/stdout.log",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/initial-external-freeze001/worker/01-worker/stderr.log",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/initial-external-freeze001/outer/01-outer/stdout.log",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/initial-external-freeze001/outer/01-outer/stderr.log",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/initial-external-freeze001/entry/01-entry/stdout.log",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/initial-external-freeze001/entry/01-entry/stderr.log"
+      ]
+    },
+    {
+      "family": "known-empty-amendment001",
+      "scope": "documentary external literal Python-c",
+      "legacy_wrapper_labels": "root65-* honestly retained",
+      "original_layer_records": [
+        "/workspace/scratch/actual-source-regular-local-collar-construct/known-empty-amendment001/worker/01-worker/RECEIPT.json",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/known-empty-amendment001/outer/01-outer/RECEIPT.json",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/known-empty-amendment001/entry/01-entry/RECEIPT.json"
+      ],
+      "original_split_streams": [
+        "/workspace/scratch/actual-source-regular-local-collar-construct/known-empty-amendment001/worker/01-worker/stdout.log",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/known-empty-amendment001/worker/01-worker/stderr.log",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/known-empty-amendment001/outer/01-outer/stdout.log",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/known-empty-amendment001/outer/01-outer/stderr.log",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/known-empty-amendment001/entry/01-entry/stdout.log",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/known-empty-amendment001/entry/01-entry/stderr.log"
+      ]
+    }
+  ],
+  "external_original_split_streams": 12,
+  "prechild_duplicate_guard": "/workspace/scratch/actual-source-regular-local-collar-construct/ORCHESTRATION_DUPLICATE_LABEL001.json",
+  "read_only_transport_failure": "/workspace/scratch/actual-source-regular-local-collar-construct/EXEC_READONLY_TRANSPORT_FAILURE001.json",
+  "rule": "All full original receipts/argv/code/cwd/timing/status/streams remain verbatim files; this index avoids duplicating full before/after maps"
+}

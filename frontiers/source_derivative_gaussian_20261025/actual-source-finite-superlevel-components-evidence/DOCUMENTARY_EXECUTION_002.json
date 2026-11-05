@@ -1,0 +1,16 @@
+{
+  "scope": "Corrected final documentary generation only; no mathematical execution",
+  "actual_command": "python3 /workspace/scratch/actual-source-finite-superlevel-components-construct/freeze_documents.py",
+  "cwd": "/workspace",
+  "exit_code": 0,
+  "tool_chunk_id": "c49b53",
+  "tool_reported_wall_time_seconds": 0.000033027,
+  "writer_internal_freeze_utc": "2026-10-28T19:11:16.909137+00:00",
+  "external_process_started_utc": null,
+  "external_process_ended_utc": null,
+  "original_separate_stdout_stderr": null,
+  "actual_order": "Corrected generation returned before root's request for a pre-execution split-stream wrapper was delivered to producer. No unchanged generation or hash was replayed to manufacture missing history.",
+  "custody_limitation": "The exec tool supplied combined output only. This file is an explicit transcription of actual tool fields, not fabricated original split streams or reconstructed external timestamps.",
+  "tool_combined_output": "{\n  \"status\": \"FROZEN\",\n  \"utc\": \"2026-10-28T19:11:16.909137+00:00\",\n  \"actual_runs\": 14,\n  \"split_streams\": 28,\n  \"textual_paths\": 233,\n  \"artifact_rows\": 228,\n  \"snapshot_bindings\": 126,\n  \"report\": \"/workspace/scratch/actual-source-finite-superlevel-components-construct/REPORT.md\",\n  \"handoff\": \"/workspace/scratch/actual-source-finite-superlevel-components-construct/HANDOFF.md\",\n  \"manifest\": \"/workspace/scratch/actual-source-finite-superlevel-components-construct/ARTIFACT_IDENTITIES.json\",\n  \"finalIDs\": \"/workspace/scratch/actual-source-finite-superlevel-components-construct/FINAL_DOCUMENT_IDS.json\",\n  \"negative_harness\": {\n    \"path\": \"/workspace/scratch/actual-source-finite-superlevel-components-construct/FalseMutation.lean\",\n    \"bytes\": 170,\n    \"sha256\": \"bdd65a9584bcf9101014ae3535ab1ab8fd15191beed2d94f2a0083bce3de732e\",\n    \"identity_origin\": \"Existing owned FIRST identity reused; unchanged stat\"\n  },\n  \"negative_stdout\": {\n    \"path\": \"/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/stdout.log\",\n    \"bytes\": 129,\n    \"sha256\": \"806c1bfc8a3a30dd3b176eb773253b0beda35d64a3a9bbd23ae6dd5c61da6e6b\",\n    \"identity_origin\": \"FIRST identity of newly created or changed owned payload\"\n  }\n}\n",
+  "mathematical_custody": "All14 actual Lean/leanchecker runs retain original separate28 streams and full recorded commands/cwd/start/end/exit/source-object bindings. Those completed checks are unchanged and reusable."
+}

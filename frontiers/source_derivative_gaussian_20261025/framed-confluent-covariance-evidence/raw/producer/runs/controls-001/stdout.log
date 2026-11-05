@@ -1,0 +1,764 @@
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:29:87: error: Tactic `rfl` failed: The left-hand side
+  (coordinates 2) (std 0) ((fun i => i) ⟨0, ⋯⟩)
+is not definitionally equal to the right-hand side
+  directionX ((fun i => i) ⟨0, ⋯⟩)
+
+case «0»
+⊢ (coordinates 2) (std 0) ((fun i => i) ⟨0, ⋯⟩) = directionX ((fun i => i) ⟨0, ⋯⟩)
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:29:87: error: Tactic `rfl` failed: The left-hand side
+  (coordinates 2) (std 0) ((fun i => i) ⟨1, ⋯⟩)
+is not definitionally equal to the right-hand side
+  directionX ((fun i => i) ⟨1, ⋯⟩)
+
+case «1»
+⊢ (coordinates 2) (std 0) ((fun i => i) ⟨1, ⋯⟩) = directionX ((fun i => i) ⟨1, ⋯⟩)
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:30:87: error: Tactic `rfl` failed: The left-hand side
+  (coordinates 2) (std 1) ((fun i => i) ⟨0, ⋯⟩)
+is not definitionally equal to the right-hand side
+  directionY ((fun i => i) ⟨0, ⋯⟩)
+
+case «0»
+⊢ (coordinates 2) (std 1) ((fun i => i) ⟨0, ⋯⟩) = directionY ((fun i => i) ⟨0, ⋯⟩)
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:30:87: error: Tactic `rfl` failed: The left-hand side
+  (coordinates 2) (std 1) ((fun i => i) ⟨1, ⋯⟩)
+is not definitionally equal to the right-hand side
+  directionY ((fun i => i) ⟨1, ⋯⟩)
+
+case «1»
+⊢ (coordinates 2) (std 1) ((fun i => i) ⟨1, ⋯⟩) = directionY ((fun i => i) ⟨1, ⋯⟩)
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:33:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (x : ℝ) in ?m.101..?m.102, ?m.84 - (id ^ 2) x ∂?m.98
+in the target expression
+  ∫ (t : ℝ) in -1 / 2..1 / 2, 1 / 4 - t ^ 2 = 1 / 6
+
+⊢ ∫ (t : ℝ) in -1 / 2..1 / 2, 1 / 4 - t ^ 2 = 1 / 6
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:50:2: error: unsolved goals
+case «5»
+f : (Fin 2 → ℝ) → ℝ
+p e n : Fin 2 → ℝ
+⊢ (iteratedFDeriv ℝ 3 f p) ![e, e, e] =
+    ![f p, (fderiv ℝ f p) e, (fderiv ℝ f p) n, (iteratedFDeriv ℝ 2 f p) ![e, e], (iteratedFDeriv ℝ 2 f p) ![e, n],
+        (iteratedFDeriv ℝ 3 f p) ![e, e, e], (iteratedFDeriv ℝ 2 f p) ![n, n] ]
+      ⟨5, ⋯⟩
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:62:6: error(lean.unknownIdentifier): Unknown identifier `I4SourceConfluentLimits.weightedDerivativeIntegral`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:63:6: error(lean.unknownIdentifier): Unknown identifier `I4SourceConfluentLimits.modeF`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:63:36: error(lean.unknownIdentifier): Unknown identifier `I4SourceConfluentLimits.modeH`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:64:6: error(lean.unknownIdentifier): Unknown identifier `I4SourceConfluentLimits.modeF_deriv`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:62:6: error(lean.unknownIdentifier): Unknown identifier `I4SourceConfluentLimits.weightedDerivativeIntegral`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:63:6: error(lean.unknownIdentifier): Unknown identifier `I4SourceConfluentLimits.modeF`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:63:36: error(lean.unknownIdentifier): Unknown identifier `I4SourceConfluentLimits.modeH`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:64:6: error(lean.unknownIdentifier): Unknown identifier `I4SourceConfluentLimits.modeF_deriv`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:62:6: error(lean.unknownIdentifier): Unknown identifier `I4SourceConfluentLimits.weightedDerivativeIntegral`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:63:6: error(lean.unknownIdentifier): Unknown identifier `I4SourceConfluentLimits.modeF`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:63:36: error(lean.unknownIdentifier): Unknown identifier `I4SourceConfluentLimits.modeH`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:64:6: error(lean.unknownIdentifier): Unknown identifier `I4SourceConfluentLimits.modeF_deriv`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:62:6: error(lean.unknownIdentifier): Unknown identifier `I4SourceConfluentLimits.weightedDerivativeIntegral`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:63:6: error(lean.unknownIdentifier): Unknown identifier `I4SourceConfluentLimits.modeF`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:63:36: error(lean.unknownIdentifier): Unknown identifier `I4SourceConfluentLimits.modeH`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:64:6: error(lean.unknownIdentifier): Unknown identifier `I4SourceConfluentLimits.modeF_deriv`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:62:6: error(lean.unknownIdentifier): Unknown identifier `I4SourceConfluentLimits.weightedDerivativeIntegral`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:63:6: error(lean.unknownIdentifier): Unknown identifier `I4SourceConfluentLimits.modeF`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:63:36: error(lean.unknownIdentifier): Unknown identifier `I4SourceConfluentLimits.modeH`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:64:6: error(lean.unknownIdentifier): Unknown identifier `I4SourceConfluentLimits.modeF_deriv`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:62:6: error(lean.unknownIdentifier): Unknown identifier `I4SourceConfluentLimits.weightedDerivativeIntegral`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:63:6: error(lean.unknownIdentifier): Unknown identifier `I4SourceConfluentLimits.modeF`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:63:36: error(lean.unknownIdentifier): Unknown identifier `I4SourceConfluentLimits.modeH`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:64:6: error(lean.unknownIdentifier): Unknown identifier `I4SourceConfluentLimits.modeF_deriv`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:57:67: error: unsolved goals
+case «0».e_2.e_2
+L r : ℝ
+m : SourceMode 2
+⊢ 6 = (Nat.succ 0).succ.succ.succ.succ
+
+case «0».e_2.e_3
+L r : ℝ
+m : SourceMode 2
+⊢ instOfNatNat 6 ≍ instOfNatNat (Nat.succ 0).succ.succ.succ.succ
+
+case «0».e_3.e_a
+L r : ℝ
+m : SourceMode 2
+⊢ modeCoefficient 2 L m (0 - (r / 2) • directionX) + modeCoefficient 2 L m (0 + (r / 2) • directionX) =
+    I4ModeCurveChains.modeF L m (-r / 2) + I4ModeCurveChains.modeF L m (r / 2)
+
+case «0».e_4.e_2
+L r : ℝ
+m : SourceMode 2
+⊢ 5 = (Nat.succ 0).succ.succ.succ
+
+case «0».e_4.e_3
+L r : ℝ
+m : SourceMode 2
+⊢ ((fderiv ℝ (modeCoefficient 2 L m) (0 - (r / 2) • directionX)) directionX +
+        (fderiv ℝ (modeCoefficient 2 L m) (0 + (r / 2) • directionX)) directionX) /
+      2 =
+    (deriv (I4ModeCurveChains.modeF L m) (-r / 2) + deriv (I4ModeCurveChains.modeF L m) (r / 2)) / 2
+
+case «0».e_4.e_4
+L r : ℝ
+m : SourceMode 2
+⊢ ![((fderiv ℝ (modeCoefficient 2 L m) (0 - (r / 2) • directionX)) directionY +
+          (fderiv ℝ (modeCoefficient 2 L m) (0 + (r / 2) • directionX)) directionY) /
+        2,
+      ∫ (t : ℝ) in -1 / 2..1 / 2,
+        (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) (0 + (r * t) • directionX)) ![directionX, directionX],
+      ∫ (t : ℝ) in -1 / 2..1 / 2,
+        (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) (0 + (r * t) • directionX)) ![directionX, directionY],
+      6 *
+        ∫ (t : ℝ) in -1 / 2..1 / 2,
+          (1 / 4 - t ^ 2) *
+            (iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) (0 + (r * t) • directionX))
+              ![directionX, directionX, directionX],
+      (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) 0) ![directionY, directionY] ] ≍
+    ![(I4ModeCurveChains.modeH L m (-r / 2) + I4ModeCurveChains.modeH L m (r / 2)) / 2,
+      I4WeightedModeIntegrals.weightedDerivativeIntegral L 2 ![directionX, directionX] m (fun x => 1) r,
+      I4WeightedModeIntegrals.weightedDerivativeIntegral L 2 ![directionX, directionY] m (fun x => 1) r,
+      6 *
+        I4WeightedModeIntegrals.weightedDerivativeIntegral L 3 ![directionX, directionX, directionX] m
+          I4SourceConfluentLimits.peanoCubic r]
+
+case «0».e_5
+L r : ℝ
+m : SourceMode 2
+⊢ Fin.castAdd 1 ⟨0, ⋯⟩ ≍ ⟨0, ⋯⟩
+
+case «1».e_2.e_2
+L r : ℝ
+m : SourceMode 2
+⊢ 6 = (Nat.succ 0).succ.succ.succ.succ
+
+case «1».e_2.e_3
+L r : ℝ
+m : SourceMode 2
+⊢ instOfNatNat 6 ≍ instOfNatNat (Nat.succ 0).succ.succ.succ.succ
+
+case «1».e_3.e_a
+L r : ℝ
+m : SourceMode 2
+⊢ modeCoefficient 2 L m (0 - (r / 2) • directionX) + modeCoefficient 2 L m (0 + (r / 2) • directionX) =
+    I4ModeCurveChains.modeF L m (-r / 2) + I4ModeCurveChains.modeF L m (r / 2)
+
+case «1».e_4.e_2
+L r : ℝ
+m : SourceMode 2
+⊢ 5 = (Nat.succ 0).succ.succ.succ
+
+case «1».e_4.e_3
+L r : ℝ
+m : SourceMode 2
+⊢ ((fderiv ℝ (modeCoefficient 2 L m) (0 - (r / 2) • directionX)) directionX +
+        (fderiv ℝ (modeCoefficient 2 L m) (0 + (r / 2) • directionX)) directionX) /
+      2 =
+    (deriv (I4ModeCurveChains.modeF L m) (-r / 2) + deriv (I4ModeCurveChains.modeF L m) (r / 2)) / 2
+
+case «1».e_4.e_4
+L r : ℝ
+m : SourceMode 2
+⊢ ![((fderiv ℝ (modeCoefficient 2 L m) (0 - (r / 2) • directionX)) directionY +
+          (fderiv ℝ (modeCoefficient 2 L m) (0 + (r / 2) • directionX)) directionY) /
+        2,
+      ∫ (t : ℝ) in -1 / 2..1 / 2,
+        (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) (0 + (r * t) • directionX)) ![directionX, directionX],
+      ∫ (t : ℝ) in -1 / 2..1 / 2,
+        (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) (0 + (r * t) • directionX)) ![directionX, directionY],
+      6 *
+        ∫ (t : ℝ) in -1 / 2..1 / 2,
+          (1 / 4 - t ^ 2) *
+            (iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) (0 + (r * t) • directionX))
+              ![directionX, directionX, directionX],
+      (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) 0) ![directionY, directionY] ] ≍
+    ![(I4ModeCurveChains.modeH L m (-r / 2) + I4ModeCurveChains.modeH L m (r / 2)) / 2,
+      I4WeightedModeIntegrals.weightedDerivativeIntegral L 2 ![directionX, directionX] m (fun x => 1) r,
+      I4WeightedModeIntegrals.weightedDerivativeIntegral L 2 ![directionX, directionY] m (fun x => 1) r,
+      6 *
+        I4WeightedModeIntegrals.weightedDerivativeIntegral L 3 ![directionX, directionX, directionX] m
+          I4SourceConfluentLimits.peanoCubic r]
+
+case «1».e_5
+L r : ℝ
+m : SourceMode 2
+⊢ Fin.castAdd 1 ⟨1, ⋯⟩ ≍ ⟨1, ⋯⟩
+
+case «2».e_2.e_2
+L r : ℝ
+m : SourceMode 2
+⊢ 6 = (Nat.succ 0).succ.succ.succ.succ
+
+case «2».e_2.e_3
+L r : ℝ
+m : SourceMode 2
+⊢ instOfNatNat 6 ≍ instOfNatNat (Nat.succ 0).succ.succ.succ.succ
+
+case «2».e_3.e_a
+L r : ℝ
+m : SourceMode 2
+⊢ modeCoefficient 2 L m (0 - (r / 2) • directionX) + modeCoefficient 2 L m (0 + (r / 2) • directionX) =
+    I4ModeCurveChains.modeF L m (-r / 2) + I4ModeCurveChains.modeF L m (r / 2)
+
+case «2».e_4.e_2
+L r : ℝ
+m : SourceMode 2
+⊢ 5 = (Nat.succ 0).succ.succ.succ
+
+case «2».e_4.e_3
+L r : ℝ
+m : SourceMode 2
+⊢ ((fderiv ℝ (modeCoefficient 2 L m) (0 - (r / 2) • directionX)) directionX +
+        (fderiv ℝ (modeCoefficient 2 L m) (0 + (r / 2) • directionX)) directionX) /
+      2 =
+    (deriv (I4ModeCurveChains.modeF L m) (-r / 2) + deriv (I4ModeCurveChains.modeF L m) (r / 2)) / 2
+
+case «2».e_4.e_4
+L r : ℝ
+m : SourceMode 2
+⊢ ![((fderiv ℝ (modeCoefficient 2 L m) (0 - (r / 2) • directionX)) directionY +
+          (fderiv ℝ (modeCoefficient 2 L m) (0 + (r / 2) • directionX)) directionY) /
+        2,
+      ∫ (t : ℝ) in -1 / 2..1 / 2,
+        (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) (0 + (r * t) • directionX)) ![directionX, directionX],
+      ∫ (t : ℝ) in -1 / 2..1 / 2,
+        (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) (0 + (r * t) • directionX)) ![directionX, directionY],
+      6 *
+        ∫ (t : ℝ) in -1 / 2..1 / 2,
+          (1 / 4 - t ^ 2) *
+            (iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) (0 + (r * t) • directionX))
+              ![directionX, directionX, directionX],
+      (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) 0) ![directionY, directionY] ] ≍
+    ![(I4ModeCurveChains.modeH L m (-r / 2) + I4ModeCurveChains.modeH L m (r / 2)) / 2,
+      I4WeightedModeIntegrals.weightedDerivativeIntegral L 2 ![directionX, directionX] m (fun x => 1) r,
+      I4WeightedModeIntegrals.weightedDerivativeIntegral L 2 ![directionX, directionY] m (fun x => 1) r,
+      6 *
+        I4WeightedModeIntegrals.weightedDerivativeIntegral L 3 ![directionX, directionX, directionX] m
+          I4SourceConfluentLimits.peanoCubic r]
+
+case «2».e_5
+L r : ℝ
+m : SourceMode 2
+⊢ Fin.castAdd 1 ⟨2, ⋯⟩ ≍ ⟨2, ⋯⟩
+
+case «3».e_2.e_2
+L r : ℝ
+m : SourceMode 2
+⊢ 6 = (Nat.succ 0).succ.succ.succ.succ
+
+case «3».e_2.e_3
+L r : ℝ
+m : SourceMode 2
+⊢ instOfNatNat 6 ≍ instOfNatNat (Nat.succ 0).succ.succ.succ.succ
+
+case «3».e_3.e_a
+L r : ℝ
+m : SourceMode 2
+⊢ modeCoefficient 2 L m (0 - (r / 2) • directionX) + modeCoefficient 2 L m (0 + (r / 2) • directionX) =
+    I4ModeCurveChains.modeF L m (-r / 2) + I4ModeCurveChains.modeF L m (r / 2)
+
+case «3».e_4.e_2
+L r : ℝ
+m : SourceMode 2
+⊢ 5 = (Nat.succ 0).succ.succ.succ
+
+case «3».e_4.e_3
+L r : ℝ
+m : SourceMode 2
+⊢ ((fderiv ℝ (modeCoefficient 2 L m) (0 - (r / 2) • directionX)) directionX +
+        (fderiv ℝ (modeCoefficient 2 L m) (0 + (r / 2) • directionX)) directionX) /
+      2 =
+    (deriv (I4ModeCurveChains.modeF L m) (-r / 2) + deriv (I4ModeCurveChains.modeF L m) (r / 2)) / 2
+
+case «3».e_4.e_4
+L r : ℝ
+m : SourceMode 2
+⊢ ![((fderiv ℝ (modeCoefficient 2 L m) (0 - (r / 2) • directionX)) directionY +
+          (fderiv ℝ (modeCoefficient 2 L m) (0 + (r / 2) • directionX)) directionY) /
+        2,
+      ∫ (t : ℝ) in -1 / 2..1 / 2,
+        (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) (0 + (r * t) • directionX)) ![directionX, directionX],
+      ∫ (t : ℝ) in -1 / 2..1 / 2,
+        (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) (0 + (r * t) • directionX)) ![directionX, directionY],
+      6 *
+        ∫ (t : ℝ) in -1 / 2..1 / 2,
+          (1 / 4 - t ^ 2) *
+            (iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) (0 + (r * t) • directionX))
+              ![directionX, directionX, directionX],
+      (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) 0) ![directionY, directionY] ] ≍
+    ![(I4ModeCurveChains.modeH L m (-r / 2) + I4ModeCurveChains.modeH L m (r / 2)) / 2,
+      I4WeightedModeIntegrals.weightedDerivativeIntegral L 2 ![directionX, directionX] m (fun x => 1) r,
+      I4WeightedModeIntegrals.weightedDerivativeIntegral L 2 ![directionX, directionY] m (fun x => 1) r,
+      6 *
+        I4WeightedModeIntegrals.weightedDerivativeIntegral L 3 ![directionX, directionX, directionX] m
+          I4SourceConfluentLimits.peanoCubic r]
+
+case «3».e_5
+L r : ℝ
+m : SourceMode 2
+⊢ Fin.castAdd 1 ⟨3, ⋯⟩ ≍ ⟨3, ⋯⟩
+
+case «4».e_2.e_2
+L r : ℝ
+m : SourceMode 2
+⊢ 6 = (Nat.succ 0).succ.succ.succ.succ
+
+case «4».e_2.e_3
+L r : ℝ
+m : SourceMode 2
+⊢ instOfNatNat 6 ≍ instOfNatNat (Nat.succ 0).succ.succ.succ.succ
+
+case «4».e_3.e_a
+L r : ℝ
+m : SourceMode 2
+⊢ modeCoefficient 2 L m (0 - (r / 2) • directionX) + modeCoefficient 2 L m (0 + (r / 2) • directionX) =
+    I4ModeCurveChains.modeF L m (-r / 2) + I4ModeCurveChains.modeF L m (r / 2)
+
+case «4».e_4.e_2
+L r : ℝ
+m : SourceMode 2
+⊢ 5 = (Nat.succ 0).succ.succ.succ
+
+case «4».e_4.e_3
+L r : ℝ
+m : SourceMode 2
+⊢ ((fderiv ℝ (modeCoefficient 2 L m) (0 - (r / 2) • directionX)) directionX +
+        (fderiv ℝ (modeCoefficient 2 L m) (0 + (r / 2) • directionX)) directionX) /
+      2 =
+    (deriv (I4ModeCurveChains.modeF L m) (-r / 2) + deriv (I4ModeCurveChains.modeF L m) (r / 2)) / 2
+
+case «4».e_4.e_4
+L r : ℝ
+m : SourceMode 2
+⊢ ![((fderiv ℝ (modeCoefficient 2 L m) (0 - (r / 2) • directionX)) directionY +
+          (fderiv ℝ (modeCoefficient 2 L m) (0 + (r / 2) • directionX)) directionY) /
+        2,
+      ∫ (t : ℝ) in -1 / 2..1 / 2,
+        (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) (0 + (r * t) • directionX)) ![directionX, directionX],
+      ∫ (t : ℝ) in -1 / 2..1 / 2,
+        (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) (0 + (r * t) • directionX)) ![directionX, directionY],
+      6 *
+        ∫ (t : ℝ) in -1 / 2..1 / 2,
+          (1 / 4 - t ^ 2) *
+            (iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) (0 + (r * t) • directionX))
+              ![directionX, directionX, directionX],
+      (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) 0) ![directionY, directionY] ] ≍
+    ![(I4ModeCurveChains.modeH L m (-r / 2) + I4ModeCurveChains.modeH L m (r / 2)) / 2,
+      I4WeightedModeIntegrals.weightedDerivativeIntegral L 2 ![directionX, directionX] m (fun x => 1) r,
+      I4WeightedModeIntegrals.weightedDerivativeIntegral L 2 ![directionX, directionY] m (fun x => 1) r,
+      6 *
+        I4WeightedModeIntegrals.weightedDerivativeIntegral L 3 ![directionX, directionX, directionX] m
+          I4SourceConfluentLimits.peanoCubic r]
+
+case «4».e_5
+L r : ℝ
+m : SourceMode 2
+⊢ Fin.castAdd 1 ⟨4, ⋯⟩ ≍ ⟨4, ⋯⟩
+
+case «5».e_2.e_2
+L r : ℝ
+m : SourceMode 2
+⊢ 6 = (Nat.succ 0).succ.succ.succ.succ
+
+case «5».e_2.e_3
+L r : ℝ
+m : SourceMode 2
+⊢ instOfNatNat 6 ≍ instOfNatNat (Nat.succ 0).succ.succ.succ.succ
+
+case «5».e_3.e_a
+L r : ℝ
+m : SourceMode 2
+⊢ modeCoefficient 2 L m (0 - (r / 2) • directionX) + modeCoefficient 2 L m (0 + (r / 2) • directionX) =
+    I4ModeCurveChains.modeF L m (-r / 2) + I4ModeCurveChains.modeF L m (r / 2)
+
+case «5».e_4.e_2
+L r : ℝ
+m : SourceMode 2
+⊢ 5 = (Nat.succ 0).succ.succ.succ
+
+case «5».e_4.e_3
+L r : ℝ
+m : SourceMode 2
+⊢ ((fderiv ℝ (modeCoefficient 2 L m) (0 - (r / 2) • directionX)) directionX +
+        (fderiv ℝ (modeCoefficient 2 L m) (0 + (r / 2) • directionX)) directionX) /
+      2 =
+    (deriv (I4ModeCurveChains.modeF L m) (-r / 2) + deriv (I4ModeCurveChains.modeF L m) (r / 2)) / 2
+
+case «5».e_4.e_4
+L r : ℝ
+m : SourceMode 2
+⊢ ![((fderiv ℝ (modeCoefficient 2 L m) (0 - (r / 2) • directionX)) directionY +
+          (fderiv ℝ (modeCoefficient 2 L m) (0 + (r / 2) • directionX)) directionY) /
+        2,
+      ∫ (t : ℝ) in -1 / 2..1 / 2,
+        (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) (0 + (r * t) • directionX)) ![directionX, directionX],
+      ∫ (t : ℝ) in -1 / 2..1 / 2,
+        (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) (0 + (r * t) • directionX)) ![directionX, directionY],
+      6 *
+        ∫ (t : ℝ) in -1 / 2..1 / 2,
+          (1 / 4 - t ^ 2) *
+            (iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) (0 + (r * t) • directionX))
+              ![directionX, directionX, directionX],
+      (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) 0) ![directionY, directionY] ] ≍
+    ![(I4ModeCurveChains.modeH L m (-r / 2) + I4ModeCurveChains.modeH L m (r / 2)) / 2,
+      I4WeightedModeIntegrals.weightedDerivativeIntegral L 2 ![directionX, directionX] m (fun x => 1) r,
+      I4WeightedModeIntegrals.weightedDerivativeIntegral L 2 ![directionX, directionY] m (fun x => 1) r,
+      6 *
+        I4WeightedModeIntegrals.weightedDerivativeIntegral L 3 ![directionX, directionX, directionX] m
+          I4SourceConfluentLimits.peanoCubic r]
+
+case «5».e_5
+L r : ℝ
+m : SourceMode 2
+⊢ Fin.castAdd 1 ⟨5, ⋯⟩ ≍ ⟨5, ⋯⟩
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:64:42: error: This simp argument is unused:
+  I4SourceConfluentLimits.peanoCubic
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [rows, I4SourceConfluentLimits.regularizedPinCoefficient,
+    I4SourceConfluentLimits.weightedDerivativeIntegral, I4SourceConfluentLimits.modeF, I4SourceConfluentLimits.modeH,
+    I4SourceConfluentLimits.modeF_deriv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:74:47: error: unexpected token ']]'; expected ']'
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:75:61: error: unsolved goals
+case «0».«0»
+⊢ ‖!₂[3 / 5, 4 / 5]‖ = 1 ∨ ‖!₂[3 / 5, 4 / 5]‖ = -1
+
+case «1».«1»
+⊢ ‖!₂[-(4 / 5), 3 / 5]‖ = 1 ∨ ‖!₂[-(4 / 5), 3 / 5]‖ = -1
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:91:26: error: This simp argument is unused:
+  R.inner_eq_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [reflectedFamily, R.inner_eq_zero (show (0 : Fin 2) ≠ 1 by decide),
+    R.inner_eq_zero (show (1 : Fin 2) ≠ 0 by decide)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:104:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  (T fun i => ![1, -1] i • ![e, n] i) = -T ![e, n]
+but is expected to have type
+  T ![e, -n] = -T ![e, n]
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:108:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  (T fun i => -![n, n] i) = T ![n, n]
+but is expected to have type
+  T ![-n, -n] = T ![n, n]
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:118:2: error: unsolved goals
+case «2»
+L : ℝ
+z : E 2
+R : OrthonormalBasis (Fin 2) ℝ (E 2)
+r : ℝ
+m : SourceMode 2
+⊢ ![modeCoefficient 2 L m ((coordinates 2) z - (r * (1 / 2)) • (coordinates 2) (R 0)) * (1 / 2) +
+          modeCoefficient 2 L m ((coordinates 2) z + (r * (1 / 2)) • (coordinates 2) (R 0)) * (1 / 2),
+        (fderiv ℝ (modeCoefficient 2 L m) ((coordinates 2) z - (r * (1 / 2)) • (coordinates 2) (R 0)))
+              ((coordinates 2) (R 0)) *
+            (1 / 2) +
+          (fderiv ℝ (modeCoefficient 2 L m) ((coordinates 2) z + (r * (1 / 2)) • (coordinates 2) (R 0)))
+              ((coordinates 2) (R 0)) *
+            (1 / 2),
+        (fderiv ℝ (modeCoefficient 2 L m) ((coordinates 2) z - (r * (1 / 2)) • (coordinates 2) (R 0)))
+              ((coordinates 2) (R 1)) *
+            (-1 / 2) +
+          (fderiv ℝ (modeCoefficient 2 L m) ((coordinates 2) z + (r * (1 / 2)) • (coordinates 2) (R 0)))
+              ((coordinates 2) (R 1)) *
+            (-1 / 2),
+        ∫ (t : ℝ) in -1 / 2..1 / 2,
+          (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ((coordinates 2) z + (r * t) • (coordinates 2) (R 0)))
+            ![(coordinates 2) (R 0), (coordinates 2) (R 0)],
+        ∫ (t : ℝ) in -1 / 2..1 / 2,
+          (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ((coordinates 2) z + (r * t) • (coordinates 2) (R 0)))
+            ![(coordinates 2) (R 0), -(coordinates 2) (R 1)],
+        (∫ (t : ℝ) in -1 / 2..1 / 2,
+            -(t ^ 2 *
+                  (iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) ((coordinates 2) z + (r * t) • (coordinates 2) (R 0)))
+                    ![(coordinates 2) (R 0), (coordinates 2) (R 0), (coordinates 2) (R 0)]) +
+              (iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) ((coordinates 2) z + (r * t) • (coordinates 2) (R 0)))
+                  ![(coordinates 2) (R 0), (coordinates 2) (R 0), (coordinates 2) (R 0)] *
+                (1 / 4)) *
+          6,
+        (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ((coordinates 2) z))
+          ![-(coordinates 2) (R 1), -(coordinates 2) (R 1)] ]
+      ⟨2, ⋯⟩ =
+    ![1, 1, -1, 1, -1, 1, 1] ⟨2, ⋯⟩ *
+      ![modeCoefficient 2 L m ((coordinates 2) z - (r * (1 / 2)) • (coordinates 2) (R 0)) * (1 / 2) +
+            modeCoefficient 2 L m ((coordinates 2) z + (r * (1 / 2)) • (coordinates 2) (R 0)) * (1 / 2),
+          (fderiv ℝ (modeCoefficient 2 L m) ((coordinates 2) z - (r * (1 / 2)) • (coordinates 2) (R 0)))
+                ((coordinates 2) (R 0)) *
+              (1 / 2) +
+            (fderiv ℝ (modeCoefficient 2 L m) ((coordinates 2) z + (r * (1 / 2)) • (coordinates 2) (R 0)))
+                ((coordinates 2) (R 0)) *
+              (1 / 2),
+          (fderiv ℝ (modeCoefficient 2 L m) ((coordinates 2) z - (r * (1 / 2)) • (coordinates 2) (R 0)))
+                ((coordinates 2) (R 1)) *
+              (1 / 2) +
+            (fderiv ℝ (modeCoefficient 2 L m) ((coordinates 2) z + (r * (1 / 2)) • (coordinates 2) (R 0)))
+                ((coordinates 2) (R 1)) *
+              (1 / 2),
+          ∫ (t : ℝ) in -1 / 2..1 / 2,
+            (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ((coordinates 2) z + (r * t) • (coordinates 2) (R 0)))
+              ![(coordinates 2) (R 0), (coordinates 2) (R 0)],
+          ∫ (t : ℝ) in -1 / 2..1 / 2,
+            (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ((coordinates 2) z + (r * t) • (coordinates 2) (R 0)))
+              ![(coordinates 2) (R 0), (coordinates 2) (R 1)],
+          (∫ (t : ℝ) in -1 / 2..1 / 2,
+              -(t ^ 2 *
+                    (iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) ((coordinates 2) z + (r * t) • (coordinates 2) (R 0)))
+                      ![(coordinates 2) (R 0), (coordinates 2) (R 0), (coordinates 2) (R 0)]) +
+                (iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) ((coordinates 2) z + (r * t) • (coordinates 2) (R 0)))
+                    ![(coordinates 2) (R 0), (coordinates 2) (R 0), (coordinates 2) (R 0)] *
+                  (1 / 4)) *
+            6,
+          (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ((coordinates 2) z))
+            ![(coordinates 2) (R 1), (coordinates 2) (R 1)] ]
+        ⟨2, ⋯⟩
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:131:4: error: Type mismatch: After simplification, term
+  second_neg_both (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ((coordinates 2) z)) ((coordinates 2) (R 1))
+ has type
+  (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ((coordinates 2) z)) ![-(coordinates 2) (R 1), -(coordinates 2) (R 1)] =
+    (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ((coordinates 2) z)) ![(coordinates 2) (R 1), (coordinates 2) (R 1)]
+but is expected to have type
+  ![(modeCoefficient 2 L m ((coordinates 2) z - (r / 2) • (coordinates 2) (R 0)) +
+            modeCoefficient 2 L m ((coordinates 2) z + (r / 2) • (coordinates 2) (R 0))) /
+          2,
+        ((fderiv ℝ (modeCoefficient 2 L m) ((coordinates 2) z - (r / 2) • (coordinates 2) (R 0)))
+              ((coordinates 2) (R 0)) +
+            (fderiv ℝ (modeCoefficient 2 L m) ((coordinates 2) z + (r / 2) • (coordinates 2) (R 0)))
+              ((coordinates 2) (R 0))) /
+          2,
+        ((fderiv ℝ (modeCoefficient 2 L m) ((coordinates 2) z - (r / 2) • (coordinates 2) (R 0)))
+              (-(coordinates 2) (R 1)) +
+            (fderiv ℝ (modeCoefficient 2 L m) ((coordinates 2) z + (r / 2) • (coordinates 2) (R 0)))
+              (-(coordinates 2) (R 1))) /
+          2,
+        ∫ (t : ℝ) in -1 / 2..1 / 2,
+          (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ((coordinates 2) z + (r * t) • (coordinates 2) (R 0)))
+            ![(coordinates 2) (R 0), (coordinates 2) (R 0)],
+        ∫ (t : ℝ) in -1 / 2..1 / 2,
+          (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ((coordinates 2) z + (r * t) • (coordinates 2) (R 0)))
+            ![(coordinates 2) (R 0), -(coordinates 2) (R 1)],
+        6 *
+          ∫ (t : ℝ) in -1 / 2..1 / 2,
+            (1 / 4 - t ^ 2) *
+              (iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) ((coordinates 2) z + (r * t) • (coordinates 2) (R 0)))
+                ![(coordinates 2) (R 0), (coordinates 2) (R 0), (coordinates 2) (R 0)],
+        (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ((coordinates 2) z))
+          ![-(coordinates 2) (R 1), -(coordinates 2) (R 1)] ]
+      ⟨6, ⋯⟩ =
+    ![1, 1, -1, 1, -1, 1, 1] ⟨6, ⋯⟩ *
+      ![(modeCoefficient 2 L m ((coordinates 2) z - (r / 2) • (coordinates 2) (R 0)) +
+              modeCoefficient 2 L m ((coordinates 2) z + (r / 2) • (coordinates 2) (R 0))) /
+            2,
+          ((fderiv ℝ (modeCoefficient 2 L m) ((coordinates 2) z - (r / 2) • (coordinates 2) (R 0)))
+                ((coordinates 2) (R 0)) +
+              (fderiv ℝ (modeCoefficient 2 L m) ((coordinates 2) z + (r / 2) • (coordinates 2) (R 0)))
+                ((coordinates 2) (R 0))) /
+            2,
+          ((fderiv ℝ (modeCoefficient 2 L m) ((coordinates 2) z - (r / 2) • (coordinates 2) (R 0)))
+                ((coordinates 2) (R 1)) +
+              (fderiv ℝ (modeCoefficient 2 L m) ((coordinates 2) z + (r / 2) • (coordinates 2) (R 0)))
+                ((coordinates 2) (R 1))) /
+            2,
+          ∫ (t : ℝ) in -1 / 2..1 / 2,
+            (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ((coordinates 2) z + (r * t) • (coordinates 2) (R 0)))
+              ![(coordinates 2) (R 0), (coordinates 2) (R 0)],
+          ∫ (t : ℝ) in -1 / 2..1 / 2,
+            (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ((coordinates 2) z + (r * t) • (coordinates 2) (R 0)))
+              ![(coordinates 2) (R 0), (coordinates 2) (R 1)],
+          6 *
+            ∫ (t : ℝ) in -1 / 2..1 / 2,
+              (1 / 4 - t ^ 2) *
+                (iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) ((coordinates 2) z + (r * t) • (coordinates 2) (R 0)))
+                  ![(coordinates 2) (R 0), (coordinates 2) (R 0), (coordinates 2) (R 0)],
+          (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) ((coordinates 2) z))
+            ![(coordinates 2) (R 1), (coordinates 2) (R 1)] ]
+        ⟨6, ⋯⟩
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:162:19: error: Application type mismatch: The argument
+  h.right.right.right.right ?m.463 ω
+has type
+  (fun i => framedConfluentVector (-2) midpoint ratFrame (-1 / 3) ω (Fin.castAdd 1 i)) =
+    confluentTransform (-1 / 3)
+      ![actualField 2 (-2) ω (midpoint - (-(1 : ℝ) / 3 / 2) • ratFrame 0),
+        actualField 2 (-2) ω (midpoint + (-1 / 3 / 2) • ratFrame 0),
+        (fderiv ℝ (actualField 2 (-2) ω) (midpoint - (-1 / 3 / 2) • ratFrame 0)) (ratFrame 0),
+        (fderiv ℝ (actualField 2 (-2) ω) (midpoint + (-1 / 3 / 2) • ratFrame 0)) (ratFrame 0),
+        (fderiv ℝ (actualField 2 (-2) ω) (midpoint - (-1 / 3 / 2) • ratFrame 0)) (ratFrame 1),
+        (fderiv ℝ (actualField 2 (-2) ω) (midpoint + (-1 / 3 / 2) • ratFrame 0)) (ratFrame 1)]
+but is expected to have type
+  (fun i => framedConfluentVector (-2) midpoint ratFrame (-1 / 3) ω (Fin.castAdd 1 i)) =
+    confluentTransform (-1 / 3)
+      ![actualField 2 (-2) ω (midpoint - (-(1 : ℤ) / 3 / 2) • ratFrame 0),
+        actualField 2 (-2) ω (midpoint + (-1 / 3 / 2) • ratFrame 0),
+        (fderiv ℝ (actualField 2 (-2) ω) (midpoint - (-1 / 3 / 2) • ratFrame 0)) (ratFrame 0),
+        (fderiv ℝ (actualField 2 (-2) ω) (midpoint + (-1 / 3 / 2) • ratFrame 0)) (ratFrame 0),
+        (fderiv ℝ (actualField 2 (-2) ω) (midpoint - (-1 / 3 / 2) • ratFrame 0)) (ratFrame 1),
+        (fderiv ℝ (actualField 2 (-2) ω) (midpoint + (-1 / 3 / 2) • ratFrame 0)) (ratFrame 1)]
+in the application
+  ⟨h.right.left, h.right.right.right.right ?m.463 ω⟩
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:201:51: error: unsolved goals
+y : Fin 2 → ℝ
+⊢ (List.map
+        (fun t =>
+          t.coeff * Real.cos (sourceC 2 * ↑(t.frequency 0) * y 0 + sourceC 2 * ↑(t.frequency 1) * y 1 + t.offset))
+        (scale Real.pi⁻¹ [{ coeff := 1, frequency := ![1, 0], offset := -(Real.pi * 2⁻¹) }])).sum =
+    Real.sin (Real.pi * y 0) * Real.pi⁻¹
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:202:17: error: This simp argument is unused:
+  eval_scale
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sineBase, eval, termEval, phase, Fin.sum_univ_two, localGerm, ← sub_eq_add_neg, Real.cos_sub_pi_div_two,
+    div_eq_mul_inv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:203:14: error: This simp argument is unused:
+  ← sub_eq_add_neg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sineBase, eval_scale, eval, termEval, phase, Fin.sum_univ_two, localGerm, Real.cos_sub_pi_div_two,
+    div_eq_mul_inv]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:203:31: error: This simp argument is unused:
+  Real.cos_sub_pi_div_two
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sineBase, eval_scale, eval, termEval, phase, Fin.sum_univ_two, localGerm, ← sub_eq_add_neg,
+    div_eq_mul_inv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:206:66: error: unsolved goals
+y : Fin 2 → ℝ
+⊢ ![1, Real.sin (Real.pi * y 0) * Real.pi⁻¹, Real.pi⁻¹ * Real.sin (Real.pi * y 1),
+            Real.pi⁻¹ ^ 2 - Real.pi⁻¹ ^ 2 * Real.cos (Real.pi * y 0),
+            Real.sin (Real.pi * y 0) * Real.pi⁻¹ ^ 2 * Real.sin (Real.pi * y 1),
+            Real.pi⁻¹ ^ 2 - Real.pi⁻¹ ^ 2 * Real.cos (Real.pi * y 1)]
+          1 ^
+        3 *
+      (1 / 6) =
+    Real.sin (Real.pi * y 0) ^ 3 * Real.pi⁻¹ ^ 3 * (1 / 6)
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:241:4: error: Type mismatch: After simplification, term
+  HasDerivAt.deriv (HasDerivAt.sin (HasDerivAt.const_mul c (hasDerivAt_id t)))
+ has type
+  deriv (fun x => Real.sin (c * id x)) t = c * 1 * Real.cos (c * id t)
+but is expected to have type
+  deriv (fun t => Real.sin (c * t)) t = c * Real.cos (c * t)
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:242:86: error: unsolved goals
+case e'_2
+c : ℝ
+h1 : (deriv fun t => Real.sin (c * t)) = fun t => c * Real.cos (c * t)
+t : ℝ
+⊢ deriv (fun t => c * Real.cos (c * t)) t = deriv (fun y => c * Real.cos (c * id y)) t
+
+case e'_3
+c : ℝ
+h1 : (deriv fun t => Real.sin (c * t)) = fun t => c * Real.cos (c * t)
+t : ℝ
+⊢ -(c ^ 2 * Real.sin (c * t)) = -(c ^ 2 * Real.sin (c * id t))
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:245:91: error: unsolved goals
+case e'_2
+c : ℝ
+h1 : (deriv fun t => Real.sin (c * t)) = fun t => c * Real.cos (c * t)
+h2 : (deriv fun t => c * Real.cos (c * t)) = fun t => -c ^ 2 * Real.sin (c * t)
+t : ℝ
+⊢ deriv (fun t => -(c ^ 2 * Real.sin (c * t))) t = deriv (fun y => -(c ^ 2 * Real.sin (c * id y))) t
+
+case e'_3
+c : ℝ
+h1 : (deriv fun t => Real.sin (c * t)) = fun t => c * Real.cos (c * t)
+h2 : (deriv fun t => c * Real.cos (c * t)) = fun t => -c ^ 2 * Real.sin (c * t)
+t : ℝ
+⊢ -(c ^ 3 * Real.cos (c * t)) = -(c ^ 3 * Real.cos (c * id t))
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:266:14: error(lean.unknownIdentifier): Unknown identifier `I4SourceConfluentLimits.axis_iteratedDeriv`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:251:86: error: unsolved goals
+he :
+  (fun t => eval 2 sineCube ![t, 0]) = fun t =>
+    (24 * Real.pi ^ 3)⁻¹ * (3 * Real.sin (Real.pi * t) - Real.sin (3 * Real.pi * t))
+hscalar : iteratedDeriv 3 (fun t => eval 2 sineCube ![t, 0]) 0 = 1
+⊢ (iteratedFDeriv ℝ 3 (eval 2 sineCube) 0) ![directionX, directionX, directionX] = 1
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:283:4: error: Type mismatch: After simplification, term
+  toSource_derivative
+    (Mathlib.Meta.NormNum.isNat_eq_false (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2))
+      (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero) (Eq.refl false))
+    sineCube 1 0 fun x => directionX
+ has type
+  @Eq ℝ (finitePairing (derivativeCoefficient 2 2 1 0 fun x => directionX) (toSource 2 sineCube))
+    ((fderiv ℝ (eval 2 sineCube) 0) directionX)
+but is expected to have type
+  @Eq ℝ (finitePairing (derivativeCoefficient 2 2 1 0 fun x => directionX) finiteDirection)
+    (![eval 2 sineCube 0, (fderiv ℝ (eval 2 sineCube) 0) directionX, (fderiv ℝ (eval 2 sineCube) 0) directionY,
+        (iteratedFDeriv ℝ 2 (eval 2 sineCube) 0) ![directionX, directionX],
+        (iteratedFDeriv ℝ 2 (eval 2 sineCube) 0) ![directionX, directionY],
+        (iteratedFDeriv ℝ 2 (eval 2 sineCube) 0) ![directionY, directionY] ]
+      ⟨1, ⋯⟩)
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:289:4: error: Type mismatch: After simplification, term
+  toSource_derivative
+    (Mathlib.Meta.NormNum.isNat_eq_false (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2))
+      (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero) (Eq.refl false))
+    sineCube 1 0 fun x => directionY
+ has type
+  @Eq ℝ (finitePairing (derivativeCoefficient 2 2 1 0 fun x => directionY) (toSource 2 sineCube))
+    ((fderiv ℝ (eval 2 sineCube) 0) directionY)
+but is expected to have type
+  @Eq ℝ (finitePairing (derivativeCoefficient 2 2 1 0 fun x => directionY) finiteDirection)
+    (![eval 2 sineCube 0, (fderiv ℝ (eval 2 sineCube) 0) directionX, (fderiv ℝ (eval 2 sineCube) 0) directionY,
+        (iteratedFDeriv ℝ 2 (eval 2 sineCube) 0) ![directionX, directionX],
+        (iteratedFDeriv ℝ 2 (eval 2 sineCube) 0) ![directionX, directionY],
+        (iteratedFDeriv ℝ 2 (eval 2 sineCube) 0) ![directionY, directionY] ]
+      ⟨2, ⋯⟩)
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:304:4: error: Type mismatch: After simplification, term
+  rfl
+ has type
+  True
+but is expected to have type
+  ![modeCoefficient 2 2 m 0, (fderiv ℝ (modeCoefficient 2 2 m) 0) directionX,
+        (fderiv ℝ (modeCoefficient 2 2 m) 0) directionY,
+        (iteratedFDeriv ℝ 2 (modeCoefficient 2 2 m) 0) ![directionX, directionX],
+        (iteratedFDeriv ℝ 2 (modeCoefficient 2 2 m) 0) ![directionX, directionY],
+        (iteratedFDeriv ℝ 3 (modeCoefficient 2 2 m) 0) ![directionX, directionX, directionX],
+        (iteratedFDeriv ℝ 2 (modeCoefficient 2 2 m) 0) ![directionY, directionY] ]
+      5 =
+    derivativeCoefficient 2 2 3 0 ![directionX, directionX, directionX] m

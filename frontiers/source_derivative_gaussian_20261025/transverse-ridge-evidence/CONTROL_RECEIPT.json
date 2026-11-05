@@ -1,0 +1,23 @@
+{
+  "positive": {
+    "source": "Controls.lean",
+    "run": "controls-003",
+    "exit_code": 0,
+    "content": "Actual V(x,y)=xy-y\u00b2/2, x\u2208[-1/2,1/2], y\u2208[-1,1]. Applies exists_unique_c2_transverse_ridge_with_jets with M0=1/2,M1=1,M2=0,c=1. Constructed ridge equals x on U, full derivatives at both endpoints equal1, second derivative at0 equals0, |z|\u22641/2."
+  },
+  "substantive_negative": {
+    "source": "BoundarySignControl.lean",
+    "run": "boundary-control-001",
+    "exit_code": 0,
+    "content": "Actual C4 V=3y-y\u00b2/2 has Gy=-1 globally, positive lower boundary, positive upper boundary2, and no root in[-1,1]."
+  },
+  "false_rejection": {
+    "source": "FalseNoBoundarySigns.lean",
+    "run": "false-control-001",
+    "expected_exit": 1,
+    "actual_exit": 1,
+    "content": "False strip-root witness y=3 rejected by the interval side-condition, reducing to False. Actual zero equation holds; demonstrates strict negative Gy alone is insufficient."
+  },
+  "not_kernel_replayed": "Controls are elaborated only. The sole named kernel replay is for production AdaptiveFoldTransverseRidge.",
+  "source_unchanged_through_controls": true
+}

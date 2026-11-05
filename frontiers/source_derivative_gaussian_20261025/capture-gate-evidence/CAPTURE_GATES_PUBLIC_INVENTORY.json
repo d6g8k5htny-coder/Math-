@@ -1,0 +1,465 @@
+{
+  "scope_id": "SOURCE_QUARTIC_CAPTURE_ALGEBRA_ONLY_20261026",
+  "module": "SourceQuarticCaptureAlgebra",
+  "public_proof_count": 28,
+  "public_definition_count": 6,
+  "named_instance_count": 0,
+  "public_declaration_total": 34,
+  "public_proofs": [
+    {
+      "name": "I4QuarticCaptureAlgebra.rawRadius_one_le",
+      "source_spelling": "rawRadius_one_le",
+      "kind": "theorem",
+      "private": false,
+      "source_line": 29,
+      "direct_print_axioms_report": "raw/production/audit01.log",
+      "axioms_from_completed_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "registration_proof_target": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.rawRadius_pos",
+      "source_spelling": "rawRadius_pos",
+      "kind": "theorem",
+      "private": false,
+      "source_line": 34,
+      "direct_print_axioms_report": "raw/production/audit01.log",
+      "axioms_from_completed_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "registration_proof_target": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.rawRadius_sum_abs_eq",
+      "source_spelling": "rawRadius_sum_abs_eq",
+      "kind": "theorem",
+      "private": false,
+      "source_line": 37,
+      "direct_print_axioms_report": "raw/production/audit01.log",
+      "axioms_from_completed_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "registration_proof_target": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.rawRadius_coord_abs_le_sub_one",
+      "source_spelling": "rawRadius_coord_abs_le_sub_one",
+      "kind": "theorem",
+      "private": false,
+      "source_line": 41,
+      "direct_print_axioms_report": "raw/production/audit01.log",
+      "axioms_from_completed_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "registration_proof_target": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.rawRadius_coord_abs_le",
+      "source_spelling": "rawRadius_coord_abs_le",
+      "kind": "theorem",
+      "private": false,
+      "source_line": 47,
+      "direct_print_axioms_report": "raw/production/audit01.log",
+      "axioms_from_completed_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "registration_proof_target": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.captureWidth_pos",
+      "source_spelling": "captureWidth_pos",
+      "kind": "theorem",
+      "private": false,
+      "source_line": 50,
+      "direct_print_axioms_report": "raw/production/audit01.log",
+      "axioms_from_completed_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "registration_proof_target": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.captureFstar_le_radius",
+      "source_spelling": "captureFstar_le_radius",
+      "kind": "theorem",
+      "private": false,
+      "source_line": 53,
+      "direct_print_axioms_report": "raw/production/audit01.log",
+      "axioms_from_completed_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "registration_proof_target": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.captureWidth_radius_le",
+      "source_spelling": "captureWidth_radius_le",
+      "kind": "theorem",
+      "private": false,
+      "source_line": 62,
+      "direct_print_axioms_report": "raw/production/audit01.log",
+      "axioms_from_completed_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "registration_proof_target": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.captureWidth_le",
+      "source_spelling": "captureWidth_le",
+      "kind": "theorem",
+      "private": false,
+      "source_line": 80,
+      "direct_print_axioms_report": "raw/production/audit01.log",
+      "axioms_from_completed_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "registration_proof_target": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.captureWidth_le_one_sixteenth",
+      "source_spelling": "captureWidth_le_one_sixteenth",
+      "kind": "theorem",
+      "private": false,
+      "source_line": 84,
+      "direct_print_axioms_report": "raw/production/audit01.log",
+      "axioms_from_completed_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "registration_proof_target": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.captureWidth_radius_le_one_sixtyfourth",
+      "source_spelling": "captureWidth_radius_le_one_sixtyfourth",
+      "kind": "theorem",
+      "private": false,
+      "source_line": 88,
+      "direct_print_axioms_report": "raw/production/audit01.log",
+      "axioms_from_completed_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "registration_proof_target": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.capture_r_le_width",
+      "source_spelling": "capture_r_le_width",
+      "kind": "theorem",
+      "private": false,
+      "source_line": 92,
+      "direct_print_axioms_report": "raw/production/audit01.log",
+      "axioms_from_completed_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "registration_proof_target": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.captureSigma_pos",
+      "source_spelling": "captureSigma_pos",
+      "kind": "theorem",
+      "private": false,
+      "source_line": 107,
+      "direct_print_axioms_report": "raw/production/audit01.log",
+      "axioms_from_completed_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "registration_proof_target": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.captureSigma_le",
+      "source_spelling": "captureSigma_le",
+      "kind": "theorem",
+      "private": false,
+      "source_line": 112,
+      "direct_print_axioms_report": "raw/production/audit01.log",
+      "axioms_from_completed_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "registration_proof_target": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.four_captureWidth_le_captureSigma",
+      "source_spelling": "four_captureWidth_le_captureSigma",
+      "kind": "theorem",
+      "private": false,
+      "source_line": 117,
+      "direct_print_axioms_report": "raw/production/audit01.log",
+      "axioms_from_completed_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "registration_proof_target": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.quartic_transverse_forcing_bound",
+      "source_spelling": "quartic_transverse_forcing_bound",
+      "kind": "theorem",
+      "private": false,
+      "source_line": 182,
+      "direct_print_axioms_report": "raw/production/audit01.log",
+      "axioms_from_completed_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "registration_proof_target": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.quartic_transverse_remainder_bound",
+      "source_spelling": "quartic_transverse_remainder_bound",
+      "kind": "theorem",
+      "private": false,
+      "source_line": 207,
+      "direct_print_axioms_report": "raw/production/audit01.log",
+      "axioms_from_completed_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "registration_proof_target": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.quartic_axial_remainder_bound",
+      "source_spelling": "quartic_axial_remainder_bound",
+      "kind": "theorem",
+      "private": false,
+      "source_line": 245,
+      "direct_print_axioms_report": "raw/production/audit01.log",
+      "axioms_from_completed_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "registration_proof_target": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.quartic_strip_upper",
+      "source_spelling": "quartic_strip_upper",
+      "kind": "theorem",
+      "private": false,
+      "source_line": 308,
+      "direct_print_axioms_report": "raw/production/audit01.log",
+      "axioms_from_completed_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "registration_proof_target": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.quartic_strip_lower",
+      "source_spelling": "quartic_strip_lower",
+      "kind": "theorem",
+      "private": false,
+      "source_line": 329,
+      "direct_print_axioms_report": "raw/production/audit01.log",
+      "axioms_from_completed_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "registration_proof_target": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.quartic_central_transit",
+      "source_spelling": "quartic_central_transit",
+      "kind": "theorem",
+      "private": false,
+      "source_line": 350,
+      "direct_print_axioms_report": "raw/production/audit01.log",
+      "axioms_from_completed_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "registration_proof_target": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.euclidean_component_error_le",
+      "source_spelling": "euclidean_component_error_le",
+      "kind": "theorem",
+      "private": false,
+      "source_line": 380,
+      "direct_print_axioms_report": "raw/production/audit01.log",
+      "axioms_from_completed_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "registration_proof_target": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.capture_strip_in_ball_two",
+      "source_spelling": "capture_strip_in_ball_two",
+      "kind": "theorem",
+      "private": false,
+      "source_line": 386,
+      "direct_print_axioms_report": "raw/production/audit01.log",
+      "axioms_from_completed_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "registration_proof_target": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.source_component_error_le",
+      "source_spelling": "source_component_error_le",
+      "kind": "theorem",
+      "private": false,
+      "source_line": 392,
+      "direct_print_axioms_report": "raw/production/audit01.log",
+      "axioms_from_completed_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "registration_proof_target": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.source_actual_strip_gates",
+      "source_spelling": "source_actual_strip_gates",
+      "kind": "theorem",
+      "private": false,
+      "source_line": 421,
+      "direct_print_axioms_report": "raw/production/audit01.log",
+      "axioms_from_completed_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "registration_proof_target": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.source_actual_central_gate",
+      "source_spelling": "source_actual_central_gate",
+      "kind": "theorem",
+      "private": false,
+      "source_line": 450,
+      "direct_print_axioms_report": "raw/production/audit01.log",
+      "axioms_from_completed_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "registration_proof_target": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.source_actual_gates_estimates",
+      "source_spelling": "source_actual_gates_estimates",
+      "kind": "theorem",
+      "private": false,
+      "source_line": 468,
+      "direct_print_axioms_report": "raw/production/audit01.log",
+      "axioms_from_completed_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "registration_proof_target": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.source_actual_weighted_gates_estimates",
+      "source_spelling": "source_actual_weighted_gates_estimates",
+      "kind": "theorem",
+      "private": false,
+      "source_line": 484,
+      "direct_print_axioms_report": "raw/production/audit01.log",
+      "axioms_from_completed_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "registration_proof_target": true
+    }
+  ],
+  "definitions": [
+    {
+      "name": "I4QuarticCaptureAlgebra.rawRadius",
+      "source_spelling": "rawRadius",
+      "kind": "def",
+      "private": false,
+      "source_line": 20,
+      "registration_proof_target": false,
+      "direct_proof_audit_claimed": false,
+      "kernel_covered_as_new_module_declaration": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.regular",
+      "source_spelling": "regular",
+      "kind": "def",
+      "private": false,
+      "source_line": 22,
+      "registration_proof_target": false,
+      "direct_proof_audit_claimed": false,
+      "kernel_covered_as_new_module_declaration": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.captureWidth",
+      "source_spelling": "captureWidth",
+      "kind": "def",
+      "private": false,
+      "source_line": 25,
+      "registration_proof_target": false,
+      "direct_proof_audit_claimed": false,
+      "kernel_covered_as_new_module_declaration": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.captureSigma",
+      "source_spelling": "captureSigma",
+      "kind": "def",
+      "private": false,
+      "source_line": 27,
+      "registration_proof_target": false,
+      "direct_proof_audit_claimed": false,
+      "kernel_covered_as_new_module_declaration": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.sourceStripGates",
+      "source_spelling": "sourceStripGates",
+      "kind": "def",
+      "private": false,
+      "source_line": 407,
+      "registration_proof_target": false,
+      "direct_proof_audit_claimed": false,
+      "kernel_covered_as_new_module_declaration": true
+    },
+    {
+      "name": "I4QuarticCaptureAlgebra.sourceCentralGate",
+      "source_spelling": "sourceCentralGate",
+      "kind": "def",
+      "private": false,
+      "source_line": 413,
+      "registration_proof_target": false,
+      "direct_proof_audit_claimed": false,
+      "kernel_covered_as_new_module_declaration": true
+    }
+  ],
+  "count_rule": "28 public theorem proof targets; six defs recorded separately, including two Prop-valued definitions. No type/def inflation."
+}

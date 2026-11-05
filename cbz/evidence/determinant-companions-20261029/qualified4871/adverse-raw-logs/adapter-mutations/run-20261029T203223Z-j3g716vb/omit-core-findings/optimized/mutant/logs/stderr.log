@@ -1,0 +1,15 @@
+test_forbidden_axiom_behind_non_target_cannot_be_filtered (test_determinant_inventory.DeterminantPolicyTests.test_forbidden_axiom_behind_non_target_cannot_be_filtered) ... FAIL
+
+======================================================================
+FAIL: test_forbidden_axiom_behind_non_target_cannot_be_filtered (test_determinant_inventory.DeterminantPolicyTests.test_forbidden_axiom_behind_non_target_cannot_be_filtered)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py", line 23, in wrapped
+    return _original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: InventoryRejected not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.027s
+
+FAILED (failures=1)

@@ -1,0 +1,28 @@
+/workspace/scratch/actual-source-lower-separation-construct/ActualLowerSeparationControls.lean:53:48: error: This simp argument is unused:
+  Pi.zero_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [finiteShiftSample_val, zeroSample, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/actual-source-lower-separation-construct/ActualLowerSeparationControls.lean:78:48: error(lean.unknownIdentifier): Unknown identifier `sourceC`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/scratch/actual-source-lower-separation-construct/ActualLowerSeparationControls.lean:74:75: error: unsolved goals
+x : Fin 2 → ℝ
+htwo : Real.pi * 2 * x 0 = 2 * (Real.pi * x 0)
+hthree : Real.pi * 3 * x 0 = 3 * (Real.pi * x 0)
+⊢ Real.cos (I4Weights.sourceC 2 * x 0 * 2) + Real.cos (I4Weights.sourceC 2 * x 0 * 3) * (1 / 16) +
+              Real.cos (I4Weights.sourceC 2 * x 0 * 3) * Real.cos (Real.pi * (-1 / 2)) * (1 / 32) +
+            Real.cos (I4Weights.sourceC 2 * x 0) * (3 / 16) +
+          Real.sin (I4Weights.sourceC 2 * x 0 * 3) * Real.sin (Real.pi * (-1 / 2)) * (-1 / 32) +
+        Real.sin (I4Weights.sourceC 2 * x 0) * (-3 / 32) +
+      Real.cos (I4Weights.sourceC 2 * x 1) * (1 / 16) =
+    Real.cos (x 0 * Real.pi * 2) + Real.cos (x 0 * Real.pi * 3) * (1 / 16) + Real.cos (x 0 * Real.pi) * (3 / 16) +
+          Real.sin (x 0 * Real.pi * 3) * (1 / 32) +
+        Real.sin (x 0 * Real.pi) * (-3 / 32) +
+      Real.cos (Real.pi * x 1) * (1 / 16)

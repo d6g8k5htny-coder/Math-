@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "status": "QUALIFIED57_PROPOSED_ROOT_APPLY_NOT_EXECUTED_BY_PACKAGING",
+  "module": "SourceRawPinFreeCoordinates",
+  "namespace": "I4SourceRawPinFreeCoordinates",
+  "source_cut": "f8085da94d5d3b5f8ed3b14609516937e52fd9a9",
+  "source_bytes": 18982,
+  "source_sha256": "82be00780c7070e999a47d397e4fe047535bd1d5b349efe82e252ccd5cd52cd4",
+  "own_object_bytes": 543112,
+  "own_object_sha256": "e4a3b8e7a4560858f1d5eb665fdf9f9785d0e99c7b90bdee8f48cc3362539ee4",
+  "own_object_action": "SKIP_ALREADY_ROOT_COPIED_ONCE",
+  "public_Prop_targets": [
+    "I4SourceRawPinFreeCoordinates.freeMaps_measurable",
+    "I4SourceRawPinFreeCoordinates.freeResidual_freeCoordinate_joint_map",
+    "I4SourceRawPinFreeCoordinates.rawPosteriorSample_free_reconstruction"
+  ],
+  "public_frame_structure_inventory_only": "I4SourceRawPinFreeCoordinates.RawPinFreeFrame",
+  "public_maps_inventory_only": [
+    "I4SourceRawPinFreeCoordinates.freeCoordinate",
+    "I4SourceRawPinFreeCoordinates.freeShiftSample",
+    "I4SourceRawPinFreeCoordinates.freeResidualSample"
+  ],
+  "actual_owned_constants": 64,
+  "classification_counts": {
+    "owned_generated_proof_equation_or_simplifier_auxiliary": 10,
+    "authored_private_proposition": 27,
+    "generated_frame_constructor_recursor_or_auxiliary": 14,
+    "authored_public_map": 3,
+    "authored_public_proposition": 3,
+    "authored_private_data": 2,
+    "generated_frame_proof_projection": 2,
+    "generated_frame_data_projection": 1,
+    "authored_public_frame_structure": 1,
+    "owned_generated_foreign_namespace_equation": 1
+  },
+  "owned_foreign_generated_count": 1,
+  "owned_foreign_generated": "I4SourceCurvatureDecomposition.unitDirection.eq_1",
+  "foreign_private_API_used": false,
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "A supplied finite orthonormal original-mode coefficient frame lies in the literal six-row raw-pin kernel. Its whole free-coordinate vector has the iid standard Gaussian law jointly independent of the whole literal residual SmoothSample, residual-first; from nonzero L alone and any radius/fulltarget, pointwise raw-posterior reconstruction retains every projection coordinate. Fin0/r0/singular targets retained. No assumed Gaussian/independence, random-sample l2, frame-existence/rank/inverse, singular-pin RCD/fiber, spatial O2, canonical labels/once-counting/Rice/Parent claim.",
+  "strict_record": "raw/producer/runs/gaussian-integration-002/receipt.json",
+  "strict_reused_after_freeze": true,
+  "one_own_kernel_record": "raw/producer/runs/kernel-001/receipt.json",
+  "inventory_record": "raw/producer/runs/inventory-001/receipt.json",
+  "positive_controls_record": "raw/producer/runs/controls-004/receipt.json",
+  "sole_negative_record": "raw/producer/runs/false-second-projection-001/receipt.json",
+  "sole_negative": "One actual297B module importing qualifiedControls and ordinary witness, complete126B intendedFalse only after independently passed actualqvs2q mismatch; omission of onlySECONDprojection.",
+  "actual_Lean_invocations": 14,
+  "merged_stream_files": 14,
+  "merged_stream_bytes": 39467,
+  "capture": "Full actual original merged stdout/stderr output.log, no separate-stream invention.",
+  "raw_file_count": 134,
+  "excluded_artifacts": [
+    {
+      "path": "build/SourceRawPinFreeCoordinates.olean",
+      "bytes": 543112,
+      "sha256_reused": "e4a3b8e7a4560858f1d5eb665fdf9f9785d0e99c7b90bdee8f48cc3362539ee4",
+      "action": "EXCLUDE_ARCHIVE_ROOT_ALREADY_COPIED_ONCE_SKIP_FURTHER_COPY"
+    },
+    {
+      "path": "build/FreeCoordinateControls.olean",
+      "bytes": 1888680,
+      "sha256_reused": "17f2ba55cc996f330999ab58506ef4353138b49fb05aa24bb1bfdc1968502fd9",
+      "action": "EXCLUDE_ARCHIVE_AND_PRODUCTION_CACHE_CONTROL_ONLY_OBJECT"
+    }
+  ],
+  "helpers": {
+    "integration_record": "HELPER_INTEGRATION.json",
+    "gaussian": {
+      "author": "/root/endpoint_gaussian_ac_text",
+      "owned_originals": "helper-gaussian-frozen/",
+      "original_section_sha256": "11122b77173768f1a791ab6e4856a43dc6950159c1052a30696990f5fd9cc8aa",
+      "original_imports_sha256": "595565681481158d59f1bae08d37925303a2b865d81210b20e72fad2b2a41fc2",
+      "original_provenance_sha256": "c4715388159dd21c8385e59a1ab66f96c9d3123cf8b1d4861269d9a6cb9db98b",
+      "integration_count": 1,
+      "standalone_executions": 0,
+      "integrated_section": {
+        "path": "/workspace/scratch/raw-pin-free-coordinate-construct/INTEGRATED_GAUSSIAN_SECTION.lean.txt",
+        "bytes": 10708,
+        "sha256": "88f6c460ace1457d01219f917e6b6d845ce4142dbad7f05f24c39a54f27f0ed0"
+      },
+      "actual_local_amendments": {
+        "path": "/workspace/scratch/raw-pin-free-coordinate-construct/HELPER_GAUSSIAN_LOCAL_AMENDMENTS.patch",
+        "bytes": 1556,
+        "sha256": "00c25e513ef1b2420a9f0f99b88e1fe2236e87d89e61db6a0bf4b03fe9e3ae6f"
+      },
+      "amendment_scope": "Exactly three proof-instance letI to let style amendments; all mathematical text unchanged.",
+      "coverage": "Final production strict/inventory/one kernel."
+    },
+    "four_mode": {
+      "author": "/root/two_remote_firstjet_arithmetic",
+      "owned_originals": "helper-controls-frozen/",
+      "original_section_sha256": "7f6e7400976aa89d848dc0ca7839c3d8dea11b98df92f11220778ea16226eb8f",
+      "original_imports_sha256": "7e15b07748a4df367090120ed73d8449607bffcc37aacd39e94e2cdba652ce19",
+      "original_guidance_sha256": "3027def7873881c68b84bc5655cf66b3ac3aa977ae4b3c0cb994f5d75036e6d2",
+      "original_unfrozen_draft_sha256": "487c96e1bac0dafeed1f491e994b0578c3913c870084dc30c21e35f2d1995c9a",
+      "original_provenance_sha256": "d4c5877f245f393e7feea08cca3ad2a9a4dc2ba7fb75582a44958a5396e699c9",
+      "unfrozen_draft_used_in_invocation": false,
+      "integration_count": 1,
+      "standalone_executions": 0,
+      "actual_local_amendments": {
+        "path": "/workspace/scratch/raw-pin-free-coordinate-construct/HELPER_CONTROLS_LOCAL_AMENDMENTS.patch",
+        "bytes": 8919,
+        "sha256": "cbba401ae3cd22439577947dffb3a0f5cabbc950bbcec29d896da94e72880d04"
+      },
+      "final_integrated_controls_identity": {
+        "path": "/workspace/scratch/raw-pin-free-coordinate-construct/FreeCoordinateControls.lean",
+        "bytes": 27218,
+        "sha256": "801100e37373045ed1d77962839a9bdc574322fae8c4091202c80fc6238891a4"
+      },
+      "amendment_scope": "Public weight namespace; explicit phase function equality and actual zero endpoints/derivatives; finite sum simplification and scalar rewrite order; ordinary scratch neg-pairing adapters for negative rotation; nonzero normalization; unused/deprecated/sequence lint fixes. All actual fixed witnesses/control meanings unchanged.",
+      "coverage": "Positive scratch Controls004 strict only. Production kernel does not cover Controls."
+    },
+    "old_payload_hashes": "No old qualified payload rehashed. Original new helper identities supplied by their first freeze; only newly authored integrated/amendment payload first custody identities computed here.",
+    "scientific_effect": "NONE",
+    "same_family_provider_distinct_credit": 0
+  },
+  "helper_integration_count_each": 1,
+  "standalone_helper_executions": 0,
+  "production_kernel_does_not_cover_Controls_helper": true,
+  "Controls_helper_coverage": "PositiveControls004 strict with complete actual8919Blocal amendment patch; original unfrozen draft was used in no invocation.",
+  "curvature_original_object_SHA_historically_NULL": true,
+  "dependency_reuse": "DEPENDENCY_REUSE.json; accepted finite-pin and curvature/transitive packet routes unchanged, no oldobject hashes/rebuilds.",
+  "historical_pending_cut_and_controls_records_preserved": true,
+  "publication": {
+    "status": "QUALIFIED57_PROPOSED_ROOT_APPLY_NOT_EXECUTED_BY_PACKAGING",
+    "source_cut": "f8085da94d5d3b5f8ed3b14609516937e52fd9a9",
+    "actual_published56_baseline": "0d1d4601fbda409eb26869f57f11bc072e713769",
+    "baseline_native_result": 6426061282,
+    "actual57_native_result": "PENDING_ROOT_PUBLICATION",
+    "root_finalization_record": "raw/root-process/ROOT_FINALIZATION_GO.json",
+    "root_final_reading_record": "raw/root-process/ROOT_FINAL_EVIDENCE_READING.json",
+    "historical_root_sourcecut_and_reading_pending_controls_bytes_preserved": true,
+    "reading_scope": {
+      "status": "ROOT_FINAL_SOURCE_EVIDENCE_READING_PASS",
+      "completed_utc": "2026-10-26T20:38:31.456107+00:00",
+      "source_cut": "f8085da94d5d3b5f8ed3b14609516937e52fd9a9",
+      "source_sha256_reused": "82be00780c7070e999a47d397e4fe047535bd1d5b349efe82e252ccd5cd52cd4",
+      "source_bytes": 18982,
+      "full_readings": [
+        "Completefrozenproductionmodule",
+        "AuthoritativeSPEC/PLAN/CONTROLS/ROOT_GO/ROOT_CONTROL_ROUTE/producerCONTROL_ROUTE",
+        "Bothcompletefrozenhelpersections/imports/provenance+Controlswrapperguidance",
+        "CompleteactualGaussian3hunkpatch andcomplete8919BControlsamendmentpatch; currentControlsreadviafrozenbaseline+completeactualdiff",
+        "ALL64ownedconstantclassifications+ALL14367Binventoryaxiomoutput+ownershipselector",
+        "ALL14actualreceipts/commands/times/exits/source-objectidentities andALL14fullhonestoriginalmergedstreams39467B",
+        "Actual297Bsolenegative+complete126BFalse,positivepassedbeforeit",
+        "CompletefinalproducerREPORT/HANDOFF/SOURCE_OBJECT/CONTROL_RECEIPT/HELPER_CUSTODY/INTEGRATION/EXECUTION_INDEX/STATIC_SCOPE/DEPENDENCY_REUSE",
+        "Completeindependentfinalsource/spec/controlREPORT byactualcaptureapp, nofindings",
+        "Archiveprephandoffandactualworker/wholelaunchercaptures117raw/14merged39467B/onearchivePASS"
+      ],
+      "honest_limits": [
+        "Historicalfailedsource/harnesssnapshotsandinitialunfrozenControlsdraftretained,notallindividuallyline-reviewed",
+        "NoRootLean/kernel/axiom/test/control/hashverificationoroldproofreaudit",
+        "CurrentControlsreadingusescompletefrozenoriginal+fullactualamendmentdiff,notanotherfreshsourcecheck"
+      ],
+      "actual_inventory": {
+        "owned": 64,
+        "authored_public_structure": 1,
+        "authored_public_maps": 3,
+        "authored_public_propositions": 3,
+        "private_data": 2,
+        "private_propositions": 27,
+        "generated_frame_data_projection": 1,
+        "generated_frame_proof_projections": 2,
+        "generated_frame_auxiliaries": 14,
+        "generated_proof_equation_auxiliaries": 10,
+        "owned_generated_foreign_equation": 1
+      },
+      "foreign_generated": "I4SourceCurvatureDecomposition.unitDirection.eq_1; autogeneratedownedpublicdefinitionunfold,noexplicitprivate/generatedAPIreference,std3andownkernelcovered",
+      "checks_reused": "Gaussian002/inventory001/ONEkernel001/Controls004/soleFalse001 unchanged; noextraexecutionneeded",
+      "coverage": "Gaussianproductionhelpercoveredbyproduction; ControlshelperqualifiedONLYbypositiveControls004,notproductionkernel",
+      "old_curvature_object_sha256": null,
+      "root_ownobject_copy": "AlreadycopiedONCE; nofurthercopy",
+      "scientific_effect": "NONE",
+      "provider_distinct_credit": 0
+    },
+    "own_object_action": "SKIP_ALREADY_ROOT_COPIED_ONCE",
+    "current_source_hosted_CI_claimed": false,
+    "combined_hosted_build_claimed": false,
+    "scientific_effect": "NONE",
+    "provider_distinct_credit": 0
+  },
+  "registry_counts": {
+    "modules": 57,
+    "written_targets": 1125,
+    "Prop_targets": 1116,
+    "data_targets": 9,
+    "support_inputs": 32
+  },
+  "metadata_validation_scope": "One bounded new57 metadata attempt, actual outcome/streams/times in outer METADATA_VALIDATION_RECEIPT.json. No mathematics replay.",
+  "scientific_effect": "NONE",
+  "provider_distinct_credit": 0,
+  "provider_process_separate_from_completed_mathematics": true,
+  "canonical_authority": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/main/governance/OWNER_DECISION_20261025_REVIEW_FAMILIES.md"
+  ],
+  "link_delivery_is_not_reading": true
+}

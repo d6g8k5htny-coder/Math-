@@ -1,0 +1,86 @@
+{
+  "completed_utc": "2026-10-26T09:53:01.148049+00:00",
+  "status": "new-only author qualification PASS; root review/registration/publication/cache pending",
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAllTargetCurvatureResidual.lean",
+    "bytes": 16631,
+    "sha256": "4ae29bc3f2f206cca558df3f78853061cf4892499ac918e40253edd68d44371f"
+  },
+  "object": {
+    "path": "/workspace/scratch/all-target-curvature-residual-construct/build/SourceAllTargetCurvatureResidual.olean",
+    "bytes": 599296,
+    "sha256": "0a193cd6fc68ac0507169dc0a601d8f804dd51fc382d6ea86c2997715d2d245e"
+  },
+  "report": "/workspace/scratch/all-target-curvature-residual-construct/REPORT.md",
+  "public_target_count": 11,
+  "actual_module_constant_count": 12,
+  "qualification": {
+    "strict": "strict-002 PASS",
+    "kernel": "exactly one kernel-001 PASS after source freeze",
+    "axioms": "inventory-002 12 constants all standard3",
+    "positive_controls": "controls-002 PASS",
+    "sole_negative": "false-growth-001 intended sole False exit1"
+  },
+  "records": {
+    "CONTROL_FREEZE.json": {
+      "path": "/workspace/scratch/all-target-curvature-residual-construct/CONTROL_FREEZE.json",
+      "bytes": 440,
+      "sha256": "121e820911aa83b7eddca0f883290e66a017a591e0ba5ac95e7cf8b69edaa8c9"
+    },
+    "FROZEN_SOURCE.json": {
+      "path": "/workspace/scratch/all-target-curvature-residual-construct/FROZEN_SOURCE.json",
+      "bytes": 1332,
+      "sha256": "ae817cefa768621378e9974a33178fd87dcd338d27528f249a7e1110a747591e"
+    },
+    "TARGET_CLASSIFICATION.json": {
+      "path": "/workspace/scratch/all-target-curvature-residual-construct/TARGET_CLASSIFICATION.json",
+      "bytes": 4554,
+      "sha256": "6376519e65e9f46384d36e26ac446d5c47c3712f3d158702706cd83f82560fd4"
+    },
+    "INVENTORY.json": {
+      "path": "/workspace/scratch/all-target-curvature-residual-construct/INVENTORY.json",
+      "bytes": 2589,
+      "sha256": "5bc40808ff39ea96f0ea712ea6715743e6cd233a0716ba1ddc558a93b48ca824"
+    },
+    "EXECUTION_RECORD_INDEX.json": {
+      "path": "/workspace/scratch/all-target-curvature-residual-construct/EXECUTION_RECORD_INDEX.json",
+      "bytes": 18245,
+      "sha256": "86f6afd5a8d0a6395569c594ef98f72911195eb49af7109b8e7818400b7980ab"
+    },
+    "CONTROL_RECEIPT.json": {
+      "path": "/workspace/scratch/all-target-curvature-residual-construct/CONTROL_RECEIPT.json",
+      "bytes": 3441,
+      "sha256": "5211b50d763ec2e27e4f64c07d5708f24c4fd726b69536031b8ef3c6be572ce3"
+    },
+    "SOURCE_OBJECT_IDENTITIES.json": {
+      "path": "/workspace/scratch/all-target-curvature-residual-construct/SOURCE_OBJECT_IDENTITIES.json",
+      "bytes": 2214,
+      "sha256": "f30be53c33e61c44e544a3a2ac62f4d70a0f22b7534185980926a9d07629d95e"
+    },
+    "AUTHOR_HELPER_LINEAGE.json": {
+      "path": "/workspace/scratch/all-target-curvature-residual-construct/AUTHOR_HELPER_LINEAGE.json",
+      "bytes": 1925,
+      "sha256": "616dd9d95bad42a934eb8ae8066f46831cbe48b88c974ea2075197986aa50746"
+    },
+    "STATIC_SCOPE.json": {
+      "path": "/workspace/scratch/all-target-curvature-residual-construct/STATIC_SCOPE.json",
+      "bytes": 1212,
+      "sha256": "2eb3fa4c258d585ec568e22ea7347175f22c74616211a9d1e3b1a187f9513787"
+    }
+  },
+  "source_unchanged_after_kernel": true,
+  "root_owned_remaining": [
+    "readonly source/spec review",
+    "provider-distinct process request",
+    "module registration",
+    "production cache installation",
+    "metadata/commit/publication"
+  ],
+  "scientific_effect": "NONE",
+  "old_verification_replayed": false,
+  "report_identity": {
+    "path": "/workspace/scratch/all-target-curvature-residual-construct/REPORT.md",
+    "bytes": 5884,
+    "sha256": "b2d20eb09b3bed28b76ec86612fe5fdb0a28a0bebe0a8146ea0c3aa2cb8f1adc"
+  }
+}

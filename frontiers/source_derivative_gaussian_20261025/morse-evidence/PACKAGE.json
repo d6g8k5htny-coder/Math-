@@ -1,0 +1,46 @@
+{
+  "created_utc": "2026-10-26T02:53:42.555778+00:00",
+  "code_integration_commit": "1b1badc823725e6025823395463d4948c5cdf6d4",
+  "source_sha256_reused": "b93fe8f7856d4e632b3ff823788469720ae0814440bbec744fde099d4f29f127",
+  "append_count": 99,
+  "append_names_txt_sha256": "4ab40e48c4552104aca74d7c5e5cc27a141e750e4123c3b5027263292ef60c69",
+  "append_json_count": 99,
+  "counts": {
+    "public_theorem_prop": 99,
+    "public_lemma_prop": 0,
+    "public_named_instance_prop": 0,
+    "public_named_instance_data": 0,
+    "public_def_data_or_type": 40,
+    "public_abbrev_type": 1,
+    "explicit_public_total": 140,
+    "private_explicit_theorem_prop": 1,
+    "generated_audit_only": 78,
+    "exhaustive_audit_total": 219,
+    "registration_append_count": 99
+  },
+  "append_order": "source declaration order; one fully qualified public proposition/instance name per line",
+  "package_files": {
+    "inventory": "PUBLIC_DECLARATIONS.json",
+    "audit_membership": "AUDIT_MEMBERSHIP.json",
+    "append_plaintext": "append-names.txt",
+    "append_json": "append-names.json",
+    "public_data_definitions": "public-defs-abbrevs.txt",
+    "private_generated_audit_only": "private-generated-audit-only.txt",
+    "scope_and_lineage": "SCOPE_LINEAGE.md",
+    "prior_raw_qualification": "raw-production/"
+  },
+  "new_work": "metadata extraction and audit-name membership reconciliation only",
+  "new_verification": "none; no Lean or kernel invocation",
+  "baseline_reuse": "Prior 24 qualified modules/23 inputs plus completed Raw7/Capture8/Param source verification are reused by reference. No baseline hashes, copies or tests were performed.",
+  "remaining_formal_nonclaims": [
+    "exact Lifetime Euclidean-coordinate transport",
+    "C263 period-lattice quotient descent and exact quotient adapter",
+    "literal HessianHasInertia transport",
+    "conditional Morse at every specified null pin",
+    "distinct critical heights",
+    "Palm/counting/elder closure",
+    "capture/dynamics closure"
+  ],
+  "provider_distinct_review": "Separate process requirement, not a mathematical verification erasure or a new author-side credit",
+  "root_owned": "production lakefile, shared manifests, source integration commits, packaging registration and publication"
+}

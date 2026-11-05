@@ -1,0 +1,15 @@
+SourceGapConditionalMorseDistinct.lean:96:2: error: Type mismatch: After simplification, term
+  HasSum.tsum_eq h
+ has type
+  @Eq ℝ
+    (∑' (b : SourceMode 2),
+      (derivativeCoefficient 2 L k x u b * sampleInclusion 2 L ω b + derivativeCoefficient 2 L k x u b * v b))
+    (∑' (b : SourceMode 2), derivativeCoefficient 2 L k x u b * sampleInclusion 2 L ω b +
+      finitePairing (derivativeCoefficient 2 L k x u) v)
+but is expected to have type
+  @Eq ℝ (∑' (m : SourceMode 2), (derivativeCoefficient 2 L k x u m * ↑ω m + derivativeCoefficient 2 L k x u m * v m))
+    (scalarSeries (derivativeCoefficient 2 L k x u) (sampleInclusion 2 L ω) +
+      finitePairing (derivativeCoefficient 2 L k x u) v)
+SourceGapConditionalMorseDistinct.lean:178:4: error(lean.unknownIdentifier): Unknown identifier `isOpen_iUnion_countable`
+SourceGapConditionalMorseDistinct.lean:177:9: error: Tactic `rcases` failed: `x✝ : ?m.220` is not an inductive datatype
+SourceGapConditionalMorseDistinct.lean:199:20: error(lean.unknownIdentifier): Unknown constant `Set.interior_subset`

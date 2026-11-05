@@ -1,0 +1,549 @@
+/- Text-only contact7 section for the corrected producer lexical context.
+   Every declaration below is private. No helper object/import is produced. -/
+
+namespace I4SourceFramedConfluentCovariance
+
+private theorem ct58_pair_lc (a : SourceMode 2 → ℝ) (v : SourceMode 2 →₀ ℝ) :
+    finitePairing a v = Finsupp.linearCombination ℝ a v := by
+  classical
+  simp only [finitePairing, Finsupp.linearCombination_apply, Finsupp.sum]
+  apply Finset.sum_congr rfl
+  intro m _hm
+  simp only [smul_eq_mul]
+  ring
+
+private theorem ct58_pair_direction_sum {q : ℕ} (a : SourceMode 2 → ℝ)
+    (c : Fin q → ℝ) (v : Fin q → (SourceMode 2 →₀ ℝ)) :
+    finitePairing a (∑ j, c j • v j) = ∑ j, c j * finitePairing a (v j) := by
+  simp only [ct58_pair_lc, map_sum, map_smul, smul_eq_mul]
+
+private theorem ct58_pair_direction_add_smul (a : SourceMode 2 → ℝ)
+    (v w : SourceMode 2 →₀ ℝ) (c : ℝ) :
+    finitePairing a (v+c • w) = finitePairing a v+c*finitePairing a w := by
+  simp only [ct58_pair_lc, map_add, map_smul, smul_eq_mul]
+
+private theorem ct58_pair_row_add (a b : SourceMode 2 → ℝ)
+    (v : SourceMode 2 →₀ ℝ) :
+    finitePairing (fun m => a m+b m) v = finitePairing a v+finitePairing b v := by
+  classical
+  simp only [finitePairing, Finsupp.sum, add_mul, Finset.sum_add_distrib]
+
+private theorem ct58_pair_row_scale (c : ℝ) (a : SourceMode 2 → ℝ)
+    (v : SourceMode 2 →₀ ℝ) :
+    finitePairing (fun m => c*a m) v = c*finitePairing a v := by
+  classical
+  simp only [finitePairing, Finsupp.sum, mul_assoc, Finset.mul_sum]
+
+private theorem ct58_ifd_scale (f : (Fin 2 → ℝ) → ℝ)
+    (hf : ContDiff ℝ (⊤ : ℕ∞) f) (a : ℝ) (k : ℕ)
+    (p : Fin 2 → ℝ) (u : Fin k → (Fin 2 → ℝ)) :
+    iteratedFDeriv ℝ k (fun x => a*f x) p u = a*iteratedFDeriv ℝ k f p u := by
+  have hk : ContDiff ℝ (k : ℕ∞) f := hf.of_le (by simp)
+  have h := congrArg (fun A => A u)
+    (iteratedFDeriv_const_smul_apply' (a := a) (x := p) hk.contDiffAt)
+  simpa only [smul_eq_mul, Pi.smul_apply, smul_apply] using h
+
+private theorem ct58_ifd_add (f g : (Fin 2 → ℝ) → ℝ)
+    (hf : ContDiff ℝ (⊤ : ℕ∞) f) (hg : ContDiff ℝ (⊤ : ℕ∞) g)
+    (k : ℕ) (p : Fin 2 → ℝ) (u : Fin k → (Fin 2 → ℝ)) :
+    iteratedFDeriv ℝ k (fun x => f x+g x) p u =
+      iteratedFDeriv ℝ k f p u+iteratedFDeriv ℝ k g p u := by
+  have hf' : ContDiff ℝ (k : ℕ∞) f := hf.of_le (by simp)
+  have hg' : ContDiff ℝ (k : ℕ∞) g := hg.of_le (by simp)
+  have h := congrArg (fun A => A u) (fun_iteratedFDeriv_add_apply (x:=p) hf'.contDiffAt hg'.contDiffAt)
+  simpa only [Pi.add_apply, add_apply] using h
+
+private theorem ct58_jet2_scale (f : (Fin 2 → ℝ) → ℝ)
+    (hf : ContDiff ℝ (⊤ : ℕ∞) f) (a : ℝ) (p : Fin 2 → ℝ) :
+    jet2 (fun x => a*f x) p = fun j => a*jet2 f p j := by
+  ext j
+  fin_cases j
+  · rfl
+  · simpa [jet2,iteratedFDeriv_one_apply] using
+      ct58_ifd_scale f hf a 1 p ![directionX]
+  · simpa [jet2,iteratedFDeriv_one_apply] using
+      ct58_ifd_scale f hf a 1 p ![directionY]
+  · simpa [jet2] using
+      ct58_ifd_scale f hf a 2 p ![directionX,directionX]
+  · simpa [jet2] using
+      ct58_ifd_scale f hf a 2 p ![directionX,directionY]
+  · simpa [jet2] using
+      ct58_ifd_scale f hf a 2 p ![directionY,directionY]
+
+private theorem ct58_eval_smooth (L : ℝ) (P : TrigPoly) :
+    ContDiff ℝ (⊤ : ℕ∞) (eval L P) := by
+  induction P with
+  | nil =>
+      change ContDiff ℝ (⊤ : ℕ∞) (fun _ : Fin 2 → ℝ => (0:ℝ))
+      exact contDiff_const
+  | cons t P ih =>
+      have hterm : ContDiff ℝ (⊤ : ℕ∞) (termEval L t) := by
+        unfold termEval phase
+        fun_prop
+      have heq : eval L (t::P) = fun x => termEval L t x+eval L P x := by
+        funext x
+        simp only [eval, List.map_cons, List.sum_cons]
+      rw [heq]
+      exact hterm.add ih
+
+private def ct58_axisCosPoly (L : ℝ) (p : Fin 2 → ℝ) (j : Fin 2) : TrigPoly :=
+  translate L p [⟨1,Pi.single j 1,0⟩]
+
+private def ct58_axisSinPoly (L : ℝ) (p : Fin 2 → ℝ) (j : Fin 2) : TrigPoly :=
+  translate L p [⟨1,Pi.single j 1,-(Real.pi/2)⟩]
+
+private theorem ct58_eval_axisCos (L : ℝ) (p y : Fin 2 → ℝ) (j : Fin 2) :
+    eval L (ct58_axisCosPoly L p j) y = Real.cos (sourceC L*(y j-p j)) := by
+  rw [ct58_axisCosPoly, eval_translate]
+  fin_cases j <;> simp [eval, termEval, phase, Fin.sum_univ_two]
+
+private theorem ct58_eval_axisSin (L : ℝ) (p y : Fin 2 → ℝ) (j : Fin 2) :
+    eval L (ct58_axisSinPoly L p j) y = Real.sin (sourceC L*(y j-p j)) := by
+  rw [ct58_axisSinPoly, eval_translate]
+  fin_cases j <;>
+    simp [eval, termEval, phase, Fin.sum_univ_two,
+      ← sub_eq_add_neg, Real.cos_sub_pi_div_two]
+
+private def ct58_germPoly (L : ℝ) (p : Fin 2 → ℝ) (s : Fin 6) : TrigPoly :=
+  ![constant 1,
+    scale (sourceC L)⁻¹ (ct58_axisSinPoly L p 0),
+    scale (sourceC L)⁻¹ (ct58_axisSinPoly L p 1),
+    scale ((sourceC L)^2)⁻¹
+      (constant 1 ++ scale (-1) (ct58_axisCosPoly L p 0)),
+    scale ((sourceC L)^2)⁻¹
+      (mul (ct58_axisSinPoly L p 0) (ct58_axisSinPoly L p 1)),
+    scale ((sourceC L)^2)⁻¹
+      (constant 1 ++ scale (-1) (ct58_axisCosPoly L p 1))] s
+
+private theorem ct58_germPoly_eval (L : ℝ) (p : Fin 2 → ℝ) (s : Fin 6) :
+    eval L (ct58_germPoly L p s) = localGerm (sourceC L) p s := by
+  funext y
+  fin_cases s <;>
+    simp [ct58_germPoly, localGerm, eval_constant, eval_scale, eval_append, eval_mul,
+      ct58_eval_axisCos, ct58_eval_axisSin, div_eq_mul_inv] <;> ring
+
+private theorem ct58_pair_ordinary {L : ℝ} (hL : L ≠ 0) (P : TrigPoly)
+    (p : Fin 2 → ℝ) (j : Fin 6) :
+    finitePairing (fun m => jet2 (modeCoefficient 2 L m) p j) (toSource L P) =
+      jet2 (eval L P) p j := by
+  fin_cases j
+  · exact toSource_eval hL P p
+  · change finitePairing (fun m => fderiv ℝ (modeCoefficient 2 L m) p directionX) (toSource L P) =
+      fderiv ℝ (eval L P) p directionX
+    have he : derivativeCoefficient 2 L 1 p (fun _ => directionX) =
+        (fun m => fderiv ℝ (modeCoefficient 2 L m) p directionX) := by
+      funext m
+      exact iteratedFDeriv_one_apply _
+    rw [← he]
+    simpa only [iteratedFDeriv_one_apply] using toSource_derivative hL P 1 p (fun _ => directionX)
+  · change finitePairing (fun m => fderiv ℝ (modeCoefficient 2 L m) p directionY) (toSource L P) =
+      fderiv ℝ (eval L P) p directionY
+    have he : derivativeCoefficient 2 L 1 p (fun _ => directionY) =
+        (fun m => fderiv ℝ (modeCoefficient 2 L m) p directionY) := by
+      funext m
+      exact iteratedFDeriv_one_apply _
+    rw [← he]
+    simpa only [iteratedFDeriv_one_apply] using toSource_derivative hL P 1 p (fun _ => directionY)
+  · change finitePairing (derivativeCoefficient 2 L 2 p ![directionX,directionX]) (toSource L P) =
+      iteratedFDeriv ℝ 2 (eval L P) p ![directionX,directionX]
+    exact toSource_derivative hL P 2 p ![directionX,directionX]
+  · change finitePairing (derivativeCoefficient 2 L 2 p ![directionX,directionY]) (toSource L P) =
+      iteratedFDeriv ℝ 2 (eval L P) p ![directionX,directionY]
+    exact toSource_derivative hL P 2 p ![directionX,directionY]
+  · change finitePairing (derivativeCoefficient 2 L 2 p ![directionY,directionY]) (toSource L P) =
+      iteratedFDeriv ℝ 2 (eval L P) p ![directionY,directionY]
+    exact toSource_derivative hL P 2 p ![directionY,directionY]
+
+private theorem ct58_ordinary_finite_interpolation {L : ℝ} (hL : L ≠ 0)
+    (p : Fin 2 → ℝ) (u : Fin 6 → ℝ) :
+    ∃ v : SourceMode 2 →₀ ℝ,
+      ∀ j, finitePairing (fun m => jet2 (modeCoefficient 2 L m) p j) v = u j := by
+  have hc : sourceC L ≠ 0 := by
+    unfold sourceC
+    exact div_ne_zero (mul_ne_zero (by norm_num) Real.pi_ne_zero) hL
+  let w : Fin 6 → (SourceMode 2 →₀ ℝ) := fun s => toSource L (ct58_germPoly L p s)
+  have hw (j s : Fin 6) :
+      finitePairing (fun m => jet2 (modeCoefficient 2 L m) p j) (w s) =
+        if j=s then 1 else 0 := by
+    rw [show w s = toSource L (ct58_germPoly L p s) from rfl,
+      ct58_pair_ordinary hL, ct58_germPoly_eval]
+    exact localGerm_jet2 (sourceC L) hc p j s
+  refine ⟨∑ s, u s • w s,?_⟩
+  intro j
+  rw [ct58_pair_direction_sum]
+  simp [hw]
+
+private def ct58_lowerIndex : Fin 6 → Fin 7 := ![0,1,2,3,4,6]
+
+private def ct58_lowerTransform (e n : Fin 2 → ℝ) (u : Fin 6 → ℝ) : Fin 6 → ℝ :=
+  ![u 0,
+    e 0*u 1+e 1*u 2,
+    n 0*u 1+n 1*u 2,
+    e 0^2*u 3+2*e 0*e 1*u 4+e 1^2*u 5,
+    e 0*n 0*u 3+(e 0*n 1+e 1*n 0)*u 4+e 1*n 1*u 5,
+    n 0^2*u 3+2*n 0*n 1*u 4+n 1^2*u 5]
+
+private theorem ct58_linear_coordinates (A : (Fin 2 → ℝ) →L[ℝ] ℝ)
+    (u : Fin 2 → ℝ) : A u = u 0*A directionX+u 1*A directionY := by
+  have hu : u = u 0 • directionX+u 1 • directionY := by
+    ext j
+    fin_cases j <;> simp [directionX,directionY]
+  calc
+    A u = A (u 0 • directionX+u 1 • directionY) := congrArg A hu
+    _ = _ := by simp only [map_add,map_smul,smul_eq_mul]
+
+private theorem ct58_second_coordinates (f : (Fin 2 → ℝ) → ℝ)
+    (hf : ContDiff ℝ (⊤ : ℕ∞) f) (p u v : Fin 2 → ℝ) :
+    iteratedFDeriv ℝ 2 f p ![u,v] =
+      u 0*v 0*jet2 f p 3+(u 0*v 1+u 1*v 0)*jet2 f p 4+
+        u 1*v 1*jet2 f p 5 := by
+  let B := fderiv ℝ (fderiv ℝ f) p
+  have hs : B directionY directionX = B directionX directionY :=
+    (hf.contDiffAt.isSymmSndFDerivAt (by simp)).eq directionY directionX
+  have hu : u = u 0 • directionX+u 1 • directionY := by
+    ext j
+    fin_cases j <;> simp [directionX,directionY]
+  have hB : B u v = u 0*B directionX v+u 1*B directionY v := by
+    calc
+      B u v = B (u 0 • directionX+u 1 • directionY) v := congrArg (fun z => B z v) hu
+      _ = _ := by simp only [map_add,map_smul,add_apply,smul_apply,smul_eq_mul]
+  rw [iteratedFDeriv_two_apply]
+  change B u v = _
+  rw [hB, ct58_linear_coordinates (B directionX) v,
+    ct58_linear_coordinates (B directionY) v, hs]
+  simp [jet2,iteratedFDeriv_two_apply]
+  dsimp only [B]
+  ring
+
+private theorem ct58_contact_lower_formula (f : (Fin 2 → ℝ) → ℝ)
+    (hf : ContDiff ℝ (⊤ : ℕ∞) f) (p e n : Fin 2 → ℝ) (j : Fin 6) :
+    contactRows f p e n (ct58_lowerIndex j) = ct58_lowerTransform e n (jet2 f p) j := by
+  fin_cases j
+  · rfl
+  · exact ct58_linear_coordinates (fderiv ℝ f p) e
+  · exact ct58_linear_coordinates (fderiv ℝ f p) n
+  · change iteratedFDeriv ℝ 2 f p ![e,e] =
+      e 0^2*jet2 f p 3+2*e 0*e 1*jet2 f p 4+e 1^2*jet2 f p 5
+    rw [ct58_second_coordinates f hf p e e]
+    ring
+  · exact ct58_second_coordinates f hf p e n
+  · change iteratedFDeriv ℝ 2 f p ![n,n] =
+      n 0^2*jet2 f p 3+2*n 0*n 1*jet2 f p 4+n 1^2*jet2 f p 5
+    rw [ct58_second_coordinates f hf p n n]
+    ring
+
+private theorem ct58_pair_lower {L : ℝ} (p e n : Fin 2 → ℝ)
+    (v : SourceMode 2 →₀ ℝ) (j : Fin 6) :
+    finitePairing (fun m => contactRows (modeCoefficient 2 L m) p e n (ct58_lowerIndex j)) v =
+      ct58_lowerTransform e n
+        (fun s => finitePairing (fun m => jet2 (modeCoefficient 2 L m) p s) v) j := by
+  have heq : (fun m => contactRows (modeCoefficient 2 L m) p e n (ct58_lowerIndex j)) =
+      fun m => ct58_lowerTransform e n (jet2 (modeCoefficient 2 L m) p) j := by
+    funext m
+    exact ct58_contact_lower_formula _ (mode_smooth L m) p e n j
+  rw [heq]
+  fin_cases j <;>
+    simp [ct58_lowerTransform,ct58_pair_row_add,ct58_pair_row_scale]
+
+private def ct58_inverseLower (e n : Fin 2 → ℝ) (t : Fin 6 → ℝ) : Fin 6 → ℝ :=
+  ![t 0,
+    e 0*t 1+n 0*t 2,
+    e 1*t 1+n 1*t 2,
+    e 0^2*t 3+2*e 0*n 0*t 4+n 0^2*t 5,
+    e 0*e 1*t 3+(e 0*n 1+n 0*e 1)*t 4+n 0*n 1*t 5,
+    e 1^2*t 3+2*e 1*n 1*t 4+n 1^2*t 5]
+
+private theorem ct58_lower_inverse (e n : Fin 2 → ℝ)
+    (he : e 0^2+e 1^2=1) (hn : n 0^2+n 1^2=1)
+    (hen : e 0*n 0+e 1*n 1=0) (t : Fin 6 → ℝ) :
+    ct58_lowerTransform e n (ct58_inverseLower e n t) = t := by
+  ext j
+  fin_cases j
+  · rfl
+  · change e 0*(e 0*t 1+n 0*t 2)+e 1*(e 1*t 1+n 1*t 2)=t 1
+    calc
+      _ = (e 0^2+e 1^2)*t 1+(e 0*n 0+e 1*n 1)*t 2 := by ring
+      _ = t 1 := by rw [he,hen]; ring
+  · change n 0*(e 0*t 1+n 0*t 2)+n 1*(e 1*t 1+n 1*t 2)=t 2
+    calc
+      _ = (e 0*n 0+e 1*n 1)*t 1+(n 0^2+n 1^2)*t 2 := by ring
+      _ = t 2 := by rw [hn,hen]; ring
+  · change _ = t 3
+    calc
+      _ = (e 0^2+e 1^2)^2*t 3+
+          2*(e 0^2+e 1^2)*(e 0*n 0+e 1*n 1)*t 4+
+          (e 0*n 0+e 1*n 1)^2*t 5 := by
+            dsimp [ct58_lowerTransform,ct58_inverseLower]
+            ring
+      _ = t 3 := by rw [he,hen]; ring
+  · change _ = t 4
+    calc
+      _ = (e 0^2+e 1^2)*(e 0*n 0+e 1*n 1)*t 3+
+          ((e 0^2+e 1^2)*(n 0^2+n 1^2)+(e 0*n 0+e 1*n 1)^2)*t 4+
+          (e 0*n 0+e 1*n 1)*(n 0^2+n 1^2)*t 5 := by
+            dsimp [ct58_lowerTransform,ct58_inverseLower]
+            ring
+      _ = t 4 := by rw [he,hn,hen]; ring
+  · change _ = t 5
+    calc
+      _ = (e 0*n 0+e 1*n 1)^2*t 3+
+          2*(e 0*n 0+e 1*n 1)*(n 0^2+n 1^2)*t 4+
+          (n 0^2+n 1^2)^2*t 5 := by
+            dsimp [ct58_lowerTransform,ct58_inverseLower]
+            ring
+      _ = t 5 := by rw [hn,hen]; ring
+
+/- The ordinary-XY Hessian block has determinant Delta^3, so the
+   value/gradient/Hessian block determinant is Delta^4 in either orientation. -/
+private theorem ct58_frame_block_determinants (a b c d : ℝ) :
+    Matrix.det (!![a,b;c,d] : Matrix (Fin 2) (Fin 2) ℝ)=a*d-b*c ∧
+    Matrix.det (!![a^2,2*a*b,b^2;a*c,a*d+b*c,b*d;c^2,2*c*d,d^2] :
+      Matrix (Fin 3) (Fin 3) ℝ)=(a*d-b*c)^3 ∧
+    (a*d-b*c)*(a*d-b*c)^3=(a*d-b*c)^4 := by
+  constructor
+  · simp [Matrix.det_fin_two]
+  constructor
+  · simp [Matrix.det_fin_three]
+    ring
+  · ring
+
+private theorem ct58_frame_coordinates (R : OrthonormalBasis (Fin 2) ℝ (E 2)) :
+    let e := coordinates 2 (R 0)
+    let n := coordinates 2 (R 1)
+    e 0^2+e 1^2=1 ∧ n 0^2+n 1^2=1 ∧ e 0*n 0+e 1*n 1=0 := by
+  dsimp only
+  have h00 := R.inner_eq_one (0:Fin 2)
+  have h11 := R.inner_eq_one (1:Fin 2)
+  have h01 := R.inner_eq_zero (i:=(0:Fin 2)) (j:=(1:Fin 2)) (by decide)
+  simp only [EuclideanSpace.inner_eq_star_dotProduct,star_trivial,dotProduct,Fin.sum_univ_two] at h00 h11 h01
+  exact ⟨by simpa only [coordinates_apply,pow_two] using h00,
+    by simpa only [coordinates_apply,pow_two] using h11,
+    by simpa only [coordinates_apply, mul_comm] using h01⟩
+
+private theorem ct58_frame_delta_four (e n : Fin 2 → ℝ)
+    (he : e 0^2+e 1^2=1) (hn : n 0^2+n 1^2=1)
+    (hen : e 0*n 0+e 1*n 1=0) :
+    (e 0*n 1-e 1*n 0)^4=1 := by
+  have hs : (e 0*n 1-e 1*n 0)^2=
+      (e 0^2+e 1^2)*(n 0^2+n 1^2)-(e 0*n 0+e 1*n 1)^2 := by ring
+  rw [he,hn,hen] at hs
+  calc
+    _ = ((e 0*n 1-e 1*n 0)^2)^2 := by ring
+    _ = 1 := by rw [hs]; norm_num
+
+private theorem ct58_shifted_sine_third (d t : ℝ) :
+    iteratedDeriv 3 (fun x : ℝ => Real.sin (x-d)) t = -Real.cos (t-d) := by
+  have h1 : deriv (fun x : ℝ => Real.sin (x-d)) = fun x => Real.cos (x-d) := by
+    funext x
+    simp
+  have h2 : deriv (fun x : ℝ => Real.cos (x-d)) = fun x => -Real.sin (x-d) := by
+    funext x
+    simp
+  have h3 : deriv (fun x : ℝ => -Real.sin (x-d)) = fun x => -Real.cos (x-d) := by
+    funext x
+    simp
+  simp only [iteratedDeriv_succ,iteratedDeriv_zero,h1,h2,h3]
+
+private theorem ct58_axis_sine_third (c : ℝ) (p e : Fin 2 → ℝ) (j : Fin 2) :
+    iteratedFDeriv ℝ 3 (fun y : Fin 2 → ℝ => Real.sin (c*(y j-p j))) p ![e,e,e] =
+      -(c*e j)^3 := by
+  let A : (Fin 2 → ℝ) →L[ℝ] ℝ := c • ContinuousLinearMap.proj j
+  let g : ℝ → ℝ := fun t => Real.sin (t-c*p j)
+  have hg : ContDiff ℝ (⊤ : ℕ∞) g := by dsimp [g]; fun_prop
+  have heq : (fun y : Fin 2 → ℝ => Real.sin (c*(y j-p j))) = g ∘ A := by
+    funext y
+    simp only [Function.comp_apply,g]
+    congr 1
+    simp only [A,smul_apply,ContinuousLinearMap.proj_apply,smul_eq_mul]
+    ring
+  rw [heq]
+  have h := congrArg (fun T => T ![e,e,e])
+    (A.iteratedFDeriv_comp_right hg p (i := 3) (by simp))
+  rw [h]
+  rw [ContinuousMultilinearMap.compContinuousLinearMap_apply,
+    iteratedFDeriv_apply_eq_iteratedDeriv_mul_prod]
+  have hd : iteratedDeriv 3 g (A p) = -1 := by
+    simpa [g,A] using ct58_shifted_sine_third (c*p j) (A p)
+  rw [hd]
+  simp [A,Fin.prod_univ_succ,pow_succ]
+  ring
+
+private def ct58_axisGermIndex (j : Fin 2) : Fin 6 := if j=0 then 1 else 2
+
+private theorem ct58_axisGerm_value (c : ℝ) (p y : Fin 2 → ℝ) (j : Fin 2) :
+    localGerm c p (ct58_axisGermIndex j) y = Real.sin (c*(y j-p j))/c := by
+  fin_cases j <;> rfl
+
+private def ct58_cubePoly (L : ℝ) (p e : Fin 2 → ℝ) (j : Fin 2) : TrigPoly :=
+  let P := ct58_germPoly L p (ct58_axisGermIndex j)
+  scale (6*(e j)^3)⁻¹ (mul (mul P P) P)
+
+private theorem ct58_cubePoly_eval (L : ℝ) (p e y : Fin 2 → ℝ) (j : Fin 2) :
+    eval L (ct58_cubePoly L p e j) y =
+      (Real.sin (sourceC L*(y j-p j))/sourceC L)^3/(6*(e j)^3) := by
+  simp only [ct58_cubePoly,eval_scale,eval_mul,ct58_germPoly_eval,ct58_axisGerm_value]
+  ring
+
+private theorem ct58_cube_lower_zero {L : ℝ} (hL : L ≠ 0)
+    (p e : Fin 2 → ℝ) (j : Fin 2) :
+    jet2 (eval L (ct58_cubePoly L p e j)) p = 0 := by
+  have hc : sourceC L ≠ 0 := by
+    unfold sourceC
+    exact div_ne_zero (mul_ne_zero (by norm_num) Real.pi_ne_zero) hL
+  let f := localGerm (sourceC L) p (ct58_axisGermIndex j)
+  have hf : ContDiff ℝ (⊤ : ℕ∞) f := by
+    rw [show f = eval L (ct58_germPoly L p (ct58_axisGermIndex j)) from
+      (ct58_germPoly_eval L p (ct58_axisGermIndex j)).symm]
+    exact ct58_eval_smooth L _
+  have hJ : jet2 f p = fun k => if k=ct58_axisGermIndex j then 1 else 0 := by
+    ext k
+    exact localGerm_jet2 (sourceC L) hc p k (ct58_axisGermIndex j)
+  have hcube : jet2 (fun y => (f y*f y)*f y) p = 0 := by
+    rw [jet2_mul _ _ ((hf.mul hf).of_le (by norm_num)) (hf.of_le (by norm_num)),
+      jet2_mul _ _ (hf.of_le (by norm_num)) (hf.of_le (by norm_num))]
+    simp only [hJ]
+    ext k
+    fin_cases j <;> fin_cases k <;> norm_num [mulJet2,ct58_axisGermIndex]
+  have heq : eval L (ct58_cubePoly L p e j) =
+      fun y => (6*(e j)^3)⁻¹*((f y*f y)*f y) := by
+    funext y
+    simp only [ct58_cubePoly,eval_scale,eval_mul,ct58_germPoly_eval,f]
+  rw [heq,ct58_jet2_scale _ ((hf.mul hf).mul hf),hcube]
+  ext k
+  simp
+
+private theorem ct58_cube_third_one {L : ℝ} (hL : L ≠ 0)
+    (p e : Fin 2 → ℝ) (j : Fin 2) (hej : e j ≠ 0) :
+    iteratedFDeriv ℝ 3 (eval L (ct58_cubePoly L p e j)) p ![e,e,e] = 1 := by
+  let c := sourceC L
+  have hc : c ≠ 0 := by
+    dsimp [c]
+    unfold sourceC
+    exact div_ne_zero (mul_ne_zero (by norm_num) Real.pi_ne_zero) hL
+  let f : (Fin 2 → ℝ) → ℝ := fun y => Real.sin (c*(y j-p j))
+  let g : (Fin 2 → ℝ) → ℝ := fun y => Real.sin ((3*c)*(y j-p j))
+  have hf : ContDiff ℝ (⊤ : ℕ∞) f := by dsimp [f]; fun_prop
+  have hg : ContDiff ℝ (⊤ : ℕ∞) g := by dsimp [g]; fun_prop
+  have heq : eval L (ct58_cubePoly L p e j) =
+      fun y => (24*c^3*(e j)^3)⁻¹*(3*f y+(-1)*g y) := by
+    funext y
+    rw [ct58_cubePoly_eval]
+    have hs := Real.sin_three_mul (c*(y j-p j))
+    change (Real.sin (c*(y j-p j))/c)^3/(6*(e j)^3)=
+      (24*c^3*(e j)^3)⁻¹*(3*Real.sin (c*(y j-p j))+(-1)*Real.sin ((3*c)*(y j-p j)))
+    rw [show (3*c)*(y j-p j)=3*(c*(y j-p j)) by ring]
+    rw [hs]
+    field_simp [hc,hej]
+    ring
+  have hf3 : ContDiff ℝ (⊤ : ℕ∞) (fun y => 3*f y) := contDiff_const.mul hf
+  have hgm : ContDiff ℝ (⊤ : ℕ∞) (fun y => (-1:ℝ)*g y) := contDiff_const.mul hg
+  rw [heq,ct58_ifd_scale _ (hf3.add hgm),
+    ct58_ifd_add _ _ hf3 hgm,
+    ct58_ifd_scale _ hf,ct58_ifd_scale _ hg]
+  dsimp only [f,g]
+  rw [ct58_axis_sine_third,ct58_axis_sine_third]
+  field_simp [hc,hej]
+  ring
+
+private theorem ct58_contact_pair {L : ℝ} (hL : L ≠ 0) (P : TrigPoly)
+    (p e n : Fin 2 → ℝ) (i : Fin 7) :
+    finitePairing (fun m => contactRows (modeCoefficient 2 L m) p e n i) (toSource L P) =
+      contactRows (eval L P) p e n i := by
+  fin_cases i
+  · exact toSource_eval hL P p
+  · change finitePairing (fun m => fderiv ℝ (modeCoefficient 2 L m) p e) (toSource L P) =
+      fderiv ℝ (eval L P) p e
+    have he : derivativeCoefficient 2 L 1 p (fun _ => e) =
+        (fun m => fderiv ℝ (modeCoefficient 2 L m) p e) := by
+      funext m
+      exact iteratedFDeriv_one_apply _
+    rw [← he]
+    simpa only [iteratedFDeriv_one_apply] using toSource_derivative hL P 1 p (fun _ => e)
+  · change finitePairing (fun m => fderiv ℝ (modeCoefficient 2 L m) p n) (toSource L P) =
+      fderiv ℝ (eval L P) p n
+    have he : derivativeCoefficient 2 L 1 p (fun _ => n) =
+        (fun m => fderiv ℝ (modeCoefficient 2 L m) p n) := by
+      funext m
+      exact iteratedFDeriv_one_apply _
+    rw [← he]
+    simpa only [iteratedFDeriv_one_apply] using toSource_derivative hL P 1 p (fun _ => n)
+  · change finitePairing (derivativeCoefficient 2 L 2 p ![e,e]) (toSource L P) =
+      iteratedFDeriv ℝ 2 (eval L P) p ![e,e]
+    exact toSource_derivative hL P 2 p ![e,e]
+  · change finitePairing (derivativeCoefficient 2 L 2 p ![e,n]) (toSource L P) =
+      iteratedFDeriv ℝ 2 (eval L P) p ![e,n]
+    exact toSource_derivative hL P 2 p ![e,n]
+  · change finitePairing (derivativeCoefficient 2 L 3 p ![e,e,e]) (toSource L P) =
+      iteratedFDeriv ℝ 3 (eval L P) p ![e,e,e]
+    exact toSource_derivative hL P 3 p ![e,e,e]
+  · change finitePairing (derivativeCoefficient 2 L 2 p ![n,n]) (toSource L P) =
+      iteratedFDeriv ℝ 2 (eval L P) p ![n,n]
+    exact toSource_derivative hL P 2 p ![n,n]
+
+private theorem ct58_contact_target {L : ℝ} (hL : L ≠ 0)
+    (p e n : Fin 2 → ℝ) (he : e 0^2+e 1^2=1) (hn : n 0^2+n 1^2=1)
+    (hen : e 0*n 0+e 1*n 1=0) (t : Fin 7 → ℝ) :
+    ∃ v : SourceMode 2 →₀ ℝ,
+      ∀ i, finitePairing (fun m => contactRows (modeCoefficient 2 L m) p e n i) v=t i := by
+  let tlo : Fin 6 → ℝ := fun j => t (ct58_lowerIndex j)
+  obtain ⟨w,hw⟩ := ct58_ordinary_finite_interpolation hL p (ct58_inverseLower e n tlo)
+  have hwlo (j : Fin 6) :
+      finitePairing (fun m => contactRows (modeCoefficient 2 L m) p e n (ct58_lowerIndex j)) w =
+        t (ct58_lowerIndex j) := by
+    rw [ct58_pair_lower]
+    have hvec : (fun s => finitePairing (fun m => jet2 (modeCoefficient 2 L m) p s) w) =
+        ct58_inverseLower e n tlo := funext hw
+    rw [hvec,ct58_lower_inverse e n he hn hen]
+  obtain ⟨j,hej⟩ : ∃ j : Fin 2, e j ≠ 0 := by
+    by_cases h0 : e 0=0
+    · refine ⟨1,?_⟩
+      intro h1
+      norm_num [h0,h1] at he
+    · exact ⟨0,h0⟩
+  let q := toSource L (ct58_cubePoly L p e j)
+  have hqlo (k : Fin 6) :
+      finitePairing (fun m => contactRows (modeCoefficient 2 L m) p e n (ct58_lowerIndex k)) q=0 := by
+    rw [ct58_pair_lower]
+    have hzero : (fun s => finitePairing (fun m => jet2 (modeCoefficient 2 L m) p s) q)=0 := by
+      ext s
+      rw [show q=toSource L (ct58_cubePoly L p e j) from rfl,
+        ct58_pair_ordinary hL,ct58_cube_lower_zero hL]
+    rw [hzero]
+    fin_cases k <;> simp [ct58_lowerTransform]
+  have hq5 : finitePairing (fun m => contactRows (modeCoefficient 2 L m) p e n 5) q=1 := by
+    rw [show q=toSource L (ct58_cubePoly L p e j) from rfl,ct58_contact_pair hL]
+    exact ct58_cube_third_one hL p e j hej
+  let beta := finitePairing (fun m => contactRows (modeCoefficient 2 L m) p e n 5) w
+  let v := w+(t 5-beta) • q
+  have hvlo (k : Fin 6) :
+      finitePairing (fun m => contactRows (modeCoefficient 2 L m) p e n (ct58_lowerIndex k)) v=
+        t (ct58_lowerIndex k) := by
+    rw [show v=w+(t 5-beta) • q from rfl,ct58_pair_direction_add_smul,hwlo,hqlo]
+    ring
+  refine ⟨v,?_⟩
+  intro i
+  fin_cases i
+  · exact hvlo 0
+  · exact hvlo 1
+  · exact hvlo 2
+  · exact hvlo 3
+  · exact hvlo 4
+  · change finitePairing (fun m => contactRows (modeCoefficient 2 L m) p e n (5:Fin 7)) v = t 5
+    rw [show v=w+(t 5-beta) • q from rfl,ct58_pair_direction_add_smul,hq5]
+    change beta+(t 5-beta)*1=t 5
+    ring
+  · exact hvlo 5
+
+private theorem contact_finite_directions {L : ℝ} (hL : L ≠ 0)
+    (z : E 2) (R : OrthonormalBasis (Fin 2) ℝ (E 2)) :
+    ∃ v : Fin 7 → (SourceMode 2 →₀ ℝ), ∀ i s,
+      finitePairing (fun m => contactRows (modeCoefficient 2 L m) (coordinates 2 z)
+        (coordinates 2 (R 0)) (coordinates 2 (R 1)) i) (v s)=if i=s then 1 else 0 := by
+  obtain ⟨he,hn,hen⟩ := ct58_frame_coordinates R
+  have ht (s : Fin 7) := ct58_contact_target hL (coordinates 2 z)
+    (coordinates 2 (R 0)) (coordinates 2 (R 1)) he hn hen (fun i => if i=s then 1 else 0)
+  classical
+  choose v hv using ht
+  exact ⟨v,fun i s => hv s i⟩
+
+end I4SourceFramedConfluentCovariance

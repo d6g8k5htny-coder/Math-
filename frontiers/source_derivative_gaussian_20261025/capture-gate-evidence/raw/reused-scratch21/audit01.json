@@ -1,0 +1,13 @@
+{
+  "command_argv": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "bash",
+    "-c",
+    "export LEAN_PATH=\"/workspace/scratch/quartic-capture-algebra:$LEAN_PATH\"; exec lean -R /workspace/scratch/quartic-capture-algebra -DwarningAsError=true /workspace/scratch/quartic-capture-algebra/Audit.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "started_utc": "2026-10-26T01:42:26.992033+00:00",
+  "exit_code": 0,
+  "log": "audit01.log"
+}

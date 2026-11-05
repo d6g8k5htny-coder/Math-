@@ -1,0 +1,16 @@
+SourceMorseIncidence.lean:1606:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  LinearMap.det ?f
+in the target expression
+  (fderiv ℝ (coordinateGradient f) x).det =
+    (iteratedFDeriv ℝ 2 f x) ![Pi.single 0 1, Pi.single 0 1] *
+        (iteratedFDeriv ℝ 2 f x) ![Pi.single 1 1, Pi.single 1 1] -
+      (iteratedFDeriv ℝ 2 f x) ![Pi.single 0 1, Pi.single 1 1] ^ 2
+
+f : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ (↑⊤) f
+x : Fin 2 → ℝ
+⊢ (fderiv ℝ (coordinateGradient f) x).det =
+    (iteratedFDeriv ℝ 2 f x) ![Pi.single 0 1, Pi.single 0 1] *
+        (iteratedFDeriv ℝ 2 f x) ![Pi.single 1 1, Pi.single 1 1] -
+      (iteratedFDeriv ℝ 2 f x) ![Pi.single 0 1, Pi.single 1 1] ^ 2
+SourceMorseIncidence.lean:1622:2: error: No goals to be solved

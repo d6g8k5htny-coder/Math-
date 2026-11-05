@@ -1,0 +1,410 @@
+import SourceActualFiniteSuperlevelComponents
+import SourceActualTorusSuperlevelLocalBasis
+import SourcePinPreservingQuartic
+import SourceFiniteTrig
+import Mathlib.Topology.Connected.LocallyPathConnected
+import Mathlib.Topology.Instances.AddCircle.Real
+import Mathlib.Topology.Order.IntermediateValue
+import Mathlib.Data.Fintype.EquivFin
+import Mathlib.Tactic.FinCases
+import Mathlib.Tactic.FunProp
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.Positivity
+import Mathlib.Tactic.Convert
+import Lean.Elab.Tactic.Omega
+
+noncomputable section
+open Set Filter Topology
+open UniversalLaw.Spec.Lifetime
+open I4LifetimeField I4SmoothCarrier
+open scoped BigOperators Topology
+set_option autoImplicit false
+
+namespace FiniteSuperlevelComponentsControls
+
+def fixturePolynomial : I4SourceFiniteTrig.TrigPoly :=
+  [⟨1, Pi.single (0 : Fin 2) 1, 0⟩,
+   ⟨2, Pi.single (1 : Fin 2) 1, 0⟩]
+
+def fixtureSample : I4SmoothCarrier.SmoothSample 2 2 :=
+  I4SourceFinitePinKernel.finiteShiftSample
+    (I4SourceFiniteTrig.toSource 2 fixturePolynomial)
+    (I4SourceSmoothConditional.zeroSample 2 2)
+
+def fixtureTorusField : I4Torus.SourceTorus 2 2 → ℝ :=
+  SourceActualFoldTorus.actualTorusField (by norm_num : (2 : ℝ) ≠ 0) fixtureSample
+
+def fixtureProjection (x : Fin 2 → ℝ) : I4Torus.SourceTorus 2 2 :=
+  I4Torus.torusProjection 2 2 x
+
+def coverMaxPoint (n : ℕ) : UniversalLaw.Spec.Lifetime.E 2 :=
+  (I4LifetimeField.coordinates 2).symm ![(2 : ℝ) * (n : ℝ), 0]
+
+/- Complete ordinary Controls body63B. The producer supplies the agreed
+imports/header/namespace, the four SAME fixture definitions and coverMaxPoint.
+No production-private name or old Controls body is an input. -/
+
+private theorem finite_fixture_coordinate_value (x : Fin 2 → ℝ) :
+    smoothSourceField 2 2 fixtureSample x =
+      Real.cos (Real.pi*x 0)+2*Real.cos (Real.pi*x 1) := by
+  classical
+  let v := I4SourceFiniteTrig.toSource 2 fixturePolynomial
+  have hseries : HasSum (fun m => I4Source.modeCoefficient 2 2 m x*v m)
+      (I4SourceFinitePinKernel.finitePairing (fun m => I4Source.modeCoefficient 2 2 m x) v) := by
+    apply hasSum_sum_of_ne_finset_zero
+    intro m hm
+    simp only [Finsupp.notMem_support_iff.mp hm,mul_zero]
+  have heval : smoothSourceField 2 2 fixtureSample x =
+      I4SourceFinitePinKernel.finitePairing (fun m => I4Source.modeCoefficient 2 2 m x) v := by
+    simpa [fixtureSample,smoothSourceField,I4Source.sourceField,I4Foundation.scalarSeries,
+      sampleInclusion,I4SourceFinitePinKernel.finiteShiftSample_val,
+      I4SourceSmoothConditional.zeroSample,v] using hseries.tsum_eq
+  rw [heval,I4SourceFiniteTrig.toSource_eval (by norm_num : (2:ℝ) ≠ 0)]
+  simp [fixturePolynomial,I4SourceFiniteTrig.eval,I4SourceFiniteTrig.termEval,
+    I4Source.phase,I4Weights.sourceC,Fin.sum_univ_two]
+
+theorem fixture_actualField (X : UniversalLaw.Spec.Lifetime.E 2) :
+    actualField 2 2 fixtureSample X =
+      Real.cos (Real.pi*coordinates 2 X 0)+2*Real.cos (Real.pi*coordinates 2 X 1) := by
+  exact finite_fixture_coordinate_value (coordinates 2 X)
+
+private def physicalAxis (i : Fin 2) : UniversalLaw.Spec.Lifetime.E 2 :=
+  (coordinates 2).symm (Pi.single i 1)
+
+private def physicalCoordinate (i : Fin 2) : UniversalLaw.Spec.Lifetime.E 2 →L[ℝ] ℝ :=
+  (ContinuousLinearMap.proj i : (Fin 2 → ℝ) →L[ℝ] ℝ).comp (coordinates 2).toContinuousLinearMap
+
+private theorem axis_coordinates (i : Fin 2) : coordinates 2 (physicalAxis i)=Pi.single i 1 :=
+  (coordinates 2).apply_symm_apply _
+
+
+private theorem physicalAxis_value (i j : Fin 2) :
+    physicalAxis i j = (Pi.single i (1 : ℝ) : Fin 2 → ℝ) j :=
+  congrFun (axis_coordinates i) j
+
+private def firstJet (X : UniversalLaw.Spec.Lifetime.E 2) :
+    UniversalLaw.Spec.Lifetime.E 2 →L[ℝ] ℝ :=
+  (-Real.pi*Real.sin (Real.pi*coordinates 2 X 0)) • physicalCoordinate 0 +
+    (-2*Real.pi*Real.sin (Real.pi*coordinates 2 X 1)) • physicalCoordinate 1
+
+private theorem actual_firstJet (X : UniversalLaw.Spec.Lifetime.E 2) :
+    HasFDerivAt (actualField 2 2 fixtureSample) (firstJet X) X := by
+  have hc0 : HasFDerivAt (fun Y : UniversalLaw.Spec.Lifetime.E 2 => Real.pi*coordinates 2 Y 0)
+      (Real.pi • physicalCoordinate 0) X := (physicalCoordinate 0).hasFDerivAt.const_mul Real.pi
+  have hc1 : HasFDerivAt (fun Y : UniversalLaw.Spec.Lifetime.E 2 => Real.pi*coordinates 2 Y 1)
+      (Real.pi • physicalCoordinate 1) X := (physicalCoordinate 1).hasFDerivAt.const_mul Real.pi
+  have hh := hc0.cos.add (hc1.cos.const_mul 2)
+  have hfun : actualField 2 2 fixtureSample = fun Y : UniversalLaw.Spec.Lifetime.E 2 =>
+      Real.cos (Real.pi*coordinates 2 Y 0)+2*Real.cos (Real.pi*coordinates 2 Y 1) :=
+    funext fixture_actualField
+  rw [hfun]
+  convert hh using 1
+  ext v
+  simp [firstJet,physicalCoordinate]
+  ring
+
+private theorem actual_secondJet (X u v : UniversalLaw.Spec.Lifetime.E 2) :
+    hessian 2 (actualField 2 2 fixtureSample) X u v =
+      (-Real.pi^2*Real.cos (Real.pi*coordinates 2 X 0))*coordinates 2 u 0*coordinates 2 v 0 +
+      (-2*Real.pi^2*Real.cos (Real.pi*coordinates 2 X 1))*coordinates 2 u 1*coordinates 2 v 1 := by
+  rw [hessian,iteratedFDeriv_two_apply]
+  have hfun : fderiv ℝ (actualField 2 2 fixtureSample)=firstJet :=
+    funext fun Y => (actual_firstJet Y).fderiv
+  rw [hfun]
+  have hc0 : HasFDerivAt (fun Y : UniversalLaw.Spec.Lifetime.E 2 => Real.pi*coordinates 2 Y 0)
+      (Real.pi • physicalCoordinate 0) X := (physicalCoordinate 0).hasFDerivAt.const_mul Real.pi
+  have hc1 : HasFDerivAt (fun Y : UniversalLaw.Spec.Lifetime.E 2 => Real.pi*coordinates 2 Y 1)
+      (Real.pi • physicalCoordinate 1) X := (physicalCoordinate 1).hasFDerivAt.const_mul Real.pi
+  have hd := ((hc0.sin.const_mul (-Real.pi)).smul_const (physicalCoordinate 0)).add
+    ((hc1.sin.const_mul (-2*Real.pi)).smul_const (physicalCoordinate 1))
+  rw [show fderiv ℝ firstJet X = _ from hd.fderiv]
+  simp [physicalCoordinate]
+  ring
+
+private theorem critical_integer_coordinates (X : UniversalLaw.Spec.Lifetime.E 2)
+    (hX : IsCriticalPoint 2 (actualField 2 2 fixtureSample) X) :
+    ∃ n : Fin 2 → ℤ, ∀ i, coordinates 2 X i=(n i:ℝ) := by
+  have hd : firstJet X=0 := by rw [← (actual_firstJet X).fderiv]; exact hX
+  have hzero (i : Fin 2) := congrArg (fun D : UniversalLaw.Spec.Lifetime.E 2 →L[ℝ] ℝ => D (physicalAxis i)) hd
+  have hs0 : Real.sin (Real.pi*coordinates 2 X 0)=0 := by
+    have hh : (-Real.pi)*Real.sin (Real.pi*coordinates 2 X 0)=0 := by
+      simpa [firstJet,physicalCoordinate,axis_coordinates] using hzero 0
+    exact (mul_eq_zero.mp hh).resolve_left (neg_ne_zero.mpr Real.pi_ne_zero)
+  have hs1 : Real.sin (Real.pi*coordinates 2 X 1)=0 := by
+    have hh : (-2*Real.pi)*Real.sin (Real.pi*coordinates 2 X 1)=0 := by
+      simpa [firstJet,physicalCoordinate,axis_coordinates] using hzero 1
+    exact (mul_eq_zero.mp hh).resolve_left (mul_ne_zero (by norm_num) Real.pi_ne_zero)
+  obtain ⟨k0,h0⟩ := Real.sin_eq_zero_iff.mp hs0
+  obtain ⟨k1,h1⟩ := Real.sin_eq_zero_iff.mp hs1
+  refine ⟨![k0,k1],?_⟩
+  intro i
+  fin_cases i
+  · change coordinates 2 X 0 = (k0 : ℝ)
+    apply mul_left_cancel₀ Real.pi_ne_zero
+    nlinarith [h0]
+  · change coordinates 2 X 1 = (k1 : ℝ)
+    apply mul_left_cancel₀ Real.pi_ne_zero
+    nlinarith [h1]
+
+private theorem positive_diagonal_inertia
+    (X : UniversalLaw.Spec.Lifetime.E 2) (a b : ℝ) (ha : 0<a) (hb : 0<b)
+    (hdiag : ∀ v, hessian 2 (actualField 2 2 fixtureSample) X v v =
+      a*(coordinates 2 v 0)^2+b*(coordinates 2 v 1)^2) :
+    HessianHasInertia 2 (actualField 2 2 fixtureSample) X 0 := by
+  refine ⟨⊥,⊤,isCompl_bot_top,by simp,by simp [UniversalLaw.Spec.Lifetime.E],?_,?_⟩
+  · intro v hv hv0
+    exact (hv0 ((Submodule.mem_bot ℝ).mp hv)).elim
+  · intro v _ hv
+    have hn : coordinates 2 v 0 ≠ 0 ∨ coordinates 2 v 1 ≠ 0 := by
+      by_contra! hh
+      apply hv
+      apply (coordinates 2).injective
+      ext i
+      fin_cases i <;> simp_all
+    rw [hdiag]
+    rcases hn with hn|hn
+    · exact add_pos_of_pos_of_nonneg (mul_pos ha (sq_pos_of_ne_zero hn))
+        (mul_nonneg hb.le (sq_nonneg _))
+    · exact add_pos_of_nonneg_of_pos (mul_nonneg ha.le (sq_nonneg _))
+        (mul_pos hb (sq_pos_of_ne_zero hn))
+
+private theorem first_negative_inertia
+    (X : UniversalLaw.Spec.Lifetime.E 2) (a b : ℝ) (ha : a<0) (hb : 0<b)
+    (hdiag : ∀ v, hessian 2 (actualField 2 2 fixtureSample) X v v =
+      a*(coordinates 2 v 0)^2+b*(coordinates 2 v 1)^2) :
+    HessianHasInertia 2 (actualField 2 2 fixtureSample) X 1 := by
+  let N : Submodule ℝ (UniversalLaw.Spec.Lifetime.E 2) := Submodule.span ℝ {physicalAxis 0}
+  let P : Submodule ℝ (UniversalLaw.Spec.Lifetime.E 2) := Submodule.span ℝ {physicalAxis 1}
+  have haxis (i : Fin 2) : physicalAxis i ≠ 0 := by
+    intro hh
+    have he := congrArg (fun Y => coordinates 2 Y i) hh
+    simpa [axis_coordinates] using he
+  have hN : Module.finrank ℝ N=1 := finrank_span_singleton (haxis 0)
+  have hP : Module.finrank ℝ P=1 := finrank_span_singleton (haxis 1)
+  have hdis : Disjoint N P := by
+    rw [Submodule.disjoint_def]
+    intro v hv hw
+    obtain ⟨s,hs⟩ := Submodule.mem_span_singleton.mp hv
+    obtain ⟨t,ht⟩ := Submodule.mem_span_singleton.mp hw
+    have he := congrArg (fun Y => coordinates 2 Y 0) (hs.trans ht.symm)
+    have hs0 : s=0 := by simpa [axis_coordinates] using he
+    simpa [hs0] using hs.symm
+  have hcompl : IsCompl N P := by
+    apply (Submodule.isCompl_iff_disjoint _ _ ?_).mpr hdis
+    simp [UniversalLaw.Spec.Lifetime.E,hN,hP]
+  refine ⟨N,P,hcompl,hN,by simpa using hP,?_,?_⟩
+  · intro v hv hv0
+    obtain ⟨s,rfl⟩ := Submodule.mem_span_singleton.mp hv
+    have hs : s ≠ 0 := by intro hh; apply hv0; simp [hh]
+    rw [hdiag]
+    simpa [axis_coordinates] using mul_neg_of_neg_of_pos ha (sq_pos_of_ne_zero hs)
+  · intro v hv hv0
+    obtain ⟨s,rfl⟩ := Submodule.mem_span_singleton.mp hv
+    have hs : s ≠ 0 := by intro hh; apply hv0; simp [hh]
+    rw [hdiag]
+    simpa [axis_coordinates] using mul_pos hb (sq_pos_of_ne_zero hs)
+
+private theorem nonzero_diagonal_has_inertia
+    (X : UniversalLaw.Spec.Lifetime.E 2) (a b : ℝ) (ha : a ≠ 0) (hb : b ≠ 0)
+    (hdiag : ∀ v, hessian 2 (actualField 2 2 fixtureSample) X v v =
+      a*(coordinates 2 v 0)^2+b*(coordinates 2 v 1)^2) :
+    ∃ j, HessianHasInertia 2 (actualField 2 2 fixtureSample) X j := by
+  rcases lt_or_gt_of_ne ha with ha|ha
+  · rcases lt_or_gt_of_ne hb with hb|hb
+    · refine ⟨2,I4SourceActualFoldCandidate.hessianHasInertia_two_of_diag _ X 1 a b (by norm_num) ha hb 0 ?_⟩
+      intro v
+      rw [hdiag]
+      simp
+    · exact ⟨1,first_negative_inertia X a b ha hb hdiag⟩
+  · rcases lt_or_gt_of_ne hb with hb|hb
+    · refine ⟨1,I4SourceActualFoldCandidate.hessianHasInertia_one_of_diag _ X 1 a b (by norm_num) ha hb 0 ?_⟩
+      intro v
+      rw [hdiag]
+      simp
+    · exact ⟨0,positive_diagonal_inertia X a b ha hb hdiag⟩
+
+private theorem equal_critical_sign_even_difference (x y : ℝ)
+    (hx : Real.sin (Real.pi*x)=0) (hy : Real.sin (Real.pi*y)=0)
+    (hcos : Real.cos (Real.pi*x)=Real.cos (Real.pi*y)) :
+    ∃ k : ℤ, x-y=2*(k:ℝ) := by
+  have hsq : Real.cos (Real.pi*y)^2=1 := by
+    rcases Real.sin_eq_zero_iff_cos_eq.mp hy with he|he <;> rw [he] <;> norm_num
+  have hsub : Real.cos (Real.pi*(x-y))=1 := by
+    rw [mul_sub,Real.cos_sub,hx,hy,hcos]
+    nlinarith [hsq]
+  obtain ⟨k,hk⟩ := (Real.cos_eq_one_iff (Real.pi*(x-y))).mp hsub
+  refine ⟨k,?_⟩
+  apply mul_left_cancel₀ Real.pi_ne_zero
+  nlinarith [hk]
+
+private theorem actual_lattice_distance_zero
+    (X Y : UniversalLaw.Spec.Lifetime.E 2) (k0 k1 : ℤ)
+    (h0 : coordinates 2 X 0-coordinates 2 Y 0=2*(k0:ℝ))
+    (h1 : coordinates 2 X 1-coordinates 2 Y 1=2*(k1:ℝ)) : torusDist 2 2 X Y=0 := by
+  simp only [coordinates_apply] at h0 h1
+  let n : Fin 2 → ℤ := ![-k0,-k1]
+  have hz : X-Y+latticeVec 2 2 n=0 := by
+    apply (coordinates 2).injective
+    ext i
+    fin_cases i
+    · simp [latticeVec,n]
+      nlinarith [h0]
+    · simp [latticeVec,n]
+      nlinarith [h1]
+  have hbd : BddBelow (Set.range (fun n : Fin 2 → ℤ => ‖X-Y+latticeVec 2 2 n‖)) :=
+    ⟨0,by rintro _ ⟨n,rfl⟩; exact norm_nonneg _⟩
+  apply le_antisymm
+  · have hh := ciInf_le hbd n
+    simpa [torusDist,hz] using hh
+  · exact le_ciInf fun n => norm_nonneg _
+
+theorem fixture_morseDistinct : IsMorseDistinct 2 2 (actualField 2 2 fixtureSample) := by
+  constructor
+  · intro X hX
+    obtain ⟨n,hn⟩ := critical_integer_coordinates X hX
+    have hs (i : Fin 2) : Real.sin (Real.pi*coordinates 2 X i)=0 := by
+      rw [hn i,mul_comm]
+      exact Real.sin_int_mul_pi _
+    have h0 : -Real.pi^2*Real.cos (Real.pi*coordinates 2 X 0) ≠ 0 := by
+      rcases Real.sin_eq_zero_iff_cos_eq.mp (hs 0) with he|he <;> rw [he] <;> simp [Real.pi_ne_zero]
+    have h1 : -2*Real.pi^2*Real.cos (Real.pi*coordinates 2 X 1) ≠ 0 := by
+      rcases Real.sin_eq_zero_iff_cos_eq.mp (hs 1) with he|he <;> rw [he] <;> simp [Real.pi_ne_zero]
+    apply nonzero_diagonal_has_inertia X _ _ h0 h1
+    intro v
+    rw [actual_secondJet]
+    ring
+  · intro X Y hX hY hdist hequal
+    obtain ⟨nx,hx⟩ := critical_integer_coordinates X hX
+    obtain ⟨ny,hy⟩ := critical_integer_coordinates Y hY
+    have hsX (i : Fin 2) : Real.sin (Real.pi*coordinates 2 X i)=0 := by
+      rw [hx i,mul_comm]
+      exact Real.sin_int_mul_pi _
+    have hsY (i : Fin 2) : Real.sin (Real.pi*coordinates 2 Y i)=0 := by
+      rw [hy i,mul_comm]
+      exact Real.sin_int_mul_pi _
+    rw [fixture_actualField,fixture_actualField] at hequal
+    have hsign : Real.cos (Real.pi*coordinates 2 X 0)=Real.cos (Real.pi*coordinates 2 Y 0) ∧
+        Real.cos (Real.pi*coordinates 2 X 1)=Real.cos (Real.pi*coordinates 2 Y 1) := by
+      rcases Real.sin_eq_zero_iff_cos_eq.mp (hsX 0) with hx0|hx0 <;>
+      rcases Real.sin_eq_zero_iff_cos_eq.mp (hsX 1) with hx1|hx1 <;>
+      rcases Real.sin_eq_zero_iff_cos_eq.mp (hsY 0) with hy0|hy0 <;>
+      rcases Real.sin_eq_zero_iff_cos_eq.mp (hsY 1) with hy1|hy1 <;>
+      constructor <;> linarith
+    obtain ⟨k0,hk0⟩ := equal_critical_sign_even_difference _ _ (hsX 0) (hsY 0) hsign.1
+    obtain ⟨k1,hk1⟩ := equal_critical_sign_even_difference _ _ (hsX 1) (hsY 1) hsign.2
+    have hz := actual_lattice_distance_zero X Y k0 k1 hk0 hk1
+    linarith
+
+theorem fixture_all_levels_finite :
+    ∀ a : ℝ, Finite (ZerothHomotopy (TorusFiltration.superlevel_set fixtureTorusField (-a))) :=
+  I4SourceActualFiniteSuperlevelComponents.actualSource_finite_closedSuperlevel_components
+    (by norm_num) fixtureSample fixture_morseDistinct
+
+theorem fixture_max_finite :
+    Finite (ZerothHomotopy (TorusFiltration.superlevel_set fixtureTorusField (-3))) :=
+  fixture_all_levels_finite 3
+
+theorem fixture_empty_finite :
+    Finite (ZerothHomotopy (TorusFiltration.superlevel_set fixtureTorusField (-4))) :=
+  fixture_all_levels_finite 4
+
+theorem fixture_whole_finite :
+    Finite (ZerothHomotopy (TorusFiltration.superlevel_set fixtureTorusField 4)) := by
+  have hf := fixture_all_levels_finite (-4)
+  rw [show -(-4 : ℝ) = 4 by norm_num] at hf
+  exact hf
+
+private theorem fixture_projection_value (x : Fin 2 → ℝ) :
+    fixtureTorusField (fixtureProjection x)=Real.cos (Real.pi*x 0)+2*Real.cos (Real.pi*x 1) := by
+  rw [fixtureTorusField,fixtureProjection,SourceActualFoldTorus.actualTorusField_pullback]
+  exact finite_fixture_coordinate_value x
+
+theorem fixture_whole_nonempty :
+    Nonempty (TorusFiltration.superlevel_set fixtureTorusField 4) := by
+  refine ⟨⟨fixtureProjection 0,?_⟩⟩
+  change -(4 : ℝ) ≤ fixtureTorusField (fixtureProjection 0)
+  rw [fixture_projection_value]
+  norm_num
+
+private theorem coverMaxPoint_apply (n : ℕ) (i : Fin 2) :
+    coverMaxPoint n i = ![(2 : ℝ) * (n : ℝ), 0] i :=
+  congrFun ((coordinates 2).apply_symm_apply ![(2 : ℝ) * (n : ℝ), 0]) i
+
+theorem coverMaxPoint_height (n : ℕ) : actualField 2 2 fixtureSample (coverMaxPoint n)=3 := by
+  rw [fixture_actualField]
+  have h0 : Real.cos ((n:ℝ)*(2*Real.pi))=1 := by
+    simpa only [Int.cast_natCast] using Real.cos_int_mul_two_pi (n:ℤ)
+  have hp : Real.pi*(2*(n:ℝ))=(n:ℝ)*(2*Real.pi) := by ring
+  simp only [coordinates_apply, coverMaxPoint_apply, Matrix.cons_val_zero,
+    Matrix.cons_val_one, mul_zero, Real.cos_zero, mul_one]
+  rw [hp, h0]
+  norm_num
+
+private def coverMaxMember (n : ℕ) :
+    TorusFiltration.superlevel_set (actualField 2 2 fixtureSample) (-3) :=
+  ⟨coverMaxPoint n, by
+    change -(-3 : ℝ) ≤ actualField 2 2 fixtureSample (coverMaxPoint n)
+    rw [coverMaxPoint_height]
+    norm_num⟩
+
+def coverMaxClass (n : ℕ) :
+    ZerothHomotopy (TorusFiltration.superlevel_set (actualField 2 2 fixtureSample) (-3)) :=
+  ZerothHomotopy.mk (coverMaxMember n)
+
+private theorem coverMaxClass_ne_of_lt {m n : ℕ} (hmn : m<n) :
+    coverMaxClass m ≠ coverMaxClass n := by
+  intro hequal
+  have hj : JoinedIn (TorusFiltration.superlevel_set (actualField 2 2 fixtureSample) (-3))
+      (coverMaxPoint m) (coverMaxPoint n) := by
+    exact (TorusFiltration.superlevel_component_eq_iff_joinedIn
+      (actualField 2 2 fixtureSample) (-3) (coverMaxMember m) (coverMaxMember n)).mp hequal
+  let p := hj.somePath
+  have hcoordinate : Continuous (fun t : unitInterval => coordinates 2 (p t) 0) :=
+    ((continuous_apply 0).comp (coordinates 2).continuous).comp p.continuous
+  have hbetween : 2*(m:ℝ)+1 ∈ Icc (coordinates 2 (p 0) 0) (coordinates 2 (p 1) 0) := by
+    have hmnR : (m:ℝ)+1 ≤ (n:ℝ) := by exact_mod_cast Nat.succ_le_of_lt hmn
+    have hp0 : p (0 : unitInterval) = coverMaxPoint m := p.source
+    have hp1 : p (1 : unitInterval) = coverMaxPoint n := p.target
+    rw [hp0, hp1]
+    simp only [coordinates_apply, coverMaxPoint_apply, Matrix.cons_val_zero]
+    constructor <;> linarith
+  obtain ⟨t,ht⟩ := intermediate_value_univ (0:unitInterval) (1:unitInterval) hcoordinate hbetween
+  change coordinates 2 (p t) 0 = 2 * (m : ℝ) + 1 at ht
+  have hmember : (3:ℝ) ≤ actualField 2 2 fixtureSample (p t) := by
+    have hmem := hj.somePath_mem t
+    change -(-3 : ℝ) ≤ actualField 2 2 fixtureSample (p t) at hmem
+    norm_num only at hmem
+    exact hmem
+  have hcosodd : Real.cos (Real.pi*(2*(m:ℝ)+1)) = -1 := by
+    rw [show Real.pi*(2*(m:ℝ)+1)=(m:ℝ)*(2*Real.pi)+Real.pi by ring]
+    simpa only [Int.cast_natCast] using Real.cos_int_mul_two_pi_add_pi (m:ℤ)
+  rw [fixture_actualField,ht,hcosodd] at hmember
+  have hcosle := Real.cos_le_one (Real.pi*coordinates 2 (p t) 1)
+  linarith
+
+theorem coverMaxClass_injective : Function.Injective coverMaxClass := by
+  intro m n hequal
+  rcases lt_trichotomy m n with hmn|hmn|hnm
+  · exact False.elim (coverMaxClass_ne_of_lt hmn hequal)
+  · exact hmn
+  · exact False.elim (coverMaxClass_ne_of_lt hnm hequal.symm)
+
+theorem coverMaxComponents_infinite :
+    Infinite (ZerothHomotopy (TorusFiltration.superlevel_set (actualField 2 2 fixtureSample) (-3))) :=
+  Infinite.of_injective coverMaxClass coverMaxClass_injective
+
+theorem not_finite_coverMaxComponents :
+    ¬ Finite (ZerothHomotopy (TorusFiltration.superlevel_set (actualField 2 2 fixtureSample) (-3))) := by
+  intro hfinite
+  exact coverMaxComponents_infinite.not_finite hfinite
+
+def fullCoverVariantAtFixture : Prop :=
+  Finite (ZerothHomotopy (TorusFiltration.superlevel_set (actualField 2 2 fixtureSample) (-3)))
+
+theorem not_fullCoverVariantAtFixture : ¬ fullCoverVariantAtFixture :=
+  not_finite_coverMaxComponents
+
+end FiniteSuperlevelComponentsControls

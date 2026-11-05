@@ -1,0 +1,46 @@
+{
+  "label": "inventory-001",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "env",
+    "LEAN_PATH=/workspace/scratch/transverse-ridge-construct/build:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Cli/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/batteries/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Qq/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/aesop/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/plausible/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean:/home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/scratch/transverse-ridge-construct/Inventory.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/AdaptiveFoldTransverseRidge.lean",
+      "bytes": 28516,
+      "sha256": "715b01c2ae3b6e2bceb4196e53361530c8c9c69550e7cf675904cd5661b3de20"
+    },
+    "object": {
+      "path": "/workspace/scratch/transverse-ridge-construct/build/AdaptiveFoldTransverseRidge.olean",
+      "bytes": 841192,
+      "sha256": "f3957a3afe2d4d1f492c3ddd9463f93526c821f3210a48094267d56a7a527749"
+    }
+  },
+  "started_utc": "2026-10-26T05:02:19.175998+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 3.075227737426758,
+  "ended_utc": "2026-10-26T05:02:22.251250+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/AdaptiveFoldTransverseRidge.lean",
+      "bytes": 28516,
+      "sha256": "715b01c2ae3b6e2bceb4196e53361530c8c9c69550e7cf675904cd5661b3de20"
+    },
+    "object": {
+      "path": "/workspace/scratch/transverse-ridge-construct/build/AdaptiveFoldTransverseRidge.olean",
+      "bytes": 841192,
+      "sha256": "f3957a3afe2d4d1f492c3ddd9463f93526c821f3210a48094267d56a7a527749"
+    }
+  },
+  "log": {
+    "path": "/workspace/scratch/transverse-ridge-construct/runs/inventory-001/output.log",
+    "bytes": 8451,
+    "sha256": "3d6a65a57a5cc5c58ea93d554a14ce4e904f313f3b7b20cccd0f83c0b7d7a632"
+  }
+}

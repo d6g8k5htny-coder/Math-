@@ -1,0 +1,6 @@
+SourceWeightedCurvatureBound.lean:380:2: error: Type mismatch: After simplification, term
+  (abs_le.mp hω).left
+ has type
+  -(K * r * sourceGammaRadius L ω ^ 5) ≤ sourceQ L ω
+but is expected to have type
+  ω ∈ sourceCurvatureOneSided L r K

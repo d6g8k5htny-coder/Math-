@@ -1,0 +1,315 @@
+{
+  "schema_version": 1,
+  "scope_id": "SOURCE_PIN_PRESERVING_QUARTIC_ONLY_20261026",
+  "role": "New-only packaging/projection of completed applicable verification; no additional verification execution.",
+  "scientific_effect": "NONE",
+  "goal_status": "FULL_ORIGINAL_RESEARCH_GOAL_ACTIVE",
+  "mathematical_qualification": "COMPLETE_REUSED_FROM_EXISTING_RECEIPT",
+  "packaged_at_utc": "2026-10-26T01:19:37.453122+00:00",
+  "worktree": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "membership_file": "QUARTIC_MEMBERSHIP.json",
+  "scope_file": "QUARTIC_SCOPE.md",
+  "public_inventory": "QUARTIC_PUBLIC_INVENTORY.json",
+  "public_proof_names_append": "PUBLIC_PROOF_NAMES_APPEND.txt",
+  "private_kernel_only_inventory": "PRIVATE_DECLARATIONS_KERNEL_ONLY.json",
+  "modules": [
+    {
+      "module": "SourcePinPreservingQuartic",
+      "source_path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourcePinPreservingQuartic.lean",
+      "frozen_source_copy": "sources/SourcePinPreservingQuartic.lean",
+      "source_sha256": "8e23717ef98518b6d701db921d1f17958c3dee2c893745cafa7aa6172f1621d9",
+      "source_sha_origin": "completed qualification_receipt.json; not recomputed during packaging",
+      "olean_path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourcePinPreservingQuartic.olean",
+      "olean_sha256": "d4cff4ad4c99947b084df20691dfc1228e9f46710faf52d9f28f7e3d57a97f72",
+      "artifact_binding": "Final compile11, kernel, all 141 direct reports and controls consumed this exact frozen source/object; actual before/after hashes are retained in original records.",
+      "frozen_contract_commit": "fa7c043",
+      "contract_reference": "SOURCE_PIN_PRESERVING_QUARTIC.md",
+      "contract_sha256_from_receipt": "4995b209e6c0244a52d121d6990c2057455c954140654fed31a962824777cfa1",
+      "source_integration_commit": "396bdf3be0ce3550726ac231bbe4d95298272671",
+      "integration_cut_owned_by_root": true,
+      "public_inventory_count": 141,
+      "public_proof_targets": 112,
+      "definitions_abbreviations": 29,
+      "kind_counts": {
+        "theorem": 112,
+        "def": 28,
+        "abbrev": 1
+      },
+      "direct_printed_reports": 141,
+      "private_declarations_kernel_covered_not_public": 42,
+      "compile": {
+        "metadata": "raw/final/compile11.json",
+        "raw_output": "raw/final/compile11.log",
+        "actual_record": {
+          "command": [
+            "lake",
+            "env",
+            "lean",
+            "-DwarningAsError=true",
+            "-o",
+            ".lake/build/lib/lean/SourcePinPreservingQuartic.olean",
+            "SourcePinPreservingQuartic.lean"
+          ],
+          "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "exit": 0,
+          "sourceSHA_before": "8e23717ef98518b6d701db921d1f17958c3dee2c893745cafa7aa6172f1621d9",
+          "sourceSHA_after": "8e23717ef98518b6d701db921d1f17958c3dee2c893745cafa7aa6172f1621d9",
+          "startedUTC": "2026-10-26T01:09:42.169481+00:00",
+          "elapsed": 18.193509101867676
+        }
+      },
+      "kernel": {
+        "metadata": "raw/final/kernel.json",
+        "raw_output": "raw/final/kernel.log",
+        "replay_count": 1,
+        "actual_record": {
+          "command": [
+            "lake",
+            "env",
+            "leanchecker",
+            "SourcePinPreservingQuartic"
+          ],
+          "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "exit": 0,
+          "sourceSHA_before": "8e23717ef98518b6d701db921d1f17958c3dee2c893745cafa7aa6172f1621d9",
+          "sourceSHA_after": "8e23717ef98518b6d701db921d1f17958c3dee2c893745cafa7aa6172f1621d9",
+          "oleanSHA_before": "d4cff4ad4c99947b084df20691dfc1228e9f46710faf52d9f28f7e3d57a97f72",
+          "oleanSHA_after": "d4cff4ad4c99947b084df20691dfc1228e9f46710faf52d9f28f7e3d57a97f72",
+          "startedUTC": "2026-10-26T01:10:25.775971+00:00",
+          "elapsed": 7.940127372741699
+        }
+      },
+      "axioms": {
+        "metadata": "raw/final/axioms.json",
+        "raw_output": "raw/final/axioms.log",
+        "actual_record": {
+          "command": [
+            "lake",
+            "env",
+            "lean",
+            "/workspace/scratch/pin-preserving-quartic-implementation/AxiomAudit.lean"
+          ],
+          "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+          "exit": 0,
+          "sourceSHA_before": "8e23717ef98518b6d701db921d1f17958c3dee2c893745cafa7aa6172f1621d9",
+          "sourceSHA_after": "8e23717ef98518b6d701db921d1f17958c3dee2c893745cafa7aa6172f1621d9",
+          "oleanSHA_before": "d4cff4ad4c99947b084df20691dfc1228e9f46710faf52d9f28f7e3d57a97f72",
+          "oleanSHA_after": "d4cff4ad4c99947b084df20691dfc1228e9f46710faf52d9f28f7e3d57a97f72",
+          "startedUTC": "2026-10-26T01:10:25.766754+00:00",
+          "elapsed": 2.9992728233337402
+        },
+        "direct_report_inventory": "QUARTIC_PUBLIC_INVENTORY.json",
+        "all_141_public_declarations_directly_reported": true,
+        "observed_axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "no_private_direct_reports_claimed": true
+      },
+      "controls": {
+        "receipt": "raw/final/quartic_control_receipt.json",
+        "positive_exit": 0,
+        "positive_raw_output": "raw/implementation/Controls.attempt2.log",
+        "positive_raw_output_empty": true,
+        "negative_controls": [
+          {
+            "name": "FalseSumC1",
+            "exit": 1,
+            "failure": "intended unsolved False",
+            "raw_output": "raw/implementation/FalseSumC1.attempt1.log"
+          },
+          {
+            "name": "FalseMissingFifthDerivative",
+            "exit": 1,
+            "failure": "intended unsolved False",
+            "raw_output": "raw/implementation/FalseMissingFifthDerivative.attempt1.log"
+          }
+        ],
+        "failed_positive_attempt_preserved": "raw/implementation/Controls.attempt1.log",
+        "recorded_coverage": [
+          "literal LM001 mixed U and nonunit radius at rational point",
+          "hardcoded exact symmetric Jacobian and actual Euclidean fderiv identity",
+          "exact polynomial positive and negative half pins",
+          "sharp quartic scalar Taylor factorial 1/24 at x=2,G=24",
+          "sharp cubic second-order scalar Taylor factorial 1/6 at x=-2,G=6",
+          "Pi sup norm 4 versus Euclidean norm 5 for [3,4]",
+          "all-ones 2x2 induced Euclidean operator norm exactly 2",
+          "separate maximum C1 constants <=3 and their sum >4",
+          "exact K0,epsilonStar,Kcap and Fstar coefficient normalization",
+          "literal q-excluded cutoff U radius 7 <=5*2 with r=epsilonStar/32",
+          "generic cutoff regularity,tolerance,curvature threshold and width geometry",
+          "false sum-C1 surrogate rejected at False",
+          "false zero fifth-derivative majorant rejected at False"
+        ]
+      },
+      "key_public_exports": [
+        {
+          "name": "I4SourcePinPreservingQuartic.source_axial_third_error",
+          "kind": "theorem",
+          "line": 607
+        },
+        {
+          "name": "I4SourcePinPreservingQuartic.source_low_pin_coefficients",
+          "kind": "theorem",
+          "line": 660
+        },
+        {
+          "name": "I4SourcePinPreservingQuartic.sourceRawRadius_le_global",
+          "kind": "theorem",
+          "line": 1055
+        },
+        {
+          "name": "I4SourcePinPreservingQuartic.sourceScaledGradient_hasFDerivAt",
+          "kind": "theorem",
+          "line": 1107
+        },
+        {
+          "name": "I4SourcePinPreservingQuartic.sourceScaledGradient_eq_gradient",
+          "kind": "theorem",
+          "line": 1868
+        },
+        {
+          "name": "I4SourcePinPreservingQuartic.sourceQuartic_C1_comparison",
+          "kind": "theorem",
+          "line": 1950
+        },
+        {
+          "name": "I4SourcePinPreservingQuartic.sourceQuartic_cutoff_tolerance",
+          "kind": "theorem",
+          "line": 1976
+        },
+        {
+          "name": "I4SourcePinPreservingQuartic.sourceQuartic_curvature_threshold",
+          "kind": "theorem",
+          "line": 1996
+        },
+        {
+          "name": "I4SourcePinPreservingQuartic.sourceQuartic_C1_estimates",
+          "kind": "theorem",
+          "line": 2012
+        },
+        {
+          "name": "I4SourcePinPreservingQuartic.sourceQuartic_width_geometry",
+          "kind": "theorem",
+          "line": 2062
+        },
+        {
+          "name": "I4SourcePinPreservingQuartic.sourceQuartic_cutoff_estimates",
+          "kind": "theorem",
+          "line": 2091
+        },
+        {
+          "name": "I4SourcePinPreservingQuartic.sourceQuartic_weighted_C1_estimates",
+          "kind": "theorem",
+          "line": 2113
+        },
+        {
+          "name": "I4SourcePinPreservingQuartic.sourceQuartic_weighted_cutoff_estimates",
+          "kind": "theorem",
+          "line": 2127
+        }
+      ],
+      "source_commit_note": "Exact new-code cut provided by root; existing actual execution evidence binds the unchanged frozen source SHA. This commit/handoff does not trigger any repeated checks.",
+      "source_code_integration_cut": "396bdf3be0ce3550726ac231bbe4d95298272671"
+    }
+  ],
+  "baseline_by_reference": {
+    "qualified_module_count": 22,
+    "existing_proof_instance_target_count": 463,
+    "exact_input_count": 23,
+    "catalog_references": [
+      "EVIDENCE_CATALOG.json",
+      "FIELD_EVIDENCE_CATALOG.json",
+      "curvature-evidence/CURVATURE_EVIDENCE_CATALOG.json"
+    ],
+    "input_binding_reference": "INPUT_BINDING.json",
+    "fixed_pin_dependency_receipt": "/workspace/scratch/pin-curvature-implementation/qualification_receipt.json",
+    "hashing_or_rechecking_performed": false
+  },
+  "root_registration_append": {
+    "new_module_ordinal": 23,
+    "new_public_proofs": 112,
+    "resulting_target_count": 575,
+    "root_owned_actions": [
+      "Copy/register this package",
+      "Append the 112 public names",
+      "Assign integration cut and update shared manifests/lakefile"
+    ],
+    "packager_performed_these_actions": false,
+    "source_code_commit_already_supplied_by_root": "396bdf3be0ce3550726ac231bbe4d95298272671"
+  },
+  "excluded_active_modules": [
+    "SourceSmoothTopology"
+  ],
+  "review": {
+    "paper_analytic_review": {
+      "status": "REUSED_PASS_SCOPED_ANALYTIC_CONDITIONAL_AS_STATED",
+      "native_comment_id": 6405655198,
+      "native_url": "https://github.com/d6g8k5htny-coder/Math-/pull/514#issuecomment-6405655198",
+      "provider_family": "Anthropic Claude",
+      "reviewer_session": "01Cz",
+      "exact_commit": "27c9d923a90f02d31a03f0a19bdbb916f659aeca",
+      "reviewed_object": "curvature-evidence/actual-quartic-transfer/PROOF_CANDIDATE.md",
+      "reviewed_sha256": "e501b80eed7702005d9dacbb9711fc030cf84716f464abbf124d98cc90c394dd",
+      "existing_raw_custody_record": "curvature-evidence/REUSED_SCALAR_AND_ANALYTIC_REVIEW.json",
+      "custody_absolute_reference": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/curvature-evidence/REUSED_SCALAR_AND_ANALYTIC_REVIEW.json",
+      "scope": "Scope B analytic paper argument only; scope A in the same native record belongs to a different already qualified module and is not additional review of this new code.",
+      "review_execution": "Review says scope B was re-derived analytically and checked symbolically; it did not review this subsequently created Lean module. Existing review is reused, not repeated.",
+      "conditional_boundaries": [
+        "LM004 v1.1 robustness implication unassessed",
+        "LM001 cited certificate facts and shapes taken as cited",
+        "Measurable actual capture-event definition and application unassessed",
+        "Pin support only on the derived small-radius invertible-covariance interval"
+      ]
+    },
+    "new_code_source_alignment_review": {
+      "status": "REQUIRED_SEPARATE_NOT_COMPLETED_BY_THIS_PACKAGING",
+      "module": "SourcePinPreservingQuartic",
+      "source_sha256": "8e23717ef98518b6d701db921d1f17958c3dee2c893745cafa7aa6172f1621d9",
+      "scope": "Align the new actual Lean source, assumptions, Euclidean/operator maximum C1 convention, coefficient table and source-law application with the reviewed paper. Reusing the analytic PASS does not create a review of this code.",
+      "does_not_erase_completed_mathematical_verification": true,
+      "exact_code_commit": "396bdf3be0ce3550726ac231bbe4d95298272671"
+    },
+    "scientific_effect_of_packaging": "NONE",
+    "author_helper_independent_review_credit": 0
+  },
+  "lineage_file": "AUTHOR_HELPER_LINEAGE.json",
+  "helper_history_file": "CONTROL_AND_HELPER_HISTORY.json",
+  "raw_evidence_index": "RAW_EVIDENCE_INDEX.json",
+  "execution_record_index": "EXECUTION_RECORD_INDEX.json",
+  "original_qualification_receipt": "qualification_receipt.json",
+  "preservation": "Every available new-scope source/log/record file in the frozen quartic implementation and its declared generic Taylor helper lane is copied. Failed command metadata and raw outputs remain, including original record identity limitations; no failed-source snapshot or direct report is fabricated.",
+  "verification_reuse": "Completed applicable verification is reusable. Do not rerun unchanged baselines, this named replay, the axiom audit, or controls solely because of handoff/new agent/session. Any further verification must identify a new change or uncovered obligation and limit scope. Process/scientific review is separate.",
+  "packaging_actions": [
+    "Read completed receipts and existing review custody metadata",
+    "Byte-copy only new-module source/evidence and new declared helper evidence",
+    "Project catalogs, counts, public names and direct-report coverage from completed records"
+  ],
+  "packaging_nonactions": [
+    "No Lean/build/kernel/test/control command",
+    "No source or production edit",
+    "No old/baseline hashing",
+    "No baseline evidence duplication",
+    "No post or commit",
+    "No scientific-status promotion"
+  ],
+  "not_claimed": [
+    "LM004 robustness validity",
+    "measurable selected-branch capture or noncapture inclusion",
+    "gradient-flow or quotient-torus chart transport",
+    "point-process Palm identity",
+    "Morse/elder/counting or P0.2 closure",
+    "different-family scientific review",
+    "overall parent research completion"
+  ],
+  "source_code_integration_cut": "396bdf3be0ce3550726ac231bbe4d95298272671",
+  "integration_cut_origin": "Actual committed source code identity supplied by root after completed checks; metadata only, no new execution.",
+  "previous_22_scope_reference_cut": "77b3373ef89d88ea56bcf6b707b280d0b94f5a2b",
+  "native_checkpoint_reference": {
+    "url": "https://github.com/d6g8k5htny-coder/Math-/pull/514#issuecomment-6406108320",
+    "comment_id": 6406108320,
+    "origin": "Root-provided reference only; no native comment body or retrieval is fabricated here.",
+    "timing_note_from_root": "01:15 checkpoint posted at 01:20; qualification completed at 01:14."
+  }
+}

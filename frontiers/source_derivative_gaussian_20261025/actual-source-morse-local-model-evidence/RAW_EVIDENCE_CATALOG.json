@@ -1,0 +1,3486 @@
+{
+  "status": "IMMUTABLE60_ARCHIVE_READY_NO_SHARED_APPLY",
+  "source_cut": "c43a952b3fd71f7239fe31be51cba074cd5bd82b",
+  "qualified_baseline": "29e76f91af5f88606ca3f4f8e39ee88c1022fd73",
+  "members": [
+    {
+      "path": "raw/producer/ARTIFACT_IDENTITIES.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/ARTIFACT_IDENTITIES.json",
+      "bytes": 30032,
+      "sha256": "0c90b7db3a0a029c16322c793db0a01ef379e79eb38a72e21b3dd3526f29ba62",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/CONTROLS.md",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/CONTROLS.md",
+      "bytes": 6630,
+      "sha256": "27f49917ab1c3a455a0f9563174939d366f002e879726c969f324effe5ea5fee",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/CONTROLS_INTEGRATION.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/CONTROLS_INTEGRATION.json",
+      "bytes": 2370,
+      "sha256": "d86b7928f46816f4998a249d111b03d334624552af86fedb60fb98653c81d6ec",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/CONTROL_CONTRACT.md",
+      "bytes": 7187,
+      "sha256": "508478d9ed8225f8347e1263d244a6d38683f5935e144634db3b425d84844d79",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/CONTROL_FREEZE_ADOPTION.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/CONTROL_FREEZE_ADOPTION.json",
+      "bytes": 777,
+      "sha256": "3c7fa426b6d3b0351652c35974ee1f280bb478732decb2e4f8017017241699ae",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/CONTROL_RECEIPT.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/CONTROL_RECEIPT.json",
+      "bytes": 1604,
+      "sha256": "9361d2409e867e92175fbb02b3d283d846ce08f2e7334779b3af522a497e88a0",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/EXACTLY_ONE_FALSE_STARTED.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/EXACTLY_ONE_FALSE_STARTED.json",
+      "bytes": 749,
+      "sha256": "2d529be72c2063600c024a2fb04cf96a4ae756df70bbe9c6c19ce28891441537",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/EXACTLY_ONE_KERNEL_STARTED.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/EXACTLY_ONE_KERNEL_STARTED.json",
+      "bytes": 114,
+      "sha256": "caa1ebe1dd9eab4b36de1d8d2205577dcae719912e819112ccef5b67baa41f8d",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/EXECUTION_RECORD_INDEX.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/EXECUTION_RECORD_INDEX.json",
+      "bytes": 22156,
+      "sha256": "588447916e0a98df093c016f773d8f97a5eec89800ce16c7a978813c99bdcc86",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/FINAL_DOCUMENT_IDENTITIES.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/FINAL_DOCUMENT_IDENTITIES.json",
+      "bytes": 5078,
+      "sha256": "a99eea0c96ef1a6ceef1a048327a3c6b134a777de12468901909282c89872150",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/FROZEN_SOURCE.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/FROZEN_SOURCE.json",
+      "bytes": 1890,
+      "sha256": "669ada1f755b1e558ddc468717654936bb877aa72811f3784df5f4d8a54b0a70",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/HANDOFF.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/HANDOFF.json",
+      "bytes": 4407,
+      "sha256": "d7ef62b8c4d04288faa445278d1091bd8677f2a77470326f28dbbcf1c9f6ed36",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/HELPER_INTEGRATIONS.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/HELPER_INTEGRATIONS.json",
+      "bytes": 7431,
+      "sha256": "54e9bc804d26f42c565cc069603c22de163709a621df33484f5a3ec35f21c16b",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/INVENTORY_CLASSIFICATION.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/INVENTORY_CLASSIFICATION.json",
+      "bytes": 63717,
+      "sha256": "ae0945597d220fe77b72d398f26924c9e76aca0f7116b831181b025701160f24",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/Inventory.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/Inventory.lean",
+      "bytes": 1082,
+      "sha256": "1e2fe4e6fa7e7796690638ac4265a71551e5ae63f1c0b7236b55ddbece16ffbe",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/PLAN.md",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/PLAN.md",
+      "bytes": 5328,
+      "sha256": "05db8557f23e102a5364bdc8290f5cabbad660c61d409784fffd7c8f42eae791",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/PRODUCER_FINAL_READY.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/PRODUCER_FINAL_READY.json",
+      "bytes": 321,
+      "sha256": "73fcdef3ccc903a1791522ac10b5caee23f0c3160fb2f8c827c48c06d86cead4",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/READINESS.md",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/READINESS.md",
+      "bytes": 3881,
+      "sha256": "fbb693f54cccd6a2afa02583b1423092db8577f107db1eca999d0fd0c4aa8ba5",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/REPORT.md",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/REPORT.md",
+      "bytes": 11965,
+      "sha256": "f490e5fca03ee0155ef04fc6d2d4e8bbfbfc8848d090d3c5e2e56b9daa8d414b",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/ROOT_CONTEXT_BINDING.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/ROOT_CONTEXT_BINDING.json",
+      "bytes": 4581,
+      "sha256": "46aefb63b7f3e2f1945bce2969dd544b19e2d6f8af9458d853f7358ab01a4056",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/ROOT_CONTEXT_BINDING.pre-size-correction.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/ROOT_CONTEXT_BINDING.pre-size-correction.json",
+      "bytes": 3018,
+      "sha256": "1b58d57f27148d65b1f510a18e71cf5a7b0b768f1daa9a60f632ef373e968e26",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/ROOT_GO.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/ROOT_GO.json",
+      "bytes": 3461,
+      "sha256": "bc38818765141d152991c591d44b8b5433d84198155cc1dad050b53d39b01074",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/SHARED_CONTEXT60_V1.md",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/SHARED_CONTEXT60_V1.md",
+      "bytes": 11336,
+      "sha256": "70178f58227f4907528f3f2adca4226f124d46c86ca4fb41e82ac7874ec01f4b",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/SHARED_CONTEXT60_V1_SUPPLEMENT_A.md",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/SHARED_CONTEXT60_V1_SUPPLEMENT_A.md",
+      "bytes": 539,
+      "sha256": "e1b9b40db83ab3adfbc884e5888615a4a5d64d92dc6e14cb731ea313f5e8a82f",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/SHARED_CONTEXT60_V1_SUPPLEMENT_B.md",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/SHARED_CONTEXT60_V1_SUPPLEMENT_B.md",
+      "bytes": 734,
+      "sha256": "bce6fe472dab5dadb9fba5e6ec6caf2e40223a2317e11d43fb94d3353b1f78dc",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/SHARED_CONTEXT60_V1_SUPPLEMENT_C.md",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/SHARED_CONTEXT60_V1_SUPPLEMENT_C.md",
+      "bytes": 1372,
+      "sha256": "53ffd27580bcfe4675daecb386414abd1031a01d63fc22baaf644dda255c6081",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/SHARED_CONTEXT_FULL_ACTUAL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/SHARED_CONTEXT_FULL_ACTUAL_AMENDMENTS.patch",
+      "bytes": 1938,
+      "sha256": "5c8bd6edc034e693a893d1284a613681e129cfd3baa853ee694cb0d4bae6669e",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/SOURCE_OBJECT_IDENTITIES.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/SOURCE_OBJECT_IDENTITIES.json",
+      "bytes": 2813,
+      "sha256": "1736292370069d3d15a8691463d0ee56c498b59fdc87503e98bd88dfd7813b49",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/SPEC.md",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/SPEC.md",
+      "bytes": 5463,
+      "sha256": "ae68029f6a4a0bd86ab98d08f08f3c69cbcabaa12feae10ad9c4ae8ba23d630b",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/bind_owned.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/bind_owned.py",
+      "bytes": 1392,
+      "sha256": "cdad68320aa1984ad0b79903c285538ec72594c96a92c19afb9d63257dd16c82",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/controls/MorseLocalModelControls.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean",
+      "bytes": 10149,
+      "sha256": "8887149774e637c1c55734949c300a10c636770c635678552a897951893d9328",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/controls/OmittedTaylorWeightFalse.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/controls/OmittedTaylorWeightFalse.lean",
+      "bytes": 175,
+      "sha256": "0ac7b1f17de8d94bcf96004c2dbd5a778292b7b190606984954feb0d9849c405",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/controls-originals/CONTROLS_FROZEN.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/controls-originals/CONTROLS_FROZEN.json",
+      "bytes": 771,
+      "sha256": "1ce2aea1ada8071dee81f00bfa1794ea1d98c12835a1d4051ca837e1f0b93272",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/controls-originals/CONTROLS_IMPORTS.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/controls-originals/CONTROLS_IMPORTS.txt",
+      "bytes": 242,
+      "sha256": "4b5364860602cca16c8d046ae9c215f51ba54fa929bed0e2637b84239e0efdf3",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/controls-originals/CONTROLS_PROVENANCE.md",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/controls-originals/CONTROLS_PROVENANCE.md",
+      "bytes": 3731,
+      "sha256": "d0893ae69daabbbfe36d98abeb2ab4a6bc917be720e711d2ae730956df1f761e",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/controls-originals/CONTROLS_SECTION.lean.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/controls-originals/CONTROLS_SECTION.lean.txt",
+      "bytes": 9829,
+      "sha256": "036dc6e3053438f524557a4a9a4dc28906a7784dbea65773640e946fe95e22c2",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/helper-originals/A/FROZEN_LOGICAL_IDS.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/A/FROZEN_LOGICAL_IDS.json",
+      "bytes": 1012,
+      "sha256": "210c457a41ba420ea4443c7dcd9cdc934ba695ca1347beb1e02431ef9caa8fdf",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/helper-originals/A/IMPORTS.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/A/IMPORTS.txt",
+      "bytes": 88,
+      "sha256": "d93204eceb8c3573f803bc1a35ccecdb759c3c52b20220bd8e24db231385ebb1",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/helper-originals/A/PROVENANCE.md",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/A/PROVENANCE.md",
+      "bytes": 6119,
+      "sha256": "dbefe94953686809ffff8e81867c065108ae77c031b1ab822d232737128da41b",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/helper-originals/A/SECTION.lean.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/A/SECTION.lean.txt",
+      "bytes": 7783,
+      "sha256": "fb8affe1ac43c2899d56401cf8f5c3942ba4981a6dc6a263a90fb2edbd587359",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/helper-originals/B/FROZEN_ORIGINALS.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/B/FROZEN_ORIGINALS.json",
+      "bytes": 1963,
+      "sha256": "906055ab3b2d72eefa52109f8894217ed1f335b947f1c697ea5f29f3fe3165c1",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/helper-originals/B/IMPORTS.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/B/IMPORTS.txt",
+      "bytes": 408,
+      "sha256": "f622ed9ce4c60ee252236cfe15e8375da5c61a3fc69244dbf3f298bae9541a5b",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/helper-originals/B/PROVENANCE.md",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/B/PROVENANCE.md",
+      "bytes": 8549,
+      "sha256": "f52a4685e858716da4df3f2dd31eb5f113097b9cd8733423434c0a12e87b52f1",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/helper-originals/B/SECTION.lean.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/B/SECTION.lean.txt",
+      "bytes": 8385,
+      "sha256": "33a8c82a2750af89dd449f58617e0f30dda9e834a409e14774f2b1831377b983",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/helper-originals/C/PRODUCTION_FROZEN.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/C/PRODUCTION_FROZEN.json",
+      "bytes": 577,
+      "sha256": "33859dbafd010cf17536b417beb627939ae0f27355cf9be4ff17bfdf92e76714",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/helper-originals/C/PRODUCTION_IMPORTS.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/C/PRODUCTION_IMPORTS.txt",
+      "bytes": 265,
+      "sha256": "cccf726a6a6e1b0f6c5c7a6e0f2b03b5e52c90dec9bab48c2f9a8903329fd7b4",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/helper-originals/C/PRODUCTION_PROVENANCE.md",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/C/PRODUCTION_PROVENANCE.md",
+      "bytes": 4061,
+      "sha256": "a8f7e610110c273d2a8ab0c4660b0c077974208f53a39f81e9f56455c4e678c1",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/helper-originals/C/PRODUCTION_SECTION.lean.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/C/PRODUCTION_SECTION.lean.txt",
+      "bytes": 19250,
+      "sha256": "e4ac1545ea4fd5a30549e48e55b4f8d89d03f8719c582cfb6cfd8e5740289fac",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0001-SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0001-SourceActualMorseLocalModel.lean",
+      "bytes": 3696,
+      "sha256": "d515c252ca35ca9d49c1203ee710d5eefa6b43de7fc7c70766dce37f0b4ee023",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0002-run_source.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0002-run_source.py",
+      "bytes": 3023,
+      "sha256": "f0b7cd5c87e5f61e0f3e2dafac6babf5bb6e6a48464536a755a8bfae8de014d2",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0003-SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0003-SourceActualMorseLocalModel.lean",
+      "bytes": 3851,
+      "sha256": "33ff4e407db56bce4443caabc9962ae2e5446cd9df5c2ebc2ab2920db9310daf",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0004-SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0004-SourceActualMorseLocalModel.lean",
+      "bytes": 6341,
+      "sha256": "86be8b7a29a2c4391a3404a4c27cfe73ab5e476b030a0913cce1d0de810aea59",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0009-SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0009-SourceActualMorseLocalModel.lean",
+      "bytes": 14266,
+      "sha256": "db178b178106ee437aba1edd9f1f6be74520cf25221be426689b07c235077ef5",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0010-run_source.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0010-run_source.py",
+      "bytes": 3721,
+      "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0015-SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0015-SourceActualMorseLocalModel.lean",
+      "bytes": 22930,
+      "sha256": "4be888c773328c3b4f58a4563a556d0f1b6bea13c32bc7d423e793e386888a09",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0016-SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0016-SourceActualMorseLocalModel.lean",
+      "bytes": 28989,
+      "sha256": "7f9e2a184d89087e87f58727bf5e84bdcf511d27b93e59c3e947b32790315a3c",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0017-SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0017-SourceActualMorseLocalModel.lean",
+      "bytes": 29240,
+      "sha256": "b40f513919106df440ecef34d57dc076de5a02a7547c5b9f33f69a19fddaf988",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0018-SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0018-SourceActualMorseLocalModel.lean",
+      "bytes": 33462,
+      "sha256": "5b5884c271dc46ebb9d00154db4df874ceaa347eb7f3008c4ce36078556dccd4",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0019-SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0019-SourceActualMorseLocalModel.lean",
+      "bytes": 36872,
+      "sha256": "3c27ea1d87fce1dc6ff36f4d1b89f1b47b3f7254fbf8e6e0e45700e920f7f51f",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0020-SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0020-SourceActualMorseLocalModel.lean",
+      "bytes": 37218,
+      "sha256": "4cc8194a59ec26ae1a97bf549125d318b5c07a90f67fd66fc427c5a2e3c2ef54",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0021-SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0021-SourceActualMorseLocalModel.lean",
+      "bytes": 37348,
+      "sha256": "8cdd7a0fd3e4361ff6df8bf4a4da0fc35663c46b652445b0636261a8f857aeb6",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0022-SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0022-SourceActualMorseLocalModel.lean",
+      "bytes": 40605,
+      "sha256": "c4fb41bbb767b8a96bbfb01cdbbd7af4890700dc12f5bc6f96244f3f9356daca",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0023-SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0023-SourceActualMorseLocalModel.lean",
+      "bytes": 46819,
+      "sha256": "3450050d4ebce3f88cc3f7d9c7989061fbaf0b3aaf123d0889dfb6ad0adcfb62",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0024-SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0024-SourceActualMorseLocalModel.lean",
+      "bytes": 46828,
+      "sha256": "4bec7b3ef8a4c4a914b763552b7cb4b78cfa368baf96e44172adc452bccd21e8",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0025-SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0025-SourceActualMorseLocalModel.lean",
+      "bytes": 47114,
+      "sha256": "e4e8d591a427d9edb3cdbbb4c0bb83c70a76abeab763b4910aed4e336d6de2e4",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0026-SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0026-SourceActualMorseLocalModel.lean",
+      "bytes": 47154,
+      "sha256": "1e91017333f6068042efe233c93019d5c3e9c94609bc14ea908bd1f473221df4",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0032-SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0032-SourceActualMorseLocalModel.lean",
+      "bytes": 66574,
+      "sha256": "f00c43fb51903c16703b48305cf02d99d2a972c404d49b59fe90fb671609ebc0",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0033-SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0033-SourceActualMorseLocalModel.lean",
+      "bytes": 65654,
+      "sha256": "f2a3fda2a9d2b36d9e2f3cdad181132da5ecd9b959511caa3114aa32b4c75538",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0034-bind_owned.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0034-bind_owned.py",
+      "bytes": 1392,
+      "sha256": "cdad68320aa1984ad0b79903c285538ec72594c96a92c19afb9d63257dd16c82",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0035-integrate_section.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0035-integrate_section.py",
+      "bytes": 2743,
+      "sha256": "995b7bd4ed9af6ddefb81f09d48fcf186bcc062cfcf471e8a392ea13bbb7f058",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0036-prepare_controls.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0036-prepare_controls.py",
+      "bytes": 1552,
+      "sha256": "4913f821215b74e4fcde99cdc7f9f1f16e2fcebef07d02e9f283a23db3baa06d",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0037-CONTROLS_SECTION.lean.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0037-CONTROLS_SECTION.lean.txt",
+      "bytes": 9829,
+      "sha256": "036dc6e3053438f524557a4a9a4dc28906a7784dbea65773640e946fe95e22c2",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0038-CONTROLS_IMPORTS.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0038-CONTROLS_IMPORTS.txt",
+      "bytes": 242,
+      "sha256": "4b5364860602cca16c8d046ae9c215f51ba54fa929bed0e2637b84239e0efdf3",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0039-CONTROLS_PROVENANCE.md",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0039-CONTROLS_PROVENANCE.md",
+      "bytes": 3731,
+      "sha256": "d0893ae69daabbbfe36d98abeb2ab4a6bc917be720e711d2ae730956df1f761e",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0040-CONTROLS_FROZEN.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0040-CONTROLS_FROZEN.json",
+      "bytes": 771,
+      "sha256": "1ce2aea1ada8071dee81f00bfa1794ea1d98c12835a1d4051ca837e1f0b93272",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0041-SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0041-SourceActualMorseLocalModel.lean",
+      "bytes": 65754,
+      "sha256": "d6776bd34a2ae1371c2af8fbfcc54d2a536e7c96b2e4db517a5f4a81b4128cd5",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0043-Inventory.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0043-Inventory.lean",
+      "bytes": 1082,
+      "sha256": "1e2fe4e6fa7e7796690638ac4265a71551e5ae63f1c0b7236b55ddbece16ffbe",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0044-run_ordinary.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0044-run_ordinary.py",
+      "bytes": 2857,
+      "sha256": "b403d52a574372a05e9f9b6e9518e1f5d22525fd0eaa8d23f654dda50edadcc2",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0046-MorseLocalModelControls.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0046-MorseLocalModelControls.lean",
+      "bytes": 10072,
+      "sha256": "a6023d8850e39fca5e62aaa382884850bd625850345e51a39e8acf3a17554b6a",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0047-MorseLocalModelControls.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0047-MorseLocalModelControls.lean",
+      "bytes": 10156,
+      "sha256": "e4b5e931442092b9f48703b25fd11a56dde7245e9363b15f2f2923b2ffdf8425",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0048-MorseLocalModelControls.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0048-MorseLocalModelControls.lean",
+      "bytes": 10149,
+      "sha256": "8887149774e637c1c55734949c300a10c636770c635678552a897951893d9328",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0050-run_kernel.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0050-run_kernel.py",
+      "bytes": 2121,
+      "sha256": "08251b0c26564e6548da078c019a5d8a2585cd29afeacf5d09bc4585e4d9e49a",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0051-OmittedTaylorWeightFalse.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0051-OmittedTaylorWeightFalse.lean",
+      "bytes": 175,
+      "sha256": "0ac7b1f17de8d94bcf96004c2dbd5a778292b7b190606984954feb0d9849c405",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0052-run_ordinary.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0052-run_ordinary.py",
+      "bytes": 3953,
+      "sha256": "f1e0fa944a5b0746595748b7e60bdeb026a0b4f95f9061859de099bdcfa5bf17",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0053-REPORT.md",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0053-REPORT.md",
+      "bytes": 11965,
+      "sha256": "f490e5fca03ee0155ef04fc6d2d4e8bbfbfc8848d090d3c5e2e56b9daa8d414b",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0054-HANDOFF.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0054-HANDOFF.json",
+      "bytes": 4407,
+      "sha256": "d7ef62b8c4d04288faa445278d1091bd8677f2a77470326f28dbbcf1c9f6ed36",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0055-EXECUTION_RECORD_INDEX.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0055-EXECUTION_RECORD_INDEX.json",
+      "bytes": 22156,
+      "sha256": "588447916e0a98df093c016f773d8f97a5eec89800ce16c7a978813c99bdcc86",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0056-INVENTORY_CLASSIFICATION.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0056-INVENTORY_CLASSIFICATION.json",
+      "bytes": 63717,
+      "sha256": "ae0945597d220fe77b72d398f26924c9e76aca0f7116b831181b025701160f24",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0057-CONTROL_RECEIPT.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0057-CONTROL_RECEIPT.json",
+      "bytes": 1604,
+      "sha256": "9361d2409e867e92175fbb02b3d283d846ce08f2e7334779b3af522a497e88a0",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0058-SOURCE_OBJECT_IDENTITIES.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0058-SOURCE_OBJECT_IDENTITIES.json",
+      "bytes": 2813,
+      "sha256": "1736292370069d3d15a8691463d0ee56c498b59fdc87503e98bd88dfd7813b49",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0059-ROOT_CONTEXT_BINDING.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0059-ROOT_CONTEXT_BINDING.json",
+      "bytes": 4581,
+      "sha256": "46aefb63b7f3e2f1945bce2969dd544b19e2d6f8af9458d853f7358ab01a4056",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0060-SHARED_CONTEXT_FULL_ACTUAL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0060-SHARED_CONTEXT_FULL_ACTUAL_AMENDMENTS.patch",
+      "bytes": 1938,
+      "sha256": "5c8bd6edc034e693a893d1284a613681e129cfd3baa853ee694cb0d4bae6669e",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/identities/0061-PRODUCER_FINAL_READY.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0061-PRODUCER_FINAL_READY.json",
+      "bytes": 321,
+      "sha256": "73fcdef3ccc903a1791522ac10b5caee23f0c3160fb2f8c827c48c06d86cead4",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/integrate_section.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/integrate_section.py",
+      "bytes": 2743,
+      "sha256": "995b7bd4ed9af6ddefb81f09d48fcf186bcc062cfcf471e8a392ea13bbb7f058",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/prepare_controls.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/prepare_controls.py",
+      "bytes": 1552,
+      "sha256": "4913f821215b74e4fcde99cdc7f9f1f16e2fcebef07d02e9f283a23db3baa06d",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/run_kernel.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/run_kernel.py",
+      "bytes": 2121,
+      "sha256": "08251b0c26564e6548da078c019a5d8a2585cd29afeacf5d09bc4585e4d9e49a",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/run_ordinary.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/run_ordinary.py",
+      "bytes": 3953,
+      "sha256": "f1e0fa944a5b0746595748b7e60bdeb026a0b4f95f9061859de099bdcfa5bf17",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/run_source.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/run_source.py",
+      "bytes": 3721,
+      "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-001/CONTROLS_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/controls-001/CONTROLS_FULL_AMENDMENTS.patch",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/controls-001/MorseLocalModelControls.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/controls-001/MorseLocalModelControls.lean",
+      "bytes": 10072,
+      "sha256": "a6023d8850e39fca5e62aaa382884850bd625850345e51a39e8acf3a17554b6a",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-001/RECORD.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/controls-001/RECORD.json",
+      "bytes": 2602,
+      "sha256": "f699df758fde811d20bb722bdbb81ee657991d308e5bf41970464f0850c24109",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/controls-001/run_ordinary.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/controls-001/run_ordinary.py",
+      "bytes": 2857,
+      "sha256": "b403d52a574372a05e9f9b6e9518e1f5d22525fd0eaa8d23f654dda50edadcc2",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-001/stderr.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/controls-001/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-001/stdout.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/controls-001/stdout.txt",
+      "bytes": 6304,
+      "sha256": "baaf4f88ed05a1baa3f31264e85286aacd8a186ec76af4845a91792e88f00770",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/controls-002/CONTROLS_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/controls-002/CONTROLS_FULL_AMENDMENTS.patch",
+      "bytes": 3740,
+      "sha256": "6ad3f46db30dafdea2bbc8d7f81fec61f32fb1c474a22790d9753b5ecdf0a686",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/controls-002/MorseLocalModelControls.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/controls-002/MorseLocalModelControls.lean",
+      "bytes": 10156,
+      "sha256": "e4b5e931442092b9f48703b25fd11a56dde7245e9363b15f2f2923b2ffdf8425",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-002/RECORD.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/controls-002/RECORD.json",
+      "bytes": 2602,
+      "sha256": "57ee9be8cd8ddfb375b8159dd23d2b084cf007319189faca919e842e0237211d",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/controls-002/run_ordinary.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/controls-002/run_ordinary.py",
+      "bytes": 2857,
+      "sha256": "b403d52a574372a05e9f9b6e9518e1f5d22525fd0eaa8d23f654dda50edadcc2",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-002/stderr.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/controls-002/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-002/stdout.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/controls-002/stdout.txt",
+      "bytes": 134,
+      "sha256": "d84305fa2fbd4c3d527e72040a883080adc767c9e9a081034798f27b2f6157cb",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/controls-003/CONTROLS_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/controls-003/CONTROLS_FULL_AMENDMENTS.patch",
+      "bytes": 3731,
+      "sha256": "711e6ff28f49f3b056d21f46af5c7ffbe99eb4c017acad89f751eb9dbd882cea",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/controls-003/MorseLocalModelControls.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/controls-003/MorseLocalModelControls.lean",
+      "bytes": 10149,
+      "sha256": "8887149774e637c1c55734949c300a10c636770c635678552a897951893d9328",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-003/RECORD.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/controls-003/RECORD.json",
+      "bytes": 3154,
+      "sha256": "b23626aba1e2d774ee5862b6955f9506171e936285a1a4a77bcc9e0305d6d580",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/controls-003/run_ordinary.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/controls-003/run_ordinary.py",
+      "bytes": 2857,
+      "sha256": "b403d52a574372a05e9f9b6e9518e1f5d22525fd0eaa8d23f654dda50edadcc2",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-003/stderr.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/controls-003/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/controls-003/stdout.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/controls-003/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core001/RECORD.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core001/RECORD.json",
+      "bytes": 1599,
+      "sha256": "08c2a6a89c238601598e6b3a52e2655e070306dcd103ce898ebb7e80b3ec607e",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core001/SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core001/SourceActualMorseLocalModel.lean",
+      "bytes": 3696,
+      "sha256": "d515c252ca35ca9d49c1203ee710d5eefa6b43de7fc7c70766dce37f0b4ee023",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core001/run_source.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core001/run_source.py",
+      "bytes": 3023,
+      "sha256": "f0b7cd5c87e5f61e0f3e2dafac6babf5bb6e6a48464536a755a8bfae8de014d2",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core001/stderr.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core001/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core001/stdout.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core001/stdout.txt",
+      "bytes": 1283,
+      "sha256": "a3d0a24d30f594165328ad4484bfcc62cdc7e8961bca4509482461899bc96acd",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core002/RECORD.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core002/RECORD.json",
+      "bytes": 1598,
+      "sha256": "cb0b8263d3e2c2df4d6980555b035353f091edf6a992ef33199cfda11cdb33f8",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core002/SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core002/SourceActualMorseLocalModel.lean",
+      "bytes": 3851,
+      "sha256": "33ff4e407db56bce4443caabc9962ae2e5446cd9df5c2ebc2ab2920db9310daf",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core002/run_source.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core002/run_source.py",
+      "bytes": 3023,
+      "sha256": "f0b7cd5c87e5f61e0f3e2dafac6babf5bb6e6a48464536a755a8bfae8de014d2",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core002/stderr.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core002/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core002/stdout.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core002/stdout.txt",
+      "bytes": 266,
+      "sha256": "37c75252a9556a70a000f4894d1f71ab2b2c07d9f11369aa89024d4794540397",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core003/RECORD.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core003/RECORD.json",
+      "bytes": 1598,
+      "sha256": "ef55a6855f31b04f7e384f478798db71c3ce96c1d37b6f8bde63085b0ac4eac9",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core003/SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core003/SourceActualMorseLocalModel.lean",
+      "bytes": 6341,
+      "sha256": "86be8b7a29a2c4391a3404a4c27cfe73ab5e476b030a0913cce1d0de810aea59",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core003/run_source.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core003/run_source.py",
+      "bytes": 3023,
+      "sha256": "f0b7cd5c87e5f61e0f3e2dafac6babf5bb6e6a48464536a755a8bfae8de014d2",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core003/stderr.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core003/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core003/stdout.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core003/stdout.txt",
+      "bytes": 1864,
+      "sha256": "e2daf1b14486ddd9e60e3426b22ca9ebb439c7cc7068eec730a1321b576897b4",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core004/HELPER_A_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core004/HELPER_A_FULL_AMENDMENTS.patch",
+      "bytes": 321,
+      "sha256": "92a3de08ad4572b441525065a2ac6b64431bde44bb406e5e6150246db3caa631",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core004/RECORD.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core004/RECORD.json",
+      "bytes": 1600,
+      "sha256": "0cb76cce191ffc5b5c45fe10022d21532ba327d0e276c61dcb05da4fd376fc67",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core004/SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core004/SourceActualMorseLocalModel.lean",
+      "bytes": 14266,
+      "sha256": "db178b178106ee437aba1edd9f1f6be74520cf25221be426689b07c235077ef5",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core004/run_source.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core004/run_source.py",
+      "bytes": 3721,
+      "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core004/stderr.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core004/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core004/stdout.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core004/stdout.txt",
+      "bytes": 6822,
+      "sha256": "14987d84bcf8e4b0da232ce944f1e49931ebf96800e7bc30649ccdad74f64751",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core005/HELPER_A_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core005/HELPER_A_FULL_AMENDMENTS.patch",
+      "bytes": 2536,
+      "sha256": "8cbb71f0daf6cd22bcaf1f965aa6bd1ca5c0e2860359b49c0d2fb62193fbd944",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core005/HELPER_B_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core005/HELPER_B_FULL_AMENDMENTS.patch",
+      "bytes": 221,
+      "sha256": "ad9d25c88d9d657ef633c572923ff83fb9ea7b0432c507de0824a9cdce83895c",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core005/RECORD.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core005/RECORD.json",
+      "bytes": 1599,
+      "sha256": "2704b2d727590a245eea33bfec7e15776b6f482a08cafe76e3fb7d4281cc4bff",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core005/SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core005/SourceActualMorseLocalModel.lean",
+      "bytes": 22930,
+      "sha256": "4be888c773328c3b4f58a4563a556d0f1b6bea13c32bc7d423e793e386888a09",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core005/run_source.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core005/run_source.py",
+      "bytes": 3721,
+      "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core005/stderr.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core005/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core005/stdout.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core005/stdout.txt",
+      "bytes": 4751,
+      "sha256": "691224d1743a0db1f10bdfa47caaeb50b3a1134cf36afd0debcadb69353b1c47",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core006/HELPER_A_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core006/HELPER_A_FULL_AMENDMENTS.patch",
+      "bytes": 2536,
+      "sha256": "8cbb71f0daf6cd22bcaf1f965aa6bd1ca5c0e2860359b49c0d2fb62193fbd944",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core006/HELPER_B_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core006/HELPER_B_FULL_AMENDMENTS.patch",
+      "bytes": 221,
+      "sha256": "ad9d25c88d9d657ef633c572923ff83fb9ea7b0432c507de0824a9cdce83895c",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core006/RECORD.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core006/RECORD.json",
+      "bytes": 1599,
+      "sha256": "f4bd0108a05b67e18f9098ce015b7ada7148e27eef72abfee979b444e6dc04bf",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core006/SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core006/SourceActualMorseLocalModel.lean",
+      "bytes": 28989,
+      "sha256": "7f9e2a184d89087e87f58727bf5e84bdcf511d27b93e59c3e947b32790315a3c",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core006/run_source.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core006/run_source.py",
+      "bytes": 3721,
+      "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core006/stderr.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core006/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core006/stdout.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core006/stdout.txt",
+      "bytes": 6561,
+      "sha256": "2296a5146a42caf6f891fae82c2b4fe335c815a40c7700adb7d71b6393fe68c2",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core007/HELPER_A_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core007/HELPER_A_FULL_AMENDMENTS.patch",
+      "bytes": 2801,
+      "sha256": "4b4d3fe9d6a8867a939a390cf946b3d40dd844f0b12e65655429019d245c7cba",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core007/HELPER_B_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core007/HELPER_B_FULL_AMENDMENTS.patch",
+      "bytes": 221,
+      "sha256": "ad9d25c88d9d657ef633c572923ff83fb9ea7b0432c507de0824a9cdce83895c",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core007/RECORD.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core007/RECORD.json",
+      "bytes": 1599,
+      "sha256": "82879f0fc12b4a7833e3041c403a02879eb87c655b0e774d50e9f79a7cc641c7",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core007/SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core007/SourceActualMorseLocalModel.lean",
+      "bytes": 29240,
+      "sha256": "b40f513919106df440ecef34d57dc076de5a02a7547c5b9f33f69a19fddaf988",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core007/run_source.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core007/run_source.py",
+      "bytes": 3721,
+      "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core007/stderr.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core007/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core007/stdout.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core007/stdout.txt",
+      "bytes": 4786,
+      "sha256": "ffce89824c07638ba5112ca0bd4bda1ce8ceb8a9bbec8f1a5c9377b9c147136f",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core008/HELPER_A_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core008/HELPER_A_FULL_AMENDMENTS.patch",
+      "bytes": 2805,
+      "sha256": "688dccbf60f7ebadc73cd28d9660129675d16fa75d1b33b3c294f44ab45d6755",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core008/HELPER_B_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core008/HELPER_B_FULL_AMENDMENTS.patch",
+      "bytes": 221,
+      "sha256": "ad9d25c88d9d657ef633c572923ff83fb9ea7b0432c507de0824a9cdce83895c",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core008/RECORD.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core008/RECORD.json",
+      "bytes": 1599,
+      "sha256": "a1dedc4bdc868364c3341c28454952dfe578c35ea1cd73d8bb8761c7afd35d67",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core008/SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core008/SourceActualMorseLocalModel.lean",
+      "bytes": 33462,
+      "sha256": "5b5884c271dc46ebb9d00154db4df874ceaa347eb7f3008c4ce36078556dccd4",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core008/run_source.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core008/run_source.py",
+      "bytes": 3721,
+      "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core008/stderr.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core008/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core008/stdout.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core008/stdout.txt",
+      "bytes": 7084,
+      "sha256": "60b058d4523a4fd100469912f3feb5baa4fb5e459c15388cc2c931191856ad46",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core009/HELPER_A_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core009/HELPER_A_FULL_AMENDMENTS.patch",
+      "bytes": 2805,
+      "sha256": "688dccbf60f7ebadc73cd28d9660129675d16fa75d1b33b3c294f44ab45d6755",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core009/HELPER_B_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core009/HELPER_B_FULL_AMENDMENTS.patch",
+      "bytes": 221,
+      "sha256": "ad9d25c88d9d657ef633c572923ff83fb9ea7b0432c507de0824a9cdce83895c",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core009/RECORD.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core009/RECORD.json",
+      "bytes": 1599,
+      "sha256": "4930ff8b1733009ae4f0c60adb1bbda8414b99b97642256af22dd0ae5b1f725d",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core009/SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core009/SourceActualMorseLocalModel.lean",
+      "bytes": 36872,
+      "sha256": "3c27ea1d87fce1dc6ff36f4d1b89f1b47b3f7254fbf8e6e0e45700e920f7f51f",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core009/run_source.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core009/run_source.py",
+      "bytes": 3721,
+      "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core009/stderr.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core009/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core009/stdout.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core009/stdout.txt",
+      "bytes": 8207,
+      "sha256": "5779a4bb45e6e8fbf7446d44af6d8305c3608e1d68b199ce0a067bb6f810ceef",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core010/HELPER_A_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core010/HELPER_A_FULL_AMENDMENTS.patch",
+      "bytes": 2805,
+      "sha256": "688dccbf60f7ebadc73cd28d9660129675d16fa75d1b33b3c294f44ab45d6755",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core010/HELPER_B_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core010/HELPER_B_FULL_AMENDMENTS.patch",
+      "bytes": 3019,
+      "sha256": "2a41dda84142e0b354cd5a2ca326bce9b5a5142cc0c34384a31ea2599fc4a056",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core010/RECORD.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core010/RECORD.json",
+      "bytes": 1599,
+      "sha256": "ab17bd7af052b745bc5b2f658a2c0b515f05bc89fb2307be9bbce060ce7c4edd",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core010/SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core010/SourceActualMorseLocalModel.lean",
+      "bytes": 37218,
+      "sha256": "4cc8194a59ec26ae1a97bf549125d318b5c07a90f67fd66fc427c5a2e3c2ef54",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core010/run_source.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core010/run_source.py",
+      "bytes": 3721,
+      "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core010/stderr.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core010/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core010/stdout.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core010/stdout.txt",
+      "bytes": 1779,
+      "sha256": "55bf53d6c4e6ff33adf166543cd695d63153314ec2e1937f415c8d26d3d6c787",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core011/HELPER_A_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core011/HELPER_A_FULL_AMENDMENTS.patch",
+      "bytes": 2805,
+      "sha256": "688dccbf60f7ebadc73cd28d9660129675d16fa75d1b33b3c294f44ab45d6755",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core011/HELPER_B_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core011/HELPER_B_FULL_AMENDMENTS.patch",
+      "bytes": 3050,
+      "sha256": "35468e7c459b94cf3df03346afdd9641afdd3070ea676361936f98b81f89905e",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core011/RECORD.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core011/RECORD.json",
+      "bytes": 1599,
+      "sha256": "26c27e0d3894b141060c117b3f2021a010c0dd88abaab6bf552ee5f20b79ea6d",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core011/SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core011/SourceActualMorseLocalModel.lean",
+      "bytes": 37348,
+      "sha256": "8cdd7a0fd3e4361ff6df8bf4a4da0fc35663c46b652445b0636261a8f857aeb6",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core011/run_source.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core011/run_source.py",
+      "bytes": 3721,
+      "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core011/stderr.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core011/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core011/stdout.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core011/stdout.txt",
+      "bytes": 580,
+      "sha256": "c9742d84fbdcf8008ca02e51bba1df4fc62566f38c442d3e3796765fce09886d",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core012/HELPER_A_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core012/HELPER_A_FULL_AMENDMENTS.patch",
+      "bytes": 2805,
+      "sha256": "688dccbf60f7ebadc73cd28d9660129675d16fa75d1b33b3c294f44ab45d6755",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core012/HELPER_B_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core012/HELPER_B_FULL_AMENDMENTS.patch",
+      "bytes": 3050,
+      "sha256": "35468e7c459b94cf3df03346afdd9641afdd3070ea676361936f98b81f89905e",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core012/RECORD.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core012/RECORD.json",
+      "bytes": 1599,
+      "sha256": "981cdfd0ec9a3db3b66c9f41ceb67d23f1e168ad60eac21e2f31162b61310d45",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core012/SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core012/SourceActualMorseLocalModel.lean",
+      "bytes": 40605,
+      "sha256": "c4fb41bbb767b8a96bbfb01cdbbd7af4890700dc12f5bc6f96244f3f9356daca",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core012/run_source.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core012/run_source.py",
+      "bytes": 3721,
+      "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core012/stderr.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core012/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core012/stdout.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core012/stdout.txt",
+      "bytes": 966,
+      "sha256": "b31f23348dd8b506d3bd2e2716385f657cf219b61fb60d6af386e560a4f0ba3a",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core013/HELPER_A_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core013/HELPER_A_FULL_AMENDMENTS.patch",
+      "bytes": 2805,
+      "sha256": "688dccbf60f7ebadc73cd28d9660129675d16fa75d1b33b3c294f44ab45d6755",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core013/HELPER_B_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core013/HELPER_B_FULL_AMENDMENTS.patch",
+      "bytes": 3050,
+      "sha256": "35468e7c459b94cf3df03346afdd9641afdd3070ea676361936f98b81f89905e",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core013/RECORD.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core013/RECORD.json",
+      "bytes": 1599,
+      "sha256": "6cd56fc44878448df7f9266767c68333e6439175a2f054e7f6d119576c0c5409",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core013/SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core013/SourceActualMorseLocalModel.lean",
+      "bytes": 46819,
+      "sha256": "3450050d4ebce3f88cc3f7d9c7989061fbaf0b3aaf123d0889dfb6ad0adcfb62",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core013/run_source.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core013/run_source.py",
+      "bytes": 3721,
+      "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core013/stderr.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core013/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core013/stdout.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core013/stdout.txt",
+      "bytes": 2843,
+      "sha256": "36113a98ff8172ab7077ab8ec42d19c575ef017085680fe595b59d8b3ec5ae9f",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core014/HELPER_A_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core014/HELPER_A_FULL_AMENDMENTS.patch",
+      "bytes": 2805,
+      "sha256": "688dccbf60f7ebadc73cd28d9660129675d16fa75d1b33b3c294f44ab45d6755",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core014/HELPER_B_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core014/HELPER_B_FULL_AMENDMENTS.patch",
+      "bytes": 3050,
+      "sha256": "35468e7c459b94cf3df03346afdd9641afdd3070ea676361936f98b81f89905e",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core014/RECORD.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core014/RECORD.json",
+      "bytes": 1599,
+      "sha256": "57c8487a756f72257e42dbb9203cc775ce283babc85b30081b3a9160feb73569",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core014/SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core014/SourceActualMorseLocalModel.lean",
+      "bytes": 46828,
+      "sha256": "4bec7b3ef8a4c4a914b763552b7cb4b78cfa368baf96e44172adc452bccd21e8",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core014/run_source.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core014/run_source.py",
+      "bytes": 3721,
+      "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core014/stderr.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core014/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core014/stdout.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core014/stdout.txt",
+      "bytes": 4036,
+      "sha256": "3efbe4faf24831f87315f080b25190c829125ab1fd891d2c7cc7bc1e3921df4d",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core015/HELPER_A_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core015/HELPER_A_FULL_AMENDMENTS.patch",
+      "bytes": 2805,
+      "sha256": "688dccbf60f7ebadc73cd28d9660129675d16fa75d1b33b3c294f44ab45d6755",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core015/HELPER_B_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core015/HELPER_B_FULL_AMENDMENTS.patch",
+      "bytes": 3050,
+      "sha256": "35468e7c459b94cf3df03346afdd9641afdd3070ea676361936f98b81f89905e",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core015/RECORD.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core015/RECORD.json",
+      "bytes": 1599,
+      "sha256": "5f2f8c69e0c805eddcedd0a87f617e893ffa36a4053932c901b797618d08b429",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core015/SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core015/SourceActualMorseLocalModel.lean",
+      "bytes": 47114,
+      "sha256": "e4e8d591a427d9edb3cdbbb4c0bb83c70a76abeab763b4910aed4e336d6de2e4",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core015/run_source.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core015/run_source.py",
+      "bytes": 3721,
+      "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core015/stderr.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core015/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core015/stdout.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core015/stdout.txt",
+      "bytes": 2521,
+      "sha256": "289d17d8dd8445a6f2a09de4ad54b100d805d54d60ca64dc8d72762dfc65be53",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core016/HELPER_A_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core016/HELPER_A_FULL_AMENDMENTS.patch",
+      "bytes": 2805,
+      "sha256": "688dccbf60f7ebadc73cd28d9660129675d16fa75d1b33b3c294f44ab45d6755",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core016/HELPER_B_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core016/HELPER_B_FULL_AMENDMENTS.patch",
+      "bytes": 3178,
+      "sha256": "1559ae7a8067aed47798539a254208bd1bbf11049153fdeece9e04dc39a71f19",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core016/RECORD.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core016/RECORD.json",
+      "bytes": 2138,
+      "sha256": "8dc349e7adb6a36a1e81927e473cb76dc502a9b020da14409ada833a1a950125",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core016/SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core016/SourceActualMorseLocalModel.lean",
+      "bytes": 47154,
+      "sha256": "1e91017333f6068042efe233c93019d5c3e9c94609bc14ea908bd1f473221df4",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core016/run_source.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core016/run_source.py",
+      "bytes": 3721,
+      "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core016/stderr.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core016/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core016/stdout.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core016/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core017/HELPER_A_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core017/HELPER_A_FULL_AMENDMENTS.patch",
+      "bytes": 2805,
+      "sha256": "688dccbf60f7ebadc73cd28d9660129675d16fa75d1b33b3c294f44ab45d6755",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core017/HELPER_B_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core017/HELPER_B_FULL_AMENDMENTS.patch",
+      "bytes": 3178,
+      "sha256": "1559ae7a8067aed47798539a254208bd1bbf11049153fdeece9e04dc39a71f19",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core017/HELPER_C_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core017/HELPER_C_FULL_AMENDMENTS.patch",
+      "bytes": 348,
+      "sha256": "eacda8e5620750035cb3872d3bae275fe080f9a638b09c6a0d1e925b44ad42f2",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core017/RECORD.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core017/RECORD.json",
+      "bytes": 1599,
+      "sha256": "bcd6f4f38db4c01053823b24c694481eda41cc23d8910d94679c8b733c81aa8c",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core017/SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core017/SourceActualMorseLocalModel.lean",
+      "bytes": 66574,
+      "sha256": "f00c43fb51903c16703b48305cf02d99d2a972c404d49b59fe90fb671609ebc0",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core017/run_source.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core017/run_source.py",
+      "bytes": 3721,
+      "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core017/stderr.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core017/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core017/stdout.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core017/stdout.txt",
+      "bytes": 5497,
+      "sha256": "87b0dd36f67ba275a21dcf7a50f6b68e38a58e7fedb8c832c17fef85565f35c3",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core018/HELPER_A_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core018/HELPER_A_FULL_AMENDMENTS.patch",
+      "bytes": 2805,
+      "sha256": "688dccbf60f7ebadc73cd28d9660129675d16fa75d1b33b3c294f44ab45d6755",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core018/HELPER_B_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core018/HELPER_B_FULL_AMENDMENTS.patch",
+      "bytes": 3178,
+      "sha256": "1559ae7a8067aed47798539a254208bd1bbf11049153fdeece9e04dc39a71f19",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core018/HELPER_C_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core018/HELPER_C_FULL_AMENDMENTS.patch",
+      "bytes": 6359,
+      "sha256": "901928f22926eb5f85bcf1ec79523355c9ff77ba01b39dfb98fb07e2f725dc1d",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core018/RECORD.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core018/RECORD.json",
+      "bytes": 1599,
+      "sha256": "49ba9e3cedbc04200fd5ca7606a60400e392e5d6538f9aa059af0eac76ab6449",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core018/SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core018/SourceActualMorseLocalModel.lean",
+      "bytes": 65654,
+      "sha256": "f2a3fda2a9d2b36d9e2f3cdad181132da5ecd9b959511caa3114aa32b4c75538",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core018/run_source.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core018/run_source.py",
+      "bytes": 3721,
+      "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core018/stderr.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core018/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core018/stdout.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core018/stdout.txt",
+      "bytes": 673,
+      "sha256": "a75616e9c4700e5c6ba78926d9638d08ce319b289a0d6d36b5b217b4cb64e2b0",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core019/HELPER_A_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core019/HELPER_A_FULL_AMENDMENTS.patch",
+      "bytes": 2805,
+      "sha256": "688dccbf60f7ebadc73cd28d9660129675d16fa75d1b33b3c294f44ab45d6755",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core019/HELPER_B_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core019/HELPER_B_FULL_AMENDMENTS.patch",
+      "bytes": 3178,
+      "sha256": "1559ae7a8067aed47798539a254208bd1bbf11049153fdeece9e04dc39a71f19",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core019/HELPER_C_FULL_AMENDMENTS.patch",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core019/HELPER_C_FULL_AMENDMENTS.patch",
+      "bytes": 6595,
+      "sha256": "01b322cb2ec02630ee7a182dc51d675d641fd73b1267fe207c6e8a0a9ae487b6",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core019/RECORD.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core019/RECORD.json",
+      "bytes": 2138,
+      "sha256": "5b2516a55c99480c1d3cd14d5ab35aa332f8c3281364ef4af86197090341c266",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/core019/SourceActualMorseLocalModel.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core019/SourceActualMorseLocalModel.lean",
+      "bytes": 65754,
+      "sha256": "d6776bd34a2ae1371c2af8fbfcc54d2a536e7c96b2e4db517a5f4a81b4128cd5",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core019/run_source.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core019/run_source.py",
+      "bytes": 3721,
+      "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core019/stderr.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core019/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/core019/stdout.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core019/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/Inventory.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/inventory-001/Inventory.lean",
+      "bytes": 1082,
+      "sha256": "1e2fe4e6fa7e7796690638ac4265a71551e5ae63f1c0b7236b55ddbece16ffbe",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/RECORD.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/inventory-001/RECORD.json",
+      "bytes": 3014,
+      "sha256": "c708e2321086217b1c0d133be3d077c913f3db973a3655d3611aad9644e7c354",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/run_ordinary.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/inventory-001/run_ordinary.py",
+      "bytes": 2857,
+      "sha256": "b403d52a574372a05e9f9b6e9518e1f5d22525fd0eaa8d23f654dda50edadcc2",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/stderr.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/inventory-001/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/stdout.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/inventory-001/stdout.txt",
+      "bytes": 41844,
+      "sha256": "bbf25c065f7468b75b921fa3bbd28d54013623f9e87fb72e0d37366884ff24ca",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/RECORD.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/kernel-001/RECORD.json",
+      "bytes": 2043,
+      "sha256": "785317ce7d842264405035af8af078d4c848fafa67e9e628cc7a6fc8e999bcc3",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/stderr.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/kernel-001/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/stdout.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/kernel-001/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/omitted-weight-false-001/OmittedTaylorWeightFalse.lean",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/omitted-weight-false-001/OmittedTaylorWeightFalse.lean",
+      "bytes": 175,
+      "sha256": "0ac7b1f17de8d94bcf96004c2dbd5a778292b7b190606984954feb0d9849c405",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/omitted-weight-false-001/RECORD.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/omitted-weight-false-001/RECORD.json",
+      "bytes": 3264,
+      "sha256": "6ab45dc6668146dc82e6487b826a0f05731e2a6257f7c5c5b89c3d07894f0ac5",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/producer/runs/omitted-weight-false-001/run_ordinary.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/omitted-weight-false-001/run_ordinary.py",
+      "bytes": 3953,
+      "sha256": "f1e0fa944a5b0746595748b7e60bdeb026a0b4f95f9061859de099bdcfa5bf17",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/omitted-weight-false-001/stderr.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/omitted-weight-false-001/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/producer/runs/omitted-weight-false-001/stdout.txt",
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/runs/omitted-weight-false-001/stdout.txt",
+      "bytes": 138,
+      "sha256": "3d216159b7b35a17b8f2542718c37fb77095d7e6d6adf5e6e923c114dd9ac4bf",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/root-process/ROOT_SOURCE_CUT.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-publication/ROOT_SOURCE_CUT.json",
+      "bytes": 1983,
+      "sha256": "72eef377f809c8625e946809ad1bc4d023f66f1aadf48a1484b343e2ea447456",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/root-process/ROOT_SOURCE_CUT.pre-size-correction.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-publication/ROOT_SOURCE_CUT.pre-size-correction.json",
+      "bytes": 1781,
+      "sha256": "cee31d5be77adc5c5d3413b52015d2e9a783e79a88240ba6479d246a2bac9469",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/root-process/ROOT_OWN_OBJECT_COPY_INTENT.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-publication/ROOT_OWN_OBJECT_COPY_INTENT.json",
+      "bytes": 555,
+      "sha256": "eff1f17682c397651d7e5d6cb782090eabc503e2ba3d3c98cc07023e07258b5d",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/root-process/ROOT_OWN_OBJECT_COPY.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-publication/ROOT_OWN_OBJECT_COPY.json",
+      "bytes": 1082,
+      "sha256": "a80ebc72f603c59557466679fdd4a387a1856fbbf3581be03629ff275372e552",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/root-process/ROOT_OWN_OBJECT_COPY.pre-size-correction.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-publication/ROOT_OWN_OBJECT_COPY.pre-size-correction.json",
+      "bytes": 875,
+      "sha256": "6b186a8f368bac5ade6c300c85758f8d09ff93d2b07c28239d1923bda10f2d6e",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/root-process/ROOT_PROCESS_SIZE_CORRECTION.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-publication/ROOT_PROCESS_SIZE_CORRECTION.json",
+      "bytes": 1080,
+      "sha256": "607027923a948abb115bd1907a6595f3555d4e3f68c64a3df0b5a68cf4706842",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/root-process/SOURCE_CUT_COMMANDS.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-publication/SOURCE_CUT_COMMANDS.json",
+      "bytes": 2652,
+      "sha256": "76e89cbe081f937d714f3ed1c921c39b7e7959c7cbc9a923dfe4239f3d2f2619",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/root-process/ROOT_FINAL_EVIDENCE_READING.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-publication/ROOT_FINAL_EVIDENCE_READING.json",
+      "bytes": 2714,
+      "sha256": "92a77ce5c66d5e63635bfb30feb021c5e60941d592279bac5464ea23ed4ea844",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/root-process/ROOT_FINALIZATION_GO.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-publication/ROOT_FINALIZATION_GO.json",
+      "bytes": 2421,
+      "sha256": "fbd087903736361bb50f7752d0407af9b351688fc232b73b350616d3a36d5dcd",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/root-process/PRECODE60_IDENTITIES.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-publication/PRECODE60_IDENTITIES.json",
+      "bytes": 1287,
+      "sha256": "798c860d8dd27ce9e5e73b4f13f01cf22bfff9532d15272acf54bc29e04d95b5",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/root-process/CHECKPOINT1550_BODY.md",
+      "source": "/workspace/scratch/actual-source-morse-local-model-publication/CHECKPOINT1550_BODY.md",
+      "bytes": 2958,
+      "sha256": "b085f5c7644174d6d4e4c8e0ae981fc966be524c0b04301b02aa94df1a5d2e99",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/root-process/CHECKPOINT1550_NATIVE_POST.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-publication/CHECKPOINT1550_NATIVE_POST.json",
+      "bytes": 162,
+      "sha256": "b8d18682785d0905e40740f96104c7a1e28afa0db5fed6cd04fab4ccccfee406",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/root-process/CHECKPOINT1550_NATIVE_READBACK.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-publication/CHECKPOINT1550_NATIVE_READBACK.json",
+      "bytes": 6400,
+      "sha256": "69fe030c2d43dab8406280eb2884ac6f66b38ef92a3c1c4bf93910361480f557",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/root-process/CHECKPOINT1550_BOARD_BODY.md",
+      "source": "/workspace/scratch/actual-source-morse-local-model-publication/CHECKPOINT1550_BOARD_BODY.md",
+      "bytes": 1353,
+      "sha256": "840b40e168089e57f74002d1fff5a12be4b82464de2589e12a30b4d607c16d08",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/root-process/CHECKPOINT1550_BOARD_NATIVE_POST.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-publication/CHECKPOINT1550_BOARD_NATIVE_POST.json",
+      "bytes": 162,
+      "sha256": "53860d1a444c6edbaa486b0771b6dc639f8ef944c60c593fe7da08cf824ef145",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/root-process/SOURCE_CUT_ADD.stdout",
+      "source": "/workspace/scratch/actual-source-morse-local-model-publication/SOURCE_CUT_ADD.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/root-process/SOURCE_CUT_BLOB.stdout",
+      "source": "/workspace/scratch/actual-source-morse-local-model-publication/SOURCE_CUT_BLOB.stdout",
+      "bytes": 41,
+      "sha256": "be9b7e68bb8a09cdb4ae5669458716d890a781b530e29de56cff7376565df4bf",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/root-process/SOURCE_CUT_COMMIT.stdout",
+      "source": "/workspace/scratch/actual-source-morse-local-model-publication/SOURCE_CUT_COMMIT.stdout",
+      "bytes": 258,
+      "sha256": "35fe665ae1ea262378935379f6d33f4d8d964fb4ae8659a9f3abfb0ceb6a8ea6",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/root-process/SOURCE_CUT_HEAD.stdout",
+      "source": "/workspace/scratch/actual-source-morse-local-model-publication/SOURCE_CUT_HEAD.stdout",
+      "bytes": 41,
+      "sha256": "9560da141297f4275228bdf37b20ea314c214a92ce7e94780fb5927008109453",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/root-process/SOURCE_CUT_PARENT.stdout",
+      "source": "/workspace/scratch/actual-source-morse-local-model-publication/SOURCE_CUT_PARENT.stdout",
+      "bytes": 41,
+      "sha256": "ec187c3cc101e205b0d7c3133dc7863ae118ab75ebdbf818700cc937f7cfa6eb",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/root-process/SOURCE_CUT_STAGED_BEFORE.stdout",
+      "source": "/workspace/scratch/actual-source-morse-local-model-publication/SOURCE_CUT_STAGED_BEFORE.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/root-process/SOURCE_CUT_ADD.stderr",
+      "source": "/workspace/scratch/actual-source-morse-local-model-publication/SOURCE_CUT_ADD.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/root-process/SOURCE_CUT_BLOB.stderr",
+      "source": "/workspace/scratch/actual-source-morse-local-model-publication/SOURCE_CUT_BLOB.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/root-process/SOURCE_CUT_COMMIT.stderr",
+      "source": "/workspace/scratch/actual-source-morse-local-model-publication/SOURCE_CUT_COMMIT.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/root-process/SOURCE_CUT_HEAD.stderr",
+      "source": "/workspace/scratch/actual-source-morse-local-model-publication/SOURCE_CUT_HEAD.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/root-process/SOURCE_CUT_PARENT.stderr",
+      "source": "/workspace/scratch/actual-source-morse-local-model-publication/SOURCE_CUT_PARENT.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/root-process/SOURCE_CUT_STAGED_BEFORE.stderr",
+      "source": "/workspace/scratch/actual-source-morse-local-model-publication/SOURCE_CUT_STAGED_BEFORE.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Existing identity reused for exact immutable NEW60 bytes; no hash"
+    },
+    {
+      "path": "raw/review/REPORT.md",
+      "source": "/workspace/scratch/actual-source-morse-local-model-source-review/REPORT.md",
+      "bytes": 12895,
+      "sha256": "7da1592d8f6f7603c6666853994c94b20ae896641fe3c32b7197a36178c809eb",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/review/scope.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-source-review/scope.json",
+      "bytes": 5846,
+      "sha256": "a32312487c129f91a839700e6eff98db4dfa03daf62c110bdb7cc2af6cb02fee",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/packaging-scripts/custody.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-packaging-proposal/custody.py",
+      "bytes": 4659,
+      "sha256": "480baef6773f7cc7e0f1548f244f201073be529bb003841fe3968fd2d9b30a95",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/packaging-scripts/archive_prepare.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-packaging-proposal/archive_prepare.py",
+      "bytes": 4678,
+      "sha256": "78e1cfe49fd7665a35a5d45105138f711792c7d9098594c458ebfb52cc7c5bfd",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/packaging-scripts/finalize_metadata.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-packaging-proposal/finalize_metadata.py",
+      "bytes": 17207,
+      "sha256": "e1bebb5e28f92cff528f9e413513a054d5f30d67d0a136fa5d573d1abeff7220",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/packaging-scripts/run_finalization.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-packaging-proposal/run_finalization.py",
+      "bytes": 6068,
+      "sha256": "6dd3993f6a507115ee330ddb2f772dbd7efc844e5c6ac74396c84bca50e73d15",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/packaging-scripts/launch_finalization.py",
+      "source": "/workspace/scratch/actual-source-morse-local-model-packaging-proposal/launch_finalization.py",
+      "bytes": 1813,
+      "sha256": "d655f068fb8de41e9ff661e8ed4714186803ef3790e50fcea0b529c5c4fa318f",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/packaging-scripts/PLAN.md",
+      "source": "/workspace/scratch/actual-source-morse-local-model-packaging-proposal/PLAN.md",
+      "bytes": 6429,
+      "sha256": "2ab51270d927d85aa82ceebbd880a6e5beb8c444e6fb1e2b014a813455bb6600",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    },
+    {
+      "path": "raw/packaging-scripts/FINAL_INPUTS.json",
+      "source": "/workspace/scratch/actual-source-morse-local-model-packaging-proposal/FINAL_INPUTS.json",
+      "bytes": 14059,
+      "sha256": "e0a75531c718894d5a7c812ffb5a8ff4aad31ce591d3d64ebddc7d6654243868",
+      "identity_origin": "First custody identity of previously unrecorded immutable NEW60 payload"
+    }
+  ],
+  "excluded_artifacts": [
+    {
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/__pycache__/bind_owned.cpython-312.pyc",
+      "bytes": 2698,
+      "action": "EXCLUDE_ALL_ACTUAL_ARTIFACTS_AND_CACHE_COPIES"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0027-SourceActualMorseLocalModel.olean",
+      "bytes": 1893760,
+      "action": "EXCLUDE_ALL_ACTUAL_ARTIFACTS_AND_CACHE_COPIES"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0042-SourceActualMorseLocalModel.olean",
+      "bytes": 3409752,
+      "action": "EXCLUDE_ALL_ACTUAL_ARTIFACTS_AND_CACHE_COPIES"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0045-Inventory.olean",
+      "bytes": 2712,
+      "action": "EXCLUDE_ALL_ACTUAL_ARTIFACTS_AND_CACHE_COPIES"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0049-MorseLocalModelControls.olean",
+      "bytes": 823096,
+      "action": "EXCLUDE_ALL_ACTUAL_ARTIFACTS_AND_CACHE_COPIES"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/objects/Inventory.olean",
+      "bytes": 2712,
+      "action": "EXCLUDE_ALL_ACTUAL_ARTIFACTS_AND_CACHE_COPIES"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/objects/MorseLocalModelControls.olean",
+      "bytes": 823096,
+      "action": "EXCLUDE_ALL_ACTUAL_ARTIFACTS_AND_CACHE_COPIES"
+    },
+    {
+      "source": "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+      "bytes": 3409752,
+      "action": "EXCLUDE_ALL_ACTUAL_ARTIFACTS_AND_CACHE_COPIES"
+    }
+  ],
+  "bindings": [
+    {
+      "path": "SourceActualMorseLocalModel.lean",
+      "bytes": 65754,
+      "sha256": "d6776bd34a2ae1371c2af8fbfcc54d2a536e7c96b2e4db517a5f4a81b4128cd5",
+      "action": "SKIP_ROOT_INSTALLED_BINDING"
+    },
+    {
+      "path": "SOURCE_ACTUAL_MORSE_LOCAL_MODEL.md",
+      "bytes": 13395,
+      "sha256": "b09a8aee7fbcdbf68148492cde4f0de5103e82a37feb8ab184400b262f4bf4ce",
+      "action": "SKIP_ROOT_INSTALLED_BINDING"
+    },
+    {
+      "path": "SOURCE_ACTUAL_MORSE_LOCAL_MODEL_PLAN.md",
+      "bytes": 5658,
+      "sha256": "1ef2a9692b343c10466faa6a14d2598835d6bdb608c744cd23a44e0df60c8a21",
+      "action": "SKIP_ROOT_INSTALLED_BINDING"
+    },
+    {
+      "path": "SOURCE_ACTUAL_MORSE_LOCAL_MODEL_CONTROLS.md",
+      "bytes": 7187,
+      "sha256": "508478d9ed8225f8347e1263d244a6d38683f5935e144634db3b425d84844d79",
+      "action": "SKIP_ROOT_INSTALLED_BINDING"
+    },
+    {
+      "path": "SOURCE_ACTUAL_MORSE_LOCAL_MODEL_CONTENDERS.json",
+      "bytes": 1321,
+      "sha256": "19dd2115d86b5bc87ec866f357f3810323d9460459d95fecd21d88a87f12a9e0",
+      "action": "SKIP_ROOT_INSTALLED_BINDING"
+    }
+  ],
+  "runs": [
+    {
+      "label": "core001",
+      "record_path": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core001/RECORD.json",
+      "record": {
+        "label": "core001",
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+          "SourceActualMorseLocalModel.lean"
+        ],
+        "start_utc": "2026-10-28T14:50:12.947500+00:00",
+        "source_identity": {
+          "role": "owned_production_source",
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0001-SourceActualMorseLocalModel.lean",
+          "bytes": 3696,
+          "sha256": "d515c252ca35ca9d49c1203ee710d5eefa6b43de7fc7c70766dce37f0b4ee023",
+          "first_bound_utc": "2026-10-28T14:50:12.946899+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "harness_identity": {
+          "role": "owned_source_execution_harness",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_source.py",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0002-run_source.py",
+          "bytes": 3023,
+          "sha256": "f0b7cd5c87e5f61e0f3e2dafac6babf5bb6e6a48464536a755a8bfae8de014d2",
+          "first_bound_utc": "2026-10-28T14:50:12.947126+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "scope": "new owned60 source only; no helper execution or support rebuild",
+        "exit_code": 1,
+        "end_utc": "2026-10-28T14:50:16.930326+00:00"
+      }
+    },
+    {
+      "label": "core002",
+      "record_path": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core002/RECORD.json",
+      "record": {
+        "label": "core002",
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+          "SourceActualMorseLocalModel.lean"
+        ],
+        "start_utc": "2026-10-28T14:52:07.828990+00:00",
+        "source_identity": {
+          "role": "owned_production_source",
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0003-SourceActualMorseLocalModel.lean",
+          "bytes": 3851,
+          "sha256": "33ff4e407db56bce4443caabc9962ae2e5446cd9df5c2ebc2ab2920db9310daf",
+          "first_bound_utc": "2026-10-28T14:52:07.827271+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "harness_identity": {
+          "role": "owned_source_execution_harness",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_source.py",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0002-run_source.py",
+          "bytes": 3023,
+          "sha256": "f0b7cd5c87e5f61e0f3e2dafac6babf5bb6e6a48464536a755a8bfae8de014d2",
+          "first_bound_utc": "2026-10-28T14:50:12.947126+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": true
+        },
+        "scope": "new owned60 source only; no helper execution or support rebuild",
+        "exit_code": 1,
+        "end_utc": "2026-10-28T14:52:12.074454+00:00"
+      }
+    },
+    {
+      "label": "core003",
+      "record_path": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core003/RECORD.json",
+      "record": {
+        "label": "core003",
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+          "SourceActualMorseLocalModel.lean"
+        ],
+        "start_utc": "2026-10-28T14:55:10.579856+00:00",
+        "source_identity": {
+          "role": "owned_production_source",
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0004-SourceActualMorseLocalModel.lean",
+          "bytes": 6341,
+          "sha256": "86be8b7a29a2c4391a3404a4c27cfe73ab5e476b030a0913cce1d0de810aea59",
+          "first_bound_utc": "2026-10-28T14:55:10.579008+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "harness_identity": {
+          "role": "owned_source_execution_harness",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_source.py",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0002-run_source.py",
+          "bytes": 3023,
+          "sha256": "f0b7cd5c87e5f61e0f3e2dafac6babf5bb6e6a48464536a755a8bfae8de014d2",
+          "first_bound_utc": "2026-10-28T14:50:12.947126+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": true
+        },
+        "scope": "new owned60 source only; no helper execution or support rebuild",
+        "exit_code": 1,
+        "end_utc": "2026-10-28T14:55:14.457678+00:00"
+      }
+    },
+    {
+      "label": "core004",
+      "record_path": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core004/RECORD.json",
+      "record": {
+        "label": "core004",
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+          "SourceActualMorseLocalModel.lean"
+        ],
+        "start_utc": "2026-10-28T14:56:44.624911+00:00",
+        "source_identity": {
+          "role": "owned_production_source",
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0009-SourceActualMorseLocalModel.lean",
+          "bytes": 14266,
+          "sha256": "db178b178106ee437aba1edd9f1f6be74520cf25221be426689b07c235077ef5",
+          "first_bound_utc": "2026-10-28T14:56:44.622953+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "harness_identity": {
+          "role": "owned_source_execution_harness",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_source.py",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0010-run_source.py",
+          "bytes": 3721,
+          "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+          "first_bound_utc": "2026-10-28T14:56:44.623288+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "scope": "new owned60 source only; no helper execution or support rebuild",
+        "exit_code": 1,
+        "end_utc": "2026-10-28T14:56:48.086972+00:00"
+      }
+    },
+    {
+      "label": "core005",
+      "record_path": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core005/RECORD.json",
+      "record": {
+        "label": "core005",
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+          "SourceActualMorseLocalModel.lean"
+        ],
+        "start_utc": "2026-10-28T15:00:14.327378+00:00",
+        "source_identity": {
+          "role": "owned_production_source",
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0015-SourceActualMorseLocalModel.lean",
+          "bytes": 22930,
+          "sha256": "4be888c773328c3b4f58a4563a556d0f1b6bea13c32bc7d423e793e386888a09",
+          "first_bound_utc": "2026-10-28T15:00:14.325383+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "harness_identity": {
+          "role": "owned_source_execution_harness",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_source.py",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0010-run_source.py",
+          "bytes": 3721,
+          "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+          "first_bound_utc": "2026-10-28T14:56:44.623288+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": true
+        },
+        "scope": "new owned60 source only; no helper execution or support rebuild",
+        "exit_code": 1,
+        "end_utc": "2026-10-28T15:00:28.860050+00:00"
+      }
+    },
+    {
+      "label": "core006",
+      "record_path": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core006/RECORD.json",
+      "record": {
+        "label": "core006",
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+          "SourceActualMorseLocalModel.lean"
+        ],
+        "start_utc": "2026-10-28T15:03:00.338695+00:00",
+        "source_identity": {
+          "role": "owned_production_source",
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0016-SourceActualMorseLocalModel.lean",
+          "bytes": 28989,
+          "sha256": "7f9e2a184d89087e87f58727bf5e84bdcf511d27b93e59c3e947b32790315a3c",
+          "first_bound_utc": "2026-10-28T15:03:00.337031+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "harness_identity": {
+          "role": "owned_source_execution_harness",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_source.py",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0010-run_source.py",
+          "bytes": 3721,
+          "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+          "first_bound_utc": "2026-10-28T14:56:44.623288+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": true
+        },
+        "scope": "new owned60 source only; no helper execution or support rebuild",
+        "exit_code": 1,
+        "end_utc": "2026-10-28T15:03:18.434170+00:00"
+      }
+    },
+    {
+      "label": "core007",
+      "record_path": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core007/RECORD.json",
+      "record": {
+        "label": "core007",
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+          "SourceActualMorseLocalModel.lean"
+        ],
+        "start_utc": "2026-10-28T15:05:30.322365+00:00",
+        "source_identity": {
+          "role": "owned_production_source",
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0017-SourceActualMorseLocalModel.lean",
+          "bytes": 29240,
+          "sha256": "b40f513919106df440ecef34d57dc076de5a02a7547c5b9f33f69a19fddaf988",
+          "first_bound_utc": "2026-10-28T15:05:30.320793+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "harness_identity": {
+          "role": "owned_source_execution_harness",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_source.py",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0010-run_source.py",
+          "bytes": 3721,
+          "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+          "first_bound_utc": "2026-10-28T14:56:44.623288+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": true
+        },
+        "scope": "new owned60 source only; no helper execution or support rebuild",
+        "exit_code": 1,
+        "end_utc": "2026-10-28T15:05:45.697146+00:00"
+      }
+    },
+    {
+      "label": "core008",
+      "record_path": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core008/RECORD.json",
+      "record": {
+        "label": "core008",
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+          "SourceActualMorseLocalModel.lean"
+        ],
+        "start_utc": "2026-10-28T15:08:26.086669+00:00",
+        "source_identity": {
+          "role": "owned_production_source",
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0018-SourceActualMorseLocalModel.lean",
+          "bytes": 33462,
+          "sha256": "5b5884c271dc46ebb9d00154db4df874ceaa347eb7f3008c4ce36078556dccd4",
+          "first_bound_utc": "2026-10-28T15:08:26.084324+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "harness_identity": {
+          "role": "owned_source_execution_harness",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_source.py",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0010-run_source.py",
+          "bytes": 3721,
+          "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+          "first_bound_utc": "2026-10-28T14:56:44.623288+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": true
+        },
+        "scope": "new owned60 source only; no helper execution or support rebuild",
+        "exit_code": 1,
+        "end_utc": "2026-10-28T15:08:46.621157+00:00"
+      }
+    },
+    {
+      "label": "core009",
+      "record_path": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core009/RECORD.json",
+      "record": {
+        "label": "core009",
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+          "SourceActualMorseLocalModel.lean"
+        ],
+        "start_utc": "2026-10-28T15:09:50.596863+00:00",
+        "source_identity": {
+          "role": "owned_production_source",
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0019-SourceActualMorseLocalModel.lean",
+          "bytes": 36872,
+          "sha256": "3c27ea1d87fce1dc6ff36f4d1b89f1b47b3f7254fbf8e6e0e45700e920f7f51f",
+          "first_bound_utc": "2026-10-28T15:09:50.594760+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "harness_identity": {
+          "role": "owned_source_execution_harness",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_source.py",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0010-run_source.py",
+          "bytes": 3721,
+          "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+          "first_bound_utc": "2026-10-28T14:56:44.623288+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": true
+        },
+        "scope": "new owned60 source only; no helper execution or support rebuild",
+        "exit_code": 1,
+        "end_utc": "2026-10-28T15:10:45.248634+00:00"
+      }
+    },
+    {
+      "label": "core010",
+      "record_path": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core010/RECORD.json",
+      "record": {
+        "label": "core010",
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+          "SourceActualMorseLocalModel.lean"
+        ],
+        "start_utc": "2026-10-28T15:11:32.455866+00:00",
+        "source_identity": {
+          "role": "owned_production_source",
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0020-SourceActualMorseLocalModel.lean",
+          "bytes": 37218,
+          "sha256": "4cc8194a59ec26ae1a97bf549125d318b5c07a90f67fd66fc427c5a2e3c2ef54",
+          "first_bound_utc": "2026-10-28T15:11:32.453349+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "harness_identity": {
+          "role": "owned_source_execution_harness",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_source.py",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0010-run_source.py",
+          "bytes": 3721,
+          "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+          "first_bound_utc": "2026-10-28T14:56:44.623288+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": true
+        },
+        "scope": "new owned60 source only; no helper execution or support rebuild",
+        "exit_code": 1,
+        "end_utc": "2026-10-28T15:11:38.667903+00:00"
+      }
+    },
+    {
+      "label": "core011",
+      "record_path": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core011/RECORD.json",
+      "record": {
+        "label": "core011",
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+          "SourceActualMorseLocalModel.lean"
+        ],
+        "start_utc": "2026-10-28T15:13:33.926337+00:00",
+        "source_identity": {
+          "role": "owned_production_source",
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0021-SourceActualMorseLocalModel.lean",
+          "bytes": 37348,
+          "sha256": "8cdd7a0fd3e4361ff6df8bf4a4da0fc35663c46b652445b0636261a8f857aeb6",
+          "first_bound_utc": "2026-10-28T15:13:33.924522+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "harness_identity": {
+          "role": "owned_source_execution_harness",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_source.py",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0010-run_source.py",
+          "bytes": 3721,
+          "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+          "first_bound_utc": "2026-10-28T14:56:44.623288+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": true
+        },
+        "scope": "new owned60 source only; no helper execution or support rebuild",
+        "exit_code": 1,
+        "end_utc": "2026-10-28T15:13:39.980318+00:00"
+      }
+    },
+    {
+      "label": "core012",
+      "record_path": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core012/RECORD.json",
+      "record": {
+        "label": "core012",
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+          "SourceActualMorseLocalModel.lean"
+        ],
+        "start_utc": "2026-10-28T15:15:59.913548+00:00",
+        "source_identity": {
+          "role": "owned_production_source",
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0022-SourceActualMorseLocalModel.lean",
+          "bytes": 40605,
+          "sha256": "c4fb41bbb767b8a96bbfb01cdbbd7af4890700dc12f5bc6f96244f3f9356daca",
+          "first_bound_utc": "2026-10-28T15:15:59.910679+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "harness_identity": {
+          "role": "owned_source_execution_harness",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_source.py",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0010-run_source.py",
+          "bytes": 3721,
+          "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+          "first_bound_utc": "2026-10-28T14:56:44.623288+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": true
+        },
+        "scope": "new owned60 source only; no helper execution or support rebuild",
+        "exit_code": 1,
+        "end_utc": "2026-10-28T15:16:05.898080+00:00"
+      }
+    },
+    {
+      "label": "core013",
+      "record_path": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core013/RECORD.json",
+      "record": {
+        "label": "core013",
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+          "SourceActualMorseLocalModel.lean"
+        ],
+        "start_utc": "2026-10-28T15:18:25.120964+00:00",
+        "source_identity": {
+          "role": "owned_production_source",
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0023-SourceActualMorseLocalModel.lean",
+          "bytes": 46819,
+          "sha256": "3450050d4ebce3f88cc3f7d9c7989061fbaf0b3aaf123d0889dfb6ad0adcfb62",
+          "first_bound_utc": "2026-10-28T15:18:25.118432+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "harness_identity": {
+          "role": "owned_source_execution_harness",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_source.py",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0010-run_source.py",
+          "bytes": 3721,
+          "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+          "first_bound_utc": "2026-10-28T14:56:44.623288+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": true
+        },
+        "scope": "new owned60 source only; no helper execution or support rebuild",
+        "exit_code": 1,
+        "end_utc": "2026-10-28T15:18:32.249434+00:00"
+      }
+    },
+    {
+      "label": "core014",
+      "record_path": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core014/RECORD.json",
+      "record": {
+        "label": "core014",
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+          "SourceActualMorseLocalModel.lean"
+        ],
+        "start_utc": "2026-10-28T15:20:25.310969+00:00",
+        "source_identity": {
+          "role": "owned_production_source",
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0024-SourceActualMorseLocalModel.lean",
+          "bytes": 46828,
+          "sha256": "4bec7b3ef8a4c4a914b763552b7cb4b78cfa368baf96e44172adc452bccd21e8",
+          "first_bound_utc": "2026-10-28T15:20:25.309017+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "harness_identity": {
+          "role": "owned_source_execution_harness",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_source.py",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0010-run_source.py",
+          "bytes": 3721,
+          "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+          "first_bound_utc": "2026-10-28T14:56:44.623288+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": true
+        },
+        "scope": "new owned60 source only; no helper execution or support rebuild",
+        "exit_code": 1,
+        "end_utc": "2026-10-28T15:20:31.598321+00:00"
+      }
+    },
+    {
+      "label": "core015",
+      "record_path": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core015/RECORD.json",
+      "record": {
+        "label": "core015",
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+          "SourceActualMorseLocalModel.lean"
+        ],
+        "start_utc": "2026-10-28T15:22:22.037804+00:00",
+        "source_identity": {
+          "role": "owned_production_source",
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0025-SourceActualMorseLocalModel.lean",
+          "bytes": 47114,
+          "sha256": "e4e8d591a427d9edb3cdbbb4c0bb83c70a76abeab763b4910aed4e336d6de2e4",
+          "first_bound_utc": "2026-10-28T15:22:22.035981+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "harness_identity": {
+          "role": "owned_source_execution_harness",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_source.py",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0010-run_source.py",
+          "bytes": 3721,
+          "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+          "first_bound_utc": "2026-10-28T14:56:44.623288+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": true
+        },
+        "scope": "new owned60 source only; no helper execution or support rebuild",
+        "exit_code": 1,
+        "end_utc": "2026-10-28T15:22:28.872624+00:00"
+      }
+    },
+    {
+      "label": "core016",
+      "record_path": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core016/RECORD.json",
+      "record": {
+        "label": "core016",
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+          "SourceActualMorseLocalModel.lean"
+        ],
+        "start_utc": "2026-10-28T15:23:55.135988+00:00",
+        "source_identity": {
+          "role": "owned_production_source",
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0026-SourceActualMorseLocalModel.lean",
+          "bytes": 47154,
+          "sha256": "1e91017333f6068042efe233c93019d5c3e9c94609bc14ea908bd1f473221df4",
+          "first_bound_utc": "2026-10-28T15:23:55.134179+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "harness_identity": {
+          "role": "owned_source_execution_harness",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_source.py",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0010-run_source.py",
+          "bytes": 3721,
+          "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+          "first_bound_utc": "2026-10-28T14:56:44.623288+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": true
+        },
+        "scope": "new owned60 source only; no helper execution or support rebuild",
+        "exit_code": 0,
+        "end_utc": "2026-10-28T15:24:03.324397+00:00",
+        "object_identity": {
+          "role": "owned_production_object",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0027-SourceActualMorseLocalModel.olean",
+          "bytes": 1893760,
+          "sha256": "257d5204cb7a23a9f0d0d4fabbad5dfb5cf9377a163e23137384c466776a5cac",
+          "first_bound_utc": "2026-10-28T15:24:03.328556+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        }
+      }
+    },
+    {
+      "label": "core017",
+      "record_path": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core017/RECORD.json",
+      "record": {
+        "label": "core017",
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+          "SourceActualMorseLocalModel.lean"
+        ],
+        "start_utc": "2026-10-28T15:25:07.383310+00:00",
+        "source_identity": {
+          "role": "owned_production_source",
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0032-SourceActualMorseLocalModel.lean",
+          "bytes": 66574,
+          "sha256": "f00c43fb51903c16703b48305cf02d99d2a972c404d49b59fe90fb671609ebc0",
+          "first_bound_utc": "2026-10-28T15:25:07.380556+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "harness_identity": {
+          "role": "owned_source_execution_harness",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_source.py",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0010-run_source.py",
+          "bytes": 3721,
+          "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+          "first_bound_utc": "2026-10-28T14:56:44.623288+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": true
+        },
+        "scope": "new owned60 source only; no helper execution or support rebuild",
+        "exit_code": 1,
+        "end_utc": "2026-10-28T15:25:17.616748+00:00"
+      }
+    },
+    {
+      "label": "core018",
+      "record_path": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core018/RECORD.json",
+      "record": {
+        "label": "core018",
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+          "SourceActualMorseLocalModel.lean"
+        ],
+        "start_utc": "2026-10-28T15:28:12.397667+00:00",
+        "source_identity": {
+          "role": "owned_production_source",
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0033-SourceActualMorseLocalModel.lean",
+          "bytes": 65654,
+          "sha256": "f2a3fda2a9d2b36d9e2f3cdad181132da5ecd9b959511caa3114aa32b4c75538",
+          "first_bound_utc": "2026-10-28T15:28:12.394392+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "harness_identity": {
+          "role": "owned_source_execution_harness",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_source.py",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0010-run_source.py",
+          "bytes": 3721,
+          "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+          "first_bound_utc": "2026-10-28T14:56:44.623288+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": true
+        },
+        "scope": "new owned60 source only; no helper execution or support rebuild",
+        "exit_code": 1,
+        "end_utc": "2026-10-28T15:28:24.075995+00:00"
+      }
+    },
+    {
+      "label": "core019",
+      "record_path": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core019/RECORD.json",
+      "record": {
+        "label": "core019",
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+          "SourceActualMorseLocalModel.lean"
+        ],
+        "start_utc": "2026-10-28T15:30:36.415860+00:00",
+        "source_identity": {
+          "role": "owned_production_source",
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0041-SourceActualMorseLocalModel.lean",
+          "bytes": 65754,
+          "sha256": "d6776bd34a2ae1371c2af8fbfcc54d2a536e7c96b2e4db517a5f4a81b4128cd5",
+          "first_bound_utc": "2026-10-28T15:30:36.412696+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "harness_identity": {
+          "role": "owned_source_execution_harness",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_source.py",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0010-run_source.py",
+          "bytes": 3721,
+          "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+          "first_bound_utc": "2026-10-28T14:56:44.623288+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": true
+        },
+        "scope": "new owned60 source only; no helper execution or support rebuild",
+        "exit_code": 0,
+        "end_utc": "2026-10-28T15:30:47.909461+00:00",
+        "object_identity": {
+          "role": "owned_production_object",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0042-SourceActualMorseLocalModel.olean",
+          "bytes": 3409752,
+          "sha256": "7bc2d9fc1edcbd936dc04b583fa2b4642fc6fd968c594350df8eec28093d7ad3",
+          "first_bound_utc": "2026-10-28T15:30:47.921140+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        }
+      }
+    },
+    {
+      "label": "inventory-001",
+      "record_path": "/workspace/scratch/actual-source-morse-local-model-construct/runs/inventory-001/RECORD.json",
+      "record": {
+        "label": "inventory-001",
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "python",
+          "-c",
+          "import os,subprocess,sys; os.environ[\"LEAN_PATH\"]=sys.argv[1]+os.pathsep+os.environ.get(\"LEAN_PATH\",\"\"); sys.exit(subprocess.run([\"lean\",\"-DwarningAsError=true\",\"--root=\"+sys.argv[2],\"-o\",sys.argv[3],sys.argv[4]],check=False).returncode)",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects",
+          "/workspace/scratch/actual-source-morse-local-model-construct",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects/Inventory.olean",
+          "/workspace/scratch/actual-source-morse-local-model-construct/Inventory.lean"
+        ],
+        "start_utc": "2026-10-28T15:33:06.190075+00:00",
+        "source_identity": {
+          "role": "owned_ordinary_source_Inventory",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/Inventory.lean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0043-Inventory.lean",
+          "bytes": 1082,
+          "sha256": "1e2fe4e6fa7e7796690638ac4265a71551e5ae63f1c0b7236b55ddbece16ffbe",
+          "first_bound_utc": "2026-10-28T15:33:06.169343+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "harness_identity": {
+          "role": "owned_ordinary_execution_harness",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_ordinary.py",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0044-run_ordinary.py",
+          "bytes": 2857,
+          "sha256": "b403d52a574372a05e9f9b6e9518e1f5d22525fd0eaa8d23f654dda50edadcc2",
+          "first_bound_utc": "2026-10-28T15:33:06.169926+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "production_object_identity": {
+          "role": "owned_production_object",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0042-SourceActualMorseLocalModel.olean",
+          "bytes": 3409752,
+          "sha256": "7bc2d9fc1edcbd936dc04b583fa2b4642fc6fd968c594350df8eec28093d7ad3",
+          "first_bound_utc": "2026-10-28T15:30:47.921140+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": true
+        },
+        "coverage": "ordinary source only, separate from production kernel",
+        "exit_code": 0,
+        "end_utc": "2026-10-28T15:33:09.485889+00:00",
+        "object_identity": {
+          "role": "owned_ordinary_object_Inventory",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/objects/Inventory.olean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0045-Inventory.olean",
+          "bytes": 2712,
+          "sha256": "137ca4bfb4261cffd31650b2effdc758333e34de3fea8e13236848f2bf4f7045",
+          "first_bound_utc": "2026-10-28T15:33:09.486267+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        }
+      }
+    },
+    {
+      "label": "controls-001",
+      "record_path": "/workspace/scratch/actual-source-morse-local-model-construct/runs/controls-001/RECORD.json",
+      "record": {
+        "label": "controls-001",
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "python",
+          "-c",
+          "import os,subprocess,sys; os.environ[\"LEAN_PATH\"]=sys.argv[1]+os.pathsep+os.environ.get(\"LEAN_PATH\",\"\"); sys.exit(subprocess.run([\"lean\",\"-DwarningAsError=true\",\"--root=\"+sys.argv[2],\"-o\",sys.argv[3],sys.argv[4]],check=False).returncode)",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects",
+          "/workspace/scratch/actual-source-morse-local-model-construct/controls",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects/MorseLocalModelControls.olean",
+          "/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean"
+        ],
+        "start_utc": "2026-10-28T15:34:58.117276+00:00",
+        "source_identity": {
+          "role": "owned_ordinary_source_MorseLocalModelControls",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0046-MorseLocalModelControls.lean",
+          "bytes": 10072,
+          "sha256": "a6023d8850e39fca5e62aaa382884850bd625850345e51a39e8acf3a17554b6a",
+          "first_bound_utc": "2026-10-28T15:34:58.100391+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "harness_identity": {
+          "role": "owned_ordinary_execution_harness",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_ordinary.py",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0044-run_ordinary.py",
+          "bytes": 2857,
+          "sha256": "b403d52a574372a05e9f9b6e9518e1f5d22525fd0eaa8d23f654dda50edadcc2",
+          "first_bound_utc": "2026-10-28T15:33:06.169926+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": true
+        },
+        "production_object_identity": {
+          "role": "owned_production_object",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0042-SourceActualMorseLocalModel.olean",
+          "bytes": 3409752,
+          "sha256": "7bc2d9fc1edcbd936dc04b583fa2b4642fc6fd968c594350df8eec28093d7ad3",
+          "first_bound_utc": "2026-10-28T15:30:47.921140+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": true
+        },
+        "coverage": "ordinary source only, separate from production kernel",
+        "exit_code": 1,
+        "end_utc": "2026-10-28T15:35:02.822309+00:00"
+      }
+    },
+    {
+      "label": "controls-002",
+      "record_path": "/workspace/scratch/actual-source-morse-local-model-construct/runs/controls-002/RECORD.json",
+      "record": {
+        "label": "controls-002",
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "python",
+          "-c",
+          "import os,subprocess,sys; os.environ[\"LEAN_PATH\"]=sys.argv[1]+os.pathsep+os.environ.get(\"LEAN_PATH\",\"\"); sys.exit(subprocess.run([\"lean\",\"-DwarningAsError=true\",\"--root=\"+sys.argv[2],\"-o\",sys.argv[3],sys.argv[4]],check=False).returncode)",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects",
+          "/workspace/scratch/actual-source-morse-local-model-construct/controls",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects/MorseLocalModelControls.olean",
+          "/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean"
+        ],
+        "start_utc": "2026-10-28T15:36:29.143599+00:00",
+        "source_identity": {
+          "role": "owned_ordinary_source_MorseLocalModelControls",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0047-MorseLocalModelControls.lean",
+          "bytes": 10156,
+          "sha256": "e4b5e931442092b9f48703b25fd11a56dde7245e9363b15f2f2923b2ffdf8425",
+          "first_bound_utc": "2026-10-28T15:36:29.137070+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "harness_identity": {
+          "role": "owned_ordinary_execution_harness",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_ordinary.py",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0044-run_ordinary.py",
+          "bytes": 2857,
+          "sha256": "b403d52a574372a05e9f9b6e9518e1f5d22525fd0eaa8d23f654dda50edadcc2",
+          "first_bound_utc": "2026-10-28T15:33:06.169926+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": true
+        },
+        "production_object_identity": {
+          "role": "owned_production_object",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0042-SourceActualMorseLocalModel.olean",
+          "bytes": 3409752,
+          "sha256": "7bc2d9fc1edcbd936dc04b583fa2b4642fc6fd968c594350df8eec28093d7ad3",
+          "first_bound_utc": "2026-10-28T15:30:47.921140+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": true
+        },
+        "coverage": "ordinary source only, separate from production kernel",
+        "exit_code": 1,
+        "end_utc": "2026-10-28T15:36:33.348994+00:00"
+      }
+    },
+    {
+      "label": "controls-003",
+      "record_path": "/workspace/scratch/actual-source-morse-local-model-construct/runs/controls-003/RECORD.json",
+      "record": {
+        "label": "controls-003",
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "python",
+          "-c",
+          "import os,subprocess,sys; os.environ[\"LEAN_PATH\"]=sys.argv[1]+os.pathsep+os.environ.get(\"LEAN_PATH\",\"\"); sys.exit(subprocess.run([\"lean\",\"-DwarningAsError=true\",\"--root=\"+sys.argv[2],\"-o\",sys.argv[3],sys.argv[4]],check=False).returncode)",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects",
+          "/workspace/scratch/actual-source-morse-local-model-construct/controls",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects/MorseLocalModelControls.olean",
+          "/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean"
+        ],
+        "start_utc": "2026-10-28T15:37:50.864111+00:00",
+        "source_identity": {
+          "role": "owned_ordinary_source_MorseLocalModelControls",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0048-MorseLocalModelControls.lean",
+          "bytes": 10149,
+          "sha256": "8887149774e637c1c55734949c300a10c636770c635678552a897951893d9328",
+          "first_bound_utc": "2026-10-28T15:37:50.855653+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "harness_identity": {
+          "role": "owned_ordinary_execution_harness",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_ordinary.py",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0044-run_ordinary.py",
+          "bytes": 2857,
+          "sha256": "b403d52a574372a05e9f9b6e9518e1f5d22525fd0eaa8d23f654dda50edadcc2",
+          "first_bound_utc": "2026-10-28T15:33:06.169926+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": true
+        },
+        "production_object_identity": {
+          "role": "owned_production_object",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0042-SourceActualMorseLocalModel.olean",
+          "bytes": 3409752,
+          "sha256": "7bc2d9fc1edcbd936dc04b583fa2b4642fc6fd968c594350df8eec28093d7ad3",
+          "first_bound_utc": "2026-10-28T15:30:47.921140+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": true
+        },
+        "coverage": "ordinary source only, separate from production kernel",
+        "exit_code": 0,
+        "end_utc": "2026-10-28T15:37:55.054585+00:00",
+        "object_identity": {
+          "role": "owned_ordinary_object_MorseLocalModelControls",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/objects/MorseLocalModelControls.olean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0049-MorseLocalModelControls.olean",
+          "bytes": 823096,
+          "sha256": "99cea3a0b8be53bf53980263c97768ecf13c0222f8c2c063ae3ab7c1e4f8a4dc",
+          "first_bound_utc": "2026-10-28T15:37:55.056145+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        }
+      }
+    },
+    {
+      "label": "kernel-001",
+      "record_path": "/workspace/scratch/actual-source-morse-local-model-construct/runs/kernel-001/RECORD.json",
+      "record": {
+        "label": "kernel-001",
+        "start_utc": "2026-10-28T15:39:01.355093+00:00",
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/actual-source-morse-local-model-construct/objects:$LEAN_PATH exec leanchecker SourceActualMorseLocalModel"
+        ],
+        "source_identity": {
+          "role": "owned_production_source",
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0041-SourceActualMorseLocalModel.lean",
+          "bytes": 65754,
+          "sha256": "d6776bd34a2ae1371c2af8fbfcc54d2a536e7c96b2e4db517a5f4a81b4128cd5",
+          "first_bound_utc": "2026-10-28T15:30:36.412696+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": true
+        },
+        "object_identity": {
+          "role": "owned_production_object",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0042-SourceActualMorseLocalModel.olean",
+          "bytes": 3409752,
+          "sha256": "7bc2d9fc1edcbd936dc04b583fa2b4642fc6fd968c594350df8eec28093d7ad3",
+          "first_bound_utc": "2026-10-28T15:30:47.921140+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": true
+        },
+        "harness_identity": {
+          "role": "owned_one_kernel_harness",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_kernel.py",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0050-run_kernel.py",
+          "bytes": 2121,
+          "sha256": "08251b0c26564e6548da078c019a5d8a2585cd29afeacf5d09bc4585e4d9e49a",
+          "first_bound_utc": "2026-10-28T15:39:01.354682+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "invocation_number": 1,
+        "end_utc": "2026-10-28T15:39:08.870724+00:00",
+        "exit_code": 0
+      }
+    },
+    {
+      "label": "omitted-weight-false-001",
+      "record_path": "/workspace/scratch/actual-source-morse-local-model-construct/runs/omitted-weight-false-001/RECORD.json",
+      "record": {
+        "label": "omitted-weight-false-001",
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "python",
+          "-c",
+          "import os,subprocess,sys; os.environ[\"LEAN_PATH\"]=sys.argv[1]+os.pathsep+os.environ.get(\"LEAN_PATH\",\"\"); sys.exit(subprocess.run([\"lean\",\"-DwarningAsError=true\",\"--root=\"+sys.argv[2],\"-o\",sys.argv[3],sys.argv[4]],check=False).returncode)",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects",
+          "/workspace/scratch/actual-source-morse-local-model-construct/controls",
+          "/workspace/scratch/actual-source-morse-local-model-construct/objects/OmittedTaylorWeightFalse.olean",
+          "/workspace/scratch/actual-source-morse-local-model-construct/controls/OmittedTaylorWeightFalse.lean"
+        ],
+        "start_utc": "2026-10-28T15:40:54.931640+00:00",
+        "source_identity": {
+          "role": "owned_ordinary_source_OmittedTaylorWeightFalse",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/controls/OmittedTaylorWeightFalse.lean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0051-OmittedTaylorWeightFalse.lean",
+          "bytes": 175,
+          "sha256": "0ac7b1f17de8d94bcf96004c2dbd5a778292b7b190606984954feb0d9849c405",
+          "first_bound_utc": "2026-10-28T15:40:54.921794+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "harness_identity": {
+          "role": "owned_ordinary_execution_harness",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_ordinary.py",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0052-run_ordinary.py",
+          "bytes": 3953,
+          "sha256": "f1e0fa944a5b0746595748b7e60bdeb026a0b4f95f9061859de099bdcfa5bf17",
+          "first_bound_utc": "2026-10-28T15:40:54.922809+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": false
+        },
+        "production_object_identity": {
+          "role": "owned_production_object",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0042-SourceActualMorseLocalModel.olean",
+          "bytes": 3409752,
+          "sha256": "7bc2d9fc1edcbd936dc04b583fa2b4642fc6fd968c594350df8eec28093d7ad3",
+          "first_bound_utc": "2026-10-28T15:30:47.921140+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": true
+        },
+        "coverage": "ordinary source only, separate from production kernel",
+        "controls_object_identity": {
+          "role": "owned_ordinary_object_MorseLocalModelControls",
+          "path": "/workspace/scratch/actual-source-morse-local-model-construct/objects/MorseLocalModelControls.olean",
+          "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0049-MorseLocalModelControls.olean",
+          "bytes": 823096,
+          "sha256": "99cea3a0b8be53bf53980263c97768ecf13c0222f8c2c063ae3ab7c1e4f8a4dc",
+          "first_bound_utc": "2026-10-28T15:37:55.056145+00:00",
+          "new_sha256_operations": 1,
+          "reused_identity": true
+        },
+        "expected_failure": "ONE false omitted-weight entry=1; actual counterproof gives2",
+        "exit_code": 1,
+        "end_utc": "2026-10-28T15:40:57.590518+00:00"
+      }
+    }
+  ],
+  "actual_run_count": 25,
+  "actual_split_stream_files": 50,
+  "actual_split_stream_bytes": 108939,
+  "production_helpers": {
+    "integrations": [
+      {
+        "label": "A",
+        "utc": "2026-10-28T14:56:44.437878+00:00",
+        "integration_count": 1,
+        "helper_executions": 0,
+        "original_identities": [
+          {
+            "role": "helper_A_original_section",
+            "path": "/workspace/scratch/morse-local-model-finite2-branch-text/SECTION.lean.txt",
+            "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/A/SECTION.lean.txt",
+            "bytes": 7783,
+            "sha256": "fb8affe1ac43c2899d56401cf8f5c3942ba4981a6dc6a263a90fb2edbd587359",
+            "first_bound_utc": "2026-10-28T14:56:44.437095+00:00",
+            "new_sha256_operations": 1
+          },
+          {
+            "role": "helper_A_original_imports",
+            "path": "/workspace/scratch/morse-local-model-finite2-branch-text/IMPORTS.txt",
+            "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/A/IMPORTS.txt",
+            "bytes": 88,
+            "sha256": "d93204eceb8c3573f803bc1a35ccecdb759c3c52b20220bd8e24db231385ebb1",
+            "first_bound_utc": "2026-10-28T14:56:44.437190+00:00",
+            "new_sha256_operations": 1
+          },
+          {
+            "role": "helper_A_original_provenance",
+            "path": "/workspace/scratch/morse-local-model-finite2-branch-text/PROVENANCE.md",
+            "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/A/PROVENANCE.md",
+            "bytes": 6119,
+            "sha256": "dbefe94953686809ffff8e81867c065108ae77c031b1ab822d232737128da41b",
+            "first_bound_utc": "2026-10-28T14:56:44.437251+00:00",
+            "new_sha256_operations": 1
+          },
+          {
+            "role": "helper_A_original_freeze",
+            "path": "/workspace/scratch/morse-local-model-finite2-branch-text/FROZEN_LOGICAL_IDS.json",
+            "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/A/FROZEN_LOGICAL_IDS.json",
+            "bytes": 1012,
+            "sha256": "210c457a41ba420ea4443c7dcd9cdc934ba695ca1347beb1e02431ef9caa8fdf",
+            "first_bound_utc": "2026-10-28T14:56:44.437298+00:00",
+            "new_sha256_operations": 1
+          }
+        ],
+        "begin_marker": "/- BEGIN COMPLETE ORIGINAL HELPER A -/",
+        "end_marker": "/- END COMPLETE ORIGINAL HELPER A -/",
+        "original_section_snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/A/SECTION.lean.txt"
+      },
+      {
+        "label": "B",
+        "utc": "2026-10-28T15:00:14.134561+00:00",
+        "integration_count": 1,
+        "helper_executions": 0,
+        "original_identities": [
+          {
+            "role": "helper_B_original_section",
+            "path": "/workspace/scratch/morse-local-model-inertia-normalizer-text/SECTION.lean.txt",
+            "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/B/SECTION.lean.txt",
+            "bytes": 8385,
+            "sha256": "33a8c82a2750af89dd449f58617e0f30dda9e834a409e14774f2b1831377b983",
+            "first_bound_utc": "2026-10-28T15:00:14.133221+00:00",
+            "new_sha256_operations": 1
+          },
+          {
+            "role": "helper_B_original_imports",
+            "path": "/workspace/scratch/morse-local-model-inertia-normalizer-text/IMPORTS.txt",
+            "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/B/IMPORTS.txt",
+            "bytes": 408,
+            "sha256": "f622ed9ce4c60ee252236cfe15e8375da5c61a3fc69244dbf3f298bae9541a5b",
+            "first_bound_utc": "2026-10-28T15:00:14.133336+00:00",
+            "new_sha256_operations": 1
+          },
+          {
+            "role": "helper_B_original_provenance",
+            "path": "/workspace/scratch/morse-local-model-inertia-normalizer-text/PROVENANCE.md",
+            "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/B/PROVENANCE.md",
+            "bytes": 8549,
+            "sha256": "f52a4685e858716da4df3f2dd31eb5f113097b9cd8733423434c0a12e87b52f1",
+            "first_bound_utc": "2026-10-28T15:00:14.133449+00:00",
+            "new_sha256_operations": 1
+          },
+          {
+            "role": "helper_B_original_freeze",
+            "path": "/workspace/scratch/morse-local-model-inertia-normalizer-text/FROZEN_ORIGINALS.json",
+            "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/B/FROZEN_ORIGINALS.json",
+            "bytes": 1963,
+            "sha256": "906055ab3b2d72eefa52109f8894217ed1f335b947f1c697ea5f29f3fe3165c1",
+            "first_bound_utc": "2026-10-28T15:00:14.133528+00:00",
+            "new_sha256_operations": 1
+          }
+        ],
+        "begin_marker": "/- BEGIN COMPLETE ORIGINAL HELPER B -/",
+        "end_marker": "/- END COMPLETE ORIGINAL HELPER B -/",
+        "original_section_snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/B/SECTION.lean.txt"
+      },
+      {
+        "label": "C",
+        "utc": "2026-10-28T15:25:07.182547+00:00",
+        "integration_count": 1,
+        "helper_executions": 0,
+        "original_identities": [
+          {
+            "role": "helper_C_original_section",
+            "path": "/workspace/scratch/morse-local-model-actual-fixtures-text/PRODUCTION_SECTION.lean.txt",
+            "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/C/PRODUCTION_SECTION.lean.txt",
+            "bytes": 19250,
+            "sha256": "e4ac1545ea4fd5a30549e48e55b4f8d89d03f8719c582cfb6cfd8e5740289fac",
+            "first_bound_utc": "2026-10-28T15:25:07.179951+00:00",
+            "new_sha256_operations": 1
+          },
+          {
+            "role": "helper_C_original_imports",
+            "path": "/workspace/scratch/morse-local-model-actual-fixtures-text/PRODUCTION_IMPORTS.txt",
+            "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/C/PRODUCTION_IMPORTS.txt",
+            "bytes": 265,
+            "sha256": "cccf726a6a6e1b0f6c5c7a6e0f2b03b5e52c90dec9bab48c2f9a8903329fd7b4",
+            "first_bound_utc": "2026-10-28T15:25:07.180222+00:00",
+            "new_sha256_operations": 1
+          },
+          {
+            "role": "helper_C_original_provenance",
+            "path": "/workspace/scratch/morse-local-model-actual-fixtures-text/PRODUCTION_PROVENANCE.md",
+            "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/C/PRODUCTION_PROVENANCE.md",
+            "bytes": 4061,
+            "sha256": "a8f7e610110c273d2a8ab0c4660b0c077974208f53a39f81e9f56455c4e678c1",
+            "first_bound_utc": "2026-10-28T15:25:07.180458+00:00",
+            "new_sha256_operations": 1
+          },
+          {
+            "role": "helper_C_original_freeze",
+            "path": "/workspace/scratch/morse-local-model-actual-fixtures-text/PRODUCTION_FROZEN.json",
+            "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/C/PRODUCTION_FROZEN.json",
+            "bytes": 577,
+            "sha256": "33859dbafd010cf17536b417beb627939ae0f27355cf9be4ff17bfdf92e76714",
+            "first_bound_utc": "2026-10-28T15:25:07.180704+00:00",
+            "new_sha256_operations": 1
+          }
+        ],
+        "begin_marker": "/- BEGIN COMPLETE ORIGINAL HELPER C -/",
+        "end_marker": "/- END COMPLETE ORIGINAL HELPER C -/",
+        "original_section_snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/C/PRODUCTION_SECTION.lean.txt"
+      }
+    ]
+  },
+  "ordinary_controls_integration": {
+    "utc": "2026-10-28T15:29:56.082919+00:00",
+    "integration_count": 1,
+    "helper_executions": 0,
+    "source": "/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean",
+    "original_identities": [
+      {
+        "role": "helper_Controls_original_section",
+        "path": "/workspace/scratch/morse-local-model-actual-fixtures-text/CONTROLS_SECTION.lean.txt",
+        "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0037-CONTROLS_SECTION.lean.txt",
+        "bytes": 9829,
+        "sha256": "036dc6e3053438f524557a4a9a4dc28906a7784dbea65773640e946fe95e22c2",
+        "first_bound_utc": "2026-10-28T15:29:56.079990+00:00",
+        "new_sha256_operations": 1,
+        "reused_identity": false
+      },
+      {
+        "role": "helper_Controls_original_imports",
+        "path": "/workspace/scratch/morse-local-model-actual-fixtures-text/CONTROLS_IMPORTS.txt",
+        "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0038-CONTROLS_IMPORTS.txt",
+        "bytes": 242,
+        "sha256": "4b5364860602cca16c8d046ae9c215f51ba54fa929bed0e2637b84239e0efdf3",
+        "first_bound_utc": "2026-10-28T15:29:56.080802+00:00",
+        "new_sha256_operations": 1,
+        "reused_identity": false
+      },
+      {
+        "role": "helper_Controls_original_provenance",
+        "path": "/workspace/scratch/morse-local-model-actual-fixtures-text/CONTROLS_PROVENANCE.md",
+        "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0039-CONTROLS_PROVENANCE.md",
+        "bytes": 3731,
+        "sha256": "d0893ae69daabbbfe36d98abeb2ab4a6bc917be720e711d2ae730956df1f761e",
+        "first_bound_utc": "2026-10-28T15:29:56.081450+00:00",
+        "new_sha256_operations": 1,
+        "reused_identity": false
+      },
+      {
+        "role": "helper_Controls_original_freeze",
+        "path": "/workspace/scratch/morse-local-model-actual-fixtures-text/CONTROLS_FROZEN.json",
+        "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0040-CONTROLS_FROZEN.json",
+        "bytes": 771,
+        "sha256": "1ce2aea1ada8071dee81f00bfa1794ea1d98c12835a1d4051ca837e1f0b93272",
+        "first_bound_utc": "2026-10-28T15:29:56.082271+00:00",
+        "new_sha256_operations": 1,
+        "reused_identity": false
+      }
+    ],
+    "coverage": "ordinary Controls compilation only, not production kernel"
+  },
+  "historical_pending_records_preserved": true,
+  "own_object_action": "SKIP_ROOT_COPIED_ONCE_ALL_FURTHER_COPIES_SKIP",
+  "old_payload_hashes": 0,
+  "proof_replays": 0
+}
