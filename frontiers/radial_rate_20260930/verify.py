@@ -13,6 +13,7 @@ import sys
 IDS={'R','SC','P'}
 MUTANTS=('omit-shift','omit-density-term','drop-a-shear','odd-term-survives',
          'unsigned-is-signed','wrong-b-integral','wrong-density-factor','wrong-tv-root')
+ARGPARSE_COLUMNS=80
 
 
 def read_json(path):
@@ -108,10 +109,15 @@ def validate_mutant_result(name, run):
         raise ValueError('mutant failure contract mismatch: ' + name)
 
 
+def argparse_width(columns):
+    return columns-2
+
+
 def expected_unknown_stderr():
     parser = argparse.ArgumentParser(
         prog='rate.py',
-        formatter_class=lambda prog: argparse.HelpFormatter(prog, width=80))
+        formatter_class=lambda prog: argparse.HelpFormatter(
+            prog, width=argparse_width(ARGPARSE_COLUMNS)))
     parser.add_argument('--mutant', choices=MUTANTS)
     stream = io.StringIO()
     try:
@@ -131,6 +137,11 @@ def validate_unknown_result(run):
         raise ValueError('unknown mutant label did not produce exact argparse invalid-choice output')
 
 
+def run_unknown(command):
+    return subprocess.run(command+['--mutant','unknown'],capture_output=True,timeout=45,
+                          env=dict(os.environ,COLUMNS=str(ARGPARSE_COLUMNS)))
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--local-only',action='store_true');args=parser.parse_args()
     root=Path(__file__).absolute().parent;inventory(root)
@@ -146,8 +157,7 @@ def main():
         for mutant in MUTANTS:
             run=subprocess.run(command+['--mutant',mutant],capture_output=True,timeout=45)
             validate_mutant_result(mutant,run)
-        run=subprocess.run(command+['--mutant','unknown'],capture_output=True,timeout=45,
-                            env=dict(os.environ,COLUMNS='80'))
+        run=run_unknown(command)
         validate_unknown_result(run)
     inventory(root)
     print(json.dumps({'passed':True,'source_count':nsource,'source_pins_checked':not args.local_only,
