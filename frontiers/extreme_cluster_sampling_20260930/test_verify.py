@@ -5,6 +5,7 @@ import json
 import os
 from pathlib import Path
 import subprocess
+import sys
 import tempfile
 import unittest
 import verify as v
@@ -164,6 +165,117 @@ class InventoryTests(unittest.TestCase):
     def test_invalid_json_top_type(self):
         p=self.root/'list.json'; p.write_text('[]')
         with self.assertRaises(ValueError): v.read_json(p)
+
+
+class WrapperProtocolTests(unittest.TestCase):
+    def flags(self):
+        return ['-B','-O','-S'] if sys.flags.optimize else ['-B','-S']
+
+    def run_extremes(self, *args):
+        script=Path(__file__).with_name('extremes.py')
+        return subprocess.run([sys.executable,*self.flags(),str(script),*args],
+                              cwd=script.parent,capture_output=True,timeout=60,
+                              env=v.unknown_label_env())
+
+    def test_actual_semantic_mutants_match_exact_assertions_in_executing_mode(self):
+        for name in v.EXPECTED_MUTANT_ERRORS:
+            with self.subTest(mutant=name):
+                result=self.run_extremes('--mutant',name)
+                v.validate_mutant_result(name,result)
+
+    def test_actual_unknown_label_matches_argparse_in_executing_mode(self):
+        result=self.run_extremes('--mutant','unknown')
+        v.validate_unknown_result(result)
+
+    def test_unknown_label_output_is_bound_exactly(self):
+        expected=v.expected_unknown_stderr()
+        self.assertTrue(expected.startswith(b'usage: extremes.py '))
+        self.assertTrue(expected.endswith(b'\n'))
+        parts=expected.split(b'\n')[:-1]
+        usage=b''.join(line+b'\n' for line in parts[:-1])
+        diagnostic=parts[-1]+b'\n'
+        self.assertEqual(usage+diagnostic,expected)
+        cases=(
+            ('usage-header-suffix',expected.replace(
+                b'usage: extremes.py',b'usage: extremes.py bogus usage',1),2,b''),
+            ('wrong-program-name',expected.replace(
+                b'usage: extremes.py',b'usage: other.py',1),2,b''),
+            ('extra-indented-stderr',
+             usage+b'    unrelated indented runtime failure\n'+diagnostic,2,b''),
+            ('missing-terminal-newline',expected[:-1],2,b''),
+            ('extra-terminal-newline',expected+b'\n',2,b''),
+            ('crlf-line-endings',expected.replace(b'\n',b'\r\n'),2,b''),
+            ('diagnostic-only',diagnostic,2,b''),
+            ('wrong-exit',expected,1,b''),
+            ('unexpected-stdout',expected,2,b'unexpected'),
+            ('expected-bytes-on-stdout',b'',2,expected),
+        )
+        for label,stderr,code,stdout in cases:
+            bad=subprocess.CompletedProcess(['extremes.py'],code,stdout,stderr)
+            with self.subTest(case=label):
+                with self.assertRaises(ValueError):
+                    v.validate_unknown_result(bad)
+        # A real child at another terminal width wraps the usage block
+        # differently, so only the pinned width reproduces the oracle.
+        script=Path(__file__).with_name('extremes.py')
+        wide=subprocess.run([sys.executable,*self.flags(),str(script),'--mutant','unknown'],
+                            cwd=script.parent,capture_output=True,timeout=60,
+                            env=dict(os.environ,COLUMNS='200'))
+        self.assertEqual(wide.returncode,2)
+        self.assertNotEqual(wide.stderr,expected)
+        with self.assertRaises(ValueError):
+            v.validate_unknown_result(wide)
+
+    def test_adverse_subprocess_results_are_rejected_in_executing_mode(self):
+        cases=(
+            ('runtime-error',"raise RuntimeError('unrelated child crash')\n"),
+            ('silent-exit-1',"raise SystemExit(1)\n"),
+            ('wrong-reason',"raise AssertionError('wrong semantic reason')\n"),
+            ('malformed-output',"print('not the expected traceback')\nraise SystemExit(1)\n"),
+            ('unexpected-stderr',"import sys\nprint('unrelated stderr',file=sys.stderr)\nraise AssertionError('signed companion')\n"),
+        )
+        with tempfile.TemporaryDirectory() as tmp:
+            child=Path(tmp)/'child.py'
+            for label,body in cases:
+                child.write_text(body)
+                result=subprocess.run([sys.executable,*self.flags(),str(child)],
+                                      cwd=tmp,capture_output=True,timeout=10)
+                with self.subTest(case=label):
+                    with self.assertRaises(ValueError):
+                        v.validate_mutant_result('drop-companion-sign',result)
+            child.write_text('raise SystemExit(2)\n')
+            result=subprocess.run([sys.executable,*self.flags(),str(child)],
+                                  cwd=tmp,capture_output=True,timeout=10)
+            with self.assertRaises(ValueError):
+                v.validate_unknown_result(result)
+            child.write_text("import argparse\np=argparse.ArgumentParser(prog='extremes.py')\np.error('unrelated parser/setup failure')\n")
+            result=subprocess.run([sys.executable,*self.flags(),str(child)],
+                                  cwd=tmp,capture_output=True,timeout=10)
+            with self.assertRaises(ValueError):
+                v.validate_unknown_result(result)
+
+
+        # The acceptance chain must contain exactly the pinned child path and
+        # exactly five frames. A correct final AssertionError cannot excuse an
+        # unrelated helper frame or a shadow file with the same basename.
+        script=str(Path(v.__file__).absolute().with_name('extremes.py'))
+        names=('<module>','main','results','finite_checks','_need')
+        expected=[(script,name) for name in names]
+        cases=(
+            ('extra-external-frame',[('/tmp/helper.py','helper'),*expected]),
+            ('shadow-extremes-path',[(('/tmp/extremes.py' if i==2 else path),name)
+                                    for i,(path,name) in enumerate(expected)]),
+        )
+        for label,frames in cases:
+            lines=['Traceback (most recent call last):']
+            for filename,function in frames:
+                lines.extend((f'  File "{filename}", line 1, in {function}','    pass'))
+            lines.append('AssertionError: signed companion')
+            forged=subprocess.CompletedProcess(
+                ['synthetic-child'],1,b'',('\n'.join(lines)+'\n').encode('utf-8'))
+            with self.subTest(case=label):
+                with self.assertRaises(ValueError):
+                    v.validate_mutant_result('drop-companion-sign',forged)
 
 
 if __name__=='__main__': unittest.main()

@@ -6,7 +6,9 @@ still run. No mode confers mathematical acceptance.
 """
 from __future__ import annotations
 import argparse
+import contextlib
 import hashlib
+import io
 import json
 import os
 from pathlib import Path, PurePosixPath
@@ -138,6 +140,79 @@ def verify_inventory(root: Path) -> int:
     return len(entries)
 
 
+EXPECTED_MUTANT_ERRORS = {
+    'drop-companion-sign': 'signed companion',
+    'point-is-cluster': 'one maximum anchor, not point counting',
+    'close-window': 'height endpoint must be open',
+    'drop-log2': 'inner integral',
+    'double-count-inner': 'inner integral',
+    'lose-height-jacobian': 'point integral and height convention',
+    'wrong-tail-power': 'cusp exponent ledger',
+    'uniform-cluster-from-point': 'cluster law must be unbiassed',
+}
+
+
+def validate_mutant_result(name, result):
+    expected=EXPECTED_MUTANT_ERRORS.get(name)
+    if expected is None:
+        raise ValueError('unknown semantic mutant contract: '+str(name))
+    lines=result.stderr.splitlines()
+    frame_lines=[line for line in lines if b'File "' in line]
+    frame_pattern=re.compile(rb'  File "([^"]+)", line [0-9]+, in ([A-Za-z_<>][A-Za-z0-9_<>]*)')
+    frames=[]
+    for line in frame_lines:
+        match=frame_pattern.fullmatch(line)
+        frames.append(match.groups() if match else None)
+    expected_path=str(Path(__file__).absolute().with_name('extremes.py')).encode('utf-8')
+    expected_frames=[(expected_path,name) for name in
+                     (b'<module>',b'main',b'results',b'finite_checks',b'_need')]
+    expected_last=('AssertionError: '+expected).encode('utf-8')
+    if (result.returncode!=1 or result.stdout!=b'' or not lines
+            or lines[0]!=b'Traceback (most recent call last):'
+            or lines[-1]!=expected_last
+            or lines.count(b'Traceback (most recent call last):')!=1
+            or frames!=expected_frames):
+        raise ValueError('mutant assertion contract mismatch: '+name)
+
+
+UNKNOWN_LABEL_COLUMNS=80
+
+
+def unknown_label_env():
+    """Child environment for the unknown-label run: a fixed terminal width."""
+    return dict(os.environ,COLUMNS=str(UNKNOWN_LABEL_COLUMNS))
+
+
+def expected_unknown_stderr():
+    """Exact stderr bytes of extremes.py --mutant unknown under unknown_label_env().
+
+    The child's streams are captured, so its HelpFormatter takes the width from
+    COLUMNS. CPython 3.11--3.13 subtracts two from that (as in
+    tools/legacy_json_replay.py), so the oracle formats at the same width.
+    """
+    stream=io.StringIO()
+    with contextlib.redirect_stdout(io.StringIO()),contextlib.redirect_stderr(stream):
+        parser=argparse.ArgumentParser(
+            prog='extremes.py',
+            formatter_class=lambda prog: argparse.HelpFormatter(
+                prog,width=UNKNOWN_LABEL_COLUMNS-2))
+        parser.add_argument('--mutant',choices=MUTANTS)
+        try:
+            parser.parse_args(['--mutant','unknown'])
+        except SystemExit as exc:
+            if exc.code!=2:
+                raise ValueError('argparse unknown-label oracle did not exit 2') from exc
+        else:
+            raise ValueError('argparse unknown-label oracle accepted an invalid label')
+    return stream.getvalue().encode('utf-8')
+
+
+def validate_unknown_result(result):
+    if (result.returncode!=2 or result.stdout!=b''
+            or result.stderr!=expected_unknown_stderr()):
+        raise ValueError('unknown mutant label did not produce exact argparse invalid-choice output')
+
+
 def main() -> None:
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--local-only',action='store_true')
@@ -153,11 +228,15 @@ def main() -> None:
         result=subprocess.run(command,cwd=root,capture_output=True,check=True,timeout=60)
         if result.stdout!=expected or result.stderr:
             raise ValueError('deterministic mathematical output mismatch')
-        for name in MUTANTS+('unknown',):
+        if tuple(EXPECTED_MUTANT_ERRORS)!=MUTANTS:
+            raise ValueError('mutant reason inventory mismatch')
+        for name in MUTANTS:
             result=subprocess.run(command+['--mutant',name],cwd=root,
                                   capture_output=True,timeout=60)
-            if result.returncode!=(2 if name=='unknown' else 1):
-                raise ValueError('negative control did not reject: '+name)
+            validate_mutant_result(name,result)
+        result=subprocess.run(command+['--mutant','unknown'],cwd=root,
+                              capture_output=True,timeout=60,env=unknown_label_env())
+        validate_unknown_result(result)
     verify_inventory(root)
     print(json.dumps({'passed':True,'source_pins_checked':not args.local_only,
                       'source_count':n_sources,'scientific_effect':'NONE',
