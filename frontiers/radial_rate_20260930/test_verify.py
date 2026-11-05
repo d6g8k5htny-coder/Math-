@@ -1,12 +1,15 @@
 """Custody regressions on real local Git objects, never on invented upstream data."""
+import argparse
 import copy
 import hashlib
 import json
 import os
 from pathlib import Path
 import subprocess
+import sys
 import tempfile
 import unittest
+from unittest import mock
 import verify as v
 
 
@@ -98,5 +101,130 @@ class PacketTests(unittest.TestCase):
     def test_json_duplicate(self):
         p=self.root/'MANIFEST.json';p.write_text('{"files":[],"files":[]}')
         with self.assertRaises(ValueError):v.inventory(self.root)
+
+class WrapperProtocolTests(unittest.TestCase):
+    def flags(self):
+        return ['-B','-O','-S'] if sys.flags.optimize else ['-B','-S']
+
+    def run_rate(self, *args):
+        script=Path(__file__).with_name('rate.py')
+        return subprocess.run([sys.executable,*self.flags(),str(script),*args],
+                              cwd=script.parent,capture_output=True,timeout=45)
+
+    def test_actual_semantic_mutants_match_exact_reasons_in_executing_mode(self):
+        for name in v.EXPECTED_MUTANT_ERRORS:
+            with self.subTest(mutant=name):
+                run=self.run_rate('--mutant',name)
+                v.validate_mutant_result(name,run)
+
+    def test_actual_unknown_label_matches_argparse_in_executing_mode(self):
+        script=Path(__file__).with_name('rate.py')
+        try:
+            run=v.run_unknown([sys.executable,*self.flags(),str(script)])
+        except AttributeError:
+            self.fail('production unknown-label runner is missing')
+        v.validate_unknown_result(run)
+
+    def test_production_unknown_runner_pins_argparse_columns(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            child=Path(tmp)/'child.py'
+            child.write_text(
+                "import os,sys\n"
+                "sys.stderr.write(os.environ.get('COLUMNS','missing')+'\\n')\n"
+                "raise SystemExit(2)\n")
+            try:
+                run=v.run_unknown([sys.executable,*self.flags(),str(child)])
+            except AttributeError:
+                self.fail('production unknown-label runner is missing')
+            self.assertEqual(run.returncode,2)
+            self.assertEqual(run.stdout,b'')
+            self.assertEqual(run.stderr,b'80\n')
+
+    def test_argparse_oracle_width_matches_columns_minus_two(self):
+        try:
+            width=v.argparse_width(80)
+        except AttributeError:
+            self.fail('argparse effective-width contract is missing')
+        self.assertEqual(width,78)
+        with mock.patch.object(v,'argparse_width',wraps=v.argparse_width) as observed:
+            v.expected_unknown_stderr()
+        self.assertGreaterEqual(observed.call_count,1)
+        self.assertEqual({call.args for call in observed.call_args_list},
+                         {(v.ARGPARSE_COLUMNS,)})
+
+    def test_main_uses_production_unknown_runner(self):
+        root=Path(v.__file__).absolute().parent
+        replay=subprocess.CompletedProcess([],0,(root/'RESULTS.json').read_bytes(),b'')
+        unknown=subprocess.CompletedProcess([],2,b'',v.expected_unknown_stderr())
+        expected_calls=[
+            mock.call([sys.executable,'-B','-S',str(root/'rate.py')]),
+            mock.call([sys.executable,'-B','-O','-S',str(root/'rate.py')]),
+        ]
+        with mock.patch.object(sys,'argv',['verify.py','--local-only']), \
+             mock.patch.object(v,'inventory',return_value=9), \
+             mock.patch.object(v.subprocess,'run',return_value=replay), \
+             mock.patch.object(v,'validate_mutant_result'), \
+             mock.patch.object(v,'validate_unknown_result'), \
+             mock.patch.object(v,'run_unknown',return_value=unknown) as runner, \
+             mock.patch('builtins.print'):
+            v.main()
+        self.assertEqual(runner.call_args_list,expected_calls)
+
+    def test_argparse_oracle_rejects_wrong_system_exit(self):
+        with mock.patch.object(argparse.ArgumentParser,'parse_args',
+                               side_effect=SystemExit(3)):
+            with self.assertRaisesRegex(ValueError,'did not exit 2'):
+                v.expected_unknown_stderr()
+
+    def test_adverse_subprocess_results_are_rejected_in_executing_mode(self):
+        expected=json.dumps({'error':v.EXPECTED_MUTANT_ERRORS['omit-shift'],
+                             'passed':False},sort_keys=True)
+        wrong=json.dumps({'error':'unrelated failure reason','passed':False},sort_keys=True)
+        cases=(
+            ('runtime-error',"raise RuntimeError('unrelated child crash')\n"),
+            ('silent-exit-1',"raise SystemExit(1)\n"),
+            ('wrong-reason',f"print({wrong!r})\nraise SystemExit(1)\n"),
+            ('wrong-exit',f"print({expected!r})\nraise SystemExit(0)\n"),
+            ('unexpected-stderr',f"print({expected!r})\nprint('unexpected stderr',file=sys.stderr)\nraise SystemExit(1)\n"),
+        )
+        with tempfile.TemporaryDirectory() as tmp:
+            child=Path(tmp)/'child.py'
+            for label,body in cases:
+                child.write_text('import sys\n'+body)
+                run=subprocess.run([sys.executable,*self.flags(),str(child)],
+                                   cwd=tmp,capture_output=True,timeout=10)
+                with self.subTest(case=label):
+                    with self.assertRaises(ValueError):
+                        v.validate_mutant_result('omit-shift',run)
+            child.write_text('raise SystemExit(2)\n')
+            run=subprocess.run([sys.executable,*self.flags(),str(child)],
+                               cwd=tmp,capture_output=True,timeout=10)
+            with self.assertRaises(ValueError):
+                v.validate_unknown_result(run)
+            child.write_text("import argparse\np=argparse.ArgumentParser(prog='rate.py')\np.error('unrelated parser failure')\n")
+            run=subprocess.run([sys.executable,*self.flags(),str(child)],
+                               cwd=tmp,capture_output=True,timeout=10)
+            with self.assertRaises(ValueError):
+                v.validate_unknown_result(run)
+
+            expected = v.expected_unknown_stderr()
+            parts = expected.splitlines()
+            usage = b'\n'.join(parts[:-1]) + b'\n'
+            diagnostic = parts[-1] + b'\n'
+            cases = (
+                ('wrong-usage-header', expected.replace(
+                    b'usage: rate.py', b'usage: rate.py bogus', 1), 2, b''),
+                ('extra-indented-stderr', usage + b'    unrelated indented stderr' + bytes((10,)) + diagnostic, 2, b''),
+                ('missing-terminal-newline', expected[:-1], 2, b''),
+                ('extra-terminal-output', expected + b'\n', 2, b''),
+                ('wrong-exit', expected, 1, b''),
+                ('unexpected-stdout', expected, 2, b'unexpected'),
+            )
+            for label, stderr, code, stdout in cases:
+                bad = subprocess.CompletedProcess(['rate.py'], code, stdout, stderr)
+                with self.subTest(case=label):
+                    with self.assertRaises(ValueError):
+                        v.validate_unknown_result(bad)
+
 
 if __name__=='__main__':unittest.main()
