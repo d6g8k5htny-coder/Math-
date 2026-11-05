@@ -1,0 +1,33 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianWitness.lean:97:57: error: `fun_prop` was unable to prove `ContDiff ℝ (↑⊤) (localGerm c p 3)`
+
+Issues:
+  No theorems found for `I4SourceRemoteJetWitness.localGerm` in order to prove `ContDiff ℝ ↑⊤ fun y => localGerm c p 3 y`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianWitness.lean:97:57: error: `fun_prop` was unable to prove `ContDiff ℝ (↑⊤) (localGerm c p 4)`
+
+Issues:
+  No theorems found for `I4SourceRemoteJetWitness.localGerm` in order to prove `ContDiff ℝ ↑⊤ fun y => localGerm c p 4 y`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianWitness.lean:97:57: error: `fun_prop` was unable to prove `ContDiff ℝ (↑⊤) (localGerm c p 5)`
+
+Issues:
+  No theorems found for `I4SourceRemoteJetWitness.localGerm` in order to prove `ContDiff ℝ ↑⊤ fun y => localGerm c p 5 y`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianWitness.lean:237:2: error: Tactic `rfl` failed: The left-hand side
+  (1 - Real.cos (sourceC L * (y 0 - q 0))) * (1 - Real.cos (sourceC L * (y 0 - q 0)))
+is not definitionally equal to the right-hand side
+  pinMultiplier (sourceC L) q y
+
+L : ℝ
+q y : Fin 2 → ℝ
+⊢ (1 - Real.cos (sourceC L * (y 0 - q 0))) * (1 - Real.cos (sourceC L * (y 0 - q 0))) = pinMultiplier (sourceC L) q y
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianWitness.lean:253:2: error: Tactic `rfl` failed: The left-hand side
+  (pinMultiplier (sourceC L) (otherPoint r e) (endpointPoint r e))⁻¹ *
+    (pinMultiplier (sourceC L) (otherPoint r e) y * localGerm (sourceC L) (endpointPoint r e) (hessianJetIndex s) y)
+is not definitionally equal to the right-hand side
+  normalizedGerm (sourceC L) (endpointPoint r e) (otherPoint r e) s y
+
+L r : ℝ
+e : Fin 2
+s : Fin 3
+y : Fin 2 → ℝ
+⊢ (pinMultiplier (sourceC L) (otherPoint r e) (endpointPoint r e))⁻¹ *
+      (pinMultiplier (sourceC L) (otherPoint r e) y * localGerm (sourceC L) (endpointPoint r e) (hessianJetIndex s) y) =
+    normalizedGerm (sourceC L) (endpointPoint r e) (otherPoint r e) s y

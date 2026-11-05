@@ -1,0 +1,52 @@
+ContinuousMultilinearMap.opNorm_le_bound.{u, v, wE, wG} {𝕜 : Type u} {ι : Type v} {E : ι → Type wE} {G : Type wG}
+  [NontriviallyNormedField 𝕜] [(i : ι) → SeminormedAddCommGroup (E i)] [(i : ι) → NormedSpace 𝕜 (E i)]
+  [SeminormedAddCommGroup G] [NormedSpace 𝕜 G] [Fintype ι] {f : ContinuousMultilinearMap 𝕜 E G} {M : ℝ} (hMp : 0 ≤ M)
+  (hM : ∀ (m : (i : ι) → E i), ‖f m‖ ≤ M * ∏ i, ‖m i‖) : ‖f‖ ≤ M
+ContinuousMultilinearMap.norm_compContinuousLinearMap_le.{u, v, wE, wE₁, wG} {𝕜 : Type u} {ι : Type v} {E : ι → Type wE}
+  {E₁ : ι → Type wE₁} {G : Type wG} [NontriviallyNormedField 𝕜] [(i : ι) → SeminormedAddCommGroup (E i)]
+  [(i : ι) → NormedSpace 𝕜 (E i)] [(i : ι) → SeminormedAddCommGroup (E₁ i)] [(i : ι) → NormedSpace 𝕜 (E₁ i)]
+  [SeminormedAddCommGroup G] [NormedSpace 𝕜 G] [Fintype ι] (g : ContinuousMultilinearMap 𝕜 E₁ G)
+  (f : (i : ι) → E i →L[𝕜] E₁ i) : ‖g.compContinuousLinearMap f‖ ≤ ‖g‖ * ∏ i, ‖f i‖
+/workspace/scratch/actual-fold-estimates-construct/Check.lean:5:7: error(lean.unknownIdentifier): Unknown constant `ContDiff.iteratedFDeriv`
+ContDiff.continuous_iteratedFDeriv.{u, uE, uF} {𝕜 : Type u} [NontriviallyNormedField 𝕜] {E : Type uE}
+  [NormedAddCommGroup E] [NormedSpace 𝕜 E] {F : Type uF} [NormedAddCommGroup F] [NormedSpace 𝕜 F] {f : E → F}
+  {n : WithTop ℕ∞} {m : ℕ} (hm : ↑m ≤ n) (hf : ContDiff 𝕜 n f) : Continuous fun x => iteratedFDeriv 𝕜 m f x
+HasFDerivAt.clm_apply.{u_1, u_2, u_4, u_5} {𝕜 : Type u_1} [NontriviallyNormedField 𝕜] {E : Type u_2}
+  [NormedAddCommGroup E] [NormedSpace 𝕜 E] {G : Type u_4} [NormedAddCommGroup G] [NormedSpace 𝕜 G] {x : E}
+  {H : Type u_5} [NormedAddCommGroup H] [NormedSpace 𝕜 H] {c : E → G →L[𝕜] H} {c' : E →L[𝕜] G →L[𝕜] H} {u : E → G}
+  {u' : E →L[𝕜] G} (hc : HasFDerivAt c c' x) (hu : HasFDerivAt u u' x) :
+  HasFDerivAt (fun y => (c y) (u y)) (c x ∘SL u' + c'.flip (u x)) x
+HasFDerivAt.continuousMultilinear_apply_const.{u_1, u_2, u_5, u_6, u_7} {𝕜 : Type u_1} [NontriviallyNormedField 𝕜]
+  {E : Type u_2} [NormedAddCommGroup E] [NormedSpace 𝕜 E] {x : E} {ι : Type u_5} {M : ι → Type u_6}
+  [(i : ι) → NormedAddCommGroup (M i)] [(i : ι) → NormedSpace 𝕜 (M i)] {H : Type u_7} [NormedAddCommGroup H]
+  [NormedSpace 𝕜 H] {c : E → ContinuousMultilinearMap 𝕜 M H} {c' : E →L[𝕜] ContinuousMultilinearMap 𝕜 M H} [Fintype ι]
+  (hc : HasFDerivAt c c' x) (u : (i : ι) → M i) : HasFDerivAt (fun y => (c y) u) (c'.flipMultilinear u) x
+fderiv_continuousMultilinear_apply_const.{u_1, u_2, u_5, u_6, u_7} {𝕜 : Type u_1} [NontriviallyNormedField 𝕜]
+  {E : Type u_2} [NormedAddCommGroup E] [NormedSpace 𝕜 E] {x : E} {ι : Type u_5} {M : ι → Type u_6}
+  [(i : ι) → NormedAddCommGroup (M i)] [(i : ι) → NormedSpace 𝕜 (M i)] {H : Type u_7} [NormedAddCommGroup H]
+  [NormedSpace 𝕜 H] {c : E → ContinuousMultilinearMap 𝕜 M H} [Fintype ι] (hc : DifferentiableAt 𝕜 c x)
+  (u : (i : ι) → M i) : fderiv 𝕜 (fun y => (c y) u) x = (fderiv 𝕜 c x).flipMultilinear u
+norm_fst_le.{u_2, u_3} {E : Type u_2} {F : Type u_3} [Norm E] [Norm F] (x : E × F) : ‖x.1‖ ≤ ‖x‖
+norm_snd_le.{u_2, u_3} {E : Type u_2} {F : Type u_3} [Norm E] [Norm F] (x : E × F) : ‖x.2‖ ≤ ‖x‖
+ContinuousMultilinearMap.norm_compContinuousLinearMap_le.{u, v, wE, wE₁, wG} {𝕜 : Type u} {ι : Type v} {E : ι → Type wE}
+  {E₁ : ι → Type wE₁} {G : Type wG} [NontriviallyNormedField 𝕜] [(i : ι) → SeminormedAddCommGroup (E i)]
+  [(i : ι) → NormedSpace 𝕜 (E i)] [(i : ι) → SeminormedAddCommGroup (E₁ i)] [(i : ι) → NormedSpace 𝕜 (E₁ i)]
+  [SeminormedAddCommGroup G] [NormedSpace 𝕜 G] [Fintype ι] (g : ContinuousMultilinearMap 𝕜 E₁ G)
+  (f : (i : ι) → E i →L[𝕜] E₁ i) : ‖g.compContinuousLinearMap f‖ ≤ ‖g‖ * ∏ i, ‖f i‖
+ContinuousLinearMap.opNorm_le_bound.{u_1, u_2, u_4, u_5} {𝕜 : Type u_1} {𝕜₂ : Type u_2} {E : Type u_4} {F : Type u_5}
+  [SeminormedAddCommGroup E] [SeminormedAddCommGroup F] [NontriviallyNormedField 𝕜] [NontriviallyNormedField 𝕜₂]
+  [NormedSpace 𝕜 E] [NormedSpace 𝕜₂ F] {σ₁₂ : 𝕜 →+* 𝕜₂} (f : E →SL[σ₁₂] F) {M : ℝ} (hMp : 0 ≤ M)
+  (hM : ∀ (x : E), ‖f x‖ ≤ M * ‖x‖) : ‖f‖ ≤ M
+Convex.norm_image_sub_le_of_norm_fderiv_le.{u_1, u_3, u_4} {E : Type u_1} [NormedAddCommGroup E] [NormedSpace ℝ E]
+  {𝕜 : Type u_3} {G : Type u_4} [NontriviallyNormedField 𝕜] [IsRCLikeNormedField 𝕜] [NormedSpace 𝕜 E]
+  [NormedAddCommGroup G] [NormedSpace 𝕜 G] {f : E → G} {C : ℝ} {s : Set E} {x y : E}
+  (hf : ∀ x ∈ s, DifferentiableAt 𝕜 f x) (bound : ∀ x ∈ s, ‖fderiv 𝕜 f x‖ ≤ C) (hs : Convex ℝ s) (xs : x ∈ s)
+  (ys : y ∈ s) : ‖f y - f x‖ ≤ C * ‖y - x‖
+Convex.mul_sub_le_image_sub_of_le_deriv {D : Set ℝ} (hD : Convex ℝ D) {f : ℝ → ℝ} (hf : ContinuousOn f D)
+  (hf' : DifferentiableOn ℝ f (interior D)) {C : ℝ} (hf'_ge : ∀ x ∈ interior D, C ≤ deriv f x) (x : ℝ) :
+  x ∈ D → ∀ y ∈ D, x ≤ y → C * (y - x) ≤ f y - f x
+Convex.image_sub_le_mul_sub_of_deriv_le {D : Set ℝ} (hD : Convex ℝ D) {f : ℝ → ℝ} (hf : ContinuousOn f D)
+  (hf' : DifferentiableOn ℝ f (interior D)) {C : ℝ} (le_hf' : ∀ x ∈ interior D, deriv f x ≤ C) (x : ℝ) (hx : x ∈ D)
+  (y : ℝ) (hy : y ∈ D) (hxy : x ≤ y) : f y - f x ≤ C * (y - x)
+image_sub_le_mul_sub_of_deriv_le {f : ℝ → ℝ} (hf : Differentiable ℝ f) {C : ℝ} (le_hf' : ∀ (x : ℝ), deriv f x ≤ C)
+  ⦃x y : ℝ⦄ (hxy : x ≤ y) : f y - f x ≤ C * (y - x)

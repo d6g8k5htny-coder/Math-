@@ -1,0 +1,176 @@
+private theorem coverProjection_eq_lattice {L : ℝ} (X Y : E2)
+    (h : coverProjection L X = coverProjection L Y) :
+    ∃ n : Fin 2 → ℤ, Y = X + latticeVec 2 L n := by
+  classical
+  have hz (i : Fin 2) : ∃ n : ℤ, n • L = coordinates 2 Y i - coordinates 2 X i := by
+    apply (AddCircle.coe_eq_zero_iff (p := L)).mp
+    rw [AddCircle.coe_sub]
+    exact sub_eq_zero.mpr (congrFun h i).symm
+  choose n hn using hz
+  refine ⟨n,?_⟩
+  apply (coordinates 2).injective
+  rw [map_add,coordinates_latticeVec]
+  funext i
+  have hi := hn i
+  rw [zsmul_eq_mul] at hi
+  change coordinates 2 Y i = coordinates 2 X i + L*(n i : ℝ)
+  linarith
+
+private theorem coverProjection_add_lattice (L : ℝ) (X : E2) (n : Fin 2 → ℤ) :
+    coverProjection L (X + latticeVec 2 L n) = coverProjection L X := by
+  ext i
+  change ((coordinates 2 (X + latticeVec 2 L n) i : ℝ) : AddCircle L) =
+    ((coordinates 2 X i : ℝ) : AddCircle L)
+  rw [map_add,coordinates_latticeVec]
+  change ((coordinates 2 X i + L*(n i : ℝ) : ℝ) : AddCircle L) =
+    ((coordinates 2 X i : ℝ) : AddCircle L)
+  rw [AddCircle.coe_add]
+  have hz : ((L*(n i : ℝ) : ℝ) : AddCircle L) = 0 := by
+    apply (AddCircle.coe_eq_zero_iff (p := L)).mpr
+    refine ⟨n i,?_⟩
+    rw [zsmul_eq_mul]
+    ring
+  rw [hz,add_zero]
+
+private theorem descendedHittingData {L : ℝ} (hL : 0 < L)
+    (omega : SmoothSample 2 L) (a b : ℝ) (hab : a ≤ b)
+    (H : ℝ → E2 → E2)
+    (Rcover : CoverSuperlevel omega a → CoverSuperlevel omega b)
+    (hcover : HeightHittingFacts omega a b hab H Rcover) :
+    ∃ R : TorusSuperlevel hL omega a → TorusSuperlevel hL omega b,
+      Continuous R ∧
+      (∀ q : TorusSuperlevel hL omega b, R ⟨q.val, hab.trans q.property⟩ = q) ∧
+      (∀ q : TorusSuperlevel hL omega a,
+        JoinedIn {z : I4Torus.SourceTorus 2 L |
+          a ≤ SourceActualFoldTorus.actualTorusField hL.ne' omega z} q.val (R q).val) ∧
+      (∀ X : CoverSuperlevel omega a,
+        R (restrictedProjection hL omega a X) = restrictedProjection hL omega b (Rcover X)) := by
+  classical
+  dsimp only [HeightHittingFacts] at hcover
+  rcases hcover with ⟨_hbarriers,_hunit,hRcoverCont,_hformula,hfix,hpoint,htranslate⟩
+  obtain ⟨hpaCont,_hpaOpen,hpaSurj,hpaQuot⟩ := restrictedProjectionQuotient hL omega a
+  obtain ⟨hpbCont,_hpbOpen,hpbSurj,_hpbQuot⟩ := restrictedProjectionQuotient hL omega b
+  have hfiber (X Y : CoverSuperlevel omega a)
+      (hXY : restrictedProjection hL omega a X = restrictedProjection hL omega a Y) :
+      restrictedProjection hL omega b (Rcover X) = restrictedProjection hL omega b (Rcover Y) := by
+    obtain ⟨n,hn⟩ := coverProjection_eq_lattice X.val Y.val (congrArg Subtype.val hXY)
+    have hR := htranslate X Y n hn
+    apply Subtype.ext
+    change coverProjection L (Rcover X).val = coverProjection L (Rcover Y).val
+    rw [hR]
+    exact (coverProjection_add_lattice L (Rcover X).val n).symm
+  let liftA : TorusSuperlevel hL omega a → CoverSuperlevel omega a :=
+    fun q => Classical.choose (hpaSurj q)
+  have hlift (q : TorusSuperlevel hL omega a) :
+      restrictedProjection hL omega a (liftA q) = q := Classical.choose_spec (hpaSurj q)
+  let R : TorusSuperlevel hL omega a → TorusSuperlevel hL omega b :=
+    fun q => restrictedProjection hL omega b (Rcover (liftA q))
+  have hcomp (X : CoverSuperlevel omega a) :
+      R (restrictedProjection hL omega a X) = restrictedProjection hL omega b (Rcover X) :=
+    hfiber _ X (hlift (restrictedProjection hL omega a X))
+  have hRcont : Continuous R := by
+    apply hpaQuot.continuous_iff.mpr
+    have heq : R ∘ restrictedProjection hL omega a =
+        restrictedProjection hL omega b ∘ Rcover := funext hcomp
+    rw [heq]
+    exact hpbCont.comp hRcoverCont
+  have hRfix (q : TorusSuperlevel hL omega b) : R ⟨q.val,hab.trans q.property⟩ = q := by
+    obtain ⟨X,hXq⟩ := hpbSurj q
+    have hlow : restrictedProjection hL omega a ⟨X.val,hab.trans X.property⟩ =
+        (⟨q.val,hab.trans q.property⟩ : TorusSuperlevel hL omega a) := by
+      apply Subtype.ext
+      exact congrArg Subtype.val hXq
+    rw [← hlow,hcomp,hfix X,hXq]
+  have hprojCont : Continuous (coverProjection L) :=
+    (SourceActualFoldTorus.torusProjection2L_continuous L).comp (coordinates 2).continuous
+  have himage : coverProjection L '' {Y : E2 | a ≤ actualField 2 L omega Y} ⊆
+      {z : I4Torus.SourceTorus 2 L | a ≤ SourceActualFoldTorus.actualTorusField hL.ne' omega z} := by
+    rintro z ⟨Y,hY,rfl⟩
+    change a ≤ SourceActualFoldTorus.actualTorusField hL.ne' omega
+      (I4Torus.torusProjection 2 L (coordinates 2 Y))
+    rw [SourceActualFoldTorus.actualTorusField_pullback]
+    exact hY
+  refine ⟨R,hRcont,hRfix,?_,hcomp⟩
+  intro q
+  have hp := ((hpoint (liftA q)).map hprojCont.continuousOn).mono himage
+  have hleft := congrArg Subtype.val (hlift q)
+  change coverProjection L (liftA q).val = q.val at hleft
+  rw [hleft] at hp
+  exact hp
+
+private theorem literalComponentBijective_of_hitting {L : ℝ} (hL : 0 < L)
+    (omega : SmoothSample 2 L) (a b : ℝ) (hab : a ≤ b)
+    (R : TorusSuperlevel hL omega a → TorusSuperlevel hL omega b)
+    (hRcont : Continuous R)
+    (hfix : ∀ q : TorusSuperlevel hL omega b, R ⟨q.val,hab.trans q.property⟩ = q)
+    (hpoint : ∀ q : TorusSuperlevel hL omega a,
+      JoinedIn {z : I4Torus.SourceTorus 2 L |
+        a ≤ SourceActualFoldTorus.actualTorusField hL.ne' omega z} q.val (R q).val) :
+    Function.Bijective (TorusFiltration.superlevel_componentInclusion
+      (SourceActualFoldTorus.actualTorusField hL.ne' omega)
+      (s := -b) (t := -a) (neg_le_neg hab)) := by
+  let F := SourceActualFoldTorus.actualTorusField hL.ne' omega
+  let r : C(TorusFiltration.superlevel_set F (-a),TorusFiltration.superlevel_set F (-b)) :=
+    ⟨fun q => ⟨(R ⟨q.val,by
+      simpa only [TorusFiltration.superlevel_set,Set.mem_ofPred_eq,neg_neg] using q.property⟩).val,by
+      have hp := (R ⟨q.val,by
+        simpa only [TorusFiltration.superlevel_set,Set.mem_ofPred_eq,neg_neg] using q.property⟩).property
+      simpa only [TorusFiltration.superlevel_set,Set.mem_ofPred_eq,neg_neg] using hp⟩,
+      by fun_prop⟩
+  have hleft : Function.LeftInverse (TorusFiltration.superlevel_componentMap r)
+      (TorusFiltration.superlevel_componentInclusion F (s := -b) (t := -a) (neg_le_neg hab)) := by
+    intro q
+    obtain ⟨X,rfl⟩ := ZerothHomotopy.mk_surjective q
+    change ZerothHomotopy.mk (r ((TorusFiltration.superlevel_inclusion F (neg_le_neg hab)) X)) =
+      ZerothHomotopy.mk X
+    congr 1
+    apply Subtype.ext
+    have hX : b ≤ F X.val := by
+      simpa only [TorusFiltration.superlevel_set,Set.mem_ofPred_eq,neg_neg] using X.property
+    exact congrArg Subtype.val (hfix ⟨X.val,hX⟩)
+  refine ⟨hleft.injective,?_⟩
+  intro q
+  obtain ⟨X,rfl⟩ := ZerothHomotopy.mk_surjective q
+  refine ⟨ZerothHomotopy.mk (r X),?_⟩
+  apply (TorusFiltration.superlevel_component_eq_iff_joinedIn F (-a) _ _).mpr
+  have hX : a ≤ F X.val := by
+    simpa only [TorusFiltration.superlevel_set,Set.mem_ofPred_eq,neg_neg] using X.property
+  have hp := (hpoint ⟨X.val,hX⟩).symm
+  simpa only [TorusFiltration.superlevel_neg_height] using hp
+
+private theorem closedBand_componentBijective_core {L : ℝ} (hL : 0 < L)
+    (omega : SmoothSample 2 L) (a b : ℝ) (hab : a ≤ b)
+    (hreg : ∀ X : E2, a ≤ actualField 2 L omega X →
+      actualField 2 L omega X ≤ b → fderiv ℝ (actualField 2 L omega) X ≠ 0) :
+    Function.Bijective (TorusFiltration.superlevel_componentInclusion
+      (SourceActualFoldTorus.actualTorusField hL.ne' omega)
+      (s := -b) (t := -a) (neg_le_neg hab)) := by
+  by_cases heq : a = b
+  · subst b
+    exact zeroWidth_componentBijective hL omega a
+  · by_cases hne : ∃ X : E2, a ≤ actualField 2 L omega X ∧ actualField 2 L omega X ≤ b
+    · obtain ⟨c,A,Kp,M,K,hfield⟩ := normalizedFieldData hL omega a b hab hreg hne
+      have hf := hfield
+      dsimp only [NormalizedFieldFacts] at hf
+      rcases hf with ⟨_hc,_hA,_hpbound,_hplip,_hpper,_hfloor,hVbound,hVlip,hVper,
+        _hspeedformula,_hspeed,_hbandspeed⟩
+      obtain ⟨H,hfamily⟩ := boundedFiniteHorizonFamily
+        (normalizedVelocity (actualField 2 L omega) c) M K hVbound hVlip hVper
+        (b-a) (sub_nonneg.mpr hab)
+      obtain ⟨Rcover,hcover⟩ := heightHittingData hL omega a b hab c A Kp M K H hfield hfamily
+      obtain ⟨R,hRcont,hRfix,hRpoint,_hcomp⟩ := descendedHittingData hL omega a b hab H Rcover hcover
+      exact literalComponentBijective_of_hitting hL omega a b hab R hRcont hRfix hRpoint
+    · apply emptyBand_componentBijective hL omega a b hab
+      intro X hX
+      exact hne ⟨X,hX⟩
+
+theorem actualSource_closedSlab_componentInclusion_bijective
+    {L : ℝ} (hL : 0 < L) (omega : SmoothSample 2 L) (a b : ℝ) (hab : a ≤ b)
+    (hreg : ∀ X : UniversalLaw.Spec.Lifetime.E 2,
+      a ≤ I4LifetimeField.actualField 2 L omega X →
+      I4LifetimeField.actualField 2 L omega X ≤ b →
+      fderiv ℝ (I4LifetimeField.actualField 2 L omega) X ≠ 0) :
+    Function.Bijective (TorusFiltration.superlevel_componentInclusion
+      (SourceActualFoldTorus.actualTorusField hL.ne' omega)
+      (s := -b) (t := -a) (neg_le_neg hab)) :=
+  closedBand_componentBijective_core hL omega a b hab hreg

@@ -1,0 +1,61 @@
+{
+  "contract": {
+    "path": "/workspace/scratch/actual-fold-torus-construct/CONTROL_CONTRACT.md",
+    "bytes": 1644,
+    "sha256": "881684f649c1313f4f719076a88cceb900e1b607dd9ab20dcc22a1e561a4006c"
+  },
+  "positive_source": {
+    "path": "/workspace/scratch/actual-fold-torus-construct/ActualTorusControls.lean",
+    "bytes": 4658,
+    "sha256": "f98562087be74352b2071e5c746c211c90baec3c8c05f100ff4e4e421862dbe4"
+  },
+  "positive_object": {
+    "path": "/workspace/scratch/actual-fold-torus-construct/build/ActualTorusControls.olean",
+    "bytes": 124496,
+    "sha256": "95ae4d43db340ad6f964b103210ff112e30b123a3bdb633917a3718927a2ddd1"
+  },
+  "positive_receipt": "runs/controls-002/receipt.json",
+  "positive_exit": 0,
+  "positive_theorems": 10,
+  "positive_definitions": 0,
+  "negative_scope": "NEGATIVE_CONTROL_SCOPE.md",
+  "false_source": {
+    "path": "/workspace/scratch/actual-fold-torus-construct/FalseMutation.lean",
+    "bytes": 591,
+    "sha256": "e088a290d49ea7ae87b16e8cd147afd63d2b42c9011f7fe1fac172d8a377a55e"
+  },
+  "false_receipt": "runs/false-control-001/receipt.json",
+  "false_exit": 1,
+  "false_target_count": 1,
+  "false_residual_goal_count": 1,
+  "intended_diagnostic": "exactly one unsolved goal, solely False, with no other diagnostic",
+  "actual_diagnostic": "/workspace/scratch/actual-fold-torus-construct/FalseMutation.lean:9:72: error: unsolved goals\n⊢ False",
+  "satisfied_sole_residual_False_contract": true,
+  "false_log": {
+    "path": "/workspace/scratch/actual-fold-torus-construct/runs/false-control-001/output.log",
+    "bytes": 104,
+    "sha256": "335e81fc6eabb6b63e317310585b2f6be232e1d207cb6508029183fa5788cd0c"
+  },
+  "production_source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFoldTorus.lean",
+    "bytes": 17840,
+    "sha256": "d2ca01d1f881852372c371215c30216bee7d917fdf2eaafbbd097f8c840e20c6"
+  },
+  "production_object": {
+    "path": "/workspace/scratch/actual-fold-torus-construct/build/SourceActualFoldTorus.olean",
+    "bytes": 733480,
+    "sha256": "9dd9d93e12ddb685ece1348b0699045b7e57b362cb48eaa54ac4373ddb9fd6e9"
+  },
+  "proved_counterexample_reuse": [
+    "ActualTorusControls.negative_period_lifts_same",
+    "ActualTorusControls.negative_period_collapsed_lifts_counterexample",
+    "ActualTorusControls.negative_period_projection_not_injective"
+  ],
+  "reused_unchanged_verification": [
+    "strict-003",
+    "kernel-001",
+    "inventory-001",
+    "controls-002"
+  ],
+  "recovery_scope": "Only one new Lean invocation, for this previously unexecuted scratch mutation; no production change, no old or positive verification replay."
+}

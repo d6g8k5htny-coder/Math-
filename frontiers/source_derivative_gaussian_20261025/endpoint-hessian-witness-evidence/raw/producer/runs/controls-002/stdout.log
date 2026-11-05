@@ -1,0 +1,16 @@
+/workspace/scratch/endpoint-hessian-witness-construct/Controls.lean:208:13: error: `simp` made no progress
+/workspace/scratch/endpoint-hessian-witness-construct/Controls.lean:211:4: error: `fun_prop` was unable to prove `ContDiff ℝ 2 fun y =>
+  ![1, Real.sin (Real.pi * (y 0 - endpointM 1 0)) / Real.pi, Real.sin (Real.pi * (y 1 - endpointM 1 1)) / Real.pi,
+      (1 - Real.cos (Real.pi * (y 0 - endpointM 1 0))) / Real.pi ^ 2,
+      Real.sin (Real.pi * (y 0 - endpointM 1 0)) * Real.sin (Real.pi * (y 1 - endpointM 1 1)) / Real.pi ^ 2,
+      (1 - Real.cos (Real.pi * (y 1 - endpointM 1 1))) / Real.pi ^ 2]
+    3`
+
+Issues:
+  No theorems found for `Matrix.vecCons` in order to prove `ContDiff ℝ 2 fun y3 => Matrix.vecCons 1 y3 3`
+  No theorems found for `Matrix.vecCons` in order to prove `ContDiff ℝ 2 fun y =>
+  ![1, Real.sin (Real.pi * (y 0 - endpointM 1 0)) / Real.pi, Real.sin (Real.pi * (y 1 - endpointM 1 1)) / Real.pi,
+      (1 - Real.cos (Real.pi * (y 0 - endpointM 1 0))) / Real.pi ^ 2,
+      Real.sin (Real.pi * (y 0 - endpointM 1 0)) * Real.sin (Real.pi * (y 1 - endpointM 1 1)) / Real.pi ^ 2,
+      (1 - Real.cos (Real.pi * (y 1 - endpointM 1 1))) / Real.pi ^ 2]
+    3`

@@ -1,0 +1,17 @@
+{
+  "parent": "7fc87e4db138dcd87fb329eee62fb0d8fded483c",
+  "source_sha256": "6a9ffb895083e119fb06c7fe1f6a92ee1d437d65be5b5f379320ac6c7dace82a",
+  "all_original_named_tests_retained": true,
+  "modified_original_methods": [
+    "OracleOriginSelfTests.test_grader_source_safeguards_are_assertion_killed"
+  ],
+  "protected_paths_unchanged": [
+    "frontiers/lifetime_dd_model_d_20261013/replay.py",
+    ".github/workflows/lifetime-dd-model-d.yml",
+    "tests/fixtures/lifetime_dd_changed_node_stdout.txt",
+    "tests/fixtures/lifetime_dd_missing_node_stderr.txt"
+  ],
+  "new_test_methods": [
+    "OracleOriginSelfTests.test_cloned_approved_code_is_not_authorized_identity"
+  ]
+}

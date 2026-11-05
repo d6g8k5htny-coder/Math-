@@ -1,0 +1,8 @@
+/workspace/scratch/pin-preserving-quartic-implementation/SourceTaylorChains.lean:71:63: error: Application type mismatch: The argument
+  u
+has type
+  Fin 2 → ℝ
+but is expected to have type
+  ?m.327 i (Fin.last 4)
+in the application
+  Fin.snoc (fun x => ?m.324) u

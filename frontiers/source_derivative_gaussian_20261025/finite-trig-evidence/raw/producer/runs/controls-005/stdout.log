@@ -1,0 +1,7 @@
+/workspace/scratch/finite-trig-construct/Controls.lean:48:61: error: This simp argument is unused:
+  List.nil_append
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mul, constant, List.flatMap_cons, List.flatMap_nil, List.append_nil]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

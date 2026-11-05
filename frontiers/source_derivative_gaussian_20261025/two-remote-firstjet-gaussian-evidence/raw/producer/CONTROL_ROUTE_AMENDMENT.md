@@ -1,0 +1,9 @@
+# Frozen bounded Controls route amendment before controls003
+
+26October2026, after actual Controls002 signal exit143 at19:10:23.541434UTC. Root acknowledged this bounded route before amendment. Production source, strict006, inventory001 and EXACTLYONE kernel001 remain frozen/reused unchanged.
+
+Controls002 was stopped after321.95s as an unsuccessful resource attempt. It actually produced69632B stdout of fixed PSD entry-expansion unsolved goals before the signal; stderr0B. Retain full actual streams and snapshots; partial available diagnostic output is not a claimed complete compiler verdict, mathematical counterexample or sole negative evidence. No successful check was discarded.
+
+Preserve the same frozen actual shared-sample/cross-block=marginal obligation using direct observation-function equalities and public49 marginal sampling law plus covariance pushforward. Candidate diagonal blocks will be proved equal to ACTUAL sampled marginal covariances, avoiding extra generic residual-coefficient alias normalization. The source covariance Gram proof has already passed strict/inventory/kernel and is unchanged. The sole mutation remains ACTUAL L2,r0,x=y10,t0 with cross3x3 blocks set0, no alternative Gaussian realization or second campaign.
+
+The private Controls-only PSD helper needs local eta/dimension annotations and an explicit matrix expansion before coordinate simplification (the original simultaneous simp left inner products/adjoints unexpanded). Its original text/imports/provenance and once-integration record remain preserved; final exact section diff and amendment record will account all producer edits. Supplied S remains public49 one-point full-sixjet PosDef, not collision joint6; first3 principal PSD plus two coordinate conjugates proves candidate PSD before MVGcovariance.

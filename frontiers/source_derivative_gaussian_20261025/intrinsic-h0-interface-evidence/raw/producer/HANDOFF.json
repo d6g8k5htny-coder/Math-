@@ -1,0 +1,115 @@
+{
+  "schema": "intrinsic-h0-handoff/v1",
+  "created_utc": "2026-10-26T17:45:29.491334+00:00",
+  "author": "OpenAI/Codex /root/h0_older_clearance_construct",
+  "status": "NEW_MODULE_QUALIFIED_SCOPED; root serial53-before-intrinsicH0 source cut/registration/cache/publication separate pending",
+  "files": [
+    {
+      "path": "/workspace/scratch/intrinsic-h0-interface-construct/REPORT.md",
+      "bytes": 14730,
+      "sha256": "4552120f08825974b2976d647174ec4b61c2f32624773dd04fc0301111940718"
+    },
+    {
+      "path": "/workspace/scratch/intrinsic-h0-interface-construct/CONTROL_CONTRACT.md",
+      "bytes": 4322,
+      "sha256": "6c5663ca61b43e9cb7293e2519a3a0f2c2b6381b900895afb0be37efc73c364b"
+    },
+    {
+      "path": "/workspace/scratch/intrinsic-h0-interface-construct/CONTROL_RECEIPT.json",
+      "bytes": 3144,
+      "sha256": "f81f0fc15278554a844f58324a2040527635ec35c8d802b61e99cbfa7a293a92"
+    },
+    {
+      "path": "/workspace/scratch/intrinsic-h0-interface-construct/FROZEN_SOURCE.json",
+      "bytes": 787,
+      "sha256": "8b4565645b72161c2fe7d988ebb634c3ff07ab7ee59523d572a8737dd60f1c45"
+    },
+    {
+      "path": "/workspace/scratch/intrinsic-h0-interface-construct/FROZEN_CONTROLS.json",
+      "bytes": 1159,
+      "sha256": "9e6dc843c3ca9f69a2de674c53070137115f1e4265e850b349b84390f2d91d0d"
+    },
+    {
+      "path": "/workspace/scratch/intrinsic-h0-interface-construct/INVENTORY.json",
+      "bytes": 4903,
+      "sha256": "feb2ff28d36b6531c1a1075d8b3ba77ae2c4436262b9ba8c6a16719901270750"
+    },
+    {
+      "path": "/workspace/scratch/intrinsic-h0-interface-construct/SOURCE_OBJECT_IDENTITIES.json",
+      "bytes": 1758,
+      "sha256": "495d88e01d3ad34b985aca01c83e8c5178822838140e6a02bc8056e44ad76501"
+    },
+    {
+      "path": "/workspace/scratch/intrinsic-h0-interface-construct/DEPENDENCY_REUSE.json",
+      "bytes": 10329,
+      "sha256": "0b6f0ad6a7ac991a164e489bc93d451cf7f1326a74ea3628fa4607d0770e27a5"
+    },
+    {
+      "path": "/workspace/scratch/intrinsic-h0-interface-construct/TARGET_CLASSIFICATION.json",
+      "bytes": 1295,
+      "sha256": "fc28355eeeb358168e82ed77ea1a2fd3bd12979b5e1ca8791db3ac59dadbce6d"
+    },
+    {
+      "path": "/workspace/scratch/intrinsic-h0-interface-construct/AUTHOR_HELPER_LINEAGE.json",
+      "bytes": 1645,
+      "sha256": "9dee8995bb2bc395fa0dfb7b694939d1e6018f455cdd9f896f133a3ec148ea87"
+    },
+    {
+      "path": "/workspace/scratch/intrinsic-h0-interface-construct/EXECUTION_ENVIRONMENT.json",
+      "bytes": 753,
+      "sha256": "1ec635f278dd225e16ede49fddbfd844a571490a0524d00b12ffdd0bd74f88e0"
+    },
+    {
+      "path": "/workspace/scratch/intrinsic-h0-interface-construct/EXECUTION_RECORD_INDEX.json",
+      "bytes": 25206,
+      "sha256": "66af4d8624658dabbbda46651f7653e121ea22fc1f990ac8534d1bbd145c2b61"
+    },
+    {
+      "path": "/workspace/scratch/intrinsic-h0-interface-construct/STATIC_SCOPE.json",
+      "bytes": 686,
+      "sha256": "b1606ba5d0d0af2a36f1fe8d6a1351766ec0474cf31e9a420771734672ae83bc"
+    },
+    {
+      "path": "/workspace/scratch/intrinsic-h0-interface-construct/IntrinsicH0Controls.lean",
+      "bytes": 8291,
+      "sha256": "e374fae511349c45c5e3ed181ad47739c558761ccf9258bc05fa73c9370c3e25"
+    },
+    {
+      "path": "/workspace/scratch/intrinsic-h0-interface-construct/FalseEssentialDefaultMutation.lean",
+      "bytes": 510,
+      "sha256": "cee97613a7920950b780bcfca6536e947e258353dc5a067db5f5430a8d828d26"
+    },
+    {
+      "path": "/workspace/scratch/intrinsic-h0-interface-construct/Inventory.lean",
+      "bytes": 1081,
+      "sha256": "6114b623420620e873efc4046a2633dc358ae65d7aa87b6b02515a355433ae44"
+    },
+    {
+      "path": "/workspace/scratch/intrinsic-h0-interface-construct/run_stage.py",
+      "bytes": 1474,
+      "sha256": "f48cb6ad509ff16cfd7e9f395958bf454d83eb28dddf95e47241d31098728b2c"
+    },
+    {
+      "path": "/workspace/scratch/intrinsic-h0-interface-construct/finalize.py",
+      "bytes": 12871,
+      "sha256": "8cb21ca91c2dbe902ba20316299f7094e611c256502a91e0b1a6f4179f9240d4"
+    }
+  ],
+  "production_object_pairs": "SOURCE_OBJECT_IDENTITIES.json",
+  "source_sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef",
+  "own_olean_sha256": "ff59fe74b6d755b1173b2300559c7fd896e3ec567b43df447a9b3ad2ab5a5fec",
+  "eligible_objects": [
+    "/workspace/scratch/intrinsic-h0-interface-construct/build/SourceIntrinsicH0Interface.olean"
+  ],
+  "own_kernel_invocations": 1,
+  "sole_mutation_attempts": 1,
+  "all_actual_Lean_invocations": 7,
+  "no_further_Lean_invocations_planned": true,
+  "completed_applicable_verification_reused": true,
+  "source_unchanged_since_strict002": true,
+  "root_source_cut": "PENDING root separate serial process record; producer frozen records need no rewrite or math replay",
+  "scientific_effect": "NONE",
+  "same_family_provider_distinct_credit": 0,
+  "canonical_mandate": "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+  "canonical_delegation": "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md"
+}

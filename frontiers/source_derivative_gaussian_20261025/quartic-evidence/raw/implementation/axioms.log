@@ -1,0 +1,201 @@
+'I4ActualQuarticTransfer.peanoCubic_first_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ActualQuarticTransfer.peanoCubic_normalized_second_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ActualQuarticTransfer.symmetric_cubic_pin_second_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ActualQuarticTransfer.endpoint_taylor_low_coefficients' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ActualQuarticTransfer.corrected_axial_constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ActualQuarticTransfer.scalarTaylor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ActualQuarticTransfer.scalar_taylor_remainder' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ActualQuarticTransfer.scalarTaylor_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ActualQuarticTransfer.scalarTaylor_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ActualQuarticTransfer.scalarTaylor_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ActualQuarticTransfer.scalar_taylor_one_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ActualQuarticTransfer.scalar_taylor_three_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ActualQuarticTransfer.scalar_taylor_two_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ActualQuarticTransfer.smooth_iteratedDeriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ActualQuarticTransfer.iteratedDeriv_iteratedDeriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ActualQuarticTransfer.sourceF_smooth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ActualQuarticTransfer.sourceH_smooth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ActualQuarticTransfer.sourceF_iteratedDeriv_abs_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4ActualQuarticTransfer.sourceH_iteratedDeriv_abs_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.SourcePlane' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceAxialThird' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceRawU' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceRawRadius' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourcePhysicalPins' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.pinPreservingQuartic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceQuartic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceScaledGradientRaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceScaledGradient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.pi_norm_le_euclidean_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.euclidean_two_norm_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.euclidean_two_norm_le_abs_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.euclidean_two_norm_le_two_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.matrixLinearEuclidean' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.matrixLinearEuclidean_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.matrixLinearEuclidean_norm_le_of_sqsum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.matrixLinearEuclidean_norm_le_two_mul' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.matrixLinearEuclidean_offdiag_norm_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.matrixLinearEuclidean_symmetric_norm_le_abs_sum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.matrixLinearEuclidean_symmetric_norm_le_three_mul' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.lineMap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.line_iteratedDeriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.derivativeComponent_smooth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.derivativeComponent_iteratedFDeriv' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.line_gradient_iteratedDeriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.source_derivative_abs_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.source_line_gradient_taylor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.modeCoefficient_analytic_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.source_derivative_comp_perm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.source_axial_third_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.source_low_pin_coefficients' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.coordinateDirection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.coordinateDirection_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.coordinateDirection_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.euclideanToPi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.piToEuclidean' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.gradientPi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.gradientEuclidean' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.hessianMatrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.hessianMatrix_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.coordinate_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.hasFDerivAt_gradientEuclidean' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.gradientEuclidean_eq_components' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.scaledGradientEuclidean' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.hasFDerivAt_scaledGradientEuclidean' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.scaledGradientEuclidean_eq_components' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.hessianEntry_eq_derivativeComponent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.hessianEntry_smooth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.line_hessian_iteratedDeriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.source_line_hessian_taylor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.quarticK0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.quarticEpsilonStar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.quarticKcap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.quarticFstar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.quarticWidth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.one_le_quarticFstar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.quarticWidth_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.cutoff_raw_regularity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.cutoff_scaled_error_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.cutoff_adaptive_tolerance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.cutoff_quarticWidth_tolerance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.cutoff_curvature_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.certificate_width_geometry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.source_origin_derivative_abs_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.sourceRawU_abs_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceRawRadius_one_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceRawRadius_le_majorants' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceRawRadius_le_global' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourcePhysicalPins_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourcePhysicalPins_eventually' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceGradientTaylorRaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceGradientTaylor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceHessianTaylor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceScaledGradient_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceScaledGradient_hasFDerivAt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.source_third_ppx_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.source_third_ppy_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.source_fourth_pppx_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.source_fourth_pppy_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.source_second_p_basis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.source_third_p_basis_basis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.source_fourth_pp_basis_basis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.pinPreservingJacobian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.hasFDerivAt_pinPreservingQuartic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.fderiv_pinPreservingQuartic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceGradientTaylorRaw_sub_quartic_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.sourceGradientTaylorRaw_sub_quartic_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.sourceHessianTaylor_sub_quarticJacobian' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.matrixLinearEuclidean_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.coordinateDirection_norm_le_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.sourceScaledGradientRaw_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.source_scaled_gradient_taylor_coordinate_error' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.source_scaled_gradient_taylor_error' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.source_scaled_hessian_taylor_coordinate_error' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.source_scaled_hessian_taylor_error' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.coefficient_vector_error_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.coefficient_matrix_error_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceGradientTaylor_quartic_error_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.sourceHessianTaylor_quartic_error_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.sourceScaledPotential' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceScaledPotential_hasGradientAt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.sourceScaledGradient_eq_gradient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.sourceScaledGradient_smooth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.pinPreservingQuartic_pins' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceScaledGradient_pins' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceQuartic_value_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceQuartic_operator_comparison' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.sourceQuartic_C1_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceQuartic_cutoff_tolerance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceQuartic_curvature_threshold' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.sourceQuartic_C1_comparison_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceQuartic_C1_estimates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceRawU_abs_le_radius' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceQuartic_Fstar_le_radius' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceQuartic_width_size' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceQuartic_width_geometry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.quartic_strip_in_ball_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.quartic_endpoint_ball_in_ball_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.quartic_axis_endpoint_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceQuartic_cutoff_estimates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourcePinPreservingQuartic.sourceQuartic_weighted_C1_estimates' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourcePinPreservingQuartic.sourceQuartic_weighted_cutoff_estimates' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

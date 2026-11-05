@@ -1,0 +1,36 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0Interface.lean",
+    "bytes": 8366,
+    "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef"
+  },
+  "olean": {
+    "path": "/workspace/scratch/intrinsic-h0-interface-construct/build/SourceIntrinsicH0Interface.olean",
+    "bytes": 975440,
+    "sha256": "ff59fe74b6d755b1173b2300559c7fd896e3ec567b43df447a9b3ad2ab5a5fec"
+  },
+  "strict_receipt": {
+    "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/strict-002/receipt.json",
+    "bytes": 1777,
+    "sha256": "e89ac25fefebfa7afa51ea747bca32087923d6dc2d090b5c2a96fefdc6225a96"
+  },
+  "inventory_receipt": {
+    "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/inventory-001/receipt.json",
+    "bytes": 2057,
+    "sha256": "52c9d48c2902679ae8b581ad1e6e474f609ac0762626ac2bc3e3d831a3eb742c"
+  },
+  "kernel_receipt": {
+    "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/kernel-001/receipt.json",
+    "bytes": 1938,
+    "sha256": "246aa85a373d276b983adff00414ccdf0308d30cc46472f7cd0294a76f6aa484"
+  },
+  "production_source_frozen_after_strict002": true,
+  "strict_evidence_reused_after_freeze_and_handoff": true,
+  "own_module_kernel_count": 1,
+  "new_ilean_generated": false,
+  "production_eligible": [
+    "/workspace/scratch/intrinsic-h0-interface-construct/build/SourceIntrinsicH0Interface.olean"
+  ],
+  "ineligible": "Every helper/control/mutation object, including IntrinsicH0Controls.olean, and all partial/prior attempts. Root alone owns cache copy.",
+  "root_source_cut": "PENDING root serial independent53 then intrinsicH0 source/registration/publication; no mathematical replay warranted for cut"
+}

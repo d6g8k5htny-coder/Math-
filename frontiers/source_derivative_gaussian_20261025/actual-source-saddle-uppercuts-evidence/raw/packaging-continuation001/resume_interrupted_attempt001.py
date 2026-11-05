@@ -1,0 +1,94 @@
+#!/usr/bin/env python3
+"""Scoped continuation of interrupted65 metadata attempt001, preserving unknown exits."""
+from pathlib import Path
+from datetime import datetime,timezone
+import json,subprocess,sys,time,os
+import custody as f
+import archive_prepare
+
+R=f.R;A=R/'metadata-attempts/attempt-001';C=R/'continuation001'
+archive_prepare.gate(f.read(R/'FINAL_INPUTS.json'))
+f.require(A.is_dir() and not (A/'execution_receipt.json').exists(),'Expected actually interrupted original worker')
+f.require(not (R/'ASSEMBLY_RESULT.json').exists(),'Completed final metadata is reusable, no restart')
+f.require(not C.exists(),'Preserve any prior continuation; no automatic restart')
+C.mkdir()
+ids=f.identities()
+intents=[json.loads(x) for x in (R/'IDENTITY_JOURNAL.jsonl').read_text().splitlines()]
+f.require(not ({x['path'] for x in intents if x['event']=='hash_intent'}-set(ids)),'Unresolved first-hash intent needs scoped recovery')
+copies=[json.loads(x) for x in (R/'ARCHIVE_PROGRESS.jsonl').read_text().splitlines()]
+f.require({x['destination'] for x in copies if x['event']=='copy_intent'}=={x['destination'] for x in copies if x['event']=='copy_complete'},'Unresolved byte-copy intent needs scoped recovery')
+f.require(not (R/'VALIDATION_PROGRESS.jsonl').exists(),'Original attempt entered no association checks')
+tail=f.A/f.E/'raw/packaging-continuation001'
+observed=f.now()
+obs={'status':'ORIGINAL_PROCESS_ABSENT_INTERRUPTION_PRESERVED_EXIT_UNKNOWN',
+     'observed_utc':observed,'parent_observation':'Root22:39 process table found no live finalizer/worker/outer/entry; three python zombies PPID1; tool session interrupted.',
+     'original_worker_started':f.read(A/'started.json')['started_utc'],
+     'original_worker_exit_code':None,'original_outer_exit_code':None,'original_entry_exit_code':None,
+     'original_terminal_receipts':'Absent; no backdating or synthetic completed receipt',
+     'last_completed_copy':'overlay/frontiers/source_derivative_gaussian_20261025/actual-source-saddle-uppercuts-evidence/raw/producer/runs/runner-amend001/stdout.log',
+     'last_completed_copy_utc':'2026-10-28T22:36:12.172423+00:00',
+     'archive_result_complete':True,'baseline_binding_complete':True,
+     'identity_records_before_continuation':len(ids),'completed_copy_rows_before_continuation':len({x['destination'] for x in copies if x['event']=='copy_complete'}),
+     'unresolved_hash_intents':0,'unresolved_copy_intents':0,'association_checks_started':0,
+     'root_authorization':'Explicit root scoped continuation of interrupted attempt001, preserve originals and resume missing metadata rows only',
+     'scope':'Finish remaining overlay rows using persisted identities/copy completion; run seven not-yet-started associations once; no proof/source/object recheck or shared action.'}
+f.put(C/'INTERRUPTION_OBSERVATION.json',obs)
+for name in ['resume_interrupted_attempt001.py','resume_interrupted_attempt001.FULL_ACTUAL.patch']:
+    f.copied(R/name,tail/name)
+f.copied(C/'INTERRUPTION_OBSERVATION.json',tail/'INTERRUPTION_OBSERVATION.json')
+empty={'bytes':0,'sha256':'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'}
+for label,base in [('worker',A),('outer',R/'launcher-captures/metadata-attempt-001'),('entry',R/'entry-captures/metadata-attempt-001')]:
+    f.copied(base/'started.json',tail/'original-interrupted'/label/'started.json')
+    for name in ['stdout.log','stderr.log']:
+        f.require((base/name).stat().st_size==0,'Original interrupted stream changed after process-absence observation')
+        f.retain(base/name,empty);f.copied(base/name,tail/'original-interrupted'/label/name,empty)
+cmd=[sys.executable,str(R/'finalize_metadata.py')];start=f.now();tick=time.monotonic()
+f.put(C/'started.json',{'command':cmd,'cwd':'/workspace','started_utc':start,
+    'scope':'Scoped continuation of actual interrupted attempt001; one previously interrupted invocation, no association replay'})
+with (C/'stdout.log').open('xb') as out,(C/'stderr.log').open('xb') as err:
+    proc=subprocess.run(cmd,cwd='/workspace',stdout=out,stderr=err)
+    out.flush();os.fsync(out.fileno());err.flush();os.fsync(err.fileno())
+receipt={'attempt':1,'continuation':1,'command':cmd,'cwd':'/workspace','started_utc':start,'ended_utc':f.now(),
+    'elapsed_seconds':time.monotonic()-tick,'exit_code':proc.returncode,'stdout':'stdout.log','stderr':'stderr.log',
+    'full_actual_capture':True,'original_interrupted_exit_code':None,'old_payload_hashes':0,'proof_replays':0}
+f.put(C/'execution_receipt.json',receipt)
+captures={name:f.identity(C/name) for name in ['started.json','stdout.log','stderr.log','execution_receipt.json']}
+if proc.returncode:
+    f.write(R/'FAILED_METADATA_CONTINUATION001.json',{'status':'ACTUAL_FAILURE_PRESERVED_SCOPED_RECOVERY_ONLY','receipt':receipt,'captures':captures})
+    print((C/'stderr.log').read_text());sys.exit(proc.returncode)
+result=f.read(R/'ASSEMBLY_RESULT.json')
+checks=[json.loads(line) for line in (R/'VALIDATION_PROGRESS.jsonl').read_text().splitlines() if json.loads(line)['event']=='check_passed']
+f.require(len(checks)==7,'Exactly seven association results required')
+validation={**receipt,'status':'PASS','checks_passed':len(checks),'completed_checks':checks,'capture_identities':captures,
+    'metadata_worker_invocations':2,'interrupted_worker_invocations':1,'completed_worker_invocations':1,
+    'original_interrupted_receipt':'continuation001/INTERRUPTION_OBSERVATION.json; no invented original exit',
+    'scope':'Seven NEW65 metadata associations once; interrupted original stopped during overlay assembly before any association; no Lean/proof/kernel/control/old-hash replay'}
+vid=f.write(R/'METADATA_VALIDATION_RECEIPT.json',validation)
+report='''# Stage65 exact scratch proposal ready
+
+Stage65 mathematical qualification is completed and reused: sole public uniform CLOSED saddle-uppercut proposition, full strict/ALL119 std3/ONE production kernel, separate ordinary strict/ALL123 std3 and sole importingFalse. No mathematical replay, object copy, shared or external action occurred in packaging. Final sourcecut b2d4c91162d98a1daefb5377bf3e65ef8615dd57 and root eligible own-object copy once are complete; every further object action SKIP.
+
+Metadata attempt001 first invocation was interrupted by infrastructure during overlay assembly. Original worker/outer/entry starts and six empty streams remain immutable, with UNKNOWN original exits and no fabricated terminal receipts. Its archive-prep and baseline binding completed, 4069 identities and4061 copy-completions persisted, and none of seven associations had begun. Root explicitly authorized narrow continuation. Completed copies/identities were reused; remaining overlay rows completed and seven NEW metadata associations each passed once. Actual worker invocations2 = interrupted1 + completedcontinuation1, completed association cycle1. New continuation has prospective original worker/outer/entry captures; outer/entry close after this handoff and are separate publication tail.
+
+Frozen producer allowlist1786, explicit root/review snapshots, all source/harness/context/runner versions and actual patches, 40producer workers=15math25documentary/240three-boundary split streams and ONE production geometry helper original/integration are retained. Producer owns all ordinary Controls. Full/structured/bounded root and nonauthor reviewer reading scopes remain separately attributed; aggregate11MB history/all1773 markers were not literally fully read. Current packager proofauthorFALSE/prior62A exposure disclosed/independentcredit0/scienceNONE/samefamily0. Different-family process is separate from established mathematics.
+
+Qualified64 inherited7331 manifestKEY prefix and independent checksumROW prefix are preserved separately; only README/SCOPE/lakefile old digests change. New65 source/four citation-corrected proper docs plus new evidence append without self entries. Five installed bindings and ALLobjects SKIP. Root ONLY applies/Git/cache/native normalFF publication. Existing64 CI is not65 CI. Future66 proper root EXTRA docs are excluded65archive/manifest/registry. OpenDraft/noReady/noMerge. Original broader research goal remains ACTIVE_UNMET; continue regularcollars/lowerseparation/global events/elder/count/Borel/Rice/PairLaw/Parent.
+'''
+f.durable(R/'REPORT.md',report.encode());rid=f.identity(R/'REPORT.md')
+cid=f.write(R/'CUSTODY_IDENTITIES.json',{'status':'FROZEN65_IDENTITIES','files':list(f.identities().values()),'journal':'IDENTITY_JOURNAL.jsonl','self_and_final_handoff':'Recorded after snapshot; no recursive self identity claim'})
+c=f.read(R/'FINAL_INPUTS.json')
+handoff={'status':'FINAL_READY_FROZEN_ROOT_ONLY_APPLY_NOT_APPLIED','source_cut':result['source_cut'],'qualified_baseline':result['qualified_baseline'],
+    'overlay_root':str(R/'overlay'),'apply_plan':f.identities()[str(R/'APPLY_PLAN.json')],'copy_plan':f.identities()[str(R/'COPY_PLAN.json')],
+    'counts':result['counts'],'manifest_identity':result['manifest_identity'],'sums_identity':result['sums_identity'],'catalog_identity':result['catalog_identity'],
+    'metadata_receipt_identity':vid,'report_identity':rid,'custody_snapshot_identity':cid,
+    'actual_metadata_worker_invocations':2,'interrupted_worker_invocations':1,'completed_worker_invocations':1,'completed_association_cycles':1,
+    'known_failed_metadata_executions':0,'original_interrupted_exit_code':None,'metadata_checks_passed':len(checks),
+    'actual_completed_worker_capture':receipt,'capture_identities':captures,'interruption_observation':str(C/'INTERRUPTION_OBSERVATION.json'),
+    'entry_outer_capture':'continuation-captures/{entry,outer,worker}/; actual wrappers close after immutable handoff, no invented premature completion/selfhash',
+    'identity_journal':'IDENTITY_JOURNAL.jsonl','copy_journal':'ARCHIVE_PROGRESS.jsonl','check_journal':'VALIDATION_PROGRESS.jsonl',
+    'own_object_action':'SKIP_ROOT_COPIED_ONCE_ALL_FURTHER_COPIES_SKIP','actual_owned_constants':result['owned_constants'],
+    'owned_foreign_generated':c['inventory_summary']['foreign_generated_count'],'production_helpers_once':len(c['production_helper_integrations']),
+    'Controls_only_helper_once':0,'packager_is_65_proof_author':False,'packager_proof_role':'65 metadata only; prior62A does not transfer proof authorship',
+    'independent_scientific_review_credit':0,'old_payload_hashes':0,'proof_replays':0,'shared_mutations':0,'scientific_effect':'NONE','same_family_credit':0,'canonical_authority':f.AUTHORITY}
+f.write(R/'FINAL_HANDOFF.json',handoff)
+print(json.dumps({'status':handoff['status'],'counts':result['counts'],'actual_worker_invocations':2,'seven_checks_once':len(checks)},sort_keys=True),flush=True)

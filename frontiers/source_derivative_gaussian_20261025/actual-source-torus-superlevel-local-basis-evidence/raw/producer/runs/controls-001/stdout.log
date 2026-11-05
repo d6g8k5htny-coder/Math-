@@ -1,0 +1,244 @@
+/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean:88:21: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean:88:31: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean:88:78: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean:105:24: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean:146:4: error: linarith failed to find a contradiction
+case «0».h1
+X : E 2
+hc : IsCriticalPoint 2 (actualField 2 2 fixtureSample) X
+hd : coordinateDerivative ((coordinates 2) X) ∘SL ↑(coordinates 2) = 0
+h0 : (coordinateDerivative ((coordinates 2) X) ∘SL ↑(coordinates 2)) (fixturePoint 1 0) = 0 (fixturePoint 1 0)
+h1 : (coordinateDerivative ((coordinates 2) X) ∘SL ↑(coordinates 2)) (fixturePoint 0 1) = 0 (fixturePoint 0 1)
+hs0 : Real.sin (Real.pi * X.ofLp 0) = 0
+hs1 : Real.sin (Real.pi * X.ofLp 1) = 0
+n0 : ℤ
+hn0 : ↑n0 * Real.pi = Real.pi * X.ofLp 0
+n1 : ℤ
+hn1 : ↑n1 * Real.pi = Real.pi * X.ofLp 1
+a✝ : Real.pi * X.ofLp ((fun i => i) ⟨0, ⋯⟩) < Real.pi * ↑(![n0, n1] ((fun i => i) ⟨0, ⋯⟩))
+⊢ False
+failed
+/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean:148:4: error: linarith failed to find a contradiction
+case «1».h1
+X : E 2
+hc : IsCriticalPoint 2 (actualField 2 2 fixtureSample) X
+hd : coordinateDerivative ((coordinates 2) X) ∘SL ↑(coordinates 2) = 0
+h0 : (coordinateDerivative ((coordinates 2) X) ∘SL ↑(coordinates 2)) (fixturePoint 1 0) = 0 (fixturePoint 1 0)
+h1 : (coordinateDerivative ((coordinates 2) X) ∘SL ↑(coordinates 2)) (fixturePoint 0 1) = 0 (fixturePoint 0 1)
+hs0 : Real.sin (Real.pi * X.ofLp 0) = 0
+hs1 : Real.sin (Real.pi * X.ofLp 1) = 0
+n0 : ℤ
+hn0 : ↑n0 * Real.pi = Real.pi * X.ofLp 0
+n1 : ℤ
+hn1 : ↑n1 * Real.pi = Real.pi * X.ofLp 1
+a✝ : Real.pi * X.ofLp ((fun i => i) ⟨1, ⋯⟩) < Real.pi * ↑(![n0, n1] ((fun i => i) ⟨1, ⋯⟩))
+⊢ False
+failed
+/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean:156:21: error: unsolved goals
+g : E 2 → ℝ
+X : E 2
+a b : ℝ
+ha : a < 0
+hb : 0 < b
+hq : ∀ (v : E 2), hessian 2 g X v v = a * v.ofLp 0 ^ 2 + b * v.ofLp 1 ^ 2
+n : E 2 := fixturePoint 1 0
+p : E 2 := fixturePoint 0 1
+he : n = 0
+hh : ((coordinates 2).symm ![1, 0]).ofLp 0 = 0
+⊢ False
+/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean:160:21: error: unsolved goals
+g : E 2 → ℝ
+X : E 2
+a b : ℝ
+ha : a < 0
+hb : 0 < b
+hq : ∀ (v : E 2), hessian 2 g X v v = a * v.ofLp 0 ^ 2 + b * v.ofLp 1 ^ 2
+n : E 2 := fixturePoint 1 0
+p : E 2 := fixturePoint 0 1
+hn : n ≠ 0
+he : p = 0
+hh : ((coordinates 2).symm ![0, 1]).ofLp 1 = 0
+⊢ False
+/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean:172:25: error: Type mismatch: After simplification, term
+  he
+ has type
+  s * ((coordinates 2).symm ![1, 0]).ofLp 0 = t * ((coordinates 2).symm ![0, 1]).ofLp 0
+but is expected to have type
+  s = 0
+/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean:182:4: error: Type mismatch: After simplification, term
+  mul_neg_of_neg_of_pos ha (sq_pos_of_ne_zero hs)
+ has type
+  a * s ^ 2 < 0
+but is expected to have type
+  a * (s * ((coordinates 2).symm ![1, 0]).ofLp 0) ^ 2 + b * (s * ((coordinates 2).symm ![1, 0]).ofLp 1) ^ 2 < 0
+/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean:187:4: error: Type mismatch: After simplification, term
+  mul_pos hb (sq_pos_of_ne_zero hs)
+ has type
+  0 < b * s ^ 2
+but is expected to have type
+  0 < a * (s * ((coordinates 2).symm ![0, 1]).ofLp 0) ^ 2 + b * (s * ((coordinates 2).symm ![0, 1]).ofLp 1) ^ 2
+/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean:219:15: error: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean:226:15: error: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean:270:20: error: failed to prove positivity/nonnegativity/nonzeroness
+/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean:270:20: error: failed to prove positivity/nonnegativity/nonzeroness
+/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean:327:94: error: unsolved goals
+case «0»
+O : Set (I4Torus.SourceTorus 2 2)
+hO : IsOpen O
+hp : Real.pi * (1 / 2) = Real.pi / 2
+hq : fixtureProjection (selectedPoint ((fun i => i) ⟨0, ⋯⟩)) ∈ O
+⊢ 3 ≤
+    Real.cos (Real.pi * ((coordinates 2).symm ![0, 0]).ofLp 0) +
+      2 * Real.cos (Real.pi * ((coordinates 2).symm ![0, 0]).ofLp 1)
+
+case «1»
+O : Set (I4Torus.SourceTorus 2 2)
+hO : IsOpen O
+hp : Real.pi * (1 / 2) = Real.pi / 2
+hq : fixtureProjection (selectedPoint ((fun i => i) ⟨1, ⋯⟩)) ∈ O
+⊢ 1 ≤
+    Real.cos (Real.pi * ((coordinates 2).symm ![1, 0]).ofLp 0) +
+      2 * Real.cos (Real.pi * ((coordinates 2).symm ![1, 0]).ofLp 1)
+
+case «2»
+O : Set (I4Torus.SourceTorus 2 2)
+hO : IsOpen O
+hp : Real.pi * (1 / 2) = Real.pi / 2
+hq : fixtureProjection (selectedPoint ((fun i => i) ⟨2, ⋯⟩)) ∈ O
+⊢ -1 ≤
+    Real.cos (Real.pi * ((coordinates 2).symm ![0, 1]).ofLp 0) +
+      2 * Real.cos (Real.pi * ((coordinates 2).symm ![0, 1]).ofLp 1)
+
+case «3»
+O : Set (I4Torus.SourceTorus 2 2)
+hO : IsOpen O
+hp : Real.pi * (1 / 2) = Real.pi / 2
+hq : fixtureProjection (selectedPoint ((fun i => i) ⟨3, ⋯⟩)) ∈ O
+⊢ -3 ≤
+    Real.cos (Real.pi * ((coordinates 2).symm ![1, 1]).ofLp 0) +
+      2 * Real.cos (Real.pi * ((coordinates 2).symm ![1, 1]).ofLp 1)
+
+case «4»
+O : Set (I4Torus.SourceTorus 2 2)
+hO : IsOpen O
+hp : Real.pi * (1 / 2) = Real.pi / 2
+hq : fixtureProjection (selectedPoint ((fun i => i) ⟨4, ⋯⟩)) ∈ O
+⊢ 2 ≤
+    Real.cos (Real.pi * ((coordinates 2).symm ![1 / 2, 0]).ofLp 0) +
+      2 * Real.cos (Real.pi * ((coordinates 2).symm ![1 / 2, 0]).ofLp 1)
+
+case «5»
+O : Set (I4Torus.SourceTorus 2 2)
+hO : IsOpen O
+hp : Real.pi * (1 / 2) = Real.pi / 2
+hq : fixtureProjection (selectedPoint ((fun i => i) ⟨5, ⋯⟩)) ∈ O
+⊢ 2 ≤
+    Real.cos (Real.pi * ((coordinates 2).symm ![0, 0]).ofLp 0) +
+      2 * Real.cos (Real.pi * ((coordinates 2).symm ![0, 0]).ofLp 1)
+
+case «6»
+O : Set (I4Torus.SourceTorus 2 2)
+hO : IsOpen O
+hp : Real.pi * (1 / 2) = Real.pi / 2
+hq : fixtureProjection (selectedPoint ((fun i => i) ⟨6, ⋯⟩)) ∈ O
+⊢ 3 ≤
+    Real.cos (Real.pi * ((coordinates 2).symm ![0, 0]).ofLp 0) +
+      2 * Real.cos (Real.pi * ((coordinates 2).symm ![0, 0]).ofLp 1)
+/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean:357:54: error: unsolved goals
+⊢ 1 / 2 < ((coordinates 2).symm ![1, 0]).ofLp 0 ∧
+    ((coordinates 2).symm ![1, 0]).ofLp 0 < 3 / 2 ∧
+      -(1 / 4) < ((coordinates 2).symm ![1, 0]).ofLp 1 ∧ ((coordinates 2).symm ![1, 0]).ofLp 1 < 1 / 4
+/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean:361:74: error: unsolved goals
+⊢ 1 ≤
+    Real.cos (Real.pi * ((coordinates 2).symm ![1, 0]).ofLp 0) +
+      2 * Real.cos (Real.pi * ((coordinates 2).symm ![1, 0]).ofLp 1)
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean:427:98: error: unsolved goals
+t : ℝ
+hp : Real.pi * (1 + t) = Real.pi + Real.pi * t
+⊢ Real.cos (Real.pi * ((coordinates 2).symm ![1 + t, 0]).ofLp 0) +
+      Real.cos (Real.pi * ((coordinates 2).symm ![1 + t, 0]).ofLp 1) * 2 =
+    2 - Real.cos (Real.pi * t)
+/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean:431:21: error: This simp argument is unused:
+  hp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [fixturePoint, Real.cos_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean:431:24: error: This simp argument is unused:
+  Real.cos_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [fixturePoint, hp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean:433:93: error: unsolved goals
+t : ℝ
+hp : Real.pi * (1 + t) = Real.pi + Real.pi * t
+⊢ Real.sin (Real.pi * ((coordinates 2).symm ![1 + t, 0]).ofLp 0) = -Real.sin (Real.pi * t)
+/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean:436:21: error: This simp argument is unused:
+  hp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [fixturePoint, Real.sin_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean:436:24: error: This simp argument is unused:
+  Real.sin_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [fixturePoint, hp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean:465:4: error: unsolved goals
+case left.refine_1
+hh :
+  1 < saddleTorusField (saddleCurve (-(1 / 4))) ∧
+    1 < saddleTorusField (saddleCurve (1 / 4)) ∧
+      0 < separator (saddleCurve (-(1 / 4))) ∧ separator (saddleCurve (1 / 4)) < 0
+hm : saddleCurve (-(1 / 4)) = fixtureProjection (fixturePoint (3 / 4) 0)
+hp : saddleCurve (1 / 4) = fixtureProjection (fixturePoint (5 / 4) 0)
+⊢ 1 / 2 < ((coordinates 2).symm ![3 / 4, 0]).ofLp 0 ∧
+    ((coordinates 2).symm ![3 / 4, 0]).ofLp 0 < 3 / 2 ∧
+      -(1 / 4) < ((coordinates 2).symm ![3 / 4, 0]).ofLp 1 ∧ ((coordinates 2).symm ![3 / 4, 0]).ofLp 1 < 1 / 4
+/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean:466:6: error: Type mismatch: After simplification, term
+  hh.left
+ has type
+  1 < saddleTorusField (fixtureProjection (fixturePoint (3 / 4) 0))
+but is expected to have type
+  fixtureProjection (fixturePoint (3 / 4) 0) ∈ {z | 1 < saddleTorusField z}
+/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean:468:4: error: unsolved goals
+case right.refine_1
+hh :
+  1 < saddleTorusField (saddleCurve (-(1 / 4))) ∧
+    1 < saddleTorusField (saddleCurve (1 / 4)) ∧
+      0 < separator (saddleCurve (-(1 / 4))) ∧ separator (saddleCurve (1 / 4)) < 0
+hm : saddleCurve (-(1 / 4)) = fixtureProjection (fixturePoint (3 / 4) 0)
+hp : saddleCurve (1 / 4) = fixtureProjection (fixturePoint (5 / 4) 0)
+⊢ 1 / 2 < ((coordinates 2).symm ![5 / 4, 0]).ofLp 0 ∧
+    ((coordinates 2).symm ![5 / 4, 0]).ofLp 0 < 3 / 2 ∧
+      -(1 / 4) < ((coordinates 2).symm ![5 / 4, 0]).ofLp 1 ∧ ((coordinates 2).symm ![5 / 4, 0]).ofLp 1 < 1 / 4
+/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean:469:6: error: Type mismatch: After simplification, term
+  hh.right.left
+ has type
+  1 < saddleTorusField (fixtureProjection (fixturePoint (5 / 4) 0))
+but is expected to have type
+  fixtureProjection (fixturePoint (5 / 4) 0) ∈ {z | 1 < saddleTorusField z}

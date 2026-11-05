@@ -1,0 +1,944 @@
+{
+  "scope": "Only new parameter module and actual associated author-side parameter helpers",
+  "count": 133,
+  "entries": [
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/01-merged-core.json",
+      "packaged_path": "raw/production/01-merged-core.json",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 1286,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/01-merged-core.log",
+      "packaged_path": "raw/production/01-merged-core.log",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 0,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/01-merged-core.source.lean",
+      "packaged_path": "raw/production/01-merged-core.source.lean",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 17821,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/02-gradient-family.json",
+      "packaged_path": "raw/production/02-gradient-family.json",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 1349,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/02-gradient-family.log",
+      "packaged_path": "raw/production/02-gradient-family.log",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 707,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/02-gradient-family.source.lean",
+      "packaged_path": "raw/production/02-gradient-family.source.lean",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 28561,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/03-gradient-family.json",
+      "packaged_path": "raw/production/03-gradient-family.json",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 1349,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/03-gradient-family.log",
+      "packaged_path": "raw/production/03-gradient-family.log",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 0,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/03-gradient-family.source.lean",
+      "packaged_path": "raw/production/03-gradient-family.source.lean",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 28563,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/04-complete-parameter-family.json",
+      "packaged_path": "raw/production/04-complete-parameter-family.json",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 1348,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/04-complete-parameter-family.log",
+      "packaged_path": "raw/production/04-complete-parameter-family.log",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 0,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/04-complete-parameter-family.source.lean",
+      "packaged_path": "raw/production/04-complete-parameter-family.source.lean",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 31646,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/05-controls.json",
+      "packaged_path": "raw/production/05-controls.json",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 1173,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/05-controls.log",
+      "packaged_path": "raw/production/05-controls.log",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 1448,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/05-controls.source.lean",
+      "packaged_path": "raw/production/05-controls.source.lean",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 3870,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/06-public-axioms.json",
+      "packaged_path": "raw/production/06-public-axioms.json",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 1177,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/06-public-axioms.log",
+      "packaged_path": "raw/production/06-public-axioms.log",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 10415,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/06-public-axioms.source.lean",
+      "packaged_path": "raw/production/06-public-axioms.source.lean",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 6260,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/07-kernel-replay.json",
+      "packaged_path": "raw/production/07-kernel-replay.json",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 837,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/07-kernel-replay.log",
+      "packaged_path": "raw/production/07-kernel-replay.log",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 0,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/08-controls-fixed.json",
+      "packaged_path": "raw/production/08-controls-fixed.json",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 1174,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/08-controls-fixed.log",
+      "packaged_path": "raw/production/08-controls-fixed.log",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 0,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/08-controls-fixed.source.lean",
+      "packaged_path": "raw/production/08-controls-fixed.source.lean",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 4120,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/AUTHOR_HELPER_LINEAGE.json",
+      "packaged_path": "raw/production/AUTHOR_HELPER_LINEAGE.json",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 2997,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/AXIOM_COVERAGE.json",
+      "packaged_path": "raw/production/AXIOM_COVERAGE.json",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 681,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/AxiomAudit.lean",
+      "packaged_path": "raw/production/AxiomAudit.lean",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 6260,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/CONTROL_COVERAGE.json",
+      "packaged_path": "raw/production/CONTROL_COVERAGE.json",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 1049,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/Controls.lean",
+      "packaged_path": "raw/production/Controls.lean",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 4120,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/EuclideanDerivative.lean",
+      "packaged_path": "raw/production/EuclideanDerivative.lean",
+      "role": "Actual author-side gradient/Euclidean-derivative helper source and command history; final production qualification remains the88-declaration module audit",
+      "bytes_copied": 2416,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/FINAL_SourceSmoothParameterSpace.lean",
+      "packaged_path": "raw/production/FINAL_SourceSmoothParameterSpace.lean",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 31646,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/GradientFamily.lean",
+      "packaged_path": "raw/production/GradientFamily.lean",
+      "role": "Actual author-side gradient/Euclidean-derivative helper source and command history; final production qualification remains the88-declaration module audit",
+      "bytes_copied": 7564,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/QUALIFICATION_RECEIPT.json",
+      "packaged_path": "raw/production/QUALIFICATION_RECEIPT.json",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 3413,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/euclidean-derivative-01.json",
+      "packaged_path": "raw/production/euclidean-derivative-01.json",
+      "role": "Actual author-side gradient/Euclidean-derivative helper source and command history; final production qualification remains the88-declaration module audit",
+      "bytes_copied": 874,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/euclidean-derivative-01.log",
+      "packaged_path": "raw/production/euclidean-derivative-01.log",
+      "role": "Actual author-side gradient/Euclidean-derivative helper source and command history; final production qualification remains the88-declaration module audit",
+      "bytes_copied": 0,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/euclidean-derivative-01.source.lean",
+      "packaged_path": "raw/production/euclidean-derivative-01.source.lean",
+      "role": "Actual author-side gradient/Euclidean-derivative helper source and command history; final production qualification remains the88-declaration module audit",
+      "bytes_copied": 2416,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/gradient-01.json",
+      "packaged_path": "raw/production/gradient-01.json",
+      "role": "Actual author-side gradient/Euclidean-derivative helper source and command history; final production qualification remains the88-declaration module audit",
+      "bytes_copied": 864,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/gradient-01.log",
+      "packaged_path": "raw/production/gradient-01.log",
+      "role": "Actual author-side gradient/Euclidean-derivative helper source and command history; final production qualification remains the88-declaration module audit",
+      "bytes_copied": 2306,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/gradient-01.source.lean",
+      "packaged_path": "raw/production/gradient-01.source.lean",
+      "role": "Actual author-side gradient/Euclidean-derivative helper source and command history; final production qualification remains the88-declaration module audit",
+      "bytes_copied": 5963,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/gradient-02.json",
+      "packaged_path": "raw/production/gradient-02.json",
+      "role": "Actual author-side gradient/Euclidean-derivative helper source and command history; final production qualification remains the88-declaration module audit",
+      "bytes_copied": 864,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/gradient-02.log",
+      "packaged_path": "raw/production/gradient-02.log",
+      "role": "Actual author-side gradient/Euclidean-derivative helper source and command history; final production qualification remains the88-declaration module audit",
+      "bytes_copied": 705,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/gradient-02.source.lean",
+      "packaged_path": "raw/production/gradient-02.source.lean",
+      "role": "Actual author-side gradient/Euclidean-derivative helper source and command history; final production qualification remains the88-declaration module audit",
+      "bytes_copied": 6156,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/gradient-03.json",
+      "packaged_path": "raw/production/gradient-03.json",
+      "role": "Actual author-side gradient/Euclidean-derivative helper source and command history; final production qualification remains the88-declaration module audit",
+      "bytes_copied": 861,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/gradient-03.log",
+      "packaged_path": "raw/production/gradient-03.log",
+      "role": "Actual author-side gradient/Euclidean-derivative helper source and command history; final production qualification remains the88-declaration module audit",
+      "bytes_copied": 0,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/gradient-03.source.lean",
+      "packaged_path": "raw/production/gradient-03.source.lean",
+      "role": "Actual author-side gradient/Euclidean-derivative helper source and command history; final production qualification remains the88-declaration module audit",
+      "bytes_copied": 6117,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/gradient-04.json",
+      "packaged_path": "raw/production/gradient-04.json",
+      "role": "Actual author-side gradient/Euclidean-derivative helper source and command history; final production qualification remains the88-declaration module audit",
+      "bytes_copied": 864,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/gradient-04.log",
+      "packaged_path": "raw/production/gradient-04.log",
+      "role": "Actual author-side gradient/Euclidean-derivative helper source and command history; final production qualification remains the88-declaration module audit",
+      "bytes_copied": 0,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/gradient-04.source.lean",
+      "packaged_path": "raw/production/gradient-04.source.lean",
+      "role": "Actual author-side gradient/Euclidean-derivative helper source and command history; final production qualification remains the88-declaration module audit",
+      "bytes_copied": 7564,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/make_inventory.py",
+      "packaged_path": "raw/production/make_inventory.py",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 1259,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/private_targets.json",
+      "packaged_path": "raw/production/private_targets.json",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 3,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/run_check.py",
+      "packaged_path": "raw/production/run_check.py",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 1490,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/run_euclidean_derivative.py",
+      "packaged_path": "raw/production/run_euclidean_derivative.py",
+      "role": "Actual author-side gradient/Euclidean-derivative helper source and command history; final production qualification remains the88-declaration module audit",
+      "bytes_copied": 1201,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/run_gradient.py",
+      "packaged_path": "raw/production/run_gradient.py",
+      "role": "Actual author-side gradient/Euclidean-derivative helper source and command history; final production qualification remains the88-declaration module audit",
+      "bytes_copied": 1196,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/run_kernel.py",
+      "packaged_path": "raw/production/run_kernel.py",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 1174,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/targets.json",
+      "packaged_path": "raw/production/targets.json",
+      "role": "Original new-module production/check/control record or scratch gradient helper; copied aliases are not additional executions",
+      "bytes_copied": 13097,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/CONTRACT_PROPOSAL.md",
+      "packaged_path": "raw/helpers/CONTRACT_PROPOSAL.md",
+      "role": "Preimplementation proposal adopted in frozen contract; provenance/boundary note, not qualified proof",
+      "bytes_copied": 6246,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean",
+      "packaged_path": "raw/helpers/FiniteOrderSynthesis.lean",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 11491,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/PARAMETER_KERNEL_METADATA_NOTE.json",
+      "packaged_path": "raw/helpers/PARAMETER_KERNEL_METADATA_NOTE.json",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 468,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/ParameterKernel.lean",
+      "packaged_path": "raw/helpers/ParameterKernel.lean",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 2059,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean",
+      "packaged_path": "raw/helpers/SynthDiagnostics.lean",
+      "role": "BCF coherent-structure API diagnostic only, NOT a mathematical proof or part of88 public production reports",
+      "bytes_copied": 1445,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean",
+      "packaged_path": "raw/helpers/WeightedCarrier.lean",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 4398,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-01.json",
+      "packaged_path": "raw/helpers/diagnostics-01.json",
+      "role": "BCF coherent-structure API diagnostic only, NOT a mathematical proof or part of88 public production reports",
+      "bytes_copied": 872,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-01.log",
+      "packaged_path": "raw/helpers/diagnostics-01.log",
+      "role": "BCF coherent-structure API diagnostic only, NOT a mathematical proof or part of88 public production reports",
+      "bytes_copied": 1394,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-01.source.lean",
+      "packaged_path": "raw/helpers/diagnostics-01.source.lean",
+      "role": "BCF coherent-structure API diagnostic only, NOT a mathematical proof or part of88 public production reports",
+      "bytes_copied": 852,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-02.json",
+      "packaged_path": "raw/helpers/diagnostics-02.json",
+      "role": "BCF coherent-structure API diagnostic only, NOT a mathematical proof or part of88 public production reports",
+      "bytes_copied": 872,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-02.log",
+      "packaged_path": "raw/helpers/diagnostics-02.log",
+      "role": "BCF coherent-structure API diagnostic only, NOT a mathematical proof or part of88 public production reports",
+      "bytes_copied": 448928,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-02.source.lean",
+      "packaged_path": "raw/helpers/diagnostics-02.source.lean",
+      "role": "BCF coherent-structure API diagnostic only, NOT a mathematical proof or part of88 public production reports",
+      "bytes_copied": 955,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-03.json",
+      "packaged_path": "raw/helpers/diagnostics-03.json",
+      "role": "BCF coherent-structure API diagnostic only, NOT a mathematical proof or part of88 public production reports",
+      "bytes_copied": 873,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-03.log",
+      "packaged_path": "raw/helpers/diagnostics-03.log",
+      "role": "BCF coherent-structure API diagnostic only, NOT a mathematical proof or part of88 public production reports",
+      "bytes_copied": 2887,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-03.source.lean",
+      "packaged_path": "raw/helpers/diagnostics-03.source.lean",
+      "role": "BCF coherent-structure API diagnostic only, NOT a mathematical proof or part of88 public production reports",
+      "bytes_copied": 845,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-04.json",
+      "packaged_path": "raw/helpers/diagnostics-04.json",
+      "role": "BCF coherent-structure API diagnostic only, NOT a mathematical proof or part of88 public production reports",
+      "bytes_copied": 872,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-04.log",
+      "packaged_path": "raw/helpers/diagnostics-04.log",
+      "role": "BCF coherent-structure API diagnostic only, NOT a mathematical proof or part of88 public production reports",
+      "bytes_copied": 1290,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-04.source.lean",
+      "packaged_path": "raw/helpers/diagnostics-04.source.lean",
+      "role": "BCF coherent-structure API diagnostic only, NOT a mathematical proof or part of88 public production reports",
+      "bytes_copied": 581,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-05.json",
+      "packaged_path": "raw/helpers/diagnostics-05.json",
+      "role": "BCF coherent-structure API diagnostic only, NOT a mathematical proof or part of88 public production reports",
+      "bytes_copied": 872,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-05.log",
+      "packaged_path": "raw/helpers/diagnostics-05.log",
+      "role": "BCF coherent-structure API diagnostic only, NOT a mathematical proof or part of88 public production reports",
+      "bytes_copied": 406,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-05.source.lean",
+      "packaged_path": "raw/helpers/diagnostics-05.source.lean",
+      "role": "BCF coherent-structure API diagnostic only, NOT a mathematical proof or part of88 public production reports",
+      "bytes_copied": 898,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-06.json",
+      "packaged_path": "raw/helpers/diagnostics-06.json",
+      "role": "BCF coherent-structure API diagnostic only, NOT a mathematical proof or part of88 public production reports",
+      "bytes_copied": 873,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-06.log",
+      "packaged_path": "raw/helpers/diagnostics-06.log",
+      "role": "BCF coherent-structure API diagnostic only, NOT a mathematical proof or part of88 public production reports",
+      "bytes_copied": 152,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-06.source.lean",
+      "packaged_path": "raw/helpers/diagnostics-06.source.lean",
+      "role": "BCF coherent-structure API diagnostic only, NOT a mathematical proof or part of88 public production reports",
+      "bytes_copied": 1445,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/parameter-kernel-01.json",
+      "packaged_path": "raw/helpers/parameter-kernel-01.json",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 871,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/parameter-kernel-01.log",
+      "packaged_path": "raw/helpers/parameter-kernel-01.log",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 0,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/parameter-kernel-01.source.lean",
+      "packaged_path": "raw/helpers/parameter-kernel-01.source.lean",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 2059,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/run_check.py",
+      "packaged_path": "raw/helpers/run_check.py",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 1027,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/run_diagnostics.py",
+      "packaged_path": "raw/helpers/run_diagnostics.py",
+      "role": "BCF coherent-structure API diagnostic only, NOT a mathematical proof or part of88 public production reports",
+      "bytes_copied": 1200,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/run_kernel_map.py",
+      "packaged_path": "raw/helpers/run_kernel_map.py",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 1208,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/run_synthesis.py",
+      "packaged_path": "raw/helpers/run_synthesis.py",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 1204,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-01.json",
+      "packaged_path": "raw/helpers/synthesis-01.json",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 800,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-01.log",
+      "packaged_path": "raw/helpers/synthesis-01.log",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 0,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-01.source.lean",
+      "packaged_path": "raw/helpers/synthesis-01.source.lean",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 3674,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-02.json",
+      "packaged_path": "raw/helpers/synthesis-02.json",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 880,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-02.log",
+      "packaged_path": "raw/helpers/synthesis-02.log",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 688,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-02.source.lean",
+      "packaged_path": "raw/helpers/synthesis-02.source.lean",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 7955,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-03.json",
+      "packaged_path": "raw/helpers/synthesis-03.json",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 880,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-03.log",
+      "packaged_path": "raw/helpers/synthesis-03.log",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 682,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-03.source.lean",
+      "packaged_path": "raw/helpers/synthesis-03.source.lean",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 7962,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-04.json",
+      "packaged_path": "raw/helpers/synthesis-04.json",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 880,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-04.log",
+      "packaged_path": "raw/helpers/synthesis-04.log",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 909,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-04.source.lean",
+      "packaged_path": "raw/helpers/synthesis-04.source.lean",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 10147,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-05.json",
+      "packaged_path": "raw/helpers/synthesis-05.json",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 880,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-05.log",
+      "packaged_path": "raw/helpers/synthesis-05.log",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 351,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-05.source.lean",
+      "packaged_path": "raw/helpers/synthesis-05.source.lean",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 10109,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-06.json",
+      "packaged_path": "raw/helpers/synthesis-06.json",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 1014,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-06.log",
+      "packaged_path": "raw/helpers/synthesis-06.log",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 366,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-06.source.lean",
+      "packaged_path": "raw/helpers/synthesis-06.source.lean",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 10055,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-07.json",
+      "packaged_path": "raw/helpers/synthesis-07.json",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 1014,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-07.log",
+      "packaged_path": "raw/helpers/synthesis-07.log",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 366,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-07.source.lean",
+      "packaged_path": "raw/helpers/synthesis-07.source.lean",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 11385,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-08.json",
+      "packaged_path": "raw/helpers/synthesis-08.json",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 1013,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-08.log",
+      "packaged_path": "raw/helpers/synthesis-08.log",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 0,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-08.source.lean",
+      "packaged_path": "raw/helpers/synthesis-08.source.lean",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 11491,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-01.json",
+      "packaged_path": "raw/helpers/weighted-carrier-01.json",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 696,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-01.log",
+      "packaged_path": "raw/helpers/weighted-carrier-01.log",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 203,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-01.source.lean",
+      "packaged_path": "raw/helpers/weighted-carrier-01.source.lean",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 3220,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-02.json",
+      "packaged_path": "raw/helpers/weighted-carrier-02.json",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 758,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-02.log",
+      "packaged_path": "raw/helpers/weighted-carrier-02.log",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 2125,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-02.source.lean",
+      "packaged_path": "raw/helpers/weighted-carrier-02.source.lean",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 3220,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-03.json",
+      "packaged_path": "raw/helpers/weighted-carrier-03.json",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 759,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-03.log",
+      "packaged_path": "raw/helpers/weighted-carrier-03.log",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 143,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-03.source.lean",
+      "packaged_path": "raw/helpers/weighted-carrier-03.source.lean",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 3235,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-04.json",
+      "packaged_path": "raw/helpers/weighted-carrier-04.json",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 758,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-04.log",
+      "packaged_path": "raw/helpers/weighted-carrier-04.log",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 0,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-04.source.lean",
+      "packaged_path": "raw/helpers/weighted-carrier-04.source.lean",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 3244,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-05.json",
+      "packaged_path": "raw/helpers/weighted-carrier-05.json",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 758,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-05.log",
+      "packaged_path": "raw/helpers/weighted-carrier-05.log",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 388,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-05.source.lean",
+      "packaged_path": "raw/helpers/weighted-carrier-05.source.lean",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 4398,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-06.json",
+      "packaged_path": "raw/helpers/weighted-carrier-06.json",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 759,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-06.log",
+      "packaged_path": "raw/helpers/weighted-carrier-06.log",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 394,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-06.source.lean",
+      "packaged_path": "raw/helpers/weighted-carrier-06.source.lean",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 4399,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-07.json",
+      "packaged_path": "raw/helpers/weighted-carrier-07.json",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 757,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-07.log",
+      "packaged_path": "raw/helpers/weighted-carrier-07.log",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 0,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-07.source.lean",
+      "packaged_path": "raw/helpers/weighted-carrier-07.source.lean",
+      "role": "Original new parameter-space author-helper source, snapshot, failed/successful command or metadata; no standalone helper counted as additional production proof",
+      "bytes_copied": 4398,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/FINAL_SourceSmoothParameterSpace.lean",
+      "packaged_path": "sources/SourceSmoothParameterSpace.lean",
+      "role": "Final source snapshot from completed qualification; source hash copied from original records, not recomputed",
+      "bytes_copied": 31646,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SOURCE_SMOOTH_PARAMETER_SPACE.md",
+      "packaged_path": "contracts/SOURCE_SMOOTH_PARAMETER_SPACE.md",
+      "role": "Frozen contract ebf49a429ec737f24c29f7c0ca4d9a7b1457c5cd; original recorded hash retained",
+      "bytes_copied": 7585,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-parameter-production/QUALIFICATION_RECEIPT.json",
+      "packaged_path": "qualification_receipt.json",
+      "role": "Original completed source/artifact qualification receipt",
+      "bytes_copied": 3413,
+      "packaging_computed_hash": false
+    }
+  ],
+  "no_new_hash_computation": true,
+  "excluded": [
+    "All baseline24 modules, current Raw/Capture source/evidence/objects and23 inputs (reference only)",
+    "All geometry/capture helper evidence",
+    "Compiled binary copies: actual newmodule artifact identity retained in original execution records",
+    "Standalone old torus-interface reconnaissance (not a parameter proof)"
+  ]
+}

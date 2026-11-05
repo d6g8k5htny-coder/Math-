@@ -1,0 +1,64 @@
+SourceActualFoldDeath.lean:37:56: error(lean.invalidField): Invalid field `apply`: The environment does not contain `Continuous.apply`, so it is not possible to project the field `apply` from an expression
+  Continuous.smul continuous_const (ContinuousLinearEquiv.continuous (coordinates 2))
+of type
+  Continuous ((fun x => ?m.146) • ⇑(coordinates 2))
+SourceActualFoldDeath.lean:26:17: error: unsolved goals
+case «0»
+r : ℝ
+hr : r ≠ 0
+x : TorusFiltration.superlevelBar_E 2
+⊢ ((coordinates 2).symm ![x.ofLp 0, x.ofLp 1]).ofLp 0 = x.ofLp 0
+
+case «1»
+r : ℝ
+hr : r ≠ 0
+x : TorusFiltration.superlevelBar_E 2
+⊢ ((coordinates 2).symm ![x.ofLp 0, x.ofLp 1]).ofLp 1 = x.ofLp 1
+SourceActualFoldDeath.lean:33:6: error: failed to synthesize
+  Fintype ?m.134
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+SourceActualFoldDeath.lean:35:6: error: No goals to be solved
+SourceActualFoldDeath.lean:25:25: error: This simp argument is unused:
+  smul_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hr]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceActualFoldDeath.lean:29:26: error: This simp argument is unused:
+  smul_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hr]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceActualFoldDeath.lean:42:2: error: 'change' tactic failed, pattern
+  (coordinates 2).symm (r • ![-1 / 2, 0]) = ?m.67
+is not definitionally equal to target
+  (physicalChart r hr) M = (coordinates 2).symm (endpointM r)
+SourceActualFoldDeath.lean:47:2: error: 'change' tactic failed, pattern
+  (coordinates 2).symm (r • ![1 / 2, 0]) = ?m.65
+is not definitionally equal to target
+  (physicalChart r hr) S = (coordinates 2).symm (endpointS r)
+SourceActualFoldDeath.lean:54:54: error: unsolved goals
+L r k : ℝ
+sample : SmoothSample 2 L
+hr : r ≠ 0
+hk : k ≠ 0
+p : ℝ × ℝ
+⊢ smoothSourceField 2 L sample ((coordinates 2) ((sorry r hr) p)) = smoothSourceField 2 L sample (r • ![p.1, p.2])
+SourceActualFoldDeath.lean:55:26: error: declaration uses `sorry`
+SourceActualFoldDeath.lean:55:41: error: This simp argument is unused:
+  ContinuousLinearEquiv.apply_symm_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [actualField, physicalChart, actualFoldPotential]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceActualFoldDeath.lean:71:5: error: Variable name `hm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

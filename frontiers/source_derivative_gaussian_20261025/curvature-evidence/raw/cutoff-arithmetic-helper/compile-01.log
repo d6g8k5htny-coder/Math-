@@ -1,0 +1,14 @@
+/workspace/scratch/curvature-cutoff-arithmetic/CurvatureCutoff.lean:39:68: error: Function expected at
+  one_le_pow₀ hS
+but this term has type
+  1 ≤ S ^ ?m.1181
+
+Note: Expected a function because this term is being applied to the argument
+  _
+/workspace/scratch/curvature-cutoff-arithmetic/CurvatureCutoff.lean:41:2: error: 'calc' expression has type
+  2 * r ^ 2 * R ^ 2 * q ^ 2 + 8 * r ^ 4 * R ^ 4 ≤ (2 * K ^ 2 * D ^ 12 + 8 * D ^ 4) * r ^ 4 * S ^ 12
+but is expected to have type
+  R ≤ A * (1 + K * eps) * S ∧
+    |q| ≤ K * (A * (1 + K * eps)) ^ 5 * r * S ^ 5 ∧
+      2 * r ^ 2 * R ^ 2 * q ^ 2 + 8 * r ^ 4 * R ^ 4 ≤
+        (2 * K ^ 2 * (A * (1 + K * eps)) ^ 12 + 8 * (A * (1 + K * eps)) ^ 4) * r ^ 4 * S ^ 12

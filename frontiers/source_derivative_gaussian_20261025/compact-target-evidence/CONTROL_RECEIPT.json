@@ -1,0 +1,34 @@
+{
+  "positive": {
+    "record": "raw/positive-controls-02.json",
+    "exit_code": 0,
+    "scope": [
+      "five arbitrary target components with first coordinate 1, hence target nonzero",
+      "all-natural moments at those targets on one common interval",
+      "k=1 target row5=12 and different from k=1/6",
+      "k=1 exact every-target raw kernel transport",
+      "k=1 height moments for every real height on one common interval",
+      "no finite height-independent norm bound for the actual gap target"
+    ]
+  },
+  "rejected": [
+    {
+      "record": "raw/reject-height.json",
+      "exit_code": 1,
+      "expected": "False remains after norm_num",
+      "mutation": "Replace actual target first coordinate b-k*r^3/2 by -k*r^3/2 at r=1/2,b=3,k=1"
+    },
+    {
+      "record": "raw/reject-cubic.json",
+      "exit_code": 1,
+      "expected": "False remains after norm_num",
+      "mutation": "Replace actual raw gap k*r^3 by k at r=1/2,b=3,k=1"
+    }
+  ],
+  "failure_history": [
+    "compile-01: missing namespace, composed-function simplification, vector norm proof details",
+    "compile-02: namespace, divide inequality, redundant absolute-value rewrite",
+    "positive-controls-01: norm expression in no-uniform-height-bound control needed aligned simplification"
+  ],
+  "success_reuse": "Do not rerun successful unchanged compilation/kernel/audit/control checks merely because of integration or handoff. Any new verification must identify the changed scope or unmet obligation."
+}

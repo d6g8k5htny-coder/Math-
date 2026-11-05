@@ -1,0 +1,146 @@
+/-- Completion of the physical coordinate quadratic form uses the literal
+negative transverse entry and the same retained ridge Schur complement. -/
+theorem actual_hessian_complete_square {L r k : ℝ} (hL : 0 < L)
+    (sample : SmoothSample 2 L) (hr : 0 < r) (hk : 0 < k) (p : ℝ × ℝ)
+    (hc : partialY (Vy (actualFoldPotential r k sample)) p ≠ 0) (v : E 2) :
+    let V := actualFoldPotential r k sample
+    hessian 2 (actualField 2 L sample)
+        ((coordinates 2).symm (r • ![p.1,p.2])) v v =
+      (6*k*r) * ((partialX (Vx V) p - (partialY (Vx V) p)^2 / partialY (Vy V) p) *
+        (coordinates 2 v 0)^2 + partialY (Vy V) p *
+          (coordinates 2 v 1 + partialY (Vx V) p / partialY (Vy V) p *
+            coordinates 2 v 0)^2) := by
+  dsimp only
+  rw [actual_hessian_physical hL sample hr hk,
+    actual_planar_hessian_quadratic hL.ne' sample]
+  rw [planar_quadratic_complete_square _ _ _ _ _ hc]
+
+/-- Raw zero-gradient pins and the actual retained ridge derive the genuine
+Lifetime strict maximum and index-one saddle, with no desired type premise. -/
+theorem actual_rawPins_ridge_types {L r k b : ℝ} (hL : 0 < L)
+    (sample : SmoothSample 2 L) (hr : 0 < r) (hk : 0 < k)
+    (hp : rawPins L r sample = ![b,b-k*r^3,0,0,0,0])
+    {O : Set (ℝ × ℝ)} {R c M₀ M₁ M₂ A : ℝ} {U : Set ℝ} {z : ℝ → ℝ}
+    (hs : StructuralRectangleData (actualFoldPotential r k sample) O R c M₀ M₁ M₂ A)
+    (hz : RidgeScalarData (actualFoldPotential r k sample) O R c M₀ M₁ M₂ U z) :
+    IsNondegMax 2 (actualField 2 L sample) (endpointLiftM r) ∧
+      IsIndexSaddle 2 (actualField 2 L sample) (endpointLiftS r) := by
+  obtain ⟨hcritM,hcritS⟩ := actual_rawPins_critical hL sample hp
+  obtain ⟨hcM,hsM,hcS,hsS⟩ := actual_endpoint_schur_signs hL.ne' sample hs hz
+  let V := actualFoldPotential r k sample
+  have hα : 0 < 6*k*r := by positivity
+  have hM : HessianHasInertia 2 (actualField 2 L sample) (endpointLiftM r) 2 := by
+    apply hessianHasInertia_two_of_diag _ _ (6*k*r) _ _ hα hsM hcM
+      (partialY (Vx V) (-(1/2),0) / partialY (Vy V) (-(1/2),0))
+    intro v
+    simpa only [endpointLiftM, chart_endpointM] using
+      actual_hessian_complete_square hL sample hr hk (-(1/2),0) hcM.ne v
+  have hS : HessianHasInertia 2 (actualField 2 L sample) (endpointLiftS r) 1 := by
+    apply hessianHasInertia_one_of_diag _ _ (6*k*r) _ _ hα hsS hcS
+      (partialY (Vx V) (1/2,0) / partialY (Vy V) (1/2,0))
+    intro v
+    simpa only [endpointLiftS, chart_endpointS] using
+      actual_hessian_complete_square hL sample hr hk (1/2,0) hcS.ne v
+  exact ⟨⟨hcritM,hM⟩,⟨hcritS,hS⟩⟩
+
+/-- Pointwise geometric composition on one unchanged actual source sample. -/
+theorem actual_rawPins_ridge_candidate {L r k b : ℝ} (hL : 0 < L)
+    (sample : SmoothSample 2 L) (hr : 0 < r) (hrL : r < L/2) (hk : 0 < k)
+    (hp : rawPins L r sample = ![b,b-k*r^3,0,0,0,0])
+    {O : Set (ℝ × ℝ)} {R c M₀ M₁ M₂ A : ℝ} {U : Set ℝ} {z : ℝ → ℝ}
+    (hs : StructuralRectangleData (actualFoldPotential r k sample) O R c M₀ M₁ M₂ A)
+    (hz : RidgeScalarData (actualFoldPotential r k sample) O R c M₀ M₁ M₂ U z) :
+    IsCandidatePair 2 L (actualField 2 L sample) (endpointLiftM r) (endpointLiftS r) ∧
+      torusDist 2 L (endpointLiftM r) (endpointLiftS r) = r ∧
+      heightGap 2 (actualField 2 L sample) (endpointLiftM r) (endpointLiftS r) = k*r^3 ∧
+      0 < heightGap 2 (actualField 2 L sample) (endpointLiftM r) (endpointLiftS r) := by
+  obtain ⟨hM,hS⟩ := actual_rawPins_ridge_types hL sample hr hk hp hs hz
+  have hd := endpoint_lifts_torusDist hL hr hrL
+  have hg := (actual_rawPins_heights sample hp).2.2
+  exact ⟨⟨hM,hS,by rw [hd]; exact hr⟩,hd,hg,by rw [hg]; positivity⟩
+
+open SourceActualFoldTorus I4Torus TorusFiltration CategoryTheory Limits
+
+/-- One radius from the genuine old Lifetime restriction 0<L precedes the
+coefficient field and every scale and target. Only the two established sample
+cutoffs remain: all raw pins, structural data, strict types, attained real-cover
+death and the same original-torus ordinary-H0 summand are derived internally. -/
+theorem sourceGapLaw_actual_candidate_death_h0 {L : ℝ} (hL : 0 < L) :
+    ∃ δ : ℝ, 0 < δ ∧ δ ≤ 1 ∧ δ ≤ L/2 ∧
+      ∀ (K : Type) [Field K],
+      ∀ k₀ : ℝ, 0 < k₀ → ∀ r : ℝ, 0 < r → r < δ →
+        ∀ b k : ℝ, k₀ ≤ k → ∀ᵐ sample ∂sourceGapLaw hL.ne' r b k,
+          let T := sourceT k₀ sample
+          let κ := sourceKappa r k sample
+          let R := 4/Real.sqrt κ
+          let g := actualField 2 L sample
+          r*T^5 ≤ 1/100 → 1024*T^5 ≤ κ →
+            ∃ (U : Set ℝ) (z : ℝ → ℝ),
+              RidgeScalarData (actualFoldPotential r k sample)
+                univ R (κ/2) T (3*T) T U z ∧
+              IsCandidatePair 2 L g (endpointLiftM r) (endpointLiftS r) ∧
+              torusDist 2 L (endpointLiftM r) (endpointLiftS r) = r ∧
+              g (endpointLiftM r) = b ∧ g (endpointLiftS r) = b-k*r^3 ∧
+              heightGap 2 g (endpointLiftM r) (endpointLiftS r) = k*r^3 ∧
+              0 < heightGap 2 g (endpointLiftM r) (endpointLiftS r) ∧
+              ¬ superlevelBar_isEssential g (endpointLiftM r) ∧
+              superlevelBar_deathHeight g (endpointLiftM r) = g (endpointLiftS r) ∧
+              superlevelBar_clearanceSet g (endpointLiftM r) = Iio (g (endpointLiftS r)) ∧
+              ∃ ET : ElderTrap (actualTorusField hL.ne' sample)
+                  (torusProjection 2 L (endpointM r)) (torusPhysicalMap L r (olderPoint z))
+                  b (b-k*r^3) (torusPhysicalMap L r '' leftBox R),
+                b + (3/2)*k*r^3 ≤
+                  actualTorusField hL.ne' sample (torusPhysicalMap L r (olderPoint z)) ∧
+                (∃ η : Path (torusProjection 2 L (endpointM r))
+                    (torusPhysicalMap L r (olderPoint z)),
+                  (∀ t : unitInterval, b-k*r^3 ≤ actualTorusField hL.ne' sample (η t)) ∧
+                    η pathMidpoint = torusProjection 2 L (endpointS r)) ∧
+                strictClearanceSet (actualTorusField hL.ne' sample)
+                    (torusProjection 2 L (endpointM r)) = Iio (b-k*r^3) ∧
+                strictClearanceDeath (actualTorusField hL.ne' sample)
+                    (torusProjection 2 L (endpointM r)) = b-k*r^3 ∧
+                Nonempty (superlevel_h0Filtration (actualTorusField hL.ne' sample)
+                    (ModuleCat.of K K) ≅ elderInterval K b (b-k*r^3) ⊞
+                    kernel (elderRetraction (k := K) ET)) := by
+  obtain ⟨δ₁,hδ₁,hδ₁1,hwide⟩ := sourceGapLaw_actual_rectangle_boundary_path hL.ne'
+  obtain ⟨_C,δ₂,_hC,hδ₂,_hδ₂1,hbounds⟩ := sourceInverse_target_uniform_bounds hL.ne'
+  refine ⟨min (min δ₁ δ₂) (L/2), lt_min (lt_min hδ₁ hδ₂) (by linarith),
+    ((min_le_left _ _).trans (min_le_left _ _)).trans hδ₁1, min_le_right _ _, ?_⟩
+  intro K instK k₀ hk₀ r hr hrδ b k hk
+  have hr₁ : r < δ₁ := hrδ.trans_le ((min_le_left _ _).trans (min_le_left _ _))
+  have hr₂ : r < δ₂ := hrδ.trans_le ((min_le_left _ _).trans (min_le_right _ _))
+  have hrL : r < L/2 := hrδ.trans_le (min_le_right _ _)
+  have hG := (hbounds r hr hr₂).1
+  have hpins : ∀ᵐ sample ∂sourceGapLaw hL.ne' r b k,
+      rawPins L r sample = ![b,b-k*r^3,0,0,0,0] := by
+    rw [sourceGapLaw_eq_rawPinKernel hL.ne' r b k hr.ne']
+    have hm : MeasurableSet {sample : SmoothSample 2 L |
+        rawPins L r sample = ![b,b-k*r^3,0,0,0,0]} :=
+      measurableSet_eq_fun (rawPins_measurable hL.ne' r) measurable_const
+    apply (ae_iff_measure_eq hm.nullMeasurableSet).mpr
+    simpa using rawPinKernel_pin_fiber hL.ne' r hr.ne' hG ![b,b-k*r^3,0,0,0,0]
+  filter_upwards [hwide k₀ hk₀ r hr hr₁ b k hk,hpins] with sample hw hp
+  dsimp only at hw ⊢
+  intro hrT hκ
+  obtain ⟨U,z,hz,hbox⟩ := hw hrT hκ
+  have hkpos := hk₀.trans_le hk
+  have hN := actualFoldPotential_normalized_data_of_rawPins hL.ne' sample hr hkpos hp
+  have hs := (actual_structural_rectangle hL.ne' sample hr hk₀ hk hN hrT hκ).1
+  obtain ⟨hcan,hd,hgap,hpos⟩ := actual_rawPins_ridge_candidate hL sample hr hrL hkpos hp hs hz
+  obtain ⟨hM,hS,_⟩ := actual_rawPins_heights sample hp
+  obtain ⟨hreald,hrealc⟩ := I4SourceActualFoldDeath.actual_rectangle_death
+    hL.ne' sample z hr hkpos hp hbox
+  have hne : ¬ superlevelBar_isEssential (actualField 2 L sample) (endpointLiftM r) := by
+    apply (superlevelBar_clearance_nonempty_iff _
+      (I4SourceActualFoldDeath.actualField_continuous hL.ne' sample) _).mp
+    refine ⟨b-k*r^3-1,?_⟩
+    rw [show superlevelBar_clearanceSet (actualField 2 L sample) (endpointLiftM r) =
+      Iio (b-k*r^3) from hrealc]
+    exact sub_one_lt _
+  obtain ⟨ht,hgain,hpath,hclear,hdeath⟩ :=
+    actual_rectangle_torus hL.ne' sample z hr hkpos hp hbox
+  refine ⟨U,z,hz,hcan,hd,hM,hS,hgap,hpos,hne,?_,?_,
+    SourceActualFoldH0.toElderTrap ht,hgain,hpath,hclear,hdeath,?_⟩
+  · exact hreald.trans hS.symm
+  · exact hrealc.trans (congrArg Iio hS.symm)
+  · exact ⟨elderDirectSummand (k := K) (SourceActualFoldH0.toElderTrap ht)⟩

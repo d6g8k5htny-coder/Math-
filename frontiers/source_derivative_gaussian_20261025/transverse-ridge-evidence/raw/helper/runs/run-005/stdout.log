@@ -1,0 +1,55 @@
+/workspace/scratch/transverse-ridge-jets/build:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Cli/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/batteries/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Qq/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/aesop/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/plausible/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean:/home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean
+/workspace/scratch/transverse-ridge-jets/TransverseRidgeJets.lean:113:50: error: unsolved goals
+B : ℝ × ℝ →L[ℝ] ℝ × ℝ →L[ℝ] ℝ
+z : ℝ
+hv : (1, z) = ex + z • ey
+⊢ (B (ex + z • ey)) ex + z • (B (ex + z • ey)) ey = (B ex + z • B ey) (ex + z • ey)
+/workspace/scratch/transverse-ridge-jets/TransverseRidgeJets.lean:127:13: error(lean.unknownIdentifier): Unknown identifier `abs_add`
+/workspace/scratch/transverse-ridge-jets/TransverseRidgeJets.lean:187:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  f z
+in the target expression
+  |z| * c ≤ M
+
+case inl
+f : ℝ → ℝ
+R c M z : ℝ
+hR : 0 ≤ R
+hc : 0 < c
+hf : ContinuousOn f (Icc (-R) R)
+hdf : DifferentiableOn ℝ f (interior (Icc (-R) R))
+hneg : ∀ y ∈ interior (Icc (-R) R), deriv f y ≤ -c
+hz : z ∈ Icc (-R) R
+hroot : f z = 0
+hcenter : |f 0| ≤ M
+hzero : 0 ∈ Icc (-R) R
+hpos : 0 ≤ z
+hm : f z - f 0 ≤ -c * (z - 0)
+⊢ |z| * c ≤ M
+/workspace/scratch/transverse-ridge-jets/TransverseRidgeJets.lean:192:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  f z
+in the target expression
+  |z| * c ≤ M
+
+case inr
+f : ℝ → ℝ
+R c M z : ℝ
+hR : 0 ≤ R
+hc : 0 < c
+hf : ContinuousOn f (Icc (-R) R)
+hdf : DifferentiableOn ℝ f (interior (Icc (-R) R))
+hneg : ∀ y ∈ interior (Icc (-R) R), deriv f y ≤ -c
+hz : z ∈ Icc (-R) R
+hroot : f z = 0
+hcenter : |f 0| ≤ M
+hzero : 0 ∈ Icc (-R) R
+hnonpos : z ≤ 0
+hm : f 0 - f z ≤ -c * (0 - z)
+⊢ |z| * c ≤ M
+/workspace/scratch/transverse-ridge-jets/TransverseRidgeJets.lean:211:52: error: Application type mismatch: The argument
+  hcenter
+has type
+  |G (x, 0)| ≤ M
+but is expected to have type
+  |?m.208 0| ≤ M
+in the application
+  root_abs_le_center_div hR hc ?m.213 ?m.214 ?m.215 hz ?m.216 hcenter

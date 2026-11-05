@@ -1,0 +1,23 @@
+{
+  "status": "COMPLETE_ACTUAL_LP_COMPACT_PUBLIC_CORE_STRICT_PASS",
+  "recorded_utc": "2026-10-28T18:55:35.106426+00:00",
+  "receipt": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/core-002/receipt.json",
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFiniteSuperlevelComponents.lean",
+    "bytes": 4756,
+    "sha256": "ee30189b88ff08e8ce476e690c49541cbcf666b84f1e3d9bb1b90beac1241d74",
+    "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+  },
+  "object": {
+    "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/build/SourceActualFiniteSuperlevelComponents.olean",
+    "bytes": 103160,
+    "sha256": "99a80a40c05131373220d2aa321ee2516a637b0c2ef04cdae56267d9aa4ca7a7",
+    "identity_origin": "FIRST identity of newly created or changed owned payload"
+  },
+  "completed_utc": "2026-10-28T18:55:22.368884+00:00",
+  "first_attempt": "core001 actual type-level-set projection plus3letI lints corrected in fullactualpatchcore002",
+  "core_coverage": "ActualPUBLIC61\u2192relativeLP, actualcompact subtype, directOLDfiniteinstance, exactnewpublicALLlevels; nofixture coverage yet",
+  "kernel_count": 0,
+  "partial_kernel": "FORBIDDEN/notexecuted",
+  "existing_qualified_dependencies": "REUSED/nooldchecks"
+}

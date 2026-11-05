@@ -1,0 +1,14 @@
+SourcePinPreservingQuartic.lean:178:56: error: unexpected token '!'; expected ':=', 'where' or '|'
+SourcePinPreservingQuartic.lean:233:2: error: Type mismatch
+  hb
+has type
+  |g x - (g 0 + x * deriv g 0 + x ^ 2 * iteratedDeriv 2 g 0 / 2 + x ^ 3 * iteratedDeriv 3 g 0 / 6)| ≤ G * x ^ 4 / 4
+but is expected to have type
+  |g x - (g 0 + x * deriv g 0 + x ^ 2 * iteratedDeriv 2 g 0 / 2 + x ^ 3 * iteratedDeriv 3 g 0 / 6)| ≤ G * x ^ 4 / 24
+SourcePinPreservingQuartic.lean:243:2: error: Type mismatch
+  hb
+has type
+  |g x - (g 0 + x * deriv g 0 + x ^ 2 * iteratedDeriv 2 g 0 / 2)| ≤ G * |x| ^ 3 / 3
+but is expected to have type
+  |g x - (g 0 + x * deriv g 0 + x ^ 2 * iteratedDeriv 2 g 0 / 2)| ≤ G * |x| ^ 3 / 6
+SourcePinPreservingQuartic.lean:263:96: error: unexpected token ']]'; expected ']'

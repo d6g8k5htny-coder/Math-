@@ -1,0 +1,562 @@
+[
+  {
+    "kind": "def",
+    "name": "I4SourceCurvatureDecomposition.curvatureCoefficient",
+    "line": 25
+  },
+  {
+    "kind": "def",
+    "name": "I4SourceCurvatureDecomposition.curvatureCross",
+    "line": 28
+  },
+  {
+    "kind": "def",
+    "name": "I4SourceCurvatureDecomposition.curvatureBeta",
+    "line": 31
+  },
+  {
+    "kind": "def",
+    "name": "I4SourceCurvatureDecomposition.curvatureMean",
+    "line": 34
+  },
+  {
+    "kind": "def",
+    "name": "I4SourceCurvatureDecomposition.curvatureVariance",
+    "line": 36
+  },
+  {
+    "kind": "def",
+    "name": "I4SourceCurvatureDecomposition.curvatureSigma",
+    "line": 39
+  },
+  {
+    "kind": "def",
+    "name": "I4SourceCurvatureDecomposition.curvatureResidualCoefficient",
+    "line": 41
+  },
+  {
+    "kind": "def",
+    "name": "I4SourceCurvatureDecomposition.curvatureDirection",
+    "line": 44
+  },
+  {
+    "kind": "def",
+    "name": "I4SourceCurvatureDecomposition.curvatureZ",
+    "line": 47
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureCoefficient_summable",
+    "line": 50
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.sourceContactQ_series",
+    "line": 53
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureCoefficient_weighted_summable",
+    "line": 57
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureCross_coefficient",
+    "line": 62
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureVariance_prior_coefficient",
+    "line": 77
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureResidualCoefficient_summable",
+    "line": 85
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureDirection_summable",
+    "line": 90
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureBeta_normal",
+    "line": 94
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureResidual_pin_orthogonal",
+    "line": 121
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureResidual_q_pairing",
+    "line": 149
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureResidual_normSquared",
+    "line": 160
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureDirection_pin_orthogonal",
+    "line": 185
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureSigma_pos",
+    "line": 191
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureSigma_sq",
+    "line": 194
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureDirection_normSquared",
+    "line": 197
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureDirection_q_pairing",
+    "line": 203
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureResidualCoefficient_weighted_summable",
+    "line": 210
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureDirection_weighted_summable",
+    "line": 221
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureZ_eq",
+    "line": 246
+  },
+  {
+    "kind": "def",
+    "name": "I4SourceCurvatureDecomposition.unitDirection",
+    "line": 273
+  },
+  {
+    "kind": "def",
+    "name": "I4SourceCurvatureDecomposition.unitDirectionCoefficientResidual",
+    "line": 276
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.unitDirection_measurable",
+    "line": 280
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.unitDirection_hasLaw",
+    "line": 284
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.unitDirection_coefficient_covariance",
+    "line": 293
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.unitDirectionCoefficientResidual_zero_covariance",
+    "line": 302
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.unitDirection_finiteCoefficients_hasGaussianLaw",
+    "line": 319
+  },
+  {
+    "kind": "def",
+    "name": "I4SourceCurvatureDecomposition.finiteDirectionLift",
+    "line": 352
+  },
+  {
+    "kind": "lemma",
+    "name": "I4SourceCurvatureDecomposition.finiteDirectionLift_apply",
+    "line": 356
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.unitDirection_finiteResidual_hasGaussianLaw",
+    "line": 359
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.unitDirection_scalar_finiteResidual_hasGaussianLaw",
+    "line": 374
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.unitDirectionCoefficientResidual_finite_indepFun",
+    "line": 386
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.unitDirectionCoefficientResidual_indepFun",
+    "line": 395
+  },
+  {
+    "kind": "def",
+    "name": "I4SourceCurvatureDecomposition.regularizedCurvatureCross",
+    "line": 411
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.regularizedCurvatureCross_continuous",
+    "line": 414
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.regularizedCurvatureCross_zero",
+    "line": 427
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureCross_tendsto",
+    "line": 438
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvaturePinInverse_tendsto",
+    "line": 452
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureBeta_tendsto",
+    "line": 463
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureVariance_tendsto",
+    "line": 477
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureMean_prescribed_tendsto",
+    "line": 500
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvature_uniform_parameter_bounds",
+    "line": 515
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureZ_measurable",
+    "line": 555
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.sourceContactQ_measurable",
+    "line": 558
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureZ_hasLaw",
+    "line": 564
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureDirection_goodSample",
+    "line": 570
+  },
+  {
+    "kind": "def",
+    "name": "I4SourceCurvatureDecomposition.curvatureShift",
+    "line": 576
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureShift_val",
+    "line": 582
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureShift_measurable",
+    "line": 586
+  },
+  {
+    "kind": "def",
+    "name": "I4SourceCurvatureDecomposition.curvatureResidualSample",
+    "line": 594
+  },
+  {
+    "kind": "def",
+    "name": "I4SourceCurvatureDecomposition.curvatureResidualLaw",
+    "line": 597
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureResidualSample_measurable",
+    "line": 600
+  },
+  {
+    "kind": "instance",
+    "name": "I4SourceCurvatureDecomposition.curvatureResidualLaw_isProbabilityMeasure",
+    "line": 604
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.sourceConfluentPinsAt_curvatureShift",
+    "line": 624
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.sourceContactQ_curvatureShift",
+    "line": 635
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureZ_curvatureShift",
+    "line": 642
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureResidualSample_pins",
+    "line": 653
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureResidualSample_Z",
+    "line": 658
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureResidualSample_inclusion",
+    "line": 664
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureResidualSample_indepFun",
+    "line": 671
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureResidualSample_joint_map",
+    "line": 685
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.sourceContactQ_posteriorSample",
+    "line": 695
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.sourceContactQ_posteriorSample_Z",
+    "line": 710
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.sourceContactQ_posteriorResidual",
+    "line": 719
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvaturePosterior_reconstruction",
+    "line": 725
+  },
+  {
+    "kind": "def",
+    "name": "I4SourceCurvatureDecomposition.curvatureReconstruct",
+    "line": 736
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureReconstruct_measurable",
+    "line": 741
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureReconstruct_pins",
+    "line": 748
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureReconstruct_Q",
+    "line": 754
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureReconstruct_residual_image",
+    "line": 761
+  },
+  {
+    "kind": "def",
+    "name": "I4SourceCurvatureDecomposition.curvatureDirectionEnvelope",
+    "line": 779
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureDirectionEnvelope_nonneg",
+    "line": 783
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureDirectionEnvelope_summable",
+    "line": 789
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureDirectionEnvelope_weighted_summable",
+    "line": 794
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureDirection_envelope_at",
+    "line": 799
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureDirection_uniform_envelope",
+    "line": 846
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureAffine_gaussian",
+    "line": 864
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureResidual_curvature_joint_map",
+    "line": 886
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.sourceSmoothKernel_eq_curvatureProduct",
+    "line": 910
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.sourceSmoothKernel_eq_curvatureProduct_swap",
+    "line": 928
+  },
+  {
+    "kind": "theorem",
+    "name": "I4GaussianVarianceFloor.gaussianPDFReal_le_of_variance_floor",
+    "line": 947
+  },
+  {
+    "kind": "theorem",
+    "name": "I4GaussianVarianceFloor.gaussianReal_interval_mass_le_of_variance_floor",
+    "line": 963
+  },
+  {
+    "kind": "def",
+    "name": "I4SourceCurvatureDecomposition.curvatureScalarLaw",
+    "line": 988
+  },
+  {
+    "kind": "instance",
+    "name": "I4SourceCurvatureDecomposition.curvatureScalarLaw_isProbabilityMeasure",
+    "line": 991
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureReconstruct_swap_measurable",
+    "line": 996
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureReconstruct_hasLaw",
+    "line": 1003
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureScalarLaw_interval_mass_uniform",
+    "line": 1010
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.sourceSmoothKernel_eventually_curvatureProduct",
+    "line": 1026
+  },
+  {
+    "kind": "def",
+    "name": "I4SourceCurvatureDecomposition.curvatureResidualRadius",
+    "line": 1041
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureResidualRadius_measurable",
+    "line": 1044
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.one_le_curvatureResidualRadius",
+    "line": 1049
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.sourceContactQ_posterior_abs_le_radius",
+    "line": 1052
+  },
+  {
+    "kind": "def",
+    "name": "I4SourceCurvatureDecomposition.curvatureEnvelopeTotal",
+    "line": 1057
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureEnvelopeTotal_nonneg",
+    "line": 1060
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.sourceDerivativeMajorant_curvatureShift",
+    "line": 1064
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.sourceGammaRadius_curvatureShift",
+    "line": 1086
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.sourceDerivativeMajorant_curvatureReconstruct",
+    "line": 1105
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.sourceGammaRadius_curvatureReconstruct",
+    "line": 1148
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvaturePosterior_residual_eq_shift",
+    "line": 1164
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureResidualRadius_image_bound",
+    "line": 1175
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureResidualRadius_moment_bound",
+    "line": 1188
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureResidualRadius_uniform_bounds",
+    "line": 1251
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvatureReconstruct_joint_measurable",
+    "line": 1299
+  },
+  {
+    "kind": "theorem",
+    "name": "I4SourceCurvatureDecomposition.curvaturePin_finiteCoefficients_hasGaussianLaw",
+    "line": 1311
+  }
+]

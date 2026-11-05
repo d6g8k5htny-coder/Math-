@@ -1,0 +1,71 @@
+private theorem pairing_eq_linearCombination {ι : Type*} (a : ι → ℝ) (v : ι →₀ ℝ) :
+    finitePairing a v = Finsupp.linearCombination ℝ a v := by
+  classical
+  simp only [finitePairing,Finsupp.linearCombination_apply,Finsupp.sum]
+  apply Finset.sum_congr rfl
+  intro m _hm
+  simp only [smul_eq_mul]
+  ring
+
+/-- A total finite direction in the ORIGINAL source coefficient modes. -/
+def toSource (L : ℝ) (p : TrigPoly) : SourceMode 2 →₀ ℝ :=
+  (p.map (fun t => t.coeff • atomSource L t.frequency t.offset)).sum
+
+/-- The exact finite coefficient pairing represents every shifted-cosine list,
+including zero frequency, negative frequencies and arbitrary offsets. -/
+theorem toSource_eval {L : ℝ} (hL : L ≠ 0) (p : TrigPoly) (x : Fin 2 → ℝ) :
+    finitePairing (fun m => modeCoefficient 2 L m x) (toSource L p) = eval L p x := by
+  induction p with
+  | nil => simp [toSource,eval,finitePairing]
+  | cons t p ih =>
+    change finitePairing (fun m => modeCoefficient 2 L m x)
+      (t.coeff • atomSource L t.frequency t.offset + toSource L p) =
+        termEval L t x + eval L p x
+    rw [pairing_eq_linearCombination,map_add,map_smul,
+      ← pairing_eq_linearCombination,← pairing_eq_linearCombination,
+      atomSource_pairing hL,ih]
+    rfl
+
+open I4Foundation I4SmoothCarrier I4SourceSmoothConditional I4SourceDerivativeGaussian
+
+private theorem scalarSeries_finitePairing {ι : Type*} (a : ι → ℝ) (v : ι →₀ ℝ) :
+    scalarSeries a v = finitePairing a v := by
+  classical
+  have h : HasSum (fun m => a m * v m) (finitePairing a v) := by
+    apply hasSum_sum_of_ne_finset_zero
+    intro m hm
+    simp only [Finsupp.notMem_support_iff.mp hm,mul_zero]
+  exact h.tsum_eq
+
+private def representedSample (L : ℝ) (p : TrigPoly) : SmoothSample 2 L :=
+  finiteShiftSample (toSource L p) (zeroSample 2 L)
+
+private theorem representedSample_val (L : ℝ) (p : TrigPoly) (m : SourceMode 2) :
+    (representedSample L p).val m = toSource L p m := by
+  simp [representedSample,finiteShiftSample_val,zeroSample]
+
+private theorem representedSample_field {L : ℝ} (hL : L ≠ 0) (p : TrigPoly) :
+    smoothSourceField 2 L (representedSample L p) = eval L p := by
+  funext x
+  change scalarSeries (fun m => modeCoefficient 2 L m x)
+      (sampleInclusion 2 L (representedSample L p)) = _
+  have hval : sampleInclusion 2 L (representedSample L p) =
+      fun m => toSource L p m := by
+    funext m
+    exact representedSample_val L p m
+  rw [hval,scalarSeries_finitePairing,toSource_eval hL]
+
+/-- All derivative orders and direction arrays are paired against the same
+finite original direction, by the accepted literal source derivative series. -/
+theorem toSource_derivative {L : ℝ} (hL : L ≠ 0) (p : TrigPoly)
+    (n : ℕ) (x : Fin 2 → ℝ) (u : Fin n → (Fin 2 → ℝ)) :
+    finitePairing (derivativeCoefficient 2 L n x u) (toSource L p) =
+      iteratedFDeriv ℝ n (eval L p) x u := by
+  have h := smoothSourceField_derivative_series 2 hL (representedSample L p) n x u
+  rw [representedSample_field hL] at h
+  have hval : sampleInclusion 2 L (representedSample L p) =
+      fun m => toSource L p m := by
+    funext m
+    exact representedSample_val L p m
+  rw [hval,scalarSeries_finitePairing] at h
+  exact h.symm

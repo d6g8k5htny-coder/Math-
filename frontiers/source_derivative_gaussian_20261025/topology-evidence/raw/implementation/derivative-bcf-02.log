@@ -1,0 +1,51 @@
+/workspace/scratch/source-smooth-topology/DerivativeBCF.lean:50:6: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NormSMulClass ℝ (DerivativeBCF d k)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/source-smooth-topology/DerivativeBCF.lean:46:64: error: unsolved goals
+d : ℕ
+L : ℝ
+hL : L ≠ 0
+k : ℕ
+ω : SmoothSample d L
+m : SourceMode d
+⊢ NormSMulClass ℝ (DerivativeBCF d k)
+/workspace/scratch/source-smooth-topology/DerivativeBCF.lean:59:87: error: unsolved goals
+d : ℕ
+L : ℝ
+hL : L ≠ 0
+k : ℕ
+ω : SmoothSample d L
+x : Fin d → ℝ
+hs : Summable fun m => ↑ω m • modeDerivativeBCF d hL k m
+hx : HasSum (fun m => ↑ω m • iteratedFDeriv ℝ k (modeCoefficient d L m) x) ((sourceDerivativeBCF d hL k ω) x)
+u : Fin k → Fin d → ℝ
+m : SourceMode d
+⊢ ↑ω m = sampleInclusion d L ω m ∨ (iteratedFDeriv ℝ k (modeCoefficient d L m) x) u = 0
+/workspace/scratch/source-smooth-topology/DerivativeBCF.lean:71:8: error: This simp argument is unused:
+  modeDerivativeBCF
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [derivativeCoefficient, smul_eq_mul, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/source-smooth-topology/DerivativeBCF.lean:104:15: error: Type mismatch
+  ↑ω m • fun j => modeDerivativeBCF d hL j m
+has type
+  (j : ℕ) → DerivativeBCF d j
+but is expected to have type
+  (j : Fin (K + 1)) → DerivativeBCF d ↑j
+/workspace/scratch/source-smooth-topology/DerivativeBCF.lean:106:4: error: Type mismatch
+  StronglyMeasurable.smul_const
+    (Measurable.stronglyMeasurable (Measurable.comp (measurable_pi_apply m) measurable_subtype_coe)) fun j =>
+    modeDerivativeBCF d hL (↑j) m
+has type
+  StronglyMeasurable fun x => ((fun f => f m) ∘ Subtype.val) x • fun j => modeDerivativeBCF d hL (↑j) m
+but is expected to have type
+  StronglyMeasurable (a m)
+/workspace/scratch/source-smooth-topology/DerivativeBCF.lean:101:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/scratch/source-smooth-topology/DerivativeBCF.lean:112:8: error: (kernel) unknown constant 'I4SourceSmoothTopology.sourceFiniteJet_stronglyMeasurable'

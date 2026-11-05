@@ -1,0 +1,142 @@
+{
+  "schema": "two-remote-firstjet-witness-contenders/v1",
+  "observed_at": "2026-10-26T17:27:16.110531+00:00",
+  "qualified52_publication": "677f8aef426a6f754ad9a77f122b6597ec4bc1e9",
+  "qualified52_RESULT": 6422828482,
+  "qualified52_board_mirror": 6422836367,
+  "reported_pr_base": "180d6406b0a51b268a152241a70bde6a1b39a142",
+  "actual_default_main": "675b4a82a4df60ea6b136a55111825be3dd47c93",
+  "proposed_paths": [
+    "frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetWitness.lean",
+    "frontiers/source_derivative_gaussian_20261025/SOURCE_TWO_REMOTE_FIRSTJET_WITNESS.md",
+    "frontiers/source_derivative_gaussian_20261025/SOURCE_TWO_REMOTE_FIRSTJET_WITNESS_PLAN.md",
+    "frontiers/source_derivative_gaussian_20261025/SOURCE_TWO_REMOTE_FIRSTJET_WITNESS_CONTENDERS.json"
+  ],
+  "already_landed": false,
+  "already_landed_evidence": "Exact proposed paths absent originalPRbase tree; complete base\u2192f0\u2192675 comparisons affect only2RBO+6LM006 paths, disjoint/noGaussian/formal input change.",
+  "foreign_heads": [
+    {
+      "number": 518,
+      "head": "03827c4cf9bc7b89f54a2d24487f4d6eedf05ed5",
+      "base": "675b4a82a4df60ea6b136a55111825be3dd47c93"
+    },
+    {
+      "number": 504,
+      "head": "d65e4425e32f62678d4899a0488f137c9918d7ae",
+      "base": "5b3cc75d1585a00ee1420a556af5b77748c418fa"
+    },
+    {
+      "number": 497,
+      "head": "5b3cc75d1585a00ee1420a556af5b77748c418fa",
+      "base": "91811388ef2e20cc30a1c418e866b185a253a186"
+    },
+    {
+      "number": 496,
+      "head": "91811388ef2e20cc30a1c418e866b185a253a186",
+      "base": "deccada38a1510fb8330bc205890ba6e98527818"
+    },
+    {
+      "number": 492,
+      "head": "f7fbd8cf44c29103297f29220ab49fcf64b5df3a",
+      "base": "9f3fb6918b28e6378c034ebc19e76d432f5391cb"
+    },
+    {
+      "number": 491,
+      "head": "deccada38a1510fb8330bc205890ba6e98527818",
+      "base": "8c226134ac0a0169dbb43311082e5353ed5c922c"
+    },
+    {
+      "number": 490,
+      "head": "1016973a1f311114b814eef060707ab642bc29e8",
+      "base": "8c226134ac0a0169dbb43311082e5353ed5c922c"
+    },
+    {
+      "number": 487,
+      "head": "dbc3a80afd1ac82c13a0390af7913f9986858467",
+      "base": "8c226134ac0a0169dbb43311082e5353ed5c922c"
+    },
+    {
+      "number": 482,
+      "head": "35a7d76869aad52d7508d58bc589eeb0ddc18bbb",
+      "base": "b6fc0e64d75712f52afffc3f3a07ae52f4a5b782"
+    },
+    {
+      "number": 460,
+      "head": "5497685a50c47b05bd3703c9dc295ded1de2f867",
+      "base": "6e502c1f8a5632eb90670fd9fc0d52e421c015a2"
+    },
+    {
+      "number": 430,
+      "head": "1a7fc4be83043f2e313927019db85fff61eeac3f",
+      "base": "25a4b611368063807ac9201aea80461ffe8583d2"
+    },
+    {
+      "number": 426,
+      "head": "5fb3a52ebfbdb73a37f743d9ab960560979f3b20",
+      "base": "128d96fbe39425519a30e48ce2efc7406041a61e"
+    },
+    {
+      "number": 405,
+      "head": "bee7fd0b64121c452d5cc40c75e99a71ae8e2613",
+      "base": "a08b2100674b40309052f902548013a0e2f0e1e7"
+    },
+    {
+      "number": 397,
+      "head": "8177f47bbb66b7cc0dca430941832740a5480dee",
+      "base": "2ca3bf262f34a729589ad87eefe6cf6af5adcb6c"
+    },
+    {
+      "number": 389,
+      "head": "1038336f92a482b60c7d89fe3024c941281663d3",
+      "base": "34618d0d032f4361c1ec163f3b4cfd6ad01ab814"
+    },
+    {
+      "number": 385,
+      "head": "089d87ace030e755511a04735c42c1f91911d4c1",
+      "base": "08f86862f859ac4804b4fd6c6477a7ed0421e37f"
+    },
+    {
+      "number": 379,
+      "head": "9b3387bdc1cd4e1afc29916d7d7c3f9d922af722",
+      "base": "08f86862f859ac4804b4fd6c6477a7ed0421e37f"
+    },
+    {
+      "number": 372,
+      "head": "497dcca37abd18464a6b33cf32ce2e3263054323",
+      "base": "4fe1d6762db8faa13859c4eeda0167b3c65ac069"
+    },
+    {
+      "number": 370,
+      "head": "fedd0056c18093e8862b7f6ac2860dc04f8133b9",
+      "base": "11f9127f00ce922e5d39b0da42af76134eb78a21"
+    },
+    {
+      "number": 312,
+      "head": "e8f4387f5e7940f71d0b4cfeb3e38dac0f95834f",
+      "base": "67adf884353e1e5e6e453a412ea0dd01fcc4a466"
+    }
+  ],
+  "reused_complete_19_pr_inventory": "SOURCE_FINITE_PIN_KERNEL_CONTENDERS.json excluding merged517 and380",
+  "current518_complete_paths": [
+    ".github/workflows/elder-third-order.yml",
+    ".github/workflows/full-regression-suite.yml",
+    "reviews/elder_third_order_workflow_repair_20261021/SCOPE.md",
+    "tests/test_full_suite_routing.py",
+    "tests/test_legacy_json_workflows.py",
+    "tests/test_legacy_workflow_triggers.py",
+    "tools/legacy_json_contracts.json",
+    "tools/legacy_json_replay.py"
+  ],
+  "overlap": [],
+  "claims_reviewed_through": "2026-10-26T17:27:16.110531+00:00",
+  "claim_note": "All newlyreturned PR/boardcomments fullyread byroot;429/430scientificslicesand518compositionengineeringdisjoint; no sourceclaim for proposedpaths. ComponentKernel/C263/C264/formalEPERM preserved.",
+  "native_review_ids": [
+    5655734753
+  ],
+  "narrow_review": "OnlyunchangedSourceLifetimePairFiniteness+2inputs,d2/conditionalupstream/norerun. Not53review.",
+  "checkpoint_utc": "2026-10-26T18:20:00Z",
+  "terminal_utc": "2026-10-26T19:45:00Z",
+  "prior_timers_unchanged": true,
+  "old_mathematical_hash_replays": 0,
+  "scientific_effect": "NONE"
+}

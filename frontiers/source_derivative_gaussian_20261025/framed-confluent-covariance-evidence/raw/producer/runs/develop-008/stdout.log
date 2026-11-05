@@ -1,0 +1,239 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:772:7: error: Type mismatch: After simplification, term
+  h01
+ has type
+  (R 1).ofLp 0 * (R 0).ofLp 0 + (R 1).ofLp 1 * (R 0).ofLp 1 = 0
+but is expected to have type
+  (R 0).ofLp 0 * (R 1).ofLp 0 + (R 0).ofLp 1 * (R 1).ofLp 1 = 0
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1275:5: error: Type mismatch
+  this
+has type
+  @Nat.cast ℕ∞ ENat.instNatCast k ≤ ⊤
+but is expected to have type
+  @Nat.cast (WithTop ℕ∞) WithTop.natCast ?m.37 ≤ ↑⊤
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1283:5: error: Type mismatch
+  this
+has type
+  ⊤ ≠ 0
+but is expected to have type
+  ↑⊤ ≠ 0
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1291:4: error: Tactic `apply` failed: could not unify the conclusion of `Continuous.comp h2`
+  Continuous[?m.160, _] ((fun p => (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) p.1) p.2) ∘ ?m.163)
+with the goal
+  Continuous fun p =>
+    (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) (p.1.1.1 + (p.1.2 * p.2) • p.1.1.2.1)) ![p.1.1.2.1, p.1.1.2.1]
+
+Note: The full type of `Continuous.comp h2` is
+  Continuous[?m.160, _] ?m.163 →
+    Continuous[?m.160, _] ((fun p => (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) p.1) p.2) ∘ ?m.163)
+
+L : ℝ
+m : SourceMode 2
+i : Fin 7
+hf : Continuous (modeCoefficient 2 L m)
+hd : Continuous (fderiv ℝ (modeCoefficient 2 L m))
+h2 : Continuous fun p => (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) p.1) p.2
+h3 : Continuous fun p => (iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) p.1) p.2
+⊢ Continuous fun p =>
+    (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) (p.1.1.1 + (p.1.2 * p.2) • p.1.1.2.1)) ![p.1.1.2.1, p.1.1.2.1]
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1298:4: error: Tactic `apply` failed: could not unify the conclusion of `Continuous.comp h2`
+  Continuous[?m.247, _] ((fun p => (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) p.1) p.2) ∘ ?m.250)
+with the goal
+  Continuous fun p =>
+    (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) (p.1.1.1 + (p.1.2 * p.2) • p.1.1.2.1)) ![p.1.1.2.1, p.1.1.2.2]
+
+Note: The full type of `Continuous.comp h2` is
+  Continuous[?m.247, _] ?m.250 →
+    Continuous[?m.247, _] ((fun p => (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) p.1) p.2) ∘ ?m.250)
+
+L : ℝ
+m : SourceMode 2
+i : Fin 7
+hf : Continuous (modeCoefficient 2 L m)
+hd : Continuous (fderiv ℝ (modeCoefficient 2 L m))
+h2 : Continuous fun p => (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) p.1) p.2
+h3 : Continuous fun p => (iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) p.1) p.2
+h22 :
+  Continuous fun p =>
+    (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) (p.1.1.1 + (p.1.2 * p.2) • p.1.1.2.1)) ![p.1.1.2.1, p.1.1.2.1]
+⊢ Continuous fun p =>
+    (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) (p.1.1.1 + (p.1.2 * p.2) • p.1.1.2.1)) ![p.1.1.2.1, p.1.1.2.2]
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1310:6: error: Tactic `apply` failed: could not unify the conclusion of `Continuous.comp h3`
+  Continuous[?m.475, _] ((fun p => (iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) p.1) p.2) ∘ ?m.478)
+with the goal
+  Continuous fun p =>
+    (iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) (p.1.1.1 + (p.1.2 * p.2) • p.1.1.2.1))
+      ![p.1.1.2.1, p.1.1.2.1, p.1.1.2.1]
+
+Note: The full type of `Continuous.comp h3` is
+  Continuous[?m.475, _] ?m.478 →
+    Continuous[?m.475, _] ((fun p => (iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) p.1) p.2) ∘ ?m.478)
+
+L : ℝ
+m : SourceMode 2
+i : Fin 7
+hf : Continuous (modeCoefficient 2 L m)
+hd : Continuous (fderiv ℝ (modeCoefficient 2 L m))
+h2 : Continuous fun p => (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) p.1) p.2
+h3 : Continuous fun p => (iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) p.1) p.2
+h22 :
+  Continuous fun p =>
+    (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) (p.1.1.1 + (p.1.2 * p.2) • p.1.1.2.1)) ![p.1.1.2.1, p.1.1.2.1]
+h2n :
+  Continuous fun p =>
+    (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) (p.1.1.1 + (p.1.2 * p.2) • p.1.1.2.1)) ![p.1.1.2.1, p.1.1.2.2]
+⊢ Continuous fun p =>
+    (iteratedFDeriv ℝ 3 (modeCoefficient 2 L m) (p.1.1.1 + (p.1.2 * p.2) • p.1.1.2.1))
+      ![p.1.1.2.1, p.1.1.2.1, p.1.1.2.1]
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1312:11: error: invalid 'by' tactic, expected type has not been provided
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1314:4: error: Application type mismatch: The argument
+  h22
+has type
+  Continuous fun p =>
+    (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) (p.1.1.1 + (p.1.2 * p.2) • p.1.1.2.1)) ![p.1.1.2.1, p.1.1.2.1]
+but is expected to have type
+  Continuous[instTopologicalSpaceProd, PseudoMetricSpace.toUniformSpace.toTopologicalSpace] (Function.uncurry ?m.492)
+in the application
+  intervalIntegral.continuous_parametric_intervalIntegral_of_continuous' h22
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1330:4: error: 'change' tactic failed, pattern
+  IsClosed (⋂ i, ⋂ j, {u | inner ℝ (u i) (u j) = if i = j then 1 else 0})
+is not definitionally equal to target
+  IsClosed {u | ∀ (i j : Fin 2), inner ℝ (u i) (u j) = if i = j then 1 else 0}
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1368:4: error: Type mismatch: After simplification, term
+  abs_le.mpr ⟨hx.left a, hx.right a⟩
+ has type
+  @LE.le ℝ instDistribLatticeOfLinearOrder.toSemilatticeInf.toLE |x a| (|L| / 2)
+but is expected to have type
+  @LE.le ℝ Real.instLE |((coordinates 2).symm x).ofLp a| (|L| / 2)
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1384:2: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1425:4: error: Application type mismatch: The argument
+  compact_gram_continuous hL
+has type
+  Continuous (compact_gram L)
+but is expected to have type
+  ContinuousOn ?m.15 (compact_parameters L)
+in the application
+  IsCompact.uniformContinuousOn_of_continuous (compact_parameters_isCompact L) (compact_gram_continuous hL)
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1422:29: error: unsolved goals
+L : ℝ
+hL : L ≠ 0
+eps : ℝ
+heps : 0 < eps
+⊢ ∃ delta,
+    0 < delta ∧
+      ∀ (z : E 2),
+        (∀ (a : Fin 2), |(coordinates 2) z a| ≤ |L| / 2) →
+          ∀ (R : OrthonormalBasis (Fin 2) ℝ (E 2)) (r : ℝ),
+            0 ≤ r →
+              r ≤ delta →
+                ∀ (i j : Fin 7), |framedConfluentCovariance L z R r i j - framedConfluentCovariance L z R 0 i j| < eps
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1475:10: error(lean.unknownIdentifier): Unknown identifier `pow_eq_zero`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1536:8: error: `continuous_finset_sum` has been deprecated: Use `continuous_finsetSum` instead
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1538:8: error: `continuous_finset_sum` has been deprecated: Use `continuous_finsetSum` instead
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1534:48: error: unsolved goals
+L : ℝ
+hL : L ≠ 0
+i : Fin 7
+hi : i ∈ Finset.univ
+j : Fin 7
+hj : j ∈ Finset.univ
+⊢ Continuous fun a => a.2 i * compact_gram L a.1 i j * a.2 j
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1570:38: error: unsolved goals
+A B : Matrix (Fin 7) (Fin 7) ℝ
+eta : ℝ
+heta : 0 ≤ eta
+hAB : ∀ (i j : Fin 7), |A i j - B i j| ≤ eta
+v : Fin 7 → ℝ
+hh : compact_quad A v - compact_quad B v = ∑ i, ∑ j, v i * (A i j - B i j) * v j
+⊢ (∑ x, eta * v x ^ 2 * (7 / 2)) * 2 = ∑ x, eta * v x ^ 2 * 7
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1572:32: error: This simp argument is unused:
+  Finset.sum_div
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [compact_square, mul_add, add_div, Finset.mul_sum, Finset.sum_add_distrib, Finset.sum_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1572:48: error: This simp argument is unused:
+  Finset.sum_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [compact_square, mul_add, add_div, Finset.mul_sum, Finset.sum_add_distrib, Finset.sum_div]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1596:29: error: Application type mismatch: The argument
+  h
+has type
+  Fin.castAdd 1 i = Fin.castAdd 1 j
+but is expected to have type
+  i = j
+in the application
+  congrArg Fin.val h
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1597:2: error: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1603:27: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (?M * ?N) *ᵥ ?v
+in the target expression
+  -(A *ᵥ A⁻¹ *ᵥ b) = -b
+
+G : Matrix (Fin 7) (Fin 7) ℝ
+gamma : ℝ
+hgamma : 0 < gamma
+hH : G.IsHermitian
+hlower : ∀ (v : Fin 7 → ℝ), gamma * compact_square v ≤ v ⬝ᵥ G *ᵥ v
+A : Matrix (Fin 6) (Fin 6) ℝ := fun i j => G (Fin.castAdd 1 i) (Fin.castAdd 1 j)
+hG : G.PosDef
+hA : A.PosDef
+this : Invertible A := ⋯.invertible
+b : Fin 6 → ℝ := fun i => G (Fin.castAdd 1 i) 6
+x : Fin 6 → ℝ := -(A⁻¹ *ᵥ b)
+w : Fin 7 → ℝ := Fin.snoc x 1
+⊢ -(A *ᵥ A⁻¹ *ᵥ b) = -b
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1610:4: error: Type mismatch: After simplification, term
+  hi
+ has type
+  @Eq ℝ (∑ x_1, G i.castSucc x_1.castSucc * x x_1 + G i.castSucc 6) 0
+but is expected to have type
+  @Eq ℝ (∑ x_1, G i.castSucc x_1.castSucc * x x_1 + G i.castSucc (Fin.last 6)) 0
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1666:4: error: Tactic `apply` failed: could not unify the conclusion of `Continuous.comp (compact_quad_continuous hL)`
+  Continuous[?m.88, _] ((fun p => compact_quad (compact_gram L p.1) p.2) ∘ ?m.91)
+with the goal
+  Continuous Q0
+
+Note: The full type of `Continuous.comp (compact_quad_continuous hL)` is
+  Continuous[?m.88, _] ?m.91 → Continuous[?m.88, _] ((fun p => compact_quad (compact_gram L p.1) p.2) ∘ ?m.91)
+
+L : ℝ
+hL : L ≠ 0
+hcontact : ∀ (z : E 2) (R : OrthonormalBasis (Fin 2) ℝ (E 2)), (framedConfluentCovariance L z R 0).PosDef
+hlimit : UniformContactLimit L
+K : Set ((E 2 × CompactFrame) × (Fin 7 → ℝ)) := (compact_midpoints L ×ˢ univ) ×ˢ compact_unit
+hK : IsCompact K
+Q0 : (E 2 × CompactFrame) × (Fin 7 → ℝ) → ℝ := fun p => compact_quad (compact_gram L (p.1, 0)) p.2
+⊢ Continuous Q0
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1720:10: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1653:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1741:8: error: (kernel) unknown constant '_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_contact_bounds'
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1762:8: error: (kernel) unknown constant '_private.SourceFramedConfluentCovariance.0.I4SourceFramedConfluentCovariance.compact_contact_bounds'

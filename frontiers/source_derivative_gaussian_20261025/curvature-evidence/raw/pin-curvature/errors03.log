@@ -1,0 +1,8 @@
+/workspace/scratch/pin-curvature-implementation/EndpointErrors.lean:95:4: error: Type mismatch
+  LE.le.trans hFright hhalf
+has type
+  |(∫ (t : ℝ) in -(1 / 2)..1 / 2, peanoRight t * iteratedDeriv 3 (sourceF L ω) (r * t)) - 1| ≤
+    r * sourceDerivativeMajorant L 4 ω
+but is expected to have type
+  |(∫ (u : ℝ) in -1 / 2..1 / 2, peanoRight u * iteratedDeriv 3 (sourceF L ω) (r * u)) - 1| ≤
+    r * sourceDerivativeMajorant L 4 ω

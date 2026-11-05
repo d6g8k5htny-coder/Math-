@@ -1,0 +1,8 @@
+--- frozen-original/B
++++ actual-source/B
+@@ -205,4 +205,4 @@
+     _ = 2 * ∑ i : Fin 2, sign2 j i * u i * v i := by
+       rw [hnorm,hnorm,hnorm]
+       simp only [Fin.sum_univ_two, Pi.add_apply]
+-      ring
++      ring

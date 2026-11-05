@@ -1,0 +1,33 @@
+{
+  "time": "2026-10-26T10:38:28.547716+00:00",
+  "integration_count": 1,
+  "sections": [
+    {
+      "helper": "candidate_distance",
+      "source": "/workspace/scratch/actual-fold-candidate-distance/FROZEN_SECTION.lean",
+      "source_sha256": "fa9c5cedf0c740802ff211b5f232ae343f8483a5df03f7708ce3ce7f3a9e5ef3",
+      "section_lines": null,
+      "section_sha256": "fa9c5cedf0c740802ff211b5f232ae343f8483a5df03f7708ce3ce7f3a9e5ef3",
+      "section_bytes": 5504
+    },
+    {
+      "helper": "candidate_ridge_schur",
+      "source": "/workspace/scratch/actual-fold-candidate-ridge-schur/NEEDED_SECTION.lean.txt",
+      "source_sha256": "2f4a3032869f7bc32e699a9af8b2782481c5fd950daaa4f5d7596c8c5fd24240",
+      "section_lines": null,
+      "section_sha256": "2f4a3032869f7bc32e699a9af8b2782481c5fd950daaa4f5d7596c8c5fd24240",
+      "section_bytes": 6025
+    },
+    {
+      "helper": "candidate_inertia",
+      "source": "/workspace/scratch/actual-fold-candidate-inertia/Inertia.lean",
+      "source_sha256": "b234842b8d4c68991d1c4e0310f2a46a7512bd6f403d9acdae85338050783a9d",
+      "section_lines": [
+        11,
+        128
+      ],
+      "section_sha256": "0198ffd831534bbc0e207cdfe17c8de3a3b0bde1e6c46a6638ca0deb9033dcdd",
+      "section_bytes": 5035
+    }
+  ]
+}

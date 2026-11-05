@@ -1,0 +1,13 @@
+/workspace/scratch/actual-fold-candidate-ridge-schur/RidgeSchur.lean:102:32: error: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+/workspace/scratch/actual-fold-candidate-ridge-schur/RidgeSchur.lean:103:4: error: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+/workspace/scratch/actual-fold-candidate-ridge-schur/RidgeSchur.lean:134:56: error: This simp argument is unused:
+  Matrix.head_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.cons_val_zero, Matrix.cons_val_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

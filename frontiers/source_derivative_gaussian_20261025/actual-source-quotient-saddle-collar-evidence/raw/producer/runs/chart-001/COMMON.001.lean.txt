@@ -1,0 +1,50 @@
+private abbrev Point2 := Fin 2 → ℝ
+
+private def physicalProjection (L : ℝ) (X : UniversalLaw.Spec.Lifetime.E 2) :
+    I4Torus.SourceTorus 2 L :=
+  I4Torus.torusProjection 2 L (I4LifetimeField.coordinates 2 X)
+
+private def saddleQ (u : Point2) : ℝ := -(u 0)^2 + (u 1)^2
+
+private def targetStrict (rho : ℝ) : Set Point2 :=
+  Metric.ball 0 rho ∩ {u | 0 < saddleQ u}
+
+private def targetPlus (rho : ℝ) : Set Point2 :=
+  targetStrict rho ∩ {u | 0 < u 1}
+
+private def targetMinus (rho : ℝ) : Set Point2 :=
+  targetStrict rho ∩ {u | u 1 < 0}
+
+private def targetLower (rho delta : ℝ) : Set Point2 :=
+  Metric.ball 0 rho ∩ {u | -delta ≤ saddleQ u}
+
+private structure ChartFacts {L : ℝ} (F : I4Torus.SourceTorus 2 L → ℝ)
+    (q : I4Torus.SourceTorus 2 L) (O : Set (I4Torus.SourceTorus 2 L))
+    (rho : ℝ) (phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) Point2) : Prop where
+  center_mem : q ∈ phi.source
+  center_zero : phi q = 0
+  source_subset : phi.source ⊆ O
+  target_eq : phi.target = Metric.ball (0 : Point2) rho
+  identity : ∀ z ∈ phi.source, F z = F q - (phi z 0)^2 + (phi z 1)^2
+
+private structure SaddleGeometry (rho : ℝ) : Prop where
+  plus_pc : IsPathConnected (targetPlus rho)
+  minus_pc : IsPathConnected (targetMinus rho)
+  disjoint : Disjoint (targetPlus rho) (targetMinus rho)
+  partition : targetStrict rho = targetPlus rho ∪ targetMinus rho
+  joined_iff : ∀ u ∈ targetStrict rho, ∀ v ∈ targetStrict rho,
+    JoinedIn (targetStrict rho) u v ↔ 0 < (u 1) * (v 1)
+  lower_pc : ∀ delta : ℝ, 0 ≤ delta → IsPathConnected (targetLower rho delta)
+
+private def CollarFacts {L : ℝ} (F : I4Torus.SourceTorus 2 L → ℝ)
+    (q : I4Torus.SourceTorus 2 L) (O : Set (I4Torus.SourceTorus 2 L))
+    (rho : ℝ) (phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) Point2) : Prop :=
+  ChartFacts F q O rho phi ∧
+  let W := phi.source ∩ {z | F q < F z}
+  let Bplus := W ∩ {z | 0 < phi z 1}
+  let Bminus := W ∩ {z | phi z 1 < 0}
+  IsPathConnected Bplus ∧ IsPathConnected Bminus ∧ Disjoint Bplus Bminus ∧
+    W = Bplus ∪ Bminus ∧
+    (∀ p ∈ W, ∀ r ∈ W, JoinedIn W p r ↔ 0 < (phi p 1) * (phi r 1)) ∧
+    (∀ delta : ℝ, 0 ≤ delta → IsPathConnected (phi.source ∩ {z | F q-delta ≤ F z}))
+

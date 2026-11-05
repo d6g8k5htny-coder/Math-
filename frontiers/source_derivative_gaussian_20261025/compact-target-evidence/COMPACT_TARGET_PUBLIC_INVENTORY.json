@@ -1,0 +1,283 @@
+{
+  "source_sha256": "4fc28898f09381b4bfd0a15324556d2f3cb68f4b39063aa3acf12db7759ccfc8",
+  "count": 12,
+  "kind_counts": {
+    "theorem": 10,
+    "def": 2
+  },
+  "public_targets": [
+    {
+      "kind": "theorem",
+      "name": "I4SourceCompactTargetMoments.sourceInverse_target_uniform_bounds",
+      "line": 28,
+      "axiom_coverage": {
+        "kind": "DIRECT_LEAN_COLLECTAXIOMS_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/inventory-01.json",
+        "log": "raw/inventory-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCompactTargetMoments.sourceGammaRadius_allTarget_domination",
+      "line": 45,
+      "axiom_coverage": {
+        "kind": "DIRECT_LEAN_COLLECTAXIOMS_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/inventory-01.json",
+        "log": "raw/inventory-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCompactTargetMoments.sampleMajorant_affine_integrable_pow",
+      "line": 93,
+      "axiom_coverage": {
+        "kind": "DIRECT_LEAN_COLLECTAXIOMS_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/inventory-01.json",
+        "log": "raw/inventory-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCompactTargetMoments.sourceGammaRadius_allTarget_moments",
+      "line": 111,
+      "axiom_coverage": {
+        "kind": "DIRECT_LEAN_COLLECTAXIOMS_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/inventory-01.json",
+        "log": "raw/inventory-01.log"
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceCompactTargetMoments.sourceGapPins",
+      "line": 150,
+      "axiom_coverage": {
+        "kind": "DIRECT_LEAN_COLLECTAXIOMS_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/inventory-01.json",
+        "log": "raw/inventory-01.log"
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceCompactTargetMoments.sourceGapLaw",
+      "line": 153,
+      "axiom_coverage": {
+        "kind": "DIRECT_LEAN_COLLECTAXIOMS_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/inventory-01.json",
+        "log": "raw/inventory-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCompactTargetMoments.sourceGapPins_one_sixth",
+      "line": 156,
+      "axiom_coverage": {
+        "kind": "DIRECT_LEAN_COLLECTAXIOMS_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/inventory-01.json",
+        "log": "raw/inventory-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCompactTargetMoments.sourceGapLaw_one_sixth",
+      "line": 161,
+      "axiom_coverage": {
+        "kind": "DIRECT_LEAN_COLLECTAXIOMS_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/inventory-01.json",
+        "log": "raw/inventory-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCompactTargetMoments.sourceGapPins_eq_confluent",
+      "line": 166,
+      "axiom_coverage": {
+        "kind": "DIRECT_LEAN_COLLECTAXIOMS_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/inventory-01.json",
+        "log": "raw/inventory-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCompactTargetMoments.sourceGapLaw_eq_rawPinKernel",
+      "line": 174,
+      "axiom_coverage": {
+        "kind": "DIRECT_LEAN_COLLECTAXIOMS_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/inventory-01.json",
+        "log": "raw/inventory-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCompactTargetMoments.sourceGapPins_norm_le",
+      "line": 180,
+      "axiom_coverage": {
+        "kind": "DIRECT_LEAN_COLLECTAXIOMS_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/inventory-01.json",
+        "log": "raw/inventory-01.log"
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCompactTargetMoments.sourceGapLaw_height_moments",
+      "line": 204,
+      "axiom_coverage": {
+        "kind": "DIRECT_LEAN_COLLECTAXIOMS_REPORT",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "record": "raw/inventory-01.json",
+        "log": "raw/inventory-01.log"
+      }
+    }
+  ],
+  "generated_declarations": [
+    {
+      "kind": "theorem",
+      "name": "I4SourceCompactTargetMoments.sourceGapLaw.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCompactTargetMoments.sourceGapPins._proof_1",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCompactTargetMoments.sourceGapPins._proof_2",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCompactTargetMoments.sourceGapPins.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCompactTargetMoments.sourceGapPins_eq_confluent._simp_1_2",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCompactTargetMoments.sourceGapPins_eq_confluent._simp_1_3",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCompactTargetMoments.sourceGapPins_eq_confluent._simp_1_4",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCompactTargetMoments.sourceGapPins_eq_confluent._simp_1_5",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCompactTargetMoments.sourceGapPins_eq_confluent._simp_1_6",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCompactTargetMoments.sourceGapPins_eq_confluent._simp_1_7",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCompactTargetMoments.sourceGapPins_eq_confluent._simp_1_8",
+      "axioms": [
+        "propext"
+      ]
+    }
+  ],
+  "generated_count": 11,
+  "instance_count": 0,
+  "axioms_allowed": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "audit_method": "Direct Lean collectAxioms on every matching environment declaration, including both definitions and all generated declarations. No inference from a combined list."
+}

@@ -1,0 +1,40 @@
+{
+  "label": "compile-002",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "-o",
+    "/workspace/scratch/fold-weighted-probability-construct/build/SourceFoldWeightedProbability.olean",
+    "-i",
+    "/workspace/scratch/fold-weighted-probability-construct/build/SourceFoldWeightedProbability.ilean",
+    "SourceFoldWeightedProbability.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFoldWeightedProbability.lean",
+      "bytes": 7798,
+      "sha256": "d0a2427fd5017478acecb65921eb742f17178cdaea945a06bb346056c06d11c9"
+    },
+    "object": null
+  },
+  "started_utc": "2026-10-26T09:45:42.681624+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 4.2990171909332275,
+  "ended_utc": "2026-10-26T09:45:46.980660+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFoldWeightedProbability.lean",
+      "bytes": 7798,
+      "sha256": "d0a2427fd5017478acecb65921eb742f17178cdaea945a06bb346056c06d11c9"
+    },
+    "object": null
+  },
+  "log": {
+    "path": "/workspace/scratch/fold-weighted-probability-construct/runs/compile-002/output.log",
+    "bytes": 682,
+    "sha256": "4200152c6d7cb62e9554d1b14322d317cc804a3e188859f3e58a51bf6458883d"
+  }
+}

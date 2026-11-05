@@ -1,0 +1,17 @@
+{
+  "command_argv": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "-o",
+    ".lake/build/lib/lean/SourceQuarticCaptureAlgebra.olean",
+    "SourceQuarticCaptureAlgebra.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "started_utc": "2026-10-26T02:10:58.811304+00:00",
+  "exit_code": 0,
+  "source_sha256": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+  "log": "compile03.log",
+  "scope": "Narrow fixes: explicit coordinate simplification sources and correct helper namespace, no old check."
+}

@@ -1,0 +1,36 @@
+{
+  "label": "core-001",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean SourceIntrinsicH0WeightedProbability.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+      "bytes": 5352,
+      "sha256": "6d7281ca52ff01762adbf5f4da3f77e6b70057a709ae43269f58e19c220c1585"
+    },
+    "object": null
+  },
+  "started_utc": "2026-10-26T18:34:16.029158+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 6.946418762207031,
+  "ended_utc": "2026-10-26T18:34:22.975745+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+      "bytes": 5352,
+      "sha256": "6d7281ca52ff01762adbf5f4da3f77e6b70057a709ae43269f58e19c220c1585"
+    },
+    "object": null
+  },
+  "log": {
+    "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-001/output.log",
+    "bytes": 2297,
+    "sha256": "30b3d22831acc0fc826437e968b6217cd3c99a00a1e0e590cebd9ddd3f6cc481"
+  }
+}

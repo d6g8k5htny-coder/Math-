@@ -1,0 +1,22 @@
+SourceCompactTargetMoments.lean:56:47: error(lean.unknownIdentifier): Unknown identifier `coefficient_product_summable`
+SourceCompactTargetMoments.lean:193:8: error: Type mismatch
+  LE.le.trans (mul_le_mul_of_nonneg_right hk hr3)
+    (Eq.mp (congrArg (LE.le (K * r ^ 3)) (mul_one K)) (mul_le_mul_of_nonneg_left hr31 hK))
+has type
+  |k| * r ^ 3 ≤ K
+but is expected to have type
+  |k| * r ^ 3 / 2 ≤ K / 2
+SourceCompactTargetMoments.lean:200:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |?a * ?b|
+in the target expression
+  12 * |k| ≤ |b| + 13 * K
+
+case «5»
+r b k K : ℝ
+hr : 0 ≤ r
+hr1 : r ≤ 1
+hK : 0 ≤ K
+hk : |k| ≤ K
+hr3 : 0 ≤ r ^ 3
+hr31 : r ^ 3 ≤ 1
+⊢ 12 * |k| ≤ |b| + 13 * K

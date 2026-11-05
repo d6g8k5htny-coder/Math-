@@ -1,0 +1,45 @@
+{
+  "module": "SourceFoldWeightedProbability",
+  "total_kernel_constants": 24,
+  "named_public_theorems": 14,
+  "named_public_definitions": 5,
+  "named_prop_bundles": 0,
+  "handwritten_private_theorems": 0,
+  "generated_constants": 5,
+  "generated_theorems": 5,
+  "generated_definitions": 0,
+  "public_theorem_targets": [
+    "SourceFoldWeightedProbability.cutoff_failure_inclusion",
+    "SourceFoldWeightedProbability.sourceCutoffA_nonneg",
+    "SourceFoldWeightedProbability.sourceCutoffEps_pos",
+    "SourceFoldWeightedProbability.sourceFoldGood_compl_subset",
+    "SourceFoldWeightedProbability.sourceFoldGood_measurable",
+    "SourceFoldWeightedProbability.sourceFoldWeightedLaw_absolutelyContinuous",
+    "SourceFoldWeightedProbability.sourceFoldWeightedLaw_eq",
+    "SourceFoldWeightedProbability.sourceFoldWeightedProbability_bound",
+    "SourceFoldWeightedProbability.sourceFoldWeightedProbability_h0",
+    "SourceFoldWeightedProbability.sourceKappa_measurable",
+    "SourceFoldWeightedProbability.sourceKappa_one_sixth",
+    "SourceFoldWeightedProbability.sourceScale_pos",
+    "SourceFoldWeightedProbability.sourceT_eq_scale",
+    "SourceFoldWeightedProbability.sourceT_measurable"
+  ],
+  "definitions": [
+    "SourceFoldWeightedProbability.sourceCutoffA",
+    "SourceFoldWeightedProbability.sourceCutoffEps",
+    "SourceFoldWeightedProbability.sourceFoldGood",
+    "SourceFoldWeightedProbability.sourceFoldWeightedLaw",
+    "SourceFoldWeightedProbability.sourceScale"
+  ],
+  "prop_bundles": [],
+  "private_support_theorems": [],
+  "generated_constants_names": [
+    "SourceFoldWeightedProbability.sourceCutoffA._proof_1",
+    "SourceFoldWeightedProbability.sourceCutoffEps._proof_1",
+    "SourceFoldWeightedProbability.sourceFoldWeightedLaw.congr_simp",
+    "SourceFoldWeightedProbability.sourceScale._proof_1",
+    "SourceFoldWeightedProbability.sourceScale._proof_2"
+  ],
+  "classification_policy": "Only fourteen explicitly named public theorems earn research-target credit; five definitions and five generated theorem constants are inventoried separately. Generated sourceFoldWeightedLaw.congr_simp is not handwritten or credited. No Prop bundles or private support theorems.",
+  "rows": "INVENTORY.json"
+}

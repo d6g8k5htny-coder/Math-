@@ -1,0 +1,29 @@
+{
+  "command_argv": [
+    "python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/native-runtime/capture.py",
+    "--run-dir",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/root-final-go001/outer",
+    "--cwd",
+    "/workspace/Math-curvature-20261026",
+    "--scope",
+    "outer",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/native-runtime/capture.py",
+    "--run-dir",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/root-final-go001/worker",
+    "--cwd",
+    "/workspace/Math-curvature-20261026",
+    "--scope",
+    "worker",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/freeze_final_metadata_go.py"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026",
+  "started_utc": "2026-10-28T22:33:05.394432+00:00",
+  "explicit_environment_overrides": {},
+  "stdin_binding": null,
+  "original_separate_capture": true
+}

@@ -1,0 +1,15 @@
+test_resolved_dotdot_output_containment_refuses_before_cleanup (test_determinant_admission_harness.AdmissionHarnessTests.test_resolved_dotdot_output_containment_refuses_before_cleanup) ... FAIL
+
+======================================================================
+FAIL: test_resolved_dotdot_output_containment_refuses_before_cleanup (test_determinant_admission_harness.AdmissionHarnessTests.test_resolved_dotdot_output_containment_refuses_before_cleanup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations/run-20261029T203223Z-j3g716vb/unittest_harness.py", line 23, in wrapped
+    return _original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.058s
+
+FAILED (failures=1)

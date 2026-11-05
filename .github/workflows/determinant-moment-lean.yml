@@ -1,0 +1,112 @@
+name: Determinant moment (source and compiled admission evidence)
+
+'on':
+  pull_request:
+    paths:
+      - 'frontiers/determinant_moment_20261025/**'
+      - 'tools/lean_packet_admission.py'
+      - 'tests/test_lean_packet_admission.py'
+      - 'tests/run_source_admission_mutations.py'
+      - 'tests/test_source_admission_mutations.py'
+      - '.github/workflows/determinant-moment-lean.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'frontiers/determinant_moment_20261025/**'
+      - 'tools/lean_packet_admission.py'
+      - 'tests/test_lean_packet_admission.py'
+      - 'tests/run_source_admission_mutations.py'
+      - 'tests/test_source_admission_mutations.py'
+      - '.github/workflows/determinant-moment-lean.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  kernel-evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      LEAN_NUM_THREADS: 2
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.11.16'
+      - name: Nonzero source admission and packet tests in both Python modes
+        run: |
+          set -euo pipefail
+          for optimization in '' '-O'; do
+            python -B $optimization -S - <<'PYCONTROLS'
+          import unittest
+          runner = unittest.TextTestRunner(verbosity=2)
+          for directory, pattern in [('tests', 'test_lean_packet_admission.py'),
+                                     ('tests', 'test_source_admission_mutations.py'),
+                                     ('frontiers/determinant_moment_20261025/tests', 'test_*.py')]:
+              suite = unittest.TestLoader().discover(directory, pattern=pattern)
+              if suite.countTestCases() == 0:
+                  raise SystemExit('zero tests discovered: ' + directory)
+              if not runner.run(suite).wasSuccessful():
+                  raise SystemExit(1)
+          PYCONTROLS
+          done
+          python -B -S - <<'PYSOURCE'
+          import runpy
+          gate = runpy.run_path('frontiers/determinant_moment_20261025/gate.py')
+          _, digest = gate['source_check']()
+          print('SOURCE_ONLY_IDENTITY_PASS (no compiled or kernel qualification): ' + digest)
+          PYSOURCE
+      - name: Verify determinant admission policy with paired adverse mutations
+        run: |
+          set -euo pipefail
+          python -B -S frontiers/determinant_moment_20261025/tests/run_adapter_mutations.py --output frontiers/determinant_moment_20261025/.lake/formal-evidence/adapter-mutations
+      - name: Verify Git identity with real isolated Git and paired adverse mutations
+        run: |
+          set -euo pipefail
+          python -B -S frontiers/determinant_moment_20261025/tests/run_git_identity_mutations.py --output frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations
+      - name: Verify outer mutation accounting with paired adverse mutations
+        run: |
+          set -euo pipefail
+          python -B -S frontiers/determinant_moment_20261025/tests/run_cbz_runner_mutations.py --output "${RUNNER_TEMP}/determinant-outer-self-mutations"
+          cp -a "${RUNNER_TEMP}/determinant-outer-self-mutations" frontiers/determinant_moment_20261025/.lake/formal-evidence/outer-self-mutations
+      - name: Install pinned Lean and retrieve the Mathlib cache
+        uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6
+        with:
+          lake-package-directory: frontiers/determinant_moment_20261025
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+          use-github-cache: 'false'
+      - name: Fresh build, kernel recheck, complete inventory and seven real controls
+        run: |
+          set -euo pipefail
+          python -B -S frontiers/determinant_moment_20261025/gate.py --execute 2>&1 | tee "$RUNNER_TEMP/determinant-authoritative-gate.log"
+      - name: Tracked tree unchanged
+        run: git diff --exit-code
+      - name: Preserve raw observation and gate logs
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: determinant-moment-lean-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            frontiers/determinant_moment_20261025/.lake/formal-evidence/
+            !frontiers/determinant_moment_20261025/.lake/formal-evidence/**/source/**
+            !frontiers/determinant_moment_20261025/.lake/formal-evidence/**/work/**
+            !frontiers/determinant_moment_20261025/.lake/formal-evidence/**/repo/**
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 90
+      - name: Preserve aggregate console outside gate-owned log hashes
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: determinant-moment-console-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/determinant-authoritative-gate.log
+          if-no-files-found: error
+          retention-days: 90

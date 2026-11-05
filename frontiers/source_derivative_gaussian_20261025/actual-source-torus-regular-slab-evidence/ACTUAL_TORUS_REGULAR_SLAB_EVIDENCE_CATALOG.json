@@ -1,0 +1,347 @@
+{
+  "module": "SourceActualTorusRegularSlab",
+  "namespace": "I4SourceActualTorusRegularSlab",
+  "public_Prop_targets": [
+    "I4SourceActualTorusRegularSlab.actualSource_closedSlab_componentInclusion_bijective"
+  ],
+  "public_data": 0,
+  "scope": "Actual-source regular CLOSED-slab component inclusion on the SAME product AddCircle torus: positive L, original SmoothSample, a<=b and actual fderiv nonzero at EVERY cover point with a<=g<=b imply bijectivity of the EXISTING inclusion-induced ZerothHomotopy map, s=-b,t=-a. Derive the physical Fourier bounds, closed-cell squared-gradient floor, clipped periodic bounded Lipschitz velocity, ANY finite-horizon joint Picard family, global barriers BEFORE residence, variable hitting map, restricted OPEN quotient descent and actual component-map injectivity/surjectivity internally. No supplied floor/flow/retract/component certificate, MorseDistinct, probability/local-PC61, global Flow/group law, atlas or component census.",
+  "source_cut": "f99b2e1b4efb7e0d9d3d83420ba7859a611a2016",
+  "source_identity": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+    "bytes": 57423,
+    "sha256": "14c900c4e81be9b9ffc85e56fe9c3f191ae8405670d15d0e151a766751b6a23b",
+    "identity_origin": "existing OWN first identity reused; unchanged stat"
+  },
+  "eligible_object_identity": {
+    "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean",
+    "bytes": 1880192,
+    "sha256": "73dcf886a5f3d2614b93b941d15008b9828ee86d93ff15692823e79f3b03afe8",
+    "identity_origin": "FIRST identity newly created/changed OWN payload"
+  },
+  "object_action": "SKIP_ROOT_COPIED_ONCE",
+  "actual_owned_constants": 73,
+  "inventory_summary": {
+    "all_module_index_owned_constants": 73,
+    "authored_public_Prop": 1,
+    "authored_public_data": 0,
+    "counts": {
+      "private generated proof auxiliary": 11,
+      "authored private theorem": 35,
+      "private generated congruence or other declaration": 1,
+      "authored private definition": 8,
+      "private generated simp theorem": 3,
+      "authored private type or level-set alias": 3,
+      "authored private Prop bundle": 3,
+      "private generated defining equation": 6,
+      "sole authored public theorem": 1,
+      "foreign-namespace generated declaration": 2
+    },
+    "foreign_generated_names": [
+      "I4SmoothCarrier.sampleInclusion.eq_1",
+      "I4SmoothCarrier.smoothSourceField.eq_1"
+    ],
+    "foreign_generated_count": 2,
+    "standard_three_guard": "PASS: completed inventory-001/PRODUCTION_QUALIFICATION standard-three only, all actual-owned declarations collected once; no new mathematical check in packaging",
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "coverage": "Every actual module-owned declaration enumerated once; classification only parses completed raw inventory, no repeatcheck"
+  },
+  "full_inventory_archive_path": "raw/producer/INVENTORY.json",
+  "qualification_records": {
+    "strict": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/compile-final/receipt.json",
+    "inventory": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/inventory-001/receipt.json",
+    "kernel": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/kernel-001/receipt.json",
+    "positive_controls": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-002/receipt.json",
+    "negative": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/false-control-001/receipt.json"
+  },
+  "sole_negative": {
+    "imports": "Only already-passed ordinary TorusRegularSlabControls object and transitive public dependencies",
+    "actual_mutation": "ONLY closed band Icc hypothesis replaced by open Ioo; original actual field/sample/period/endpoints/closed superlevels/literal component map retained",
+    "counterproof": "True actual open-band noncriticality plus two unequal upper component classes whose actual lower inclusion images coincide; SAME cos(2pi*x)+(1/2)cos(pi*y), auxiliary actual cos(pi*x) observable only, nonempty horizontal lower path",
+    "counterproof_in_passed_controls": true,
+    "exactly_one_intendedFalse": true,
+    "ordinary_controls_object_identity": {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean",
+      "bytes": 838856,
+      "sha256": "920f8685fa6821922c2525c0b3f6b538696aaf5706f45883e0bffc48641ed24a",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    "negative_harness_identity": {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/FalseMutation.lean",
+      "bytes": 148,
+      "sha256": "1221ad2b09c34e0650903160c26a0631f63e94004ba52860589aa1a547059af0",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    "stdout_bytes": 119,
+    "stderr_bytes": 0,
+    "production_kernel_does_not_cover_ordinary_controls": true,
+    "stdout_identity": {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/false-control-001/stdout.log",
+      "bytes": 119,
+      "sha256": "abb5288367560bbfbff9e4ff171159a9389ff30965449abcbf480d3e36288155",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    "stderr_identity": {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/false-control-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    "actual_counterproof_description": "Actual nonempty component collision for cos(2*pi*x)+(1/2)*cos(pi*y), levels -1/2 to 0. H=cos(pi*x) separates upper components; actual lower closed path joins their images. Open-band no-critical hypothesis independently proved."
+  },
+  "production_helper_integrations": [
+    {
+      "key": "A",
+      "record_path": "raw/producer/originals/A_CUSTODY.json",
+      "integration_count": 1,
+      "helper_executions": 0,
+      "originals": [
+        {
+          "original": "/workspace/scratch/actual-source-regular-slab-normalized-field-text/NormalizedSection.ORIGINAL.lean.txt",
+          "immutable_retained": "/workspace/scratch/actual-source-torus-regular-slab-construct/originals/A.NormalizedSection.ORIGINAL.lean.txt",
+          "bytes": 14360,
+          "sha256": "122d895e1075762d755f4585fd65dcdaa9281f3af3ed0ac10cc9957b21340784",
+          "origin": "producer FIRST ID newcompletehelperoriginal BEFORE ONEintegration; nohelperhash"
+        },
+        {
+          "original": "/workspace/scratch/actual-source-regular-slab-normalized-field-text/IMPORTS.ORIGINAL.txt",
+          "immutable_retained": "/workspace/scratch/actual-source-torus-regular-slab-construct/originals/A.IMPORTS.ORIGINAL.txt",
+          "bytes": 920,
+          "sha256": "a71118e3c696b62211a838afb15627f1a1dec379e1c9b8b5bae1aaa50c25b82c",
+          "origin": "producer FIRST ID newcompletehelperoriginal BEFORE ONEintegration; nohelperhash"
+        },
+        {
+          "original": "/workspace/scratch/actual-source-regular-slab-normalized-field-text/CONTEXT.ORIGINAL.md",
+          "immutable_retained": "/workspace/scratch/actual-source-torus-regular-slab-construct/originals/A.CONTEXT.ORIGINAL.md",
+          "bytes": 20420,
+          "sha256": "1b48695dd6b45576121181fd538ad2a47cc8cb8063e714346f4591ee068a4e0a",
+          "origin": "producer FIRST ID newcompletehelperoriginal BEFORE ONEintegration; nohelperhash"
+        },
+        {
+          "original": "/workspace/scratch/actual-source-regular-slab-normalized-field-text/PROVENANCE.ORIGINAL.md",
+          "immutable_retained": "/workspace/scratch/actual-source-torus-regular-slab-construct/originals/A.PROVENANCE.ORIGINAL.md",
+          "bytes": 8369,
+          "sha256": "2e8f5fed4f5c733e23c23fc448c55d80562e52850cb0f34e0a0faca9139b494f",
+          "origin": "producer FIRST ID newcompletehelperoriginal BEFORE ONEintegration; nohelperhash"
+        },
+        {
+          "original": "/workspace/scratch/actual-source-regular-slab-normalized-field-text/FROZEN.json",
+          "immutable_retained": "/workspace/scratch/actual-source-torus-regular-slab-construct/originals/A.FROZEN.json",
+          "bytes": 1228,
+          "sha256": "cdde8bdde80041eb051462d8b0e79e32415c35387ab2a2a071e80298a95e0e23",
+          "origin": "producer FIRST ID newcompletehelperoriginal BEFORE ONEintegration; nohelperhash"
+        }
+      ],
+      "zero_execution_basis": "Actual ROOT_GO/READY; each complete original froze before one integration, producer-owned all later actual amendments"
+    },
+    {
+      "key": "B",
+      "record_path": "raw/producer/originals/B_CUSTODY.json",
+      "integration_count": 1,
+      "helper_executions": 0,
+      "originals": [
+        {
+          "original": "/workspace/scratch/actual-source-regular-slab-finite-horizon-text/FiniteHorizonSection.ORIGINAL.lean.txt",
+          "immutable_retained": "/workspace/scratch/actual-source-torus-regular-slab-construct/originals/B.FiniteHorizonSection.ORIGINAL.lean.txt",
+          "bytes": 6089,
+          "sha256": "6c12771f821ccf25b23ad0cdce1c1e51243c2af122a44b9d016a7d9cacbc9fb0",
+          "origin": "producer FIRST ID of newly delivered owned helper original BEFORE integration; helper hashes0"
+        },
+        {
+          "original": "/workspace/scratch/actual-source-regular-slab-finite-horizon-text/CONTEXT.ORIGINAL.md",
+          "immutable_retained": "/workspace/scratch/actual-source-torus-regular-slab-construct/originals/B.CONTEXT.ORIGINAL.md",
+          "bytes": 20420,
+          "sha256": "1b48695dd6b45576121181fd538ad2a47cc8cb8063e714346f4591ee068a4e0a",
+          "origin": "producer FIRST ID of newly delivered owned helper original BEFORE integration; helper hashes0"
+        },
+        {
+          "original": "/workspace/scratch/actual-source-regular-slab-finite-horizon-text/PROVENANCE.md",
+          "immutable_retained": "/workspace/scratch/actual-source-torus-regular-slab-construct/originals/B.PROVENANCE.md",
+          "bytes": 3953,
+          "sha256": "408a7a206ec16cc2d9588ece3bc854b384876300c42687801e871638e2e14989",
+          "origin": "producer FIRST ID of newly delivered owned helper original BEFORE integration; helper hashes0"
+        },
+        {
+          "original": "/workspace/scratch/actual-source-regular-slab-finite-horizon-text/FROZEN.json",
+          "immutable_retained": "/workspace/scratch/actual-source-torus-regular-slab-construct/originals/B.FROZEN.json",
+          "bytes": 885,
+          "sha256": "a3ab48ccc0988ea8366c75507f04336e210c9abcca2a12a474db4ba8c65a17ec",
+          "origin": "producer FIRST ID of newly delivered owned helper original BEFORE integration; helper hashes0"
+        }
+      ],
+      "zero_execution_basis": "Actual ROOT_GO/READY; each complete original froze before one integration, producer-owned all later actual amendments"
+    },
+    {
+      "key": "C",
+      "record_path": "raw/producer/originals/C_CUSTODY.json",
+      "integration_count": 1,
+      "helper_executions": 0,
+      "originals": [
+        {
+          "original": "/workspace/scratch/actual-source-regular-slab-height-hitting-text/HeightHittingSection.ORIGINAL.lean.txt",
+          "immutable_retained": "/workspace/scratch/actual-source-torus-regular-slab-construct/originals/C.HeightHittingSection.ORIGINAL.lean.txt",
+          "bytes": 7231,
+          "sha256": "35239324726cf970bfecb0b9770c4ae09cab5ad0090ffefe4f7840f2965a96a7",
+          "origin": "producer FIRST ID of newly delivered owned helper original BEFORE integration; helperhashes0"
+        },
+        {
+          "original": "/workspace/scratch/actual-source-regular-slab-height-hitting-text/Imports.ORIGINAL.txt",
+          "immutable_retained": "/workspace/scratch/actual-source-torus-regular-slab-construct/originals/C.Imports.ORIGINAL.txt",
+          "bytes": 921,
+          "sha256": "27b4cd8a054b266c3831fca3834b73eb750ad850845667c3263c9b1ebf1ee26c",
+          "origin": "producer FIRST ID of newly delivered owned helper original BEFORE integration; helperhashes0"
+        },
+        {
+          "original": "/workspace/scratch/actual-source-regular-slab-height-hitting-text/Context.ORIGINAL.md",
+          "immutable_retained": "/workspace/scratch/actual-source-torus-regular-slab-construct/originals/C.Context.ORIGINAL.md",
+          "bytes": 906,
+          "sha256": "d8761aa88664f5dccf3cb8e73a183c845c3e61b60844487aece3c8a25a219f63",
+          "origin": "producer FIRST ID of newly delivered owned helper original BEFORE integration; helperhashes0"
+        },
+        {
+          "original": "/workspace/scratch/actual-source-regular-slab-height-hitting-text/Provenance.ORIGINAL.md",
+          "immutable_retained": "/workspace/scratch/actual-source-torus-regular-slab-construct/originals/C.Provenance.ORIGINAL.md",
+          "bytes": 5708,
+          "sha256": "107470ac571e12668940628fc01b464ee895431478839f36b410863ee9a32451",
+          "origin": "producer FIRST ID of newly delivered owned helper original BEFORE integration; helperhashes0"
+        },
+        {
+          "original": "/workspace/scratch/actual-source-regular-slab-height-hitting-text/Frozen.ORIGINAL.json",
+          "immutable_retained": "/workspace/scratch/actual-source-torus-regular-slab-construct/originals/C.Frozen.ORIGINAL.json",
+          "bytes": 809,
+          "sha256": "70a0f11b9cf826e0bf7161144572d4dc338f8755d66420596e3f66f99b49e9b9",
+          "origin": "producer FIRST ID of newly delivered owned helper original BEFORE integration; helperhashes0"
+        }
+      ],
+      "zero_execution_basis": "Actual ROOT_GO/READY; each complete original froze before one integration, producer-owned all later actual amendments"
+    }
+  ],
+  "ordinary_controls_custody": {
+    "producer_authored": true,
+    "text_helper_authored": false,
+    "record_path": "raw/producer/CONTROL_IDS.json",
+    "production_kernel_coverage": false,
+    "complete_original_snapshot": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-001/TorusRegularSlabControls.lean",
+    "complete_original_identity": {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/TorusRegularSlabControls.lean",
+      "bytes": 15613,
+      "sha256": "822cd28dab6d63133a1c817783474f8d824858183164a1da3960b902197e4001",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    "full_actual_patch": "/workspace/scratch/actual-source-torus-regular-slab-construct/amendments/controls-002.patch",
+    "passed_source": {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/TorusRegularSlabControls.lean",
+      "bytes": 15686,
+      "sha256": "cd19b811cefd5c0c66d0a8af4bba4ed4f8246e4b91794e3bcb0ce77af19f43ff",
+      "identity_origin": "existing OWN first identity reused; unchanged stat"
+    },
+    "passed_object_identity": {
+      "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean",
+      "bytes": 838856,
+      "sha256": "920f8685fa6821922c2525c0b3f6b538696aaf5706f45883e0bffc48641ed24a",
+      "identity_origin": "FIRST identity newly created/changed OWN payload"
+    },
+    "passed_receipt": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-002/receipt.json"
+  },
+  "kernel_coverage": "Owned production including all3 private production sections, actual source fixtures and branch consumers only. Producer-authored ordinary Controls and independently passed actual component-collision counterproof/sole importing False have separate object binding; production kernel covers no ordinary Controls.",
+  "actual_run_count": 21,
+  "actual_split_stream_files": 42,
+  "actual_split_stream_bytes": 48496,
+  "record_schema": "receipt.json/before/after/snapshots[{immutable_path,existing_identity}]/runner_version/runner_history/started_utc/ended_utc plus stdout.log/stderr.log; all actual runner/context versions retained. Actual timeout124 is resource failure, never intended mathematical False.",
+  "all_attempts_preserved": true,
+  "raw_catalog": "RAW_EVIDENCE_CATALOG.json",
+  "publication": {
+    "status": "QUALIFIED62_SCRATCH_PROPOSAL_ROOT_APPLY_ONLY",
+    "source_cut": "f99b2e1b4efb7e0d9d3d83420ba7859a611a2016",
+    "source_cut_parent": "c18ad0b8f62060cb78670f5f806af25f1307614b",
+    "qualified_baseline61": "c18ad0b8f62060cb78670f5f806af25f1307614b",
+    "root_reading_verbatim": {
+      "recorded_utc": "2026-10-28T18:29:59.179237+00:00",
+      "status": "FINAL_ROOT_PERSONAL_SCOPE_RECORDED_FINAL_REVIEWER_REPORT_ACCEPTANCE_SEPARATE",
+      "module": "SourceActualTorusRegularSlab",
+      "source_cut": "f99b2e1b4efb7e0d9d3d83420ba7859a611a2016",
+      "role": "Primary coordinator and disclosed production endpoint-rfl static proof assistance; NOT independent technical or scientific reviewer",
+      "production_reading": "BOUNDED only: selected actual component-map assembly/endpoint repair near875–932, sole public declaration946–962, selected finite-field phase/derivative fixture sections near985–1040 and selected header/declarations. NOT full1141source; NOT all73classification/rawaxiomstream; NOT all21raworiginalreceipts/42streams. Reviewer own full scope remains separate.",
+      "full_contract_context_reading": "Complete proper62spec/plan/controls and independent design reviews beforeGO; complete5105-token sharedcontext001 rootacceptance observedproducer17:27:00. Prior completed readings reused.",
+      "full_ordinary_controls_reading": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/TorusRegularSlabControls.lean",
+        "lines": 328,
+        "bytes": 15686,
+        "sha256_reused": "cd19b811cefd5c0c66d0a8af4bba4ed4f8246e4b91794e3bcb0ce77af19f43ff",
+        "personally_read_utc": "2026-10-28T18:23:47.877390+00:00",
+        "finding": "NONE: actual publicpositive endpoints and samefield Icc→Ioo genuine component collision, independently proved trueopenband hypothesis. Production kernel does not cover ordinaryControls."
+      },
+      "full_negative_reading": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/FalseMutation.lean",
+        "bytes": 148,
+        "sha256_reused": "1221ad2b09c34e0650903160c26a0631f63e94004ba52860589aa1a547059af0",
+        "source": "FULL importsONLYpassedordinaryControls and attemptsopenBandVariantAtFixture",
+        "stdout": "FULL original119B soleunsolvedFalse; stderrFULLempty",
+        "receipt_reading": "Actual fullselectedcommand/cwd/start/end/exit/duration/stdout/stderr and beforebindings for frozenproductionobject/passedControlsobject/harness. Not all21receipts.",
+        "actual_sole_attempt_end": "2026-10-28T18:24:31.694288+00:00",
+        "finding": "NONE"
+      },
+      "full_final_document_reading": [
+        "REPORT.md8041B",
+        "HANDOFF.md2505B",
+        "PRODUCTION_QUALIFICATION.json2385B",
+        "CONTROL_IDS.json3300B",
+        "CONTROL_RECEIPT.json2791B",
+        "READY.json679B",
+        "FINAL_DOCUMENT_IDS.json corrected3453B",
+        "DOCUMENTARY_AMENDMENT_001.json",
+        "amendments/documentary-001.patch",
+        "STREAM_COUNTS.json all21rows42streams48496Bstdout0stderr"
+      ],
+      "bounded_final_custody_reading": "EXECUTION_RECORD_INDEX header/schema/firstfullreceipt plus all21streammetadata rows; ARTIFACT_IDENTITIES policy/finalsource/ownobject/ordinaryobject/historicalcustody/rootrecords and first+lastsnapshotbindings; correctedallowlistmetadata/reviewerpaths. NOT full333artifactidentities/all202snapshotbindings/all110identitydictionary/all21completeindexedreceipts/all340allowlistrows. Nonauthor reviewer handles full final custody; root relies on its separately attributed result.",
+      "truncation_handling": "First combined final-document output truncated within STREAM_COUNTS/allowlist; later entirestreamtable and fullcorrectedIDs/amendment/fullpatch plus selectedcustodymetadata were read. No fullclaim for truncated/selectedmanifest material.",
+      "documentary_correction": {
+        "scope": "Only incorrectfinalreviewer directory corrected; originalallowlist+IDs literal snapshots/fullactualpatch/additiveamendment retained. No source/control/runner/context mathematical change.",
+        "duplicate_new_final_document_identity_calculations": 8,
+        "actual_duplication": "Producer initialfreeze_documents writer calculated eight newlycreated final documentary IDs twice. Actualduplication disclosed in amendment; no future replay. Prior source/object/stream hashes and mathematical checks not replayed. Do not claim blanket zero identity recalculation.",
+        "disposition": "Reuse existing IDs at actual immutable historical/current paths. No proof/control recheck, no recopy."
+      },
+      "qualification_reused": {
+        "strict": "compile-finalPASS18:07:03.762278",
+        "inventory": "73/std3inventory001PASS18:08:29.512395",
+        "kernel": "EXACTONEkernel001PASS18:11:15.372164",
+        "ordinary": "controls002PASS18:16:36.170883",
+        "negative": "solefalsecontrol001EXPECTEDexit1/119BFalse/0Berr18:24:31.694288",
+        "actual_runs": 21,
+        "original_split_streams": 42
+      },
+      "object_custody": "RootONLYeligibleownobjectCOPIEDONCE18:14:34.683861; everyfurthercopySKIP. Sourcecut/rootrecords read and reused; no hash/math/copy replay.",
+      "final_reviewer_report": "Not yet personally read at creation; later ROOT_REVIEW_ACCEPTANCE.json records actual fullreport/scope reading and acceptance beforeROOT_FINALIZATION_GO.",
+      "scientific_effect": "NONE",
+      "same_family_independent_science_credit": 0,
+      "owner_guidance": "User /workspace AGENTS completed applicable verification REUSE; no new-session/head/handoff/process rechecks; provider-distinct process separate from mathematical evidence.",
+      "original_goal": "ACTIVE_UNMET beyond62 into63/criticalevents/exhaustiveH0/oncecount/Borel/Rice/Parent",
+      "new_mathematical_execution": 0,
+      "new_payload_hash": 0
+    },
+    "root_reading_summary": "Root coordinator disclosed static production endpoint-rfl assistance, NOT independent reviewer. BOUNDED production/header/component-map/public/fixture reading, not full1141source/all73axiomrows/all21receipts42streams. FULL15686B ordinary Controls/148Bnegative harness/119BsoleFalse stdout+emptystderr, final REPORT/HANDOFF/qualification/control/READY/correctedIDs/amendment/fullpatch and all21streammetadata. Structured/partial333artifact202snapshot110identity340allowlist/index exposure; no full claims. ROOT_READING18:29:59 retained verbatim; final reviewer report acceptance will be separately bound. Root FULLread final reviewer REPORT/scope and accepted at18:33:18.598657, separately from ROOT_READING. Producer initial writer calculated eight NEW final-document IDs twice; exact disclosure/history/corrected canonical bindings retained, no blanket zero identity-recalculation claim. No prior source/object/stream hash or mathematical replay.",
+    "reviewer_reading_summary": "Final nonauthor actual_fold_chart_source_review FINAL_PASS/no findings: personally full1141source once/all73owned classifications/full18511Bstd3 stream/all3complete private originals/provenance/freezes/FULL actual patches and context delta; all21original receipts42fullstreams48496B via lossless identity references; complete ordinary original+full actual patch and sole148Bharness/119BFalse stdout/emptyerr; all333artifact202snapshotbindings/full corrected340pathallowlist/streamtable/documentary amendment/fullpatch. Aggregate index header/schema/representative uses already full-read original receipts; no duplicate aggregate-fullread or all duplicate snapshot-body reread claim. Root FULLread final REPORT/scope accepted18:33:18.598657 separately; samefamily0/scienceNONE, no different-family acceptance.",
+    "packager_is_62_proof_author": true,
+    "packager_proof_role": "A actual normalized-field section original; source/helper authorship disclosed",
+    "packager_independent_review_credit": 0,
+    "no_inherited61_review_credit": true,
+    "historical_pending_records_preserved": true,
+    "remote62publication_claimed": false,
+    "hosted62CI_claimed": false,
+    "scientific_effect": "NONE",
+    "same_family_credit": 0
+  },
+  "verification_reuse": "All applicable completed source/math/identity/strict/inventory/ONEkernel/Controls/soleFalse evidence reused. Only new metadata associations checked.",
+  "canonical_authority": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/main/governance/OWNER_DECISION_20261025_REVIEW_FAMILIES.md"
+  ],
+  "link_delivery_not_reading": true,
+  "scientific_effect": "NONE",
+  "same_family_credit": 0
+}

@@ -1,0 +1,31 @@
+# Raw-pin canonical conditioning extension
+
+`SourceRawPinConditioning.lean` binds the literal raw six-pin Gaussian coefficient posterior to the already qualified confluent whole-carrier kernel. Its posterior, coefficient lift and kernel equality hold **at every raw target and every sample**. The prescribed probability-zero target is identified through this same coefficient map, without an almost-everywhere conditional-version shortcut.
+
+The frozen source is SHA256 `77e521c7fc3fc3da1c922a4ef547b065be58b232b321480948c8fe50d76c2aa5`, 391 lines, under contract commit `abc3e5f008176e060e090d445a86bba60da52b95`. The exact captured final source is under `source/`; root supplies its integration commit separately. This package contains only the new module, its qualification/history/private-helper provenance and the separate conventional application.
+
+The raw order remains `(fM,fS,fxM,fxS,fyM,fyS)`. The module proves its actual Fourier series and covariance Gram identity, shows that the existing raw-to-confluent continuous linear equivalence transforms those actual coefficient columns and covariance, and builds the literal raw covariance correction on the original smooth carrier. Arbitrary targets and posterior means are retained. `rawPinKernel_hasCondDistrib` transports the existing identity-valued conditional-distribution theorem through the inverse measurable observation equivalence; the residual-independence proof is reused. The module also proves every-target raw reconstruction, its Dirac observation marginal and full pin-fiber mass under current covariance invertibility. Actual raw covariance invertibility and raw conditioning hold eventually from `L ≠ 0` alone.
+
+The algebraic raw/confluent sampling equality needs only `r ≠ 0`, even under the existing singular-inverse convention. Conditional-distribution and pin-fiber conclusions retain the current covariance-unit hypothesis. No six-independent-pin conditional interpretation is asserted at zero radius.
+
+At raw target `(b,b-r³/6,0,0,0,0)`, `rawPrescribedWeightedMeasure_eq` identifies the literal physical Hessian determinant-weighted measure exactly with `sourceSmoothWeightedLaw`. `rawPrescribedWeightedMeasure_estimates` rewrites the existing actual moments, positive normalizer floor, probability, all measurable carrier-event bounds, physical endpoint pushforward and raw/type supports. Its final inputs are only nonzero `L`, fixed `b`, and sufficiently small positive radius. No scalar pin-density factor or radius Jacobian enters this equality.
+
+The globally defined prescribed weighted object is a **measure**. Probability is derived on the positive-normalizer interval. This module does not promise a globally normalized raw mark Markov kernel or formalize a zero-normalizer probability fallback.
+
+The public inventory has **37 declarations: 29 theorems, one named Markov instance and seven definitions**. All 37 have direct printed axiom reports using only `propext`, `Classical.choice`, `Quot.sound`. The five private generic algebra helpers are checked by the final named-module kernel and covered transitively by the public proofs; no direct production-private print is claimed. `RAW_PIN_TARGET_APPEND.json` contains exactly **30 theorem/instance names**; definitions stay separately inventoried. `SOURCE_MANIFEST_APPEND.json` is a new-only fragment for root. The parent supplied the standalone registration context of 25 modules and 645 proof/instance targets after this append; concurrent new modules are excluded and require separate appends.
+
+Existing final evidence is preserved without rerun:
+
+- `compile-05`: warningAsError, exit0, empty log.
+- `kernel-01`: one named-module replay, exit0, empty log.
+- `axioms-01`: warningAsError, exit0, all37 direct reports.
+- `positive-01`: warningAsError, exit0, empty log. Controls reconstruct nonzero raw target `[3,-2,1,4,-5,7]` for the actual source, check a nontrivial literal confluent transform, retain the actual nonzero height `b=3`, and exercise raw conditioning/probability/support.
+- `rejected-missing-factor-01` and `rejected-zero-radius-01`: each exit1 at its intended `False` goal. They reject omitting the transformed target factor and claiming distinct actual raw heights at radius zero.
+
+Final source/artifact identities agree before and after all final checks. Failed production attempts01/02/04 and clean partial03 remain with exact source snapshots and logs. The compile wrapper returns0 after recording Lean's actual exit, so its JSON `exit_code` controls interpretation. The final qualification runner returns Lean's actual exit directly. The helper history distinguishes genuine source-bound subprocess records from the covariance helper's explicitly authored tool-history handoff; no missing historical source hash or clean execution receipt is invented.
+
+All authors/helpers are OpenAI author-side. `/root/palm_measure_transfer` authored the module and its prior inverse-congruence scratch proofs. `/root/regression_kernel` coauthored the two finite covariance/unit helpers. Each helper was copied once into private production proofs; final integrated source qualification covers those bytes. Root owns the frozen mechanism, source cut, manifests and publication. No helper supplies independent-family review credit.
+
+`conventional/APPLICATION_PROOF.md`, SHA256 `bbf61e080cfcbaaeb78b160921943d8500fd8f1878a0109c3148ddfb446c54d2`, is preserved as a **separate conventional actual geometric Campbell/Palm application**. It reuses the already reviewed finite-L admission and GAD finite-incidence/Bayes theorem. It derives a geometric mark version and identifies its canonical prescribed value through the same coefficient lift; arbitrary disintegrations are unique only intensity-almost-everywhere. That document is not Lean-qualified, is not a manifest target and is not a formal Kac–Rice/area/geometric count theorem.
+
+All previous24 modules and23 exact inputs are unchanged and reused by reference. Packaging did not copy or hash baseline sources/artifacts, rerun checks, edit production, commit or post. The original research goal remains active; geometric capture/elder/lifetime and later parent closure remain outside this extension. Scientific effect is NONE, and different-family review remains separate from completed mathematical qualification.

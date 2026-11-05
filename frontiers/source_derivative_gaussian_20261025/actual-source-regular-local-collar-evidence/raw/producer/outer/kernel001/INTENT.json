@@ -1,0 +1,46 @@
+{
+  "operation": "stage66-outer-capture",
+  "scope": "outer",
+  "script_argv": [
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/capture66.py",
+    "--run-dir",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/outer/kernel001",
+    "--cwd",
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "--scope",
+    "outer",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+    "kernel001",
+    "math",
+    "--",
+    "env",
+    "LEAN_PATH=/workspace/scratch/actual-source-regular-local-collar-construct/build",
+    "lake",
+    "env",
+    "leanchecker",
+    "SourceActualRegularLocalCollar"
+  ],
+  "command_argv": [
+    "python3",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runner/record_run.py",
+    "kernel001",
+    "math",
+    "--",
+    "env",
+    "LEAN_PATH=/workspace/scratch/actual-source-regular-local-collar-construct/build",
+    "lake",
+    "env",
+    "leanchecker",
+    "SourceActualRegularLocalCollar"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "started_utc": "2026-10-28T23:42:09.398110+00:00",
+  "original_split_streams": true,
+  "environment_recorded": {
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "credential_environment_logged": false,
+  "automatic_retry": false
+}

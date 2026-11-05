@@ -1,0 +1,76 @@
+--- history/production-fixtures-fix001/SourceActualRegularLocalCollar.lean.ORIGINAL
++++ SourceActualRegularLocalCollar.lean
+@@ -524,8 +524,8 @@
+     (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) Y) V =
+       -Real.pi * Real.sin (Real.pi * (Q Y) 0) * (Q V) 0 -
+         2 * Real.pi * Real.sin (Real.pi * (Q Y) 1) * (Q V) 1 := by
+-  let d0 : E2 →L[ℝ] ℝ := (ContinuousLinearMap.proj (0 : Fin 2)).comp Q
+-  let d1 : E2 →L[ℝ] ℝ := (ContinuousLinearMap.proj (1 : Fin 2)).comp Q
++  let d0 : E2 →L[ℝ] ℝ := (ContinuousLinearMap.proj (0 : Fin 2) : Point2 →L[ℝ] ℝ).comp (Q : E2 →L[ℝ] Point2)
++  let d1 : E2 →L[ℝ] ℝ := (ContinuousLinearMap.proj (1 : Fin 2) : Point2 →L[ℝ] ℝ).comp (Q : E2 →L[ℝ] Point2)
+   have h0 : HasFDerivAt (fun Z : E2 => Real.pi * (Q Z) 0) (Real.pi • d0) Y :=
+     d0.hasFDerivAt.const_mul Real.pi
+   have h1 : HasFDerivAt (fun Z : E2 => Real.pi * (Q Z) 1) (Real.pi • d1) Y :=
+@@ -578,7 +578,7 @@
+ private theorem fixture_seam_value :
+     I4LifetimeField.actualField 2 2 fixtureSample fixtureXseam = 2 := by
+   rw [fixture_actual_formula]
+-  simpa [fixtureXseam, fixture_seam_phase.2] using fixture_seam_phase.2
++  simp [fixtureXseam, fixture_seam_phase.2]
+ 
+ private theorem fixture_seam_derivative :
+     (fderiv ℝ (I4LifetimeField.actualField 2 2 fixtureSample) fixtureXseam) physicalBasis0 =
+@@ -592,7 +592,7 @@
+       ((1 / 2 : ℝ) : AddCircle (2 : ℝ)) := by
+     have hp := (AddCircle.coe_add_period (2 : ℝ) (-3 / 2 : ℝ)).symm
+     norm_num at hp
+-    exact hp
++    simpa [neg_div] using hp
+   ext i
+   fin_cases i
+   · simpa [cover, fixtureXseam, fixtureXx, I4Torus.torusProjection] using hq
+@@ -650,7 +650,7 @@
+     apply point_mem_ball hρ
+     intro i
+     fin_cases i
+-    · simpa only [Matrix.cons_val_zero, neg_div, abs_neg] using hhalf
++    · simpa [neg_div, abs_neg] using hhalf
+     · simpa using hε
+   have htp : (![ρ / 2, ε] : Point2) ∈ φ.target := by
+     rw [htarget]
+@@ -685,7 +685,7 @@
+   have hp : φ.symm ![ρ / 2, ε] ∈ φ.source ∩ {p | F p = c + ε} :=
+     ⟨hsp, hvp⟩
+   exact ⟨hs0, hsm, hsp, hi0, him, hip, hv0, hvm, hvp,
+-    ⟨hs0, hv0.ge⟩, ⟨hs0, hv0⟩, hm, hp, hneq, (hpc ε hε).2.joinedIn hm hp⟩
++    ⟨hs0, hv0.ge⟩, ⟨hs0, hv0⟩, hm, hp, hneq, (hpc ε hε).2.joinedIn _ hm _ hp⟩
+ 
+ private def FixtureOutput (X : E2) : Prop :=
+   ∃ ρ : ℝ, 0 < ρ ∧ ∃ φ : OpenPartialHomeomorph (Torus2 2) Point2,
+@@ -718,7 +718,7 @@
+   intro hz
+   have he := fixture_regularX_derivative.1
+   rw [hz] at he
+-  simp only [ContinuousLinearMap.zero_apply] at he
++  simp only [zero_apply] at he
+   linarith [Real.pi_pos]
+ 
+ private theorem fixture_regularY_consumer : FixtureOutput fixtureXy := by
+@@ -726,7 +726,7 @@
+   intro hz
+   have he := fixture_regularY_derivative.2
+   rw [hz] at he
+-  simp only [ContinuousLinearMap.zero_apply] at he
++  simp only [zero_apply] at he
+   linarith [Real.pi_pos]
+ 
+ private theorem fixture_seam_consumer : FixtureOutput fixtureXseam := by
+@@ -734,7 +734,7 @@
+   intro hz
+   have he := fixture_seam_derivative.1
+   rw [hz] at he
+-  simp only [ContinuousLinearMap.zero_apply] at he
++  simp only [zero_apply] at he
+   linarith [Real.pi_pos]
+ 
+ end I4SourceActualRegularLocalCollar

@@ -1,0 +1,14 @@
+{
+  "parent": "94a78d8bd95f0cafae85bd6b202407e418fafc2b",
+  "source_sha256": "4ac046ee75d70e30aeb90b1f57046bdb900738df8f910ea6929cd336b6af0ba5",
+  "prior_methods": 23,
+  "current_methods": 25,
+  "only_modified_prior_method": [
+    "OracleOriginSelfTests.test_grader_source_safeguards_are_assertion_killed"
+  ],
+  "new_methods": [
+    "OracleOriginSelfTests.test_distinct_subtest_contexts_with_identical_labels_are_admitted",
+    "OracleOriginSelfTests.test_duplicate_subtest_event_is_refused"
+  ],
+  "production_bytes_unchanged": true
+}

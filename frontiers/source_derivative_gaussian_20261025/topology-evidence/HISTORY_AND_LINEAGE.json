@@ -1,0 +1,453 @@
+{
+  "metadata_only": true,
+  "packager": "OpenAI/Codex /root/uniform_jet_moment_sources/torus_interface_recon",
+  "scope": "Historical transcription of existing SourceSmoothTopology execution records and declared author lineage only.",
+  "no_new_execution_or_hashing": true,
+  "no_production_source_edits": true,
+  "no_baseline_source_reads_or_hashing": true,
+  "source_qualification_receipt_path": "/workspace/scratch/source-smooth-topology/QUALIFICATION_RECEIPT.json",
+  "final_source_identity_copied_from_receipt": {
+    "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothTopology.lean",
+    "source_sha256": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+    "line_count": 396,
+    "frozen_contract_commit": "9d999aa"
+  },
+  "final_applicable_record_labels": [
+    "06-final-norm-borel-fields",
+    "08-axiom-audit",
+    "09-kernel-replay",
+    "10-controls-fixed"
+  ],
+  "intermediate_success_record_labels": [
+    "02-core-production",
+    "05-norm-conditional-fields"
+  ],
+  "original_failures_preserved": true,
+  "failure_caveats": [
+    "Five initial scratch attempts all failed; do not count their full scratch file as a qualified theorem artifact.",
+    "Unknown-constant diagnostics in failed scratch files were cascades after timeout/failed declarations; the final audit independently succeeds.",
+    "The 07-controls failure was a control type-argument ordering error with the final production SHA unchanged.",
+    "All source/log SHA values below are copied from genuine prior subprocess records; this metadata task computed no new hashes."
+  ],
+  "recorded_executions": [
+    {
+      "label": "derivative-bcf-01",
+      "scope_kind": "scratch_attempt",
+      "summary": "FAILED scratch: default-heartbeat elaboration timeout, evaluation rewrite, BorelSpace/letI issues.",
+      "original_record_path": "/workspace/scratch/source-smooth-topology/derivative-bcf-01.json",
+      "original_log_path": "/workspace/scratch/source-smooth-topology/derivative-bcf-01.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/source-smooth-topology/DerivativeBCF.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source_sha256_before": "1da0a1dd04c50cfd119b9f603904da4b0010f0cce884e241fba0139310e7f9f3",
+        "source_sha256_after": "1da0a1dd04c50cfd119b9f603904da4b0010f0cce884e241fba0139310e7f9f3",
+        "log_sha256": "131eb36e5aff12ffdfa68ea76e99431bcc81f96fc9b46806e7f1950afbbc62f8",
+        "elapsed_seconds": 28.052045822143555
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-topology/derivative-bcf-01.source.lean"
+    },
+    {
+      "label": "derivative-bcf-02",
+      "scope_kind": "scratch_attempt",
+      "summary": "FAILED scratch: NormSMulClass/elaboration, sampleInclusion eta/unfolding, unused simp warning, Fin-vs-Nat tuple inference, timeout; later unknown-constant message cascaded from failed declaration.",
+      "original_record_path": "/workspace/scratch/source-smooth-topology/derivative-bcf-02.json",
+      "original_log_path": "/workspace/scratch/source-smooth-topology/derivative-bcf-02.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/source-smooth-topology/DerivativeBCF.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source_sha256_before": "e4af70bdfb3e1937eb6225a374ae728061bc16769820b061dc1fd800ba1de144",
+        "source_sha256_after": "e4af70bdfb3e1937eb6225a374ae728061bc16769820b061dc1fd800ba1de144",
+        "log_sha256": "aae03186f38619ed43b08574e5d3463727751fd3b016ac8c89eb044c5e122a81",
+        "elapsed_seconds": 22.259162187576294
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-topology/derivative-bcf-02.source.lean"
+    },
+    {
+      "label": "derivative-bcf-03",
+      "scope_kind": "scratch_attempt",
+      "summary": "FAILED scratch: norm_smul_le instance mismatch and dependent tuple timeout; unknown-constant message cascaded from failed declaration.",
+      "original_record_path": "/workspace/scratch/source-smooth-topology/derivative-bcf-03.json",
+      "original_log_path": "/workspace/scratch/source-smooth-topology/derivative-bcf-03.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/source-smooth-topology/DerivativeBCF.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source_sha256_before": "a1c1e1a415f0ca2b2d3d2e9fd7f5c277c484a118b5e7a1e82302559550f51754",
+        "source_sha256_after": "a1c1e1a415f0ca2b2d3d2e9fd7f5c277c484a118b5e7a1e82302559550f51754",
+        "log_sha256": "4ab16c509b12557e486701d99503bd12e458dfe275a93da283f0f434235e987e",
+        "elapsed_seconds": 25.75261950492859
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-topology/derivative-bcf-03.source.lean"
+    },
+    {
+      "label": "derivative-bcf-04",
+      "scope_kind": "scratch_attempt",
+      "summary": "FAILED scratch: unavailable continuous_smul_const name and dependent tuple timeout; unknown-constant message cascaded from failed declaration.",
+      "original_record_path": "/workspace/scratch/source-smooth-topology/derivative-bcf-04.json",
+      "original_log_path": "/workspace/scratch/source-smooth-topology/derivative-bcf-04.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/source-smooth-topology/DerivativeBCF.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source_sha256_before": "e8380413f8f231694b983b4b5e3424c1db299697ee3056a619e6c8d1df151679",
+        "source_sha256_after": "e8380413f8f231694b983b4b5e3424c1db299697ee3056a619e6c8d1df151679",
+        "log_sha256": "1a9e9da92de85446e39884784a062df4d3af58f852029e304250b2701657bbab",
+        "elapsed_seconds": 27.864665985107422
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-topology/derivative-bcf-04.source.lean"
+    },
+    {
+      "label": "derivative-bcf-05",
+      "scope_kind": "scratch_attempt",
+      "summary": "FAILED scratch: dependent tuple elaboration timeout; unknown-constant message cascaded from failed declaration. No whole DerivativeBCF scratch artifact is claimed qualified.",
+      "original_record_path": "/workspace/scratch/source-smooth-topology/derivative-bcf-05.json",
+      "original_log_path": "/workspace/scratch/source-smooth-topology/derivative-bcf-05.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/source-smooth-topology/DerivativeBCF.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source_sha256_before": "ce98ce77e52d4f6c0f90bc415a0e59aac01aac320636f48cc549c2f7031fdf87",
+        "source_sha256_after": "ce98ce77e52d4f6c0f90bc415a0e59aac01aac320636f48cc549c2f7031fdf87",
+        "log_sha256": "9c2c9650d15b103f294d80d856d88cdd11242d133679f297e38eb57ba66422d5",
+        "elapsed_seconds": 22.784599781036377
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-topology/derivative-bcf-05.source.lean"
+    },
+    {
+      "label": "01-core-production",
+      "scope_kind": "production_compilation",
+      "summary": "FAILED production stage: PseudoMetrizableSpace namespace not open; other messages cascaded.",
+      "original_record_path": "/workspace/scratch/source-smooth-topology/01-core-production.json",
+      "original_log_path": "/workspace/scratch/source-smooth-topology/01-core-production.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceSmoothTopology.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothTopology.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothTopology.lean",
+        "source_sha256_before": "63cf114a6a3a60106c2109ee463664e9b0b0714b7a8f6e3e87ca8e5df3f43439",
+        "source_sha256_after": "63cf114a6a3a60106c2109ee463664e9b0b0714b7a8f6e3e87ca8e5df3f43439",
+        "production_source_sha256_before": "63cf114a6a3a60106c2109ee463664e9b0b0714b7a8f6e3e87ca8e5df3f43439",
+        "production_source_sha256_after": "63cf114a6a3a60106c2109ee463664e9b0b0714b7a8f6e3e87ca8e5df3f43439",
+        "log_sha256": "e4efaa4ae08c4336a8d8afd64967db03e7f6d179212fe027dacfe088a9014f00",
+        "elapsed_seconds": 4.0798914432525635
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-topology/01-core-production.source.lean"
+    },
+    {
+      "label": "02-core-production",
+      "scope_kind": "production_compilation",
+      "summary": "SUCCESS intermediate production stage: actual all-order derivative BCF and whole finite-jet strong/norm-Borel measurability.",
+      "original_record_path": "/workspace/scratch/source-smooth-topology/02-core-production.json",
+      "original_log_path": "/workspace/scratch/source-smooth-topology/02-core-production.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceSmoothTopology.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothTopology.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothTopology.lean",
+        "source_sha256_before": "0e5894014fb85ea5258f7818a207bd059cc6de57dba02512ffc6822d3a87177a",
+        "source_sha256_after": "0e5894014fb85ea5258f7818a207bd059cc6de57dba02512ffc6822d3a87177a",
+        "production_source_sha256_before": "0e5894014fb85ea5258f7818a207bd059cc6de57dba02512ffc6822d3a87177a",
+        "production_source_sha256_after": "0e5894014fb85ea5258f7818a207bd059cc6de57dba02512ffc6822d3a87177a",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 4.821741819381714
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-topology/02-core-production.source.lean"
+    },
+    {
+      "label": "03-uniform-compact-periodic",
+      "scope_kind": "production_compilation",
+      "summary": "FAILED production stage: sourceFiniteJet equality proof needed explicit unfolding/change.",
+      "original_record_path": "/workspace/scratch/source-smooth-topology/03-uniform-compact-periodic.json",
+      "original_log_path": "/workspace/scratch/source-smooth-topology/03-uniform-compact-periodic.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceSmoothTopology.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothTopology.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothTopology.lean",
+        "source_sha256_before": "8919694ee2b33e3e1fcb46a74808e04407aa5bbaef387942ae999b99ce8bb6c0",
+        "source_sha256_after": "8919694ee2b33e3e1fcb46a74808e04407aa5bbaef387942ae999b99ce8bb6c0",
+        "production_source_sha256_before": "8919694ee2b33e3e1fcb46a74808e04407aa5bbaef387942ae999b99ce8bb6c0",
+        "production_source_sha256_after": "8919694ee2b33e3e1fcb46a74808e04407aa5bbaef387942ae999b99ce8bb6c0",
+        "log_sha256": "b14e0f7e0ea72d7223da4ac8ebe31d4c32aa52570f581ce7db8d65bd2b2aa6b8",
+        "elapsed_seconds": 5.3864758014678955
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-topology/03-uniform-compact-periodic.source.lean"
+    },
+    {
+      "label": "04-norm-conditional-fields",
+      "scope_kind": "production_compilation",
+      "summary": "FAILED production stage: documentation comment before section parsed as declaration documentation.",
+      "original_record_path": "/workspace/scratch/source-smooth-topology/04-norm-conditional-fields.json",
+      "original_log_path": "/workspace/scratch/source-smooth-topology/04-norm-conditional-fields.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceSmoothTopology.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothTopology.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothTopology.lean",
+        "source_sha256_before": "7e62241d03e879b9feb3208a3d71a010ea1e0169789e83dd6db84e8f9ff9483f",
+        "source_sha256_after": "7e62241d03e879b9feb3208a3d71a010ea1e0169789e83dd6db84e8f9ff9483f",
+        "production_source_sha256_before": "7e62241d03e879b9feb3208a3d71a010ea1e0169789e83dd6db84e8f9ff9483f",
+        "production_source_sha256_after": "7e62241d03e879b9feb3208a3d71a010ea1e0169789e83dd6db84e8f9ff9483f",
+        "log_sha256": "fb680d8f2613f38adc99e128d17f48195a1c25715c3b2832444eaa779a54e976",
+        "elapsed_seconds": 4.787237167358398
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-topology/04-norm-conditional-fields.source.lean"
+    },
+    {
+      "label": "05-norm-conditional-fields",
+      "scope_kind": "production_compilation",
+      "summary": "SUCCESS intermediate production stage: core plus uniform convergence/restriction/periodicity/compatible fields and norm-valued conditional law.",
+      "original_record_path": "/workspace/scratch/source-smooth-topology/05-norm-conditional-fields.json",
+      "original_log_path": "/workspace/scratch/source-smooth-topology/05-norm-conditional-fields.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceSmoothTopology.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothTopology.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothTopology.lean",
+        "source_sha256_before": "7fcc099039089303137933928351e35cddefb3b17dd2d5cb5c1f9c226bab00c6",
+        "source_sha256_after": "7fcc099039089303137933928351e35cddefb3b17dd2d5cb5c1f9c226bab00c6",
+        "production_source_sha256_before": "7fcc099039089303137933928351e35cddefb3b17dd2d5cb5c1f9c226bab00c6",
+        "production_source_sha256_after": "7fcc099039089303137933928351e35cddefb3b17dd2d5cb5c1f9c226bab00c6",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 5.511085033416748
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-topology/05-norm-conditional-fields.source.lean"
+    },
+    {
+      "label": "06-final-norm-borel-fields",
+      "scope_kind": "production_compilation",
+      "summary": "SUCCESS FINAL production source compilation: added witness uniqueness, explicit compatible Borel and derivative/compatible functional corollaries.",
+      "original_record_path": "/workspace/scratch/source-smooth-topology/06-final-norm-borel-fields.json",
+      "original_log_path": "/workspace/scratch/source-smooth-topology/06-final-norm-borel-fields.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceSmoothTopology.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothTopology.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothTopology.lean",
+        "source_sha256_before": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+        "source_sha256_after": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+        "production_source_sha256_before": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+        "production_source_sha256_after": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 6.646421194076538
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-topology/06-final-norm-borel-fields.source.lean"
+    },
+    {
+      "label": "07-controls",
+      "scope_kind": "control",
+      "summary": "FAILED CONTROL ONLY: explicit Kernel.map argument order in type-control. Production source unchanged and no production defect was found.",
+      "original_record_path": "/workspace/scratch/source-smooth-topology/07-controls.json",
+      "original_log_path": "/workspace/scratch/source-smooth-topology/07-controls.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/source-smooth-topology/Controls.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/source-smooth-topology/Controls.lean",
+        "source_sha256_before": "75f0de4c3d1a152f777f800819e22c35a1999ea404cb68d2d659006e099cd33e",
+        "source_sha256_after": "75f0de4c3d1a152f777f800819e22c35a1999ea404cb68d2d659006e099cd33e",
+        "production_source_sha256_before": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+        "production_source_sha256_after": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+        "log_sha256": "5f0711eb62c80e18881166805cefba0cd67f0c3f5f60ee5696b3d1c26e10797f",
+        "elapsed_seconds": 6.192509651184082
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-topology/07-controls.source.lean"
+    },
+    {
+      "label": "08-axiom-audit",
+      "scope_kind": "axiom_audit",
+      "summary": "SUCCESS final 49 direct public declaration audit, including definitions/abbreviations and local-instance named declarations.",
+      "original_record_path": "/workspace/scratch/source-smooth-topology/08-axiom-audit.json",
+      "original_log_path": "/workspace/scratch/source-smooth-topology/08-axiom-audit.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/source-smooth-topology/AxiomAudit.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/scratch/source-smooth-topology/AxiomAudit.lean",
+        "source_sha256_before": "1c332a73caff2cc7b00e65a91dea453baaf06fcbb0dc762b2e4259bb5fa37c11",
+        "source_sha256_after": "1c332a73caff2cc7b00e65a91dea453baaf06fcbb0dc762b2e4259bb5fa37c11",
+        "production_source_sha256_before": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+        "production_source_sha256_after": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+        "log_sha256": "4820e9f4c8579b204a1c1641e9798e8ee6ef2c23058c7962db95ac85f884aace",
+        "elapsed_seconds": 5.3644936084747314
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-topology/08-axiom-audit.source.lean"
+    },
+    {
+      "label": "09-kernel-replay",
+      "scope_kind": "kernel_replay",
+      "summary": "SUCCESS named new-module kernel replay; not a baseline or old-module rerun.",
+      "original_record_path": "/workspace/scratch/source-smooth-topology/09-kernel-replay.json",
+      "original_log_path": "/workspace/scratch/source-smooth-topology/09-kernel-replay.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "leanchecker",
+          "SourceSmoothTopology"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source_sha256_before": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+        "source_sha256_after": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 8.211804151535034
+      }
+    },
+    {
+      "label": "10-controls-fixed",
+      "scope_kind": "control",
+      "summary": "SUCCESS FINAL controls: only control Kernel.map argument order corrected; no production edit or repeat production/kernel/audit check.",
+      "original_record_path": "/workspace/scratch/source-smooth-topology/10-controls-fixed.json",
+      "original_log_path": "/workspace/scratch/source-smooth-topology/10-controls-fixed.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/source-smooth-topology/Controls.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/scratch/source-smooth-topology/Controls.lean",
+        "source_sha256_before": "c6f6f3a0c08ea22f20350ceeaf5a97903ab259e573126b0c36c22ec24426f26a",
+        "source_sha256_after": "c6f6f3a0c08ea22f20350ceeaf5a97903ab259e573126b0c36c22ec24426f26a",
+        "production_source_sha256_before": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+        "production_source_sha256_after": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 4.835841655731201
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-topology/10-controls-fixed.source.lean"
+    }
+  ],
+  "inventory": {
+    "path": "/workspace/scratch/source-smooth-topology/targets.json",
+    "axiom_coverage_path": "/workspace/scratch/source-smooth-topology/AXIOM_COVERAGE.json",
+    "direct_public_declaration_count": 49,
+    "kinds": {
+      "abbrev": 2,
+      "theorem": 36,
+      "def": 7,
+      "instance": 4
+    },
+    "includes_named_local_instances": true
+  },
+  "author_lineage": [
+    {
+      "agent": "/root/uniform_jet_moment_sources",
+      "provider_family": "OpenAI/Codex",
+      "role": "Sole production author and sole scratch proof author; ran source qualification."
+    }
+  ],
+  "production_helpers": [],
+  "normalizer_palm_research_contribution_to_this_module": "None; no topology production or scratch proof contribution.",
+  "recon_only_lineage": [
+    {
+      "agent": "/root/uniform_jet_moment_sources/torus_interface_recon",
+      "provider_family": "OpenAI/Codex",
+      "role": "Read-only successor-interface reconnaissance and metadata history packaging only; no production proof or qualification authorship.",
+      "note_path": "/workspace/scratch/source-smooth-topology/torus-interface-recon/INTERFACE_PROPOSAL.md",
+      "qualified_theorem_artifact": false
+    }
+  ],
+  "scientific_review_credit": false,
+  "remaining_application_boundary_copied_from_receipt": "Conventional C3 torus quotient/local-chart identification and usual C3 norm equivalence, followed by GP-DER197 capture/ODE event pullback; no claim of automatic capture measurability, geometric Palm, Morse, elder, or counting closure.",
+  "user_reuse_rule": "Completed applicable verification reused; new session/worktree never warrants baseline reruns.",
+  "owner_mandate_links": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md"
+  ]
+}

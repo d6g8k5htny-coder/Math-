@@ -1,0 +1,30 @@
+{
+  "command_argv": [
+    "python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/native-runtime/capture.py",
+    "--run-dir",
+    "/workspace/scratch/actual-source-regular-local-collar-publication/kernel-release66-001/outer",
+    "--cwd",
+    "/workspace/Math-curvature-20261026",
+    "--scope",
+    "outer",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/native-runtime/capture.py",
+    "--run-dir",
+    "/workspace/scratch/actual-source-regular-local-collar-publication/kernel-release66-001/worker",
+    "--cwd",
+    "/workspace/Math-curvature-20261026",
+    "--scope",
+    "worker",
+    "--",
+    "python3",
+    "-c",
+    "from pathlib import Path\nfrom datetime import datetime,timezone\nimport json\nu=Path(\"/workspace/scratch/actual-source-regular-local-collar-publication\")\nx={'status':'ROOT_RELEASE66_EXACTLY_ONE_FINAL_COMPLETE_OWN_MODULE_KERNEL','observed_utc':datetime.now(timezone.utc).isoformat(),'creator':6482857252,'module':'SourceActualRegularLocalCollar','source_identity_reused':{'lines':745,'bytes':30286,'sha256':'82823ac4360cbfb6eda057eb9fc212c870842703a14f5222454df70f19ed0d96'},'qualified_own_object_reused':{'path':'/workspace/scratch/actual-source-regular-local-collar-construct/build/SourceActualRegularLocalCollar.olean','bytes':1341664,'sha256':'9050a31e570e121e268239f3374e9129037a78084bca7fc64f63ac0404bddad0'},'production_strict':'fixtures004 WORKER23:35:31.445886–23:35:35.470725/exit0/empty2; reused on unchangedsource','owned_inventory_std3':'inventory001 WORKER23:37:00.646167–23:37:03.781292/exit0; ALL80/std3 including4foreigngenerated; reused','early_nonauthor_report':'/workspace/scratch/actual-source-regular-local-collar-source-review/technical/PRODUCTION_PRE_KERNEL.md','scope':'/workspace/scratch/actual-source-regular-local-collar-source-review/technical-scope.json','root_reading':'FULLpre-kernelreport+scope4212tokens, explicitFULL/partialcustodylimits retained. ReviewerFULLsource viaoriginals+deltas/ALL80classification+20219Brawaxioms/finalstrict+inventoryreceipts/streams; rootdoesNOTclaimwholeproduction/all80rawpersonalreading.','authorized':'EXACTLYONE finalcompleteownmodule kernel coveringALLprivate/helper/actualpositive content on THISunchangedqualifiedmodule. Actualfullcommands/cwd/LEAN_PATH/times/exit/originalworker+outer+entrystreams retained. No narrowhelperkernel orrepetition ofpassedstrict/inventory.','ordinary_kernel_authorized':False,'old_helper_other_module_kernels_authorized':False,'ordinary_and_negative_status':'Separatependingordinarystrict/ALLownedstd3/independentactualmaximumcounterproof/ONEclosedharness; productionkerneldoesnotcoverthem.','sourcecut_copy_metadata_publication_authorized_here':False,'remaining_custody':'Pendingotherfailures/documentary/enclosingrecordreading separatelytracked; doesnoterasecompletedmathematicalverification.','checkpoint':'2026-10-28T23:45:00Z','hard_terminal':'2026-10-29T03:30:00Z or invocationend/noautoextension','process':'OpenDraft/noReady/noMerge/samefamily0/scienceNONE/providerprocessseparate/014KMath403STOP'}\nwith (u/'ROOT_KERNEL66_RELEASE.json').open('x') as f:json.dump(x,f,indent=2);f.write('\\n')\nprint(json.dumps({'status':x['status'],'observed_utc':x['observed_utc'],'module':x['module'],'kernel_count_authorized':1}))"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026",
+  "started_utc": "2026-10-28T23:41:54.772527+00:00",
+  "explicit_environment_overrides": {},
+  "stdin_binding": null,
+  "original_separate_capture": true
+}

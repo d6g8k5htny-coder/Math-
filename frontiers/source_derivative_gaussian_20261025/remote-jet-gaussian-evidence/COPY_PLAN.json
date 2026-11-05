@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "execution_owner": "root",
+  "executed_by_packaging_agent": false,
+  "source_cut": "9ce7b9519aac1b1052d9c6f0c5082581d39da0f6",
+  "source_path": "frontiers/source_derivative_gaussian_20261025/SourceRemoteJetGaussian.lean",
+  "source_sha256": "65694d00f575333b3b896338ecaf047ce8e166fbb8eddc03bd0836cce521a034",
+  "copies": [
+    {
+      "source": "/workspace/scratch/remote-jet-gaussian-construct/build/SourceRemoteJetGaussian.olean",
+      "destination": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceRemoteJetGaussian.olean",
+      "bytes": 439696,
+      "sha256": "860a695d73f7a800442e03a7c1c1f9ccf77bd70692239a96a95674df03f39d0c",
+      "identity_origin": "Retained producer FROZEN_SOURCE/SOURCE_OBJECT_IDENTITIES, strict003 and one ownkernel evidence; not rehashed by packaging."
+    }
+  ],
+  "no_ilean_produced": true,
+  "guidance": "Root alone creates destination parent and copies only this qualified named own olean. Exclude every control/inventory/helper/mutation/earlier object. Reuse completed strict003, exhaustive inventory, controls, negative mutation and ownkernel evidence. No freshness/ilean compile.",
+  "scientific_effect": "NONE"
+}

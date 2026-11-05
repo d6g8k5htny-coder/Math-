@@ -1,0 +1,13 @@
+/workspace/scratch/lifetime-pair-finiteness/Controls.lean:19:2: error: Type mismatch: After simplification, term
+  ht
+ has type
+  t ∈ Set.Ico 0 L
+but is expected to have type
+  0 ≤ t ∧ t < L
+/workspace/scratch/lifetime-pair-finiteness/Controls.lean:43:14: error: `Set.setOf_mem_eq` has been deprecated: Use `Set.ofPred_mem_eq` instead
+/workspace/scratch/lifetime-pair-finiteness/Controls.lean:42:2: error: Type mismatch: After simplification, term
+  fundDomain_infinite hL
+ has type
+  (FundDomain 2 L).Infinite
+but is expected to have type
+  {x | x ∈ FundDomain 2 L ∧ fderiv ℝ (fun x => 0) x = 0}.Infinite

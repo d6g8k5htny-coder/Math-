@@ -1,0 +1,123 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean:54:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  Measurable ((fun F => (F x) u) ∘ sourceDerivativeBCF 2 hL k)
+but is expected to have type
+  Measurable fun ω => (iteratedFDeriv ℝ k (smoothSourceField 2 L ω) x) u
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean:61:4: error: Type mismatch: After simplification, term
+  derivative_borel hL 0 x ![]
+ has type
+  @Measurable (SmoothSample 2 L) ℝ Subtype.instMeasurableSpace Real.measurableSpace fun ω => smoothSourceField 2 L ω x
+but is expected to have type
+  @Measurable (SmoothSample 2 L) ℝ Subtype.instMeasurableSpace Real.measurableSpace fun c => remoteJet L x c ⟨0, ⋯⟩
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean:62:4: error: Type mismatch: After simplification, term
+  derivative_borel hL 1 x ![directionX]
+ has type
+  @Measurable (SmoothSample 2 L) ℝ Subtype.instMeasurableSpace Real.measurableSpace fun ω =>
+    (fderiv ℝ (smoothSourceField 2 L ω) x) (![directionX] 0)
+but is expected to have type
+  @Measurable (SmoothSample 2 L) ℝ Subtype.instMeasurableSpace Real.measurableSpace fun c => remoteJet L x c ⟨1, ⋯⟩
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean:63:4: error: Type mismatch: After simplification, term
+  derivative_borel hL 1 x ![directionY]
+ has type
+  @Measurable (SmoothSample 2 L) ℝ Subtype.instMeasurableSpace Real.measurableSpace fun ω =>
+    (fderiv ℝ (smoothSourceField 2 L ω) x) (![directionY] 0)
+but is expected to have type
+  @Measurable (SmoothSample 2 L) ℝ Subtype.instMeasurableSpace Real.measurableSpace fun c => remoteJet L x c ⟨2, ⋯⟩
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean:105:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  star z ⬝ᵥ I4ContactGram.coefficientGram (remoteResidualCoefficient L r x) *ᵥ z
+in the target expression
+  0 ≤ star z ⬝ᵥ remoteResidualCovariance L r x *ᵥ z
+
+case hM2
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+x : Fin 2 → ℝ
+hc : ∀ (j : Fin 6), Summable (remoteResidualCoefficient L r x j)
+z : Fin 6 → ℝ
+hs :
+  HasSum (fun m => (∑ i, z i * remoteResidualCoefficient L r x i m) ^ 2)
+    (star z ⬝ᵥ I4ContactGram.coefficientGram (remoteResidualCoefficient L r x) *ᵥ z)
+⊢ 0 ≤ star z ⬝ᵥ remoteResidualCovariance L r x *ᵥ z
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean:128:94: error: unexpected identifier; expected ')', ',' or ':'
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean:128:8: error: type expected, got
+  (fun u => ⟪(EuclideanSpace.basisFun (Fin 3) ℝ).toBasis i, u⟫ : EuclideanSpace ℝ (Fin 3) → ℝ)
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean:118:84: error: unsolved goals
+case hv.hX
+m : EuclideanSpace ℝ (Fin 6)
+S : Matrix (Fin 6) (Fin 6) ℝ
+hS : S.PosSemidef
+i j : Fin 3
+⊢ AEStronglyMeasurable (fun u => ⟪(EuclideanSpace.basisFun (Fin 3) ℝ).toBasis i, u⟫)
+    (Measure.map (⇑hessianProjection) (multivariateGaussian m S))
+
+case hv.hY
+m : EuclideanSpace ℝ (Fin 6)
+S : Matrix (Fin 6) (Fin 6) ℝ
+hS : S.PosSemidef
+i j : Fin 3
+⊢ AEStronglyMeasurable (fun u => ⟪(EuclideanSpace.basisFun (Fin 3) ℝ).toBasis j, u⟫)
+    (Measure.map (⇑hessianProjection) (multivariateGaussian m S))
+
+case hv.hZ
+m : EuclideanSpace ℝ (Fin 6)
+S : Matrix (Fin 6) (Fin 6) ℝ
+hS : S.PosSemidef
+i j : Fin 3
+⊢ AEMeasurable (⇑hessianProjection) (multivariateGaussian m S)
+
+case hv.h
+m : EuclideanSpace ℝ (Fin 6)
+S : Matrix (Fin 6) (Fin 6) ℝ
+hS : S.PosSemidef
+i j : Fin 3
+⊢ MemLp id 2 (Measure.map (⇑hessianProjection) (multivariateGaussian m S))
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean:150:34: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  hessianProjection ?v
+in the target expression
+  (toLp 2 fun j => remoteJet L (endpoint r e) ω (jetIndex j)) =
+    (⇑hessianProjection ∘ fun ω => toLp 2 (remoteJet L (endpoint r e) ω)) ω
+
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+e : Fin 2
+t : Fin 6 → ℝ
+hm : Measurable fun ω => toLp 2 (remoteJet L (endpoint r e) ω)
+ω : SmoothSample 2 L
+⊢ (toLp 2 fun j => remoteJet L (endpoint r e) ω (jetIndex j)) =
+    (⇑hessianProjection ∘ fun ω => toLp 2 (remoteJet L (endpoint r e) ω)) ω
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean:270:17: error: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean:321:52: error: Application type mismatch: The argument
+  h
+has type
+  Filter.Eventually (fun (H : EuclideanSpace ℝ (Fin 3)) => H.ofLp 0 * H.ofLp 2 - H.ofLp 1 ^ 2 ≠ 0)
+    (ae (Measure.map (fun ω => toLp 2 (endpointHessian L r e ω)) ((rawPinKernel hL r) t)))
+but is expected to have type
+  Filter.Eventually (fun (y : Prop) => ¬y)
+    (ae
+      (Measure.map (fun x => endpointHessian L r e x 0 * endpointHessian L r e x 2 - endpointHessian L r e x 1 ^ 2 = 0)
+        ((rawPinKernel hL r) t)))
+in the application
+  ae_of_ae_map ?m.105 h
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean:320:4: error: Type mismatch
+  Measurable.aemeasurable (Measurable.comp (measurable_toLp 2 (Fin 3 → ℝ)) (endpointHessian_borel hL r e))
+has type
+  AEMeasurable ((fun v => toLp 2 v) ∘ endpointHessian L r e) ?m.132
+but is expected to have type
+  AEMeasurable (fun x => endpointHessian L r e x 0 * endpointHessian L r e x 2 - endpointHessian L r e x 1 ^ 2 = 0)
+    ((rawPinKernel hL r) t)
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean:313:29: error: unsolved goals
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+hsep : I4Torus.torusProjection 2 L (endpointM r) ≠ I4Torus.torusProjection 2 L (endpointS r)
+t : Fin 6 → ℝ
+e : Fin 2
+h :
+  ∀ᵐ (H : EuclideanSpace ℝ (Fin 3)) ∂Measure.map (fun ω => toLp 2 (endpointHessian L r e ω)) ((rawPinKernel hL r) t),
+    H.ofLp 0 * H.ofLp 2 - H.ofLp 1 ^ 2 ≠ 0
+⊢ ∀ᵐ (a : SmoothSample 2 L) ∂(rawPinKernel hL r) t,
+    let H := endpointHessian L r e a;
+    H 0 * H 2 - H 1 ^ 2 ≠ 0

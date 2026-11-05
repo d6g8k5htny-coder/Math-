@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "execution_owner": "root",
+  "executed_by_packaging_agent": false,
+  "source_cut": "009ff87f13cc4ef022fc8900aba5595f27a51436",
+  "source_path": "frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianWitness.lean",
+  "source_sha256": "45f69d75cb4418b239f6402d0552da546bccc127e3102fac7da7d4c30324ae8f",
+  "copies": [
+    {
+      "source": "/workspace/scratch/endpoint-hessian-witness-construct/build/SourceEndpointHessianWitness.olean",
+      "destination": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceEndpointHessianWitness.olean",
+      "bytes": 1817208,
+      "sha256": "376c2b9c05aafed41924ccc90b67ccff4ffeae22398d20c41ab8d78c883878fc",
+      "identity_origin": "Retained frozen strict002/source-object identities and one ownkernel evidence; no packaging object hash replay."
+    }
+  ],
+  "no_ilean_produced": true,
+  "guidance": "Root alone creates destination parent and copies only this qualified named own olean once. Exclude all control/inventory/helper/mutation/earlier objects. Reuse completed strict002, actual63 inventory, finalcontrols003, soleFalse normalization001 and one ownkernel001 evidence. No ilean/freshness compile.",
+  "scientific_effect": "NONE"
+}

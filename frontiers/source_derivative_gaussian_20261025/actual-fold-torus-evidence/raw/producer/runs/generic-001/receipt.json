@@ -1,0 +1,28 @@
+{
+  "label": "generic-001",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/scratch/actual-fold-torus-construct/Generic.lean"
+  ],
+  "before": {
+    "source": null,
+    "object": null
+  },
+  "started_utc": "2026-10-26T06:35:41.706118+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 3.8604979515075684,
+  "ended_utc": "2026-10-26T06:35:45.566658+00:00",
+  "after": {
+    "source": null,
+    "object": null
+  },
+  "log": {
+    "path": "/workspace/scratch/actual-fold-torus-construct/runs/generic-001/output.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

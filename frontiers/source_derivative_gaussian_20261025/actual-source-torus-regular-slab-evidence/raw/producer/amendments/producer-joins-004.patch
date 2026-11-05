@@ -1,0 +1,11 @@
+--- producer-joins003/source
++++ producer-joins004/source
+@@ -916,7 +916,7 @@
+   have hX : a ≤ F X.val := by
+     simpa only [TorusFiltration.superlevel_set,Set.mem_ofPred_eq,neg_neg] using X.property
+   have hp := (hpoint ⟨X.val,hX⟩).symm
+-  simpa only [TorusFiltration.superlevel_neg_height,F,r,TorusFiltration.superlevel_inclusion] using hp
++  simpa only [TorusFiltration.superlevel_neg_height,F,r,TorusFiltration.superlevel_inclusion,ContinuousMap.inclusion,Set.inclusion] using hp
+ 
+ private theorem closedBand_componentBijective_core {L : ℝ} (hL : 0 < L)
+     (omega : SmoothSample 2 L) (a b : ℝ) (hab : a ≤ b)

@@ -1,0 +1,740 @@
+{
+  "schema_version": 1,
+  "archive_root": "raw",
+  "members": [
+    {
+      "path": "raw/producer/AUTHOR_HELPER_LINEAGE.json",
+      "source": "/workspace/scratch/h0-older-clearance-construct/AUTHOR_HELPER_LINEAGE.json",
+      "bytes": 1588,
+      "sha256": "7e89aee3f383702f08601e5233ada6aaf380028da710ef7606121be11fb7fc2e",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/CONTROL_AMENDMENT.json",
+      "source": "/workspace/scratch/h0-older-clearance-construct/CONTROL_AMENDMENT.json",
+      "bytes": 1094,
+      "sha256": "d0f41510b59816468628b1cc69d7e9776081391f50f6557107f8d342ecb1e71d",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/h0-older-clearance-construct/CONTROL_CONTRACT.md",
+      "bytes": 5340,
+      "sha256": "5c6fbfa593e6eaef3dfb7ec16e87e326fd8eba4501b8aefeb2e8b6ed569a8cbc",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/CONTROL_RECEIPT.json",
+      "source": "/workspace/scratch/h0-older-clearance-construct/CONTROL_RECEIPT.json",
+      "bytes": 4650,
+      "sha256": "fcbd8e1f9cd39233e10eaff04cd61ece7652e274a7041fb422d35718c3804bb8",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/CharTwoControls.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/CharTwoControls.lean",
+      "bytes": 793,
+      "sha256": "fef6c57915b35705461b412ff3f7060a91ceb3ca659a81f169f15b119b6a56ed",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/DEPENDENCY_REUSE.json",
+      "source": "/workspace/scratch/h0-older-clearance-construct/DEPENDENCY_REUSE.json",
+      "bytes": 9174,
+      "sha256": "c2a309e65a01a3443f9defb5f915b6084cfc8b410dbc746d812fb4060423a715",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/EXECUTION_ENVIRONMENT.json",
+      "source": "/workspace/scratch/h0-older-clearance-construct/EXECUTION_ENVIRONMENT.json",
+      "bytes": 624,
+      "sha256": "09e745d1cb3b693dcc9b6e5254f5b15ecbd25171eca2dcabf486b2b98c5d9688",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/EXECUTION_RECORD_INDEX.json",
+      "source": "/workspace/scratch/h0-older-clearance-construct/EXECUTION_RECORD_INDEX.json",
+      "bytes": 40087,
+      "sha256": "7d178952cc11bb42ff3912476df0a2a05ba90ed1a322084ba4664099eb89e688",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/FROZEN_SOURCE.json",
+      "source": "/workspace/scratch/h0-older-clearance-construct/FROZEN_SOURCE.json",
+      "bytes": 1570,
+      "sha256": "be26df42a4887ac25f55ab76bf2162bbac6cf1aaf2207a13fc91809a900d9065",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/FalseStrictMarginMutation.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/FalseStrictMarginMutation.lean",
+      "bytes": 546,
+      "sha256": "ebcb559dfeab92ae5d687e9d4dea036191b2e9d4ed4e6143d1735744f2bd1b6a",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/HANDOFF.json",
+      "source": "/workspace/scratch/h0-older-clearance-construct/HANDOFF.json",
+      "bytes": 5039,
+      "sha256": "8d0a79e4f9b999f98dec13d898a5f45274491931b643ec092c194be41a2ff734",
+      "identity_origin": "Newfinalpackaging payload hashedonce afterfinalwrite."
+    },
+    {
+      "path": "raw/producer/INVENTORY.json",
+      "source": "/workspace/scratch/h0-older-clearance-construct/INVENTORY.json",
+      "bytes": 4076,
+      "sha256": "623f21f12afd0c5f3d14169825f51dfe5dfb4bc896f0e95b83891977d98132bf",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/Inventory.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/Inventory.lean",
+      "bytes": 1148,
+      "sha256": "37eaef90ac322dc30d0d00e276b11d7678fbafc87f70c3144d11575ec0663199",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/OlderClearanceControls.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/OlderClearanceControls.lean",
+      "bytes": 6026,
+      "sha256": "53ac143afe0cd63cc1ee0c7fc189691ff9609604ab92870dc15de0b721b89af5",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/REPORT.md",
+      "source": "/workspace/scratch/h0-older-clearance-construct/REPORT.md",
+      "bytes": 12182,
+      "sha256": "2757e43f89786e1a89ee62cc9c1022ecb65f984c7eb618452dee47907c6eedd0",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/SOURCE_OBJECT_IDENTITIES.json",
+      "source": "/workspace/scratch/h0-older-clearance-construct/SOURCE_OBJECT_IDENTITIES.json",
+      "bytes": 1697,
+      "sha256": "81892e53256d67db469d30508c6d60e44119c2c3c04db32c3afc746f59d8efdf",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/STATIC_SCOPE.json",
+      "source": "/workspace/scratch/h0-older-clearance-construct/STATIC_SCOPE.json",
+      "bytes": 670,
+      "sha256": "abb6fff55c8a91f1337edabc164d8d410636c480ecf91c3f37c0941eff0a8635",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/TARGET_CLASSIFICATION.json",
+      "source": "/workspace/scratch/h0-older-clearance-construct/TARGET_CLASSIFICATION.json",
+      "bytes": 1163,
+      "sha256": "d6383d2286755ea8a91b0401987a37a6c55d4371c0386599c3d0bdb9e51f6c41",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/finalize.py",
+      "source": "/workspace/scratch/h0-older-clearance-construct/finalize.py",
+      "bytes": 12890,
+      "sha256": "b0e4c012866b4459b14c87b863a964a86a43d025666e3759e570f5c5c094ab76",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/run_stage.py",
+      "source": "/workspace/scratch/h0-older-clearance-construct/run_stage.py",
+      "bytes": 1462,
+      "sha256": "9861f1c20ac9b41efc7c3c5c62b2c6f9e93e1b21fd23b3eda4765144d84a2907",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/char-two-controls-001/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/char-two-controls-001/CONTROL_CONTRACT.md",
+      "bytes": 5340,
+      "sha256": "5c6fbfa593e6eaef3dfb7ec16e87e326fd8eba4501b8aefeb2e8b6ed569a8cbc",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/char-two-controls-001/CharTwoControls.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/char-two-controls-001/CharTwoControls.lean",
+      "bytes": 793,
+      "sha256": "fef6c57915b35705461b412ff3f7060a91ceb3ca659a81f169f15b119b6a56ed",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/char-two-controls-001/FalseStrictMarginMutation.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/char-two-controls-001/FalseStrictMarginMutation.lean",
+      "bytes": 546,
+      "sha256": "ebcb559dfeab92ae5d687e9d4dea036191b2e9d4ed4e6143d1735744f2bd1b6a",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/char-two-controls-001/Inventory.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/char-two-controls-001/Inventory.lean",
+      "bytes": 1148,
+      "sha256": "37eaef90ac322dc30d0d00e276b11d7678fbafc87f70c3144d11575ec0663199",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/char-two-controls-001/OlderClearanceControls.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/char-two-controls-001/OlderClearanceControls.lean",
+      "bytes": 6026,
+      "sha256": "53ac143afe0cd63cc1ee0c7fc189691ff9609604ab92870dc15de0b721b89af5",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/char-two-controls-001/SourceH0OlderClearance.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/char-two-controls-001/SourceH0OlderClearance.lean",
+      "bytes": 5856,
+      "sha256": "6e42bb33d81e0a76fc0abb409b4f4811b7e91fe07d1398300e2e9792f29e794a",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/char-two-controls-001/output.log",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/char-two-controls-001/output.log",
+      "bytes": 588,
+      "sha256": "371a72fcdb98f5cade59a0ccb0b10ff79c0d3dcb4d675b61d6cac6183a19647d",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/char-two-controls-001/receipt.json",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/char-two-controls-001/receipt.json",
+      "bytes": 2007,
+      "sha256": "3a2b3ec0e126f6babd7a9e8efc5bd52119043c6b7dc541f3ccaad0e042dde6f4",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/char-two-controls-001/run_stage.py",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/char-two-controls-001/run_stage.py",
+      "bytes": 1462,
+      "sha256": "9861f1c20ac9b41efc7c3c5c62b2c6f9e93e1b21fd23b3eda4765144d84a2907",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-001/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-001/CONTROL_CONTRACT.md",
+      "bytes": 4822,
+      "sha256": "69e70afc677eef3be0a50bf1196b41cabeabba5e4e0737be0cd667e315e0447f",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-001/OlderClearanceControls.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-001/OlderClearanceControls.lean",
+      "bytes": 5911,
+      "sha256": "6e16d3347f960cd57d9c6c93761a3794a7b0a34672f94a0945a95b74b41149a0",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-001/SourceH0OlderClearance.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-001/SourceH0OlderClearance.lean",
+      "bytes": 5856,
+      "sha256": "6e42bb33d81e0a76fc0abb409b4f4811b7e91fe07d1398300e2e9792f29e794a",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-001/output.log",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-001/output.log",
+      "bytes": 209,
+      "sha256": "a2b07c48af24131b3bfb620cf9c3fc2bcdb7c5b24a71dd7d85b93a84a5612451",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-001/receipt.json",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-001/receipt.json",
+      "bytes": 1951,
+      "sha256": "f163bc171d60ec6087655da866db2db05e21add669ffce7218b2c319ece3e2a3",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-001/run_stage.py",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-001/run_stage.py",
+      "bytes": 1462,
+      "sha256": "9861f1c20ac9b41efc7c3c5c62b2c6f9e93e1b21fd23b3eda4765144d84a2907",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-002/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-002/CONTROL_CONTRACT.md",
+      "bytes": 4822,
+      "sha256": "69e70afc677eef3be0a50bf1196b41cabeabba5e4e0737be0cd667e315e0447f",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-002/OlderClearanceControls.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-002/OlderClearanceControls.lean",
+      "bytes": 5911,
+      "sha256": "6e16d3347f960cd57d9c6c93761a3794a7b0a34672f94a0945a95b74b41149a0",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-002/SourceH0OlderClearance.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-002/SourceH0OlderClearance.lean",
+      "bytes": 5856,
+      "sha256": "6e42bb33d81e0a76fc0abb409b4f4811b7e91fe07d1398300e2e9792f29e794a",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-002/output.log",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-002/output.log",
+      "bytes": 1824,
+      "sha256": "171a0d280e65856786952007ba550be47e8247ee16712548cfc2585c464b556d",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-002/receipt.json",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-002/receipt.json",
+      "bytes": 2004,
+      "sha256": "e5dbeea2f6690e2a836bd4e964d9cc799c19c7ffa3e6c458c03d91ca289cf24a",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-002/run_stage.py",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-002/run_stage.py",
+      "bytes": 1462,
+      "sha256": "9861f1c20ac9b41efc7c3c5c62b2c6f9e93e1b21fd23b3eda4765144d84a2907",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-003/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-003/CONTROL_CONTRACT.md",
+      "bytes": 5340,
+      "sha256": "5c6fbfa593e6eaef3dfb7ec16e87e326fd8eba4501b8aefeb2e8b6ed569a8cbc",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-003/OlderClearanceControls.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-003/OlderClearanceControls.lean",
+      "bytes": 5990,
+      "sha256": "a36f3de1d5b344657f7c86b64a0cee523fac53491ec7505039bef8f2b7ea8811",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-003/SourceH0OlderClearance.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-003/SourceH0OlderClearance.lean",
+      "bytes": 5856,
+      "sha256": "6e42bb33d81e0a76fc0abb409b4f4811b7e91fe07d1398300e2e9792f29e794a",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-003/output.log",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-003/output.log",
+      "bytes": 1397,
+      "sha256": "494941f8908a8a2dabd5ade470a306ad8af9ddf074d9aaf166c89cc6bd6471a4",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-003/receipt.json",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-003/receipt.json",
+      "bytes": 2003,
+      "sha256": "8a8b2b3f5ca39df470814a6c79db39a09bdb7735d766d8002d003a8f37e20d96",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-003/run_stage.py",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-003/run_stage.py",
+      "bytes": 1462,
+      "sha256": "9861f1c20ac9b41efc7c3c5c62b2c6f9e93e1b21fd23b3eda4765144d84a2907",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-004/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-004/CONTROL_CONTRACT.md",
+      "bytes": 5340,
+      "sha256": "5c6fbfa593e6eaef3dfb7ec16e87e326fd8eba4501b8aefeb2e8b6ed569a8cbc",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-004/OlderClearanceControls.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-004/OlderClearanceControls.lean",
+      "bytes": 5992,
+      "sha256": "3fc53272b417de2d3393440a66c41718afcccc6b6fa973057c38a7abd25c34f2",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-004/SourceH0OlderClearance.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-004/SourceH0OlderClearance.lean",
+      "bytes": 5856,
+      "sha256": "6e42bb33d81e0a76fc0abb409b4f4811b7e91fe07d1398300e2e9792f29e794a",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-004/output.log",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-004/output.log",
+      "bytes": 1907,
+      "sha256": "548743b16ce74712f68ed1c93926339830ab6a148a2546a9a29e0b62142cd7c4",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-004/receipt.json",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-004/receipt.json",
+      "bytes": 2004,
+      "sha256": "18c708a288886b8be81e8e062c47eadb59715c311a7063142306fc214aa84719",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-004/run_stage.py",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-004/run_stage.py",
+      "bytes": 1462,
+      "sha256": "9861f1c20ac9b41efc7c3c5c62b2c6f9e93e1b21fd23b3eda4765144d84a2907",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-005/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-005/CONTROL_CONTRACT.md",
+      "bytes": 5340,
+      "sha256": "5c6fbfa593e6eaef3dfb7ec16e87e326fd8eba4501b8aefeb2e8b6ed569a8cbc",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-005/OlderClearanceControls.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-005/OlderClearanceControls.lean",
+      "bytes": 6026,
+      "sha256": "53ac143afe0cd63cc1ee0c7fc189691ff9609604ab92870dc15de0b721b89af5",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-005/SourceH0OlderClearance.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-005/SourceH0OlderClearance.lean",
+      "bytes": 5856,
+      "sha256": "6e42bb33d81e0a76fc0abb409b4f4811b7e91fe07d1398300e2e9792f29e794a",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-005/output.log",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-005/output.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-005/receipt.json",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-005/receipt.json",
+      "bytes": 2000,
+      "sha256": "43200f09165df1055c47cf72aa42df4664c041f7c2aeff183c349a59e991f7cb",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/controls-005/run_stage.py",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/controls-005/run_stage.py",
+      "bytes": 1462,
+      "sha256": "9861f1c20ac9b41efc7c3c5c62b2c6f9e93e1b21fd23b3eda4765144d84a2907",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/false-strict-margin-001/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/false-strict-margin-001/CONTROL_CONTRACT.md",
+      "bytes": 5340,
+      "sha256": "5c6fbfa593e6eaef3dfb7ec16e87e326fd8eba4501b8aefeb2e8b6ed569a8cbc",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/false-strict-margin-001/FalseStrictMarginMutation.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/false-strict-margin-001/FalseStrictMarginMutation.lean",
+      "bytes": 546,
+      "sha256": "ebcb559dfeab92ae5d687e9d4dea036191b2e9d4ed4e6143d1735744f2bd1b6a",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/false-strict-margin-001/Inventory.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/false-strict-margin-001/Inventory.lean",
+      "bytes": 1148,
+      "sha256": "37eaef90ac322dc30d0d00e276b11d7678fbafc87f70c3144d11575ec0663199",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/false-strict-margin-001/OlderClearanceControls.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/false-strict-margin-001/OlderClearanceControls.lean",
+      "bytes": 6026,
+      "sha256": "53ac143afe0cd63cc1ee0c7fc189691ff9609604ab92870dc15de0b721b89af5",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/false-strict-margin-001/SourceH0OlderClearance.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/false-strict-margin-001/SourceH0OlderClearance.lean",
+      "bytes": 5856,
+      "sha256": "6e42bb33d81e0a76fc0abb409b4f4811b7e91fe07d1398300e2e9792f29e794a",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/false-strict-margin-001/output.log",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/false-strict-margin-001/output.log",
+      "bytes": 118,
+      "sha256": "5ee874f4a168b51ede9d544e0d3d07f25f5d709930ea2266d4f3e7cfa33d5b44",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/false-strict-margin-001/receipt.json",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/false-strict-margin-001/receipt.json",
+      "bytes": 1942,
+      "sha256": "05d7aac5b2671c7efcd48e719f72a5ca2f5a399db6c8a11db2186d3090250056",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/false-strict-margin-001/run_stage.py",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/false-strict-margin-001/run_stage.py",
+      "bytes": 1462,
+      "sha256": "9861f1c20ac9b41efc7c3c5c62b2c6f9e93e1b21fd23b3eda4765144d84a2907",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/inventory-001/CONTROL_CONTRACT.md",
+      "bytes": 5340,
+      "sha256": "5c6fbfa593e6eaef3dfb7ec16e87e326fd8eba4501b8aefeb2e8b6ed569a8cbc",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/FalseStrictMarginMutation.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/inventory-001/FalseStrictMarginMutation.lean",
+      "bytes": 546,
+      "sha256": "ebcb559dfeab92ae5d687e9d4dea036191b2e9d4ed4e6143d1735744f2bd1b6a",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/Inventory.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/inventory-001/Inventory.lean",
+      "bytes": 1148,
+      "sha256": "37eaef90ac322dc30d0d00e276b11d7678fbafc87f70c3144d11575ec0663199",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/OlderClearanceControls.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/inventory-001/OlderClearanceControls.lean",
+      "bytes": 6026,
+      "sha256": "53ac143afe0cd63cc1ee0c7fc189691ff9609604ab92870dc15de0b721b89af5",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/SourceH0OlderClearance.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/inventory-001/SourceH0OlderClearance.lean",
+      "bytes": 5856,
+      "sha256": "6e42bb33d81e0a76fc0abb409b4f4811b7e91fe07d1398300e2e9792f29e794a",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/output.log",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/inventory-001/output.log",
+      "bytes": 2460,
+      "sha256": "5f49315cdb06347cab76342098207ed2438fd281fcd3dd898f5cd6413094c8ba",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/receipt.json",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/inventory-001/receipt.json",
+      "bytes": 1906,
+      "sha256": "b42e36b2927857d9834802b4ac2c71c22bf38f1b74da5afcaba84ce412e9b406",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/inventory-001/run_stage.py",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/inventory-001/run_stage.py",
+      "bytes": 1462,
+      "sha256": "9861f1c20ac9b41efc7c3c5c62b2c6f9e93e1b21fd23b3eda4765144d84a2907",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/kernel-001/CONTROL_CONTRACT.md",
+      "bytes": 5340,
+      "sha256": "5c6fbfa593e6eaef3dfb7ec16e87e326fd8eba4501b8aefeb2e8b6ed569a8cbc",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/FalseStrictMarginMutation.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/kernel-001/FalseStrictMarginMutation.lean",
+      "bytes": 546,
+      "sha256": "ebcb559dfeab92ae5d687e9d4dea036191b2e9d4ed4e6143d1735744f2bd1b6a",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/Inventory.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/kernel-001/Inventory.lean",
+      "bytes": 1148,
+      "sha256": "37eaef90ac322dc30d0d00e276b11d7678fbafc87f70c3144d11575ec0663199",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/OlderClearanceControls.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/kernel-001/OlderClearanceControls.lean",
+      "bytes": 6026,
+      "sha256": "53ac143afe0cd63cc1ee0c7fc189691ff9609604ab92870dc15de0b721b89af5",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/SourceH0OlderClearance.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/kernel-001/SourceH0OlderClearance.lean",
+      "bytes": 5856,
+      "sha256": "6e42bb33d81e0a76fc0abb409b4f4811b7e91fe07d1398300e2e9792f29e794a",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/output.log",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/kernel-001/output.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/receipt.json",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/kernel-001/receipt.json",
+      "bytes": 1791,
+      "sha256": "32e7cc39af937ef6cbe33910e507ed91bebdd943815c582611e16d74c0423fad",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/kernel-001/run_stage.py",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/kernel-001/run_stage.py",
+      "bytes": 1462,
+      "sha256": "9861f1c20ac9b41efc7c3c5c62b2c6f9e93e1b21fd23b3eda4765144d84a2907",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/strict-001/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/strict-001/CONTROL_CONTRACT.md",
+      "bytes": 4822,
+      "sha256": "69e70afc677eef3be0a50bf1196b41cabeabba5e4e0737be0cd667e315e0447f",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/strict-001/output.log",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/strict-001/output.log",
+      "bytes": 78,
+      "sha256": "5ef57e1452bbb8f31f34ec12b9f44f51f264abb253a5bbc5a0c596560685df61",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/strict-001/receipt.json",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/strict-001/receipt.json",
+      "bytes": 961,
+      "sha256": "aa656d9e010bb911ae2db4383248d348af2014fc7d5872ff3223c016639f16d1",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/strict-001/run_stage.py",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/strict-001/run_stage.py",
+      "bytes": 1462,
+      "sha256": "9861f1c20ac9b41efc7c3c5c62b2c6f9e93e1b21fd23b3eda4765144d84a2907",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/strict-002/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/strict-002/CONTROL_CONTRACT.md",
+      "bytes": 4822,
+      "sha256": "69e70afc677eef3be0a50bf1196b41cabeabba5e4e0737be0cd667e315e0447f",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/strict-002/SourceH0OlderClearance.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/strict-002/SourceH0OlderClearance.lean",
+      "bytes": 5761,
+      "sha256": "4d8571aa75393fd0cbfa3afde8782ba103c85123f5c8972c4ce245136e203e42",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/strict-002/output.log",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/strict-002/output.log",
+      "bytes": 3385,
+      "sha256": "b6b32032a35929877ed95ac917ddcb289b097828eefece4113bbda5dd10fcd10",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/strict-002/receipt.json",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/strict-002/receipt.json",
+      "bytes": 1428,
+      "sha256": "7f17ba922097914dc326e84c5213f21f9dc463825d04c5ca35691c455a5e17f9",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/strict-002/run_stage.py",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/strict-002/run_stage.py",
+      "bytes": 1462,
+      "sha256": "9861f1c20ac9b41efc7c3c5c62b2c6f9e93e1b21fd23b3eda4765144d84a2907",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/strict-003/CONTROL_CONTRACT.md",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/strict-003/CONTROL_CONTRACT.md",
+      "bytes": 4822,
+      "sha256": "69e70afc677eef3be0a50bf1196b41cabeabba5e4e0737be0cd667e315e0447f",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/strict-003/SourceH0OlderClearance.lean",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/strict-003/SourceH0OlderClearance.lean",
+      "bytes": 5856,
+      "sha256": "6e42bb33d81e0a76fc0abb409b4f4811b7e91fe07d1398300e2e9792f29e794a",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/strict-003/output.log",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/strict-003/output.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/strict-003/receipt.json",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/strict-003/receipt.json",
+      "bytes": 1634,
+      "sha256": "3ae56ad2aad36b43e015438a7ef9b77ad0fd00c01d0ca702203f6911db5a664e",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/producer/runs/strict-003/run_stage.py",
+      "source": "/workspace/scratch/h0-older-clearance-construct/runs/strict-003/run_stage.py",
+      "bytes": 1462,
+      "sha256": "9861f1c20ac9b41efc7c3c5c62b2c6f9e93e1b21fd23b3eda4765144d84a2907",
+      "identity_origin": "Retainedfrozenproducer/root identity reused forbytecopy; nohashreplay."
+    },
+    {
+      "path": "raw/review/CONTRACT_REVIEW.md",
+      "source": "/workspace/scratch/h0-older-clearance-source-review/CONTRACT_REVIEW.md",
+      "bytes": 2561,
+      "sha256": "e1291fc8c9832ef3e9eed24a0108bda8f04163899ef227b464f689866671fac1",
+      "identity_origin": "Newfinalpackaging payload hashedonce afterfinalwrite."
+    },
+    {
+      "path": "raw/review/REPORT.md",
+      "source": "/workspace/scratch/h0-older-clearance-source-review/REPORT.md",
+      "bytes": 12101,
+      "sha256": "5ba8b4f577a7269b882fa64f8c0f6dd9e8c7def4d7ecc5466dcde40b404dc6a7",
+      "identity_origin": "Newfinalpackaging payload hashedonce afterfinalwrite."
+    },
+    {
+      "path": "raw/review/SOURCE_REVIEW.md",
+      "source": "/workspace/scratch/h0-older-clearance-source-review/SOURCE_REVIEW.md",
+      "bytes": 3794,
+      "sha256": "4bd36fc08fdc358d3bc3dffe7f5ed62c545df5aef750fd0f5198a7b9fdc42e92",
+      "identity_origin": "Newfinalpackaging payload hashedonce afterfinalwrite."
+    },
+    {
+      "path": "raw/api-lookup/REPORT.txt",
+      "source": "/workspace/scratch/h0-path-minimum-api/REPORT.txt",
+      "bytes": 7712,
+      "sha256": "1f7bf3a43d56bd397fb6ed5a10a52e126a20e9b29b90fb18f70c2e6ce0200c5d",
+      "identity_origin": "Newfinalpackaging payload hashedonce afterfinalwrite."
+    },
+    {
+      "path": "raw/root-source-cut/ROOT_SOURCE_CUT.json",
+      "source": "/workspace/scratch/h0-older-clearance-publication/ROOT_SOURCE_CUT.json",
+      "bytes": 422,
+      "sha256": "d42ff477e1123dacd0e427e3976013f5f798519a13865e0d79aca2489b2d5e5c",
+      "identity_origin": "Newfinalpackaging payload hashedonce afterfinalwrite."
+    }
+  ],
+  "raw_files": 102,
+  "producer_merged_output_files": 12,
+  "producer_merged_output_bytes": 11966,
+  "capture_mode": "Originalrunner merged stdout+stderr into output.log; no fabricated separatestreamfiles or separate-streamhashes.",
+  "excluded_actual_artifacts": [
+    {
+      "source": "/workspace/scratch/h0-older-clearance-construct/build/OlderClearanceControls.olean",
+      "bytes": 224064,
+      "reason": "Actualgeneratedartifact excludedfromoverlay/archive/production; onlynamednewownobject separatelyROOTcopyeligible."
+    },
+    {
+      "source": "/workspace/scratch/h0-older-clearance-construct/build/SourceH0OlderClearance.olean",
+      "bytes": 328568,
+      "reason": "Actualgeneratedartifact excludedfromoverlay/archive/production; onlynamednewownobject separatelyROOTcopyeligible."
+    }
+  ],
+  "all_actual_attempts_failures_full_merged_outputs_preserved": true,
+  "formatting": "Rawpayload andbytepreservedtopcopies mustnotbereformatted.",
+  "old_payload_hashes_recomputed": 0,
+  "mathematical_verification_replays": 0
+}

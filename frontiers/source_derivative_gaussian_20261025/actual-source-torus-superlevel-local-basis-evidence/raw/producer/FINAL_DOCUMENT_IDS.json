@@ -1,0 +1,43 @@
+{
+  "status": "FINAL_NEW_DOCUMENT_FIRST_IDS_FROZEN_NO_PROOF_OR_OLD_ARTIFACT_REPLAY",
+  "documents": [
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/REPORT.md",
+      "bytes": 11336,
+      "sha256": "4a6fefef2db1fdf2d085048ffa92162bfc722db4eb87f5dd776e3d97a1665b9b",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/HANDOFF.md",
+      "bytes": 1942,
+      "sha256": "4d95f9de1791403c0b08734e012bb8634e7f3b760acbb4c57ec3ddca7968d1b8",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/RUNNER_HISTORY.md",
+      "bytes": 1390,
+      "sha256": "1535bc7bc9fcfa8f14248171333b694dd44fc6807d8e179cb91a56c17881fbb1",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/READY.json",
+      "bytes": 901,
+      "sha256": "ada74cdec63d8e1e8b18bb4e1e4afdd23016ef6b822598c393bec6faa95e33d6",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/PACKAGING_ALLOWLIST.json",
+      "bytes": 19523,
+      "sha256": "4560c087dedda750bf678b45abc538a3a0e17651b14146660501fb5be138be94",
+      "origin": "FIRST identity newly frozen producer allowlist"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/ARTIFACT_IDENTITIES.json",
+      "bytes": 107828,
+      "sha256": "1e2855c29efe60f136a6feea99e09c5942bf9c48c919d3e03bf7a77e7215837d",
+      "origin": "FIRST identity newly frozen aggregate identity/snapshot manifest"
+    }
+  ],
+  "self_identity": "root may create FIRST identity of this manifest at final packaging; no recursive self-hash",
+  "all_final_payloads_immutable": true
+}

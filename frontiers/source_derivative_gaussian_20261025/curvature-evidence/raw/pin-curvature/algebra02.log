@@ -1,0 +1,19 @@
+/workspace/scratch/pin-curvature-implementation/CurvatureAlgebra.lean:40:4: error: linarith failed to find a contradiction
+r R q : ℝ
+hr : 0 ≤ r
+hR : 0 ≤ R
+v : Fin 6 → ℝ
+h0 : |v 0| ≤ R
+h1 : |v 1| ≤ R
+h2 : |v 2| ≤ R
+h3 : |v 3| ≤ R
+h4 : |v 4 - q| ≤ r * R
+h5 : |v 5 - q| ≤ r * R
+hM : |v 0 * v 4 - r * v 2 ^ 2| ≤ R * |q| + 2 * r * R ^ 2
+hS : |v 1 * v 5 - r * v 3 ^ 2| ≤ R * |q| + 2 * r * R ^ 2
+hB : 0 ≤ R * |q| + 2 * r * R ^ 2
+hprod : |v 0 * v 4 - r * v 2 ^ 2| * |v 1 * v 5 - r * v 3 ^ 2| ≤ (R * |q| + 2 * r * R ^ 2) ^ 2
+habs : |q| ^ 2 = q ^ 2
+a✝ : 2 * r ^ 2 * R ^ 2 * q ^ 2 + 8 * r ^ 4 * R ^ 4 < r ^ 2 * (R * |q| + 2 * r * R ^ 2) ^ 2
+⊢ False
+failed

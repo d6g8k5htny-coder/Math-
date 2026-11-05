@@ -1,0 +1,28 @@
+{
+  "label": "strict-001",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/h0-older-clearance-construct/build/SourceH0OlderClearance.olean SourceH0OlderClearance.lean"
+  ],
+  "before": {
+    "source": null,
+    "object": null
+  },
+  "started_utc": "2026-10-26T16:18:36.913196+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 1.0170745849609375,
+  "ended_utc": "2026-10-26T16:18:37.930292+00:00",
+  "after": {
+    "source": null,
+    "object": null
+  },
+  "log": {
+    "path": "/workspace/scratch/h0-older-clearance-construct/runs/strict-001/output.log",
+    "bytes": 78,
+    "sha256": "5ef57e1452bbb8f31f34ec12b9f44f51f264abb253a5bbc5a0c596560685df61"
+  }
+}
