@@ -1,0 +1,821 @@
+{
+  "scope": "New SourceAdaptiveFoldChart and controls only; previous32module/25input verification reused.",
+  "executions": [
+    {
+      "label": "compile-001",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "SourceAdaptiveFoldChart.lean"
+      ],
+      "started_utc": "2026-10-26T05:21:26.805054+00:00",
+      "ended_utc": "2026-10-26T05:21:29.924293+00:00",
+      "elapsed_seconds": 3.1191446781158447,
+      "exit_code": 1,
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+          "bytes": 2427,
+          "sha256": "b936b704c844c2eef43343e8eeb4736750b47476c943c2428496a58964aa2b6f"
+        },
+        "object": null
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+          "bytes": 2427,
+          "sha256": "b936b704c844c2eef43343e8eeb4736750b47476c943c2428496a58964aa2b6f"
+        },
+        "object": null
+      },
+      "log": {
+        "path": "/workspace/scratch/actual-fold-chart-construct/runs/compile-001/output.log",
+        "bytes": 554,
+        "sha256": "7cec2622610a50e7901f0de9001aeffc23c0d93e7776b4aa7a6e4db11e00f8e2"
+      },
+      "receipt": "/workspace/scratch/actual-fold-chart-construct/runs/compile-001/receipt.json",
+      "source_snapshots": [
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/compile-001/SourceAdaptiveFoldChart.lean",
+          "bytes": 2427,
+          "sha256": "b936b704c844c2eef43343e8eeb4736750b47476c943c2428496a58964aa2b6f"
+        }
+      ]
+    },
+    {
+      "label": "compile-002",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "SourceAdaptiveFoldChart.lean"
+      ],
+      "started_utc": "2026-10-26T05:21:39.956129+00:00",
+      "ended_utc": "2026-10-26T05:21:42.650554+00:00",
+      "elapsed_seconds": 2.694404363632202,
+      "exit_code": 0,
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+          "bytes": 2417,
+          "sha256": "950f7719938a82ee282614412e3664df98dcaaafb63485099dbbc87995f8de93"
+        },
+        "object": null
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+          "bytes": 2417,
+          "sha256": "950f7719938a82ee282614412e3664df98dcaaafb63485099dbbc87995f8de93"
+        },
+        "object": null
+      },
+      "log": {
+        "path": "/workspace/scratch/actual-fold-chart-construct/runs/compile-002/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "receipt": "/workspace/scratch/actual-fold-chart-construct/runs/compile-002/receipt.json",
+      "source_snapshots": [
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/compile-002/SourceAdaptiveFoldChart.lean",
+          "bytes": 2417,
+          "sha256": "950f7719938a82ee282614412e3664df98dcaaafb63485099dbbc87995f8de93"
+        }
+      ]
+    },
+    {
+      "label": "api-001",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "/workspace/scratch/actual-fold-chart-construct/Check.lean"
+      ],
+      "started_utc": "2026-10-26T05:22:18.834451+00:00",
+      "ended_utc": "2026-10-26T05:22:22.050112+00:00",
+      "elapsed_seconds": 3.215641736984253,
+      "exit_code": 1,
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+          "bytes": 2417,
+          "sha256": "950f7719938a82ee282614412e3664df98dcaaafb63485099dbbc87995f8de93"
+        },
+        "object": null
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+          "bytes": 2417,
+          "sha256": "950f7719938a82ee282614412e3664df98dcaaafb63485099dbbc87995f8de93"
+        },
+        "object": null
+      },
+      "log": {
+        "path": "/workspace/scratch/actual-fold-chart-construct/runs/api-001/output.log",
+        "bytes": 1837,
+        "sha256": "3f1abd9a219c322e6e9ad5a3959bf636b2b0da9cffbf50e0fac3df0760957c3d"
+      },
+      "receipt": "/workspace/scratch/actual-fold-chart-construct/runs/api-001/receipt.json",
+      "source_snapshots": [
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/api-001/Check.lean",
+          "bytes": 356,
+          "sha256": "23487f252e607d33816b1a0236792a851acac2e04a74cd55ab170eae2e00c2e4"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/api-001/SourceAdaptiveFoldChart.lean",
+          "bytes": 2417,
+          "sha256": "950f7719938a82ee282614412e3664df98dcaaafb63485099dbbc87995f8de93"
+        }
+      ]
+    },
+    {
+      "label": "compile-003",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "SourceAdaptiveFoldChart.lean"
+      ],
+      "started_utc": "2026-10-26T05:24:42.135729+00:00",
+      "ended_utc": "2026-10-26T05:24:47.517418+00:00",
+      "elapsed_seconds": 5.381623268127441,
+      "exit_code": 1,
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+          "bytes": 18096,
+          "sha256": "fb719b145cd11343c9e8b6b9a3e5fe5c4486896239ee6a43aa3ca6fa1a14fc08"
+        },
+        "object": null
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+          "bytes": 18096,
+          "sha256": "fb719b145cd11343c9e8b6b9a3e5fe5c4486896239ee6a43aa3ca6fa1a14fc08"
+        },
+        "object": null
+      },
+      "log": {
+        "path": "/workspace/scratch/actual-fold-chart-construct/runs/compile-003/output.log",
+        "bytes": 2170,
+        "sha256": "125ca29e0edf4dcb19af25afc8d15543bde14ab95a3f091556941a30da2d94c6"
+      },
+      "receipt": "/workspace/scratch/actual-fold-chart-construct/runs/compile-003/receipt.json",
+      "source_snapshots": [
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/compile-003/Check.lean",
+          "bytes": 356,
+          "sha256": "23487f252e607d33816b1a0236792a851acac2e04a74cd55ab170eae2e00c2e4"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/compile-003/SourceAdaptiveFoldChart.lean",
+          "bytes": 18096,
+          "sha256": "fb719b145cd11343c9e8b6b9a3e5fe5c4486896239ee6a43aa3ca6fa1a14fc08"
+        }
+      ]
+    },
+    {
+      "label": "compile-004",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "SourceAdaptiveFoldChart.lean"
+      ],
+      "started_utc": "2026-10-26T05:25:24.489433+00:00",
+      "ended_utc": "2026-10-26T05:25:28.872171+00:00",
+      "elapsed_seconds": 4.382659673690796,
+      "exit_code": 0,
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        },
+        "object": null
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        },
+        "object": null
+      },
+      "log": {
+        "path": "/workspace/scratch/actual-fold-chart-construct/runs/compile-004/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "receipt": "/workspace/scratch/actual-fold-chart-construct/runs/compile-004/receipt.json",
+      "source_snapshots": [
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/compile-004/Check.lean",
+          "bytes": 356,
+          "sha256": "23487f252e607d33816b1a0236792a851acac2e04a74cd55ab170eae2e00c2e4"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/compile-004/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        }
+      ]
+    },
+    {
+      "label": "compile-final",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/actual-fold-chart-construct/build/SourceAdaptiveFoldChart.olean",
+        "SourceAdaptiveFoldChart.lean"
+      ],
+      "started_utc": "2026-10-26T05:26:24.944962+00:00",
+      "ended_utc": "2026-10-26T05:26:29.620232+00:00",
+      "elapsed_seconds": 4.67522120475769,
+      "exit_code": 0,
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        },
+        "object": null
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        },
+        "object": {
+          "path": "/workspace/scratch/actual-fold-chart-construct/build/SourceAdaptiveFoldChart.olean",
+          "bytes": 888520,
+          "sha256": "0b2fe620dac30b88a0ff9cbf8a0ad93f8b7f320437fbf50a7bc94e7fbf311171"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/actual-fold-chart-construct/runs/compile-final/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "receipt": "/workspace/scratch/actual-fold-chart-construct/runs/compile-final/receipt.json",
+      "source_snapshots": [
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/compile-final/Check.lean",
+          "bytes": 356,
+          "sha256": "23487f252e607d33816b1a0236792a851acac2e04a74cd55ab170eae2e00c2e4"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/compile-final/Controls.lean",
+          "bytes": 4606,
+          "sha256": "e2f0ab51cd6eb1d3247e689c68af3d71a6020727903fcabcd2d93395cee3d606"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/compile-final/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        }
+      ]
+    },
+    {
+      "label": "controls-001",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-chart-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/actual-fold-chart-construct -o /workspace/scratch/actual-fold-chart-construct/build/Controls.olean /workspace/scratch/actual-fold-chart-construct/Controls.lean"
+      ],
+      "started_utc": "2026-10-26T05:26:53.162289+00:00",
+      "ended_utc": "2026-10-26T05:26:58.314724+00:00",
+      "elapsed_seconds": 5.152387857437134,
+      "exit_code": 1,
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        },
+        "object": {
+          "path": "/workspace/scratch/actual-fold-chart-construct/build/SourceAdaptiveFoldChart.olean",
+          "bytes": 888520,
+          "sha256": "0b2fe620dac30b88a0ff9cbf8a0ad93f8b7f320437fbf50a7bc94e7fbf311171"
+        }
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        },
+        "object": {
+          "path": "/workspace/scratch/actual-fold-chart-construct/build/SourceAdaptiveFoldChart.olean",
+          "bytes": 888520,
+          "sha256": "0b2fe620dac30b88a0ff9cbf8a0ad93f8b7f320437fbf50a7bc94e7fbf311171"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/actual-fold-chart-construct/runs/controls-001/output.log",
+        "bytes": 1160,
+        "sha256": "57863224ec6e1dde4e933cfff3c9a88db978500ce6ad182ce0eacb07bd88d888"
+      },
+      "receipt": "/workspace/scratch/actual-fold-chart-construct/runs/controls-001/receipt.json",
+      "source_snapshots": [
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/controls-001/Check.lean",
+          "bytes": 356,
+          "sha256": "23487f252e607d33816b1a0236792a851acac2e04a74cd55ab170eae2e00c2e4"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/controls-001/Controls.lean",
+          "bytes": 6122,
+          "sha256": "2b564c0a718999f5c7e34984cfa0aa27d14b7af3d822b775ed1b23ab90c61c0c"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/controls-001/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        }
+      ]
+    },
+    {
+      "label": "kernel-001",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-chart-construct/build:$LEAN_PATH exec leanchecker SourceAdaptiveFoldChart"
+      ],
+      "started_utc": "2026-10-26T05:27:02.386790+00:00",
+      "ended_utc": "2026-10-26T05:27:08.424370+00:00",
+      "elapsed_seconds": 6.037546157836914,
+      "exit_code": 0,
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        },
+        "object": {
+          "path": "/workspace/scratch/actual-fold-chart-construct/build/SourceAdaptiveFoldChart.olean",
+          "bytes": 888520,
+          "sha256": "0b2fe620dac30b88a0ff9cbf8a0ad93f8b7f320437fbf50a7bc94e7fbf311171"
+        }
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        },
+        "object": {
+          "path": "/workspace/scratch/actual-fold-chart-construct/build/SourceAdaptiveFoldChart.olean",
+          "bytes": 888520,
+          "sha256": "0b2fe620dac30b88a0ff9cbf8a0ad93f8b7f320437fbf50a7bc94e7fbf311171"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/actual-fold-chart-construct/runs/kernel-001/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "receipt": "/workspace/scratch/actual-fold-chart-construct/runs/kernel-001/receipt.json",
+      "source_snapshots": [
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/kernel-001/Check.lean",
+          "bytes": 356,
+          "sha256": "23487f252e607d33816b1a0236792a851acac2e04a74cd55ab170eae2e00c2e4"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/kernel-001/Controls.lean",
+          "bytes": 6122,
+          "sha256": "2b564c0a718999f5c7e34984cfa0aa27d14b7af3d822b775ed1b23ab90c61c0c"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/kernel-001/Inventory.lean",
+          "bytes": 1075,
+          "sha256": "8be20e0b6df0620dcf31afe1068886e81c74de9bd937a277625a4efce9dde0cb"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/kernel-001/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        }
+      ]
+    },
+    {
+      "label": "inventory-001",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-chart-construct/build:$LEAN_PATH exec lean -DwarningAsError=true /workspace/scratch/actual-fold-chart-construct/Inventory.lean"
+      ],
+      "started_utc": "2026-10-26T05:27:08.473801+00:00",
+      "ended_utc": "2026-10-26T05:27:12.761304+00:00",
+      "elapsed_seconds": 4.287480115890503,
+      "exit_code": 0,
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        },
+        "object": {
+          "path": "/workspace/scratch/actual-fold-chart-construct/build/SourceAdaptiveFoldChart.olean",
+          "bytes": 888520,
+          "sha256": "0b2fe620dac30b88a0ff9cbf8a0ad93f8b7f320437fbf50a7bc94e7fbf311171"
+        }
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        },
+        "object": {
+          "path": "/workspace/scratch/actual-fold-chart-construct/build/SourceAdaptiveFoldChart.olean",
+          "bytes": 888520,
+          "sha256": "0b2fe620dac30b88a0ff9cbf8a0ad93f8b7f320437fbf50a7bc94e7fbf311171"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/actual-fold-chart-construct/runs/inventory-001/output.log",
+        "bytes": 10388,
+        "sha256": "66841e91c190b312d16b673406d105e81b2248997a74bc2a06e192f652296dd7"
+      },
+      "receipt": "/workspace/scratch/actual-fold-chart-construct/runs/inventory-001/receipt.json",
+      "source_snapshots": [
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/inventory-001/Check.lean",
+          "bytes": 356,
+          "sha256": "23487f252e607d33816b1a0236792a851acac2e04a74cd55ab170eae2e00c2e4"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/inventory-001/Controls.lean",
+          "bytes": 6122,
+          "sha256": "2b564c0a718999f5c7e34984cfa0aa27d14b7af3d822b775ed1b23ab90c61c0c"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/inventory-001/Inventory.lean",
+          "bytes": 1075,
+          "sha256": "8be20e0b6df0620dcf31afe1068886e81c74de9bd937a277625a4efce9dde0cb"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/inventory-001/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        }
+      ]
+    },
+    {
+      "label": "controls-002",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-chart-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/actual-fold-chart-construct -o /workspace/scratch/actual-fold-chart-construct/build/Controls.olean /workspace/scratch/actual-fold-chart-construct/Controls.lean"
+      ],
+      "started_utc": "2026-10-26T05:27:30.898093+00:00",
+      "ended_utc": "2026-10-26T05:27:34.670595+00:00",
+      "elapsed_seconds": 3.7724545001983643,
+      "exit_code": 1,
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        },
+        "object": {
+          "path": "/workspace/scratch/actual-fold-chart-construct/build/SourceAdaptiveFoldChart.olean",
+          "bytes": 888520,
+          "sha256": "0b2fe620dac30b88a0ff9cbf8a0ad93f8b7f320437fbf50a7bc94e7fbf311171"
+        }
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        },
+        "object": {
+          "path": "/workspace/scratch/actual-fold-chart-construct/build/SourceAdaptiveFoldChart.olean",
+          "bytes": 888520,
+          "sha256": "0b2fe620dac30b88a0ff9cbf8a0ad93f8b7f320437fbf50a7bc94e7fbf311171"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/actual-fold-chart-construct/runs/controls-002/output.log",
+        "bytes": 1135,
+        "sha256": "ea55ad6058020a202d11bfb4218c7a87b8564ecf9b4e19bb846f5c6a46e541fb"
+      },
+      "receipt": "/workspace/scratch/actual-fold-chart-construct/runs/controls-002/receipt.json",
+      "source_snapshots": [
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/controls-002/Check.lean",
+          "bytes": 356,
+          "sha256": "23487f252e607d33816b1a0236792a851acac2e04a74cd55ab170eae2e00c2e4"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/controls-002/Controls.lean",
+          "bytes": 6107,
+          "sha256": "6b92d96226fc4655b23d61ee0177364c5be1fca24c5cc9ca0a75b234515a266d"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/controls-002/Inventory.lean",
+          "bytes": 1075,
+          "sha256": "8be20e0b6df0620dcf31afe1068886e81c74de9bd937a277625a4efce9dde0cb"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/controls-002/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        }
+      ]
+    },
+    {
+      "label": "controls-003",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-chart-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/actual-fold-chart-construct -o /workspace/scratch/actual-fold-chart-construct/build/Controls.olean /workspace/scratch/actual-fold-chart-construct/Controls.lean"
+      ],
+      "started_utc": "2026-10-26T05:28:20.176711+00:00",
+      "ended_utc": "2026-10-26T05:28:24.191706+00:00",
+      "elapsed_seconds": 4.01494288444519,
+      "exit_code": 1,
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        },
+        "object": {
+          "path": "/workspace/scratch/actual-fold-chart-construct/build/SourceAdaptiveFoldChart.olean",
+          "bytes": 888520,
+          "sha256": "0b2fe620dac30b88a0ff9cbf8a0ad93f8b7f320437fbf50a7bc94e7fbf311171"
+        }
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        },
+        "object": {
+          "path": "/workspace/scratch/actual-fold-chart-construct/build/SourceAdaptiveFoldChart.olean",
+          "bytes": 888520,
+          "sha256": "0b2fe620dac30b88a0ff9cbf8a0ad93f8b7f320437fbf50a7bc94e7fbf311171"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/actual-fold-chart-construct/runs/controls-003/output.log",
+        "bytes": 415,
+        "sha256": "79cbc4460f2b25c72ad02ce874dbf358747113043c4979f917125095fcebbbd7"
+      },
+      "receipt": "/workspace/scratch/actual-fold-chart-construct/runs/controls-003/receipt.json",
+      "source_snapshots": [
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/controls-003/Check.lean",
+          "bytes": 356,
+          "sha256": "23487f252e607d33816b1a0236792a851acac2e04a74cd55ab170eae2e00c2e4"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/controls-003/Controls.lean",
+          "bytes": 6115,
+          "sha256": "614fe0b3a82d28b4309163f1870d85fa984131740e0d3d1f04241dabbdae1408"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/controls-003/Inventory.lean",
+          "bytes": 1075,
+          "sha256": "8be20e0b6df0620dcf31afe1068886e81c74de9bd937a277625a4efce9dde0cb"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/controls-003/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        }
+      ]
+    },
+    {
+      "label": "controls-004",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-chart-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/actual-fold-chart-construct -o /workspace/scratch/actual-fold-chart-construct/build/Controls.olean /workspace/scratch/actual-fold-chart-construct/Controls.lean"
+      ],
+      "started_utc": "2026-10-26T05:29:35.565370+00:00",
+      "ended_utc": "2026-10-26T05:29:40.910242+00:00",
+      "elapsed_seconds": 5.344833135604858,
+      "exit_code": 1,
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        },
+        "object": {
+          "path": "/workspace/scratch/actual-fold-chart-construct/build/SourceAdaptiveFoldChart.olean",
+          "bytes": 888520,
+          "sha256": "0b2fe620dac30b88a0ff9cbf8a0ad93f8b7f320437fbf50a7bc94e7fbf311171"
+        }
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        },
+        "object": {
+          "path": "/workspace/scratch/actual-fold-chart-construct/build/SourceAdaptiveFoldChart.olean",
+          "bytes": 888520,
+          "sha256": "0b2fe620dac30b88a0ff9cbf8a0ad93f8b7f320437fbf50a7bc94e7fbf311171"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/actual-fold-chart-construct/runs/controls-004/output.log",
+        "bytes": 890,
+        "sha256": "322b7f9ab41f7d10d2926d5734b160512f31abebc7b52f6db46d4bc0b1f283ad"
+      },
+      "receipt": "/workspace/scratch/actual-fold-chart-construct/runs/controls-004/receipt.json",
+      "source_snapshots": [
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/controls-004/Check.lean",
+          "bytes": 356,
+          "sha256": "23487f252e607d33816b1a0236792a851acac2e04a74cd55ab170eae2e00c2e4"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/controls-004/Controls.lean",
+          "bytes": 6228,
+          "sha256": "be9f7a4fce331690095da2126b633ce70b37cec9377f799d5139153c1d79c78e"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/controls-004/Inventory.lean",
+          "bytes": 1075,
+          "sha256": "8be20e0b6df0620dcf31afe1068886e81c74de9bd937a277625a4efce9dde0cb"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/controls-004/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        }
+      ]
+    },
+    {
+      "label": "controls-005",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-chart-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/actual-fold-chart-construct -o /workspace/scratch/actual-fold-chart-construct/build/Controls.olean /workspace/scratch/actual-fold-chart-construct/Controls.lean"
+      ],
+      "started_utc": "2026-10-26T05:30:09.846097+00:00",
+      "ended_utc": "2026-10-26T05:30:13.526004+00:00",
+      "elapsed_seconds": 3.6798830032348633,
+      "exit_code": 0,
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        },
+        "object": {
+          "path": "/workspace/scratch/actual-fold-chart-construct/build/SourceAdaptiveFoldChart.olean",
+          "bytes": 888520,
+          "sha256": "0b2fe620dac30b88a0ff9cbf8a0ad93f8b7f320437fbf50a7bc94e7fbf311171"
+        }
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        },
+        "object": {
+          "path": "/workspace/scratch/actual-fold-chart-construct/build/SourceAdaptiveFoldChart.olean",
+          "bytes": 888520,
+          "sha256": "0b2fe620dac30b88a0ff9cbf8a0ad93f8b7f320437fbf50a7bc94e7fbf311171"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/actual-fold-chart-construct/runs/controls-005/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "receipt": "/workspace/scratch/actual-fold-chart-construct/runs/controls-005/receipt.json",
+      "source_snapshots": [
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/controls-005/Check.lean",
+          "bytes": 356,
+          "sha256": "23487f252e607d33816b1a0236792a851acac2e04a74cd55ab170eae2e00c2e4"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/controls-005/Controls.lean",
+          "bytes": 6263,
+          "sha256": "121c7a22088de5df53db91344a3bf8d6ec5de0901ea67c5e3da4c18ec352b114"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/controls-005/Inventory.lean",
+          "bytes": 1075,
+          "sha256": "8be20e0b6df0620dcf31afe1068886e81c74de9bd937a277625a4efce9dde0cb"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/controls-005/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        }
+      ]
+    },
+    {
+      "label": "false-control-001",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-fold-chart-construct/build:$LEAN_PATH exec lean -DwarningAsError=true /workspace/scratch/actual-fold-chart-construct/FalseMutation.lean"
+      ],
+      "started_utc": "2026-10-26T05:30:47.344027+00:00",
+      "ended_utc": "2026-10-26T05:30:50.348641+00:00",
+      "elapsed_seconds": 3.0045888423919678,
+      "exit_code": 1,
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        },
+        "object": {
+          "path": "/workspace/scratch/actual-fold-chart-construct/build/SourceAdaptiveFoldChart.olean",
+          "bytes": 888520,
+          "sha256": "0b2fe620dac30b88a0ff9cbf8a0ad93f8b7f320437fbf50a7bc94e7fbf311171"
+        }
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        },
+        "object": {
+          "path": "/workspace/scratch/actual-fold-chart-construct/build/SourceAdaptiveFoldChart.olean",
+          "bytes": 888520,
+          "sha256": "0b2fe620dac30b88a0ff9cbf8a0ad93f8b7f320437fbf50a7bc94e7fbf311171"
+        }
+      },
+      "log": {
+        "path": "/workspace/scratch/actual-fold-chart-construct/runs/false-control-001/output.log",
+        "bytes": 104,
+        "sha256": "dcd22b74f798f153fa1a0404d9e802b9d5c116b44998d94450f4b0c62691d264"
+      },
+      "receipt": "/workspace/scratch/actual-fold-chart-construct/runs/false-control-001/receipt.json",
+      "source_snapshots": [
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/false-control-001/Check.lean",
+          "bytes": 356,
+          "sha256": "23487f252e607d33816b1a0236792a851acac2e04a74cd55ab170eae2e00c2e4"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/false-control-001/Controls.lean",
+          "bytes": 6263,
+          "sha256": "121c7a22088de5df53db91344a3bf8d6ec5de0901ea67c5e3da4c18ec352b114"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/false-control-001/FalseMutation.lean",
+          "bytes": 374,
+          "sha256": "93ed44ff372e72a4dbebc6b141cf25802fbbf31cba3a0ab16cc1b247d8db26b3"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/false-control-001/Inventory.lean",
+          "bytes": 1075,
+          "sha256": "8be20e0b6df0620dcf31afe1068886e81c74de9bd937a277625a4efce9dde0cb"
+        },
+        {
+          "path": "/workspace/scratch/actual-fold-chart-construct/runs/false-control-001/SourceAdaptiveFoldChart.lean",
+          "bytes": 18353,
+          "sha256": "074921959ffdaa0aa8a7d377dca5b7678f5ed964e52a3ad027b051f4c7f9a073"
+        }
+      ]
+    }
+  ]
+}

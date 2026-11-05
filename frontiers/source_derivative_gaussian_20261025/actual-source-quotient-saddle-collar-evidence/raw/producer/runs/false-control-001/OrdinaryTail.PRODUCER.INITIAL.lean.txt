@@ -1,0 +1,147 @@
+theorem positiveSaddle : OrdinaryCollar (fixturePoint 1 0) := by
+  unfold OrdinaryCollar
+  exact I4SourceActualQuotientSaddleCollar.actualSource_quotient_saddle_local_collar
+    (by norm_num) fixtureSample (fixturePoint 1 0) saddleInputs.1.1 saddleInputs.1.2.1
+    (fixtureSmallOpen (fixturePoint 1 0)) (smallOpen _).1 (smallOpen _).2
+
+theorem negativeSaddle : OrdinaryCollar (fixturePoint 0 1) := by
+  unfold OrdinaryCollar
+  exact I4SourceActualQuotientSaddleCollar.actualSource_quotient_saddle_local_collar
+    (by norm_num) fixtureSample (fixturePoint 0 1) saddleInputs.2.1 saddleInputs.2.2.1
+    (fixtureSmallOpen (fixturePoint 0 1)) (smallOpen _).1 (smallOpen _).2
+
+theorem seamSaddle : OrdinaryCollar (fixturePoint (-1) 0) := by
+  unfold OrdinaryCollar
+  exact I4SourceActualQuotientSaddleCollar.actualSource_quotient_saddle_local_collar
+    (by norm_num) fixtureSample (fixturePoint (-1) 0) seamInputs.1 seamInputs.2.1
+    (fixtureSmallOpen (fixturePoint (-1) 0)) (smallOpen _).1 (smallOpen _).2
+
+def chosenRadius : ℝ := Classical.choose positiveSaddle
+
+def chosenChart : OpenPartialHomeomorph (I4Torus.SourceTorus 2 2) (Fin 2 → ℝ) :=
+  Classical.choose (Classical.choose_spec positiveSaddle).2
+
+def chosenCenter : I4Torus.SourceTorus 2 2 := physicalProjection 2 (fixturePoint 1 0)
+def chosenHeight : ℝ := fixtureTorusField chosenCenter
+def chosenSource : Set (I4Torus.SourceTorus 2 2) := chosenChart.source
+
+def chosenStrictTrace : Set (I4Torus.SourceTorus 2 2) :=
+  chosenSource ∩ {z | chosenHeight < fixtureTorusField z}
+
+theorem chosenChart_structure :
+    0 < chosenRadius ∧ chosenCenter ∈ chosenChart.source ∧ chosenChart chosenCenter = 0 ∧
+      chosenChart.source ⊆ fixtureSmallOpen (fixturePoint 1 0) ∧
+      chosenChart.target = Metric.ball (0 : Fin 2 → ℝ) chosenRadius ∧
+      (∀ z ∈ chosenChart.source,
+        fixtureTorusField z = chosenHeight-(chosenChart z 0)^2+(chosenChart z 1)^2) := by
+  have hr := (Classical.choose_spec positiveSaddle).1
+  have hp := Classical.choose_spec (Classical.choose_spec positiveSaddle).2
+  exact ⟨hr, hp.1, hp.2.1, hp.2.2.1, hp.2.2.2.1, hp.2.2.2.2.1⟩
+
+theorem chosen_lowerTrace (delta : ℝ) (hdelta : 0 ≤ delta) :
+    IsPathConnected (chosenSource ∩ {z | chosenHeight-delta ≤ fixtureTorusField z}) := by
+  have hp := Classical.choose_spec (Classical.choose_spec positiveSaddle).2
+  rcases hp with ⟨_, _, _, _, _, hbranches⟩
+  rcases hbranches with ⟨_, _, _, _, _, hlower⟩
+  exact hlower delta hdelta
+
+private theorem ordinary_axisBall (rho : ℝ) (hrho : 0 < rho) :
+    (![0,rho/2] : Fin 2 → ℝ) ∈ Metric.ball 0 rho ∧
+      (![0,-rho/2] : Fin 2 → ℝ) ∈ Metric.ball 0 rho := by
+  constructor
+  · rw [Metric.mem_ball, dist_zero_right]
+    apply (pi_norm_lt_iff hrho).2
+    intro i
+    fin_cases i
+    · simpa using hrho
+    · change ‖rho/2‖ < rho
+      rw [Real.norm_eq_abs, abs_of_pos (half_pos hrho)]
+      linarith
+  · rw [Metric.mem_ball, dist_zero_right]
+    apply (pi_norm_lt_iff hrho).2
+    intro i
+    fin_cases i
+    · simpa using hrho
+    · change ‖-rho/2‖ < rho
+      rw [neg_div, norm_neg, Real.norm_eq_abs, abs_of_pos (half_pos hrho)]
+      linarith
+
+private theorem strictPlus_target :
+    (![0,chosenRadius/2] : Fin 2 → ℝ) ∈ chosenChart.target := by
+  rw [chosenChart_structure.2.2.2.2.1]
+  exact (ordinary_axisBall chosenRadius chosenChart_structure.1).1
+
+private theorem strictMinus_target :
+    (![0,-chosenRadius/2] : Fin 2 → ℝ) ∈ chosenChart.target := by
+  rw [chosenChart_structure.2.2.2.2.1]
+  exact (ordinary_axisBall chosenRadius chosenChart_structure.1).2
+
+def strictPointPlus : I4Torus.SourceTorus 2 2 := chosenChart.symm ![0,chosenRadius/2]
+def strictPointMinus : I4Torus.SourceTorus 2 2 := chosenChart.symm ![0,-chosenRadius/2]
+
+private theorem strictPlus_coordinates : chosenChart strictPointPlus = ![0,chosenRadius/2] :=
+  chosenChart.right_inv strictPlus_target
+
+private theorem strictMinus_coordinates : chosenChart strictPointMinus = ![0,-chosenRadius/2] :=
+  chosenChart.right_inv strictMinus_target
+
+theorem strictPoints_mem :
+    strictPointPlus ∈ chosenStrictTrace ∧ strictPointMinus ∈ chosenStrictTrace := by
+  have hplus : strictPointPlus ∈ chosenChart.source := chosenChart.symm.mapsTo strictPlus_target
+  have hminus : strictPointMinus ∈ chosenChart.source := chosenChart.symm.mapsTo strictMinus_target
+  have hr : 0 < chosenRadius/2 := half_pos chosenChart_structure.1
+  constructor
+  · refine ⟨hplus, ?_⟩
+    change chosenHeight < fixtureTorusField strictPointPlus
+    have hid := chosenChart_structure.2.2.2.2.2 strictPointPlus hplus
+    rw [strictPlus_coordinates] at hid
+    simp only [Matrix.cons_val_zero, Matrix.cons_val_one, zero_pow, sub_zero] at hid
+    nlinarith [sq_pos_of_pos hr]
+  · refine ⟨hminus, ?_⟩
+    change chosenHeight < fixtureTorusField strictPointMinus
+    have hid := chosenChart_structure.2.2.2.2.2 strictPointMinus hminus
+    rw [strictMinus_coordinates] at hid
+    simp only [Matrix.cons_val_zero, Matrix.cons_val_one, zero_pow, sub_zero] at hid
+    nlinarith [sq_pos_of_pos hr]
+
+private theorem strictPlus_coordinate1 : chosenChart strictPointPlus 1 = chosenRadius/2 := by
+  simpa only [Matrix.cons_val_one] using congrFun strictPlus_coordinates 1
+
+private theorem strictMinus_coordinate1 : chosenChart strictPointMinus 1 = -chosenRadius/2 := by
+  simpa only [Matrix.cons_val_one] using congrFun strictMinus_coordinates 1
+
+theorem not_pathConnected_chosenStrictTrace : ¬ IsPathConnected chosenStrictTrace := by
+  intro hpc
+  have hj := hpc.joinedIn strictPointMinus strictPoints_mem.2 strictPointPlus strictPoints_mem.1
+  have hcoordinate : ContinuousOn (fun z : I4Torus.SourceTorus 2 2 => chosenChart z 1)
+      chosenStrictTrace :=
+    (continuous_apply (1 : Fin 2)).continuousOn.comp
+      (chosenChart.continuousOn.mono inter_subset_left) (by intro z hz; trivial)
+  have hjReal := hj.map hcoordinate
+  let gamma := hjReal.somePath
+  have hg0 : gamma (0 : unitInterval) = -chosenRadius/2 := by
+    calc
+      gamma 0 = chosenChart strictPointMinus 1 := gamma.source
+      _ = -chosenRadius/2 := strictMinus_coordinate1
+  have hg1 : gamma (1 : unitInterval) = chosenRadius/2 := by
+    calc
+      gamma 1 = chosenChart strictPointPlus 1 := gamma.target
+      _ = chosenRadius/2 := strictPlus_coordinate1
+  have hbetween : (0 : ℝ) ∈ Icc (gamma 0) (gamma 1) := by
+    rw [hg0, hg1]
+    constructor <;> linarith [chosenChart_structure.1]
+  obtain ⟨t, ht⟩ := intermediate_value_univ (0 : unitInterval) (1 : unitInterval)
+    gamma.continuous hbetween
+  have himage := hjReal.somePath_mem t
+  rcases himage with ⟨z, hz, hzcoord⟩
+  have hzero : chosenChart z 1 = 0 := by
+    change chosenChart z 1 = gamma t at hzcoord
+    exact hzcoord.trans ht
+  have hzstrict : chosenHeight < fixtureTorusField z := hz.2
+  have hid := chosenChart_structure.2.2.2.2.2 z hz.1
+  rw [hzero] at hid
+  nlinarith [sq_nonneg (chosenChart z 0)]
+
+def strictPCMutation : Prop := IsPathConnected chosenStrictTrace
+
+theorem not_strictPCMutation : ¬ strictPCMutation := not_pathConnected_chosenStrictTrace

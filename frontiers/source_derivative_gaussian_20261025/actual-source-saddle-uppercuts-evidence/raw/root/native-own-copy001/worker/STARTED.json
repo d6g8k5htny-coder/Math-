@@ -1,0 +1,33 @@
+{
+  "operation": "root65-worker-capture",
+  "script_argv": [
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/native-runtime/capture.py",
+    "--run-dir",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/native-own-copy001/worker",
+    "--cwd",
+    "/workspace/Math-curvature-20261026",
+    "--scope",
+    "worker",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/native-runtime/copy_eligible_own_object.py",
+    "--repo",
+    "/workspace/Math-curvature-20261026",
+    "--object-source",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/build/SourceActualSaddleUppercuts.olean",
+    "--cache-destination",
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceActualSaddleUppercuts.olean",
+    "--source-cut-record",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/ROOT_SOURCE_CUT.json",
+    "--kernel-receipt",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runs/kernel001/receipt.json",
+    "--copy-record",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/ROOT_OWN_OBJECT_COPY.json",
+    "--run-dir",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/native-own-copy001/action"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026",
+  "started_utc": "2026-10-28T22:00:35.397443+00:00",
+  "policy": "No automatic retry; all actual command streams remain original and separate.",
+  "credential_environment_logged": false
+}

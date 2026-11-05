@@ -1,0 +1,193 @@
+{
+  "contract": {
+    "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/CONTROL_CONTRACT.md",
+    "bytes": 5056,
+    "sha256": "9d46d47f425bb23ffc1d65d1b26a54fa9c7d7f9f02fc091feebcd2dca9b58af6"
+  },
+  "contract_before_source_and_helper_implementation": true,
+  "positive_source": {
+    "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/Controls.lean",
+    "bytes": 16292,
+    "sha256": "bee7333a25ee8531ae656f4c3344361de1e31913aee095e7cb4f096875cb95fc"
+  },
+  "positive_receipt": {
+    "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/runs/controls-004/record.json",
+    "bytes": 1408,
+    "sha256": "6913b5cf1938de75666c29d75308a4af1571d8d585faaf02b88b812d406fa0a6"
+  },
+  "control_declarations": [
+    {
+      "private": true,
+      "kind": "theorem",
+      "name": "unit_circle_ne"
+    },
+    {
+      "private": true,
+      "kind": "theorem",
+      "name": "half_circle_ne"
+    },
+    {
+      "private": true,
+      "kind": "theorem",
+      "name": "ne_from_coordinate"
+    },
+    {
+      "private": true,
+      "kind": "theorem",
+      "name": "repeated_separations"
+    },
+    {
+      "private": true,
+      "kind": "theorem",
+      "name": "negative_radius_separations"
+    },
+    {
+      "private": true,
+      "kind": "def",
+      "name": "firstThreeBlockDiagonal"
+    },
+    {
+      "private": true,
+      "kind": "theorem",
+      "name": "firstThreeBlockDiagonal_posSemidef"
+    },
+    {
+      "private": false,
+      "kind": "theorem",
+      "name": "observation_order"
+    },
+    {
+      "private": false,
+      "kind": "theorem",
+      "name": "regression_order"
+    },
+    {
+      "private": false,
+      "kind": "theorem",
+      "name": "full_target_mean"
+    },
+    {
+      "private": false,
+      "kind": "theorem",
+      "name": "signed_collision_actual_identity"
+    },
+    {
+      "private": false,
+      "kind": "theorem",
+      "name": "signed_collision_sampling_law"
+    },
+    {
+      "private": false,
+      "kind": "theorem",
+      "name": "repeated_pin_actualR_posDef"
+    },
+    {
+      "private": false,
+      "kind": "theorem",
+      "name": "negative_radius_actualR_posDef"
+    },
+    {
+      "private": false,
+      "kind": "theorem",
+      "name": "same_sample_triples"
+    },
+    {
+      "private": false,
+      "kind": "theorem",
+      "name": "same_point_covariance_blocks"
+    },
+    {
+      "private": true,
+      "kind": "theorem",
+      "name": "control_derivative_measurable"
+    },
+    {
+      "private": true,
+      "kind": "theorem",
+      "name": "marginal_measurable"
+    },
+    {
+      "private": true,
+      "kind": "theorem",
+      "name": "marginal_posDef"
+    },
+    {
+      "private": true,
+      "kind": "theorem",
+      "name": "actual_marginal_covariance"
+    },
+    {
+      "private": false,
+      "kind": "theorem",
+      "name": "actual_common_value_variance_positive"
+    },
+    {
+      "private": false,
+      "kind": "theorem",
+      "name": "mutation_mean_is_actual"
+    },
+    {
+      "private": false,
+      "kind": "def",
+      "name": "zeroCrossCandidate"
+    },
+    {
+      "private": false,
+      "kind": "theorem",
+      "name": "zeroCrossCandidate_actual_diagonal_blocks"
+    },
+    {
+      "private": false,
+      "kind": "theorem",
+      "name": "zeroCrossCandidate_posSemidef"
+    },
+    {
+      "private": false,
+      "kind": "theorem",
+      "name": "zeroCrossCandidate_entry03"
+    },
+    {
+      "private": true,
+      "kind": "theorem",
+      "name": "joint_collision_measurable"
+    },
+    {
+      "private": false,
+      "kind": "theorem",
+      "name": "actual_zero_cross_mutation_false"
+    }
+  ],
+  "positive_scope": [
+    "literal same-sample valueX,dxX,dyX,valueY,dxY,dyY and concatenated actual49 R raw columns",
+    "full target1..6 mean",
+    "signed negativeL=-2,r0,x=y10 nonzero target actual posterior identity and sampling law only",
+    "L2r0x10y01 actualR positive covariance with repeated raw pins",
+    "negative-r actualR positive covariance",
+    "same-point literal equal triples and actual sampled marginal/cross covariance blocks via public49law",
+    "actual public49 marginal law+covariance pushforward gives strictly positive common value variance",
+    "candidate diagonal blocks are actual sampled covariance blocks, cross03zero, proved principal3+3 block PSD BEFORE MVG covariance",
+    "actual defined sampling covariance mismatch excludes sole zero-cross-block law"
+  ],
+  "negative_source": {
+    "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/CrossBlockMutation.lean",
+    "bytes": 515,
+    "sha256": "fd38a160ce91d1856be7ef53a432a1f40a22b051eee541b2d869a8b527d2413b"
+  },
+  "negative_receipt": {
+    "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/runs/cross-block-001/record.json",
+    "bytes": 1445,
+    "sha256": "86eeb775abec4e5c783ca699331e10328be722da103741a47709c163b8938176"
+  },
+  "distinct_mutation_count": 1,
+  "mutation_attempts": 1,
+  "negative_mechanism": "ACTUAL L2r0x=y10t0 same-sample law with ONLY cross3x3 covariance blocks deleted. Public49 marginal law/PD gives positive common value variance. Candidate principal3+3 PSD proved first, MVGcov03=0; actual cross03>0. Passed control disproves exact equality; mutation harness reduces it to ONE False. No invented Gaussian realization, no RCD claim, no53 collision-rank replay.",
+  "sole_false_count": 1,
+  "unrelated_negative_diagnostics": 0,
+  "positive_counterexample_object_reuse": {
+    "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/build/Controls.olean",
+    "bytes": 1622336,
+    "sha256": "79742bc48f6cc8f0b0e33ff2068d978d79e1f2d1e7a819e1f73d67a7356414a5"
+  },
+  "control_object_production_eligible": false,
+  "source_unchanged_through_qualification": true
+}

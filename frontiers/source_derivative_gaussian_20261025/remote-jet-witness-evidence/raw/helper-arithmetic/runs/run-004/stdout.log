@@ -1,0 +1,98 @@
+/workspace/scratch/remote-jet-arithmetic/runs/run-004/Arithmetic.lean:128:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  iteratedFDeriv ℝ 2 (fun x => a • f x) x
+in the target expression
+  (iteratedFDeriv ℝ 2 (fun y => a * f y) x) ![directionX, directionX] =
+    a * (iteratedFDeriv ℝ 2 f x) ![directionX, directionX]
+
+case «3»
+a : ℝ
+f : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ 2 f
+x : Fin 2 → ℝ
+h1 : fderiv ℝ (fun y => a * f y) x = a • fderiv ℝ f x
+h2 : iteratedFDeriv ℝ 2 (fun x => a • f x) x = a • iteratedFDeriv ℝ 2 f x
+⊢ (iteratedFDeriv ℝ 2 (fun y => a * f y) x) ![directionX, directionX] =
+    a * (iteratedFDeriv ℝ 2 f x) ![directionX, directionX]
+/workspace/scratch/remote-jet-arithmetic/runs/run-004/Arithmetic.lean:130:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  iteratedFDeriv ℝ 2 (fun x => a • f x) x
+in the target expression
+  (iteratedFDeriv ℝ 2 (fun y => a * f y) x) ![directionX, directionY] =
+    a * (iteratedFDeriv ℝ 2 f x) ![directionX, directionY]
+
+case «4»
+a : ℝ
+f : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ 2 f
+x : Fin 2 → ℝ
+h1 : fderiv ℝ (fun y => a * f y) x = a • fderiv ℝ f x
+h2 : iteratedFDeriv ℝ 2 (fun x => a • f x) x = a • iteratedFDeriv ℝ 2 f x
+⊢ (iteratedFDeriv ℝ 2 (fun y => a * f y) x) ![directionX, directionY] =
+    a * (iteratedFDeriv ℝ 2 f x) ![directionX, directionY]
+/workspace/scratch/remote-jet-arithmetic/runs/run-004/Arithmetic.lean:132:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  iteratedFDeriv ℝ 2 (fun x => a • f x) x
+in the target expression
+  (iteratedFDeriv ℝ 2 (fun y => a * f y) x) ![directionY, directionY] =
+    a * (iteratedFDeriv ℝ 2 f x) ![directionY, directionY]
+
+case «5»
+a : ℝ
+f : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ 2 f
+x : Fin 2 → ℝ
+h1 : fderiv ℝ (fun y => a * f y) x = a • fderiv ℝ f x
+h2 : iteratedFDeriv ℝ 2 (fun x => a • f x) x = a • iteratedFDeriv ℝ 2 f x
+⊢ (iteratedFDeriv ℝ 2 (fun y => a * f y) x) ![directionY, directionY] =
+    a * (iteratedFDeriv ℝ 2 f x) ![directionY, directionY]
+/workspace/scratch/remote-jet-arithmetic/runs/run-004/Arithmetic.lean:147:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  iteratedFDeriv ℝ 2 (f + g) x
+in the target expression
+  (iteratedFDeriv ℝ 2 (fun y => f y + g y) x) ![directionX, directionX] =
+    (iteratedFDeriv ℝ 2 f x) ![directionX, directionX] + (iteratedFDeriv ℝ 2 g x) ![directionX, directionX]
+
+case «3»
+f g : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ 2 f
+hg : ContDiff ℝ 2 g
+x : Fin 2 → ℝ
+h1 : fderiv ℝ (fun y => f y + g y) x = fderiv ℝ f x + fderiv ℝ g x
+h2 : iteratedFDeriv ℝ 2 (f + g) x = iteratedFDeriv ℝ 2 f x + iteratedFDeriv ℝ 2 g x
+⊢ (iteratedFDeriv ℝ 2 (fun y => f y + g y) x) ![directionX, directionX] =
+    (iteratedFDeriv ℝ 2 f x) ![directionX, directionX] + (iteratedFDeriv ℝ 2 g x) ![directionX, directionX]
+/workspace/scratch/remote-jet-arithmetic/runs/run-004/Arithmetic.lean:149:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  iteratedFDeriv ℝ 2 (f + g) x
+in the target expression
+  (iteratedFDeriv ℝ 2 (fun y => f y + g y) x) ![directionX, directionY] =
+    (iteratedFDeriv ℝ 2 f x) ![directionX, directionY] + (iteratedFDeriv ℝ 2 g x) ![directionX, directionY]
+
+case «4»
+f g : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ 2 f
+hg : ContDiff ℝ 2 g
+x : Fin 2 → ℝ
+h1 : fderiv ℝ (fun y => f y + g y) x = fderiv ℝ f x + fderiv ℝ g x
+h2 : iteratedFDeriv ℝ 2 (f + g) x = iteratedFDeriv ℝ 2 f x + iteratedFDeriv ℝ 2 g x
+⊢ (iteratedFDeriv ℝ 2 (fun y => f y + g y) x) ![directionX, directionY] =
+    (iteratedFDeriv ℝ 2 f x) ![directionX, directionY] + (iteratedFDeriv ℝ 2 g x) ![directionX, directionY]
+/workspace/scratch/remote-jet-arithmetic/runs/run-004/Arithmetic.lean:151:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  iteratedFDeriv ℝ 2 (f + g) x
+in the target expression
+  (iteratedFDeriv ℝ 2 (fun y => f y + g y) x) ![directionY, directionY] =
+    (iteratedFDeriv ℝ 2 f x) ![directionY, directionY] + (iteratedFDeriv ℝ 2 g x) ![directionY, directionY]
+
+case «5»
+f g : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ 2 f
+hg : ContDiff ℝ 2 g
+x : Fin 2 → ℝ
+h1 : fderiv ℝ (fun y => f y + g y) x = fderiv ℝ f x + fderiv ℝ g x
+h2 : iteratedFDeriv ℝ 2 (f + g) x = iteratedFDeriv ℝ 2 f x + iteratedFDeriv ℝ 2 g x
+⊢ (iteratedFDeriv ℝ 2 (fun y => f y + g y) x) ![directionY, directionY] =
+    (iteratedFDeriv ℝ 2 f x) ![directionY, directionY] + (iteratedFDeriv ℝ 2 g x) ![directionY, directionY]
+/workspace/scratch/remote-jet-arithmetic/runs/run-004/Arithmetic.lean:157:11: error: typeclass instance problem is stuck, it is often due to metavariables
+  (i : Fin 2) → Module ?m.27 (?m.30 i)
+/workspace/scratch/remote-jet-arithmetic/runs/run-004/Arithmetic.lean:165:6: error: Invalid rewrite argument: Expected an equality or iff proof or definition name, but `?m.51` is a value of type
+  ?m.50
+/workspace/scratch/remote-jet-arithmetic/runs/run-004/Arithmetic.lean:173:6: error: Invalid rewrite argument: Expected an equality or iff proof or definition name, but `?m.53` is a value of type
+  ?m.52
+/workspace/scratch/remote-jet-arithmetic/runs/run-004/Arithmetic.lean:190:22: error(lean.unknownIdentifier): Unknown identifier `phase_hasFDerivAt`
+/workspace/scratch/remote-jet-arithmetic/runs/run-004/Arithmetic.lean:208:22: error(lean.unknownIdentifier): Unknown identifier `phase_hasFDerivAt`

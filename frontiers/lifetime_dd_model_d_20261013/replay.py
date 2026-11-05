@@ -20,11 +20,12 @@ SOURCES.json pins every stored file by byte count and SHA-256. This script perfo
      dd_gapcheck.py on the stored cells (control C10, the sliver-gap enclosure), and dd_exact.py on the stored cells and
      node files (the tiling checks, every cell remainder recomputed, 24 node values recomputed, D and the corollary).
      Each assembly takes about 20 minutes.
-  4. Negative controls, each in a temporary copy, must be rejected:
+  4. Negative controls and a separate output-sensitivity control:
      - a one-byte change to the stored note (DD/PROOF.md) fails check 1;
-     - one changed digit in one stored node value (certificate_v2/nodes/nodes_3.json) makes dd_exact.py's stdout differ
-       from the stored record (or fail);
-     - dd_exact.py with one node file missing exits 1 ('incomplete node values').
+     - the fixed perturbation of certificate_v2/nodes/nodes_3.json matches the complete successful
+       CHANGED_NODE_STDOUT transcript and empty stderr (output sensitivity, not mathematical rejection);
+     - missing nodes_11.json matches exit 1, empty stdout and the exact supported-runtime traceback
+       (input-completeness rejection, not mathematical certification).
   5. Each stored verdict, summons and author record names the byte counts and SHA-256 of the stored bodies it refers to
      (SOURCES.json, names_identities: the slice verdicts name the note they read, v1.0, and the controls comment; the
      readback names v1.0 and v1.1; the C10 read names v1.1, v1.2 and the controls addendum; the read-complete notes name
@@ -49,6 +50,32 @@ import tempfile
 HERE = pathlib.Path(__file__).resolve().parent
 OWN = {'README.md', 'SOURCES.json', 'replay.py'}
 PROCESS_TIMEOUT_SECONDS = 3600
+
+
+# Independently observed CPython 3.11.16 process contracts, both modes.
+# Changed-node is output sensitivity, not rejection or a certified new bound.
+CHANGED_NODE_STDOUT = b"""Gauss region: sum [0.0764960693454651862061373880206, 0.0771096748441041862088778512743] (node-width 0.0006136054986390000027404632537), remainder 0.000699415225762334605564277483154
+region S: [-0.0000204104527369070204567316057495, -0.0000200429419006537600186550090259]; omega tails 0.0000138351995650080053539807820619; tau tail 0.0000572129033171405130248937123594
+D in [0.0757051955640837960617375044371, 0.0778600952308480155728023482430]  width 0.0021548996667642195110648438059
+q = J/30 - I~_quad - D in [0.672471569882485317760530985090, 0.674626571425916203938262495564]
+(c3 - R_{2/3})(L), d=2, L>=10: [0.0614650917123430310676033072575, 0.0616634937440884512761309021742]
+(c3 - R_{2/3})(L), d=2, L>=24: [0.0614658061059116856127442435421, 0.0616627793505197967309899658896]
+(c3 - R_{2/3})(L), d=3, L>=10: [0.0772809592715861738273260172417, 0.0776431580674687676951576755071]
+(c3 - R_{2/3})(L), d=3, L>=24: [0.0773381398169425878649879319988, 0.0775859775221123536574957607500]
+"""
+
+# Only the known certificate path is substituted in this expected template.
+# No normalization of actual streams: runtime/source drift fails closed.
+MISSING_NODE_STDERR_TEMPLATE = b"""Traceback (most recent call last):
+  File "<CERTIFICATE_V2>/dd_exact.py", line 95, in <module>
+    main(args[0], *args[1:], recheck='--no-recheck' not in sys.argv, sample=0 if '--no-sample' in sys.argv else 24)
+  File "<CERTIFICATE_V2>/dd_exact.py", line 37, in main
+    require(len(done) == len(cells), 'incomplete node values: %d of %d cells' % (len(done), len(cells)))
+  File "<CERTIFICATE_V2>/ddcore.py", line 23, in require
+    if not cond: raise AssertionError(msg)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: incomplete node values: 2194 of 2393 cells
+"""
 
 
 def identity(data):
@@ -206,13 +233,16 @@ def negative_failures(root, manifest, quick):
     cert = root / 'certificate_v2'
     nodes = [str(cert / 'nodes' / ('nodes_%d.json' % k)) for k in range(11)]      # nodes_11 omitted
     code, out, err = run(cert / 'dd_exact.py', str(cert / 'cells_full.json'), *nodes, '--no-recheck', '--no-sample')
-    report('dd_exact.py with nodes_11.json missing', (code, out, err), 'exit 1, AssertionError: incomplete node values')
-    if code != 1 or b'incomplete node values' not in err:
-        failures.append('negative control (c): a missing node file was not rejected as intended')
+    report('dd_exact.py with nodes_11.json missing', (code, out, err), 'exit 1, empty stdout, exact input-completeness traceback')
+    expected_missing = MISSING_NODE_STDERR_TEMPLATE.replace(b'<CERTIFICATE_V2>', os.fsencode(cert))
+    if (code, out, err) != (1, b'', expected_missing):
+        failures.append('negative control (c): missing-node result does not match the exact input-completeness rejection')
+    else:
+        print(json.dumps(dict(control='nodes_11.json missing', input_completeness_rejection_verified=True)))
     if quick:
         print(json.dumps(dict(negative='one changed digit in nodes_3.json', skipped='--quick')))
         return failures
-    # (b) one changed digit in one stored node value changes (or fails) the assembly
+    # (b) exact successful output sensitivity with recomputation disabled.
     with tempfile.TemporaryDirectory() as tmp:
         copy = pathlib.Path(tmp) / 'certificate_v2'
         shutil.copytree(cert, copy, ignore=shutil.ignore_patterns('__pycache__'))
@@ -229,14 +259,12 @@ def negative_failures(root, manifest, quick):
         p.write_text(json.dumps(d), encoding='utf-8')
         nodes = [str(copy / 'nodes' / ('nodes_%d.json' % k)) for k in range(12)]
         code, out, err = run(copy / 'dd_exact.py', str(copy / 'cells_full.json'), *nodes, '--no-recheck', '--no-sample')
-        report('dd_exact.py with one changed node digit (no recheck, no sample)', (code, out, err), 'stdout differs from the record or exit 1')
-        # compare with the stored record's final lines (the record was produced with the recheck and the sample; strip the two C9 lines)
-        stored = (root / 'certificate_v2' / 'results' / 'assembly_stdout.txt').read_bytes()
-        stored_tail = b'\n'.join(l for l in stored.split(b'\n') if not l.startswith(b'C9'))
-        if code == 0 and out == stored_tail:
-            failures.append('negative control (b): a changed node value was not detected')
+        report('dd_exact.py with one changed node digit (no recheck, no sample)', (code, out, err),
+               'exit 0, exact changed-node stdout, empty stderr (output sensitivity only)')
+        if (code, out, err) != (0, CHANGED_NODE_STDOUT, b''):
+            failures.append('negative control (b): node-coupling result does not match the exact successful transcript')
         else:
-            print(json.dumps(dict(negative='one changed digit in nodes_3.json', rejected=True)))
+            print(json.dumps(dict(control='one changed digit in nodes_3.json', output_sensitivity_verified=True)))
     return failures
 
 
@@ -257,10 +285,10 @@ def main(argv):
         print('Lifetime note DD incorporation replay (%s): %d failure(s)' % (mode, len(failures)))
         return 1
     n_replays = sum(1 for r in manifest['replays'] if not (quick and r.get('long')))
-    print('Lifetime note DD incorporation replay (%s): %d stored records, %d certificate files (v1 %d, v2 %d), %d replays and %d negative controls PASS%s' % (
+    print('Lifetime note DD incorporation replay (%s): %d stored records, %d certificate files (v1 %d, v2 %d), %d replays, 2 negative controls and %d output-sensitivity controls PASS%s' % (
         mode, sum(1 for f in manifest['stored'] if f['path'].startswith('DD/')), sum(1 for f in manifest['stored'] if f['path'].startswith('certificate')),
         sum(1 for f in manifest['stored'] if f['path'].startswith('certificate/')), sum(1 for f in manifest['stored'] if f['path'].startswith('certificate_v2/')),
-        n_replays, 2 if quick else 3, ' (--quick: the assembly replays and the node-mutation control were skipped)' if quick else ''))
+        n_replays, 0 if quick else 1, ' (--quick: the assembly replays and the node-mutation control were skipped)' if quick else ''))
     return 0
 
 

@@ -1,0 +1,27 @@
+test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode (test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode) ... FAIL
+
+======================================================================
+FAIL: test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode (test_cbz_mutation_runner.OuterMutationRunnerTests.test_shared_runner_uses_one_read_and_ignores_timestamp_valid_bytecode)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py", line 23, in wrapped
+    return _original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [Posi[86 chars].py'), PosixPath('/tmp/outer-mutation-regressi[52 chars]py')] != [Posi[86 chars].py')]
+
+First list contains 1 additional elements.
+First extra element 1:
+PosixPath('/tmp/outer-mutation-regression-khhftqx1/loader/tests/run_git_identity_mutations.py')
+
+- [PosixPath('/tmp/outer-mutation-regression-khhftqx1/loader/tests/run_git_identity_mutations.py'),
+?                                                                                                 ^
+
++ [PosixPath('/tmp/outer-mutation-regression-khhftqx1/loader/tests/run_git_identity_mutations.py')]
+?                                                                                                 ^
+
+-  PosixPath('/tmp/outer-mutation-regression-khhftqx1/loader/tests/run_git_identity_mutations.py')] : shared code must execute the sole source read
+
+----------------------------------------------------------------------
+Ran 1 test in 0.006s
+
+FAILED (failures=1)

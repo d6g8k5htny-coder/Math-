@@ -1,0 +1,28 @@
+{
+  "operation": "root65-outer-capture",
+  "script_argv": [
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/native-runtime/capture.py",
+    "--run-dir",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/native-message-amend-freeze001/outer",
+    "--cwd",
+    "/workspace/Math-curvature-20261026",
+    "--scope",
+    "outer",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/native-runtime/capture.py",
+    "--run-dir",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/native-message-amend-freeze001/worker",
+    "--cwd",
+    "/workspace/Math-curvature-20261026",
+    "--scope",
+    "worker",
+    "--",
+    "python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-publication/native-runtime/freeze_message_amendment.py"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026",
+  "started_utc": "2026-10-28T21:55:21.423107+00:00",
+  "policy": "No automatic retry; all actual command streams remain original and separate.",
+  "credential_environment_logged": false
+}

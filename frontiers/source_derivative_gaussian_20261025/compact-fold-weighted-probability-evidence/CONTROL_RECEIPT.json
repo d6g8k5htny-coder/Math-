@@ -1,0 +1,77 @@
+{
+  "contract": {
+    "path": "/workspace/scratch/compact-fold-weighted-probability-construct/CONTROL_CONTRACT.md",
+    "bytes": 2652,
+    "sha256": "be0ca3f73b1d85adcb5d9b012345b0882283dd551b64632a8ae07162e83229d5"
+  },
+  "positive_source": {
+    "path": "/workspace/scratch/compact-fold-weighted-probability-construct/Controls.lean",
+    "bytes": 6486,
+    "sha256": "90ce7625401cf5827cd3659b1347bedb02b969d40318cfbbe50419508da1b65e"
+  },
+  "positive_object": {
+    "path": "/workspace/scratch/compact-fold-weighted-probability-construct/build/Controls.olean",
+    "bytes": 241360,
+    "sha256": "f2d66788fb7adac6007b541ac8f0ae4ad656481a900adf4012c2b7a8b9f504cf"
+  },
+  "positive_receipt": {
+    "path": "/workspace/scratch/compact-fold-weighted-probability-construct/runs/controls-001/receipt.json",
+    "bytes": 2153,
+    "sha256": "9ab9a1126bcbe26b757901aaf21cde19fdd79a27ff4ffd0bc405cd18887ccc03"
+  },
+  "positive_exit": 0,
+  "positive_theorems": 15,
+  "positive_theorem_names": [
+    "negativePeriod",
+    "literal_varying_law",
+    "literal_varying_good",
+    "full_scale_and_mark_constants",
+    "actual_scale_and_curvature",
+    "actual_good_event_measurable",
+    "actual_uniform_obstruction",
+    "second_cutoff_failure_witness",
+    "full_coefficient_detects_failure",
+    "closed_boundary_good_witness",
+    "fifth_over_second_is_cubic",
+    "actual_same_law_ac",
+    "same_law_weighted_ae",
+    "uniform_two_actual_marks",
+    "uniform_actual_probability_h0"
+  ],
+  "positive_scope": [
+    "Literal same actual varying law and exact Good event",
+    "Original negative signed period L=-1; B=3,k0=1/12,k1=2; full scale16 and A=12884901888",
+    "Actual sample T=16*Gamma and Kappa=-q/(12*r) for mark2; event measurability and complement inclusion",
+    "One C,delta for actual marks(b=-3,k=1) and(b=3,k=2)",
+    "Uniform probability/H0 endpoint with C,delta before marks and every coefficient field",
+    "Literal same-law absolute continuity and weighted AE transfer",
+    "Positive-radius Bochner normalization power identity r^5/r^2=r^3",
+    "Closed obstruction equality witness; no reverse inclusion is claimed"
+  ],
+  "false_mutation_source": {
+    "path": "/workspace/scratch/compact-fold-weighted-probability-construct/FalseOmittedMarkFactor.lean",
+    "bytes": 487,
+    "sha256": "2f38a4943fcf946713f0976a0ebf9fe705f481344a0ae122fdc8f9a8ae8b22fc"
+  },
+  "false_mutation_receipt": {
+    "path": "/workspace/scratch/compact-fold-weighted-probability-construct/runs/false-omitted-mark-factor-001/receipt.json",
+    "bytes": 2116,
+    "sha256": "1523e28efa7deeeece05a781a685d7fb83ef71a1cd3c1248fe5911e71ebc1a7e"
+  },
+  "false_mutation_log": {
+    "path": "/workspace/scratch/compact-fold-weighted-probability-construct/runs/false-omitted-mark-factor-001/output.log",
+    "bytes": 379,
+    "sha256": "6d80d223df1984f97417b0ec32951db9fdd01b2df919e8643804ad104e1be328"
+  },
+  "false_mutation_exit": 1,
+  "distinct_mutation_count": 1,
+  "residual_false_count": 1,
+  "unrelated_diagnostics": 0,
+  "false_mutation_mechanism": "Omit 6*k1 from the curvature obstruction. At r=1e-9,Gamma=1,q=-5,k=2,lambda=16, the first Good cutoff holds and the second fails; the full coefficient detects it while the reduced coefficient misses it.",
+  "counterexample_scope": "Finite exact scalar arithmetic only; no claim that a posterior sample realizes the specified Gamma and q.",
+  "unexpected_development_failures": [],
+  "all_expected_rejection_sources_and_logs_preserved": true,
+  "old_control_campaign_replayed": false,
+  "production_source_unchanged_for_controls": true,
+  "helper_control_objects_production_eligible": false
+}

@@ -1,0 +1,81 @@
+--- regular-002/source
++++ regular-003/source
+@@ -62,7 +62,7 @@
+        fin_cases i
+        · change (d v - d ![0, 1] * v 1) / d ![1, 0] = v 0
+          rw [regular_finTwo_functional d v]
+-         field_simp [ha] <;> ring
++         field_simp [ha]; ring
+        · rfl
+      right_inv := by
+        intro w
+@@ -71,7 +71,7 @@
+        · change d ![(w 0 - d ![0, 1] * w 1) / d ![1, 0], w 1] = w 0
+          rw [regular_finTwo_functional d]
+          simp only [Matrix.cons_val_zero, Matrix.cons_val_one]
+-         field_simp [ha] <;> ring
++         field_simp [ha]; ring
+        · rfl
+      map_add' := by
+        intro u v
+@@ -95,7 +95,7 @@
+        · rfl
+        · change (d v - d ![1, 0] * v 0) / d ![0, 1] = v 1
+          rw [regular_finTwo_functional d v]
+-         field_simp [hb] <;> ring
++         field_simp [hb]; ring
+      right_inv := by
+        intro w
+        ext i
+@@ -103,7 +103,7 @@
+        · change d ![w 1, (w 0 - d ![1, 0] * w 1) / d ![0, 1]] = w 0
+          rw [regular_finTwo_functional d]
+          simp only [Matrix.cons_val_zero, Matrix.cons_val_one]
+-         field_simp [hb] <;> ring
++         field_simp [hb]; ring
+        · rfl
+      map_add' := by
+        intro u v
+@@ -184,9 +184,13 @@
+     apply hasFDerivAt_pi'.2
+     intro i
+     fin_cases i
+-    · rw [hB0]
++    · change HasFDerivAt (fun Y => g Y - g X)
++        ((ContinuousLinearMap.proj (0 : Fin 2)).comp B.toContinuousLinearMap) X
++      rw [hB0]
+       exact (hg.differentiable (by norm_num)).differentiableAt.hasFDerivAt.sub_const (g X)
+-    · rw [hB1]
++    · change HasFDerivAt (fun Y => p Y - c X k)
++        ((ContinuousLinearMap.proj (1 : Fin 2)).comp B.toContinuousLinearMap) X
++      rw [hB1]
+       exact p.hasFDerivAt.sub_const (c X k)
+   let phi : OpenPartialHomeomorph (UniversalLaw.Spec.Lifetime.E 2) (Fin 2 → ℝ) :=
+     hf.contDiffAt.toOpenPartialHomeomorph f hfderiv (by norm_num)
+@@ -205,7 +209,10 @@
+   let Q : Set (Fin 2 → ℝ) := phi.target ∩ phi.symm ⁻¹' U
+   have hQ : IsOpen Q := phi.isOpen_inter_preimage_symm hU
+   have hzeroQ : (0 : Fin 2 → ℝ) ∈ Q := by
+-    exact ⟨hzeroTarget, by simpa only [hInvZero] using hX⟩
++    refine ⟨hzeroTarget, ?_⟩
++    change phi.symm 0 ∈ U
++    rw [hInvZero]
++    exact hX
+   obtain ⟨epsilon, hepsilon, hball⟩ := Metric.isOpen_iff.1 hQ 0 hzeroQ
+   have hballTarget : Metric.ball (0 : Fin 2 → ℝ) epsilon ⊆ phi.target :=
+     fun v hv => (hball hv).1
+@@ -231,10 +238,14 @@
+     · rintro ⟨⟨v, hv, rfl⟩, hlev⟩
+       refine ⟨v, ⟨hv, ?_⟩, rfl⟩
+       have hh := hheight v hv
++      change g X ≤ g (phi.symm v) at hlev
++      change 0 ≤ v 0
+       linarith
+     · rintro ⟨v, ⟨hv, hlev⟩, rfl⟩
+       refine ⟨⟨v, hv, rfl⟩, ?_⟩
+       have hh := hheight v hv
++      change 0 ≤ v 0 at hlev
++      change g X ≤ g (phi.symm v)
+       linarith
+   have hhalf : Convex ℝ {v : Fin 2 → ℝ | 0 ≤ v 0} := by
+     intro u hu v hv a b ha hb _hab

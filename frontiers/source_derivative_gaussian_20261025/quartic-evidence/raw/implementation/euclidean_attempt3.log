@@ -1,0 +1,16 @@
+/workspace/scratch/pin-preserving-quartic-implementation/EuclideanBridge.lean:84:58: error: unexpected token '|*'; expected '|' or '|ₘ'
+/workspace/scratch/pin-preserving-quartic-implementation/EuclideanBridge.lean:84:7: error: Missing cases:
+/workspace/scratch/pin-preserving-quartic-implementation/EuclideanBridge.lean:78:49: error: unsolved goals
+b : ℝ
+v : EuclideanSpace ℝ (Fin 2)
+hy : ‖(matrixLinearEuclidean !![0, b; b, 0]) v‖ ^ 2 = (b * v.ofLp 1) ^ 2 + (b * v.ofLp 0) ^ 2
+heq : ‖(matrixLinearEuclidean !![0, b; b, 0]) v‖ ^ 2 = |b|
+⊢ ‖(matrixLinearEuclidean !![0, b; b, 0]) v‖ ≤ |b| * ‖v‖
+/workspace/scratch/pin-preserving-quartic-implementation/EuclideanBridge.lean:112:6: error: Type mismatch
+  add_le_add_right (norm_add_le ?m.1224 ?m.1225) ?m.1226
+has type
+  ?m.1226 + ‖?m.1224 + ?m.1225‖ ≤ ?m.1226 + (‖?m.1224‖ + ‖?m.1225‖)
+but is expected to have type
+  ‖toEuclideanCLM !![a, 0; 0, 0] + toEuclideanCLM !![0, b; b, 0]‖ + ‖toEuclideanCLM !![0, 0; 0, c]‖ ≤
+    ‖matrixLinearEuclidean !![a, 0; 0, 0]‖ + ‖matrixLinearEuclidean !![0, b; b, 0]‖ +
+      ‖matrixLinearEuclidean !![0, 0; 0, c]‖

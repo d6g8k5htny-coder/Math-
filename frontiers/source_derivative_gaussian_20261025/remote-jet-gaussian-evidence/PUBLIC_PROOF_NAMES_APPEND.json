@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "module": "SourceRemoteJetGaussian",
+  "source_cut": "9ce7b9519aac1b1052d9c6f0c5082581d39da0f6",
+  "source_sha256": "65694d00f575333b3b896338ecaf047ce8e166fbb8eddc03bd0836cce521a034",
+  "targets": [
+    "I4SourceRemoteJetGaussian.remoteJet_rawPosteriorSample",
+    "I4SourceRemoteJetGaussian.rawPinKernel_remoteJet_eq_multivariateGaussian",
+    "I4SourceRemoteJetGaussian.remoteResidualCovariance_posDef",
+    "I4SourceRemoteJetGaussian.rawPinKernel_remoteJet_conditional_uniform"
+  ],
+  "public_written_Prop_targets": 4,
+  "public_written_data_definitions_inventory_only": 6,
+  "data_instance_registry_append": 0,
+  "baseline_targets": 1101,
+  "resulting_targets": 1105
+}

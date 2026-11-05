@@ -1,0 +1,25 @@
+{
+  "label": "ordinary-inventory001",
+  "command_argv": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/outer_capture.py",
+    "ordinary-inventory001",
+    "math",
+    "--",
+    "env",
+    "LEAN_PATH=/workspace/scratch/actual-source-saddle-uppercuts-construct/build",
+    "lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/scratch/actual-source-saddle-uppercuts-construct/ControlsInventory.lean"
+  ],
+  "cwd": "/workspace/scratch/actual-source-saddle-uppercuts-construct",
+  "start_utc": "2026-10-28T21:43:34.644569+00:00",
+  "end_utc": "2026-10-28T21:43:37.684940+00:00",
+  "elapsed_seconds": 3.040375495002081,
+  "exit_code": 0,
+  "stdout": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/ordinary-inventory001/entry.stdout.log",
+  "stderr": "/workspace/scratch/actual-source-saddle-uppercuts-construct/outer/ordinary-inventory001/entry.stderr.log",
+  "invocation_scope": "entry process begins here; caller tool stdout is only this closed receipt summary"
+}

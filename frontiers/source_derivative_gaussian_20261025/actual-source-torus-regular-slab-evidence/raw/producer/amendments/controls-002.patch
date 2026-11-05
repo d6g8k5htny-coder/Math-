@@ -1,0 +1,20 @@
+--- controls001/source
++++ controls002/source
+@@ -270,6 +270,7 @@
+   have hupper : (0 : ℝ) ≤ primaryField (p t) := by
+     simpa only [TorusFiltration.superlevel_set,Set.mem_ofPred_eq,mutant_b,neg_zero] using hp t
+   have hbound := primary_le_separator (p t)
++  change separator (p t) = 0 at htzero
+   rw [htzero] at hbound
+   nlinarith
+ 
+@@ -290,7 +291,8 @@
+   · rfl
+   · rfl
+   · rintro Y ⟨s,_hs,rfl⟩
+-    change (-1/2 : ℝ) ≤ primaryField (projection (point s 0))
++    change -(-mutant_a) ≤ primaryField (lowerCurve s)
++    simp only [neg_neg,mutant_a,lowerCurve]
+     rw [primary_pullback,fixture_actualField]
+     simp only [point_apply,Matrix.cons_val_zero,Matrix.cons_val_one,mul_zero,Real.cos_zero,mul_one]
+     linarith [Real.neg_one_le_cos (2*Real.pi*s)]

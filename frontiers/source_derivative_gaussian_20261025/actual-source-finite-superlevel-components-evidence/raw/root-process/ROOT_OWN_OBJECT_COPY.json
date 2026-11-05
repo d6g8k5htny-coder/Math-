@@ -1,0 +1,111 @@
+{
+  "created_utc": "2026-10-28T19:03:11.665356+00:00",
+  "source_cut": "93a82fa357c55a42035e2303d051a38fca31d775",
+  "source": "/workspace/scratch/actual-source-finite-superlevel-components-construct/build/SourceActualFiniteSuperlevelComponents.olean",
+  "destination": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceActualFiniteSuperlevelComponents.olean",
+  "source_identity": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFiniteSuperlevelComponents.lean",
+    "bytes": 11683,
+    "sha256": "e63abe693a6d23e5679adbb7110cb7b569bd3171db596d470f32b8566bc01a5c",
+    "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+  },
+  "eligible_own_object_identity": {
+    "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/build/SourceActualFiniteSuperlevelComponents.olean",
+    "bytes": 404464,
+    "sha256": "84d7797bc22096d9d3c9ead68542e952b8a752fe74767812bd4ae093c3876d89",
+    "identity_origin": "FIRST identity of newly created or changed owned payload"
+  },
+  "qualification_receipts": {
+    "strict": {
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/actual-source-finite-superlevel-components-construct/build/SourceActualFiniteSuperlevelComponents.olean",
+        "SourceActualFiniteSuperlevelComponents.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "started_utc": "2026-10-28T18:58:24.815798+00:00",
+      "ended_utc": "2026-10-28T18:58:27.600568+00:00",
+      "exit_code": 0,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "receipt": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/receipt.json"
+    },
+    "inventory": {
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-source-finite-superlevel-components-construct/build:$LEAN_PATH exec lean -DwarningAsError=true /workspace/scratch/actual-source-finite-superlevel-components-construct/Inventory.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "started_utc": "2026-10-28T18:59:30.483899+00:00",
+      "ended_utc": "2026-10-28T18:59:33.409617+00:00",
+      "exit_code": 0,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/stdout.log",
+        "bytes": 8750,
+        "sha256": "5747daf26ec747fdb268db371632294713bd8103eae40028f90af48b8f0f23e3",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "receipt": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/receipt.json"
+    },
+    "kernel": {
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-source-finite-superlevel-components-construct/build:$LEAN_PATH exec leanchecker SourceActualFiniteSuperlevelComponents"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "started_utc": "2026-10-28T19:01:06.847602+00:00",
+      "ended_utc": "2026-10-28T19:01:11.980048+00:00",
+      "exit_code": 0,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "receipt": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/kernel-001/receipt.json"
+    }
+  },
+  "copy_once": true,
+  "copy_scope": "ONLYnewqualified63own.olean; nohelper/Controls/ilean/oldobject",
+  "all_further_copy_actions": "SKIP",
+  "completed_utc": "2026-10-28T19:03:11.668202+00:00",
+  "action": "COPIED_ONCE",
+  "destination_size_metadata": 404464,
+  "identity_reused_no_rehash": "84d7797bc22096d9d3c9ead68542e952b8a752fe74767812bd4ae093c3876d89",
+  "old_object_copies": 0,
+  "helper_or_controls_copies": 0,
+  "ilean_copies": 0,
+  "mathematical_checks": 0
+}

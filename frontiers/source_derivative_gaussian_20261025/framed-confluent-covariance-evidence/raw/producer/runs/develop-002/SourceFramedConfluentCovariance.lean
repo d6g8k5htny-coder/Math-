@@ -1,0 +1,192 @@
+import SourceDerivativeContinuity
+import SourceFiniteTrig
+import SourceRemoteJetWitness
+import SourceLifetimeGeometry
+import SourceSmoothTopology
+import ConfluentIntegralIdentities
+import Mathlib.MeasureTheory.Integral.DominatedConvergence
+import Mathlib.MeasureTheory.Integral.IntervalIntegral.DerivIntegrable
+import Mathlib.Analysis.Calculus.FDeriv.CompCLM
+
+/-! Actual seven Peano rows in physical orthonormal frames on the unchanged
+source carrier. The contact extension keeps the exact cubic factor six. -/
+
+noncomputable section
+set_option autoImplicit false
+open scoped BigOperators Matrix Topology Interval
+open I4Foundation I4Source I4Weights I4Smooth I4SmoothCarrier I4SourceGaussian
+open I4SourceCovariance I4SourceDerivativeGaussian I4SourceDerivativeContinuity
+open I4SourceFiniteTrig I4SourceFinitePinKernel I4SourceRemoteJetWitness
+open UniversalLaw.Spec.Lifetime I4LifetimeField
+open MeasureTheory ProbabilityTheory WithLp Set
+
+namespace I4SourceFramedConfluentCovariance
+
+private def contactRows (f : (Fin 2 → ℝ) → ℝ) (p e n : Fin 2 → ℝ) : Fin 7 → ℝ :=
+  ![f p,fderiv ℝ f p e,fderiv ℝ f p n,
+    iteratedFDeriv ℝ 2 f p ![e,e],iteratedFDeriv ℝ 2 f p ![e,n],
+    iteratedFDeriv ℝ 3 f p ![e,e,e],iteratedFDeriv ℝ 2 f p ![n,n] ]
+
+private def peanoRows (f : (Fin 2 → ℝ) → ℝ) (p e n : Fin 2 → ℝ) (r : ℝ) : Fin 7 → ℝ :=
+  ![(f (p-(r/2) • e)+f (p+(r/2) • e))/2,
+    (fderiv ℝ f (p-(r/2) • e) e+fderiv ℝ f (p+(r/2) • e) e)/2,
+    (fderiv ℝ f (p-(r/2) • e) n+fderiv ℝ f (p+(r/2) • e) n)/2,
+    ∫ t in (-1/2:ℝ)..(1/2:ℝ), iteratedFDeriv ℝ 2 f (p+(r*t) • e) ![e,e],
+    ∫ t in (-1/2:ℝ)..(1/2:ℝ), iteratedFDeriv ℝ 2 f (p+(r*t) • e) ![e,n],
+    6*∫ t in (-1/2:ℝ)..(1/2:ℝ), (1/4-t^2)*iteratedFDeriv ℝ 3 f (p+(r*t) • e) ![e,e,e],
+    iteratedFDeriv ℝ 2 f p ![n,n] ]
+
+private def pairCoefficient (L : ℝ) (z e n : E 2) (r : ℝ) : Fin 7 → SourceMode 2 → ℝ :=
+  fun i m => peanoRows (modeCoefficient 2 L m) (coordinates 2 z)
+    (coordinates 2 e) (coordinates 2 n) r i
+
+/-- Actual original mode rows, including the ordinary mixed derivative and cubic factor six. -/
+def framedConfluentCoefficient (L : ℝ) (z : E 2)
+    (R : OrthonormalBasis (Fin 2) ℝ (E 2)) (r : ℝ) : Fin 7 → SourceMode 2 → ℝ :=
+  pairCoefficient L z (R 0) (R 1) r
+
+/-- The literal finite series observation on the same original smooth carrier. -/
+def framedConfluentVector (L : ℝ) (z : E 2)
+    (R : OrthonormalBasis (Fin 2) ℝ (E 2)) (r : ℝ) (ω : SmoothSample 2 L) : Fin 7 → ℝ :=
+  fun i => scalarSeries (framedConfluentCoefficient L z R r i) (sampleInclusion 2 L ω)
+
+/-- Target-free Gram of the literal seven-row original coefficient family. -/
+def framedConfluentCovariance (L : ℝ) (z : E 2)
+    (R : OrthonormalBasis (Fin 2) ℝ (E 2)) (r : ℝ) : Matrix (Fin 7) (Fin 7) ℝ :=
+  I4ContactGram.coefficientGram (framedConfluentCoefficient L z R r)
+
+private def pairCovariance (L : ℝ) (z e n : E 2) (r : ℝ) : Matrix (Fin 7) (Fin 7) ℝ :=
+  I4ContactGram.coefficientGram (pairCoefficient L z e n r)
+
+private def envelope (L : ℝ) (m : SourceMode 2) : ℝ :=
+  8*∑ j : Fin 4, orderModeBound (j:ℕ) 2 L m
+
+private theorem envelope_nonneg (L : ℝ) (m : SourceMode 2) : 0 ≤ envelope L m := by
+  exact mul_nonneg (by norm_num) (Finset.sum_nonneg (fun j _ => orderModeBound_nonneg j 2 L m))
+
+private theorem envelope_summable {L : ℝ} (hL : L ≠ 0) : Summable (envelope L) := by
+  exact (summable_sum (fun j (_ : j ∈ (Finset.univ : Finset (Fin 4))) =>
+    orderModeBound_summable j 2 hL)).mul_left 8
+
+private theorem envelope_weighted_summable {L : ℝ} (hL : L ≠ 0) (ell : ℕ) :
+    Summable (fun m => orderModeBound ell 2 L m * envelope L m) :=
+  I4ContactGram.coefficient_product_summable (orderModeBound_summable ell 2 hL)
+    (envelope_summable hL)
+
+private theorem envelope_square_summable {L : ℝ} (hL : L ≠ 0) :
+    Summable (fun m => envelope L m*envelope L m) :=
+  I4ContactGram.coefficient_product_summable (envelope_summable hL) (envelope_summable hL)
+
+private theorem envelope_sample_summable {L : ℝ} (ω : SmoothSample 2 L) :
+    Summable (fun m => envelope L m*|sampleInclusion 2 L ω m|) := by
+  have h := (summable_sum (fun j (_ : j ∈ (Finset.univ : Finset (Fin 4))) => ω.property j)).mul_left 8
+  simpa only [envelope,Finset.sum_mul,mul_assoc,sampleInclusion] using h
+
+
+private def UniformContactLimit (L : ℝ) : Prop :=
+  ∀ eps : ℝ, 0 < eps → ∃ delta : ℝ, 0 < delta ∧
+    ∀ z : E 2, (∀ a : Fin 2, |coordinates 2 z a| ≤ |L|/2) →
+      ∀ R : OrthonormalBasis (Fin 2) ℝ (E 2), ∀ r : ℝ,
+        0 ≤ r → r ≤ delta → ∀ i j : Fin 7,
+          |framedConfluentCovariance L z R r i j-framedConfluentCovariance L z R 0 i j| < eps
+
+private def UniformCovarianceFloor (L : ℝ) : Prop :=
+  ∃ gamma Lambda delta : ℝ, 0 < gamma ∧ 0 < Lambda ∧ 0 < delta ∧ delta ≤ 1 ∧ delta ≤ |L|/8 ∧
+    ∀ z : E 2, (∀ a : Fin 2, |coordinates 2 z a| ≤ |L|/2) →
+      ∀ R : OrthonormalBasis (Fin 2) ℝ (E 2), ∀ r : ℝ, 0 ≤ r → r ≤ delta →
+        let G := framedConfluentCovariance L z R r
+        let G6 : Matrix (Fin 6) (Fin 6) ℝ := fun i j => G (Fin.castAdd 1 i) (Fin.castAdd 1 j)
+        (∀ v : Fin 7 → ℝ,
+          gamma*(∑ i, (v i)^2) ≤ v ⬝ᵥ (G *ᵥ v) ∧
+          v ⬝ᵥ (G *ᵥ v) ≤ Lambda*(∑ i, (v i)^2)) ∧
+        G.PosDef ∧ G6.PosDef ∧ IsUnit G6 ∧
+        gamma ≤ G 6 6-∑ i : Fin 6, ∑ j : Fin 6,
+          G 6 (Fin.castAdd 1 i)*(G6⁻¹) i j*G (Fin.castAdd 1 j) 6
+
+private theorem coordinates_norm_le_one (e : E 2) (he : ‖e‖ ≤ 1) :
+    ‖coordinates 2 e‖ ≤ 1 := by
+  apply (pi_norm_le_iff_of_nonneg (by norm_num : (0:ℝ) ≤ 1)).mpr
+  intro i
+  exact (PiLp.norm_apply_le e i).trans he
+
+private theorem derivative_unit_bound {L : ℝ} (hL : L ≠ 0) (k : ℕ)
+    (p : Fin 2 → ℝ) (u : Fin k → (Fin 2 → ℝ)) (hu : ∀ j, ‖u j‖ ≤ 1) (m : SourceMode 2) :
+    |derivativeCoefficient 2 L k p u m| ≤ orderModeBound k 2 L m := by
+  have hp : (∏ j, ‖u j‖) ≤ (1:ℝ) :=
+    Finset.prod_le_one₀ (fun j _ => norm_nonneg _) (fun j _ => hu j)
+  calc
+    |derivativeCoefficient 2 L k p u m| ≤ derivativeMajorant 2 L k u m := by
+      simpa only [Real.norm_eq_abs] using derivativeCoefficient_bound 2 hL k u m p
+    _ ≤ orderModeBound k 2 L m*1 :=
+      mul_le_mul_of_nonneg_left hp (orderModeBound_nonneg k 2 L m)
+    _ = _ := mul_one _
+
+private theorem average_abs_le (a b B : ℝ) (ha : |a| ≤ B) (hb : |b| ≤ B) :
+    |(a+b)/2| ≤ B := by
+  rw [abs_div,abs_of_pos (by norm_num : (0:ℝ)<2)]
+  have hh := abs_add_le a b
+  linarith
+
+private theorem unit_interval_abs_le (g : ℝ → ℝ) (B : ℝ) (hg : ∀ t, |g t| ≤ B) :
+    |∫ t in (-1/2:ℝ)..(1/2:ℝ), g t| ≤ B := by
+  have h := intervalIntegral.norm_integral_le_of_norm_le_const
+    (a:=(-1/2:ℝ)) (b:=(1/2:ℝ)) (C:=B) (f:=g)
+    (fun t _ => by simpa only [Real.norm_eq_abs] using hg t)
+  simpa only [Real.norm_eq_abs,show |(1/2:ℝ)-(-1/2)|=1 by norm_num,mul_one] using h
+
+private theorem peano_interval_abs_le (g : ℝ → ℝ) (B : ℝ) (_hB : 0 ≤ B)
+    (hg : ∀ t, |g t| ≤ B) :
+    |∫ t in (-1/2:ℝ)..(1/2:ℝ), (1/4-t^2)*g t| ≤ B := by
+  have h := intervalIntegral.norm_integral_le_of_norm_le_const
+    (a:=(-1/2:ℝ)) (b:=(1/2:ℝ)) (C:=B) (f:=fun t => (1/4-t^2)*g t) (fun t ht => by
+      rw [uIoc_of_le (by norm_num : (-1/2:ℝ) ≤ 1/2)] at ht
+      have hprod := mul_nonneg (sub_nonneg.mpr ht.2) (sub_nonneg.mpr (le_of_lt ht.1))
+      have hw0 : 0 ≤ (1/4:ℝ)-t^2 := by nlinarith
+      have hw1 : (1/4:ℝ)-t^2 ≤ 1 := by nlinarith [sq_nonneg t]
+      rw [Real.norm_eq_abs,abs_mul,abs_of_nonneg hw0]
+      exact (mul_le_mul hw1 (hg t) (abs_nonneg _) (by norm_num : (0:ℝ)≤1)).trans_eq (one_mul B))
+  simpa only [Real.norm_eq_abs,show |(1/2:ℝ)-(-1/2)|=1 by norm_num,mul_one] using h
+
+private theorem pairCoefficient_bound {L : ℝ} (hL : L ≠ 0) (z e n : E 2) (r : ℝ)
+    (he : ‖e‖ ≤ 1) (hn : ‖n‖ ≤ 1) (i : Fin 7) (m : SourceMode 2) :
+    |pairCoefficient L z e n r i m| ≤ envelope L m := by
+  let p := coordinates 2 z
+  let a := coordinates 2 e
+  let b := coordinates 2 n
+  let f := modeCoefficient 2 L m
+  have ha : ‖a‖ ≤ 1 := coordinates_norm_le_one e he
+  have hb : ‖b‖ ≤ 1 := coordinates_norm_le_one n hn
+  have hsum : 0 ≤ ∑ j : Fin 4, orderModeBound (j:ℕ) 2 L m :=
+    Finset.sum_nonneg (fun j _ => orderModeBound_nonneg j 2 L m)
+  have hle (j : Fin 4) : orderModeBound (j:ℕ) 2 L m ≤ ∑ j : Fin 4, orderModeBound (j:ℕ) 2 L m :=
+    Finset.single_le_sum (f:=fun k : Fin 4 => orderModeBound (k:ℕ) 2 L m)
+      (fun k _ => orderModeBound_nonneg (k:ℕ) 2 L m) (Finset.mem_univ j)
+  have h0 (q : Fin 2 → ℝ) : |f q| ≤ orderModeBound 0 2 L m := by
+    simpa only [derivativeCoefficient,iteratedFDeriv_zero_apply] using
+      derivative_unit_bound hL 0 q (fun j => Fin.elim0 j) (fun j => Fin.elim0 j) m
+  have h1 (q v : Fin 2 → ℝ) (hv : ‖v‖ ≤ 1) : |fderiv ℝ f q v| ≤ orderModeBound 1 2 L m := by
+    simpa only [derivativeCoefficient,iteratedFDeriv_one_apply] using
+      derivative_unit_bound hL 1 q (fun _ => v) (fun _ => hv) m
+  have h2 (q v w : Fin 2 → ℝ) (hv : ‖v‖ ≤ 1) (hw : ‖w‖ ≤ 1) :
+      |iteratedFDeriv ℝ 2 f q ![v,w]| ≤ orderModeBound 2 2 L m := by
+    exact derivative_unit_bound hL 2 q ![v,w] (by intro j; fin_cases j <;> assumption) m
+  have h3 (q : Fin 2 → ℝ) :
+      |iteratedFDeriv ℝ 3 f q ![a,a,a]| ≤ orderModeBound 3 2 L m := by
+    exact derivative_unit_bound hL 3 q ![a,a,a] (by intro j; fin_cases j <;> exact ha) m
+  change |peanoRows f p a b r i| ≤ envelope L m
+  fin_cases i
+  · exact (average_abs_le _ _ _ (h0 _) (h0 _)).trans (by dsimp [envelope]; have hh:=hle 0; norm_num at hh; linarith)
+  · exact (average_abs_le _ _ _ (h1 _ _ ha) (h1 _ _ ha)).trans (by dsimp [envelope]; have hh:=hle 1; norm_num at hh; linarith)
+  · exact (average_abs_le _ _ _ (h1 _ _ hb) (h1 _ _ hb)).trans (by dsimp [envelope]; have hh:=hle 1; norm_num at hh; linarith)
+  · exact (unit_interval_abs_le _ _ (fun t => h2 _ _ _ ha ha)).trans (by dsimp [envelope]; have hh:=hle 2; norm_num at hh; linarith)
+  · exact (unit_interval_abs_le _ _ (fun t => h2 _ _ _ ha hb)).trans (by dsimp [envelope]; have hh:=hle 2; norm_num at hh; linarith)
+  · change |6*∫ t in (-1/2:ℝ)..(1/2:ℝ), (1/4-t^2)*iteratedFDeriv ℝ 3 f (p+(r*t) • a) ![a,a,a]| ≤ _
+    rw [abs_mul,abs_of_pos (by norm_num : (0:ℝ)<6)]
+    have hh := peano_interval_abs_le _ _ (orderModeBound_nonneg 3 2 L m) (fun t => h3 _)
+    have hle3 := hle 3
+    dsimp [envelope]
+    norm_num at hle3
+    nlinarith
+  · exact (h2 _ _ _ hb hb).trans (by dsimp [envelope]; have hh:=hle 2; norm_num at hh; linarith)
+
+end I4SourceFramedConfluentCovariance

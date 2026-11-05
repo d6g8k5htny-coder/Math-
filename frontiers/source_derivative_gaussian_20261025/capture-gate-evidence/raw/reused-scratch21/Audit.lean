@@ -1,0 +1,23 @@
+import CaptureGates
+
+#print axioms I4QuarticCaptureAlgebra.rawRadius_one_le
+#print axioms I4QuarticCaptureAlgebra.rawRadius_pos
+#print axioms I4QuarticCaptureAlgebra.rawRadius_sum_abs_eq
+#print axioms I4QuarticCaptureAlgebra.rawRadius_coord_abs_le_sub_one
+#print axioms I4QuarticCaptureAlgebra.rawRadius_coord_abs_le
+#print axioms I4QuarticCaptureAlgebra.captureWidth_pos
+#print axioms I4QuarticCaptureAlgebra.captureFstar_le_radius
+#print axioms I4QuarticCaptureAlgebra.captureWidth_radius_le
+#print axioms I4QuarticCaptureAlgebra.captureWidth_le
+#print axioms I4QuarticCaptureAlgebra.captureWidth_le_one_sixteenth
+#print axioms I4QuarticCaptureAlgebra.captureWidth_radius_le_one_sixtyfourth
+#print axioms I4QuarticCaptureAlgebra.capture_r_le_width
+#print axioms I4QuarticCaptureAlgebra.captureSigma_pos
+#print axioms I4QuarticCaptureAlgebra.captureSigma_le
+#print axioms I4QuarticCaptureAlgebra.four_captureWidth_le_captureSigma
+#print axioms I4QuarticCaptureAlgebra.quartic_transverse_forcing_bound
+#print axioms I4QuarticCaptureAlgebra.quartic_transverse_remainder_bound
+#print axioms I4QuarticCaptureAlgebra.quartic_axial_remainder_bound
+#print axioms I4QuarticCaptureAlgebra.quartic_strip_upper
+#print axioms I4QuarticCaptureAlgebra.quartic_strip_lower
+#print axioms I4QuarticCaptureAlgebra.quartic_central_transit

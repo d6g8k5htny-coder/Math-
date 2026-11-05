@@ -1,0 +1,35 @@
+/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean:41:60: error: expected token
+/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean:41:57: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean:41:59: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean:40:75: error: unsolved goals
+L : ℝ
+ω : SmoothSample 2 L
+⊢ ‖weightedCarrier L ω‖ = ∑ k, sourceDerivativeMajorant L (↑k) ω
+/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean:54:55: error: expected token
+/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean:54:52: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean:54:54: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean:63:2: error: Type mismatch
+  SmoothParameter
+has type
+  AddSubgroup (PreLp fun x => ℝ)
+of sort `Type` but is expected to have type
+  Type ?u.7
+of sort `Type (?u.7 + 1)`

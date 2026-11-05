@@ -1,0 +1,11 @@
+--- INITIAL-record_run.py
++++ record_run.002.py
+@@ -32,6 +32,8 @@
+        BASE/'build/SourceActualSaddleUppercuts.olean',
+        BASE/'SaddleUppercutsControls.lean',BASE/'build/SaddleUppercutsControls.olean']
+ paths+=sorted(BASE.glob('*.lean'))
++paths+=sorted(BASE.glob('*.lean.txt'))
++paths+=sorted(BASE.glob('*.patch'))
+ paths=list(dict.fromkeys(paths))
+ before={}; snapshots={}
+ snap=run/'before'; snap.mkdir()

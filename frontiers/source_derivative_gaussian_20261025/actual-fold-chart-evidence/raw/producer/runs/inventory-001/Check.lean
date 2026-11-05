@@ -1,0 +1,12 @@
+import SourceCompactTargetMoments
+open MeasureTheory
+#check ae_iff
+#check measure_compl
+#check ae_iff_measure_eq
+#check prob_compl_eq_zero_iff
+#check measure_compl_null_iff
+#check ae_iff_measure_eq_one
+#check MeasureTheory.ae_iff_measure_eq
+#check MeasureTheory.measure_eq_one_iff
+#check MeasureTheory.ae_iff_measure_compl_eq_zero
+#check measure_mono_null

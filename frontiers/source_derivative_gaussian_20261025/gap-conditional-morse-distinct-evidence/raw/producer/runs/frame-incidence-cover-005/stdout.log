@@ -1,0 +1,144 @@
+SourceGapConditionalMorseDistinct.lean:99:45: error: Ambiguous term
+  map_sum
+Possible interpretations:
+  _root_.map_sum : ∀ (g : ?m.32) (f : ?m.27 → ?m.28) (s : Finset ?m.27), g (∑ x ∈ s, f x) = ∑ x ∈ s, g (f x)
+  
+  Measure.map_sum : AEMeasurable ?m.33 (sum ?m.32) → map ?m.33 (sum ?m.32) = sum fun i => map ?m.33 (?m.32 i)
+SourceGapConditionalMorseDistinct.lean:97:75: error: unsolved goals
+ι : Type u_1
+n : ℕ
+a : ι → ℝ
+v : Fin n → ι →₀ ℝ
+z : Fin n → ℝ
+⊢ (Finsupp.linearCombination ℝ a) (∑ j, z j • v j) = ∑ x, z x * (Finsupp.linearCombination ℝ a) (v x)
+SourceGapConditionalMorseDistinct.lean:99:53: error: This simp argument is unused:
+  map_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [finitePairing_linearCombination, map_sum, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:99:62: error: This simp argument is unused:
+  smul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [finitePairing_linearCombination, map_sum, map_smul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:306:2: error: Type mismatch: After simplification, term
+  DifferentiableAt.neg (DifferentiableAt.clm_apply hId hgd)
+ has type
+  @DifferentiableAt ℝ DenselyNormedField.toNontriviallyNormedField D inst✝⁴.toAddCommGroup inst✝³.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace C inst✝².toAddCommGroup inst✝¹.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace (-fun y => (B y).inverse (g y)) x
+but is expected to have type
+  @DifferentiableAt ℝ DenselyNormedField.toNontriviallyNormedField D inst✝⁴.toAddCommGroup inst✝³.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace C inst✝².toAddCommGroup inst✝¹.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace (incidence_theta g B) x
+SourceGapConditionalMorseDistinct.lean:318:2: error: Type mismatch: After simplification, term
+  HasFDerivAt.fderiv h
+ has type
+  @Eq (D →L[ℝ] C) (fderiv ℝ (g + fun y => (B y) z) x) (fderiv ℝ g x + (fderiv ℝ B x).flip z)
+but is expected to have type
+  @Eq (D →L[ℝ] C) (fderiv ℝ (fun y => g y + (B y) z) x) (fderiv ℝ g x + (fderiv ℝ B x).flip z)
+SourceGapConditionalMorseDistinct.lean:437:29: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  map ⇑e.symm ℙ
+in the target expression
+  (Measure.pi fun x => gaussianReal 0 1) ≪ map (⇑e.symm) (ℙ.prod ℙ)
+
+case succ
+n : ℕ
+ih : (Measure.pi fun x => gaussianReal 0 1) ≪ ℙ
+e : (Fin (n + 1) → ℝ) ≃ᵐ ℝ × (Fin n → ℝ) := MeasurableEquiv.piFinSuccAbove (fun x => ℝ) 0
+hG :
+  MeasurePreserving (⇑(MeasurableEquiv.piFinSuccAbove (fun x => ℝ) 0)) (Measure.pi fun x => gaussianReal 0 1)
+    ((gaussianReal 0 1).prod (Measure.pi fun j => gaussianReal 0 1))
+hV : MeasurePreserving ⇑(MeasurableEquiv.piFinSuccAbove (fun x => ℝ) 0) ℙ ℙ
+hp : (gaussianReal 0 1).prod (Measure.pi fun x => gaussianReal 0 1) ≪ ℙ.prod ℙ
+h : (Measure.pi fun x => gaussianReal 0 1) ≪ map (⇑e.symm) (ℙ.prod ℙ)
+⊢ (Measure.pi fun x => gaussianReal 0 1) ≪ ℙ
+SourceGapConditionalMorseDistinct.lean:599:6: error: Type mismatch
+  HasFDerivAt.hasFDerivWithinAt
+    (HasFDerivAt.comp x (DifferentiableAt.hasFDerivAt (htheta (P x) hx)) (ContinuousLinearMap.hasFDerivAt P))
+has type
+  HasFDerivWithinAt (theta ∘ ⇑P) (fderiv ℝ theta (P x) ∘SL P) ?m.148 x
+but is expected to have type
+  HasFDerivWithinAt (fun y => theta (P y)) (fderiv ℝ (fun y => theta (P y)) x) (⇑P ⁻¹' U) x
+SourceGapConditionalMorseDistinct.lean:659:33: error: Ambiguous term
+  map_sum
+Possible interpretations:
+  _root_.map_sum : ∀ (g : ?m.35) (f : ?m.30 → ?m.31) (s : Finset ?m.30), g (∑ x ∈ s, f x) = ∑ x ∈ s, g (f x)
+  
+  Measure.map_sum : AEMeasurable ?m.36 (sum ?m.35) → map ?m.36 (sum ?m.35) = sum fun i => map ?m.36 (?m.35 i)
+SourceGapConditionalMorseDistinct.lean:658:75: error: unsolved goals
+ι : Type u_1
+inst✝ : Fintype ι
+a : SourceMode 2 → ℝ
+c : ι → ℝ
+v : ι → SourceMode 2 →₀ ℝ
+⊢ (Finsupp.linearCombination ℝ a) (∑ j, c j • v j) = ∑ x, c x * (Finsupp.linearCombination ℝ a) (v x)
+SourceGapConditionalMorseDistinct.lean:659:41: error: This simp argument is unused:
+  map_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [finiteFrame_pair_lc, map_sum, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:659:50: error: This simp argument is unused:
+  smul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [finiteFrame_pair_lc, map_sum, map_smul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:691:4: error: `if_true` has been deprecated: Use `ite_true` instead
+SourceGapConditionalMorseDistinct.lean:709:53: error: This simp argument is unused:
+  Subtype.coe_inj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Finsupp.finsetSum_apply, Finsupp.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:720:8: error: This simp argument is unused:
+  Finsupp.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hkm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:775:34: error(lean.unknownIdentifier): Unknown constant `Set.image_range`
+SourceGapConditionalMorseDistinct.lean:777:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  fun j => E (f j)
+in the target expression
+  Submodule.span ℝ (⇑E '' range w) = Submodule.span ℝ (⇑E '' range f)
+
+L r : ℝ
+n : ℕ
+v : Fin n → SourceMode 2 →₀ ℝ
+hv : LinearIndependent ℝ v
+hraw : ∀ (i : Fin 6) (j : Fin n), finitePairing (rawPinCoefficient L r i) (v j) = 0
+S : Finset (SourceMode 2) := Finset.univ.biUnion fun j => (v j).support
+f : Fin n → EuclideanSpace ℝ ↥S := fun j => WithLp.toLp 2 fun m => (v j) ↑m
+E : EuclideanSpace ℝ ↥S →ₗ[ℝ] SourceMode 2 →₀ ℝ := finiteFrame_extend S
+hsupport : ∀ (j : Fin n), (v j).support ⊆ S
+hEf : ∀ (j : Fin n), E (f j) = v j
+hfi : LinearIndependent ℝ f
+w : Fin n → EuclideanSpace ℝ ↥S := InnerProductSpace.gramSchmidtNormed ℝ f
+hw : Orthonormal ℝ w
+hwli : LinearIndependent ℝ w
+chi : Fin n → SourceMode 2 →₀ ℝ := fun j => E (w j)
+hs : Submodule.span ℝ (range w) = Submodule.span ℝ (range f)
+hh : Submodule.span ℝ (⇑E '' range w) = Submodule.span ℝ (⇑E '' range f)
+he : (fun j => E (f j)) = v
+⊢ Submodule.span ℝ (range chi) = Submodule.span ℝ (range v)
+SourceGapConditionalMorseDistinct.lean:775:50: error: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Submodule.map_span, Set.image_range] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:818:6: error: `if_true` has been deprecated: Use `ite_true` instead
+SourceGapConditionalMorseDistinct.lean:836:8: error: `if_true` has been deprecated: Use `ite_true` instead
+SourceGapConditionalMorseDistinct.lean:918:10: error: `if_pos` has been deprecated: Use `ite_eq_left` instead
+SourceGapConditionalMorseDistinct.lean:920:10: error: `if_neg` has been deprecated: Use `ite_eq_right` instead

@@ -1,0 +1,308 @@
+{
+  "SourceLifetimePairFiniteness.lean": [
+    {
+      "kind": "theorem",
+      "name": "I4SourceLifetimePairFiniteness.actual_critical_coordinateGradient_zero",
+      "line": 26
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceLifetimePairFiniteness.coordinates_fundDomain_mem_sourceMorseCube",
+      "line": 44
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceLifetimePairFiniteness.smoothLaw_ae_finite_criticalFundDomain",
+      "line": 57
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceLifetimePairFiniteness.smoothLaw_ae_finite_pairSet_of_critical",
+      "line": 69
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceLifetimePairFiniteness.smoothLaw_ae_finite_candidatePairSet",
+      "line": 83
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceLifetimePairFiniteness.smoothLaw_ae_finite_windowPairSet",
+      "line": 90
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceLifetimePairFiniteness.smoothLaw_ae_finite_windowElderPairSet",
+      "line": 100
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceLifetimePairFiniteness.smoothLaw_ae_finite_unrestrictedPairSet",
+      "line": 110
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceLifetimePairFiniteness.smoothLaw_ae_finite_finiteBarPairSet",
+      "line": 117
+    }
+  ],
+  "inputs/Lifetime.lean": [
+    {
+      "kind": "abbrev",
+      "name": "UniversalLaw.Spec.Lifetime.E",
+      "line": 83
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.latticeVec",
+      "line": 91
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.thetaSum",
+      "line": 102
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.periodicCovariance",
+      "line": 114
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.covQuadForm",
+      "line": 125
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.IsLPeriodic",
+      "line": 134
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.IsSmooth",
+      "line": 143
+    },
+    {
+      "kind": "structure",
+      "name": "UniversalLaw.Spec.Lifetime.GaussianFieldInterface",
+      "line": 157
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.hessian",
+      "line": 195
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.IsCriticalPoint",
+      "line": 204
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.HessianHasInertia",
+      "line": 217
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.IsNondegMax",
+      "line": 230
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.IsIndexSaddle",
+      "line": 240
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.pinM",
+      "line": 249
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.pinS",
+      "line": 258
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.torusDist",
+      "line": 269
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.FundDomain",
+      "line": 279
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.heightGap",
+      "line": 288
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.scaledGap",
+      "line": 297
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.IsCandidatePair",
+      "line": 307
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.IsMorseDistinct",
+      "line": 318
+    },
+    {
+      "kind": "structure",
+      "name": "UniversalLaw.Spec.Lifetime.SuperlevelBarInterface",
+      "line": 333
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.IsFiniteBar",
+      "line": 368
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.pairSet",
+      "line": 378
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.pairCount",
+      "line": 389
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.IsLifetimeDensityVersion",
+      "line": 405
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.IsWindowPair",
+      "line": 424
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.IsWindowElderPair",
+      "line": 435
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.IsUnrestrictedPair",
+      "line": 447
+    },
+    {
+      "kind": "structure",
+      "name": "UniversalLaw.Spec.Lifetime.PairLawInterface",
+      "line": 464
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.ParentUniformSelectionA",
+      "line": 486
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.ParentCompactWindowDensityB",
+      "line": 505
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.IsUnrestrictedLeadingCoefficient",
+      "line": 529
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.ParentUnrestrictedLeadingDensityC",
+      "line": 549
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.RemainderBoundedR1",
+      "line": 566
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.PlanarElderLowerE2",
+      "line": 588
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.PlanarTwoSidedRateE4",
+      "line": 605
+    },
+    {
+      "kind": "def",
+      "name": "UniversalLaw.Spec.Lifetime.PlanarDensityGapE11",
+      "line": 630
+    }
+  ],
+  "inputs/SourceLifetimeGeometry.lean": [
+    {
+      "kind": "def",
+      "name": "I4LifetimeField.coordinates",
+      "line": 15
+    },
+    {
+      "kind": "theorem",
+      "name": "I4LifetimeField.coordinates_apply",
+      "line": 18
+    },
+    {
+      "kind": "theorem",
+      "name": "I4LifetimeField.coordinates_latticeVec",
+      "line": 21
+    },
+    {
+      "kind": "def",
+      "name": "I4LifetimeField.actualField",
+      "line": 27
+    },
+    {
+      "kind": "theorem",
+      "name": "I4LifetimeField.actualField_smooth",
+      "line": 30
+    },
+    {
+      "kind": "theorem",
+      "name": "I4LifetimeField.actualField_periodic",
+      "line": 36
+    },
+    {
+      "kind": "theorem",
+      "name": "I4LifetimeField.actualField_eval_measurable",
+      "line": 44
+    },
+    {
+      "kind": "theorem",
+      "name": "I4LifetimeField.actualField_eval_hasGaussianLaw",
+      "line": 49
+    },
+    {
+      "kind": "theorem",
+      "name": "I4LifetimeField.actualField_linearCombination_measurable",
+      "line": 54
+    },
+    {
+      "kind": "theorem",
+      "name": "I4LifetimeField.actualField_linearCombination_hasGaussianLaw",
+      "line": 60
+    },
+    {
+      "kind": "theorem",
+      "name": "I4LifetimeField.actualField_integral_zero",
+      "line": 74
+    },
+    {
+      "kind": "theorem",
+      "name": "I4LifetimeField.actualField_linearCombination_integral_zero",
+      "line": 83
+    },
+    {
+      "kind": "theorem",
+      "name": "I4LifetimeField.actualField_covariance_spectral",
+      "line": 91
+    }
+  ]
+}

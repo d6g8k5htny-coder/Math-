@@ -1,0 +1,36 @@
+{
+  "status": "EXACT_ROOT_SOURCECUT_BOUND_FOUR_INSTALLED_BINDINGS_SKIP",
+  "source_cut": "8957eeda44993a1789e56da601af5ece9dc01d21",
+  "binding_precode": "4668dfc3d18193aea054d9c951835e4c55926adf",
+  "source": {
+    "path": "SourceIntrinsicH0Interface.lean",
+    "bytes": 8366,
+    "sha256": "a08a920ff0fac854c14a5040018b793e5cd99e1646f1bcec15c36fe27db071ef"
+  },
+  "precode_documents": [
+    {
+      "path": "SOURCE_INTRINSIC_H0_INTERFACE.md",
+      "bytes": 15640,
+      "sha256": "78f9527eb1b0ef4ad304b201912bf9e7899ab060fd6b9fcaf38fe804376529e7"
+    },
+    {
+      "path": "SOURCE_INTRINSIC_H0_INTERFACE_PLAN.md",
+      "bytes": 4201,
+      "sha256": "aff128631bbcdad65eb0f60f14c955b70fb532f6a10302ca72e170f61e15b96a"
+    },
+    {
+      "path": "SOURCE_INTRINSIC_H0_INTERFACE_CONTENDERS.json",
+      "bytes": 5196,
+      "sha256": "8abbae31e5a068668bee9ff932f068ad16d68a9f9d7c45c67b95df4ca15dd9d8"
+    }
+  ],
+  "root_source_cut_record": "ROOT_SOURCE_CUT.json",
+  "native_pickup": 6422962053,
+  "native_pickup_utc": "2026-10-26T17:32:41Z",
+  "board": 6422962831,
+  "checkpoint_utc": "2026-10-26T18:25:00Z",
+  "terminal_utc": "2026-10-26T19:30:00Z or invocationend",
+  "prior_timers_unchanged": true,
+  "historical_pending_cut_snapshots_preserved": true,
+  "precode_identity_policy": "Exactly3 new binding hashes once after bounded missing-record lookup and root explicit authorization; no old payload hash replay."
+}

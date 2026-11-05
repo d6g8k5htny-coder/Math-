@@ -1,0 +1,36 @@
+--- before/finalize_metadata.py
++++ after/finalize_metadata.py
+@@ -39,7 +39,7 @@
+         rel=src.relative_to(A);dst=O/(rel.name if rel.parts[0]=='bindings' else rel)
+         records[str(dst.relative_to(O))]=f.copied(src,dst,rec)
+     inv=c['inventory_summary'];owned=inv['all_module_index_owned_constants'];reading=f.read(Path(c['root_reading_record']))
+-    publication={'status':'QUALIFIED65_SCRATCH_PROPOSAL_ROOT_APPLY_ONLY','source_cut':cut,'source_cut_parent':c['source_cut_parent'],'qualified_baseline64':f.BASE,'root_reading_verbatim':reading,'root_reading_summary':c['root_reading_summary'],'reviewer_reading_summary':c['reviewer_reading_summary'],'packager_is_65_proof_author':False,'packager_proof_role':'65 metadata preparation only; prior62A authorship does not transfer to64','packager_independent_review_credit':0,'no_inherited64_review_credit':True,'historical_pending_records_preserved':True,'remote62publication_claimed':False,'hosted62CI_claimed':False,'scientific_effect':'NONE','same_family_credit':0}
++    publication={'status':'QUALIFIED65_SCRATCH_PROPOSAL_ROOT_APPLY_ONLY','source_cut':cut,'source_cut_parent':c['source_cut_parent'],'qualified_baseline64':f.BASE,'root_reading_verbatim':reading,'root_reading_summary':c['root_reading_summary'],'reviewer_reading_summary':c['reviewer_reading_summary'],'packager_is_65_proof_author':False,'packager_proof_role':'65 metadata preparation only; prior62A authorship does not transfer to65','packager_independent_review_credit':0,'no_inherited64_review_credit':True,'historical_pending_records_preserved':True,'remote65publication_claimed':False,'hosted65CI_claimed':False,'scientific_effect':'NONE','same_family_credit':0}
+     catalog={'module':M,'namespace':'I4SourceActualSaddleUppercuts','public_Prop_targets':[TARGET],'public_data':0,'scope':SCOPE,'source_cut':cut,'source_identity':c['source_identity'],'eligible_object_identity':c['eligible_object_identity'],'object_action':'SKIP_ROOT_COPIED_ONCE','actual_owned_constants':owned,'inventory_summary':inv,'ordinary_inventory_summary':c['ordinary_inventory_summary'],'full_inventory_archive_path':c['inventory_archive_path'],'qualification_records':c['qualification'],'sole_negative':c['negative_binding'],'production_helper_integrations':raw['production_helpers'],'ordinary_controls_custody':raw['ordinary_controls_custody'],'kernel_coverage':'Complete production including ONE private finite-Pi2 geometry TEXT section, producer joins and actual both-saddle/small-O/seam/equality positives. Producer ordinary Controls/inverse-zero-cut counterproof/soleFalse and ordinary exhaustive inventory have separate qualification; production kernel covers no ordinary Controls.','actual_run_count':raw['actual_run_count'],'verification_run_count':raw['verification_run_count'],'documentary_run_count':raw['documentary_run_count'],'unlabeled_run_count':raw['unlabeled_run_count'],'documentary_capture_records':raw['documentary_capture_records'],'actual_split_stream_files':raw['actual_split_stream_files'],'actual_split_stream_bytes':raw['actual_split_stream_bytes'],'record_schema':'ACTUAL65 receipt.json/scope_kind math-or-documentary/command_argv/start_utc/end_utc/before/after/before_snapshots{canonical:immutable_path}/streams{stdout.log,stderr.log}; retain actual runner001/002 histories and first-ID cache. Mathematical and documentary counts stay distinct; all actual runner/context versions and important documentary OUTER captures retained. Timeout124/resource failures are never intended mathematical False.','all_attempts_preserved':True,'raw_catalog':'RAW_EVIDENCE_CATALOG.json','publication':publication,'verification_reuse':'All applicable completed source/math/identity/strict/inventory/ONEkernel/Controls/soleFalse evidence reused. Only new metadata associations checked.','canonical_authority':f.AUTHORITY,'link_delivery_not_reading':True,'scientific_effect':'NONE','same_family_credit':0}
+     for name,value in [('RAW_EVIDENCE_CATALOG.json',raw),('PUBLICATION_CONTEXT.json',publication),(CNAME,catalog)]:records[E+'/'+name]=f.write(O/E/name,value)
+     for name in c['curated_producer_files']:records[E+'/'+name]=f.copied(O/E/'raw/producer'/name,O/E/name,records[E+'/raw/producer/'+name])
+@@ -69,11 +69,11 @@
+     for path in newpaths:manifest['files'][path]=records[path]['sha256']
+     mid=f.write(O/'SOURCE_MANIFEST.json',manifest);sid=text(O/'SOURCE_SHA256SUMS',''.join(manifest['files'][p]+'  '+p+'\n' for p in oldrows+newpaths))
+     bs={x['path'] for x in raw['bindings']};allrecords={**records,'SOURCE_MANIFEST.json':mid,'SOURCE_SHA256SUMS':sid}
+-    plan={'status':'ROOT_ONLY_EXACT64_APPLY_AFTER_METADATA_PASS','expected_HEAD':cut,'qualified_baseline':f.BASE,'overlay_root':str(R/'overlay'),'destination_root':'/workspace/Math-curvature-20261026','apply':[],'skip':[],'cache_object_actions':[]}
++    plan={'status':'ROOT_ONLY_EXACT65_APPLY_AFTER_METADATA_PASS','expected_HEAD':cut,'qualified_baseline':f.BASE,'overlay_root':str(R/'overlay'),'destination_root':'/workspace/Math-curvature-20261026','apply':[],'skip':[],'cache_object_actions':[]}
+     for path,value in sorted(allrecords.items()):plan['skip' if path in bs else 'apply'].append({'path':str(REL/path),'bytes':value['bytes'],'sha256':value['sha256']})
+     pid=f.write(R/'APPLY_PLAN.json',plan)
+     def registry():
+-        f.require(manifest['source_modules']==bm['source_modules']+[M+'.lean'] and manifest['targets']==bm['targets']+[TARGET],'One64 module/Prop append')
++        f.require(manifest['source_modules']==bm['source_modules']+[M+'.lean'] and manifest['targets']==bm['targets']+[TARGET],'One65 module/Prop append')
+         f.require((len(manifest['source_modules']),len(manifest['targets']),manifest['inherited_input_count'])==(65,1135,32),'65/1135/32')
+         return '1126Prop+9data/32; no public data'
+     check('exact65_registration',registry)
+--- before/FINAL_INPUTS.schema.json
++++ after/FINAL_INPUTS.schema.json
+@@ -68,7 +68,7 @@
+     "inventory": "PENDING exhaustive actual-owned module inventory receipt.json",
+     "kernel": "PENDING EXACTLY ONE final own-module kernel receipt.json after full final source",
+     "positive_controls": "PENDING passed producer-authored ordinary Controls receipt.json",
+-    "negative": "PENDING sole SAME chosen-chart whole-strict-trace PC importingFalse receipt AFTER passed independent inverse-point/coordinate1-IVT counterproof",
++    "negative": "PENDING sole actual65 CLOSED nonnegativeUpperMutation importingFalse receipt: no-premise epsilon>=0 mutation with SAME upper bound/rho/phi/source/field/carrier/CLOSED cut, AFTER passed independent inverse vertical zero-cut path/correct midpoint and opposite-sign JoinedIn counterproof; no production-upper or inherited lower-PC shortcut",
+     "ordinary_inventory": "PENDING actual successful separate ordinary exhaustive inventory receipt; dynamic actual filename"
+   },
+   "negative_binding": {

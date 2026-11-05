@@ -1,0 +1,33 @@
+/workspace/scratch/pin-preserving-quartic-implementation/SourceTaylorChains.lean:36:61: error: unsolved goals
+f : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ (↑⊤) f
+k : ℕ
+x : Fin 2 → ℝ
+v : Fin k → Fin 2 → ℝ
+u : Fin 2 → ℝ
+⊢ ¬?m.98 = ⊤
+/workspace/scratch/pin-preserving-quartic-implementation/SourceTaylorChains.lean:36:75: error: `simp` made no progress
+/workspace/scratch/pin-preserving-quartic-implementation/SourceTaylorChains.lean:33:51: error: unsolved goals
+f : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ (↑⊤) f
+k : ℕ
+x : Fin 2 → ℝ
+v : Fin k → Fin 2 → ℝ
+u : Fin 2 → ℝ
+⊢ (iteratedFDeriv ℝ k (fun y => (fderiv ℝ f y) u) x) v = (iteratedFDeriv ℝ (k + 1) f x) (Fin.snoc v u)
+/workspace/scratch/pin-preserving-quartic-implementation/SourceTaylorChains.lean:70:4: error: Type mismatch: After simplification, term
+  h
+ has type
+  |(iteratedFDeriv ℝ 5 (smoothSourceField 2 L ω) (s • v)) (Fin.snoc (fun x => v) u)| ≤
+    sourceDerivativeMajorant L 5 ω *
+      (‖v‖ *
+        (‖Fin.snoc (fun x => v) u 1‖ *
+          (‖Fin.snoc (fun x => v) u 2‖ * (‖Fin.snoc (fun x => v) u 3‖ * ‖Fin.snoc (fun x => v) u 4‖))))
+but is expected to have type
+  |(iteratedFDeriv ℝ 5 f (s • v)) (Fin.snoc (fun x => v) u)| ≤ sourceDerivativeMajorant L 5 ω * ‖v‖ ^ 4 * ‖u‖
+/workspace/scratch/pin-preserving-quartic-implementation/SourceTaylorChains.lean:87:15: error(lean.unknownIdentifier): Unknown identifier `ω`
+
+Note: It is not possible to treat `ω` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/workspace/scratch/pin-preserving-quartic-implementation/SourceTaylorChains.lean:90:22: error(lean.unknownIdentifier): Unknown identifier `ω`
+/workspace/scratch/pin-preserving-quartic-implementation/SourceTaylorChains.lean:94:22: error(lean.unknownIdentifier): Unknown identifier `ω`
+/workspace/scratch/pin-preserving-quartic-implementation/SourceTaylorChains.lean:100:8: error: declaration uses `sorry`

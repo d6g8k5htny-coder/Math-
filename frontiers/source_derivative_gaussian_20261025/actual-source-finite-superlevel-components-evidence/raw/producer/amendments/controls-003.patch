@@ -1,0 +1,11 @@
+--- runs/controls-002/FiniteSuperlevelComponentsControls.lean
++++ FiniteSuperlevelComponentsControls.lean
+@@ -82,7 +82,7 @@
+ 
+ 
+ private theorem physicalAxis_value (i j : Fin 2) :
+-    physicalAxis i j = Pi.single i (1 : ℝ) j :=
++    physicalAxis i j = (Pi.single i (1 : ℝ) : Fin 2 → ℝ) j :=
+   congrFun (axis_coordinates i) j
+ 
+ private def firstJet (X : UniversalLaw.Spec.Lifetime.E 2) :

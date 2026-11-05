@@ -1,0 +1,21 @@
+{
+  "target_count": 49,
+  "kind_counts": {
+    "abbrev": 2,
+    "theorem": 36,
+    "def": 7,
+    "instance": 4
+  },
+  "covered_count": 49,
+  "missing": [],
+  "unexpected": [],
+  "nonstandard_axioms": {},
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "source_sha256": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+  "targets_sha256": "b560be38991fc052f68dde40cccbee56c919ccf5d2fc9285da2233b3042c3b93",
+  "audit_log_sha256": "4820e9f4c8579b204a1c1641e9798e8ee6ef2c23058c7962db95ac85f884aace"
+}

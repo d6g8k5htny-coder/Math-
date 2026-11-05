@@ -1,0 +1,40 @@
+{
+  "label": "compile-001",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "-R",
+    "/workspace/scratch/compact-normalizer-gaussian",
+    "-o",
+    "/workspace/scratch/compact-normalizer-gaussian/build/GaussianLower.olean",
+    "/workspace/scratch/compact-normalizer-gaussian/GaussianLower.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/scratch/compact-normalizer-gaussian/GaussianLower.lean",
+      "bytes": 3717,
+      "sha256": "1ea6b784d08fae426eace91d98b0aab76dc6bca2158f5cf76e40be251d0af197"
+    },
+    "object": null
+  },
+  "started_utc": "2026-10-26T10:06:26.591011+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 3.083298058001674,
+  "ended_utc": "2026-10-26T10:06:29.674326+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/scratch/compact-normalizer-gaussian/GaussianLower.lean",
+      "bytes": 3717,
+      "sha256": "1ea6b784d08fae426eace91d98b0aab76dc6bca2158f5cf76e40be251d0af197"
+    },
+    "object": null
+  },
+  "log": {
+    "path": "/workspace/scratch/compact-normalizer-gaussian/runs/compile-001/output.log",
+    "bytes": 215,
+    "sha256": "5642feab71df86fa5bfa3014379c34ea49bc03f6871ac4cf6ed221e2865c0ec4"
+  }
+}

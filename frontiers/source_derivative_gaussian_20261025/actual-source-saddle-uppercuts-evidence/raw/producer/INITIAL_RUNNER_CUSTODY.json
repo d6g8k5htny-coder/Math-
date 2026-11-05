@@ -1,0 +1,71 @@
+{
+  "observed_freeze_utc": "2026-10-28T21:18:51.735126+00:00",
+  "context_version": "001",
+  "copies": [
+    {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/context/CONTEXT.001.md",
+      "bytes": 22288,
+      "sha256": "d7ac49c2f2d1e777d8347e601b2d1e4e7c4d4438dab4a6a7fa7599cc7efc18bb",
+      "marker": [
+        22288,
+        1793222331734598361
+      ],
+      "first_observed_utc": "2026-10-28T21:18:51.711415+00:00",
+      "origin": "known exact byte-copy identity reused",
+      "copied_from": "/workspace/scratch/actual-source-saddle-uppercuts-construct/CONTEXT.md"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/context/INITIAL-entry_capture.py",
+      "bytes": 1018,
+      "sha256": "64b6b1fbfca45c4fddf9d21f06875e8a308a6ac1f4379d706f09ad0361b8d3e6",
+      "marker": [
+        1018,
+        1793222331734899753
+      ],
+      "first_observed_utc": "2026-10-28T21:18:51.711565+00:00",
+      "origin": "known exact byte-copy identity reused",
+      "copied_from": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/entry_capture.py"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/context/INITIAL-freeze_context.py",
+      "bytes": 1679,
+      "sha256": "dd70071e55cafa8ca0b7096cb480c8bef9f8328137070893bf48715576dd4cac",
+      "marker": [
+        1679,
+        1793222331734960650
+      ],
+      "first_observed_utc": "2026-10-28T21:18:51.711711+00:00",
+      "origin": "known exact byte-copy identity reused",
+      "copied_from": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/freeze_context.py"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/context/INITIAL-outer_capture.py",
+      "bytes": 869,
+      "sha256": "5a4b1625b89dab5ab1ff266db956c6d0cf91a530f89b70f2e71798d6e9a6243a",
+      "marker": [
+        869,
+        1793222331735059321
+      ],
+      "first_observed_utc": "2026-10-28T21:18:51.711811+00:00",
+      "origin": "known exact byte-copy identity reused",
+      "copied_from": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/outer_capture.py"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-saddle-uppercuts-construct/context/INITIAL-record_run.py",
+      "bytes": 3161,
+      "sha256": "31a21918a28fade227d008ce5dd133252fa0cd0d119b4ab9873be7c0431e8ab4",
+      "marker": [
+        3161,
+        1793222331735109557
+      ],
+      "first_observed_utc": "2026-10-28T21:18:51.711890+00:00",
+      "origin": "known exact byte-copy identity reused",
+      "copied_from": "/workspace/scratch/actual-source-saddle-uppercuts-construct/runner/record_run.py"
+    }
+  ],
+  "ordering": "before helper proof text, Lean, production source and first mathematical execution",
+  "source_bootstrap": "none yet; full literal declarations are frozen in context before root acceptance",
+  "known_prior_evidence": "all qualified64 evidence reused; no old checks/hash/object/copy",
+  "ordinary_obligation": "separate exact ordinary module inventory/std3 after ordinary strict PASS before ONEFalse; no ordinary kernel",
+  "static_creation": "apply_patch tool writes created context/runner before this first important worker; actual tool transcripts retained, no invented per-write OS UTC"
+}

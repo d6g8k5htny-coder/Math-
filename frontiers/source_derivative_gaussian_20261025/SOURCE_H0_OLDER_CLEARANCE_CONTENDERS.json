@@ -1,0 +1,125 @@
+{
+  "schema": "h0-older-clearance-contenders/v1",
+  "observed_at": "2026-10-26T16:12:57.002345+00:00",
+  "qualified49_publication": "374c1a8d087a147e60fee3be1452c345f138c98f",
+  "candidate_base": "180d6406b0a51b268a152241a70bde6a1b39a142",
+  "expected_previous_head": "8815c6b39a816fa0261d8265fe53a7189197cf39",
+  "already_landed": false,
+  "proposed_paths": [
+    "frontiers/source_derivative_gaussian_20261025/SourceH0OlderClearance.lean",
+    "frontiers/source_derivative_gaussian_20261025/SOURCE_H0_OLDER_CLEARANCE.md",
+    "frontiers/source_derivative_gaussian_20261025/SOURCE_H0_OLDER_CLEARANCE_PLAN.md",
+    "frontiers/source_derivative_gaussian_20261025/SOURCE_H0_OLDER_CLEARANCE_CONTENDERS.json"
+  ],
+  "foreign_heads": [
+    {
+      "number": 517,
+      "head": "edb985f4738fae6239fa5ee4c4367ca02e2e9f60",
+      "base": "180d6406b0a51b268a152241a70bde6a1b39a142"
+    },
+    {
+      "number": 504,
+      "head": "d65e4425e32f62678d4899a0488f137c9918d7ae",
+      "base": "5b3cc75d1585a00ee1420a556af5b77748c418fa"
+    },
+    {
+      "number": 497,
+      "head": "5b3cc75d1585a00ee1420a556af5b77748c418fa",
+      "base": "91811388ef2e20cc30a1c418e866b185a253a186"
+    },
+    {
+      "number": 496,
+      "head": "91811388ef2e20cc30a1c418e866b185a253a186",
+      "base": "deccada38a1510fb8330bc205890ba6e98527818"
+    },
+    {
+      "number": 492,
+      "head": "f7fbd8cf44c29103297f29220ab49fcf64b5df3a",
+      "base": "9f3fb6918b28e6378c034ebc19e76d432f5391cb"
+    },
+    {
+      "number": 491,
+      "head": "deccada38a1510fb8330bc205890ba6e98527818",
+      "base": "8c226134ac0a0169dbb43311082e5353ed5c922c"
+    },
+    {
+      "number": 490,
+      "head": "1016973a1f311114b814eef060707ab642bc29e8",
+      "base": "8c226134ac0a0169dbb43311082e5353ed5c922c"
+    },
+    {
+      "number": 487,
+      "head": "dbc3a80afd1ac82c13a0390af7913f9986858467",
+      "base": "8c226134ac0a0169dbb43311082e5353ed5c922c"
+    },
+    {
+      "number": 482,
+      "head": "35a7d76869aad52d7508d58bc589eeb0ddc18bbb",
+      "base": "b6fc0e64d75712f52afffc3f3a07ae52f4a5b782"
+    },
+    {
+      "number": 460,
+      "head": "5497685a50c47b05bd3703c9dc295ded1de2f867",
+      "base": "6e502c1f8a5632eb90670fd9fc0d52e421c015a2"
+    },
+    {
+      "number": 430,
+      "head": "1a7fc4be83043f2e313927019db85fff61eeac3f",
+      "base": "25a4b611368063807ac9201aea80461ffe8583d2"
+    },
+    {
+      "number": 426,
+      "head": "5fb3a52ebfbdb73a37f743d9ab960560979f3b20",
+      "base": "128d96fbe39425519a30e48ce2efc7406041a61e"
+    },
+    {
+      "number": 405,
+      "head": "bee7fd0b64121c452d5cc40c75e99a71ae8e2613",
+      "base": "a08b2100674b40309052f902548013a0e2f0e1e7"
+    },
+    {
+      "number": 397,
+      "head": "8177f47bbb66b7cc0dca430941832740a5480dee",
+      "base": "2ca3bf262f34a729589ad87eefe6cf6af5adcb6c"
+    },
+    {
+      "number": 389,
+      "head": "1038336f92a482b60c7d89fe3024c941281663d3",
+      "base": "34618d0d032f4361c1ec163f3b4cfd6ad01ab814"
+    },
+    {
+      "number": 385,
+      "head": "089d87ace030e755511a04735c42c1f91911d4c1",
+      "base": "08f86862f859ac4804b4fd6c6477a7ed0421e37f"
+    },
+    {
+      "number": 380,
+      "head": "30ac78b4ccaf8f2cd8913579f85d2237068859da",
+      "base": "010b27d7ae6ec07d04fc3b362b5caf8cf748ac27"
+    },
+    {
+      "number": 379,
+      "head": "9b3387bdc1cd4e1afc29916d7d7c3f9d922af722",
+      "base": "08f86862f859ac4804b4fd6c6477a7ed0421e37f"
+    },
+    {
+      "number": 372,
+      "head": "497dcca37abd18464a6b33cf32ce2e3263054323",
+      "base": "4fe1d6762db8faa13859c4eeda0167b3c65ac069"
+    },
+    {
+      "number": 370,
+      "head": "fedd0056c18093e8862b7f6ac2860dc04f8133b9",
+      "base": "11f9127f00ce922e5d39b0da42af76134eb78a21"
+    },
+    {
+      "number": 312,
+      "head": "e8f4387f5e7940f71d0b4cfeb3e38dac0f95834f",
+      "base": "67adf884353e1e5e6e453a412ea0dd01fcc4a466"
+    }
+  ],
+  "complete_inventory_reused": "SOURCE_FINITE_PIN_KERNEL_CONTENDERS.json",
+  "changed_or_new_foreign_heads": [],
+  "overlap": [],
+  "parallel_author_scope": "EndpointHessianWitness source/scratch disjoint; root sole shared metadata/Git writer, registration50 then51."
+}

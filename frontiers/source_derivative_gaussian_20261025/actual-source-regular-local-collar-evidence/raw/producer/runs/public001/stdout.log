@@ -1,0 +1,20 @@
+SourceActualRegularLocalCollar.lean:65:22: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+SourceActualRegularLocalCollar.lean:72:22: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+SourceActualRegularLocalCollar.lean:99:22: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+SourceActualRegularLocalCollar.lean:105:22: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+SourceActualRegularLocalCollar.lean:196:28: error: Application type mismatch: The argument
+  j
+has type
+  Fin 2
+of sort `Type` but is expected to have type
+  Type ?u.223
+of sort `Type (?u.223 + 1)` in the application
+  @contDiff_apply j

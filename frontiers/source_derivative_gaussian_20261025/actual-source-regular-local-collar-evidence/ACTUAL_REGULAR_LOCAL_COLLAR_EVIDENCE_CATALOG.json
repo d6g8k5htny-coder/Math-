@@ -1,0 +1,215 @@
+{
+  "module": "SourceActualRegularLocalCollar",
+  "namespace": "I4SourceActualRegularLocalCollar",
+  "public_Prop_targets": [
+    "I4SourceActualRegularLocalCollar.actualSource_quotient_regular_local_collar"
+  ],
+  "public_data": 0,
+  "scope": "Actual nonzero-fderiv quotient regular collar: positive original period/sample and actual fderiv nonzero, no global hm. For EVERY prescribed open O obtain ONE rho/phi, centered at the actual quotient point, source contained in O, exact finite-Pi2 target ball, and ordered actual field identity F=c+coordinate1. The SAME phi/rho serves ALL |epsilon|<rho, with NONEMPTY path-connected CLOSED uppercuts AND level slices. Derive the physical triangular continuous-linear equivalence/actual IFT and public quotient descent; no64/65 mathematical dependency, supplied desired chart/certificate, torus C1 atlas or norm-isometry premise. Sole public Prop/no public data.",
+  "source_cut": "42da22188b49c5624ec30c4d0f3ef7169a850dff",
+  "source_identity": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean",
+    "bytes": 30286,
+    "sha256": "82823ac4360cbfb6eda057eb9fc212c870842703a14f5222454df70f19ed0d96",
+    "marker": [
+      30286,
+      1793230531194021301
+    ],
+    "first_observed_utc": "2026-10-28T23:35:31.204813+00:00",
+    "origin": "FIRST identity of necessary NEW actual version; cached once"
+  },
+  "eligible_object_identity": {
+    "path": "/workspace/scratch/actual-source-regular-local-collar-construct/build/SourceActualRegularLocalCollar.olean",
+    "bytes": 1341664,
+    "sha256": "9050a31e570e121e268239f3374e9129037a78084bca7fc64f63ac0404bddad0",
+    "marker": [
+      1341664,
+      1793230535357287684
+    ],
+    "first_observed_utc": "2026-10-28T23:35:35.476549+00:00",
+    "origin": "FIRST identity of necessary NEW actual version; cached once"
+  },
+  "object_action": "SKIP_ROOT_COPIED_ONCE",
+  "actual_owned_constants": 80,
+  "inventory_summary": {
+    "all_module_index_owned_constants": 80,
+    "authored_public_Prop": 1,
+    "authored_public_data": 0,
+    "counts": {
+      "private_authored_theorem": 26,
+      "private_generated": 28,
+      "private_authored_data_definition": 19,
+      "foreign_generated": 4,
+      "public_prop_theorem": 1,
+      "private_prop_definition": 2
+    },
+    "foreign_generated_names": [
+      "ContDiffAt.toOpenPartialHomeomorph.congr_simp",
+      "I4Torus.torusProjection.eq_1",
+      "I4SmoothCarrier.sampleInclusion.eq_1",
+      "I4Weights.sourceC.eq_1"
+    ],
+    "foreign_generated_count": 4,
+    "standard_three_guard": "PASS: each exact owned constant recursively restricted to propext/Classical.choice/Quot.sound by actually passed collector"
+  },
+  "ordinary_inventory_summary": {
+    "all_module_index_owned_constants": 55,
+    "counts": {
+      "private_generated": 14,
+      "public_prop_theorem": 1,
+      "private_authored_theorem": 20,
+      "private_authored_data_definition": 16,
+      "private_prop_definition": 3,
+      "public_prop_definition": 1
+    },
+    "foreign_generated_names": [],
+    "standard_three_guard": "PASS: each exact owned constant recursively restricted to propext/Classical.choice/Quot.sound by actually passed collector",
+    "named_kernel_count": 0
+  },
+  "full_inventory_archive_path": "raw/producer/INVENTORY_CLASSIFIED.json",
+  "qualification_records": {
+    "strict": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/fixtures004/receipt.json",
+    "inventory": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/inventory001/receipt.json",
+    "kernel": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/kernel001/receipt.json",
+    "positive_controls": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/controls004/receipt.json",
+    "ordinary_inventory": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/ordinary-inventory001/receipt.json",
+    "negative": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/false-control001/receipt.json"
+  },
+  "sole_negative": {
+    "imports": "RegularLocalCollarControls ONLY plus accepted public dependencies",
+    "actual_mutation": "Remove ONLY actual nonzero-fderiv premise; SAME actual function/sample/carrier/center/source/target/field identity and conclusions",
+    "counterproof": "Independently derived actual global F<=3, exact-target inverse(0,rho/2) in actual source forced above3; no production collar/PC or64/65 call",
+    "counterproof_in_passed_controls": true,
+    "exactly_one_intendedFalse": true,
+    "unsolved_False_count": 1,
+    "ordinary_controls_object_identity": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/build/RegularLocalCollarControls.olean",
+      "bytes": 600864,
+      "sha256": "22fe0712958173b7f7dbaddf72821f3eff726428ecfa2fc290d9187f1705a3d7",
+      "marker": [
+        600864,
+        1793230884332662592
+      ],
+      "first_observed_utc": "2026-10-28T23:41:24.456438+00:00",
+      "origin": "FIRST identity of necessary NEW actual version; cached once"
+    },
+    "negative_harness_identity": {
+      "path": "/workspace/scratch/actual-source-regular-local-collar-construct/FalseControl.lean",
+      "bytes": 296,
+      "sha256": "df0bf2d481625683dc037d06c661f165e15deeebf38c0244a4000b2615bdca22",
+      "marker": [
+        296,
+        1793231017895786470
+      ],
+      "first_observed_utc": "2026-10-28T23:43:37.898101+00:00",
+      "origin": "FIRST actual CLOSED negative harness identity BEFORE its sole invocation"
+    },
+    "stdout_bytes": 120,
+    "stderr_bytes": 0,
+    "production_kernel_does_not_cover_ordinary_controls": true
+  },
+  "production_helper_integrations": [
+    {
+      "key": "ONE complete PRIVATE physical-adapter TEXT original",
+      "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/B_ORIGINAL_CUSTODY.json",
+      "integration_record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/B_INTEGRATION001.json",
+      "full_actual_patch_path": "/workspace/scratch/actual-source-regular-local-collar-construct/HELPER_INTEGRATION001_FULL.patch",
+      "integration_count": 1,
+      "helper_executions": 0
+    }
+  ],
+  "ordinary_controls_custody": {
+    "producer_authored": true,
+    "text_helper_authored": false,
+    "extra_ordinary_text_helper_count": 0,
+    "producer_controls_original_snapshot": "/workspace/scratch/actual-source-regular-local-collar-construct/runs/controls001/before/9-RegularLocalCollarControls.lean",
+    "record_path": "/workspace/scratch/actual-source-regular-local-collar-construct/CONTROL_IDS.json",
+    "production_kernel_coverage": false
+  },
+  "kernel_coverage": "Exactly one final production named kernel; ordinary Controls/counterproof/sole importingFalse and complete ordinary inventory qualify separately, never covered by production kernel.",
+  "actual_run_count": 39,
+  "verification_run_count": 17,
+  "documentary_run_count": 22,
+  "unlabeled_run_count": 0,
+  "actual_worker_split_stream_files": 78,
+  "actual_worker_split_stream_bytes": 51018,
+  "documentary_capture_records": [
+    {
+      "family": "initial-external-freeze001",
+      "scope": "documentary external literal Python-c",
+      "legacy_wrapper_labels": "root65-* honestly retained",
+      "original_layer_records": [
+        "/workspace/scratch/actual-source-regular-local-collar-construct/initial-external-freeze001/worker/01-worker/RECEIPT.json",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/initial-external-freeze001/outer/01-outer/RECEIPT.json",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/initial-external-freeze001/entry/01-entry/RECEIPT.json"
+      ],
+      "original_split_streams": [
+        "/workspace/scratch/actual-source-regular-local-collar-construct/initial-external-freeze001/worker/01-worker/stdout.log",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/initial-external-freeze001/worker/01-worker/stderr.log",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/initial-external-freeze001/outer/01-outer/stdout.log",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/initial-external-freeze001/outer/01-outer/stderr.log",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/initial-external-freeze001/entry/01-entry/stdout.log",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/initial-external-freeze001/entry/01-entry/stderr.log"
+      ]
+    },
+    {
+      "family": "known-empty-amendment001",
+      "scope": "documentary external literal Python-c",
+      "legacy_wrapper_labels": "root65-* honestly retained",
+      "original_layer_records": [
+        "/workspace/scratch/actual-source-regular-local-collar-construct/known-empty-amendment001/worker/01-worker/RECEIPT.json",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/known-empty-amendment001/outer/01-outer/RECEIPT.json",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/known-empty-amendment001/entry/01-entry/RECEIPT.json"
+      ],
+      "original_split_streams": [
+        "/workspace/scratch/actual-source-regular-local-collar-construct/known-empty-amendment001/worker/01-worker/stdout.log",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/known-empty-amendment001/worker/01-worker/stderr.log",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/known-empty-amendment001/outer/01-outer/stdout.log",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/known-empty-amendment001/outer/01-outer/stderr.log",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/known-empty-amendment001/entry/01-entry/stdout.log",
+        "/workspace/scratch/actual-source-regular-local-collar-construct/known-empty-amendment001/entry/01-entry/stderr.log"
+      ]
+    }
+  ],
+  "record_schema": "Actual66 dedicated receipts: scope_kind math/documentary, command_argv/cwd/start_utc/end_utc, before/after, before_snapshots dictionary with IDs from SAME receipt.before, streams dictionary, separate outer_capture_dir and entry_capture_dir. Dedicated wrappers record child_exit_code/ended_utc. INITIAL_EXTERNAL_FREEZE is a distinct earlier root65-labelled ORIGINAL triple-capture family; preserve its real labels/times, never count it as a dedicated mathematical worker.",
+  "all_attempts_preserved": true,
+  "initial_empty_metadata_issue_and_forward_fix_preserved": true,
+  "raw_catalog": "RAW_EVIDENCE_CATALOG.json",
+  "publication": {
+    "status": "QUALIFIED66_SCRATCH_PROPOSAL_ROOT_APPLY_ONLY",
+    "source_cut": "42da22188b49c5624ec30c4d0f3ef7169a850dff",
+    "source_cut_parent": "263b9d4329043e6debd299a8c27327ee515670d7",
+    "qualified_baseline65": "263b9d4329043e6debd299a8c27327ee515670d7",
+    "root_reading_verbatim": {
+      "status": "HONEST_ROOT_FINAL_READING_SCOPE",
+      "observed_utc": "2026-10-29T00:02:26.731674+00:00",
+      "summary": "FULL adopted context draft7682tokens+actualmetadata-only delta1499, B original/import/provenance/freeze3674 and priorACK/contextreuse; production prekernelreport+scope4212; ordinarysource3219/harness+diagnostic104; six curated producerfinaldocs6137; final documentary REPORT+READING_SCOPE4273; finalmetadata code5197+capture/driver/wrappers/schema5510, ONLYactualselfIDdeltaFULL. Production finalbody transfer programmatic, NOT rootpersonallyFULL; largeaggregate schemas/selectedbindingsonly, priorcombinedcacheoutputTRUNCATED notFULL. Prior applicablemathematicalverification and priorreviewer completedmathematicalPASS reused withattribution; no transferred reviewerFULL.",
+      "reviewer_summary": "Prior technical reviewer personallyFULL production via original+allactualdeltas/actualpositives, ordinary/counterproof/harness/diagnostic, ALL80/ALL55 and finalqualification fields; completedmathematicalPASS reused withroot/priorreviewer attribution. Successor finaldocumentarycustodyPASS00:01:11, exactnew personalreading plus separatelyattributed auxiliaries and boundedaggregates; no personalparentFULLtransfer/no proof/hash/CIreplay. Sixexplicitfinalreviewfiles retainlimits.",
+      "full_large_aggregates_or_all_repeated_receipts": false,
+      "programmatic_source_transfer_is_personal_FULL": false,
+      "completed_math_reused": true,
+      "owner_policy": "/workspace/AGENTS.md completedapplicableverificationREUSE; providerprocessseparate",
+      "source_sha256": "82823ac4360cbfb6eda057eb9fc212c870842703a14f5222454df70f19ed0d96"
+    },
+    "root_reading_summary": "FULL adopted context draft7682tokens+actualmetadata-only delta1499, B original/import/provenance/freeze3674 and priorACK/contextreuse; production prekernelreport+scope4212; ordinarysource3219/harness+diagnostic104; six curated producerfinaldocs6137; final documentary REPORT+READING_SCOPE4273; finalmetadata code5197+capture/driver/wrappers/schema5510, ONLYactualselfIDdeltaFULL. Production finalbody transfer programmatic, NOT rootpersonallyFULL; largeaggregate schemas/selectedbindingsonly, priorcombinedcacheoutputTRUNCATED notFULL. Prior applicablemathematicalverification and priorreviewer completedmathematicalPASS reused withattribution; no transferred reviewerFULL.",
+    "reviewer_reading_summary": "Prior technical reviewer personallyFULL production via original+allactualdeltas/actualpositives, ordinary/counterproof/harness/diagnostic, ALL80/ALL55 and finalqualification fields; completedmathematicalPASS reused withroot/priorreviewer attribution. Successor finaldocumentarycustodyPASS00:01:11, exactnew personalreading plus separatelyattributed auxiliaries and boundedaggregates; no personalparentFULLtransfer/no proof/hash/CIreplay. Sixexplicitfinalreviewfiles retainlimits.",
+    "packager_is_66_proof_author": false,
+    "packager_role": "66 metadata preparation only; historical65 script derivation does not assign proof authorship or review credit",
+    "packager_independent_review_credit": 0,
+    "no_inherited65_review_credit": true,
+    "historical_pending_records_preserved": true,
+    "remote66publication_claimed": false,
+    "hosted66CI_claimed": false,
+    "scientific_effect": "NONE",
+    "same_family_credit": 0
+  },
+  "verification_reuse": "Reuse applicable completed source/math/strict/inventory/ONEkernel/ordinary/soleFalse/identity evidence; check only new metadata associations.",
+  "canonical_authority": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/main/governance/OWNER_DECISION_20261025_REVIEW_FAMILIES.md"
+  ],
+  "link_delivery_not_reading": true,
+  "scientific_effect": "NONE",
+  "same_family_credit": 0
+}

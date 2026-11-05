@@ -1,0 +1,56 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFoldCandidate.lean:563:4: error: Type mismatch: After simplification, term
+  actual_hessian_complete_square hL sample hr hk (-(1 / 2), 0) (LT.lt.ne hcM) v
+ has type
+  hessian 2 (actualField 2 L sample) ((coordinates 2).symm (r • ![-(1 / 2), 0])) v v =
+    6 * k * r *
+      ((partialX (Vx (actualFoldPotential r k sample)) (-(1 / 2), 0) -
+            partialY (Vx (actualFoldPotential r k sample)) (-(1 / 2), 0) ^ 2 /
+              partialY (Vy (actualFoldPotential r k sample)) (-(1 / 2), 0)) *
+          (coordinates 2) v 0 ^ 2 +
+        partialY (Vy (actualFoldPotential r k sample)) (-(1 / 2), 0) *
+          ((coordinates 2) v 1 +
+              partialY (Vx (actualFoldPotential r k sample)) (-(1 / 2), 0) /
+                  partialY (Vy (actualFoldPotential r k sample)) (-(1 / 2), 0) *
+                (coordinates 2) v 0) ^
+            2)
+but is expected to have type
+  hessian 2 (actualField 2 L sample) ((coordinates 2).symm (endpointM r)) v v =
+    6 * k * r *
+      ((partialX (Vx (actualFoldPotential r k sample)) (-(1 / 2), 0) -
+            partialY (Vx (actualFoldPotential r k sample)) (-(1 / 2), 0) ^ 2 /
+              partialY (Vy (actualFoldPotential r k sample)) (-(1 / 2), 0)) *
+          (coordinates 2) v 0 ^ 2 +
+        partialY (Vy (actualFoldPotential r k sample)) (-(1 / 2), 0) *
+          ((coordinates 2) v 1 + partialY (Vx V) (-(1 / 2), 0) / partialY (Vy V) (-(1 / 2), 0) * (coordinates 2) v 0) ^
+            2)
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFoldCandidate.lean:587:51: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  heightGap 2 (actualField 2 L sample) ((coordinates 2).symm (endpointM r)) ((coordinates 2).symm (endpointS r))
+in the target expression
+  0 < heightGap 2 (actualField 2 L sample) (endpointLiftM r) (endpointLiftS r)
+
+L r k b : ℝ
+hL : 0 < L
+sample : SmoothSample 2 L
+hr : 0 < r
+hrL : r < L / 2
+hk : 0 < k
+hp : rawPins L r sample = ![b, b - k * r ^ 3, 0, 0, 0, 0]
+O : Set (ℝ × ℝ)
+R c M₀ M₁ M₂ A : ℝ
+U : Set ℝ
+z : ℝ → ℝ
+hs : StructuralRectangleData (actualFoldPotential r k sample) O R c M₀ M₁ M₂ A
+hz : RidgeScalarData (actualFoldPotential r k sample) O R c M₀ M₁ M₂ U z
+hM : IsNondegMax 2 (actualField 2 L sample) (endpointLiftM r)
+hS : IsIndexSaddle 2 (actualField 2 L sample) (endpointLiftS r)
+hd : torusDist 2 L (endpointLiftM r) (endpointLiftS r) = r
+hg :
+  heightGap 2 (actualField 2 L sample) ((coordinates 2).symm (endpointM r)) ((coordinates 2).symm (endpointS r)) =
+    k * r ^ 3
+⊢ 0 < heightGap 2 (actualField 2 L sample) (endpointLiftM r) (endpointLiftS r)
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFoldCandidate.lean:666:10: error: typeclass instance problem is stuck
+  AddLeftStrictMono ?m.1975
+
+Note: Lean will not try to resolve this typeclass instance problem because the first, second, and third type arguments to `AddLeftStrictMono` contain metavariables. These arguments must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.

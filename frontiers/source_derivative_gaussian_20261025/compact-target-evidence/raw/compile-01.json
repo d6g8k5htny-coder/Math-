@@ -1,0 +1,23 @@
+{
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "-o",
+    ".lake/build/lib/lean/SourceCompactTargetMoments.olean",
+    "-i",
+    ".lake/build/lib/lean/SourceCompactTargetMoments.ilean",
+    "SourceCompactTargetMoments.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "started_utc": "2026-10-26T04:15:31.154178+00:00",
+  "elapsed_seconds": 5.128565073013306,
+  "exit_code": 1,
+  "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactTargetMoments.lean",
+  "snapshot": "/workspace/scratch/compact-target-moments/compile-01.source.lean",
+  "source_sha256_before": "66f52aacf1621fac8f29351172ed3cf42f3d5602f19ca52a845eabe4f628dd2b",
+  "source_sha256_after": "66f52aacf1621fac8f29351172ed3cf42f3d5602f19ca52a845eabe4f628dd2b",
+  "log_sha256": "fd917e0ac5ed174fe83bcb7814b6c01a0ef3454c3ecb70c841107ef18153702b",
+  "object_sha256": {}
+}

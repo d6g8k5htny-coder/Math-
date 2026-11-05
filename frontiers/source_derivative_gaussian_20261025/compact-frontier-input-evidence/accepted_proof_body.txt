@@ -1,0 +1,8 @@
+  intro x hx
+  have hcl : IsClosed (e '' C) := (hC.image hec).isClosed
+  have hx1 : x ∈ e '' C := by
+    have h := hx.1
+    rwa [hcl.closure_eq] at h
+  obtain ⟨y, hyC, rfl⟩ := hx1
+  refine ⟨y, ⟨subset_closure hyC, fun hyi => hx.2 ?_⟩, rfl⟩
+  exact interior_maximal (image_mono interior_subset) (heo _ isOpen_interior) ⟨y, hyi, rfl⟩

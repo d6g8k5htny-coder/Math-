@@ -4,6 +4,8 @@ name: Cap first exit (Lean kernel evidence, no scientific promotion)
   pull_request:
     paths:
       - 'frontiers/cap_first_exit_lean_20261002/**'
+      - 'tools/lean_packet_admission.py'
+      - 'tests/test_lean_packet_admission.py'
       - '.github/workflows/cap-first-exit-lean.yml'
       - 'reviews/d1_cap_elder_partner_second_pass_claude_20260930/REVIEW.md'
       - 'imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md'
@@ -11,6 +13,8 @@ name: Cap first exit (Lean kernel evidence, no scientific promotion)
     branches: [main]
     paths:
       - 'frontiers/cap_first_exit_lean_20261002/**'
+      - 'tools/lean_packet_admission.py'
+      - 'tests/test_lean_packet_admission.py'
       - '.github/workflows/cap-first-exit-lean.yml'
       - 'reviews/d1_cap_elder_partner_second_pass_claude_20260930/REVIEW.md'
       - 'imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md'
@@ -36,6 +40,16 @@ jobs:
       - name: Source gate and unit tests in both Python modes (no Lean)
         run: |
           set -euo pipefail
+          for optimization in '' '-O'; do
+            python -B $optimization -S - <<'PYCONTROLS'
+          import unittest
+          suite = unittest.defaultTestLoader.discover('tests', pattern='test_lean_packet_admission.py')
+          if suite.countTestCases() == 0:
+              raise SystemExit('zero admission tests discovered')
+          if not unittest.TextTestRunner(verbosity=2).run(suite).wasSuccessful():
+              raise SystemExit(1)
+          PYCONTROLS
+          done
           P=frontiers/cap_first_exit_lean_20261002
           python -B -S -m unittest discover -s "$P" -p 'test_*.py' -v
           python -B -O -S -m unittest discover -s "$P" -p 'test_*.py' -v

@@ -1,0 +1,8 @@
+import SourceRawPinFreeCoordinates
+import Lean.Elab.Tactic.Omega
+
+-- Concatenate these imports with SECTION.lean.txt to form the one qualified
+-- scratch FreeCoordinateControls.lean integration. No new production import.
+-- All names in namespace FreeCoordinateControls are ordinary exported scratch
+-- controls. The negative imports the qualified Controls object and its exact
+-- named-mode q/2q facts; it does not copy this section or production source.

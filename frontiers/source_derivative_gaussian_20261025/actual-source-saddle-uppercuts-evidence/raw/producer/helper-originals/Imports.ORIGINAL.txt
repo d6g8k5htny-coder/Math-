@@ -1,0 +1,25 @@
+import SourceActualQuotientSaddleCollar
+import SourceFiniteTrig
+import Mathlib.Analysis.Normed.Module.Convex
+import Mathlib.Analysis.Convex.PathConnected
+import Mathlib.Tactic.FinCases
+import Mathlib.Tactic.FunProp
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.Positivity
+import Mathlib.Tactic.Convert
+import Mathlib.Tactic.GCongr
+import Mathlib.Tactic.Abel
+import Lean.Elab.Tactic.Omega
+
+noncomputable section
+open Set Filter Topology
+open UniversalLaw.Spec.Lifetime
+open I4LifetimeField I4SmoothCarrier
+open scoped BigOperators Topology
+set_option autoImplicit false
+
+-- Producer namespace I4SourceActualSaddleUppercuts.
+-- Original section omits this header, namespace/end and common definitions.

@@ -1,0 +1,193 @@
+SourceActualSaddleUppercuts.lean:589:13: error: don't know how to synthesize implicit argument `x`
+  @HasFDerivAt.cos (E 2) (PiLp.normedAddCommGroup 2 fun x => ℝ) (PiLp.normedSpace 2 ℝ fun x => ℝ)
+    (fun y => Real.pi * (coord 0) y) (Real.pi • coord 0) ?m.44
+    (HasFDerivAt.const_mul (ContinuousLinearMap.hasFDerivAt (coord 0)) Real.pi)
+context:
+X : E 2
+⊢ E 2
+SourceActualSaddleUppercuts.lean:589:14: error: don't know how to synthesize implicit argument `x`
+  @HasFDerivAt.const_mul ℝ DenselyNormedField.toNontriviallyNormedField (E 2) (PiLp.normedAddCommGroup 2 fun x => ℝ)
+    (PiLp.normedSpace 2 ℝ fun x => ℝ) ?m.44 ℝ Real.normedCommRing.toNormedRing Real.instRCLike.toNormedAlgebra
+    (⇑(coord 0)) (coord 0) (ContinuousLinearMap.hasFDerivAt (coord 0)) Real.pi
+context:
+X : E 2
+⊢ E 2
+SourceActualSaddleUppercuts.lean:589:14: error: don't know how to synthesize implicit argument `x`
+  @ContinuousLinearMap.hasFDerivAt ℝ DenselyNormedField.toNontriviallyNormedField (E 2)
+    (WithLp.instAddCommGroup 2 ((i : Fin 2) → (fun x => ℝ) i)) (WithLp.instModule 2 ℝ ((i : Fin 2) → (fun x => ℝ) i))
+    (PiLp.topologicalSpace 2 fun x => ℝ) ℝ Real.instAddCommGroup Semiring.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace (coord 0) ?m.44
+context:
+X : E 2
+⊢ E 2
+SourceActualSaddleUppercuts.lean:589:7: error: failed to infer `have` declaration type
+SourceActualSaddleUppercuts.lean:588:41: error: unsolved goals
+X : E 2
+⊢ HasFDerivAt trigField (trigD X) X
+SourceActualSaddleUppercuts.lean:599:13: error: don't know how to synthesize implicit argument `c'`
+  @HasFDerivAt.smul_const ℝ DenselyNormedField.toNontriviallyNormedField (E 2) (PiLp.normedAddCommGroup 2 fun x => ℝ)
+    (PiLp.normedSpace 2 ℝ fun x => ℝ) (E 2 →L[ℝ] ℝ) ContinuousLinearMap.toNormedAddCommGroup
+    ContinuousLinearMap.toNormedSpace ?m.191 ℝ Real.normedCommRing.toNormedRing Real.instRCLike.toNormedAlgebra
+    ContinuousLinearMap.module NormedSpace.toIsBoundedSMul ContinuousLinearMap.isScalarTower
+    (fun y => (-fun x => Real.sin (Real.pi * (coord 0) x)) y * Real.pi)
+    (Real.pi • -(Real.cos (Real.pi * (coord 0) ?m.191) • Real.pi • coord 0))
+    (HasFDerivAt.mul_const
+      (HasFDerivAt.neg (HasFDerivAt.sin (HasFDerivAt.const_mul (ContinuousLinearMap.hasFDerivAt (coord 0)) Real.pi)))
+      Real.pi)
+    (coord 0)
+context:
+X v w : E 2
+hd : fderiv ℝ trigField = trigD
+⊢ E 2 →L[ℝ] ℝ
+SourceActualSaddleUppercuts.lean:599:13: error: don't know how to synthesize implicit argument `x`
+  @HasFDerivAt.smul_const ℝ DenselyNormedField.toNontriviallyNormedField (E 2) (PiLp.normedAddCommGroup 2 fun x => ℝ)
+    (PiLp.normedSpace 2 ℝ fun x => ℝ) (E 2 →L[ℝ] ℝ) ContinuousLinearMap.toNormedAddCommGroup
+    ContinuousLinearMap.toNormedSpace ?m.191 ℝ Real.normedCommRing.toNormedRing Real.instRCLike.toNormedAlgebra
+    ContinuousLinearMap.module NormedSpace.toIsBoundedSMul ContinuousLinearMap.isScalarTower
+    (fun y => (-fun x => Real.sin (Real.pi * (coord 0) x)) y * Real.pi)
+    (Real.pi • -(Real.cos (Real.pi * (coord 0) ?m.191) • Real.pi • coord 0))
+    (HasFDerivAt.mul_const
+      (HasFDerivAt.neg (HasFDerivAt.sin (HasFDerivAt.const_mul (ContinuousLinearMap.hasFDerivAt (coord 0)) Real.pi)))
+      Real.pi)
+    (coord 0)
+context:
+X v w : E 2
+hd : fderiv ℝ trigField = trigD
+⊢ E 2
+SourceActualSaddleUppercuts.lean:599:14: error: don't know how to synthesize implicit argument `c'`
+  @HasFDerivAt.mul_const ℝ DenselyNormedField.toNontriviallyNormedField (E 2) (PiLp.normedAddCommGroup 2 fun x => ℝ)
+    (PiLp.normedSpace 2 ℝ fun x => ℝ) ?m.191 ℝ Real.normedCommRing Real.instRCLike.toNormedAlgebra
+    (-fun x => Real.sin (Real.pi * (coord 0) x)) (-(Real.cos (Real.pi * (coord 0) ?m.191) • Real.pi • coord 0))
+    (HasFDerivAt.neg (HasFDerivAt.sin (HasFDerivAt.const_mul (ContinuousLinearMap.hasFDerivAt (coord 0)) Real.pi)))
+    Real.pi
+context:
+X v w : E 2
+hd : fderiv ℝ trigField = trigD
+⊢ E 2 →L[ℝ] ℝ
+SourceActualSaddleUppercuts.lean:599:14: error: don't know how to synthesize implicit argument `x`
+  @HasFDerivAt.mul_const ℝ DenselyNormedField.toNontriviallyNormedField (E 2) (PiLp.normedAddCommGroup 2 fun x => ℝ)
+    (PiLp.normedSpace 2 ℝ fun x => ℝ) ?m.191 ℝ Real.normedCommRing Real.instRCLike.toNormedAlgebra
+    (-fun x => Real.sin (Real.pi * (coord 0) x)) (-(Real.cos (Real.pi * (coord 0) ?m.191) • Real.pi • coord 0))
+    (HasFDerivAt.neg (HasFDerivAt.sin (HasFDerivAt.const_mul (ContinuousLinearMap.hasFDerivAt (coord 0)) Real.pi)))
+    Real.pi
+context:
+X v w : E 2
+hd : fderiv ℝ trigField = trigD
+⊢ E 2
+SourceActualSaddleUppercuts.lean:599:14: error: don't know how to synthesize implicit argument `x`
+  @HasFDerivAt.neg ℝ DenselyNormedField.toNontriviallyNormedField (E 2) (PiLp.normedAddCommGroup 2 fun x => ℝ)
+    (PiLp.normedSpace 2 ℝ fun x => ℝ) ℝ Real.normedAddCommGroup RCLike.toInnerProductSpaceReal.toNormedSpace
+    (fun x => Real.sin (Real.pi * (coord 0) x)) (Real.cos (Real.pi * (coord 0) ?m.191) • Real.pi • coord 0) ?m.191
+    (HasFDerivAt.sin (HasFDerivAt.const_mul (ContinuousLinearMap.hasFDerivAt (coord 0)) Real.pi))
+context:
+X v w : E 2
+hd : fderiv ℝ trigField = trigD
+⊢ E 2
+SourceActualSaddleUppercuts.lean:599:14: error: don't know how to synthesize implicit argument `f'`
+  @HasFDerivAt.neg ℝ DenselyNormedField.toNontriviallyNormedField (E 2) (PiLp.normedAddCommGroup 2 fun x => ℝ)
+    (PiLp.normedSpace 2 ℝ fun x => ℝ) ℝ Real.normedAddCommGroup RCLike.toInnerProductSpaceReal.toNormedSpace
+    (fun x => Real.sin (Real.pi * (coord 0) x)) (Real.cos (Real.pi * (coord 0) ?m.191) • Real.pi • coord 0) ?m.191
+    (HasFDerivAt.sin (HasFDerivAt.const_mul (ContinuousLinearMap.hasFDerivAt (coord 0)) Real.pi))
+context:
+X v w : E 2
+hd : fderiv ℝ trigField = trigD
+⊢ E 2 →L[ℝ] ℝ
+SourceActualSaddleUppercuts.lean:599:14: error: don't know how to synthesize implicit argument `x`
+  @HasFDerivAt.sin (E 2) (PiLp.normedAddCommGroup 2 fun x => ℝ) (PiLp.normedSpace 2 ℝ fun x => ℝ)
+    (fun y => Real.pi * (coord 0) y) (Real.pi • coord 0) ?m.191
+    (HasFDerivAt.const_mul (ContinuousLinearMap.hasFDerivAt (coord 0)) Real.pi)
+context:
+X v w : E 2
+hd : fderiv ℝ trigField = trigD
+⊢ E 2
+SourceActualSaddleUppercuts.lean:599:15: error: don't know how to synthesize implicit argument `x`
+  @HasFDerivAt.const_mul ℝ DenselyNormedField.toNontriviallyNormedField (E 2) (PiLp.normedAddCommGroup 2 fun x => ℝ)
+    (PiLp.normedSpace 2 ℝ fun x => ℝ) ?m.191 ℝ Real.normedCommRing.toNormedRing Real.instRCLike.toNormedAlgebra
+    (⇑(coord 0)) (coord 0) (ContinuousLinearMap.hasFDerivAt (coord 0)) Real.pi
+context:
+X v w : E 2
+hd : fderiv ℝ trigField = trigD
+⊢ E 2
+SourceActualSaddleUppercuts.lean:599:15: error: don't know how to synthesize implicit argument `x`
+  @ContinuousLinearMap.hasFDerivAt ℝ DenselyNormedField.toNontriviallyNormedField (E 2)
+    (WithLp.instAddCommGroup 2 ((i : Fin 2) → (fun x => ℝ) i)) (WithLp.instModule 2 ℝ ((i : Fin 2) → (fun x => ℝ) i))
+    (PiLp.topologicalSpace 2 fun x => ℝ) ℝ Real.instAddCommGroup Semiring.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace (coord 0) ?m.191
+context:
+X v w : E 2
+hd : fderiv ℝ trigField = trigD
+⊢ E 2
+SourceActualSaddleUppercuts.lean:599:7: error: failed to infer `have` declaration type
+SourceActualSaddleUppercuts.lean:597:74: error: unsolved goals
+X v w : E 2
+hd : fderiv ℝ trigField = trigD
+⊢ hessian 2 trigField X v w =
+    -Real.pi ^ 2 * Real.cos (Real.pi * (coord 0) X) * (coord 0) v * (coord 0) w -
+      2 * Real.pi ^ 2 * Real.cos (Real.pi * (coord 1) X) * (coord 1) v * (coord 1) w
+SourceActualSaddleUppercuts.lean:627:2: error: Try `simp at this` instead of `simpa using this`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+SourceActualSaddleUppercuts.lean:631:2: error: Try `simp at this` instead of `simpa using this`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+SourceActualSaddleUppercuts.lean:642:2: error: unsolved goals
+case codisjoint.«0»
+v : E 2
+⊢ v.ofLp 0 = v.ofLp 0 * ((coordinates 2).symm ![1, 0]).ofLp 0 + v.ofLp 1 * ((coordinates 2).symm ![0, 1]).ofLp 0
+
+case codisjoint.«1»
+v : E 2
+⊢ v.ofLp 1 = v.ofLp 0 * ((coordinates 2).symm ![1, 0]).ofLp 1 + v.ofLp 1 * ((coordinates 2).symm ![0, 1]).ofLp 1
+SourceActualSaddleUppercuts.lean:663:4: error: linarith failed to find a contradiction
+case refine_2
+x y : ℝ
+hx : Real.cos (Real.pi * x) = -1
+hy : Real.cos (Real.pi * y) = 1
+a : ℝ
+hv : a • fixturePoint 0 1 ∈ ℝ ∙ fixturePoint 0 1
+hne : a • fixturePoint 0 1 ≠ 0
+ha : a ≠ 0
+a✝ : 0 ≤ -Real.pi ^ 2 * -1 * (a * 0) * (a * 0) - 2 * Real.pi ^ 2 * 1 * (a * 1) * (a * 1)
+⊢ False
+failed
+SourceActualSaddleUppercuts.lean:670:4: error: linarith failed to find a contradiction
+case refine_3
+x y : ℝ
+hx : Real.cos (Real.pi * x) = -1
+hy : Real.cos (Real.pi * y) = 1
+a : ℝ
+hv : a • fixturePoint 1 0 ∈ ℝ ∙ fixturePoint 1 0
+hne : a • fixturePoint 1 0 ≠ 0
+ha : a ≠ 0
+a✝ : -Real.pi ^ 2 * -1 * (a * 1) * (a * 1) - 2 * Real.pi ^ 2 * 1 * (a * 0) * (a * 0) ≤ 0
+⊢ False
+failed
+SourceActualSaddleUppercuts.lean:685:4: error: linarith failed to find a contradiction
+case refine_2
+x y : ℝ
+hx : Real.cos (Real.pi * x) = 1
+hy : Real.cos (Real.pi * y) = -1
+a : ℝ
+hv : a • fixturePoint 1 0 ∈ ℝ ∙ fixturePoint 1 0
+hne : a • fixturePoint 1 0 ≠ 0
+ha : a ≠ 0
+a✝ : 0 ≤ -Real.pi ^ 2 * 1 * (a * 1) * (a * 1) - 2 * Real.pi ^ 2 * -1 * (a * 0) * (a * 0)
+⊢ False
+failed
+SourceActualSaddleUppercuts.lean:692:4: error: linarith failed to find a contradiction
+case refine_3
+x y : ℝ
+hx : Real.cos (Real.pi * x) = 1
+hy : Real.cos (Real.pi * y) = -1
+a : ℝ
+hv : a • fixturePoint 0 1 ∈ ℝ ∙ fixturePoint 0 1
+hne : a • fixturePoint 0 1 ≠ 0
+ha : a ≠ 0
+a✝ : -Real.pi ^ 2 * 1 * (a * 0) * (a * 0) - 2 * Real.pi ^ 2 * -1 * (a * 1) * (a * 1) ≤ 0
+⊢ False
+failed
+SourceActualSaddleUppercuts.lean:714:87: error: unsolved goals
+⊢ -1 + 2 = 1 ∧ 1 + -2 = -1 ∧ -1 + 2 = 1
+SourceActualSaddleUppercuts.lean:721:53: error(lean.unknownIdentifier): Unknown identifier `isOpen_ball`
+SourceActualSaddleUppercuts.lean:726:8: error(lean.unknownIdentifier): Unknown identifier `I4Torus.torusProjection_eq_of_sub_eq_lattice`
+SourceActualSaddleUppercuts.lean:727:2: error: No goals to be solved

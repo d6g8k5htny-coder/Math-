@@ -1,0 +1,21 @@
+{
+  "label": "strict-003",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "-R",
+    "/workspace/scratch/actual-fold-candidate-distance",
+    "-o",
+    "/workspace/scratch/actual-fold-candidate-distance/build/CandidateDistance.olean",
+    "/workspace/scratch/actual-fold-candidate-distance/CandidateDistance.lean"
+  ],
+  "source": {
+    "path": "/workspace/scratch/actual-fold-candidate-distance/CandidateDistance.lean",
+    "bytes": 5688,
+    "sha256": "fbb29aeb95a2f90815463cc07577aee43bf6b22579d973297e75850598ec4ab5"
+  },
+  "started_utc": "2026-10-26T10:36:06.501094+00:00"
+}

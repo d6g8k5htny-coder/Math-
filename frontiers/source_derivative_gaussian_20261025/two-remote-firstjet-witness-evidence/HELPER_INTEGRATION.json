@@ -1,0 +1,32 @@
+{
+  "helper": "/root/two_remote_firstjet_arithmetic",
+  "integrated_utc": "2026-10-26T17:35:01.692721+00:00",
+  "original_section": {
+    "path": "/workspace/scratch/two-remote-firstjet-arithmetic/SECTION.lean.txt",
+    "bytes": 5404,
+    "sha256": "c6d7ee9d2198f5f31c5e323e8e3335c1289b12d6d6ffdab3803da278da560e55"
+  },
+  "needed_section": {
+    "path": "/workspace/scratch/two-remote-firstjet-witness-construct/ARITHMETIC_NEEDED_SECTION.lean.txt",
+    "bytes": 5404,
+    "sha256": "c6d7ee9d2198f5f31c5e323e8e3335c1289b12d6d6ffdab3803da278da560e55"
+  },
+  "imports": {
+    "path": "/workspace/scratch/two-remote-firstjet-arithmetic/IMPORTS.txt",
+    "bytes": 271,
+    "sha256": "eb8aaa70eb743519b01154773fbc05aee530a1b20197aeeb28998bca2ca1e0e1"
+  },
+  "provenance": {
+    "path": "/workspace/scratch/two-remote-firstjet-arithmetic/FROZEN_PROVENANCE.json",
+    "bytes": 2982,
+    "sha256": "eaa2807517fb4c88aa178b8a4e837eb19a71c6c01d6940ed8cbae9088885b315"
+  },
+  "integration_count": 1,
+  "helper_compilations": 0,
+  "helper_objects": 0,
+  "helper_kernel_audit_control_campaigns": 0,
+  "helper_target_credit": 0,
+  "local_amendments": [
+    "three germ C2 cases use explicit function change before fun_prop, reusing prior interface evidence that dsimp under function did not unfold localGerm; no old check replay"
+  ]
+}

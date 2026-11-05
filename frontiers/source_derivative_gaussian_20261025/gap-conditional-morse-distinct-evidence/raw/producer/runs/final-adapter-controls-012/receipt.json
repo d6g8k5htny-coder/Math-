@@ -1,0 +1,52 @@
+{
+  "label": "final-adapter-controls-012",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/gap-conditional-morse-distinct-construct/build/SourceGapConditionalMorseDistinct.olean SourceGapConditionalMorseDistinct.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceGapConditionalMorseDistinct.lean",
+      "bytes": 99430,
+      "sha256": "8baf597fa98ce8f79489e82227951e0f4fd1a960e65589278be8a82f35ce5213"
+    },
+    "object": {
+      "path": "/workspace/scratch/gap-conditional-morse-distinct-construct/build/SourceGapConditionalMorseDistinct.olean",
+      "bytes": 3934336,
+      "sha256": "9fe8f2051d6cca7cecf9d821ea0aa98e476f3e373be020c1aa4da272147a6047"
+    },
+    "controls_object": null
+  },
+  "started_utc": "2026-10-28T14:46:57.789943+00:00",
+  "capture": "Original stdout and stderr captured separately without reconstruction/interleaving claims",
+  "exit_code": 0,
+  "elapsed_seconds": 169.34576392173767,
+  "ended_utc": "2026-10-28T14:49:47.136211+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceGapConditionalMorseDistinct.lean",
+      "bytes": 99430,
+      "sha256": "8baf597fa98ce8f79489e82227951e0f4fd1a960e65589278be8a82f35ce5213"
+    },
+    "object": {
+      "path": "/workspace/scratch/gap-conditional-morse-distinct-construct/build/SourceGapConditionalMorseDistinct.olean",
+      "bytes": 4189248,
+      "sha256": "d73ade27921b1593c99175780e2738a80d3acb158e3c25810ef03b66b5678cb8"
+    },
+    "controls_object": null
+  },
+  "stdout": {
+    "path": "/workspace/scratch/gap-conditional-morse-distinct-construct/runs/final-adapter-controls-012/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr": {
+    "path": "/workspace/scratch/gap-conditional-morse-distinct-construct/runs/final-adapter-controls-012/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

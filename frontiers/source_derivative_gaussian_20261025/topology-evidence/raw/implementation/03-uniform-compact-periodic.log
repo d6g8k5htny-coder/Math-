@@ -1,0 +1,21 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothTopology.lean:227:4: error: Type mismatch: After simplification, term
+  hx
+ has type
+  (((sourceDerivativeBCF d hL (↑0) ω) x) fun a => a.elim0) = ((sourceDerivativeBCF d hL (↑0) η) x) fun a => a.elim0
+but is expected to have type
+  smoothSourceField d L ω x = smoothSourceField d L η x
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothTopology.lean:232:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (sourceDerivativeBCF ?d ?hL ?k ?ω) ?x
+in the target expression
+  (sourceFiniteJet d hL K ω j) x = (sourceFiniteJet d hL K η j) x
+
+case mpr
+d : ℕ
+L : ℝ
+hL : L ≠ 0
+K : ℕ
+ω η : SmoothSample d L
+h : smoothSourceField d L ω = smoothSourceField d L η
+j : Fin (K + 1)
+x : Fin d → ℝ
+⊢ (sourceFiniteJet d hL K ω j) x = (sourceFiniteJet d hL K η j) x

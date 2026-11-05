@@ -1,0 +1,15 @@
+test_different_caller_manifest_refuses_even_with_original_digest (test_determinant_git_identity.DeterminantGitIdentityTests.test_different_caller_manifest_refuses_even_with_original_digest) ... FAIL
+
+======================================================================
+FAIL: test_different_caller_manifest_refuses_even_with_original_digest (test_determinant_git_identity.DeterminantGitIdentityTests.test_different_caller_manifest_refuses_even_with_original_digest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Math-/Math-/frontiers/determinant_moment_20261025/.lake/formal-evidence/git-mutations/run-20261029T203232Z-zyaiub_z/unittest_harness.py", line 23, in wrapped
+    return _original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.033s
+
+FAILED (failures=1)

@@ -1,0 +1,22 @@
+{
+  "status": "FINAL_PRODUCTION_SOURCE_FROZEN_LAST_ACTUAL_STRICT_PASS_REUSED_AWAIT_INVENTORY_REVIEW_ONE_KERNEL",
+  "recorded_utc": "2026-10-28T18:58:53.774579+00:00",
+  "receipt": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-004/receipt.json",
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFiniteSuperlevelComponents.lean",
+    "bytes": 11683,
+    "sha256": "e63abe693a6d23e5679adbb7110cb7b569bd3171db596d470f32b8566bc01a5c",
+    "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+  },
+  "object": {
+    "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/build/SourceActualFiniteSuperlevelComponents.olean",
+    "bytes": 404464,
+    "sha256": "84d7797bc22096d9d3c9ead68542e952b8a752fe74767812bd4ae093c3876d89",
+    "identity_origin": "FIRST identity of newly created or changed owned payload"
+  },
+  "lines": 267,
+  "strict_completed_utc": "2026-10-28T18:58:27.600568+00:00",
+  "kernel_count_at_this_source_freeze": 0,
+  "ordinary_controls_scope": "Separate, Bauthoring, notcoveredbyproductionkernel",
+  "strict_label": "production-fixtures-004 is actualfinalstrictWerror; no redundantcompile-finalrun"
+}

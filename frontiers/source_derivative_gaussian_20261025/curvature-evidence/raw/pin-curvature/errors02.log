@@ -1,0 +1,48 @@
+/workspace/scratch/pin-curvature-implementation/EndpointErrors.lean:17:2: error: failed to synthesize
+  Fintype (Fin 2 → Fin 2 → ℝ)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/scratch/pin-curvature-implementation/EndpointErrors.lean:17:18: error: Tactic `rfl` failed: The left-hand side
+  (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) ![0, 0]) i
+is not definitionally equal to the right-hand side
+  (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) i
+
+L : ℝ
+ω : SmoothSample 2 L
+i : Fin 2 → Fin 2 → ℝ
+⊢ (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) ![0, 0]) i = (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) 0) i
+/workspace/scratch/pin-curvature-implementation/EndpointErrors.lean:95:28: error: linarith failed to find a contradiction
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+hr : 0 < r
+ω : SmoothSample 2 L
+h3 : sourceConfluentPinsAt L r ω 3 = 0
+h4 : sourceConfluentPinsAt L r ω 4 = 0
+h5 : sourceConfluentPinsAt L r ω 5 = 2
+hΓ4 : 0 ≤ sourceDerivativeMajorant L 4 ω
+hΓ3 : 0 ≤ sourceDerivativeMajorant L 3 ω
+hpin : 2 = 6 * ∫ (u : ℝ) in -1 / 2..1 / 2, (1 / 4 - u ^ 2) * iteratedDeriv 3 (sourceF L ω) (r * u)
+hp : 6 * ∫ (t : ℝ) in -1 / 2..1 / 2, peanoCubic t * iteratedDeriv 3 (sourceF L ω) (r * t) = 2
+hf : ∀ u ∈ Icc (-1 / 2) (1 / 2), |iteratedDeriv 3 (sourceF L ω) (r * u) - 2| ≤ r * sourceDerivativeMajorant L 4 ω
+hFleft :
+  |(∫ (t : ℝ) in -1 / 2..1 / 2, peanoLeft t * iteratedDeriv 3 (sourceF L ω) (r * t)) - 2 / 2| ≤
+    r * sourceDerivativeMajorant L 4 ω / 2
+hh :
+  ∀ t ∈ Icc (-1 / 2) (1 / 2), |iteratedDeriv 2 (sourceH L ω) (r * t) - sourceA L ω| ≤ r * sourceDerivativeMajorant L 4 ω
+hHleft :
+  |(∫ (t : ℝ) in -1 / 2..1 / 2, peanoLeft t * iteratedDeriv 2 (sourceH L ω) (r * t)) - sourceA L ω / 2| ≤
+    r * sourceDerivativeMajorant L 4 ω / 2
+hHright :
+  |(∫ (t : ℝ) in -1 / 2..1 / 2, peanoRight t * iteratedDeriv 2 (sourceH L ω) (r * t)) - sourceA L ω / 2| ≤
+    r * sourceDerivativeMajorant L 4 ω / 2
+hq : ∀ t ∈ Icc (-1 / 2) (1 / 2), |sourceQCurve L ω (r * t) - sourceQ L ω| ≤ r * sourceDerivativeMajorant L 3 ω
+hQM : |sourceQCurve L ω (-r / 2) - sourceQ L ω| ≤ r * sourceDerivativeMajorant L 3 ω
+hQS : |sourceQCurve L ω (r / 2) - sourceQ L ω| ≤ r * sourceDerivativeMajorant L 3 ω
+hFright :
+  |(∫ (t : ℝ) in -(1 / 2)..1 / 2, peanoRight t * iteratedDeriv 3 (sourceF L ω) (r * t)) - 1| ≤
+    r * sourceDerivativeMajorant L 4 ω / 2
+a✝ : ?m.1201 < r * sourceDerivativeMajorant L 4 ω / 2
+⊢ False
+failed
+Error in Linarith.normalizeDenominatorsLHS: Expr.rewrite may not produce subgoals.

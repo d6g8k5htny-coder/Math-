@@ -1,0 +1,10 @@
+import Mathlib.LinearAlgebra.QuadraticForm.Real
+import Mathlib.LinearAlgebra.QuadraticForm.Signature
+import Mathlib.LinearAlgebra.QuadraticForm.Radical
+import Mathlib.Analysis.Normed.Module.FiniteDimension
+import Mathlib.Analysis.Calculus.FDeriv.Symmetric
+import Mathlib.Tactic.FinCases
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.Linarith
+import SourceActualFoldCandidate

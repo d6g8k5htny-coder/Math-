@@ -1,0 +1,29 @@
+{
+  "producer": {
+    "provider": "OpenAI",
+    "agent": "/root/all_target_curvature_residual_construct",
+    "role": "author/implementer and own qualification only"
+  },
+  "root": "/root",
+  "workers_spawned": [],
+  "helpers_authored_here": [
+    "create_source.py",
+    "run_stage.py (adapted read-only from actual-fold-h0-construct harness)",
+    "finalize.py",
+    "Inventory.lean (adapted read-only actual-module-index/collectAxioms harness)",
+    "AllTargetResidualControls.lean",
+    "FalseGrowthErasureMutation.lean"
+  ],
+  "proof_lineage": "Generic-target reconstruction/image/moment proofs adapt retained SourceCurvatureDecomposition default-target estimates. Reuse existing generic curvaturePosterior_residual_eq_shift and shift bound, b=0 direction envelope, local positive variance/invertibility, all-target posterior moments and gap target norm estimate. No scalar/product-law or density proof reconstructed.",
+  "same_provider_review_credit": 0,
+  "organizational_independence_credit": 0,
+  "provider_distinct_process": "separate, pending root coordination",
+  "scientific_effect": "NONE",
+  "authority_links": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/main/governance/OP-WORKFLOW-20260930.md"
+  ],
+  "authority_read": "Workspace/repo AGENTS, README/formal scope/required-check guidance and local canonical mandate, delegation, workflow were read. Published precode/spec/plan and item2 preflight read before implementation.",
+  "reuse_instruction": "Completed applicable verification remains reusable across agent/session/handoff; no unchanged replay. Provider-distinct requirements remain distinct from mathematical verification."
+}

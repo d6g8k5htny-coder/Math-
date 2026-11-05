@@ -1,0 +1,38 @@
+SourceActualRegularLocalCollar.lean:527:25: error: Type mismatch
+  ContinuousLinearMap.proj 0 ∘SL ?m.109
+has type
+  ?m.96 →SL[?m.95] ?m.79 0
+but is expected to have type
+  E2 →L[ℝ] ℝ
+SourceActualRegularLocalCollar.lean:581:2: error: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+SourceActualRegularLocalCollar.lean:595:4: error: Type mismatch
+  hp
+has type
+  -↑(3 / 2) = ↑(1 / 2)
+but is expected to have type
+  ↑(-3 / 2) = ↑(1 / 2)
+SourceActualRegularLocalCollar.lean:653:6: error: Type mismatch: After simplification, term
+  hhalf
+ has type
+  |ρ / 2| < ρ
+but is expected to have type
+  |![-(ρ / 2), ε] ⟨0, ⋯⟩| < ρ
+SourceActualRegularLocalCollar.lean:688:67: error: Application type mismatch: The argument
+  hm
+has type
+  ↑φ.symm ![-ρ / 2, ε] ∈ φ.source ∩ {p | F p = c + ε}
+of sort `Prop` but is expected to have type
+  Torus2 L
+of sort `Type` in the application
+  IsPathConnected.joinedIn (hpc ε hε).right hm
+SourceActualRegularLocalCollar.lean:721:13: error: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).
+SourceActualRegularLocalCollar.lean:729:13: error: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).
+SourceActualRegularLocalCollar.lean:737:13: error: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).
