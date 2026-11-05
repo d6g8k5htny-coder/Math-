@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "role": "New-only actual joint two-remote firstjet finite witnesses and residual Gram evidence",
+  "qualification_status": "COMPLETE_NEW_SOURCE_ROOT_REGISTRATION_PROPOSAL",
+  "module": "SourceTwoRemoteFirstJetWitness",
+  "namespace": "I4SourceTwoRemoteFirstJetWitness",
+  "source_cut": "7e8ac1c7bd6a8d9c251cf6c99f5890379a82f0e0",
+  "source_sha256": "b523da924513fc312c5432c241fc031d4fbe3567fbeedbba981f36dd798574a4",
+  "source_bytes": 21442,
+  "object_sha256": "5466505132cd10c5a9ca362ba6e473de52eb949260e6b8fe801a16eff1f7f90c",
+  "object_bytes": 1445664,
+  "binding_precode": "c9eab66fc13968de4bcf391c4effd9db5321ac11",
+  "native_activation": 6422878311,
+  "native_activation_utc": "2026-10-26T17:28:55Z",
+  "binding_specification": "../SOURCE_TWO_REMOTE_FIRSTJET_WITNESS.md",
+  "binding_plan": "../SOURCE_TWO_REMOTE_FIRSTJET_WITNESS_PLAN.md",
+  "precode_contender_record": "../SOURCE_TWO_REMOTE_FIRSTJET_WITNESS_CONTENDERS.json",
+  "compile_record": "raw/producer/runs/develop-003/record.json",
+  "warningAsError": true,
+  "strict_evidence_reuse": "Exact strict003 passed17:38:37.787503UTC, reused after environmentrevision70/resume and freeze17:41:00; all3 original develop attempts preserved, no label/session/ilean compile.",
+  "kernel_record": "raw/producer/runs/kernel-001/record.json",
+  "kernel_completed_utc": "2026-10-26T17:44:13.931920Z",
+  "named_kernel_checks": 1,
+  "complete_axiom_audit_record": "raw/producer/runs/inventory-001/record.json",
+  "axiom_audit_mode": "Retained actual-module-index71 including all private/generated/data and2foreign equations; transitive standard-three/subset. No redundant direct-print campaign.",
+  "complete_own_module_declarations": 71,
+  "complete_classification_counts": {
+    "generated_theorem": 27,
+    "written_private_theorem": 28,
+    "written_private_def": 13,
+    "written_public_def": 1,
+    "written_public_theorem": 2
+  },
+  "public_written_theorems": 2,
+  "public_written_definitions": 1,
+  "private_written_definitions_separate": 13,
+  "private_written_theorems_separate": 28,
+  "generated_theorems_separate": 27,
+  "foreign_namespace_generated": [
+    "I4SourceRemoteJetWitness.localGerm.eq_1",
+    "I4Weights.sourceC.eq_1"
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "inventory": "INVENTORY.json",
+  "classification": "TARGET_CLASSIFICATION.json",
+  "public_target_append": "PUBLIC_PROOF_NAMES_APPEND.json",
+  "controls": "CONTROL_RECEIPT.json",
+  "positive_record": "raw/producer/runs/controls-002/record.json",
+  "public_control_propositions": 9,
+  "private_control_adapters": 5,
+  "control_contract_before_source_and_helper": true,
+  "negative_record": "raw/producer/runs/collision-001/record.json",
+  "negative_result": "OmitONLYhxy fromactualjointwitnessclaim. L2r0x=y10 retainsLne0/all4remotepinsep exactparity. Actualcoefficientrows0and3coincide. Column0identity demands samefinitepairing1and0; independentlyprovedpassednonexistence simplifiesexactweakenedexistentialtoONEFalse. No construction-only failure or Gaussianconfigurationclaim.",
+  "sole_false_count": 1,
+  "negative_scope": "Drop only hxy from actual joint witness existence. L2,r0,x=y(1,0) retains all4 remote/pin quotient separations; actual B0=B3 forces same pairing1 and0 in column0, so separately passed nonexistence reduces the exact weakened existential to soleFalse. Genuine rank collision, not construction-only failure or Gaussian realization.",
+  "negative_harness_control_object": "Passed scratch Controls.olean counterexample only, never production/archive eligible.",
+  "execution_records": 8,
+  "execution_record_runs": [
+    "develop-001",
+    "develop-002",
+    "develop-003",
+    "controls-001",
+    "inventory-001",
+    "controls-002",
+    "collision-001",
+    "kernel-001"
+  ],
+  "execution_records_index": "EXECUTION_RECORD_INDEX.json",
+  "all_failures_retained": true,
+  "environment_recovery": "Environmentrevision70/rootresume reused alreadycompletedstrict00317:38:37 exactbytes/object, alloriginal3attempts untouched. Onlypreviouslypendingcontrols/inventory/mutation/onekernel executed.",
+  "identities": "SOURCE_OBJECT_IDENTITIES.json",
+  "lineage": "AUTHOR_HELPER_LINEAGE.json",
+  "author_side_review": "AUTHOR_SIDE_REVIEW.md",
+  "author_side_review_verdict": "Final exact-source/spec/retained-new-evidence PASS, no material finding or source amendment.",
+  "review_provider_distinct_credit": 0,
+  "separate_review_family_decision": {
+    "same_family_technical_credit": 0,
+    "actual_different_family_alignment_for53": "separate pending process; no presumed review",
+    "native_Claude_PASS": "5655734753 only unchanged SourceLifetimePairFiniteness plus2inputs; d2/conditionalupstream/norerun limitations retained. Not53/newleafreview."
+  },
+  "scientific_alignment_status": "NativeClaude5655734753 covers only unchanged SourceLifetimePairFiniteness plus2inputs, d2/conditionalupstream/no-rerun. It does not review53; actual different-family scientific alignment remains separate.",
+  "historical_pending_cut_records": "Original producer pending rootcut and ROOT_SOURCE_CUT earlier report-pending context preserved verbatim. Later explicit root FINALIZATION authorization supplies full-read status; process cut7e8 binds actual source/object without source change or replay.",
+  "root_source_cut_record": "ROOT_SOURCE_CUT.json",
+  "helper_integration": "HELPER_INTEGRATION.json",
+  "helper_archive": "raw/helper-arithmetic",
+  "helper_original_needed_section_sha256": "c6d7ee9d2198f5f31c5e323e8e3335c1289b12d6d6ffdab3803da278da560e55",
+  "helper_original_needed_section_bytes": 5404,
+  "helper_actual_files": [
+    "SECTION.lean.txt",
+    "IMPORTS.txt",
+    "FROZEN_PROVENANCE.json"
+  ],
+  "helper_integration_utc": "2026-10-26T17:35:01.692721+00:00",
+  "helper_integration_count": 1,
+  "helper_compilations": 0,
+  "helper_objects": 0,
+  "helper_kernel_audit_control_campaigns": 0,
+  "separate_helper_research_target_credit": 0,
+  "helper_complete_amendments": "HELPER_AMENDMENTS.json",
+  "helper_complete_diff": "HELPER_ACTUAL_AMENDMENTS.diff",
+  "helper_amendment_chronology": "Historical integration listed only explicit firstJetGerm_contDiff C2 formula cases. Supplemental custody record and complete two-hunk diff also account for firstJet_mul value-case rfl after develop001 unnecessarySimpa warning. Both records preserved; no source change or verification replay for custody completion.",
+  "helper_amendments": [
+    {
+      "name": "firstJetGerm_contDiff",
+      "change": "Replace fin_cases/dsimp-underfunction with explicitconstant/sine-formula C2cases; retainedpriorinterfaceevidence reused, no deliberatefailure/oldreplay.",
+      "before_attempt": "develop-001"
+    },
+    {
+      "name": "firstJet_mul",
+      "change": "Original all3 fin_cases/simpa becomes valuecase rfl and two derivativecase simpa, correcting strict001 unnecessarySimpa warning; mathematical product identity unchanged.",
+      "after_attempt": "develop-001",
+      "first_success": "develop-003"
+    }
+  ],
+  "reused_registry_baseline": {
+    "modules": 52,
+    "public_written_targets": 1113,
+    "Prop_targets": 1104,
+    "data_targets": 9,
+    "support_inputs": 32,
+    "qualification_publication": "677f8aef426a6f754ad9a77f122b6597ec4bc1e9"
+  },
+  "proposed_registry": {
+    "modules": 53,
+    "public_written_targets": 1115,
+    "Prop_targets": 1106,
+    "data_targets": 9,
+    "support_inputs": 32
+  },
+  "publication": {
+    "baseline_qualification_publication": "677f8aef426a6f754ad9a77f122b6597ec4bc1e9",
+    "baseline_native_RESULT": 6422828482,
+    "baseline_RESULT_actual_utc": "2026-10-26T17:26:35Z",
+    "baseline_board_mirror": 6422836367,
+    "published_registry_before_root_apply": {
+      "modules": 52,
+      "public_written_targets": 1113,
+      "Prop_targets": 1104,
+      "data_targets": 9,
+      "support_inputs": 32
+    },
+    "source_cut": "7e8ac1c7bd6a8d9c251cf6c99f5890379a82f0e0",
+    "source_cut_status": "ROOT_LOCAL_SOURCE_ONLY_COMMIT_NOT_PUBLISHED_AT_FINALIZATION_RELAY",
+    "root_source_cut_record": "ROOT_SOURCE_CUT.json",
+    "last_root_supplied_remote_precode": "4668dfc3d18193aea054d9c951835e4c55926adf",
+    "remote_context": "Includes independent H0 PRECODE, outside53 qualified manifest; no mathematical dependency change.",
+    "new_registry_status": "QUALIFIED53_PROPOSED_ROOT_APPLY_NOT_EXECUTED_BY_PACKAGING_AGENT",
+    "current_source_hosted_CI_claimed": false,
+    "combined53_hosted_build_claimed": false,
+    "native_result_release_alignment": "Root-owned subsequent actions, no execution/completion claimed by packaging."
+  },
+  "foreign_parallel_preservation": {
+    "preserve_untracked_path": "frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0Interface.lean",
+    "excluded_tracked_precode_pattern": "frontiers/source_derivative_gaussian_20261025/SOURCE_INTRINSIC_H0_INTERFACE*",
+    "excluded_future_evidence": "All independent intrinsic-H0 new evidence paths",
+    "staging_rule": "ExpectedHEAD7e8 and exact53 tracked/apply/staging allowlist; authorized foreign untracked H0 source is allowed and left untouched. Do not require a globally empty worktree.",
+    "serial_order": "53 registration/publication before independent H0; no H0 commit or source copy in53."
+  },
+  "parent_evidence_reuse": "Completed52 registry and applicable47/48 finite-trig/source/local-germ/Gram/kernel proofs/objects retained. No52law/helper or H0 dependency required. No old proof/build/kernel/audit/control/hash replay; recovery/session/process labels do not invalidate completed evidence.",
+  "archive_membership": "ARCHIVE_MEMBERSHIP.json",
+  "source_bindings": "SOURCE_BINDINGS.json",
+  "copy_plan": "COPY_PLAN.json",
+  "artifact_cache": "Root alone copies named final new ownobject once; all actual artifacts excluded from overlay/archive, no ilean produced.",
+  "scope": "Actual joint remote firstjet6 finite original-mode right inverses modulo all raw6 pins, ordinary order(valueX,dxX,dyX,valueY,dxY,dyY), and arbitrary real6x6-correction residual GramPosDef. Signed nonzero L/arbitrary real r, four literal remote/pin inequalities and x/y inequality only; no endpoint/endpoint separation or nonzero radius, repeated pins/r0 retained. Internally constructed coordinate-separated squared periodic factors and firstjet germs0/1/2; no supplied witness/rank/PosDef/inverse/target/law premise. No joint Gaussian law/density/independence, critical ties/Morse, secondjet12 rank, covariance floor, canonicalH0/Lifetime/Rice/Parent claim.",
+  "row_order": {
+    "raw_pins": [
+      "fM",
+      "fS",
+      "fxM",
+      "fxS",
+      "fyM",
+      "fyS"
+    ],
+    "joint_remote_firstjet": [
+      "valueX",
+      "dxX",
+      "dyX",
+      "valueY",
+      "dxY",
+      "dyY"
+    ],
+    "reused48_rows_at_each_remote": [
+      0,
+      1,
+      2
+    ]
+  },
+  "no_inference": [
+    "Joint posterior Gaussian law/density/finite-free independence",
+    "Critical-value ties/spatial incidence/global conditionalMorse",
+    "Two-site secondjet12 rank, covariance floor, canonicalH0/Lifetime/Rice/Parent closure",
+    "Independent H0 source/PRECODE/evidence qualification or registry append",
+    "Prior narrow pair-finiteness review as53 scientific alignment, scientific acceptance, Ready/merge/current-sourceCI/combined53 build"
+  ],
+  "qualification_complete_utc": "2026-10-26T17:44:13.931920+00:00",
+  "new_stage_checkpoint_utc": "2026-10-26T18:20:00Z",
+  "new_stage_terminal_utc": "2026-10-26T19:45:00Z",
+  "timer_reset": false,
+  "prior52_timers_unchanged": true,
+  "scientific_effect": "NONE",
+  "canonical_authority": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md"
+  ]
+}

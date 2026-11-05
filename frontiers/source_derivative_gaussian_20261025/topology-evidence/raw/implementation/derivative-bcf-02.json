@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/scratch/source-smooth-topology/DerivativeBCF.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit_code": 1,
+  "source_sha256_before": "e4af70bdfb3e1937eb6225a374ae728061bc16769820b061dc1fd800ba1de144",
+  "source_sha256_after": "e4af70bdfb3e1937eb6225a374ae728061bc16769820b061dc1fd800ba1de144",
+  "log_sha256": "aae03186f38619ed43b08574e5d3463727751fd3b016ac8c89eb044c5e122a81",
+  "elapsed_seconds": 22.259162187576294
+}

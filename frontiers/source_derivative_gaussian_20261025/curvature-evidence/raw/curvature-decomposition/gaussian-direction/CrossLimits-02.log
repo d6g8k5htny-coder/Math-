@@ -1,0 +1,65 @@
+/workspace/scratch/source-curvature-implementation/gaussian-direction/CrossLimits.lean:89:12: error: don't know how to synthesize implicit argument `a`
+  @Tendsto.sub ℝ ℝ PseudoMetricSpace.toUniformSpace.toTopologicalSpace Real.instSub
+    IsTopologicalAddGroup.to_continuousSub (fun x => ?m.132) (fun r => curvatureBeta L r ⬝ᵥ curvatureCross L r) (𝓝[>] 0)
+    ?m.132 (sourceContactCross L ᵥ* (sourcePinCovariance L)⁻¹ ⬝ᵥ sourceContactCross L) tendsto_const_nhds hdot
+context:
+L : ℝ
+hL : L ≠ 0
+hb : Tendsto (curvatureBeta L) (𝓝[>] 0) (𝓝 (sourceContactCross L ᵥ* (sourcePinCovariance L)⁻¹))
+hC : Tendsto (curvatureCross L) (𝓝[>] 0) (𝓝 (sourceContactCross L))
+hdot :
+  Tendsto (fun r => curvatureBeta L r ⬝ᵥ curvatureCross L r) (𝓝[>] 0)
+    (𝓝 (sourceContactCross L ᵥ* (sourcePinCovariance L)⁻¹ ⬝ᵥ sourceContactCross L))
+⊢ ℝ
+/workspace/scratch/source-curvature-implementation/gaussian-direction/CrossLimits.lean:89:12: error: don't know how to synthesize implicit argument `f`
+  @Tendsto.sub ℝ ℝ PseudoMetricSpace.toUniformSpace.toTopologicalSpace Real.instSub
+    IsTopologicalAddGroup.to_continuousSub (fun x => ?m.132) (fun r => curvatureBeta L r ⬝ᵥ curvatureCross L r) (𝓝[>] 0)
+    ?m.132 (sourceContactCross L ᵥ* (sourcePinCovariance L)⁻¹ ⬝ᵥ sourceContactCross L) tendsto_const_nhds hdot
+context:
+L : ℝ
+hL : L ≠ 0
+hb : Tendsto (curvatureBeta L) (𝓝[>] 0) (𝓝 (sourceContactCross L ᵥ* (sourcePinCovariance L)⁻¹))
+hC : Tendsto (curvatureCross L) (𝓝[>] 0) (𝓝 (sourceContactCross L))
+hdot :
+  Tendsto (fun r => curvatureBeta L r ⬝ᵥ curvatureCross L r) (𝓝[>] 0)
+    (𝓝 (sourceContactCross L ᵥ* (sourcePinCovariance L)⁻¹ ⬝ᵥ sourceContactCross L))
+⊢ ℝ → ℝ
+/workspace/scratch/source-curvature-implementation/gaussian-direction/CrossLimits.lean:89:31: error: don't know how to synthesize placeholder
+context:
+L : ℝ
+hL : L ≠ 0
+hb : Tendsto (curvatureBeta L) (𝓝[>] 0) (𝓝 (sourceContactCross L ᵥ* (sourcePinCovariance L)⁻¹))
+hC : Tendsto (curvatureCross L) (𝓝[>] 0) (𝓝 (sourceContactCross L))
+hdot :
+  Tendsto (fun r => curvatureBeta L r ⬝ᵥ curvatureCross L r) (𝓝[>] 0)
+    (𝓝 (sourceContactCross L ᵥ* (sourcePinCovariance L)⁻¹ ⬝ᵥ sourceContactCross L))
+⊢ ℝ
+/workspace/scratch/source-curvature-implementation/gaussian-direction/CrossLimits.lean:89:7: error: failed to infer `have` declaration type
+/workspace/scratch/source-curvature-implementation/gaussian-direction/CrossLimits.lean:80:79: error: unsolved goals
+L : ℝ
+hL : L ≠ 0
+hb : Tendsto (curvatureBeta L) (𝓝[>] 0) (𝓝 (sourceContactCross L ᵥ* (sourcePinCovariance L)⁻¹))
+hC : Tendsto (curvatureCross L) (𝓝[>] 0) (𝓝 (sourceContactCross L))
+hdot :
+  Tendsto (fun r => curvatureBeta L r ⬝ᵥ curvatureCross L r) (𝓝[>] 0)
+    (𝓝 (sourceContactCross L ᵥ* (sourcePinCovariance L)⁻¹ ⬝ᵥ sourceContactCross L))
+⊢ Tendsto (curvatureVariance L) (𝓝[>] 0) (𝓝 (sourceContactSchur L))
+/workspace/scratch/source-curvature-implementation/gaussian-direction/CrossLimits.lean:104:2: error: Tactic `apply` failed: could not unify the conclusion of `@tendsto_finsetSum`
+  Tendsto (fun b => ∑ c ∈ ?s, ?f c b) ?x (𝓝 (∑ c ∈ ?s, ?a c))
+with the goal
+  Tendsto (fun r => curvatureMean L r (sourcePrescribedPins r b)) (𝓝[>] 0)
+    (𝓝 (sourceContactCross L ᵥ* (sourcePinCovariance L)⁻¹ ⬝ᵥ ![b, 0, 0, 0, 0, 2]))
+
+Note: The full type of `@tendsto_finsetSum` is
+  ∀ {ι : Type ?u.40} {α : Type ?u.39} {M : Type ?u.38} [inst : TopologicalSpace M] [inst_1 : AddCommMonoid M]
+    [ContinuousAdd M] {f : ι → α → M} {x : Filter α} {a : ι → M} (s : Finset ι),
+    (∀ i ∈ s, Tendsto (f i) x (𝓝 (a i))) → Tendsto (fun b => ∑ c ∈ s, f c b) x (𝓝 (∑ c ∈ s, a c))
+
+L : ℝ
+hL : L ≠ 0
+b : ℝ
+hb : Tendsto (curvatureBeta L) (𝓝[>] 0) (𝓝 (sourceContactCross L ᵥ* (sourcePinCovariance L)⁻¹))
+hd : Tendsto (fun r => sourcePrescribedPins r b) (𝓝[>] 0) (𝓝 ![b, 0, 0, 0, 0, 2])
+⊢ Tendsto (fun r => curvatureMean L r (sourcePrescribedPins r b)) (𝓝[>] 0)
+    (𝓝 (sourceContactCross L ᵥ* (sourcePinCovariance L)⁻¹ ⬝ᵥ ![b, 0, 0, 0, 0, 2]))
+lean_exit=1

@@ -1,0 +1,14 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:257:4: error: Tactic `apply` failed: could not unify the conclusion of `Finset.sum_congr rfl`
+  Finset.sum ?m.85 ?m.82 = Finset.sum ?m.85 ?m.83
+with the goal
+  ∑ i, curvatureBeta L r i * scalarSeries (pinCoefficient L r i) ↑ω = curvatureMean L r (sourceConfluentPinsAt L r ω)
+
+Note: The full type of `Finset.sum_congr rfl` is
+  (∀ x ∈ ?m.85, ?m.82 x = ?m.83 x) → Finset.sum ?m.85 ?m.82 = Finset.sum ?m.85 ?m.83
+
+case e_a
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+ω : SmoothSample 2 L
+⊢ ∑ i, curvatureBeta L r i * scalarSeries (pinCoefficient L r i) ↑ω = curvatureMean L r (sourceConfluentPinsAt L r ω)

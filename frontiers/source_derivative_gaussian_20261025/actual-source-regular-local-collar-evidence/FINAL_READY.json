@@ -1,0 +1,74 @@
+{
+  "status": "ALL66_MATH_AND_IMMUTABLE_PRODUCER_BUNDLE_READY_AFTER_ACTUAL_ENTRY_CLOSURE",
+  "observed_utc": "2026-10-28T23:48:04.280801+00:00",
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualRegularLocalCollar.lean",
+    "bytes": 30286,
+    "sha256": "82823ac4360cbfb6eda057eb9fc212c870842703a14f5222454df70f19ed0d96",
+    "marker": [
+      30286,
+      1793230531194021301
+    ],
+    "first_observed_utc": "2026-10-28T23:35:31.204813+00:00",
+    "origin": "FIRST identity of necessary NEW actual version; cached once"
+  },
+  "eligible_own_object": {
+    "path": "/workspace/scratch/actual-source-regular-local-collar-construct/build/SourceActualRegularLocalCollar.olean",
+    "bytes": 1341664,
+    "sha256": "9050a31e570e121e268239f3374e9129037a78084bca7fc64f63ac0404bddad0",
+    "marker": [
+      1341664,
+      1793230535357287684
+    ],
+    "first_observed_utc": "2026-10-28T23:35:35.476549+00:00",
+    "origin": "FIRST identity of necessary NEW actual version; cached once"
+  },
+  "ordinary_source": {
+    "path": "/workspace/scratch/actual-source-regular-local-collar-construct/RegularLocalCollarControls.lean",
+    "bytes": 12876,
+    "sha256": "0be4442e2363a445a1c5a369c8c6559118b7cdd8fe4efb52b893a659b7091827",
+    "marker": [
+      12876,
+      1793230880862871243
+    ],
+    "first_observed_utc": "2026-10-28T23:41:20.876966+00:00",
+    "origin": "FIRST identity of necessary NEW actual version; cached once"
+  },
+  "harness": {
+    "path": "/workspace/scratch/actual-source-regular-local-collar-construct/FalseControl.lean",
+    "bytes": 296,
+    "sha256": "df0bf2d481625683dc037d06c661f165e15deeebf38c0244a4000b2615bdca22",
+    "marker": [
+      296,
+      1793231017895786470
+    ],
+    "first_observed_utc": "2026-10-28T23:43:37.898101+00:00",
+    "origin": "FIRST actual CLOSED negative harness identity BEFORE its sole invocation"
+  },
+  "production_ALL_owned_std3": 80,
+  "ordinary_ALL_owned_std3": 55,
+  "exactly_one_complete_final_production_kernel": true,
+  "ordinary_kernel_count": 0,
+  "sole_intended_closed_negative": true,
+  "helper_count": 1,
+  "helper_integration_count": 1,
+  "helper_executions": 0,
+  "final_documentary_layer_closure_still_pending_at_write": true,
+  "actual_tail_paths": [
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runs/final-documents001/receipt.json",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runs/final-documents001/stdout.log",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/runs/final-documents001/stderr.log",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/outer/final-documents001/RECEIPT.json",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/outer/final-documents001/RESULT.json",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/outer/final-documents001/stdout.log",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/outer/final-documents001/stderr.log",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/entry/final-documents001/RECEIPT.json",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/entry/final-documents001/RESULT.json",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/entry/final-documents001/stdout.log",
+    "/workspace/scratch/actual-source-regular-local-collar-construct/entry/final-documents001/stderr.log"
+  ],
+  "sourcecut_copy_registration_remote_CI": "Root-only separate records govern; no producer action/claim",
+  "final_technical_and_custody_review": "Separately attributable reviewer/root records; this producer makes no reading or acceptance claim for them",
+  "mathematical_replay_needed": false,
+  "global_goal": "ACTIVE_UNMET"
+}

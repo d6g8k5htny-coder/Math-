@@ -1,0 +1,752 @@
+{
+  "schema_version": 1,
+  "role": "Exact membership of byte-preserved new candidate producer/review/helper archives; no payload execution.",
+  "raw_member_count": 141,
+  "members": [
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/AUTHOR_HELPER_LINEAGE.json",
+      "archive": "actual-fold-candidate-evidence/raw/producer/AUTHOR_HELPER_LINEAGE.json",
+      "bytes": 1799
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/CONTROL_CONTRACT.md",
+      "archive": "actual-fold-candidate-evidence/raw/producer/CONTROL_CONTRACT.md",
+      "bytes": 1856
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/CONTROL_RECEIPT.json",
+      "archive": "actual-fold-candidate-evidence/raw/producer/CONTROL_RECEIPT.json",
+      "bytes": 2331
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/Controls.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/Controls.lean",
+      "bytes": 7218
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/EXECUTION_RECORD_INDEX.json",
+      "archive": "actual-fold-candidate-evidence/raw/producer/EXECUTION_RECORD_INDEX.json",
+      "bytes": 19993
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/FROZEN_SOURCE.json",
+      "archive": "actual-fold-candidate-evidence/raw/producer/FROZEN_SOURCE.json",
+      "bytes": 790
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/FalseDistanceMutation.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/FalseDistanceMutation.lean",
+      "bytes": 542
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/HANDOFF.json",
+      "archive": "actual-fold-candidate-evidence/raw/producer/HANDOFF.json",
+      "bytes": 2857
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/HELPER_INTEGRATION.json",
+      "archive": "actual-fold-candidate-evidence/raw/producer/HELPER_INTEGRATION.json",
+      "bytes": 1265
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/INVENTORY.json",
+      "archive": "actual-fold-candidate-evidence/raw/producer/INVENTORY.json",
+      "bytes": 14575
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/Inventory.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/Inventory.lean",
+      "bytes": 1079
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/PRODUCER_TAIL.lean.txt",
+      "archive": "actual-fold-candidate-evidence/raw/producer/PRODUCER_TAIL.lean.txt",
+      "bytes": 9176
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/RAW_LEDGER.jsonl",
+      "archive": "actual-fold-candidate-evidence/raw/producer/RAW_LEDGER.jsonl",
+      "bytes": 16211
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/REPORT.md",
+      "archive": "actual-fold-candidate-evidence/raw/producer/REPORT.md",
+      "bytes": 6054
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/SOURCE_OBJECT_IDENTITIES.json",
+      "archive": "actual-fold-candidate-evidence/raw/producer/SOURCE_OBJECT_IDENTITIES.json",
+      "bytes": 1861
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/STATIC_SCOPE.json",
+      "archive": "actual-fold-candidate-evidence/raw/producer/STATIC_SCOPE.json",
+      "bytes": 1220
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/TARGET_CLASSIFICATION.json",
+      "archive": "actual-fold-candidate-evidence/raw/producer/TARGET_CLASSIFICATION.json",
+      "bytes": 2701
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/finalize.py",
+      "archive": "actual-fold-candidate-evidence/raw/producer/finalize.py",
+      "bytes": 7200
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/run.py",
+      "archive": "actual-fold-candidate-evidence/raw/producer/run.py",
+      "bytes": 1262
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/controls-001/Controls.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/controls-001/Controls.lean",
+      "bytes": 7136
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/controls-001/FalseDistanceMutation.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/controls-001/FalseDistanceMutation.lean",
+      "bytes": 781
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/controls-001/Inventory.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/controls-001/Inventory.lean",
+      "bytes": 1079
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/controls-001/SourceActualFoldCandidate.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/controls-001/SourceActualFoldCandidate.lean",
+      "bytes": 34367
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/controls-001/output.log",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/controls-001/output.log",
+      "bytes": 198
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/controls-001/record.json",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/controls-001/record.json",
+      "bytes": 1843
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/controls-002/Controls.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/controls-002/Controls.lean",
+      "bytes": 7136
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/controls-002/FalseDistanceMutation.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/controls-002/FalseDistanceMutation.lean",
+      "bytes": 781
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/controls-002/Inventory.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/controls-002/Inventory.lean",
+      "bytes": 1079
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/controls-002/SourceActualFoldCandidate.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/controls-002/SourceActualFoldCandidate.lean",
+      "bytes": 34367
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/controls-002/output.log",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/controls-002/output.log",
+      "bytes": 4487
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/controls-002/record.json",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/controls-002/record.json",
+      "bytes": 1902
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/controls-003/Controls.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/controls-003/Controls.lean",
+      "bytes": 7205
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/controls-003/FalseDistanceMutation.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/controls-003/FalseDistanceMutation.lean",
+      "bytes": 542
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/controls-003/Inventory.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/controls-003/Inventory.lean",
+      "bytes": 1079
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/controls-003/SourceActualFoldCandidate.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/controls-003/SourceActualFoldCandidate.lean",
+      "bytes": 34367
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/controls-003/output.log",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/controls-003/output.log",
+      "bytes": 376
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/controls-003/record.json",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/controls-003/record.json",
+      "bytes": 1899
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/controls-004/Controls.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/controls-004/Controls.lean",
+      "bytes": 7218
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/controls-004/FalseDistanceMutation.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/controls-004/FalseDistanceMutation.lean",
+      "bytes": 542
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/controls-004/Inventory.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/controls-004/Inventory.lean",
+      "bytes": 1079
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/controls-004/SourceActualFoldCandidate.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/controls-004/SourceActualFoldCandidate.lean",
+      "bytes": 34367
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/controls-004/output.log",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/controls-004/output.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/controls-004/record.json",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/controls-004/record.json",
+      "bytes": 1898
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/false-distance-001/Controls.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/false-distance-001/Controls.lean",
+      "bytes": 7218
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/false-distance-001/FalseDistanceMutation.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/false-distance-001/FalseDistanceMutation.lean",
+      "bytes": 542
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/false-distance-001/Inventory.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/false-distance-001/Inventory.lean",
+      "bytes": 1079
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/false-distance-001/SourceActualFoldCandidate.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/false-distance-001/SourceActualFoldCandidate.lean",
+      "bytes": 34367
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/false-distance-001/output.log",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/false-distance-001/output.log",
+      "bytes": 253
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/false-distance-001/record.json",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/false-distance-001/record.json",
+      "bytes": 1951
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/inventory-001/Controls.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/inventory-001/Controls.lean",
+      "bytes": 7205
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/inventory-001/FalseDistanceMutation.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/inventory-001/FalseDistanceMutation.lean",
+      "bytes": 542
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/inventory-001/Inventory.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/inventory-001/Inventory.lean",
+      "bytes": 1079
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/inventory-001/SourceActualFoldCandidate.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/inventory-001/SourceActualFoldCandidate.lean",
+      "bytes": 34367
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/inventory-001/output.log",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/inventory-001/output.log",
+      "bytes": 8204
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/inventory-001/record.json",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/inventory-001/record.json",
+      "bytes": 1907
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/kernel-001/Controls.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/kernel-001/Controls.lean",
+      "bytes": 7218
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/kernel-001/FalseDistanceMutation.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/kernel-001/FalseDistanceMutation.lean",
+      "bytes": 542
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/kernel-001/Inventory.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/kernel-001/Inventory.lean",
+      "bytes": 1079
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/kernel-001/SourceActualFoldCandidate.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/kernel-001/SourceActualFoldCandidate.lean",
+      "bytes": 34367
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/kernel-001/output.log",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/kernel-001/output.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/kernel-001/record.json",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/kernel-001/record.json",
+      "bytes": 1693
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/strict-001/SourceActualFoldCandidate.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/strict-001/SourceActualFoldCandidate.lean",
+      "bytes": 5151
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/strict-001/output.log",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/strict-001/output.log",
+      "bytes": 603
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/strict-001/record.json",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/strict-001/record.json",
+      "bytes": 682
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/strict-002/SourceActualFoldCandidate.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/strict-002/SourceActualFoldCandidate.lean",
+      "bytes": 5293
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/strict-002/output.log",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/strict-002/output.log",
+      "bytes": 626
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/strict-002/record.json",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/strict-002/record.json",
+      "bytes": 681
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/strict-003/SourceActualFoldCandidate.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/strict-003/SourceActualFoldCandidate.lean",
+      "bytes": 5372
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/strict-003/output.log",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/strict-003/output.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/strict-003/record.json",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/strict-003/record.json",
+      "bytes": 682
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/strict-004/SourceActualFoldCandidate.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/strict-004/SourceActualFoldCandidate.lean",
+      "bytes": 7910
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/strict-004/output.log",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/strict-004/output.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/strict-004/record.json",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/strict-004/record.json",
+      "bytes": 681
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/strict-005/SourceActualFoldCandidate.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/strict-005/SourceActualFoldCandidate.lean",
+      "bytes": 34243
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/strict-005/output.log",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/strict-005/output.log",
+      "bytes": 3517
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/strict-005/record.json",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/strict-005/record.json",
+      "bytes": 681
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/strict-006/SourceActualFoldCandidate.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/strict-006/SourceActualFoldCandidate.lean",
+      "bytes": 34359
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/strict-006/output.log",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/strict-006/output.log",
+      "bytes": 780
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/strict-006/record.json",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/strict-006/record.json",
+      "bytes": 682
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/strict-007/SourceActualFoldCandidate.lean",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/strict-007/SourceActualFoldCandidate.lean",
+      "bytes": 34367
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/strict-007/output.log",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/strict-007/output.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/strict-007/record.json",
+      "archive": "actual-fold-candidate-evidence/raw/producer/runs/strict-007/record.json",
+      "bytes": 681
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/stage.py",
+      "archive": "actual-fold-candidate-evidence/raw/producer/stage.py",
+      "bytes": 1907
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-source-review/REPORT.md",
+      "archive": "actual-fold-candidate-evidence/raw/review/REPORT.md",
+      "bytes": 14762
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-distance/CandidateDistance.lean",
+      "archive": "actual-fold-candidate-evidence/raw/helper-distance/CandidateDistance.lean",
+      "bytes": 5688
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-distance/EXECUTION_RECORD_INDEX.json",
+      "archive": "actual-fold-candidate-evidence/raw/helper-distance/EXECUTION_RECORD_INDEX.json",
+      "bytes": 3317
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-distance/FROZEN_SECTION.lean",
+      "archive": "actual-fold-candidate-evidence/raw/helper-distance/FROZEN_SECTION.lean",
+      "bytes": 5504
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-distance/FROZEN_SOURCE.json",
+      "archive": "actual-fold-candidate-evidence/raw/helper-distance/FROZEN_SOURCE.json",
+      "bytes": 2695
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-distance/REPORT.md",
+      "archive": "actual-fold-candidate-evidence/raw/helper-distance/REPORT.md",
+      "bytes": 6110
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-distance/run_stage.py",
+      "archive": "actual-fold-candidate-evidence/raw/helper-distance/run_stage.py",
+      "bytes": 1328
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-distance/runs/strict-001/CandidateDistance.lean",
+      "archive": "actual-fold-candidate-evidence/raw/helper-distance/runs/strict-001/CandidateDistance.lean",
+      "bytes": 3880
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-distance/runs/strict-001/START.json",
+      "archive": "actual-fold-candidate-evidence/raw/helper-distance/runs/strict-001/START.json",
+      "bytes": 730
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-distance/runs/strict-001/output.log",
+      "archive": "actual-fold-candidate-evidence/raw/helper-distance/runs/strict-001/output.log",
+      "bytes": 975
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-distance/runs/strict-001/receipt.json",
+      "archive": "actual-fold-candidate-evidence/raw/helper-distance/runs/strict-001/receipt.json",
+      "bytes": 1047
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-distance/runs/strict-002/CandidateDistance.lean",
+      "archive": "actual-fold-candidate-evidence/raw/helper-distance/runs/strict-002/CandidateDistance.lean",
+      "bytes": 5030
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-distance/runs/strict-002/START.json",
+      "archive": "actual-fold-candidate-evidence/raw/helper-distance/runs/strict-002/START.json",
+      "bytes": 730
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-distance/runs/strict-002/output.log",
+      "archive": "actual-fold-candidate-evidence/raw/helper-distance/runs/strict-002/output.log",
+      "bytes": 518
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-distance/runs/strict-002/receipt.json",
+      "archive": "actual-fold-candidate-evidence/raw/helper-distance/runs/strict-002/receipt.json",
+      "bytes": 1045
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-distance/runs/strict-003/CandidateDistance.lean",
+      "archive": "actual-fold-candidate-evidence/raw/helper-distance/runs/strict-003/CandidateDistance.lean",
+      "bytes": 5688
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-distance/runs/strict-003/START.json",
+      "archive": "actual-fold-candidate-evidence/raw/helper-distance/runs/strict-003/START.json",
+      "bytes": 730
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-distance/runs/strict-003/output.log",
+      "archive": "actual-fold-candidate-evidence/raw/helper-distance/runs/strict-003/output.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-distance/runs/strict-003/receipt.json",
+      "archive": "actual-fold-candidate-evidence/raw/helper-distance/runs/strict-003/receipt.json",
+      "bytes": 1045
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-ridge-schur/FREEZE.json",
+      "archive": "actual-fold-candidate-evidence/raw/helper-ridge-schur/FREEZE.json",
+      "bytes": 1139
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-ridge-schur/NEEDED_SECTION.lean.txt",
+      "archive": "actual-fold-candidate-evidence/raw/helper-ridge-schur/NEEDED_SECTION.lean.txt",
+      "bytes": 6025
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-ridge-schur/REPORT.md",
+      "archive": "actual-fold-candidate-evidence/raw/helper-ridge-schur/REPORT.md",
+      "bytes": 3931
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-ridge-schur/RidgeSchur.lean",
+      "archive": "actual-fold-candidate-evidence/raw/helper-ridge-schur/RidgeSchur.lean",
+      "bytes": 6368
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-ridge-schur/run.py",
+      "archive": "actual-fold-candidate-evidence/raw/helper-ridge-schur/run.py",
+      "bytes": 1419
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-ridge-schur/runs/strict-001/output.log",
+      "archive": "actual-fold-candidate-evidence/raw/helper-ridge-schur/runs/strict-001/output.log",
+      "bytes": 202
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-ridge-schur/runs/strict-001/receipt.json",
+      "archive": "actual-fold-candidate-evidence/raw/helper-ridge-schur/runs/strict-001/receipt.json",
+      "bytes": 1082
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-ridge-schur/runs/strict-001/source.lean",
+      "archive": "actual-fold-candidate-evidence/raw/helper-ridge-schur/runs/strict-001/source.lean",
+      "bytes": 6426
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-ridge-schur/runs/strict-002/output.log",
+      "archive": "actual-fold-candidate-evidence/raw/helper-ridge-schur/runs/strict-002/output.log",
+      "bytes": 923
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-ridge-schur/runs/strict-002/receipt.json",
+      "archive": "actual-fold-candidate-evidence/raw/helper-ridge-schur/runs/strict-002/receipt.json",
+      "bytes": 1152
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-ridge-schur/runs/strict-002/source.lean",
+      "archive": "actual-fold-candidate-evidence/raw/helper-ridge-schur/runs/strict-002/source.lean",
+      "bytes": 6426
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-ridge-schur/runs/strict-003/output.log",
+      "archive": "actual-fold-candidate-evidence/raw/helper-ridge-schur/runs/strict-003/output.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-ridge-schur/runs/strict-003/receipt.json",
+      "archive": "actual-fold-candidate-evidence/raw/helper-ridge-schur/runs/strict-003/receipt.json",
+      "bytes": 1343
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-ridge-schur/runs/strict-003/source.lean",
+      "archive": "actual-fold-candidate-evidence/raw/helper-ridge-schur/runs/strict-003/source.lean",
+      "bytes": 6368
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-inertia/EXECUTION_RECORD_INDEX.json",
+      "archive": "actual-fold-candidate-evidence/raw/helper-inertia/EXECUTION_RECORD_INDEX.json",
+      "bytes": 3810
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-inertia/Inertia.lean",
+      "archive": "actual-fold-candidate-evidence/raw/helper-inertia/Inertia.lean",
+      "bytes": 5290
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-inertia/REPORT.md",
+      "archive": "actual-fold-candidate-evidence/raw/helper-inertia/REPORT.md",
+      "bytes": 7444
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-inertia/compile.py",
+      "archive": "actual-fold-candidate-evidence/raw/helper-inertia/compile.py",
+      "bytes": 1233
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-inertia/environment.json",
+      "archive": "actual-fold-candidate-evidence/raw/helper-inertia/environment.json",
+      "bytes": 1902
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-inertia/logs/run-001/Inertia.lean",
+      "archive": "actual-fold-candidate-evidence/raw/helper-inertia/logs/run-001/Inertia.lean",
+      "bytes": 3976
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-inertia/logs/run-001/compile.py",
+      "archive": "actual-fold-candidate-evidence/raw/helper-inertia/logs/run-001/compile.py",
+      "bytes": 1233
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-inertia/logs/run-001/receipt.json",
+      "archive": "actual-fold-candidate-evidence/raw/helper-inertia/logs/run-001/receipt.json",
+      "bytes": 613
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-inertia/logs/run-001/stderr.log",
+      "archive": "actual-fold-candidate-evidence/raw/helper-inertia/logs/run-001/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-inertia/logs/run-001/stdout.log",
+      "archive": "actual-fold-candidate-evidence/raw/helper-inertia/logs/run-001/stdout.log",
+      "bytes": 2967
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-inertia/logs/run-002/Inertia.lean",
+      "archive": "actual-fold-candidate-evidence/raw/helper-inertia/logs/run-002/Inertia.lean",
+      "bytes": 4960
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-inertia/logs/run-002/compile.py",
+      "archive": "actual-fold-candidate-evidence/raw/helper-inertia/logs/run-002/compile.py",
+      "bytes": 1233
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-inertia/logs/run-002/receipt.json",
+      "archive": "actual-fold-candidate-evidence/raw/helper-inertia/logs/run-002/receipt.json",
+      "bytes": 613
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-inertia/logs/run-002/stderr.log",
+      "archive": "actual-fold-candidate-evidence/raw/helper-inertia/logs/run-002/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-inertia/logs/run-002/stdout.log",
+      "archive": "actual-fold-candidate-evidence/raw/helper-inertia/logs/run-002/stdout.log",
+      "bytes": 432
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-inertia/logs/run-003/Inertia.lean",
+      "archive": "actual-fold-candidate-evidence/raw/helper-inertia/logs/run-003/Inertia.lean",
+      "bytes": 4952
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-inertia/logs/run-003/compile.py",
+      "archive": "actual-fold-candidate-evidence/raw/helper-inertia/logs/run-003/compile.py",
+      "bytes": 1233
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-inertia/logs/run-003/receipt.json",
+      "archive": "actual-fold-candidate-evidence/raw/helper-inertia/logs/run-003/receipt.json",
+      "bytes": 613
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-inertia/logs/run-003/stderr.log",
+      "archive": "actual-fold-candidate-evidence/raw/helper-inertia/logs/run-003/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-inertia/logs/run-003/stdout.log",
+      "archive": "actual-fold-candidate-evidence/raw/helper-inertia/logs/run-003/stdout.log",
+      "bytes": 464
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-inertia/logs/run-004/Inertia.lean",
+      "archive": "actual-fold-candidate-evidence/raw/helper-inertia/logs/run-004/Inertia.lean",
+      "bytes": 5290
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-inertia/logs/run-004/compile.py",
+      "archive": "actual-fold-candidate-evidence/raw/helper-inertia/logs/run-004/compile.py",
+      "bytes": 1233
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-inertia/logs/run-004/receipt.json",
+      "archive": "actual-fold-candidate-evidence/raw/helper-inertia/logs/run-004/receipt.json",
+      "bytes": 612
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-inertia/logs/run-004/stderr.log",
+      "archive": "actual-fold-candidate-evidence/raw/helper-inertia/logs/run-004/stderr.log",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-inertia/logs/run-004/stdout.log",
+      "archive": "actual-fold-candidate-evidence/raw/helper-inertia/logs/run-004/stdout.log",
+      "bytes": 0
+    }
+  ],
+  "excluded_compiled_artifacts": [
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/build/SourceActualFoldCandidate.olean",
+      "reason": "Compiled/build artifact; archive excludes all objects and build directories."
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/controls-004/Controls.olean",
+      "reason": "Compiled/build artifact; archive excludes all objects and build directories."
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/inventory-001/Inventory.olean",
+      "reason": "Compiled/build artifact; archive excludes all objects and build directories."
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/strict-003/SourceActualFoldCandidate.olean",
+      "reason": "Compiled/build artifact; archive excludes all objects and build directories."
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/strict-004/SourceActualFoldCandidate.olean",
+      "reason": "Compiled/build artifact; archive excludes all objects and build directories."
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-construct/runs/strict-007/SourceActualFoldCandidate.olean",
+      "reason": "Compiled/build artifact; archive excludes all objects and build directories."
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-distance/build/CandidateDistance.olean",
+      "reason": "Compiled/build artifact; archive excludes all objects and build directories."
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-ridge-schur/build/RidgeSchur.ilean",
+      "reason": "Compiled/build artifact; archive excludes all objects and build directories."
+    },
+    {
+      "source": "/workspace/scratch/actual-fold-candidate-ridge-schur/build/RidgeSchur.olean",
+      "reason": "Compiled/build artifact; archive excludes all objects and build directories."
+    }
+  ],
+  "preservation": "Every retained raw file was copied byte-for-byte, including original whitespace and failures. No raw content was reformatted.",
+  "old_mathematical_verification_replays": 0
+}

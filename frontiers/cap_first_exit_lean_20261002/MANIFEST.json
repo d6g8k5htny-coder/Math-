@@ -966,13 +966,13 @@
   },
   {
    "path": "README.md",
-   "bytes": 31519,
-   "sha256": "7eb062ebd12cb181bab71d00fbc3f86d9b8b515222ec5cedf01d50246d0e644a"
+   "bytes": 36824,
+   "sha256": "92bf94921beeb0e093ea12448a33804895a3be2d0785bcf194c60aa1bc91e3ff"
   },
   {
    "path": "gate.py",
-   "bytes": 15645,
-   "sha256": "5b94d6d0d9bccb1cef009bc17a32cfc66999f4d286c7784435d60dd429a70bb6"
+   "bytes": 17705,
+   "sha256": "8f6f6c2909c52a80053676ca242632e63be3710853ea0d1fe2a4e7d5ac8233c2"
   },
   {
    "path": "lake-manifest.json",
@@ -991,8 +991,1089 @@
   },
   {
    "path": "test_gate.py",
-   "bytes": 19385,
-   "sha256": "9914ce00b01dfd17fa3b0ad1a7e2cc02b31312b0678c63c1eb85054d0b88dda6"
+   "bytes": 27420,
+   "sha256": "3c452210dcd7b831566a8351b49e2ec1c379e266c1e05309402df310c4d670ce"
   }
- ]
+ ],
+ "source_admission": {
+  "helper_sha256": "04b98b2a34f294bd7049f072ea14cf917e9c1a1e78578cd64d4df1b334d8f497",
+  "census": [
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.path_meets_frontier",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.preconnected_subset_of_frontier_disjoint",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.CapHyp",
+    "kind": "structure",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit.CapHyp",
+    "name": "CapFirstExit.CapHyp.s_le_f_M",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit.CapHyp",
+    "name": "CapFirstExit.CapHyp.barrier",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.connectionLevels",
+    "kind": "def",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit.CapHyp",
+    "name": "CapFirstExit.CapHyp.maximin_isGreatest",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit.CapHyp",
+    "name": "CapFirstExit.CapHyp.maximin_eq",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit.CapHyp",
+    "name": "CapFirstExit.CapHyp.component_separated",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.component_joined",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit.CapHyp",
+    "name": "CapFirstExit.CapHyp.elder_merge_iff_closed",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit.CapHyp",
+    "name": "CapFirstExit.CapHyp.elder_merge_iff_open",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit.CapHyp",
+    "name": "CapFirstExit.CapHyp.joinedLevels",
+    "kind": "def",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit.CapHyp",
+    "name": "CapFirstExit.CapHyp.elder_death_level",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit.CapHyp",
+    "name": "CapFirstExit.CapHyp.path_through_saddle",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit.CapHyp",
+    "name": "CapFirstExit.CapHyp.saddle_cut",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit.CapHyp",
+    "name": "CapFirstExit.CapHyp.congr",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.isClosed_connectedComponentIn",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit.CapHyp",
+    "name": "CapFirstExit.CapHyp.older_peak",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit.CapHyp",
+    "name": "CapFirstExit.CapHyp.elder_alive",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit.CapHyp",
+    "name": "CapFirstExit.CapHyp.olderPeakLevels",
+    "kind": "def",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit.CapHyp",
+    "name": "CapFirstExit.CapHyp.elder_death_level_peak",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.frontier_image_subset",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit.CapHyp",
+    "name": "CapFirstExit.CapHyp.map",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit.CapHyp",
+    "name": "CapFirstExit.CapHyp.map_saddle",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.frontier_cylinder",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.isCompact_cylinder",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.torusCover",
+    "kind": "def",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.torusCover_continuous",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.torusCover_isOpenMap",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.CapHyp.toTorus",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.convex_zeros_between",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.convex_zeros_right",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.convex_zeros_left",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridge_profile",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridge_capHyp",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridge_saddle_strict",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.strongConcave_le_of_hasFDerivAt",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.slice_le",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.slice_ridge_bound",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.slice_curved",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.slice_hasFDerivAt",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridge_hasDerivAt",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridge_capHyp_of_slices",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridge_inputs_of_joint",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.sp_curved_side_constants",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.convexOn_add_node",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.two_node_bound",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.slice_gradient_bound",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridge_capHyp_sp",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.hermite_gap_le",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.hermite_m_ge_two",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridge_capHyp_normalized",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.strongConcaveOn_of_hessian",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.transverse_hessian_le",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.hessian_increment",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.slices_strongConcave",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridge_capHyp_H1",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.slice_critical_unique",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.slice_critical_exists",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.isInvertible_of_negDef",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridge_hasStrictFDerivAt",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridge_differentiable",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridge_exists",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.hessian_increment_D",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.transverse_hessian_le_D",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.slices_strongConcave_D",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridge_capHyp_source",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.convex_deriv_sign",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.two_node_deriv_bound",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.slice_gradient_deriv_bound",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.schur_max",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.trilinear_lower",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.l12_constants",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.transverse_hessian_eq",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridge_second_identity",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridge_hconv",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.dx_grad_increment",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.l9_arith",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.l12_lower",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridge_source_facts",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridge_capHyp_C3",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.hermite_gap_le_concave",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.third_deriv_exists_two",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.fxxx_lower",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridge_capHyp_C4",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.hessian_x_bound",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.hessian_r_bound",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.axis_convexConcave",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.block_nonneg",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.block_bound_collar",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridge_capHyp_C5",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridge_capHyp_D",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.block_of_norm",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.collar_subset_open",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridge_capHyp_E",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.toyF",
+    "kind": "def",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.toyRidge",
+    "kind": "def",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.toy_ridge_ge",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.toy_frontier",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.toy_capHyp",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.toy_saddle_strict",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.toy_saddle_cut",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.toy_death_level",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.toy_f_M",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.toy_f_S",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.toy_needs_C2",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.toy_needs_C1",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.toy_needs_C3",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridgeToyF",
+    "kind": "def",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridgeToy_capHyp",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridgeToy_saddle_strict",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridgeToy_joint",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridgeToy_slices",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.spToyF",
+    "kind": "def",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.spToy_capHyp",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.spToy_normalized",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.h1ToyF",
+    "kind": "def",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.h1Toy_capHyp",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.h1Toy_ridge_differentiable",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.h1Toy_source",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.h1Toy_C3",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.h1Toy_C4",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.h1Toy_D",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.h1Toy_E",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.quarticToyF",
+    "kind": "def",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.quarticToy_E",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit.CapHyp",
+    "name": "CapFirstExit.CapHyp.of_const_mul",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.hasFDerivAt_zero_const_mul_iff",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.iteratedFDeriv_const_mul_of_isOpen",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridge_capHyp_K",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridge_capHyp_norm_K",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.iteratedFDeriv_three_swap\u2081\u2082",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.iteratedFDeriv_three_swap\u2082\u2083",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.block_of_partial",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.ridge_capHyp_blocks",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.mixedToyF",
+    "kind": "def",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.mixedToy_blocks",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.addCircle_locallyConnectedSpace",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.torus_locallyConnectedSpace",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.torus_capHyp_blocks",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.torus_elder_death_level_blocks",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.circleChart",
+    "kind": "def",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.circleChart_continuous",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.circleChart_coe",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.mixedToy_hasFDerivAt",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.mixedToy_contDiff",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.mixedToy_iteratedFDeriv_two",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.mixedToy_iteratedFDeriv_three",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.mixedToy_iteratedFDeriv_four",
+    "kind": "theorem",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.torusToyF",
+    "kind": "def",
+    "privacy": "public"
+   },
+   {
+    "module": "CapFirstExit",
+    "namespace": "CapFirstExit",
+    "name": "CapFirstExit.torusToy_elder",
+    "kind": "theorem",
+    "privacy": "public"
+   }
+  ],
+  "continuations": {
+   "CapFirstExit": {
+    "sha256": "6e2bfaff8633d7a573d2dd95910470fd07218cc46f82728e1def1176536699f5",
+    "lines": 4401
+   }
+  },
+  "declarations": {
+   "CapFirstExit": {
+    "sha256": "0cdc6e7faaf3b6504b305b197f9e28c82afc9a34bfcdb98a4fb039f66c7792cf",
+    "lines": 152
+   }
+  }
+ }
 }

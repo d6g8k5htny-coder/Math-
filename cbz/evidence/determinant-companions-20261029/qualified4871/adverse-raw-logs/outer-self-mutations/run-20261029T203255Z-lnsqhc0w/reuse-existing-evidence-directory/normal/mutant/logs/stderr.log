@@ -1,0 +1,15 @@
+test_output_children_are_retained_and_source_and_symlink_paths_refuse (test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse) ... FAIL
+
+======================================================================
+FAIL: test_output_children_are_retained_and_source_and_symlink_paths_refuse (test_cbz_mutation_runner.OuterMutationRunnerTests.test_output_children_are_retained_and_source_and_symlink_paths_refuse)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/_temp/determinant-outer-self-mutations/run-20261029T203255Z-lnsqhc0w/unittest_harness.py", line 23, in wrapped
+    return _original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: PosixPath('/tmp/outer-mutation-regression-5wssojkx/reports') == PosixPath('/tmp/outer-mutation-regression-5wssojkx/reports')
+
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+FAILED (failures=1)

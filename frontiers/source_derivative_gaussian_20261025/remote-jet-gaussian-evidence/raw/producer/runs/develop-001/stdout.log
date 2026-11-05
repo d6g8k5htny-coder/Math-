@@ -1,0 +1,79 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetGaussian.lean:59:4: error: Type mismatch: After simplification, term
+  smoothSourceField_derivative_series 2 hL ω 0 x fun i => i.elim0
+ has type
+  @Eq ℝ (smoothSourceField 2 L ω x)
+    (scalarSeries (derivativeCoefficient 2 L 0 x fun i => i.elim0) (sampleInclusion 2 L ω))
+but is expected to have type
+  @Eq ℝ (smoothSourceField 2 L ω x) (scalarSeries (fun m => modeCoefficient 2 L m x) (sampleInclusion 2 L ω))
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetGaussian.lean:134:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  scalarSeries (remoteJetCoefficient L x j) fun m => sampleInclusion 2 L ω m + ∑ j, rawPinCoefficient L r j m * ?m.95 j
+in the target expression
+  (scalarSeries (remoteJetCoefficient L x j) fun m =>
+      ↑ω m + ∑ i, rawPinCoefficient L r i m * ((rawPinCovariance L r)⁻¹ *ᵥ (t - rawPins L r ω)) i) =
+    ((fun j => scalarSeries (remoteJetCoefficient L x j) (sampleInclusion 2 L ω)) +
+        remoteRegressionMatrix L r x *ᵥ (t - rawPins L r ω))
+      j
+
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+x : Fin 2 → ℝ
+t : Fin 6 → ℝ
+ω : SmoothSample 2 L
+j : Fin 6
+⊢ (scalarSeries (remoteJetCoefficient L x j) fun m =>
+      ↑ω m + ∑ i, rawPinCoefficient L r i m * ((rawPinCovariance L r)⁻¹ *ᵥ (t - rawPins L r ω)) i) =
+    ((fun j => scalarSeries (remoteJetCoefficient L x j) (sampleInclusion 2 L ω)) +
+        remoteRegressionMatrix L r x *ᵥ (t - rawPins L r ω))
+      j
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetGaussian.lean:154:91: error: unsolved goals
+case e'_3
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+x : Fin 2 → ℝ
+ω : SmoothSample 2 L
+j : Fin 6
+hs :
+  HasSum (fun b => ∑ i, remoteRegressionMatrix L r x j i * (rawPinCoefficient L r i b * sampleInclusion 2 L ω b))
+    (∑ i, remoteRegressionMatrix L r x j i * ∑' (b : SourceMode 2), rawPinCoefficient L r i b * sampleInclusion 2 L ω b)
+ht :
+  HasSum
+    (fun b =>
+      remoteJetCoefficient L x j b * sampleInclusion 2 L ω b -
+        ∑ i, remoteRegressionMatrix L r x j i * (rawPinCoefficient L r i b * sampleInclusion 2 L ω b))
+    (∑' (b : SourceMode 2), remoteJetCoefficient L x j b * sampleInclusion 2 L ω b -
+      ∑ i,
+        remoteRegressionMatrix L r x j i * ∑' (b : SourceMode 2), rawPinCoefficient L r i b * sampleInclusion 2 L ω b)
+⊢ ((fun j => scalarSeries (remoteJetCoefficient L x j) (sampleInclusion 2 L ω)) -
+        remoteRegressionMatrix L r x *ᵥ fun i => scalarSeries (rawPinCoefficient L r i) (sampleInclusion 2 L ω))
+      j =
+    ∑' (b : SourceMode 2), remoteJetCoefficient L x j b * sampleInclusion 2 L ω b -
+      ∑ i, remoteRegressionMatrix L r x j i * ∑' (b : SourceMode 2), rawPinCoefficient L r i b * sampleInclusion 2 L ω b
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetGaussian.lean:264:40: error(lean.unknownIdentifier): Unknown identifier `toLp`
+
+Note: It is not possible to treat `toLp` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetGaussian.lean:265:28: error(lean.unknownIdentifier): Unknown identifier `toLp`
+
+Note: It is not possible to treat `toLp` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetGaussian.lean:269:33: error(lean.unknownIdentifier): Unknown identifier `toLp`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetGaussian.lean:270:52: error(lean.unknownIdentifier): Unknown identifier `toLp`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetGaussian.lean:270:8: error: `fun_prop` was unable to prove `Measurable fun v => sorry`
+
+Issues:
+  No theorems found for `sorryAx` in order to prove `Measurable fun v => sorry`
+  Failed to infer `(?m.65 : Type ?u.45)` when applying theorem `measurable_const`.
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetGaussian.lean:266:44: error: unsolved goals
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+x : Fin 2 → ℝ
+t : Fin 6 → ℝ
+hp : Measurable (rawPosteriorSample hL r t)
+⊢ Measure.map (fun ω => sorry) ((rawPinKernel hL r) t) = multivariateGaussian sorry (remoteResidualCovariance L r x)
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetGaussian.lean:293:44: error(lean.unknownIdentifier): Unknown identifier `toLp`
+
+Note: It is not possible to treat `toLp` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetGaussian.lean:294:32: error(lean.unknownIdentifier): Unknown identifier `toLp`
+
+Note: It is not possible to treat `toLp` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.

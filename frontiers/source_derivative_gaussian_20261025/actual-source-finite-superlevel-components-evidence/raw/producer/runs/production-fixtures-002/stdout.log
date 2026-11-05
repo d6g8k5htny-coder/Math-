@@ -1,0 +1,21 @@
+SourceActualFiniteSuperlevelComponents.lean:198:6: error: Type mismatch: After simplification, term
+  coordinate_max_zero hx0
+ has type
+  @Eq (ℝ ⧸ AddSubgroup.zmultiples 2) (↑(x 0)) 0
+but is expected to have type
+  @Eq (AddCircle 2) (↑(x ⟨0, ⋯⟩)) 0
+SourceActualFiniteSuperlevelComponents.lean:200:6: error: Type mismatch: After simplification, term
+  coordinate_max_zero hx1
+ has type
+  @Eq (ℝ ⧸ AddSubgroup.zmultiples 2) (↑(x 1)) 0
+but is expected to have type
+  @Eq (AddCircle 2) (↑(x ⟨1, ⋯⟩)) 0
+SourceActualFiniteSuperlevelComponents.lean:260:10: error: Type mismatch: After simplification, term
+  fixture_wholeLocalTopology
+ has type
+  LocallyPathConnectedSpace
+    ↑(TorusFiltration.superlevel_set (SourceActualFoldTorus.actualTorusField fixtureTorusField._proof_1 fixtureSample)
+        4)
+but is expected to have type
+  LocallyPathConnectedSpace
+    ↑(TorusFiltration.superlevel_set (SourceActualFoldTorus.actualTorusField ⋯ fixtureSample) (- -4))

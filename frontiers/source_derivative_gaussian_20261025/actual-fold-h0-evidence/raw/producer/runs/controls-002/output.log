@@ -1,0 +1,14 @@
+/workspace/scratch/actual-fold-h0-construct/ActualH0Controls.lean:12:0: error: Definition `negativePeriod` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/workspace/scratch/actual-fold-h0-construct/ActualH0Controls.lean:43:68: error(lean.unknownIdentifier): Unknown identifier `T`
+/workspace/scratch/actual-fold-h0-construct/ActualH0Controls.lean:58:38: error: Function expected at
+  actual_typed_conversion sample r R z
+but this term has type
+  ElderTrap (actualTorusField negativePeriod sample) (torusProjection 2 (-1) (endpointM r))
+    (torusPhysicalMap (-1) r (olderPoint z)) 3 (3 - r ^ 3) (torusPhysicalMap (-1) r '' leftBox R)
+
+Note: Expected a function because this term is being applied to the argument
+  T
+/workspace/scratch/actual-fold-h0-construct/ActualH0Controls.lean:69:3: error(lean.unknownIdentifier): Unknown identifier `T.strictClearanceSet_eq_Iio`
+/workspace/scratch/actual-fold-h0-construct/ActualH0Controls.lean:69:31: error(lean.unknownIdentifier): Unknown identifier `T.strictClearanceDeath_eq`

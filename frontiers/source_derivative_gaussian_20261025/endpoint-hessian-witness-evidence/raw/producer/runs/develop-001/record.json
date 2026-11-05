@@ -1,0 +1,33 @@
+{
+  "kind": "develop",
+  "run": "develop-001",
+  "start": "2026-10-26T16:15:15.049960+00:00",
+  "end": "2026-10-26T16:15:27.812444+00:00",
+  "seconds": 12.762497215997428,
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianWitness.lean",
+    "-o",
+    "/workspace/scratch/endpoint-hessian-witness-construct/runs/develop-001/SourceEndpointHessianWitness.olean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 1,
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianWitness.lean",
+    "bytes": 16402,
+    "sha256": "3ddd9c43ef37542d9ff9ad5cd5c0dadb6a49fd4804594da11492160176de4325"
+  },
+  "stdout": {
+    "path": "/workspace/scratch/endpoint-hessian-witness-construct/runs/develop-001/stdout.log",
+    "bytes": 2303,
+    "sha256": "305f1609abbb31f591feae8a04cb26beb5124c77bebe600618e49226175dcb5b"
+  },
+  "stderr": {
+    "path": "/workspace/scratch/endpoint-hessian-witness-construct/runs/develop-001/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

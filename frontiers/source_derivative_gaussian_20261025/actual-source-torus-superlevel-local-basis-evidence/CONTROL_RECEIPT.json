@@ -1,0 +1,61 @@
+{
+  "adopted_controls": "CONTROL_CONTRACT.md;14788B/172904daf50da11c6f3a978f7d86f80d8988a9a426d4f7ee350492ee488a5139 reused root first identity",
+  "method_amendment": {
+    "document": "CONTROL_PLAN_AMENDMENT_001.md",
+    "root_first_ID": "3443B/d2762380394ba97f7c1754e19339e6ed2814d5eb8a16e1c36305c2d4a46751fb",
+    "native": 6474887692,
+    "adopted_utc": "2026-10-28T16:40:08.702606+00:00",
+    "native_created_at": "2026-10-28T16:40:09Z",
+    "full_body_match": "carried root GET MATCH16:40:16; no external producer action",
+    "affected_ACK": "B full adopted amendment+ID personally read/ACKed before dependent sine text; ordinary004 records identical adoption"
+  },
+  "positive": {
+    "recorded_utc": "2026-10-28T16:49:18.283877+00:00",
+    "source": {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean",
+      "bytes": 25582,
+      "sha256": "5e50adc0cf844933382d817d7e45a25e8b51f8c35d9c7ae4cd8588384f141bfa",
+      "identity_origin": "reused prior own first identity; unchanged size/mtime"
+    },
+    "object": {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/build/Controls.olean",
+      "bytes": 1551368,
+      "sha256": "38924be546a79c2190e98cfc6ccba0cfcee34d1a7789a34b61a4d8cf2c47b71c",
+      "identity_origin": "FIRST ID of newly generated OWN ordinary Controls object after controls-002 PASS and BEFORE sole importing negative"
+    },
+    "binding_receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-002/receipt.json",
+    "source_object_binding": "controls-002 exact command produced this own object; no production/private/helper concatenation or copy",
+    "coverage": "Separate ordinary Controls, not production kernel"
+  },
+  "sole_negative": {
+    "identity": {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/FalseMutation.lean",
+      "bytes": 131,
+      "sha256": "1daab937914f0847ad3a4846cda60b3ae1ae17456599cc6ce33698dc0764f0ad",
+      "identity_origin": "reused prior own first identity; unchanged size/mtime"
+    },
+    "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/receipt.json",
+    "import": "ONLY Controls, the already passed ordinary object",
+    "claim": "strictBasisAtSaddle",
+    "reduction": "simp only [not_strictBasisAtSaddle]",
+    "expected_exit": 1,
+    "actual_exit": 1,
+    "actual_stdout": {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/stdout.log",
+      "bytes": 129,
+      "sha256": "f0a969fdd4cd321772623fde52697833c6069510437d25a9a9f12843fdf463d6",
+      "identity_origin": "first identity of newly created/changed OWN payload"
+    },
+    "actual_stderr": {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "first identity of newly created/changed OWN payload"
+    },
+    "observed_only_goal": "False",
+    "failures_due_to_API_names_private_access_wrong_carrier": false
+  },
+  "production_kernel_scope": "Does not include ordinary Controls; Controls strict PASS independently recorded",
+  "negative_count": 1,
+  "new_production_kernel_count": 1
+}

@@ -1,0 +1,841 @@
+{
+  "schema": 1,
+  "status": "PASS_ACTUAL_LOCAL_SOURCE_POSITIVES_NEGATIVES_NAMED_AXIOMS_AND_EIGHT_STANDARD_KERNEL_REPLAYS",
+  "recorded_utc": "2026-10-17T21:56:49.837959+00:00",
+  "author": "OpenAI/Codex Root01a11cbf; separate interval source author",
+  "source_baseline": "Math-dc7aca2f9adaf6d6d986b0e34b7b39c8fc3cf417",
+  "native_claim": "main419/6240826507",
+  "supervised_queue_exit": 0,
+  "serial_summary": {
+    "path": "clearance/SERIAL_FINAL_RESULT.json",
+    "bytes": 1065,
+    "sha256": "31cad0f2c49b601bd913c3e4796b4de0f6cb85e4246bce7b3b3cbc9b040d9763"
+  },
+  "serial_terminal_utc": "2026-10-17T21:55:49.033218+00:00",
+  "actual_serial_phases": [
+    {
+      "name": "bridge-audit",
+      "exit": 0,
+      "seconds": 190.28646174999997,
+      "start": "2026-10-17T21:34:35.770476+00:00",
+      "end": "2026-10-17T21:37:46.056740+00:00",
+      "receipt": {
+        "path": "clearance/evidence/bridge-audit.json",
+        "bytes": 3063,
+        "sha256": "c28d52f795dbd1890540402c80be0a1ebeaa295562439516280a4120b2eb0439"
+      },
+      "stdout": {
+        "path": "clearance/evidence/bridge-audit.stdout",
+        "bytes": 1458,
+        "sha256": "deaf1e91848eda314c103d701aa88013b19320c5d49782783abf077705b61bfe"
+      },
+      "stderr": {
+        "path": "clearance/evidence/bridge-audit.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "negative",
+      "exit": 1,
+      "seconds": 95.534256667,
+      "start": "2026-10-17T21:37:46.058019+00:00",
+      "end": "2026-10-17T21:39:21.592166+00:00",
+      "receipt": {
+        "path": "clearance/evidence/negative.json",
+        "bytes": 3062,
+        "sha256": "f050de23ba5d62dc399e6c447a7f77f51d5413e45d3f25a3550a19922ce3c390"
+      },
+      "stdout": {
+        "path": "clearance/evidence/negative.stdout",
+        "bytes": 453,
+        "sha256": "d63e9bf8900f51c1e9b93237cacb4e77d2b3b367ba93be0b5a6453c95d82ccd1"
+      },
+      "stderr": {
+        "path": "clearance/evidence/negative.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "mutant-DeathClosed",
+      "exit": 1,
+      "seconds": 88.01240279199999,
+      "start": "2026-10-17T21:39:21.593728+00:00",
+      "end": "2026-10-17T21:40:49.606028+00:00",
+      "receipt": {
+        "path": "clearance/evidence/mutant-DeathClosed.json",
+        "bytes": 3072,
+        "sha256": "21c453e3104447086cb3b9249bdb124bf6a81b69d45c0246551a0530abef41aa"
+      },
+      "stdout": {
+        "path": "clearance/evidence/mutant-DeathClosed.stdout",
+        "bytes": 3574,
+        "sha256": "6fd95499690b4d015488ff557e8b3bbc99bc7afdc8a3090e0844e6d06a6d1ce7"
+      },
+      "stderr": {
+        "path": "clearance/evidence/mutant-DeathClosed.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "mutant-PrebirthCeiling",
+      "exit": 1,
+      "seconds": 92.141625417,
+      "start": "2026-10-17T21:40:49.607326+00:00",
+      "end": "2026-10-17T21:42:21.748848+00:00",
+      "receipt": {
+        "path": "clearance/evidence/mutant-PrebirthCeiling.json",
+        "bytes": 3071,
+        "sha256": "fe1bc1cbeb11c13567f856f7b8af680933d8d46b77acdda148a28f92ddc21966"
+      },
+      "stdout": {
+        "path": "clearance/evidence/mutant-PrebirthCeiling.stdout",
+        "bytes": 499,
+        "sha256": "4cac8c60d0491bde2525376761884f9913a49f6bf6d19a6d7e1e2b6ff1d41b57"
+      },
+      "stderr": {
+        "path": "clearance/evidence/mutant-PrebirthCeiling.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "baseline-captured",
+      "exit": 0,
+      "seconds": 113.89092229199997,
+      "start": "2026-10-17T21:42:21.750502+00:00",
+      "end": "2026-10-17T21:44:15.641296+00:00",
+      "receipt": {
+        "path": "clearance/evidence/baseline-captured.json",
+        "bytes": 3321,
+        "sha256": "51ba7cf350c9409233213d94a9764a88f4527121751c3ae0c4fb8256e74a56d8"
+      },
+      "stdout": {
+        "path": "clearance/evidence/baseline-captured.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "clearance/evidence/baseline-captured.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "kernel-SuperlevelBar",
+      "exit": 0,
+      "seconds": 87.10763441699999,
+      "start": "2026-10-17T21:44:15.642423+00:00",
+      "end": "2026-10-17T21:45:42.749950+00:00",
+      "receipt": {
+        "path": "clearance/evidence/kernel-SuperlevelBar.json",
+        "bytes": 2935,
+        "sha256": "83efdc8644ce8b529e69c2b04de306939662262c0bff659ba9b16f711214f0f9"
+      },
+      "stdout": {
+        "path": "clearance/evidence/kernel-SuperlevelBar.stdout",
+        "bytes": 24,
+        "sha256": "3cf4b2953e780a651d98d49fc0bb7b984549e3197b11f974fd979e9f9028fb3d"
+      },
+      "stderr": {
+        "path": "clearance/evidence/kernel-SuperlevelBar.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "kernel-ClosedSuperlevel",
+      "exit": 0,
+      "seconds": 80.05681295900001,
+      "start": "2026-10-17T21:45:42.750990+00:00",
+      "end": "2026-10-17T21:47:02.807702+00:00",
+      "receipt": {
+        "path": "clearance/evidence/kernel-ClosedSuperlevel.json",
+        "bytes": 2938,
+        "sha256": "fd447140f1018f288ade06341ec7f511970461922e5ca9d8876096f4d2a1eee8"
+      },
+      "stdout": {
+        "path": "clearance/evidence/kernel-ClosedSuperlevel.stdout",
+        "bytes": 27,
+        "sha256": "30427df7e6d2f97fde3b6e230040791fe8acf1ddc362c41989ead23a275d596f"
+      },
+      "stderr": {
+        "path": "clearance/evidence/kernel-ClosedSuperlevel.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "kernel-OrdinaryH0",
+      "exit": 0,
+      "seconds": 83.41620783299993,
+      "start": "2026-10-17T21:47:02.808870+00:00",
+      "end": "2026-10-17T21:48:26.224984+00:00",
+      "receipt": {
+        "path": "clearance/evidence/kernel-OrdinaryH0.json",
+        "bytes": 2932,
+        "sha256": "7f84c55490f9339a4c6d840b3a63afb5cd80f3808ccdf3517ff0a476096b02b4"
+      },
+      "stdout": {
+        "path": "clearance/evidence/kernel-OrdinaryH0.stdout",
+        "bytes": 21,
+        "sha256": "a4fca1066aadc5579f7a09c6aa795b5132ca36b69eddf0e36bd2d5e4664fe875"
+      },
+      "stderr": {
+        "path": "clearance/evidence/kernel-OrdinaryH0.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "kernel-ElderClearance",
+      "exit": 0,
+      "seconds": 82.659546708,
+      "start": "2026-10-17T21:48:26.226102+00:00",
+      "end": "2026-10-17T21:49:48.885554+00:00",
+      "receipt": {
+        "path": "clearance/evidence/kernel-ElderClearance.json",
+        "bytes": 2931,
+        "sha256": "2ebc3014d9ebdfa671767ba01e5a02aa695b233e95e965ca8f0f4f69285c8a8e"
+      },
+      "stdout": {
+        "path": "clearance/evidence/kernel-ElderClearance.stdout",
+        "bytes": 25,
+        "sha256": "792946223d2268c893bbc8ad3625fd8283ee73bc6493054ae453eefbea38fbc4"
+      },
+      "stderr": {
+        "path": "clearance/evidence/kernel-ElderClearance.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "kernel-ElderClearanceControls",
+      "exit": 0,
+      "seconds": 97.35800841599996,
+      "start": "2026-10-17T21:49:48.886665+00:00",
+      "end": "2026-10-17T21:51:26.244560+00:00",
+      "receipt": {
+        "path": "clearance/evidence/kernel-ElderClearanceControls.json",
+        "bytes": 2944,
+        "sha256": "b94bf4eaedf8db5b656894e198c346c765066ccbcfe7356b4a27b274109db78f"
+      },
+      "stdout": {
+        "path": "clearance/evidence/kernel-ElderClearanceControls.stdout",
+        "bytes": 33,
+        "sha256": "3d71ae6119c6e8d0312a5a6dfee0d252c5be0e454e387240e0b6dbb6bc4ec560"
+      },
+      "stderr": {
+        "path": "clearance/evidence/kernel-ElderClearanceControls.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "kernel-ElderInterval",
+      "exit": 0,
+      "seconds": 82.97311795899998,
+      "start": "2026-10-17T21:51:26.245889+00:00",
+      "end": "2026-10-17T21:52:49.218912+00:00",
+      "receipt": {
+        "path": "clearance/evidence/kernel-ElderInterval.json",
+        "bytes": 2935,
+        "sha256": "212ce74f3fb39fe00c4822a7315aa347c78b03d5fe4697e0bc14ad0e9b933214"
+      },
+      "stdout": {
+        "path": "clearance/evidence/kernel-ElderInterval.stdout",
+        "bytes": 24,
+        "sha256": "952b3026ca1e6a9b524d804db945cc9ea8d63f0765312bd26fd387e69bd7497c"
+      },
+      "stderr": {
+        "path": "clearance/evidence/kernel-ElderInterval.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "kernel-ElderIntervalControls",
+      "exit": 0,
+      "seconds": 85.7587987920001,
+      "start": "2026-10-17T21:52:49.219980+00:00",
+      "end": "2026-10-17T21:54:14.978666+00:00",
+      "receipt": {
+        "path": "clearance/evidence/kernel-ElderIntervalControls.json",
+        "bytes": 2942,
+        "sha256": "bd0c1014084f12a7252f4d91954ce54fe2e4b77182e6fb6bf4700f0eb1d97002"
+      },
+      "stdout": {
+        "path": "clearance/evidence/kernel-ElderIntervalControls.stdout",
+        "bytes": 32,
+        "sha256": "89d747535626b65d6238c463f829006576b6f64ec5667644f8aaa26e03ac9cc4"
+      },
+      "stderr": {
+        "path": "clearance/evidence/kernel-ElderIntervalControls.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "kernel-ElderBridge",
+      "exit": 0,
+      "seconds": 94.05167637499994,
+      "start": "2026-10-17T21:54:14.981143+00:00",
+      "end": "2026-10-17T21:55:49.032711+00:00",
+      "receipt": {
+        "path": "clearance/evidence/kernel-ElderBridge.json",
+        "bytes": 2933,
+        "sha256": "7f0d98c0e015088fc87e4dfd06371c95d94581419f82084cfec8ab4aa1548da2"
+      },
+      "stdout": {
+        "path": "clearance/evidence/kernel-ElderBridge.stdout",
+        "bytes": 22,
+        "sha256": "0c111b1c408857085f338dccb5f063956e4707a2c198674e0f889d2f6c01db40"
+      },
+      "stderr": {
+        "path": "clearance/evidence/kernel-ElderBridge.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "named_axiom_targets": [
+    {
+      "name": "TorusFiltration.elderTrap_strictTrace",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "clearance/evidence/audit.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderTrap_strictTrace_isClopen",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "clearance/evidence/audit.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderTrap_path_stays",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "clearance/evidence/audit.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderTrap_higher_path_meets_threshold",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "clearance/evidence/audit.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderTrap_clearance_eq_Iio",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "clearance/evidence/audit.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderTrap_death_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "clearance/evidence/audit.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderTrap_closed_path_attains",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "clearance/evidence/audit.stdout"
+    },
+    {
+      "name": "TorusFiltration.elder_control_below",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "clearance/evidence/audit.stdout"
+    },
+    {
+      "name": "TorusFiltration.elder_control_death_excluded",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "clearance/evidence/audit.stdout"
+    },
+    {
+      "name": "TorusFiltration.elder_control_positive_lifetime",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "clearance/evidence/audit.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderActive",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderFiber",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderFiber_eq_zero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderFiberMap",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderFiberMap_val",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderInterval",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderFiberLift",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderFiberLift_val",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elder_control_birth",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elder_control_death",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.ElderTrap",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.ElderTrap.maximum_mem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.ElderTrap.older_mem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elder_clopen_path_iff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.ElderTrap.componentInside",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.ElderTrap.componentInside_mk",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderDifference",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderDifference_map",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderDifference_map_dead",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderProjection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderProjection_point",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderDifference_projection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderSectionApp",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderRetractionApp",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderSectionApp_naturality",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderSection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderProjection_naturality_active",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderProjection_prebirth",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderRetractionApp_naturality",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderRetraction",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderSection_retraction",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderKernelProjection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderDirectSummand",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elder_control_ordinary_point_survives",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderSection_retraction_assoc",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "evidence/interval/controls-and-35-target-audit-corrected.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderTrap_closedTrace_isClopen",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "clearance/evidence/bridge-audit.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderTrap_of_boundary",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "clearance/evidence/bridge-audit.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderBoundaryDirectSummand",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "clearance/evidence/bridge-audit.stdout"
+    },
+    {
+      "name": "TorusFiltration.elderBoundary_death_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "output": "clearance/evidence/bridge-audit.stdout"
+    }
+  ],
+  "named_axiom_target_count": 49,
+  "census_scope": "45 explicit new-source declarations +3 named clearance controls +1 generated reassoc; not every compiler-generated constant",
+  "kernel_scope": "All own new constants in each of the8 named modules against imported environments; standard Lean kernel, not --fresh and not external verifier",
+  "kernel_modules": [
+    "SuperlevelBar",
+    "ClosedSuperlevel",
+    "OrdinaryH0",
+    "ElderClearance",
+    "ElderClearanceControls",
+    "ElderInterval",
+    "ElderIntervalControls",
+    "ElderBridge"
+  ],
+  "compiled_owned_artifacts": [
+    {
+      "path": "clearance/build/SuperlevelBar.olean",
+      "bytes": 233680,
+      "sha256": "e3034e68ec9141f26498835ecb4b08b4268d1c89e56b09ec85151e555fae8086"
+    },
+    {
+      "path": "clearance/build/ElderClearance.olean",
+      "bytes": 90944,
+      "sha256": "2b4d7be7d5c30ac89c96cb3e7ea229e3930e6677b81f3b7081a2eb5cfe364db7"
+    },
+    {
+      "path": "clearance/build/ElderClearanceControls.olean",
+      "bytes": 65664,
+      "sha256": "22ada029d075643e99cdffa8dfa4bf8008c92c8e6d9e2398eb801fff2b00d468"
+    },
+    {
+      "path": "clearance/build/ElderBridge.olean",
+      "bytes": 109000,
+      "sha256": "805117e56525742fbe128137c35bab69bae8d0515a08f0ad46d922cb210bade4"
+    },
+    {
+      "path": "interval-project/.lake/build/lib/lean/ClosedSuperlevel.olean",
+      "bytes": 230416,
+      "sha256": "fb5b7385a442a7e0a9b9bf7911fa2fd65b95870b60a71d8e38031852bf1d9d37"
+    },
+    {
+      "path": "interval-project/.lake/build/lib/lean/OrdinaryH0.olean",
+      "bytes": 333024,
+      "sha256": "29bd5a004e17da4bc49ad89ed399e0dafea925ccfc4445d2176030ca00b1bc41"
+    },
+    {
+      "path": "interval-project/.lake/build/lib/lean/ElderInterval.olean",
+      "bytes": 839672,
+      "sha256": "5a93f68a6f4a21d2d3b8ab453e2231dbcf0f9cb6da07ce2e62d5ed1b75508836"
+    },
+    {
+      "path": "interval-project/.lake/build/lib/lean/ElderIntervalControls.olean",
+      "bytes": 3224,
+      "sha256": "df6c474fdf6b6232b9370df5c0c3ae9c9a26c3465ddf4d7ccbf50a9af76ec716"
+    }
+  ],
+  "source_freeze": {
+    "path": "LOCAL_SOURCE_FREEZE.json",
+    "bytes": 1340,
+    "sha256": "ac9b6b049fcb31492d922b26865c8fb2b10024aebeac321a5551b975c9ad468c"
+  },
+  "historical_interval_author_seal": {
+    "path": "INTERVAL_AUTHOR_FREEZE_MANIFEST.json",
+    "bytes": 13740,
+    "sha256": "f08788d42e05b68b681c0f3d0fe0b57fa90d4170db94df571bd819764b195f2d"
+  },
+  "historical_author_seal_members": 74,
+  "all_frozen_identities_match": true,
+  "interface_graph": {
+    "path": "LOCAL_INTERFACE_DEPENDENCIES.json",
+    "bytes": 12544,
+    "sha256": "369faf1d5d1f133bd28440cba146632e11e55d8cf73b1b5920d4dd40ebb79721"
+  },
+  "source_boundary_map": {
+    "path": "INTERFACE_BOUNDARIES.md",
+    "bytes": 5080,
+    "sha256": "7ec0f6f8a7a5f58e2c233d0aae9f69f18f13a2a0e340259c6931504ae6843cf9"
+  },
+  "negative_meanings": [
+    "closed strict-clearance endpoint is false",
+    "closed death endpoint invalidates death exclusion/naturality",
+    "weakened birth ceiling destroys prebirth naturality contradiction"
+  ],
+  "remaining_review": "ACTUAL_SEPARATE_NONAUTHOR_REPORT_TO_BE_SEALED_SEPARATELY",
+  "publication": "LOCAL_ONLY; no source branch/PR/hosted event or adoption",
+  "scientific_effect": "NONE",
+  "full_goal": "ACTIVE_UNMET",
+  "preserved_limits": [
+    "Original interrupted baseline exit remains UNOBSERVED; fresh captured baseline is additive",
+    "Original failed proof/control/linter attempts and source-set clarification retained",
+    "Named axiom census distinct from generated-constant kernel scope",
+    "Analytic fold, Morse elder label, torus quotient and all-bar stochastic formalization remain separate",
+    "C261 actual-law realization and institutional C263/C264 alignment not discharged",
+    "No hermetic offline image or full imported-environment replay"
+  ],
+  "anonymous_control_boundary": "Nine anonymous interval-control examples have actual elaboration credit. Kernel replay covers stored own module constants; it does not re-elaborate erased anonymous source examples."
+}

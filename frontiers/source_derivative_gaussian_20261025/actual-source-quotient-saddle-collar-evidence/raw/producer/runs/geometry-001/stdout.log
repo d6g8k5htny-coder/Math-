@@ -1,0 +1,8 @@
+SourceActualQuotientSaddleCollar.lean:441:27: error: Application type mismatch: The argument
+  hminus.right
+has type
+  u ∈ {u | u 1 < 0}
+but is expected to have type
+  ?m.24 < ?m.23
+in the application
+  lt_asymm ?m.27 hminus.right

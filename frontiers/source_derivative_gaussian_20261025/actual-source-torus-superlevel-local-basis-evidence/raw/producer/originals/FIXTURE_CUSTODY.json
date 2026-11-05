@@ -1,0 +1,40 @@
+{
+  "received_recorded_utc": "2026-10-28T16:36:17.145729+00:00",
+  "logical_id": "61B-FIXTURE-ORIGINAL-COMPLETE-V1",
+  "helper": "/root/actual_canonical_partner_preflight",
+  "helper_full_context_ACK": "received before first proof text; exact event time not instrumented by producer",
+  "helper_amendment002_ACK": "received before dependent text; unchanged context reading reused",
+  "integrations": 1,
+  "originals": [
+    {
+      "original": "/workspace/scratch/actual-source-torus-fixtures-text/FixtureSection.ORIGINAL.lean.txt",
+      "retained": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/FixtureSection.ORIGINAL.lean.txt",
+      "bytes": 12791,
+      "sha256": "b4d8cdd7404caa1783ada32a87a75f15bfbcf5a6499a9e0b75d3a7f014055209",
+      "identity_origin": "producer first ID of newly delivered owned helper original BEFORE one integration; helper hashes zero"
+    },
+    {
+      "original": "/workspace/scratch/actual-source-torus-fixtures-text/FixtureImports.ORIGINAL.txt",
+      "retained": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/FixtureImports.ORIGINAL.txt",
+      "bytes": 820,
+      "sha256": "51d3f5a91e2c5320f0532c484cdd4dfd34a0e33b96bf033ac5abc26f149a1519",
+      "identity_origin": "producer first ID of newly delivered owned helper original BEFORE one integration; helper hashes zero"
+    },
+    {
+      "original": "/workspace/scratch/actual-source-torus-fixtures-text/FixtureProvenance.ORIGINAL.md",
+      "retained": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/FixtureProvenance.ORIGINAL.md",
+      "bytes": 3602,
+      "sha256": "eb9dddf7016e3a18586f795a5f5fef9eff3bf09c9e17091e22dc8341b4223d8b",
+      "identity_origin": "producer first ID of newly delivered owned helper original BEFORE one integration; helper hashes zero"
+    },
+    {
+      "original": "/workspace/scratch/actual-source-torus-fixtures-text/FixtureFrozen.ORIGINAL.json",
+      "retained": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/FixtureFrozen.ORIGINAL.json",
+      "bytes": 604,
+      "sha256": "cf38e295d8f2e4b0367d6fbfca97d8073cc7609cb8a4988faa01ac3977594818",
+      "identity_origin": "producer first ID of newly delivered owned helper original BEFORE one integration; helper hashes zero"
+    }
+  ],
+  "integrated_recorded_utc": "2026-10-28T16:40:09.192241+00:00",
+  "integration": "Exact production fixture original integrated ONCE after complete regular-003 PASS and main adapters; subsequent actual amendments will be producer-owned"
+}

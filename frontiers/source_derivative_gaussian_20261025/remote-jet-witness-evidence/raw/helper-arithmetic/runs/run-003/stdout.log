@@ -1,0 +1,77 @@
+/workspace/scratch/remote-jet-arithmetic/runs/run-003/Arithmetic.lean:121:13: error: don't know how to synthesize implicit argument `x`
+  @iteratedFDeriv_const_smul_apply' ℝ DenselyNormedField.toNontriviallyNormedField (Fin 2 → ℝ) Pi.normedAddCommGroup
+    Pi.normedSpace ℝ Real.normedAddCommGroup RCLike.toInnerProductSpaceReal.toNormedSpace f ?m.75 ℝ
+    NonUnitalNonAssocSemiring.toDistribSMul Algebra.to_smulCommClass SeparatelyContinuousMul.to_continuousSMul 2 a
+    (ContDiff.contDiffAt hf)
+context:
+a : ℝ
+f : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ 2 f
+x : Fin 2 → ℝ
+h1 : fderiv ℝ (fun y => a * f y) x = a • fderiv ℝ f x
+⊢ Fin 2 → ℝ
+/workspace/scratch/remote-jet-arithmetic/runs/run-003/Arithmetic.lean:121:55: error: don't know how to synthesize implicit argument `x`
+  @ContDiff.contDiffAt ℝ DenselyNormedField.toNontriviallyNormedField (Fin 2 → ℝ) Pi.normedAddCommGroup Pi.normedSpace ℝ
+    Real.normedAddCommGroup RCLike.toInnerProductSpaceReal.toNormedSpace f ?m.75 2 hf
+context:
+a : ℝ
+f : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ 2 f
+x : Fin 2 → ℝ
+h1 : fderiv ℝ (fun y => a * f y) x = a • fderiv ℝ f x
+⊢ Fin 2 → ℝ
+/workspace/scratch/remote-jet-arithmetic/runs/run-003/Arithmetic.lean:121:7: error: failed to infer `have` declaration type
+/workspace/scratch/remote-jet-arithmetic/runs/run-003/Arithmetic.lean:119:55: error: unsolved goals
+a : ℝ
+f : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ 2 f
+x : Fin 2 → ℝ
+h1 : fderiv ℝ (fun y => a * f y) x = a • fderiv ℝ f x
+⊢ jet2 (fun y => a * f y) x = fun j => a * jet2 f x j
+/workspace/scratch/remote-jet-arithmetic/runs/run-003/Arithmetic.lean:140:13: error: don't know how to synthesize implicit argument `x`
+  @iteratedFDeriv_add_apply ℝ DenselyNormedField.toNontriviallyNormedField (Fin 2 → ℝ) Pi.normedAddCommGroup
+    Pi.normedSpace ℝ Real.normedAddCommGroup RCLike.toInnerProductSpaceReal.toNormedSpace ?m.105 2 f g
+    (ContDiff.contDiffAt hf) (ContDiff.contDiffAt hg)
+context:
+f g : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ 2 f
+hg : ContDiff ℝ 2 g
+x : Fin 2 → ℝ
+h1 : fderiv ℝ (fun y => f y + g y) x = fderiv ℝ f x + fderiv ℝ g x
+⊢ Fin 2 → ℝ
+/workspace/scratch/remote-jet-arithmetic/runs/run-003/Arithmetic.lean:140:52: error: don't know how to synthesize implicit argument `x`
+  @ContDiff.contDiffAt ℝ DenselyNormedField.toNontriviallyNormedField (Fin 2 → ℝ) Pi.normedAddCommGroup Pi.normedSpace ℝ
+    Real.normedAddCommGroup RCLike.toInnerProductSpaceReal.toNormedSpace g ?m.105 2 hg
+context:
+f g : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ 2 f
+hg : ContDiff ℝ 2 g
+x : Fin 2 → ℝ
+h1 : fderiv ℝ (fun y => f y + g y) x = fderiv ℝ f x + fderiv ℝ g x
+⊢ Fin 2 → ℝ
+/workspace/scratch/remote-jet-arithmetic/runs/run-003/Arithmetic.lean:140:38: error: don't know how to synthesize implicit argument `x`
+  @ContDiff.contDiffAt ℝ DenselyNormedField.toNontriviallyNormedField (Fin 2 → ℝ) Pi.normedAddCommGroup Pi.normedSpace ℝ
+    Real.normedAddCommGroup RCLike.toInnerProductSpaceReal.toNormedSpace f ?m.105 2 hf
+context:
+f g : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ 2 f
+hg : ContDiff ℝ 2 g
+x : Fin 2 → ℝ
+h1 : fderiv ℝ (fun y => f y + g y) x = fderiv ℝ f x + fderiv ℝ g x
+⊢ Fin 2 → ℝ
+/workspace/scratch/remote-jet-arithmetic/runs/run-003/Arithmetic.lean:140:7: error: failed to infer `have` declaration type
+/workspace/scratch/remote-jet-arithmetic/runs/run-003/Arithmetic.lean:137:53: error: unsolved goals
+f g : (Fin 2 → ℝ) → ℝ
+hf : ContDiff ℝ 2 f
+hg : ContDiff ℝ 2 g
+x : Fin 2 → ℝ
+h1 : fderiv ℝ (fun y => f y + g y) x = fderiv ℝ f x + fderiv ℝ g x
+⊢ jet2 (fun y => f y + g y) x = jet2 f x + jet2 g x
+/workspace/scratch/remote-jet-arithmetic/runs/run-003/Arithmetic.lean:157:11: error: typeclass instance problem is stuck, it is often due to metavariables
+  (i : Fin 2) → Module ?m.27 (?m.30 i)
+/workspace/scratch/remote-jet-arithmetic/runs/run-003/Arithmetic.lean:165:6: error: Invalid rewrite argument: Expected an equality or iff proof or definition name, but `?m.51` is a value of type
+  ?m.50
+/workspace/scratch/remote-jet-arithmetic/runs/run-003/Arithmetic.lean:173:6: error: Invalid rewrite argument: Expected an equality or iff proof or definition name, but `?m.53` is a value of type
+  ?m.52
+/workspace/scratch/remote-jet-arithmetic/runs/run-003/Arithmetic.lean:190:22: error(lean.unknownIdentifier): Unknown identifier `phase_hasFDerivAt`
+/workspace/scratch/remote-jet-arithmetic/runs/run-003/Arithmetic.lean:208:22: error(lean.unknownIdentifier): Unknown identifier `phase_hasFDerivAt`

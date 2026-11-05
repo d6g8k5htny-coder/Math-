@@ -1,0 +1,392 @@
+{
+  "source_sha256": "4677ada085e7c53b4e9b4fd2160bcffc326e6a73b20cbb6cb7540ee3aece2a91",
+  "inventory_run": "inventory-001",
+  "constant_count": 34,
+  "counts": {
+    "written_public_def": 4,
+    "written_private_theorem": 17,
+    "written_private_def": 7,
+    "generated_theorem": 4,
+    "written_public_theorem": 2
+  },
+  "foreign_namespace_generated": [],
+  "entries": [
+    {
+      "name": "I4SourceTwoRemoteFirstJetGaussian.twoRemoteFirstJet",
+      "kind": "definition",
+      "classification": "written_public_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.raw_remote_jointGaussian",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceTwoRemoteFirstJetGaussian.twoRemoteRegressionMatrix",
+      "kind": "definition",
+      "classification": "written_public_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.residualMatrix",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.fixed12_affine_covariance",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.specificationCoefficient",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.posterior_actual",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointVector_actual",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.joint_integral_zero",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointVector",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.residualMatrix_apply",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.posterior_hasGaussianLaw",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.posterior_covariance",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointSpecification",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointCoefficient",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.joint_hasGaussianLaw",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointSplit",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceTwoRemoteFirstJetGaussian.twoRemoteFirstJet._proof_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.residual_hasGaussianLaw",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.posterior_integral",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointSplit._proof_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.specification_remote",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.specificationObservation",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.specification_raw",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointSplit._proof_3",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.derivative_measurable",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.observation_measurable",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointSplit._proof_2",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceTwoRemoteFirstJetGaussian.twoRemotePosteriorMean",
+      "kind": "definition",
+      "classification": "written_public_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.transformed_coefficient",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceTwoRemoteFirstJetGaussian.rawPinKernel_twoRemoteFirstJet_eq_multivariateGaussian",
+      "kind": "theorem",
+      "classification": "written_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceTwoRemoteFirstJetGaussian.twoRemoteResidualCovariance",
+      "kind": "definition",
+      "classification": "written_public_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceTwoRemoteFirstJetGaussian.0.I4SourceTwoRemoteFirstJetGaussian.jointCoefficient_actual",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceTwoRemoteFirstJetGaussian.twoRemoteResidualCovariance_posDef",
+      "kind": "theorem",
+      "classification": "written_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    }
+  ],
+  "complete_actual_module_index": true,
+  "foreign_namespace_inclusion_method": "env.getModuleIdxFor? equals actual module index, not namespace filter",
+  "standard_axioms_only": true,
+  "written_research_targets": 2,
+  "generated_private_data_inventory_only": true
+}

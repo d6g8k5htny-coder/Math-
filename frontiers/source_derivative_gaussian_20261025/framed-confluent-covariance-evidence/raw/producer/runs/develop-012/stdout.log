@@ -1,0 +1,10 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1415:10: error: Application type mismatch: The argument
+  fun p => (((coordinates 2) p.1.1, (coordinates 2) (↑p.1.2 0), (coordinates 2) (↑p.1.2 1)), p.2)
+has type
+  (E 2 × CompactFrame) × ℝ → ((Fin 2 → ℝ) × (Fin 2 → ℝ) × (Fin 2 → ℝ)) × ℝ
+but is expected to have type
+  ℝ → ((Fin 2 → ℝ) × (Fin 2 → ℝ) × (Fin 2 → ℝ)) × ℝ
+in the application
+  @Continuous.comp (((Fin 2 → ℝ) × (Fin 2 → ℝ) × (Fin 2 → ℝ)) × ℝ) ℝ (((Fin 2 → ℝ) × (Fin 2 → ℝ) × (Fin 2 → ℝ)) × ℝ)
+    ?m.375 ?m.376 ?m.377 (fun q => peanoRows (modeCoefficient 2 L m) q.1.1 q.1.2.1 q.1.2.2 q.2 i) fun p =>
+    (((coordinates 2) p.1.1, (coordinates 2) (↑p.1.2 0), (coordinates 2) (↑p.1.2 1)), p.2)

@@ -1,0 +1,39 @@
+SourceAdaptiveFoldEstimates.lean:408:41: error: unexpected token ']]'; expected ']'
+SourceAdaptiveFoldEstimates.lean:428:2: error: Type mismatch
+  actual_component_second hL sample hr p u v ey
+has type
+  ((fderiv ℝ (fderiv ℝ fun q => (fderiv ℝ (actualFoldPotential r ?m.93 sample) q) ey) p) u) v =
+    (iteratedFDeriv ℝ 3 (smoothSourceField 2 L sample) (r • ![p.1, p.2])) ![![u.1, u.2], ![v.1, v.2], ![ey.1, ey.2] ]
+but is expected to have type
+  ((fderiv ℝ (fderiv ℝ (Vy (actualFoldPotential r k sample))) p) u) v =
+    (iteratedFDeriv ℝ 3 (smoothSourceField 2 L sample) (r • ![p.1, p.2])) ![![u.1, u.2], ![v.1, v.2], directionY] /
+      (6 * k)
+SourceAdaptiveFoldEstimates.lean:435:2: error: Type mismatch
+  actual_component_second hL sample hr p u v ex
+has type
+  ((fderiv ℝ (fderiv ℝ fun q => (fderiv ℝ (actualFoldPotential r ?m.93 sample) q) ex) p) u) v =
+    (iteratedFDeriv ℝ 3 (smoothSourceField 2 L sample) (r • ![p.1, p.2])) ![![u.1, u.2], ![v.1, v.2], ![ex.1, ex.2] ]
+but is expected to have type
+  ((fderiv ℝ (fderiv ℝ (Vx (actualFoldPotential r k sample))) p) u) v =
+    (iteratedFDeriv ℝ 3 (smoothSourceField 2 L sample) (r • ![p.1, p.2])) ![![u.1, u.2], ![v.1, v.2], directionX] /
+      (6 * k)
+SourceAdaptiveFoldEstimates.lean:458:53: error: unexpected token ']]'; expected ']'
+SourceAdaptiveFoldEstimates.lean:450:70: error: unsolved goals
+L r k : ℝ
+hL : L ≠ 0
+sample : SmoothSample 2 L
+p u v : ℝ × ℝ
+hV : actualFoldPotential r k sample = fun q => (6 * k * r ^ 3)⁻¹ * smoothSourceField 2 L sample (r • ![q.1, q.2])
+d : Fin 2 → Fin 2 → ℝ := ![![u.1, u.2], ![v.1, v.2] ]
+⊢ ((iteratedFDeriv ℝ 2 (smoothSourceField 2 L sample) (r • ![p.1, p.2])) fun i => ![(![u, v] i).1, (![u, v] i).2]) =
+    (iteratedFDeriv ℝ 2 (smoothSourceField 2 L sample) (r • ![p.1, p.2])) fun i => ![(![v, u] i).1, (![v, u] i).2]
+SourceAdaptiveFoldEstimates.lean:472:4: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (fderiv ℝ (fun q => (fderiv ℝ (actualFoldPotential r k sample) q) ?v) ?p) ?u
+in the target expression
+  (fderiv ℝ (Vx (actualFoldPotential r k sample)) p) ey = (fderiv ℝ (Vy (actualFoldPotential r k sample)) p) ex
+
+L r k : ℝ
+hL : L ≠ 0
+sample : SmoothSample 2 L
+p : ℝ × ℝ
+⊢ (fderiv ℝ (Vx (actualFoldPotential r k sample)) p) ey = (fderiv ℝ (Vy (actualFoldPotential r k sample)) p) ex

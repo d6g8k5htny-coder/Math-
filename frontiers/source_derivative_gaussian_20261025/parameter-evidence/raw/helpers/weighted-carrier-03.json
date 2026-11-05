@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "--root=/workspace/scratch/source-smooth-parameter-space",
+    "-o",
+    "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.olean",
+    "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit_code": 1,
+  "source_sha256_before": "ae876299f50a6aaa8b621c042665e97b453a1b4ae6dbab7be57fe755b4c62d0d",
+  "source_sha256_after": "ae876299f50a6aaa8b621c042665e97b453a1b4ae6dbab7be57fe755b4c62d0d",
+  "log_sha256": "48ffc5168e06a9111a8e945ea41a847560c0bdfc8439efc836488ae51847e4a4",
+  "elapsed_seconds": 3.6555190086364746
+}

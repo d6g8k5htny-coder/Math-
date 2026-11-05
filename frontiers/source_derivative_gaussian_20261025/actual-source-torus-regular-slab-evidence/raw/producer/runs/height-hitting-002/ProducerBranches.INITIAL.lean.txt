@@ -1,0 +1,116 @@
+private theorem zeroWidth_componentBijective {L : ℝ} (hL : 0 < L)
+    (omega : SmoothSample 2 L) (a : ℝ) :
+    Function.Bijective (TorusFiltration.superlevel_componentInclusion
+      (SourceActualFoldTorus.actualTorusField hL.ne' omega)
+      (s := -a) (t := -a) (neg_le_neg (le_refl a))) := by
+  rw [TorusFiltration.superlevel_componentInclusion_id]
+  exact Function.bijective_id
+
+private theorem emptyBand_componentBijective {L : ℝ} (hL : 0 < L)
+    (omega : SmoothSample 2 L) (a b : ℝ) (hab : a ≤ b)
+    (hempty : ∀ X : E2, ¬ (a ≤ actualField 2 L omega X ∧ actualField 2 L omega X ≤ b)) :
+    Function.Bijective (TorusFiltration.superlevel_componentInclusion
+      (SourceActualFoldTorus.actualTorusField hL.ne' omega)
+      (s := -b) (t := -a) (neg_le_neg hab)) := by
+  let F := SourceActualFoldTorus.actualTorusField hL.ne' omega
+  have hsame (q : I4Torus.SourceTorus 2 L) (ha : a ≤ F q) : b ≤ F q := by
+    by_contra hb
+    have hlt : F q < b := lt_of_not_ge hb
+    obtain ⟨x,hx⟩ := SourceActualFoldTorus.torusProjection2L_surjective L q
+    let X : E2 := (coordinates 2).symm x
+    have hp : actualField 2 L omega X = F q := by
+      change smoothSourceField 2 L omega (coordinates 2 ((coordinates 2).symm x)) = F q
+      rw [ContinuousLinearEquiv.apply_symm_apply]
+      exact (SourceActualFoldTorus.actualTorusField_pullback hL.ne' omega x).symm.trans
+        (congrArg F hx)
+    exact hempty X ⟨by simpa only [hp] using ha, by simpa only [hp] using hlt.le⟩
+  let r : C(TorusFiltration.superlevel_set F (-a),
+      TorusFiltration.superlevel_set F (-b)) :=
+    ⟨fun q => ⟨q.val, by
+      have hq : a ≤ F q.val := by
+        simpa only [TorusFiltration.superlevel_set, Set.mem_ofPred_eq, neg_neg] using q.property
+      simpa only [TorusFiltration.superlevel_set, Set.mem_ofPred_eq, neg_neg] using hsame q.val hq⟩,
+      by fun_prop⟩
+  let R := TorusFiltration.superlevel_componentMap r
+  have hleft : Function.LeftInverse R
+      (TorusFiltration.superlevel_componentInclusion F (s := -b) (t := -a) (neg_le_neg hab)) := by
+    intro q
+    obtain ⟨x,rfl⟩ := ZerothHomotopy.mk_surjective q
+    rfl
+  have hright : Function.RightInverse R
+      (TorusFiltration.superlevel_componentInclusion F (s := -b) (t := -a) (neg_le_neg hab)) := by
+    intro q
+    obtain ⟨x,rfl⟩ := ZerothHomotopy.mk_surjective q
+    rfl
+  exact ⟨hleft.injective,hright.surjective⟩
+
+private def restrictedProjection {L : ℝ} (hL : 0 < L)
+    (omega : SmoothSample 2 L) (a : ℝ) :
+    CoverSuperlevel omega a → TorusSuperlevel hL omega a :=
+  fun X => ⟨coverProjection L X.val, by
+    change a ≤ SourceActualFoldTorus.actualTorusField hL.ne' omega
+      (I4Torus.torusProjection 2 L (coordinates 2 X.val))
+    rw [SourceActualFoldTorus.actualTorusField_pullback]
+    exact X.property⟩
+
+private theorem restrictedProjection_continuous {L : ℝ} (hL : 0 < L)
+    (omega : SmoothSample 2 L) (a : ℝ) :
+    Continuous (restrictedProjection hL omega a) := by
+  apply Continuous.subtype_mk
+  exact ((SourceActualFoldTorus.torusProjection2L_continuous L).comp
+    (coordinates 2).continuous).comp continuous_subtype_val
+
+private theorem restrictedProjection_surjective {L : ℝ} (hL : 0 < L)
+    (omega : SmoothSample 2 L) (a : ℝ) :
+    Function.Surjective (restrictedProjection hL omega a) := by
+  intro q
+  obtain ⟨x,hx⟩ := SourceActualFoldTorus.torusProjection2L_surjective L q.val
+  let X : E2 := (coordinates 2).symm x
+  have hproj : coverProjection L X = q.val := by
+    simpa only [coverProjection,X,ContinuousLinearEquiv.apply_symm_apply] using hx
+  have hmem : a ≤ actualField 2 L omega X := by
+    have hp := SourceActualFoldTorus.actualTorusField_pullback hL.ne' omega (coordinates 2 X)
+    change SourceActualFoldTorus.actualTorusField hL.ne' omega (coverProjection L X) = _ at hp
+    rw [hproj] at hp
+    simpa only [hp] using q.property
+  refine ⟨⟨X,hmem⟩,?_⟩
+  apply Subtype.ext
+  exact hproj
+
+private theorem restrictedProjectionQuotient {L : ℝ} (hL : 0 < L)
+    (omega : SmoothSample 2 L) (a : ℝ) :
+    Continuous (restrictedProjection hL omega a) ∧
+      IsOpenMap (restrictedProjection hL omega a) ∧
+      Function.Surjective (restrictedProjection hL omega a) ∧
+      Topology.IsQuotientMap (restrictedProjection hL omega a) := by
+  have hopen : IsOpenMap (coverProjection L) :=
+    (SourceActualFoldTorus.torusProjection2L_open L).comp (coordinates 2).isOpenMap
+  have hopenRestricted : IsOpenMap (restrictedProjection hL omega a) := by
+    intro S hS
+    obtain ⟨U,hU,hUS⟩ := isOpen_induced_iff.mp hS
+    have heq : restrictedProjection hL omega a '' S =
+        Subtype.val ⁻¹' (coverProjection L '' U) := by
+      ext q
+      constructor
+      · rintro ⟨X,hXS,rfl⟩
+        refine ⟨X.val,?_,rfl⟩
+        simpa only [← hUS,Set.mem_preimage] using hXS
+      · rintro ⟨X,hXU,hXq⟩
+        have hp : actualField 2 L omega X =
+            SourceActualFoldTorus.actualTorusField hL.ne' omega q.val := by
+          calc
+            _ = SourceActualFoldTorus.actualTorusField hL.ne' omega (coverProjection L X) :=
+              (SourceActualFoldTorus.actualTorusField_pullback hL.ne' omega (coordinates 2 X)).symm
+            _ = _ := congrArg _ hXq
+        have hmem : a ≤ actualField 2 L omega X := by
+          rw [hp]
+          exact q.property
+        refine ⟨⟨X,hmem⟩,?_,?_⟩
+        · simpa only [← hUS,Set.mem_preimage] using hXU
+        · apply Subtype.ext
+          exact hXq
+    rw [heq]
+    exact (hopen U hU).preimage continuous_subtype_val
+  have hcont := restrictedProjection_continuous hL omega a
+  have hsurj := restrictedProjection_surjective hL omega a
+  exact ⟨hcont,hopenRestricted,hsurj,hopenRestricted.isQuotientMap hcont hsurj⟩

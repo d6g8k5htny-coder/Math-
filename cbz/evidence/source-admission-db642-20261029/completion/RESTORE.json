@@ -1,0 +1,37 @@
+{
+  "scope": "Optional historical recovery; do not re-create retired branches for ordinary gate execution.",
+  "bundles": [
+    {
+      "repository": "d6g8k5htny-coder/main",
+      "bundle_member": "hygiene/main-standalone/source-history.bundle",
+      "required_ancestors": [
+        "81acc060341e8a31cc4cd4f9523ef71fb6c06175"
+      ],
+      "public_commit_containing_all_prerequisites": "8a82c0d7aabd53f8d5347635d05d55f294024d82",
+      "snapshot_tag": "pre-cbz-phase2-db642-main-standalone-20261029",
+      "record_member": "hygiene/main-standalone/RETIREMENT.json"
+    },
+    {
+      "repository": "d6g8k5htny-coder/main",
+      "bundle_member": "hygiene/main-composition/source-history.bundle",
+      "required_ancestors": [
+        "5aa6fbac2c66fac0e6e2332b7e95cacc3c37350e",
+        "50575e9823b883f7d766e0d9a45008c5e49c2fc6",
+        "4da34569f2e6e70267d2ee9d3170916b9b598279"
+      ],
+      "public_commit_containing_all_prerequisites": "8a82c0d7aabd53f8d5347635d05d55f294024d82",
+      "snapshot_tag": "pre-cbz-phase2-db642-main-composition-20261029",
+      "record_member": "hygiene/main-composition/RETIREMENT.json"
+    },
+    {
+      "repository": "d6g8k5htny-coder/Math-",
+      "bundle_member": "hygiene/math-standalone/source-history.bundle",
+      "required_ancestors": [
+        "8151f592918a845bf19eb8eafaf8444540a32734"
+      ],
+      "public_commit_containing_all_prerequisites": "245021de895634c486ca098d02a154b9f41230c8",
+      "snapshot_tag": "pre-cbz-phase2-db642-math-standalone-20261029",
+      "record_member": "hygiene/math-standalone/RETIREMENT.json"
+    }
+  ]
+}

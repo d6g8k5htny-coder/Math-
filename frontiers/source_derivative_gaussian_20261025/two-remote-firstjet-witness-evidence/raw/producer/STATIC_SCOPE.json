@@ -1,0 +1,42 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetWitness.lean",
+    "bytes": 21442,
+    "sha256": "b523da924513fc312c5432c241fc031d4fbe3567fbeedbba981f36dd798574a4"
+  },
+  "imports": [
+    "SourceRemoteJetWitness",
+    "Lean.Elab.Tactic.Omega"
+  ],
+  "forbidden_matches": [],
+  "public_prop_count": 2,
+  "public_data_names": [
+    "twoRemoteFirstJetCoefficient"
+  ],
+  "literal_order": "valueX,dxX,dyX,valueY,dxY,dyY; rawfM,fS,fxM,fxS,fyM,fyS",
+  "actual_hypotheses": [
+    "originalsignedLne0",
+    "arbitrarysignedr",
+    "literalquotientxM,xS,yM,yS,xy",
+    "arbitraryreal6x6R forGram"
+  ],
+  "absent_hypotheses": [
+    "endpointM/Sendpointseparation",
+    "rnonzero/positive/small",
+    "pinCovarianceinverse",
+    "target/law/suppliedwitness/rank/PosDefcertificate"
+  ],
+  "minimal_assembly": "Forp=xandp=y choose3independentseparatingcoordinates againstM,S,otherremote; triple squared1-cosmultiplierpositiveatp andzero1jet atavoidedpoints; ONLYlocalGerm0/1/2 and3scalarfirstjettriangularinverse; explicit47finitepolytoSource; concatenateactual3+3finitefamilies; genericfiniteGram once",
+  "no_foreign_private_names": true,
+  "foreign_namespace_generated_inventory": [
+    "I4SourceRemoteJetWitness.localGerm.eq_1",
+    "I4Weights.sourceC.eq_1"
+  ],
+  "nonclaims": [
+    "jointGaussianlaw/density/freecoordinateindependence",
+    "criticalvaluetieincidence/globalMorse",
+    "two-site2jet12rank/full6germinverse",
+    "uniformcovariancefloor",
+    "canonicalH0/Lifetime/Rice/Parent"
+  ]
+}

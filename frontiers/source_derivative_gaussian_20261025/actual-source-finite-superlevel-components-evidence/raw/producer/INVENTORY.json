@@ -1,0 +1,320 @@
+{
+  "module": "SourceActualFiniteSuperlevelComponents",
+  "total": 30,
+  "counts": {
+    "authored private theorem": 18,
+    "sole authored public theorem": 1,
+    "private generated proof auxiliary": 3,
+    "authored private definition": 4,
+    "private generated defining equation": 2,
+    "private generated simp theorem": 2
+  },
+  "zero_count_categories": [
+    "authored private Prop bundle",
+    "authored private type or level-set alias",
+    "foreign-namespace generated declaration",
+    "private generated congruence or other declaration"
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "declarations": [
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.fixture_fieldBounds",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.fixture_finite_whole",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.fixture_wholeLocalTopology",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.fixture_actualField",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.fixture_wholeLevel",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceActualFiniteSuperlevelComponents.actualSource_finite_closedSuperlevel_components",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "sole authored public theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.fixturePolynomial._proof_2",
+      "axioms": [
+        "propext"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.fixturePolynomial",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.actualClosedSuperlevel_compact",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.consumeFiniteClosedSubtype",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.fixture_maxLocalTopology",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.fixturePolynomial.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated defining equation"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.fixture_emptyLevel",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.fixture_pullback",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.fixtureSample.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated defining equation"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.fixture_emptyLevel._simp_1_1",
+      "axioms": [
+        "propext"
+      ],
+      "classification": "private generated simp theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.fixtureTorusField._proof_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.actualClosedSuperlevel_locallyPathConnected",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.fixture_whole_nonempty",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.fixture_maxLevel",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.fixturePolynomial._proof_1",
+      "axioms": [
+        "propext"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.fixture_finite_max",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.finiteField_value",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.fixtureTorusField",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.fixtureProjection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.fixture_emptyLocalTopology",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.coordinate_max_zero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.fixtureSample",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.fixture_finite_empty",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualFiniteSuperlevelComponents.0.I4SourceActualFiniteSuperlevelComponents.fixture_wholeLevel._simp_1_1",
+      "axioms": [
+        "propext"
+      ],
+      "classification": "private generated simp theorem"
+    }
+  ],
+  "coverage": "ALL constants with exact own module index, without prior namespace filter; authored/private/generated/foreigngenerated separately classified; all raw axiom rows retained in original inventory stdout",
+  "receipt": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/inventory-001/receipt.json",
+  "harness_provenance": "Reuse generic accepted module-index inventory infrastructure template, replace only OWN module name; no previous module execution or proof-body dependency."
+}

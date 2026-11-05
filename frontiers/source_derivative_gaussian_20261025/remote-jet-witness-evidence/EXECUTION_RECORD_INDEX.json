@@ -1,0 +1,820 @@
+{
+  "created_utc": "2026-10-26T12:23:50.804023+00:00",
+  "records": [
+    {
+      "kind": "develop",
+      "run": "develop-001",
+      "start": "2026-10-26T12:03:12.950985+00:00",
+      "end": "2026-10-26T12:03:17.965982+00:00",
+      "seconds": 5.015001608997409,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+        "-o",
+        "/workspace/scratch/remote-jet-witness-construct/runs/develop-001/SourceRemoteJetWitness.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 1,
+      "source_sha256": "93d61c59699dbd2bafa498210598de19b427316b1142598225f3a3e84a58f5fb",
+      "source_snapshot": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-001/SourceRemoteJetWitness.lean",
+        "bytes": 4564,
+        "sha256": "93d61c59699dbd2bafa498210598de19b427316b1142598225f3a3e84a58f5fb"
+      },
+      "stdout_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-001/stdout.log",
+        "bytes": 1646,
+        "sha256": "c9a208db7bb3db992bacf386bf1a803c651a532773ef889781c396d01d48cd6a"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "kind": "develop",
+      "run": "develop-002",
+      "start": "2026-10-26T12:04:16.966448+00:00",
+      "end": "2026-10-26T12:04:19.991012+00:00",
+      "seconds": 3.0245752920018276,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+        "-o",
+        "/workspace/scratch/remote-jet-witness-construct/runs/develop-002/SourceRemoteJetWitness.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 1,
+      "source_sha256": "09fa4ae18d17117a9c406964340abefd15110ab712d5f40943e25c6f9fb1147e",
+      "source_snapshot": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-002/SourceRemoteJetWitness.lean",
+        "bytes": 4962,
+        "sha256": "09fa4ae18d17117a9c406964340abefd15110ab712d5f40943e25c6f9fb1147e"
+      },
+      "stdout_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-002/stdout.log",
+        "bytes": 1722,
+        "sha256": "c39c9b0f08100d02273c8c6cf3330ca87db30e82a43500725547ac08b79e6662"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-002/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "kind": "develop",
+      "run": "develop-003",
+      "start": "2026-10-26T12:05:07.690453+00:00",
+      "end": "2026-10-26T12:05:10.651744+00:00",
+      "seconds": 2.9613292170033674,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+        "-o",
+        "/workspace/scratch/remote-jet-witness-construct/runs/develop-003/SourceRemoteJetWitness.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 0,
+      "source_sha256": "4e49e7b1be34f5db9bfb4cb127dabce342ef711a05a0a4b145d73ea378c3fe1d",
+      "source_snapshot": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-003/SourceRemoteJetWitness.lean",
+        "bytes": 4770,
+        "sha256": "4e49e7b1be34f5db9bfb4cb127dabce342ef711a05a0a4b145d73ea378c3fe1d"
+      },
+      "stdout_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-003/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-003/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "new_module_object": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-003/SourceRemoteJetWitness.olean",
+        "bytes": 248552,
+        "sha256": "b9ea37cb9c81883e0f912e1205bccd71ba3d7b47e075640cae276c3a1c9a8d7b"
+      }
+    },
+    {
+      "kind": "develop",
+      "run": "develop-004",
+      "start": "2026-10-26T12:06:09.960961+00:00",
+      "end": "2026-10-26T12:06:13.821721+00:00",
+      "seconds": 3.860771924999426,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+        "-o",
+        "/workspace/scratch/remote-jet-witness-construct/runs/develop-004/SourceRemoteJetWitness.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 1,
+      "source_sha256": "8af2a2b3801371b751738e9c7eeeebd774670c02631bf48445d81c031648bed8",
+      "source_snapshot": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-004/SourceRemoteJetWitness.lean",
+        "bytes": 6382,
+        "sha256": "8af2a2b3801371b751738e9c7eeeebd774670c02631bf48445d81c031648bed8"
+      },
+      "stdout_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-004/stdout.log",
+        "bytes": 3177,
+        "sha256": "6ec4db0d3ec9e24742b614a5523dfbdc08623567416dbfe71475c71d8b442fcd"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-004/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "kind": "develop",
+      "run": "develop-005",
+      "start": "2026-10-26T12:07:06.423930+00:00",
+      "end": "2026-10-26T12:07:09.607453+00:00",
+      "seconds": 3.183534255993436,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+        "-o",
+        "/workspace/scratch/remote-jet-witness-construct/runs/develop-005/SourceRemoteJetWitness.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 0,
+      "source_sha256": "65e2dafe338429a8be583d78cc968bc0f0410a3c147713a68414a132ab56f54a",
+      "source_snapshot": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-005/SourceRemoteJetWitness.lean",
+        "bytes": 6442,
+        "sha256": "65e2dafe338429a8be583d78cc968bc0f0410a3c147713a68414a132ab56f54a"
+      },
+      "stdout_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-005/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-005/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "new_module_object": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-005/SourceRemoteJetWitness.olean",
+        "bytes": 406328,
+        "sha256": "f89f04c4cc32936e3d4a60c77453d945443438cabb41284c60b01c46b8eb2730"
+      }
+    },
+    {
+      "kind": "develop",
+      "run": "develop-006",
+      "start": "2026-10-26T12:10:30.972251+00:00",
+      "end": "2026-10-26T12:10:39.542063+00:00",
+      "seconds": 8.569824661004532,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+        "-o",
+        "/workspace/scratch/remote-jet-witness-construct/runs/develop-006/SourceRemoteJetWitness.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 1,
+      "source_sha256": "bca6a2e039e00d214219af1497c42ae97c0364c3ecf13c94c3ba02f4c9c57fe7",
+      "source_snapshot": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-006/SourceRemoteJetWitness.lean",
+        "bytes": 29429,
+        "sha256": "bca6a2e039e00d214219af1497c42ae97c0364c3ecf13c94c3ba02f4c9c57fe7"
+      },
+      "stdout_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-006/stdout.log",
+        "bytes": 10195,
+        "sha256": "5297e673ec874a4cd25471aebd2a1951ff5e88e05bb97817baa4b2214595aa1d"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-006/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "kind": "develop",
+      "run": "develop-007",
+      "start": "2026-10-26T12:11:13.187508+00:00",
+      "end": "2026-10-26T12:11:20.224555+00:00",
+      "seconds": 7.037059333997604,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+        "-o",
+        "/workspace/scratch/remote-jet-witness-construct/runs/develop-007/SourceRemoteJetWitness.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 1,
+      "source_sha256": "a745be6b10cbd2c61d6c903ac2e23899201bea35bf7e3f372935506b25d06497",
+      "source_snapshot": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-007/SourceRemoteJetWitness.lean",
+        "bytes": 29664,
+        "sha256": "a745be6b10cbd2c61d6c903ac2e23899201bea35bf7e3f372935506b25d06497"
+      },
+      "stdout_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-007/stdout.log",
+        "bytes": 2348,
+        "sha256": "d357c19d32a631202a022861d8e22d22c8f8dfde03e54dd6c4b8faa24ca5535d"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-007/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "kind": "develop",
+      "run": "develop-008",
+      "start": "2026-10-26T12:12:24.392336+00:00",
+      "end": "2026-10-26T12:12:32.384475+00:00",
+      "seconds": 7.992149751997204,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+        "-o",
+        "/workspace/scratch/remote-jet-witness-construct/runs/develop-008/SourceRemoteJetWitness.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 0,
+      "source_sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf",
+      "source_snapshot": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-008/SourceRemoteJetWitness.lean",
+        "bytes": 29687,
+        "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+      },
+      "stdout_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-008/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-008/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "new_module_object": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/develop-008/SourceRemoteJetWitness.olean",
+        "bytes": 2856432,
+        "sha256": "ab78dc5c42be8bc32d211507a85d0d59ef36ab9acf933605d3da41fa8d8eac87"
+      }
+    },
+    {
+      "kind": "inventory",
+      "run": "inventory-001",
+      "start": "2026-10-26T12:13:38.156169+00:00",
+      "end": "2026-10-26T12:13:42.068954+00:00",
+      "seconds": 3.9127983360012877,
+      "command": [
+        "lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/remote-jet-witness-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/remote-jet-witness-construct /workspace/scratch/remote-jet-witness-construct/Inventory.lean -o /workspace/scratch/remote-jet-witness-construct/runs/inventory-001/Inventory.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 0,
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+          "bytes": 29687,
+          "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+        },
+        "object": {
+          "path": "/workspace/scratch/remote-jet-witness-construct/build/SourceRemoteJetWitness.olean",
+          "bytes": 2856432,
+          "sha256": "ab78dc5c42be8bc32d211507a85d0d59ef36ab9acf933605d3da41fa8d8eac87"
+        }
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+          "bytes": 29687,
+          "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+        },
+        "object": {
+          "path": "/workspace/scratch/remote-jet-witness-construct/build/SourceRemoteJetWitness.olean",
+          "bytes": 2856432,
+          "sha256": "ab78dc5c42be8bc32d211507a85d0d59ef36ab9acf933605d3da41fa8d8eac87"
+        }
+      },
+      "stdout": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/inventory-001/stdout.log",
+        "bytes": 19653,
+        "sha256": "ac041366051d3b9f645c3e6f73c30d020a674ac95e06bfae3743ac3086a7eb82"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/inventory-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "source_snapshot": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/inventory-001/SourceRemoteJetWitness.lean",
+        "bytes": 29687,
+        "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+      },
+      "stdout_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/inventory-001/stdout.log",
+        "bytes": 19653,
+        "sha256": "ac041366051d3b9f645c3e6f73c30d020a674ac95e06bfae3743ac3086a7eb82"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/inventory-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "kind": "controls",
+      "run": "controls-001",
+      "start": "2026-10-26T12:15:16.613587+00:00",
+      "end": "2026-10-26T12:15:20.637011+00:00",
+      "seconds": 4.023434069000359,
+      "command": [
+        "lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/remote-jet-witness-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/remote-jet-witness-construct /workspace/scratch/remote-jet-witness-construct/Controls.lean -o /workspace/scratch/remote-jet-witness-construct/runs/controls-001/Controls.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 1,
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+          "bytes": 29687,
+          "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+        },
+        "object": {
+          "path": "/workspace/scratch/remote-jet-witness-construct/build/SourceRemoteJetWitness.olean",
+          "bytes": 2856432,
+          "sha256": "ab78dc5c42be8bc32d211507a85d0d59ef36ab9acf933605d3da41fa8d8eac87"
+        }
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+          "bytes": 29687,
+          "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+        },
+        "object": {
+          "path": "/workspace/scratch/remote-jet-witness-construct/build/SourceRemoteJetWitness.olean",
+          "bytes": 2856432,
+          "sha256": "ab78dc5c42be8bc32d211507a85d0d59ef36ab9acf933605d3da41fa8d8eac87"
+        }
+      },
+      "stdout": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/controls-001/stdout.log",
+        "bytes": 493,
+        "sha256": "5397484fb32376705dd9b04ab8b9f6541046db6b91ca0ab2d3a0834bc0b074b1"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/controls-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "source_snapshot": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/controls-001/SourceRemoteJetWitness.lean",
+        "bytes": 29687,
+        "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+      },
+      "stdout_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/controls-001/stdout.log",
+        "bytes": 493,
+        "sha256": "5397484fb32376705dd9b04ab8b9f6541046db6b91ca0ab2d3a0834bc0b074b1"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/controls-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "kind": "controls",
+      "run": "controls-002",
+      "start": "2026-10-26T12:16:20.406889+00:00",
+      "end": "2026-10-26T12:16:24.888622+00:00",
+      "seconds": 4.481745691999095,
+      "command": [
+        "lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/remote-jet-witness-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/remote-jet-witness-construct /workspace/scratch/remote-jet-witness-construct/Controls.lean -o /workspace/scratch/remote-jet-witness-construct/runs/controls-002/Controls.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 1,
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+          "bytes": 29687,
+          "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+        },
+        "object": {
+          "path": "/workspace/scratch/remote-jet-witness-construct/build/SourceRemoteJetWitness.olean",
+          "bytes": 2856432,
+          "sha256": "ab78dc5c42be8bc32d211507a85d0d59ef36ab9acf933605d3da41fa8d8eac87"
+        }
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+          "bytes": 29687,
+          "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+        },
+        "object": {
+          "path": "/workspace/scratch/remote-jet-witness-construct/build/SourceRemoteJetWitness.olean",
+          "bytes": 2856432,
+          "sha256": "ab78dc5c42be8bc32d211507a85d0d59ef36ab9acf933605d3da41fa8d8eac87"
+        }
+      },
+      "stdout": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/controls-002/stdout.log",
+        "bytes": 185,
+        "sha256": "5b43aab3e2d29a8b2ea172a3f2d15a7fac5091e10816d774167ce1fcc24da8ed"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/controls-002/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "source_snapshot": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/controls-002/SourceRemoteJetWitness.lean",
+        "bytes": 29687,
+        "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+      },
+      "stdout_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/controls-002/stdout.log",
+        "bytes": 185,
+        "sha256": "5b43aab3e2d29a8b2ea172a3f2d15a7fac5091e10816d774167ce1fcc24da8ed"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/controls-002/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "kind": "controls",
+      "run": "controls-003",
+      "start": "2026-10-26T12:17:01.339998+00:00",
+      "end": "2026-10-26T12:17:05.020881+00:00",
+      "seconds": 3.6808926110024913,
+      "command": [
+        "lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/remote-jet-witness-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/remote-jet-witness-construct /workspace/scratch/remote-jet-witness-construct/Controls.lean -o /workspace/scratch/remote-jet-witness-construct/runs/controls-003/Controls.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 1,
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+          "bytes": 29687,
+          "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+        },
+        "object": {
+          "path": "/workspace/scratch/remote-jet-witness-construct/build/SourceRemoteJetWitness.olean",
+          "bytes": 2856432,
+          "sha256": "ab78dc5c42be8bc32d211507a85d0d59ef36ab9acf933605d3da41fa8d8eac87"
+        }
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+          "bytes": 29687,
+          "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+        },
+        "object": {
+          "path": "/workspace/scratch/remote-jet-witness-construct/build/SourceRemoteJetWitness.olean",
+          "bytes": 2856432,
+          "sha256": "ab78dc5c42be8bc32d211507a85d0d59ef36ab9acf933605d3da41fa8d8eac87"
+        }
+      },
+      "stdout": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/controls-003/stdout.log",
+        "bytes": 1040,
+        "sha256": "880e4457e86b5dda7b4a7cca33cb9a9f544e14244bd1cbd6a61f0dd091296bb5"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/controls-003/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "source_snapshot": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/controls-003/SourceRemoteJetWitness.lean",
+        "bytes": 29687,
+        "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+      },
+      "stdout_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/controls-003/stdout.log",
+        "bytes": 1040,
+        "sha256": "880e4457e86b5dda7b4a7cca33cb9a9f544e14244bd1cbd6a61f0dd091296bb5"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/controls-003/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "kind": "controls",
+      "run": "controls-004",
+      "start": "2026-10-26T12:18:45.684140+00:00",
+      "end": "2026-10-26T12:18:49.419804+00:00",
+      "seconds": 3.7356949869936216,
+      "command": [
+        "lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/remote-jet-witness-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/remote-jet-witness-construct /workspace/scratch/remote-jet-witness-construct/Controls.lean -o /workspace/scratch/remote-jet-witness-construct/runs/controls-004/Controls.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 1,
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+          "bytes": 29687,
+          "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+        },
+        "object": {
+          "path": "/workspace/scratch/remote-jet-witness-construct/build/SourceRemoteJetWitness.olean",
+          "bytes": 2856432,
+          "sha256": "ab78dc5c42be8bc32d211507a85d0d59ef36ab9acf933605d3da41fa8d8eac87"
+        }
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+          "bytes": 29687,
+          "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+        },
+        "object": {
+          "path": "/workspace/scratch/remote-jet-witness-construct/build/SourceRemoteJetWitness.olean",
+          "bytes": 2856432,
+          "sha256": "ab78dc5c42be8bc32d211507a85d0d59ef36ab9acf933605d3da41fa8d8eac87"
+        }
+      },
+      "stdout": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/controls-004/stdout.log",
+        "bytes": 1040,
+        "sha256": "880e4457e86b5dda7b4a7cca33cb9a9f544e14244bd1cbd6a61f0dd091296bb5"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/controls-004/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "source_snapshot": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/controls-004/SourceRemoteJetWitness.lean",
+        "bytes": 29687,
+        "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+      },
+      "stdout_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/controls-004/stdout.log",
+        "bytes": 1040,
+        "sha256": "880e4457e86b5dda7b4a7cca33cb9a9f544e14244bd1cbd6a61f0dd091296bb5"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/controls-004/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "kind": "controls",
+      "run": "controls-005",
+      "start": "2026-10-26T12:19:36.847310+00:00",
+      "end": "2026-10-26T12:19:40.735734+00:00",
+      "seconds": 3.888461617003486,
+      "command": [
+        "lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/remote-jet-witness-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/remote-jet-witness-construct /workspace/scratch/remote-jet-witness-construct/Controls.lean -o /workspace/scratch/remote-jet-witness-construct/runs/controls-005/Controls.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 0,
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+          "bytes": 29687,
+          "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+        },
+        "object": {
+          "path": "/workspace/scratch/remote-jet-witness-construct/build/SourceRemoteJetWitness.olean",
+          "bytes": 2856432,
+          "sha256": "ab78dc5c42be8bc32d211507a85d0d59ef36ab9acf933605d3da41fa8d8eac87"
+        }
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+          "bytes": 29687,
+          "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+        },
+        "object": {
+          "path": "/workspace/scratch/remote-jet-witness-construct/build/SourceRemoteJetWitness.olean",
+          "bytes": 2856432,
+          "sha256": "ab78dc5c42be8bc32d211507a85d0d59ef36ab9acf933605d3da41fa8d8eac87"
+        }
+      },
+      "stdout": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/controls-005/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/controls-005/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "source_snapshot": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/controls-005/SourceRemoteJetWitness.lean",
+        "bytes": 29687,
+        "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+      },
+      "stdout_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/controls-005/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/controls-005/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "kind": "false-collision",
+      "run": "false-collision-001",
+      "start": "2026-10-26T12:20:09.576239+00:00",
+      "end": "2026-10-26T12:20:12.408620+00:00",
+      "seconds": 2.8323910880062613,
+      "command": [
+        "lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/remote-jet-witness-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/remote-jet-witness-construct /workspace/scratch/remote-jet-witness-construct/FalseCollisionMutation.lean -o /workspace/scratch/remote-jet-witness-construct/runs/false-collision-001/FalseCollisionMutation.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 1,
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+          "bytes": 29687,
+          "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+        },
+        "object": {
+          "path": "/workspace/scratch/remote-jet-witness-construct/build/SourceRemoteJetWitness.olean",
+          "bytes": 2856432,
+          "sha256": "ab78dc5c42be8bc32d211507a85d0d59ef36ab9acf933605d3da41fa8d8eac87"
+        }
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+          "bytes": 29687,
+          "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+        },
+        "object": {
+          "path": "/workspace/scratch/remote-jet-witness-construct/build/SourceRemoteJetWitness.olean",
+          "bytes": 2856432,
+          "sha256": "ab78dc5c42be8bc32d211507a85d0d59ef36ab9acf933605d3da41fa8d8eac87"
+        }
+      },
+      "stdout": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/false-collision-001/stdout.log",
+        "bytes": 469,
+        "sha256": "536080d4086617b919a62dd94cdff60a7bf385a6f1b2f3350e8da1935137006c"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/false-collision-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "source_snapshot": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/false-collision-001/SourceRemoteJetWitness.lean",
+        "bytes": 29687,
+        "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+      },
+      "stdout_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/false-collision-001/stdout.log",
+        "bytes": 469,
+        "sha256": "536080d4086617b919a62dd94cdff60a7bf385a6f1b2f3350e8da1935137006c"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/false-collision-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "kind": "kernel",
+      "run": "kernel-001",
+      "start": "2026-10-26T12:21:14.337202+00:00",
+      "end": "2026-10-26T12:21:20.731492+00:00",
+      "seconds": 6.3943133060020045,
+      "command": [
+        "lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/remote-jet-witness-construct/build:$LEAN_PATH exec leanchecker SourceRemoteJetWitness"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 0,
+      "before": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+          "bytes": 29687,
+          "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+        },
+        "object": {
+          "path": "/workspace/scratch/remote-jet-witness-construct/build/SourceRemoteJetWitness.olean",
+          "bytes": 2856432,
+          "sha256": "ab78dc5c42be8bc32d211507a85d0d59ef36ab9acf933605d3da41fa8d8eac87"
+        }
+      },
+      "after": {
+        "source": {
+          "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+          "bytes": 29687,
+          "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+        },
+        "object": {
+          "path": "/workspace/scratch/remote-jet-witness-construct/build/SourceRemoteJetWitness.olean",
+          "bytes": 2856432,
+          "sha256": "ab78dc5c42be8bc32d211507a85d0d59ef36ab9acf933605d3da41fa8d8eac87"
+        }
+      },
+      "stdout": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/kernel-001/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/kernel-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "source_snapshot": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/kernel-001/SourceRemoteJetWitness.lean",
+        "bytes": 29687,
+        "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+      },
+      "stdout_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/kernel-001/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/remote-jet-witness-construct/runs/kernel-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "all_failures_retained": true,
+  "exactly_one_named_own_module_kernel": true,
+  "old_mathematical_check_replays": 0,
+  "native_pickup": "6415454977",
+  "native_pickup_utc": "2026-10-26T11:59:17Z",
+  "checkpoint_utc": "2026-10-26T12:45:00Z",
+  "terminal_utc": "2026-10-26T13:45:00Z",
+  "timer_reset": false
+}

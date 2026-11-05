@@ -1,0 +1,57 @@
+{
+  "ordinary": {
+    "label": "controls-002",
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "sh",
+      "-c",
+      "LEAN_PATH=/workspace/scratch/actual-source-quotient-saddle-collar-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/actual-source-quotient-saddle-collar-construct -o /workspace/scratch/actual-source-quotient-saddle-collar-construct/build/QuotientSaddleCollarControls.olean /workspace/scratch/actual-source-quotient-saddle-collar-construct/QuotientSaddleCollarControls.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "started_utc": "2026-10-28T20:25:10.185214+00:00",
+    "ended_utc": "2026-10-28T20:25:14.774742+00:00",
+    "elapsed_seconds": 4.589093153997965,
+    "exit_code": 0,
+    "stdout": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/controls-002/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity of newly created or changed owned payload"
+    },
+    "stderr": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/controls-002/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity of newly created or changed owned payload"
+    }
+  },
+  "sole_negative": {
+    "label": "false-control-001",
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "sh",
+      "-c",
+      "LEAN_PATH=/workspace/scratch/actual-source-quotient-saddle-collar-construct/build:$LEAN_PATH exec lean -DwarningAsError=true /workspace/scratch/actual-source-quotient-saddle-collar-construct/FalseMutation.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "started_utc": "2026-10-28T20:25:50.892523+00:00",
+    "ended_utc": "2026-10-28T20:25:53.163429+00:00",
+    "elapsed_seconds": 2.2702827919965785,
+    "exit_code": 1,
+    "stdout": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/false-control-001/stdout.log",
+      "bytes": 123,
+      "sha256": "2a2109503735c316f724a681c79514d608e6adb61c1c0396177f18162d701dbe",
+      "identity_origin": "FIRST identity of newly created or changed owned payload"
+    },
+    "stderr": {
+      "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/false-control-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity of newly created or changed owned payload"
+    }
+  },
+  "expected_negative": "ONE intended unsolved False; independently passed counterproof predates sole importing attempt"
+}

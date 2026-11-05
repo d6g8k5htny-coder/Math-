@@ -1,0 +1,15 @@
+/workspace/scratch/actual-quartic-transfer/lean/ScalarTaylorRemainder.lean:46:51: error: Application type mismatch: The argument
+  Nat.cast_nonneg ?m.265
+has type
+  0 ≤ ↑?m.265
+but is expected to have type
+  0 ≤ iteratedDeriv (n + 1) g y
+in the application
+  abs_of_nonneg (Nat.cast_nonneg ?m.265)
+/workspace/scratch/actual-quartic-transfer/lean/ScalarTaylorRemainder.lean:54:2: error: No goals to be solved
+/workspace/scratch/actual-quartic-transfer/lean/ScalarTaylorRemainder.lean:71:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/actual-quartic-transfer/lean/ScalarTaylorRemainder.lean:71:33: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`

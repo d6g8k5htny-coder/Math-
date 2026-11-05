@@ -1,3 +1,1037 @@
+# CBZ mathematical contribution: closed lower-inclusion separation
+
+The source package now registers67 modules /1137 written targets (1128 propositions+9 data instances)/32 inherited support inputs. The stage67 addition is the exact conditional actual closed-band component-inclusion injection theorem. Its complete source, strict compilation, exhaustive five-owned/std3 audit and proper final own-module kernel passed. The separately attempted ordinary Fourier fixture and its global-hm/positive/collision/negative obligations are QUARANTINED; they are not production dependencies or proved applications. See [the exact proof index and evidence](cbz/stage67/PROOF_INDEX.md).
+
+No final federation CBZ status is asserted by these historical module receipts. The canonical consolidation lane is main#684/#685. Old approval/quorum/freezing text below and in retained evidence is historical, not current authority.
+
+## Historical stage66 publication and lineage (retained verbatim)
+
+# Proposed66 modules/1136 written/32 inputs
+
+[SourceActualRegularLocalCollar.lean](SourceActualRegularLocalCollar.lean) appends exactly one actual quotient regular-local-collar proposition and no public data. Actual nonzero-fderiv quotient regular collar: positive original period/sample and actual fderiv nonzero, no global hm. For EVERY prescribed open O obtain ONE rho/phi, centered at the actual quotient point, source contained in O, exact finite-Pi2 target ball, and ordered actual field identity F=c+coordinate1. The SAME phi/rho serves ALL |epsilon|<rho, with NONEMPTY path-connected CLOSED uppercuts AND level slices. Derive the physical triangular continuous-linear equivalence/actual IFT and public quotient descent; no64/65 mathematical dependency, supplied desired chart/certificate, torus C1 atlas or norm-isometry premise. Sole public Prop/no public data.
+
+Actual original period2 cos(pi*x)+2cos(pi*y), BOTH nonzero physical partial alternatives at (1/2,0) and (0,1/2), seam lift(-3/2,0), and prescribed physical E2 ambient O of radius1/8 exercise the public theorem. The SAME actual chart/radius serves zero and +/-rho/2 levels; exact inverse points give actual equality and distinctness, and CLOSED uppercut/level-slice membership. No norm isometry or64/65 mathematical result is used.
+
+At most ONE complete PRIVATE physical-adapter TEXT original is first-frozen before one integration, with zero helper executions/hashes/objects. Producer owns quotient/geometry joins, all actual positives, all ordinary Controls/counterproof and actual amendments/executions. The sole mutation removes ONLY the actual nonzero-fderiv premise, retaining the SAME actual function/sample/carrier/center/target/source/field identity and all conclusions. At the SAME actual maximum0/c3, the inverse target point(0,rho/2) forces actual F>3 while the independently passed ordinary global bound gives F<=3. The public CLOSED ordinary mutation and its independently passed negation precede ONE importingFalse. There is no ordinary named kernel.
+
+Qualified65 `263b9d4329043e6debd299a8c27327ee515670d7` appends to66modules/1136written=1127Prop+9data/32inputs. Production owned count 80 and separate ordinary inventory remain dynamic stored final evidence. Actual dedicated producer workers 39 = 17 mathematical + 22 documentary + 0 unlabeled; 78 original worker streams/51018B. Initial external freeze/root65-labelled original wrappers and later dedicated66 wrapper families remain separately attributed. Every actual source/harness/context/runner version, initial originals, full actual patches, ACK/freeze/integration, development failure and capture limit is retained. Initial avoidable EMPTY metadata hash is disclosed; forward fix uses known EMPTY identity without replaying bootstrap.
+
+Root reading: FULL adopted context draft7682tokens+actualmetadata-only delta1499, B original/import/provenance/freeze3674 and priorACK/contextreuse; production prekernelreport+scope4212; ordinarysource3219/harness+diagnostic104; six curated producerfinaldocs6137; final documentary REPORT+READING_SCOPE4273; finalmetadata code5197+capture/driver/wrappers/schema5510, ONLYactualselfIDdeltaFULL. Production finalbody transfer programmatic, NOT rootpersonallyFULL; largeaggregate schemas/selectedbindingsonly, priorcombinedcacheoutputTRUNCATED notFULL. Prior applicablemathematicalverification and priorreviewer completedmathematicalPASS reused withattribution; no transferred reviewerFULL.. Nonauthor technical review: Prior technical reviewer personallyFULL production via original+allactualdeltas/actualpositives, ordinary/counterproof/harness/diagnostic, ALL80/ALL55 and finalqualification fields; completedmathematicalPASS reused withroot/priorreviewer attribution. Successor finaldocumentarycustodyPASS00:01:11, exactnew personalreading plus separatelyattributed auxiliaries and boundedaggregates; no personalparentFULLtransfer/no proof/hash/CIreplay. Sixexplicitfinalreviewfiles retainlimits.. Literal FULL source/evidence reading and structured/bounded aggregate reading remain distinct; links/paths/receipt delivery do not claim reading. Current packager66 proof-authorFALSE/independentcredit0/scienceNONE/samefamily0; historical baseline-script provenance does not assign current proof/review roles. Root ONLY sourcecut, one eligible own-object copy, shared metadata application/Git/external normal publication. Five installed bindings and ALL objects SKIP after root copy once. Qualified65 CI is not66 CI. Four future67 root EXTRA docs are excluded66archive/manifest/registry; no future seat. OpenDraft/noReady/noMerge. Global lowerseparation/finiteadjacency/criticalevents/elder/count/Borel/Rice/PairLaw/Parent remain OPEN.
+
+---
+
+# Historical qualified65 context preserved verbatim
+
+# Proposed65 modules/1135 written/32 inputs
+
+[SourceActualSaddleUppercuts.lean](SourceActualSaddleUppercuts.lean) appends exactly one actual saddle uniform closed-uppercut proposition and no public data. Positive original period/sample, actual criticality and FULL complementary inertia1 are the local premises; no global hm or desired chart/certificate is supplied. For EVERY prescribed open O, accepted PUBLIC64 is called exactly once internally. ONE unchanged rho/phi/source/exact Point2 Pi-norm target ball/ordered actual identity is retained; ALL delta>=0 lower closed traces are projected unchanged. With epsilon0=rho^2/4>0, the SAME chart serves ALL0<epsilon<epsilon0 CLOSED uppercuts, both NONEMPTY path-connected sign branches, disjoint union and exact JoinedIn equivalence by positive coordinate1 product. No shrink/reselection/per-sign/per-cut chart, norm-isometry or strict-cut replacement is asserted.
+
+SAME normalized original period2 cos(pi*x)+2*cos(pi*y), BOTH genuine saddles, seam lift and prescribed small ambient O exercise actual local criticality/FULL inertia. Equality-at-cutoff inverse points at +/-rho/4 give actual F=c+rho^2/16 and CLOSED membership. At most ONE production private finite-Pi2 geometry TEXT original freezes before ONE integration with ZERO helper executions/hashes/objects; producer owns transport/publicassembly/actual fixtures/ordinary Controls and all amendments. No ordinary TEXT helper exists. Production kernel excludes ordinary Controls; both production and ordinary mathematical constants require separate exhaustive actual inventories/std3 qualification.
+
+The sole mutation weakens epsilon>0 to epsilon>=0 with SAME upper bound/chart/radius/source/field/carrier/CLOSED cut. At epsilon=0, the independent ordinary full inverse vertical segment between +/-rho/2 stays in the target/source/zero-cut, has relative continuity/exact inverse endpoints and actual midpoint q. This refutes the mutant JoinedIn sign-product claim without using the production upper branches or inherited lower-PC shortcut. Passed independent counterproof precedes ONE importing False; no second mutation or changed chart/sample/level/strictness.
+
+Qualified64 `ee5b141d5ff41a0a9040256a8025690ec22d7266` appends to65 modules/1135 written=1126Prop+9data/32 inputs. Actual owned production count 119, separately inventoried ordinary constants and all 40 producer workers/80 worker streams/87961B remain archived. Mathematical calls 15, documentary calls 25, unlabeled calls 0 are distinct. ALL original source/harness/runner/context versions/snapshots/ACKs/freezes/FULL patches/failures/commands/cwd/times/exits/streams and actual outer/entry captures retain their scope; actual final counts/schemas govern, no stage64 guesses. Five installed bindings and ALL objects SKIP after root's sole eligible new own copy. Existing IDs reused; first-new IDs cached once; no old hash/math/object campaign.
+
+Root reading: ROOT_READING.json plus ROOT_REVIEW_ACCEPTANCE.json retain exact personal FULL/BOUNDED limits. Root FULL contract/context changes/B five originals/final ordinary and closedFalse/all named final docs/final review+scope/root metadata code and selected actual captures; NOT whole769 production/ALL119 raw/std3/all15 full mathematical receipt fields/large aggregate manifests/all69 grouped paths/all1786 allowlist. Broader source/inventory/receipt/path coverage belongs to nonauthor technical reviewer; completed applicable evidence reused. New prepublication text assets and exact native transfer utilities read by root; metadata-only and after final technical review.. Nonauthor technical review: Final technical FINAL_CUSTODY.md and technical-scope.json PASS/no findings. FULL actual production via full initial source plus actual deltas, ALL119 classified/std3 raw, final ordinary via initial+actual deltas/ALL123 raw, sole closedFalse, all40 actual worker/outer/entry receipts and240 streams, all69 distinct historical version/path groups, all1786 grouped allowlist paths; large aggregate execution index/artifact manifests STRUCTURED/BOUNDED, not literal complete11MB history or all1773 markers. Root first9 native families/21 internalGit/96 streams FULL; tenth prepublication text-assets family is root-owned later metadata scope. No independent scientific/provider-distinct credit.. Packager65 proof-author FALSE, independentcredit0; prior62A exposure does not transfer authorship. Root alone handles sourcecut/local/native commit bindings, metadata application/Git/cache/external publication. No CLI authentication retry/change or native write is a packager action. Existing64 hosted results are not65 CI. Proper66 root EXTRA docs are excluded65archive/manifest/registry; no future seat. ScientificNONE/same-family0, completed applicable verification reusable/provider process separate. Global collars/adjacency/critical events/elder/count/Borel/Rice/PairLaw/Parent remain OPEN.
+
+---
+
+# Historical qualified64 context preserved verbatim
+
+# Proposed64 modules/1134 written/32 inputs
+
+[SourceActualQuotientSaddleCollar.lean](SourceActualQuotientSaddleCollar.lean) appends exactly one actual quotient saddle-collar proposition and no public data. Positive original period/sample, actual point criticality and FULL literal complementary inertia1 imply, for EVERY ambient open O containing q, ONE positive radius and actual injective quotient chart with source inside O and target EXACTLY the centered Point2 Pi/max-norm ball. Its ordered actual field identity is Fz=c-(phi z 0)^2+(phi z 1)^2. No global IsMorseDistinct, supplied chart/branch/certificate, bare negative-count tag or norm-isometry premise is inserted.
+
+The SAME chart/radius supplies both nonempty path-connected strict branches, their disjoint union decomposition and exact JoinedIn equivalence by positive coordinate1 product. For ALL nonnegative delta that SAME chart also supplies path-connected lower closed traces. No separately selected charts per branch/delta or global C1 quotient-manifold structure is asserted. Accepted PUBLIC60 local physical coordinates and old PUBLIC quotient APIs are consumed without private proof/control binary copying.
+
+The same normalized period2 cos(pi*x)+2*cos(pi*y) actual sample supplies both genuine local saddles, prescribed small ambient neighborhoods and seam lift; actual criticality/FULL inertia are derived in each privacy scope. No global-hm fixture proof is required. Producer-authored ordinary Controls calls the new public endpoint. The sole mutation fixes the chosen actual chart/radius/source/field/carrier/level and falsely claims its WHOLE strict trace path connected. Independently derived inverse(0,+rho/2) and inverse(0,-rho/2) witnesses and coordinate1 IVT refute that claim before ONE importing False; no alternative chart, empty trace or second mutation.
+
+Qualified63 `f4825c3e3bd0e2d2c46157096e76b9ab17dbbb71` appends to64 modules/1134 written=1125Prop+9data/32 inputs. All 96 actual owned/private/generated/foreign-generated/std3 declarations and all 20 retained producer calls/40 original split streams/50113B remain archived. Verification calls 13, documentary calls 7, unlabeled calls 0 remain distinct. Every actual source/harness/runner/context version, observed personal ACK, freeze, complete original/FULL actual amendment/failure and important documentary outer capture retains its real scope. TWO production TEXT originals chart/geometry freeze before ONE integration each with ZERO helper executions/hashes/objects; ordinary Controls is producer-authored, no extra Controls text helper. Production kernel does NOT cover separate ordinary Controls. All final sizes/counts derive from actual immutable records. Five installed bindings/ALL objects SKIP after root's ONLY eligible final own copy.
+
+Root reading: Root FULL specified helper originals, final Controls/soleFalse and named final documents/captures; BOUNDED final production, inventory, execution index/manifest/allowlist and selected receipt fields. Full mathematical source/evidence/inventory coverage belongs to the nonauthor reviewer. Six earlier documentary outer streams/UTC absent; final entry UTC uninstrumented; one known context SHA recomputation disclosed. See verbatim ROOT_READING and separate final acceptance.. Final reviewer reading: Nonauthor final technical/custody PASS with no findings. Full final896-source coverage via previously full core plus complete new fixture tail/deltas; all96/rawaxioms;13 mathematical26 original streams and7 documentary14 worker streams plus final outer2/entry2; all343 artifacts/215 historical+18 active snapshots/375 paths and final closure. Actual duplicate-body reading reuse and six earlier outer/entry UTC limits remain explicit in all staged reports and scope.json; samefamily0/scienceNONE.. Packager64 proof-author FALSE, independent credit0; prior62A authorship is disclosed separately and transfers no64 role. No63 review transfers to64. Root alone applies/publishes; no remote64 publication or hosted64 CI claimed. Actual documentary limitations are retained honestly, never reconstructed by rerunning old work; upcoming metadata inner/outer captures are full original separate streams. ScientificNONE/same-family0; completed applicable verification and accepted mathematics remain reusable, provider-distinct process separate. Uniform positive closed uppercuts, regular quotient collars, finite adjacency/lowerclopen separation, actual critical events/exhaustive H0/elder/once-counting/Borel/Rice/PairLaw/Parent remain OPEN.
+
+---
+
+# Historical qualified63 context preserved verbatim
+
+# Proposed63 modules/1133 written/32 inputs
+
+[SourceActualFiniteSuperlevelComponents.lean](SourceActualFiniteSuperlevelComponents.lean) appends exactly one actual-source ALL-LEVEL finiteness proposition and no public data. Positive L, the SAME original smooth sample/physical actualField/product-AddCircle descended field and genuine IsMorseDistinct imply, for EVERY real a, Finite of the actual closed-superlevel ZerothHomotopy at time -a. No supplied compactness/local-PC/finite cover/component census certificate, Fintype/enumeration/count object or public instance replaces that Prop.
+
+Private/local compactness follows from the actual compact torus and continuous descended field. Qualified61's PUBLIC every-open-neighborhood closed-superlevel basis supplies the actual subtype LocallyPathConnectedSpace adapter. The existing Mathlib Finite path-components instance is consumed directly; no duplicate finite-subcover proof engine or61-private implementation/fixture/control binary is copied. Source62 is not a dependency. No uniform cardinal bound or exact component count is asserted.
+
+The SAME primary original period2 field is cos(pi*x)+2*cos(pi*y). Private production positives at3(singleton),4(empty) and-4(WHOLE NONEMPTY torus) exercise actual compactness/local-topology/Finite use; they do NOT exercise the complete global-hm-to61-to-subtype route. Separate ordinary Controls derives genuine global fixture MorseDistinct ONCE, then invokes the new ALL-LEVEL endpoint. The sole mutation swaps only the quotient torus for FULL physical cover at unchanged CLOSED level3, SAME source/period/genuine hm. Its passed independent counterproof uses actual Nat maxima (2n,0), injects their physical component classes by odd-x IVT, and proves NOT Finite before ONE importing False. No level, amplitude, strictness, premise or sample mutation is introduced.
+
+Qualified62 `139aa244cccb16395b71e244dd5b81bd330e1595` appends to63 modules/1133 written=1124Prop+9data/32 inputs. All 30 actual owned constants/private/generated/foreign-generated/std3 classifications and all 14 actual calls/28 full original split streams/29200B are retained. Every source/harness/runner/context version/personal ACK/freeze/complete original/FULL actual amendment/failure remains archived. Counts derive from final records. Exactly one complete PRIVATE production LP TEXT original and one separately complete ordinary Controls TEXT original freeze before ONE integration each; helper executions/hashes/objects are zero, producer owns actual amendments/executions. Production kernel does NOT cover ordinary Controls. Five installed bindings and ALL object/cache actions SKIP after root's single final eligible own copy.
+
+Root reading: Root primary coordinator, no63 proof suggestion/edit/Lean execution; NOT independent reviewer. BOUNDED finalproduction1-115/header/compact/LP/privateFinite/publicALLLEVEL body/initialfixture, not full267/privatefixturetail/all30axiomrows/all14receipts28streams. FULL proper contracts and context001+complete002003deltas/rootpathrace acceptance, no canonical003 literal reread claim. FULL19571B410line ordinary Controls/170Bnegative harness/129Bstdout/emptyerr/selected negative receipt and named finalcore docs/all14streammetadata. BOUNDED228artifact126snapshot72identity233allowlist/index exposure. ROOT_READING19:17:23 retained verbatim; final reviewer acceptance separately pending. Initial documentary syntax failure before writer/hash/output; corrected generation had internalUTC19:11:16 only and combined tool output, external process start/end/split capture absent, NOT invented. ALL14 mathematical calls retain28 complete original split streams. Root separately FULLread final7375token reviewer REPORT/scope and accepted19:22:16.271927; no reviewer source/row/raw flags become root flags. Actual upcoming metadata worker/outer will have full original separate captures; that does NOT manufacture missing prior documentary writer external times or split streams.. Final reviewer reading: Final nonauthor actual_fold_chart_source_review FINAL_PASS/no findings with explicit nonmath capture limit. Full final267source COVERAGE via personally full frozen4756BCORE once + full finalfixturetail + every actual delta, not a second literal whole267 reread. Proper published bodies/context001+whole002003deltas/observedACKs/rootpathrace/runner001, ONE LP and ONE ordinary complete originals/provenance/freezes/all actual patches; all30classifications/full8750Bstd3; all14original receipts28fullstreams29200B via lossless identity rendering; complete ordinary original+initial bindings+4actualpatches/170Bharness129BFalse stdout0err; all228artifact126snapshot233allowlist+2addenda/streamrows/rootrecords. Aggregate index header/schema/representative reuses full original receipts, no duplicate whole aggregate reading or duplicate snapshot-body claim. Documentary writer parser failure before output; corrected combined-only/null absent externalUTC/splitdocstreams retained honestly. Root FULL7375token finalREPORT/scope accepted19:22:16.271927 separately. Samefamily0/scienceNONE; no different-family acceptance.. Packager supplied63 metadata only, has NO63 proof authorship and earns no independent review credit; prior62A proof authorship is disclosed separately and transfers no63 role/credit. No prior62 review transfers to63. Root alone applies/publishes; no remote63 publication or hosted63 CI is claimed. Historical process, actual path/context races and resource failures remain verbatim. ScientificNONE/same-family0; applicable verification remains reusable and provider-distinct process separate. No critical-event geometry, exhaustive H0/elder labels, once-counting, Borel/Rice/Campbell, PairLaw or Parent conclusion follows from this finiteness leaf.
+
+---
+
+# Historical qualified62 context preserved verbatim
+
+# Proposed62 modules/1132 written/32 inputs
+
+[SourceActualTorusRegularSlab.lean](SourceActualTorusRegularSlab.lean) appends exactly one actual regular CLOSED-slab component proposition and no public data. Positive L, the SAME original smooth sample/physical actualField/descended product-AddCircle field, a<=b and actual nonzero fderiv on EVERY point of the CLOSED band imply bijectivity of the existing inclusion-induced component map with s=-b,t=-a. No supplied gradient floor, vector-field/flow/retract/component certificate, global Morse/distinct-values or finite critical-set premise is inserted.
+
+The actual old Fourier majorants pass through explicit physical coordinate operator-norm factors; a compact CLOSED physical fundamental-cell band yields a positive SQUARED-gradient floor. The clipped normalized velocity is globally bounded, Lipschitz and periodic, with scalar speed[0,1] globally and1 on band. The ANY fixed finite-horizon Picard family is patched by uniqueness; global height barriers precede band residence and exact arrival. Variable-time hitting maps descend through the restricted saturated OPEN quotient and prove bijectivity of THIS literal inclusion map. No global Flow, group law, continuous representative or component census is assumed.
+
+The exact original primary fixture at period2 is cos(2*pi*x)+(1/2)*cos(pi*y). Private production and separate ordinary positives exercise the nonempty regular[0,1/4] band, zero-width[0,0] identity and empty[-3,-2] band with BOTH superlevels the WHOLE NONEMPTY torus. The sole mutation changes ONLY the actual no-critical premise from CLOSED Icc[-1/2,0] to OPEN Ioo, preserving primary source/levels/CLOSED superlevels/literal component map. The passed independent counterproof uses the auxiliary actual cosine-x observable to separate two upper components while the actual lower horizontal path joins their inclusion images. This is a genuine nonempty collision, without an exact component count. No auxiliary y sample or second mutation is introduced.
+
+Qualified61 `c18ad0b8f62060cb78670f5f806af25f1307614b` appends to62 modules/1132 written=1123Prop+9data/32 inputs. All 73 actual owned constants and full standard-three classifications remain retained, including private/generated/foreign-generated declarations. All 21 actual calls/42 full original split streams/48496B, source/harness/runner/context snapshots, personal ACKs/versions/freezes/all3 complete production originals and FULL actual amendments/failures are retained. Counts derive from actual final records. Ordinary Controls is producer-authored, not a fourth text helper; it has distinct qualification and the production kernel does not cover it. Five installed bindings and ALL object/cache actions SKIP after root's single eligible final own-object copy.
+
+Root reading: Root coordinator disclosed static production endpoint-rfl assistance, NOT independent reviewer. BOUNDED production/header/component-map/public/fixture reading, not full1141source/all73axiomrows/all21receipts42streams. FULL15686B ordinary Controls/148Bnegative harness/119BsoleFalse stdout+emptystderr, final REPORT/HANDOFF/qualification/control/READY/correctedIDs/amendment/fullpatch and all21streammetadata. Structured/partial333artifact202snapshot110identity340allowlist/index exposure; no full claims. ROOT_READING18:29:59 retained verbatim; final reviewer report acceptance will be separately bound. Root FULLread final reviewer REPORT/scope and accepted at18:33:18.598657, separately from ROOT_READING. Producer initial writer calculated eight NEW final-document IDs twice; exact disclosure/history/corrected canonical bindings retained, no blanket zero identity-recalculation claim. No prior source/object/stream hash or mathematical replay.. Final reviewer reading: Final nonauthor actual_fold_chart_source_review FINAL_PASS/no findings: personally full1141source once/all73owned classifications/full18511Bstd3 stream/all3complete private originals/provenance/freezes/FULL actual patches and context delta; all21original receipts42fullstreams48496B via lossless identity references; complete ordinary original+full actual patch and sole148Bharness/119BFalse stdout/emptyerr; all333artifact202snapshotbindings/full corrected340pathallowlist/streamtable/documentary amendment/fullpatch. Aggregate index header/schema/representative uses already full-read original receipts; no duplicate aggregate-fullread or all duplicate snapshot-body reread claim. Root FULLread final REPORT/scope accepted18:33:18.598657 separately; samefamily0/scienceNONE, no different-family acceptance.. The packager authored helper A normalized-field text and has NO independent review credit; all3 complete original sections had zero standalone helper executions. No prior61 review transfers to62. Root owns shared application/publication; this proposal claims no remote62 publication or hosted62 CI. Historical process and actual timeout/signal facts stay verbatim. ScientificNONE/same-family0; completed applicable verification and accepted mathematics remain reusable, with provider-distinct process separate. No exhaustive critical-event/elder/once-counting, Borel/Rice/Campbell, actual PairLaw or Parent result is inferred.
+
+---
+
+# Historical qualified61 context preserved verbatim
+
+# Proposed61 modules/1131 written/32 inputs
+
+[SourceActualTorusSuperlevelLocalBasis.lean](SourceActualTorusSuperlevelLocalBasis.lean) adds exactly one actual-source proposition and no public data. For positive L and the same smooth source sample on the product AddCircle torus, literal IsMorseDistinct implies that every real closed-superlevel member q has arbitrarily small ambient-open neighborhoods V whose closed-superlevel trace is path connected. Every level a and ambient-open O retain their quantifiers. The newly derived regular finite2 IFT adapter, interior case and qualified60 PUBLIC critical consequence combine through the existing open continuous quotient projection and exact field pullback. No desired chart, local-PC, flow or component premise is inserted.
+
+The original finite fixture is cos(pi*x)+2*cos(pi*y) at period2, represented by the frozen normalized finite insertion. Production tests point-level maximum, both saddles, minimum, regular boundary, interior and torus seam. Separate ordinary Controls derives the global fixture Morse/distinct fact ONCE and applies the public endpoint. The sole mutation changes ONLY the conclusion trace from <= to < at the actual positive saddle, with the TRUE closed membership premise retained. Its independent counterproof establishes nonempty sides in EVERY candidate open V before the one importing False. Production kernel coverage does not include these separate ordinary Controls.
+
+Qualified60 `526d696ce49a574610f614cfd93ba6db76225066` appends to61 modules/1131 written=1122Prop+9data/32 inputs. All 65 actual module-owned constants, private/generated/foreign-generated declarations and standard-three classifications remain retained. All 11 actual calls/22 full original split streams/44881B, all failed attempts, source/harness/context versions/personal ACKs/helper originals/freezes/complete actual amendments are archived verbatim. Helper counts and run totals come from final immutable receipts, never guessed. Five root-installed bindings and ALL further object/cache actions are SKIP after root's single eligible own-object copy.
+
+Root reading: BOUNDED production: header1-52/declaration map/tail525-629, full initial Main/Public sections before small corrections; full initial context and actual changes. FULL final25582B ordinary Controls,131B importing harness/129Bstdout/emptyerr, REPORT/HANDOFF/finaldocIDs/allowlist/READY and control/stream/runner/source-object summaries. Structured/partial aggregate identities/execution index/inventory; no full629source/all65axiomrows/all11rawreceipts-streams/allhelpers-patches claim. Exact root record retained verbatim.. Final reviewer reading: Nonauthor actual_fold_chart_source_review: finalsource1-629 full ONCE; proper docs and root method001/context001+actual002-004/ACKs; both production originals and separate ordinary original/full actual patches; final ordinary content via original+complete delta; all65 classification/full18361Baxiomstream; all11receipts/22originalstreams; final producer docs and all164artifact rows/68historicalsnapshot mappings. No identical snapshot-body rereads, no literal aggregate full-text reread claim. All5 verdictsPASS/no findings; same-family0/scienceNONE, no different-family scientific acceptance. Exact scope/report retained.. The packager supplied metadata preparation only for61; this earns no independent review credit. No60/59 review transfers to61. Root owns shared application/publication; this proposal claims no remote61 publication or hosted61 CI. Historical process records remain verbatim. Scientific effect NONE/same-family0. Completed applicable verification remains reusable; provider-distinct process requirements are separate from mathematical evidence. No component closure, H0/elder transition, flow/slab, probability/Rice/global-count or Parent theorem is claimed.
+
+---
+
+# Historical qualified60 context preserved verbatim
+
+# Proposed60 modules/1130written/32inputs
+
+[SourceActualMorseLocalModel.lean](SourceActualMorseLocalModel.lean) proves one actual-source C1 local-model proposition. Literal criticality and genuine complementary-subspace Hessian inertia at X yield j<=2 and a centered OpenPartialHomeomorph from the physical source to real2, with C1 forward/inverse maps and the exact ordered signed quadratic identity on its entire source. The SAME chart supplies arbitrarily small open critical-superlevel path-connected neighborhoods. No supplied chart/pivot/normal-form certificate or finite/global critical-set premise is used; Cinf coordinates are not claimed.
+
+Actual smooth source derivatives supply the weighted Taylor matrix, whose center is J. The private finite2 rational sqrt branch is C1 on an actual neighborhood, with R(J)=I and R^T J R=M for symmetric M; J*M is J-self-adjoint, not assumed ordinarily symmetric. Actual source min/max/diagonal/zero-diagonal saddle fixtures use their explicit P and call the actual Taylor/branch/IFT/cone adapters. The sole ordinary negative omits only(1-t) in the SAME actual normalized minimum scalar entry; the separately passed counterproof gives correct1/unweighted2. Mutant2I remains invertible; no old cubic/rank-collapse/Gaussian-point-mass claim is made.
+
+One public proposition/no public data append to qualified59 `29e76f91af5f88606ca3f4f8e39ee88c1022fd73`:60modules/1130written=1121Prop+9data/32inputs. All173actual module-owned constants are retained and classified, including foreign-generated names; standard-three axioms only. The three production helper originals were integrated once each with zero standalone execution; ordinary Controls original/actual amendments are separate from production-kernel coverage. All25actual calls/50full original split streams/108939B and source/harness/helper snapshots/complete actual patches are archived verbatim, including every failure. Root's eligible own object was copied once; ALL further object/cache actions and five installed bindings are SKIP.
+
+Root reading scope: Personally bounded production-source reading:1-145,541-654,820-886,990-1028,1340-end and declaration map. Full ordinary10149BControls, sole175Bharness/full138Bstdout+RECORD, final11965BproducerREPORT/HANDOFF/CONTROL_RECEIPT/finalidentitymanifest, fullfinalindependentREPORTandscope. Root NOTfullassembledsource/all173rows/all25streams/allhelperpatches. Independentnonauthorreviewer supplies fullsource/helpers/patches/all25streams/173classification reading; no root-all-raw claim.. Final nonproof-author reviewer scope: PersonallyFULL65754Bsource/SPEC/PLAN/CONTROLS/context/supplements, all25actualrecords/50completeoriginalsplitstreams, all173classification/41844Baxiomstream, allthreeproduction+separateControlsoriginals/imports/provenance/freezes, fullA/B/C/Controls/shared-headeramendments, fullControls/negative/finalproducerdocs/index/all61artifactentries/finaldocumentclosure. Not everyhistoricalsnapshotbodyread; design-onlyPREFLIGHTexposure/no60proofauthorship/noexecution/hash; samefamily0/scienceNONE, notdifferentfamilyscientificacceptance.. Packager authored branchA and earns no independent review credit. No inherited59/58 different-family review covers60. Historical pending cut/reading/timer records remain verbatim with actual root records separate. ScientificNONE/same-family0; process requirements are separate from mathematical evidence. No quotient chart/regular-boundary/slab transport/globalMorse/probability/H0component/elder/counting/Rice/Parent result follows from this local leaf. Root alone applies and publishes; no current-source hostedCI or remote publication is claimed here.
+
+---
+
+# Historical qualified59 context, preserved verbatim
+
+# Qualified proposal:59 modules,1129 written targets,32 inputs
+
+[SourceGapConditionalMorseDistinct.lean](SourceGapConditionalMorseDistinct.lean) proves the actual positive-gap conditional Morse/distinct-value endpoint. For eachL>0 one positive delta is chosen before radius and marks, with delta<=1 andL/2; for each0<r<delta,b andk>0, the literal sourceGapLaw-almost-everywhere actual field has Lifetime.IsMorseDistinct. There is no common event over all uncountably many parameters or desired rank/law/Morse premise. Genuine inertia and quotient-distinct critical values use the original source.
+
+Exactly one written public proposition and no public data append:59modules/1129written=1120Prop+9data/32inputs against qualified58 `f89543e2a81f56418a083c62a49e9689a189a139`. The actual167constant inventory retains133authored private(115Prop/18data),1publicProp,31privategenerated and2foreigngenerated declarations under the standard3 axioms. FullDBtheta, actual2/3/5finiteframes, whole57vector law, compact/countable quotient-aware assembly, positive-gap endpoints and literal Lifetime bridge are private new joins.
+
+All applicable old mathematical evidence is reused; final strict012, inventory, EXACTLYONEownkernel, ordinary Controls003/sole120BFalse and later separate positive-only numeric/remoteness companion retain their actual independent bindings. Four original production helper sections were each integrated once with zero standalone executions; the fifth Controls-only section and full actual patches have separate ordinary-Controls coverage, not production-kernel coverage. All19actual attempts/38original split streams/119362B and source/harness/helper snapshots are retained, including every failure. Historical pending sourcecut/reading/timer labels remain verbatim; actual root cut/copy/finalreading are separate records.
+
+Root reading scope is recorded verbatim in the evidence. Root summary: Personally read bounded production intervals1-250,285-483,660-943,1560-1775,1770-1918,1919-end; all four originalproductionhelperreadings reused; actualinventoryharness/classificationsummary/twoforeignnames, strict/kernel receipts, final producerREPORT(allpriorbody+completefinaldiff)/HANDOFF/CONTROL_RECEIPT/custodyheader, fullnumeric6469Bcompanion/sole120BFalse+negativeharness. Notroot-fullassembledsource/all167rows/allrawstreams/fullallactualpatches. Independentreviewer supplies fullsource/helper/patch/all19streams/167classification reading; no root-all-raw claim.. Final same-family reviewer summary: Independent nonauthor same-family reviewer personallyFULL99430Bsource, all19actualreceipts/38originalsplitstreams(includingallfailures),167actualmoduleclassification/46167Baxiomstream, all4production+initialControls+numericoriginalsections/imports/provenance/freeze andfullactualpatches, completeControls003/numeric6469B/negativeharness/full120BFalse/finalproducerdocs/index/all252custodyentries. Not everyhistoricalsnapshotbodyread. No reviewerexecution/hash/Git/cache/source60inspection; samefamilycredit0/scienceNONE, notdifferentfamilyscientificacceptance.. No inherited58-native-review coverage of59, independent-provider credit, scientific acceptance, Parent/elder/canonical counting/Rice/PairLaw or60local-model claim is inferred. Scientific effectNONE/same-family0; process separate from mathematics. Root alone applies/publishes; five source/PRECODE bindings and ALL objects are SKIP.
+
+---
+
+# Historical published58 context, preserved verbatim
+
+# Proposed qualified scope:58 modules,1128 public targets,32 inputs
+
+[SourceFramedConfluentCovariance.lean](SourceFramedConfluentCovariance.lean)
+constructs the actual seven original-source Peano coefficient rows and literal
+same-sample vector. It derives joint Gaussianity, the exact covariance Gram,
+physical-row joins, contact order and the retained cubic factor6. Signed
+nonzero periods, all real radii, physical midpoints and literal orthonormal
+frames in both orientations are retained. The explicit8*Fin4 envelope gives
+every-order weightedell7/all-real-radius bounds. An internally constructed
+finite original-source contact right inverse gives compact-uniform G7/G6
+positivity/invertibility and the same-gamma Schur floor, with no supplied
+rank/floor/inverse certificate.
+
+Exactly three propositions append to the registry; three data definitions
+stay inventory-only. All153 actual constants are classified, including the
+owned foreign-generated `I4SourceRemoteJetWitness.localGerm.eq_1`; standard3
+axioms only. Strict013, inventory001, exactly one own kernel, Controls008,
+the sole118B factor-six False and the new-scope policy audit are reused.
+All24 actual calls,48 full original split streams/170794B, source/harness
+snapshots and every failure remain preserved. Three original text helpers
+were each integrated once into production with zero standalone executions.
+Peano's body is unchanged with only its lexical wrapper/trailing newline;
+contact/compact have complete actual producer body amendments retained.
+
+Root personally read full final source, Controls, all153 classifications and
+final producer/reviewer reports. Root read bounded failure diagnostics/index;
+the independent reviewer personally read all24 original split streams and
+original helper bodies/provenance/full amendments. No root-all-raw reading is
+claimed. Historical pending-cut and provisional review bytes remain verbatim;
+actual root cut/copy/finalreading/GO are separate records.
+
+This proposed registry is58modules/1128written=1119Prop+9data/32inputs,
+against actual published57 `7649724f5331f9cc02262ce2b1697e0b36af6aeb`.
+Root alone applies/publishes. All five installed bindings are SKIP; the only
+eligible own object was already copied once. All further object copies are
+SKIP, including Controls/inventory/old dependencies and ilean refreshes.
+No posterior/conditional law, physical event/probability, all-frame finiteness,
+Morse/Rice/global elder/Parent, coordinate isometry or orientation-invariant
+covariance follows. Scientific effect NONE; provider-distinct credit0. Pending
+process requirements remain separate from completed applicable mathematics.
+
+---
+
+# Historical packaging context: published stage57 and earlier
+
+Earlier checkpoints and timers are preserved below. Current58 scope and
+reading limits are given above.
+
+# Proposed qualified scope:57 modules,1125 public targets,32 inputs
+
+[SourceRawPinFreeCoordinates.lean](SourceRawPinFreeCoordinates.lean) uses a
+supplied finite orthonormal original-mode frame in the literal six-row raw-pin
+kernel. Its entire free-coordinate vector has the iid standard Gaussian law,
+jointly independent of the whole literal residual smooth sample. The joint
+law is residual-first. For nonzero period and every radius/full target, the
+pointwise raw-posterior reconstruction retains every projection coordinate.
+The same statements include Fin0 and radius0; no covariance inverse, assumed
+Gaussian law/independence or random-sample l2 premise is inserted.
+
+Exactly three public propositions append to the registry. One public frame
+structure and three maps stay inventory-only. All64 actual owned declarations
+are classified, including the owned foreign-generated equation
+`I4SourceCurvatureDecomposition.unitDirection.eq_1`; standard3 axioms only.
+The completed production strict, full inventory and one own kernel are reused.
+The Gaussian helper was integrated once into production. The four-mode helper
+was integrated once only into scratch Controls: positiveControls004 covers it
+and the complete actual amendment patch; the production kernel does not.
+The original unfrozen four-mode draft, all failed attempts, all14 actual runs
+and39467B of honest merged streams remain preserved. The sole negative omits
+only the second projection and yields exactly126B of intendedFalse after the
+ordinary actualq-versus2q counterexample passed.
+
+Root fully read final production, all64 classifications, all14 records and
+full39467B streams. Current Controls were read through the complete frozen
+original and complete8919B amendment diff. Historical failed snapshots and the
+unfrozen draft remain retained without claiming every one was line-reviewed.
+Historical pending-control/cut records are verbatim; later final reading and
+authorization records supersede them separately. The historical curvature
+object SHA stays NULL with accepted compile/audit/kernel/control lineage.
+
+This proposed registry is57 modules/1125 written=1116Prop+9data/32inputs,
+against actual published56 `0d1d4601fbda409eb26869f57f11bc072e713769`.
+Root alone applies and publishes. All five installed source/PRECODE bindings
+are SKIP, and the only eligible own object was already copied once. Foreign58
+source/four PRECODE documents/cache remain outside this proposal.
+No frame-existence theorem, singular-pin RCD/fiber, spatial O2 law invariance,
+canonical labels, once-counting, Rice or Parent conclusion is supplied.
+Scientific effect NONE; provider-distinct credit0. Pending process work stays
+separate from completed applicable mathematics.
+
+---
+
+# Historical packaging context: published stage56 and earlier
+
+Earlier checkpoint statements and timers are preserved below. Current57 scope
+is given above; historical reading limits remain unchanged.
+
+# Proposed qualified scope:56 modules,1122 public targets,32 inputs
+
+[SourceIntrinsicH0WeightedProbability.lean](SourceIntrinsicH0WeightedProbability.lean)
+proves Borel measurability of the literal fixed-axis `Lifetime.IsFiniteBar`
+event for the chosen intrinsic H0 interface on the original smooth carrier,
+at every fixed real radius under `0 < L`. Its probability is the unchanged
+actual compact-fold weighted law applied to that event. The normalized
+complement identity and uniform compact-mark `C*r^3` failure bound retain
+constants before the radius and all marks.
+
+Exactly two public propositions append to the registry. Two public definitions
+remain inventory only. The complete61-constant inventory is9 private data,
+30 private propositions/controls,2 public definitions,2 public propositions
+and18 generated auxiliaries, with0 foreign declarations and standard3 axioms.
+The three private conditional quadratic controls conclude genuine Lifetime
+inertia, including the zero-a saddle; they add no public API or research target.
+
+The final completed strict integration, inventory, five meaningful control
+groups, sole137B empty-branch False, one own kernel and technical PASS are reused.
+All18 actual runs and37512B of full original merged streams are preserved.
+Root fully read the final56 source, all18 records and all those streams.
+Both original uncompiled helper sections, their one-time integrations and
+the complete three local inertia amendments remain in the archive. Historical
+pending-cut records are verbatim; later actual root records are separate.
+
+This proposed registry is56 modules/1122 written=1113Prop+9data/32inputs,
+against actual published55 `a7a244f2a6698f3c1ef39123d9e042723535e2fc`.
+Root alone applies and publishes. The only own object was already copied once;
+all further object copies are SKIP. Accepted dependencies and their completed
+verification are reused; the historical topology object hash remains NULL.
+No global Morse, canonical finite-event enumeration, once-counting, actual
+PairLaw identification, all-frame Parent A/B or scientific acceptance follows.
+Scientific effect NONE; same-family/provider-distinct credit0. Pending process
+requirements remain separate from completed mathematical evidence.
+
+---
+
+# Historical packaging context: published stage55 and earlier
+
+The following text preserves earlier checkpoint scopes and publication state.
+Current56 scope is stated above; earlier timers and reading limits are unchanged.
+
+# Proposed qualified scope:55 modules,1120 public targets,32 inputs
+
+[SourceTwoRemoteFirstJetGaussian.lean](SourceTwoRemoteFirstJetGaussian.lean)
+identifies the same-sample observation `(valueX,dxX,dyX,valueY,dxY,dyY)` on the
+existing raw posterior kernel. Its defined sampling Gaussian law retains the
+full target-dependent mean and actual target-free residual coefficient Gram,
+including cross-remote blocks. It permits signed nonzero periods, every radius
+and raw target, including point collisions. PosDef adds exactly the four
+remote/pin and x/y quotient inequalities, preserving repeated pins at r0.
+
+Two public written propositions append to the registry. Four public data
+definitions, seven private definitions,17private proofs and four generated
+proofs remain separate in the complete34-constant inventory; foreign0.
+Exact strict006 and one ownkernel are reused, with final meaningful controls,
+one actual cross-block covariance-mismatch soleFalse and final technical PASS.
+All actual attempts/failures/full original streams are retained, including
+large PANIC, reduction-timeout and resource-termination records.
+
+Covariance helper text belongs to production and PSD helper text to Controls.
+Original uncompiled text, actual integration and complete local amendments
+remain preserved; no standalone helper campaign or extra target credit.
+The proposed registry is55 modules/1120 written=1111Prop+9data/32inputs,
+from qualified54 publication72eb5de8. Root owns apply, the sole new ownolean
+copy (already completed once; reuse receipt) and publication. Foreign56 source/PRECODE are preserved and excluded.
+No all-radius RCD/fiber, independence, conditionalSchur, critical ties/Morse,
+canonicalH0/Lifetime/Rice or Parent conclusion is supplied. Scientific effect
+NONE; same-family/provider-distinct credit0. Different-family scientific process
+and hosted requirements remain separate from established mathematics.
+
+---
+
+# Historical packaging context: stage54 and earlier
+
+Retained text below records earlier checkpoint scopes/publication state.
+Current55 scope is given above; earlier schedules and evidence stay unchanged.
+
+# Proposed qualified scope:54 modules,1118 public targets,32 inputs
+
+The new module adds exactly two public definitions and three public
+propositions: an actual whole-H0-map-cut typed threshold relation and literal
+interface; continuous C263 comparison; supplied-Morse arbitrary-I relation and
+finite-bar compatibility; and chosen intrinsic local finite-bar membership with
+the same actual source, real/torus cuts and genuine interval/complement.
+
+Essential death0 is only the constructed interface's declared empty default.
+An arbitrary supplied interface may have another essential default; its death
+comparison stays nonessential and relation transfer stays explicitly supplied-
+Morse. Numeric threshold equality alone does not supply genuine endpoint type.
+The local positive-period theorem retains one existing candidate event, delta
+before K/all marks, absolute levels and exactly the two existing cutoffs.
+No global canonical saddle choice, barcode exhaustiveness, once-counting,
+Borel/count identity, actual PairLaw probability or Parent result follows.
+
+All15 actual-module declarations are inventoried:2publicdefinitions,
+3publicpropositions,6privatehelpers,4generatedproofs,0foreign. Strict002,
+standard-three inventory, exactly one own-module kernel, five finite control
+groups and the sole concrete essential-default mutation passed their scopes.
+The alternate supplied interface is a fully proved valid record with essential
+death17 at constant7/M0 versus intrinsic0; its separately passed witness yields
+one intendedFalse when the nonessential guard is dropped. Seven actual attempts
+and full honest merged streams are retained, including both earlier failures.
+No fictional separate stdout/stderr capture is introduced.
+
+Old51/C263/H0/candidate/torus/summand verification, exact objects and dependency
+priority are reused without old hashes/builds/kernels/audits/controls. The API
+helper supplied public coordinate names only, with no code integration or
+execution. Root copies only the final named own object once. Frozen pending-cut
+history is preserved and later root process record binds actual8957eeda.
+Different-family alignment and hosted requirements remain separate; prior
+Claude5655734753 is limited to unchanged pair-finiteness plus2inputs and its
+d2/conditional-upstream/no-rerun scope, not54. Scientific effect NONE;
+same-family/provider-distinct credit0. No combined54 hosted proof build,
+scientific acceptance, Ready or merge is claimed.
+
+---
+
+# Historical packaging context: stage53 and earlier
+
+Retained checkpoint text below states earlier scopes and publication status.
+Qualified53 native result17:58:12 and intrinsicH0 pickup17:32:41 keep their
+separate schedules. Current checkpoint18:25/terminal19:30 resets no prior timer.
+
+# Proposed qualified scope:53 modules,1115 public targets,32 inputs
+
+The new coefficient definition concatenates public48 rows0/1/2 at x then y in
+ordinary order `(valueX,dxX,dyX,valueY,dxY,dyY)`. Two public propositions construct
+actual finite original directions in the literal raw6 kernel with joint6×6
+identity pairings, then derive residual GramPosDef for every real6×6 correction.
+Only hL and x/M,x/S,y/M,y/S,x/y quotient inequalities are premises. No supplied
+witness/rank/PosDef, pin inverse, target, probabilistic, endpoint/endpoint
+separation or nonzero-radius premise is added. Repeated pins/r0 are retained.
+
+For each chosen remote point, three squared periodic factors avoid M,S and the
+other remote using independently selected separating coordinates. Their product
+is internally positive at the chosen point and has zero first jets at the
+avoided points. Only public firstjet germs0/1/2 and a triangular value/dx/dy
+normalization are used. Qualified finite-trig conversion yields the actual
+original coefficient directions; no full secondjet inverse or Hessian target.
+
+The actual-module inventory has71 constants:2public proofs,1public coefficient
+definition,13private definitions,28private proofs,27generated proofs and2 foreign
+namespace equations. Exact strict003, standard-three/subset inventory,9public
+controls+5private adapters, one actual x=y row0/row3 collision nonexistence and
+soleFalse, one ownkernel001 and final source/spec review passed. The mutation
+drops only hxy, retaining all four remote/pin inequalities; it refutes actual
+joint witnesses, not just a particular multiplier construction.
+
+All eight attempts/failures and16 original separate streams remain archived.
+Completed strict003 was reused after environmentrevision70/resume/freeze.
+The text-only helper's three actual files and needed section are preserved,
+with one integration and no standalone execution/object/campaign. Historical
+integration plus supplemental amendment JSON and complete two-hunk diff account
+for germ C2 formula cases and firstJet_mul value-case rfl; custody completion
+changed no source or verification. Producer pendingcut and rootcut earlier
+report-pending history remain unchanged; later explicit authorization supplies
+final full-read status at sourcecut7e8ac1c7.
+
+Qualified52 registry and applicable47/48 algebraic source/trig/germ/Gram/kernel
+evidence are reused. No old proof/build/kernel/audit/control/hash replay,52law
+reproof or independent H0 dependency is introduced. Independent H0 untracked
+source and tracked PRECODE are excluded from53. Root preserves them and guards/
+stages exact53 paths;53 publication precedes H0, no global-empty assumption.
+
+No joint Gaussian law/density/independence, critical-value ties/incidence,
+conditionalMorse, secondjet12 rank/covariance floor, canonicalH0/Lifetime/Rice
+or Parent conclusion follows. Native5655734753 remains only unchanged pair-
+finiteness+2inputs review, not53 alignment. Same-family credit0/scientific effect
+NONE. Hosted requirements and actual different-family scientific alignment
+remain separate; no Ready, merge or scientific acceptance claim.
+
+---
+
+# Historical packaging context: stage52 and earlier
+
+Retained text below records earlier checkpoint scopes and publication state.
+Qualified52 native result17:26:35 and new53pickup17:28:55 retain separate
+schedules; new53 checkpoint18:20/terminal19:45 does not reset previous times.
+
+# Proposed qualified scope:52 modules,1113 public targets,32 inputs
+
+The new leaf defines only the actual endpoint Hessian, full selected49 mean
+and target-free principal49 covariance. Three public propositions establish
+the all-radius raw-kernel Gaussian sampling law by a fixed6-to3 projection;
+PosDef via actual50 selected3x6 coefficient Gram composition under literal
+endpoint quotient separation; and one kernel-a.e. event on which both ordinary
+endpoint determinants `xx*yy-xy^2` are nonzero for every fixed raw target.
+
+Ordinary raw rows6/7/8 and9/10/11, signed nonzero L, arbitrary real r and full
+raw target remain. The law alone requires no separation, inverse or radius
+restriction; separated positivity/nullity adds only the literal quotient
+inequality. Covariance is not replaced by an unproved adjustedSchur block.
+Only necessary new fixedPSD6/projection3/measurability/AC3/Fubini/pullback joins
+are added; qualified49 Gaussian/series/regression and50 witness mathematics
+remain reused. New52 does not consume the independent51H0 scratch route.
+
+The complete actual-module inventory has35 constants:3public proofs,3public
+data definitions,5private data definitions,14private proofs and10generated
+proofs, including foreign49 `remoteResidualCovariance.eq_1`. Exact strict003,
+standard-three/subset inventory,12public controls plus1private adapter, an
+inventory-only source noncentered finite-Gaussian AC/nullity control, one
+finite Dirac0 PD-omission soleFalse, one ownkernel001 and final technical
+source/spec review passed. The Dirac0 example is not a source realization.
+The mixed-square formula is checked through actual ordinary matrix identities.
+
+All eight attempts, failures and separate original stdout/stderr streams are
+preserved. Both text-only helper sections froze before one integration each,
+with zero helper execution/object/campaign. AC text is unchanged; original/
+needed determinant text and the sole deprecated-set-lemma rename are retained.
+Producer/reviewer pending-cut history remains byte-preserved; later root
+process record binds sourcecut08e8ecd8 without source change or replay.
+
+Qualified51/d6af0302 and applicable49/50 evidence/objects are reused. Root
+copies only the named new ownobject once and owns metadata/cache/Git/external
+actions. The prior Claude review5655734753 remains limited to unchanged
+SourceLifetimePairFiniteness plus2inputs, d2/conditional upstream/no-rerun scope;
+it supplies no52 scientific alignment. Same-family credit0/scientific effect
+NONE. No old proof/build/kernel/audit/control/hash replay is performed.
+
+No joint six-Hessian rank/law, all-radius RCD/fiber, new Schur identity, generic
+public Gaussian/polynomial library, covariance floor, globalMorse/Sard/ties,
+canonicalH0/Lifetime/Rice or Parent conclusion follows. Current-source hostedCI,
+combined52 build, scientific acceptance, Ready and merge are not claimed.
+
+---
+
+# Historical packaging context: stage51 and earlier
+
+Retained text below records earlier checkpoint scopes and publication state.
+Qualified51 native result16:46:22 and new52pickup16:53:34 retain their separate
+schedules. Current52 checkpoint17:45/terminal19:00 does not reset prior times.
+
+# Proposed qualified scope:51 modules,1110 public targets,32 inputs
+
+The new public `h0OlderClearance` predicate is the actual ordinary singular-H0
+difference-map condition at closed birth time `-F M` and closed target time
+`-c`, with a strictly older point and strict margin `h<c<=F M`. The definition
+is total. Three public propositions identify it with strict clearance for a
+continuous height on any topological carrier; identify its cut as h<deathHeight
+on the old literal nonessential Euclidean carrier; and give the actual uniform
+sourceGapLaw cut/supremum and same retained interval/complement.
+
+A compact minimum is taken only along the parameter interval of the actual
+path. There is no ambient compactness, local path connectivity, smoothness or
+Morse premise. The signed original source period, same law/sample/torus, absolute
+b-k*r^3 and both numerical cutoffs stay unchanged. Radius precedes the field
+and all marks; a.e. remains inside each fixed target. Ordinary individual point
+classes do not die: it is their difference that vanishes when components join.
+The nonessential premise is retained in the literal real-cover theorem.
+
+The actual-module inventory contains12 constants:3public proofs,1public
+predicate,2private data helpers,1private proof and5generated auxiliaries,
+foreign0. Retained strict003, complete standard-three/subset inventory,
+controls005, one concrete weak-at0/strict-start soleFalse and one ownkernel001
+passed; final same-family source/spec review has no material finding. All12
+invocations preserve original full merged output.log; no split streams exist.
+Optional char2 field-instance availability failed under unchanged narrow imports
+and is retained without mathematical rejection credit or a second mutation.
+
+The original pre-source control intent is preserved in strict001-003 snapshots.
+The concrete negative route was amended16:22:41 by root directive after source
+strict success and before firstnegative. Final amended bytes are not called
+pre-source frozen. Earlier FROZEN_SOURCE negativepending/kernel0 and producer
+pendingrootcut fields remain historical snapshots; final receipts/HANDOFF and
+laterROOT_SOURCE_CUT bind actualcompletion and sourcecut30bc49c8.
+
+Qualified50registry/d19d0898 and old applicableH0/C263/torus/sourceinterval
+mathematics are reused. Preserve the complete dependency-reuse record and exact
+verified old scratch H0/support route; no oldhash/rebuild or cache-existence
+identity inference. Root copies only the new ownolean once. The read-only API
+lookupreport entails no codeintegration or helpercampaign. Root owns shared
+metadata/cache/Git/publication. Scientific effectNONE; provider-distinctcredit0.
+
+No canonical finite-event labels, ElderPartner, IsFiniteBar, once-counting,
+new quotient path lift, new probability estimate, globalMorse or Parent A/B
+conclusion follows. Current-source hostedCI, combined51build, scientific
+acceptance, Ready and merge remain separate from this package.
+
+---
+
+# Historical packaging context: stage50 and earlier
+
+Retained text below records earlier checkpoint scopes/publication state.
+Qualified50publicationd19d0898/native16:32:27 preceded unchanged17:00/18:00.
+New51nativepickup6421001331 actually16:13:44 has17:15/18:15 times; the rounded
+precode label correction61d26da changed no scope/claim/timer/evidence.
+
+# Proposed qualified scope:50 modules,1107 public targets,32 inputs
+
+The new endpoint algebraic leaf defines only `endpointHessianCoefficient`,
+selecting literal ordinary rawDerivative rows6/7/8 at M and9/10/11 at S.
+Its two public propositions construct independent finite original-mode Hessian3
+right inverses in the raw6 kernel and derive marginal residual coefficientGram
+PosDef for either endpoint and every real3×6 correction matrix. Ordinary mixed
+XY has factor1. Signed nonzero L and literal endpoint quotient inequality are
+retained; no positive/small radius, pin inverse, target, law or supplied
+witness/rank/positivity certificate is introduced.
+
+The actual multiplier is `(1-cos(c*(x0-q0)))²`; its own alpha is derived positive
+from literal separation. Qualified public germs have zero lower jets and the
+ordinary Hessian basis. Only alpha^-1 normalizes the product; no six-jet
+triangular inverse or cross-endpoint Hessian vanishing is required. Qualified
+trigpoly conversion yields actual finite SourceMode2 directions. The genuine
+normalization mutant at L2r1 has actual row6 pairing4 but demands1, producing
+one intendedFalse. Endpoint collision is not a false marginal-rank mutation.
+
+The complete actual-module inventory has63 constants:2public proofs,1public
+coefficient definition,26private proofs,13private definitions and21generated
+proofs. All four foreign-generated constants are retained. Exact-source
+strict002, exhaustive standard-three/subset inventory,14public controls with
+5private adapters, one sole-False normalization mutation, one own-module kernel
+and final source/spec technical review passed. The helper's two actual text/
+provenance files integrated once with no execution/object/campaign. All eight
+attempts, failures and full streams remain archived.
+
+Qualified49 at `374c1a8d` is reused without old proof/build/kernel/audit/control/
+hash replay. Root applies new50 metadata/evidence and copies only the named own
+object once. The separate H0precode/untracked source is excluded from this
+extension. Provider-distinct scientific review and current-source hostedCI
+remain separate from established mathematical evidence; scientific effectNONE,
+same-family provider-distinct credit0. No Ready or merge claim follows.
+
+No joint six-Hessian law/rank, density/determinant-nullity, adjusted-Schur
+identification, globalMorse/Sard/ties, canonical Lifetime/H0, IsFiniteBar,
+frames/Rice or Parent conclusion is established here. Separation is sufficient
+for this construction, not proved necessary for marginal Hessian rank.
+
+---
+
+# Historical packaging context: stage49 and earlier
+
+The retained text below records earlier checkpoint scopes and publication state.
+Qualified49 was subsequently published374c1a8d; its native result16:05:03 was
+late after unchanged14:10/15:10 deadlines. Current50 has its own17:00/18:00
+schedule, without resetting prior chronology. Current scope is the new section.
+
+# Proposed qualified scope: 49 modules, 1105 public targets, 32 inputs
+
+The new leaf observes the ordinary remote six-jet `(value,dx,dy,dxx,dxy,dyy)` on
+the literal existing raw posterior sample, with raw order
+`(fM,fS,fxM,fxS,fyM,fyS)`. Its cross matrix has remote rows and raw columns;
+`R=C*G_raw⁻¹`, residual rows `c=b-Ra`, covariance `S=coefficientGram c`, and
+mean `R*ᵥt`. All six target components are retained and S has no target argument.
+
+Exactly four public written propositions establish the all-radius actual-sample
+affine identity; the every-target `toLp 2` multivariate-Gaussian defined sampling
+law; remote residual covariance PosDef from qualified stage48's internally
+constructed finite witnesses; and the existing valid uniform conditional/fiber
+join with delta before x and target. Sampling and positivity permit arbitrary
+r, including repeated pins, and signed nonzero L. PosDef requires both literal
+quotient inequalities. RCD/fiber support requires positive r below the existing
+uniform inverse interval. No arbitrary-radius RCD claim follows from sampling.
+
+Six public data definitions are inventory-only. The complete actual-module
+inventory contains28 constants:4 public proofs,6 public definitions,14 private
+proofs,1 private definition and3 generated proofs, with no foreign-generated
+constants. Retained exact-source strict003, exhaustive standard-three/subset
+inventory,15 controls,one finite affine Dirac mean-omission sole-False mutation,
+one own-module kernel and final technical source/spec review qualify this new
+scope. Both text-only helper sections integrated once, with no helper campaign,
+object or public target credit. All eight producer attempts/failures/streams and
+source/object lineage remain archived.
+
+Qualified48 at `9a1f52b` is the reused baseline. Proposed49 binds local sourcecut
+`9ce7b951`; root alone applies metadata, copies the named own object, and handles
+publication. No old Lean/build/kernel/audit/control/hash replay is performed.
+Provider-distinct review is tracked separately from established mathematics.
+No new density/covariance-floor/two-point tie/global Morse/Sard, canonical
+Lifetime/H0, selection, Rice count density or Parent Lean conclusion is claimed.
+There is no common probability-one event over uncountably many targets.
+Scientific effect NONE; same-family provider-distinct credit0.
+
+---
+
+# Historical packaging context: stage48 and earlier
+
+The retained text below records the scope and publication state at earlier
+checkpoints. Qualified48 publication subsequently completed at `9a1f52b`.
+The current49 scope is the new section above; historical exclusions of future
+RemoteJetGaussian work refer only to those earlier checkpoints.
+
+# Proposed local qualified scope: 48 modules, 1101 public targets, 32 inputs
+
+The new actual remote-jet leaf constructs original-mode finite witnesses with
+zero literal raw pin pairings and all 36 remote identity pairings. It derives
+actual residual coefficient Gram PosDef for any correction matrix from those
+internally constructed witnesses and the qualified finite-kernel theorem.
+Its only actual-source hypotheses are signed nonzero period, arbitrary radius,
+and separate literal torus inequalities from the two endpoints. No supplied
+witness/rank/Gram certificate, pin inverse, endpoint-distinctness, nonzero radius,
+target, conditional-law or Morse premise is introduced.
+
+Concrete same-period pin factors, actual six germs and explicit scalar jet
+inversion are represented through the qualified original finite-trig API.
+Only five public written propositions append to the 1096 prior targets. Six
+public definitions and all 87 private/generated constants remain inventory-only
+in the complete 98-constant standard-three/subset inventory. Foreign
+I4SourceConfluentPins.directionY.eq_1 is retained. Exact-source strict-Werror,
+sixteen controls, one collision-backed sole-False mutation, one own-module kernel
+and final source/spec review PASS qualify the new proof scope without replay.
+
+The collision mutation drops only the first endpoint inequality, retaining
+nonzero period and genuine quotient separation from the other endpoint. Its
+passed actual nonexistence proof is reused through a scratch-only control object;
+no control/helper object enters production. Both helper sections integrated once.
+
+Actual conditional remote Gaussian laws/covariances, pin inversion, quantitative
+covariance floors, conditional global Morse/distinctness on prescribed positive-
+gap fibers with distinct endpoints, Sard/incidence, ties/joint selection,
+intrinsic Lifetime/H0 labels, IsFiniteBar, framed transport, Rice count density
+and Parent A/B Lean remain separate. Future RemoteJetGaussian documents are
+outside this extension. No common uncountable-target null event is asserted.
+
+This local48 registration proposal is distinct from the published47 registry.
+Authentication401/closed native transport blocks external publication only;
+remote source/registration, native RESULT/release/alignment requests and current-
+source hosted checks remain queued. PRECODE CI is not transferred to local source
+cut689b8eef. Completed mathematics remains reusable. Scientific effect NONE.
+
+---
+
+# Current qualified scope: 47 modules, 1096 public targets, 32 inputs
+
+The new finite trigonometric leaf proves exact constants, append, scale,
+translation and half-weighted cosine-product semantics for finite shifted-cosine
+lists at every real period. A total finite direction in the original source-mode
+coefficients realizes each list under only a nonzero period, preserving arbitrary
+offsets, the actual none mode, both frequency signs and actual amplitudes.
+
+All derivative orders, points and direction arrays are covered by finite pairing
+with the original derivative coefficients. The proof uses the accepted source
+derivative series on the literal finite shift of the existing zero sample; no
+infinite-series differentiation or replacement source/law is introduced.
+
+Only seven public written propositions append to the previous 1089 targets.
+Seven definitions, one abbreviation, one data structure, sixteen private proofs,
+three private definitions, three projections and forty-one other generated or
+structure constants remain separate in the complete 79-constant inventory.
+Foreign I4SourceSmoothConditional.zeroSample.eq_1 is included. FT-M1's derived
+foreign-array correction is recorded and closed from the existing row; no
+mathematical check was repeated. Exact-source strict-Werror, exhaustive standard-
+three coverage, fifteen controls, one sole-False mutation, one own-module kernel
+and source/spec review PASS qualify this new scope. Helper integration occurred once.
+
+Torus-coordinate separation, pin-annihilation/local 2-jet inversion, actual remote
+residual positivity/Gaussian law, each prescribed positive-gap conditional Morse
+theorem with distinct endpoints, joint-value incidence/selection, intrinsic
+Lifetime/H0 labels, IsFiniteBar, framed source-law transport, Rice count density
+and Parent A/B Lean remain separate. No common null event over uncountably many
+targets is asserted. Future RemoteJetWitness documents are outside this extension.
+All completed applicable mathematics is reused; provider-distinct process and
+hosted current-source checks remain separate. Scientific effect NONE.
+
+---
+
+# Current qualified scope: 46 modules, 1089 public targets, 32 inputs
+
+The new finite pin-kernel leaf derives residual coefficient Gram positivity from
+explicit finite pin-kernel and original-observation right-inverse pairings. The
+correction matrix is arbitrary; the coefficient index needs no countability or
+finiteness assumption, and empty pin/observation row sizes are allowed. The
+original accepted Gram positivity theorem is reused.
+
+Finite shifts preserve the literal original SmoothSample carrier for all real
+periods, give the exact raw pin response for nonzero periods, and commute with
+the existing posterior map at every target and arbitrary radius. The radius-zero
+case is deterministic commutation under the existing total inverse; it does not
+assert arbitrary target-fiber support or valid conditioning in degenerate cases.
+
+Only six public written propositions append to the 1083 prior targets. Three
+public definitions, three private proofs and three generated proofs are separate
+in the complete 15-constant inventory. Retained exact-source strict-Werror,
+exhaustive standard-three coverage, fourteen controls, one sole-False mutation,
+one own-module kernel and source/spec review PASS qualify this new scope. The
+later formal freeze label required no identical-source freshness compile.
+
+Actual remote trigonometric witnesses/rank, Gaussian free-coordinate independence,
+endpoint density/determinant nullity, Sard/equal-value incidence, conditional global
+Morse, canonical elder selection, intrinsic finite-event H0 labeling, IsFiniteBar,
+frames/translations, Campbell/Kac–Rice count density and Parent A/B Lean remain
+separate. Future finite-trigonometric work is outside this package extension.
+All completed applicable mathematics is reused. Provider-distinct process and
+hosted current-source checks remain separate. Scientific effect NONE.
+
+---
+
+# Current qualified scope: 45 modules, 1083 public targets, 32 inputs
+
+The new actual Lifetime candidate leaf proves a genuine `IsCandidatePair` in
+the original field: strict maximum/saddle inertia, exact parent `torusDist=r`,
+absolute heights `b` and `b-k*r^3`, and positive `heightGap=k*r^3`. The same
+retained sample and box/path give actual C263 nonessentiality and attained
+death at the saddle height, plus strict clearance, real-supremum death and the
+actual ordinary singular-H0 interval summand `[-b, -(b-k*r^3))` on the same
+original-period product torus, with its retraction-kernel complement.
+
+For each `0<L`, one positive radius bounded by `1` and `L/2` precedes every
+coefficient field and `k0,r,b,k`. The closed actual-law theorem derives raw
+pins, structural data and the retained ridge internally. Its only sample
+premises are `r*T^5 <= 1/100` and `1024*T^5 <= kappa`. An optional comparison
+identifies the essentiality/death values of any given old Lifetime interface.
+
+Only 32 public written theorem names enter the registry. Two definitions and
+13 generated theorem constants remain separate in the complete 47-constant
+actual-module inventory, including `UniversalLaw.Spec.Lifetime.heightGap.eq_1`.
+Final strict compile, one own-module kernel check, exhaustive standard-three
+coverage, ten controls, one sole-False distance mutation and exact-source
+technical alignment passed. The catalog and raw archive preserve all attempts.
+
+Canonical Lifetime elder selection, `IsFiniteBar`, conditional global Morse
+on each prescribed positive-gap fiber with distinct torus endpoints, intrinsic
+finite-event H0 labeling, joint selection, frames/translations, count density
+and Parent A/B Lean remain separate. No unrestricted raw-target or common
+uncountable-event claim is made. Completed applicable verification is reused;
+provider-distinct review and hosted current-commit process remain separate
+from established mathematics. Scientific effect is NONE.
+
+---
+
+# Current qualified scope:44 modules /1051 public targets /32 inputs
+
+The new compact normalized probability/H0 composition adds7 written proofs,
+3definitions and11generated constants. All21 constants have exhaustive
+transitive standard3 coverage; strict/ONEkernel/controls/soleFalse and exact
+source review passed. Same actual law, weight, event and uniform quantifiers
+are retained, with all analytic model certificates derived internally.
+
+Canonical partner and conditional Morse on each prescribed positive-gap fiber,
+intrinsic finite-event H0, frames/count-density and Parent Lean remain separate.
+The local candidate bridge is not registered by this scope. No old mathematical
+verification was replayed. Scientific effect NONE; provider-distinct process
+remains separate from completed mathematics.
+
+---
+
+# Current qualified scope:43 modules /1044 public targets /32 inputs
+
+Two sources add21 public proofs,2definitions and6generated constants; all29
+new constants have exhaustive standard3 coverage, ONE named kernel each.
+Actual compact r5 numerator and positive r2 normalizer use the same gap law
+and physical weight. Strict005's consumed interface is byte-identical; final
+controls/kernel use the final numerator. No old verification was replayed.
+
+Normalized compact probability, canonical partner/conditional Morse on
+prescribed positive-gap fibers, frame/count-density and Parent Lean remain
+separate. Unrestricted raw fibers can force equal critical values; unrestricted
+all-target Gaussian laws/moments do not imply unrestricted conditional Morse.
+Scientific effect NONE; provider-distinct process is separate.
+
+---
+
+# Current qualified scope:41 modules /1023 public targets /32 inputs
+
+Three independent new leaves add34 public written proofs:14fixedmark weighted
+cutoff/H0 probability,10target-independent physical weight/slab,10alltarget
+residual moment proofs. Six definitions and6generated constants are separate;
+all46newmoduleconstants have exhaustive transitive standard3 coverage, with
+ONE named kernel per new module. Allcompletedoldverification is reused.
+
+Uniformcompact varyingmark normalizedprobability still needs its actual r5
+numerator andpositivefloor. Canonicalpartner/conditionalMorse, framedlaw/
+countdensity andParentA/B Lean remainseparate. Existing conventionalproofs
+andprovider-distinctprocess keep their own evidence; scientificeffectNONE.
+
+---
+
+# Current qualified scope:38 modules /989 public targets /32 inputs
+
+Five new written proofs convert literal torus geometry to the OLD typed
+ElderTrap and ordinary singular-H0 interval/kernel-complement natural split.
+Four definitions and3generated proof constants are separate; all12constants
+have transitive standard3 coverage. Same actual source law, signed period,
+geometry, absolute levels and strict-clearance/death statements remain.
+
+One interval summand is proved; canonicalpartner/conditionalMorse, exhaustive
+barcode, framedlaw, weightedprobability/countdensity and ParentA/B Lean remain
+separate. Old mathematics and completed verification are reused. Provider-
+distinct process review and scientific acceptance remain separate.
+
+---
+
+# Current qualified scope:37 modules /984 public targets /28 inputs
+
+The19 new torus public written proofs establish explicit H0-free TorusTrapData,
+actual strict clearance and sSup on the same original-period sample/law.
+One private proof,4definitions,1Propbundle and25generated constants are separate;
+all50 own constants are standard-axiom covered. Continuous/open compact frontier
+inclusion suffices, including negativeL; no global quotient injection is assumed.
+
+Old typed ElderTrap/H0 conversion, canonicalpartner, cutoff probability, framedlaw,
+weighted countdensity and ParentA/B Lean remain separate. Completed applicable
+verification is reused, distinct-family review remains a separate process.
+
+---
+
+# Current qualified scope:36modules /965public targets /27inputs
+
+The8 new actual real-cover death proofs add literal C263 death/strictclearance
+under the exact gap law and sample cutoffs. Positive amplitude and absolute raw
+heights are retained; no desired trap/death/pin premise survives. One definition
+and13generated declarations are separate; all22 constants are standard-axiom
+covered. The corrected scratchnegative002 has soleFalse;001's mismatch and
+inaccurate summaries remain preserved. No production/oldverification replay.
+
+Torus/H0/canonicalpair and weighted probability/count-density parents remain
+separate. Old clearance input bodies and completed mathematics remain reused;
+provider-distinct review is separate process.
+
+---
+
+# Current qualified scope:35 modules /957 public written targets
+
+Newwide source estimates add36 public proofs and1 separately classified private
+proof;2definitions/1Propbundle/27generated are not extra registry proofs. All67
+module-owned declarations are standard-axiom covered. Actual source majorants,
+pins and Peano derive the fullJ rectangle/sign/error/drop fields and an attained
+boundary/path on the unchanged actual gap law under explicit numeric cutoffs.
+No probability of those cutoffs or desired structural/pin premise is hidden.
+
+Real-cover/torus death,H0/canonicalpair,weighted bad-probability/count-density and
+ParentA/B Lean joins remain distinct. Prior34modules/25inputs and accepted
+mathematics are reused; provider-distinct scientific review is separate.
+
+---
+
+# Current qualified scope:34 modules /921 written targets
+
+The actual-source chart adds25 written proofs,4 nonProp definitions,1 Prop
+bundle and42 generated declarations. Complete72-declaration collector coverage,
+strict compile, ONE named kernel and substantive non-default-gap/height and
+normalization-factor controls are retained. Actual law/source pins and the
+normalized integral are derived on a common hL-only interval beforeb,k.
+
+The fixed-axis conditional law is exact; wider-rectangle estimates, framed-law
+transport, torus/H0/weighted probability/count-density/Parent A/B Lean joins are
+not inferred. Prior33 modules/25inputs remain qualified and reused. External
+scientific review is a separate process requirement.
+
+---
+
+# Current qualified scope:33 modules /896 written targets
+
+The8 new boundary/path proofs construct the analytic and ambient witness from
+finite literal derivative/pin/budget inputs. They prove actual vertical loss,
+closed-box ceiling/frontier and a death-level graph path through the saddle to
+an older endpoint. Ten definitions,3 Propbundles and74 generated declarations
+are separate; all95 new ownmodule declarations have standard-axiom coverage.
+
+The literal actual-source chart module is active and unqualified by this scope.
+Wider Gaussian rectangle estimates, physical torus/H0/count/probability/density
+parent transport remain separate. Completed32-module/25-input evidence is reused;
+provider-distinct process review is tracked separately from verified mathematics.
+
+---
+
+# Current qualified scope:32 modules /888 written targets
+
+The new transverse-ridge module adds22 written theorems,10 separately inventoried
+definitions and20 generated declarations. Its complete52-declaration axiom audit,
+49 stable direct prints, strict compile, one named kernel replay and controls
+are recorded in transverse-ridge-evidence. The constructed C2 function follows
+from literal structural potential hypotheses, not an input ridge certificate.
+
+Literal Gaussian normalization/sign estimates, composition with the scalar
+barrier and ambient path/boundary/elder/counting parents remain distinct formal
+obligations. Different-family source review is pending; completed applicable
+mathematical evidence is retained. Prior31 modules and25inputs were not replayed.
+
+---
+
+# Current formal scope:31 modules /866 registry declarations /25 inputs
+
+New source cuts: all-target moments e2c819cf8161f0dc37de113f0157a058ba0fd2ec
+(10written proofs+2defs;23namespace audit entries); scalar barrier
+bb5a32ef10a06289ab14680b5ed1cf809d3457d6 (6written proofs+2defs+1Prop structure;
+33audit entries including14generated accessors and10other generated declarations).
+The total is857 propositions+9data instances. Generated names are not added to
+written proof counts. Scalar direct stable-name prints cover30names;3auxiliary
+proof names are covered by the exhaustive collector and named kernel.
+
+All-target unweighted source moments are actual-source theorems. The scalar module
+is a deterministic normalized companion, not an actual ridge/elder or ParentA/B
+Lean theorem. Those broader formal obligations and new independent scientific
+review remain separate from the completed source qualification.
+
+---
+
+# New conventional planar Parent A/B application
+
+Proof cutcd145a0aa1a007c98031311b77743803c72c3d25 supplies actual elder rejectionCr3
+and compact-window density gapO(lifetime^(2/3)) for one fixed positive finiteL,
+compact birth marks and positive compact gap marks, allO(2)frames. It derives
+actual ordinary elder death, canonical-fiber genericity, compact normalizer floor,
+true density versions/integrable counts, and the explicit144/L2 contact integral.
+This is not a new Lean inhabitant of Lifetime's parent definitions. Same-family
+internal review is advisory, not provider-distinct acceptance. The exact new
+application review is pending. Prior accepted qualitative same-law mathematics
+and all applicable checks remain reused.
+
+---
+
+# Current formal scope:29 modules /850 registry declarations /25 inputs
+
+The new9-proof Lifetime adapter atc039243e449fcab837127ff2bc0b12edb1dc05e9
+transports actual criticality through the C291 spatial equivalence and derives
+finite literal pair populations, on one common full-measure event. It adds no
+finiteness premise, density/integrability conclusion or elder correctness claim.
+Input-only import adaptation and exact geometry copy are separately recorded.
+The total is841 propositions+9data instances; old geometry proofs are not counted twice.
+
+Two new conventional compact-mark addenda at636fcfa6bd2fa503872971e0ead2d1c3d8a4744d
+supply the actual all-parameter capture/event/Rice join and local pair massCa5.
+New scoped scientific reviews remain separate; no old checks are repeated.
+The older-arm/elder parent application is an explicit further task.
+
+---
+
+# New height/all-frame analytic result
+
+`height-rice-application/PROOF.md` at8d64490df8620b749ba2f224da535eeb6016c2d0
+proves the unnormalized r5 polynomial-height bound, exact12/r5 density factor,
+Gaussian height envelope, and uniform angular actual-source covariance/numerator.
+Its geometric noncapture and compact-k joins are separate successor work. The
+accepted same-law qualitative density/elder results remain applicable; the
+quantitative elder upgrade and formal parent interfaces are distinct obligations.
+No Lean target count changes and no prior verification repeats.
+
+---
+
+# New conventional capture result; formal registry unchanged
+
+`capture-application/PROOF.md`, frozen at117534e809819d028ee1e7197d321d606acd86e9,
+derives a measurable actual canonical selected-branch failure bound `<= C r³`
+for each fixed nonzero L and b. It separately proves the outer-measure bound and
+discharges the norm-Borel torus/LP/flow pullback. The literal-lift event is handled
+separately from torus convergence. Its new-source scientific review is pending.
+This is conventional mathematics, not a new Lean dynamics declaration.
+
+---
+
+# Current scope: 28 qualified modules / 841 registry declarations
+
+The four-module extension at production-source cut
+1b1badc823725e6025823395463d4948c5cdf6d4 adds:
+
+- Raw pins: 29 theorem proofs, one proposition Markov instance, seven definitions.
+- Capture gates: 28 public proof targets, six definitions, eight private proofs.
+- Morse incidence: 99 public theorem proofs, 41 definitions/abbreviations;
+  its exhaustive 219-declaration audit also covers one private proof and 78
+  generated declarations, which are not additional public targets.
+- Banach parameters: 61 theorem proofs, one proposition BorelSpace instance,
+  seven structural/data instances, 19 definitions/abbreviations.
+
+Thus 226 new registry declarations extend the prior 615: 219 propositions and
+seven data instances. The total is 832 propositions plus nine data instances.
+All original command/source/artifact records, failed histories and author/helper
+lineage are in the four new evidence catalogs. No baseline verification repeats.
+
+The actual raw canonical weighted law, hL-only source Morse and finite critical
+cube, actual capture barriers, and continuous Banach gradient family are formal
+results. The separate geometric Campbell/Palm application is conventional proof,
+not Lean mechanization. Full ODE capture, selector/flow/event measurability,
+quotient/inertia/elder/lifetime/counting transports and original parent closure
+remain active. New different-family review and engineering integration are
+separate from the completed mathematical qualification.
+
+Earlier scope records are retained below without broadening their reviews.
+
+---
+
+# Current qualified scope:24 modules /615 theorem-instance declarations
+
+This extension adds SourcePinPreservingQuartic (112proofs,29defs/abbrev) and
+SourceSmoothTopology (36theorems,2PropBorelSpace local instances,2dataMeasurableSpace
+local instances,9defs/abbrev). All141 and49 public declarations respectively have
+direct standard-axiom reports; private quartic proofs are separately kernel-covered.
+See quartic-evidence/QUARTIC_SCOPE.md and topology-evidence/TOPOLOGY_SCOPE.md.
+The target count includes2structural data declarations and is not615theorems.
+
+The prior22module/463target scope and23inputs are unchanged and reused. Their
+completed scientific reviews retain their exact source cuts. New code-alignment
+review and guarded engineering integration remain separate from local execution.
+The C3torus/capture and geometricKR/raw-pin source joins remain explicit.
+
+The older22module scope below is retained as a prerequisite record.
+
+---
+
+# Current qualified scope:22 modules /463 proof-instance declarations
+
+New actual cubic-curvature results and exact qualifications are in
+[curvature-evidence/CURVATURE_SCOPE.md](curvature-evidence/CURVATURE_SCOPE.md).
+The4new modules add169theorem/lemma targets and2named instances. Their33definitions
+are inventoried separately. All171new proof/instance targets have direct axiom
+reports. Existing292target coverage and23input bindings remain reusable.
+
+SourcePinPreservingQuartic and the actual smooth-topology/event successors are
+outside this frozen4module extension until separately qualified. The analytic
+comparison candidate has a scoped paper review at27c9d92; that is not a Lean
+qualification. Noncapture/adjacency/Palm/Morse/elder/counting/parent closure is
+not inferred from the curvature bound alone. Original research remains active.
+
+The older18module scope below is retained unchanged as a prerequisite record.
+
+---
+
 # Current source scope: endpoint prerequisites plus whole-carrier extension
 
 The current manifest covers eighteen modules. Four new modules have their own FIELD_CONDITIONING.md exact scope and new execution records; the fourteen-module prerequisite described below remains mathematically unchanged and its completed verification is reused. Every-pin carrier conditioning is proved. The weighted law is the actual source normalized-weight formula, with raw-pin/type support and arbitrary measurable carrier-event bounds; geometric critical-point Palm disintegration, Morse/elder/counting and later parent claims require further proofs. No completed review is silently broadened to the extension.

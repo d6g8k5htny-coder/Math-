@@ -1,0 +1,8 @@
+SourceActualTorusRegularSlab.lean:1001:4: error: 'change' tactic failed, pattern
+  2 * Real.pi / 2 * 2 * x 0 + 2 * Real.pi / 2 * 0 * x 1 = ?m.99
+is not definitionally equal to target
+  2 * Real.pi / 2 * ↑(![2, 0] 0) * x 0 + 2 * Real.pi / 2 * ↑(![2, 0] 1) * x 1 = 2 * Real.pi * x 0
+SourceActualTorusRegularSlab.lean:1006:4: error: 'change' tactic failed, pattern
+  2 * Real.pi / 2 * 0 * x 0 + 2 * Real.pi / 2 * 1 * x 1 = ?m.183
+is not definitionally equal to target
+  2 * Real.pi / 2 * ↑(![0, 1] 0) * x 0 + 2 * Real.pi / 2 * ↑(![0, 1] 1) * x 1 = Real.pi * x 1

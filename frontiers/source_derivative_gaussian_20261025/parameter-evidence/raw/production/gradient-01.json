@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/smooth-parameter-production/GradientFamily.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit_code": 1,
+  "source": "/workspace/scratch/smooth-parameter-production/GradientFamily.lean",
+  "source_sha256_before": "6f6c3b63f72ad5852616d42bca3a904c0b24bf40c2b645893953675882b10619",
+  "source_sha256_after": "6f6c3b63f72ad5852616d42bca3a904c0b24bf40c2b645893953675882b10619",
+  "log_sha256": "e8b6a6a5afca208f2c14422d17e3361f82c6d9ca7c89225e445f1714f2c556d9",
+  "elapsed_seconds": 5.464632987976074,
+  "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+}

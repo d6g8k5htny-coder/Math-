@@ -1,0 +1,82 @@
+{
+  "command_argv": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/scratch/lifetime-pair-finiteness/AxiomAudit.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "started_utc": "2026-10-26T03:27:12.947963+00:00",
+  "before": [
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceLifetimePairFiniteness.lean",
+      "sha256": "36bf363f88d450a61052086c5d7eb799d12dd58ce4b74c1c083a056991606081",
+      "bytes": 6073
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/Lifetime.lean",
+      "sha256": "371365f9bb17fbe1491c38bb00359300ea76641d3b5693d8feb11bb2c3fad51e",
+      "bytes": 51743
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/SourceLifetimeGeometry.lean",
+      "sha256": "8ec4b18959055f20d849337e44a70d0c5b39b7959b54cb4d7b6c2a473ee0612d",
+      "bytes": 4588
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceLifetimePairFiniteness.olean",
+      "sha256": "4a022061f7fc2d8434462e94f03dd9146c3b3aa248ae2872009b4367b40bce6f",
+      "bytes": 151904
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/Lifetime.olean",
+      "sha256": "20c75a4af23430fdcd4b2f0da3d002e99512cb3cf512d59efd8d7f75558fd5c1",
+      "bytes": 474152
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceLifetimeGeometry.olean",
+      "sha256": "02a01c3c4b5e32706540c6d355853bc008826fc4b0f0e07a415eee0eb10ec567",
+      "bytes": 140344
+    }
+  ],
+  "exit_code": 0,
+  "ended_utc": "2026-10-26T03:27:19.445493+00:00",
+  "after": [
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceLifetimePairFiniteness.lean",
+      "sha256": "36bf363f88d450a61052086c5d7eb799d12dd58ce4b74c1c083a056991606081",
+      "bytes": 6073
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/Lifetime.lean",
+      "sha256": "371365f9bb17fbe1491c38bb00359300ea76641d3b5693d8feb11bb2c3fad51e",
+      "bytes": 51743
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/SourceLifetimeGeometry.lean",
+      "sha256": "8ec4b18959055f20d849337e44a70d0c5b39b7959b54cb4d7b6c2a473ee0612d",
+      "bytes": 4588
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceLifetimePairFiniteness.olean",
+      "sha256": "4a022061f7fc2d8434462e94f03dd9146c3b3aa248ae2872009b4367b40bce6f",
+      "bytes": 151904
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/Lifetime.olean",
+      "sha256": "20c75a4af23430fdcd4b2f0da3d002e99512cb3cf512d59efd8d7f75558fd5c1",
+      "bytes": 474152
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceLifetimeGeometry.olean",
+      "sha256": "02a01c3c4b5e32706540c6d355853bc008826fc4b0f0e07a415eee0eb10ec567",
+      "bytes": 140344
+    }
+  ],
+  "log": {
+    "path": "/workspace/scratch/lifetime-pair-finiteness/AxiomAudit-01.log",
+    "sha256": "5febd1e09836bdc0990603984fc9728a8302cd71c30d1eb8a158e1fddfe45d46",
+    "bytes": 26833
+  }
+}

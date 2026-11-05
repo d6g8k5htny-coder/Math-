@@ -1,0 +1,17 @@
+/workspace/scratch/source-curvature-implementation/gaussian-direction/CrossLimits.lean:95:30: error: unsolved goals
+L : ℝ
+hL : L ≠ 0
+hb : Tendsto (curvatureBeta L) (𝓝[>] 0) (𝓝 (sourceContactCross L ᵥ* (sourcePinCovariance L)⁻¹))
+hC : Tendsto (curvatureCross L) (𝓝[>] 0) (𝓝 (sourceContactCross L))
+hdot :
+  Tendsto (fun r => curvatureBeta L r ⬝ᵥ curvatureCross L r) (𝓝[>] 0)
+    (𝓝 (sourceContactCross L ᵥ* (sourcePinCovariance L)⁻¹ ⬝ᵥ sourceContactCross L))
+h :
+  Tendsto (curvatureVariance L) (𝓝[>] 0)
+    (𝓝
+      (Var[sourceContactQ L; smoothLaw 2 L] -
+        sourceContactCross L ᵥ* (sourcePinCovariance L)⁻¹ ⬝ᵥ sourceContactCross L))
+⊢ Var[sourceContactQ L; smoothLaw 2 L] - sourceContactCross L ⬝ᵥ (sourcePinCovariance L)⁻¹ *ᵥ sourceContactCross L =
+    Var[fun ω => sourceContactVector L ω 6; smoothLaw 2 L] -
+      sourceContactCross L ⬝ᵥ (sourcePinCovariance L)⁻¹ *ᵥ sourceContactCross L
+lean_exit=1

@@ -1,0 +1,18 @@
+{
+  "scope": "Only new SourceRawPinConditioning module; completed24modules/23inputs reused",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "-o",
+    ".lake/build/lib/lean/SourceRawPinConditioning.olean",
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRawPinConditioning.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit_code": 1,
+  "source_sha256_before": "4c04a4f477a62ea04b85f3ae958719a6c62977dc4c206da7d923d14aff223b7c",
+  "source_sha256_after": "4c04a4f477a62ea04b85f3ae958719a6c62977dc4c206da7d923d14aff223b7c",
+  "log_sha256": "a16677ce7896e4ef4595ce7906ec8215951fb362027f5a56181b95ec6c6ca89a",
+  "elapsed_seconds": 4.693097114562988
+}

@@ -1,0 +1,250 @@
+/- Private finite Pi/max-norm saddle geometry.  The producer supplies Point2,
+   saddleQ, targetStrict, targetPlus, targetMinus, targetLower and SaddleGeometry. -/
+
+private theorem sc64_weighted_positive {a b x y : ℝ}
+    (ha : 0 ≤ a) (hb : 0 ≤ b) (hab : a + b = 1)
+    (hx : 0 < x) (hy : 0 < y) : 0 < a * x + b * y := by
+  by_cases ha0 : a = 0
+  · have hb1 : b = 1 := by linarith
+    simpa [ha0, hb1] using hy
+  · have hap : 0 < a := by
+      by_contra h
+      exact ha0 (le_antisymm (le_of_not_gt h) ha)
+    exact add_pos_of_pos_of_nonneg (mul_pos hap hx) (mul_nonneg hb hy.le)
+
+private theorem sc64_positive_cone_iff (u : Point2) :
+    (0 < saddleQ u ∧ 0 < u 1) ↔ (-u 1 < u 0 ∧ u 0 < u 1) := by
+  constructor
+  · rintro ⟨hq, hpos⟩
+    have hsq : (u 0)^2 < (u 1)^2 := by
+      dsimp [saddleQ] at hq
+      linarith
+    constructor
+    · by_contra h
+      have hu : u 0 ≤ -u 1 := le_of_not_gt h
+      have hprod : 0 ≤ (-u 0 - u 1) * (-u 0 + u 1) :=
+        mul_nonneg (by linarith) (by linarith)
+      nlinarith
+    · by_contra h
+      have hu : u 1 ≤ u 0 := le_of_not_gt h
+      have hprod : 0 ≤ (u 0 - u 1) * (u 0 + u 1) :=
+        mul_nonneg (by linarith) (by linarith)
+      nlinarith
+  · rintro ⟨hleft, hright⟩
+    have hprod : 0 < (u 1 - u 0) * (u 1 + u 0) :=
+      mul_pos (by linarith) (by linarith)
+    constructor
+    · dsimp [saddleQ]
+      nlinarith
+    · linarith
+
+private theorem sc64_negative_cone_iff (u : Point2) :
+    (0 < saddleQ u ∧ u 1 < 0) ↔ (u 1 < u 0 ∧ u 0 < -u 1) := by
+  constructor
+  · rintro ⟨hq, hneg⟩
+    have hnq : 0 < saddleQ (-u) := by simpa [saddleQ] using hq
+    have hnp : 0 < (-u) 1 := by
+      change 0 < -(u 1)
+      linarith
+    have hh := (sc64_positive_cone_iff (-u)).mp ⟨hnq, hnp⟩
+    change -(-(u 1)) < -(u 0) ∧ -(u 0) < -(u 1) at hh
+    constructor <;> linarith [hh.1, hh.2]
+  · rintro ⟨hleft, hright⟩
+    have hh : -(-u) 1 < (-u) 0 ∧ (-u) 0 < (-u) 1 := by
+      change -(-(u 1)) < -(u 0) ∧ -(u 0) < -(u 1)
+      constructor <;> linarith
+    have hn := (sc64_positive_cone_iff (-u)).mpr hh
+    refine ⟨?_, ?_⟩
+    · simpa [saddleQ] using hn.1
+    · have hp := hn.2
+      change 0 < -(u 1) at hp
+      linarith
+
+private theorem sc64_positive_cone_convex :
+    Convex ℝ {u : Point2 | -u 1 < u 0 ∧ u 0 < u 1} := by
+  intro x hx y hy a b ha hb hab
+  have hleft : 0 < a * (x 0 + x 1) + b * (y 0 + y 1) :=
+    sc64_weighted_positive ha hb hab (by linarith [hx.1]) (by linarith [hy.1])
+  have hright : 0 < a * (x 1 - x 0) + b * (y 1 - y 0) :=
+    sc64_weighted_positive ha hb hab (by linarith [hx.2]) (by linarith [hy.2])
+  change -(a * x 1 + b * y 1) < a * x 0 + b * y 0 ∧
+    a * x 0 + b * y 0 < a * x 1 + b * y 1
+  constructor <;> nlinarith
+
+private theorem sc64_negative_cone_convex :
+    Convex ℝ {u : Point2 | u 1 < u 0 ∧ u 0 < -u 1} := by
+  intro x hx y hy a b ha hb hab
+  have hleft : 0 < a * (x 0 - x 1) + b * (y 0 - y 1) :=
+    sc64_weighted_positive ha hb hab (by linarith [hx.1]) (by linarith [hy.1])
+  have hright : 0 < a * (-x 1 - x 0) + b * (-y 1 - y 0) :=
+    sc64_weighted_positive ha hb hab (by linarith [hx.2]) (by linarith [hy.2])
+  change a * x 1 + b * y 1 < a * x 0 + b * y 0 ∧
+    a * x 0 + b * y 0 < -(a * x 1 + b * y 1)
+  constructor <;> nlinarith
+
+private theorem sc64_targetPlus_eq (rho : ℝ) :
+    targetPlus rho = Metric.ball (0 : Point2) rho ∩
+      {u : Point2 | -u 1 < u 0 ∧ u 0 < u 1} := by
+  ext u
+  change ((u ∈ Metric.ball (0 : Point2) rho ∧ 0 < saddleQ u) ∧ 0 < u 1) ↔
+    (u ∈ Metric.ball (0 : Point2) rho ∧ (-u 1 < u 0 ∧ u 0 < u 1))
+  constructor
+  · rintro ⟨⟨hball, hq⟩, hsign⟩
+    exact ⟨hball, (sc64_positive_cone_iff u).mp ⟨hq, hsign⟩⟩
+  · rintro ⟨hball, hcone⟩
+    rcases (sc64_positive_cone_iff u).mpr hcone with ⟨hq, hsign⟩
+    exact ⟨⟨hball, hq⟩, hsign⟩
+
+private theorem sc64_targetMinus_eq (rho : ℝ) :
+    targetMinus rho = Metric.ball (0 : Point2) rho ∩
+      {u : Point2 | u 1 < u 0 ∧ u 0 < -u 1} := by
+  ext u
+  change ((u ∈ Metric.ball (0 : Point2) rho ∧ 0 < saddleQ u) ∧ u 1 < 0) ↔
+    (u ∈ Metric.ball (0 : Point2) rho ∧ (u 1 < u 0 ∧ u 0 < -u 1))
+  constructor
+  · rintro ⟨⟨hball, hq⟩, hsign⟩
+    exact ⟨hball, (sc64_negative_cone_iff u).mp ⟨hq, hsign⟩⟩
+  · rintro ⟨hball, hcone⟩
+    rcases (sc64_negative_cone_iff u).mpr hcone with ⟨hq, hsign⟩
+    exact ⟨⟨hball, hq⟩, hsign⟩
+
+private theorem sc64_positive_axis_ball (rho : ℝ) (hrho : 0 < rho) :
+    (![0, rho / 2] : Point2) ∈ Metric.ball 0 rho := by
+  rw [Metric.mem_ball, dist_zero_right]
+  apply (pi_norm_lt_iff hrho).2
+  intro i
+  fin_cases i
+  · simpa using hrho
+  · change ‖rho / 2‖ < rho
+    rw [Real.norm_eq_abs, abs_of_pos (half_pos hrho)]
+    linarith
+
+private theorem sc64_negative_axis_ball (rho : ℝ) (hrho : 0 < rho) :
+    (![0, -(rho / 2)] : Point2) ∈ Metric.ball 0 rho := by
+  rw [Metric.mem_ball, dist_zero_right]
+  apply (pi_norm_lt_iff hrho).2
+  intro i
+  fin_cases i
+  · simpa using hrho
+  · change ‖-(rho / 2)‖ < rho
+    rw [norm_neg, Real.norm_eq_abs, abs_of_pos (half_pos hrho)]
+    linarith
+
+private theorem sc64_plus_pc (rho : ℝ) (hrho : 0 < rho) :
+    IsPathConnected (targetPlus rho) := by
+  have hconv : Convex ℝ (targetPlus rho) := by
+    rw [sc64_targetPlus_eq]
+    exact (convex_ball (0 : Point2) rho).inter sc64_positive_cone_convex
+  apply hconv.isPathConnected
+  refine ⟨![0, rho / 2], ?_⟩
+  rw [sc64_targetPlus_eq]
+  refine ⟨sc64_positive_axis_ball rho hrho, ?_⟩
+  change -(rho / 2) < 0 ∧ 0 < rho / 2
+  constructor <;> linarith
+
+private theorem sc64_minus_pc (rho : ℝ) (hrho : 0 < rho) :
+    IsPathConnected (targetMinus rho) := by
+  have hconv : Convex ℝ (targetMinus rho) := by
+    rw [sc64_targetMinus_eq]
+    exact (convex_ball (0 : Point2) rho).inter sc64_negative_cone_convex
+  apply hconv.isPathConnected
+  refine ⟨![0, -(rho / 2)], ?_⟩
+  rw [sc64_targetMinus_eq]
+  refine ⟨sc64_negative_axis_ball rho hrho, ?_⟩
+  change -(rho / 2) < 0 ∧ 0 < -(-(rho / 2))
+  constructor <;> linarith
+
+private theorem sc64_strict_coordinate_ne_zero {rho : ℝ} {u : Point2}
+    (hu : u ∈ targetStrict rho) : u 1 ≠ 0 := by
+  intro heq
+  have hq := hu.2
+  change 0 < -(u 0)^2 + (u 1)^2 at hq
+  rw [heq] at hq
+  nlinarith [sq_nonneg (u 0)]
+
+private theorem sc64_no_joined_negative_positive {rho : ℝ} {u v : Point2}
+    (hun : u 1 < 0) (hvp : 0 < v 1) :
+    ¬ JoinedIn (targetStrict rho) u v := by
+  rintro ⟨gamma, hgamma⟩
+  let f : unitInterval → ℝ := fun t => gamma t 1
+  have hf : Continuous f := (continuous_apply 1).comp gamma.continuous
+  have hf0 : f 0 = u 1 := by simp [f]
+  have hf1 : f 1 = v 1 := by simp [f]
+  have hbetween : (0 : ℝ) ∈ Icc (f 0) (f 1) := by
+    rw [hf0, hf1]
+    exact ⟨hun.le, hvp.le⟩
+  have hrange : (0 : ℝ) ∈ Set.range f :=
+    intermediate_value_univ (0 : unitInterval) (1 : unitInterval) hf hbetween
+  rcases hrange with ⟨t, ht⟩
+  change gamma t 1 = 0 at ht
+  have hq := (hgamma t).2
+  change 0 < -(gamma t 0)^2 + (gamma t 1)^2 at hq
+  rw [ht] at hq
+  nlinarith [sq_nonneg (gamma t 0)]
+
+private theorem sc64_joined_iff (rho : ℝ) (hrho : 0 < rho)
+    (u : Point2) (hu : u ∈ targetStrict rho)
+    (v : Point2) (hv : v ∈ targetStrict rho) :
+    JoinedIn (targetStrict rho) u v ↔ 0 < (u 1) * (v 1) := by
+  constructor
+  · intro hjoined
+    rcases lt_or_gt_of_ne (sc64_strict_coordinate_ne_zero hu) with hun | hup
+    · rcases lt_or_gt_of_ne (sc64_strict_coordinate_ne_zero hv) with hvn | hvp
+      · exact mul_pos_of_neg_of_neg hun hvn
+      · exact False.elim (sc64_no_joined_negative_positive hun hvp hjoined)
+    · rcases lt_or_gt_of_ne (sc64_strict_coordinate_ne_zero hv) with hvn | hvp
+      · exact False.elim (sc64_no_joined_negative_positive hvn hup hjoined.symm)
+      · exact mul_pos hup hvp
+  · intro hproduct
+    rcases mul_pos_iff.mp hproduct with hpos | hneg
+    · exact ((sc64_plus_pc rho hrho).joinedIn u ⟨hu, hpos.1⟩ v ⟨hv, hpos.2⟩).mono
+        (fun _ hz => hz.1)
+    · exact ((sc64_minus_pc rho hrho).joinedIn u ⟨hu, hneg.1⟩ v ⟨hv, hneg.2⟩).mono
+        (fun _ hz => hz.1)
+
+private theorem sc64_lower_pc (rho : ℝ) (hrho : 0 < rho)
+    (delta : ℝ) (hdelta : 0 ≤ delta) : IsPathConnected (targetLower rho delta) := by
+  have hzero : (0 : Point2) ∈ targetLower rho delta := by
+    refine ⟨?_, ?_⟩
+    · simpa only [Metric.mem_ball, dist_self] using hrho
+    · change -delta ≤ -(0 : ℝ)^2 + (0 : ℝ)^2
+      linarith
+  have hstar : StarConvex ℝ (0 : Point2) (targetLower rho delta) := by
+    intro u hu a b ha hb hab
+    refine ⟨(convex_ball (0 : Point2) rho) hzero.1 hu.1 ha hb hab, ?_⟩
+    have hb1 : b ≤ 1 := by linarith
+    have hb2 : 0 ≤ b^2 := sq_nonneg b
+    have hb2le : b^2 ≤ 1 := by nlinarith
+    have hscale : saddleQ (a • (0 : Point2) + b • u) = b^2 * saddleQ u := by
+      simp [saddleQ]
+      ring
+    have huq : -delta ≤ saddleQ u := hu.2
+    have hnonneg1 : 0 ≤ b^2 * (saddleQ u + delta) :=
+      mul_nonneg hb2 (by linarith)
+    have hnonneg2 : 0 ≤ delta * (1 - b^2) :=
+      mul_nonneg hdelta (by linarith)
+    change -delta ≤ saddleQ (a • (0 : Point2) + b • u)
+    rw [hscale]
+    nlinarith
+  exact hstar.isPathConnected hzero
+
+private theorem saddleConeGeometry (rho : ℝ) (hrho : 0 < rho) : SaddleGeometry rho := by
+  refine
+    { plus_pc := sc64_plus_pc rho hrho
+      minus_pc := sc64_minus_pc rho hrho
+      disjoint := ?_
+      partition := ?_
+      joined_iff := sc64_joined_iff rho hrho
+      lower_pc := sc64_lower_pc rho hrho }
+  · apply Set.disjoint_left.mpr
+    intro u hplus hminus
+    exact lt_asymm hplus.2 hminus.2
+  · ext u
+    constructor
+    · intro hu
+      rcases lt_or_gt_of_ne (sc64_strict_coordinate_ne_zero hu) with hneg | hpos
+      · exact Or.inr ⟨hu, hneg⟩
+      · exact Or.inl ⟨hu, hpos⟩
+    · rintro (hu | hu)
+      · exact hu.1
+      · exact hu.1

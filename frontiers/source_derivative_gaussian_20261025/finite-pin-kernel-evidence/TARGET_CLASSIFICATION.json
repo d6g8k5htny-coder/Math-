@@ -1,0 +1,41 @@
+{
+  "module": "SourceFinitePinKernel",
+  "actual_module_index_coverage": true,
+  "constant_count": 15,
+  "counts": {
+    "written_public_def": 3,
+    "generated_theorem": 3,
+    "written_public_theorem": 6,
+    "written_private_theorem": 3
+  },
+  "public_written_propositions": [
+    "I4SourceFinitePinKernel.residualCoefficient_summable",
+    "I4SourceFinitePinKernel.coefficientGram_posDef_of_finite_kernel_rightInverse",
+    "I4SourceFinitePinKernel.finitePairing_residualCoefficient",
+    "I4SourceFinitePinKernel.finiteShiftSample_val",
+    "I4SourceFinitePinKernel.rawPins_finiteShiftSample",
+    "I4SourceFinitePinKernel.rawPosteriorSample_finiteShiftSample"
+  ],
+  "public_definitions": [
+    "I4SourceFinitePinKernel.finiteShiftSample",
+    "I4SourceFinitePinKernel.residualCoefficient",
+    "I4SourceFinitePinKernel.finitePairing"
+  ],
+  "private_written_proofs": [
+    "_private.SourceFinitePinKernel.0.I4SourceFinitePinKernel.finitePairing_hasSum",
+    "_private.SourceFinitePinKernel.0.I4SourceFinitePinKernel.rawPinCoefficient_weighted_summable",
+    "_private.SourceFinitePinKernel.0.I4SourceFinitePinKernel.finitePairing_rowCombination"
+  ],
+  "generated_constants": [
+    "I4SourceFinitePinKernel.finiteShiftSample._proof_1",
+    "I4SourceFinitePinKernel.residualCoefficient.eq_1",
+    "I4SourceFinitePinKernel.finitePairing.eq_1"
+  ],
+  "prop_bundles": [],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "note": "All actual-module constants, including private/generated/imported-namespace constants if any, enumerated; only six written public propositions count as new targets."
+}

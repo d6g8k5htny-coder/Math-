@@ -1,0 +1,39 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFiniteTrig.lean",
+    "bytes": 12393,
+    "sha256": "d0f0dea0b2f8296d129a3759271076848e35dd5a4b1ab2f5f0cee58837c72b14"
+  },
+  "object": {
+    "path": "/workspace/scratch/finite-trig-construct/build/SourceFiniteTrig.olean",
+    "bytes": 508920,
+    "sha256": "5b96c7d331cd73697379c52a59a5b93749c134d89971b6926a79def657949c4c"
+  },
+  "compiled_object": {
+    "path": "/workspace/scratch/finite-trig-construct/runs/develop-003/SourceFiniteTrig.olean",
+    "bytes": 508920,
+    "sha256": "5b96c7d331cd73697379c52a59a5b93749c134d89971b6926a79def657949c4c"
+  },
+  "strict_Werror_receipt": {
+    "path": "/workspace/scratch/finite-trig-construct/runs/develop-003/record.json",
+    "bytes": 657,
+    "sha256": "625ba1c1b9484362f3349dae8443b67e8ca01b0d9d3f3de890d9eb80f9792993"
+  },
+  "kernel_receipt": {
+    "path": "/workspace/scratch/finite-trig-construct/runs/kernel-001/record.json",
+    "bytes": 1808,
+    "sha256": "ac084eb5ad1266df2c4fd4e6f1b7fa5ef26e26fbd09f925f0db58a0aa85abb65"
+  },
+  "freeze": {
+    "path": "/workspace/scratch/finite-trig-construct/FROZEN_SOURCE.json",
+    "bytes": 817,
+    "sha256": "1db66fe08bcdc5d4e08e6a2373cd07cbcce6a4f91e0573f1fb854d138406c2f7"
+  },
+  "eligible_production_objects": [
+    "SourceFiniteTrig.olean"
+  ],
+  "ineligible_objects": "All helper/control/inventory/mutation and earlier-attempt objects. No ilean generated and no freshness compile. Root alone owns productioncache.",
+  "reused_baseline": "46modules/1089targets/32inputs at3e15af2eab94b2448ce28aeb4c926ada7d596a50; qualifiedSourceFinitePinKernel object9d6... reused without compile. No old build/kernel/audit/control/hash campaign.",
+  "root_owned_local_sourcecut": "32732ff7c343b6ee0fd5b66cbdf72cda3cf48f2c",
+  "hosted_checks": "No current-source CI claim; PRECODEf20c0b0 checks not rebound to local sourcecut."
+}

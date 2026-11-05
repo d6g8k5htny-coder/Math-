@@ -1,0 +1,34 @@
+private theorem actualClosedSuperlevel_compact
+    {L : ℝ} (hL : 0 < L) (omega : I4SmoothCarrier.SmoothSample 2 L) (a : ℝ) :
+    CompactSpace (TorusFiltration.superlevel_set
+      (SourceActualFoldTorus.actualTorusField hL.ne' omega) (-a)) := by
+  letI : Fact (0 < L) := ⟨hL⟩
+  have hclosed : IsClosed (TorusFiltration.superlevel_set
+      (SourceActualFoldTorus.actualTorusField hL.ne' omega) (-a)) := by
+    simpa only [TorusFiltration.superlevel_set, neg_neg] using
+      (isClosed_le continuous_const
+        (SourceActualFoldTorus.actualTorusField_continuous hL.ne' omega) :
+        IsClosed {q | a ≤ SourceActualFoldTorus.actualTorusField hL.ne' omega q})
+  exact isCompact_iff_compactSpace.mp hclosed.isCompact
+
+-- The complete helper A original is integrated ONCE after the compact theorem.
+
+private theorem consumeFiniteClosedSubtype
+    {L : ℝ} (hL : 0 < L) (omega : I4SmoothCarrier.SmoothSample 2 L) (a : ℝ)
+    (hpc : LocallyPathConnectedSpace (TorusFiltration.superlevel_set
+      (SourceActualFoldTorus.actualTorusField hL.ne' omega) (-a))) :
+    Finite (ZerothHomotopy (TorusFiltration.superlevel_set
+      (SourceActualFoldTorus.actualTorusField hL.ne' omega) (-a))) := by
+  letI := actualClosedSuperlevel_compact hL omega a
+  letI := hpc
+  infer_instance
+
+theorem actualSource_finite_closedSuperlevel_components
+    {L : ℝ} (hL : 0 < L) (omega : I4SmoothCarrier.SmoothSample 2 L)
+    (hm : UniversalLaw.Spec.Lifetime.IsMorseDistinct 2 L
+      (I4LifetimeField.actualField 2 L omega)) :
+    ∀ a : ℝ, Finite (ZerothHomotopy (TorusFiltration.superlevel_set
+      (SourceActualFoldTorus.actualTorusField hL.ne' omega) (-a))) := by
+  intro a
+  exact consumeFiniteClosedSubtype hL omega a
+    (actualClosedSuperlevel_locallyPathConnected hL omega hm a)
