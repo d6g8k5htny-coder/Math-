@@ -6,6 +6,9 @@ name: Lifetime note DD replay
       - 'frontiers/lifetime_dd_model_d_20261013/**'
       - 'tests/test_lifetime_dd_replay_protocol.py'
       - 'tests/test_lifetime_dd_replay_evidence.py'
+      - 'tests/test_lifetime_dd_node_oracle.py'
+      - 'tests/fixtures/lifetime_dd_changed_node_stdout.txt'
+      - 'tests/fixtures/lifetime_dd_missing_node_stderr.txt'
       - '.github/workflows/lifetime-dd-model-d.yml'
   workflow_dispatch:
 
@@ -42,6 +45,7 @@ jobs:
           mkdir -p "$out/logs"
           python ${{ matrix.mode }} -m unittest discover -s tests -p test_lifetime_dd_replay_protocol.py -v 2>&1 | tee "$out/logs/protocol.txt"
           python ${{ matrix.mode }} -m unittest discover -s tests -p test_lifetime_dd_replay_evidence.py -v 2>&1 | tee "$out/logs/process-evidence-tests.txt"
+          python ${{ matrix.mode }} -m unittest discover -s tests -p test_lifetime_dd_node_oracle.py -v 2>&1 | tee "$out/logs/node-oracle-tests.txt"
           QS_REPLAY_EVIDENCE_DIR="$out/children" python ${{ matrix.mode }} frontiers/lifetime_dd_model_d_20261013/replay.py 2>&1 | tee "$out/logs/replay.txt"
           git diff --exit-code
           test -z "$(git status --porcelain)"
@@ -55,6 +59,9 @@ jobs:
           cp -a frontiers/lifetime_dd_model_d_20261013 "$out/packet"
           cp tests/test_lifetime_dd_replay_protocol.py "$out/"
           cp tests/test_lifetime_dd_replay_evidence.py "$out/"
+          cp tests/test_lifetime_dd_node_oracle.py "$out/"
+          cp tests/fixtures/lifetime_dd_changed_node_stdout.txt "$out/"
+          cp tests/fixtures/lifetime_dd_missing_node_stderr.txt "$out/"
           cp .github/workflows/lifetime-dd-model-d.yml "$out/"
           git rev-parse HEAD > "$out/tested_commit.txt"
           printf '%s\n' '${{ matrix.mode }}' > "$out/mode.txt"

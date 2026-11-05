@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "scientific_effect": "NONE",
+  "registration_status": "PARENT_REVIEW_INPUT_ONLY",
+  "components": [
+    "bounded-source-admission",
+    "scoped-source-mutation-runner"
+  ],
+  "files": {
+    "tools/lean_packet_admission.py": "04b98b2a34f294bd7049f072ea14cf917e9c1a1e78578cd64d4df1b334d8f497",
+    "tests/test_lean_packet_admission.py": "afb805c68cb9c71452ac95c97b3dd853860b9e6e7ce723b63236a1753f5c32f0",
+    "tests/run_source_admission_mutations.py": "64d2bd8486baabfde58cf9752b1a3a70ed48fa1a16a4674f37cd679d12fd1b45",
+    "tests/test_source_admission_mutations.py": "bf8ab249cc9164018c018ffb56584de8730e9d88525ffb9ef2bcf002b6cb4018",
+    "tools/LEAN_PACKET_ADMISSION.md": "8225c2fc46d38f0576b9cd564930b73f02113fcb90a51ed035f410dc5b0baca1"
+  },
+  "actual_lean": "NOT_RUN",
+  "compiled_census_qualification": "UNQUALIFIED",
+  "source_mutation_cases": 18,
+  "runner_self_tests": 13,
+  "source_admission_boundary": "EXACT_REVIEWED_DECLARATION_HEADERS_AND_CONTINUATIONS",
+  "mutation_lifecycle": "RECORDED_BODY_ONLY_FAILURES"
+}
