@@ -39,7 +39,7 @@ jobs:
           python -B -O -S "$P/test_check.py"
           python -B -S "$P/check.py"
       - name: Install pinned Lean and retrieve the Mathlib cache
-        uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6
+        uses: leanprover/lean-action@fe408643ea7367d8c0404a8be3975bb145f5fb64
         with:
           lake-package-directory: specifications/lean_statement_proofs_20261011
           auto-config: 'false'
