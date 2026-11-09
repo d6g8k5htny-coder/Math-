@@ -202,3 +202,11 @@ source identities; fresh complete source-mutation and hosted qualification are
 separate. No Lean statement, axiom, bound, original subject body, prior failure,
 scientific claim or review disposition changes. Reversible: yes. Evidence:
 main#738 comments `6752232120` and `6752263649`, and STATUS.
+
+[2026-11-09] [Phase3] [Layer A8/B] Retain the attempted equality-reversion
+self-mutant whose diagnostic included an inner unittest transcript: in both
+child modes the outer grader correctly refused the ambiguous output, so that
+attempt did not qualify as a kill. Keep that diagnostic test and use a separate
+single-transcript control to exercise the same real cloned-code failure.
+Retain the first local matrix copy failure caused by concurrent temporary Git
+files; rerun against an isolated committed checkout. Reversible: yes.

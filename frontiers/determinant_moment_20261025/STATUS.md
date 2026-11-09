@@ -14,7 +14,8 @@ rebound to this correction.
 
 Local CPython 3.12 controls of this correction ran eight adapter and eight Git
 runner tests per mode with no skips, including actual equality-reversion
-mutants; the shared source runner ran 16 tests per mode with no skips. The
+mutants; the earlier shared-source candidate ran 16 tests per mode with no skips.
+Its later dedicated single-transcript self-mutation control adds one test. The
 unchanged subject-mutation selections produced 24 adapter and 36 Git pairs,
 all killed, in both child modes. The shared matrix now declares 21 mutations
 and three controls per mode; a complete successor run and native hosted

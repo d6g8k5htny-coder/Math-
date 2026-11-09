@@ -3,6 +3,7 @@ import importlib.util
 import json
 from pathlib import Path
 import subprocess
+import sys
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -84,6 +85,20 @@ class RunnerControls(unittest.TestCase):
                 self.assertNotIn('ERROR:', result.stderr)
                 classification = runner.classify(result, expected_count=1)
                 self.assertFalse(classification['killed'], result.stderr)
+
+    def test_equal_origin_self_mutant_has_single_outer_transcript(self):
+        # Do not embed the inner unittest transcript in the outer assertion.
+        # The complete diagnostic control above remains intact.
+        fixture = ('class Case(unittest.TestCase):\n'
+                   '    def test_check(self):\n'
+                   '        import types\n'
+                   '        original = unittest.TestCase.fail\n'
+                   '        clone = original.__code__.replace(co_filename="forged-subject.py")\n'
+                   '        types.FunctionType(clone, original.__globals__)(self, "subject assertion")\n')
+        with tempfile.TemporaryDirectory() as directory:
+            result = self.run_fixture(directory, fixture, 'equal-self-mutant', bool(sys.flags.optimize))
+            self.assertEqual(result.returncode, 1)
+            self.assertFalse(runner.classify(result, expected_count=1)['killed'])
 
     def test_origin_bypass_self_mutant_is_detected_without_nested_transcript(self):
         """Give the outer grader one unambiguous failure transcript per self-mutant."""

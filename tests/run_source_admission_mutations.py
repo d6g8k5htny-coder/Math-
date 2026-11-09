@@ -79,7 +79,7 @@ MUTATIONS.extend([
      'any(frame.f_code is code for code in ' + 'unittest_codes)',
      'any(frame.f_code == code for code in unittest_codes)',
      ['-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_source_admission_mutations.py',
-      '-k', 'equal_but_distinct_unittest_code_is_not_an_oracle', '-v']),
+      '-k', 'equal_origin_self_mutant_has_single_outer_transcript', '-v']),
     ('runner-origin-code-check-removal', 'tests/run_source_admission_mutations.py',
      '                          bool(suffix) and all(' + 'any(frame.f_code is code for code in test._source_oracle_codes) or',
      '                          bool(suffix) and all(True or any(frame.f_code is code for code in test._source_oracle_codes) or',
