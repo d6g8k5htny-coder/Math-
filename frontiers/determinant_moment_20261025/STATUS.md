@@ -14,12 +14,15 @@ rebound to this correction.
 
 Local CPython 3.12 controls of this correction ran eight adapter and eight Git
 runner tests per mode with no skips, including actual equality-reversion
-mutants; the earlier shared-source candidate ran 16 tests per mode with no skips.
-Its later dedicated single-transcript self-mutation control adds one test. The
+mutants; the later shared-source candidate ran 17 tests per mode without skips.
+Its dedicated single-transcript self-mutation control is included. The
 unchanged subject-mutation selections produced 24 adapter and 36 Git pairs,
 all killed, in both child modes. The shared matrix now declares 21 mutations
-and three controls per mode; a complete successor run and native hosted
-qualification must be observed separately. The older counts and any earlier
+and three controls per mode. At native `aa56b61fc82f72e738e1abdbed389117a65a53eb`,
+an isolated local run completed all 48 rows (42 mutants and six controls),
+with 96 raw logs matching their hashes; summary SHA-256
+`cc1d04de4145c953881d67e4352ade20d9dd3e626b2a1ae7573d72a079d996f1`.
+Hosted qualification remains separate. The older counts and any earlier
 uses of "current" below describe their original historical sources. These
 bounded results are not a complete Layer A audit or scientific acceptance.
 

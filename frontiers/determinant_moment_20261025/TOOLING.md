@@ -63,8 +63,8 @@ code objects by identity, not equality. Their real adverse fixture uses an
 equal-but-distinct clone of `unittest.TestCase.fail`; adapter and Git controls
 also execute an equality-reversion harness mutant. The shared-source matrix
 adds its own equality-reversion source mutant, for 21 declared mutations plus
-three controls per child mode. Exact commands, observed results and the pending
-successor matrix are in STATUS. Earlier matrix counts and evidence remain tied
+three controls per child mode. Exact commands and the source-bound matrix
+observation are in STATUS. Earlier matrix counts and evidence remain tied
 to their original source.
 Core policy mutation fixtures deliberately rebind only the independent core
 source hash in an isolated copy to measure admission deletion, never production.

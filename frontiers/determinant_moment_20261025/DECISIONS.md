@@ -210,3 +210,11 @@ attempt did not qualify as a kill. Keep that diagnostic test and use a separate
 single-transcript control to exercise the same real cloned-code failure.
 Retain the first local matrix copy failure caused by concurrent temporary Git
 files; rerun against an isolated committed checkout. Reversible: yes.
+
+[2026-11-09] [Phase3] [Layer A8/B] At native `aa56b61fc82f72e738e1abdbed389117a65a53eb`,
+the isolated corrected shared-source matrix produced 48 passing rows: six
+controls and 42 intended mutations in the two modes, with 96 raw logs verified
+against their recorded hashes. Its summary is
+`cc1d04de4145c953881d67e4352ade20d9dd3e626b2a1ae7573d72a079d996f1`.
+This is a source-bound local result, not a Lean or federation gate. The
+earlier ambiguous and concurrent-copy failures remain preserved. Reversible: yes.
