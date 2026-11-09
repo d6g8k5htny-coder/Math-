@@ -191,3 +191,30 @@ before any publication. Native/hosted successor evidence remains pending; no
 receipt, Lean statement, continuum claim, review or acceptance is rebound.
 Reversible: yes. Evidence: local final-shared46d-20261104 and complete component
 normal/optimized receipts.
+
+[2026-11-09] [Phase3] [Layer A8/B] Preserve actual false-kill fixtures showing
+that equal-but-distinct code objects could impersonate an authorized unittest
+oracle in the adapter, Git and shared source-admission mutation graders at
+Math `f532c3e2d91a0c7679a37c733741660917a9b21b`. Compare live code objects by
+identity, retain selected-body and registered-helper boundaries, and add real
+equality-reversion controls. Keep all predecessor outcomes at their original
+source identities; fresh complete source-mutation and hosted qualification are
+separate. No Lean statement, axiom, bound, original subject body, prior failure,
+scientific claim or review disposition changes. Reversible: yes. Evidence:
+main#738 comments `6752232120` and `6752263649`, and STATUS.
+
+[2026-11-09] [Phase3] [Layer A8/B] Retain the attempted equality-reversion
+self-mutant whose diagnostic included an inner unittest transcript: in both
+child modes the outer grader correctly refused the ambiguous output, so that
+attempt did not qualify as a kill. Keep that diagnostic test and use a separate
+single-transcript control to exercise the same real cloned-code failure.
+Retain the first local matrix copy failure caused by concurrent temporary Git
+files; rerun against an isolated committed checkout. Reversible: yes.
+
+[2026-11-09] [Phase3] [Layer A8/B] At native `aa56b61fc82f72e738e1abdbed389117a65a53eb`,
+the isolated corrected shared-source matrix produced 48 passing rows: six
+controls and 42 intended mutations in the two modes, with 96 raw logs verified
+against their recorded hashes. Its summary is
+`cc1d04de4145c953881d67e4352ade20d9dd3e626b2a1ae7573d72a079d996f1`.
+This is a source-bound local result, not a Lean or federation gate. The
+earlier ambiguous and concurrent-copy failures remain preserved. Reversible: yes.
