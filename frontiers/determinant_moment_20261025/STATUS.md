@@ -1,5 +1,27 @@
 # Determinant companion and producer status
 
+## Code-origin correction — 9 November 2026
+
+At Math `f532c3e2d91a0c7679a37c733741660917a9b21b`, actual
+equal-but-distinct clones of a unittest assertion were wrongly accepted by the
+adapter, Git-identity and shared source-admission mutation graders. Their
+successor compares live code objects by identity; filenames and equal code
+values do not authorize an oracle. Explicit selected bodies, registered helper
+methods and the supported unittest code remain the accepted domain. The real
+red cases and prior results are retained. The historical 66 conditional Lean
+statements and their original execution evidence are unchanged and are not
+rebound to this correction.
+
+Local CPython 3.12 controls of this correction ran eight adapter and eight Git
+runner tests per mode with no skips, including actual equality-reversion
+mutants; the shared source runner ran 16 tests per mode with no skips. The
+unchanged subject-mutation selections produced 24 adapter and 36 Git pairs,
+all killed, in both child modes. The shared matrix now declares 21 mutations
+and three controls per mode; a complete successor run and native hosted
+qualification must be observed separately. The older counts and any earlier
+uses of "current" below describe their original historical sources. These
+bounded results are not a complete Layer A audit or scientific acceptance.
+
 The66 exact conditional companion statements are CLOSED by actual source-qualified
 native4871 execution. They occupy14 unchanged production Lean paths. This is not
 closure of the continuum Gaussian/Palm/lifetime parent, scientific review,
@@ -82,7 +104,7 @@ cbz_source_evidence_parent=$(mktemp -d)
 python3 -B -S tests/run_source_admission_mutations.py --output "$cbz_source_evidence_parent/results"
 ```
 
-The shared driver executes20cases and three controls per mode itself. The actual
+The predecessor shared driver executed20cases and three controls per mode itself. The actual
 exit2-after-body-failure defect and exact-integer0/1 correction are preserved in
 the ledger and native4871 qualification. Its46rows/46passing baselines/40intended
 mutants/6controls/92logs do not imply arbitrary semantic audit completeness.

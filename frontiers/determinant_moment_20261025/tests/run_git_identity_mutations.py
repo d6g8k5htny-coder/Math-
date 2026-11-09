@@ -33,18 +33,18 @@ loaded = [case.id() for case in cases]
 def code_objects(container, module, seen=None):
     seen = set() if seen is None else seen
     if id(container) in seen:
-        return set()
+        return []
     seen.add(id(container))
-    result = set()
+    result = []
     for value in vars(container).values():
         if isinstance(value, types.FunctionType):
             while isinstance(value, types.FunctionType):
-                result.add(value.__code__)
+                result.append(value.__code__)
                 value = getattr(value, '__wrapped__', None)
         elif isinstance(value, type) and value.__module__ == module:
-            result.update(code_objects(value, module, seen))
+            result.extend(code_objects(value, module, seen))
     return result
-UNITTEST_CODES = (code_objects(unittest.case, unittest.case.__name__) |
+UNITTEST_CODES = (code_objects(unittest.case, unittest.case.__name__) +
                   code_objects(unittest.mock, unittest.mock.__name__))
 ORACLE_HELPERS = {
     'test_determinant_git_identity.DeterminantGitIdentityTests':
@@ -59,12 +59,12 @@ for case in cases:
     module = sys.modules[type(case).__module__]
     if type(helper_names) is not tuple or any(type(name) is not str or not name for name in helper_names):
         raise TypeError('CBZ_MUTATION_ORACLE_HELPERS must be a tuple of exact method names')
-    case._cbz_oracle_codes = {getattr(type(case), case._testMethodName).__code__}
+    case._cbz_oracle_codes = [getattr(type(case), case._testMethodName).__code__]
     for name in helper_names:
         helper = getattr(type(case), name, getattr(module, name, None))
         if not isinstance(helper, types.FunctionType):
             raise TypeError('unknown exact mutation oracle helper: ' + name)
-        case._cbz_oracle_codes.add(helper.__code__)
+        case._cbz_oracle_codes.append(helper.__code__)
     case._adapter_mutation_phase = 'setup'
     for method, phase in (('_callSetUp', 'setup'), ('_callTestMethod', 'test'),
                           ('_callTearDown', 'teardown'), ('doCleanups', 'cleanup')):
@@ -84,16 +84,17 @@ class RecordingResult(unittest.TextTestResult):
             traceback = traceback.tb_next
         selected_code = getattr(type(parent), parent._testMethodName).__code__
         selected = next((index for index, frame in enumerate(frames)
-                         if frame.f_code == selected_code), None)
+                         if frame.f_code is selected_code), None)
         active = sys._getframe()
         selected_active = False
         while active is not None:
-            selected_active = selected_active or active.f_code == selected_code
+            selected_active = selected_active or active.f_code is selected_code
             active = active.f_back
         suffix = frames[selected:] if selected is not None else frames
         authorized = (issubclass(error[0], AssertionError) and (selected is not None or selected_active) and
                       bool(suffix) and
-                      all(frame.f_code in parent._cbz_oracle_codes or frame.f_code in UNITTEST_CODES
+                      all(any(frame.f_code is code for code in parent._cbz_oracle_codes) or
+                          any(frame.f_code is code for code in UNITTEST_CODES)
                           for frame in suffix))
         failure_details.append(dict(test_id=test.id(), parent_test_id=parent.id(),
             phase=getattr(parent, '_adapter_mutation_phase', 'outside_test'),

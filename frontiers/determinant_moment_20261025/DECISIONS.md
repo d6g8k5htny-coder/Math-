@@ -191,3 +191,14 @@ before any publication. Native/hosted successor evidence remains pending; no
 receipt, Lean statement, continuum claim, review or acceptance is rebound.
 Reversible: yes. Evidence: local final-shared46d-20261104 and complete component
 normal/optimized receipts.
+
+[2026-11-09] [Phase3] [Layer A8/B] Preserve actual false-kill fixtures showing
+that equal-but-distinct code objects could impersonate an authorized unittest
+oracle in the adapter, Git and shared source-admission mutation graders at
+Math `f532c3e2d91a0c7679a37c733741660917a9b21b`. Compare live code objects by
+identity, retain selected-body and registered-helper boundaries, and add real
+equality-reversion controls. Keep all predecessor outcomes at their original
+source identities; fresh complete source-mutation and hosted qualification are
+separate. No Lean statement, axiom, bound, original subject body, prior failure,
+scientific claim or review disposition changes. Reversible: yes. Evidence:
+main#738 comments `6752232120` and `6752263649`, and STATUS.

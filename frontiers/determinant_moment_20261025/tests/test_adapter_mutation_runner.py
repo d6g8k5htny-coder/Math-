@@ -72,6 +72,50 @@ class MutationRunnerTests(unittest.TestCase):
                     self.assertEqual(result['classification'],
                                      'ASSERTION_FAILURE' if accepted else 'INVALID')
 
+    def test_equal_but_distinct_unittest_code_is_not_an_oracle(self):
+        harness = self.base/'equal-code-harness.py'
+        harness.write_text(runner.HARNESS_SOURCE)
+        for mode in ('normal', 'optimized'):
+            with self.subTest(mode=mode):
+                source = self.base/(mode+'-equal-code')
+                (source/'tests').mkdir(parents=True)
+                (source/'tests/test_fixture.py').write_text(
+                    "import types, unittest\nclass Fixture(unittest.TestCase):\n"
+                    "    def test_selected(self):\n"
+                    "        original = unittest.TestCase.fail\n"
+                    "        clone = original.__code__.replace(co_filename='forged-subject.py')\n"
+                    "        types.FunctionType(clone, original.__globals__)(self, 'subject assertion')\n")
+                result = runner.run_selected(source, SELECTION, mode,
+                    self.base/(mode+'-equal-code-evidence'), harness, self.base/'unused-core')
+                self.assertEqual(result['returncode'], 1, result)
+                self.assertEqual(result['error_ids'], [], result)
+                self.assertEqual(result['classification'], 'INVALID', result)
+                self.assertFalse(result['failure_details'][0]['origin_authorized'], result)
+
+    def test_equality_mutant_reopens_spoofed_oracle(self):
+        anchor = 'any(frame.f_code is code for code in UNITTEST_CODES)'
+        self.assertEqual(runner.HARNESS_SOURCE.count(anchor), 1)
+        changed = runner.HARNESS_SOURCE.replace(anchor, anchor.replace(' is ', ' == '), 1)
+        for mode in ('normal', 'optimized'):
+            source = self.base/(mode+'-identity-mutant')
+            (source/'tests').mkdir(parents=True)
+            (source/'tests/test_fixture.py').write_text(
+                "import types, unittest\nclass Fixture(unittest.TestCase):\n"
+                "    def test_selected(self):\n"
+                "        original = unittest.TestCase.fail\n"
+                "        clone = original.__code__.replace(co_filename='forged-subject.py')\n"
+                "        types.FunctionType(clone, original.__globals__)(self, 'subject assertion')\n")
+            for label, code, expected in (('baseline', runner.HARNESS_SOURCE, 'INVALID'),
+                                          ('mutant', changed, 'ASSERTION_FAILURE')):
+                with self.subTest(mode=mode, version=label):
+                    harness = self.base/(mode+'-'+label+'-identity-harness.py')
+                    harness.write_text(code)
+                    result = runner.run_selected(source, SELECTION, mode,
+                        self.base/(mode+'-'+label+'-identity-evidence'), harness, self.base/'unused-core')
+                    self.assertEqual(result['returncode'], 1, result)
+                    self.assertEqual(result['error_ids'], [], result)
+                    self.assertEqual(result['classification'], expected, result)
+
     def test_same_selection_mode_and_harness_are_required(self):
         baseline = dict(classification='PASS', selection=SELECTION, mode='normal', harness_sha256='a'*64)
         mutant = dict(baseline, classification='ASSERTION_FAILURE')

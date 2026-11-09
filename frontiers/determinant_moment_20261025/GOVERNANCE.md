@@ -42,6 +42,13 @@ Scientific effect NONE; CBZ-0 is not established.
 
 ## Bounded tool registry
 
+On the 9 November code-origin successor, the three mutation graders in this
+registry use live code-object identity, including for selected bodies and their
+explicitly registered helpers. See STATUS for the reproduced false kill,
+commands, observed local controls and outstanding native qualification. The
+20-mutation shared-source and earlier "current successor" entries below are
+historical observations; the new shared matrix declares 21 mutations per mode.
+
 | Tool | Purpose / commands / self-verification |
 |---|---|
 | gate.py | Source/execution/runtime/receipt producer. STATUS commands; preserved lifecycle controls plus real-Git dirty-rebind, pre-helper/pre-adapter order, exact manifest guard, pinned-loader and synthetic complete V2/refusal tests. Corrected native execution pending. |

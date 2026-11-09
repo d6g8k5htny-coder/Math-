@@ -69,6 +69,22 @@ class RunnerControls(unittest.TestCase):
                     classification = runner.classify(result, expected_count=1)
                     self.assertEqual(classification['killed'], accepted, result.stderr)
 
+    def test_equal_but_distinct_unittest_code_is_not_an_oracle(self):
+        fixture = ('class Case(unittest.TestCase):\n'
+                   '    def test_check(self):\n'
+                   '        import types\n'
+                   '        original = unittest.TestCase.fail\n'
+                   '        clone = original.__code__.replace(co_filename="forged-subject.py")\n'
+                   '        types.FunctionType(clone, original.__globals__)(self, "subject assertion")\n')
+        for optimized in (False, True):
+            with self.subTest(optimized=optimized), tempfile.TemporaryDirectory() as directory:
+                result = self.run_fixture(directory, fixture, 'equal-code', optimized)
+                self.assertEqual(result.returncode, 1, result.stderr)
+                self.assertIn('FAIL: test_check', result.stderr)
+                self.assertNotIn('ERROR:', result.stderr)
+                classification = runner.classify(result, expected_count=1)
+                self.assertFalse(classification['killed'], result.stderr)
+
     def test_origin_bypass_self_mutant_is_detected_without_nested_transcript(self):
         """Give the outer grader one unambiguous failure transcript per self-mutant."""
         fixture = ('class Case(unittest.TestCase):\n'
@@ -169,8 +185,8 @@ class RunnerControls(unittest.TestCase):
 
     def test_all_named_cases_and_modes_required_without_duplicates(self):
         names = [case[0] for case in runner.MUTATIONS] + ['control-helper', 'control-determinant', 'control-cap']
-        self.assertEqual(len(runner.MUTATIONS), 20)
-        self.assertEqual(len(set(names)), 23)
+        self.assertEqual(len(runner.MUTATIONS), 21)
+        self.assertEqual(len(set(names)), 24)
         records = [dict(name=name, optimized=mode, passed=True) for name in names for mode in (False, True)]
         self.assertTrue(runner.complete(records))
         for bad in (records[:-1], records + records[:1], [{**records[0], 'passed': False}] + records[1:],
