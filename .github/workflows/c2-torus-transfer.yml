@@ -80,8 +80,14 @@ jobs:
           wait "${pids[@]}"
           for m in no-image no-theta drop-ratio eta-half fp-const; do
             rc=$(cat "/tmp/mutant_$m.rc")
-            if [ "$rc" -ne 1 ]; then echo "mutant $m not rejected (rc=$rc)"; cat "/tmp/mutant_$m.log"; exit 1; fi
-            echo "mutant $m rejected"
+            log=$(cat "/tmp/mutant_$m.log")
+            if [ "$rc" -ne 1 ] || ! echo "$log" | grep -q "MISMATCH against RESULTS.json"; then
+              echo "mutant $m not rejected with intended reason (rc=$rc)"
+              echo "--- log ---"
+              echo "$log"
+              exit 1
+            fi
+            echo "mutant $m rejected with intended MISMATCH"
           done
           cd "$GITHUB_WORKSPACE"
           git diff --exit-code
