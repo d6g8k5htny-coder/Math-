@@ -78,10 +78,18 @@ jobs:
           python $FLAGS transfer.py --check
           python $FLAGS controls.py
           wait "${pids[@]}"
+          expected="MISMATCH against RESULTS.json"
           for m in no-image no-theta drop-ratio eta-half fp-const; do
             rc=$(cat "/tmp/mutant_$m.rc")
-            if [ "$rc" -ne 1 ]; then echo "mutant $m not rejected (rc=$rc)"; cat "/tmp/mutant_$m.log"; exit 1; fi
-            echo "mutant $m rejected"
+            log=$(cat "/tmp/mutant_$m.log")
+            if [ "$rc" -ne 1 ] || [ "$log" != "$expected" ]; then
+              echo "mutant $m not properly rejected (rc=$rc, log mismatch)"
+              echo "--- log ---"
+              cat "/tmp/mutant_$m.log"
+              echo "--- end ---"
+              exit 1
+            fi
+            echo "mutant $m rejected with intended mismatch"
           done
           cd "$GITHUB_WORKSPACE"
           git diff --exit-code
