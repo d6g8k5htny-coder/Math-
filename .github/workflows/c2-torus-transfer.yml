@@ -72,16 +72,27 @@ jobs:
           cd frontiers/c2_torus_transfer_20261001
           pids=()
           for m in no-image no-theta drop-ratio eta-half fp-const; do
-            ( set +e; python $FLAGS transfer.py --mutant "$m" > "/tmp/mutant_$m.log" 2>&1; echo $? > "/tmp/mutant_$m.rc" ) &
+            ( set +e; python $FLAGS transfer.py --mutant "$m" > "/tmp/mutant_$m.stdout" 2> "/tmp/mutant_$m.stderr"; echo $? > "/tmp/mutant_$m.rc" ) &
             pids+=($!)
           done
           python $FLAGS transfer.py --check
           python $FLAGS controls.py
           wait "${pids[@]}"
+          expected="MISMATCH against RESULTS.json"
           for m in no-image no-theta drop-ratio eta-half fp-const; do
             rc=$(cat "/tmp/mutant_$m.rc")
-            if [ "$rc" -ne 1 ]; then echo "mutant $m not rejected (rc=$rc)"; cat "/tmp/mutant_$m.log"; exit 1; fi
-            echo "mutant $m rejected"
+            stdout=$(cat "/tmp/mutant_$m.stdout")
+            stderr=$(cat "/tmp/mutant_$m.stderr")
+            if [ "$rc" -ne 1 ] || [ "$stdout" != "$expected"$'
+' ] || [ -n "$stderr" ]; then
+              echo "mutant $m not properly rejected (rc=$rc)"
+              echo "--- stdout ---"
+              cat "/tmp/mutant_$m.stdout"
+              echo "--- stderr ---"
+              cat "/tmp/mutant_$m.stderr"
+              exit 1
+            fi
+            echo "mutant $m rejected with exact MISMATCH"
           done
           cd "$GITHUB_WORKSPACE"
           git diff --exit-code
