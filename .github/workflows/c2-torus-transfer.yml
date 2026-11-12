@@ -81,7 +81,18 @@ jobs:
           for m in no-image no-theta drop-ratio eta-half fp-const; do
             rc=$(cat "/tmp/mutant_$m.rc")
             if [ "$rc" -ne 1 ]; then echo "mutant $m not rejected (rc=$rc)"; cat "/tmp/mutant_$m.log"; exit 1; fi
-            echo "mutant $m rejected"
+            # Require exact combined log content for intended omission rejection
+            expected='MISMATCH against RESULTS.json
+'
+            actual=$(cat "/tmp/mutant_$m.log")
+            if [ "$actual" != "$expected" ]; then
+              echo "mutant $m rejected with incorrect content (rc=1 but log != exact MISMATCH against RESULTS.json)"
+              echo "--- actual log ---"
+              cat "/tmp/mutant_$m.log"
+              echo "--- end log ---"
+              exit 1
+            fi
+            echo "mutant $m rejected correctly (exact MISMATCH, empty stderr)"
           done
           cd "$GITHUB_WORKSPACE"
           git diff --exit-code
