@@ -30,6 +30,46 @@ except BaseException as exc:
                                 input=block.encode(), capture_output=True, timeout=120)
         return result
 
+    def test_traceback_records_unrelated_same_message_origin(self):
+        block = "raise RuntimeError('unexpected child exit or stderr')\n"
+        child = self.guarded_run(block, '.')
+        self.assertEqual(child.returncode, 42, child.stderr.decode())
+        event = json.loads(child.stdout)
+        self.assertEqual(event['exception'], 'RuntimeError')
+        self.assertEqual(event['message'], 'unexpected child exit or stderr')
+        # Same text is insufficient: this originated at the module body, not decode.
+        self.assertEqual(event['frames'], [['<module>', 1]])
+
+    def test_baseline_child_failures_are_not_admitted(self):
+        workflow = pathlib.Path('.github/workflows/c6-hard-direction-factorization.yml').read_text()
+        start = workflow.index("          script = str(root / 'factorization.py')")
+        end = workflow.index("          print(json.dumps({'scientific_effect'", start)
+        block = '\n'.join(line[10:] for line in workflow[start:end].splitlines())
+        bad_programs = {
+            'exit': 'raise SystemExit(1)',
+            'stderr': "import sys; print('error', file=sys.stderr)",
+            'wrong_schema': "print('{}')",
+            'nonfinite': "print('{\\\"check\\\":\\\"ok\\\",\\\"R_3_0\\\":NaN,\\\"closed_form\\\":1,\\\"mutant\\\":null}')",
+        }
+        for case, program in bad_programs.items():
+            with self.subTest(case=case), tempfile.TemporaryDirectory() as tmp:
+                pathlib.Path(tmp, 'factorization.py').write_text(program + '\n')
+                child = self.guarded_run(block, tmp)
+                self.assertEqual(child.returncode, 42, child.stderr.decode())
+                event = json.loads(child.stdout)
+                function, line = event['frames'][-1]
+                source_line = block.splitlines()[line - 1]
+                if case in ('exit', 'stderr'):
+                    self.assertEqual((event['exception'], function), ('RuntimeError', 'decode'))
+                    self.assertIn('unexpected child exit or stderr', source_line)
+                elif case == 'wrong_schema':
+                    self.assertEqual((event['exception'], function), ('RuntimeError', '<module>'))
+                    self.assertIn('unexpected baseline result', source_line)
+                else:
+                    self.assertEqual(event['exception'], 'ValueError')
+                    self.assertEqual(function, '<genexpr>')
+                    self.assertIn('parse_constant=lambda value:', source_line)
+
     def test_adverse_child_outcomes_are_rejected(self):
         workflow = pathlib.Path('.github/workflows/c6-hard-direction-factorization.yml').read_text()
         start = workflow.index("          script = str(root / 'factorization.py')")
