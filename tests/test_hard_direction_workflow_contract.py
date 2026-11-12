@@ -49,6 +49,8 @@ except BaseException as exc:
             'exit': 'raise SystemExit(1)',
             'stderr': "import sys; print('error', file=sys.stderr)",
             'wrong_schema': "print('{}')",
+            'bool_number': "import json; print(json.dumps({'check':'ok','R_3_0':True,'closed_form':1,'mutant':None}))",
+            'bool_closed_form': "import json; print(json.dumps({'check':'ok','R_3_0':1,'closed_form':True,'mutant':None}))",
             'nonfinite': "print('{\\\"check\\\":\\\"ok\\\",\\\"R_3_0\\\":NaN,\\\"closed_form\\\":1,\\\"mutant\\\":null}')",
         }
         for case, program in bad_programs.items():
@@ -62,7 +64,7 @@ except BaseException as exc:
                 if case in ('exit', 'stderr'):
                     self.assertEqual((event['exception'], function), ('RuntimeError', 'decode'))
                     self.assertIn('unexpected child exit or stderr', source_line)
-                elif case == 'wrong_schema':
+                elif case in ('wrong_schema', 'bool_number', 'bool_closed_form'):
                     self.assertEqual((event['exception'], function), ('RuntimeError', '<module>'))
                     self.assertIn('unexpected baseline result', source_line)
                 else:
