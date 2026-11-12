@@ -135,6 +135,27 @@ sys.exit(1)
             self.assertEqual((event['exception'], function), ('RuntimeError', 'decode'))
             self.assertIn("raise RuntimeError('unexpected child exit or stderr')", block.splitlines()[line - 1])
 
+    def test_normal_child_failure_is_exercised(self):
+        workflow = pathlib.Path('.github/workflows/c6-hard-direction-factorization.yml').read_text()
+        start = workflow.index("          script = str(root / 'factorization.py')")
+        end = workflow.index("          print(json.dumps({'scientific_effect'", start)
+        block = '\n'.join(line[10:] for line in workflow[start:end].splitlines())
+        with tempfile.TemporaryDirectory() as tmp:
+            pathlib.Path(tmp, 'factorization.py').write_text(
+                "import json,sys\n"
+                "if not sys.flags.optimize: raise RuntimeError('normal child failure')\n"
+                "reasons={'drop-vandermonde':'m_(3,0) = (7 - 4 sqrt2)/2','hard-power-two':'N_3(0) = 2 sqrt2','drop-spectral-constant':'c_1 = 1, c_2 = pi'}\n"
+                "if '--mutant' in sys.argv:\n"
+                " m=sys.argv[-1]; print(json.dumps({'check':'FAIL','what':reasons[m],'mutant':m})); sys.exit(1)\n"
+                "print(json.dumps({'check':'ok','R_3_0':1.0,'closed_form':1.0,'mutant':None}))\n"
+            )
+            child = self.guarded_run(block, tmp)
+            self.assertEqual(child.returncode, 42, child.stderr.decode())
+            event = json.loads(child.stdout)
+            function, line = event['frames'][-1]
+            self.assertEqual((event['exception'], function), ('RuntimeError', 'decode'))
+            self.assertIn("raise RuntimeError('unexpected child exit or stderr')", block.splitlines()[line - 1])
+
     def test_actual_checker_and_all_mutants(self):
         workflow = pathlib.Path('.github/workflows/c6-hard-direction-factorization.yml').read_text()
         start = workflow.index("          script = str(root / 'factorization.py')")
