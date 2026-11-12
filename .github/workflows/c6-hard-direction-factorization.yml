@@ -5,6 +5,7 @@ name: C6 hard-direction factorization (replay)
     paths:
       - 'frontiers/c6_hard_direction_factorization_20260930/**'
       - '.github/workflows/c6-hard-direction-factorization.yml'
+      - 'tests/test_hard_direction_workflow_contract.py'
       - 'frontiers/two_scale_cluster_geometry_20260929/RADIAL_TAIL.md'
       - 'frontiers/radial_rate_20260930/PROOF.md'
       - 'frontiers/spectral_cluster_closure_20260929/PROOF.md'
@@ -27,13 +28,17 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.11.16'
+      - name: Verify the failure contract in both interpreter modes
+        run: |
+          python -B -S -m unittest discover -s tests -p test_hard_direction_workflow_contract.py -v
+          python -B -O -S -m unittest discover -s tests -p test_hard_direction_workflow_contract.py -v
       - name: Verify manifest and main-resident pins, replay the exact lemma, closed forms and tables, reject mutants
         env:
           PYTHONDONTWRITEBYTECODE: '1'
         run: |
           set -euo pipefail
           python -B -S - <<'PY'
-          import hashlib, json, pathlib, subprocess, sys
+          import hashlib, json, math, pathlib, subprocess, sys
           root = pathlib.Path('frontiers/c6_hard_direction_factorization_20260930').resolve()
           manifest = json.loads((root / 'SOURCE_FILES.json').read_text())['files']
           present = sorted(p.name for p in root.iterdir())
@@ -55,13 +60,33 @@ jobs:
               if len(data) != entry['bytes'] or hashlib.sha256(data).hexdigest() != entry['sha256'] or blob != entry['git_blob']:
                   raise ValueError('consumed source identity mismatch on this tree: ' + entry['path'])
           script = str(root / 'factorization.py')
+          expected = {
+              'drop-vandermonde': 'm_(3,0) = (7 - 4 sqrt2)/2',
+              'hard-power-two': 'N_3(0) = 2 sqrt2',
+              'drop-spectral-constant': 'c_1 = 1, c_2 = pi',
+          }
+          def pairs(items):
+              d = {}
+              for key, value in items:
+                  if key in d:
+                      raise ValueError('duplicate JSON key: ' + key)
+                  d[key] = value
+              return d
+          def decode(out, code):
+              if out.returncode != code or out.stderr:
+                  raise RuntimeError('unexpected child exit or stderr')
+              return json.loads(out.stdout, object_pairs_hook=pairs,
+                                parse_constant=lambda value: (_ for _ in ()).throw(ValueError(value)))
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):
               out = subprocess.run([sys.executable, *flags, script, '--check'], cwd=root, capture_output=True, timeout=900)
-              if out.returncode != 0:
-                  raise RuntimeError('check failed under ' + ' '.join(flags) + ': ' + out.stdout.decode()[-400:])
-              for m in ['drop-vandermonde', 'hard-power-two', 'drop-spectral-constant']:
-                  rc = subprocess.run([sys.executable, *flags, script, '--check', '--mutant', m], cwd=root, capture_output=True, timeout=900).returncode
-                  if rc != 1:
+              baseline = decode(out, 0)
+              if (not isinstance(baseline, dict) or set(baseline) != {'check', 'R_3_0', 'closed_form', 'mutant'}
+                  or baseline['check'] != 'ok' or baseline['mutant'] is not None
+                  or any(type(baseline[k]) not in (int, float) or not math.isfinite(baseline[k]) for k in ('R_3_0', 'closed_form'))):
+                  raise RuntimeError('unexpected baseline result')
+              for m, reason in expected.items():
+                  out = subprocess.run([sys.executable, *flags, script, '--check', '--mutant', m], cwd=root, capture_output=True, timeout=900)
+                  if decode(out, 1) != {'check': 'FAIL', 'what': reason, 'mutant': m}:
                       raise RuntimeError('mutant ' + m + ' not rejected')
           print(json.dumps({'scientific_effect': 'NONE', 'certified': False}))
           PY
