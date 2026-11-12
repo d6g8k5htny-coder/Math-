@@ -81,7 +81,19 @@ jobs:
           for m in no-image no-theta drop-ratio eta-half fp-const; do
             rc=$(cat "/tmp/mutant_$m.rc")
             if [ "$rc" -ne 1 ]; then echo "mutant $m not rejected (rc=$rc)"; cat "/tmp/mutant_$m.log"; exit 1; fi
-            echo "mutant $m rejected"
+            # Require intended mismatch reason in stdout (combined log)
+            if ! grep -q "MISMATCH against RESULTS.json" "/tmp/mutant_$m.log"; then
+              echo "mutant $m rejected for wrong reason (missing exact MISMATCH line)"
+              cat "/tmp/mutant_$m.log"
+              exit 1
+            fi
+            # Reject if unexpected error indicators present (traceback, etc.)
+            if grep -E -q "Traceback|Error:|Exception|AssertionError" "/tmp/mutant_$m.log"; then
+              echo "mutant $m has unexpected error output in log"
+              cat "/tmp/mutant_$m.log"
+              exit 1
+            fi
+            echo "mutant $m rejected with intended reason"
           done
           cd "$GITHUB_WORKSPACE"
           git diff --exit-code
