@@ -72,7 +72,7 @@ jobs:
           cd frontiers/c2_torus_transfer_20261001
           pids=()
           for m in no-image no-theta drop-ratio eta-half fp-const; do
-            ( set +e; python $FLAGS transfer.py --mutant "$m" > "/tmp/mutant_$m.log" 2>&1; echo $? > "/tmp/mutant_$m.rc" ) &
+            ( set +e; python $FLAGS transfer.py --mutant "$m" > "/tmp/mutant_$m.out" 2> "/tmp/mutant_$m.err"; echo $? > "/tmp/mutant_$m.rc" ) &
             pids+=($!)
           done
           python $FLAGS transfer.py --check
@@ -80,8 +80,27 @@ jobs:
           wait "${pids[@]}"
           for m in no-image no-theta drop-ratio eta-half fp-const; do
             rc=$(cat "/tmp/mutant_$m.rc")
-            if [ "$rc" -ne 1 ]; then echo "mutant $m not rejected (rc=$rc)"; cat "/tmp/mutant_$m.log"; exit 1; fi
-            echo "mutant $m rejected"
+            if [ "$rc" -ne 1 ]; then
+              echo "mutant $m not rejected (rc=$rc)"
+              cat "/tmp/mutant_$m.out" "/tmp/mutant_$m.err"
+              exit 1
+            fi
+            # Require exact intended rejection: stdout "MISMATCH against RESULTS.json" + newline, empty stderr
+            expected=$(printf 'MISMATCH against RESULTS.json\n')
+            if ! cmp -s "/tmp/mutant_$m.out" <(echo -n "$expected"); then
+              echo "mutant $m rejected for wrong reason (stdout mismatch)"
+              echo "=== stdout ==="
+              cat "/tmp/mutant_$m.out"
+              echo "=== expected ==="
+              printf '%s' "$expected"
+              exit 1
+            fi
+            if [ -s "/tmp/mutant_$m.err" ]; then
+              echo "mutant $m has non-empty stderr"
+              cat "/tmp/mutant_$m.err"
+              exit 1
+            fi
+            echo "mutant $m correctly rejected (exact MISMATCH, empty stderr)"
           done
           cd "$GITHUB_WORKSPACE"
           git diff --exit-code
