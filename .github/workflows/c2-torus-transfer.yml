@@ -80,8 +80,12 @@ jobs:
           wait "${pids[@]}"
           for m in no-image no-theta drop-ratio eta-half fp-const; do
             rc=$(cat "/tmp/mutant_$m.rc")
-            if [ "$rc" -ne 1 ]; then echo "mutant $m not rejected (rc=$rc)"; cat "/tmp/mutant_$m.log"; exit 1; fi
-            echo "mutant $m rejected"
+            log=$(cat "/tmp/mutant_$m.log")
+            if [ "$rc" -ne 1 ]; then echo "mutant $m not rejected (rc=$rc)"; echo "$log"; exit 1; fi
+            if ! echo "$log" | grep -q "MISMATCH against RESULTS.json"; then echo "mutant $m missing exact MISMATCH stdout"; echo "$log"; exit 1; fi
+            if echo "$log" | grep -q "Traceback\|Error\|Exception"; then echo "mutant $m has unexpected error in log"; echo "$log"; exit 1; fi
+            # empty stderr is implied by no error patterns and rc=1 with expected stdout; explicit check if separate stderr captured, but combined here
+            echo "mutant $m rejected with exact MISMATCH"
           done
           cd "$GITHUB_WORKSPACE"
           git diff --exit-code
