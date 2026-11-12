@@ -72,7 +72,7 @@ jobs:
           cd frontiers/c2_torus_transfer_20261001
           pids=()
           for m in no-image no-theta drop-ratio eta-half fp-const; do
-            ( set +e; python $FLAGS transfer.py --mutant "$m" > "/tmp/mutant_$m.log" 2>&1; echo $? > "/tmp/mutant_$m.rc" ) &
+            ( set +e; python $FLAGS transfer.py --mutant "$m" > "/tmp/mutant_$m.out" 2> "/tmp/mutant_$m.err"; echo $? > "/tmp/mutant_$m.rc" ) &
             pids+=($!)
           done
           python $FLAGS transfer.py --check
@@ -80,8 +80,18 @@ jobs:
           wait "${pids[@]}"
           for m in no-image no-theta drop-ratio eta-half fp-const; do
             rc=$(cat "/tmp/mutant_$m.rc")
-            if [ "$rc" -ne 1 ]; then echo "mutant $m not rejected (rc=$rc)"; cat "/tmp/mutant_$m.log"; exit 1; fi
-            echo "mutant $m rejected"
+            out=$(cat "/tmp/mutant_$m.out" || true)
+            err=$(cat "/tmp/mutant_$m.err" || true)
+            expected="MISMATCH against RESULTS.json"
+            if [ "$rc" -ne 1 ] || [ "$out" != "$expected" ] && [ "$out" != "$expected\n" ] || [ -n "$err" ]; then
+              echo "mutant $m not rejected correctly (rc=$rc)"
+              echo "stdout:"
+              cat "/tmp/mutant_$m.out" || true
+              echo "stderr:"
+              cat "/tmp/mutant_$m.err" || true
+              exit 1
+            fi
+            echo "mutant $m rejected correctly"
           done
           cd "$GITHUB_WORKSPACE"
           git diff --exit-code
