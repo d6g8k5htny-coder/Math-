@@ -1,4 +1,5 @@
 import pathlib
+import json
 import subprocess
 import sys
 import tempfile
@@ -6,12 +7,34 @@ import unittest
 
 
 class HardDirectionWorkflowContract(unittest.TestCase):
+    @staticmethod
+    def guarded_run(block, root):
+        # Record the actual traceback while it is live, before unittest formats it.
+        driver = '''import json,math,pathlib,subprocess,sys
+root=pathlib.Path(sys.argv[1])
+source=sys.stdin.read()
+try:
+ exec(compile(source, '<workflow-guard>', 'exec'))
+except BaseException as exc:
+ tb=exc.__traceback__
+ frames=[]
+ while tb is not None:
+  code=tb.tb_frame.f_code
+  if code.co_filename == '<workflow-guard>':
+   frames.append([code.co_name,tb.tb_lineno])
+  tb=tb.tb_next
+ print(json.dumps({'exception':type(exc).__name__,'message':str(exc),'frames':frames}))
+ sys.exit(42)
+'''
+        result = subprocess.run([sys.executable, '-B', '-S', '-c', driver, str(root)],
+                                input=block.encode(), capture_output=True, timeout=120)
+        return result
+
     def test_adverse_child_outcomes_are_rejected(self):
         workflow = pathlib.Path('.github/workflows/c6-hard-direction-factorization.yml').read_text()
         start = workflow.index("          script = str(root / 'factorization.py')")
         end = workflow.index("          print(json.dumps({'scientific_effect'", start)
         block = '\n'.join(line[10:] for line in workflow[start:end].splitlines())
-        harness = 'import pathlib,subprocess,sys,json,math\nroot=pathlib.Path(sys.argv[1])\n' + block
         for failure in ('silent', 'wrong_reason', 'wrong_label', 'stderr', 'duplicate', 'invalid_json'):
           for target in ('drop-vandermonde', 'hard-power-two', 'drop-spectral-constant'):
             with self.subTest(failure=failure, target=target), tempfile.TemporaryDirectory() as tmp:
@@ -32,8 +55,24 @@ print(json.dumps({'check':'FAIL','what': 'wrong' if mode == 'wrong_reason' else 
 sys.exit(1)
 """ % (failure, target)
                 pathlib.Path(tmp, 'factorization.py').write_text(program)
-                child = subprocess.run([sys.executable, '-B', '-S', '-c', harness, tmp], capture_output=True)
-                self.assertNotEqual(child.returncode, 0, failure)
+                child = self.guarded_run(block, tmp)
+                self.assertEqual(child.returncode, 42, child.stderr.decode())
+                event = json.loads(child.stdout)
+                expected_type = {'silent':'JSONDecodeError', 'invalid_json':'JSONDecodeError', 'duplicate':'ValueError'}.get(failure, 'RuntimeError')
+                self.assertEqual(event['exception'], expected_type)
+                function, line = event['frames'][-1]
+                source_line = block.splitlines()[line - 1].strip()
+                if failure in ('silent', 'invalid_json'):
+                    self.assertEqual((function, source_line), ('decode', 'return json.loads(out.stdout, object_pairs_hook=pairs,'))
+                elif failure == 'duplicate':
+                    self.assertEqual(function, 'pairs')
+                    self.assertIn("raise ValueError('duplicate JSON key:", source_line)
+                elif failure == 'stderr':
+                    self.assertEqual(function, 'decode')
+                    self.assertIn("raise RuntimeError('unexpected child exit or stderr')", source_line)
+                else:
+                    self.assertEqual(function, '<module>')
+                    self.assertIn("raise RuntimeError('mutant ' + m + ' not rejected')", source_line)
 
     def test_actual_checker_and_all_mutants(self):
         workflow = pathlib.Path('.github/workflows/c6-hard-direction-factorization.yml').read_text()
@@ -56,9 +95,12 @@ sys.exit(1)
                 "if '--mutant' in sys.argv: raise RuntimeError('unrelated failure')\n"
                 "print(json.dumps({'check':'ok','R_3_0':4.211645867438038,'closed_form':4.2116458674380395,'mutant':None}))\n"
             )
-            harness = 'import pathlib,subprocess,sys,json,math\nroot=pathlib.Path(sys.argv[1])\n' + block
-            child = subprocess.run([sys.executable, '-B', '-S', '-c', harness, tmp], capture_output=True)
-            self.assertNotEqual(child.returncode, 0, child.stdout.decode())
+            child = self.guarded_run(block, tmp)
+            self.assertEqual(child.returncode, 42, child.stderr.decode())
+            event = json.loads(child.stdout)
+            function, line = event['frames'][-1]
+            self.assertEqual((event['exception'], function), ('RuntimeError', 'decode'))
+            self.assertIn("raise RuntimeError('unexpected child exit or stderr')", block.splitlines()[line - 1])
 
 
 if __name__ == '__main__':
