@@ -45,7 +45,7 @@ jobs:
           python3 -B -O -S -m unittest discover -s frontiers/regular_superlevel_geometry_20261020 -p test_c297_hosted_verify.py -v
       - name: Install pinned Lean and retrieve dependency cache
         timeout-minutes: 15
-        uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6
+        uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee
         with:
           lake-package-directory: formal
           auto-config: 'false'
