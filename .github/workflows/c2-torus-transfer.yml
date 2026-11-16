@@ -80,8 +80,23 @@ jobs:
           wait "${pids[@]}"
           for m in no-image no-theta drop-ratio eta-half fp-const; do
             rc=$(cat "/tmp/mutant_$m.rc")
-            if [ "$rc" -ne 1 ]; then echo "mutant $m not rejected (rc=$rc)"; cat "/tmp/mutant_$m.log"; exit 1; fi
-            echo "mutant $m rejected"
+            log=$(cat "/tmp/mutant_$m.log")
+            if [ "$rc" -ne 1 ]; then
+              echo "mutant $m not rejected (rc=$rc)"
+              echo "$log"
+              exit 1
+            fi
+            if ! echo "$log" | grep -q "MISMATCH against RESULTS.json"; then
+              echo "mutant $m exit 1 but missing intended MISMATCH against RESULTS.json"
+              echo "$log"
+              exit 1
+            fi
+            if echo "$log" | grep -qE "Traceback|Error:|Exception|AssertionError"; then
+              echo "mutant $m has unexpected traceback or error in log (not clean mismatch)"
+              echo "$log"
+              exit 1
+            fi
+            echo "mutant $m rejected with intended mismatch"
           done
           cd "$GITHUB_WORKSPACE"
           git diff --exit-code
