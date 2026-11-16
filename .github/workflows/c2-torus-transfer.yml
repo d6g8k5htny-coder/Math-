@@ -81,7 +81,12 @@ jobs:
           for m in no-image no-theta drop-ratio eta-half fp-const; do
             rc=$(cat "/tmp/mutant_$m.rc")
             if [ "$rc" -ne 1 ]; then echo "mutant $m not rejected (rc=$rc)"; cat "/tmp/mutant_$m.log"; exit 1; fi
-            echo "mutant $m rejected"
+            if ! grep -q 'MISMATCH against RESULTS.json' "/tmp/mutant_$m.log"; then
+              echo "mutant $m rejected with wrong reason (rc=$rc); expected 'MISMATCH against RESULTS.json'"
+              cat "/tmp/mutant_$m.log"
+              exit 1
+            fi
+            echo "mutant $m rejected with intended mismatch reason"
           done
           cd "$GITHUB_WORKSPACE"
           git diff --exit-code
