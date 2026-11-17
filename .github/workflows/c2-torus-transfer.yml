@@ -72,16 +72,27 @@ jobs:
           cd frontiers/c2_torus_transfer_20261001
           pids=()
           for m in no-image no-theta drop-ratio eta-half fp-const; do
-            ( set +e; python $FLAGS transfer.py --mutant "$m" > "/tmp/mutant_$m.log" 2>&1; echo $? > "/tmp/mutant_$m.rc" ) &
+            ( set +e; python $FLAGS transfer.py --mutant "$m" > "/tmp/mutant_$m.stdout" 2> "/tmp/mutant_$m.stderr"; echo $? > "/tmp/mutant_$m.rc" ) &
             pids+=($!)
           done
           python $FLAGS transfer.py --check
           python $FLAGS controls.py
           wait "${pids[@]}"
+          # Intended rejection for every omission mutant above, as a fixed literal:
+          # exit 1, stdout contains the driver line, and stderr is empty.
+          # Any other exit 1, exit 0, or other status fails and prints that mutant's logs.
           for m in no-image no-theta drop-ratio eta-half fp-const; do
             rc=$(cat "/tmp/mutant_$m.rc")
-            if [ "$rc" -ne 1 ]; then echo "mutant $m not rejected (rc=$rc)"; cat "/tmp/mutant_$m.log"; exit 1; fi
-            echo "mutant $m rejected"
+            if [ "$rc" = 1 ] && grep -F -q 'MISMATCH against RESULTS.json' "/tmp/mutant_$m.stdout" && [ -f "/tmp/mutant_$m.stderr" ] && [ ! -s "/tmp/mutant_$m.stderr" ]; then
+              echo "mutant $m rejected: MISMATCH against RESULTS.json"
+            else
+              echo "mutant $m not rejected for the intended reason (rc=$rc)"
+              echo "----- stdout -----"
+              cat "/tmp/mutant_$m.stdout" || true
+              echo "----- stderr -----"
+              cat "/tmp/mutant_$m.stderr" || true
+              exit 1
+            fi
           done
           cd "$GITHUB_WORKSPACE"
           git diff --exit-code
