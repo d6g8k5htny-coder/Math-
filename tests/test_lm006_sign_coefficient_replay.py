@@ -299,6 +299,7 @@ class ReplayTests(unittest.TestCase):
         workflow=DRIVER.parents[1]/'.github/workflows/lm006-sign-coefficient.yml'
         self.assertTrue(workflow.is_file(),'dedicated workflow missing')
         text=workflow.read_text()
+        self.assertIn('runs-on: ubuntu-24.04', text)
         for path in [self.m.PACKET+'/**',*self.m.EXECUTION_FILES,*self.m.DEPENDENCIES]:
             self.assertEqual(text.count("- '"+path+"'"),2,path)
         for phrase in ('permissions:\n  contents: read','fail-fast: false',
