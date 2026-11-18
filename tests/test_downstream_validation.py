@@ -137,12 +137,37 @@ class ValidationTimeoutTests(unittest.TestCase):
         self.assertEqual((self.out / 'baseline.stderr').read_text(), completed.stderr)
         self.assertFalse((self.out / 'baseline.timeout.json').exists())
 
+    def test_completed_child_records_actual_status_and_stream_hashes(self):
+        command = provenance_command()
+        completed = subprocess.CompletedProcess(command, 0, 'captured stdout', SYNTHETIC_BASELINE)
+        with mock.patch.object(M.subprocess, 'run', return_value=completed):
+            M.execute(command, self.out, self.out, 'recorded', mode='normal')
+        record = json.loads((self.out / 'recorded.process.json').read_text())
+        self.assertEqual(record['returncode'], 0)
+        self.assertEqual(record['argv'], command)
+        for stream in ('stdout', 'stderr'):
+            raw = (self.out / ('recorded.' + stream)).read_bytes()
+            self.assertEqual(record['streams'][stream], {'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()})
+
     def test_baseline_without_origin_evidence_is_rejected(self):
         command = provenance_command()
         completed = subprocess.CompletedProcess(command, 0, '', 'Ran 71 tests in 0.01s\nOK\n')
         with mock.patch.object(M.subprocess, 'run', return_value=completed):
             with self.assertRaisesRegex(RuntimeError, 'baseline'):
                 M.execute(command, self.out, self.out, 'missing_origin', mode='normal')
+        self.assertEqual(json.loads((self.out / 'missing_origin.process.json').read_text())['returncode'], 0)
+
+    def test_unwritable_process_record_refuses_success(self):
+        command = provenance_command()
+        completed = subprocess.CompletedProcess(command, 0, '', SYNTHETIC_BASELINE)
+        original = Path.write_text
+        def fail_record(path, *args, **kwargs):
+            if path.name == 'blocked.process.json':
+                raise OSError('record blocked')
+            return original(path, *args, **kwargs)
+        with mock.patch.object(M.subprocess, 'run', return_value=completed), mock.patch.object(Path, 'write_text', fail_record):
+            with self.assertRaisesRegex(OSError, 'record blocked'):
+                M.execute(command, self.out, self.out, 'blocked', mode='normal')
 
     def test_baseline_missing_body_or_duplicate_evidence_is_rejected(self):
         command = provenance_command()
@@ -166,6 +191,7 @@ class ValidationTimeoutTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, 'baseline failed'):
                 M.execute(command, self.out, self.out, 'baseline', mode='normal')
         self.assertFalse((self.out / 'mutant.timeout.json').exists())
+        self.assertEqual(json.loads((self.out / 'mutant.process.json').read_text())['returncode'], 1)
 
     def test_completed_bad_coverage_or_program_errors_still_fail(self):
         bad_stderr = [

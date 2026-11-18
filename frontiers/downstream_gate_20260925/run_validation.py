@@ -131,6 +131,14 @@ def execute(command, cwd, out, name, mutant=False, *, mode, mutation=None):
         raise
     (out/(name+'.stdout')).write_text(result.stdout)
     (out/(name+'.stderr')).write_text(result.stderr)
+    streams = {}
+    for stream in ('stdout', 'stderr'):
+        raw = (out/(name+'.'+stream)).read_bytes()
+        streams[stream] = {'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()}
+    record = {'argv': list(command), 'cwd': str(cwd), 'returncode': result.returncode,
+              'run_name': name, 'mode': mode, 'mutation': mutation, 'mutant': mutant,
+              'status': 'completed', 'streams': streams}
+    (out/(name+'.process.json')).write_text(json.dumps(record, sort_keys=True, indent=2, allow_nan=False)+'\n')
     require(f'Ran {EXPECTED_TESTS} tests' in result.stderr and 'skipped=' not in result.stderr, 'unexpected test coverage: '+name)
     kind = 'mutation' if mutant else 'baseline'
     require(mode in ('normal', 'optimized'), kind + ' mode invalid: '+name)
