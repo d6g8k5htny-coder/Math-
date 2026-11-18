@@ -1,13 +1,5 @@
 # Downstream hard gate — transition-integrity successor
 
-The replay uses the source-pinned `tests/run_source_admission_mutations.py`
-unittest provenance runner. Baselines require all 71 bodies to be entered and
-no reported failures; mutations require failures from the selected test body or
-its explicitly authorized oracle code, with no unauthorized traceback frames.
-The source helper is checked before and after replay. This bounded check is not
-a sandbox for hostile Python code. Earlier replay results retain their original
-source and must not be rebound to this successor.
-
 **Object:** DOWNSTREAM-HARD-GATE-20260925-v1  
 **Original engineering author:** Cursor. **Transition successor:** OpenAI / ChatGPT, Math- PR15.  
 **Scientific effect: NONE.** Tests establish software behavior, not proof or independent review.
@@ -46,14 +38,6 @@ python -B -O -S -m unittest discover -p 'test_*.py' -v
 python -B -S run_validation.py --output /tmp/downstream-gate-new-run
 python -B -S git_transition_audit.py --repo /path/to/repository --base FULL_BASE_SHA --head FULL_HEAD_SHA --output /tmp/new-transition.json
 ```
-
-From the repository root, run the replay's bounded provenance self-mutations
-with `python -B -S tests/run_downstream_origin_mutations.py --output /tmp/downstream-origin-new-run`.
-It exercises four gate mutations and four self-runner mutations with a fresh
-baseline and mutant child in each mode. The separate
-`test_downstream_origin_mutations.py` controls cover output, helper identity,
-case inventory and failure reporting. Outputs are scoped software evidence;
-they do not establish a complete federation auditor or scientific acceptance.
 
 71 distinct tests and 24 assertion-detected semantic mutants are required in both Python modes.
 The source-bound CI workflow also runs 177 existing coefficient/lifetime/price/remote regressions,
