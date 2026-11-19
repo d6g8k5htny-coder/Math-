@@ -2,6 +2,7 @@
 from pathlib import Path
 import argparse
 import hashlib
+import importlib.util
 import json
 import math
 import shutil
@@ -11,6 +12,8 @@ import time
 
 ROOT = Path(__file__).resolve().parent
 EXPECTED_TESTS = 71
+ORIGIN_HELPER = ROOT.parents[1] / 'tests' / 'run_source_admission_mutations.py'
+ORIGIN_HELPER_SHA256 = '639b48daed3254a1abd7c23e3b9893f287dcc5256bd4a5543f8611542b4c0544'
 MUTANTS = {
     'bypass_own_node_eligibility': ("if node_classification not in CONTROLLING_ELIGIBLE:", "if False:"),
     'allow_required_superseded_label': (
@@ -65,6 +68,18 @@ def identities():
             for p in sorted(ROOT.rglob('*')) if p.is_file() and '__pycache__' not in p.parts}
 
 
+def origin_helper():
+    require(not ORIGIN_HELPER.is_symlink() and ORIGIN_HELPER.is_file(), 'origin helper missing')
+    source = ORIGIN_HELPER.read_bytes()
+    require(hashlib.sha256(source).hexdigest() == ORIGIN_HELPER_SHA256, 'origin helper identity mismatch')
+    spec = importlib.util.spec_from_file_location('_downstream_origin_helper', ORIGIN_HELPER)
+    require(spec is not None and spec.loader is not None, 'origin helper loader unavailable')
+    module = importlib.util.module_from_spec(spec)
+    # Execute the bytes we just verified, never a cached bytecode file.
+    exec(compile(source, str(ORIGIN_HELPER), 'exec'), module.__dict__)
+    return module
+
+
 def execute(command, cwd, out, name, mutant=False, *, mode, mutation=None):
     timeout_seconds = 30
     started = None
@@ -116,14 +131,26 @@ def execute(command, cwd, out, name, mutant=False, *, mode, mutation=None):
         raise
     (out/(name+'.stdout')).write_text(result.stdout)
     (out/(name+'.stderr')).write_text(result.stderr)
+    streams = {}
+    for stream in ('stdout', 'stderr'):
+        raw = (out/(name+'.'+stream)).read_bytes()
+        streams[stream] = {'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()}
+    record = {'argv': list(command), 'cwd': str(cwd), 'returncode': result.returncode,
+              'run_name': name, 'mode': mode, 'mutation': mutation, 'mutant': mutant,
+              'status': 'completed', 'streams': streams}
+    (out/(name+'.process.json')).write_text(json.dumps(record, sort_keys=True, indent=2, allow_nan=False)+'\n')
     require(f'Ran {EXPECTED_TESTS} tests' in result.stderr and 'skipped=' not in result.stderr, 'unexpected test coverage: '+name)
+    kind = 'mutation' if mutant else 'baseline'
+    require(mode in ('normal', 'optimized'), kind + ' mode invalid: '+name)
+    flags = ['-O'] if mode == 'optimized' else []
+    expected = [sys.executable, '-E', '-B', *flags, '-S', str(ORIGIN_HELPER), '--_unittest',
+                '-m', 'unittest', 'discover', '-p', 'test_*.py', '-v']
+    require(command == expected, kind + ' provenance command mismatch: '+name)
+    classification = origin_helper().classify(result, EXPECTED_TESTS)
     if mutant:
-        require(result.returncode == 1 and 'AssertionError' in result.stderr and 'FAILED (failures=' in result.stderr,
-                'mutation was not detected by a test assertion: '+name)
-        require('SyntaxError' not in result.stderr and 'ImportError' not in result.stderr and '\nERROR:' not in result.stderr,
-                'mutation caused a program error: '+name)
+        require(classification['killed'], 'mutation was not detected by an authorized test assertion: '+name)
     else:
-        require(result.returncode == 0, 'baseline failed: '+name)
+        require(classification['control_pass'], 'baseline failed provenance: '+name)
 
 
 def main():
@@ -139,8 +166,12 @@ def main():
               'promotion_permission': False, 'scientific_effect': 'NONE',
               'meaning': 'software replay and mutation detection only; not independent analytic acceptance'}
     try:
+        origin_helper()
+        report['origin_helper'] = {'path': 'tests/run_source_admission_mutations.py',
+                                   'sha256': ORIGIN_HELPER_SHA256}
         for mode, flags in [('normal', []), ('optimized', ['-O'])]:
-            cmd = [sys.executable, '-E', '-B', *flags, '-S', '-m', 'unittest', 'discover', '-p', 'test_*.py', '-v']
+            origin_helper()
+            cmd = [sys.executable, '-E', '-B', *flags, '-S', str(ORIGIN_HELPER), '--_unittest', '-m', 'unittest', 'discover', '-p', 'test_*.py', '-v']
             execute(cmd, ROOT, out, 'tests_'+mode, mode=mode)
             result = subprocess.run([sys.executable, '-E', '-B', *flags, '-S', 'hard_gate.py'], cwd=ROOT, capture_output=True, timeout=15)
             require(result.returncode == 0 and result.stdout == (ROOT/'RESULTS.json').read_bytes(), 'entry/result mismatch: '+mode)
@@ -155,6 +186,7 @@ def main():
                 execute(cmd, scratch, out, 'mutation_'+mode+'_'+name, mutant=True, mode=mode, mutation=name)
             report['modes'].append(mode)
         require(before == identities(), 'source files changed during replay')
+        origin_helper()
         report.update(passed=True, sources_unchanged=True, source_files=before)
     finally:
         active_error = sys.exc_info()[1]

@@ -26,6 +26,16 @@ try:
 finally:
     sys.path.remove(str(PACKET))
 
+# Unit-test fixture only; real replay evidence must come from the helper child.
+SYNTHETIC_BASELINE = ('Ran 71 tests in 0.01s\nOK\nSOURCE_MUTATION_PHASES|' + json.dumps({
+    'tests': [{'id': 'fixture.Fixture.test_%02d' % i, 'body_entered': True} for i in range(71)],
+    'events': []}) + '\n')
+
+def provenance_command(mode='normal'):
+    flags = ['-O'] if mode == 'optimized' else []
+    return [sys.executable, '-E', '-B', *flags, '-S', str(M.ORIGIN_HELPER), '--_unittest',
+            '-m', 'unittest', 'discover', '-p', 'test_*.py', '-v']
+
 
 class ValidationTimeoutTests(unittest.TestCase):
     def setUp(self):
@@ -119,22 +129,70 @@ class ValidationTimeoutTests(unittest.TestCase):
         self.assertEqual(list(self.out.iterdir()), [])
 
     def test_completed_baseline_behavior_and_outputs_are_unchanged(self):
-        completed = subprocess.CompletedProcess(self.command, 0, 'baseline stdout', 'Ran 71 tests\nOK\n')
+        command = provenance_command()
+        completed = subprocess.CompletedProcess(command, 0, 'baseline stdout', SYNTHETIC_BASELINE)
         with mock.patch.object(M.subprocess, 'run', return_value=completed):
-            M.execute(self.command, self.out, self.out, 'baseline', mode='normal')
+            M.execute(command, self.out, self.out, 'baseline', mode='normal')
         self.assertEqual((self.out / 'baseline.stdout').read_text(), completed.stdout)
         self.assertEqual((self.out / 'baseline.stderr').read_text(), completed.stderr)
         self.assertFalse((self.out / 'baseline.timeout.json').exists())
 
-    def test_completed_assertion_rejection_is_still_expected_only_for_mutants(self):
-        stderr = 'Ran 71 tests\nAssertionError: changed semantics\nFAILED (failures=1)\n'
-        completed = subprocess.CompletedProcess(self.command, 1, '', stderr)
+    def test_completed_child_records_actual_status_and_stream_hashes(self):
+        command = provenance_command()
+        completed = subprocess.CompletedProcess(command, 0, 'captured stdout', SYNTHETIC_BASELINE)
         with mock.patch.object(M.subprocess, 'run', return_value=completed):
-            M.execute(self.command, self.out, self.out, 'mutant', mutant=True,
-                      mode='normal', mutation='allow_green_ci')
+            M.execute(command, self.out, self.out, 'recorded', mode='normal')
+        self.assertTrue((self.out / 'recorded.process.json').is_file(), 'completed process record missing')
+        record = json.loads((self.out / 'recorded.process.json').read_text())
+        self.assertEqual(record['returncode'], 0)
+        self.assertEqual(record['argv'], command)
+        for stream in ('stdout', 'stderr'):
+            raw = (self.out / ('recorded.' + stream)).read_bytes()
+            self.assertEqual(record['streams'][stream], {'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()})
+
+    def test_baseline_without_origin_evidence_is_rejected(self):
+        command = provenance_command()
+        completed = subprocess.CompletedProcess(command, 0, '', 'Ran 71 tests in 0.01s\nOK\n')
+        with mock.patch.object(M.subprocess, 'run', return_value=completed):
+            with self.assertRaisesRegex(RuntimeError, 'baseline'):
+                M.execute(command, self.out, self.out, 'missing_origin', mode='normal')
+        self.assertEqual(json.loads((self.out / 'missing_origin.process.json').read_text())['returncode'], 0)
+
+    def test_unwritable_process_record_refuses_success(self):
+        command = provenance_command()
+        completed = subprocess.CompletedProcess(command, 0, '', SYNTHETIC_BASELINE)
+        original = Path.write_text
+        def fail_record(path, *args, **kwargs):
+            if path.name == 'blocked.process.json':
+                raise OSError('record blocked')
+            return original(path, *args, **kwargs)
+        with mock.patch.object(M.subprocess, 'run', return_value=completed), mock.patch.object(Path, 'write_text', fail_record):
+            with self.assertRaisesRegex(OSError, 'record blocked'):
+                M.execute(command, self.out, self.out, 'blocked', mode='normal')
+
+    def test_baseline_missing_body_or_duplicate_evidence_is_rejected(self):
+        command = provenance_command()
+        malformed = [SYNTHETIC_BASELINE.replace('"body_entered": true', '"body_entered": false', 1),
+                     SYNTHETIC_BASELINE + 'SOURCE_MUTATION_PHASES|' + SYNTHETIC_BASELINE.split('SOURCE_MUTATION_PHASES|', 1)[1]]
+        for text in malformed:
+            with self.subTest(text=text[:100]):
+                completed = subprocess.CompletedProcess(command, 0, '', text)
+                with mock.patch.object(M.subprocess, 'run', return_value=completed):
+                    with self.assertRaisesRegex(RuntimeError, 'baseline'):
+                        M.execute(command, self.out, self.out, 'bad_origin', mode='normal')
+
+    def test_mutant_assertion_without_origin_evidence_is_rejected(self):
+        command = provenance_command()
+        stderr = 'Ran 71 tests\nAssertionError: changed semantics\nFAILED (failures=1)\n'
+        completed = subprocess.CompletedProcess(command, 1, '', stderr)
+        with mock.patch.object(M.subprocess, 'run', return_value=completed):
+            with self.assertRaisesRegex(RuntimeError, 'mutation'):
+                M.execute(command, self.out, self.out, 'mutant', mutant=True,
+                          mode='normal', mutation='allow_green_ci')
             with self.assertRaisesRegex(RuntimeError, 'baseline failed'):
-                M.execute(self.command, self.out, self.out, 'baseline', mode='normal')
+                M.execute(command, self.out, self.out, 'baseline', mode='normal')
         self.assertFalse((self.out / 'mutant.timeout.json').exists())
+        self.assertEqual(json.loads((self.out / 'mutant.process.json').read_text())['returncode'], 1)
 
     def test_completed_bad_coverage_or_program_errors_still_fail(self):
         bad_stderr = [
@@ -160,7 +218,7 @@ class ValidationTimeoutTests(unittest.TestCase):
             with self.subTest(mutant_timeout=mutant_timeout):
                 out = self.out / str(mutant_timeout)
                 argv = [str(SCRIPT), '--output', str(out)]
-                baseline = subprocess.CompletedProcess(self.command, 0, '', 'Ran 71 tests\nOK\n')
+                baseline = subprocess.CompletedProcess(self.command, 0, '', SYNTHETIC_BASELINE)
                 gate = subprocess.CompletedProcess(self.command, 0, (M.ROOT / 'RESULTS.json').read_bytes(), b'')
                 responses = [baseline, gate, timeout] if mutant_timeout else [timeout]
                 with mock.patch.object(sys, 'argv', argv):
@@ -241,10 +299,11 @@ class ValidationTimeoutTests(unittest.TestCase):
         self.assertEqual(record['cwd'], 'relative-cwd')
 
     def test_initial_clock_failure_does_not_change_completed_baseline(self):
-        completed = subprocess.CompletedProcess(self.command, 0, 'out', 'Ran 71 tests\nOK\n')
+        command = provenance_command()
+        completed = subprocess.CompletedProcess(command, 0, 'out', SYNTHETIC_BASELINE)
         with mock.patch.object(M.time, 'monotonic', side_effect=OSError('clock unavailable')):
             with mock.patch.object(M.subprocess, 'run', return_value=completed):
-                M.execute(self.command, self.out, self.out, 'baseline', mode='normal')
+                M.execute(command, self.out, self.out, 'baseline', mode='normal')
         self.assertEqual((self.out / 'baseline.stdout').read_text(), 'out')
         self.assertEqual((self.out / 'baseline.stderr').read_text(), completed.stderr)
         self.assertFalse((self.out / 'baseline.timeout.json').exists())
@@ -276,8 +335,14 @@ class ValidationTimeoutTests(unittest.TestCase):
 
 class ReplayGateRefusalControls(unittest.TestCase):
     """Mutation-gap controls: refusal paths of execute()/main() that the tests above leave unpinned."""
-    BASELINE = 'Ran 71 tests\nOK\n'
-    DETECTED = 'Ran 71 tests\nAssertionError: changed semantics\nFAILED (failures=1)\n'
+    BASELINE = SYNTHETIC_BASELINE
+    # Synthetic transcript for testing orchestration only; it is never evidence of a real child.
+    DETECTED = ('FAIL: test_00 (fixture.Fixture.test_00)\n'
+                'Ran 71 tests in 0.01s\nAssertionError: changed semantics\nFAILED (failures=1)\n'
+                'SOURCE_MUTATION_PHASES|' + json.dumps({
+                    'tests': [{'id': 'fixture.Fixture.test_%02d' % i, 'body_entered': True} for i in range(71)],
+                    'events': [{'id': 'fixture.Fixture.test_00', 'phase': 'body', 'kind': 'failure',
+                                'origin_authorized': True, 'origin_frames': [{'function': 'test_00'}]}]}) + '\n')
 
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
@@ -285,6 +350,65 @@ class ReplayGateRefusalControls(unittest.TestCase):
         self.out = Path(self.temp.name)
         self.command = [sys.executable, '-B', '-S', 'test.py']
         self.two = dict(list(M.MUTANTS.items())[:2])
+
+    def test_real_child_origin_and_lifecycle_are_required(self):
+        cases = {
+            'oracle': ('def operation():\n    return 1\n', '', 'self.assertEqual(subject.operation(), 2)', True),
+            'subject': ('def operation():\n    raise AssertionError("subject failure")\n', '', 'subject.operation()', False),
+            'helper': ('def operation():\n    return 1\n', '', 'helper()', False),
+            'runtime': ('def operation():\n    raise RuntimeError("runtime failure")\n', '', 'subject.operation()', False),
+            'setup': ('def operation():\n    return 1\n', '    def setUp(self):\n        if self._testMethodName == "test_00": raise AssertionError("setup failure")\n', 'self.assertTrue(True)', False),
+            'callback': ('def operation():\n    return 1\n', '', '(lambda: (_ for _ in ()).throw(AssertionError("callback failure")))()', False),
+        }
+        for label, (subject, setup, body, expected) in cases.items():
+            with tempfile.TemporaryDirectory() as temp:
+                cwd = Path(temp)
+                (cwd / 'subject.py').write_text(subject)
+                (cwd / 'test_probe.py').write_text(
+                    'import unittest\nimport subject\ndef helper():\n    raise AssertionError("helper failure")\n'
+                    'class Fixture(unittest.TestCase):\n' + setup + '    def test_00(self):\n        ' + body +
+                    '\nfor i in range(70):\n    setattr(Fixture, "test_pass_%02d" % i, lambda self: self.assertTrue(True))\n')
+                for mode, flags in [('normal', []), ('optimized', ['-O'])]:
+                    with self.subTest(label=label, mode=mode):
+                        cmd = [sys.executable, '-E', '-B', *flags, '-S', str(M.ORIGIN_HELPER), '--_unittest',
+                               '-m', 'unittest', 'discover', '-p', 'test_*.py', '-v']
+                        name = label + '_' + mode
+                        if expected:
+                            M.execute(cmd, cwd, self.out, name, mutant=True, mode=mode, mutation=label)
+                        else:
+                            with self.assertRaisesRegex(RuntimeError, 'mutation'):
+                                M.execute(cmd, cwd, self.out, name, mutant=True, mode=mode, mutation=label)
+                        self.assertTrue((self.out / (name + '.stderr')).is_file())
+
+    def test_actual_suite_rejects_subject_origin_assertion(self):
+        with tempfile.TemporaryDirectory() as temp:
+            packet = Path(temp) / 'packet'
+            shutil.copytree(PACKET, packet, ignore=shutil.ignore_patterns('__pycache__'))
+            target = packet / 'hard_gate.py'
+            text = target.read_text()
+            anchor = 'def validate_graph_fail_closed(graph: dict[str, Any]) -> None:\n'
+            self.assertEqual(text.count(anchor), 1)
+            target.write_text(text.replace(anchor, anchor + "    raise AssertionError('CBZ_SUBJECT_ORIGIN_ADVERSE')\n", 1))
+            for mode in ('normal', 'optimized'):
+                with self.subTest(mode=mode):
+                    name = 'actual_subject_' + mode
+                    with self.assertRaisesRegex(RuntimeError, 'authorized test assertion'):
+                        M.execute(provenance_command(mode), packet, self.out, name,
+                                  mutant=True, mode=mode, mutation='subject_assertion')
+                    stderr = (self.out / (name + '.stderr')).read_text()
+                    self.assertIn('CBZ_SUBJECT_ORIGIN_ADVERSE', stderr)
+                    self.assertIn('Ran 71 tests', stderr)
+                    self.assertEqual(json.loads((self.out / (name + '.process.json')).read_text())['returncode'], 1)
+
+    def test_missing_or_changed_helper_is_refused(self):
+        for content in (None, b'# untrusted helper\n'):
+            with self.subTest(content=content):
+                path = self.out / ('missing.py' if content is None else 'changed.py')
+                if content is not None:
+                    path.write_bytes(content)
+                with mock.patch.object(M, 'ORIGIN_HELPER', path):
+                    with self.assertRaisesRegex(RuntimeError, 'origin helper'):
+                        M.origin_helper()
 
     def completed(self, code, stderr, stdout=''):
         return subprocess.CompletedProcess(self.command, code, stdout, stderr)
@@ -332,7 +456,7 @@ class ReplayGateRefusalControls(unittest.TestCase):
         responses, streams = {}, {}
         for mode, flags in (('normal', []), ('optimized', ['-O'])):
             prefix = [sys.executable, '-E', '-B', *flags, '-S']
-            tests = prefix + ['-m', 'unittest', 'discover', '-p', 'test_*.py', '-v']
+            tests = prefix + [str(M.ORIGIN_HELPER), '--_unittest', '-m', 'unittest', 'discover', '-p', 'test_*.py', '-v']
             baseline_stdout = 'baseline ' + mode + '\n'
             responses[(tuple(tests), str(M.ROOT))] = self.completed(0, self.BASELINE, baseline_stdout)
             responses[(tuple(prefix + ['hard_gate.py']), str(M.ROOT))] = self.gate()
@@ -349,7 +473,7 @@ class ReplayGateRefusalControls(unittest.TestCase):
         self.assertEqual(self.run.call_count, 52)
         for offset, mode, flags in ((0, 'normal', []), (26, 'optimized', ['-O'])):
             prefix = [sys.executable, '-E', '-B', *flags, '-S']
-            tests = prefix + ['-m', 'unittest', 'discover', '-p', 'test_*.py', '-v']
+            tests = prefix + [str(M.ORIGIN_HELPER), '--_unittest', '-m', 'unittest', 'discover', '-p', 'test_*.py', '-v']
             baseline, gate = self.run.call_args_list[offset:offset + 2]
             self.assertEqual(baseline.args[0], tests)
             self.assertEqual(baseline.kwargs['cwd'], M.ROOT)
@@ -393,7 +517,7 @@ class ReplayGateRefusalControls(unittest.TestCase):
         for offset, expected in ((0, 0), (3, 1)):
             tests = calls[offset].args[0]
             gate = calls[offset + 1].args[0]
-            prefixes = {'tests_and_mutants': tests[:tests.index('-m')], 'hard_gate': gate[:-1]}
+            prefixes = {'tests_and_mutants': tests[:tests.index('-S') + 1], 'hard_gate': gate[:-1]}
             for constructor, prefix in prefixes.items():
                 for ambient in (None, '0', '1', '2'):
                     with self.subTest(expected=expected, constructor=constructor, ambient=ambient):
@@ -434,7 +558,8 @@ class ReplayGateRefusalControls(unittest.TestCase):
                 self.assertEqual(observed[0].returncode, code)
                 self.assertEqual(observed[0].stderr, self.DETECTED)
                 self.assertEqual((self.out / (label + '.stderr')).read_text(), self.DETECTED)
-                self.assertEqual(accepted, mutant and code == 1)
+                # A forged transcript cannot establish a genuine origin even at exit 1.
+                self.assertFalse(accepted)
 
     def test_source_change_during_replay_refused(self):
         out = self.out / 'drift'
@@ -494,7 +619,7 @@ class ReplayGateRefusalControls(unittest.TestCase):
                     responses, expected_calls = {}, []
                     for mode, flags in (('normal', []), ('optimized', ['-O'])):
                         prefix = [sys.executable, '-E', '-B', *flags, '-S']
-                        tests = prefix + ['-m', 'unittest', 'discover', '-p', 'test_*.py', '-v']
+                        tests = prefix + [str(M.ORIGIN_HELPER), '--_unittest', '-m', 'unittest', 'discover', '-p', 'test_*.py', '-v']
                         gate = prefix + ['hard_gate.py']
                         responses[(tuple(tests), str(M.ROOT))] = self.completed(0, self.BASELINE)
                         responses[(tuple(gate), str(M.ROOT))] = bad_gate if mode == target_mode else self.gate()

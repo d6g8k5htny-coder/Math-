@@ -39,6 +39,19 @@ jobs:
         run: |
           python3 -B -S -m unittest discover -s tests -p test_downstream_validation.py -v
           python3 -B -O -S -m unittest discover -s tests -p test_downstream_validation.py -v
+      - name: Provenance self-mutation controls
+        run: |
+          python3 -B -S -m unittest discover -s tests -p test_downstream_origin_mutations.py -v
+          python3 -B -O -S -m unittest discover -s tests -p test_downstream_origin_mutations.py -v
+          python3 -B -S tests/run_downstream_origin_mutations.py --output "$RUNNER_TEMP/downstream-origin-self-mutations"
+      - name: Retain provenance self-mutation evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: downstream-origin-self-mutations-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/downstream-origin-self-mutations
+          if-no-files-found: error
+          retention-days: 30
       - name: Verify exact sources, transition inputs and regressions
         env:
           PYTHONDONTWRITEBYTECODE: '1'
