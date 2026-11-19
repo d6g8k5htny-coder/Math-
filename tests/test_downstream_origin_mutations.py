@@ -23,6 +23,9 @@ class SelfMutationControls(unittest.TestCase):
     def test_process_record_omission_is_in_mutation_inventory(self):
         self.assertIn('process_record_omission', {case[0] for case in M.CASES})
 
+    def test_actual_suite_origin_bypass_is_in_mutation_inventory(self):
+        self.assertIn('actual_origin_bypass', {case[0] for case in M.CASES})
+
     def test_existing_or_in_tree_output_is_refused(self):
         for path in (self.out, ROOT / 'frontiers/downstream_gate_20260925/unwanted-output'):
             with self.subTest(path=path):

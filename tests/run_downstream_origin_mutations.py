@@ -15,6 +15,7 @@ HELPER = ROOT / 'tests' / 'run_source_admission_mutations.py'
 HELPER_SHA256 = '639b48daed3254a1abd7c23e3b9893f287dcc5256bd4a5543f8611542b4c0544'
 CASES = (
     ('origin_bypass', "require(classification['killed'],", 'require(True,', 'test_real_child_origin_and_lifecycle_are_required'),
+    ('actual_origin_bypass', "require(classification['killed'],", 'require(True,', 'test_actual_suite_rejects_subject_origin_assertion'),
     ('baseline_bypass', "require(classification['control_pass'],", 'require(True,', 'test_baseline_without_origin_evidence_is_rejected'),
     ('command_bypass', 'require(command == expected,', 'require(True,', 'test_real_child_exit_status_distinguishes_assertions_from_abnormal_termination'),
     ('helper_digest_bypass', 'require(hashlib.sha256(source).hexdigest() == ORIGIN_HELPER_SHA256,', 'require(True,', 'test_missing_or_changed_helper_is_refused'),
@@ -23,7 +24,7 @@ CASES = (
 SELF_CASES = (
     ('self_verdict_bypass', "if not accepted:\n                            raise RuntimeError('self-mutation failed: ' + label)",
      "if False:\n                            raise RuntimeError('self-mutation failed: ' + label)", 'test_failed_classification_is_refused_and_reported'),
-    ('self_inventory_bypass', "if len(CASES) != 5 or {case[0] for case in CASES} != expected_names:\n            raise ValueError('self-mutation case inventory mismatch')",
+    ('self_inventory_bypass', "if len(CASES) != 6 or {case[0] for case in CASES} != expected_names:\n            raise ValueError('self-mutation case inventory mismatch')",
      "if False:\n            raise ValueError('self-mutation case inventory mismatch')", 'test_duplicate_cases_are_refused_before_children'),
     ('self_timeout_mask', "except Exception as failure:\n            error.add_note('timeout evidence write failed: ' + path.name + ': ' + str(failure))",
      'except Exception as failure:\n            raise', 'test_timeout_evidence_write_failures_do_not_mask_original'),
@@ -64,8 +65,8 @@ def run(output):
     rows = []
     try:
         origin = verified_helper()
-        expected_names = {'origin_bypass', 'baseline_bypass', 'command_bypass', 'helper_digest_bypass', 'process_record_omission'}
-        if len(CASES) != 5 or {case[0] for case in CASES} != expected_names:
+        expected_names = {'origin_bypass', 'actual_origin_bypass', 'baseline_bypass', 'command_bypass', 'helper_digest_bypass', 'process_record_omission'}
+        if len(CASES) != 6 or {case[0] for case in CASES} != expected_names:
             raise ValueError('self-mutation case inventory mismatch')
         source = (ROOT / PACKET / 'run_validation.py').read_text()
         for name, old, new, test in CASES:
@@ -134,7 +135,7 @@ def run(output):
                         if not accepted:
                             raise RuntimeError('self-runner mutation failed: ' + label)
         verified_helper()
-        if len(rows) != 36:
+        if len(rows) != 40:
             raise RuntimeError('self-mutation matrix incomplete')
     finally:
         active_error = sys.exc_info()[1]
