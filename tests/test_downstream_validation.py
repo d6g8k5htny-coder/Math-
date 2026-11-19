@@ -142,6 +142,7 @@ class ValidationTimeoutTests(unittest.TestCase):
         completed = subprocess.CompletedProcess(command, 0, 'captured stdout', SYNTHETIC_BASELINE)
         with mock.patch.object(M.subprocess, 'run', return_value=completed):
             M.execute(command, self.out, self.out, 'recorded', mode='normal')
+        self.assertTrue((self.out / 'recorded.process.json').is_file(), 'completed process record missing')
         record = json.loads((self.out / 'recorded.process.json').read_text())
         self.assertEqual(record['returncode'], 0)
         self.assertEqual(record['argv'], command)
