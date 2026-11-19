@@ -380,6 +380,26 @@ class ReplayGateRefusalControls(unittest.TestCase):
                                 M.execute(cmd, cwd, self.out, name, mutant=True, mode=mode, mutation=label)
                         self.assertTrue((self.out / (name + '.stderr')).is_file())
 
+    def test_actual_suite_rejects_subject_origin_assertion(self):
+        with tempfile.TemporaryDirectory() as temp:
+            packet = Path(temp) / 'packet'
+            shutil.copytree(PACKET, packet, ignore=shutil.ignore_patterns('__pycache__'))
+            target = packet / 'hard_gate.py'
+            text = target.read_text()
+            anchor = 'def validate_graph_fail_closed(graph: dict[str, Any]) -> None:\n'
+            self.assertEqual(text.count(anchor), 1)
+            target.write_text(text.replace(anchor, anchor + "    raise AssertionError('CBZ_SUBJECT_ORIGIN_ADVERSE')\n", 1))
+            for mode in ('normal', 'optimized'):
+                with self.subTest(mode=mode):
+                    name = 'actual_subject_' + mode
+                    with self.assertRaisesRegex(RuntimeError, 'authorized test assertion'):
+                        M.execute(provenance_command(mode), packet, self.out, name,
+                                  mutant=True, mode=mode, mutation='subject_assertion')
+                    stderr = (self.out / (name + '.stderr')).read_text()
+                    self.assertIn('CBZ_SUBJECT_ORIGIN_ADVERSE', stderr)
+                    self.assertIn('Ran 71 tests', stderr)
+                    self.assertEqual(json.loads((self.out / (name + '.process.json')).read_text())['returncode'], 1)
+
     def test_missing_or_changed_helper_is_refused(self):
         for content in (None, b'# untrusted helper\n'):
             with self.subTest(content=content):
