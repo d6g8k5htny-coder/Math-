@@ -21,16 +21,83 @@ CASES = (
     ('helper_digest_bypass', 'require(hashlib.sha256(source).hexdigest() == ORIGIN_HELPER_SHA256,', 'require(True,', 'test_missing_or_changed_helper_is_refused'),
     ('process_record_omission', "(out/(name+'.process.json')).write_text(json.dumps(record, sort_keys=True, indent=2, allow_nan=False)+'\\n')", 'pass', 'test_completed_child_records_actual_status_and_stream_hashes'),
 )
+
+
+def _disabled_check(old, indent, anchor_name):
+    """Turn one guard into `if False` while retaining its exact anchor text once.
+
+    The self-census requires that anchor. Keeping it here leaves the census able
+    to see the anchor, and leaves only the targeted guard disabled.
+    """
+    if "'''" in old or '\n' not in old or indent.strip() or not anchor_name.isidentifier():
+        raise ValueError('unstable self-mutation anchor: ' + anchor_name)
+    live = 'if False:' + old[old.index('\n'):]
+    if old in live:
+        raise ValueError('disabled self-mutation still contains its anchor: ' + anchor_name)
+    retained = indent + anchor_name + " = '''" + old + "'''"
+    mutant = live + '\n' + retained
+    if mutant.count(old) != 1:
+        raise ValueError('self-mutation anchor was not retained once: ' + anchor_name)
+    return mutant
+
+
+_SELF_VERDICT = "if not accepted:\n                            raise RuntimeError('self-mutation failed: ' + label)"
+_SELF_INVENTORY = ("if len(CASES) != 6 or {case[0] for case in CASES} != expected_names:\n"
+                   "            raise ValueError('self-mutation case inventory mismatch')")
+_SELF_TIMEOUT = ("except Exception as failure:\n"
+                 "            error.add_note('timeout evidence write failed: ' + path.name + ': ' + str(failure))")
+_SELF_REPORT = 'if active_error is None:\n                raise'
 SELF_CASES = (
-    ('self_verdict_bypass', "if not accepted:\n                            raise RuntimeError('self-mutation failed: ' + label)",
-     "if False:\n                            raise RuntimeError('self-mutation failed: ' + label)", 'test_failed_classification_is_refused_and_reported'),
-    ('self_inventory_bypass', "if len(CASES) != 6 or {case[0] for case in CASES} != expected_names:\n            raise ValueError('self-mutation case inventory mismatch')",
-     "if False:\n            raise ValueError('self-mutation case inventory mismatch')", 'test_duplicate_cases_are_refused_before_children'),
-    ('self_timeout_mask', "except Exception as failure:\n            error.add_note('timeout evidence write failed: ' + path.name + ': ' + str(failure))",
-     'except Exception as failure:\n            raise', 'test_timeout_evidence_write_failures_do_not_mask_original'),
-    ('self_report_mask', 'if active_error is None:\n                raise',
-     'if True:\n                raise', 'test_timeout_evidence_write_failures_do_not_mask_original'),
+    ('self_verdict_bypass', _SELF_VERDICT,
+     _disabled_check(_SELF_VERDICT, '                        ', '_self_verdict_anchor'),
+     'test_failed_classification_is_refused_and_reported'),
+    ('self_inventory_bypass', _SELF_INVENTORY,
+     _disabled_check(_SELF_INVENTORY, '        ', '_self_inventory_anchor'),
+     'test_duplicate_cases_are_refused_before_children'),
+    ('self_timeout_mask', _SELF_TIMEOUT, 'except Exception as failure:\n            raise',
+     'test_timeout_evidence_write_failures_do_not_mask_original'),
+    ('self_report_mask', _SELF_REPORT, 'if True:\n                raise',
+     'test_timeout_evidence_write_failures_do_not_mask_original'),
 )
+# Kills for the two self-mutants are accepted only when these test bodies fail
+# with these assertion messages. A census ValueError or any other assertion does not qualify.
+INTENDED_SELF_FAILURES = {
+    'self_verdict_bypass': ('test_failed_classification_is_refused_and_reported',
+                            'failed classification was accepted'),
+    'self_inventory_bypass': ('test_duplicate_cases_are_refused_before_children',
+                              'duplicate case inventory was accepted'),
+}
+
+
+def intended_self_failure(stderr, method, message):
+    """True only for one authorized body failure of `method` with `message`."""
+    marker = 'SOURCE_MUTATION_PHASES|'
+    phase_lines = [line for line in stderr.splitlines() if line.startswith(marker)]
+    if len(phase_lines) != 1 or not message:
+        return False
+    try:
+        evidence = json.loads(phase_lines[0][len(marker):])
+    except ValueError:
+        return False
+    if not isinstance(evidence, dict):
+        return False
+    tests, events = evidence.get('tests'), evidence.get('events')
+    if (not isinstance(tests, list) or len(tests) != 1 or not isinstance(events, list)
+            or len(events) != 1):
+        return False
+    test, event = tests[0], events[0]
+    if not isinstance(test, dict) or not isinstance(event, dict):
+        return False
+    ident = event.get('id')
+    if (type(ident) is not str or not ident.endswith('.' + method) or test.get('id') != ident
+            or test.get('body_entered') is not True or event.get('phase') != 'body'
+            or event.get('kind') != 'failure' or event.get('origin_authorized') is not True):
+        return False
+    lines = stderr.splitlines()
+    if lines.count('AssertionError: ' + message) != 1:
+        return False
+    headers = [line for line in lines if line.startswith('FAIL: ')]
+    return len(headers) == 1 and headers[0].startswith('FAIL: ' + method + ' (')
 
 
 def verified_helper():
@@ -104,6 +171,9 @@ def run(output):
             raise ValueError('self-runner case inventory mismatch')
         own_source = Path(__file__).read_text()
         for name, old, new, test in SELF_CASES:
+            bound = INTENDED_SELF_FAILURES.get(name)
+            if bound is not None and (bound[0] != test or type(bound[1]) is not str or not bound[1]):
+                raise ValueError('intended self-failure binding mismatch')
             if own_source.count(old) != 1:
                 raise ValueError('self-runner mutation anchor must occur exactly once: ' + name)
             with tempfile.TemporaryDirectory() as d:
@@ -130,6 +200,9 @@ def run(output):
                         (output / (label + '.stderr')).write_text(result.stderr)
                         classification = origin.classify(result, 1)
                         accepted = classification['control_pass' if variant == 'baseline' else 'killed']
+                        if variant == 'mutant' and name in INTENDED_SELF_FAILURES:
+                            method, message = INTENDED_SELF_FAILURES[name]
+                            accepted = bool(accepted and intended_self_failure(result.stderr, method, message))
                         rows.append({'name': name, 'mode': mode, 'variant': variant,
                                      'returncode': result.returncode, 'classification': classification, 'accepted': accepted})
                         if not accepted:
