@@ -2,6 +2,7 @@
 import importlib.util
 import json
 from pathlib import Path
+import re
 import subprocess
 import sys
 import tempfile
@@ -129,13 +130,28 @@ class RunnerControls(unittest.TestCase):
                 self.assertFalse(classification['killed'])
 
     def result(self, status=0, output='Ran 2 tests in 0.1s\n\nOK\n'):
-        evidence = {'tests': [{'id': 'suite.test_check', 'body_entered': True},
-                              {'id': 'suite.test_second', 'body_entered': True}],
+        evidence = {'authorized_files': ['fixture.py'],
+                    'tests': [{'id': 'suite.test_check', 'body_entered': True, 'module': 'fixture.py'},
+                              {'id': 'suite.test_second', 'body_entered': True, 'module': 'fixture.py'}],
                     'events': ([{'id': 'suite.test_check', 'phase': 'body', 'kind': 'failure',
                                  'origin_authorized': True,
-                                 'origin_frames': [{'file': 'fixture', 'function': 'test_check', 'line': 1}]}]
+                                 'origin_frames': [{'file': 'fixture.py', 'function': 'test_check', 'line': 1}]}]
                                if 'FAIL:' in output else [])}
-        return subprocess.CompletedProcess([], status, '', output + 'SOURCE_MUTATION_PHASES|' + json.dumps(evidence) + '\n')
+        return self.bound(status, output + 'SOURCE_MUTATION_PHASES|' + json.dumps(evidence) + '\n')
+
+    def bound(self, status, stderr):
+        """Attach a completion record that matches stderr, when stderr has one phase line."""
+        stdout = ''
+        lines = re.findall(r'^SOURCE_MUTATION_PHASES\|(.+)$', stderr, re.M)
+        if len(lines) == 1:
+            phase = json.loads(lines[0])
+            payload = {'sentinel': runner.RUNNER_SENTINEL,
+                       'nonce': None,
+                       'status': status if type(status) is int else None,
+                       'tests': phase.get('tests'), 'events': phase.get('events'),
+                       'authorized_files': phase.get('authorized_files')}
+            stdout = runner.RUNNER_SENTINEL + '|' + json.dumps(payload) + '\n'
+        return subprocess.CompletedProcess([], status, stdout, stderr)
 
     def test_requires_positive_clean_baseline(self):
         self.assertTrue(runner.classify(self.result())['control_pass'])
@@ -145,7 +161,7 @@ class RunnerControls(unittest.TestCase):
         self.assertFalse(runner.classify(self.result(status=1))['control_pass'])
 
     def test_kill_requires_actual_assertion_failure_and_matching_discovery(self):
-        output = 'FAIL: test_check (suite.Test)\nAssertionError: missing refusal\nRan 2 tests in 0s\nFAILED (failures=1)\n'
+        output = 'FAIL: test_check (suite.test_check)\nAssertionError: missing refusal\nRan 2 tests in 0s\nFAILED (failures=1)\n'
         killed = runner.classify(self.result(1, output), expected_count=2)
         self.assertTrue(killed['killed'])
         for bad in (output.replace('FAIL:', 'ERROR:'), output.replace('AssertionError:', 'ImportError:'),
@@ -155,7 +171,7 @@ class RunnerControls(unittest.TestCase):
         self.assertFalse(runner.classify(self.result(0, output), expected_count=2)['killed'])
 
     def test_exit_status_must_be_zero_or_one(self):
-        output = 'FAIL: test_check (suite.Test)\nAssertionError: missing refusal\nRan 2 tests in 0s\nFAILED (failures=1)\n'
+        output = 'FAIL: test_check (suite.test_check)\nAssertionError: missing refusal\nRan 2 tests in 0s\nFAILED (failures=1)\n'
         for status in (2, -9, 127, 255):
             for text in ('Ran 2 tests in 0s\nOK\n', output):
                 with self.subTest(status=status, body_failure=text == output):
@@ -166,7 +182,7 @@ class RunnerControls(unittest.TestCase):
     def test_returncode_type_must_be_exact_int(self):
         class IntSubclass(int):
             pass
-        output = 'FAIL: test_check (suite.Test)\nAssertionError: missing refusal\nRan 2 tests in 0s\nFAILED (failures=1)\n'
+        output = 'FAIL: test_check (suite.test_check)\nAssertionError: missing refusal\nRan 2 tests in 0s\nFAILED (failures=1)\n'
         for status in (True, False, '0', '1', 0.0, 1.0, None, IntSubclass(0), IntSubclass(1)):
             for text in ('Ran 2 tests in 0s\nOK\n', output):
                 with self.subTest(status=repr(status), status_type=type(status).__name__, body_failure=text == output):
@@ -175,14 +191,43 @@ class RunnerControls(unittest.TestCase):
                     self.assertFalse(classification['killed'])
 
     def test_missing_or_wrong_lifecycle_evidence_is_refused(self):
-        output = 'FAIL: test_check (suite.Test)\nAssertionError: missing refusal\nRan 2 tests in 0s\nFAILED (failures=1)\n'
+        output = 'FAIL: test_check (suite.test_check)\nAssertionError: missing refusal\nRan 2 tests in 0s\nFAILED (failures=1)\n'
         good = self.result(1, output)
         for text in [output, good.stderr.replace('"body_entered": true', '"body_entered": false'),
                      good.stderr.replace('"phase": "body"', '"phase": "setup"'),
                      good.stderr.replace('"phase": "body"', '"phase": "teardown"'),
                      good.stderr.replace('"phase": "body"', '"phase": "cleanup"'),
                      good.stderr + 'SOURCE_MUTATION_PHASES|{}\n']:
-            self.assertFalse(runner.classify(subprocess.CompletedProcess([], 1, '', text), 2)['killed'])
+            self.assertFalse(runner.classify(self.bound(1, text), 2)['killed'])
+
+    def test_stderr_only_transcript_is_not_runner_evidence(self):
+        output = ('FAIL: test_check (suite.test_check)\nAssertionError: missing refusal\n'
+                  'Ran 2 tests in 0s\nFAILED (failures=1)\n')
+        forged = self.result(1, output)
+        self.assertTrue(runner.classify(forged, expected_count=2)['killed'])
+        stderr_only = subprocess.CompletedProcess([], 1, '', forged.stderr)
+        refused = runner.classify(stderr_only, expected_count=2)
+        self.assertFalse(refused['killed'])
+        self.assertFalse(refused['control_pass'])
+        clean = self.result()
+        self.assertTrue(runner.classify(clean)['control_pass'])
+        clean_only = subprocess.CompletedProcess([], 0, '', clean.stderr)
+        refused_clean = runner.classify(clean_only)
+        self.assertFalse(refused_clean['killed'])
+        self.assertFalse(refused_clean['control_pass'])
+        # An explicit empty parent channel does not fall back to a forged stdout record.
+        self.assertFalse(runner.classify(forged, 2, '', 'unused-nonce')['killed'])
+        self.assertFalse(runner.classify(clean, None, '', 'unused-nonce')['control_pass'])
+
+    def test_origin_frame_outside_authorized_modules_is_refused(self):
+        output = ('FAIL: test_check (suite.test_check)\nAssertionError: x\n'
+                  'Ran 2 tests in 0s\nFAILED (failures=1)\n')
+        accepted = self.result(1, output)
+        self.assertTrue(runner.classify(accepted, 2)['killed'])
+        moved = accepted.stderr.replace('"file": "fixture.py"', '"file": "forged-subject.py"', 1)
+        refused = runner.classify(self.bound(1, moved), 2)
+        self.assertFalse(refused['killed'])
+        self.assertFalse(refused['control_pass'])
 
     def test_actual_timeout_never_produces_a_qualified_result(self):
         with tempfile.TemporaryDirectory() as directory:

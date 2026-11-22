@@ -4,6 +4,7 @@ import importlib.util
 import json
 import os
 from pathlib import Path
+import re
 import shutil
 import signal
 import subprocess
@@ -26,10 +27,51 @@ try:
 finally:
     sys.path.remove(str(PACKET))
 
+def phase_document(events):
+    # Unit-test fixture only; real replay evidence must come from the helper child.
+    return {
+        'authorized_files': ['fixture.py'],
+        'tests': [{'id': 'fixture.Fixture.test_%02d' % i, 'body_entered': True, 'module': 'fixture.py'}
+                  for i in range(71)],
+        'events': events,
+    }
+
+
 # Unit-test fixture only; real replay evidence must come from the helper child.
-SYNTHETIC_BASELINE = ('Ran 71 tests in 0.01s\nOK\nSOURCE_MUTATION_PHASES|' + json.dumps({
-    'tests': [{'id': 'fixture.Fixture.test_%02d' % i, 'body_entered': True} for i in range(71)],
-    'events': []}) + '\n')
+SYNTHETIC_BASELINE = ('Ran 71 tests in 0.01s\nOK\nSOURCE_MUTATION_PHASES|' +
+                      json.dumps(phase_document([])) + '\n')
+
+
+def publish_runner_channel(env, result):
+    """Materialize the parent nonce file a mocked child did not write."""
+    if not isinstance(result, subprocess.CompletedProcess) or not isinstance(result.stderr, str):
+        return
+    env = env or {}
+    path, nonce = env.get('CBZ_SOURCE_RUNNER_EVIDENCE'), env.get('CBZ_SOURCE_RUNNER_NONCE')
+    if not path or not nonce:
+        return
+    lines = re.findall(r'^SOURCE_MUTATION_PHASES\|(.+)$', result.stderr, re.M)
+    if len(lines) != 1:
+        return
+    try:
+        phase = json.loads(lines[0])
+    except ValueError:
+        return
+    if not isinstance(phase, dict):
+        return
+    helper = M.origin_helper()
+    payload = {'sentinel': helper.RUNNER_SENTINEL, 'nonce': nonce,
+               'status': result.returncode if type(result.returncode) is int else None,
+               'authorized_files': phase.get('authorized_files'), 'events': phase.get('events'),
+               'tests': phase.get('tests')}
+    Path(path).write_text(json.dumps(payload) + '\n', encoding='utf-8')
+
+
+def publishing(result):
+    def run(*args, **kwargs):
+        publish_runner_channel(kwargs.get('env'), result)
+        return result
+    return run
 
 def provenance_command(mode='normal'):
     flags = ['-O'] if mode == 'optimized' else []
@@ -131,7 +173,7 @@ class ValidationTimeoutTests(unittest.TestCase):
     def test_completed_baseline_behavior_and_outputs_are_unchanged(self):
         command = provenance_command()
         completed = subprocess.CompletedProcess(command, 0, 'baseline stdout', SYNTHETIC_BASELINE)
-        with mock.patch.object(M.subprocess, 'run', return_value=completed):
+        with mock.patch.object(M.subprocess, 'run', side_effect=publishing(completed)):
             M.execute(command, self.out, self.out, 'baseline', mode='normal')
         self.assertEqual((self.out / 'baseline.stdout').read_text(), completed.stdout)
         self.assertEqual((self.out / 'baseline.stderr').read_text(), completed.stderr)
@@ -140,7 +182,7 @@ class ValidationTimeoutTests(unittest.TestCase):
     def test_completed_child_records_actual_status_and_stream_hashes(self):
         command = provenance_command()
         completed = subprocess.CompletedProcess(command, 0, 'captured stdout', SYNTHETIC_BASELINE)
-        with mock.patch.object(M.subprocess, 'run', return_value=completed):
+        with mock.patch.object(M.subprocess, 'run', side_effect=publishing(completed)):
             M.execute(command, self.out, self.out, 'recorded', mode='normal')
         self.assertTrue((self.out / 'recorded.process.json').is_file(), 'completed process record missing')
         record = json.loads((self.out / 'recorded.process.json').read_text())
@@ -166,7 +208,7 @@ class ValidationTimeoutTests(unittest.TestCase):
             if path.name == 'blocked.process.json':
                 raise OSError('record blocked')
             return original(path, *args, **kwargs)
-        with mock.patch.object(M.subprocess, 'run', return_value=completed), mock.patch.object(Path, 'write_text', fail_record):
+        with mock.patch.object(M.subprocess, 'run', side_effect=publishing(completed)), mock.patch.object(Path, 'write_text', fail_record):
             with self.assertRaisesRegex(OSError, 'record blocked'):
                 M.execute(command, self.out, self.out, 'blocked', mode='normal')
 
@@ -221,8 +263,15 @@ class ValidationTimeoutTests(unittest.TestCase):
                 baseline = subprocess.CompletedProcess(self.command, 0, '', SYNTHETIC_BASELINE)
                 gate = subprocess.CompletedProcess(self.command, 0, (M.ROOT / 'RESULTS.json').read_bytes(), b'')
                 responses = [baseline, gate, timeout] if mutant_timeout else [timeout]
+                pending = list(responses)
+                def run_child(*args, **kwargs):
+                    result = pending.pop(0)
+                    if isinstance(result, BaseException):
+                        raise result
+                    publish_runner_channel(kwargs.get('env'), result)
+                    return result
                 with mock.patch.object(sys, 'argv', argv):
-                    with mock.patch.object(M.subprocess, 'run', side_effect=responses) as run:
+                    with mock.patch.object(M.subprocess, 'run', side_effect=run_child) as run:
                         with self.assertRaises(subprocess.TimeoutExpired) as caught:
                             M.main()
                 self.assertIs(caught.exception, timeout)
@@ -302,7 +351,7 @@ class ValidationTimeoutTests(unittest.TestCase):
         command = provenance_command()
         completed = subprocess.CompletedProcess(command, 0, 'out', SYNTHETIC_BASELINE)
         with mock.patch.object(M.time, 'monotonic', side_effect=OSError('clock unavailable')):
-            with mock.patch.object(M.subprocess, 'run', return_value=completed):
+            with mock.patch.object(M.subprocess, 'run', side_effect=publishing(completed)):
                 M.execute(command, self.out, self.out, 'baseline', mode='normal')
         self.assertEqual((self.out / 'baseline.stdout').read_text(), 'out')
         self.assertEqual((self.out / 'baseline.stderr').read_text(), completed.stderr)
@@ -339,10 +388,10 @@ class ReplayGateRefusalControls(unittest.TestCase):
     # Synthetic transcript for testing orchestration only; it is never evidence of a real child.
     DETECTED = ('FAIL: test_00 (fixture.Fixture.test_00)\n'
                 'Ran 71 tests in 0.01s\nAssertionError: changed semantics\nFAILED (failures=1)\n'
-                'SOURCE_MUTATION_PHASES|' + json.dumps({
-                    'tests': [{'id': 'fixture.Fixture.test_%02d' % i, 'body_entered': True} for i in range(71)],
-                    'events': [{'id': 'fixture.Fixture.test_00', 'phase': 'body', 'kind': 'failure',
-                                'origin_authorized': True, 'origin_frames': [{'function': 'test_00'}]}]}) + '\n')
+                'SOURCE_MUTATION_PHASES|' + json.dumps(phase_document([{
+                    'id': 'fixture.Fixture.test_00', 'phase': 'body', 'kind': 'failure',
+                    'origin_authorized': True,
+                    'origin_frames': [{'file': 'fixture.py', 'function': 'test_00', 'line': 1}]}])) + '\n')
 
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
@@ -423,9 +472,19 @@ class ReplayGateRefusalControls(unittest.TestCase):
                           mutation='allow_green_ci' if mutant else None)
 
     def main(self, out, responses, mutants):
+        def run(*args, **kwargs):
+            if isinstance(responses, BaseException):
+                raise responses
+            result = responses(*args, **kwargs) if callable(responses) else run.queue.pop(0)
+            if isinstance(result, BaseException):
+                raise result
+            publish_runner_channel(kwargs.get('env'), result)
+            return result
+        if not callable(responses) and not isinstance(responses, BaseException):
+            run.queue = list(responses)
         with mock.patch.object(sys, 'argv', [str(SCRIPT), '--output', str(out)]):
             with mock.patch.object(M, 'MUTANTS', mutants):
-                with mock.patch.object(M.subprocess, 'run', side_effect=responses) as self.run:
+                with mock.patch.object(M.subprocess, 'run', side_effect=run) as self.run:
                     with mock.patch.object(M, 'print', create=True):  # keep the success JSON out of test logs
                         M.main()
 
@@ -548,18 +607,109 @@ class ReplayGateRefusalControls(unittest.TestCase):
                     observed.append(child)
                     return child
                 accepted = True
+                caught = None
                 with mock.patch.object(M.subprocess, 'run', side_effect=run):
                     try:
                         M.execute(command, self.out, self.out, label, mutant=mutant,
                                   mode='normal', mutation='controlled_stderr' if mutant else None)
-                    except RuntimeError:
+                    except RuntimeError as exc:
                         accepted = False
+                        caught = exc
                 self.assertEqual(len(observed), 1)
                 self.assertEqual(observed[0].returncode, code)
                 self.assertEqual(observed[0].stderr, self.DETECTED)
                 self.assertEqual((self.out / (label + '.stderr')).read_text(), self.DETECTED)
-                # A forged transcript cannot establish a genuine origin even at exit 1.
+                # A -c child is refused because its argv is not the helper, before any transcript is graded.
                 self.assertFalse(accepted)
+                self.assertIn('provenance command mismatch', str(caught))
+
+    def forged_transcript(self, kind):
+        if kind == 'kill':
+            events = [{'id': 'fixture.Fixture.test_00', 'phase': 'body', 'kind': 'failure',
+                       'origin_authorized': True,
+                       'origin_frames': [{'file': 'fixture.py', 'function': 'test_00', 'line': 1}]}]
+            body = ('FAIL: test_00 (fixture.Fixture.test_00)\nAssertionError: forged\n'
+                    'Ran 71 tests in 0.01s\nFAILED (failures=1)\n')
+        else:
+            events, body = [], 'Ran 71 tests in 0.01s\n\nOK\n'
+        phase = phase_document(events)
+        return phase, body + 'SOURCE_MUTATION_PHASES|' + json.dumps(phase) + '\n'
+
+    def test_import_time_exit_cannot_forge_runner_evidence(self):
+        # Real helper argv, not -c. The child replaces stderr and exits at import.
+        helper = M.origin_helper()
+        for mode in ('normal', 'optimized'):
+            for kind, code, mutant in (('kill', 1, True), ('ok', 0, False)):
+                for forged_stdout in (False, True):
+                    with self.subTest(mode=mode, kind=kind, forged_stdout=forged_stdout):
+                        phase, transcript = self.forged_transcript(kind)
+                        payload = {'sentinel': helper.RUNNER_SENTINEL, 'nonce': None, 'status': code, **phase}
+                        source = ('import json, os, sys\n'
+                                  'sys.stderr.write(%r)\nsys.stderr.flush()\n' % transcript)
+                        if forged_stdout:
+                            source += ('sys.stdout.write(%r + json.dumps(%r) + "\\n")\n'
+                                       'sys.stdout.flush()\n' % (helper.RUNNER_SENTINEL + '|', payload))
+                        source += 'os._exit(%d)\n' % code
+                        cwd = self.out / ('forge-%s-%s-%s' % (mode, kind, forged_stdout))
+                        cwd.mkdir()
+                        (cwd / 'test_forged.py').write_text(source)
+                        name = 'forged_' + mode + '_' + kind + ('_stdout' if forged_stdout else '')
+                        with self.assertRaises(RuntimeError) as caught:
+                            M.execute(provenance_command(mode), cwd, self.out, name, mutant=mutant,
+                                      mode=mode, mutation='forged_transcript' if mutant else None)
+                        stderr = (self.out / (name + '.stderr')).read_text()
+                        stdout = (self.out / (name + '.stdout')).read_text()
+                        self.assertEqual(stderr, transcript)
+                        self.assertEqual(json.loads((self.out / (name + '.process.json')).read_text())['returncode'], code)
+                        saved = subprocess.CompletedProcess(provenance_command(mode), code, stdout, stderr)
+                        streams = helper.classify(saved, M.EXPECTED_TESTS)
+                        if forged_stdout:
+                            self.assertEqual(streams['killed' if mutant else 'control_pass'], True)
+                        else:
+                            self.assertFalse(streams['killed'])
+                            self.assertFalse(streams['control_pass'])
+                        self.assertFalse(streams['killed'] and not mutant)
+                        if mutant:
+                            self.assertIn('authorized test assertion', str(caught.exception))
+                        else:
+                            self.assertIn('baseline failed provenance', str(caught.exception))
+                        direct = helper.classify(saved, M.EXPECTED_TESTS, '', 'parent-nonce')
+                        self.assertFalse(direct['killed'])
+                        self.assertFalse(direct['control_pass'])
+
+    def test_live_skip_expected_failure_and_unexpected_success_are_refused(self):
+        heads = {
+            'skip': '    @unittest.skip("live skip")\n    def test_00(self):\n        self.fail("skipped")\n',
+            'expected': '    @unittest.expectedFailure\n    def test_00(self):\n        self.fail("expected")\n',
+            'unexpected': '    @unittest.expectedFailure\n    def test_00(self):\n        self.assertTrue(True)\n',
+        }
+        markers = {'skip': 'skipped=', 'expected': 'expected failures=', 'unexpected': 'unexpected successes='}
+        rest = ''.join('    def test_%02d(self):\n        self.assertTrue(True)\n' % i for i in range(1, 71))
+        helper = M.origin_helper()
+        for mode in ('normal', 'optimized'):
+            for kind, head in heads.items():
+                with self.subTest(mode=mode, kind=kind):
+                    cwd = self.out / ('live-%s-%s' % (mode, kind))
+                    cwd.mkdir()
+                    (cwd / 'test_live.py').write_text('import unittest\nclass Fixture(unittest.TestCase):\n' + head + rest)
+                    name = 'live_' + mode + '_' + kind
+                    with self.assertRaises(RuntimeError) as caught:
+                        M.execute(provenance_command(mode), cwd, self.out, name, mutant=False, mode=mode)
+                    stderr = (self.out / (name + '.stderr')).read_text()
+                    stdout = (self.out / (name + '.stdout')).read_text()
+                    self.assertIn('Ran 71 tests', stderr)
+                    self.assertIn(markers[kind], stderr)
+                    if kind == 'skip':
+                        self.assertIn('unexpected test coverage', str(caught.exception))
+                    else:
+                        self.assertIn('baseline failed provenance', str(caught.exception))
+                    verdict = helper.classify(
+                        subprocess.CompletedProcess(provenance_command(mode),
+                                                    json.loads((self.out / (name + '.process.json')).read_text())['returncode'],
+                                                    stdout, stderr),
+                        M.EXPECTED_TESTS)
+                    self.assertFalse(verdict['killed'])
+                    self.assertFalse(verdict['control_pass'])
 
     def test_source_change_during_replay_refused(self):
         out = self.out / 'drift'

@@ -12,7 +12,7 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[1]
 PACKET = Path('frontiers/downstream_gate_20260925')
 HELPER = ROOT / 'tests' / 'run_source_admission_mutations.py'
-HELPER_SHA256 = '639b48daed3254a1abd7c23e3b9893f287dcc5256bd4a5543f8611542b4c0544'
+HELPER_SHA256 = '197b0b75014c00fde2010fa0521583b9a91a519097fe3cabebc83aa4aa9193cf'
 CASES = (
     ('origin_bypass', "require(classification['killed'],", 'require(True,', 'test_real_child_origin_and_lifecycle_are_required'),
     ('actual_origin_bypass', "require(classification['killed'],", 'require(True,', 'test_actual_suite_rejects_subject_origin_assertion'),
