@@ -5,15 +5,18 @@ import hashlib
 import importlib.util
 import json
 import math
+import os
+import secrets
 import shutil
 import subprocess
 import sys
+import tempfile
 import time
 
 ROOT = Path(__file__).resolve().parent
 EXPECTED_TESTS = 71
 ORIGIN_HELPER = ROOT.parents[1] / 'tests' / 'run_source_admission_mutations.py'
-ORIGIN_HELPER_SHA256 = '639b48daed3254a1abd7c23e3b9893f287dcc5256bd4a5543f8611542b4c0544'
+ORIGIN_HELPER_SHA256 = '197b0b75014c00fde2010fa0521583b9a91a519097fe3cabebc83aa4aa9193cf'
 MUTANTS = {
     'bypass_own_node_eligibility': ("if node_classification not in CONTROLLING_ELIGIBLE:", "if False:"),
     'allow_required_superseded_label': (
@@ -88,47 +91,69 @@ def execute(command, cwd, out, name, mutant=False, *, mode, mutation=None):
         started = time.monotonic()
     except Exception as error:
         clock_failure = f'initial clock: {type(error).__name__}: {error}'
+    # The nonce file is created here and written by the helper only after unittest
+    # returns. Import-time os._exit that replaces stderr does not fill it. A child
+    # that reads the path or nonce can still write it; this is not a sandbox.
+    nonce = secrets.token_hex(16)
+    descriptor, channel = tempfile.mkstemp(prefix='cbz-runner-evidence-')
+    os.close(descriptor)
+    os.chmod(channel, 0o600)
+    env = os.environ.copy()
+    env['CBZ_SOURCE_RUNNER_EVIDENCE'] = channel
+    env['CBZ_SOURCE_RUNNER_NONCE'] = nonce
+    evidence = ''
     try:
-        result = subprocess.run(command, cwd=cwd, capture_output=True, text=True, timeout=timeout_seconds)
-    except subprocess.TimeoutExpired as timeout:
-        failures = []
-        streams = {}
-        # TimeoutExpired streams are bytes even with text=True. In particular,
-        # a killed child can leave an incomplete UTF-8 sequence: never decode it.
-        for stream, raw in [('stdout', timeout.stdout), ('stderr', timeout.stderr)]:
-            streams[stream] = {'present': raw is not None, 'bytes': len(raw) if raw is not None else 0}
-            path = out/(name+'.'+stream)
-            try:
-                path.write_bytes(raw if raw is not None else b'')
-            except Exception as error:
-                failure = f'{path.name}: {type(error).__name__}: {error}'
-                failures.append(failure)
-                timeout.add_note('Timeout evidence persistence failed: '+failure)
-        elapsed = None
-        if clock_failure is None:
-            try:
-                measured = time.monotonic() - started
-                if not math.isfinite(measured) or measured < 0:
-                    raise ValueError('elapsed time must be finite and nonnegative')
-                elapsed = measured
-            except Exception as error:
-                clock_failure = f'elapsed clock: {type(error).__name__}: {error}'
-        diagnostic_failures = [clock_failure] if clock_failure is not None else []
-        if clock_failure is not None:
-            timeout.add_note('Timeout evidence diagnostic failed: '+clock_failure)
-        # Preserve the cwd argument actually supplied; filesystem resolution is
-        # unnecessary and can itself fail while diagnosing the original timeout.
-        record = {'argv': list(command), 'cwd': str(cwd),
-                  'run_name': name, 'mode': mode, 'mutation': mutation, 'mutant': mutant,
-                  'timeout_seconds': timeout_seconds, 'elapsed_seconds': elapsed,
-                  'status': 'timed_out', 'streams': streams, 'persistence_failures': failures,
-                  'diagnostic_failures': diagnostic_failures}
-        path = out/(name+'.timeout.json')
         try:
-            path.write_text(json.dumps(record, sort_keys=True, indent=2, allow_nan=False)+'\n')
-        except Exception as error:
-            timeout.add_note(f'Timeout evidence persistence failed: {path.name}: {type(error).__name__}: {error}')
-        raise
+            result = subprocess.run(command, cwd=cwd, capture_output=True, text=True, timeout=timeout_seconds,
+                                    env=env)
+        except subprocess.TimeoutExpired as timeout:
+            failures = []
+            streams = {}
+            # TimeoutExpired streams are bytes even with text=True. In particular,
+            # a killed child can leave an incomplete UTF-8 sequence: never decode it.
+            for stream, raw in [('stdout', timeout.stdout), ('stderr', timeout.stderr)]:
+                streams[stream] = {'present': raw is not None, 'bytes': len(raw) if raw is not None else 0}
+                path = out/(name+'.'+stream)
+                try:
+                    path.write_bytes(raw if raw is not None else b'')
+                except Exception as error:
+                    failure = f'{path.name}: {type(error).__name__}: {error}'
+                    failures.append(failure)
+                    timeout.add_note('Timeout evidence persistence failed: '+failure)
+            elapsed = None
+            if clock_failure is None:
+                try:
+                    measured = time.monotonic() - started
+                    if not math.isfinite(measured) or measured < 0:
+                        raise ValueError('elapsed time must be finite and nonnegative')
+                    elapsed = measured
+                except Exception as error:
+                    clock_failure = f'elapsed clock: {type(error).__name__}: {error}'
+            diagnostic_failures = [clock_failure] if clock_failure is not None else []
+            if clock_failure is not None:
+                timeout.add_note('Timeout evidence diagnostic failed: '+clock_failure)
+            # Preserve the cwd argument actually supplied; filesystem resolution is
+            # unnecessary and can itself fail while diagnosing the original timeout.
+            record = {'argv': list(command), 'cwd': str(cwd),
+                      'run_name': name, 'mode': mode, 'mutation': mutation, 'mutant': mutant,
+                      'timeout_seconds': timeout_seconds, 'elapsed_seconds': elapsed,
+                      'status': 'timed_out', 'streams': streams, 'persistence_failures': failures,
+                      'diagnostic_failures': diagnostic_failures}
+            path = out/(name+'.timeout.json')
+            try:
+                path.write_text(json.dumps(record, sort_keys=True, indent=2, allow_nan=False)+'\n')
+            except Exception as error:
+                timeout.add_note(f'Timeout evidence persistence failed: {path.name}: {type(error).__name__}: {error}')
+            raise
+        try:
+            evidence = Path(channel).read_text(encoding='utf-8')
+        except OSError:
+            evidence = ''
+    finally:
+        try:
+            os.unlink(channel)
+        except OSError:
+            pass
     (out/(name+'.stdout')).write_text(result.stdout)
     (out/(name+'.stderr')).write_text(result.stderr)
     streams = {}
@@ -146,7 +171,7 @@ def execute(command, cwd, out, name, mutant=False, *, mode, mutation=None):
     expected = [sys.executable, '-E', '-B', *flags, '-S', str(ORIGIN_HELPER), '--_unittest',
                 '-m', 'unittest', 'discover', '-p', 'test_*.py', '-v']
     require(command == expected, kind + ' provenance command mismatch: '+name)
-    classification = origin_helper().classify(result, EXPECTED_TESTS)
+    classification = origin_helper().classify(result, EXPECTED_TESTS, evidence, nonce)
     if mutant:
         require(classification['killed'], 'mutation was not detected by an authorized test assertion: '+name)
     else:
